@@ -1,6 +1,6 @@
 {
   "name": "gatsby-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gatsby static site boilerplate with React and Typescript",
   "main": "index.js",
   "scripts": {
