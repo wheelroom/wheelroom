@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
+    "declaration": true,
     "jsx": "react",
     "module": "commonjs",
+    "removeComments": true,
+    "sourceMap": true,
     "strict": true,
     "target": "es5"
   }
