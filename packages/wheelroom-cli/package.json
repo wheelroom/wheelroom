@@ -2,6 +2,10 @@
   "name": "wheelroom",
   "version": "0.1.2",
   "private": true,
+  "main": "dist/index.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
