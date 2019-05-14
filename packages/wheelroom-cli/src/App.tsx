@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import logo from './logo.svg'
 
 const App: React.FC = () => {
   return (
@@ -10,6 +10,7 @@ const App: React.FC = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <p>That works</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -20,7 +21,7 @@ const App: React.FC = () => {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

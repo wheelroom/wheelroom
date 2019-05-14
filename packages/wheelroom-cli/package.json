@@ -13,10 +13,9 @@
     "typescript": "3.4.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,5 +31,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "1.17.1",
+    "react-app-polyfill": "1.0.1",
+    "react-styleguidist": "9.0.9",
+    "tslint": "5.16.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "tslint-react": "4.0.0"
   }
 }
