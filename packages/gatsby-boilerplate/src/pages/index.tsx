@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import * as React from 'react'
+import Hello from 'wheelroom'
 
 interface IndexPageProps {
   data: {
@@ -32,6 +33,7 @@ export default class IndexPage extends React.Component<IndexPageProps, {}> {
         <h1>{name}</h1>
         <p>{tagline}</p>
         <p>Yes it works good yes thank you</p>
+        <Hello name="Iemand" about="Over" />
       </div>
     )
   }
