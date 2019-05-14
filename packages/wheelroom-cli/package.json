@@ -2,16 +2,6 @@
   "name": "wheelroom",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@types/jest": "24.0.13",
-    "@types/node": "12.0.1",
-    "@types/react": "16.8.17",
-    "@types/react-dom": "16.8.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "typescript": "3.4.5"
-  },
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "styleguide": "styleguidist server",
@@ -33,12 +23,24 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.1",
+    "@types/react": "16.8.17",
+    "@types/react-dom": "16.8.4",
     "prettier": "1.17.1",
+    "react": "16.8.6",
     "react-app-polyfill": "1.0.1",
+    "react-docgen-typescript": "1.12.4",
+    "react-dom": "16.8.6",
+    "react-scripts": "3.0.1",
     "react-styleguidist": "9.0.9",
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-plugin-prettier": "2.0.1",
-    "tslint-react": "4.0.0"
+    "tslint-react": "4.0.0",
+    "typescript": "3.4.5"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
   }
 }
