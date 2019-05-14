@@ -1,17 +1,8 @@
 {
-  "defaultSeverity": "error",
-  "extends": [
-    "tslint:recommended",
-    "tslint-react",
-    "tslint-plugin-prettier",
-    "tslint-config-prettier"
-  ],
-  "jsRules": {},
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rulesDirectory": ["tslint-plugin-prettier"],
   "rules": {
-    "quotemark": [true, "single", "jsx-double"],
-    "interface-name": [false],
-    "jsx-no-multiline-js": [false],
-    "prettier": true
-  },
-  "rulesDirectory": []
+    "prettier": true,
+    "interface-name": false
+  }
 }
