@@ -1,6 +1,0 @@
-.DS_Store
-*.log
-dist
-logs
-node_modules/
-npm-debug.log*
