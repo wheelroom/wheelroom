@@ -1,6 +1,6 @@
 {
   "name": "wheelroom",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "styleguide": "styleguidist server",
@@ -34,7 +34,7 @@
     "@types/node": "12.0.1",
     "@types/react": "16.8.17",
     "@types/react-dom": "16.8.4",
-    "conventional-changelog": "3.1.8",
+    "conventional-changelog-cli": "2.0.21",
     "prettier": "1.17.1",
     "react": "16.8.6",
     "react-app-polyfill": "1.0.1",
