@@ -4,11 +4,12 @@
   "description": "Site framework based on Contentful and Gatsby",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm-run-all build:*",
+    "build": "styleguidist build",
     "build:lint": "tslint --project tsconfig.json",
     "build:clean": "rm -rf ./dist/*",
     "build:compile": "tsc",
     "prepublishOnly": "build",
+    "server": "styleguidist server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,11 +33,13 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-helmet": "5.2.1",
+    "react-styleguidist": "9.0.9",
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-plugin-prettier": "2.0.1",
     "tslint-react": "4.0.0",
-    "typescript": "3.4.5"
+    "typescript": "3.4.5",
+    "webpack": "4.31.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"
