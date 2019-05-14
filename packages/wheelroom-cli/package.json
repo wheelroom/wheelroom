@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "build": "npm-run-all build:*",
+    "build:lint": "tslint --project tsconfig.json",
+    "build:clean": "rm -rf ./dist/*",
+    "build:compile": "tsc",
+    "prepublishOnly": "build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,5 +47,9 @@
   },
   "peerDependencies": {
     "react": "^16.8.6"
+  },
+  "dependencies": {
+    "npm-run-all": "4.1.5",
+    "save-dev": "2.0.0"
   }
 }
