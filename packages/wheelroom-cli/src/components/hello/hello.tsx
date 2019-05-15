@@ -5,7 +5,7 @@ export interface HelloProps {
   about: string
 }
 
-export default class Hello extends React.Component<HelloProps, {}> {
+export class Hello extends React.Component<HelloProps, {}> {
   public render() {
     return (
       <div>
