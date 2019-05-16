@@ -1,6 +1,8 @@
 const result = require('dotenv').config()
 packageJson = require('./package.json')
 
+const isDevelopment = process.env.gatsby_executing_command === 'develop'
+
 if (result.error) {
   throw result.error
 }
@@ -28,6 +30,19 @@ if (!cfConfig.spaceId || !cfConfig.accessToken) {
   )
 }
 
+const partGlobalsQuery = `
+{ 
+  partGlobals: allContentfulPartGlobals {
+    edges {
+      node {
+        id
+        node_locale
+      }
+    }
+  }
+}
+`
+
 module.exports = {
   siteMetadata: {
     siteVersion: packageJson.version,
@@ -45,6 +60,12 @@ module.exports = {
       options: {
         defaultLocale: 'en',
         appTheme: require('./src/theme.json'),
+        globals: [
+          {
+            name: 'partGlobals',
+            query: partGlobalsQuery,
+          },
+        ],
       },
     },
     {
