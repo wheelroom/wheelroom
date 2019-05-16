@@ -55,7 +55,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Exo:700,800', 'Work+Sans:300,500'],
+          families: ['Work+Sans:300'],
         },
       },
     },
