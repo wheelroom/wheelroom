@@ -1,14 +1,14 @@
 import { Container } from '../../styling/grid'
 import { createGlobalStyle } from 'styled-components'
 import { getNamedPath } from '../../router/named-paths'
-import { getPageImage, getArticleImage, getPageTypeInfo } from './get-meta-tags'
+import { getPageImage, getArticleImage, getPageTypeInfo } from '../plugins/gatsby-plugin-wheelroom/page/get-meta-tags'
 import { graphql } from 'gatsby'
-import { pageDebug } from './debug'
+import { pageDebug } from '../plugins/gatsby-plugin-wheelroom/page/debug'
 import { ThemeProvider } from 'styled-components'
 import appTheme from '../../styling/theme'
 import React from 'react'
-import Sections from './sections'
-import SEO from './seo'
+import Sections from '../plugins/gatsby-plugin-wheelroom/page/sections'
+import SEO from '../plugins/gatsby-plugin-wheelroom/page/seo'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 // will add the property to all sections. Also, changing SEO options here, will
 // do so for all pages.
 //
-export const Page = props => {
+export const PageTemplate = props => {
   pageDebug('PageTemplate', props)
   // When server side rendering, location is unavailable. In that case use
   // siteMetadata

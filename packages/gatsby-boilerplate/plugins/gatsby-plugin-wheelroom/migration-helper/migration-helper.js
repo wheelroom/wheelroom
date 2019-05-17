@@ -1,21 +1,14 @@
 const runMigration = require('contentful-migration/built/bin/cli').runMigration
 const result = require('dotenv').config()
+const path = require('path')
 
 if (result.error) {
   throw result.error
 }
 
-class ProcessError extends Error {
-  constructor(data) {
-    super(data.responseId)
-    this.name = 'ProcessError'
-    this.data = data
-  }
-}
-
-const createModel = function({ jsPath }) {
+const createModel = ({ jsPath }) => {
   const options = {
-    filePath: process.cwd() + '/' + jsPath,
+    filePath: path.resolve(jsPath),
     spaceId: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_CMA_TOKEN,
   }
@@ -23,26 +16,24 @@ const createModel = function({ jsPath }) {
   return runMigration(options)
 }
 
-const createContentType = function(data) {
+const createContentType = (data) => {
   if (data.model.name && data.model.description && data.model.displayField) {
     data.contentType = data.migration
       .createContentType(data.model.type)
       .name(data.model.name)
       .description(data.model.description)
       .displayField(data.model.displayField)
+
+    // data.errorMessage = error.message
+    //   throw new ProcessError(data)
   } else {
     data.contentType = data.migration.editContentType(type)
   }
 
-  if (data.contentType) {
-    return data
-  } else {
-    data.errorMessage = 'Could not create content type'
-    throw new ProcessError(data)
-  }
+  return data
 }
 
-const createFields = function(data) {
+const createFields = (data) => {
   for (var fieldName in data.model.fields) {
     let field = data.contentType.createField(fieldName)
 
@@ -61,14 +52,16 @@ const createFields = function(data) {
   return data
 }
 
-const processMigration = function(data) {
+const handleError = (error) => {
+  console.error('Migration helper:', error.message)
+}
+
+const processMigration = (data) => {
   return Promise.resolve(data)
 }
 
-const doMigration = function({ migration, context, jsonPath }) {
-  const model = require(process.cwd() + '/' + jsonPath)
-  console.log('model', model)
-  console.log('doMigration jsonPath', jsonPath)
+const doMigration = ({ migration, context, jsonPath }) => {
+  const model = require(path.resolve(jsonPath))
 
   let data = {
     migration,
@@ -80,6 +73,7 @@ const doMigration = function({ migration, context, jsonPath }) {
   return processMigration(data)
     .then(createContentType)
     .then(createFields)
+    .catch(handleError)
 }
 
 module.exports = {

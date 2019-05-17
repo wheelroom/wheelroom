@@ -30,13 +30,15 @@ if (!cfConfig.spaceId || !cfConfig.accessToken) {
   )
 }
 
-const partGlobalsQuery = `
-{ 
-  partGlobals: allContentfulPartGlobals {
+const contentArticleQuery = `
+{
+  contentArticle: allContentfulContentArticle(
+    limit: 10
+  ) {
     edges {
       node {
         id
-        node_locale
+        slug
       }
     }
   }
@@ -58,14 +60,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-wheelroom',
       options: {
-        defaultLocale: 'en',
+        defaultLocale: 'nl',
         appTheme: require('./src/theme.json'),
-        globals: [
-          {
-            name: 'partGlobals',
-            query: partGlobalsQuery,
-          },
-        ],
+        globals: {
+          partGlobals: undefined,
+        },
+        subPageContent: {
+          contentArticle: contentArticleQuery,
+        },
+        pageTemplate: 'src/page-template.js',
       },
     },
     {
