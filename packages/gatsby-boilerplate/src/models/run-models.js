@@ -24,6 +24,14 @@ const createContentArticleModel = function(data) {
   })
 }
 
+const createSectionArticleModel = function(data) {
+  return migrationHelper.createModel({
+    jsPath: 'src/models/section-article-model.js',
+  }).catch(error => {
+    console.error('Skipping createSectionArticleModel:', error.message)
+  })
+}
+
 const logResults = function(data) {
   console.log('Created all models')
 }
@@ -36,5 +44,6 @@ Promise.resolve({})
   .then(createPageModel)
   .then(createPartSiteGlobalsModel)
   .then(createContentArticleModel)
+  .then(createSectionArticleModel)
   .then(logResults)
   .catch(handleError)

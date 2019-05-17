@@ -2,8 +2,6 @@ const path = require('path')
 const defaultQueries = require('./default-queries')
 
 const getPages = data => {
-  console.log('getPages')
-
   return data.graphql(defaultQueries.pagesQuery).then(result => {
     data.pages = result.data.page
     return data
@@ -11,7 +9,6 @@ const getPages = data => {
 }
 
 const getGlobals = data => {
-  console.log('getGlobals')
   let allPromises = []
 
   for (key in data.options.globals) {
@@ -20,7 +17,6 @@ const getGlobals = data => {
     allPromises.push(
       data.graphql(query).then(result => {
         data.globals[key] = result.data[key]
-        data.globalsIds[key] = {}
       })
     )
   }
@@ -29,21 +25,7 @@ const getGlobals = data => {
   })
 }
 
-// Build globalIds per locale
-const setGlobalsIds = data => {
-  console.log('setGlobalsIds')
-
-  for (key in data.globals) {
-    data.globals[key].edges.forEach(edge => {
-      const locale = edge.node.node_locale.split('-')[0].toLowerCase()
-      data.globalsIds[key][locale] = edge.node.id
-    })
-  }
-  return data
-}
-
 const getSubPageContent = data => {
-  console.log('getSubPageContent')
   let allPromises = []
 
   for (key in data.options.subPageContent) {
@@ -58,42 +40,55 @@ const getSubPageContent = data => {
   })
 }
 
-// Build data.namedPaths, with:
-// - .path: raw path
-// - .en: localized english path
-// - .nl: localized dutch path
-const buildNamedPaths = data => {
-  const defaultLocale = data.options.defaultLocale || 'en'
+const getLocale = page => {
+  return page.node_locale.split('-')[0].toLowerCase()
+}
 
+const getDefaultLocale = data => {
+  return data.options.defaultLocale || 'en'
+}
+
+const buildNamedPaths = data => {
   data.pages.edges.forEach(edge => {
     const page = edge.node
     if (!(page.pathName in data.namedPaths)) data.namedPaths[page.pathName] = {}
     data.namedPaths[page.pathName].path = page.path
     const locale = getLocale(page)
     const localizedBasePath =
-      locale === defaultLocale ? page.path : '/' + locale + page.path
+      locale === getDefaultLocale(data) ? page.path : '/' + locale + page.path
     data.namedPaths[page.pathName][locale] = localizedBasePath
   })
   return data
 }
 
-const getLocale = page => {
-  return page.node_locale.split('-')[0].toLowerCase()
-}
-
-const getContext = ({ data, page }) => {
-  return {
+const getContext = ({ data, page, subPageContent }) => {
+  let context = {
     // globalsId: globalIds[locale],
     id: page.id,
     locale: getLocale(page),
     namedPaths: data.namedPaths,
     options: data.options,
   }
+
+  // Add ids of Globals
+  for (globalsName in data.globals) {
+    data.globals[globalsName].edges.forEach(globalsItem => {
+      const globalsLocale = globalsItem.node.node_locale
+        .split('-')[0]
+        .toLowerCase()
+      if (globalsLocale === getLocale(page)) {
+        context[globalsName + 'Id'] = globalsItem.node.id
+      }
+    })
+  }
+
+  // Add ids of subPage
+  if (subPageContent) context[page.pathName + 'Id'] = subPageContent.node.id
+
+  return context
 }
 
 const createPages = data => {
-  console.log('createPages')
-
   data.pages.edges.forEach(edge => {
     const page = edge.node
     const locale = getLocale(page)
@@ -113,34 +108,32 @@ const createPages = data => {
 }
 
 const createSubPages = data => {
-  console.log('createSubPages')
-
   data.pages.edges.forEach(edge => {
     const page = edge.node
-    console.log('CHECKING PAGE', page.pathName)
     const locale = getLocale(page)
     const localizedBasePath = data.namedPaths[page.pathName][locale]
 
     // Build sub pages if we find a fieldname like %slug%
     let tokens = localizedBasePath.split('%')
     if (tokens.length == 3) {
-      console.log('VALID PAGE', page.pathName)
       templateVar = tokens[1]
       tokens.splice(1, 1)
-
+      let localesDone = {}
       data.subPageContent[page.pathName].edges.forEach(subPageContent => {
-        console.log('RUNNING CONTENT FOR', page.pathName)
-        console.log('subPageContent', subPageContent.node)
+        const subPageLocale =
+          subPageContent.node_locale || getDefaultLocale(data)
+        if (subPageLocale !== locale || subPageLocale in localesDone) return
+        localesDone[subPageLocale] = true
+
         let subPageTokens = tokens.slice()
         subPageTokens.push(subPageContent.node[templateVar])
         const path = subPageTokens.join('')
-        let context = getContext({ data, page })
-        context.subPageId = subPageContent.node.id
+
         console.log('Creating sub page:', path)
         data.createPage({
           path: path,
           component: data.pageTemplate,
-          context: context,
+          context: getContext({ data, page, subPageContent }),
         })
       })
     }
@@ -153,18 +146,22 @@ exports.createPages = ({ graphql, actions }, options) => {
 
   return Promise.resolve({
     createPage,
+    // Each key contains the results of a globals query
     globals: {},
-    globalsIds: {},
+    // Each key contains the results of a subPageContent query
     subPageContent: {},
     graphql,
+    // Contains for each named path: path: raw path, xx: localized xx path
     namedPaths: {},
+    // The plugin configuration options
     options,
+    // Results of the page query
     pages: null,
+    // Path to the page template used to generate each page
     pageTemplate: path.resolve(options.pageTemplate),
   })
     .then(getPages)
     .then(getGlobals)
-    .then(setGlobalsIds)
     .then(getSubPageContent)
     .then(buildNamedPaths)
     .then(createPages)
