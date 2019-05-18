@@ -56,7 +56,12 @@ const buildNamedPaths = data => {
     const locale = getLocale(page)
     const localizedBasePath =
       locale === getDefaultLocale(data) ? page.path : '/' + locale + page.path
-    data.namedPaths[page.pathName][locale] = localizedBasePath
+
+    // Strip trailing slashes
+    data.namedPaths[page.pathName][locale] = localizedBasePath.replace(
+      /(.)\/$/,
+      '$1'
+    )
   })
   return data
 }
@@ -115,28 +120,26 @@ const createSubPages = data => {
 
     // Build sub pages if we find a fieldname like %slug%
     let tokens = localizedBasePath.split('%')
-    if (tokens.length == 3) {
-      templateVar = tokens[1]
-      tokens.splice(1, 1)
-      let localesDone = {}
-      data.subPageContent[page.pathName].edges.forEach(subPageContent => {
-        const subPageLocale =
-          subPageContent.node_locale || getDefaultLocale(data)
-        if (subPageLocale !== locale || subPageLocale in localesDone) return
-        localesDone[subPageLocale] = true
+    if (tokens.length != 3) return
+    templateVar = tokens[1]
+    tokens.splice(1, 1)
+    let localesDone = {}
+    data.subPageContent[page.pathName].edges.forEach(subPageContent => {
+      const subPageLocale = subPageContent.node_locale || getDefaultLocale(data)
+      if (subPageLocale !== locale || subPageLocale in localesDone) return
+      localesDone[subPageLocale] = true
 
-        let subPageTokens = tokens.slice()
-        subPageTokens.push(subPageContent.node[templateVar])
-        const path = subPageTokens.join('')
+      let subPageTokens = tokens.slice()
+      subPageTokens.push(subPageContent.node[templateVar])
+      const path = subPageTokens.join('')
 
-        console.log('Creating sub page:', path)
-        data.createPage({
-          path: path,
-          component: data.pageTemplate,
-          context: getContext({ data, page, subPageContent }),
-        })
+      console.log('Creating sub page:', path)
+      data.createPage({
+        path: path,
+        component: data.pageTemplate,
+        context: getContext({ data, page, subPageContent }),
       })
-    }
+    })
   })
   return data
 }

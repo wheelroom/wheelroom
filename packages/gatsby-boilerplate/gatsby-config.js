@@ -68,7 +68,7 @@ module.exports = {
         subPageContent: {
           contentArticle: contentArticleQuery,
         },
-        pageTemplate: 'src/page-template.js',
+        pageTemplate: 'src/page-template.tsx',
       },
     },
     {

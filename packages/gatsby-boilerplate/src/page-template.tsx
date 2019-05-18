@@ -28,7 +28,7 @@ export const PageTemplate = props => {
 // overview page.
 //
 export const query = graphql`
-  query($id: String, $contentArticleId: String, $partGlobalsId: String) {
+  query($id: String) {
     site {
       siteMetadata {
         siteVersion
@@ -40,17 +40,34 @@ export const query = graphql`
       pathName
       seoDescription
       seoTitle
-      sections {
-        ... on Node {
-          ...SectionArticle
-        }
-      }
-    }
-    contentArticle: contentfulContentArticle(id: { eq: $contentArticleId }) {
-      ...ContentArticle
-    }
-    partGlobals: contentfulPartGlobals(id: { eq: $partGlobalsId }) {
-      ...PartGlobals
     }
   }
 `
+
+// export const query = graphql`
+//   query($id: String, $contentArticleId: String, $partGlobalsId: String) {
+//     site {
+//       siteMetadata {
+//         siteVersion
+//       }
+//     }
+//     page: contentfulPage(id: { eq: $id }) {
+//       navigationTitle
+//       path
+//       pathName
+//       seoDescription
+//       seoTitle
+//       sections {
+//         ... on Node {
+//           ...SectionArticle
+//         }
+//       }
+//     }
+//     contentArticle: contentfulContentArticle(id: { eq: $contentArticleId }) {
+//       ...ContentArticle
+//     }
+//     partGlobals: contentfulPartGlobals(id: { eq: $partGlobalsId }) {
+//       ...PartGlobals
+//     }
+//   }
+// `
