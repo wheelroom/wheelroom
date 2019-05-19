@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "gatsby-boilerplate",
+			"path": "."
+		},
+		{
+			"name": "gatsby-plugin-wheelroom",
+			"path": "../gatsby-plugin-wheelroom"
+		},
+		{
+			"name": "wheelroom",
+			"path": "../wheelroom"
+		},
+		{
+			"name": "wheelroom-basics",
+			"path": "../wheelroom-basics"
+		}
+	],
+	"settings": {}
+}
