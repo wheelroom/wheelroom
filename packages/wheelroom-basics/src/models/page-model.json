@@ -1,0 +1,106 @@
+{
+  "modelVersion": "1.0.0",
+  "type": "page",
+  "name": "Page",
+  "displayField": "title",
+  "description": "A page defines routes and references to components on the page.",
+  "fields": {
+    "title": {
+      "specs": {
+        "name": "Title",
+        "type": "Symbol",
+        "required": true
+      },
+      "widgetId": "singleLine",
+      "settings": {
+        "helpText": "Never displayed, only used for listing within Contentful"
+      }
+    },
+    "seoTitle": {
+      "specs": {
+        "name": "SEO Title",
+        "type": "Symbol",
+        "required": true
+      },
+      "widgetId": "singleLine",
+      "settings": {
+        "helpText": "Title used by search engines"
+      }
+    },
+    "seoDescription": {
+      "specs": {
+        "name": "SEO Description",
+        "type": "Symbol",
+        "required": true,
+        "validations": [
+          {
+            "size": { "min": 0, "max": 155 }
+          }
+        ]
+      },
+      "widgetId": "singleLine",
+      "settings": {
+        "helpText": "Description used by search engines"
+      }
+    },
+    "navigationTitle": {
+      "specs": {
+        "name": "Navigation title",
+        "type": "Symbol",
+        "required": false,
+        "localized": true
+      },
+      "widgetId": "singleLine",
+      "settings": {
+        "helpText": "Title used for buttons and in navigation menu's"
+      }
+    },
+    "pathName": {
+      "specs": {
+        "name": "Path name",
+        "type": "Symbol",
+        "required": true,
+        "validations": [
+          {
+            "unique": true
+          }
+        ]
+      },
+      "widgetId": "slugEditor",
+      "settings": {
+        "helpText": "Used for named routes togehter with path"
+      }
+    },
+    "path": {
+      "specs": {
+        "name": "Path",
+        "type": "Symbol",
+        "required": true,
+        "validations": [
+          {
+            "unique": true
+          }
+        ]
+      },
+      "widgetId": "slugEditor",
+      "settings": {
+        "helpText": "Used for named routes togehter with path name"
+      }
+    },
+    "sections": {
+      "specs": {
+        "name": "Sections",
+        "type": "Array",
+        "required": true,
+        "items": {
+          "type": "Link",
+          "linkType": "Entry"
+        }
+      },
+      "widgetId": "entryLinksEditor",
+      "settings": {
+        "helpText": "Select sections"
+      }
+    }
+  }
+}
