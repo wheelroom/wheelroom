@@ -1,4 +1,4 @@
-const pagesQuery = `
+export const pagesQuery: string = `
 {
   page: allContentfulPage {
     edges {
@@ -13,7 +13,7 @@ const pagesQuery = `
 }
 `
 
-const partGlobalsQuery = `
+export const partGlobalsQuery: string = `
 { 
   partGlobals: allContentfulPartGlobals {
     edges {
@@ -25,8 +25,3 @@ const partGlobalsQuery = `
   }
 }
 `
-
-module.exports = {
-  pagesQuery,
-  partGlobalsQuery,
-}

@@ -1,40 +1,74 @@
-const path = require('path')
-const defaultQueries = require('../default-queries')
+import * as path from 'path'
+import { pagesQuery, partGlobalsQuery } from './default-queries'
 
-const getPages = data => {
-  return data.graphql(defaultQueries.pagesQuery).then(result => {
+interface Options {
+  defaultLocale: string
+  appTheme: string
+  globals: {
+    [globalName: string]: string
+  }
+  subPageContent: {
+    [contentName: string]: string
+  }
+  pageTemplate: string
+}
+
+interface Data {
+  // Each key contains the results of a globals query
+  globals: any
+  // Each key contains the results of a subPageContent query
+  subPageContent: any
+  // Contains for each named path: path: raw path, xx: localized xx path
+  namedPaths: any
+  // The plugin configuration options
+  options: Options
+  // Results of the page query
+  pages: any
+  // Path to the page template used to generate each page
+  pageTemplate: string
+  createPage(): Promise<any>
+  graphql(query: string): Promise<any>
+}
+
+const getPages = (data: Data): Promise<Data> => {
+  return data.graphql(pagesQuery).then(result => {
     data.pages = result.data.page
     return data
   })
 }
 
-const getGlobals = data => {
-  let allPromises = []
+const getGlobals = (data: Data): Promise<Data> => {
+  const allPromises: Array<Promise<any>> = []
 
-  for (key in data.options.globals) {
-    const query = data.options.globals[key] || defaultQueries[key + 'Query']
+  Object.entries(data.options.globals).forEach(([globalName, globalQuery]) => {
+    const query =
+      globalName === 'partGlobals' && globalQuery === ''
+        ? partGlobalsQuery
+        : globalQuery
 
     allPromises.push(
       data.graphql(query).then(result => {
-        data.globals[key] = result.data[key]
+        data.globals[globalName] = result.data[globalName]
       })
     )
-  }
+  })
   return Promise.all(allPromises).then(() => {
     return data
   })
 }
 
-const getSubPageContent = data => {
-  let allPromises = []
+const getSubPageContent = (data: Data): Promise<Data> => {
+  const allPromises: Array<Promise<any>> = []
 
-  for (key in data.options.subPageContent) {
-    allPromises.push(
-      data.graphql(data.options.subPageContent[key]).then(result => {
-        data.subPageContent[key] = result.data[key]
-      })
-    )
-  }
+  Object.entries(data.options.subPageContent).forEach(
+    ([subPageName, subPageQuery]) => {
+      allPromises.push(
+        data.graphql(subPageQuery).then(result => {
+          data.subPageContent[subPageName] = result.data[subPageName]
+        })
+      )
+    }
+  )
   return Promise.all(allPromises).then(() => {
     return data
   })
