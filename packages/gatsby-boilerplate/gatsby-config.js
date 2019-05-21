@@ -63,7 +63,7 @@ module.exports = {
         defaultLocale: 'nl',
         appTheme: require('./src/theme.json'),
         globals: {
-          partGlobals: undefined,
+          partGlobals: '',
         },
         subPageContent: {
           contentArticle: contentArticleQuery,
