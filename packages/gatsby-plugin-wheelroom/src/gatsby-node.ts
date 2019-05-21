@@ -13,31 +13,52 @@ interface Options {
   pageTemplate: string
 }
 
+interface ContentfulNode {
+  id: string
+  [key: string]: string
+}
+
+interface ContentfulObject {
+  node: ContentfulNode
+  node_locale: string
+}
+
+interface NamedPaths {
+  [pathName: string]: {
+    path: string
+    [localeName: string]: string
+  }
+}
+
 interface Data {
   // Each key contains the results of a globals query
-  globals: any
+  globals: {
+    [globalName: string]: ContentfulObject[]
+  }
   // Each key contains the results of a subPageContent query
-  subPageContent: any
+  subPageContent: {
+    [contentName: string]: ContentfulObject[]
+  }
   // Contains for each named path: path: raw path, xx: localized xx path
-  namedPaths: any
+  namedPaths: NamedPaths
   // The plugin configuration options
   options: Options
   // Results of the page query
-  pages: any
+  pages: ContentfulObject[]
   // Path to the page template used to generate each page
   pageTemplate: string
-  createPage(): Promise<any>
+  createPage(params: object): Promise<any>
   graphql(query: string): Promise<any>
 }
 
-const getPages = (data: Data): Promise<Data> => {
+const getPages = (data: Data): Promise<Data> | Data => {
   return data.graphql(pagesQuery).then(result => {
-    data.pages = result.data.page
+    data.pages = result.data.page.edges
     return data
   })
 }
 
-const getGlobals = (data: Data): Promise<Data> => {
+const getGlobals = (data: Data): Promise<Data> | Data => {
   const allPromises: Array<Promise<any>> = []
 
   Object.entries(data.options.globals).forEach(([globalName, globalQuery]) => {
@@ -48,7 +69,7 @@ const getGlobals = (data: Data): Promise<Data> => {
 
     allPromises.push(
       data.graphql(query).then(result => {
-        data.globals[globalName] = result.data[globalName]
+        data.globals[globalName] = result.data[globalName].edges
       })
     )
   })
@@ -57,14 +78,14 @@ const getGlobals = (data: Data): Promise<Data> => {
   })
 }
 
-const getSubPageContent = (data: Data): Promise<Data> => {
+const getSubPageContent = (data: Data): Promise<Data> | Data => {
   const allPromises: Array<Promise<any>> = []
 
   Object.entries(data.options.subPageContent).forEach(
     ([subPageName, subPageQuery]) => {
       allPromises.push(
         data.graphql(subPageQuery).then(result => {
-          data.subPageContent[subPageName] = result.data[subPageName]
+          data.subPageContent[subPageName] = result.data[subPageName].edges
         })
       )
     }
@@ -74,18 +95,20 @@ const getSubPageContent = (data: Data): Promise<Data> => {
   })
 }
 
-const getLocale = page => {
+const getLocale = (page: any) => {
   return page.node_locale.split('-')[0].toLowerCase()
 }
 
-const getDefaultLocale = data => {
+const getDefaultLocale = (data: Data): string => {
   return data.options.defaultLocale || 'en'
 }
 
-const buildNamedPaths = data => {
-  data.pages.edges.forEach(edge => {
+const buildNamedPaths = (data: Data): Promise<Data> | Data => {
+  data.pages.forEach((edge: any) => {
     const page = edge.node
-    if (!(page.pathName in data.namedPaths)) data.namedPaths[page.pathName] = {}
+    if (!(page.pathName in data.namedPaths)) {
+      data.namedPaths[page.pathName] = { path: '' }
+    }
     data.namedPaths[page.pathName].path = page.path
     const locale = getLocale(page)
     const localizedBasePath =
@@ -100,103 +123,124 @@ const buildNamedPaths = data => {
   return data
 }
 
-const getContext = ({ data, page, subPageContent }) => {
-  let context = {
-    // globalsId: globalIds[locale],
+interface Context {
+  id: string
+  locale: string
+  namedPaths: NamedPaths
+  options: Options
+  ids: {
+    [IdKey: string]: string
+  }
+}
+
+interface GetContext {
+  data: Data
+  page: ContentfulNode
+  subPageContent?: ContentfulObject
+}
+
+const getContext = ({ data, page, subPageContent }: GetContext) => {
+  const context = {
     id: page.id,
+    ids: {},
     locale: getLocale(page),
     namedPaths: data.namedPaths,
     options: data.options,
-  }
+  } as Context
 
   // Add ids of Globals
-  for (globalsName in data.globals) {
-    data.globals[globalsName].edges.forEach(globalsItem => {
+  Object.entries(data.globals).forEach(([globalsName, globals]) => {
+    globals.forEach((globalsItem: ContentfulObject) => {
       const globalsLocale = globalsItem.node.node_locale
         .split('-')[0]
         .toLowerCase()
       if (globalsLocale === getLocale(page)) {
-        context[globalsName + 'Id'] = globalsItem.node.id
+        context.ids[globalsName] = globalsItem.node.id
       }
     })
-  }
+  })
 
   // Add ids of subPage
-  if (subPageContent) context[page.pathName + 'Id'] = subPageContent.node.id
+  if (subPageContent) {
+    context.ids[page.pathName] = subPageContent.node.id
+  }
 
   return context
 }
 
-const createPages = data => {
-  data.pages.edges.forEach(edge => {
+const createPages = (data: Data): Promise<Data> | Data => {
+  data.pages.forEach(edge => {
     const page = edge.node
     const locale = getLocale(page)
     const localizedBasePath = data.namedPaths[page.pathName][locale]
 
-    let tokens = localizedBasePath.split('%')
-    if (tokens.length == 3) return
+    const tokens = localizedBasePath.split('%')
+    if (tokens.length === 3) {
+      return
+    }
 
     console.log('Creating page:', localizedBasePath)
     data.createPage({
-      path: localizedBasePath,
       component: data.pageTemplate,
       context: getContext({ data, page }),
+      path: localizedBasePath,
     })
   })
   return data
 }
 
-const createSubPages = data => {
-  data.pages.edges.forEach(edge => {
+const createSubPages = (data: Data): Promise<Data> | Data => {
+  data.pages.forEach(edge => {
     const page = edge.node
     const locale = getLocale(page)
     const localizedBasePath = data.namedPaths[page.pathName][locale]
 
     // Build sub pages if we find a fieldname like %slug%
-    let tokens = localizedBasePath.split('%')
-    if (tokens.length != 3) return
-    templateVar = tokens[1]
+    const tokens = localizedBasePath.split('%')
+    if (tokens.length !== 3) {
+      return
+    }
+    const templateVar = tokens[1]
     tokens.splice(1, 1)
-    let localesDone = {}
-    data.subPageContent[page.pathName].edges.forEach(subPageContent => {
+
+    const localesDone: {
+      [localeName: string]: boolean
+    } = {}
+    data.subPageContent[page.pathName].forEach(subPageContent => {
       const subPageLocale = subPageContent.node_locale || getDefaultLocale(data)
-      if (subPageLocale !== locale || subPageLocale in localesDone) return
+      if (subPageLocale !== locale || subPageLocale in localesDone) {
+        return
+      }
       localesDone[subPageLocale] = true
 
-      let subPageTokens = tokens.slice()
+      const subPageTokens = tokens.slice()
       subPageTokens.push(subPageContent.node[templateVar])
-      const path = subPageTokens.join('')
+      const pagePath = subPageTokens.join('')
 
-      console.log('Creating sub page:', path)
+      console.log('Creating sub page:', pagePath)
       data.createPage({
-        path: path,
         component: data.pageTemplate,
         context: getContext({ data, page, subPageContent }),
+        path: pagePath,
       })
     })
   })
   return data
 }
 
-exports.createPages = ({ graphql, actions }, options) => {
+exports.createPages = ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
 
   return Promise.resolve({
     createPage,
-    // Each key contains the results of a globals query
     globals: {},
-    // Each key contains the results of a subPageContent query
-    subPageContent: {},
     graphql,
-    // Contains for each named path: path: raw path, xx: localized xx path
     namedPaths: {},
-    // The plugin configuration options
     options,
-    // Results of the page query
-    pages: null,
-    // Path to the page template used to generate each page
     pageTemplate: path.resolve(options.pageTemplate),
-  })
+    pages: [],
+    subPageContent: {},
+  } as Data)
     .then(getPages)
     .then(getGlobals)
     .then(getSubPageContent)
