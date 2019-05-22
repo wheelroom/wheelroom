@@ -77,11 +77,9 @@ const buildNamedPaths = (data: Data): Promise<Data> | Data => {
 
 const getContext = ({ data, page, subPageContent }: GetContext) => {
   const context = {
-    id: page.id,
-    ids: {},
     locale: getLocale(page),
     namedPaths: data.namedPaths,
-    options: data.options,
+    pageId: page.id,
   } as Context
 
   // Add ids of Globals
@@ -91,14 +89,14 @@ const getContext = ({ data, page, subPageContent }: GetContext) => {
         .split('-')[0]
         .toLowerCase()
       if (globalsLocale === getLocale(page)) {
-        context.ids[globalsName] = globalsItem.node.id
+        context[globalsName + 'Id'] = globalsItem.node.id
       }
     })
   })
 
   // Add ids of subPage
   if (subPageContent) {
-    context.ids[page.pathName] = subPageContent.node.id
+    context[page.pathName + 'Id'] = subPageContent.node.id
   }
 
   return context

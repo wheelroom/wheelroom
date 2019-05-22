@@ -49,13 +49,10 @@ export interface Data {
 }
 
 export interface Context {
-  id: string
+  pageId: string
   locale: string
   namedPaths: NamedPaths
-  options: Options
-  ids: {
-    [IdKey: string]: string
-  }
+  [IdKey: string]: string | NamedPaths | Options
 }
 
 export interface GetContext {
