@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import * as React from 'react'
-import { pageDebug } from '../plugins/gatsby-plugin-wheelroom/page/debug'
+// import { pageDebug } from '../plugins/gatsby-plugin-wheelroom/page/debug'
 
 interface PageTemplateProps {
   site: any
@@ -13,7 +13,7 @@ interface PageTemplateProps {
 //
 const PageTemplate = (props: PageTemplateProps) => {
   console.log(props)
-  pageDebug('PageTemplate', props)
+  // pageDebug('PageTemplate', props)
 
   return (
     <div>
@@ -30,47 +30,31 @@ export default PageTemplate
 // article and globals. Also all articles are fetched to be used on the article
 // overview page.
 //
+
 export const query = graphql`
-  query($id: String) {
+  query($pageId: String, $contentArticleId: String, $partGlobalsId: String) {
     site {
       siteMetadata {
         siteVersion
       }
     }
-    page: contentfulPage(id: { eq: $id }) {
+    page: contentfulPage(id: { eq: $pageId }) {
       navigationTitle
       path
       pathName
       seoDescription
       seoTitle
+      sections {
+        ... on Node {
+          ...SectionArticle
+        }
+      }
+    }
+    contentArticle: contentfulContentArticle(id: { eq: $contentArticleId }) {
+      ...ContentArticle
+    }
+    partGlobals: contentfulPartGlobals(id: { eq: $partGlobalsId }) {
+      ...PartGlobals
     }
   }
 `
-
-// export const query = graphql`
-//   query($id: String, $contentArticleId: String, $partGlobalsId: String) {
-//     site {
-//       siteMetadata {
-//         siteVersion
-//       }
-//     }
-//     page: contentfulPage(id: { eq: $id }) {
-//       navigationTitle
-//       path
-//       pathName
-//       seoDescription
-//       seoTitle
-//       sections {
-//         ... on Node {
-//           ...SectionArticle
-//         }
-//       }
-//     }
-//     contentArticle: contentfulContentArticle(id: { eq: $contentArticleId }) {
-//       ...ContentArticle
-//     }
-//     partGlobals: contentfulPartGlobals(id: { eq: $partGlobalsId }) {
-//       ...PartGlobals
-//     }
-//   }
-// `

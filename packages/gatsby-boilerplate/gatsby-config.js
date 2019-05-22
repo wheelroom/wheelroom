@@ -30,9 +30,9 @@ if (!cfConfig.spaceId || !cfConfig.accessToken) {
   )
 }
 
-const contentArticleQuery = `
+const articleContentQuery = `
 {
-  contentArticle: allContentfulContentArticle(
+  contentArticle: allContentfulArticleContent(
     limit: 10
   ) {
     edges {
@@ -63,10 +63,10 @@ module.exports = {
         defaultLocale: 'nl',
         appTheme: require('./src/theme.json'),
         globals: {
-          partGlobals: '',
+          globalsPart: '',
         },
         subPageContent: {
-          contentArticle: contentArticleQuery,
+          articleContent: articleContentQuery,
         },
         pageTemplate: 'src/page-template.tsx',
       },
