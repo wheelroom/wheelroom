@@ -1,55 +1,7 @@
 import * as path from 'path'
 import { pagesQuery, partGlobalsQuery } from './default-queries'
 
-interface Options {
-  defaultLocale: string
-  appTheme: string
-  globals: {
-    [globalName: string]: string
-  }
-  subPageContent: {
-    [contentName: string]: string
-  }
-  pageTemplate: string
-}
-
-interface ContentfulNode {
-  id: string
-  [key: string]: string
-}
-
-interface ContentfulObject {
-  node: ContentfulNode
-  node_locale: string
-}
-
-interface NamedPaths {
-  [pathName: string]: {
-    path: string
-    [localeName: string]: string
-  }
-}
-
-interface Data {
-  // Each key contains the results of a globals query
-  globals: {
-    [globalName: string]: ContentfulObject[]
-  }
-  // Each key contains the results of a subPageContent query
-  subPageContent: {
-    [contentName: string]: ContentfulObject[]
-  }
-  // Contains for each named path: path: raw path, xx: localized xx path
-  namedPaths: NamedPaths
-  // The plugin configuration options
-  options: Options
-  // Results of the page query
-  pages: ContentfulObject[]
-  // Path to the page template used to generate each page
-  pageTemplate: string
-  createPage(params: object): Promise<any>
-  graphql(query: string): Promise<any>
-}
+import { ContentfulObject, Context, Data, GetContext } from './types'
 
 const getPages = (data: Data): Promise<Data> | Data => {
   return data.graphql(pagesQuery).then(result => {
@@ -121,22 +73,6 @@ const buildNamedPaths = (data: Data): Promise<Data> | Data => {
     )
   })
   return data
-}
-
-interface Context {
-  id: string
-  locale: string
-  namedPaths: NamedPaths
-  options: Options
-  ids: {
-    [IdKey: string]: string
-  }
-}
-
-interface GetContext {
-  data: Data
-  page: ContentfulNode
-  subPageContent?: ContentfulObject
 }
 
 const getContext = ({ data, page, subPageContent }: GetContext) => {

@@ -2,17 +2,30 @@
   "name": "gatsby-plugin-wheelroom",
   "version": "0.0.1",
   "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "types.d.ts",
   "files": [
-    "dist/*"
+    "default-queries.js",
+    "index.js",
+    "gatsby-node.js"
   ],
+  "description": "Site framework based on Contentful and Gatsby",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaccomeijer/gatsby-plugin-wheelroom.git"
+  },
+  "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaccomeijer/gatsby-plugin-wheelroom/issues"
+  },
+  "homepage": "https://github.com/jaccomeijer/gatsby-plugin-wheelroom#readme",
   "scripts": {
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "build": "npm-run-all build:*",
+    "build:clean": "rm -f default-queries.js index.js gatsby-node.js types.js",
     "build:lint": "tslint --project tsconfig.json",
-    "build:clean": "rm -rf ./dist/*",
     "build:compile": "tsc",
     "prepack": "npm run build",
     "prepublishOnly": "npm run build",
@@ -20,21 +33,11 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "postversion": "git push && git push --tags"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "wheelroom"
+  ],
   "devDependencies": {
     "@types/jest": "24.0.13",
     "@types/node": "12.0.1",
