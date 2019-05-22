@@ -1,1 +1,1 @@
-export { Hello, HelloProps } from './components/hello/hello'
+export * from './page/debug'

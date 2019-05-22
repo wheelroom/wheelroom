@@ -1,18 +1,28 @@
 {
   "name": "wheelroom",
-  "version": "0.1.2",
+  "version": "0.0.1",
   "private": true,
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "bin": "dist/wheelroom.js",
   "files": [
     "dist/*"
   ],
+  "description": "Site framework based on Contentful and Gatsby",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+  },
+  "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+  },
+  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "scripts": {
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build",
+    "tst": "wheelroom",
     "build": "npm-run-all build:*",
-    "build:lint": "tslint --project tsconfig.json",
     "build:clean": "rm -rf ./dist/*",
+    "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
     "prepack": "npm run build",
     "prepublishOnly": "npm run build",
@@ -20,34 +30,23 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "postversion": "git push && git push --tags"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "keywords": [
+    "gatsby",
+    "wheelroom"
+  ],
   "devDependencies": {
     "@types/jest": "24.0.13",
     "@types/node": "12.0.1",
     "@types/react": "16.8.17",
     "@types/react-dom": "16.8.4",
     "conventional-changelog-cli": "2.0.21",
+    "npm-run-all": "4.1.5",
     "prettier": "1.17.1",
     "react": "16.8.6",
     "react-app-polyfill": "1.0.1",
     "react-docgen-typescript": "1.12.4",
     "react-dom": "16.8.6",
     "react-scripts": "3.0.1",
-    "react-styleguidist": "9.0.9",
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-plugin-prettier": "2.0.1",
@@ -56,9 +55,5 @@
   },
   "peerDependencies": {
     "react": "^16.8.6"
-  },
-  "dependencies": {
-    "npm-run-all": "4.1.5",
-    "save-dev": "2.0.0"
   }
 }
