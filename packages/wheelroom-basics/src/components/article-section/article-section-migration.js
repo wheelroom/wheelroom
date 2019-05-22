@@ -4,6 +4,6 @@ module.exports = function(migration, context) {
   migrationHelper.doMigration({
     migration,
     context,
-    jsonPath: 'src/models/page-model.json',
+    jsonPath: 'src/components/article-section.json',
   })
 }

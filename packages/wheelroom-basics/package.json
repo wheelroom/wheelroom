@@ -41,6 +41,7 @@
     "@types/react": "16.8.17",
     "@types/react-dom": "16.8.4",
     "conventional-changelog-cli": "2.0.21",
+    "gatsby": "2.6.0",
     "npm-run-all": "4.1.5",
     "prettier": "1.17.1",
     "react": "16.8.6",

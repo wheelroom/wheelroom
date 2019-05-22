@@ -4,6 +4,6 @@ module.exports = function(migration, context) {
   migrationHelper.doMigration({
     migration,
     context,
-    jsonPath: 'src/models/section-article-model.json',
+    jsonPath: 'src/components/globals-part.json',
   })
 }

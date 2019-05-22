@@ -1,7 +1,7 @@
 {
   "modelVersion": "1.0.0",
-  "type": "partGlobals",
-  "name": "Part Globals",
+  "type": "globalsPart",
+  "name": "Globals part",
   "displayField": "title",
   "description": "Globals part",
   "fields": {

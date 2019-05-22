@@ -1,7 +1,7 @@
 {
   "modelVersion": "1.0.0",
-  "type": "contentArticle",
-  "name": "Content Article",
+  "type": "articleContent",
+  "name": "Article content",
   "displayField": "title",
   "description": "Article content",
   "fields": {

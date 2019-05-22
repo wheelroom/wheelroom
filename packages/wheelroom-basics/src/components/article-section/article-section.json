@@ -1,7 +1,7 @@
 {
   "modelVersion": "1.0.0",
-  "type": "sectionArticle",
-  "name": "Section Article",
+  "type": "articleSection",
+  "name": "Article section",
   "displayField": "title",
   "description": "Article section",
   "fields": {
