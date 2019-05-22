@@ -21,8 +21,6 @@
   },
   "homepage": "https://github.com/jaccomeijer/gatsby-plugin-wheelroom#readme",
   "scripts": {
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build",
     "build": "npm-run-all build:*",
     "build:clean": "rm -f default-queries.js index.js gatsby-node.js types.js",
     "build:lint": "tslint --project tsconfig.json",
@@ -51,7 +49,6 @@
     "react-docgen-typescript": "1.12.4",
     "react-dom": "16.8.6",
     "react-scripts": "3.0.1",
-    "react-styleguidist": "9.0.9",
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-plugin-prettier": "2.0.1",

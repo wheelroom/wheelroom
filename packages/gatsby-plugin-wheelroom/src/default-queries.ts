@@ -13,9 +13,9 @@ export const pagesQuery: string = `
 }
 `
 
-export const partGlobalsQuery: string = `
+export const globalsPartQuery: string = `
 { 
-  partGlobals: allContentfulPartGlobals {
+  globalsPart: allContentfulGlobalsPart {
     edges {
       node {
         id

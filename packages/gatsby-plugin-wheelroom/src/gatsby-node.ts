@@ -1,7 +1,8 @@
 import * as path from 'path'
-import { pagesQuery, partGlobalsQuery } from './default-queries'
-
+import { globalsPartQuery, pagesQuery } from './default-queries'
 import { ContentfulObject, Context, Data, GetContext } from './types'
+
+const DEFAULT_GLOBALS = 'globalsPart'
 
 const getPages = (data: Data): Promise<Data> | Data => {
   return data.graphql(pagesQuery).then(result => {
@@ -13,18 +14,20 @@ const getPages = (data: Data): Promise<Data> | Data => {
 const getGlobals = (data: Data): Promise<Data> | Data => {
   const allPromises: Array<Promise<any>> = []
 
-  Object.entries(data.options.globals).forEach(([globalName, globalQuery]) => {
-    const query =
-      globalName === 'partGlobals' && globalQuery === ''
-        ? partGlobalsQuery
-        : globalQuery
+  Object.entries(data.options.globals).forEach(
+    ([globalsName, globalsQuery]) => {
+      const query =
+        globalsName === DEFAULT_GLOBALS && globalsQuery === ''
+          ? globalsPartQuery
+          : globalsQuery
 
-    allPromises.push(
-      data.graphql(query).then(result => {
-        data.globals[globalName] = result.data[globalName].edges
-      })
-    )
-  })
+      allPromises.push(
+        data.graphql(query).then(result => {
+          data.globals[globalsName] = result.data[globalsName].edges
+        })
+      )
+    }
+  )
   return Promise.all(allPromises).then(() => {
     return data
   })
