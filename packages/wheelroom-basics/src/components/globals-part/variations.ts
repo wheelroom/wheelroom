@@ -1,5 +1,7 @@
 // These constants are ID's and used within the Contentful (editor) UI
 
+import { GlobalsPartBasic } from './globals-part-basic'
+
 export const variations = {
-  basic: 'No variations yet',
+  'No variations yet': GlobalsPartBasic,
 }

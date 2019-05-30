@@ -1,6 +1,9 @@
 // These constants are ID's and used within the Contentful (editor) UI
 
+import { ArticleSectionInline } from './article-section-inline'
+import { ArticleSectionLinked } from './article-section-linked'
+
 export const variations = {
-  inline: 'Inline article text, specific to this section',
-  linked: 'Linked article text, derived from slug in url',
+  'Inline article text, specific to this section': ArticleSectionInline,
+  'Linked article text, derived from slug in url': ArticleSectionLinked,
 }
