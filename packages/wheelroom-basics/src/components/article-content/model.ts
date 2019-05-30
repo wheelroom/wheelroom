@@ -1,3 +1,5 @@
+import { variations } from './variations'
+
 export const ArticleContentModel = {
   description: 'Article content',
   displayField: 'title',
@@ -77,6 +79,22 @@ export const ArticleContentModel = {
         type: 'Symbol',
       },
       widgetId: 'singleLine',
+    },
+    variation: {
+      settings: {
+        helpText: 'Select variation',
+      },
+      specs: {
+        name: 'Article content variation',
+        required: true,
+        type: 'Symbol',
+        validations: [
+          {
+            in: Object.keys(variations),
+          },
+        ],
+      },
+      widgetId: 'dropdown',
     },
   },
   modelVersion: '1.0.0',
