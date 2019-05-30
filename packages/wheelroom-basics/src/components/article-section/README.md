@@ -3,7 +3,7 @@
 ## Use as string
 
 ```js
-import { ArticleSection } from './article-section';
+import { ArticleSection } from './article-section-component';
 
 <ArticleSection name="Pizza" about="Food" />
 ```
@@ -11,7 +11,7 @@ import { ArticleSection } from './article-section';
 ## Use as object
 
 ```js
-import { ArticleSection } from './article-section';
+import { ArticleSection } from './article-section-component';
 
 <ArticleSection name="Ravioli" about="Food" />
 ```
