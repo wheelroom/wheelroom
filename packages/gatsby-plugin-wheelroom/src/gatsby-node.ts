@@ -6,6 +6,9 @@ const DEFAULT_GLOBALS = 'globalsPart'
 
 const getPages = (data: Data): Promise<Data> | Data => {
   return data.graphql(pagesQuery).then(result => {
+    if (!result.data) {
+      throw new Error('Could not find any pages at Contentful')
+    }
     data.pages = result.data.page.edges
     return data
   })
