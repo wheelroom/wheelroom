@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 
-export const query = graphql`
+export const globalsPartQuery = graphql`
   fragment GlobalsPart on ContentfulGlobalsPart {
     addressLine1
     addressLine2

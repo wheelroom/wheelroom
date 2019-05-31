@@ -3,7 +3,7 @@ import { ArticleContent } from './article-content'
 
 export { ArticleContent as ArticleContentGatsby }
 
-export const query = graphql`
+export const articleContentQuery = graphql`
   fragment ArticleContent on ContentfulArticleContent {
     articleText {
       articleText

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { getVariation } from '../../wh-ob'
+import { getVariation } from 'wheelroom'
 import { variations } from './variations'
 
 export interface ArticleContentProps {
