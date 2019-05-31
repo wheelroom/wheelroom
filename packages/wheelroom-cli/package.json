@@ -57,5 +57,8 @@
   },
   "peerDependencies": {
     "react": "^16.8.6"
+  },
+  "dependencies": {
+    "react-helmet": "5.2.1"
   }
 }

@@ -1,6 +1,5 @@
+import * as React from 'react'
 import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
-import React from 'react'
 
 const SEO = ({
   contentTypeInfo,
@@ -23,17 +22,17 @@ const SEO = ({
   const linkLocales = locales || []
   const typeTags = [
     {
-      property: 'og:type',
       content: contentTypeInfo ? contentTypeInfo.type : 'website',
+      property: 'og:type',
     },
   ]
   if (contentTypeInfo) {
-    for (const tag in contentTypeInfo.tags) {
+    Object.keys(contentTypeInfo.tags).forEach(tag => {
       typeTags.push({
-        property: contentTypeInfo.type + ':' + tag,
         content: contentTypeInfo.tags[tag],
+        property: contentTypeInfo.type + ':' + tag,
       })
-    }
+    })
   }
 
   return (
@@ -45,69 +44,69 @@ const SEO = ({
       titleTemplate={`%s | ${siteTitle}`}
       meta={[
         {
-          name: 'site-version',
           content: siteVersion,
+          name: 'site-version',
         },
         {
-          name: 'description',
           content: metaDescription,
+          name: 'description',
         },
         {
-          name: 'keywords',
           content: metaKeywords,
+          name: 'keywords',
         },
 
         ////////////////////////////////////////////////
         /// Open Graph
         {
-          property: 'og:title',
           content: title,
+          property: 'og:title',
         },
         {
-          property: 'og:image',
           content: image,
+          property: 'og:image',
         },
         {
-          property: 'og:description',
           content: metaDescription,
+          property: 'og:description',
         },
         {
-          property: 'og:locale',
           content: locale,
+          property: 'og:locale',
         },
 
         ////////////////////////////////////////////////
         /// Twitter
         {
-          name: 'twitter:card',
           content: 'summary',
+          name: 'twitter:card',
         },
         {
-          name: 'twitter:creator',
           content: siteAuthor,
+          name: 'twitter:creator',
         },
         {
-          name: 'twitter:title',
           content: title,
+          name: 'twitter:title',
         },
         {
-          name: 'twitter:description',
           content: metaDescription,
+          name: 'twitter:description',
         },
         {
-          name: 'twitter:image',
           content: image,
+          name: 'twitter:image',
         },
       ]
         .concat(meta)
         .concat(typeTags)}
     >
-      {linkLocales.map(locale => (
+      {linkLocales.map(linkLocale => (
         <link
           rel="alternate"
-          href={locale.href}
-          hrefLang={locale.name}
-          key={locale.name}
+          href={linkLocale.href}
+          hrefLang={linkLocale.name}
+          key={linkLocale.name}
         />
       ))}
     </Helmet>
@@ -115,17 +114,17 @@ const SEO = ({
 }
 
 SEO.defaultProps = {
+  keywords: [],
   lang: 'en',
   meta: [],
-  keywords: [],
 }
 
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
-}
+// SEO.propTypes = {
+//   description: PropTypes.string,
+//   lang: PropTypes.string,
+//   meta: PropTypes.array,
+//   keywords: PropTypes.arrayOf(PropTypes.string),
+//   title: PropTypes.string.isRequired,
+// }
 
 export default SEO

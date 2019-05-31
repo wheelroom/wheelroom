@@ -2,22 +2,25 @@
 // the opener section of the page.
 
 export const getPageImage = page => {
-  for (let i = 0; i < page.sections.length; i++) {
-    const section = page.sections[i]
+  for (const section of page.sections) {
     if (section.__typename === 'ContentfulSectionOpener') {
-      if (!section.image) return
+      if (!section.image) {
+        return
+      }
       return section.image.fluid.src
     }
   }
 }
 
 export const getArticleImage = article => {
-  if (!article.image) return
+  if (!article.image) {
+    return
+  }
   return article.image.fluid.src
 }
 
 export const getPageTypeInfo = (page, article) => {
-  let info = {}
+  const info = {} as any
 
   // Do we have an article?
   if (page.pathName === 'article') {
@@ -38,9 +41,9 @@ export const getPageTypeInfo = (page, article) => {
     info.type = 'profile'
     info.tags = {
       first_name: 'Jacco',
+      gender: 'male',
       last_name: 'Meijer',
       username: 'jaccomeijer',
-      gender: 'male',
     }
     return info
   }
