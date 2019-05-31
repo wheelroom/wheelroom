@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-console.log('wheelroom is working!')
+import { getModels } from '../lib/model-api/get-models'
+
+getModels()

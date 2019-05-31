@@ -8,8 +8,6 @@ if (dotEnvResult.error) {
   throw dotEnvResult.error
 }
 
-const JSON_URL = 'src/test-part.json'
-
 interface ProcessData {
   client?: any
   contentType?: any
@@ -19,11 +17,14 @@ interface ProcessData {
   space?: any
 }
 
-const getModel = (data: ProcessData): Promise<ProcessData> | ProcessData => {
-  const jsonBuffer = fs.readFileSync(JSON_URL, 'utf8')
-  data.model = JSON.parse(jsonBuffer)
-  return data
-}
+// const readModelFromJson = (
+//   data: ProcessData
+// ): Promise<ProcessData> | ProcessData => {
+//   const JSON_URL = 'src/test-part.json'
+//   const jsonBuffer = fs.readFileSync(JSON_URL, 'utf8')
+//   data.model = JSON.parse(jsonBuffer)
+//   return data
+// }
 
 const getClient = (data: ProcessData): Promise<ProcessData> | ProcessData => {
   data.client = contentful.createClient({
@@ -212,20 +213,25 @@ const handleError = error => {
   console.error('Error:', error.message)
 }
 
-const processData = {
-  contentType: null,
-} as ProcessData
+export const applyModel = model => {
+  const processData = {
+    contentType: null,
+    model,
+  } as ProcessData
 
-Promise.resolve(processData)
-  .then(getModel)
-  .then(getClient)
-  .then(getSpace)
-  .then(getEnvironment)
-  .then(getContentType)
-  .then(updateContentType)
-  .then(createContentType)
-  .then(publishContentType)
-  .then(getEditorInterface)
-  .then(updateEditorInterface)
-  .then(finish)
-  .catch(handleError)
+  return (
+    Promise.resolve(processData)
+      // .then(readModelFromJson)
+      .then(getClient)
+      .then(getSpace)
+      .then(getEnvironment)
+      .then(getContentType)
+      .then(updateContentType)
+      .then(createContentType)
+      .then(publishContentType)
+      .then(getEditorInterface)
+      .then(updateEditorInterface)
+      .then(finish)
+      .catch(handleError)
+  )
+}
