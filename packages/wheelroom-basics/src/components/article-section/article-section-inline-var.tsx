@@ -1,11 +1,11 @@
 import * as React from 'react'
 
-export interface ArticleSectionInlineProps {
-  name: string
-  about: string
-}
+import { ArticleSectionProps } from './article-section'
 
-export class ArticleSectionInline extends React.Component<ArticleSectionInlineProps, {}> {
+export class ArticleSectionInlineVar extends React.Component<
+  ArticleSectionProps,
+  {}
+> {
   public render() {
     return (
       <div>

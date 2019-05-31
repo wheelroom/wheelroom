@@ -1,4 +1,3 @@
-import { graphql } from 'gatsby'
 import * as React from 'react'
 
 export interface ArticleSectionProps {
@@ -17,12 +16,3 @@ export class ArticleSection extends React.Component<ArticleSectionProps, {}> {
     )
   }
 }
-
-export const query = graphql`
-  fragment ArticleSection on ContentfulArticleSection {
-    articleText {
-      articleText
-    }
-    variation
-  }
-`

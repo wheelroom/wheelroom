@@ -1,11 +1,11 @@
 import * as React from 'react'
 
-export interface ArticleSectionLinkedProps {
-  name: string
-  about: string
-}
+import { ArticleSectionProps } from './article-section'
 
-export class ArticleSectionLinked extends React.Component<ArticleSectionLinkedProps, {}> {
+export class ArticleSectionLinkedVar extends React.Component<
+  ArticleSectionProps,
+  {}
+> {
   public render() {
     return (
       <div>
@@ -16,4 +16,3 @@ export class ArticleSectionLinked extends React.Component<ArticleSectionLinkedPr
     )
   }
 }
-

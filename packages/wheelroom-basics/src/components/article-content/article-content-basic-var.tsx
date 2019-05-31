@@ -1,12 +1,9 @@
 import * as React from 'react'
 
-export interface ArticleContentBasicProps {
-  name: string
-  about: string
-}
+import { ArticleContentProps } from './article-content'
 
-export class ArticleContentBasic extends React.Component<
-  ArticleContentBasicProps,
+export class ArticleContentBasicVar extends React.Component<
+  ArticleContentProps,
   {}
 > {
   public render() {
