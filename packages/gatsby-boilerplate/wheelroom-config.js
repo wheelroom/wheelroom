@@ -3,7 +3,7 @@ module.exports = {
     {
       content: ['article'],
       parts: ['globals'],
-      resolve: 'wheelroom-basic',
+      resolve: 'wheelroom-basics',
       sections: ['article'],
     },
   ],
