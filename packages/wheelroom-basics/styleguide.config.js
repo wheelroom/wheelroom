@@ -2,7 +2,7 @@ module.exports = {
   propsParser: require('react-docgen-typescript').parse,
   ignore: [
     '**/__tests__/**',
-    '**/*-gatsby.tsx',
+    '**/*-graphql.tsx',
     '**/*-var.tsx',
     '**/*.d.ts',
     '**/*.spec.{js,jsx,ts,tsx}',

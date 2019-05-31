@@ -3,19 +3,16 @@ import { getVariation } from 'wheelroom'
 import { variations } from './variations'
 
 export interface ArticleContentProps {
+  /** Description of prop "name" */
   name: string
+  /** Description of prop "about" */
   about: string
+  /** Description of prop "variation" */
   variation: string
 }
 
-export class ArticleContent extends React.Component<ArticleContentProps, {}> {
-  public render() {
-    const Variation = getVariation(this.props, variations)
+export const ArticleContent = (props: ArticleContentProps) => {
+  const Variation = getVariation(props, variations)
 
-    return (
-      <div>
-        <Variation {...this.props} />
-      </div>
-    )
-  }
+  return <Variation {...props} />
 }
