@@ -1,7 +1,7 @@
 {
   "name": "wheelroom-basics",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [

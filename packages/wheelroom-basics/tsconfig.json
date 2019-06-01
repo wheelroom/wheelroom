@@ -3,7 +3,7 @@
     "declaration": true,
     "jsx": "react",
     "lib": ["es6", "dom"],
-    "module": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "dist",
     "target": "es6"
