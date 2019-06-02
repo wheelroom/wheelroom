@@ -2,4 +2,4 @@
 
 Gatsby static site boilerplate with React and Typescript
 
-Testing lerna versioning
+Testing lerna versioning, more changes
