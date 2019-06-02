@@ -7,4 +7,5 @@ module.exports = {
       sections: ['article'],
     },
   ],
+  test: true,
 }
