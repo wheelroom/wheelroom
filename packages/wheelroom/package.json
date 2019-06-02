@@ -1,6 +1,6 @@
 {
   "name": "wheelroom",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "main": "dist/index.js",
   "bin": "dist/bin/wheelroom.js",
@@ -55,7 +55,7 @@
     "tslint-plugin-prettier": "2.0.1",
     "tslint-react": "4.0.0",
     "typescript": "3.5.1",
-    "wheelroom-basics": "0.0.1"
+    "wheelroom-basics": "^0.0.2"
   },
   "peerDependencies": {
     "react": "^16.8.6"
