@@ -1,4 +1,4 @@
-export const ArticleSectionModel = {
+export default {
   description: 'Article section',
   displayField: 'title',
   fields: {

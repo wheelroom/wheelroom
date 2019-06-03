@@ -1,4 +1,4 @@
-export const GlobalsPartModel = {
+export default {
   description: 'Globals part',
   displayField: 'title',
   fields: {

@@ -1,6 +1,6 @@
 import { variations } from './variations'
 
-export const ArticleContentModel = {
+export default {
   description: 'Article content',
   displayField: 'title',
   fields: {
