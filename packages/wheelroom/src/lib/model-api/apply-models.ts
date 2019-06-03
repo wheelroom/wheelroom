@@ -2,18 +2,27 @@ import * as contentful from 'contentful-management'
 import { Context } from './types'
 
 const getClient = async (context: Context) => {
+  if (context.contentfulClient) {
+    return
+  }
   context.contentfulClient = contentful.createClient({
     accessToken: process.env.CONTENTFUL_CMA_TOKEN,
   })
 }
 
 const getSpace = async (context: Context) => {
+  if (context.space) {
+    return
+  }
   context.space = await context.contentfulClient.getSpace(
     process.env.CONTENTFUL_SPACE_ID
   )
 }
 
 const getEnvironment = async (context: Context) => {
+  if (context.environment) {
+    return
+  }
   context.environment = await context.space.getEnvironment(
     process.env.CONTENTFUL_ENVIRONMENT
   )
@@ -29,37 +38,39 @@ const getModelVersion = (contentType: any): any => {
 const getContentType = async (context: Context) => {
   try {
     context.contentType = await context.environment.getContentType(
-      context.model.type
+      context.currentModel.type
     )
     console.log(
       'Found existing content type',
-      context.model.type,
+      context.currentModel.type,
       'with version',
       getModelVersion(context.contentType)
     )
   } catch (error) {
-    console.log('Could not find content type', context.model.type)
+    console.log('Could not find content type', context.currentModel.type)
     context.contentType = null
   }
 }
 
 const getApiFields = (context: Context): any[] => {
   const apiFields = []
-  Object.entries(context.model.fields).forEach(([fieldId, field]: any) => {
-    console.log('Adding field', fieldId)
-    const apiField = { id: fieldId }
-    Object.entries(field.specs).forEach(([specName, specValue]) => {
-      apiField[specName] = specValue
-    })
-    apiFields.push(apiField)
-  })
+  Object.entries(context.currentModel.fields).forEach(
+    ([fieldId, field]: any) => {
+      console.log('Adding field', fieldId)
+      const apiField = { id: fieldId }
+      Object.entries(field.specs).forEach(([specName, specValue]) => {
+        apiField[specName] = specValue
+      })
+      apiFields.push(apiField)
+    }
+  )
   // Add model version
-  console.log('Setting model version to', context.model.modelVersion)
+  console.log('Setting model version to', context.currentModel.modelVersion)
   apiFields.push({
     disabled: true,
     id: 'modelVersion',
     localized: false,
-    name: context.model.modelVersion,
+    name: context.currentModel.modelVersion,
     omitted: false,
     required: false,
     type: 'Symbol',
@@ -74,10 +85,10 @@ const updateContentType = async (context: Context) => {
     return
   }
   console.log('Updating content type')
-  context.contentType.description = context.model.description
-  context.contentType.displayField = context.model.displayField
+  context.contentType.description = context.currentModel.description
+  context.contentType.displayField = context.currentModel.displayField
   context.contentType.fields = getApiFields(context)
-  context.contentType.name = context.model.name
+  context.contentType.name = context.currentModel.name
 
   context.contentType = await context.contentType.update()
 }
@@ -87,14 +98,14 @@ const createContentType = async (context: Context) => {
   if (context.contentType !== null) {
     return
   }
-  console.log('Creating new content type', context.model.type)
+  console.log('Creating new content type', context.currentModel.type)
   context.contentType = await context.environment.createContentTypeWithId(
-    context.model.type,
+    context.currentModel.type,
     {
-      description: context.model.description,
-      displayField: context.model.displayField,
+      description: context.currentModel.description,
+      displayField: context.currentModel.displayField,
       fields: getApiFields(context),
-      name: context.model.name,
+      name: context.currentModel.name,
     }
   )
 }
@@ -110,13 +121,13 @@ const getEditorInterface = async (context: Context) => {
     return
   }
   context.editorInterface = await context.environment.getEditorInterfaceForContentType(
-    context.model.type
+    context.currentModel.type
   )
   console.log('Fetched editor interface')
 }
 
 const getModelFieldById = (context: Context, fieldIdLookup: string): any => {
-  const result = Object.entries(context.model.fields).find(
+  const result = Object.entries(context.currentModel.fields).find(
     ([fieldId, field]: any) => {
       return fieldId === fieldIdLookup
     }
@@ -145,7 +156,7 @@ const updateEditorInterface = async (context: Context) => {
 }
 
 const finish = async (context: Context) => {
-  console.log('Succesfully ran migration for:', context.model.type)
+  console.log('Succesfully ran migration for:', context.currentModel.type)
   // console.log('context', context.contentType)
   return context
 }
@@ -172,5 +183,11 @@ export const applyModel = async (context: Context) => {
 }
 
 export const applyModels = async (context: Context) => {
-  console.log('Running for each model')
+  await context.models.forEach(async model => {
+    context.contentType = null
+    context.currentModel = model.model
+    context.editorInterface = null
+    return
+    await applyModel(context)
+  })
 }

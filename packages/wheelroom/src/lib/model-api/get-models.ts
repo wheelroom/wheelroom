@@ -36,16 +36,21 @@ export const getModels = async (context: Context) => {
     paths.push(...getModulePath(plugin.resolve, '-content', plugin.content))
     paths.push(...getModulePath(plugin.resolve, '-section', plugin.sections))
   })
-  context.modelPaths = paths
-  paths.forEach(async (path: string) => {
-    let model
-    console.log('Reading model from', path)
+
+  context.models = paths.map(path => {
+    return {
+      model: null,
+      modelPath: path,
+    }
+  })
+
+  await context.models.forEach(async (model: any) => {
     try {
-      path = 'wheelroom-basics'
-      model = await import(path)
+      const modelPromise = import(model.modelPath)
+      model.model = await modelPromise
     } catch (error) {
       console.error(error)
     }
-    console.log(model)
   })
+  console.log(context.models)
 }

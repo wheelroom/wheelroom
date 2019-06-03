@@ -46,7 +46,8 @@
     "styled-components": "4.2.1",
     "styled-system": "4.2.4",
     "typescript": "3.5.1",
-    "wheelroom": "^0.0.2"
+    "wheelroom": "^0.0.2",
+    "wheelroom-basics": "^0.0.2"
   },
   "devDependencies": {
     "@types/node": "12.0.4",

@@ -3,16 +3,19 @@ export interface Context {
   contentfulClient?: any
   /** Contentful contentType object */
   contentType?: any
+  /** Current model being applied */
+  currentModel: any
   /** Contentful editorInterface object */
   editorInterface?: any
   /** Contentful environment object */
   environment?: any
-  /** Model object to be applied */
-  model?: any
   /** Array of all models to be applied */
-  models?: any[]
-  /** List of paths model objects are read from */
-  modelPaths?: string[]
+  models?: Array<{
+    /** Model object to be applied */
+    model: any
+    /** List of paths model objects are read from */
+    modelPath: string
+  }>
   /** Contentful space object */
   space?: any
 }
