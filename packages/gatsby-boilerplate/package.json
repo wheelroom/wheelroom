@@ -5,6 +5,7 @@
   "description": "Gatsby static site boilerplate with React and Typescript",
   "main": "index.js",
   "scripts": {
+    "tst": "wheelroom",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
@@ -35,6 +36,7 @@
     "gatsby-plugin-tslint": "0.0.2",
     "gatsby-plugin-typescript": "2.0.15",
     "gatsby-plugin-web-font-loader": "1.0.4",
+    "gatsby-plugin-wheelroom": "^0.0.2",
     "gatsby-source-contentful": "2.0.67",
     "gatsby-source-filesystem": "2.0.38",
     "gatsby-transformer-json": "2.1.11",
@@ -43,7 +45,8 @@
     "react-helmet": "5.2.1",
     "styled-components": "4.2.1",
     "styled-system": "4.2.4",
-    "typescript": "3.5.1"
+    "typescript": "3.5.1",
+    "wheelroom": "^0.0.2"
   },
   "devDependencies": {
     "@types/node": "12.0.4",

@@ -58,5 +58,8 @@
   },
   "peerDependencies": {
     "react": "^16.8.6"
+  },
+  "dependencies": {
+    "wheelroom": "^0.0.2"
   }
 }

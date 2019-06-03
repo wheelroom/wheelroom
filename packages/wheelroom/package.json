@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "scripts": {
-    "tst": "wheelroom",
     "build": "npm-run-all build:*",
     "build:clean": "rm -rf ./dist/*",
     "build:lint": "tslint --project tsconfig.json",
@@ -54,8 +53,7 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-plugin-prettier": "2.0.1",
     "tslint-react": "4.0.0",
-    "typescript": "3.5.1",
-    "wheelroom-basics": "^0.0.2"
+    "typescript": "3.5.1"
   },
   "peerDependencies": {
     "react": "^16.8.6"
