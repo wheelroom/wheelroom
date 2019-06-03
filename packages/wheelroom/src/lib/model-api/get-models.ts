@@ -1,56 +1,67 @@
-import { Context } from './types'
+import { Context, ModelInfo } from './types'
 
-const getModulePath = (resolve, postFix, modelNames) => {
+const getModuleObjects = (
+  resolve: string,
+  postFix: string,
+  modelNames: string[]
+): ModelInfo[] => {
   const appDir = process.env.PWD
-  const paths = []
+  const models = [] as any[]
   if (!modelNames) {
-    return paths
+    return []
   }
   modelNames.forEach(modelName => {
-    const path =
+    const modelPath =
       appDir +
       '/' +
       'node_modules/' +
       resolve +
       '/dist/components/' +
       modelName +
+      '-' +
       postFix +
       '/model.js'
 
-    paths.push(path)
+    models.push({
+      model: null,
+      modelName,
+      modelPath,
+      resolve,
+    } as ModelInfo)
   })
-  return paths
+  return models
 }
 
 export const getModels = async (context: Context) => {
   const appDir = process.env.PWD
-  const paths = []
+  context.models = []
   let wheelroomConfig
   try {
     wheelroomConfig = await import(appDir + '/wheelroom-config.js')
   } catch (error) {
-    console.error('Could not find wheelroom-config.js')
+    console.log('Could not find wheelroom-config.js')
   }
   wheelroomConfig.plugins.forEach(plugin => {
-    paths.push(...getModulePath(plugin.resolve, '-part', plugin.parts))
-    paths.push(...getModulePath(plugin.resolve, '-content', plugin.content))
-    paths.push(...getModulePath(plugin.resolve, '-section', plugin.sections))
+    context.models.push(
+      ...getModuleObjects(plugin.resolve, 'part', plugin.parts)
+    )
+    context.models.push(
+      ...getModuleObjects(plugin.resolve, 'content', plugin.content)
+    )
+    context.models.push(
+      ...getModuleObjects(plugin.resolve, 'section', plugin.sections)
+    )
   })
 
-  context.models = paths.map(path => {
-    return {
-      model: null,
-      modelPath: path,
-    }
-  })
-
-  await context.models.forEach(async (model: any) => {
-    try {
-      const modelPromise = import(model.modelPath)
-      model.model = await modelPromise
-    } catch (error) {
-      console.error(error)
-    }
-  })
-  console.log(context.models)
+  await Promise.all(
+    context.models.map(async model => {
+      try {
+        // TODO: This needs error checking, reporting and documentation
+        const importedModel = await import(model.modelPath)
+        model.model = importedModel.default
+      } catch (error) {
+        console.log(error)
+      }
+    })
+  )
 }

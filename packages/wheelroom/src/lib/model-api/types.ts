@@ -10,12 +10,18 @@ export interface Context {
   /** Contentful environment object */
   environment?: any
   /** Array of all models to be applied */
-  models?: Array<{
-    /** Model object to be applied */
-    model: any
-    /** List of paths model objects are read from */
-    modelPath: string
-  }>
+  models?: ModelInfo[]
   /** Contentful space object */
   space?: any
+}
+
+export interface ModelInfo {
+  /** Model object to be applied */
+  model: any
+  /** Name of the model */
+  modelName: string
+  /** List of paths model objects are read from */
+  modelPath: string
+  /** Package name in wich the model is defined */
+  resolve: string
 }

@@ -12,7 +12,6 @@ const main = async () => {
   const context = getModelContext()
   await getModels(context)
   await applyModels(context)
-  console.log('ALL DONE', context)
 }
 
 main().then(() => {
