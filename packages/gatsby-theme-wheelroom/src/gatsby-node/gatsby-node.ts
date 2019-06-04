@@ -1,8 +1,7 @@
 import * as path from 'path'
-import { globalsPartQuery, pageQuery } from './default-queries'
 import { ContentfulObject, Context, Data, GetContext } from './types'
 
-const DEFAULT_GLOBALS = 'globalsPart'
+// TODO: Refactor into using new config
 
 const getPages = async (data: Data) => {
   const result = await data.graphql(pageQuery)

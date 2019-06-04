@@ -1,43 +1,36 @@
 packageJson = require('./package.json')
 
-const articleContentQuery = `
-{
-  articleContent: allContentfulArticleContent(
-    limit: 10
-  ) {
-    edges {
-      node {
-        id
-        slug
-      }
-    }
-  }
-}
-`
-
 module.exports = {
   __experimentalThemes: [
     {
       options: {
         appTheme: require('./src/theme.json'),
         defaultLocale: 'nl',
-        models: {
-          content: ['article'],
-          parts: ['globals'],
-          sections: ['article'],
-        },
-        // pageTemplate: path.resolve('src/page-template.tsx'),
-        queries: {
-          globals: {
-            globalsPart: 'globalsPartQuery',
+        models: [
+          {
+            name: 'article-section',
+            path: '/dist/components/article-section/model.js',
+            type: 'section',
           },
-          page: {
-            pageQuery: 'pageQuery',
+          {
+            name: 'globals-part',
+            path: '/dist/components/globals-part/model.js',
+            query: '/dist/components/globals-part/query.js',
+            type: 'global',
           },
-          subPageContent: {
-            articleContent: articleContentQuery,
+          {
+            name: 'article-content',
+            path: '/dist/components/article-content/model.js',
+            query: '/dist/components/article-content/model.js',
+            type: 'subPage',
           },
-        },
+          {
+            name: 'page',
+            path: '/dist/lib/page/model.js',
+            query: '/dist/lib/page/query.js',
+            type: 'page',
+          },
+        ], // pageTemplate: path.resolve('src/page-template.tsx'),
       },
       resolve: `gatsby-theme-wheelroom`,
     },
