@@ -42,7 +42,7 @@
   "keywords": ["gatsby", "wheelroom"],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "wheelroom",
+  "name": "gatsby-theme-wheelroom",
   "peerDependencies": {
     "react": "^16.8.6"
   },
@@ -54,15 +54,14 @@
   "scripts": {
     "build": "npm-run-all build:*",
     "build:clean": "rm -rf ./dist/*",
-    "build:compile": "tsc",
     "build:lint": "tslint --project tsconfig.json",
+    "build:compile": "tsc",
     "postversion": "git push && git push --tags",
     "prepack": "npm run build",
     "prepublishOnly": "npm run build",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
   "version": "0.0.2"

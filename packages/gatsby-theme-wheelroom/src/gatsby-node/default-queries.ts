@@ -1,4 +1,4 @@
-export const pagesQuery: string = `
+export const pageQuery: string = `
 {
   page: allContentfulPage {
     edges {

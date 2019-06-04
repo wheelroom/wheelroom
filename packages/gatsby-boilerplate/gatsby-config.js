@@ -1,38 +1,6 @@
-const result = require('dotenv').config()
-packageJson = require('./package.json')
-
-const isDevelopment = process.env.gatsby_executing_command === 'develop'
-
-if (result.error) {
-  throw result.error
-}
-
-const cfConfig = {
-  spaceId: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
-}
-
-const gtmConfig = {
-  id: process.env.GTM_ID,
-  includeInDevelopment: false,
-  gtmAuth: process.env.GTM_AUTH_STRING,
-  gtmPreview: process.env.GTM_PREVIEW_NAME,
-}
-
-// Assert config is present
-if (!gtmConfig.id && !(isDevelopment && !gtmConfig.includeInDevelopment)) {
-  throw new Error('Google tagmanager id needs to be provided.')
-}
-
-if (!cfConfig.spaceId || !cfConfig.accessToken) {
-  throw new Error(
-    'Contentful spaceId and the delivery token need to be provided.'
-  )
-}
-
 const articleContentQuery = `
 {
-  contentArticle: allContentfulArticleContent(
+  articleContent: allContentfulArticleContent(
     limit: 10
   ) {
     edges {
@@ -46,53 +14,43 @@ const articleContentQuery = `
 `
 
 module.exports = {
-  siteMetadata: {
-    siteVersion: packageJson.version,
-  },
-  plugins: [
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-tslint',
-    'gatsby-plugin-offline',
+  __experimentalThemes: [
     {
-      resolve: 'gatsby-source-contentful',
-      options: cfConfig,
-    },
-    {
-      resolve: 'gatsby-plugin-wheelroom',
       options: {
-        defaultLocale: 'nl',
         appTheme: require('./src/theme.json'),
-        globals: {
-          globalsPart: '',
-        },
-        subPageContent: {
-          articleContent: articleContentQuery,
+        defaultLocale: 'nl',
+        models: {
+          content: ['article'],
+          parts: ['globals'],
+          sections: ['article'],
         },
         pageTemplate: 'src/page-template.tsx',
+        queries: {
+          globals: {
+            globalsPart: 'globalsPartQuery',
+          },
+          page: {
+            pageQuery: 'pageQuery',
+          },
+          subPageContent: {
+            articleContent: articleContentQuery,
+          },
+        },
       },
+      resolve: `gatsby-theme-wheelroom`,
     },
+  ],
+  plugins: [
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: gtmConfig,
-    },
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
           families: ['Work+Sans:300'],
         },
       },
+      resolve: 'gatsby-plugin-web-font-loader',
     },
   ],
-  __experimentalThemes: [
-    {
-      resolve: `gatsby-theme-wheelroom`,
-      options: {
-        content: ['article'],
-        parts: ['globals'],
-        resolve: 'wheelroom-basics',
-        sections: ['article'],
-      },
-    },
-  ],
+  siteMetadata: {
+    siteVersion: packageJson.version,
+  },
 }

@@ -1,11 +1,11 @@
 import * as path from 'path'
-import { globalsPartQuery, pagesQuery } from './default-queries'
+import { globalsPartQuery, pageQuery } from './default-queries'
 import { ContentfulObject, Context, Data, GetContext } from './types'
 
 const DEFAULT_GLOBALS = 'globalsPart'
 
 const getPages = async (data: Data) => {
-  const result = await data.graphql(pagesQuery)
+  const result = await data.graphql(pageQuery)
 
   if (!result.data) {
     throw new Error('Could not find any pages at Contentful')
