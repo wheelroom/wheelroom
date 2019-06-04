@@ -84,4 +84,15 @@ module.exports = {
       },
     },
   ],
+  __experimentalThemes: [
+    {
+      resolve: `gatsby-theme-wheelroom`,
+      options: {
+        content: ['article'],
+        parts: ['globals'],
+        resolve: 'wheelroom-basics',
+        sections: ['article'],
+      },
+    },
+  ],
 }

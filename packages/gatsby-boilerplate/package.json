@@ -1,31 +1,8 @@
 {
-  "name": "gatsby-boilerplate",
-  "version": "1.0.6",
-  "private": false,
-  "description": "Gatsby static site boilerplate with React and Typescript",
-  "main": "index.js",
-  "scripts": {
-    "tst": "wheelroom",
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "postversion": "git push && git push --tags"
-  },
-  "engines": {
-    "node": ">=10.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaccomeijer/gatsby-boilerplate.git"
-  },
   "author": "",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jaccomeijer/gatsby-boilerplate/issues"
+    "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
-  "homepage": "https://github.com/jaccomeijer/gatsby-boilerplate#readme",
   "dependencies": {
     "babel-plugin-styled-components": "1.10.0",
     "dotenv": "8.0.0",
@@ -36,7 +13,7 @@
     "gatsby-plugin-tslint": "0.0.2",
     "gatsby-plugin-typescript": "2.0.15",
     "gatsby-plugin-web-font-loader": "1.0.4",
-    "gatsby-plugin-wheelroom": "^0.0.2",
+    "gatsby-theme-wheelroom": "^0.0.2",
     "gatsby-source-contentful": "2.0.67",
     "gatsby-source-filesystem": "2.0.38",
     "gatsby-transformer-json": "2.1.11",
@@ -45,10 +22,9 @@
     "react-helmet": "5.2.1",
     "styled-components": "4.2.1",
     "styled-system": "4.2.4",
-    "typescript": "3.5.1",
-    "wheelroom": "^0.0.2",
-    "wheelroom-basics": "^0.0.2"
+    "typescript": "3.5.1"
   },
+  "description": "Gatsby static site boilerplate with React and Typescript",
   "devDependencies": {
     "@types/node": "12.0.4",
     "@types/react": "16.8.19",
@@ -63,5 +39,26 @@
     "tslint-loader": "3.5.4",
     "tslint-plugin-prettier": "2.0.1",
     "tslint-react": "4.0.0"
-  }
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "gatsby-boilerplate",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "postversion": "git push && git push --tags",
+    "start": "npm run develop",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tst": "wheelroom"
+  },
+  "version": "1.0.6"
 }
