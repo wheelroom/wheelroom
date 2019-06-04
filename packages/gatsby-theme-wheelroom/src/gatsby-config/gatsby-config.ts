@@ -1,21 +1,22 @@
-const result = require('dotenv').config()
+import * as dotenv from 'dotenv'
 
 const isDevelopment = process.env.gatsby_executing_command === 'develop'
 
-if (result.error) {
-  throw result.error
+const dotEnvResult = dotenv.config()
+if (dotEnvResult.error) {
+  throw dotEnvResult.error
 }
 
 const cfConfig = {
-  spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
 }
 
 const gtmConfig = {
-  id: process.env.GTM_ID,
-  includeInDevelopment: false,
   gtmAuth: process.env.GTM_AUTH_STRING,
   gtmPreview: process.env.GTM_PREVIEW_NAME,
+  id: process.env.GTM_ID,
+  includeInDevelopment: false,
 }
 
 // Assert config is present
@@ -35,12 +36,12 @@ module.exports = {
     'gatsby-plugin-tslint',
     'gatsby-plugin-offline',
     {
-      resolve: 'gatsby-source-contentful',
       options: cfConfig,
+      resolve: 'gatsby-source-contentful',
     },
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
       options: gtmConfig,
+      resolve: 'gatsby-plugin-google-tagmanager',
     },
   ],
 }

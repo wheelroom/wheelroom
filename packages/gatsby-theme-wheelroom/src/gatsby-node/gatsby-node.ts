@@ -161,7 +161,8 @@ exports.createPages = async ({ graphql, actions }: any, options: any) => {
     graphql,
     namedPaths: {},
     options,
-    pageTemplate: path.resolve(options.pageTemplate),
+    pageTemplate:
+      options.pageTemplate || path.resolve('../templates/page-template.tsx'),
     pages: [],
     subPageContent: {},
   } as Data

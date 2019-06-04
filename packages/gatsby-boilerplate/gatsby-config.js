@@ -26,7 +26,7 @@ module.exports = {
           parts: ['globals'],
           sections: ['article'],
         },
-        pageTemplate: 'src/page-template.tsx',
+        // pageTemplate: path.resolve('src/page-template.tsx'),
         queries: {
           globals: {
             globalsPart: 'globalsPartQuery',
