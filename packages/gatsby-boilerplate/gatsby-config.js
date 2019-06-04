@@ -1,3 +1,5 @@
+packageJson = require('./package.json')
+
 const articleContentQuery = `
 {
   articleContent: allContentfulArticleContent(

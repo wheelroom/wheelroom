@@ -1,5 +1,4 @@
 const result = require('dotenv').config()
-packageJson = require('./package.json')
 
 const isDevelopment = process.env.gatsby_executing_command === 'develop'
 
@@ -31,9 +30,6 @@ if (!cfConfig.spaceId || !cfConfig.accessToken) {
 }
 
 module.exports = {
-  siteMetadata: {
-    siteVersion: packageJson.version,
-  },
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-tslint',

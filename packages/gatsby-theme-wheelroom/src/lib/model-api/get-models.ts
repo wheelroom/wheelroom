@@ -32,24 +32,35 @@ const getModuleObjects = (
   return models
 }
 
-export const getModels = async (context: Context) => {
+const getModelConfig = async () => {
   const appDir = process.env.PWD
-  context.models = []
-  let wheelroomConfig
+  const modelConfigs = []
+  let config
   try {
-    wheelroomConfig = await import(appDir + '/wheelroom-config.js')
+    config = await import(appDir + '/gatsby-config.js')
   } catch (error) {
-    console.log('Could not find wheelroom-config.js')
+    console.log('Could not find gatsby-config.js in', appDir, error)
   }
-  wheelroomConfig.plugins.forEach(plugin => {
+  config.__experimentalThemes.forEach(theme => {
+    modelConfigs.push(
+      Object.assign({ resolve: theme.resolve }, theme.options.models)
+    )
+  })
+  return modelConfigs
+}
+
+export const getModels = async (context: Context) => {
+  context.models = []
+  const modelConfig = await getModelConfig()
+  modelConfig.forEach(config => {
     context.models.push(
-      ...getModuleObjects(plugin.resolve, 'part', plugin.parts)
+      ...getModuleObjects(config.resolve, 'part', config.parts)
     )
     context.models.push(
-      ...getModuleObjects(plugin.resolve, 'content', plugin.content)
+      ...getModuleObjects(config.resolve, 'content', config.content)
     )
     context.models.push(
-      ...getModuleObjects(plugin.resolve, 'section', plugin.sections)
+      ...getModuleObjects(config.resolve, 'section', config.sections)
     )
   })
 
