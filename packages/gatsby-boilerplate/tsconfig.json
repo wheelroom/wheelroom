@@ -2,10 +2,14 @@
   "compilerOptions": {
     "declaration": true,
     "jsx": "react",
+    "lib": ["es6", "dom"],
     "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist",
     "removeComments": true,
     "sourceMap": true,
-    "strict": true,
     "target": "es6"
-  }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": []
 }

@@ -1,4 +1,4 @@
-export default = {
+export default {
   description:
     'A page defines routes and references to components on the page.',
   displayField: 'title',

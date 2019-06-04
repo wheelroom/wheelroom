@@ -58,7 +58,7 @@
     "postversion": "git push && git push --tags",
     "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tst": "wheelroom"
+    "tst": "gatsby-theme-wheelroom"
   },
   "version": "1.0.6"
 }
