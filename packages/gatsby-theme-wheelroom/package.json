@@ -4,7 +4,7 @@
     "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"],
     "production": [">0.2%", "not dead", "not op_mini all"]
   },
-  "bin": "dist/bin/wheelroom.js",
+  "bin": "lib/bin/wheelroom.js",
   "bugs": {
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
@@ -41,7 +41,7 @@
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": ["gatsby", "wheelroom"],
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "/index.js",
   "name": "gatsby-theme-wheelroom",
   "peerDependencies": {
     "react": "^16.8.6"
@@ -63,6 +63,6 @@
     "styleguide:build": "styleguidist build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "types": "dist/index.d.ts",
+  "types": "/index.d.ts",
   "version": "0.0.2"
 }
