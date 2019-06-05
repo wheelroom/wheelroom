@@ -2,6 +2,9 @@
   "packages": ["packages/*"],
   "version": "independent",
   "command": {
+    "add": {
+      "exact": true
+    },
     "publish": {
       "conventionalCommits": true
     },

@@ -9,25 +9,25 @@ module.exports = {
         models: [
           {
             name: 'articleSection',
-            modelPath: '/dist/components/article-section/model.js',
+            modelPath: '/lib/components/article-section/model.js',
             type: 'section',
           },
           {
             name: 'globalsPart',
-            modelPath: '/dist/components/globals-part/model.js',
-            queryPath: '/dist/components/globals-part/query.js',
+            modelPath: '/lib/components/globals-part/model.js',
+            queryPath: '/lib/components/globals-part/query.js',
             type: 'global',
           },
           {
             name: 'articleContent',
-            modelPath: '/dist/components/article-content/model.js',
-            queryPath: '/dist/components/article-content/model.js',
+            modelPath: '/lib/components/article-content/model.js',
+            queryPath: '/lib/components/article-content/query.js',
             type: 'subPage',
           },
           {
             name: 'page',
-            modelPath: '/dist/page/model.js',
-            queryPath: '/dist/page/query.js',
+            modelPath: '/lib/page/model.js',
+            queryPath: '/lib/page/query.js',
             type: 'page',
           },
         ], // pageTemplate: path.resolve('src/page-template.tsx'),

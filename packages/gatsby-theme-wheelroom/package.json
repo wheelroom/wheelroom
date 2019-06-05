@@ -1,15 +1,25 @@
 {
   "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
   "browserslist": {
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"],
-    "production": [">0.2%", "not dead", "not op_mini all"]
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
   },
   "bin": "lib/bin/wheelroom.js",
   "bugs": {
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "react-helmet": "5.2.1"
+    "@types/yargs": "13.0.0",
+    "react-helmet": "5.2.1",
+    "yargs": "13.2.4"
   },
   "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
@@ -37,9 +47,14 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
-  "keywords": ["gatsby", "wheelroom"],
+  "keywords": [
+    "gatsby",
+    "wheelroom"
+  ],
   "license": "MIT",
   "main": "/index.js",
   "name": "gatsby-theme-wheelroom",
