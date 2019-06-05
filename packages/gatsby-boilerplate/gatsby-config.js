@@ -8,18 +8,18 @@ module.exports = {
         defaultLocale: 'nl',
         models: [
           {
-            name: 'article-section',
+            name: 'articleSection',
             modelPath: '/dist/components/article-section/model.js',
             type: 'section',
           },
           {
-            name: 'globals-part',
+            name: 'globalsPart',
             modelPath: '/dist/components/globals-part/model.js',
             queryPath: '/dist/components/globals-part/query.js',
             type: 'global',
           },
           {
-            name: 'article-content',
+            name: 'articleContent',
             modelPath: '/dist/components/article-content/model.js',
             queryPath: '/dist/components/article-content/model.js',
             type: 'subPage',

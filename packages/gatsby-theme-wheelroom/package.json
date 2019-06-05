@@ -53,7 +53,7 @@
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:clean": "rm -rf ./dist/*",
+    "build:clean": "rm -rf ./lib/* ./gatsby-config.js ./gatsby-node.js ./index.js",
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
     "postversion": "git push && git push --tags",

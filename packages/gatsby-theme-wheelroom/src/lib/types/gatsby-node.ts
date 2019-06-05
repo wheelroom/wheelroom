@@ -1,4 +1,4 @@
-import { ModelInfo } from '../lib/model-api/types'
+import { ModelInfo } from '../model-api/types'
 
 export interface Options {
   defaultLocale: string
@@ -40,6 +40,8 @@ export interface Data {
   }
   /** Array with all configured models */
   models?: ModelInfo[]
+  /** Models dictionary by type key */
+  modelsByType?: any
   /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
   /** The plugin configuration options */

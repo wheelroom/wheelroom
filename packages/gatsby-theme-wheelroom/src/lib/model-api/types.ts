@@ -28,4 +28,6 @@ export interface ModelInfo {
   queryPath: string
   /** Package name in wich the model is defined */
   resolve: string
+  /** Type of the model */
+  type: 'page' | 'section' | 'global' | 'subPage'
 }

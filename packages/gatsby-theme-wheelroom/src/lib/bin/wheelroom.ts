@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import * as dotenv from 'dotenv'
-import { applyModels, getModelContext, getModels } from '../lib/model-api'
+import { applyModels, getModelContext, getModels } from '../model-api'
 
 const dotEnvResult = dotenv.config()
 if (dotEnvResult.error) {

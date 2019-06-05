@@ -1,40 +1,27 @@
 import * as path from 'path'
-import { ContentfulObject, Context, Data, GetContext } from './types'
-import { getGatsbyConfig, getModelConfig } from '../lib/config/config'
+import { getGatsbyConfig, getModelConfig } from './lib/config/config'
+import { ModelInfo } from './lib/model-api/types'
+import {
+  ContentfulObject,
+  Context,
+  Data,
+  GetContext,
+} from './lib/types/gatsby-node'
 
-// TODO: Refactor into using new config
-
-const getPages = async (data: Data) => {
-  const result = await data.graphql(data.model.query)
-
-  if (!result.data) {
-    throw new Error('Could not find any pages at Contentful')
-  }
-  data.pages = result.data.page.edges
-}
-
-const getGlobals = async (data: Data) => {
+const runQueries = async (data: Data) => {
   await Promise.all(
-    Object.entries(data.options.globals).map(
-      async ([globalsName, globalsQuery]) => {
-        const query =
-          globalsName === DEFAULT_GLOBALS && globalsQuery === ''
-            ? globalsPartQuery
-            : globalsQuery
-
-        const result = await data.graphql(query)
-        data.globals[globalsName] = result.data[globalsName].edges
-      }
-    )
-  )
-}
-
-const getSubPageContent = async (data: Data) => {
-  await Promise.all(
-    Object.entries(data.options.globals).map(
-      async ([subPageName, subPageQuery]) => {
-        const result = await data.graphql(subPageQuery)
-        data.subPageContent[subPageName] = result.data[subPageName].edges
+    Object.entries(data.modelsByType).map(
+      async ([modelType, model]: [string, any]) => {
+        const result = await data.graphql(model.query)
+        if (!result.data) {
+          throw new Error(
+            `Could not find any ${
+              model.name
+            } of type ${modelType} at Contentful, please check the model query
+            `
+          )
+        }
+        data[model.type][model.name] = result.data[model.name].edges
       }
     )
   )
@@ -152,6 +139,20 @@ const createSubPages = (data: Data) => {
   })
 }
 
+const getModelsByType = (models: ModelInfo[]) => {
+  return models.reduce(
+    (obj, model) => {
+      if (obj[model.type]) {
+        obj[model.type].push(model)
+      } else {
+        obj[model.type] = [model]
+      }
+      return obj
+    },
+    {} as any
+  )
+}
+
 exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
 
@@ -167,12 +168,12 @@ exports.createPages = async ({ graphql, actions }: any, options: any) => {
     subPageContent: {},
   } as Data
 
+  // We will process models by type, so we make them available that way
   const gatsbyConfig = await getGatsbyConfig()
   data.models = getModelConfig(gatsbyConfig)
+  data.modelsByType = getModelsByType(data.models)
 
-  await getPages(data)
-  await getGlobals(data)
-  await getSubPageContent(data)
+  await runQueries(data)
 
   buildNamedPaths(data)
   createPages(data)

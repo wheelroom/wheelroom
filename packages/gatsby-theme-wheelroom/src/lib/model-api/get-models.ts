@@ -15,7 +15,6 @@ export const getModels = async (context: Context) => {
 
         const importedQuery = await import(model.queryPath)
         model.query = importedQuery.default
-
       } catch (error) {
         console.log(error)
       }

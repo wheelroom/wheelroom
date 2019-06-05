@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { getVariation } from '../../lib/variations/variations'
+import { getVariation } from '../../variations/variations'
 import { variations } from './variations'
 
 export interface ArticleContentProps {
