@@ -3,7 +3,7 @@ import {
   getModelConfig,
   getPackageDir,
 } from '../config/config'
-import { Context, ModelInfo } from './types'
+import { Context, ModelInfo } from '../types/model-api'
 
 export const getModels = async (context: Context) => {
   context.models = []

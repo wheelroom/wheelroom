@@ -1,29 +1,29 @@
 import * as path from 'path'
 import { getGatsbyConfig, getModelConfig } from './lib/config/config'
-import { ModelInfo } from './lib/model-api/types'
 import {
   ContentfulObject,
   Context,
   Data,
   GetContext,
 } from './lib/types/gatsby-node'
+import { ModelInfo } from './lib/types/model-api'
 
 const runQueries = async (data: Data) => {
   await Promise.all(
-    Object.entries(data.modelsByType).map(
-      async ([modelType, model]: [string, any]) => {
+    data.models.map(async (model: ModelInfo) => {
+      if (['glboal', 'subPath', 'page'].includes(model.type)) {
         const result = await data.graphql(model.query)
         if (!result.data) {
           throw new Error(
-            `Could not find any ${
-              model.name
-            } of type ${modelType} at Contentful, please check the model query
+            `Could not find any ${model.name} of type ${
+              model.type
+            } at Contentful, please check the model query
             `
           )
         }
         data[model.type][model.name] = result.data[model.name].edges
       }
-    )
+    })
   )
 }
 
@@ -36,7 +36,7 @@ const getDefaultLocale = (data: Data): string => {
 }
 
 const buildNamedPaths = (data: Data) => {
-  data.pages.forEach((edge: any) => {
+  data.page.page.forEach((edge: any) => {
     const page = edge.node
     if (!(page.pathName in data.namedPaths)) {
       data.namedPaths[page.pathName] = { path: '' }
@@ -62,7 +62,7 @@ const getContext = ({ data, page, subPageContent }: GetContext) => {
   } as Context
 
   // Add ids of Globals
-  Object.entries(data.globals).forEach(([globalsName, globals]) => {
+  Object.entries(data.global).forEach(([globalsName, globals]) => {
     globals.forEach((globalsItem: ContentfulObject) => {
       const globalsLocale = globalsItem.node.node_locale
         .split('-')[0]
@@ -82,7 +82,7 @@ const getContext = ({ data, page, subPageContent }: GetContext) => {
 }
 
 const createPages = (data: Data) => {
-  data.pages.forEach(edge => {
+  data.page.page.forEach(edge => {
     const page = edge.node
     const locale = getLocale(page)
     const localizedBasePath = data.namedPaths[page.pathName][locale]
@@ -102,7 +102,7 @@ const createPages = (data: Data) => {
 }
 
 const createSubPages = (data: Data) => {
-  data.pages.forEach(edge => {
+  data.page.page.forEach(edge => {
     const page = edge.node
     const locale = getLocale(page)
     const localizedBasePath = data.namedPaths[page.pathName][locale]
@@ -118,7 +118,7 @@ const createSubPages = (data: Data) => {
     const localesDone: {
       [localeName: string]: boolean
     } = {}
-    data.subPageContent[page.pathName].forEach(subPageContent => {
+    data.subPage[page.pathName].forEach(subPageContent => {
       const subPageLocale = subPageContent.node_locale || getDefaultLocale(data)
       if (subPageLocale !== locale || subPageLocale in localesDone) {
         return
@@ -139,39 +139,23 @@ const createSubPages = (data: Data) => {
   })
 }
 
-const getModelsByType = (models: ModelInfo[]) => {
-  return models.reduce(
-    (obj, model) => {
-      if (obj[model.type]) {
-        obj[model.type].push(model)
-      } else {
-        obj[model.type] = [model]
-      }
-      return obj
-    },
-    {} as any
-  )
-}
-
 exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
 
   const data = {
     createPage,
-    globals: {},
+    global: {},
     graphql,
     namedPaths: {},
     options,
+    page: {},
     pageTemplate:
       options.pageTemplate || path.resolve('../templates/page-template.tsx'),
-    pages: [],
-    subPageContent: {},
+    subPage: {},
   } as Data
 
-  // We will process models by type, so we make them available that way
   const gatsbyConfig = await getGatsbyConfig()
   data.models = getModelConfig(gatsbyConfig)
-  data.modelsByType = getModelsByType(data.models)
 
   await runQueries(data)
 

@@ -1,5 +1,5 @@
 import * as contentful from 'contentful-management'
-import { Context } from './types'
+import { Context } from '../types/model-api'
 
 const getClient = async (context: Context) => {
   if (context.contentfulClient) {

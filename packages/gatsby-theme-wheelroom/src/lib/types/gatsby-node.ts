@@ -1,4 +1,4 @@
-import { ModelInfo } from '../model-api/types'
+import { ModelInfo } from './model-api'
 
 export interface Options {
   defaultLocale: string
@@ -30,24 +30,24 @@ export interface NamedPaths {
 }
 
 export interface Data {
-  /** Each key contains the results of a globals query */
-  globals: {
+  /** Each key contains the results of a global query */
+  global?: {
     [globalName: string]: ContentfulObject[]
   }
-  /** Each key contains the results of a subPageContent query */
-  subPageContent: {
+  /** Each key contains the results of a subPage query */
+  subPage?: {
     [contentName: string]: ContentfulObject[]
+  }
+  /** Each key contains the results of a page query */
+  page: {
+    [pageName: string]: ContentfulObject[]
   }
   /** Array with all configured models */
   models?: ModelInfo[]
-  /** Models dictionary by type key */
-  modelsByType?: any
   /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
   /** The plugin configuration options */
   options: Options
-  /** Results of the page query */
-  pages: ContentfulObject[]
   /** Path to the page template used to generate each page */
   pageTemplate: string
   createPage(params: object): Promise<any>
