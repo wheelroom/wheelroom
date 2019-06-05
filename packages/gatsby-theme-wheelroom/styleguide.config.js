@@ -1,5 +1,5 @@
 module.exports = {
-  components: 'src/lib/components/**/*.{js,jsx,ts,tsx}',
+  components: 'src/components/**/*.{js,jsx,ts,tsx}',
   propsParser: require('react-docgen-typescript').parse,
   ignore: [
     '**/__tests__/**',

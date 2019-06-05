@@ -7,9 +7,9 @@
     "moduleResolution": "node",
     "outDir": "./",
     "removeComments": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
-    "target": "es6",
-    "resolveJsonModule": true
+    "target": "es6"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": []
