@@ -15,6 +15,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.0.67",
     "gatsby-source-filesystem": "2.0.38",
+    "gatsby-theme-carbon": "1.0.1",
     "gatsby-theme-wheelroom": "0.0.2",
     "gatsby-transformer-json": "2.1.11",
     "react": "16.8.6",

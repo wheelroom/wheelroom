@@ -1,6 +1,14 @@
 packageJson = require('./package.json')
 
 module.exports = {
+  // __experimentalThemes: [
+  //   {
+  //     resolve: 'gatsby-theme-carbon',
+  //     options: {
+  //       additionalFontWeights: ['200', '200i'],
+  //     },
+  //   },
+  // ],
   __experimentalThemes: [
     {
       options: {
