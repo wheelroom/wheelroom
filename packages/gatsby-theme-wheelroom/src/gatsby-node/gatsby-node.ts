@@ -1,10 +1,11 @@
 import * as path from 'path'
 import { ContentfulObject, Context, Data, GetContext } from './types'
+import { getGatsbyConfig, getModelConfig } from '../lib/config/config'
 
 // TODO: Refactor into using new config
 
 const getPages = async (data: Data) => {
-  const result = await data.graphql(pageQuery)
+  const result = await data.graphql(data.model.query)
 
   if (!result.data) {
     throw new Error('Could not find any pages at Contentful')
@@ -165,6 +166,9 @@ exports.createPages = async ({ graphql, actions }: any, options: any) => {
     pages: [],
     subPageContent: {},
   } as Data
+
+  const gatsbyConfig = await getGatsbyConfig()
+  data.models = getModelConfig(gatsbyConfig)
 
   await getPages(data)
   await getGlobals(data)

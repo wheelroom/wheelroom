@@ -1,3 +1,5 @@
+import { ModelInfo } from '../lib/model-api/types'
+
 export interface Options {
   defaultLocale: string
   appTheme: string
@@ -28,21 +30,23 @@ export interface NamedPaths {
 }
 
 export interface Data {
-  // Each key contains the results of a globals query
+  /** Each key contains the results of a globals query */
   globals: {
     [globalName: string]: ContentfulObject[]
   }
-  // Each key contains the results of a subPageContent query
+  /** Each key contains the results of a subPageContent query */
   subPageContent: {
     [contentName: string]: ContentfulObject[]
   }
-  // Contains for each named path: path: raw path, xx: localized xx path
+  /** Array with all configured models */
+  models?: ModelInfo[]
+  /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
-  // The plugin configuration options
+  /** The plugin configuration options */
   options: Options
-  // Results of the page query
+  /** Results of the page query */
   pages: ContentfulObject[]
-  // Path to the page template used to generate each page
+  /** Path to the page template used to generate each page */
   pageTemplate: string
   createPage(params: object): Promise<any>
   graphql(query: string): Promise<any>

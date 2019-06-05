@@ -184,7 +184,7 @@ export const applyModel = async (context: Context) => {
 
 export const applyModels = async (context: Context) => {
   for (const model of context.models) {
-    console.log('Applying model', model.modelName, '=============')
+    console.log('Applying model', model.name, '=============')
     context.contentType = null
     context.currentModel = model.model
     context.editorInterface = null
