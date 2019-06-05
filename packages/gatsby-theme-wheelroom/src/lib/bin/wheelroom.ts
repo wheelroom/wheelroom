@@ -9,16 +9,21 @@ if (dotEnvResult.error) {
   throw dotEnvResult.error
 }
 
-const main = async () => {
-  console.log('hang in there!')
-  const argv = yargs.command('serve', 'Start the server.').argv
-  console.log('argv', argv)
-
+const migrate = async () => {
   const context = getModelContext()
   await getModels(context)
   await applyModels(context)
 }
 
-main().then(() => {
-  console.log('done')
-})
+const params = yargs
+  .command({
+    command: 'migrate',
+    describe: 'migrate all configured models',
+    handler: migrate,
+  })
+  .command({
+    command: '*',
+    handler: () => {
+      console.log('Use --help flag for options')
+    },
+  }).argv

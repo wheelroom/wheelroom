@@ -1,4 +1,8 @@
-import { getGatsbyConfig, getModelConfig } from '../config/config'
+import {
+  getGatsbyConfig,
+  getModelConfig,
+  getPackageDir,
+} from '../config/config'
 import { Context, ModelInfo } from './types'
 
 export const getModels = async (context: Context) => {
@@ -10,11 +14,17 @@ export const getModels = async (context: Context) => {
     context.models.map(async model => {
       try {
         // TODO: This needs error checking, reporting and documentation
-        const importedModel = await import(model.modelPath)
+        console.log(`Importing model ${model.name} from ${model.resolve}`)
+        const modelPath = getPackageDir(model.resolve) + model.modelPath
+        const importedModel = await import(modelPath)
         model.model = importedModel.default
 
-        const importedQuery = await import(model.queryPath)
-        model.query = importedQuery.default
+        if (['glboal', 'subPath', 'page'].includes(model.type)) {
+          console.log(`Importing query ${model.name} from ${model.resolve}`)
+          const queryPath = getPackageDir(model.resolve) + model.queryPath
+          const importedQuery = await import(queryPath)
+          model.query = importedQuery.default
+        }
       } catch (error) {
         console.log(error)
       }
