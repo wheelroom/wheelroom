@@ -15,7 +15,7 @@ export const getModelConfigs = async () => {
         const importedModel = await import(modelPath)
         model.model = importedModel.default
 
-        if (['glboal', 'subPath', 'page'].includes(model.type)) {
+        if (['global', 'subPage', 'page'].includes(model.type)) {
           console.log(`Importing query ${model.name} from ${model.resolve}`)
           const queryPath = getPackageDir(model.resolve) + model.queryPath
           const importedQuery = await import(queryPath)
