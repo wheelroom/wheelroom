@@ -2,11 +2,11 @@
 
 import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
-import { getModelConfigs } from '../config/get-model-configs'
-import { applyModels } from '../model-api/apply-models'
-import { Context } from '../types/context'
+import { getModelConfigs } from '../lib/config/get-model-configs'
+import { applyModels } from '../lib/model-api/apply-models'
+import { Context } from '../lib/types/context'
 
-import { createContent } from '../model-api/create-content'
+import { createContent } from '../lib/model-api/create-content'
 
 const dotEnvResult = dotenv.config()
 if (dotEnvResult.error) {
