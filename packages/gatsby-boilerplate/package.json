@@ -55,6 +55,7 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "content": "gatsby-theme-wheelroom content",
     "develop": "gatsby develop",
     "migrate": "gatsby-theme-wheelroom migrate",
     "postversion": "git push && git push --tags",
