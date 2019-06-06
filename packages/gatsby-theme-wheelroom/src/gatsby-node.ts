@@ -6,11 +6,11 @@ import {
   Data,
   GetContext,
 } from './lib/types/gatsby-node'
-import { ModelInfo } from './lib/types/model-api'
+import { ModelConfig } from './lib/types/config'
 
 const runQueries = async (data: Data) => {
   await Promise.all(
-    data.models.map(async (model: ModelInfo) => {
+    data.models.map(async (model: ModelConfig) => {
       if (['glboal', 'subPath', 'page'].includes(model.type)) {
         const result = await data.graphql(model.query)
         if (!result.data) {

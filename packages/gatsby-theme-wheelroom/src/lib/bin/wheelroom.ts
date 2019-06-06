@@ -2,7 +2,9 @@
 
 import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
-import { applyModels, getModelContext, getModels } from '../model-api'
+import { getModelConfigs } from '../config/get-model-configs'
+import { applyModels } from '../model-api/apply-models'
+import { Context } from '../types/context'
 
 import { createContent } from '../model-api/create-content'
 
@@ -12,14 +14,16 @@ if (dotEnvResult.error) {
 }
 
 const migrate = async () => {
-  const context = getModelContext()
-  await getModels(context)
+  const context = {
+    modelConfigs: await getModelConfigs(),
+  } as Context
   await applyModels(context)
 }
 
 const content = async () => {
-  const context = getModelContext()
-  await getModels(context)
+  const context = {
+    modelConfigs: await getModelConfigs(),
+  } as Context
   await createContent(context)
 }
 

@@ -1,17 +1,13 @@
-import {
-  getGatsbyConfig,
-  getModelConfig,
-  getPackageDir,
-} from '../config/config'
-import { Context, ModelInfo } from '../types/model-api'
+import { ModelConfig } from '../types/config'
+import { Model } from '../types/model'
+import { getGatsbyConfig, getModelConfig, getPackageDir } from './config'
 
-export const getModels = async (context: Context) => {
-  context.models = []
+export const getModelConfigs = async () => {
   const gatsbyConfig = await getGatsbyConfig()
-  context.models = getModelConfig(gatsbyConfig)
+  const modelConfigs = getModelConfig(gatsbyConfig)
 
   await Promise.all(
-    context.models.map(async (model: ModelInfo) => {
+    modelConfigs.map(async (model: ModelConfig) => {
       try {
         // TODO: This needs error checking, reporting and documentation
         console.log(`Importing model ${model.name} from ${model.resolve}`)
@@ -30,4 +26,5 @@ export const getModels = async (context: Context) => {
       }
     })
   )
+  return modelConfigs
 }

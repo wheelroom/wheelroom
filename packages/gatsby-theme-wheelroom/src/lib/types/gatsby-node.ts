@@ -1,4 +1,4 @@
-import { ModelInfo } from './model-api'
+import { ModelConfig } from './config'
 
 export interface Options {
   defaultLocale: string
@@ -43,7 +43,7 @@ export interface Data {
     [pageName: string]: ContentfulObject[]
   }
   /** Array with all configured models */
-  models?: ModelInfo[]
+  models?: ModelConfig[]
   /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
   /** The plugin configuration options */
