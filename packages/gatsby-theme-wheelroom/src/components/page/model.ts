@@ -14,7 +14,7 @@ export default {
       specs: {
         localized: true,
         name: 'Navigation title',
-        required: false,
+        required: true,
         type: 'Symbol',
       },
       widgetId: 'singleLine',
@@ -54,11 +54,7 @@ export default {
       widgetId: 'slugEditor',
     },
     sections: {
-      initialContent: {
-        linkTo: 'articleSection',
-        linkType: 'section',
-        type: 'link',
-      },
+      initialContent: 'articleSection',
       settings: {
         helpText: 'Select sections',
       },

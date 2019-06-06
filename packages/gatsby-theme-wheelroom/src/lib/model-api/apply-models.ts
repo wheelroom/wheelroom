@@ -18,7 +18,7 @@ const finish = async (context: Context) => {
 }
 
 const handleError = error => {
-  console.error(error.message)
+  console.log(error.message)
 }
 
 export const applyModel = async (context: Context) => {

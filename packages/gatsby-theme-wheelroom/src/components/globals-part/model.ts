@@ -63,7 +63,7 @@ export default {
       widgetId: 'singleLine',
     },
     siteKeywords: {
-      initialContent: 'demo, site, keywords',
+      initialContent: ['demo', 'site', 'keywords'],
       settings: {
         helpText: 'Global site keywords used for SEO',
       },

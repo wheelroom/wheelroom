@@ -15,7 +15,7 @@ export default {
       },
     },
     author: {
-      initialContent: 'Demo article author',
+      initialContent: 'Demo article author Jan Kees',
       settings: {
         helpText: 'Author of the article',
       },
@@ -27,7 +27,7 @@ export default {
       widgetId: 'singleLine',
     },
     date: {
-      initialContent: '1-1-2019',
+      initialContent: '2019-06-03T00:00+01:00',
       specs: {
         name: 'Date',
         required: true,
@@ -35,7 +35,6 @@ export default {
       },
     },
     image: {
-      initialContent: null,
       specs: {
         linkType: 'Asset',
         name: 'Image',

@@ -1,22 +1,22 @@
-export interface Link {
-  linkTo: string
-  linkType: string
-  type: string
-}
-
 export interface Field {
   /** Wheelroom content used to create a demo entry */
-  initialContent?: string | Link
+  initialContent?: string | string[]
   /** Contentful editor settings */
   settings?: {
     helpText: string
   }
   /** Contentful field specs */
   specs: {
+    /** Items for field type Array */
+    items?: {
+      /** LinkType for itemType Link */
+      linkType?: 'Entry'
+      type: 'Link' | 'Symbol'
+    }
     localized?: boolean
     name: string
     required?: boolean
-    type: string
+    type: 'Symbol' | 'Array' | 'RichText' | 'Link' | 'Date'
     validations?: any[]
   }
   /** Contentful editor widget id */

@@ -8,6 +8,10 @@ export interface Context {
   contentType?: any
   /** Current model being applied */
   currentModel: Model
+  /** Contentful demo entry */
+  entry?: any
+  /** Contentful field data for demo entry */
+  fields?: any
   /** Contentful editorInterface object */
   editorInterface?: any
   /** Contentful environment object */

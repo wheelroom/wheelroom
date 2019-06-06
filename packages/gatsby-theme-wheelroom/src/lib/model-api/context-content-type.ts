@@ -1,4 +1,5 @@
 import { Context } from '../types/context'
+import { Field } from '../types/model'
 
 export const getContentType = async (context: Context) => {
   try {
@@ -63,7 +64,7 @@ const getModelVersion = (contentType: any): any => {
 const getApiFields = (context: Context): any[] => {
   const apiFields = []
   Object.entries(context.currentModel.fields).forEach(
-    ([fieldId, field]: any) => {
+    ([fieldId, field]: [string, Field]) => {
       console.log('Adding field', fieldId)
       const apiField = { id: fieldId }
       Object.entries(field.specs).forEach(([specName, specValue]) => {
