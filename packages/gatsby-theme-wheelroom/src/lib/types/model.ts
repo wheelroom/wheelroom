@@ -6,7 +6,7 @@ export interface Link {
 
 export interface Field {
   /** Wheelroom content used to create a demo entry */
-  initialContent: string | Link
+  initialContent?: string | Link
   /** Contentful editor settings */
   settings?: {
     helpText: string

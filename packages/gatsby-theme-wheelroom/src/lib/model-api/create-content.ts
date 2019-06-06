@@ -12,7 +12,9 @@ const handleError = error => {
 
 const getEntry = async (context: Context) => {
   const entry = await context.space.getEntry('7x9nXQer0V3i5hGxEoiUsm')
-  console.log(entry)
+  const formatted = JSON.stringify(entry, null, 2)
+
+  console.log(formatted)
 }
 
 export const createContentForModel = async (context: Context) => {
