@@ -4,39 +4,51 @@ import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
 import { getModelConfigs } from '../lib/config/get-model-configs'
 import { applyModels } from '../lib/model-api/apply-models'
-import { Context } from '../lib/types/context'
-
 import { createContent } from '../lib/model-api/create-content'
+import { deleteContent } from '../lib/model-api/delete-content'
+import { Context } from '../lib/types/context'
 
 const dotEnvResult = dotenv.config()
 if (dotEnvResult.error) {
   throw dotEnvResult.error
 }
 
-const migrate = async () => {
+const cmdApplyModels = async () => {
   const context = {
     modelConfigs: await getModelConfigs(),
   } as Context
   await applyModels(context)
 }
 
-const content = async () => {
+const cmdCreateContent = async () => {
   const context = {
     modelConfigs: await getModelConfigs(),
   } as Context
   await createContent(context)
 }
 
+const cmdDeleteContent = async () => {
+  const context = {
+    modelConfigs: await getModelConfigs(),
+  } as Context
+  await deleteContent(context)
+}
+
 const params = yargs
   .command({
-    command: 'migrate',
+    command: 'apply-models',
     describe: 'migrate all configured models',
-    handler: migrate,
+    handler: cmdApplyModels,
   })
   .command({
-    command: 'content',
+    command: 'create-content',
     describe: 'create demo content for configured models',
-    handler: content,
+    handler: cmdCreateContent,
+  })
+  .command({
+    command: 'delete-content',
+    describe: 'remove all demo content for configured models',
+    handler: cmdDeleteContent,
   })
   .command({
     command: '*',

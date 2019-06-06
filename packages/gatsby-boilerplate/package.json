@@ -54,10 +54,11 @@
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"
   },
   "scripts": {
+    "apply-models": "gatsby-theme-wheelroom apply-models",
     "build": "gatsby build",
-    "content": "gatsby-theme-wheelroom content",
+    "create-content": "gatsby-theme-wheelroom create-content",
+    "delete-content": "gatsby-theme-wheelroom delete-content",
     "develop": "gatsby develop",
-    "migrate": "gatsby-theme-wheelroom migrate",
     "postversion": "git push && git push --tags",
     "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1"
