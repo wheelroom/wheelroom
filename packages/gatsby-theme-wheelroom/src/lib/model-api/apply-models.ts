@@ -1,5 +1,6 @@
 import * as contentful from 'contentful-management'
 import { Context } from '../types/model-api'
+import { Field } from '../types/model'
 
 const getClient = async (context: Context) => {
   if (context.contentfulClient) {
@@ -141,7 +142,7 @@ const updateEditorInterface = async (context: Context) => {
     return context
   }
   context.editorInterface.controls.forEach(control => {
-    const [modelFieldId, modelField] = getModelFieldById(
+    const [modelFieldId, modelField]: [any, Field] = getModelFieldById(
       context,
       control.fieldId
     )

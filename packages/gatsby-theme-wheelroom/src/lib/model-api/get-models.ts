@@ -11,7 +11,7 @@ export const getModels = async (context: Context) => {
   context.models = getModelConfig(gatsbyConfig)
 
   await Promise.all(
-    context.models.map(async model => {
+    context.models.map(async (model: ModelInfo) => {
       try {
         // TODO: This needs error checking, reporting and documentation
         console.log(`Importing model ${model.name} from ${model.resolve}`)

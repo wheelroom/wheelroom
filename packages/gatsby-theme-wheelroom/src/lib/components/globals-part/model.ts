@@ -1,8 +1,12 @@
+import { Model } from '../../types/model'
+
 export default {
+  contentBackend: 'contentful',
   description: 'Globals part',
   displayField: 'title',
   fields: {
     addressLine1: {
+      initialContent: 'Demo address line 1',
       specs: {
         name: 'Address line 1',
         required: true,
@@ -10,6 +14,7 @@ export default {
       },
     },
     addressLine2: {
+      initialContent: 'Demo address line 2',
       specs: {
         name: 'Address line 2',
         required: true,
@@ -17,6 +22,7 @@ export default {
       },
     },
     emailAddress: {
+      initialContent: 'Demo email address',
       specs: {
         name: 'Email address',
         required: true,
@@ -24,6 +30,7 @@ export default {
       },
     },
     heading: {
+      initialContent: 'Demo heading',
       specs: {
         name: 'Heading',
         required: true,
@@ -31,6 +38,7 @@ export default {
       },
     },
     siteAuthor: {
+      initialContent: 'Demo site author',
       settings: {
         helpText: 'The global site author used for SEO',
       },
@@ -42,6 +50,7 @@ export default {
       widgetId: 'singleLine',
     },
     siteDescription: {
+      initialContent: 'Demo site description',
       settings: {
         helpText: 'The global site description used for SEO',
       },
@@ -54,6 +63,7 @@ export default {
       widgetId: 'singleLine',
     },
     siteKeywords: {
+      initialContent: 'demo, site, keywords',
       settings: {
         helpText: 'Global site keywords used for SEO',
       },
@@ -69,6 +79,7 @@ export default {
       widgetId: 'tagEditor',
     },
     siteTitle: {
+      initialContent: 'Demo site title',
       settings: {
         helpText: 'The global site title used for SEO',
       },
@@ -81,6 +92,7 @@ export default {
       widgetId: 'singleLine',
     },
     title: {
+      initialContent: 'Demo globals title',
       specs: {
         name: 'Title',
         required: true,
@@ -91,4 +103,5 @@ export default {
   modelVersion: '1.0.0',
   name: 'Globals part',
   type: 'globalsPart',
-}
+  wheelroomType: 'page',
+} as Model

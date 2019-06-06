@@ -1,9 +1,13 @@
+import { Model } from '../types/model'
+
 export default {
+  contentBackend: 'contentful',
   description:
     'A page defines routes and references to components on the page.',
   displayField: 'title',
   fields: {
     navigationTitle: {
+      initialContent: 'Demo navigation title',
       settings: {
         helpText: "Title used for buttons and in navigation menu's",
       },
@@ -16,6 +20,7 @@ export default {
       widgetId: 'singleLine',
     },
     path: {
+      initialContent: '/',
       settings: {
         helpText: 'Used for named routes togehter with path name',
       },
@@ -32,6 +37,7 @@ export default {
       widgetId: 'slugEditor',
     },
     pathName: {
+      initialContent: 'demo',
       settings: {
         helpText: 'Used for named routes togehter with path',
       },
@@ -48,6 +54,11 @@ export default {
       widgetId: 'slugEditor',
     },
     sections: {
+      initialContent: {
+        linkTo: 'articleSection',
+        linkType: 'section',
+        type: 'link',
+      },
       settings: {
         helpText: 'Select sections',
       },
@@ -63,6 +74,7 @@ export default {
       widgetId: 'entryLinksEditor',
     },
     seoDescription: {
+      initialContent: 'Demo SEO description',
       settings: {
         helpText: 'Description used by search engines',
       },
@@ -82,6 +94,7 @@ export default {
       widgetId: 'singleLine',
     },
     seoTitle: {
+      initialContent: 'Demo SEO title',
       settings: {
         helpText: 'Title used by search engines',
       },
@@ -93,6 +106,7 @@ export default {
       widgetId: 'singleLine',
     },
     title: {
+      initialContent: 'Demo page title',
       settings: {
         helpText: 'Never displayed, only used for listing within Contentful',
       },
@@ -107,4 +121,5 @@ export default {
   modelVersion: '1.0.0',
   name: 'Page',
   type: 'page',
-}
+  wheelroomType: 'page',
+} as Model

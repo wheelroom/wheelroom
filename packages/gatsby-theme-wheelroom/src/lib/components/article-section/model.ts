@@ -1,8 +1,13 @@
+import { Model } from '../../types/model'
+import { variations } from './variations'
+
 export default {
+  contentBackend: 'contentful',
   description: 'Article section',
   displayField: 'title',
   fields: {
     articleText: {
+      initialContent: 'Demo article text',
       specs: {
         localized: true,
         name: 'Article text',
@@ -11,6 +16,7 @@ export default {
       },
     },
     title: {
+      initialContent: 'Demo article title',
       settings: {
         helpText: 'Never displayed, only used for listing within Contentful',
       },
@@ -23,6 +29,7 @@ export default {
       widgetId: 'singleLine',
     },
     variation: {
+      initialContent: 'Inline article text, specific to this section',
       settings: {
         helpText: 'Select section-opener',
       },
@@ -32,10 +39,7 @@ export default {
         type: 'Symbol',
         validations: [
           {
-            in: [
-              'Linked article text, derived from slug in url',
-              'Inline article text, specific to this section',
-            ],
+            in: Object.keys(variations),
           },
         ],
       },
@@ -45,4 +49,5 @@ export default {
   modelVersion: '1.0.0',
   name: 'Article section',
   type: 'articleSection',
-}
+  wheelroomType: 'page',
+} as Model

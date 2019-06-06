@@ -1,10 +1,12 @@
+import { Model } from './model'
+
 export interface Context {
   /** Contentful Management Client */
   contentfulClient?: any
   /** Contentful contentType object */
   contentType?: any
   /** Current model being applied */
-  currentModel: any
+  currentModel: Model
   /** Contentful editorInterface object */
   editorInterface?: any
   /** Contentful environment object */
@@ -17,7 +19,7 @@ export interface Context {
 
 export interface ModelInfo {
   /** Model object to be applied, read from modelPath */
-  model: any
+  model: Model
   /** Path to model definition */
   modelPath: string
   /** Name of the model */

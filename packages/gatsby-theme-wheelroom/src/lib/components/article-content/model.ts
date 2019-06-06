@@ -1,10 +1,13 @@
+import { Model } from '../../types/model'
 import { variations } from './variations'
 
 export default {
+  contentBackend: 'contentful',
   description: 'Article content',
   displayField: 'title',
   fields: {
     articleText: {
+      initialContent: 'Demo article text',
       specs: {
         name: 'Article text',
         required: true,
@@ -12,6 +15,7 @@ export default {
       },
     },
     author: {
+      initialContent: 'Demo article author',
       settings: {
         helpText: 'Author of the article',
       },
@@ -23,6 +27,7 @@ export default {
       widgetId: 'singleLine',
     },
     date: {
+      initialContent: '1-1-2019',
       specs: {
         name: 'Date',
         required: true,
@@ -30,6 +35,7 @@ export default {
       },
     },
     image: {
+      initialContent: null,
       specs: {
         linkType: 'Asset',
         name: 'Image',
@@ -43,6 +49,7 @@ export default {
       },
     },
     slug: {
+      initialContent: 'demo-slug',
       settings: {
         helpText: 'Slug for the article',
       },
@@ -59,6 +66,7 @@ export default {
       widgetId: 'slugEditor',
     },
     subTitle: {
+      initialContent: 'Demo article sub title',
       settings: {
         helpText: 'Sub title of the article',
       },
@@ -70,6 +78,7 @@ export default {
       widgetId: 'singleLine',
     },
     title: {
+      initialContent: 'Demo article title',
       settings: {
         helpText: 'Title of the article',
       },
@@ -81,6 +90,7 @@ export default {
       widgetId: 'singleLine',
     },
     variation: {
+      initialContent: 'No variations yet',
       settings: {
         helpText: 'Select variation',
       },
@@ -100,4 +110,5 @@ export default {
   modelVersion: '1.0.0',
   name: 'Article content',
   type: 'articleContent',
-}
+  wheelroomType: 'page',
+} as Model

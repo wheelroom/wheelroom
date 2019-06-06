@@ -1,3 +1,5 @@
+import { ModelInfo } from '../types/model-api'
+
 export const getAppDir = () => {
   return process.env.PWD
 }
@@ -16,8 +18,8 @@ export const getGatsbyConfig = async () => {
   return config
 }
 
-export const getModelConfig = (config: any) => {
-  const modelConfigs = []
+export const getModelConfig = (config: any): ModelInfo[] => {
+  const modelConfigs = [] as ModelInfo[]
   config.__experimentalThemes.forEach(theme => {
     theme.options.models.forEach(model => {
       modelConfigs.push(Object.assign(model, { resolve: theme.resolve }))
