@@ -12,7 +12,7 @@
       "not op_mini all"
     ]
   },
-  "bin": "lib/bin/wheelroom.js",
+  "bin": "bin/wheelroom.js",
   "bugs": {
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
@@ -73,7 +73,7 @@
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:clean": "rm -rf ./lib/* ./gatsby-config.* ./gatsby-node.* ./index.*",
+    "build:clean": "rm -rf ./lib ./components ./bin ./gatsby-config.* ./gatsby-node.* ./index.*",
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
     "postversion": "git push && git push --tags",

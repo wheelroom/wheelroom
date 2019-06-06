@@ -1,14 +1,6 @@
 packageJson = require('./package.json')
 
 module.exports = {
-  // __experimentalThemes: [
-  //   {
-  //     resolve: 'gatsby-theme-carbon',
-  //     options: {
-  //       additionalFontWeights: ['200', '200i'],
-  //     },
-  //   },
-  // ],
   __experimentalThemes: [
     {
       options: {
@@ -34,8 +26,8 @@ module.exports = {
           },
           {
             name: 'page',
-            modelPath: '/lib/page/model.js',
-            queryPath: '/lib/page/query.js',
+            modelPath: '/lib/components/page/model.js',
+            queryPath: '/lib/components/page/query.js',
             type: 'page',
           },
         ], // pageTemplate: path.resolve('src/page-template.tsx'),

@@ -9,6 +9,7 @@ module.exports = {
     '**/*.spec.{js,jsx,ts,tsx}',
     '**/*.test.{js,jsx,ts,tsx}',
     '**/model.ts',
+    '**/query.ts',
     '**/variations.ts',
   ],
 }
