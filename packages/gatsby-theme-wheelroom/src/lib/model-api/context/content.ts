@@ -127,3 +127,19 @@ export const publishEntry = async (context: Context) => {
   console.log('Publishing entry')
   await context.entry.publish()
 }
+
+export const unPublishEntry = async (context: Context) => {
+  if (!context.entry) {
+    return
+  }
+  console.log('Unpublishing entry')
+  context.entry = await context.entry.unpublish()
+}
+
+export const deleteEntry = async (context: Context) => {
+  if (!context.entry) {
+    return
+  }
+  console.log('Deleting entry')
+  context.entry = await context.entry.delete()
+}

@@ -64,3 +64,19 @@ export const updateAsset = async (context: Context) => {
 export const publishAsset = async (context: Context) => {
   await context.asset.publish()
 }
+
+export const unPublishAsset = async (context: Context) => {
+  if (!context.asset) {
+    return
+  }
+  console.log('Unpublishing asset')
+  context.asset = await context.asset.unpublish()
+}
+
+export const removeAsset = async (context: Context) => {
+  if (!context.asset) {
+    return
+  }
+  console.log('Deleting asset')
+  context.asset = await context.asset.delete()
+}

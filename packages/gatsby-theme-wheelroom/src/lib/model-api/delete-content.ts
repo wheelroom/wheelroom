@@ -1,7 +1,7 @@
 import { Context } from '../types/context'
+import { deleteEntry, getEntry, unPublishEntry } from './context/content'
 import { getClient, getEnvironment, getSpace } from './context/init'
-
-const demoEntryPostfix = 'DemoEntry'
+import { deleteAsset } from './delete-asset'
 
 const finish = async (context: Context) => {
   console.log('Succesfully deleted content for:', context.currentModel.type)
@@ -10,39 +10,6 @@ const finish = async (context: Context) => {
 
 const handleError = error => {
   console.log(error.message)
-}
-
-const getEntry = async (context: Context) => {
-  console.log('Getting entry')
-  try {
-    context.entry = await context.space.getEntry(
-      context.currentModel.type + demoEntryPostfix
-    )
-  } catch (error) {
-    console.log(
-      'Could not find entry',
-      context.currentModel.type + demoEntryPostfix
-    )
-    context.entry = null
-  }
-}
-
-const unPublishEntry = async (context: Context) => {
-  if (!context.entry) {
-    return
-  }
-  console.log('Unpublishing entry')
-  context.entry = await context.entry.unpublish()
-}
-
-const deleteEntry = async (context: Context) => {
-  if (!context.entry) {
-    return
-  }
-  console.log('Deleting entry')
-  context.entry.fields = context.fields
-
-  context.entry = await context.entry.delete()
 }
 
 export const deleteContentForModel = async (context: Context) => {
@@ -68,4 +35,5 @@ export const deleteContent = async (context: Context) => {
     context.currentModel = modelConfig.model
     await deleteContentForModel(context)
   }
+  await deleteAsset(context)
 }
