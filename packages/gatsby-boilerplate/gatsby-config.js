@@ -1,4 +1,5 @@
 packageJson = require('./package.json')
+path = require('path')
 
 module.exports = {
   __experimentalThemes: [
@@ -30,7 +31,8 @@ module.exports = {
             queryPath: '/components/page/query.js',
             type: 'page',
           },
-        ], // pageTemplate: path.resolve('src/page-template.tsx'),
+        ],
+        pageTemplate: path.resolve('./src/page-template.tsx'),
       },
       resolve: `gatsby-theme-wheelroom`,
     },

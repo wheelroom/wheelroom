@@ -1,7 +1,7 @@
 import { ModelConfig } from '../types/config'
-import { Model } from '../types/model'
 import { getGatsbyConfig, getModelConfig, getPackageDir } from './config'
 
+// TODO: Give this a clear name
 export const getModelConfigs = async () => {
   const gatsbyConfig = await getGatsbyConfig()
   const modelConfigs = getModelConfig(gatsbyConfig)

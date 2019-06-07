@@ -1,18 +1,20 @@
 import * as path from 'path'
 import { getGatsbyConfig, getModelConfig } from './lib/config/config'
+import { ModelConfig } from './lib/types/config'
 import {
   ContentfulObject,
   Context,
   Data,
   GetContext,
 } from './lib/types/gatsby-node'
-import { ModelConfig } from './lib/types/config'
 
 const runQueries = async (data: Data) => {
   await Promise.all(
     data.models.map(async (model: ModelConfig) => {
       if (['glboal', 'subPath', 'page'].includes(model.type)) {
+        console.log('query', model.query)
         const result = await data.graphql(model.query)
+        console.log('result', result)
         if (!result.data) {
           throw new Error(
             `Could not find any ${model.name} of type ${
@@ -149,11 +151,11 @@ exports.createPages = async ({ graphql, actions }: any, options: any) => {
     namedPaths: {},
     options,
     page: {},
-    pageTemplate:
-      options.pageTemplate || path.resolve('../templates/page-template.tsx'),
+    pageTemplate: options.pageTemplate,
     subPage: {},
   } as Data
 
+  // TODO: We have the config here as 'options', uses that
   const gatsbyConfig = await getGatsbyConfig()
   data.models = getModelConfig(gatsbyConfig)
 

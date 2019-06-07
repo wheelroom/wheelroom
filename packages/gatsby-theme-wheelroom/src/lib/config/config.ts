@@ -18,6 +18,7 @@ export const getGatsbyConfig = async () => {
   return config
 }
 
+// TODO: Give this a clear name
 export const getModelConfig = (config: any): ModelConfig[] => {
   const modelConfigs = [] as ModelConfig[]
   config.__experimentalThemes.forEach(theme => {
