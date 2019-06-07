@@ -1,6 +1,5 @@
 import { Context } from '../types/context'
-import { Field } from '../types/model'
-import { getClient, getEnvironment, getSpace } from './context-init'
+import { getClient, getEnvironment, getSpace } from './context/init'
 
 const demoEntryPostfix = 'DemoEntry'
 

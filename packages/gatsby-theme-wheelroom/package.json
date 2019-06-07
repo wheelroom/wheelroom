@@ -56,7 +56,10 @@
     "node": ">=10.0.0"
   },
   "files": [
-    "dist/*"
+    "assets/*",
+    "bin/*",
+    "components/*",
+    "lib/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": [

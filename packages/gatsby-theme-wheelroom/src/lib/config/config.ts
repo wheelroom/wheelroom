@@ -1,7 +1,7 @@
 import { ModelConfig } from '../types/config'
 
 export const getAppDir = () => {
-  return process.env.PWD
+  return process.cwd()
 }
 
 export const getPackageDir = (packageName: string) => {

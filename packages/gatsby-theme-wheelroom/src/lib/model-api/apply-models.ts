@@ -4,16 +4,15 @@ import {
   getContentType,
   publishContentType,
   updateContentType,
-} from './context-content-type'
+} from './context/content-type'
+import { getClient, getEnvironment, getSpace } from './context/init'
 import {
   getEditorInterface,
   updateEditorInterface,
-} from './context-editor-interface'
-import { getClient, getEnvironment, getSpace } from './context-init'
+} from './editor-interface-context'
 
 const finish = async (context: Context) => {
   console.log('Succesfully ran migration for:', context.currentModel.type)
-  // console.log('context', context.contentType)
   return context
 }
 

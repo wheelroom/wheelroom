@@ -1,5 +1,5 @@
-import { Context } from '../types/context'
-import { Field } from '../types/model'
+import { Context } from '../../types/context'
+import { Field } from '../../types/model'
 
 export const getContentType = async (context: Context) => {
   try {

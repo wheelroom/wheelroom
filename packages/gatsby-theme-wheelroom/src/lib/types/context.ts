@@ -2,6 +2,8 @@ import { ModelConfig } from './config'
 import { Model } from './model'
 
 export interface Context {
+  /** Contentful asset object */
+  asset?: any
   /** Contentful Management Client */
   contentfulClient?: any
   /** Contentful contentType object */
@@ -20,4 +22,6 @@ export interface Context {
   modelConfigs?: ModelConfig[]
   /** Contentful space object */
   space?: any
+  /** Contentful upload object */
+  upload?: any
 }
