@@ -35,6 +35,7 @@ export default {
       },
     },
     image: {
+      initialContent: 'demoAsset',
       specs: {
         linkType: 'Asset',
         name: 'Image',

@@ -13,6 +13,7 @@ export interface Field {
       linkType?: 'Entry'
       type: 'Link' | 'Symbol'
     }
+    linkType?: 'Asset'
     localized?: boolean
     name: string
     required?: boolean

@@ -9,7 +9,7 @@ import {
 import { getClient, getEnvironment, getSpace } from './context/init'
 
 const finish = async (context: Context) => {
-  console.log('Succesfully created content for:', context.currentModel.type)
+  console.log('Succesfully created asset')
   return context
 }
 
@@ -24,9 +24,9 @@ export const createAsset = async (context: Context) => {
     await getSpace(context)
     await getEnvironment(context)
     await getAsset(context)
-    await updateAsset(context)
-    await uploadFile(context)
     await createNewAsset(context)
+    await uploadFile(context)
+    await updateAsset(context)
     await publishAsset(context)
     await finish(context)
   } catch (error) {

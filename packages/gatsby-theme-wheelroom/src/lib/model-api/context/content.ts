@@ -63,14 +63,17 @@ export const getFields = (context: Context) => {
           break
 
         case 'Link':
-          context.fields[fieldId] = {
-            nl: {
-              sys: {
-                id: field.initialContent + demoEntryPostfix,
-                linkType: 'Entry',
-                type: 'Link',
-              },
-            },
+          switch (field.specs.linkType) {
+            case 'Asset':
+              context.fields[fieldId] = {
+                nl: {
+                  sys: {
+                    id: 'demoAsset',
+                    linkType: 'Asset',
+                    type: 'Link',
+                  },
+                },
+              }
           }
           break
 

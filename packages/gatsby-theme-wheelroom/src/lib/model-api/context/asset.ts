@@ -17,20 +17,15 @@ export const getAsset = async (context: Context) => {
   }
 }
 
-export const updateAsset = async (context: Context) => {
-  if (!context.asset) {
-    return
-  }
-  console.log('Updating asset')
-  context.asset.fields = context.fields
-
-  context.asset = await context.asset.update()
-}
-
-export const uploadFile = async (context: Context) => {
+export const createNewAsset = async (context: Context) => {
   if (context.asset) {
     return
   }
+  console.log('Create new asset')
+  context.asset = await context.space.createAssetWithId(assetId, {})
+}
+
+export const uploadFile = async (context: Context) => {
   console.log('Uploading file')
 
   context.upload = await context.space.createUpload({
@@ -38,15 +33,15 @@ export const uploadFile = async (context: Context) => {
     file: fs.readFileSync(path.resolve(__dirname, file)),
     fileName,
   })
-  console.log('Upload done', context.upload)
 }
 
-export const createNewAsset = async (context: Context) => {
-  if (context.asset) {
+export const updateAsset = async (context: Context) => {
+  if (!context.asset) {
     return
   }
-  console.log('Create new asset')
-  context.asset = await context.space.createAssetWithId(assetId, {
+  console.log('Updating asset')
+  context.asset.fields = {
+    description: { nl: 'Demo asset with fixed id' },
     file: {
       nl: {
         contentType,
@@ -60,21 +55,12 @@ export const createNewAsset = async (context: Context) => {
         },
       },
     },
-    title: {
-      nl: fileName,
-    },
-  })
-  console.log('Asset done', context.asset)
-  try {
-    context.asset = await context.asset.processForAllLocales()
-  } catch (error) {
-    console.log('Could not process asset', error)
+    title: { nl: fileName },
   }
-
-  console.log('Asset done 2', context.asset)
+  context.asset = await context.asset.update()
+  context.asset = await context.asset.processForAllLocales()
 }
 
 export const publishAsset = async (context: Context) => {
-  console.log('Asset done 3', context.asset)
   await context.asset.publish()
 }
