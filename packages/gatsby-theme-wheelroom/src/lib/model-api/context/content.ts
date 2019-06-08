@@ -87,7 +87,7 @@ export const getFields = (context: ModelApiContext) => {
 export const getEntry = async (context: ModelApiContext) => {
   console.log('Getting entry')
   try {
-    context.entry = await context.space.getEntry(
+    context.entry = await context.environment.getEntry(
       context.currentModel.type + demoEntryPostfix
     )
   } catch (error) {
@@ -114,7 +114,7 @@ export const createEntry = async (context: ModelApiContext) => {
     return
   }
   console.log('Creating new entry')
-  context.entry = await context.space.createEntryWithId(
+  context.entry = await context.environment.createEntryWithId(
     context.currentModel.type,
     context.currentModel.type + demoEntryPostfix,
     {

@@ -10,7 +10,7 @@ const assetId = 'demoAsset'
 export const getAsset = async (context: ModelApiContext) => {
   console.log('Getting asset')
   try {
-    context.asset = await context.space.getAsset(assetId)
+    context.asset = await context.environment.getAsset(assetId)
   } catch (error) {
     console.log('Could not find asset', assetId)
     context.asset = null
@@ -22,13 +22,13 @@ export const createNewAsset = async (context: ModelApiContext) => {
     return
   }
   console.log('Create new asset')
-  context.asset = await context.space.createAssetWithId(assetId, {})
+  context.asset = await context.environment.createAssetWithId(assetId, {})
 }
 
 export const uploadFile = async (context: ModelApiContext) => {
   console.log('Uploading file')
 
-  context.upload = await context.space.createUpload({
+  context.upload = await context.environment.createUpload({
     contentType,
     file: fs.readFileSync(path.resolve(__dirname, file)),
     fileName,
