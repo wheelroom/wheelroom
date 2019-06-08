@@ -88,7 +88,6 @@ const getPageContext = ({
   if (subPageContent) {
     pageContext[page.pathName + 'Id'] = subPageContent.node.id
   }
-  console.log('pageContext', pageContext)
   return pageContext
 }
 
