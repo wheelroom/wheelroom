@@ -55,7 +55,7 @@
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "wheelroom-boilerplate",
+  "name": "boilerplate",
   "private": true,
   "repository": {
     "type": "git",
