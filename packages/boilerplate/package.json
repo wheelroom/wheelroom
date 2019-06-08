@@ -70,5 +70,5 @@
     "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.10"
+  "version": "0.1.0"
 }
