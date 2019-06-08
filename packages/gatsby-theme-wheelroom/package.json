@@ -68,6 +68,9 @@
     "assets/*",
     "bin/*",
     "components/*",
+    "gatsby-config.*",
+    "gatsby-node.*",
+    "index.*",
     "lib/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
