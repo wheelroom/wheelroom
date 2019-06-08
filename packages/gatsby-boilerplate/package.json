@@ -57,7 +57,7 @@
   "license": "MIT",
   "main": "index.js",
   "name": "gatsby-boilerplate",
-  "private": false,
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"
