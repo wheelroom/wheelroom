@@ -12,16 +12,12 @@ const runQueries = async (context: GatsbyNodeContext) => {
     context.componentConfigs.map(async (componentConfig: ComponentConfig) => {
       if (['global', 'subPage', 'page'].includes(componentConfig.type)) {
         console.log(
-          `Running query ${componentConfig.componentId} for type ${
-            componentConfig.type
-          }`
+          `Running query ${componentConfig.componentId} for type ${componentConfig.type}`
         )
         const result = await context.graphql(componentConfig.query)
         if (!result.data) {
           throw new Error(
-            `Could not find any ${componentConfig.componentId} of type ${
-              componentConfig.type
-            } at Contentful, please check the model query
+            `Could not find any ${componentConfig.componentId} of type ${componentConfig.type} at Contentful, please check the model query
             `
           )
         }
