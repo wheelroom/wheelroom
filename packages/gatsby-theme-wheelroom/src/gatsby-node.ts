@@ -10,11 +10,14 @@ import {
 const runQueries = async (context: GatsbyNodeContext) => {
   await Promise.all(
     context.componentConfigs.map(async (componentConfig: ComponentConfig) => {
-      if (['glboal', 'subPath', 'page'].includes(componentConfig.type)) {
-        console.log('query', componentConfig.query)
+      if (['global', 'subPage', 'page'].includes(componentConfig.type)) {
+        console.log(
+          `Running query ${componentConfig.componentId} for type ${
+            componentConfig.type
+          }`
+        )
         const result = await context.graphql(componentConfig.query)
-        console.log('result', result)
-        if (!result.context) {
+        if (!result.data) {
           throw new Error(
             `Could not find any ${componentConfig.componentId} of type ${
               componentConfig.type
@@ -85,7 +88,7 @@ const getPageContext = ({
   if (subPageContent) {
     pageContext[page.pathName + 'Id'] = subPageContent.node.id
   }
-
+  console.log('pageContext', pageContext)
   return pageContext
 }
 
@@ -150,7 +153,6 @@ const createSubPages = (context: GatsbyNodeContext) => {
 
 exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
-  console.log('OPTIONS', options)
 
   const context = {
     createPage,
@@ -158,6 +160,11 @@ exports.createPages = async ({ graphql, actions }: any, options: any) => {
     namedPaths: {},
     options,
     pageTemplate: options.pageTemplate,
+    queries: {
+      global: {},
+      page: {},
+      subPage: {},
+    },
   } as GatsbyNodeContext
 
   context.componentConfigs = getConfigsFromOptions(options)

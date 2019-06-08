@@ -32,7 +32,7 @@ export default PageTemplate
 //
 
 export const query = graphql`
-  query($pageId: String, $contentArticleId: String, $partGlobalsId: String) {
+  query($pageId: String, $articleContentId: String, $globalsPartId: String) {
     site {
       siteMetadata {
         siteVersion
@@ -46,15 +46,15 @@ export const query = graphql`
       seoTitle
       sections {
         ... on Node {
-          ...SectionArticle
+          ...ArticleSection
         }
       }
     }
-    contentArticle: contentfulContentArticle(id: { eq: $contentArticleId }) {
-      ...ContentArticle
+    articleContent: contentfulArticleContent(id: { eq: $articleContentId }) {
+      ...ArticleContent
     }
-    partGlobals: contentfulPartGlobals(id: { eq: $partGlobalsId }) {
-      ...PartGlobals
+    globalsPart: contentfulGlobalsPart(id: { eq: $globalsPartId }) {
+      ...GlobalsPart
     }
   }
 `
