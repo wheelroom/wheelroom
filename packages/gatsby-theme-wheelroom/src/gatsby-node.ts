@@ -1,29 +1,29 @@
-import * as path from 'path'
-import { getGatsbyConfig, getModelConfig } from './lib/config/config'
-import { ModelConfig } from './lib/types/config'
+import { getConfigsFromOptions } from './lib/config/config'
+import { ComponentConfig } from './lib/types/components-map'
 import {
   ContentfulObject,
-  Context,
-  Data,
-  GetContext,
-} from './lib/types/gatsby-node'
+  GatsbyNodeContext,
+  GetPageContext,
+  PageContext,
+} from './lib/types/gatsby-node-context'
 
-const runQueries = async (data: Data) => {
+const runQueries = async (context: GatsbyNodeContext) => {
   await Promise.all(
-    data.models.map(async (model: ModelConfig) => {
-      if (['glboal', 'subPath', 'page'].includes(model.type)) {
-        console.log('query', model.query)
-        const result = await data.graphql(model.query)
+    context.componentConfigs.map(async (componentConfig: ComponentConfig) => {
+      if (['glboal', 'subPath', 'page'].includes(componentConfig.type)) {
+        console.log('query', componentConfig.query)
+        const result = await context.graphql(componentConfig.query)
         console.log('result', result)
-        if (!result.data) {
+        if (!result.context) {
           throw new Error(
-            `Could not find any ${model.name} of type ${
-              model.type
+            `Could not find any ${componentConfig.componentId} of type ${
+              componentConfig.type
             } at Contentful, please check the model query
             `
           )
         }
-        data[model.type][model.name] = result.data[model.name].edges
+        context.queries[componentConfig.type][componentConfig.componentId] =
+          result.data[componentConfig.componentId].edges
       }
     })
   )
@@ -33,61 +33,67 @@ const getLocale = (page: any) => {
   return page.node_locale.split('-')[0].toLowerCase()
 }
 
-const getDefaultLocale = (data: Data): string => {
-  return data.options.defaultLocale || 'en'
+const getDefaultLocale = (context: GatsbyNodeContext): string => {
+  return context.options.defaultLocale || 'en'
 }
 
-const buildNamedPaths = (data: Data) => {
-  data.page.page.forEach((edge: any) => {
+const buildNamedPaths = (context: GatsbyNodeContext) => {
+  context.queries.page.page.forEach((edge: any) => {
     const page = edge.node
-    if (!(page.pathName in data.namedPaths)) {
-      data.namedPaths[page.pathName] = { path: '' }
+    if (!(page.pathName in context.namedPaths)) {
+      context.namedPaths[page.pathName] = { path: '' }
     }
-    data.namedPaths[page.pathName].path = page.path
+    context.namedPaths[page.pathName].path = page.path
     const locale = getLocale(page)
     const localizedBasePath =
-      locale === getDefaultLocale(data) ? page.path : '/' + locale + page.path
+      locale === getDefaultLocale(context)
+        ? page.path
+        : '/' + locale + page.path
 
     // Strip trailing slashes
-    data.namedPaths[page.pathName][locale] = localizedBasePath.replace(
+    context.namedPaths[page.pathName][locale] = localizedBasePath.replace(
       /(.)\/$/,
       '$1'
     )
   })
 }
 
-const getContext = ({ data, page, subPageContent }: GetContext) => {
-  const context = {
+const getPageContext = ({
+  context,
+  page,
+  subPageContent,
+}: GetPageContext): PageContext => {
+  const pageContext = {
     locale: getLocale(page),
-    namedPaths: data.namedPaths,
+    namedPaths: context.namedPaths,
     pageId: page.id,
-  } as Context
+  } as PageContext
 
   // Add ids of Globals
-  Object.entries(data.global).forEach(([globalsName, globals]) => {
+  Object.entries(context.queries.global).forEach(([globalsName, globals]) => {
     globals.forEach((globalsItem: ContentfulObject) => {
       const globalsLocale = globalsItem.node.node_locale
         .split('-')[0]
         .toLowerCase()
       if (globalsLocale === getLocale(page)) {
-        context[globalsName + 'Id'] = globalsItem.node.id
+        pageContext[globalsName + 'Id'] = globalsItem.node.id
       }
     })
   })
 
   // Add ids of subPage
   if (subPageContent) {
-    context[page.pathName + 'Id'] = subPageContent.node.id
+    pageContext[page.pathName + 'Id'] = subPageContent.node.id
   }
 
-  return context
+  return pageContext
 }
 
-const createPages = (data: Data) => {
-  data.page.page.forEach(edge => {
+const createPages = (context: GatsbyNodeContext) => {
+  context.queries.page.page.forEach(edge => {
     const page = edge.node
     const locale = getLocale(page)
-    const localizedBasePath = data.namedPaths[page.pathName][locale]
+    const localizedBasePath = context.namedPaths[page.pathName][locale]
 
     const tokens = localizedBasePath.split('%')
     if (tokens.length === 3) {
@@ -95,19 +101,19 @@ const createPages = (data: Data) => {
     }
 
     console.log('Creating page:', localizedBasePath)
-    data.createPage({
-      component: data.pageTemplate,
-      context: getContext({ data, page }),
+    context.createPage({
+      component: context.pageTemplate,
+      context: getPageContext({ context, page }),
       path: localizedBasePath,
     })
   })
 }
 
-const createSubPages = (data: Data) => {
-  data.page.page.forEach(edge => {
+const createSubPages = (context: GatsbyNodeContext) => {
+  context.queries.page.page.forEach(edge => {
     const page = edge.node
     const locale = getLocale(page)
-    const localizedBasePath = data.namedPaths[page.pathName][locale]
+    const localizedBasePath = context.namedPaths[page.pathName][locale]
 
     // Build sub pages if we find a fieldname like %slug%
     const tokens = localizedBasePath.split('%')
@@ -120,8 +126,9 @@ const createSubPages = (data: Data) => {
     const localesDone: {
       [localeName: string]: boolean
     } = {}
-    data.subPage[page.pathName].forEach(subPageContent => {
-      const subPageLocale = subPageContent.node_locale || getDefaultLocale(data)
+    context.queries.subPage[page.pathName].forEach(subPageContent => {
+      const subPageLocale =
+        subPageContent.node_locale || getDefaultLocale(context)
       if (subPageLocale !== locale || subPageLocale in localesDone) {
         return
       }
@@ -132,9 +139,9 @@ const createSubPages = (data: Data) => {
       const pagePath = subPageTokens.join('')
 
       console.log('Creating sub page:', pagePath)
-      data.createPage({
-        component: data.pageTemplate,
-        context: getContext({ data, page, subPageContent }),
+      context.createPage({
+        component: context.pageTemplate,
+        context: getPageContext({ context, page, subPageContent }),
         path: pagePath,
       })
     })
@@ -143,25 +150,21 @@ const createSubPages = (data: Data) => {
 
 exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
+  console.log('OPTIONS', options)
 
-  const data = {
+  const context = {
     createPage,
-    global: {},
     graphql,
     namedPaths: {},
     options,
-    page: {},
     pageTemplate: options.pageTemplate,
-    subPage: {},
-  } as Data
+  } as GatsbyNodeContext
 
-  // TODO: We have the config here as 'options', uses that
-  const gatsbyConfig = await getGatsbyConfig()
-  data.models = getModelConfig(gatsbyConfig)
+  context.componentConfigs = getConfigsFromOptions(options)
 
-  await runQueries(data)
+  await runQueries(context)
 
-  buildNamedPaths(data)
-  createPages(data)
-  createSubPages(data)
+  buildNamedPaths(context)
+  createPages(context)
+  createSubPages(context)
 }

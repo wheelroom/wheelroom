@@ -2,11 +2,11 @@
 
 import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
-import { getModelConfigs } from '../lib/config/get-model-configs'
+import { getComponentConfigs } from '../lib/config/config'
 import { applyModels } from '../lib/model-api/apply-models'
 import { createContent } from '../lib/model-api/create-content'
 import { deleteContent } from '../lib/model-api/delete-content'
-import { Context } from '../lib/types/context'
+import { ModelApiContext } from '../lib/types/model-api-context'
 
 const dotEnvResult = dotenv.config()
 if (dotEnvResult.error) {
@@ -15,22 +15,22 @@ if (dotEnvResult.error) {
 
 const cmdApplyModels = async () => {
   const context = {
-    modelConfigs: await getModelConfigs(),
-  } as Context
+    componentConfigs: await getComponentConfigs(),
+  } as ModelApiContext
   await applyModels(context)
 }
 
 const cmdCreateContent = async () => {
   const context = {
-    modelConfigs: await getModelConfigs(),
-  } as Context
+    componentConfigs: await getComponentConfigs(),
+  } as ModelApiContext
   await createContent(context)
 }
 
 const cmdDeleteContent = async () => {
   const context = {
-    modelConfigs: await getModelConfigs(),
-  } as Context
+    componentConfigs: await getComponentConfigs(),
+  } as ModelApiContext
   await deleteContent(context)
 }
 

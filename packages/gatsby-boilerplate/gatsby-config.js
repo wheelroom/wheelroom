@@ -7,31 +7,7 @@ module.exports = {
       options: {
         appTheme: require('./src/theme.json'),
         defaultLocale: 'nl',
-        models: [
-          {
-            name: 'articleSection',
-            modelPath: '/components/article-section/model.js',
-            type: 'section',
-          },
-          {
-            name: 'globalsPart',
-            modelPath: '/components/globals-part/model.js',
-            queryPath: '/components/globals-part/query.js',
-            type: 'global',
-          },
-          {
-            name: 'articleContent',
-            modelPath: '/components/article-content/model.js',
-            queryPath: '/components/article-content/query.js',
-            type: 'subPage',
-          },
-          {
-            name: 'page',
-            modelPath: '/components/page/model.js',
-            queryPath: '/components/page/query.js',
-            type: 'page',
-          },
-        ],
+        models: [ 'articleSection', 'globalsPart', 'articleContent', 'page'],
         pageTemplate: path.resolve('./src/page-template.tsx'),
       },
       resolve: `gatsby-theme-wheelroom`,

@@ -1,6 +1,6 @@
 import { Model } from '../../lib/types/model'
 
-export default {
+export const model = {
   contentBackend: 'contentful',
   description:
     'A page defines routes and references to components on the page.',

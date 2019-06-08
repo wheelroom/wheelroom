@@ -1,4 +1,5 @@
-import { ModelConfig } from '../types/config'
+import { componentsMap } from '../../components/components-map'
+import { ComponentConfig } from '../types/components-map'
 
 export const getAppDir = () => {
   return process.cwd()
@@ -18,13 +19,18 @@ export const getGatsbyConfig = async () => {
   return config
 }
 
-// TODO: Give this a clear name
-export const getModelConfig = (config: any): ModelConfig[] => {
-  const modelConfigs = [] as ModelConfig[]
-  config.__experimentalThemes.forEach(theme => {
-    theme.options.models.forEach(model => {
-      modelConfigs.push(Object.assign(model, { resolve: theme.resolve }))
-    })
+export const getConfigsFromOptions = (options): ComponentConfig[] => {
+  return options.models.map(componentId => {
+    return { ...componentsMap[componentId], componentId }
   })
-  return modelConfigs
+}
+
+export const getComponentConfigs = async () => {
+  const config = await getGatsbyConfig()
+  const themes = config.__experimentalThemes
+
+  return themes.reduce(
+    (result, theme) => [...result, ...getConfigsFromOptions(theme.options)],
+    []
+  )
 }

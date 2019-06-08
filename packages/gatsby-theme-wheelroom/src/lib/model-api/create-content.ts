@@ -1,4 +1,4 @@
-import { Context } from '../types/context'
+import { ModelApiContext } from '../types/model-api-context'
 import {
   createEntry,
   getEntry,
@@ -9,7 +9,7 @@ import {
 import { getClient, getEnvironment, getSpace } from './context/init'
 import { createAsset } from './create-asset'
 
-const finish = async (context: Context) => {
+const finish = async (context: ModelApiContext) => {
   console.log('Succesfully created content for:', context.currentModel.type)
   return context
 }
@@ -18,7 +18,7 @@ const handleError = error => {
   console.log(error.message)
 }
 
-export const createContentForModel = async (context: Context) => {
+export const createContentForModel = async (context: ModelApiContext) => {
   try {
     await getClient(context)
     await getSpace(context)
@@ -35,13 +35,17 @@ export const createContentForModel = async (context: Context) => {
   }
 }
 
-export const createContent = async (context: Context) => {
+export const createContent = async (context: ModelApiContext) => {
   await createAsset(context)
-  for (const modelConfig of context.modelConfigs) {
-    console.log('Creating content for model', modelConfig.name, '=============')
+  for (const componentConfig of context.componentConfigs) {
+    console.log(
+      'Creating content for model',
+      componentConfig.componentId,
+      '============='
+    )
     context.entry = null
     context.fields = {}
-    context.currentModel = modelConfig.model
+    context.currentModel = componentConfig.model
     await createContentForModel(context)
   }
 }

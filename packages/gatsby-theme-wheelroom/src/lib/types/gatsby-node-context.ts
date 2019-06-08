@@ -1,4 +1,4 @@
-import { ModelConfig } from './config'
+import { ComponentConfig } from './components-map'
 
 export interface Options {
   defaultLocale: string
@@ -29,40 +29,42 @@ export interface NamedPaths {
   }
 }
 
-export interface Data {
-  /** Each key contains the results of a global query */
-  global?: {
-    [globalName: string]: ContentfulObject[]
-  }
-  /** Each key contains the results of a subPage query */
-  subPage?: {
-    [contentName: string]: ContentfulObject[]
-  }
-  /** Each key contains the results of a page query */
-  page: {
-    [pageName: string]: ContentfulObject[]
-  }
+export interface GatsbyNodeContext {
   /** Array with all configured models */
-  models?: ModelConfig[]
+  componentConfigs?: ComponentConfig[]
   /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
   /** The plugin configuration options */
   options: Options
   /** Path to the page template used to generate each page */
   pageTemplate: string
+  queries?: {
+    /** Each key contains the results of a global query */
+    global?: {
+      [globalName: string]: ContentfulObject[]
+    }
+    /** Each key contains the results of a subPage query */
+    subPage?: {
+      [contentName: string]: ContentfulObject[]
+    }
+    /** Each key contains the results of a page query */
+    page: {
+      [pageName: string]: ContentfulObject[]
+    }
+  }
   createPage(params: object): Promise<any>
   graphql(query: string): Promise<any>
 }
 
-export interface Context {
+export interface PageContext {
   pageId: string
   locale: string
   namedPaths: NamedPaths
   [IdKey: string]: string | NamedPaths | Options
 }
 
-export interface GetContext {
-  data: Data
+export interface GetPageContext {
+  context: GatsbyNodeContext
   page: ContentfulNode
   subPageContent?: ContentfulObject
 }

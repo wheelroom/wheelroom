@@ -1,9 +1,9 @@
-import { Context } from '../types/context'
+import { ModelApiContext } from '../types/model-api-context'
 import { deleteEntry, getEntry, unPublishEntry } from './context/content'
 import { getClient, getEnvironment, getSpace } from './context/init'
 import { deleteAsset } from './delete-asset'
 
-const finish = async (context: Context) => {
+const finish = async (context: ModelApiContext) => {
   console.log('Succesfully deleted content for:', context.currentModel.type)
   return context
 }
@@ -12,7 +12,7 @@ const handleError = error => {
   console.log(error.message)
 }
 
-export const deleteContentForModel = async (context: Context) => {
+export const deleteContentForModel = async (context: ModelApiContext) => {
   try {
     await getClient(context)
     await getSpace(context)
@@ -27,12 +27,16 @@ export const deleteContentForModel = async (context: Context) => {
   }
 }
 
-export const deleteContent = async (context: Context) => {
-  for (const modelConfig of context.modelConfigs) {
-    console.log('Deleting content for model', modelConfig.name, '=============')
+export const deleteContent = async (context: ModelApiContext) => {
+  for (const componentConfig of context.componentConfigs) {
+    console.log(
+      'Deleting content for model',
+      componentConfig.componentId,
+      '============='
+    )
     context.entry = null
     context.fields = {}
-    context.currentModel = modelConfig.model
+    context.currentModel = componentConfig.model
     await deleteContentForModel(context)
   }
   await deleteAsset(context)

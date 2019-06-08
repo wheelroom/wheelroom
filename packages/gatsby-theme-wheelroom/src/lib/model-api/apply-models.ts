@@ -1,4 +1,4 @@
-import { Context } from '../types/context'
+import { ModelApiContext } from '../types/model-api-context'
 import {
   createContentType,
   getContentType,
@@ -11,7 +11,7 @@ import {
   updateEditorInterface,
 } from './editor-interface-context'
 
-const finish = async (context: Context) => {
+const finish = async (context: ModelApiContext) => {
   console.log('Succesfully ran migration for:', context.currentModel.type)
   return context
 }
@@ -20,7 +20,7 @@ const handleError = error => {
   console.log(error.message)
 }
 
-export const applyModel = async (context: Context) => {
+export const applyModel = async (context: ModelApiContext) => {
   try {
     await getClient(context)
     await getSpace(context)
@@ -37,11 +37,11 @@ export const applyModel = async (context: Context) => {
   }
 }
 
-export const applyModels = async (context: Context) => {
-  for (const modelConfig of context.modelConfigs) {
-    console.log('Applying model', modelConfig.name, '=============')
+export const applyModels = async (context: ModelApiContext) => {
+  for (const componentConfig of context.componentConfigs) {
+    console.log('Applying model', componentConfig.componentId, '=============')
     context.contentType = null
-    context.currentModel = modelConfig.model
+    context.currentModel = componentConfig.model
     context.editorInterface = null
     await applyModel(context)
   }

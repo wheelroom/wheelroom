@@ -1,7 +1,7 @@
-import { ModelConfig } from './config'
+import { ComponentConfig } from './components-map'
 import { Model } from './model'
 
-export interface Context {
+export interface ModelApiContext {
   /** Contentful asset object */
   asset?: any
   /** Contentful Management Client */
@@ -19,7 +19,7 @@ export interface Context {
   /** Contentful environment object */
   environment?: any
   /** Array of all models configs to be applied */
-  modelConfigs?: ModelConfig[]
+  componentConfigs?: ComponentConfig[]
   /** Contentful space object */
   space?: any
   /** Contentful upload object */

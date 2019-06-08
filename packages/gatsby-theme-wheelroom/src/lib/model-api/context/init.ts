@@ -1,7 +1,7 @@
 import * as contentful from 'contentful-management'
-import { Context } from '../../types/context'
+import { ModelApiContext } from '../../types/model-api-context'
 
-export const getClient = async (context: Context) => {
+export const getClient = async (context: ModelApiContext) => {
   if (context.contentfulClient) {
     return
   }
@@ -10,7 +10,7 @@ export const getClient = async (context: Context) => {
   })
 }
 
-export const getSpace = async (context: Context) => {
+export const getSpace = async (context: ModelApiContext) => {
   if (context.space) {
     return
   }
@@ -19,7 +19,7 @@ export const getSpace = async (context: Context) => {
   )
 }
 
-export const getEnvironment = async (context: Context) => {
+export const getEnvironment = async (context: ModelApiContext) => {
   if (context.environment) {
     return
   }

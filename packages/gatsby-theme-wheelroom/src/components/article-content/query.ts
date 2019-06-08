@@ -1,4 +1,4 @@
-export default `
+export const query = `
 {
   articleContent: allContentfulArticleContent(
     limit: 10

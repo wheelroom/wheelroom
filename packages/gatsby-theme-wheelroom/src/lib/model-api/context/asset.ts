@@ -1,13 +1,13 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import { Context } from '../../types/context'
+import { ModelApiContext } from '../../types/model-api-context'
 
 const contentType = 'image/jpg'
 const file = '../../../assets/wheelroom.jpg'
 const fileName = 'wheelroom'
 const assetId = 'demoAsset'
 
-export const getAsset = async (context: Context) => {
+export const getAsset = async (context: ModelApiContext) => {
   console.log('Getting asset')
   try {
     context.asset = await context.space.getAsset(assetId)
@@ -17,7 +17,7 @@ export const getAsset = async (context: Context) => {
   }
 }
 
-export const createNewAsset = async (context: Context) => {
+export const createNewAsset = async (context: ModelApiContext) => {
   if (context.asset) {
     return
   }
@@ -25,7 +25,7 @@ export const createNewAsset = async (context: Context) => {
   context.asset = await context.space.createAssetWithId(assetId, {})
 }
 
-export const uploadFile = async (context: Context) => {
+export const uploadFile = async (context: ModelApiContext) => {
   console.log('Uploading file')
 
   context.upload = await context.space.createUpload({
@@ -35,7 +35,7 @@ export const uploadFile = async (context: Context) => {
   })
 }
 
-export const updateAsset = async (context: Context) => {
+export const updateAsset = async (context: ModelApiContext) => {
   if (!context.asset) {
     return
   }
@@ -61,11 +61,11 @@ export const updateAsset = async (context: Context) => {
   context.asset = await context.asset.processForAllLocales()
 }
 
-export const publishAsset = async (context: Context) => {
+export const publishAsset = async (context: ModelApiContext) => {
   await context.asset.publish()
 }
 
-export const unPublishAsset = async (context: Context) => {
+export const unPublishAsset = async (context: ModelApiContext) => {
   if (!context.asset) {
     return
   }
@@ -73,7 +73,7 @@ export const unPublishAsset = async (context: Context) => {
   context.asset = await context.asset.unpublish()
 }
 
-export const removeAsset = async (context: Context) => {
+export const removeAsset = async (context: ModelApiContext) => {
   if (!context.asset) {
     return
   }

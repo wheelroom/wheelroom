@@ -1,9 +1,9 @@
-import { Context } from '../../types/context'
 import { Field } from '../../types/model'
+import { ModelApiContext } from '../../types/model-api-context'
 
 const demoEntryPostfix = 'DemoEntry'
 
-export const getFields = (context: Context) => {
+export const getFields = (context: ModelApiContext) => {
   Object.entries(context.currentModel.fields).forEach(
     ([fieldId, field]: [string, Field]) => {
       if (!field.initialContent && field.specs.required) {
@@ -84,7 +84,7 @@ export const getFields = (context: Context) => {
   )
 }
 
-export const getEntry = async (context: Context) => {
+export const getEntry = async (context: ModelApiContext) => {
   console.log('Getting entry')
   try {
     context.entry = await context.space.getEntry(
@@ -99,7 +99,7 @@ export const getEntry = async (context: Context) => {
   }
 }
 
-export const updateEntry = async (context: Context) => {
+export const updateEntry = async (context: ModelApiContext) => {
   if (!context.entry) {
     return
   }
@@ -109,7 +109,7 @@ export const updateEntry = async (context: Context) => {
   context.entry = await context.entry.update()
 }
 
-export const createEntry = async (context: Context) => {
+export const createEntry = async (context: ModelApiContext) => {
   if (context.entry) {
     return
   }
@@ -123,12 +123,12 @@ export const createEntry = async (context: Context) => {
   )
 }
 
-export const publishEntry = async (context: Context) => {
+export const publishEntry = async (context: ModelApiContext) => {
   console.log('Publishing entry')
   await context.entry.publish()
 }
 
-export const unPublishEntry = async (context: Context) => {
+export const unPublishEntry = async (context: ModelApiContext) => {
   if (!context.entry) {
     return
   }
@@ -136,7 +136,7 @@ export const unPublishEntry = async (context: Context) => {
   context.entry = await context.entry.unpublish()
 }
 
-export const deleteEntry = async (context: Context) => {
+export const deleteEntry = async (context: ModelApiContext) => {
   if (!context.entry) {
     return
   }

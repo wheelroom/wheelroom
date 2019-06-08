@@ -1,7 +1,7 @@
 import { Model } from '../../lib/types/model'
 import { variations } from './variations'
 
-export default {
+export const model = {
   contentBackend: 'contentful',
   description: 'Article content',
   displayField: 'title',
