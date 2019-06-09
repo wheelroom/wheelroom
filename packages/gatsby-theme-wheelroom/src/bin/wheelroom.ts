@@ -2,10 +2,10 @@
 
 import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
+import { applyModels } from '../commands/apply-models'
+import { createContent } from '../commands/create-content'
+import { deleteContent } from '../commands/delete-content'
 import { getComponentConfigs } from '../lib/config/config'
-import { applyModels } from '../lib/model-api/apply-models'
-import { createContent } from '../lib/model-api/create-content'
-import { deleteContent } from '../lib/model-api/delete-content'
 import { ModelApiContext } from '../lib/types/model-api-context'
 
 const dotEnvResult = dotenv.config()

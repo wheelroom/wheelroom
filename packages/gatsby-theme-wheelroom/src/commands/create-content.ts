@@ -1,12 +1,12 @@
-import { ModelApiContext } from '../types/model-api-context'
 import {
   createEntry,
   getEntry,
   getFields,
   publishEntry,
   updateEntry,
-} from './context/content'
-import { getClient, getEnvironment, getSpace } from './context/init'
+} from '../lib/model-api/content'
+import { getClient, getEnvironment, getSpace } from '../lib/model-api/init'
+import { ModelApiContext } from '../lib/types/model-api-context'
 import { createAsset } from './create-asset'
 
 const finish = async (context: ModelApiContext) => {

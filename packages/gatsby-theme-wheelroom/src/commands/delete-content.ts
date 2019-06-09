@@ -1,6 +1,6 @@
-import { ModelApiContext } from '../types/model-api-context'
-import { deleteEntry, getEntry, unPublishEntry } from './context/content'
-import { getClient, getEnvironment, getSpace } from './context/init'
+import { deleteEntry, getEntry, unPublishEntry } from '../lib/model-api/content'
+import { getClient, getEnvironment, getSpace } from '../lib/model-api/init'
+import { ModelApiContext } from '../lib/types/model-api-context'
 import { deleteAsset } from './delete-asset'
 
 const finish = async (context: ModelApiContext) => {

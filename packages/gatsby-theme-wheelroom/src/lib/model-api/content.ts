@@ -1,5 +1,5 @@
-import { Field } from '../../types/model'
-import { ModelApiContext } from '../../types/model-api-context'
+import { Field } from '../types/model'
+import { ModelApiContext } from '../types/model-api-context'
 
 const demoEntryPostfix = 'DemoEntry'
 

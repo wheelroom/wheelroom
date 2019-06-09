@@ -62,9 +62,10 @@
   },
   "scripts": {
     "apply-models": "wheelroom apply-models",
-    "build": "gatsby build",
     "create-content": "wheelroom create-content",
     "delete-content": "wheelroom delete-content",
+    "generate-component-files": "wheelroom generate-component-files",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1"

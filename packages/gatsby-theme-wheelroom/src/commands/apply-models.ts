@@ -1,11 +1,11 @@
-import { ModelApiContext } from '../types/model-api-context'
 import {
   createContentType,
   getContentType,
   publishContentType,
   updateContentType,
-} from './context/content-type'
-import { getClient, getEnvironment, getSpace } from './context/init'
+} from '../lib/model-api/content-type'
+import { getClient, getEnvironment, getSpace } from '../lib/model-api/init'
+import { ModelApiContext } from '../lib/types/model-api-context'
 import {
   getEditorInterface,
   updateEditorInterface,

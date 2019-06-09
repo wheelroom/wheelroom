@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import { ModelApiContext } from '../../types/model-api-context'
+import { ModelApiContext } from '../types/model-api-context'
 
 const contentType = 'image/jpg'
 const file = '../../../assets/wheelroom.jpg'
