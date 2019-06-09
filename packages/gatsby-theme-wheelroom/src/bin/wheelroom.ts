@@ -36,7 +36,8 @@ const cmdDeleteContent = async () => {
 }
 
 const cmdGenerateComponentFiles = async () => {
-  await generateComponentFiles()
+  const componentConfigs = await getComponentConfigs()
+  await generateComponentFiles(componentConfigs)
 }
 
 const params = yargs
@@ -66,4 +67,3 @@ const params = yargs
       console.log('Use --help flag for options')
     },
   }).argv
-

@@ -1,4 +1,4 @@
-import { ComponentsMap } from '../lib/types/components-map'
+import { ComponentConfig, ComponentsMap } from '../lib/types/components-map'
 
 import { fragment as articleContentFragment } from './article-content/graphql'
 import { query as articleContentQuery } from './article-content/graphql'
@@ -20,21 +20,21 @@ export const componentsMap = {
     model: articleContentModel,
     query: articleContentQuery,
     type: 'subPage',
-  },
+  } as ComponentConfig,
   articleSection: {
     fragment: articleSectionFragment,
     model: articleSectionModel,
     type: 'section',
-  },
+  } as ComponentConfig,
   globalsPart: {
     fragment: globalsPartFragment,
     model: globalsPartModel,
     query: globalsPartQuery,
     type: 'global',
-  },
+  } as ComponentConfig,
   page: {
     model: pageModel,
     query: pageQuery,
     type: 'page',
-  },
+  } as ComponentConfig,
 } as ComponentsMap
