@@ -12,7 +12,9 @@
       "not op_mini all"
     ]
   },
-  "bin": "bin/wheelroom.js",
+  "bin": {
+    "wheelroom": "bin/wheelroom.js"
+  },
   "bugs": {
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
