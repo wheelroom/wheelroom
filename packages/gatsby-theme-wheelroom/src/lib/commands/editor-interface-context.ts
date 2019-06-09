@@ -1,5 +1,5 @@
-import { Field } from '../lib/types/model'
-import { ModelApiContext } from '../lib/types/model-api-context'
+import { Field } from '../types/model'
+import { ModelApiContext } from '../types/model-api-context'
 
 export const getEditorInterface = async (context: ModelApiContext) => {
   // If we don't have a contentType there's nothing to do here

@@ -4,9 +4,9 @@ import {
   getFields,
   publishEntry,
   updateEntry,
-} from '../lib/model-api/content'
-import { getClient, getEnvironment, getSpace } from '../lib/model-api/init'
-import { ModelApiContext } from '../lib/types/model-api-context'
+} from '../model-api/content'
+import { getClient, getEnvironment, getSpace } from '../model-api/init'
+import { ModelApiContext } from '../types/model-api-context'
 import { createAsset } from './create-asset'
 
 const finish = async (context: ModelApiContext) => {

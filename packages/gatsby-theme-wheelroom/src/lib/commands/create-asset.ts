@@ -4,9 +4,9 @@ import {
   publishAsset,
   updateAsset,
   uploadFile,
-} from '../lib/model-api/asset'
-import { getClient, getEnvironment, getSpace } from '../lib/model-api/init'
-import { ModelApiContext } from '../lib/types/model-api-context'
+} from '../model-api/asset'
+import { getClient, getEnvironment, getSpace } from '../model-api/init'
+import { ModelApiContext } from '../types/model-api-context'
 
 const finish = async (context: ModelApiContext) => {
   console.log('Succesfully created asset')

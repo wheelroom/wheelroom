@@ -3,9 +3,9 @@ import {
   getContentType,
   publishContentType,
   updateContentType,
-} from '../lib/model-api/content-type'
-import { getClient, getEnvironment, getSpace } from '../lib/model-api/init'
-import { ModelApiContext } from '../lib/types/model-api-context'
+} from '../model-api/content-type'
+import { getClient, getEnvironment, getSpace } from '../model-api/init'
+import { ModelApiContext } from '../types/model-api-context'
 import {
   getEditorInterface,
   updateEditorInterface,

@@ -1,6 +1,6 @@
-import { getAsset, removeAsset, unPublishAsset } from '../lib/model-api/asset'
-import { getClient, getEnvironment, getSpace } from '../lib/model-api/init'
-import { ModelApiContext } from '../lib/types/model-api-context'
+import { getAsset, removeAsset, unPublishAsset } from '../model-api/asset'
+import { getClient, getEnvironment, getSpace } from '../model-api/init'
+import { ModelApiContext } from '../types/model-api-context'
 
 const finish = async (context: ModelApiContext) => {
   console.log('Succesfully deleted asset')

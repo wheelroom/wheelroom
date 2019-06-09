@@ -2,10 +2,11 @@
 
 import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
-import { applyModels } from '../commands/apply-models'
-import { createContent } from '../commands/create-content'
-import { deleteContent } from '../commands/delete-content'
+import { applyModels } from '../lib/commands/apply-models'
+import { createContent } from '../lib/commands/create-content'
+import { deleteContent } from '../lib/commands/delete-content'
 import { getComponentConfigs } from '../lib/config/config'
+import { generateComponentFiles } from '../lib/generate-component-files/generate-component-files'
 import { ModelApiContext } from '../lib/types/model-api-context'
 
 const dotEnvResult = dotenv.config()
@@ -34,6 +35,10 @@ const cmdDeleteContent = async () => {
   await deleteContent(context)
 }
 
+const cmdGenerateComponentFiles = async () => {
+  await generateComponentFiles()
+}
+
 const params = yargs
   .command({
     command: 'apply-models',
@@ -51,8 +56,14 @@ const params = yargs
     handler: cmdDeleteContent,
   })
   .command({
+    command: 'generate-component-files',
+    describe: 'generate files with required graphql fragments',
+    handler: cmdGenerateComponentFiles,
+  })
+  .command({
     command: '*',
     handler: () => {
       console.log('Use --help flag for options')
     },
   }).argv
+
