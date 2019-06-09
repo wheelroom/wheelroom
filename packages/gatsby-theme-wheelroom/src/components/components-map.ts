@@ -1,15 +1,15 @@
 import { ComponentsMap } from '../lib/types/components-map'
 
+import { query as articleContentQuery } from './article-content/graphql'
 import { model as articleContentModel } from './article-content/model'
-import { query as articleContentQuery } from './article-content/query'
 
 import { model as articleSectionModel } from './article-section/model'
 
+import { query as globalsPartQuery } from './globals-part/graphql'
 import { model as globalsPartModel } from './globals-part/model'
-import { query as globalsPartQuery } from './globals-part/query'
 
+import { query as pageQuery } from './page/graphql'
 import { model as pageModel } from './page/model'
-import { query as pageQuery } from './page/query'
 
 export const componentsMap = {
   articleContent: {

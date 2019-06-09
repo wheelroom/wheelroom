@@ -1,9 +1,19 @@
-import { graphql } from 'gatsby'
-import { ArticleContent } from './article-content'
+export const query = `
+{
+  articleContent: allContentfulArticleContent(
+    limit: 10
+  ) {
+    edges {
+      node {
+        id
+        slug
+      }
+    }
+  }
+}
+`
 
-export { ArticleContent as ArticleContentGatsby }
-
-export const articleContentQuery = graphql`
+export const fragment = `
   fragment ArticleContent on ContentfulArticleContent {
     articleText {
       articleText
