@@ -1,16 +1,23 @@
 import * as fs from 'fs'
+import * as mkdirp from 'mkdirp'
 import * as util from 'util'
 import { ComponentConfig } from '../types/components-map'
 
 const writeFile = util.promisify(fs.writeFile)
+const mkdirpp = util.promisify(mkdirp)
 
 const firstUpper = str => str.charAt(0).toUpperCase() + str.slice(1)
 const camelToDash = str =>
   str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
 
-export const generateComponentFiles = async (
-  componentConfigs: ComponentConfig[]
+export const generateFiles = async (
+  componentConfigs: ComponentConfig[],
+  path: string
 ) => {
+  console.log(`Creating path: ${path}`)
+  // Returns path without trailing slash
+  const toPath = await mkdirpp(path, {})
+
   await Promise.all(
     componentConfigs.map(async config => {
       let fileContent = null
@@ -31,9 +38,12 @@ export const generateComponentFiles = async (
         console.log(`No file needed for ${config.componentId}`)
       } else {
         const fileName = camelToDash(config.componentId) + '.jsx'
-        console.log(`Writing ${fileName} for component ${config.componentId}`)
+        const writeTo = toPath + '/' + fileName
+        console.log(
+          `Writing ${fileName} in ${path} for component ${config.componentId}`
+        )
         try {
-          await writeFile(fileName, fileContent)
+          await writeFile(writeTo, fileContent)
         } catch (error) {
           console.log(error)
         }

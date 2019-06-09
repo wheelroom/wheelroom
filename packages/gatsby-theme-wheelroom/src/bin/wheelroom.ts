@@ -2,11 +2,12 @@
 
 import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
+import { Argv, CommandBuilder } from 'yargs'
 import { applyModels } from '../lib/commands/apply-models'
 import { createContent } from '../lib/commands/create-content'
 import { deleteContent } from '../lib/commands/delete-content'
 import { getComponentConfigs } from '../lib/config/config'
-import { generateComponentFiles } from '../lib/generate-component-files/generate-component-files'
+import { generateFiles } from '../lib/generate-files/generate-files'
 import { ModelApiContext } from '../lib/types/model-api-context'
 
 const dotEnvResult = dotenv.config()
@@ -35,10 +36,30 @@ const cmdDeleteContent = async () => {
   await deleteContent(context)
 }
 
-const cmdGenerateComponentFiles = async () => {
-  const componentConfigs = await getComponentConfigs()
-  await generateComponentFiles(componentConfigs)
+const cmdGenerateFiles = async values => {
+  switch (values.target) {
+    case 'components':
+      const componentConfigs = await getComponentConfigs()
+      await generateFiles(componentConfigs, values.path)
+
+      break
+    default:
+      console.log(`Unknown target: ${values.target}`)
+      break
+  }
 }
+
+const builderGenerateFiles: CommandBuilder = (yargs2: Argv) =>
+  yargs2
+    .positional('target', {
+      describe:
+        "only 'components'for now:\ncreate files with required graphql fragments",
+      type: 'string',
+    })
+    .positional('path', {
+      describe: 'where to create the files',
+      type: 'string',
+    })
 
 const params = yargs
   .command({
@@ -57,9 +78,10 @@ const params = yargs
     handler: cmdDeleteContent,
   })
   .command({
-    command: 'generate-component-files',
-    describe: 'generate files with required graphql fragments',
-    handler: cmdGenerateComponentFiles,
+    builder: builderGenerateFiles,
+    command: 'generate-files <target> <path>',
+    describe: 'generate boilerplate files',
+    handler: cmdGenerateFiles,
   })
   .command({
     command: '*',
