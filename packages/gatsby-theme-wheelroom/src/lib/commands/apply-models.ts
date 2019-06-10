@@ -16,7 +16,7 @@ const finish = async (context: ModelApiContext) => {
   return context
 }
 
-const handleError = error => {
+const handleError = (error: Error) => {
   console.log(error.message)
 }
 

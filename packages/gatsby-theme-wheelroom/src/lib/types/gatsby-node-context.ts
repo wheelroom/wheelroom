@@ -31,25 +31,17 @@ export interface NamedPaths {
 
 export interface GatsbyNodeContext {
   /** Array with all configured models */
-  componentConfigs?: ComponentConfig[]
+  componentConfigs: ComponentConfig[]
   /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
   /** The plugin configuration options */
   options: Options
   /** Path to the page template used to generate each page */
   pageTemplate: string
-  queries?: {
+  queries: {
     /** Each key contains the results of a global query */
-    global?: {
-      [globalName: string]: ContentfulObject[]
-    }
-    /** Each key contains the results of a subPage query */
-    subPage?: {
-      [contentName: string]: ContentfulObject[]
-    }
-    /** Each key contains the results of a page query */
-    page: {
-      [pageName: string]: ContentfulObject[]
+    [queryType: string]: {
+      [componentId: string]: ContentfulObject[]
     }
   }
   createPage(params: object): Promise<any>

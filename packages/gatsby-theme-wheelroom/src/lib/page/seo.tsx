@@ -15,7 +15,7 @@ const SEO = ({
   siteTitle,
   siteVersion,
   title,
-}) => {
+}: any) => {
   const metaDescription = description || siteDescription
   const useKeywords = keywords || siteKeywords
   const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
@@ -101,7 +101,7 @@ const SEO = ({
         .concat(meta)
         .concat(typeTags)}
     >
-      {linkLocales.map(linkLocale => (
+      {linkLocales.map((linkLocale: any) => (
         <link
           rel="alternate"
           href={linkLocale.href}

@@ -1,18 +1,15 @@
 import * as React from 'react'
 
 export interface ArticleSectionProps {
-  name: string
-  about: string
+  /** Gatsby fetched data */
+  data: any
 }
 
-export class ArticleSection extends React.Component<ArticleSectionProps, {}> {
-  public render() {
-    return (
-      <div>
-        <h2>ContentArticle</h2>
-        <p>{this.props.name}</p>
-        <p>{this.props.about}</p>
-      </div>
-    )
-  }
+export const ArticleSection = ({ data }: ArticleSectionProps) => {
+  return (
+    <div>
+      <h2>ContentArticle</h2>
+      <p>{data}</p>
+    </div>
+  )
 }

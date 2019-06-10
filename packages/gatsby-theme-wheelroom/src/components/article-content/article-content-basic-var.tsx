@@ -2,12 +2,11 @@ import * as React from 'react'
 
 import { ArticleContentProps } from './article-content'
 
-export const ArticleContentBasicVar = (props: ArticleContentProps) => {
+export const ArticleContentBasicVar = ({ data }: ArticleContentProps) => {
   return (
     <div>
       <h2>ArticleContentBasic</h2>
-      <p>{props.name}</p>
-      <p>{props.about}</p>
+      <p>{data}</p>
     </div>
   )
 }

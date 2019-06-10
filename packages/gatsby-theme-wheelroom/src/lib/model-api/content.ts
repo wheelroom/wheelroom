@@ -19,7 +19,8 @@ export const getFields = (context: ModelApiContext) => {
           break
 
         case 'Array':
-          switch (field.specs.items.type) {
+          const arrayItems = field.specs.items || ({} as any)
+          switch (arrayItems.type) {
             case 'Link':
               context.fields[fieldId] = {
                 nl: [

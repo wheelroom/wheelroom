@@ -150,6 +150,7 @@ exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
 
   const context = {
+    componentConfigs: [],
     createPage,
     graphql,
     namedPaths: {},

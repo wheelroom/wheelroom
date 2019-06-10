@@ -36,7 +36,7 @@ const cmdDeleteContent = async () => {
   await deleteContent(context)
 }
 
-const cmdGenerateFiles = async values => {
+const cmdGenerateFiles = async (values: { target: string; path: string }) => {
   switch (values.target) {
     case 'components':
       const componentConfigs = await getComponentConfigs()
@@ -61,7 +61,7 @@ const builderGenerateFiles: CommandBuilder = (yargs2: Argv) =>
       type: 'string',
     })
 
-const params = yargs
+let params = yargs
   .command({
     command: 'apply-models',
     describe: 'migrate all configured models',
@@ -81,7 +81,7 @@ const params = yargs
     builder: builderGenerateFiles,
     command: 'generate-files <target> <path>',
     describe: 'generate boilerplate files',
-    handler: cmdGenerateFiles,
+    handler: cmdGenerateFiles as any,
   })
   .command({
     command: '*',
@@ -89,3 +89,6 @@ const params = yargs
       console.log('Use --help flag for options')
     },
   }).argv
+
+// Prevent ts warning
+params = params

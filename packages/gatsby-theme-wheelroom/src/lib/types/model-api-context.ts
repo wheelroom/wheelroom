@@ -3,25 +3,25 @@ import { Model } from './model'
 
 export interface ModelApiContext {
   /** Contentful asset object */
-  asset?: any
+  asset: any
   /** Contentful Management Client */
-  contentfulClient?: any
+  contentfulClient: any
   /** Contentful contentType object */
-  contentType?: any
+  contentType: any
   /** Current model being applied */
   currentModel: Model
   /** Contentful demo entry */
-  entry?: any
+  entry: any
   /** Contentful field data for demo entry */
-  fields?: any
+  fields: any
   /** Contentful editorInterface object */
-  editorInterface?: any
+  editorInterface: any
   /** Contentful environment object */
-  environment?: any
+  environment: any
   /** Array of all models configs to be applied */
-  componentConfigs?: ComponentConfig[]
+  componentConfigs: ComponentConfig[]
   /** Contentful space object */
-  space?: any
+  space: any
   /** Contentful upload object */
   upload?: any
 }

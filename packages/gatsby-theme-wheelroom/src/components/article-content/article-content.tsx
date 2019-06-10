@@ -3,16 +3,12 @@ import { getVariation } from '../../lib/variations/variations'
 import { variations } from './variations'
 
 export interface ArticleContentProps {
-  /** Description of prop "name" */
-  name: string
-  /** Description of prop "about" */
-  about: string
-  /** Description of prop "variation" */
-  variation: string
+  /** Gatsby fetched data */
+  data: any
 }
 
-export const ArticleContent = (props: ArticleContentProps) => {
-  const Variation = getVariation(props, variations)
+export const ArticleContent = ({ data }: ArticleContentProps) => {
+  const Variation = getVariation(data.variation, variations)
 
-  return <Variation {...props} />
+  return <Variation {...data} />
 }

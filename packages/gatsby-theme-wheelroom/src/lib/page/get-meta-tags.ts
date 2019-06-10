@@ -1,7 +1,7 @@
 // In order to supply an image tag for a page, find the image associated with
 // the opener section of the page.
 
-export const getPageImage = page => {
+export const getPageImage = (page: any) => {
   for (const section of page.sections) {
     if (section.__typename === 'ContentfulSectionOpener') {
       if (!section.image) {
@@ -12,14 +12,14 @@ export const getPageImage = page => {
   }
 }
 
-export const getArticleImage = article => {
+export const getArticleImage = (article: any) => {
   if (!article.image) {
     return
   }
   return article.image.fluid.src
 }
 
-export const getPageTypeInfo = (page, article) => {
+export const getPageTypeInfo = (page: any, article: any) => {
   const info = {} as any
 
   // Do we have an article?

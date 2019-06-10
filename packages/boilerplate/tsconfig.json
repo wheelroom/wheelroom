@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
     "declaration": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "lib": ["es6", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
     "removeComments": true,
     "sourceMap": true,
+    "strict": true,
     "target": "es6"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

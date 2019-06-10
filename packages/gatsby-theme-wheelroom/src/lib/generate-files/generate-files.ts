@@ -3,12 +3,14 @@ import * as fse from 'fs-extra'
 import * as util from 'util'
 import { ComponentConfig } from '../types/components-map'
 
+const fileExtension = '.ts'
 const writeFile = util.promisify(fs.writeFile)
 
-const firstUpper = str => str.charAt(0).toUpperCase() + str.slice(1)
-const camelToDash = str =>
+const firstUpper = (str: string): string =>
+  str.charAt(0).toUpperCase() + str.slice(1)
+const camelToDash = (str: string): string =>
   str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
-const noTrailingSlash = str => str.replace(/\/$/, '')
+const noTrailingSlash = (str: string): string => str.replace(/\/$/, '')
 
 export const generateFiles = async (
   componentConfigs: ComponentConfig[],
@@ -23,7 +25,7 @@ export const generateFiles = async (
   }
 
   await Promise.all(
-    componentConfigs.map(async config => {
+    componentConfigs.map(async (config: ComponentConfig) => {
       let fileContent = null
       switch (config.type) {
         case 'section':
@@ -41,7 +43,7 @@ export const generateFiles = async (
       if (fileContent === null) {
         console.log(`No file needed for ${config.componentId}`)
       } else {
-        const fileName = camelToDash(config.componentId) + '.js'
+        const fileName = camelToDash(config.componentId) + fileExtension
         const writeTo = toPath + '/' + fileName
         console.log(
           `Writing ${fileName} in ${path} for component ${config.componentId}`
@@ -58,13 +60,13 @@ export const generateFiles = async (
 }
 
 // Template for: global
-const onlyFragmentTemplate = fragment => `${importGraphql}
+const onlyFragmentTemplate = (fragment: string) => `${importGraphql}
 ${exportFragment(fragment)}
 `
 // Template for: section, subPage
 const componentFragmentTemplate = (
-  componentObject,
-  fragment
+  componentObject: string,
+  fragment: string
 ) => `${importGraphql}
 ${exportComponent(componentObject)}
 ${exportFragment(fragment)}
@@ -72,8 +74,8 @@ ${exportFragment(fragment)}
 
 const importGraphql = `import { graphql } from 'gatsby'`
 
-const exportFragment = fragment => `export const fragment = graphql\`
+const exportFragment = (fragment: string) => `export const fragment = graphql\`
 ${fragment}\``
 
-const exportComponent = componentObject =>
+const exportComponent = (componentObject: string) =>
   `export { ${componentObject} } from 'gatsby-theme-wheelroom'`

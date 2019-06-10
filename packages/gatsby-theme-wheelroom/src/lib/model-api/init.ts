@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as contentful from 'contentful-management'
 import { ModelApiContext } from '../types/model-api-context'
 

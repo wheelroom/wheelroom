@@ -7,7 +7,6 @@
     "babel-plugin-styled-components": "1.10.0",
     "contentful-management": "5.7.2",
     "dotenv": "8.0.0",
-    "fs-extra": "8.0.1",
     "gatsby": "2.8.6",
     "gatsby-plugin-google-tagmanager": "2.0.15",
     "gatsby-plugin-offline": "2.1.1",

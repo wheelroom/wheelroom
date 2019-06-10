@@ -27,9 +27,9 @@ const getModelFieldById = (
 export const updateEditorInterface = async (context: ModelApiContext) => {
   // If we don't have a editorInterface there's nothing to do here
   if (context.editorInterface === null) {
-    return context
+    return
   }
-  context.editorInterface.controls.forEach(control => {
+  context.editorInterface.controls.forEach((control: any) => {
     const [modelFieldId, modelField]: [any, Field] = getModelFieldById(
       context,
       control.fieldId

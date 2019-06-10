@@ -1,5 +1,6 @@
 import { componentsMap } from '../../components/components-map'
 import { ComponentConfig } from '../types/components-map'
+import { GatsbyThemeConfig, ThemeOptions } from '../types/gatsby-theme-config'
 
 export const getAppDir = () => {
   return process.cwd()
@@ -19,18 +20,20 @@ export const getGatsbyConfig = async () => {
   return config
 }
 
-export const getConfigsFromOptions = (options): ComponentConfig[] => {
-  return options.models.map(componentId => {
+export const getConfigsFromOptions = (
+  options: ThemeOptions
+): ComponentConfig[] => {
+  return options.models.map((componentId: string) => {
     return { ...componentsMap[componentId], componentId }
   })
 }
 
 export const getComponentConfigs = async () => {
   const config = await getGatsbyConfig()
-  const themes = config.__experimentalThemes
+  const themes = config.__experimentalThemes as GatsbyThemeConfig[]
 
   return themes.reduce(
     (result, theme) => [...result, ...getConfigsFromOptions(theme.options)],
-    []
+    [] as ComponentConfig[]
   )
 }

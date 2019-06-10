@@ -2,7 +2,7 @@ import { Model } from './model'
 
 export interface ComponentConfig {
   /** Id of the model */
-  componentId?: string
+  componentId: string
   /** Graphql fragment for this model, used to generate files */
   fragment?: any
   /** Model object to be applied */

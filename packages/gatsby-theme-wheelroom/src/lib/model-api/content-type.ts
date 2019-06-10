@@ -55,7 +55,7 @@ export const publishContentType = async (context: ModelApiContext) => {
 }
 
 const getModelVersion = (contentType: any): any => {
-  const result = contentType.fields.find(field => {
+  const result = contentType.fields.find((field: any) => {
     return field.id === 'modelVersion'
   })
   return result.name
@@ -66,7 +66,7 @@ const getApiFields = (context: ModelApiContext): any[] => {
   Object.entries(context.currentModel.fields).forEach(
     ([fieldId, field]: [string, Field]) => {
       console.log('Adding field', fieldId)
-      const apiField = { id: fieldId }
+      const apiField = { id: fieldId } as any
       Object.entries(field.specs).forEach(([specName, specValue]) => {
         apiField[specName] = specValue
       })

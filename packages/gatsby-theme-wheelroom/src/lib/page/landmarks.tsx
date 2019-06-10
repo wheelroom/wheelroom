@@ -7,13 +7,13 @@ import * as React from 'react'
 // order of the landmarks below.
 //
 
-const Landmarks = props => {
+const Landmarks = (props: any) => {
   const landMarkedChildren = {
     aside: [],
     footer: [],
     header: [],
     main: [],
-  }
+  } as any
 
   React.Children.forEach(props.children, child => {
     landMarkedChildren[child.props.landMark].push(child)
