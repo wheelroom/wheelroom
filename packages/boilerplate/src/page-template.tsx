@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import * as React from 'react'
 // import { pageDebug } from '../plugins/gatsby-plugin-wheelroom/page/debug'
 
-import { ArticleContent } from './wheelroom-generated/article-content'
+import { ArticleContent } from 'gatsby-theme-wheelroom'
 
 interface PageTemplateProps {
   site: any
@@ -21,7 +21,7 @@ const PageTemplate = (props: PageTemplateProps) => {
     <div>
       <h1>FOUND</h1>
       <p>Good! This path does exist!</p>
-      <ArticleContent about="aaa" name="bbb" variation="var" />
+      <ArticleContent data={{ key: 'this' }} />
     </div>
   )
 }

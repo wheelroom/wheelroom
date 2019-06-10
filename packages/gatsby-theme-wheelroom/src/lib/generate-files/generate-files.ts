@@ -6,8 +6,8 @@ import { ComponentConfig } from '../types/components-map'
 const fileExtension = '.ts'
 const writeFile = util.promisify(fs.writeFile)
 
-const firstUpper = (str: string): string =>
-  str.charAt(0).toUpperCase() + str.slice(1)
+// const firstUpper = (str: string): string =>
+//   str.charAt(0).toUpperCase() + str.slice(1)
 const camelToDash = (str: string): string =>
   str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
 const noTrailingSlash = (str: string): string => str.replace(/\/$/, '')
@@ -30,14 +30,8 @@ export const generateFiles = async (
       switch (config.type) {
         case 'section':
         case 'subPage':
-          fileContent = componentFragmentTemplate(
-            firstUpper(config.componentId),
-            config.fragment
-          )
-          break
-
         case 'global':
-          fileContent = onlyFragmentTemplate(config.fragment)
+          fileContent = fragmentTemplate(config.fragment)
           break
       }
       if (fileContent === null) {
@@ -59,16 +53,7 @@ export const generateFiles = async (
   console.log('Done wrting all files')
 }
 
-// Template for: global
-const onlyFragmentTemplate = (fragment: string) => `${importGraphql}
-${exportFragment(fragment)}
-`
-// Template for: section, subPage
-const componentFragmentTemplate = (
-  componentObject: string,
-  fragment: string
-) => `${importGraphql}
-${exportComponent(componentObject)}
+const fragmentTemplate = (fragment: string) => `${importGraphql}
 ${exportFragment(fragment)}
 `
 
@@ -76,6 +61,3 @@ const importGraphql = `import { graphql } from 'gatsby'`
 
 const exportFragment = (fragment: string) => `export const fragment = graphql\`
 ${fragment}\``
-
-const exportComponent = (componentObject: string) =>
-  `export { ${componentObject} } from 'gatsby-theme-wheelroom'`

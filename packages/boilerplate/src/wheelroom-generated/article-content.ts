@@ -1,5 +1,4 @@
 import { graphql } from 'gatsby'
-export { ArticleContent } from 'gatsby-theme-wheelroom'
 export const fragment = graphql`
 
   fragment ArticleContent on ContentfulArticleContent {

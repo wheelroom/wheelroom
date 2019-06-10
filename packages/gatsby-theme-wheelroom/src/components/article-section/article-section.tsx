@@ -5,11 +5,11 @@ export interface ArticleSectionProps {
   data: any
 }
 
-export const ArticleSection = ({ data }: ArticleSectionProps) => {
+export const ArticleSection = (props: ArticleSectionProps) => {
   return (
     <div>
       <h2>ContentArticle</h2>
-      <p>{data}</p>
+      <p>{props}</p>
     </div>
   )
 }

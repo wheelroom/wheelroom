@@ -7,8 +7,8 @@ export interface ArticleContentProps {
   data: any
 }
 
-export const ArticleContent = ({ data }: ArticleContentProps) => {
-  const Variation = getVariation(data.variation, variations)
+export const ArticleContent = (props: ArticleContentProps) => {
+  const Variation = getVariation(props, variations)
 
-  return <Variation {...data} />
+  return <Variation {...props} />
 }
