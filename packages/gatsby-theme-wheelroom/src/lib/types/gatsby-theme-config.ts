@@ -1,5 +1,4 @@
 export interface ThemeOptions {
-  appTheme: any
   defaultLocale: string
   models: string[]
   pageTemplate: string

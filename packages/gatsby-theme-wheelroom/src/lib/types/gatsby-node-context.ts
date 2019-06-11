@@ -1,17 +1,6 @@
 import { ComponentConfig } from './components-map'
+import { ThemeOptions } from './gatsby-theme-config'
 import { NamedPaths } from './router'
-
-export interface Options {
-  defaultLocale: string
-  appTheme: string
-  globals: {
-    [globalName: string]: string
-  }
-  subPageContent: {
-    [contentName: string]: string
-  }
-  pageTemplate: string
-}
 
 export interface ContentfulNode {
   id: string
@@ -29,7 +18,7 @@ export interface GatsbyNodeContext {
   /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
   /** The plugin configuration options */
-  options: Options
+  options: ThemeOptions
   /** Path to the page template used to generate each page */
   pageTemplate: string
   queries: {
@@ -46,7 +35,7 @@ export interface PageContext {
   pageId: string
   locale: string
   namedPaths: NamedPaths
-  [IdKey: string]: string | NamedPaths | Options
+  [IdKey: string]: string | NamedPaths | ThemeOptions
 }
 
 export interface GetPageContext {

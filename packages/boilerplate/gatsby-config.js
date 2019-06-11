@@ -5,7 +5,6 @@ module.exports = {
   __experimentalThemes: [
     {
       options: {
-        appTheme: require('./src/theme.json'),
         defaultLocale: 'nl',
         models: [ 'articleSection', 'globalsPart', 'articleContent', 'page'],
         pageTemplate: path.resolve('./src/page-template.tsx'),
