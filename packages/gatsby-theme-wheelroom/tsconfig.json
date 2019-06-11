@@ -12,7 +12,6 @@
     "noImplicitUseStrict": true,
     "noUnusedLocals": true,
     "outDir": "./",
-    "paths": { "*": ["types/*"] },
     "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,
@@ -20,7 +19,8 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "es6"
+    "target": "es6",
+    "types": ["react"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": []

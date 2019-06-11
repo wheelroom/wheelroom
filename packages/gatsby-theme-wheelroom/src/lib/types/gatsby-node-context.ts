@@ -1,4 +1,5 @@
 import { ComponentConfig } from './components-map'
+import { NamedPaths } from './router'
 
 export interface Options {
   defaultLocale: string
@@ -20,13 +21,6 @@ export interface ContentfulNode {
 export interface ContentfulObject {
   node: ContentfulNode
   node_locale: string
-}
-
-export interface NamedPaths {
-  [pathName: string]: {
-    path: string
-    [localeName: string]: string
-  }
 }
 
 export interface GatsbyNodeContext {
