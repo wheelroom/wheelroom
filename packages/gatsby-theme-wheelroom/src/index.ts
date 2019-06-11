@@ -11,6 +11,7 @@ export * from './lib/variations/variations'
 import * as articleContentGraphql from './components/article-content/graphql'
 export { articleContentGraphql }
 export * from './components/article-content/article-content'
+export * from './components/article-content/get-meta-tags'
 
 import * as articleSectionGraphql from './components/article-section/graphql'
 export { articleSectionGraphql }

@@ -6,7 +6,7 @@ import {
   getArticleImage,
   getNamedPath,
   getPageImage,
-  getPageTypeInfo,
+  getSeoContentTypeInfo,
   pageDebug,
   Seo,
 } from 'gatsby-theme-wheelroom'
@@ -28,9 +28,7 @@ const PageTemplate = (props: any) => {
   pageDebug('PageTemplate', props)
   // When server side rendering, location is unavailable. In that case use
   // siteMetadata
-  const allArticles = props.data.allArticles.edges.map(
-    (mapArg: any) => mapArg.node
-  )
+  console.log('props', props)
   const globals = props.data.globals
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
@@ -42,7 +40,9 @@ const PageTemplate = (props: any) => {
 
   // If this page is an article, the opener section will use the article image.
   // We need to do the same when getting an image for the meta tag.
-  const image = getPageImage(page) || getArticleImage(subPageArticle)
+  const image =
+    getPageImage(page, 'ContentfulOpenerSection') ||
+    getArticleImage(subPageArticle)
 
   const locales = ['nl', 'en'].map(hrefLocale => {
     // Parse in slug if we have one
@@ -77,11 +77,10 @@ const PageTemplate = (props: any) => {
           siteTitle={globals.siteTitle}
           title={pathName === 'article' ? subPageArticle.title : page.seoTitle}
           siteVersion={siteVersion}
-          contentTypeInfo={getPageTypeInfo(page, subPageArticle)}
+          contentTypeInfo={getSeoContentTypeInfo(page, subPageArticle)}
         />
 
         <Sections
-          allArticles={allArticles}
           globals={globals}
           locale={locale}
           namedPaths={namedPaths}
