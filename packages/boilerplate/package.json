@@ -4,6 +4,7 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
+    "@types/styled-components": "4.1.16",
     "babel-plugin-styled-components": "1.10.0",
     "contentful-management": "5.7.2",
     "dotenv": "8.0.0",

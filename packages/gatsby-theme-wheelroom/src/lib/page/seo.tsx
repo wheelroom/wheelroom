@@ -1,7 +1,8 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import { SeoProps } from '../types/seo'
 
-const SEO = ({
+export const Seo = ({
   contentTypeInfo,
   description,
   image,
@@ -15,7 +16,7 @@ const SEO = ({
   siteTitle,
   siteVersion,
   title,
-}: any) => {
+}: SeoProps) => {
   const metaDescription = description || siteDescription
   const useKeywords = keywords || siteKeywords
   const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
@@ -31,7 +32,7 @@ const SEO = ({
       typeTags.push({
         content: contentTypeInfo.tags[tag],
         property: contentTypeInfo.type + ':' + tag,
-      })
+      } as any)
     })
   }
 
@@ -113,18 +114,8 @@ const SEO = ({
   )
 }
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   keywords: [],
   lang: 'en',
   meta: [],
 }
-
-// SEO.propTypes = {
-//   description: PropTypes.string,
-//   lang: PropTypes.string,
-//   meta: PropTypes.array,
-//   keywords: PropTypes.arrayOf(PropTypes.string),
-//   title: PropTypes.string.isRequired,
-// }
-
-export default SEO

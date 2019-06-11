@@ -1,14 +1,18 @@
-import { Container,  } from 'gatsby-theme-wheelroom'
-import { createGlobalStyle } from 'styled-components'
-import { getNamedPath } from '../../router/named-paths'
-import { getPageImage, getArticleImage, getPageTypeInfo } from './get-meta-tags'
 import { graphql } from 'gatsby'
-import { productionDebug } from '../../libs/debug'
+import {
+  Container,
+  getArticleImage,
+  getNamedPath,
+  getPageImage,
+  getPageTypeInfo,
+  pageDebug,
+  Seo,
+} from 'gatsby-theme-wheelroom'
+import * as React from 'react'
+import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from 'styled-components'
-import appTheme from '../../styling/theme'
-import React from 'react'
 import Sections from './sections'
-import SEO from './seo'
+import { appTheme } from './theme'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -20,11 +24,13 @@ const GlobalStyle = createGlobalStyle`
 // will add the property to all sections. Also, changing SEO options here, will
 // do so for all pages.
 //
-const PageTemplate = props => {
-  productionDebug('PageTemplate', props)
+const PageTemplate = (props: any) => {
+  pageDebug('PageTemplate', props)
   // When server side rendering, location is unavailable. In that case use
   // siteMetadata
-  const allArticles = props.data.allArticles.edges.map(mapArg => mapArg.node)
+  const allArticles = props.data.allArticles.edges.map(
+    (mapArg: any) => mapArg.node
+  )
   const globals = props.data.globals
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
@@ -38,25 +44,25 @@ const PageTemplate = props => {
   // We need to do the same when getting an image for the meta tag.
   const image = getPageImage(page) || getArticleImage(subPageArticle)
 
-  const locales = ['nl', 'en'].map(locale => {
+  const locales = ['nl', 'en'].map(hrefLocale => {
     // Parse in slug if we have one
     const href = getNamedPath({
-      locale,
+      locale: hrefLocale,
       namedPaths,
       pathName,
       slug: pathName === 'article' ? subPageArticle.slug : undefined,
     })
     return {
-      name: locale,
       href: siteUrl + href,
+      name: hrefLocale,
     }
-  })
+  }) as []
 
   return (
     <ThemeProvider theme={appTheme}>
       <Container>
         <GlobalStyle />
-        <SEO
+        <Seo
           description={
             pathName === 'article'
               ? subPageArticle.subTitle
@@ -89,7 +95,6 @@ const PageTemplate = props => {
 }
 
 export default PageTemplate
-
 
 // This is the main query for all pages. The query is passed the required id's
 // from /gatsby-node.js. The id's are used to fetch the appropriate page,

@@ -1,6 +1,8 @@
 // In order to supply an image tag for a page, find the image associated with
 // the opener section of the page.
 
+import { ContentTypeInfo } from '../types/seo'
+
 export const getPageImage = (page: any) => {
   for (const section of page.sections) {
     if (section.__typename === 'ContentfulSectionOpener') {
@@ -12,15 +14,8 @@ export const getPageImage = (page: any) => {
   }
 }
 
-export const getArticleImage = (article: any) => {
-  if (!article.image) {
-    return
-  }
-  return article.image.fluid.src
-}
-
 export const getPageTypeInfo = (page: any, article: any) => {
-  const info = {} as any
+  const info = {} as ContentTypeInfo
 
   // Do we have an article?
   if (page.pathName === 'article') {
@@ -47,4 +42,5 @@ export const getPageTypeInfo = (page: any, article: any) => {
     }
     return info
   }
+  return info
 }

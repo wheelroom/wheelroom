@@ -12,3 +12,10 @@ export const ArticleContent = (props: ArticleContentProps) => {
 
   return <Variation {...props} />
 }
+
+export const getArticleImage = (article: any) => {
+  if (!article.image) {
+    return
+  }
+  return article.image.fluid.src
+}

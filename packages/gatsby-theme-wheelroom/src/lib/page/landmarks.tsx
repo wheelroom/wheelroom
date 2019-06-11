@@ -7,7 +7,7 @@ import * as React from 'react'
 // order of the landmarks below.
 //
 
-const Landmarks = (props: any) => {
+export const Landmarks = (props: any) => {
   const landMarkedChildren = {
     aside: [],
     footer: [],
@@ -28,5 +28,3 @@ const Landmarks = (props: any) => {
     </Fragment>
   )
 }
-
-export default Landmarks
