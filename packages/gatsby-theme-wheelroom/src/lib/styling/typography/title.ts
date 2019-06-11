@@ -1,4 +1,4 @@
-export const StyleTitle1 = {
+export const Title1Style = {
   color: 'darkBlue',
   fontFamily: 'heading',
   fontSize: [4, 4, 5, 6],
@@ -7,7 +7,7 @@ export const StyleTitle1 = {
   mb: 3,
 }
 
-export const StyleTitle2 = {
+export const Title2Style = {
   color: 'darkBlue',
   fontFamily: 'heading',
   fontSize: [3, 3, 4, 5],
@@ -16,7 +16,7 @@ export const StyleTitle2 = {
   mb: 2,
 }
 
-export const StyleTitle3 = {
+export const Title3Style = {
   color: 'darkBlue',
   fontFamily: 'heading',
   fontSize: [1, 2, 3, 4],
@@ -25,7 +25,7 @@ export const StyleTitle3 = {
   mb: 1,
 }
 
-export const StyleTitle4 = {
+export const Title4Style = {
   color: 'darkBlue',
   fontFamily: 'heading',
   fontSize: [1, 1, 2, 3],

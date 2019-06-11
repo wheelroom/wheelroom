@@ -1,6 +1,5 @@
 // @ts-ignore
-import Tag from 'clean-tag'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import {
   color,
@@ -13,7 +12,7 @@ import {
   textAlign,
 } from 'styled-system'
 
-const Text = styled(Tag)(
+const Text = styled.div(
   color,
   fontFamily,
   fontSize,
@@ -21,8 +20,7 @@ const Text = styled(Tag)(
   letterSpacing,
   lineHeight,
   space,
-  textAlign,
-  props => props.css
+  textAlign
 )
 
 Text.displayName = 'Text'

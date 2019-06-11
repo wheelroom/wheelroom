@@ -1,3 +1,5 @@
+import { Global } from '@emotion/core'
+import { ThemeProvider } from 'emotion-theming'
 import { graphql } from 'gatsby'
 import {
   Container,
@@ -9,16 +11,14 @@ import {
   Seo,
 } from 'gatsby-theme-wheelroom'
 import * as React from 'react'
-import { createGlobalStyle } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import Sections from './sections'
 import { appTheme } from './theme'
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-  }
-`
+const StyleGlobal = {
+  body: {
+    margin: 0,
+  },
+}
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -61,7 +61,7 @@ const PageTemplate = (props: any) => {
   return (
     <ThemeProvider theme={appTheme}>
       <Container>
-        <GlobalStyle />
+        <Global styles={StyleGlobal} />
         <Seo
           description={
             pathName === 'article'

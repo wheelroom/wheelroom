@@ -1,6 +1,5 @@
 // @ts-ignore
-import Tag from 'clean-tag'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import {
   alignItems,
@@ -27,7 +26,7 @@ import {
   zIndex,
 } from 'styled-system'
 
-export const Box = styled(Tag)(
+export const Box = styled('div')(
   {
     boxSizing: 'border-box',
   },
@@ -42,8 +41,7 @@ export const Box = styled(Tag)(
   order,
   overflow,
   space,
-  width,
-  props => props.css
+  width
 )
 
 Box.displayName = 'Box'

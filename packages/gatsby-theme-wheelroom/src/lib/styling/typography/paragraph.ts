@@ -1,4 +1,4 @@
-export const StyleGatsbyLink = {
+export const GatsbyLinkStyle = {
   '&:hover': {
     color: 'inherit',
     'text-decoration': 'underline',
@@ -10,7 +10,7 @@ export const StyleGatsbyLink = {
   'text-decoration': 'none',
 }
 
-export const StyleLink = {
+export const LinkStyle = {
   '&:hover': {
     color: 'inherit',
     'text-decoration': 'underline',

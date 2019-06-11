@@ -1,6 +1,5 @@
 // @ts-ignore
-import Tag from 'clean-tag'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import {
   color,
@@ -13,7 +12,7 @@ import {
   textAlign,
 } from 'styled-system'
 
-const Heading = styled(Tag)(
+const Heading = styled.div(
   color,
   fontFamily,
   fontSize,
@@ -21,8 +20,7 @@ const Heading = styled(Tag)(
   letterSpacing,
   lineHeight,
   space,
-  textAlign,
-  props => props.css
+  textAlign
 )
 
 Heading.displayName = 'Heading'
