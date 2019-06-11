@@ -1,5 +1,5 @@
-// @ts-ignore
 import styled from '@emotion/styled'
+import * as React from 'react'
 
 import {
   alignItems,
@@ -62,9 +62,12 @@ export const Position = styled(Box)(bottom, left, position, right, top, zIndex)
 
 Position.displayName = 'Position'
 
-export const Container = styled(Box)`
-  max-width: 1024px;
-`
-Container.defaultProps = {
-  mx: 'auto',
-}
+export const Container = (props: any) => (
+  <Box
+    {...props}
+    mx="auto"
+    css={{
+      maxWidth: '1024px',
+    }}
+  />
+)
