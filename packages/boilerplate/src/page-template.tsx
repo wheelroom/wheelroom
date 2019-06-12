@@ -1,6 +1,7 @@
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import { graphql } from 'gatsby'
+
 import {
   Container,
   getArticleImage,
@@ -60,8 +61,8 @@ const PageTemplate = (props: any) => {
 
   return (
     <ThemeProvider theme={appTheme}>
+      <Global styles={StyleGlobal} />
       <Container>
-        <Global styles={StyleGlobal} />
         <Seo
           description={
             pathName === 'article'
@@ -79,7 +80,6 @@ const PageTemplate = (props: any) => {
           siteVersion={siteVersion}
           contentTypeInfo={getSeoContentTypeInfo(page, subPageArticle)}
         />
-
         <Sections
           globals={globals}
           locale={locale}
