@@ -6,7 +6,7 @@ export const ArticleSectionInlineVar = (props: ArticleSectionProps) => {
   return (
     <div>
       <h2>ArticleSectionInline</h2>
-      <p>{props}</p>
+      <p>{props.data}</p>
     </div>
   )
 }

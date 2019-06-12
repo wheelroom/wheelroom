@@ -6,7 +6,7 @@ export const ArticleContentBasicVar = (props: ArticleContentProps) => {
   return (
     <div>
       <h2>ArticleContentBasic</h2>
-      <p>{props}</p>
+      <p>{props.data}</p>
     </div>
   )
 }

@@ -11,7 +11,7 @@ import {
   Seo,
 } from 'gatsby-theme-wheelroom'
 import * as React from 'react'
-import Sections from './sections'
+import { Sections } from './sections'
 import { appTheme } from './theme'
 
 const StyleGlobal = {
@@ -29,7 +29,7 @@ const PageTemplate = (props: any) => {
   // When server side rendering, location is unavailable. In that case use
   // siteMetadata
   console.log('props', props)
-  const globals = props.data.globals
+  const globals = props.data.globalsPart
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const page = props.data.page

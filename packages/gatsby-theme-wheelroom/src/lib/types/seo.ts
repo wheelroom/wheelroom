@@ -16,7 +16,7 @@ export interface SeoContentTypeInfo {
 }
 
 export interface SeoProps {
-  contentTypeInfo: SeoContentTypeInfo
+  contentTypeInfo: SeoContentTypeInfo | null
   description: string
   image: string
   keywords: string[]

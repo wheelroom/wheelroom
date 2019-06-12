@@ -6,7 +6,7 @@ export const ArticleSectionLinkedVar = (props: ArticleSectionProps) => {
   return (
     <div>
       <h2>ArticleSectionLinked</h2>
-      <p>{props}</p>
+      <p>{props.data}</p>
     </div>
   )
 }

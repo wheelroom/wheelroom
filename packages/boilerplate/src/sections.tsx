@@ -5,11 +5,12 @@ import * as React from 'react'
 // defines the landmarks. Because of the way landmarks are organized they have
 // an influence on the section order. See landmarks.jsx for more info on this.
 //
-const sectionList = {
+const sectionMap = {
   ContentfulArticleSection: { element: ArticleSection, landMark: 'main' },
 } as {
   [contentfulSectionName: string]: any
 }
+
 /**
  * All sections get a few default props gathered by gatsby-node.js:
  *
@@ -21,11 +22,11 @@ const sectionList = {
  * - pathName: the name of the current path
  *
  */
-const Sections = (props: any) => {
-  const sections = [] as JSX.Element[]
+export const Sections = (props: any) => {
+  const sectionList = [] as JSX.Element[]
   props.sections.forEach((section: any, index: number) => {
-    const Section = sectionList[section.__typename].element
-    const landMark = sectionList[section.__typename].landMark
+    const Section = sectionMap[section.__typename].element as JSX.Element
+    const landMark = sectionMap[section.__typename].landMark
     const sectionProps = {
       allArticles: props.allArticles,
       article: props.subPageArticle,
@@ -37,10 +38,10 @@ const Sections = (props: any) => {
       pathName: props.pathName,
       ...section,
     }
-    sections.push(<Section {...sectionProps} />)
+    // @ts-ignore: Unreachable code error
+    sectionList.push(<Section {...sectionProps} />)
   })
-  // Add proper landmarks (header, main and footer) around sections
-  return <Landmarks>{sections}</Landmarks>
-}
 
-export default Sections
+  // Add proper landmarks (header, main and footer) around sections
+  return <Landmarks>{sectionList}</Landmarks>
+}

@@ -17,7 +17,7 @@ export const Seo = ({
   siteVersion,
   title,
 }: SeoProps) => {
-  const metaDescription = description || siteDescription
+  const metaDescription = description || siteDescription || ''
   const useKeywords = keywords || siteKeywords
   const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
   const linkLocales = locales || []
