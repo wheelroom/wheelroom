@@ -64,10 +64,10 @@ Position.displayName = 'Position'
 
 export const Container = (props: any) => (
   <Box
-    {...props}
     mx="auto"
     css={{
       maxWidth: '1024px',
     }}
+    {...props}
   />
 )
