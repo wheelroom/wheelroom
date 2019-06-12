@@ -49,5 +49,5 @@ export const model = {
   modelVersion: '1.0.0',
   name: 'Article section',
   type: 'articleSection',
-  wheelroomType: 'page',
+  wheelroomType: 'section',
 } as Model

@@ -23,7 +23,7 @@ export interface GatsbyNodeContext {
   pageTemplate: string
   queries: {
     /** Each key contains the results of a global query */
-    [queryType: string]: {
+    [modelWheelroomType: string]: {
       [componentId: string]: ContentfulObject[]
     }
   }
@@ -32,14 +32,15 @@ export interface GatsbyNodeContext {
 }
 
 export interface PageContext {
-  pageId: string
   locale: string
   namedPaths: NamedPaths
-  [IdKey: string]: string | NamedPaths | ThemeOptions
+  [componentTypeIdKey: string]: string | NamedPaths | ThemeOptions
 }
 
 export interface GetPageContext {
   context: GatsbyNodeContext
   page: ContentfulNode
-  subPageContent?: ContentfulObject
+  subPage?: ContentfulObject
+  /** Contentful model type */
+  pageType: string
 }

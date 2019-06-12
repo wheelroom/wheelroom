@@ -1,6 +1,6 @@
 export interface ThemeOptions {
   defaultLocale: string
-  models: string[]
+  componentTypes: string[]
   pageTemplate: string
 }
 

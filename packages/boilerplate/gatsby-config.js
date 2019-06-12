@@ -6,7 +6,7 @@ module.exports = {
     {
       options: {
         defaultLocale: 'nl',
-        models: [ 'articleSection', 'globalsPart', 'articleContent', 'page'],
+        componentTypes: [ 'articleSection', 'globalsPart', 'articleContent', 'page'],
         pageTemplate: path.resolve('./src/page-template.tsx'),
       },
       resolve: `gatsby-theme-wheelroom`,

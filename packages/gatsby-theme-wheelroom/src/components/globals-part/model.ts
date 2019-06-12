@@ -103,5 +103,5 @@ export const model = {
   modelVersion: '1.0.0',
   name: 'Globals part',
   type: 'globalsPart',
-  wheelroomType: 'page',
+  wheelroomType: 'global',
 } as Model

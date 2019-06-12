@@ -19,22 +19,18 @@ export const componentsMap = {
     fragment: articleContentFragment,
     model: articleContentModel,
     query: articleContentQuery,
-    type: 'subPage',
   } as ComponentConfig,
   articleSection: {
     fragment: articleSectionFragment,
     model: articleSectionModel,
-    type: 'section',
   } as ComponentConfig,
   globalsPart: {
     fragment: globalsPartFragment,
     model: globalsPartModel,
     query: globalsPartQuery,
-    type: 'global',
   } as ComponentConfig,
   page: {
     model: pageModel,
     query: pageQuery,
-    type: 'page',
   } as ComponentConfig,
 } as ComponentsMap

@@ -10,19 +10,24 @@ import {
 const runQueries = async (context: GatsbyNodeContext) => {
   await Promise.all(
     context.componentConfigs.map(async (componentConfig: ComponentConfig) => {
-      if (['global', 'subPage', 'page'].includes(componentConfig.type)) {
+      if (
+        ['global', 'subPage', 'page'].includes(
+          componentConfig.model.wheelroomType
+        )
+      ) {
         console.log(
-          `Running query ${componentConfig.componentId} for type ${componentConfig.type}`
+          `Running query ${componentConfig.model.type} for type ${componentConfig.model.wheelroomType}`
         )
         const result = await context.graphql(componentConfig.query)
         if (!result.data) {
           throw new Error(
-            `Could not find any ${componentConfig.componentId} of type ${componentConfig.type} at Contentful, please check the model query
+            `Could not find any ${componentConfig.model.type} of type ${componentConfig.model.wheelroomType} at Contentful, please check the model query
             `
           )
         }
-        context.queries[componentConfig.type][componentConfig.componentId] =
-          result.data[componentConfig.componentId].edges
+        context.queries[componentConfig.model.wheelroomType][
+          componentConfig.model.type
+        ] = result.data[componentConfig.model.type].edges
       }
     })
   )
@@ -60,15 +65,15 @@ const buildNamedPaths = (context: GatsbyNodeContext) => {
 const getPageContext = ({
   context,
   page,
-  subPageContent,
+  subPage,
+  pageType,
 }: GetPageContext): PageContext => {
   const pageContext = {
     locale: getLocale(page),
     namedPaths: context.namedPaths,
-    pageId: page.id,
   } as PageContext
 
-  // Add ids of Globals
+  // Add global ids
   Object.entries(context.queries.global).forEach(([globalsName, globals]) => {
     globals.forEach((globalsItem: ContentfulObject) => {
       const globalsLocale = globalsItem.node.node_locale
@@ -80,67 +85,73 @@ const getPageContext = ({
     })
   })
 
-  // Add ids of subPage
-  if (subPageContent) {
-    pageContext[page.pathName + 'Id'] = subPageContent.node.id
+  // Add page id
+  pageContext[pageType + 'Id'] = page.id
+
+  // Add subPage id
+  if (subPage) {
+    pageContext[page.pathName + 'Id'] = subPage.node.id
   }
   return pageContext
 }
 
 const createPages = (context: GatsbyNodeContext) => {
-  context.queries.page.page.forEach(edge => {
-    const page = edge.node
-    const locale = getLocale(page)
-    const localizedBasePath = context.namedPaths[page.pathName][locale]
+  Object.entries(context.queries.page).forEach(([pageType, pageEdge]) => {
+    pageEdge.forEach(edge => {
+      const page = edge.node
+      const locale = getLocale(page)
+      const localizedBasePath = context.namedPaths[page.pathName][locale]
 
-    const tokens = localizedBasePath.split('%')
-    if (tokens.length === 3) {
-      return
-    }
+      const tokens = localizedBasePath.split('%')
+      if (tokens.length === 3) {
+        return
+      }
 
-    console.log('Creating page:', localizedBasePath)
-    context.createPage({
-      component: context.pageTemplate,
-      context: getPageContext({ context, page }),
-      path: localizedBasePath,
+      console.log('Creating page:', localizedBasePath)
+      context.createPage({
+        component: context.pageTemplate,
+        context: getPageContext({ context, page, pageType }),
+        path: localizedBasePath,
+      })
     })
   })
 }
 
 const createSubPages = (context: GatsbyNodeContext) => {
-  context.queries.page.page.forEach(edge => {
-    const page = edge.node
-    const locale = getLocale(page)
-    const localizedBasePath = context.namedPaths[page.pathName][locale]
+  Object.entries(context.queries.page).forEach(([pageType, pageEdge]) => {
+    pageEdge.forEach(edge => {
+      const page = edge.node
+      const locale = getLocale(page)
+      const localizedBasePath = context.namedPaths[page.pathName][locale]
 
-    // Build sub pages if we find a fieldname like %slug%
-    const tokens = localizedBasePath.split('%')
-    if (tokens.length !== 3) {
-      return
-    }
-    const templateVar = tokens[1]
-    tokens.splice(1, 1)
-
-    const localesDone: {
-      [localeName: string]: boolean
-    } = {}
-    context.queries.subPage[page.pathName].forEach(subPageContent => {
-      const subPageLocale =
-        subPageContent.node_locale || getDefaultLocale(context)
-      if (subPageLocale !== locale || subPageLocale in localesDone) {
+      // Build sub pages if we find a fieldname like %slug%
+      const tokens = localizedBasePath.split('%')
+      if (tokens.length !== 3) {
         return
       }
-      localesDone[subPageLocale] = true
+      const templateVar = tokens[1]
+      tokens.splice(1, 1)
 
-      const subPageTokens = tokens.slice()
-      subPageTokens.push(subPageContent.node[templateVar])
-      const pagePath = subPageTokens.join('')
+      const localesDone: {
+        [localeName: string]: boolean
+      } = {}
+      context.queries.subPage[page.pathName].forEach(subPage => {
+        const subPageLocale = subPage.node_locale || getDefaultLocale(context)
+        if (subPageLocale !== locale || subPageLocale in localesDone) {
+          return
+        }
+        localesDone[subPageLocale] = true
 
-      console.log('Creating sub page:', pagePath)
-      context.createPage({
-        component: context.pageTemplate,
-        context: getPageContext({ context, page, subPageContent }),
-        path: pagePath,
+        const subPageTokens = tokens.slice()
+        subPageTokens.push(subPage.node[templateVar])
+        const pagePath = subPageTokens.join('')
+
+        console.log('Creating sub page:', pagePath)
+        context.createPage({
+          component: context.pageTemplate,
+          context: getPageContext({ context, page, subPage, pageType }),
+          path: pagePath,
+        })
       })
     })
   })

@@ -110,5 +110,5 @@ export const model = {
   modelVersion: '1.0.0',
   name: 'Article content',
   type: 'articleContent',
-  wheelroomType: 'page',
+  wheelroomType: 'subPage',
 } as Model

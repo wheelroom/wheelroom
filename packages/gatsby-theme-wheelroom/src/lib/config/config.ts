@@ -23,9 +23,9 @@ export const getGatsbyConfig = async () => {
 export const getConfigsFromOptions = (
   options: ThemeOptions
 ): ComponentConfig[] => {
-  return options.models.map((componentId: string) => {
-    return { ...componentsMap[componentId], componentId }
-  })
+  return options.componentTypes.map(
+    (componentType: string) => componentsMap[componentType]
+  )
 }
 
 export const getComponentConfigs = async () => {
