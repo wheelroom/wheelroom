@@ -27,7 +27,7 @@ export const generateFiles = async (
   await Promise.all(
     componentConfigs.map(async (config: ComponentConfig) => {
       let fileContent = null
-      switch (config.type) {
+      switch (config.model.wheelroomType) {
         case 'section':
         case 'subPage':
         case 'global':
@@ -35,12 +35,12 @@ export const generateFiles = async (
           break
       }
       if (fileContent === null) {
-        console.log(`No file needed for ${config.componentId}`)
+        console.log(`No file needed for ${config.model.type}`)
       } else {
-        const fileName = camelToDash(config.componentId) + fileExtension
+        const fileName = camelToDash(config.model.type) + fileExtension
         const writeTo = toPath + '/' + fileName
         console.log(
-          `Writing ${fileName} in ${path} for component ${config.componentId}`
+          `Writing ${fileName} in ${path} for component ${config.model.type}`
         )
         try {
           await writeFile(writeTo, fileContent)

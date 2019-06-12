@@ -39,7 +39,7 @@ export const applyModel = async (context: ModelApiContext) => {
 
 export const applyModels = async (context: ModelApiContext) => {
   for (const componentConfig of context.componentConfigs) {
-    console.log('Applying model', componentConfig.componentId, '=============')
+    console.log('Applying model', componentConfig.model.type, '=============')
     context.contentType = null
     context.currentModel = componentConfig.model
     context.editorInterface = null

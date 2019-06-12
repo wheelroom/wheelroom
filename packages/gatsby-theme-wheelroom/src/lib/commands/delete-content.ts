@@ -31,7 +31,7 @@ export const deleteContent = async (context: ModelApiContext) => {
   for (const componentConfig of context.componentConfigs) {
     console.log(
       'Deleting content for model',
-      componentConfig.componentId,
+      componentConfig.model.type,
       '============='
     )
     context.entry = null

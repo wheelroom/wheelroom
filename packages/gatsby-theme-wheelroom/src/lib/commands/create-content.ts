@@ -40,7 +40,7 @@ export const createContent = async (context: ModelApiContext) => {
   for (const componentConfig of context.componentConfigs) {
     console.log(
       'Creating content for model',
-      componentConfig.componentId,
+      componentConfig.model.type,
       '============='
     )
     context.entry = null
