@@ -25,7 +25,7 @@ const sectionMap = {
 export const Sections = (props: any) => {
   const sectionList = [] as JSX.Element[]
   props.sections.forEach((section: any, index: number) => {
-    const Section = sectionMap[section.__typename].element as JSX.Element
+    const Section = sectionMap[section.__typename].element
     const landMark = sectionMap[section.__typename].landMark
     const sectionProps = {
       allArticles: props.allArticles,
@@ -38,7 +38,6 @@ export const Sections = (props: any) => {
       pathName: props.pathName,
       ...section,
     }
-    // @ts-ignore: Unreachable code error
     sectionList.push(<Section {...sectionProps} />)
   })
 

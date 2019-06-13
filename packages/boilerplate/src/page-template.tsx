@@ -2,7 +2,7 @@ import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import { graphql } from 'gatsby'
 
-import { Container } from './new-grid'
+import { Container } from 'gatsby-theme-wheelroom'
 
 import {
   getArticleImage,

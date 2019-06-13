@@ -1,4 +1,4 @@
-// @ts-ignore: Unreachable code error
+// @ts-ignore: ignore export = trouble
 import facepaint from 'facepaint'
 
 const config = {
@@ -159,7 +159,7 @@ const addMediaQueries = (cssProps: any, theme: any) => {
   })
 }
 
-const parseStyles = (theme: any, props: any) => {
+export const parseStyles = (theme: any, props: any) => {
   const cssProps = Object.assign({}, props)
   removeIgnoredProperties(cssProps)
   replaceAliases(cssProps)
@@ -170,7 +170,3 @@ const parseStyles = (theme: any, props: any) => {
 
   return cssProps
 }
-
-// Small wrapper that allows us to do: css={styledSystem(props)}
-export const styledSystem = (props: any) => (theme: any) =>
-  parseStyles(theme, props)
