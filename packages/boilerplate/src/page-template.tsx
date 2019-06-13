@@ -2,8 +2,9 @@ import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import { graphql } from 'gatsby'
 
+import { Container } from './new-grid'
+
 import {
-  Container,
   getArticleImage,
   getNamedPath,
   getPageImage,
@@ -15,7 +16,7 @@ import * as React from 'react'
 import { Sections } from './sections'
 import { appTheme } from './theme'
 
-const StyleGlobal = {
+const GlobalAStyles = {
   body: {
     margin: 0,
   },
@@ -61,7 +62,7 @@ const PageTemplate = (props: any) => {
 
   return (
     <ThemeProvider theme={appTheme}>
-      <Global styles={StyleGlobal} />
+      <Global styles={GlobalAStyles} />
       <Container>
         <Seo
           description={

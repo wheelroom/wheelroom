@@ -43,5 +43,9 @@ module.exports = {
       options: gtmConfig,
       resolve: 'gatsby-plugin-google-tagmanager',
     },
+    {
+      options: {},
+      resolve: `gatsby-plugin-emotion`,
+    },
   ],
 }
