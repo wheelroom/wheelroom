@@ -5,9 +5,11 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.10",
+    "@types/facepaint": "1.2.0",
     "contentful-management": "5.7.2",
     "dotenv": "8.0.0",
     "emotion-theming": "10.0.10",
+    "facepaint": "1.2.1",
     "gatsby": "2.8.6",
     "gatsby-plugin-emotion": "4.0.7",
     "gatsby-plugin-google-tagmanager": "2.0.15",
