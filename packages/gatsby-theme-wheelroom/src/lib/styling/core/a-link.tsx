@@ -1,9 +1,9 @@
-import * as React from 'react'
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 import { styledSystem } from '../styled-system/styled-system'
 
 export const Alink = (props: any) => (
-  // @ts-ignore: the function returns the proper function
-  <div
+  <a
     children={props.children}
     css={styledSystem({ textDecoration: 'none', ...props })}
     href={props.href}

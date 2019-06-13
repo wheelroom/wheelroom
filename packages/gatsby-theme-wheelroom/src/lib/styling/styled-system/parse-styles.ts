@@ -1,65 +1,6 @@
 // @ts-ignore: ignore export = trouble
 import facepaint from 'facepaint'
-
-const config = {
-  ignoreProperties: ['children'],
-  maps: {
-    colorMap: ['color', 'backgroundColor'],
-    fontMap: ['fontFamily'],
-  },
-  propertyAliases: {
-    bg: ['backgroundColor'],
-    m: ['marginTop', 'marginRight', 'marginBottom', 'marginLeft'],
-    margin: ['marginTop', 'marginRight', 'marginBottom', 'marginLeft'],
-    mx: ['marginRight', 'marginLeft'],
-    my: ['marginTop', 'marginBottom'],
-    p: ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft'],
-    padding: ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft'],
-    px: ['paddingRight', 'paddingLeft'],
-    py: ['paddingTop', 'paddingBottom'],
-    w: ['width'],
-  },
-  responsiveProperties: [
-    'backgroundColor',
-    'width',
-    'marginTop',
-    'marginRight',
-    'marginBottom',
-    'marginLeft',
-    'paddingTop',
-    'paddingRight',
-    'paddingBottom',
-    'paddingLeft',
-  ],
-  scales: {
-    fontSizeScale: ['fontFamily'],
-    fontWeightScale: ['fontWeight'],
-    lineHeightScale: ['lineHeight'],
-    spaceScale: [
-      'marginTop',
-      'marginRight',
-      'marginBottom',
-      'marginLeft',
-      'paddingTop',
-      'paddingRight',
-      'paddingBottom',
-      'paddingLeft',
-    ],
-  },
-  units: {
-    percent: ['width', 'maxWidth'],
-    px: [
-      'marginTop',
-      'marginRight',
-      'marginBottom',
-      'marginLeft',
-      'paddingTop',
-      'paddingRight',
-      'paddingBottom',
-      'paddingLeft',
-    ],
-  },
-} as any
+import { config } from './config'
 
 const removeIgnoredProperties = (cssProps: any) => {
   Object.keys(cssProps).forEach(propName => {

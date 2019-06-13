@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { parseStyles } from './parse-styles'
 
 // Small wrapper that allows us to do: css={styledSystem(props)}
