@@ -1,4 +1,4 @@
-export const paragraph = {
+export const paragraphStyle = {
   color: 'blue',
   fontFamily: 'text',
   fontSize: [2, 2, 3, 3],
@@ -7,12 +7,12 @@ export const paragraph = {
   mb: 4,
 }
 
-export const paragraphSmallInverse = {
+export const paragraphSmallInverseStyle = {
   color: 'white',
   fontSize: [2, 2, 3, 3],
 }
 
-export const styledLink = {
+export const simpleLinkStyle = {
   '&:hover': {
     color: 'inherit',
     textDecoration: 'underline',
