@@ -3,12 +3,20 @@ import { jsx } from '@emotion/core'
 import { styledSystem } from '../styled-system/styled-system'
 
 export const Box = (props: any) => (
-  <div css={styledSystem(props)} children={props.children} />
+  <div
+    css={styledSystem({ boxSizing: 'border-box', ...props })}
+    children={props.children}
+  />
 )
 
 export const Flex = (props: any) => (
   <div
-    css={styledSystem({ display: 'flex', flexWrap: 'wrap', ...props })}
+    css={styledSystem({
+      boxSizing: 'border-box',
+      display: 'flex',
+      flexWrap: 'wrap',
+      ...props,
+    })}
     children={props.children}
   />
 )

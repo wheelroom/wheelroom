@@ -23,21 +23,17 @@ export const ArticleSection = (props: ArticleSectionProps) => {
       </Flex>
 
       <Flex {...paragraphStyle}>
-        <Box color="white" bg="lightBlue" w={[1, 1 / 2]}>
-          <Box p={[4, 5]}>
-            <p>Landmakr: {props.landMark}</p>
-          </Box>
+        <Box color="white" bg="lightBlue" p={[4, 5]} w={[1, 1 / 2]}>
+          <p>Landmakr: {props.landMark}</p>
         </Box>
-        <Box color="white" bg="blue" w={[1, 1 / 2]}>
-          <Box p={[4, 5]}>
-            <p>Locale: {props.locale}</p>
-            <p>
-              More
-              <ALink {...simpleLinkStyle} href="#somewhere">
-                Here is a link
-              </ALink>
-            </p>
-          </Box>
+        <Box color="white" bg="blue" p={[4, 5]} w={[1, 1 / 2]}>
+          <p>Locale: {props.locale}</p>
+          <p>
+            More
+            <ALink {...simpleLinkStyle} href="#somewhere">
+              Here is a link
+            </ALink>
+          </p>
         </Box>
       </Flex>
     </div>

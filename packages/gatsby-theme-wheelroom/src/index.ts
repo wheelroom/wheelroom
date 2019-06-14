@@ -28,6 +28,7 @@ export * from './lib/styling/core-elements/heading'
 export * from './lib/styling/core-elements/text'
 export * from './lib/styling/typography/paragraph'
 export * from './lib/styling/typography/title'
+export * from './lib/styling/styled-system/styled-system'
 
 // Router
 export * from './lib/router/named-paths'
