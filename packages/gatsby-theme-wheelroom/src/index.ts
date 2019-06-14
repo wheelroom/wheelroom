@@ -21,11 +21,11 @@ import * as globalsPartGraphql from './components/globals-part/graphql'
 export { globalsPartGraphql }
 
 // Styling
-export * from './lib/styling/core/grid'
-export * from './lib/styling/core/a-link'
-export * from './lib/styling/core/gatsby-link'
-export * from './lib/styling/core/heading'
-export * from './lib/styling/core/text'
+export * from './lib/styling/core-elements/grid'
+export * from './lib/styling/core-elements/a-link'
+export * from './lib/styling/core-elements/gatsby-link'
+export * from './lib/styling/core-elements/heading'
+export * from './lib/styling/core-elements/text'
 export * from './lib/styling/typography/paragraph'
 export * from './lib/styling/typography/title'
 

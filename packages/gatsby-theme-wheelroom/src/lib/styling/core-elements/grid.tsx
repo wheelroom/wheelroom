@@ -13,9 +13,12 @@ export const Flex = (props: any) => (
   />
 )
 
-export const Container = (props: any) => (
-  <div
-    css={styledSystem({ mx: 'auto', maxWidth: '1024px', ...props })}
-    children={props.children}
-  />
-)
+export const Container = (props: any) => {
+  console.log('container', props)
+  return (
+    <div
+      css={styledSystem({ mx: 'auto', maxWidth: '1024px', ...props })}
+      children={props.children}
+    />
+  )
+}
