@@ -1,12 +1,13 @@
 import * as React from 'react'
-import { ALink } from '../../lib/styling/core-elements/a-link'
-import { Box, Flex } from '../../lib/styling/core-elements/grid'
-import { Heading } from '../../lib/styling/core-elements/heading'
 import {
+  ALink,
+  Box,
+  Flex,
+  Heading,
   paragraphStyle,
   simpleLinkStyle,
-} from '../../lib/styling/typography/paragraph'
-import { title1Style } from '../../lib/styling/typography/title'
+  title1Style,
+} from '../../index'
 
 export interface ArticleSectionProps {
   /** Gatsby fetched data */
