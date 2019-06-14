@@ -29,7 +29,6 @@ const PageTemplate = (props: any) => {
   pageDebug('PageTemplate', props)
   // When server side rendering, location is unavailable. In that case use
   // siteMetadata
-  console.log('Page template props', props)
   const globals = props.data.globalsPart
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
