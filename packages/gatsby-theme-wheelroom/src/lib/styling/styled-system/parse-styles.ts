@@ -29,6 +29,26 @@ const ensureArrays = (cssProps: any) => {
   })
 }
 
+const applyStringMaps = (cssProps: any, theme: any) => {
+  Object.keys(cssProps).forEach(propName => {
+    Object.entries(config.stringMaps).forEach(
+      ([stringMapName, stringMapProperties]: [string, any]) => {
+        if (stringMapProperties.includes(propName)) {
+          const newArray = [] as any
+          cssProps[propName].forEach((propFromArray: any) => {
+            let newValue = propFromArray
+            if (typeof propFromArray === 'string') {
+              newValue = theme[stringMapName][propFromArray]
+            }
+            newArray.push(newValue)
+          })
+          cssProps[propName] = newArray
+        }
+      }
+    )
+  })
+}
+
 const applyScales = (cssProps: any, theme: any) => {
   Object.keys(cssProps).forEach(propName => {
     Object.entries(config.scales).forEach(
@@ -36,10 +56,11 @@ const applyScales = (cssProps: any, theme: any) => {
         if (scaleProperties.includes(propName)) {
           const newArray = [] as any
           cssProps[propName].forEach((propFromArray: any) => {
-            const value = Number.isInteger(propFromArray)
-              ? theme[scaleName][propFromArray]
-              : propFromArray
-            newArray.push(value)
+            let newValue = propFromArray
+            if (Number.isInteger(propFromArray)) {
+              newValue = theme[scaleName][propFromArray]
+            }
+            newArray.push(newValue)
           })
           cssProps[propName] = newArray
         }
@@ -105,6 +126,7 @@ export const parseStyles = (theme: any, props: any) => {
   removeIgnoredProperties(cssProps)
   replaceAliases(cssProps)
   ensureArrays(cssProps)
+  applyStringMaps(cssProps, theme)
   applyScales(cssProps, theme)
   applyUnits(cssProps)
   addMediaQueries(cssProps, theme)
