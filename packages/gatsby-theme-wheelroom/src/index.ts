@@ -15,7 +15,6 @@ export * from './components/article-section/article-section'
 // Styling
 export * from './lib/styling/core-elements/grid'
 export * from './lib/styling/core-elements/a-link'
-export * from './lib/styling/core-elements/gatsby-link'
 export * from './lib/styling/core-elements/heading'
 export * from './lib/styling/core-elements/text'
 export * from './lib/styling/typography/paragraph'
