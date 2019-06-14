@@ -8,17 +8,9 @@ export * from './lib/page/get-meta-tags'
 export * from './lib/variations/variations'
 
 // Components
-import * as articleContentGraphql from './components/article-content/graphql'
-export { articleContentGraphql }
 export * from './components/article-content/article-content'
 export * from './components/article-content/get-meta-tags'
-
-import * as articleSectionGraphql from './components/article-section/graphql'
-export { articleSectionGraphql }
 export * from './components/article-section/article-section'
-
-import * as globalsPartGraphql from './components/globals-part/graphql'
-export { globalsPartGraphql }
 
 // Styling
 export * from './lib/styling/core-elements/grid'
