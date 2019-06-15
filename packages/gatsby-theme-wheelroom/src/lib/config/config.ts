@@ -1,13 +1,14 @@
-import { componentsMap } from '../../components/components-map'
+// import { componentsMap } from '../../components/components-map'
 import { ComponentConfig } from '../types/components-map'
-import { GatsbyThemeConfig, ThemeOptions } from '../types/gatsby-theme-config'
+import { GatsbyThemeConfig } from '../types/gatsby-theme-config'
 
 export const getAppDir = () => {
   return process.cwd()
 }
 
-export const getPackageDir = (packageName: string) => {
-  return getAppDir() + '/node_modules/' + packageName
+export const getModule = async (packageName: string) => {
+  const moduleDir = getAppDir() + '/node_modules/' + packageName
+  return await import(moduleDir)
 }
 
 export const getGatsbyConfig = async () => {
@@ -20,20 +21,20 @@ export const getGatsbyConfig = async () => {
   return config
 }
 
-export const getConfigsFromOptions = (
-  options: ThemeOptions
-): ComponentConfig[] => {
-  return options.componentTypes.map(
-    (componentType: string) => componentsMap[componentType]
-  )
-}
-
 export const getComponentConfigs = async () => {
   const config = await getGatsbyConfig()
   const themes = config.__experimentalThemes as GatsbyThemeConfig[]
 
-  return themes.reduce(
-    (result, theme) => [...result, ...getConfigsFromOptions(theme.options)],
-    [] as ComponentConfig[]
+  const configs = [] as ComponentConfig[]
+  await Promise.all(
+    themes.map(async (theme:GatsbyThemeConfig) => {
+      const module = await getModule(theme.resolve)
+      const componentsMap = module.componentsMap
+      const addConfigs = theme.options.componentTypes.map(
+        (componentType: string) => componentsMap[componentType]
+      )
+      configs.push(...addConfigs)
+    })
   )
+  return configs
 }

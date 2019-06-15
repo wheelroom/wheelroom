@@ -1,4 +1,4 @@
-import { getConfigsFromOptions } from './lib/config/config'
+import { getComponentConfigs } from './lib/config/config'
 import { ComponentConfig } from './lib/types/components-map'
 import {
   ContentfulObject,
@@ -174,7 +174,7 @@ exports.createPages = async ({ graphql, actions }: any, options: any) => {
     },
   } as GatsbyNodeContext
 
-  context.componentConfigs = getConfigsFromOptions(options)
+  context.componentConfigs = await getComponentConfigs()
 
   await runQueries(context)
 

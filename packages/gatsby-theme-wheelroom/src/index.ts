@@ -11,6 +11,7 @@ export * from './lib/variations/variations'
 export * from './components/article-content/article-content'
 export * from './components/article-content/get-meta-tags'
 export * from './components/article-section/article-section'
+export * from './components/components-map'
 
 // Styling
 export * from './lib/styling/core-elements/grid'

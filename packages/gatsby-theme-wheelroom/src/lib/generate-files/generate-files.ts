@@ -50,7 +50,7 @@ export const generateFiles = async (
       }
     })
   )
-  console.log('Done wrting all files')
+  console.log('Done writing all files')
 }
 
 const fragmentTemplate = (fragment: string) => `${importGraphql}
