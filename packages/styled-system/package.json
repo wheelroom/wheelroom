@@ -29,6 +29,9 @@
   "engines": {
     "node": ">=10.0.0"
   },
+  "files": [
+    "dist/*"
+  ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "license": "MIT",
   "main": "dist/index.js",
