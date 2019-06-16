@@ -12,9 +12,6 @@
       "not op_mini all"
     ]
   },
-  "bin": {
-    "wheelroom": "bin/wheelroom.js"
-  },
   "bugs": {
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
@@ -66,8 +63,6 @@
   },
   "files": [
     "assets/*",
-    "bin/*",
-    "components/*",
     "gatsby-config.*",
     "gatsby-node.*",
     "index.*",
