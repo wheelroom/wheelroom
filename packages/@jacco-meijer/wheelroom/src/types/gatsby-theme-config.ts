@@ -1,9 +1,11 @@
+export interface ComponentType {
+  componentType: string
+  variations: string[]
+  overwriteVariations: boolean
+}
+
 export interface ComponentTypesByModule {
-  [moduleName: string]: Array<{
-    componentType: string
-    variations: string[]
-    overwriteVariations: boolean
-  }>
+  [moduleName: string]: ComponentType[]
 }
 
 export interface ThemeOptions {

@@ -1,6 +1,6 @@
-// import { componentsMap } from '../../components/components-map'
 import { ComponentConfig } from '../types/components-map'
 import {
+  ComponentType,
   ComponentTypesByModule,
   GatsbyThemeConfig,
 } from '../types/gatsby-theme-config'
@@ -10,16 +10,18 @@ export const getAppDir = () => {
 }
 
 export const getModule = async (packageName: string) => {
-  const moduleDir = getAppDir() + '/node_modules/' + packageName
+  const moduleDir = `${getAppDir()}/node_modules/${packageName}`
   return await import(moduleDir)
 }
 
 export const getGatsbyConfig = async () => {
   let config
+  const target = `${getAppDir()}/gatsby-config.js`
   try {
-    config = await import(getAppDir() + '/gatsby-config.js')
+    config = await import(target)
   } catch (error) {
-    console.log('Could not find gatsby-config.js in', getAppDir(), error)
+    console.log(`Could not load and parse: ${target}`)
+    console.log(error)
   }
   return config
 }
@@ -33,7 +35,7 @@ const getComponentTypesByResolve = (themes: GatsbyThemeConfig[]) => {
     Object.entries(theme.options.componentTypes).forEach(([type, config]) => {
       const resolve = config.resolve || theme.options.defaultComponentResolve
       if (!(resolve in configsByResolve)) {
-        configsByResolve[resolve] = []
+        configsByResolve[resolve] = [] as ComponentType[]
       }
       configsByResolve[resolve].push({
         componentType: type,
@@ -49,16 +51,35 @@ export const getComponentConfigs = async () => {
   const config = await getGatsbyConfig()
   const themes = config.__experimentalThemes as GatsbyThemeConfig[]
   const configsByModule = getComponentTypesByResolve(themes)
-  console.log('configsByModule', configsByModule)
 
   const configs = [] as ComponentConfig[]
   await Promise.all(
     Object.entries(configsByModule).map(
-      async ([resolve, componentConfig]: [string, any]) => {
-        const module = await getModule(resolve)
-        console.log('Got module', resolve, module)
-        const componentsMap = module.componentsMap
-        configs.push(componentsMap[componentConfig.componentType])
+      async ([resolve, componentConfigs]: [string, any]) => {
+        let module
+        let allGood = true
+        try {
+          module = await getModule(resolve)
+        } catch (error) {
+          console.log(`Could not resolve ${resolve} in ${getAppDir()}`)
+          allGood = false
+        }
+        if (module && !('componentsMap' in module)) {
+          console.log(`Could not find componentsMap object in ${resolve}`)
+          allGood = false
+        }
+        if (allGood) {
+          const componentsMap = module.componentsMap
+          componentConfigs.forEach((componentConfig: ComponentType) => {
+            if (componentConfig.componentType in componentsMap) {
+              configs.push(componentsMap[componentConfig.componentType])
+            } else {
+              console.log(
+                `Could not find ${componentConfig.componentType} in ${resolve}`
+              )
+            }
+          })
+        }
       }
     )
   )

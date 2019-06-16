@@ -10,7 +10,6 @@ module.exports = {
         defaultComponentResolve: `@jacco-meijer/content-models`,
         componentTypes: {
           articleSection: {
-            resolve: `gatsby-theme-wheelroom`,
             variations: ['Variation A', 'Variation B'],
             overwriteVariations: true,
           },
