@@ -1,0 +1,25 @@
+{
+  "name": "@jacco-meijer/content-models",
+  "version": "0.0.1",
+  "description": "Wheelroom content models and graphql queries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+  },
+  "keywords": [
+    "contentful",
+    "gatsby",
+    "graphql",
+    "wheelroom"
+  ],
+  "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+  },
+  "homepage": "https://github.com/jaccomeijer/wheelroom#readme"
+}
