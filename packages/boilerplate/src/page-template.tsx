@@ -1,16 +1,17 @@
 import { Global } from '@emotion/core'
-import { ThemeProvider } from 'emotion-theming'
-import { graphql } from 'gatsby'
-
 import {
-  Container,
   getArticleImage,
+  getSeoContentTypeInfo,
+} from '@jacco-meijer/content-models'
+import { Container } from '@jacco-meijer/styled-system'
+import {
   getNamedPath,
   getPageImage,
-  getSeoContentTypeInfo,
   pageDebug,
   Seo,
-} from 'gatsby-theme-wheelroom'
+} from '@jacco-meijer/wheelroom'
+import { ThemeProvider } from 'emotion-theming'
+import { graphql } from 'gatsby'
 import * as React from 'react'
 import { Sections } from './sections'
 import { appTheme } from './theme'

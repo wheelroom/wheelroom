@@ -1,4 +1,5 @@
-import { ArticleSection, Landmarks } from 'gatsby-theme-wheelroom'
+import { ArticleSection } from '@jacco-meijer/content-models'
+import { Landmarks } from '@jacco-meijer/wheelroom'
 import * as React from 'react'
 
 // This object gives us a simple string to component conversion. The object also

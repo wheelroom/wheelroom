@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/core": "10.0.10",
     "@jacco-meijer/content-models": "0.0.1",
+    "@jacco-meijer/styled-system": "0.0.1",
     "@jacco-meijer/wheelroom": "0.0.1",
     "contentful-management": "5.8.0",
     "dotenv": "8.0.0",
