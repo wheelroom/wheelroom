@@ -1,4 +1,4 @@
-import { Model } from '../../lib/types/model'
+import { Model } from '@jacco-meijer/wheelroom'
 
 export const model = {
   contentBackend: 'contentful',

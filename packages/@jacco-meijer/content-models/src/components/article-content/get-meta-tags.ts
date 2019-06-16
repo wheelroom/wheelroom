@@ -1,4 +1,4 @@
-import { SeoContentTypeInfo } from '../../lib/types/seo'
+import { SeoContentTypeInfo } from 'gatsby-theme-wheelroom'
 
 export const getArticleImage = (article: any) => {
   if (!article) {

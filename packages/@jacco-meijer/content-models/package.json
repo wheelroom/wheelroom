@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.10",
+    "@jacco-meijer/styled-system": "0.0.1",
     "@jacco-meijer/wheelroom": "0.0.1",
     "facepaint": "1.2.1",
     "gatsby-theme-wheelroom": "0.1.6",

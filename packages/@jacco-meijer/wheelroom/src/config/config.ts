@@ -1,6 +1,9 @@
 // import { componentsMap } from '../../components/components-map'
 import { ComponentConfig } from '../types/components-map'
-import { GatsbyThemeConfig } from '../types/gatsby-theme-config'
+import {
+  ComponentTypesByModule,
+  GatsbyThemeConfig,
+} from '../types/gatsby-theme-config'
 
 export const getAppDir = () => {
   return process.cwd()
@@ -20,21 +23,45 @@ export const getGatsbyConfig = async () => {
   }
   return config
 }
+/** Resolve is configured per component. Here we group components by the module
+ * they are resolved from. To be able to fetch the component config more
+ * efficently
+ */
+const getComponentTypesByResolve = (themes: GatsbyThemeConfig[]) => {
+  const configsByResolve = {} as ComponentTypesByModule
+  themes.forEach((theme: GatsbyThemeConfig) => {
+    Object.entries(theme.options.componentTypes).forEach(([type, config]) => {
+      const resolve = config.resolve || theme.options.defaultComponentResolve
+      if (!(resolve in configsByResolve)) {
+        configsByResolve[resolve] = []
+      }
+      configsByResolve[resolve].push({
+        componentType: type,
+        overwriteVariations: config.overwriteVariations || false,
+        variations: config.variations || [],
+      })
+    })
+  })
+  return configsByResolve
+}
 
 export const getComponentConfigs = async () => {
   const config = await getGatsbyConfig()
   const themes = config.__experimentalThemes as GatsbyThemeConfig[]
+  const configsByModule = getComponentTypesByResolve(themes)
+  console.log('configsByModule', configsByModule)
 
   const configs = [] as ComponentConfig[]
   await Promise.all(
-    themes.map(async (theme: GatsbyThemeConfig) => {
-      const module = await getModule(theme.resolve)
-      const componentsMap = module.componentsMap
-      const addConfigs = theme.options.componentTypes.map(
-        (componentType: string) => componentsMap[componentType]
-      )
-      configs.push(...addConfigs)
-    })
+    Object.entries(configsByModule).map(
+      async ([resolve, componentConfig]: [string, any]) => {
+        const module = await getModule(resolve)
+        console.log('Got module', resolve, module)
+        const componentsMap = module.componentsMap
+        configs.push(componentsMap[componentConfig.componentType])
+      }
+    )
   )
+
   return configs
 }

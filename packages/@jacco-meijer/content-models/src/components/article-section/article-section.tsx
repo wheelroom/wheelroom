@@ -1,13 +1,6 @@
+import { ALink, Box, Flex, Heading } from '@jacco-meijer/styled-system'
 import * as React from 'react'
-import {
-  ALink,
-  Box,
-  Flex,
-  Heading,
-  paragraphStyle,
-  simpleLinkStyle,
-  title1Style,
-} from '../../index'
+import { paragraphStyle, simpleLinkStyle, title1Style } from '../../index'
 
 export interface ArticleSectionProps {
   /** Gatsby fetched data */

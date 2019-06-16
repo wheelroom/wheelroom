@@ -1,4 +1,4 @@
-import { ComponentConfig, ComponentsMap } from '../lib/types/components-map'
+import { ComponentConfig, ComponentsMap } from '@jacco-meijer/wheelroom'
 
 import { fragment as articleContentFragment } from './article-content/graphql'
 import { query as articleContentQuery } from './article-content/graphql'

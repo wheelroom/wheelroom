@@ -8,7 +8,7 @@ module.exports = {
         defaultLocale: 'nl',
         pageTemplate: path.resolve('./src/page-template.tsx'),
         defaultComponentResolve: `@jacco-meijer/content-models`,
-        comps: {
+        componentTypes: {
           articleSection: {
             resolve: `gatsby-theme-wheelroom`,
             variations: ['Variation A', 'Variation B'],
