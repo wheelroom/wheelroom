@@ -8,6 +8,7 @@
     "@jacco-meijer/content-models": "0.0.1",
     "@jacco-meijer/styled-system": "0.0.1",
     "@jacco-meijer/wheelroom": "0.0.1",
+    "babel-plugin-transform-runtime": "6.23.0",
     "contentful-management": "5.8.0",
     "dotenv": "8.0.0",
     "emotion-theming": "10.0.10",
