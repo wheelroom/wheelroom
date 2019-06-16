@@ -31,7 +31,6 @@
     "react-dom": "16.8.6",
     "react-helmet": "5.2.1",
     "react-scripts": "3.0.1",
-    "react-styleguidist": "9.1.6",
     "typescript": "3.5.2",
     "yargs": "13.2.4"
   },
@@ -39,7 +38,7 @@
   "devDependencies": {
     "@types/dotenv": "6.1.1",
     "@types/facepaint": "1.2.0",
-    "@types/jest": "24.0.14",
+    "@types/jest": "24.0.15",
     "@types/node": "12.0.8",
     "@types/react": "16.8.20",
     "@types/react-dom": "16.8.4",
