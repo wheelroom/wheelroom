@@ -41,6 +41,7 @@ export const createContent = async (context: ModelApiContext) => {
     console.log(
       `Creating content for model ${componentConfig.model.type} =============`
     )
+    // TODO: Patch variation field according to config
     context.entry = null
     context.fields = {}
     context.currentModel = componentConfig.model

@@ -10,6 +10,7 @@ export const getAppDir = () => {
 }
 
 export const getModule = async (packageName: string) => {
+  // TODO: Lookup configured local-modules path as well
   const moduleDir = `${getAppDir()}/node_modules/${packageName}`
   return await import(moduleDir)
 }
@@ -73,6 +74,7 @@ export const getComponentConfigs = async () => {
           componentConfigs.forEach((componentConfig: ComponentType) => {
             if (componentConfig.componentType in componentsMap) {
               configs.push(componentsMap[componentConfig.componentType])
+              // TODO: Add variation details to config
             } else {
               console.log(
                 `Could not find ${componentConfig.componentType} in ${resolve}`
