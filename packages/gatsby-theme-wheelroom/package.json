@@ -83,7 +83,7 @@
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:clean": "rm -rf ./lib ./gatsby-config.* ./gatsby-node.* ./index.*",
+    "build:clean": "rm -rf ./types ./gatsby-config.* ./gatsby-node.* ./index.*",
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
     "prepack": "npm run build",

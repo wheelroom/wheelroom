@@ -1,7 +1,8 @@
 # dependencies
 .DS_Store
+/gatsby-config.*
+/gatsby-node.*
+/index.*
 /lib
 /node_modules
-/gatsby-node.*
-/gatsby-config.*
-/index.*
+/types

@@ -5,7 +5,7 @@ import {
   GatsbyNodeContext,
   GetPageContext,
   PageContext,
-} from './lib/types/gatsby-node-context'
+} from './types/gatsby-node-context'
 
 const runQueries = async (context: GatsbyNodeContext) => {
   await Promise.all(
