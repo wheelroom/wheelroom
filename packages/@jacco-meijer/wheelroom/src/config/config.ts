@@ -27,7 +27,7 @@ export const getComponentConfigs = async () => {
 
   const configs = [] as ComponentConfig[]
   await Promise.all(
-    themes.map(async (theme:GatsbyThemeConfig) => {
+    themes.map(async (theme: GatsbyThemeConfig) => {
       const module = await getModule(theme.resolve)
       const componentsMap = module.componentsMap
       const addConfigs = theme.options.componentTypes.map(

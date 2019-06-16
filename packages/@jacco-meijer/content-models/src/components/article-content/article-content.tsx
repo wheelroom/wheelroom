@@ -1,5 +1,5 @@
+import { getVariation } from 'gatsby-theme-wheelroom'
 import * as React from 'react'
-import { getVariation } from '../../lib/variations/variations'
 import { variations } from './variations'
 
 export interface ArticleContentProps {

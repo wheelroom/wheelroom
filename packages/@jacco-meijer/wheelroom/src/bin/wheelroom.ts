@@ -3,12 +3,12 @@
 import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
 import { Argv, CommandBuilder } from 'yargs'
-import { applyModels } from '../lib/commands/apply-models'
-import { createContent } from '../lib/commands/create-content'
-import { deleteContent } from '../lib/commands/delete-content'
-import { getComponentConfigs } from '../lib/config/config'
-import { generateFiles } from '../lib/generate-files/generate-files'
-import { ModelApiContext } from '../lib/types/model-api-context'
+import { applyModels } from '../commands/apply-models'
+import { createContent } from '../commands/create-content'
+import { deleteContent } from '../commands/delete-content'
+import { getComponentConfigs } from '../config/config'
+import { generateFiles } from '../generate-files/generate-files'
+import { ModelApiContext } from '../types/model-api-context'
 
 const dotEnvResult = dotenv.config()
 if (dotEnvResult.error) {
