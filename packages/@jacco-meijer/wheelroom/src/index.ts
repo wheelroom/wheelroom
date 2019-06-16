@@ -1,3 +1,5 @@
+import 'regenerator-runtime/runtime'
+
 export * from './types/components-map'
 export * from './types/gatsby-theme-config'
 export * from './types/model-api-context'
