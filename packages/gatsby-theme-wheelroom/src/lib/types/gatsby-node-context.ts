@@ -1,5 +1,4 @@
-import { ComponentConfig } from './components-map'
-import { ThemeOptions } from '../../../../@jacco-meijer/wheelroom/src/types/gatsby-theme-config'
+import { ComponentConfig, ThemeOptions } from '@jacco-meijer/wheelroom'
 import { NamedPaths } from './router'
 
 export interface ContentfulNode {

@@ -1,5 +1,5 @@
-import { getComponentConfigs } from './lib/config/config'
-import { ComponentConfig } from './lib/types/components-map'
+import { getComponentConfigs } from '@jacco-meijer/wheelroom'
+import { ComponentConfig } from '@jacco-meijer/wheelroom'
 import {
   ContentfulObject,
   GatsbyNodeContext,
