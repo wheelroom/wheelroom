@@ -62,11 +62,10 @@
     "node": ">=10.0.0"
   },
   "files": [
-    "assets/*",
     "gatsby-config.*",
     "gatsby-node.*",
     "index.*",
-    "lib/*"
+    "types/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": [
@@ -74,7 +73,7 @@
     "wheelroom"
   ],
   "license": "MIT",
-  "main": "/index.js",
+  "main": "index.js",
   "name": "gatsby-theme-wheelroom",
   "private": false,
   "repository": {
@@ -90,6 +89,6 @@
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "types": "/index.d.ts",
+  "types": "index.d.ts",
   "version": "0.1.6"
 }
