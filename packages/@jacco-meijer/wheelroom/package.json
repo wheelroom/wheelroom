@@ -60,7 +60,6 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/wheelroom",
-  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"

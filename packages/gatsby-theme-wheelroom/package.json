@@ -75,7 +75,6 @@
   "license": "MIT",
   "main": "index.js",
   "name": "gatsby-theme-wheelroom",
-  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"
