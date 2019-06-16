@@ -85,7 +85,7 @@
   ],
   "license": "MIT",
   "main": "/index.js",
-  "name": "@jacco-meijer/wheelroom-cli",
+  "name": "@jacco-meijer/wheelroom",
   "private": false,
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
-import { ComponentConfig } from './components-map'
-import { Model } from './model'
+import { ComponentConfig } from '../../../../gatsby-theme-wheelroom/src/lib/types/components-map'
+import { Model } from '../../../../gatsby-theme-wheelroom/src/lib/types/model'
 
 export interface ModelApiContext {
   /** Contentful asset object */

@@ -6,42 +6,21 @@ module.exports = {
     {
       options: {
         defaultLocale: 'nl',
-        componentTypes: [
-          'articleSection',
-          'globalsPart',
-          'articleContent',
-          'page',
-        ],
         pageTemplate: path.resolve('./src/page-template.tsx'),
+        defaultComponentResolve: `@jacco-meijer/content-models`,
+        comps: {
+          articleSection: {
+            resolve: `gatsby-theme-wheelroom`,
+            variations: ['Variation A', 'Variation B'],
+            overwriteVariations: true,
+          },
+          globalsPart: {},
+          articleContent: {},
+          page: {},
+        },
       },
       resolve: `gatsby-theme-wheelroom`,
     },
-    // {
-    //   options: {
-    //     defaultLocale: 'nl',
-    //     pageTemplate: path.resolve('./src/page-template.tsx'),
-    //     components: [
-    //       {
-    //         componentTypes: ['articleSection', 'globalsPart', 'articleContent', 'page'],
-    //         resolve: `gatsby-theme-wheelroom`,
-    //       },
-    //       {
-    //         types: ['someLocalComponent'],
-    //         resolve: `./src/some-component`,
-    //       },
-    //       {
-    //         componentTypes: [
-    //           {
-    //             name: 'someOtherComponent',
-    //             overrideVariations: ['Variation A', 'Variation B'],
-    //           },
-    //         ],
-    //         resolve: `another-module`,
-    //       },
-    //     ],
-    //   },
-    //   resolve: `gatsby-theme-wheelroom`,
-    // },
   ],
   plugins: [
     {
