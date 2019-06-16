@@ -8,11 +8,11 @@ const fileName = 'wheelroom'
 const assetId = 'demoAsset'
 
 export const getAsset = async (context: ModelApiContext) => {
-  console.log('Getting asset')
+  console.log(`Getting asset`)
   try {
     context.asset = await context.environment.getAsset(assetId)
   } catch (error) {
-    console.log('Could not find asset', assetId)
+    console.log(`Could not find asset ${assetId}`)
     context.asset = null
   }
 }
@@ -21,12 +21,12 @@ export const createNewAsset = async (context: ModelApiContext) => {
   if (context.asset) {
     return
   }
-  console.log('Create new asset')
+  console.log(`Create new asset`)
   context.asset = await context.environment.createAssetWithId(assetId, {})
 }
 
 export const uploadFile = async (context: ModelApiContext) => {
-  console.log('Uploading file')
+  console.log(`Uploading file`)
 
   context.upload = await context.environment.createUpload({
     contentType,
@@ -39,7 +39,7 @@ export const updateAsset = async (context: ModelApiContext) => {
   if (!context.asset) {
     return
   }
-  console.log('Updating asset')
+  console.log(`Updating asset`)
   context.asset.fields = {
     description: { nl: 'Demo asset with fixed id' },
     file: {
@@ -69,7 +69,7 @@ export const unPublishAsset = async (context: ModelApiContext) => {
   if (!context.asset) {
     return
   }
-  console.log('Unpublishing asset')
+  console.log(`Unpublishing asset`)
   context.asset = await context.asset.unpublish()
 }
 
@@ -77,6 +77,6 @@ export const removeAsset = async (context: ModelApiContext) => {
   if (!context.asset) {
     return
   }
-  console.log('Deleting asset')
+  console.log(`Deleting asset`)
   context.asset = await context.asset.delete()
 }

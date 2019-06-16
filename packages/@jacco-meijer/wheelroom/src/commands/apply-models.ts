@@ -12,7 +12,7 @@ import {
 } from './editor-interface-context'
 
 const finish = async (context: ModelApiContext) => {
-  console.log('Succesfully ran migration for:', context.currentModel.type)
+  console.log(`Succesfully ran migration for ${context.currentModel.type}`)
   return context
 }
 
@@ -39,7 +39,7 @@ export const applyModel = async (context: ModelApiContext) => {
 
 export const applyModels = async (context: ModelApiContext) => {
   for (const componentConfig of context.componentConfigs) {
-    console.log('Applying model', componentConfig.model.type, '=============')
+    console.log(`Applying model ${componentConfig.model.type} =============`)
     context.contentType = null
     context.currentModel = componentConfig.model
     context.editorInterface = null

@@ -4,7 +4,7 @@ import { ModelApiContext } from '../types/model-api-context'
 import { deleteAsset } from './delete-asset'
 
 const finish = async (context: ModelApiContext) => {
-  console.log('Succesfully deleted content for:', context.currentModel.type)
+  console.log(`Succesfully deleted content for: ${context.currentModel.type}`)
   return context
 }
 
@@ -30,9 +30,7 @@ export const deleteContentForModel = async (context: ModelApiContext) => {
 export const deleteContent = async (context: ModelApiContext) => {
   for (const componentConfig of context.componentConfigs) {
     console.log(
-      'Deleting content for model',
-      componentConfig.model.type,
-      '============='
+      `Deleting content for model ${componentConfig.model.type} =============`
     )
     context.entry = null
     context.fields = {}

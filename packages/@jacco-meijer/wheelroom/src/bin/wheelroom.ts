@@ -86,7 +86,7 @@ let params = yargs
   .command({
     command: '*',
     handler: () => {
-      console.log('Use --help flag for options')
+      console.log(`Use --help flag for options`)
     },
   }).argv
 

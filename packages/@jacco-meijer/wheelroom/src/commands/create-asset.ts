@@ -9,7 +9,7 @@ import { getClient, getEnvironment, getSpace } from '../model-api/init'
 import { ModelApiContext } from '../types/model-api-context'
 
 const finish = async (context: ModelApiContext) => {
-  console.log('Succesfully created asset')
+  console.log(`Succesfully created asset`)
   return context
 }
 
@@ -18,7 +18,7 @@ const handleError = (error: Error) => {
 }
 
 export const createAsset = async (context: ModelApiContext) => {
-  console.log('Creating demo asset =============')
+  console.log(`Creating demo asset =============`)
   try {
     await getClient(context)
     await getSpace(context)

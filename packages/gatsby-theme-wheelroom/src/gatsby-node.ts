@@ -107,7 +107,7 @@ const createPages = (context: GatsbyNodeContext) => {
         return
       }
 
-      console.log('Creating page:', localizedBasePath)
+      console.log(`Creating page: ${localizedBasePath}`)
       context.createPage({
         component: context.pageTemplate,
         context: getPageContext({ context, page, pageType }),
@@ -146,7 +146,7 @@ const createSubPages = (context: GatsbyNodeContext) => {
         subPageTokens.push(subPage.node[templateVar])
         const pagePath = subPageTokens.join('')
 
-        console.log('Creating sub page:', pagePath)
+        console.log(`Creating sub page: ${pagePath}`)
         context.createPage({
           component: context.pageTemplate,
           context: getPageContext({ context, page, subPage, pageType }),

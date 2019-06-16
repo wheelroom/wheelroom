@@ -86,15 +86,14 @@ export const getFields = (context: ModelApiContext) => {
 }
 
 export const getEntry = async (context: ModelApiContext) => {
-  console.log('Getting entry')
+  console.log(`Getting entry`)
   try {
     context.entry = await context.environment.getEntry(
       context.currentModel.type + demoEntryPostfix
     )
   } catch (error) {
     console.log(
-      'Could not find entry',
-      context.currentModel.type + demoEntryPostfix
+      `Could not find entry ${context.currentModel.type + demoEntryPostfix}`
     )
     context.entry = null
   }
@@ -104,7 +103,7 @@ export const updateEntry = async (context: ModelApiContext) => {
   if (!context.entry) {
     return
   }
-  console.log('Updating entry')
+  console.log(`Updating entry`)
   context.entry.fields = context.fields
 
   context.entry = await context.entry.update()
@@ -114,7 +113,7 @@ export const createEntry = async (context: ModelApiContext) => {
   if (context.entry) {
     return
   }
-  console.log('Creating new entry')
+  console.log(`Creating new entry`)
   context.entry = await context.environment.createEntryWithId(
     context.currentModel.type,
     context.currentModel.type + demoEntryPostfix,
@@ -125,7 +124,7 @@ export const createEntry = async (context: ModelApiContext) => {
 }
 
 export const publishEntry = async (context: ModelApiContext) => {
-  console.log('Publishing entry')
+  console.log(`Publishing entry`)
   await context.entry.publish()
 }
 
@@ -133,7 +132,7 @@ export const unPublishEntry = async (context: ModelApiContext) => {
   if (!context.entry) {
     return
   }
-  console.log('Unpublishing entry')
+  console.log(`Unpublishing entry`)
   context.entry = await context.entry.unpublish()
 }
 
@@ -141,6 +140,6 @@ export const deleteEntry = async (context: ModelApiContext) => {
   if (!context.entry) {
     return
   }
-  console.log('Deleting entry')
+  console.log(`Deleting entry`)
   context.entry = await context.entry.delete()
 }

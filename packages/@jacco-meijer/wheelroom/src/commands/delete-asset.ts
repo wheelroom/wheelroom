@@ -3,7 +3,7 @@ import { getClient, getEnvironment, getSpace } from '../model-api/init'
 import { ModelApiContext } from '../types/model-api-context'
 
 const finish = async (context: ModelApiContext) => {
-  console.log('Succesfully deleted asset')
+  console.log(`Succesfully deleted asset`)
   return context
 }
 
@@ -12,7 +12,7 @@ const handleError = (error: Error) => {
 }
 
 export const deleteAsset = async (context: ModelApiContext) => {
-  console.log('Deleting demo asset =============')
+  console.log(`Deleting demo asset =============`)
   try {
     await getClient(context)
     await getSpace(context)

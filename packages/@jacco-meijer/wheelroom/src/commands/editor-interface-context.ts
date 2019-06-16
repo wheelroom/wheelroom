@@ -9,7 +9,7 @@ export const getEditorInterface = async (context: ModelApiContext) => {
   context.editorInterface = await context.environment.getEditorInterfaceForContentType(
     context.currentModel.type
   )
-  console.log('Fetched editor interface')
+  console.log(`Fetched editor interface`)
 }
 
 const getModelFieldById = (
@@ -37,7 +37,7 @@ export const updateEditorInterface = async (context: ModelApiContext) => {
     if (!modelField.widgetId) {
       return
     }
-    console.log('Updating editor interface for field', modelFieldId)
+    console.log(`Updating editor interface for field ${modelFieldId}`)
     control.widgetId = modelField.widgetId
     control.settings = modelField.settings
   })

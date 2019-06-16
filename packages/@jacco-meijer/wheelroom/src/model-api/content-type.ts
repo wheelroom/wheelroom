@@ -13,7 +13,7 @@ export const getContentType = async (context: ModelApiContext) => {
       getModelVersion(context.contentType)
     )
   } catch (error) {
-    console.log('Could not find content type', context.currentModel.type)
+    console.log(`Could not find content type ${context.currentModel.type}`)
     context.contentType = null
   }
 }
@@ -23,7 +23,7 @@ export const updateContentType = async (context: ModelApiContext) => {
   if (context.contentType === null) {
     return
   }
-  console.log('Updating content type')
+  console.log(`Updating content type`)
   context.contentType.description = context.currentModel.description
   context.contentType.displayField = context.currentModel.displayField
   context.contentType.fields = getApiFields(context)
@@ -37,7 +37,7 @@ export const createContentType = async (context: ModelApiContext) => {
   if (context.contentType !== null) {
     return
   }
-  console.log('Creating new content type', context.currentModel.type)
+  console.log(`Creating new content type ${context.currentModel.type}`)
   context.contentType = await context.environment.createContentTypeWithId(
     context.currentModel.type,
     {
@@ -50,7 +50,7 @@ export const createContentType = async (context: ModelApiContext) => {
 }
 
 export const publishContentType = async (context: ModelApiContext) => {
-  console.log('Publishing content type')
+  console.log(`Publishing content type`)
   context.contentType = await context.contentType.publish()
 }
 
@@ -65,7 +65,7 @@ const getApiFields = (context: ModelApiContext): any[] => {
   const apiFields = []
   Object.entries(context.currentModel.fields).forEach(
     ([fieldId, field]: [string, Field]) => {
-      console.log('Adding field', fieldId)
+      console.log(`Adding field ${fieldId}`)
       const apiField = { id: fieldId } as any
       Object.entries(field.specs).forEach(([specName, specValue]) => {
         apiField[specName] = specValue
@@ -74,7 +74,7 @@ const getApiFields = (context: ModelApiContext): any[] => {
     }
   )
   // Add model version
-  console.log('Setting model version to', context.currentModel.modelVersion)
+  console.log(`Setting model version to ${context.currentModel.modelVersion}`)
   apiFields.push({
     disabled: true,
     id: 'modelVersion',
