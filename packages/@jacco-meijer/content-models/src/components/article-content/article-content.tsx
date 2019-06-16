@@ -1,4 +1,4 @@
-import { getVariation } from 'gatsby-theme-wheelroom'
+import { getVariation } from '@jacco-meijer/wheelroom'
 import * as React from 'react'
 import { variations } from './variations'
 
