@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.10",
-    "@jacco-meijer/wheelroom": "^0.1.0",
+    "@jacco-meijer/wheelroom": "^0.1.1",
     "dotenv": "8.0.0",
     "emotion-theming": "10.0.10",
     "facepaint": "1.2.1",
@@ -89,5 +89,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "index.d.ts",
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
