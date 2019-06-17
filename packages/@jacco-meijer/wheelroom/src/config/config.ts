@@ -1,4 +1,4 @@
-import { ComponentConfig } from '../types/components-map'
+import { ComponentConfig, ComponentsMap } from '../types/components-map'
 import {
   ComponentType,
   GatsbyThemeConfig,
@@ -84,26 +84,30 @@ export const getComponentConfigs = async () => {
           console.log(
             `Could not import ${resolve}, also looked in ${resolveInfo.resolveLocalModules}`
           )
+          return
         }
         if (module && !module.componentsMap) {
           console.log(`Could not find componentsMap object in ${resolve}`)
-          module = null
+          return
         }
-        if (module) {
-          const componentsMap = module.componentsMap
-          resolveInfo.componentTypes.forEach(
-            (componentConfig: ComponentType) => {
-              if (componentConfig.componentType in componentsMap) {
-                configs.push(componentsMap[componentConfig.componentType])
-                // TODO: Add variation details to config
-              } else {
-                console.log(
-                  `Could not find ${componentConfig.componentType} in ${resolve}`
-                )
-              }
-            }
-          )
-        }
+        const componentsMap = module.componentsMap as ComponentsMap
+        resolveInfo.componentTypes.forEach((componentConfig: ComponentType) => {
+          if (componentConfig.componentType in componentsMap) {
+            const newConfig = Object.assign(
+              {
+                overwriteVariations: componentConfig.overwriteVariations,
+                variations: componentConfig.variations,
+              },
+              componentsMap[componentConfig.componentType]
+            )
+
+            configs.push(newConfig)
+          } else {
+            console.log(
+              `Could not find ${componentConfig.componentType} in ${resolve}`
+            )
+          }
+        })
       }
     )
   )

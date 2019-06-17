@@ -7,7 +7,10 @@ export interface ComponentConfig {
   model: Model
   /** Contentful graphql query that retrieves entries for this model, imported from queryPath */
   query?: any
-  // TODO: Add optional varation config
+  /** Additional component variations */
+  variations: string[]
+  /** Value true removes the original variations from the model  */
+  overwriteVariations: boolean
 }
 
 export interface ComponentsMap {

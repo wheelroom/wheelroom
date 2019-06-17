@@ -1,6 +1,8 @@
 export interface ComponentType {
   componentType: string
+  /** Additional component variations */
   variations: string[]
+  /** Value true removes the original variations from the model  */
   overwriteVariations: boolean
 }
 

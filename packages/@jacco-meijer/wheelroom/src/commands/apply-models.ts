@@ -43,6 +43,10 @@ export const applyModels = async (context: ModelApiContext) => {
     context.contentType = null
     context.currentModel = componentConfig.model
     context.editorInterface = null
+    context.variationField = {
+      overwriteVariations: componentConfig.overwriteVariations,
+      variations: componentConfig.variations,
+    }
     await applyModel(context)
   }
 }

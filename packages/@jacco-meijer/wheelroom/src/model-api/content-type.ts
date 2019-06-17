@@ -69,6 +69,18 @@ const getApiFields = (context: ModelApiContext): any[] => {
       const apiField = { id: fieldId } as any
       Object.entries(field.specs).forEach(([specName, specValue]) => {
         apiField[specName] = specValue
+        // See if we need to handle custom variations
+        if (
+          fieldId === 'variation' &&
+          specName === 'validations' &&
+          context.variationField.variations.length > 0
+        ) {
+          apiField.validations = [
+            {
+              in: context.variationField.variations,
+            },
+          ]
+        }
       })
       apiFields.push(apiField)
     }
@@ -84,6 +96,10 @@ const getApiFields = (context: ModelApiContext): any[] => {
     required: false,
     type: 'Symbol',
   })
+
+  // Apply variation field
+  console.log('fields', context.fields)
+  console.log('variationField', context.variationField)
 
   return apiFields
 }

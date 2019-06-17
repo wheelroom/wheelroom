@@ -14,6 +14,13 @@ export interface ModelApiContext {
   entry: any
   /** Contentful field data for demo entry */
   fields: any
+  /** Contentful variation field data for demo entry */
+  variationField: {
+    /** Additional component variations */
+    variations: string[]
+    /** Value true removes the original variations from the model  */
+    overwriteVariations: boolean
+  }
   /** Contentful editorInterface object */
   editorInterface: any
   /** Contentful environment object */

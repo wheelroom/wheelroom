@@ -85,6 +85,13 @@ export const getFields = (context: ModelApiContext) => {
   )
 }
 
+/** If custom variations are defined, set demo content to first variation */
+export const applyVariationField = (context: ModelApiContext) => {
+  if (context.variationField.variations.length > 0) {
+    context.fields.variation = { nl: context.variationField.variations[0] }
+  }
+}
+
 export const getEntry = async (context: ModelApiContext) => {
   console.log(`Getting entry`)
   try {
