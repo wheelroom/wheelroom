@@ -75,9 +75,14 @@ const getApiFields = (context: ModelApiContext): any[] => {
           specName === 'validations' &&
           context.variationField.variations.length > 0
         ) {
+          const existingValue = (specValue as any)[0].in
+          const addValues = context.variationField.variations
+          const newValue = context.variationField.overwriteVariations
+            ? addValues
+            : [...addValues, ...existingValue]
           apiField.validations = [
             {
-              in: context.variationField.variations,
+              in: newValue,
             },
           ]
         }
@@ -96,10 +101,6 @@ const getApiFields = (context: ModelApiContext): any[] => {
     required: false,
     type: 'Symbol',
   })
-
-  // Apply variation field
-  console.log('fields', context.fields)
-  console.log('variationField', context.variationField)
 
   return apiFields
 }

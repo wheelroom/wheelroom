@@ -14,7 +14,7 @@ export interface ModelApiContext {
   entry: any
   /** Contentful field data for demo entry */
   fields: any
-  /** Contentful variation field data for demo entry */
+  /** Contentful variation field configured by config */
   variationField: {
     /** Additional component variations */
     variations: string[]
