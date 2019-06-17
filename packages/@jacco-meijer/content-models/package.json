@@ -35,6 +35,9 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/content-models",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"
@@ -49,5 +52,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "0.1.1"
+  "version": "0.1.1",
+  "gitHead": "d2e364839efd668854fca0834d11251f34620b54"
 }
