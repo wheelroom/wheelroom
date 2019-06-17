@@ -8,7 +8,7 @@ module.exports = {
         defaultLocale: 'nl',
         pageTemplate: path.resolve('./src/page-template.tsx'),
         defaultComponentResolve: `@jacco-meijer/content-models`,
-        // TODO: Add local-modules resolve path
+        resolveLocalModules: 'local_modules',
         componentTypes: {
           articleSection: {
             variations: ['Variation A', 'Variation B'],

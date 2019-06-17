@@ -1,18 +1,36 @@
 import { ComponentConfig } from '../types/components-map'
 import {
   ComponentType,
-  ComponentTypesByModule,
   GatsbyThemeConfig,
+  ResolveInfo,
+  Resolvers,
 } from '../types/gatsby-theme-config'
 
 export const getAppDir = () => {
   return process.cwd()
 }
 
-export const getModule = async (packageName: string) => {
-  // TODO: Lookup configured local-modules path as well
-  const moduleDir = `${getAppDir()}/node_modules/${packageName}`
-  return await import(moduleDir)
+export const getModule = async (
+  packageName: string,
+  resolveLocalModules: string
+) => {
+  let module
+  let moduleDir = `${getAppDir()}/node_modules/${packageName}`
+  try {
+    module = await import(moduleDir)
+  } catch (error) {
+    return false
+  }
+  if (module) {
+    return module
+  }
+  moduleDir = `${getAppDir()}/${resolveLocalModules}/${packageName}`
+  try {
+    module = await import(moduleDir)
+  } catch (error) {
+    return false
+  }
+  return module
 }
 
 export const getGatsbyConfig = async () => {
@@ -30,57 +48,61 @@ export const getGatsbyConfig = async () => {
  * they are resolved from. To be able to fetch the component config more
  * efficently
  */
-const getComponentTypesByResolve = (themes: GatsbyThemeConfig[]) => {
-  const configsByResolve = {} as ComponentTypesByModule
+const getResolvers = (themes: GatsbyThemeConfig[]) => {
+  const resolvers = {} as Resolvers
   themes.forEach((theme: GatsbyThemeConfig) => {
     Object.entries(theme.options.componentTypes).forEach(([type, config]) => {
       const resolve = config.resolve || theme.options.defaultComponentResolve
-      if (!(resolve in configsByResolve)) {
-        configsByResolve[resolve] = [] as ComponentType[]
+      if (!(resolve in resolvers)) {
+        resolvers[resolve] = {
+          componentTypes: [] as ComponentType[],
+          resolveLocalModules: theme.options.resolveLocalModules,
+        }
       }
-      configsByResolve[resolve].push({
+      resolvers[resolve].componentTypes.push({
         componentType: type,
         overwriteVariations: config.overwriteVariations || false,
         variations: config.variations || [],
       })
     })
   })
-  return configsByResolve
+  return resolvers
 }
 
 export const getComponentConfigs = async () => {
-  const config = await getGatsbyConfig()
-  const themes = config.__experimentalThemes as GatsbyThemeConfig[]
-  const configsByModule = getComponentTypesByResolve(themes)
+  const gatsbyConfig = await getGatsbyConfig()
+  const themes = gatsbyConfig.__experimentalThemes as GatsbyThemeConfig[]
+  const resolvers = getResolvers(themes)
 
   const configs = [] as ComponentConfig[]
   await Promise.all(
-    Object.entries(configsByModule).map(
-      async ([resolve, componentConfigs]: [string, any]) => {
+    Object.entries(resolvers).map(
+      async ([resolve, resolveInfo]: [string, ResolveInfo]) => {
         let module
-        let allGood = true
-        try {
-          module = await getModule(resolve)
-        } catch (error) {
-          console.log(`Could not resolve ${resolve} in ${getAppDir()}`)
-          allGood = false
+        module = await getModule(resolve, resolveInfo.resolveLocalModules)
+        if (!module) {
+          console.log(
+            `Could not import ${resolve}, also looked in ${resolveInfo.resolveLocalModules}`
+          )
         }
-        if (module && !('componentsMap' in module)) {
+        if (module && !module.componentsMap) {
           console.log(`Could not find componentsMap object in ${resolve}`)
-          allGood = false
+          module = null
         }
-        if (allGood) {
+        if (module) {
           const componentsMap = module.componentsMap
-          componentConfigs.forEach((componentConfig: ComponentType) => {
-            if (componentConfig.componentType in componentsMap) {
-              configs.push(componentsMap[componentConfig.componentType])
-              // TODO: Add variation details to config
-            } else {
-              console.log(
-                `Could not find ${componentConfig.componentType} in ${resolve}`
-              )
+          resolveInfo.componentTypes.forEach(
+            (componentConfig: ComponentType) => {
+              if (componentConfig.componentType in componentsMap) {
+                configs.push(componentsMap[componentConfig.componentType])
+                // TODO: Add variation details to config
+              } else {
+                console.log(
+                  `Could not find ${componentConfig.componentType} in ${resolve}`
+                )
+              }
             }
-          })
+          )
         }
       }
     )

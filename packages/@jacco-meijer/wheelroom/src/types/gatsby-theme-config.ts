@@ -4,8 +4,13 @@ export interface ComponentType {
   overwriteVariations: boolean
 }
 
-export interface ComponentTypesByModule {
-  [moduleName: string]: ComponentType[]
+export interface ResolveInfo {
+  resolveLocalModules: string
+  componentTypes: ComponentType[]
+}
+
+export interface Resolvers {
+  [moduleName: string]: ResolveInfo
 }
 
 export interface ThemeOptions {
@@ -13,6 +18,8 @@ export interface ThemeOptions {
   defaultLocale: string
   /** Default value for componentType.resolve */
   defaultComponentResolve: string
+  /** If set, lookup npm modules at this path */
+  resolveLocalModules: string
   componentTypes: {
     /** Contentful component type */
     [componentType: string]: {
