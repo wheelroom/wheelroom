@@ -58,11 +58,8 @@
   "peerDependencies": {
     "dotenv": "8.x",
     "gatsby": "2.x",
-    "gatsby-plugin-emotion": "4.x",
     "gatsby-plugin-google-tagmanager": "2.x",
     "gatsby-plugin-offline": "2.x",
-    "gatsby-plugin-tslint": "0.x",
-    "gatsby-plugin-typescript": "2.x",
     "gatsby-source-contentful": "2.x",
     "react": "16.x",
     "react-dom": "16.x"

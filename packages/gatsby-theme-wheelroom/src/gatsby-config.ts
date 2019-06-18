@@ -32,8 +32,6 @@ if (!cfConfig.spaceId || !cfConfig.accessToken) {
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-tslint',
     'gatsby-plugin-offline',
     {
       options: cfConfig,
@@ -42,10 +40,6 @@ module.exports = {
     {
       options: gtmConfig,
       resolve: 'gatsby-plugin-google-tagmanager',
-    },
-    {
-      options: {},
-      resolve: `gatsby-plugin-emotion`,
     },
   ],
 }
