@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby'
 export const fragment = graphql`
-
   fragment ArticleContent on ContentfulArticleContent {
     articleText {
       articleText
