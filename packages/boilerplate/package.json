@@ -8,10 +8,8 @@
     "@jacco-meijer/content-models": "^0.1.3",
     "@jacco-meijer/styled-system": "^0.1.3",
     "@jacco-meijer/wheelroom": "^0.1.3",
-    "contentful-management": "5.8.0",
     "dotenv": "8.0.0",
     "emotion-theming": "10.0.10",
-    "facepaint": "1.2.1",
     "gatsby": "2.9.4",
     "gatsby-plugin-emotion": "4.0.7",
     "gatsby-plugin-google-tagmanager": "2.0.15",
@@ -24,31 +22,26 @@
     "gatsby-source-filesystem": "2.0.39",
     "gatsby-theme-wheelroom": "^0.2.3",
     "gatsby-transformer-json": "2.1.11",
-    "npm-run-all": "4.1.5",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-helmet": "5.2.1",
-    "react-scripts": "3.0.1",
-    "typescript": "3.5.2",
-    "yargs": "13.2.4"
+    "react-helmet": "5.2.1"
   },
   "description": "Gatsby static site boilerplate with React and Typescript",
   "devDependencies": {
     "@types/dotenv": "6.1.1",
-    "@types/facepaint": "1.2.0",
     "@types/jest": "24.0.15",
     "@types/node": "12.0.8",
-    "@types/react": "16.8.20",
     "@types/react-dom": "16.8.4",
     "@types/react-helmet": "5.0.8",
-    "@types/yargs": "13.0.0",
-    "contentful-cli": "0.27.0",
+    "@types/react": "16.8.20",
+    "npm-run-all": "4.1.5",
     "prettier": "1.18.2",
-    "tslint": "5.17.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-loader": "3.5.4",
     "tslint-plugin-prettier": "2.0.1",
-    "tslint-react": "4.0.0"
+    "tslint-react": "4.0.0",
+    "tslint": "5.17.0",
+    "typescript": "3.5.2"
   },
   "engines": {
     "node": ">=10.0.0"

@@ -4,31 +4,25 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@emotion/core": "10.0.10",
+    "@emotion/core": "10.x",
     "@jacco-meijer/styled-system": "^0.1.3",
     "@jacco-meijer/wheelroom": "^0.1.3",
-    "facepaint": "1.2.1",
     "gatsby-theme-wheelroom": "^0.2.3",
-    "npm-run-all": "4.1.5",
-    "react": "16.8.6",
-    "react-app-polyfill": "1.0.1",
-    "react-docgen-typescript": "1.12.4",
-    "react-dom": "16.8.6",
-    "typescript": "3.5.2"
+    "react-docgen-typescript": "1.12.4"
   },
-  "description": "",
+  "description": "Content models to be used with @jacco-meijer/wheelroom and gatsby-theme-wheelroom",
   "devDependencies": {
-    "@types/dotenv": "6.1.1",
-    "@types/facepaint": "1.2.0",
     "@types/node": "12.0.8",
     "@types/react": "16.8.20",
     "@types/react-dom": "16.8.4",
+    "npm-run-all": "4.1.5",
     "prettier": "1.18.2",
     "tslint": "5.17.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-loader": "3.5.4",
     "tslint-plugin-prettier": "2.0.1",
-    "tslint-react": "4.0.0"
+    "tslint-react": "4.0.0",
+    "typescript": "3.5.2"
   },
   "engines": {
     "node": ">=10.0.0"
@@ -40,6 +34,10 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/content-models",
+  "peerDependencies": {
+    "react-dom": "16.x",
+    "react": "16.x"
+  },
   "publishConfig": {
     "access": "public"
   },
