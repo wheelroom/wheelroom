@@ -3,27 +3,21 @@
   "bugs": {
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
-  "dependencies": {
-    "@emotion/core": "10.0.10",
-    "facepaint": "1.2.1",
-    "npm-run-all": "4.1.5",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "typescript": "3.5.2"
-  },
+  "dependencies": {},
   "description": "",
   "devDependencies": {
-    "@types/dotenv": "6.1.1",
     "@types/facepaint": "1.2.0",
     "@types/node": "12.0.8",
-    "@types/react": "16.8.20",
     "@types/react-dom": "16.8.4",
+    "@types/react": "16.8.20",
+    "npm-run-all": "4.1.5",
     "prettier": "1.18.2",
-    "tslint": "5.17.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-loader": "3.5.4",
     "tslint-plugin-prettier": "2.0.1",
-    "tslint-react": "4.0.0"
+    "tslint-react": "4.0.0",
+    "tslint": "5.17.0",
+    "typescript": "3.5.2"
   },
   "engines": {
     "node": ">=10.0.0"
@@ -35,6 +29,12 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/styled-system",
+  "peerDependencies": {
+    "@emotion/core": "10.x",
+    "facepaint": "1.x",
+    "react": "16.x",
+    "react-dom": "16.x"
+  },
   "publishConfig": {
     "access": "public"
   },
