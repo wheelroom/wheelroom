@@ -19,7 +19,7 @@ export const getModule = async (
   try {
     module = await import(moduleDir)
   } catch (error) {
-    return false
+    console.log(`Could not import ${moduleDir}`)
   }
   if (module) {
     return module
@@ -28,9 +28,11 @@ export const getModule = async (
   try {
     module = await import(moduleDir)
   } catch (error) {
-    return false
+    console.log(`Could not import ${moduleDir}`)
   }
-  return module
+  if (module) {
+    return module
+  }
 }
 
 export const getGatsbyConfig = async () => {
@@ -81,9 +83,6 @@ export const getComponentConfigs = async () => {
         let module
         module = await getModule(resolve, resolveInfo.resolveLocalModules)
         if (!module) {
-          console.log(
-            `Could not import ${resolve}, also looked in ${resolveInfo.resolveLocalModules}`
-          )
           return
         }
         if (module && !module.componentsMap) {
