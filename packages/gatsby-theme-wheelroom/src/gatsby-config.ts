@@ -32,9 +32,9 @@ if (!cfConfig.spaceId || !cfConfig.accessToken) {
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-offline',
-    'gatsby-plugin-tslint',
     'gatsby-plugin-typescript',
+    'gatsby-plugin-tslint',
+    'gatsby-plugin-offline',
     {
       options: cfConfig,
       resolve: 'gatsby-source-contentful',
