@@ -19,7 +19,7 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "es6",
+    "target": "es2015",
     "types": ["react"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
