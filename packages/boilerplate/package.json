@@ -62,7 +62,7 @@
     "delete-content": "wheelroom delete-content",
     "develop": "gatsby develop",
     "create-component-files": "wheelroom create-files components src/wheelroom-generated",
-    "test-help": "wheelroom create-files --help",
+    "create-new-model": "wheelroom create-files new-model test-files",
     "lint": "tslint --project tsconfig.json",
     "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1",

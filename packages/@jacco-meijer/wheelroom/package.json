@@ -19,9 +19,11 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
+    "camelcase": "5.3.1",
     "contentful-management": "5.8.0",
     "dotenv": "8.0.0",
     "fs-extra": "8.0.1",
+    "inquirer": "6.3.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-helmet": "5.2.1",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "@types/dotenv": "6.1.1",
     "@types/fs-extra": "7.0.0",
+    "@types/inquirer": "6.0.3",
     "@types/node": "12.0.8",
     "@types/react": "16.8.20",
     "@types/react-dom": "16.8.4",

@@ -4,7 +4,8 @@ import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
 import { Argv, CommandBuilder } from 'yargs'
 import { createContent } from '../commands/create-content/create-content'
-import { createFiles } from '../commands/create-files/create-files'
+import { createComponentFiles } from '../commands/create-files/create-component-files'
+import { createNewModel } from '../commands/create-files/create-new-model'
 import { createModels } from '../commands/create-models/create-models'
 import { deleteContent } from '../commands/delete-content/delete-content'
 import { getComponentConfigs } from '../config/config'
@@ -40,9 +41,13 @@ const cmdCreateFiles = async (values: { target: string; path: string }) => {
   switch (values.target) {
     case 'components':
       const componentConfigs = await getComponentConfigs()
-      await createFiles(componentConfigs, values.path)
-
+      await createComponentFiles(componentConfigs, values.path)
       break
+
+    case 'new-model':
+      await createNewModel(values.path)
+      break
+
     default:
       console.log(`Unknown target: ${values.target}`)
       break

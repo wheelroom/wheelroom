@@ -2,17 +2,13 @@ import * as fs from 'fs'
 import * as fse from 'fs-extra'
 import * as util from 'util'
 import { ComponentConfig } from '../../types/components-map'
+import { camelToDash, noTrailingSlash } from './helpers'
+import { fragmentTemplate } from './templates/fragment-template'
 
 const fileExtension = '.ts'
 const writeFile = util.promisify(fs.writeFile)
 
-// const firstUpper = (str: string): string =>
-//   str.charAt(0).toUpperCase() + str.slice(1)
-const camelToDash = (str: string): string =>
-  str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
-const noTrailingSlash = (str: string): string => str.replace(/\/$/, '')
-
-export const createFiles = async (
+export const createComponentFiles = async (
   componentConfigs: ComponentConfig[],
   path: string
 ) => {
@@ -52,12 +48,3 @@ export const createFiles = async (
   )
   console.log(`Done writing all files`)
 }
-
-const fragmentTemplate = (fragment: string) => `${importGraphql}
-${exportFragment(fragment)}
-`
-
-const importGraphql = `import { graphql } from 'gatsby'`
-
-const exportFragment = (fragment: string) => `export const fragment = graphql\`
-${fragment}\``
