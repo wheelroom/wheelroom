@@ -90,10 +90,6 @@ export const createNewModel = async (path: string) => {
     .map((fieldName: string) => `${fieldName}="Value goes here" `)
     .join('')
 
-  // TODO: Add files only if required by wheelroomType
-  // Create all files for subPage and section types
-  // Create model, graphql and (special) readme for global type
-
   if (['section', 'subPage'].includes(wheelroomType)) {
     fileName = `${componentFileName}-basic-var.tsx`
     content = componentBasicVarTemplate(
