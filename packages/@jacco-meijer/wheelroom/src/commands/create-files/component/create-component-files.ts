@@ -1,8 +1,8 @@
 import * as fs from 'fs'
 import * as fse from 'fs-extra'
 import * as util from 'util'
-import { ComponentConfig } from '../../types/components-map'
-import { camelToDash, noTrailingSlash } from './helpers'
+import { ComponentConfig } from '../../../types/components-map'
+import { camelToDash, noTrailingSlash } from '../helpers'
 import { fragmentTemplate } from './templates/fragment-template'
 
 const fileExtension = '.ts'

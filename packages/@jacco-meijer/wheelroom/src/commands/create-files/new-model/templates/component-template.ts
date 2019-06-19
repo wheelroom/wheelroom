@@ -7,7 +7,7 @@ import { variations } from './variations'
 
 export interface ${componentClassName}Props {
   /** Gatsby fetched data */
- ${componentProps}
+${componentProps}
 }
 
 export const ${componentClassName} = (props: ${componentClassName}Props) => {

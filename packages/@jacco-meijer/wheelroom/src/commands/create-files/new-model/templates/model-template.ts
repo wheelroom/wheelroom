@@ -11,7 +11,7 @@ export const model = {
   description: '${componentDescription}',
   displayField: 'title',
   fields: {
- ${modelFields}
+${modelFields}
     title: {
       initialContent: 'Demo ${componentType} title',
       settings: {

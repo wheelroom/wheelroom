@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import * as fse from 'fs-extra'
 import * as inquirer from 'inquirer'
 import * as util from 'util'
-import { camelToDash, firstUpper, noTrailingSlash } from './helpers'
+import { camelToDash, firstUpper, noTrailingSlash } from '../helpers'
 import { questions } from './questions'
 import { componentBasicVarTemplate } from './templates/component-basic-var-template'
 import { componentTemplate } from './templates/component-template'
@@ -39,7 +39,10 @@ export const createNewModel = async (path: string) => {
   const componentFolderName = camelToDash(componentType)
   const componentDescription = firstUpper(answers.componentName)
   const componentPath = noTrailingSlash(path) + `/${componentFolderName}`
-  const componentFields = answers.componentFields.split(',')
+  const componentFields = answers.componentFields
+    .split(',')
+    .map((item: string) => camelCase(item.trim()))
+    .sort()
 
   try {
     await fse.ensureDir(componentPath)
@@ -53,7 +56,7 @@ export const createNewModel = async (path: string) => {
 
   const componentProps = componentFields
     .map(
-      (fieldName: string) => ` ${fieldName}: string
+      (fieldName: string) => `  ${fieldName}: string
 `
     )
     .join('')
@@ -67,7 +70,7 @@ export const createNewModel = async (path: string) => {
 
   const modelFields = componentFields
     .map(
-      (fieldName: string) => `   ${fieldName}: {
+      (fieldName: string) => `    ${fieldName}: {
       initialContent: 'Demo ${componentType} ${fieldName}',
       settings: {
         helpText: 'Generated field',

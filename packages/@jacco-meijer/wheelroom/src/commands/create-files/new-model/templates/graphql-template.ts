@@ -19,7 +19,7 @@ export const graphqlTemplate = (
 
 export const fragment = \`
   fragment ${componentClassName} on Contentful${componentClassName} {
- ${graphqlFields}
+${graphqlFields}
   }
 \`
 `
