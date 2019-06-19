@@ -35,6 +35,7 @@ export const createNewModel = async (path: string) => {
     pascalCase: true,
   })
   const componentFileName = camelToDash(componentType)
+  const wheelroomType = answers.wheelroomType
   const componentFolderName = camelToDash(componentType)
   const componentDescription = firstUpper(answers.componentName)
   const componentPath = noTrailingSlash(path) + `/${componentFolderName}`
@@ -86,6 +87,8 @@ export const createNewModel = async (path: string) => {
     .map((fieldName: string) => `${fieldName}="Value goes here" `)
     .join('')
 
+  // TODO: Add files only if required by wheelroomType
+
   // component-basic-var-template.ts
   fileName = `${componentFileName}-basic-var.tsx`
   content = componentBasicVarTemplate(componentFileName, componentClassName)
@@ -103,7 +106,12 @@ export const createNewModel = async (path: string) => {
 
   // model-template.ts
   fileName = `model.ts`
-  content = modelTemplate(componentDescription, modelFields, componentType)
+  content = modelTemplate(
+    componentDescription,
+    modelFields,
+    componentType,
+    wheelroomType
+  )
   writeTemplate(fileName, componentPath, content)
 
   // readme-template.ts

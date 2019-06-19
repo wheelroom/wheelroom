@@ -1,7 +1,8 @@
 export const modelTemplate = (
   componentDescription: string,
   modelFields: string,
-  componentType: string
+  componentType: string,
+  wheelroomType: string
 ) => `import { Model } from '@jacco-meijer/wheelroom'
 import { variations } from './variations'
 
@@ -44,6 +45,6 @@ export const model = {
   modelVersion: '1.0.0',
   name: '${componentDescription}',
   type: '${componentType}',
-  wheelroomType: 'subPage',
+  wheelroomType: '${wheelroomType}',
 } as Model
 `
