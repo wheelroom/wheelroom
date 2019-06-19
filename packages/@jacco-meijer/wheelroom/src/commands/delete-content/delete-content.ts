@@ -2,9 +2,9 @@ import {
   deleteEntry,
   getEntry,
   unPublishEntry,
-} from '../contentful-api/content'
-import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
-import { ContentfulApiContext } from '../types/contentful-api-context'
+} from '../../contentful-api/content'
+import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
+import { ContentfulApiContext } from '../../types/contentful-api-context'
 import { deleteAsset } from './delete-asset'
 
 const finish = async (context: ContentfulApiContext) => {

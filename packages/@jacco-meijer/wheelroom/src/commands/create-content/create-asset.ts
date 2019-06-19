@@ -4,9 +4,9 @@ import {
   publishAsset,
   updateAsset,
   uploadFile,
-} from '../contentful-api/asset'
-import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
-import { ContentfulApiContext } from '../types/contentful-api-context'
+} from '../../contentful-api/asset'
+import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
+import { ContentfulApiContext } from '../../types/contentful-api-context'
 
 const finish = async (context: ContentfulApiContext) => {
   console.log(`Succesfully created asset`)

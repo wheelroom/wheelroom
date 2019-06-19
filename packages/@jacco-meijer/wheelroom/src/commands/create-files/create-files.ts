@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import * as fse from 'fs-extra'
 import * as util from 'util'
-import { ComponentConfig } from '../types/components-map'
+import { ComponentConfig } from '../../types/components-map'
 
 const fileExtension = '.ts'
 const writeFile = util.promisify(fs.writeFile)
@@ -12,7 +12,7 @@ const camelToDash = (str: string): string =>
   str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
 const noTrailingSlash = (str: string): string => str.replace(/\/$/, '')
 
-export const generateFiles = async (
+export const createFiles = async (
   componentConfigs: ComponentConfig[],
   path: string
 ) => {

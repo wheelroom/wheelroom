@@ -3,11 +3,11 @@
 import * as dotenv from 'dotenv'
 import * as yargs from 'yargs'
 import { Argv, CommandBuilder } from 'yargs'
-import { applyModels } from '../commands/apply-models'
-import { createContent } from '../commands/create-content'
-import { deleteContent } from '../commands/delete-content'
+import { createContent } from '../commands/create-content/create-content'
+import { createFiles } from '../commands/create-files/create-files'
+import { createModels } from '../commands/create-models/create-models'
+import { deleteContent } from '../commands/delete-content/delete-content'
 import { getComponentConfigs } from '../config/config'
-import { generateFiles } from '../generate-files/generate-files'
 import { ContentfulApiContext } from '../types/contentful-api-context'
 
 const dotEnvResult = dotenv.config()
@@ -15,11 +15,11 @@ if (dotEnvResult.error) {
   throw dotEnvResult.error
 }
 
-const cmdApplyModels = async () => {
+const cmdCreateModels = async () => {
   const context = {
     componentConfigs: await getComponentConfigs(),
   } as ContentfulApiContext
-  await applyModels(context)
+  await createModels(context)
 }
 
 const cmdCreateContent = async () => {
@@ -36,11 +36,11 @@ const cmdDeleteContent = async () => {
   await deleteContent(context)
 }
 
-const cmdGenerateFiles = async (values: { target: string; path: string }) => {
+const cmdCreateFiles = async (values: { target: string; path: string }) => {
   switch (values.target) {
     case 'components':
       const componentConfigs = await getComponentConfigs()
-      await generateFiles(componentConfigs, values.path)
+      await createFiles(componentConfigs, values.path)
 
       break
     default:
@@ -49,11 +49,13 @@ const cmdGenerateFiles = async (values: { target: string; path: string }) => {
   }
 }
 
-const builderGenerateFiles: CommandBuilder = (yargs2: Argv) =>
+const builderCreateFiles: CommandBuilder = (yargs2: Argv) =>
   yargs2
     .positional('target', {
-      describe:
-        "only 'components'for now:\ncreate files with required graphql fragments",
+      describe: `components|new-model
+components: create files with required graphql fragments
+new-model: create all files needed for setting up a new model
+`,
       type: 'string',
     })
     .positional('path', {
@@ -63,9 +65,9 @@ const builderGenerateFiles: CommandBuilder = (yargs2: Argv) =>
 
 let params = yargs
   .command({
-    command: 'apply-models',
-    describe: 'migrate all configured models',
-    handler: cmdApplyModels,
+    command: 'create-models',
+    describe: 'create or update configured models',
+    handler: cmdCreateModels,
   })
   .command({
     command: 'create-content',
@@ -78,10 +80,10 @@ let params = yargs
     handler: cmdDeleteContent,
   })
   .command({
-    builder: builderGenerateFiles,
-    command: 'generate-files <target> <path>',
-    describe: 'generate boilerplate files',
-    handler: cmdGenerateFiles as any,
+    builder: builderCreateFiles,
+    command: 'create-files <target> <path>',
+    describe: 'create boilerplate files',
+    handler: cmdCreateFiles as any,
   })
   .command({
     command: '*',

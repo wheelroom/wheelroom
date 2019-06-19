@@ -3,13 +3,13 @@ import {
   getContentType,
   publishContentType,
   updateContentType,
-} from '../contentful-api/content-type'
+} from '../../contentful-api/content-type'
 import {
   getEditorInterface,
   updateEditorInterface,
-} from '../contentful-api/editor-interface'
-import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
-import { ContentfulApiContext } from '../types/contentful-api-context'
+} from '../../contentful-api/editor-interface'
+import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
+import { ContentfulApiContext } from '../../types/contentful-api-context'
 
 const finish = async (context: ContentfulApiContext) => {
   console.log(`Succesfully ran migration for ${context.currentModel.type}`)
@@ -20,7 +20,7 @@ const handleError = (error: Error) => {
   console.log(error.message)
 }
 
-export const applyModel = async (context: ContentfulApiContext) => {
+export const createModel = async (context: ContentfulApiContext) => {
   try {
     await getClient(context)
     await getSpace(context)
@@ -37,7 +37,7 @@ export const applyModel = async (context: ContentfulApiContext) => {
   }
 }
 
-export const applyModels = async (context: ContentfulApiContext) => {
+export const createModels = async (context: ContentfulApiContext) => {
   for (const componentConfig of context.componentConfigs) {
     console.log(`Applying model ${componentConfig.model.type} =============`)
     context.contentType = null
@@ -47,6 +47,6 @@ export const applyModels = async (context: ContentfulApiContext) => {
       overwriteVariations: componentConfig.overwriteVariations,
       variations: componentConfig.variations,
     }
-    await applyModel(context)
+    await createModel(context)
   }
 }
