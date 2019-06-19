@@ -1,11 +1,25 @@
 export const readmeTemplate = (
   componentFileName: string,
   componentClassName: string,
-  componentAttributes: string
-) => `## ${componentClassName}
+  componentAttributes: string,
+  wheelroomType: string
+) =>
+  `## ${componentClassName}
 
-\`\`\`jsx
+  Wheelroom type: ${wheelroomType}
+
+${
+  wheelroomType === 'section' || wheelroomType === 'subPage'
+    ? `\`\`\`jsx
 import { ${componentClassName} } from './${componentFileName}'
 <${componentClassName} ${componentAttributes} />
 \`\`\`
+`
+    : `## No views
+
+A global component has no views. 
+`
+}
+
+
 `

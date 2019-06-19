@@ -94,44 +94,71 @@ export const createNewModel = async (path: string) => {
   // Create all files for subPage and section types
   // Create model, graphql and (special) readme for global type
 
-  // component-basic-var-template.ts
-  fileName = `${componentFileName}-basic-var.tsx`
-  content = componentBasicVarTemplate(componentFileName, componentClassName)
-  writeTemplate(fileName, componentPath, content)
+  if (['section', 'subPage'].includes(wheelroomType)) {
+    fileName = `${componentFileName}-basic-var.tsx`
+    content = componentBasicVarTemplate(
+      componentFileName,
+      componentClassName,
+      componentType,
+      wheelroomType
+    )
+    writeTemplate(fileName, componentPath, content)
+  }
 
-  // component-template.ts
-  fileName = `${componentFileName}.tsx`
-  content = componentTemplate(componentProps, componentClassName)
-  writeTemplate(fileName, componentPath, content)
+  if (['section', 'subPage'].includes(wheelroomType)) {
+    fileName = `${componentFileName}.tsx`
+    content = componentTemplate(
+      componentProps,
+      componentClassName,
+      componentType,
+      wheelroomType
+    )
+    writeTemplate(fileName, componentPath, content)
+  }
 
-  // graphql-template.ts
-  fileName = `graphql.ts`
-  content = graphqlTemplate(componentType, componentClassName, graphqlFields)
-  writeTemplate(fileName, componentPath, content)
+  if (['section', 'subPage', 'global'].includes(wheelroomType)) {
+    fileName = `graphql.ts`
+    content = graphqlTemplate(
+      componentType,
+      componentClassName,
+      graphqlFields,
+      wheelroomType
+    )
+    writeTemplate(fileName, componentPath, content)
+  }
 
-  // model-template.ts
-  fileName = `model.ts`
-  content = modelTemplate(
-    componentDescription,
-    modelFields,
-    componentType,
-    wheelroomType
-  )
-  writeTemplate(fileName, componentPath, content)
+  if (['section', 'subPage', 'global'].includes(wheelroomType)) {
+    fileName = `model.ts`
+    content = modelTemplate(
+      componentDescription,
+      modelFields,
+      componentType,
+      wheelroomType
+    )
+    writeTemplate(fileName, componentPath, content)
+  }
 
-  // readme-template.ts
-  fileName = `README.md`
-  content = readmeTemplate(
-    componentFileName,
-    componentClassName,
-    componentAttributes
-  )
-  writeTemplate(fileName, componentPath, content)
+  if (['section', 'subPage', 'global'].includes(wheelroomType)) {
+    fileName = `README.md`
+    content = readmeTemplate(
+      componentFileName,
+      componentClassName,
+      componentAttributes,
+      wheelroomType
+    )
+    writeTemplate(fileName, componentPath, content)
+  }
 
-  // variations-template.ts
-  fileName = `variations.ts`
-  content = variationsTemplate(componentFileName, componentClassName)
-  writeTemplate(fileName, componentPath, content)
+  if (['section', 'subPage'].includes(wheelroomType)) {
+    fileName = `variations.ts`
+    content = variationsTemplate(
+      componentFileName,
+      componentClassName,
+      componentType,
+      wheelroomType
+    )
+    writeTemplate(fileName, componentPath, content)
+  }
 
   console.log(`Done setting up ${componentType} component`)
 }

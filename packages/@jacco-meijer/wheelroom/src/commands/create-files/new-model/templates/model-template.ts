@@ -3,9 +3,22 @@ export const modelTemplate = (
   modelFields: string,
   componentType: string,
   wheelroomType: string
-) => `import { Model } from '@jacco-meijer/wheelroom'
-import { variations } from './variations'
+) => `/**
+ * Model definition
+ *
+ * Component type: ${componentType}
+ * Wheelroom type: ${wheelroomType}
+ *
+ */
 
+import { Model } from '@jacco-meijer/wheelroom'
+${
+  wheelroomType !== 'global'
+    ? `import { variations } from './variations'
+`
+    : `
+`
+}
 export const model = {
   contentBackend: 'contentful',
   description: '${componentDescription}',
@@ -24,7 +37,9 @@ ${modelFields}
       },
       widgetId: 'singleLine',
     },
-    variation: {
+${
+  wheelroomType !== 'global'
+    ? `    variation: {
       initialContent: 'No variations yet',
       settings: {
         helpText: 'Select variation',
@@ -40,7 +55,10 @@ ${modelFields}
         ],
       },
       widgetId: 'dropdown',
-    },
+    },`
+    : `
+    `
+}
   },
   modelVersion: '1.0.0',
   name: '${componentDescription}',
