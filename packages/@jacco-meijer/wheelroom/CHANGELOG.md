@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.0.1...@jacco-meijer/wheelroom@1.1.0) (2019-06-19)
+
+
+### Features
+
+* **create-files:** implement create-files new-model ([01af4b9](https://github.com/jaccomeijer/wheelroom/commit/01af4b9))
+* **create-files:** improved new-model templates ([b2ddc6d](https://github.com/jaccomeijer/wheelroom/commit/b2ddc6d))
+
+
+
+
+
 ## [1.0.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.0.0...@jacco-meijer/wheelroom@1.0.1) (2019-06-18)
 
 

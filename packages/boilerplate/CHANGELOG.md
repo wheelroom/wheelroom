@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.0.1...boilerplate@1.1.0) (2019-06-19)
+
+
+### Features
+
+* **create-files:** implement create-files new-model ([01af4b9](https://github.com/jaccomeijer/wheelroom/commit/01af4b9))
+
+
+
+
+
 ## [1.0.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.0.0...boilerplate@1.0.1) (2019-06-18)
 
 **Note:** Version bump only for package boilerplate
