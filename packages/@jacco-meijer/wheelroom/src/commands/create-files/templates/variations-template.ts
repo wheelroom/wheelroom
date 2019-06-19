@@ -1,9 +1,11 @@
-export const graphqlTemplate = `
-// These constants are ID's and used within the Contentful (editor) UI
+export const variationsTemplate = (
+  componentFileName: string,
+  componentClassName: string
+) => `// These constants are ID's and used within the Contentful (editor) UI
 
-import { ArticleContentBasicVar } from './article-content-basic-var'
+import { ${componentClassName}BasicVar } from './${componentFileName}-basic-var'
 
 export const variations = {
-  'No variations yet': ArticleContentBasicVar,
+  'No variations yet': ${componentClassName}BasicVar,
 }
 `

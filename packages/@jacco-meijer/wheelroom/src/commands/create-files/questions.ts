@@ -8,13 +8,13 @@ export const questions = [
     type: 'input',
   },
   {
-    choices: ['Section', 'Content', 'Global', 'Page'],
-    message: 'What is the component type?',
-    name: 'componentType',
+    choices: ['section', 'subPage', 'global'],
+    message: 'What is the component wheelroom type?',
+    name: 'wheelroomType',
     type: 'rawlist',
   },
   {
-    default: 'heading, bodyText, author',
+    default: 'author, bodyText, heading',
     message: `
 
 This will setup required Symbol fields. Title and variation fields are always created.

@@ -1,86 +1,18 @@
-export const modelTemplate = `
-
-import { Model } from '@jacco-meijer/wheelroom'
+export const modelTemplate = (
+  componentDescription: string,
+  modelFields: string,
+  componentType: string
+) => `import { Model } from '@jacco-meijer/wheelroom'
 import { variations } from './variations'
 
 export const model = {
   contentBackend: 'contentful',
-  description: 'Article content',
+  description: '${componentDescription}',
   displayField: 'title',
   fields: {
-    articleText: {
-      initialContent: 'Demo article text',
-      specs: {
-        name: 'Article text',
-        required: true,
-        type: 'RichText',
-      },
-    },
-    author: {
-      initialContent: 'Demo article author Jan Kees',
-      settings: {
-        helpText: 'Author of the article',
-      },
-      specs: {
-        name: 'Author',
-        required: true,
-        type: 'Symbol',
-      },
-      widgetId: 'singleLine',
-    },
-    date: {
-      initialContent: '2019-06-03T00:00+01:00',
-      specs: {
-        name: 'Date',
-        required: true,
-        type: 'Date',
-      },
-    },
-    image: {
-      initialContent: 'demoAsset',
-      specs: {
-        linkType: 'Asset',
-        name: 'Image',
-        required: false,
-        type: 'Link',
-        validations: [
-          {
-            linkMimetypeGroup: ['image'],
-          },
-        ],
-      },
-    },
-    slug: {
-      initialContent: 'demo-slug',
-      settings: {
-        helpText: 'Slug for the article',
-      },
-      specs: {
-        name: 'Slug',
-        required: true,
-        type: 'Symbol',
-        validations: [
-          {
-            unique: true,
-          },
-        ],
-      },
-      widgetId: 'slugEditor',
-    },
-    subTitle: {
-      initialContent: 'Demo article sub title',
-      settings: {
-        helpText: 'Sub title of the article',
-      },
-      specs: {
-        name: 'Sub title',
-        required: true,
-        type: 'Symbol',
-      },
-      widgetId: 'singleLine',
-    },
+ ${modelFields}
     title: {
-      initialContent: 'Demo article title',
+      initialContent: 'Demo ${componentType} title',
       settings: {
         helpText: 'Title of the article',
       },
@@ -97,7 +29,7 @@ export const model = {
         helpText: 'Select variation',
       },
       specs: {
-        name: 'Article content variation',
+        name: '${componentDescription} variation',
         required: true,
         type: 'Symbol',
         validations: [
@@ -110,8 +42,8 @@ export const model = {
     },
   },
   modelVersion: '1.0.0',
-  name: 'Article content',
-  type: 'articleContent',
+  name: '${componentDescription}',
+  type: '${componentType}',
   wheelroomType: 'subPage',
 } as Model
 `

@@ -1,8 +1,10 @@
-export const graphqlTemplate = `
-
-export const query = \`
+export const graphqlTemplate = (
+  componentType: string,
+  componentClassName: string,
+  graphqlFields: string
+) => `export const query = \`
 {
-  articleContent: allContentfulArticleContent(
+  ${componentType}: allContentful${componentClassName}(
     limit: 10
   ) {
     edges {
@@ -16,26 +18,8 @@ export const query = \`
 \`
 
 export const fragment = \`
-  fragment ArticleContent on ContentfulArticleContent {
-    articleText {
-      articleText
-    }
-    author
-    createdAt
-    date
-    image {
-      title
-      description
-      fluid(maxWidth: 1024) {
-        sizes
-        src
-        srcSet
-      }
-    }
-    slug
-    subTitle
-    title
-    updatedAt
+  fragment ${componentClassName} on Contentful${componentClassName} {
+ ${graphqlFields}
   }
 \`
 `

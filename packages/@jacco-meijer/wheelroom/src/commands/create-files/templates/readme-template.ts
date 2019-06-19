@@ -1,8 +1,11 @@
-export const readmeTemplate = `
-## Use as string
+export const readmeTemplate = (
+  componentFileName: string,
+  componentClassName: string,
+  componentAttributes: string
+) => `## ${componentClassName}
 
 \`\`\`jsx
-import { ArticleContent } from './article-content'
-;<ArticleContent name="Pizza" about="Food" variation="No variations yet" />
+import { ${componentClassName} } from './${componentFileName}'
+<${componentClassName} ${componentAttributes} />
 \`\`\`
 `

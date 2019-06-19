@@ -1,13 +1,15 @@
-export const componentBasicVarTemplate = `
-import * as React from 'react'
+export const componentBasicVarTemplate = (
+  componentFileName: string,
+  componentClassName: string
+) => `import * as React from 'react'
 
-import { ArticleContentProps } from './article-content'
+import { ${componentClassName}Props } from './${componentFileName}'
 
-export const ArticleContentBasicVar = (props: ArticleContentProps) => {
+export const ${componentClassName}BasicVar = (props: ${componentClassName}Props) => {
   return (
     <div>
-      <h2>ArticleContentBasic</h2>
-      <p>{props.data}</p>
+      <h2>${componentClassName}Basic</h2>
+      <p>Hello world</p>
     </div>
   )
 }
