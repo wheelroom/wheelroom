@@ -1,9 +1,13 @@
-import { deleteEntry, getEntry, unPublishEntry } from '../model-api/content'
-import { getClient, getEnvironment, getSpace } from '../model-api/init'
-import { ModelApiContext } from '../types/model-api-context'
+import {
+  deleteEntry,
+  getEntry,
+  unPublishEntry,
+} from '../contentful-api/content'
+import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
+import { ContentfulApiContext } from '../types/contentful-api-context'
 import { deleteAsset } from './delete-asset'
 
-const finish = async (context: ModelApiContext) => {
+const finish = async (context: ContentfulApiContext) => {
   console.log(`Succesfully deleted content for: ${context.currentModel.type}`)
   return context
 }
@@ -12,7 +16,7 @@ const handleError = (error: Error) => {
   console.log(error.message)
 }
 
-export const deleteContentForModel = async (context: ModelApiContext) => {
+export const deleteContentForModel = async (context: ContentfulApiContext) => {
   try {
     await getClient(context)
     await getSpace(context)
@@ -27,7 +31,7 @@ export const deleteContentForModel = async (context: ModelApiContext) => {
   }
 }
 
-export const deleteContent = async (context: ModelApiContext) => {
+export const deleteContent = async (context: ContentfulApiContext) => {
   for (const componentConfig of context.componentConfigs) {
     console.log(
       `Deleting content for model ${componentConfig.model.type} =============`

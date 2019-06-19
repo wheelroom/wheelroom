@@ -4,11 +4,11 @@ import {
   publishAsset,
   updateAsset,
   uploadFile,
-} from '../model-api/asset'
-import { getClient, getEnvironment, getSpace } from '../model-api/init'
-import { ModelApiContext } from '../types/model-api-context'
+} from '../contentful-api/asset'
+import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
+import { ContentfulApiContext } from '../types/contentful-api-context'
 
-const finish = async (context: ModelApiContext) => {
+const finish = async (context: ContentfulApiContext) => {
   console.log(`Succesfully created asset`)
   return context
 }
@@ -17,7 +17,7 @@ const handleError = (error: Error) => {
   console.log(error.message)
 }
 
-export const createAsset = async (context: ModelApiContext) => {
+export const createAsset = async (context: ContentfulApiContext) => {
   console.log(`Creating demo asset =============`)
   try {
     await getClient(context)

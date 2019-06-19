@@ -1,7 +1,7 @@
+import { ContentfulApiContext } from '../types/contentful-api-context'
 import { Field } from '../types/model'
-import { ModelApiContext } from '../types/model-api-context'
 
-export const getEditorInterface = async (context: ModelApiContext) => {
+export const getEditorInterface = async (context: ContentfulApiContext) => {
   // If we don't have a contentType there's nothing to do here
   if (context.contentType === null) {
     return
@@ -13,7 +13,7 @@ export const getEditorInterface = async (context: ModelApiContext) => {
 }
 
 const getModelFieldById = (
-  context: ModelApiContext,
+  context: ContentfulApiContext,
   fieldIdLookup: string
 ): any => {
   const result = Object.entries(context.currentModel.fields).find(
@@ -24,7 +24,7 @@ const getModelFieldById = (
   return result || [fieldIdLookup, {}]
 }
 
-export const updateEditorInterface = async (context: ModelApiContext) => {
+export const updateEditorInterface = async (context: ContentfulApiContext) => {
   // If we don't have a editorInterface there's nothing to do here
   if (context.editorInterface === null) {
     return

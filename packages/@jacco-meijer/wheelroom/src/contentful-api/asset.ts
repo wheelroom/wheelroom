@@ -1,13 +1,13 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import { ModelApiContext } from '../types/model-api-context'
+import { ContentfulApiContext } from '../types/contentful-api-context'
 
 const contentType = 'image/jpg'
 const file = '../../assets/wheelroom.jpg'
 const fileName = 'wheelroom'
 const assetId = 'demoAsset'
 
-export const getAsset = async (context: ModelApiContext) => {
+export const getAsset = async (context: ContentfulApiContext) => {
   console.log(`Getting asset`)
   try {
     context.asset = await context.environment.getAsset(assetId)
@@ -17,7 +17,7 @@ export const getAsset = async (context: ModelApiContext) => {
   }
 }
 
-export const createNewAsset = async (context: ModelApiContext) => {
+export const createNewAsset = async (context: ContentfulApiContext) => {
   if (context.asset) {
     return
   }
@@ -25,7 +25,7 @@ export const createNewAsset = async (context: ModelApiContext) => {
   context.asset = await context.environment.createAssetWithId(assetId, {})
 }
 
-export const uploadFile = async (context: ModelApiContext) => {
+export const uploadFile = async (context: ContentfulApiContext) => {
   console.log(`Uploading file`)
 
   context.upload = await context.environment.createUpload({
@@ -35,7 +35,7 @@ export const uploadFile = async (context: ModelApiContext) => {
   })
 }
 
-export const updateAsset = async (context: ModelApiContext) => {
+export const updateAsset = async (context: ContentfulApiContext) => {
   if (!context.asset) {
     return
   }
@@ -61,11 +61,11 @@ export const updateAsset = async (context: ModelApiContext) => {
   context.asset = await context.asset.processForAllLocales()
 }
 
-export const publishAsset = async (context: ModelApiContext) => {
+export const publishAsset = async (context: ContentfulApiContext) => {
   await context.asset.publish()
 }
 
-export const unPublishAsset = async (context: ModelApiContext) => {
+export const unPublishAsset = async (context: ContentfulApiContext) => {
   if (!context.asset) {
     return
   }
@@ -73,7 +73,7 @@ export const unPublishAsset = async (context: ModelApiContext) => {
   context.asset = await context.asset.unpublish()
 }
 
-export const removeAsset = async (context: ModelApiContext) => {
+export const removeAsset = async (context: ContentfulApiContext) => {
   if (!context.asset) {
     return
   }

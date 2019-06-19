@@ -1,7 +1,7 @@
+import { ContentfulApiContext } from '../types/contentful-api-context'
 import { Field } from '../types/model'
-import { ModelApiContext } from '../types/model-api-context'
 
-export const getContentType = async (context: ModelApiContext) => {
+export const getContentType = async (context: ContentfulApiContext) => {
   try {
     context.contentType = await context.environment.getContentType(
       context.currentModel.type
@@ -18,7 +18,7 @@ export const getContentType = async (context: ModelApiContext) => {
   }
 }
 
-export const updateContentType = async (context: ModelApiContext) => {
+export const updateContentType = async (context: ContentfulApiContext) => {
   // If we don't have a contentType there's nothing to do here
   if (context.contentType === null) {
     return
@@ -32,7 +32,7 @@ export const updateContentType = async (context: ModelApiContext) => {
   context.contentType = await context.contentType.update()
 }
 
-export const createContentType = async (context: ModelApiContext) => {
+export const createContentType = async (context: ContentfulApiContext) => {
   // Only create a new one if we it does not exist yet
   if (context.contentType !== null) {
     return
@@ -49,7 +49,7 @@ export const createContentType = async (context: ModelApiContext) => {
   )
 }
 
-export const publishContentType = async (context: ModelApiContext) => {
+export const publishContentType = async (context: ContentfulApiContext) => {
   console.log(`Publishing content type`)
   context.contentType = await context.contentType.publish()
 }
@@ -61,7 +61,7 @@ const getModelVersion = (contentType: any): any => {
   return result.name
 }
 
-const getApiFields = (context: ModelApiContext): any[] => {
+const getApiFields = (context: ContentfulApiContext): any[] => {
   const apiFields = []
   Object.entries(context.currentModel.fields).forEach(
     ([fieldId, field]: [string, Field]) => {

@@ -1,7 +1,7 @@
 import { ComponentConfig } from './components-map'
 import { Model } from './model'
 
-export interface ModelApiContext {
+export interface ContentfulApiContext {
   /** Contentful asset object */
   asset: any
   /** Contentful Management Client */

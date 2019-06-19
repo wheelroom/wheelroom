@@ -5,12 +5,12 @@ import {
   getFields,
   publishEntry,
   updateEntry,
-} from '../model-api/content'
-import { getClient, getEnvironment, getSpace } from '../model-api/init'
-import { ModelApiContext } from '../types/model-api-context'
+} from '../contentful-api/content'
+import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
+import { ContentfulApiContext } from '../types/contentful-api-context'
 import { createAsset } from './create-asset'
 
-const finish = async (context: ModelApiContext) => {
+const finish = async (context: ContentfulApiContext) => {
   console.log(`Succesfully created content for: ${context.currentModel.type}`)
   return context
 }
@@ -19,7 +19,7 @@ const handleError = (error: Error) => {
   console.log(error.message)
 }
 
-export const createContentForModel = async (context: ModelApiContext) => {
+export const createContentForModel = async (context: ContentfulApiContext) => {
   try {
     await getClient(context)
     await getSpace(context)
@@ -37,7 +37,7 @@ export const createContentForModel = async (context: ModelApiContext) => {
   }
 }
 
-export const createContent = async (context: ModelApiContext) => {
+export const createContent = async (context: ContentfulApiContext) => {
   await createAsset(context)
   for (const componentConfig of context.componentConfigs) {
     console.log(

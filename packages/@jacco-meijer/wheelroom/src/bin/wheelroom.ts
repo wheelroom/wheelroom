@@ -8,7 +8,7 @@ import { createContent } from '../commands/create-content'
 import { deleteContent } from '../commands/delete-content'
 import { getComponentConfigs } from '../config/config'
 import { generateFiles } from '../generate-files/generate-files'
-import { ModelApiContext } from '../types/model-api-context'
+import { ContentfulApiContext } from '../types/contentful-api-context'
 
 const dotEnvResult = dotenv.config()
 if (dotEnvResult.error) {
@@ -18,21 +18,21 @@ if (dotEnvResult.error) {
 const cmdApplyModels = async () => {
   const context = {
     componentConfigs: await getComponentConfigs(),
-  } as ModelApiContext
+  } as ContentfulApiContext
   await applyModels(context)
 }
 
 const cmdCreateContent = async () => {
   const context = {
     componentConfigs: await getComponentConfigs(),
-  } as ModelApiContext
+  } as ContentfulApiContext
   await createContent(context)
 }
 
 const cmdDeleteContent = async () => {
   const context = {
     componentConfigs: await getComponentConfigs(),
-  } as ModelApiContext
+  } as ContentfulApiContext
   await deleteContent(context)
 }
 

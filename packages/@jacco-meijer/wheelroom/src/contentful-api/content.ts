@@ -1,9 +1,9 @@
+import { ContentfulApiContext } from '../types/contentful-api-context'
 import { Field } from '../types/model'
-import { ModelApiContext } from '../types/model-api-context'
 
 const demoEntryPostfix = 'DemoEntry'
 
-export const getFields = (context: ModelApiContext) => {
+export const getFields = (context: ContentfulApiContext) => {
   Object.entries(context.currentModel.fields).forEach(
     ([fieldId, field]: [string, Field]) => {
       if (!field.initialContent && field.specs.required) {
@@ -86,13 +86,13 @@ export const getFields = (context: ModelApiContext) => {
 }
 
 /** If custom variations are defined, set demo content to first variation */
-export const applyVariationField = (context: ModelApiContext) => {
+export const applyVariationField = (context: ContentfulApiContext) => {
   if (context.variationField.variations.length > 0) {
     context.fields.variation = { nl: context.variationField.variations[0] }
   }
 }
 
-export const getEntry = async (context: ModelApiContext) => {
+export const getEntry = async (context: ContentfulApiContext) => {
   console.log(`Getting entry`)
   try {
     context.entry = await context.environment.getEntry(
@@ -106,7 +106,7 @@ export const getEntry = async (context: ModelApiContext) => {
   }
 }
 
-export const updateEntry = async (context: ModelApiContext) => {
+export const updateEntry = async (context: ContentfulApiContext) => {
   if (!context.entry) {
     return
   }
@@ -116,7 +116,7 @@ export const updateEntry = async (context: ModelApiContext) => {
   context.entry = await context.entry.update()
 }
 
-export const createEntry = async (context: ModelApiContext) => {
+export const createEntry = async (context: ContentfulApiContext) => {
   if (context.entry) {
     return
   }
@@ -130,12 +130,12 @@ export const createEntry = async (context: ModelApiContext) => {
   )
 }
 
-export const publishEntry = async (context: ModelApiContext) => {
+export const publishEntry = async (context: ContentfulApiContext) => {
   console.log(`Publishing entry`)
   await context.entry.publish()
 }
 
-export const unPublishEntry = async (context: ModelApiContext) => {
+export const unPublishEntry = async (context: ContentfulApiContext) => {
   if (!context.entry) {
     return
   }
@@ -143,7 +143,7 @@ export const unPublishEntry = async (context: ModelApiContext) => {
   context.entry = await context.entry.unpublish()
 }
 
-export const deleteEntry = async (context: ModelApiContext) => {
+export const deleteEntry = async (context: ContentfulApiContext) => {
   if (!context.entry) {
     return
   }
