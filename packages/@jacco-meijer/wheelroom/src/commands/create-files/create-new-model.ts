@@ -88,6 +88,8 @@ export const createNewModel = async (path: string) => {
     .join('')
 
   // TODO: Add files only if required by wheelroomType
+  // Create all files for subPage and section types
+  // Create model, graphql and (special) readme for global type
 
   // component-basic-var-template.ts
   fileName = `${componentFileName}-basic-var.tsx`
