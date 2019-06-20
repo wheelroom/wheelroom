@@ -10,8 +10,7 @@ module.exports = {
         defaultComponentResolve: `components`,
         resolveLocalModules: 'dist',
         componentTypes: {
-          myNewComponent: {},
-          articleContent: {},
+          articleSection: {},
           // page: {
           //   resolve: `@jacco-meijer/content-models`,
           // },
