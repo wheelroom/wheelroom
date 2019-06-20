@@ -1,10 +1,10 @@
-
 .cache/
 .DS_Store
 .env
+.vscode
 *.log
+dist
 logs
 node_modules/
 npm-debug.log*
 public
-.vscode
