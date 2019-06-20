@@ -38,8 +38,12 @@ export const updateEditorInterface = async (context: ContentfulApiContext) => {
       return
     }
     console.log(`Updating editor interface for field ${modelFieldId}`)
-    control.widgetId = modelField.widgetId
-    control.settings = modelField.settings
+    if (modelField.widgetId) {
+      control.widgetId = modelField.widgetId
+    }
+    if (modelField.settings) {
+      control.settings = modelField.settings
+    }
   })
   context.editorInterface = await context.editorInterface.update()
 }
