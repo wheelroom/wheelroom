@@ -58,7 +58,7 @@
   "scripts": {
     "apply-models": "wheelroom apply-models",
     "build:components": "tsc --project src/components/tsconfig.json",
-    "build": "gatsby build",
+    "build:gatsby": "gatsby build",
     "create-content": "wheelroom create-content",
     "create-files": "wheelroom create-files components src/wheelroom-created",
     "create-model": "wheelroom create-files new-model test-files",
