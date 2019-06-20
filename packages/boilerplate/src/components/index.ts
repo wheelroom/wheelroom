@@ -1,13 +1,11 @@
 import { ComponentsMap, ComponentsMapItem } from '@jacco-meijer/wheelroom'
 
-import { query as myNewComponentQuery } from './my-new-component/graphql'
-import { fragment as myNewComponentFragment } from './my-new-component/graphql'
-import { model as myNewComponentModel } from './my-new-component/model'
+import { fragment as articleSectionFragment } from './article-section/graphql'
+import { model as articleSectionModel } from './article-section/model'
 
 export const componentsMap = {
-  myNewComponent: {
-    fragment: myNewComponentFragment,
-    model: myNewComponentModel,
-    query: myNewComponentQuery,
+  articleSection: {
+    fragment: articleSectionFragment,
+    model: articleSectionModel,
   } as ComponentsMapItem,
 } as ComponentsMap

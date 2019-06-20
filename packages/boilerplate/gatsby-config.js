@@ -11,12 +11,10 @@ module.exports = {
         resolveLocalModules: 'dist',
         componentTypes: {
           myNewComponent: {},
-          articleContent: {
-            resolve: `@jacco-meijer/content-models`,
-          },
-          page: {
-            resolve: `@jacco-meijer/content-models`,
-          },
+          articleContent: {},
+          // page: {
+          //   resolve: `@jacco-meijer/content-models`,
+          // },
         },
       },
       resolve: `gatsby-theme-wheelroom`,
