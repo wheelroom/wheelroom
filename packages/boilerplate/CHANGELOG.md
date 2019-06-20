@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.1.0...boilerplate@1.2.0) (2019-06-20)
+
+
+### Features
+
+* **list:** implemented command wheelroom list ([8a1649b](https://github.com/jaccomeijer/wheelroom/commit/8a1649b))
+
+
+
+
+
 # [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.0.1...boilerplate@1.1.0) (2019-06-19)
 
 

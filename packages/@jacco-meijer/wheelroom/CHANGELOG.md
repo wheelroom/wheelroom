@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.1.0...@jacco-meijer/wheelroom@1.2.0) (2019-06-20)
+
+
+### Features
+
+* **config:** better error reporting ([8682465](https://github.com/jaccomeijer/wheelroom/commit/8682465))
+* **list:** implemented command wheelroom list ([8a1649b](https://github.com/jaccomeijer/wheelroom/commit/8a1649b))
+
+
+
+
+
 # [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.0.1...@jacco-meijer/wheelroom@1.1.0) (2019-06-19)
 
 
