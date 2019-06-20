@@ -1,4 +1,4 @@
-import { ComponentConfig, ComponentsMap } from '@jacco-meijer/wheelroom'
+import { ComponentsMap, ComponentsMapItem } from '@jacco-meijer/wheelroom'
 
 import { query as myNewComponentQuery } from './my-new-component/graphql'
 import { fragment as myNewComponentFragment } from './my-new-component/graphql'
@@ -9,5 +9,5 @@ export const componentsMap = {
     fragment: myNewComponentFragment,
     model: myNewComponentModel,
     query: myNewComponentQuery,
-  } as ComponentConfig,
+  } as ComponentsMapItem,
 } as ComponentsMap

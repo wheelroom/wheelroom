@@ -1,4 +1,4 @@
-import { ComponentConfig } from './components-map'
+import { ComponentConfig } from './component-config'
 import { Model } from './model'
 
 export interface ContentfulApiContext {

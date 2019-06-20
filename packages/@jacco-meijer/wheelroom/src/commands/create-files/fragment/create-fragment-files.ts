@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import * as fse from 'fs-extra'
 import * as util from 'util'
-import { ComponentConfig } from '../../../types/components-map'
+import { ComponentConfig } from '../../../types/component-config'
 import { camelToDash, noTrailingSlash } from '../helpers'
 import { fragmentTemplate } from './templates/fragment-template'
 

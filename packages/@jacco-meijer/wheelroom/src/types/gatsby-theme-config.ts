@@ -1,43 +1,54 @@
-export interface ComponentType {
-  componentType: string
+import {
+  componentLocale,
+  componentType,
+  componentVariations,
+  nodeModuleName,
+  nodeModulePath,
+  overwriteVariations,
+} from './simple-types'
+
+export interface ComponentToBeResolved {
+  componentType: componentType
   /** Additional component variations */
-  variations: string[]
+  variations: componentVariations
   /** Value true removes the original variations from the model  */
-  overwriteVariations: boolean
+  overwriteVariations: overwriteVariations
 }
 
 export interface ResolveInfo {
   resolveLocalModules: string
-  componentTypes: ComponentType[]
+  componentsToResolve: ComponentToBeResolved[]
 }
 
 export interface Resolvers {
   [moduleName: string]: ResolveInfo
 }
 
+interface ThemeComponentConfig {
+  /** Contentful component type */
+  [componentType: string]: {
+    /** The module that exports the componentMap */
+    resolve: nodeModuleName
+    /** Additional component variations */
+    variations: componentVariations
+    /** Value true removes the original variations from the model  */
+    overwriteVariations: overwriteVariations
+  }
+}
+
 export interface ThemeOptions {
   /** Locale being server from the root path */
-  defaultLocale: string
+  defaultLocale: componentLocale
   /** Default value for componentType.resolve */
-  defaultComponentResolve: string
+  defaultComponentResolve: nodeModuleName
   /** If set, lookup npm modules at this path */
-  resolveLocalModules: string
-  componentTypes: {
-    /** Contentful component type */
-    [componentType: string]: {
-      /** The module that exports the componentMap */
-      resolve: string
-      /** Additional component variations */
-      variations: string[]
-      /** Value true removes the original variations from the model  */
-      overwriteVariations: boolean
-    }
-  }
+  resolveLocalModules: nodeModulePath
+  componentTypes: ThemeComponentConfig
   /** Resolved path to the page template */
   pageTemplate: string
 }
 
 export interface GatsbyThemeConfig {
   options: ThemeOptions
-  resolve: string
+  resolve: nodeModuleName
 }

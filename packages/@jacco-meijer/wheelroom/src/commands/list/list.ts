@@ -1,4 +1,4 @@
-import { ComponentConfig } from '../../types/components-map'
+import { ComponentConfig } from '../../types/component-config'
 
 export const list = async (componentConfigs: ComponentConfig[]) => {
   componentConfigs.forEach(async (config: ComponentConfig) => {

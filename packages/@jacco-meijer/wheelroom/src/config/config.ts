@@ -1,6 +1,7 @@
-import { ComponentConfig, ComponentsMap } from '../types/components-map'
+import { ComponentConfig } from '../types/component-config'
+import { ComponentsMap } from '../types/components-map'
 import {
-  ComponentType,
+  ComponentToBeResolved,
   GatsbyThemeConfig,
   ResolveInfo,
   Resolvers,
@@ -65,11 +66,11 @@ const getResolvers = (themes: GatsbyThemeConfig[]) => {
       const resolve = config.resolve || theme.options.defaultComponentResolve
       if (!(resolve in resolvers)) {
         resolvers[resolve] = {
-          componentTypes: [] as ComponentType[],
+          componentsToResolve: [] as ComponentToBeResolved[],
           resolveLocalModules: theme.options.resolveLocalModules,
         }
       }
-      resolvers[resolve].componentTypes.push({
+      resolvers[resolve].componentsToResolve.push({
         componentType: type,
         overwriteVariations: config.overwriteVariations || false,
         variations: config.variations || [],
@@ -99,23 +100,25 @@ export const getComponentConfigs = async () => {
           return
         }
         const componentsMap = module.componentsMap as ComponentsMap
-        resolveInfo.componentTypes.forEach((componentConfig: ComponentType) => {
-          if (componentConfig.componentType in componentsMap) {
-            const newConfig = Object.assign(
-              {
-                overwriteVariations: componentConfig.overwriteVariations,
-                variations: componentConfig.variations,
-              },
-              componentsMap[componentConfig.componentType]
-            )
+        resolveInfo.componentsToResolve.forEach(
+          (componentConfig: ComponentToBeResolved) => {
+            if (componentConfig.componentType in componentsMap) {
+              const newConfig = Object.assign(
+                {
+                  overwriteVariations: componentConfig.overwriteVariations,
+                  variations: componentConfig.variations,
+                },
+                componentsMap[componentConfig.componentType]
+              )
 
-            configs.push(newConfig)
-          } else {
-            console.log(
-              `Could not find ${componentConfig.componentType} in ${resolve}`
-            )
+              configs.push(newConfig)
+            } else {
+              console.log(
+                `Could not find ${componentConfig.componentType} in ${resolve}`
+              )
+            }
           }
-        })
+        )
       }
     )
   )

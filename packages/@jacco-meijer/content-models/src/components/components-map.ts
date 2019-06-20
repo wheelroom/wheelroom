@@ -1,4 +1,4 @@
-import { ComponentConfig, ComponentsMap } from '@jacco-meijer/wheelroom'
+import { ComponentsMap, ComponentsMapItem } from '@jacco-meijer/wheelroom'
 
 import { fragment as articleContentFragment } from './article-content/graphql'
 import { query as articleContentQuery } from './article-content/graphql'
@@ -19,18 +19,18 @@ export const componentsMap = {
     fragment: articleContentFragment,
     model: articleContentModel,
     query: articleContentQuery,
-  } as ComponentConfig,
+  } as ComponentsMapItem,
   articleSection: {
     fragment: articleSectionFragment,
     model: articleSectionModel,
-  } as ComponentConfig,
+  } as ComponentsMapItem,
   globalsPart: {
     fragment: globalsPartFragment,
     model: globalsPartModel,
     query: globalsPartQuery,
-  } as ComponentConfig,
+  } as ComponentsMapItem,
   page: {
     model: pageModel,
     query: pageQuery,
-  } as ComponentConfig,
+  } as ComponentsMapItem,
 } as ComponentsMap
