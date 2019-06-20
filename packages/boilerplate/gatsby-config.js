@@ -7,16 +7,16 @@ module.exports = {
       options: {
         defaultLocale: 'nl',
         pageTemplate: path.resolve('./src/page-template.tsx'),
-        defaultComponentResolve: `@jacco-meijer/content-models`,
-        resolveLocalModules: 'local_modules',
+        defaultComponentResolve: `components`,
+        resolveLocalModules: 'dist',
         componentTypes: {
-          articleSection: {
-            variations: ['Variation A', 'Variation B'],
-            overwriteVariations: true,
+          myNewComponent: {},
+          articleContent: {
+            resolve: `@jacco-meijer/content-models`,
           },
-          globalsPart: {},
-          articleContent: {},
-          page: {},
+          page: {
+            resolve: `@jacco-meijer/content-models`,
+          },
         },
       },
       resolve: `gatsby-theme-wheelroom`,
