@@ -3,6 +3,10 @@
   "bugs": {
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
+  "dependencies": {
+    "@emotion/core": "10.0.10",
+    "facepaint": "1.x"
+  },
   "description": "",
   "devDependencies": {
     "@types/facepaint": "1.2.0",
@@ -30,8 +34,6 @@
   "main": "dist/index.js",
   "name": "@jacco-meijer/styled-system",
   "peerDependencies": {
-    "@emotion/core": "10.x",
-    "facepaint": "1.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
