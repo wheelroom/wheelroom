@@ -14,25 +14,33 @@ export const getModule = async (
   packageName: string,
   resolveLocalModules: string
 ) => {
-  let module
-  let moduleDir = `${getAppDir()}/node_modules/${packageName}`
+  let module = null
+  let errorMessage = ''
+  const npmModuleDir = `${getAppDir()}/node_modules/${packageName}`
+  const localModuleDir = `${getAppDir()}/${resolveLocalModules}/${packageName}`
   try {
-    module = await import(moduleDir)
+    module = await import(npmModuleDir)
   } catch (error) {
-    console.log(`Could not import ${moduleDir}`)
+    errorMessage += error
+    module = null
   }
   if (module) {
     return module
   }
-  moduleDir = `${getAppDir()}/${resolveLocalModules}/${packageName}`
   try {
-    module = await import(moduleDir)
+    module = await import(localModuleDir)
   } catch (error) {
-    console.log(`Could not import ${moduleDir}`)
+    errorMessage += error
+    module = null
   }
   if (module) {
     return module
   }
+  console.log(`Could not import ${packageName}
+- tried: ${npmModuleDir}
+- tried: ${localModuleDir}
+- ${errorMessage}
+`)
 }
 
 export const getGatsbyConfig = async () => {
@@ -85,6 +93,7 @@ export const getComponentConfigs = async () => {
         if (!module) {
           return
         }
+        console.log(`Imported module ${resolve}`)
         if (module && !module.componentsMap) {
           console.log(`Could not find componentsMap object in ${resolve}`)
           return
