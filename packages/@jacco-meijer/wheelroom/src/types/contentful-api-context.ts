@@ -1,9 +1,16 @@
 import { ComponentConfig } from './component-config'
 import { Model } from './model'
+import {
+  componentLocale,
+  componentVariations,
+  overwriteVariations,
+} from './simple-types'
 
 export interface ContentfulApiContext {
   /** Contentful asset object */
   asset: any
+  /** default locale */
+  defaultLocale: componentLocale
   /** Contentful Management Client */
   contentfulClient: any
   /** Contentful contentType object */
@@ -17,9 +24,9 @@ export interface ContentfulApiContext {
   /** Contentful variation field configured by config */
   variationField: {
     /** Additional component variations */
-    variations: string[]
+    variations: componentVariations
     /** Value true removes the original variations from the model  */
-    overwriteVariations: boolean
+    overwriteVariations: overwriteVariations
   }
   /** Contentful editorInterface object */
   editorInterface: any

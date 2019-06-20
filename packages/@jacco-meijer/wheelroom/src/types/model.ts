@@ -1,3 +1,5 @@
+import { componentType } from './simple-types'
+
 export interface Field {
   /** Wheelroom content used to create a demo entry */
   initialContent?: string | string[]
@@ -40,7 +42,7 @@ export interface Model {
   /** Contentful model name */
   name: string
   /** Contentful model type */
-  type: string
+  type: componentType
   /** Wheelroom model type */
   wheelroomType: 'page' | 'subPage' | 'section' | 'global'
 }

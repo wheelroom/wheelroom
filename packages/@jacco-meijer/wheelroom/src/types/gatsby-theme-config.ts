@@ -9,10 +9,12 @@ import {
 
 export interface ComponentToBeResolved {
   componentType: componentType
-  /** Additional component variations */
-  variations: componentVariations
+  /** default locale */
+  defaultLocale: componentLocale
   /** Value true removes the original variations from the model  */
   overwriteVariations: overwriteVariations
+  /** Additional component variations */
+  variations: componentVariations
 }
 
 export interface ResolveInfo {
@@ -24,16 +26,13 @@ export interface Resolvers {
   [moduleName: string]: ResolveInfo
 }
 
-interface ThemeComponentConfig {
-  /** Contentful component type */
-  [componentType: string]: {
-    /** The module that exports the componentMap */
-    resolve: nodeModuleName
-    /** Additional component variations */
-    variations: componentVariations
-    /** Value true removes the original variations from the model  */
-    overwriteVariations: overwriteVariations
-  }
+export interface ThemeComponentConfig {
+  /** The module that exports the componentMap */
+  resolve: nodeModuleName
+  /** Additional component variations */
+  variations: componentVariations
+  /** Value true removes the original variations from the model  */
+  overwriteVariations: overwriteVariations
 }
 
 export interface ThemeOptions {
@@ -43,7 +42,9 @@ export interface ThemeOptions {
   defaultComponentResolve: nodeModuleName
   /** If set, lookup npm modules at this path */
   resolveLocalModules: nodeModulePath
-  componentTypes: ThemeComponentConfig
+  componentTypes: {
+    [componentType: string]: ThemeComponentConfig
+  }
   /** Resolved path to the page template */
   pageTemplate: string
 }

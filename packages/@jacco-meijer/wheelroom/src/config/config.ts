@@ -5,15 +5,24 @@ import {
   GatsbyThemeConfig,
   ResolveInfo,
   Resolvers,
+  ThemeComponentConfig,
 } from '../types/gatsby-theme-config'
+import {
+  componentLocale,
+  componentType,
+  componentVariations,
+  nodeModuleName,
+  nodeModulePath,
+  overwriteVariations,
+} from '../types/simple-types'
 
 export const getAppDir = () => {
   return process.cwd()
 }
 
 export const getModule = async (
-  packageName: string,
-  resolveLocalModules: string
+  packageName: nodeModuleName,
+  resolveLocalModules: nodeModulePath
 ) => {
   let module = null
   let errorMessage = ''
@@ -62,20 +71,23 @@ export const getGatsbyConfig = async () => {
 const getResolvers = (themes: GatsbyThemeConfig[]) => {
   const resolvers = {} as Resolvers
   themes.forEach((theme: GatsbyThemeConfig) => {
-    Object.entries(theme.options.componentTypes).forEach(([type, config]) => {
-      const resolve = config.resolve || theme.options.defaultComponentResolve
-      if (!(resolve in resolvers)) {
-        resolvers[resolve] = {
-          componentsToResolve: [] as ComponentToBeResolved[],
-          resolveLocalModules: theme.options.resolveLocalModules,
+    Object.entries(theme.options.componentTypes).forEach(
+      ([type, config]: [componentType, ThemeComponentConfig]) => {
+        const resolve = config.resolve || theme.options.defaultComponentResolve
+        if (!(resolve in resolvers)) {
+          resolvers[resolve] = {
+            componentsToResolve: [] as ComponentToBeResolved[],
+            resolveLocalModules: theme.options.resolveLocalModules,
+          }
         }
+        resolvers[resolve].componentsToResolve.push({
+          componentType: type,
+          defaultLocale: theme.options.defaultLocale,
+          overwriteVariations: config.overwriteVariations || false,
+          variations: config.variations || [],
+        })
       }
-      resolvers[resolve].componentsToResolve.push({
-        componentType: type,
-        overwriteVariations: config.overwriteVariations || false,
-        variations: config.variations || [],
-      })
-    })
+    )
   })
   return resolvers
 }
@@ -101,20 +113,21 @@ export const getComponentConfigs = async () => {
         }
         const componentsMap = module.componentsMap as ComponentsMap
         resolveInfo.componentsToResolve.forEach(
-          (componentConfig: ComponentToBeResolved) => {
-            if (componentConfig.componentType in componentsMap) {
+          (toBeResolved: ComponentToBeResolved) => {
+            if (toBeResolved.componentType in componentsMap) {
               const newConfig = Object.assign(
                 {
-                  overwriteVariations: componentConfig.overwriteVariations,
-                  variations: componentConfig.variations,
+                  defaultLocale: toBeResolved.defaultLocale,
+                  overwriteVariations: toBeResolved.overwriteVariations,
+                  variations: toBeResolved.variations,
                 },
-                componentsMap[componentConfig.componentType]
+                componentsMap[toBeResolved.componentType]
               ) as ComponentConfig
 
               configs.push(newConfig)
             } else {
               console.log(
-                `Could not find ${componentConfig.componentType} in ${resolve}`
+                `Could not find ${toBeResolved.componentType} in ${resolve}`
               )
             }
           }
