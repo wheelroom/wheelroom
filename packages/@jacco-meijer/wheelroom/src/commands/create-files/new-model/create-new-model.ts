@@ -54,14 +54,16 @@ export const createNewModel = async (path: string) => {
   let fileName
   let content
 
-  const componentProps = componentFields
+  const componentProps = [...componentFields, 'variation']
+    .sort()
     .map(
       (fieldName: string) => `  ${fieldName}: string
 `
     )
     .join('')
 
-  const graphqlFields = componentFields
+  const graphqlFields = [...componentFields, 'variation']
+    .sort()
     .map(
       (fieldName: string) => `    ${fieldName}
 `
