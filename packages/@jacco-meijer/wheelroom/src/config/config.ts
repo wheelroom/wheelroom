@@ -8,12 +8,9 @@ import {
   ThemeComponentConfig,
 } from '../types/gatsby-theme-config'
 import {
-  componentLocale,
   componentType,
-  componentVariations,
   nodeModuleName,
   nodeModulePath,
-  overwriteVariations,
 } from '../types/simple-types'
 
 export const getAppDir = () => {
@@ -115,14 +112,12 @@ export const getComponentConfigs = async () => {
         resolveInfo.componentsToResolve.forEach(
           (toBeResolved: ComponentToBeResolved) => {
             if (toBeResolved.componentType in componentsMap) {
-              const newConfig = Object.assign(
-                {
-                  defaultLocale: toBeResolved.defaultLocale,
-                  overwriteVariations: toBeResolved.overwriteVariations,
-                  variations: toBeResolved.variations,
-                },
-                componentsMap[toBeResolved.componentType]
-              ) as ComponentConfig
+              const newConfig = {
+                defaultLocale: toBeResolved.defaultLocale,
+                overwriteVariations: toBeResolved.overwriteVariations,
+                variations: toBeResolved.variations,
+                ...componentsMap[toBeResolved.componentType],
+              } as ComponentConfig
 
               configs.push(newConfig)
             } else {
