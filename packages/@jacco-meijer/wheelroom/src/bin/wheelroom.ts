@@ -1,19 +1,25 @@
 #!/usr/bin/env node
 
 import * as dotenv from 'dotenv'
-import * as yargs from 'yargs'
 import { Argv, CommandBuilder } from 'yargs'
+import * as yargs from 'yargs'
 import { createContent } from '../commands/create-content/create-content'
 import { createComponentFiles } from '../commands/create-files/component/create-component-files'
 import { createNewModel } from '../commands/create-files/new-model/create-new-model'
 import { createModels } from '../commands/create-models/create-models'
 import { deleteContent } from '../commands/delete-content/delete-content'
+import { list } from '../commands/list/list'
 import { getComponentConfigs } from '../config/config'
 import { ContentfulApiContext } from '../types/contentful-api-context'
 
 const dotEnvResult = dotenv.config()
 if (dotEnvResult.error) {
   throw dotEnvResult.error
+}
+
+const cmdList = async () => {
+  const componentConfigs = await getComponentConfigs()
+  await list(componentConfigs)
 }
 
 const cmdCreateModels = async () => {
@@ -69,6 +75,11 @@ new-model: create all files needed for setting up a new model
     })
 
 let params = yargs
+  .command({
+    command: 'list',
+    describe: 'list configured models',
+    handler: cmdList,
+  })
   .command({
     command: 'create-models',
     describe: 'create or update configured models',

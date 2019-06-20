@@ -57,14 +57,15 @@
   },
   "scripts": {
     "apply-models": "wheelroom apply-models",
-    "build": "gatsby build",
     "build:components": "tsc --project src/components/tsconfig.json",
+    "build": "gatsby build",
     "create-content": "wheelroom create-content",
-    "delete-content": "wheelroom delete-content",
-    "develop": "gatsby develop",
     "create-files": "wheelroom create-files components src/wheelroom-created",
     "create-model": "wheelroom create-files new-model test-files",
+    "delete-content": "wheelroom delete-content",
+    "develop": "gatsby develop",
     "lint": "tslint --project tsconfig.json",
+    "list": "wheelroom list",
     "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit"
