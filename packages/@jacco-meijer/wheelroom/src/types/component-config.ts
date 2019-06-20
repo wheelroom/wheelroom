@@ -1,5 +1,6 @@
 import { Model } from './model'
 
+/** Build up internally, used to do all component processing like create-files and create-models */
 export interface ComponentConfig {
   /** Graphql fragment for this model, used to generate files */
   fragment?: any

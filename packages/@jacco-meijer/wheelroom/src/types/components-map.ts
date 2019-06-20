@@ -1,5 +1,6 @@
 import { Model } from './model'
 
+/** Used to get components from external modules  */
 export interface ComponentsMapItem {
   /** Graphql fragment for this model, used to generate files */
   fragment?: any
@@ -9,6 +10,7 @@ export interface ComponentsMapItem {
   query?: any
 }
 
+/** Used to get components from external modules  */
 export interface ComponentsMap {
   [componentType: string]: ComponentsMapItem
 }

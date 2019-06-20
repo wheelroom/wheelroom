@@ -109,7 +109,7 @@ export const getComponentConfigs = async () => {
                   variations: componentConfig.variations,
                 },
                 componentsMap[componentConfig.componentType]
-              )
+              ) as ComponentConfig
 
               configs.push(newConfig)
             } else {
