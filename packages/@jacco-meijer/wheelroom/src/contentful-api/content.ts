@@ -15,7 +15,9 @@ export const getFields = (context: ContentfulApiContext) => {
       switch (field.specs.type) {
         case 'Date':
         case 'Symbol':
-          context.fields[fieldId] = { nl: field.initialContent }
+          context.fields[fieldId] = {
+            [context.defaultLocale]: field.initialContent,
+          }
           break
 
         case 'Array':
@@ -23,7 +25,7 @@ export const getFields = (context: ContentfulApiContext) => {
           switch (arrayItems.type) {
             case 'Link':
               context.fields[fieldId] = {
-                nl: [
+                [context.defaultLocale]: [
                   {
                     sys: {
                       id: field.initialContent + demoEntryPostfix,
@@ -35,14 +37,16 @@ export const getFields = (context: ContentfulApiContext) => {
               }
               break
             case 'Symbol':
-              context.fields[fieldId] = { nl: field.initialContent }
+              context.fields[fieldId] = {
+                [context.defaultLocale]: field.initialContent,
+              }
               break
           }
           break
 
         case 'RichText':
           context.fields[fieldId] = {
-            nl: {
+            [context.defaultLocale]: {
               content: [
                 {
                   content: [
@@ -67,7 +71,7 @@ export const getFields = (context: ContentfulApiContext) => {
           switch (field.specs.linkType) {
             case 'Asset':
               context.fields[fieldId] = {
-                nl: {
+                [context.defaultLocale]: {
                   sys: {
                     id: 'demoAsset',
                     linkType: 'Asset',
@@ -88,7 +92,9 @@ export const getFields = (context: ContentfulApiContext) => {
 /** If custom variations are defined, set demo content to first variation */
 export const applyVariationField = (context: ContentfulApiContext) => {
   if (context.variationField.variations.length > 0) {
-    context.fields.variation = { nl: context.variationField.variations[0] }
+    context.fields.variation = {
+      [context.defaultLocale]: context.variationField.variations[0],
+    }
   }
 }
 

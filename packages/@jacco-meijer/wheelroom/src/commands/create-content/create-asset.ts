@@ -19,6 +19,10 @@ const handleError = (error: Error) => {
 
 export const createAsset = async (context: ContentfulApiContext) => {
   console.log(`Creating demo asset =============`)
+
+  // Get locale from fist component
+  context.defaultLocale = context.componentConfigs[0].defaultLocale
+
   try {
     await getClient(context)
     await getSpace(context)

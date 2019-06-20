@@ -46,6 +46,7 @@ export const createContent = async (context: ContentfulApiContext) => {
     context.entry = null
     context.fields = {}
     context.currentModel = componentConfig.model
+    context.defaultLocale = componentConfig.defaultLocale
     context.variationField = {
       overwriteVariations: componentConfig.overwriteVariations,
       variations: componentConfig.variations,
