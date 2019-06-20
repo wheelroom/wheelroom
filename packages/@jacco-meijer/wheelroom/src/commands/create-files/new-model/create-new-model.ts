@@ -78,6 +78,7 @@ export const createNewModel = async (path: string) => {
         helpText: 'Generated field',
       },
       specs: {
+        localized: ${answers.localizedFields ? 'true' : 'false'},
         name: '${fieldName}',
         required: true,
         type: 'Symbol',

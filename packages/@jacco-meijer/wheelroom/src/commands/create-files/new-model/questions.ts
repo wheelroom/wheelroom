@@ -23,4 +23,10 @@ What fields would you like to setup?`,
     name: 'componentFields',
     type: 'input',
   },
+  {
+    default: false,
+    message: 'Do you need localized fields?',
+    name: 'localizedFields',
+    type: 'confirm',
+  },
 ] as Questions
