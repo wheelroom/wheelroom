@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv'
 import { Argv, CommandBuilder } from 'yargs'
 import * as yargs from 'yargs'
 import { createContent } from '../commands/create-content/create-content'
-import { createComponentFiles } from '../commands/create-files/component/create-component-files'
+import { createFragmentFiles } from '../commands/create-files/fragment/create-fragment-files'
 import { createNewModel } from '../commands/create-files/new-model/create-new-model'
 import { createModels } from '../commands/create-models/create-models'
 import { deleteContent } from '../commands/delete-content/delete-content'
@@ -45,9 +45,9 @@ const cmdDeleteContent = async () => {
 
 const cmdCreateFiles = async (values: { target: string; path: string }) => {
   switch (values.target) {
-    case 'components':
+    case 'fragments':
       const componentConfigs = await getComponentConfigs()
-      await createComponentFiles(componentConfigs, values.path)
+      await createFragmentFiles(componentConfigs, values.path)
       break
 
     case 'new-model':
@@ -63,8 +63,8 @@ const cmdCreateFiles = async (values: { target: string; path: string }) => {
 const builderCreateFiles: CommandBuilder = (yargs2: Argv) =>
   yargs2
     .positional('target', {
-      describe: `components|new-model
-components: create files with required graphql fragments
+      describe: `fragments|new-model
+fragments: create files with required graphql fragments
 new-model: create all files needed for setting up a new model
 `,
       type: 'string',

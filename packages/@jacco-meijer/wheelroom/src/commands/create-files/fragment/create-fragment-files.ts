@@ -8,7 +8,7 @@ import { fragmentTemplate } from './templates/fragment-template'
 const fileExtension = '.ts'
 const writeFile = util.promisify(fs.writeFile)
 
-export const createComponentFiles = async (
+export const createFragmentFiles = async (
   componentConfigs: ComponentConfig[],
   path: string
 ) => {
