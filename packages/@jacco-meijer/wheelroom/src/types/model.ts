@@ -1,5 +1,47 @@
 import { componentType } from './simple-types'
 
+export type contentType =
+  | 'Array'
+  | 'Boolean'
+  | 'Date'
+  | 'Integer'
+  | 'Link'
+  | 'Location'
+  | 'Object'
+  | 'RichText'
+  | 'Symbol'
+  | 'Text'
+
+export type linkType = 'Asset' | 'Entry'
+
+export type widgetID =
+  | 'assetLinkEditor'
+  | 'assetLinksEditor'
+  | 'assetGalleryEditor'
+  | 'boolean'
+  | 'datePicker'
+  | 'entryLinkEditor'
+  | 'entryLinksEditor'
+  | 'entryCardEditor'
+  | 'entryCardsEditor'
+  | 'numberEditor'
+  | 'rating'
+  | 'locationEditor'
+  | 'objectEditor'
+  | 'urlEditor'
+  | 'slugEditor'
+  | 'listInput'
+  | 'checkbox'
+  | 'tagEditor'
+  | 'multipleLine'
+  | 'markdown'
+  | 'singleLine'
+  | 'dropdown'
+  | 'radio'
+  | 'richTextEditor'
+
+export type wheelroomType = 'page' | 'subPage' | 'section' | 'global'
+
 export interface Field {
   /** Wheelroom content used to create a demo entry */
   initialContent?: string | string[]
@@ -12,28 +54,18 @@ export interface Field {
     /** Items for field type Array */
     items?: {
       /** LinkType for itemType Link */
-      linkType?: 'Entry'
-      type: 'Link' | 'Symbol'
+      linkType?: linkType
+      type: contentType
     }
-    linkType?: 'Asset'
+    linkType?: linkType
     localized?: boolean
     name: string
     required?: boolean
-    type:
-      | 'Array'
-      | 'Boolean'
-      | 'Date'
-      | 'Integer'
-      | 'Link'
-      | 'Location'
-      | 'Object'
-      | 'RichText'
-      | 'Symbol'
-      | 'Text'
+    type: contentType
     validations?: any[]
   }
   /** Contentful editor widget id */
-  widgetId?: string
+  widgetId?: widgetID
 }
 
 export interface Model {
@@ -54,5 +86,5 @@ export interface Model {
   /** Contentful model type */
   type: componentType
   /** Wheelroom model type */
-  wheelroomType: 'page' | 'subPage' | 'section' | 'global'
+  wheelroomType: wheelroomType
 }
