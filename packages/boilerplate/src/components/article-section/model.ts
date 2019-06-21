@@ -15,7 +15,7 @@ export const model = {
   displayField: 'title',
   fields: {
     articleText: {
-      initialContent: 'Demo articleSection articleText',
+      initialContent: 'Initial content for articleText',
       settings: {
         helpText: 'Generated field',
       },
@@ -23,7 +23,7 @@ export const model = {
         localized: true,
         name: 'articleText',
         required: true,
-        type: 'Symbol',
+        type: 'RichText',
       },
       widgetId: 'richTextEditor',
     },
