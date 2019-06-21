@@ -14,7 +14,6 @@ export interface ArticleSectionProps {
   /** Gatsby fetched data */
   articleText: string
   variation: string
-
 }
 
 export const ArticleSection = (props: ArticleSectionProps) => {
