@@ -19,7 +19,16 @@ export interface Field {
     localized?: boolean
     name: string
     required?: boolean
-    type: 'Symbol' | 'Array' | 'RichText' | 'Link' | 'Date'
+    type:
+      | 'Array'
+      | 'Boolean'
+      | 'Date'
+      | 'Integer'
+      | 'Link'
+      | 'Location'
+      | 'Object'
+      | 'RichText'
+      | 'Symbol'
     validations?: any[]
   }
   /** Contentful editor widget id */
