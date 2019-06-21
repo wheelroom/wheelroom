@@ -28,7 +28,7 @@ ${modelFields}
     title: {
       initialContent: 'Demo ${componentType} title',
       settings: {
-        helpText: 'Title of the article',
+        helpText: 'Never displayed, only used for listing within Contentful',
       },
       specs: {
         name: 'Title',

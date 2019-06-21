@@ -73,9 +73,9 @@ export const createNewModel = async (path: string) => {
   const modelFields = componentFields
     .map(
       (fieldName: string) => `    ${fieldName}: {
-      initialContent: 'Demo ${componentType} ${fieldName}',
+      initialContent: 'Demo content for ${componentType}/${fieldName}',
       settings: {
-        helpText: 'Generated field',
+        helpText: 'Describe how to use the field ${fieldName}',
       },
       specs: {
         localized: ${answers.localizedFields ? 'true' : 'false'},
