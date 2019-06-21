@@ -29,6 +29,7 @@ export interface Field {
       | 'Object'
       | 'RichText'
       | 'Symbol'
+      | 'Text'
     validations?: any[]
   }
   /** Contentful editor widget id */
