@@ -37,6 +37,7 @@ export const getFields = (context: ContentfulApiContext) => {
               }
               break
             case 'Symbol':
+            case 'Text':
               context.fields[fieldId] = {
                 [context.defaultLocale]: field.initialContent,
               }
@@ -75,6 +76,16 @@ export const getFields = (context: ContentfulApiContext) => {
                   sys: {
                     id: 'demoAsset',
                     linkType: 'Asset',
+                    type: 'Link',
+                  },
+                },
+              }
+            case 'Entry':
+              context.fields[fieldId] = {
+                [context.defaultLocale]: {
+                  sys: {
+                    id: field.initialContent + demoEntryPostfix,
+                    linkType: 'Entry',
                     type: 'Link',
                   },
                 },
