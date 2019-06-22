@@ -80,6 +80,8 @@ export const getFields = (context: ContentfulApiContext) => {
                   },
                 },
               }
+              break
+
             case 'Entry':
               context.fields[fieldId] = {
                 [context.defaultLocale]: {
@@ -90,6 +92,7 @@ export const getFields = (context: ContentfulApiContext) => {
                   },
                 },
               }
+              break
           }
           break
 
