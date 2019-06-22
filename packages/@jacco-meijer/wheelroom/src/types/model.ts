@@ -60,7 +60,7 @@ export type widgetID =
  * - part: has a fragment defining fields
  *
  */
-export type wheelroomType = 'page' | 'subPage' | 'section' | 'global' | 'part'
+export type wheelroomType = 'page' | 'global' | 'subPage' | 'section' | 'part'
 
 export interface Field {
   /** Wheelroom content used to create a demo entry */

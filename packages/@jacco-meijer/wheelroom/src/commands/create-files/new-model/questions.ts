@@ -8,8 +8,17 @@ export const questions = [
     type: 'input',
   },
   {
-    choices: ['section', 'subPage', 'global'],
-    message: 'What is the component wheelroom type?',
+    choices: ['section', 'subPage', 'part', 'global'],
+    message: `
+    
+Section: defines fields and can be used as a page section. A section is a part of a page
+         and has no query
+Part:    simular to a section, but cannot be used as a section, mostly this is a part of
+         a section
+SubPage: defines fields and a query, if the slug field matches, the page is fetched
+Global:  defines fields and a query, always fetched and added to every page
+
+What is the component wheelroom type?`,
     name: 'wheelroomType',
     type: 'rawlist',
   },

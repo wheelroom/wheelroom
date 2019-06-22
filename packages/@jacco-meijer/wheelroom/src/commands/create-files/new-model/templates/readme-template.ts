@@ -9,7 +9,9 @@ export const readmeTemplate = (
   Wheelroom type: ${wheelroomType}
 
 ${
-  wheelroomType === 'section' || wheelroomType === 'subPage'
+  wheelroomType === 'section' ||
+  wheelroomType === 'subPage' ||
+  wheelroomType === 'part'
     ? `\`\`\`jsx
 import { ${componentClassName} } from './${componentFileName}'
 <${componentClassName} ${componentAttributes} />

@@ -94,7 +94,7 @@ export const createNewModel = async (path: string) => {
     .map((fieldName: string) => `${fieldName}="Value goes here" `)
     .join('')
 
-  if (['section', 'subPage'].includes(wheelroomType)) {
+  if (['section', 'page', 'subPage'].includes(wheelroomType)) {
     fileName = `${componentFileName}-basic-var.tsx`
     content = componentBasicVarTemplate(
       componentFileName,
@@ -105,7 +105,7 @@ export const createNewModel = async (path: string) => {
     writeTemplate(fileName, componentPath, content)
   }
 
-  if (['section', 'subPage'].includes(wheelroomType)) {
+  if (['section', 'page', 'subPage'].includes(wheelroomType)) {
     fileName = `${componentFileName}.tsx`
     content = componentTemplate(
       componentProps,
@@ -116,7 +116,7 @@ export const createNewModel = async (path: string) => {
     writeTemplate(fileName, componentPath, content)
   }
 
-  if (['section', 'subPage', 'global'].includes(wheelroomType)) {
+  if (['section', 'page', 'subPage', 'global'].includes(wheelroomType)) {
     fileName = `graphql.ts`
     content = graphqlTemplate(
       componentType,
@@ -127,7 +127,7 @@ export const createNewModel = async (path: string) => {
     writeTemplate(fileName, componentPath, content)
   }
 
-  if (['section', 'subPage', 'global'].includes(wheelroomType)) {
+  if (['section', 'page', 'subPage', 'global'].includes(wheelroomType)) {
     fileName = `model.ts`
     content = modelTemplate(
       componentDescription,
@@ -138,7 +138,7 @@ export const createNewModel = async (path: string) => {
     writeTemplate(fileName, componentPath, content)
   }
 
-  if (['section', 'subPage', 'global'].includes(wheelroomType)) {
+  if (['section', 'page', 'subPage', 'global'].includes(wheelroomType)) {
     fileName = `README.md`
     content = readmeTemplate(
       componentFileName,
@@ -149,7 +149,7 @@ export const createNewModel = async (path: string) => {
     writeTemplate(fileName, componentPath, content)
   }
 
-  if (['section', 'subPage'].includes(wheelroomType)) {
+  if (['section', 'page', 'subPage'].includes(wheelroomType)) {
     fileName = `variations.ts`
     content = variationsTemplate(
       componentFileName,
@@ -160,7 +160,7 @@ export const createNewModel = async (path: string) => {
     writeTemplate(fileName, componentPath, content)
   }
 
-  if (['section', 'subPage', 'global'].includes(wheelroomType)) {
+  if (['section', 'page', 'subPage', 'global'].includes(wheelroomType)) {
     fileName = `index.ts`
     content = indexTemplate(componentType, wheelroomType)
     writeTemplate(fileName, componentPath, content)
