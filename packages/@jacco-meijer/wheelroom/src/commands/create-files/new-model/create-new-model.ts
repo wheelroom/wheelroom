@@ -8,6 +8,7 @@ import { questions } from './questions'
 import { componentBasicVarTemplate } from './templates/component-basic-var-template'
 import { componentTemplate } from './templates/component-template'
 import { graphqlTemplate } from './templates/graphql-template'
+import { indexTemplate } from './templates/index-template'
 import { modelTemplate } from './templates/model-template'
 import { readmeTemplate } from './templates/readme-template'
 import { variationsTemplate } from './templates/variations-template'
@@ -156,6 +157,12 @@ export const createNewModel = async (path: string) => {
       componentType,
       wheelroomType
     )
+    writeTemplate(fileName, componentPath, content)
+  }
+
+  if (['section', 'subPage', 'global'].includes(wheelroomType)) {
+    fileName = `index.ts`
+    content = indexTemplate(componentType, wheelroomType)
     writeTemplate(fileName, componentPath, content)
   }
 
