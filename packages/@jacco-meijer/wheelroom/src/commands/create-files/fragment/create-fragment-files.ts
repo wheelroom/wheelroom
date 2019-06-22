@@ -27,7 +27,12 @@ export const createFragmentFiles = async (
         case 'section':
         case 'subPage':
         case 'global':
-          fileContent = fragmentTemplate(config.fragment)
+        case 'part':
+          fileContent = fragmentTemplate(
+            config.fragment,
+            config.model.type,
+            config.model.wheelroomType
+          )
           break
       }
       if (fileContent === null) {
