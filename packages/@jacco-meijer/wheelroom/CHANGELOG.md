@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.11](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.3.10...@jacco-meijer/wheelroom@1.3.11) (2019-06-22)
+
+**Note:** Version bump only for package @jacco-meijer/wheelroom
+
+
+
+
+
 ## [1.3.10](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.3.9...@jacco-meijer/wheelroom@1.3.10) (2019-06-22)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom
