@@ -1,8 +1,18 @@
-export const fragmentTemplate = (fragment: string) => `${importGraphql}
-${exportFragment(fragment)}
+export const fragmentTemplate = (
+  fragment: string,
+  componentType: string,
+  wheelroomType: string
+) => `/**
+ * Graphql fragment
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ * Component type: ${componentType}
+ * Wheelroom type: ${wheelroomType}
+ *
+ */
+
+import { graphql } from 'gatsby'
+export const fragment = graphql\`${fragment}\`
 `
-
-const importGraphql = `import { graphql } from 'gatsby'`
-
-const exportFragment = (fragment: string) => `export const fragment = graphql\`
-${fragment}\``
