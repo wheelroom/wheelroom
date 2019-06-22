@@ -15,6 +15,7 @@ export const getFields = (context: ContentfulApiContext) => {
       switch (field.specs.type) {
         case 'Date':
         case 'Symbol':
+        case 'Text':
           context.fields[fieldId] = {
             [context.defaultLocale]: field.initialContent,
           }
@@ -36,6 +37,8 @@ export const getFields = (context: ContentfulApiContext) => {
                 ],
               }
               break
+
+            case 'Date':
             case 'Symbol':
             case 'Text':
               context.fields[fieldId] = {
