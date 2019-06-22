@@ -22,6 +22,10 @@ export const createFragmentFiles = async (
 
   await Promise.all(
     componentConfigs.map(async (config: ComponentConfig) => {
+      if (!config.fragment) {
+        console.log(`Model ${config.model.type} has no fragment`)
+        return
+      }
       let fileContent = null
       switch (config.model.wheelroomType) {
         case 'section':
@@ -37,17 +41,17 @@ export const createFragmentFiles = async (
       }
       if (fileContent === null) {
         console.log(`No file needed for ${config.model.type}`)
-      } else {
-        const fileName = camelToDash(config.model.type) + fileExtension
-        const writeTo = toPath + '/' + fileName
-        console.log(
-          `Writing ${fileName} in ${path} for component ${config.model.type}`
-        )
-        try {
-          await writeFile(writeTo, fileContent)
-        } catch (error) {
-          console.log(error)
-        }
+        return
+      }
+      const fileName = camelToDash(config.model.type) + fileExtension
+      const writeTo = toPath + '/' + fileName
+      console.log(
+        `Writing ${fileName} in ${path} for component ${config.model.type}`
+      )
+      try {
+        await writeFile(writeTo, fileContent)
+      } catch (error) {
+        console.log(error)
       }
     })
   )
