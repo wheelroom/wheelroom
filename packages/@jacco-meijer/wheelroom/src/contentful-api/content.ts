@@ -13,7 +13,9 @@ export const getFields = (context: ContentfulApiContext) => {
         return
       }
       switch (field.specs.type) {
+        case 'Boolean':
         case 'Date':
+        case 'Integer':
         case 'Symbol':
         case 'Text':
           context.fields[fieldId] = {
@@ -38,7 +40,9 @@ export const getFields = (context: ContentfulApiContext) => {
               }
               break
 
+            case 'Boolean':
             case 'Date':
+            case 'Integer':
             case 'Symbol':
             case 'Text':
               context.fields[fieldId] = {

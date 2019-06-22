@@ -14,6 +14,14 @@ export type contentType =
 
 export type linkType = 'Asset' | 'Entry'
 
+export type initialContent =
+  | string
+  | number
+  | boolean
+  | string[]
+  | number[]
+  | boolean[]
+
 export type widgetID =
   | 'assetLinkEditor'
   | 'assetLinksEditor'
@@ -64,7 +72,7 @@ export type wheelroomType = 'page' | 'global' | 'subPage' | 'section' | 'part'
 
 export interface Field {
   /** Wheelroom content used to create a demo entry */
-  initialContent?: string | string[]
+  initialContent?: initialContent
   /** Contentful editor settings */
   settings?: {
     helpText: string
