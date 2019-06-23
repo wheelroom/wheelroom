@@ -51,8 +51,6 @@ Together with the generated fragments, components can be rendered straight away.
 ## Config
 
 ```
-path = require('path')
-
 module.exports = {
   defaultLocale: 'nl',
   defaultComponentResolve: `components`,
@@ -65,4 +63,3 @@ module.exports = {
   },
 }
 ```
-
