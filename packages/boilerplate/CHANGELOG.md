@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.2.15...boilerplate@1.3.0) (2019-06-23)
+
+
+### Features
+
+* read config from wheelroom-config.js ([c68b645](https://github.com/jaccomeijer/wheelroom/commit/c68b645))
+
+
+
+
+
 ## [1.2.15](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.2.14...boilerplate@1.2.15) (2019-06-22)
 
 **Note:** Version bump only for package boilerplate
