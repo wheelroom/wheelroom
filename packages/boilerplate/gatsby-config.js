@@ -3,7 +3,9 @@ packageJson = require('./package.json')
 module.exports = {
   __experimentalThemes: [
     {
-      options: {},
+      options: {
+        pageTemplate: path.resolve('./src/page-template.tsx'),
+      },
       resolve: `gatsby-theme-wheelroom`,
     },
   ],

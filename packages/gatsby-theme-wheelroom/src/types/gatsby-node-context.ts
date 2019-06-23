@@ -11,15 +11,20 @@ export interface ContentfulObject {
   node_locale: string
 }
 
+export interface pluginOptions {
+  /** Path to the page template used to generate each page */
+  pageTemplate: string
+}
+
 export interface GatsbyNodeContext {
   /** Array with all configured models */
   componentConfigs: ComponentConfig[]
   /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
   /** The plugin configuration options */
-  options: WheelroomConfig
-  /** Path to the page template used to generate each page */
-  pageTemplate: string
+  options: pluginOptions
+  /** The plugin configuration options */
+  wheelroomConfig: WheelroomConfig
   queries: {
     /** Each key contains the results of a global query */
     [modelWheelroomType: string]: {

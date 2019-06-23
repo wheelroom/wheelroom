@@ -1,4 +1,7 @@
-import { getComponentConfigs } from '@jacco-meijer/wheelroom'
+import {
+  getComponentConfigs,
+  getWheelroomConfig,
+} from '@jacco-meijer/wheelroom'
 import { ComponentConfig } from '@jacco-meijer/wheelroom'
 import {
   ContentfulObject,
@@ -42,7 +45,7 @@ const getLocale = (page: any) => {
 }
 
 const getDefaultLocale = (context: GatsbyNodeContext): string => {
-  return getLocaleCountry(context.options.defaultLocale || 'en-US')
+  return getLocaleCountry(context.wheelroomConfig.defaultLocale || 'en-US')
 }
 
 const buildNamedPaths = (context: GatsbyNodeContext) => {
@@ -113,7 +116,7 @@ const createPages = (context: GatsbyNodeContext) => {
 
       console.log(`Creating page: ${localizedBasePath}`)
       context.createPage({
-        component: context.pageTemplate,
+        component: context.options.pageTemplate,
         context: getPageContext({ context, page, pageType }),
         path: localizedBasePath,
       })
@@ -152,7 +155,7 @@ const createSubPages = (context: GatsbyNodeContext) => {
 
         console.log(`Creating sub page: ${pagePath}`)
         context.createPage({
-          component: context.pageTemplate,
+          component: context.options.pageTemplate,
           context: getPageContext({ context, page, subPage, pageType }),
           path: pagePath,
         })
@@ -164,18 +167,20 @@ const createSubPages = (context: GatsbyNodeContext) => {
 exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
 
+  const wheelroomConfig = await getWheelroomConfig()
+
   const context = {
     componentConfigs: [],
     createPage,
     graphql,
     namedPaths: {},
     options,
-    pageTemplate: options.pageTemplate,
     queries: {
       global: {},
       page: {},
       subPage: {},
     },
+    wheelroomConfig,
   } as GatsbyNodeContext
 
   context.componentConfigs = await getComponentConfigs()

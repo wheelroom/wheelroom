@@ -45,6 +45,4 @@ export interface WheelroomConfig {
   componentTypes: {
     [componentType: string]: WheelroomComponent
   }
-  /** Resolved path to the page template */
-  pageTemplate: string
 }
