@@ -1,4 +1,4 @@
-import { ComponentConfig, ThemeOptions } from '@jacco-meijer/wheelroom'
+import { ComponentConfig, WheelroomConfig } from '@jacco-meijer/wheelroom'
 import { NamedPaths } from '@jacco-meijer/wheelroom'
 
 export interface ContentfulNode {
@@ -17,7 +17,7 @@ export interface GatsbyNodeContext {
   /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
   /** The plugin configuration options */
-  options: ThemeOptions
+  options: WheelroomConfig
   /** Path to the page template used to generate each page */
   pageTemplate: string
   queries: {
@@ -33,7 +33,7 @@ export interface GatsbyNodeContext {
 export interface PageContext {
   locale: string
   namedPaths: NamedPaths
-  [componentTypeIdKey: string]: string | NamedPaths | ThemeOptions
+  [componentTypeIdKey: string]: string | NamedPaths | WheelroomConfig
 }
 
 export interface GetPageContext {

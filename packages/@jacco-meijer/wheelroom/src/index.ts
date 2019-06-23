@@ -2,7 +2,7 @@ import 'regenerator-runtime/runtime'
 
 export * from './types/components-map'
 export * from './types/component-config'
-export * from './types/gatsby-theme-config'
+export * from './types/wheelroom-config'
 export * from './types/contentful-api-context'
 export * from './types/model'
 export * from './types/router'

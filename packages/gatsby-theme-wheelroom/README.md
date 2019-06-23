@@ -8,28 +8,16 @@ This theme works together with the `@jacco-meijer/wheelroom` package. The theme
 provides `gatsby-node.js` and `gatsby-config.js` which take care of providing
 Contentful data for configured models.
 
-## Config
+Models are configured in `wheelroom-config.js`.
 
-The plugin is configured like this:
+## Install
+
+Install the plugin by adding it to your `gatsby-config.js`
 
 ```
   __experimentalThemes: [
     {
-      options: {
-        defaultLocale: 'nl',
-        pageTemplate: path.resolve('./src/page-template.tsx'),
-        defaultComponentResolve: `@jacco-meijer/content-models`,
-        resolveLocalModules: 'local_modules',
-        componentTypes: {
-          articleSection: {
-            variations: ['Variation A', 'Variation B'],
-            overwriteVariations: true,
-          },
-          globalsPart: {},
-          articleContent: {},
-          page: {},
-        },
-      },
+      options: {},
       resolve: `gatsby-theme-wheelroom`,
     },
   ],

@@ -26,7 +26,7 @@ export interface Resolvers {
   [moduleName: string]: ResolveInfo
 }
 
-export interface ThemeComponentConfig {
+export interface WheelroomComponent {
   /** The module that exports the componentMap */
   resolve: nodeModuleName
   /** Additional component variations */
@@ -35,7 +35,7 @@ export interface ThemeComponentConfig {
   overwriteVariations: overwriteVariations
 }
 
-export interface ThemeOptions {
+export interface WheelroomConfig {
   /** Locale being server from the root path */
   defaultLocale: componentLocale
   /** Default value for componentType.resolve */
@@ -43,13 +43,8 @@ export interface ThemeOptions {
   /** If set, lookup npm modules at this path */
   resolveLocalModules: nodeModulePath
   componentTypes: {
-    [componentType: string]: ThemeComponentConfig
+    [componentType: string]: WheelroomComponent
   }
   /** Resolved path to the page template */
   pageTemplate: string
-}
-
-export interface GatsbyThemeConfig {
-  options: ThemeOptions
-  resolve: nodeModuleName
 }
