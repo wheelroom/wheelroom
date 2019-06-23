@@ -33,12 +33,16 @@ const runQueries = async (context: GatsbyNodeContext) => {
   )
 }
 
+const getLocaleCountry = (locale: string) => {
+  return locale.split('-')[0].toLowerCase()
+}
+
 const getLocale = (page: any) => {
-  return page.node_locale.split('-')[0].toLowerCase()
+  return getLocaleCountry(page.node_locale)
 }
 
 const getDefaultLocale = (context: GatsbyNodeContext): string => {
-  return context.options.defaultLocale || 'en'
+  return getLocaleCountry(context.options.defaultLocale || 'en-US')
 }
 
 const buildNamedPaths = (context: GatsbyNodeContext) => {
