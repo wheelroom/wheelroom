@@ -17,7 +17,9 @@ Install the plugin by adding it to your `gatsby-config.js`
 ```
   __experimentalThemes: [
     {
-      options: {},
+      options: {
+        pageTemplate: path.resolve('./src/page-template.tsx'),
+      },
       resolve: `gatsby-theme-wheelroom`,
     },
   ],
