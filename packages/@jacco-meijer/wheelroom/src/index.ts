@@ -1,12 +1,13 @@
 import 'regenerator-runtime/runtime'
 
-export * from './types/components-map'
 export * from './types/component-config'
-export * from './types/wheelroom-config'
+export * from './types/components-map'
 export * from './types/contentful-api-context'
 export * from './types/model'
 export * from './types/router'
+export * from './types/section'
 export * from './types/seo'
+export * from './types/wheelroom-config'
 
 export * from './config/config'
 
