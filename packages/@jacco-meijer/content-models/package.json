@@ -7,7 +7,7 @@
     "@emotion/core": "10.x",
     "@jacco-meijer/styled-system": "^1.0.3",
     "@jacco-meijer/wheelroom": "^1.4.3",
-    "gatsby-theme-wheelroom": "^1.1.3",
+    "gatsby-theme-wheelroom": "^1.1.4",
     "react": "16.8.6",
     "react-docgen-typescript": "1.12.4",
     "react-dom": "16.8.6",
@@ -61,6 +61,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "gitHead": "c72584fb52869d43bc58cb02d129227bf253623f"
 }
