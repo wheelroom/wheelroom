@@ -1,5 +1,5 @@
 import { ComponentConfig, WheelroomConfig } from '@jacco-meijer/wheelroom'
-import { NamedPaths } from '@jacco-meijer/wheelroom'
+import { NamedPaths } from './named-paths'
 
 export interface ContentfulNode {
   id: string

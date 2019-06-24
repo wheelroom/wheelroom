@@ -1,5 +1,5 @@
-import { getVariation } from '@jacco-meijer/wheelroom'
 import * as React from 'react'
+import { getVariation } from '../page/helpers/variations'
 import { variations } from './variations'
 
 export interface ArticleContentProps {
