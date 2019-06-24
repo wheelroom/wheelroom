@@ -10,10 +10,12 @@ export interface SeoTags {
   [tagName: string]: string | undefined
 }
 
-export interface SeoContentTypeInfo {
+interface SeoContentTypeInfoInt {
   type: string
   tags: SeoTags
 }
+
+export type SeoContentTypeInfo = SeoContentTypeInfoInt | null
 
 export interface SeoProps {
   contentTypeInfo: SeoContentTypeInfo | null

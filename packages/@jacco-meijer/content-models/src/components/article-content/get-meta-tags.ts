@@ -13,25 +13,25 @@ export const getArticleImage = (article: any) => {
 export const getSeoContentTypeInfo = (
   page: any,
   article: any
-): SeoContentTypeInfo | null => {
-  const info = {} as SeoContentTypeInfo
+): SeoContentTypeInfo => {
   if (!article) {
     return null
   }
 
   // Do we have an article?
   if (page.pathName === 'article') {
-    info.type = 'article'
-    info.tags = {
-      author: article.author,
-      // expiration_time: '',
-      modified_time: article.updatedAt,
-      published_time: article.createdAt,
-      section: 'Technology',
-      // tag: '',
-    }
-    return info
+    return {
+      tags: {
+        author: article.author,
+        modified_time: article.updatedAt,
+        published_time: article.createdAt,
+        section: 'Technology',
+        // expiration_time: '',
+        // tag: '',
+      },
+      type: 'article',
+    } as SeoContentTypeInfo
   }
 
-  return info
+  return null
 }
