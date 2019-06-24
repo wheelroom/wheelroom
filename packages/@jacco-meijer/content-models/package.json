@@ -6,8 +6,8 @@
   "dependencies": {
     "@emotion/core": "10.x",
     "@jacco-meijer/styled-system": "^1.0.2",
-    "@jacco-meijer/wheelroom": "^1.4.1",
-    "gatsby-theme-wheelroom": "^1.1.1",
+    "@jacco-meijer/wheelroom": "^1.4.2",
+    "gatsby-theme-wheelroom": "^1.1.2",
     "react-docgen-typescript": "1.12.4"
   },
   "description": "Content models to be used with @jacco-meijer/wheelroom and gatsby-theme-wheelroom",
@@ -57,6 +57,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "gitHead": "c72584fb52869d43bc58cb02d129227bf253623f"
 }
