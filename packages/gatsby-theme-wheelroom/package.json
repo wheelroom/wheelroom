@@ -42,6 +42,7 @@
     "gatsby-config.*",
     "gatsby-node.*",
     "index.*",
+    "named-paths.*",
     "types/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
