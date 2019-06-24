@@ -50,6 +50,7 @@ Together with the generated fragments, components can be rendered straight away.
 
 ## Config
 
+### wheelroom-config.js
 ```
 module.exports = {
   defaultLocale: 'nl',
@@ -62,4 +63,19 @@ module.exports = {
     },
   },
 }
+```
+
+### .env
+
+To know how to connect to your Contentul space, some ID's and tokens are
+required. The CMA token is the one written to `~/.contentfulrc.json` when you
+run `contentful login` from the command line. Beware, this token gives full
+access to everything in your space, so be sure test first with an empty space
+and do not commit `.env` to your repository.
+
+```
+CONTENTFUL_SPACE_ID=paste_here
+CONTENTFUL_DELIVERY_TOKEN=paste_here
+CONTENTFUL_CMA_TOKEN=paste_here
+CONTENTFUL_ENVIRONMENT=master
 ```
