@@ -1,11 +1,7 @@
 import { ComponentsMap, ComponentsMapItem } from '@jacco-meijer/wheelroom'
 
-import { fragment as articleSectionFragment } from './article-section/graphql'
-import { model as articleSectionModel } from './article-section/model'
+import { articleSection } from './article-section'
 
 export const componentsMap = {
-  articleSection: {
-    fragment: articleSectionFragment,
-    model: articleSectionModel,
-  } as ComponentsMapItem,
+  articleSection,
 } as ComponentsMap

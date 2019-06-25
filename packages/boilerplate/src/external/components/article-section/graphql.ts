@@ -8,8 +8,13 @@
 
 export const fragment = `
   fragment ArticleSection on ContentfulArticleSection {
-    articleText
+    author
+    bodyText
+    heading
     variation
 
   }
 `
+
+
+

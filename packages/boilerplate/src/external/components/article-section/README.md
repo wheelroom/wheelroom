@@ -1,11 +1,9 @@
 ## ArticleSection
 
-  Wheelroom type: section
+Wheelroom type: section
 
 ```jsx
 import { ArticleSection } from './article-section'
-<ArticleSection articleText="Value goes here"  />
+<ArticleSection author="Value goes here" bodyText="Value goes here" heading="Value goes here"  />
 ```
-
-
 

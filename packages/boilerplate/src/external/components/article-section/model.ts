@@ -14,24 +14,50 @@ export const model = {
   description: 'Article section',
   displayField: 'title',
   fields: {
-    articleText: {
-      initialContent: 'Initial content for articleText',
+    author: {
+      initialContent: 'Demo content for articleSection/author',
       settings: {
-        helpText: 'Generated field',
+        helpText: 'Describe how to use the field author',
       },
       specs: {
-        localized: true,
-        name: 'articleText',
+        localized: false,
+        name: 'author',
         required: true,
-        type: 'RichText',
+        type: 'Symbol',
       },
-      widgetId: 'richTextEditor',
+      widgetId: 'singleLine',
+    },
+    bodyText: {
+      initialContent: 'Demo content for articleSection/bodyText',
+      settings: {
+        helpText: 'Describe how to use the field bodyText',
+      },
+      specs: {
+        localized: false,
+        name: 'bodyText',
+        required: true,
+        type: 'Symbol',
+      },
+      widgetId: 'singleLine',
+    },
+    heading: {
+      initialContent: 'Demo content for articleSection/heading',
+      settings: {
+        helpText: 'Describe how to use the field heading',
+      },
+      specs: {
+        localized: false,
+        name: 'heading',
+        required: true,
+        type: 'Symbol',
+      },
+      widgetId: 'singleLine',
     },
 
     title: {
       initialContent: 'Demo articleSection title',
       settings: {
-        helpText: 'Title of the article',
+        helpText: 'Never displayed, only used for listing within Contentful',
       },
       specs: {
         name: 'Title',
@@ -41,7 +67,7 @@ export const model = {
       widgetId: 'singleLine',
     },
     variation: {
-      initialContent: 'No variations yet',
+      initialContent: Object.keys(variations)[0],
       settings: {
         helpText: 'Select variation',
       },
@@ -56,8 +82,7 @@ export const model = {
         ],
       },
       widgetId: 'dropdown',
-    },
-  },
+    },  },
   modelVersion: '1.0.0',
   name: 'Article section',
   type: 'articleSection',
