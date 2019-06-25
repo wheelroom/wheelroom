@@ -40,7 +40,7 @@ ${modelFields}
 ${
   wheelroomType !== 'global'
     ? `    variation: {
-      initialContent: 'No variations yet',
+      initialContent: Object.keys(variations)[0],
       settings: {
         helpText: 'Select variation',
       },
