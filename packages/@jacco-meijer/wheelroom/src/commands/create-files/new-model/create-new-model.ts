@@ -165,7 +165,7 @@ export const createNewModel = async (path: string) => {
 
   if (allWheelroomTypes.includes(wheelroomType)) {
     fileName = `index.ts`
-    content = indexTemplate(componentType, wheelroomType)
+    content = indexTemplate(componentFileName, componentType, wheelroomType)
     writeTemplate(fileName, componentPath, content)
   }
 

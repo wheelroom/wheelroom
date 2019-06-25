@@ -10,6 +10,7 @@ import { ComponentConfig } from '@jacco-meijer/wheelroom'
 import { fragment as articleSectionFragment } from './graphql'
 import { model as articleSectionModel } from './model'
 
+export * from './article-section'
 export const articleSection = {
   fragment: articleSectionFragment,
   model: articleSectionModel,

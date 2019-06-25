@@ -1,4 +1,5 @@
 export const indexTemplate = (
+  componentFileName: string,
   componentType: string,
   wheelroomType: string
 ) => `/**
@@ -11,7 +12,7 @@ export const indexTemplate = (
 
 import { ComponentConfig } from '@jacco-meijer/wheelroom'
 ${
-  wheelroomType === 'global' || wheelroomType === 'subPage'
+  ['global', 'subPage'].includes(wheelroomType)
     ? `import { query as ${componentType}Query } from './graphql'
 `
     : ``
@@ -22,7 +23,12 @@ ${
     : ``
 }import { model as ${componentType}Model } from './model'
 
-export const ${componentType} = {
+${
+  ['section', 'part', 'block'].includes(wheelroomType)
+    ? `export * from './${componentFileName}'
+`
+    : ``
+}export const ${componentType} = {
   ${
     wheelroomType !== 'block'
       ? `fragment: ${componentType}Fragment,
