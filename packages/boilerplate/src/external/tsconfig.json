@@ -8,7 +8,7 @@
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "outDir": "../../dist/components",
+    "outDir": "../../dist",
     "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,

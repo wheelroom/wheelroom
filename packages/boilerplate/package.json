@@ -56,7 +56,7 @@
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"
   },
   "scripts": {
-    "build:components": "tsc --project src/components/tsconfig.json",
+    "build:components": "tsc --project src/external/tsconfig.json",
     "build:clean": "rm -rf ./dist",
     "build:gatsby": "gatsby build",
     "contentful:create-content": "wheelroom create-content",
@@ -64,7 +64,7 @@
     "contentful:delete-content": "wheelroom delete-content",
     "develop": "gatsby develop",
     "create-files:fragments": "wheelroom create-files fragments src/wheelroom-fragments",
-    "create-files:new-model": "wheelroom create-files new-model src/components",
+    "create-files:new-model": "wheelroom create-files new-model src/external/components",
     "lint": "tslint --project tsconfig.json",
     "list": "wheelroom list",
     "start": "npm run develop",
