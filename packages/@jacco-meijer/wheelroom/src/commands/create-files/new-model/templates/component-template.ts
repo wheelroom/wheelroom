@@ -11,7 +11,7 @@ export const componentTemplate = (
  *
  */
 
-import { getVariation } from '@jacco-meijer/wheelroom'
+import { getVariation } from '@jacco-meijer/content-models'
 import * as React from 'react'
 import { variations } from './variations'
 

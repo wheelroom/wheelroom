@@ -15,12 +15,20 @@ ${
     ? `import { query as ${componentType}Query } from './graphql'
 `
     : ``
-}import { fragment as ${componentType}Fragment } from './graphql'
-import { model as ${componentType}Model } from './model'
+}${
+  wheelroomType !== 'block'
+    ? `import { fragment as ${componentType}Fragment } from './graphql'
+`
+    : ``
+}import { model as ${componentType}Model } from './model'
 
 export const ${componentType} = {
-  fragment: ${componentType}Fragment,
-  model: ${componentType}Model,
+  ${
+    wheelroomType !== 'block'
+      ? `fragment: ${componentType}Fragment,
+  `
+      : ``
+  }model: ${componentType}Model,
 ${
   wheelroomType === 'global' || wheelroomType === 'subPage'
     ? `  query: ${componentType}Query,

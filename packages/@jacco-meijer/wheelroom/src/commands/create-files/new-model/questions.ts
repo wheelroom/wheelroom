@@ -8,13 +8,12 @@ export const questions = [
     type: 'input',
   },
   {
-    choices: ['section', 'subPage', 'part', 'global'],
+    choices: ['section', 'part', 'block', 'subPage', 'global'],
     message: `
     
-Section: defines fields and can be used as a page section. A section is a part of a page
-         and has no query
-Part:    simular to a section, but cannot be used as a section, mostly this is a part of
-         a section
+Section: A section is a part of a page and has no query
+Part:    A part is part of a section and has no query
+Block:   A part of a richText field, has no fragment or query
 SubPage: defines fields and a query, if the slug field matches, the page is fetched
 Global:  defines fields and a query, always fetched and added to every page
 
