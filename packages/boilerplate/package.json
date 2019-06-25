@@ -57,6 +57,7 @@
   },
   "scripts": {
     "build:components": "tsc --project src/components/tsconfig.json",
+    "build:clean": "rm -rf ./dist",
     "build:gatsby": "gatsby build",
     "contentful:create-content": "wheelroom create-content",
     "contentful:create-models": "wheelroom create-models",
