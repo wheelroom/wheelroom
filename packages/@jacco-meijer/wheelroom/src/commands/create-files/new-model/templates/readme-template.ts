@@ -6,13 +6,10 @@ export const readmeTemplate = (
 ) =>
   `## ${componentClassName}
 
-  Wheelroom type: ${wheelroomType}
+Wheelroom type: ${wheelroomType}
 
 ${
-  wheelroomType === 'section' ||
-  wheelroomType === 'subPage' ||
-  wheelroomType === 'block' ||
-  wheelroomType === 'part'
+  ['section', 'part', 'block'].includes(wheelroomType)
     ? `\`\`\`jsx
 import { ${componentClassName} } from './${componentFileName}'
 <${componentClassName} ${componentAttributes} />
@@ -20,7 +17,7 @@ import { ${componentClassName} } from './${componentFileName}'
 `
     : `## No views
 
-A global component has no views. 
+Global and subPage components have no view. 
 `
 }
 `

@@ -63,8 +63,8 @@ export type widgetID =
  * - page: defines a query for retrieving pages
  * - subPage: defines a query for retrieving subPages and a fragment defining
  *   fields
- * - section: has a fragment defining fields, receives content as part of a page
  * - global: defines a query for retrieving globals and a fragment defining fields
+ * - section: has a fragment defining fields, receives content as part of a page
  * - part: has a fragment defining fields, retrieves content as part of a section
  * - block: no query or fragment, retrieves content as part of a richText field
  *

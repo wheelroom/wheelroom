@@ -95,8 +95,9 @@ export const createNewModel = async (path: string) => {
     .join('')
 
   const allWheelroomTypes = ['section', 'part', 'block', 'subPage', 'global']
+  const sectionPartBlock = ['section', 'part', 'block']
 
-  if (wheelroomType !== 'global') {
+  if (sectionPartBlock.includes(wheelroomType)) {
     fileName = `${componentFileName}-basic-var.tsx`
     content = componentBasicVarTemplate(
       componentFileName,
@@ -107,7 +108,7 @@ export const createNewModel = async (path: string) => {
     writeTemplate(fileName, componentPath, content)
   }
 
-  if (wheelroomType !== 'global') {
+  if (sectionPartBlock.includes(wheelroomType)) {
     fileName = `${componentFileName}.tsx`
     content = componentTemplate(
       componentProps,
@@ -151,7 +152,7 @@ export const createNewModel = async (path: string) => {
     writeTemplate(fileName, componentPath, content)
   }
 
-  if (wheelroomType !== 'global') {
+  if (sectionPartBlock.includes(wheelroomType)) {
     fileName = `variations.ts`
     content = variationsTemplate(
       componentFileName,
