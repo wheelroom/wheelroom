@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.4.3...@jacco-meijer/wheelroom@1.5.0) (2019-06-25)
+
+
+### Features
+
+* add block wheelroom type ([be34d6d](https://github.com/jaccomeijer/wheelroom/commit/be34d6d))
+
+
+
+
+
 ## [1.4.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.4.2...@jacco-meijer/wheelroom@1.4.3) (2019-06-24)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.3.5...boilerplate@1.4.0) (2019-06-25)
+
+
+### Features
+
+* add block wheelroom type ([be34d6d](https://github.com/jaccomeijer/wheelroom/commit/be34d6d))
+
+
+
+
+
 ## [1.3.5](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.3.4...boilerplate@1.3.5) (2019-06-24)
 
 **Note:** Version bump only for package boilerplate
