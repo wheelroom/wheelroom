@@ -4,7 +4,7 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/styled-system": "^1.0.3",
+    "@jacco-meijer/styled-system": "^1.0.4",
     "@jacco-meijer/wheelroom": "^1.5.5",
     "gatsby-theme-wheelroom": "^1.1.10",
     "react-docgen-typescript": "1.12.4",
@@ -29,7 +29,9 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "gitHead": "c72584fb52869d43bc58cb02d129227bf253623f",
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "license": "MIT",
@@ -58,5 +60,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.30"
+  "version": "1.0.31"
 }
