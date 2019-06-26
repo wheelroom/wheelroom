@@ -7,8 +7,8 @@ module.exports = {
   resolveLocalModules: 'dist',
   componentTypes: {
     articleSection: {},
-    // page: {
-    //   resolve: `@jacco-meijer/content-models`,
-    // },
+    page: {
+      resolve: `@jacco-meijer/content-models`,
+    },
   },
 }
