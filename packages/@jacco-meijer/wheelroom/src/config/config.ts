@@ -92,8 +92,9 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
 export const getComponentConfigs = async (filter: string) => {
   const wheelroomConfig = await getWheelroomConfig()
   const resolvers = getResolvers(wheelroomConfig)
-  console.log('Filter by component type', filter)
-  // TODO: Implement filter
+  if (filter) {
+    console.log('Filtering by component type', filter)
+  }
 
   const configs = [] as ComponentConfig[]
   await Promise.all(
@@ -112,6 +113,9 @@ export const getComponentConfigs = async (filter: string) => {
         const componentsMap = module.componentsMap as ComponentsMap
         resolveInfo.componentsToResolve.forEach(
           (toBeResolved: ComponentToBeResolved) => {
+            if (filter && toBeResolved.componentType !== filter) {
+              return
+            }
             if (toBeResolved.componentType in componentsMap) {
               const newConfig = {
                 defaultLocale: toBeResolved.defaultLocale,
