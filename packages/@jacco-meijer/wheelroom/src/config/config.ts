@@ -18,13 +18,13 @@ export const getAppDir = () => {
 }
 
 export const getModule = async (
-  packageName: nodeModuleName,
+  moduleName: nodeModuleName,
   resolveLocalModules: nodeModulePath
 ) => {
   let module = null
   let errorMessage = ''
-  const npmModuleDir = `${getAppDir()}/node_modules/${packageName}`
-  const localModuleDir = `${getAppDir()}/${resolveLocalModules}/${packageName}`
+  const npmModuleDir = `${getAppDir()}/node_modules/${moduleName}`
+  const localModuleDir = `${getAppDir()}/${resolveLocalModules}/${moduleName}`
   try {
     module = await import(npmModuleDir)
   } catch (error) {
@@ -43,7 +43,7 @@ export const getModule = async (
   if (module) {
     return module
   }
-  console.log(`Could not import ${packageName}
+  console.log(`Could not import ${moduleName}
 - tried: ${npmModuleDir}
 - tried: ${localModuleDir}
 - ${errorMessage}
@@ -69,15 +69,15 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
   const resolvers = {} as Resolvers
   Object.entries(wheelroomConfig.componentTypes).forEach(
     ([type, component]: [componentType, WheelroomComponent]) => {
-      const resolve =
+      const moduleName =
         component.resolve || wheelroomConfig.defaultComponentResolve
-      if (!(resolve in resolvers)) {
-        resolvers[resolve] = {
+      if (!(moduleName in resolvers)) {
+        resolvers[moduleName] = {
           componentsToResolve: [] as ComponentToBeResolved[],
           resolveLocalModules: wheelroomConfig.resolveLocalModules,
         }
       }
-      resolvers[resolve].componentsToResolve.push({
+      resolvers[moduleName].componentsToResolve.push({
         componentType: type,
         defaultLocale: wheelroomConfig.defaultLocale,
         initialPageSection: wheelroomConfig.initialPageSection,
@@ -99,15 +99,15 @@ export const getComponentConfigs = async (filter: string) => {
   const configs = [] as ComponentConfig[]
   await Promise.all(
     Object.entries(resolvers).map(
-      async ([resolve, resolveInfo]: [string, ResolveInfo]) => {
+      async ([moduleName, resolveInfo]: [string, ResolveInfo]) => {
         let module
-        module = await getModule(resolve, resolveInfo.resolveLocalModules)
+        module = await getModule(moduleName, resolveInfo.resolveLocalModules)
         if (!module) {
           return
         }
-        console.log(`Imported module ${resolve}`)
+        console.log(`Imported module ${moduleName}`)
         if (module && !module.componentsMap) {
-          console.log(`Could not find componentsMap object in ${resolve}`)
+          console.log(`Could not find componentsMap object in ${moduleName}`)
           return
         }
         const componentsMap = module.componentsMap as ComponentsMap
@@ -121,6 +121,7 @@ export const getComponentConfigs = async (filter: string) => {
                 defaultLocale: toBeResolved.defaultLocale,
                 initialPageSection: toBeResolved.initialPageSection,
                 overwriteVariations: toBeResolved.overwriteVariations,
+                sourceModule: moduleName,
                 variations: toBeResolved.variations,
                 ...componentsMap[toBeResolved.componentType],
               } as ComponentConfig
@@ -128,7 +129,7 @@ export const getComponentConfigs = async (filter: string) => {
               configs.push(newConfig)
             } else {
               console.log(
-                `Could not find ${toBeResolved.componentType} in ${resolve}`
+                `Could not find ${toBeResolved.componentType} in ${moduleName}`
               )
             }
           }

@@ -17,6 +17,8 @@ export interface ComponentConfig {
   model: Model
   /** Contentful graphql query that retrieves entries for this model, imported from queryPath */
   query?: any
+  /** Module component is imported from */
+  sourceModule: string
   /** Additional component variations */
   variations: componentVariations
   /** Value true removes the original variations from the model  */
