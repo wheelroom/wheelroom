@@ -1,4 +1,4 @@
-import { ComponentsMap, ComponentsMapItem } from '@jacco-meijer/wheelroom'
+import { ComponentsMap } from '@jacco-meijer/wheelroom'
 
 import { articleSection } from './article-section'
 

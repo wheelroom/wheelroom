@@ -17,36 +17,40 @@ if (dotEnvResult.error) {
   throw dotEnvResult.error
 }
 
-const cmdList = async () => {
-  const componentConfigs = await getComponentConfigs()
+const cmdList = async (values: { filter: string }) => {
+  const componentConfigs = await getComponentConfigs(values.filter)
   await list(componentConfigs)
 }
 
-const cmdCreateModels = async () => {
+const cmdCreateModels = async (values: { filter: string }) => {
   const context = {
-    componentConfigs: await getComponentConfigs(),
+    componentConfigs: await getComponentConfigs(values.filter),
   } as ContentfulApiContext
   await createModels(context)
 }
 
-const cmdCreateContent = async () => {
+const cmdCreateContent = async (values: { filter: string }) => {
   const context = {
-    componentConfigs: await getComponentConfigs(),
+    componentConfigs: await getComponentConfigs(values.filter),
   } as ContentfulApiContext
   await createContent(context)
 }
 
-const cmdDeleteContent = async () => {
+const cmdDeleteContent = async (values: { filter: string }) => {
   const context = {
-    componentConfigs: await getComponentConfigs(),
+    componentConfigs: await getComponentConfigs(values.filter),
   } as ContentfulApiContext
   await deleteContent(context)
 }
 
-const cmdCreateFiles = async (values: { target: string; path: string }) => {
+const cmdCreateFiles = async (values: {
+  target: string
+  path: string
+  filter: string
+}) => {
   switch (values.target) {
     case 'fragments':
-      const componentConfigs = await getComponentConfigs()
+      const componentConfigs = await getComponentConfigs(values.filter)
       await createFragmentFiles(componentConfigs, values.path)
       break
 
@@ -76,28 +80,28 @@ new-model: create all files needed for setting up a new model
 
 let params = yargs
   .command({
-    command: 'list',
+    command: 'list [options]',
     describe: 'list configured models',
     handler: cmdList,
   })
   .command({
-    command: 'create-models',
+    command: 'create-models [options]',
     describe: 'create or update configured models',
     handler: cmdCreateModels,
   })
   .command({
-    command: 'create-content',
+    command: 'create-content [options]',
     describe: 'create demo content for configured models',
     handler: cmdCreateContent,
   })
   .command({
-    command: 'delete-content',
+    command: 'delete-content [options]',
     describe: 'remove all demo content for configured models',
     handler: cmdDeleteContent,
   })
   .command({
     builder: builderCreateFiles,
-    command: 'create-files <target> <path>',
+    command: 'create-files <target> <path> [options]',
     describe: 'create boilerplate files',
     handler: cmdCreateFiles as any,
   })
@@ -106,7 +110,9 @@ let params = yargs
     handler: () => {
       console.log(`Use --help flag for options`)
     },
-  }).argv
+  })
+  .alias('f', 'filter')
+  .describe('f', 'Filter by componentType').argv
 
 // Prevent ts warning
 params = params

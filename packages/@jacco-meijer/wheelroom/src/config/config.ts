@@ -88,9 +88,10 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
   return resolvers
 }
 
-export const getComponentConfigs = async () => {
+export const getComponentConfigs = async (filter: string) => {
   const wheelroomConfig = await getWheelroomConfig()
   const resolvers = getResolvers(wheelroomConfig)
+  console.log('Filter by component type', filter)
 
   const configs = [] as ComponentConfig[]
   await Promise.all(
