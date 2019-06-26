@@ -9,6 +9,8 @@ import {
 export interface ComponentConfig {
   /** default locale */
   defaultLocale: componentLocale
+  /** When demo page content is created, this section is used */
+  initialPageSection: string
   /** Graphql fragment for this model, used to generate files */
   fragment?: any
   /** Model object to be applied */

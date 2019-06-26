@@ -54,7 +54,7 @@ export const model = {
       widgetId: 'slugEditor',
     },
     sections: {
-      initialContent: 'articleSection',
+      initialContent: 'initialPageSection',
       settings: {
         helpText: 'Select sections',
       },

@@ -113,7 +113,6 @@ export const getComponentConfigs = async (filter: string) => {
         resolveInfo.componentsToResolve.forEach(
           (toBeResolved: ComponentToBeResolved) => {
             if (toBeResolved.componentType in componentsMap) {
-              // TODO: Handle initialPageSection
               const newConfig = {
                 defaultLocale: toBeResolved.defaultLocale,
                 initialPageSection: toBeResolved.initialPageSection,

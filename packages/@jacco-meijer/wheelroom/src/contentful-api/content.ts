@@ -25,13 +25,19 @@ export const getFields = (context: ContentfulApiContext) => {
 
         case 'Array':
           const arrayItems = field.specs.items || ({} as any)
+          const initialContent =
+            field.initialContent === 'initialPageSection' &&
+            context.initialPageSection
+              ? context.initialPageSection
+              : field.initialContent
+
           switch (arrayItems.type) {
             case 'Link':
               context.fields[fieldId] = {
                 [context.defaultLocale]: [
                   {
                     sys: {
-                      id: field.initialContent + demoEntryPostfix,
+                      id: initialContent + demoEntryPostfix,
                       linkType: 'Entry',
                       type: 'Link',
                     },

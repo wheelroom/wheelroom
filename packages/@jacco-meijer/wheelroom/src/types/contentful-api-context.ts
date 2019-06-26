@@ -21,6 +21,8 @@ export interface ContentfulApiContext {
   entry: any
   /** Contentful field data for demo entry */
   fields: any
+  /** When demo page content is created, this section is used */
+  initialPageSection: string
   /** Contentful variation field configured by config */
   variationField: {
     /** Additional component variations */
