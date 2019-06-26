@@ -12,10 +12,11 @@ export const componentTemplate = (
  */
 
 import { getVariation } from '@jacco-meijer/content-models'
+import { SectionProps } from 'gatsby-theme-wheelroom'
 import * as React from 'react'
 import { variations } from './variations'
 
-export interface ${componentClassName}Props {
+export interface ${componentClassName}Props extends SectionProps {
   /** Gatsby fetched data */
 ${componentProps}
 }
