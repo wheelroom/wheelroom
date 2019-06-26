@@ -25,7 +25,9 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "gitHead": "79d3469b459867ce32d81e6e1c55417e917e288f",
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "license": "MIT",
@@ -54,5 +56,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.3"
+  "version": "1.0.4"
 }
