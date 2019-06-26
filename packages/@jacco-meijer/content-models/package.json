@@ -4,13 +4,10 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@emotion/core": "10.x",
     "@jacco-meijer/styled-system": "^1.0.3",
     "@jacco-meijer/wheelroom": "^1.5.5",
     "gatsby-theme-wheelroom": "^1.1.10",
-    "react": "16.8.6",
     "react-docgen-typescript": "1.12.4",
-    "react-dom": "16.8.6",
     "react-helmet": "5.2.1"
   },
   "description": "Content models to be used with @jacco-meijer/wheelroom and gatsby-theme-wheelroom",
@@ -32,14 +29,14 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "files": [
-    "dist/*"
-  ],
+  "files": ["dist/*"],
+  "gitHead": "c72584fb52869d43bc58cb02d129227bf253623f",
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/content-models",
   "peerDependencies": {
+    "@emotion/core": "10.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
@@ -52,15 +49,14 @@
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "install-peers": "npm-install-peers",
     "build:clean": "rm -rf ./dist",
-    "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
+    "build:lint": "tslint --project tsconfig.json",
+    "install-peers": "npm-install-peers",
     "prepack": "npm run build",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.30",
-  "gitHead": "c72584fb52869d43bc58cb02d129227bf253623f"
+  "version": "1.0.30"
 }

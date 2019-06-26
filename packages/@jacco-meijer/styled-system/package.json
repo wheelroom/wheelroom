@@ -4,7 +4,6 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@emotion/core": "10.0.10",
     "facepaint": "1.x"
   },
   "description": "",
@@ -26,14 +25,14 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "files": [
-    "dist/*"
-  ],
+  "files": ["dist/*"],
+  "gitHead": "79d3469b459867ce32d81e6e1c55417e917e288f",
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/styled-system",
   "peerDependencies": {
+    "@emotion/core": "10.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
@@ -46,15 +45,14 @@
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "install-peers": "npm-install-peers",
     "build:clean": "rm -rf ./dist",
-    "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
+    "build:lint": "tslint --project tsconfig.json",
+    "install-peers": "npm-install-peers",
     "prepack": "npm run build",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.3",
-  "gitHead": "79d3469b459867ce32d81e6e1c55417e917e288f"
+  "version": "1.0.3"
 }
