@@ -11,6 +11,8 @@ export interface ComponentToBeResolved {
   componentType: componentType
   /** default locale */
   defaultLocale: componentLocale
+  /** When demo page content is created, this section is used */
+  initialPageSection: string
   /** Value true removes the original variations from the model  */
   overwriteVariations: overwriteVariations
   /** Additional component variations */
@@ -38,6 +40,8 @@ export interface WheelroomComponent {
 export interface WheelroomConfig {
   /** Locale being server from the root path */
   defaultLocale: componentLocale
+  /** When demo page content is created, this section is used */
+  initialPageSection: string
   /** Default value for componentType.resolve */
   defaultComponentResolve: nodeModuleName
   /** If set, lookup npm modules at this path */

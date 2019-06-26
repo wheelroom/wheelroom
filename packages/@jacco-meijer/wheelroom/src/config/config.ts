@@ -80,6 +80,7 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
       resolvers[resolve].componentsToResolve.push({
         componentType: type,
         defaultLocale: wheelroomConfig.defaultLocale,
+        initialPageSection: wheelroomConfig.initialPageSection,
         overwriteVariations: component.overwriteVariations || false,
         variations: component.variations || [],
       })
@@ -92,6 +93,7 @@ export const getComponentConfigs = async (filter: string) => {
   const wheelroomConfig = await getWheelroomConfig()
   const resolvers = getResolvers(wheelroomConfig)
   console.log('Filter by component type', filter)
+  // TODO: Implement filter
 
   const configs = [] as ComponentConfig[]
   await Promise.all(
@@ -111,8 +113,10 @@ export const getComponentConfigs = async (filter: string) => {
         resolveInfo.componentsToResolve.forEach(
           (toBeResolved: ComponentToBeResolved) => {
             if (toBeResolved.componentType in componentsMap) {
+              // TODO: Handle initialPageSection
               const newConfig = {
                 defaultLocale: toBeResolved.defaultLocale,
+                initialPageSection: toBeResolved.initialPageSection,
                 overwriteVariations: toBeResolved.overwriteVariations,
                 variations: toBeResolved.variations,
                 ...componentsMap[toBeResolved.componentType],

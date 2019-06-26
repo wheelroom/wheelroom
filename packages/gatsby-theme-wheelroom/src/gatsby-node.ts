@@ -183,7 +183,7 @@ exports.createPages = async ({ graphql, actions }: any, options: any) => {
     wheelroomConfig,
   } as GatsbyNodeContext
 
-  context.componentConfigs = await getComponentConfigs()
+  context.componentConfigs = await getComponentConfigs('')
 
   await runQueries(context)
 
