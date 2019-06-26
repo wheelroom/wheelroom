@@ -6,8 +6,8 @@
   "dependencies": {
     "@emotion/core": "10.x",
     "@jacco-meijer/styled-system": "^1.0.3",
-    "@jacco-meijer/wheelroom": "^1.5.2",
-    "gatsby-theme-wheelroom": "^1.1.7",
+    "@jacco-meijer/wheelroom": "^1.5.3",
+    "gatsby-theme-wheelroom": "^1.1.8",
     "react": "16.8.6",
     "react-docgen-typescript": "1.12.4",
     "react-dom": "16.8.6",
@@ -61,6 +61,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "gitHead": "c72584fb52869d43bc58cb02d129227bf253623f"
 }
