@@ -7,10 +7,12 @@ import { camelToDash, firstUpper, noTrailingSlash } from '../helpers'
 import { questions } from './questions'
 import { componentBasicVarTemplate } from './templates/component-basic-var-template'
 import { componentTemplate } from './templates/component-template'
+import { getVariationTemplate } from './templates/get-variation-template'
 import { graphqlTemplate } from './templates/graphql-template'
 import { indexTemplate } from './templates/index-template'
 import { modelTemplate } from './templates/model-template'
 import { readmeTemplate } from './templates/readme-template'
+import { sectionPropsTemplate } from './templates/section-props-template'
 import { variationsTemplate } from './templates/variations-template'
 
 const writeFile = util.promisify(fs.writeFile)
@@ -96,6 +98,14 @@ export const createNewModel = async (path: string) => {
 
   const allWheelroomTypes = ['section', 'part', 'block', 'subPage', 'global']
   const sectionPartBlock = ['section', 'part', 'block']
+
+  // Write helper files get-variation.tsx and section-props.ts to path
+  fileName = `get-variation.tsx`
+  content = getVariationTemplate()
+  writeTemplate(fileName, noTrailingSlash(path), content)
+  fileName = `section-props.ts`
+  content = sectionPropsTemplate()
+  writeTemplate(fileName, noTrailingSlash(path), content)
 
   if (sectionPartBlock.includes(wheelroomType)) {
     fileName = `${componentFileName}-basic-var.tsx`

@@ -11,15 +11,14 @@ export const componentTemplate = (
  *
  */
 
+import * as React from 'react'
 import { getVariation } from '../get-variation'
 import { SectionProps } from '../section-props'
-import * as React from 'react'
 import { variations } from './variations'
 
 export interface ${componentClassName}Props extends SectionProps {
   /** Gatsby fetched data */
-${componentProps}
-}
+${componentProps}}
 
 export const ${componentClassName} = (props: ${componentClassName}Props) => {
   const Variation = getVariation(props, variations)

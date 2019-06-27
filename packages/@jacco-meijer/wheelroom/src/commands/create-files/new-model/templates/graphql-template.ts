@@ -17,7 +17,6 @@ export const fragment = \`
 ${graphqlFields}
   }
 \`
-
 ${
   wheelroomType === 'global' || wheelroomType === 'subPage'
     ? `export const query = \`
@@ -33,9 +32,6 @@ ${
     }
   }
 }
-\`
-`
-    : `
-`
-}
-`
+\``
+    : ``
+}`
