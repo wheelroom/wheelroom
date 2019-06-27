@@ -77,6 +77,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "index.d.ts",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "gitHead": "c72584fb52869d43bc58cb02d129227bf253623f"
 }
