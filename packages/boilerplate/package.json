@@ -5,8 +5,8 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.10",
-    "@jacco-meijer/content-models": "^1.0.37",
-    "@jacco-meijer/styled-system": "^1.0.7",
+    "@jacco-meijer/content-models": "^1.0.38",
+    "@jacco-meijer/styled-system": "^1.0.8",
     "@jacco-meijer/wheelroom": "^1.5.6",
     "dotenv": "8.0.0",
     "emotion-theming": "10.0.10",
@@ -20,7 +20,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.0.71",
     "gatsby-source-filesystem": "2.0.39",
-    "gatsby-theme-wheelroom": "^1.1.14",
+    "gatsby-theme-wheelroom": "^1.1.15",
     "gatsby-transformer-json": "2.1.11",
     "react": "16.8.6",
     "react-dom": "16.8.6",
@@ -71,5 +71,5 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit"
   },
-  "version": "1.4.12"
+  "version": "1.4.13"
 }
