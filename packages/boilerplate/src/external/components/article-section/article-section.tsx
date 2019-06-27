@@ -6,17 +6,17 @@
  *
  */
 
-import { getVariation } from '@jacco-meijer/content-models'
 import * as React from 'react'
+import { getVariation } from '../get-variation'
+import { SectionProps } from '../section-props'
 import { variations } from './variations'
 
-export interface ArticleSectionProps {
+export interface ArticleSectionProps extends SectionProps {
   /** Gatsby fetched data */
   author: string
   bodyText: string
   heading: string
   variation: string
-
 }
 
 export const ArticleSection = (props: ArticleSectionProps) => {

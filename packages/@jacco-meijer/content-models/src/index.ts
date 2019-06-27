@@ -11,6 +11,5 @@ export * from './components/page/helpers/debug'
 export * from './components/page/helpers/get-meta-tags'
 export * from './components/page/helpers/landmarks'
 export * from './components/page/helpers/seo'
-export * from './components/page/helpers/variations'
 
 export * from './types/seo'

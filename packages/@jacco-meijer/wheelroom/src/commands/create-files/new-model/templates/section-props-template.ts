@@ -1,13 +1,11 @@
-import { landMarkType } from './landmarks'
-import { NamedPaths } from './named-paths'
+export const sectionPropsTemplate = () =>
+  `import { landMarkType } from 'gatsby-theme-wheelroom'
+import { NamedPaths } from 'gatsby-theme-wheelroom'
 
+/** These are suitable defaults, you probably want to add some props specific
+ * for this project
+ */
 export interface SectionProps {
-  /** Fetched by Gatsby */
-  articles: any
-  /** Fetched by Gatsby */
-  article: any
-  /** Fetched by Gatsby */
-  globals: any
   /** index required for React arrays */
   key: number
   /** the landmark this section will be wrapped in */
@@ -18,4 +16,4 @@ export interface SectionProps {
   namedPaths: NamedPaths
   /** the name of the current path */
   pathName: string
-}
+}`

@@ -1,17 +1,15 @@
 import { Global } from '@emotion/core'
 import {
   getArticleImage,
-  getSeoContentTypeInfo,
-} from '@jacco-meijer/content-models'
-import { Container } from '@jacco-meijer/styled-system'
-import {
-  getNamedPath,
   getPageImage,
+  getSeoContentTypeInfo,
   pageDebug,
   Seo,
-} from '@jacco-meijer/wheelroom'
+} from '@jacco-meijer/content-models'
+import { Container } from '@jacco-meijer/styled-system'
 import { ThemeProvider } from 'emotion-theming'
 import { graphql } from 'gatsby'
+import { getNamedPath } from 'gatsby-theme-wheelroom'
 import * as React from 'react'
 import { Sections } from './sections'
 import { appTheme } from './theme'
@@ -81,7 +79,6 @@ const PageTemplate = (props: any) => {
           contentTypeInfo={getSeoContentTypeInfo(page, subPageArticle)}
         />
         <Sections
-          globals={globals}
           locale={locale}
           namedPaths={namedPaths}
           pathName={pathName}
@@ -119,12 +116,6 @@ export const query = graphql`
           ...ArticleSection
         }
       }
-    }
-    articleContent: contentfulArticleContent(id: { eq: $articleContentId }) {
-      ...ArticleContent
-    }
-    globalsPart: contentfulGlobalsPart(id: { eq: $globalsPartId }) {
-      ...GlobalsPart
     }
   }
 `

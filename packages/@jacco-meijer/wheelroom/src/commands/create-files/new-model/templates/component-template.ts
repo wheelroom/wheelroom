@@ -11,8 +11,8 @@ export const componentTemplate = (
  *
  */
 
-import { getVariation } from '@jacco-meijer/content-models'
-import { SectionProps } from 'gatsby-theme-wheelroom'
+import { getVariation } from '../get-variation'
+import { SectionProps } from '../section-props'
 import * as React from 'react'
 import { variations } from './variations'
 
