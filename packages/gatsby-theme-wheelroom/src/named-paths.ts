@@ -10,7 +10,7 @@ export const getNamedPath = ({
   locale: string
   namedPaths: NamedPaths
   pathName: string
-  slug: string
+  slug?: string
 }) => {
   const path = namedPaths[pathName][locale]
   if (slug) {
