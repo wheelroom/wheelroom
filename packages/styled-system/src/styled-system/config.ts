@@ -2,6 +2,7 @@ export const config = {
   ignoreProperties: ['children'],
   propertyAliases: {
     bg: ['backgroundColor'],
+    h: ['height'],
     m: ['marginTop', 'marginRight', 'marginBottom', 'marginLeft'],
     margin: ['marginTop', 'marginRight', 'marginBottom', 'marginLeft'],
     mx: ['marginRight', 'marginLeft'],
@@ -15,6 +16,7 @@ export const config = {
   responsiveProperties: [
     'fontSize',
     'fontWeight',
+    'height',
     'lineHeight',
     'marginBottom',
     'marginLeft',
@@ -46,7 +48,14 @@ export const config = {
     fontMap: ['fontFamily'],
   },
   units: {
-    percent: ['width', 'maxWidth'],
+    percent: [
+      'height',
+      'maxHeight',
+      'maxWidth',
+      'minHeight',
+      'minWidth',
+      'width',
+    ],
     px: [
       'marginBottom',
       'marginLeft',
