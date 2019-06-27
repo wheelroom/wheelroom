@@ -21,6 +21,10 @@ const replaceAliases = (cssProps: any) => {
   })
 }
 
+/**
+ * Make sure everything is an array, to make processing further down the line
+ * easier
+ */
 const ensureArrays = (cssProps: any) => {
   Object.keys(cssProps).forEach(propName => {
     if (!Array.isArray(cssProps[propName])) {
@@ -121,6 +125,27 @@ const addMediaQueries = (cssProps: any, theme: any) => {
   })
 }
 
+/**
+ * All properties that are still an array:
+ * - length is 1: should pass, they propably were converted by ensureArrays
+ *   earlier
+ * - length is >1: these were not handled properly as a responsive property, issue a
+ *   warning here.
+ */
+const removeArrays = (cssProps: any) => {
+  Object.keys(cssProps).forEach(propName => {
+    if (Array.isArray(cssProps[propName])) {
+      if (cssProps[propName].length > 1) {
+        console.log(
+          `Warning: found unhandled responsive property '${propName}', using first
+value only. Consider adding this property to the responsiveProperties config array`
+        )
+      }
+      cssProps[propName] = cssProps[propName][0]
+    }
+  })
+}
+
 export const parseStyles = (theme: any, props: any) => {
   const cssProps = Object.assign({}, props)
   removeIgnoredProperties(cssProps)
@@ -130,6 +155,7 @@ export const parseStyles = (theme: any, props: any) => {
   applyScales(cssProps, theme)
   applyUnits(cssProps)
   addMediaQueries(cssProps, theme)
+  removeArrays(cssProps)
 
   return cssProps
 }
