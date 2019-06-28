@@ -1,4 +1,5 @@
 packageJson = require('./package.json')
+path = require('path')
 
 module.exports = {
   __experimentalThemes: [

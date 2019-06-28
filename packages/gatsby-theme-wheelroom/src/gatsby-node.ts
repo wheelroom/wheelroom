@@ -60,10 +60,9 @@ const buildNamedPaths = (context: GatsbyNodeContext) => {
         : '/' + locale + page.path
 
     // Strip trailing slashes
-    context.namedPaths[page.pathName][locale] = localizedBasePath.replace(
-      /(.)\/$/,
-      '$1'
-    )
+    context.namedPaths[page.pathName][
+      locale
+    ] = localizedBasePath.toLowerCase().replace(/(.)\/$/, '$1')
   })
 }
 
@@ -82,8 +81,6 @@ const getPageContext = ({
   Object.entries(context.queries.global).forEach(([globalsName, globals]) => {
     globals.forEach((globalsItem: ContentfulObject) => {
       const globalsLocale = globalsItem.node.node_locale
-        .split('-')[0]
-        .toLowerCase()
       if (globalsLocale === getLocale(page)) {
         pageContext[globalsName + 'Id'] = globalsItem.node.id
       }
