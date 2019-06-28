@@ -113,4 +113,3 @@ export const Seo = ({
     </Helmet>
   )
 }
-
