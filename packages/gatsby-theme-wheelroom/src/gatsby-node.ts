@@ -10,6 +10,8 @@ import {
   PageContext,
 } from './types/gatsby-node-context'
 
+const defaultLocale = 'en-US'
+
 const runQueries = async (context: GatsbyNodeContext) => {
   await Promise.all(
     context.componentConfigs.map(async (componentConfig: ComponentConfig) => {
@@ -36,16 +38,12 @@ const runQueries = async (context: GatsbyNodeContext) => {
   )
 }
 
-const getLocaleCountry = (locale: string) => {
-  return locale.split('-')[0].toLowerCase()
-}
-
 const getLocale = (page: any) => {
-  return getLocaleCountry(page.node_locale)
+  return page.node_locale
 }
 
 const getDefaultLocale = (context: GatsbyNodeContext): string => {
-  return getLocaleCountry(context.wheelroomConfig.defaultLocale || 'en-US')
+  return context.wheelroomConfig.defaultLocale || defaultLocale
 }
 
 const buildNamedPaths = (context: GatsbyNodeContext) => {
