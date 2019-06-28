@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.41](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/content-models@1.0.40...@jacco-meijer/content-models@1.0.41) (2019-06-28)
+
+**Note:** Version bump only for package @jacco-meijer/content-models
+
+
+
+
+
 ## [1.0.40](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/content-models@1.0.39...@jacco-meijer/content-models@1.0.40) (2019-06-28)
 
 **Note:** Version bump only for package @jacco-meijer/content-models
