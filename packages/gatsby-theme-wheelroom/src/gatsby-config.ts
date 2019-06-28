@@ -12,18 +12,6 @@ const cfConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
 }
 
-const gtmConfig = {
-  gtmAuth: process.env.GTM_AUTH_STRING,
-  gtmPreview: process.env.GTM_PREVIEW_NAME,
-  id: process.env.GTM_ID,
-  includeInDevelopment: false,
-}
-
-// Assert config is present
-if (!gtmConfig.id && !(isDevelopment && !gtmConfig.includeInDevelopment)) {
-  throw new Error('Google tagmanager id needs to be provided.')
-}
-
 if (!cfConfig.spaceId || !cfConfig.accessToken) {
   throw new Error(
     'Contentful spaceId and the delivery token need to be provided.'
@@ -36,10 +24,6 @@ module.exports = {
     {
       options: cfConfig,
       resolve: 'gatsby-source-contentful',
-    },
-    {
-      options: gtmConfig,
-      resolve: 'gatsby-plugin-google-tagmanager',
     },
   ],
 }
