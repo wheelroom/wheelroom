@@ -4,3 +4,4 @@ export * from './components/page/helpers/landmarks'
 export * from './components/page/helpers/seo'
 
 export * from './types/seo'
+export * from './components/components-map'
