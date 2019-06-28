@@ -114,8 +114,3 @@ export const Seo = ({
   )
 }
 
-Seo.defaultProps = {
-  keywords: [],
-  lang: 'en',
-  meta: [],
-}
