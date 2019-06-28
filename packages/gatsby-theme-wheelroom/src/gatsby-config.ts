@@ -1,7 +1,5 @@
 import * as dotenv from 'dotenv'
 
-const isDevelopment = process.env.gatsby_executing_command === 'develop'
-
 const dotEnvResult = dotenv.config()
 if (dotEnvResult.error) {
   throw dotEnvResult.error
