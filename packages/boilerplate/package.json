@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.10",
-    "@jacco-meijer/content-models": "^1.0.42",
+    "@jacco-meijer/content-models": "^1.0.43",
     "@jacco-meijer/styled-system": "^1.0.8",
     "@jacco-meijer/wheelroom": "^1.5.7",
     "dotenv": "8.0.0",
@@ -70,5 +70,5 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit"
   },
-  "version": "1.4.17"
+  "version": "1.4.18"
 }
