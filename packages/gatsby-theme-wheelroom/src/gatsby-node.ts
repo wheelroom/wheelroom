@@ -78,6 +78,7 @@ const getPageContext = ({
   } as PageContext
 
   // Add global ids
+  // TODO: If no globals exist, skip this
   Object.entries(context.queries.global).forEach(([globalsName, globals]) => {
     globals.forEach((globalsItem: ContentfulObject) => {
       const globalsLocale = globalsItem.node.node_locale
@@ -123,9 +124,8 @@ const createSubPages = (context: GatsbyNodeContext) => {
   Object.entries(context.queries.page).forEach(([pageType, pageEdge]) => {
     pageEdge.forEach(edge => {
       const page = edge.node
-      const locale = getLocale(page)
-      const localizedBasePath = context.namedPaths[page.pathName][locale]
-
+      const pageLocale = getLocale(page)
+      const localizedBasePath = context.namedPaths[page.pathName][pageLocale]
       // Build sub pages if we find a fieldname like %slug%
       const tokens = localizedBasePath.split('%')
       if (tokens.length !== 3) {
@@ -134,19 +134,26 @@ const createSubPages = (context: GatsbyNodeContext) => {
       const templateVar = tokens[1]
       tokens.splice(1, 1)
 
-      const localesDone: {
-        [localeName: string]: boolean
-      } = {}
+      const pathsDone: string[] = []
       context.queries.subPage[page.pathName].forEach(subPage => {
-        const subPageLocale = subPage.node_locale || getDefaultLocale(context)
-        if (subPageLocale !== locale || subPageLocale in localesDone) {
+        if (!subPage.node.node_locale) {
+          console.log(
+            `Using default locale for subPage ${subPage.node[templateVar]}`
+          )
+        }
+        const subPageLocale =
+          subPage.node.node_locale || getDefaultLocale(context)
+
+        if (subPageLocale !== pageLocale) {
           return
         }
-        localesDone[subPageLocale] = true
 
         const subPageTokens = tokens.slice()
         subPageTokens.push(subPage.node[templateVar])
         const pagePath = subPageTokens.join('')
+        if (pathsDone.includes(pagePath)) {
+          return
+        }
 
         console.log(`Creating sub page: ${pagePath}`)
         context.createPage({
@@ -154,6 +161,7 @@ const createSubPages = (context: GatsbyNodeContext) => {
           context: getPageContext({ context, page, subPage, pageType }),
           path: pagePath,
         })
+        pathsDone.push(pagePath)
       })
     })
   })
