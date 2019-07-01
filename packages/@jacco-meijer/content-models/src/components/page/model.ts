@@ -6,6 +6,19 @@ export const model = {
     'A page defines routes and references to components on the page.',
   displayField: 'title',
   fields: {
+    title: {
+      initialContent: 'Demo page title',
+      settings: {
+        helpText: 'Never displayed, only used for listing within Contentful',
+      },
+      specs: {
+        name: 'Title',
+        required: true,
+        type: 'Symbol',
+      },
+      widgetId: 'singleLine',
+    },
+    // tslint:disable-next-line: object-literal-sort-keys
     navigationTitle: {
       initialContent: 'Demo navigation title',
       settings: {
@@ -96,18 +109,6 @@ export const model = {
       },
       specs: {
         name: 'SEO Title',
-        required: true,
-        type: 'Symbol',
-      },
-      widgetId: 'singleLine',
-    },
-    title: {
-      initialContent: 'Demo page title',
-      settings: {
-        helpText: 'Never displayed, only used for listing within Contentful',
-      },
-      specs: {
-        name: 'Title',
         required: true,
         type: 'Symbol',
       },
