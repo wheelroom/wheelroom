@@ -23,7 +23,6 @@ export const model = {
   description: '${componentDescription}',
   displayField: 'title',
   fields: {
-${modelFields}
     title: {
       initialContent: 'Demo ${componentType} title',
       settings: {
@@ -56,7 +55,8 @@ ${
       widgetId: 'dropdown',
     },`
     : ``
-}  },
+}${modelFields}
+  },
   modelVersion: '1.0.0',
   name: '${componentDescription}',
   type: '${componentType}',
