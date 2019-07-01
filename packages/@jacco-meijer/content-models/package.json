@@ -6,7 +6,7 @@
   "dependencies": {
     "@jacco-meijer/styled-system": "^1.0.8",
     "@jacco-meijer/wheelroom": "^1.5.6",
-    "gatsby-theme-wheelroom": "^1.1.15",
+    "gatsby-theme-wheelroom": "^1.1.17",
     "react-docgen-typescript": "1.12.4",
     "react-helmet": "5.2.1"
   },
@@ -32,7 +32,7 @@
   "files": [
     "dist/*"
   ],
-  "gitHead": "c72584fb52869d43bc58cb02d129227bf253623f",
+  "gitHead": "c12df7fd1d591d5b20c2dafd2f25cda150685b14",
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "license": "MIT",
   "main": "dist/index.js",
@@ -60,5 +60,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.38"
+  "version": "1.0.41"
 }

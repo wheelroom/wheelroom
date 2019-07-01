@@ -1,17 +1,8 @@
 import { Global } from '@emotion/core'
-import {
-  getArticleImage,
-  getPageImage,
-  getSeoContentTypeInfo,
-  pageDebug,
-  Seo,
-} from '@jacco-meijer/content-models'
 import { Container } from '@jacco-meijer/styled-system'
 import { ThemeProvider } from 'emotion-theming'
 import { graphql } from 'gatsby'
-import { getNamedPath } from 'gatsby-theme-wheelroom'
 import * as React from 'react'
-import { Sections } from './sections'
 import { appTheme } from './theme'
 
 const GlobalAStyles = {
@@ -25,67 +16,10 @@ const GlobalAStyles = {
 // do so for all pages.
 //
 const PageTemplate = (props: any) => {
-  pageDebug('PageTemplate', props)
-  // When server side rendering, location is unavailable. In that case use
-  // siteMetadata
-  const globals = props.data.globalsPart
-  const locale = props.pageContext.locale
-  const namedPaths = props.pageContext.namedPaths
-  const page = props.data.page
-  const pathName = page.pathName
-  const siteUrl = props.location.origin || props.data.site.siteMetadata.siteUrl
-  const siteVersion = props.data.site.siteMetadata.siteVersion
-  const subPageArticle = props.data.subPageArticle
-
-  // If this page is an article, the opener section will use the article image.
-  // We need to do the same when getting an image for the meta tag.
-  const image =
-    getPageImage(page, 'ContentfulOpenerSection') ||
-    getArticleImage(subPageArticle)
-
-  const locales = ['nl', 'en'].map(hrefLocale => {
-    // Parse in slug if we have one
-    const href = getNamedPath({
-      locale: hrefLocale,
-      namedPaths,
-      pathName,
-      slug: pathName === 'article' ? subPageArticle.slug : undefined,
-    })
-    return {
-      href: siteUrl + href,
-      name: hrefLocale,
-    }
-  }) as []
-
   return (
     <ThemeProvider theme={appTheme}>
       <Global styles={GlobalAStyles} />
-      <Container>
-        <Seo
-          description={
-            pathName === 'article'
-              ? subPageArticle.subTitle
-              : page.seoDescription
-          }
-          image={image}
-          locale={locale}
-          locales={locales}
-          siteAuthor={globals.siteAuthor}
-          siteDescription={globals.siteDescription}
-          siteKeywords={globals.siteKeywords}
-          siteTitle={globals.siteTitle}
-          title={pathName === 'article' ? subPageArticle.title : page.seoTitle}
-          siteVersion={siteVersion}
-          contentTypeInfo={getSeoContentTypeInfo(page, subPageArticle)}
-        />
-        <Sections
-          locale={locale}
-          namedPaths={namedPaths}
-          pathName={pathName}
-          sections={page.sections}
-          subPageArticle={subPageArticle}
-        />
-      </Container>
+      <Container>Sections here</Container>
     </ThemeProvider>
   )
 }
@@ -99,7 +33,7 @@ export default PageTemplate
 //
 
 export const query = graphql`
-  query($pageId: String, $articleContentId: String, $globalsPartId: String) {
+  query($pageId: String) {
     site {
       siteMetadata {
         siteVersion
@@ -111,11 +45,6 @@ export const query = graphql`
       pathName
       seoDescription
       seoTitle
-      sections {
-        ... on Node {
-          ...ArticleSection
-        }
-      }
     }
   }
 `

@@ -60,7 +60,6 @@
   "peerDependencies": {
     "dotenv": "8.x",
     "gatsby": "2.x",
-    "gatsby-plugin-google-tagmanager": "2.x",
     "gatsby-plugin-offline": "2.x",
     "gatsby-source-contentful": "2.x",
     "react": "16.x",
@@ -77,6 +76,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "index.d.ts",
-  "version": "1.1.15",
-  "gitHead": "c72584fb52869d43bc58cb02d129227bf253623f"
+  "version": "1.1.17",
+  "gitHead": "c12df7fd1d591d5b20c2dafd2f25cda150685b14"
 }

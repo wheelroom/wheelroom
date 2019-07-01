@@ -113,9 +113,3 @@ export const Seo = ({
     </Helmet>
   )
 }
-
-Seo.defaultProps = {
-  keywords: [],
-  lang: 'en',
-  meta: [],
-}
