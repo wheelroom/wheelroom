@@ -13,6 +13,7 @@ import {
 const defaultLocale = 'en-US'
 
 const runQueries = async (context: GatsbyNodeContext) => {
+  console.log(`Running queries`)
   await Promise.all(
     context.componentConfigs.map(async (componentConfig: ComponentConfig) => {
       if (
@@ -47,6 +48,7 @@ const getDefaultLocale = (context: GatsbyNodeContext): string => {
 }
 
 const buildNamedPaths = (context: GatsbyNodeContext) => {
+  console.log(`Building named paths`)
   context.queries.page.page.forEach((edge: any) => {
     const page = edge.node
     if (!(page.pathName in context.namedPaths)) {
@@ -99,6 +101,7 @@ const getPageContext = ({
 }
 
 const createPages = (context: GatsbyNodeContext) => {
+  console.log(`Creating pages`)
   Object.entries(context.queries.page).forEach(([pageType, pageEdge]) => {
     pageEdge.forEach(edge => {
       const page = edge.node
@@ -121,6 +124,7 @@ const createPages = (context: GatsbyNodeContext) => {
 }
 
 const createSubPages = (context: GatsbyNodeContext) => {
+  console.log(`Creating sub pages`)
   Object.entries(context.queries.page).forEach(([pageType, pageEdge]) => {
     pageEdge.forEach(edge => {
       const page = edge.node
