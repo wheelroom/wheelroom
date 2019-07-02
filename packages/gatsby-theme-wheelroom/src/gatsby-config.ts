@@ -1,8 +1,11 @@
 import * as dotenv from 'dotenv'
 
-const dotEnvResult = dotenv.config()
-if (dotEnvResult.error) {
-  throw dotEnvResult.error
+// Load environment from .env in development mode
+if (process.env.NODE_ENV === 'development') {
+  const dotEnvResult = dotenv.config()
+  if (dotEnvResult.error) {
+    throw dotEnvResult.error
+  }
 }
 
 const cfConfig = {
