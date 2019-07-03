@@ -18,27 +18,27 @@ if (dotEnvResult.error) {
 }
 
 const cmdList = async (values: { filter: string }) => {
-  const componentConfigs = await getComponentConfigs(values.filter)
+  const componentConfigs = await getComponentConfigs({ filter: values.filter })
   await list(componentConfigs)
 }
 
 const cmdCreateModels = async (values: { filter: string }) => {
   const context = {
-    componentConfigs: await getComponentConfigs(values.filter),
+    componentConfigs: await getComponentConfigs({ filter: values.filter }),
   } as ContentfulApiContext
   await createModels(context)
 }
 
 const cmdCreateContent = async (values: { filter: string }) => {
   const context = {
-    componentConfigs: await getComponentConfigs(values.filter),
+    componentConfigs: await getComponentConfigs({ filter: values.filter }),
   } as ContentfulApiContext
   await createContent(context)
 }
 
 const cmdDeleteContent = async (values: { filter: string }) => {
   const context = {
-    componentConfigs: await getComponentConfigs(values.filter),
+    componentConfigs: await getComponentConfigs({ filter: values.filter }),
   } as ContentfulApiContext
   await deleteContent(context)
 }
@@ -50,7 +50,9 @@ const cmdCreateFiles = async (values: {
 }) => {
   switch (values.target) {
     case 'fragments':
-      const componentConfigs = await getComponentConfigs(values.filter)
+      const componentConfigs = await getComponentConfigs({
+        filter: values.filter,
+      })
       await createFragmentFiles(componentConfigs, values.path)
       break
 

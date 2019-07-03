@@ -89,8 +89,18 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
   return resolvers
 }
 
-export const getComponentConfigs = async (filter: string) => {
-  const wheelroomConfig = await getWheelroomConfig()
+interface GetComponentConfigs {
+  filter?: string
+  wheelroomConfig?: WheelroomConfig
+}
+
+export const getComponentConfigs = async ({
+  filter,
+  wheelroomConfig,
+}: GetComponentConfigs) => {
+  if (!wheelroomConfig) {
+    wheelroomConfig = await getWheelroomConfig()
+  }
   const resolvers = getResolvers(wheelroomConfig)
   if (filter) {
     console.log('Filtering by component type', filter)
