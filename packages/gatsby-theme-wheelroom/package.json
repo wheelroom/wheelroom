@@ -40,10 +40,7 @@
   },
   "files": [
     "gatsby-config.*",
-    "gatsby-node.*",
-    "index.*",
-    "named-paths.*",
-    "types/*"
+    "gatsby-node.*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": [
@@ -51,7 +48,7 @@
     "wheelroom"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "gatsby-config.js",
   "name": "gatsby-theme-wheelroom",
   "repository": {
     "type": "git",
@@ -68,14 +65,13 @@
   "scripts": {
     "build": "npm-run-all build:*",
     "install-peers": "npm-install-peers",
-    "build:clean": "rm -rf ./types ./gatsby-config.* ./gatsby-node.* ./index.*",
+    "build:clean": "rm -f ./gatsby-config.* ./gatsby-node.*",
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
     "prepack": "npm run build",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "types": "index.d.ts",
   "version": "1.1.21",
   "gitHead": "c12df7fd1d591d5b20c2dafd2f25cda150685b14"
 }

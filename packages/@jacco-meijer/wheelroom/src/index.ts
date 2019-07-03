@@ -1,9 +1,13 @@
 import 'regenerator-runtime/runtime'
 
+export * from './config/config'
+export * from './gatsby-theme/named-paths'
+export * from './gatsby-theme/gatsby-node'
 export * from './types/component-config'
 export * from './types/components-map'
 export * from './types/contentful-api-context'
+export * from './types/gatsby-node-context'
+export * from './types/landmarks'
 export * from './types/model'
+export * from './types/named-paths'
 export * from './types/wheelroom-config'
-
-export * from './config/config'

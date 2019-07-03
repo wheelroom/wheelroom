@@ -6,7 +6,6 @@
   "dependencies": {
     "@jacco-meijer/styled-system": "^1.0.8",
     "@jacco-meijer/wheelroom": "^1.5.7",
-    "gatsby-theme-wheelroom": "^1.1.21",
     "react-docgen-typescript": "1.12.4",
     "react-helmet": "5.2.1"
   },

@@ -1,5 +1,5 @@
-import { landMarkType } from 'gatsby-theme-wheelroom'
-import { NamedPaths } from 'gatsby-theme-wheelroom'
+import { landMarkType } from '@jacco-meijer/wheelroom'
+import { NamedPaths } from '@jacco-meijer/wheelroom'
 
 export interface SectionProps {
   /** index required for React arrays */
