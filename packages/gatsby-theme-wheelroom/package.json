@@ -16,7 +16,7 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/wheelroom": "^1.5.7"
+    "@jacco-meijer/wheelroom": "^1.6.0"
   },
   "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
@@ -72,6 +72,6 @@
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.1.21",
+  "version": "1.2.0",
   "gitHead": "c12df7fd1d591d5b20c2dafd2f25cda150685b14"
 }
