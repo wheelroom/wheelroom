@@ -6,6 +6,8 @@ export interface ComponentsMapItem {
   fragment?: any
   /** Model object to be applied */
   model: Model
+  /** Variations in which the model can be viewed */
+  variations?: any
   /** Contentful graphql query that retrieves entries for this model, imported from queryPath */
   query?: any
 }

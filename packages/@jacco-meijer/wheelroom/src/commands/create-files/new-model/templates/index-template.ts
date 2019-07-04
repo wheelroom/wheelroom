@@ -10,35 +10,37 @@ export const indexTemplate = (
  *
  */
 
-import { ComponentConfig } from '@jacco-meijer/wheelroom'
+import { ComponentsMapItem } from '@jacco-meijer/wheelroom'
 ${
   ['global', 'subPage'].includes(wheelroomType)
-    ? `import { query as ${componentType}Query } from './graphql'
+    ? `import { query } from './graphql'
+import { variations } from './variations'
 `
     : ``
 }${
   wheelroomType !== 'block'
-    ? `import { fragment as ${componentType}Fragment } from './graphql'
+    ? `import { fragment } from './graphql'
 `
     : ``
-}import { model as ${componentType}Model } from './model'
-
+}import { model } from './model'
 ${
   ['section', 'part', 'block'].includes(wheelroomType)
-    ? `export * from './${componentFileName}'
+    ? `import { variations } from './variations'
+export * from './${componentFileName}'
 `
     : ``
 }export const ${componentType} = {
-  ${
-    wheelroomType !== 'block'
-      ? `fragment: ${componentType}Fragment,
-  `
-      : ``
-  }model: ${componentType}Model,
 ${
-  wheelroomType === 'global' || wheelroomType === 'subPage'
-    ? `  query: ${componentType}Query,
+  wheelroomType !== 'block'
+    ? `  fragment,
 `
     : ``
-}} as ComponentConfig
+}  model,
+${
+  wheelroomType === 'global' || wheelroomType === 'subPage'
+    ? `  query,
+`
+    : ``
+}  variations,
+} as ComponentsMapItem
 `
