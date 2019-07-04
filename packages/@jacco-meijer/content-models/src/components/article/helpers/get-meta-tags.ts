@@ -1,4 +1,4 @@
-import { SeoContentTypeInfo } from '@jacco-meijer/content-models'
+import { SeoContentTypeInfo } from '../../../types/seo'
 
 export const getArticleImage = (article: any) => {
   if (!article) {

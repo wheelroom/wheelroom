@@ -5,3 +5,4 @@ export * from './components/page/helpers/seo'
 
 export * from './types/seo'
 export * from './components/components-map'
+export * from './components/article/helpers/get-meta-tags'
