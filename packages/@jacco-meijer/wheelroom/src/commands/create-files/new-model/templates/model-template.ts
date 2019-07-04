@@ -38,7 +38,7 @@ export const model = {
 ${
   ['section', 'part', 'block'].includes(wheelroomType)
     ? `    variation: {
-      initialContent: Object.keys(variations)[0],
+      initialContent: variations[0],
       settings: {
         helpText: 'Select variation',
       },

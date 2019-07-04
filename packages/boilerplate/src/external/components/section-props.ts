@@ -1,6 +1,9 @@
 import { landMarkType } from '@jacco-meijer/wheelroom'
 import { NamedPaths } from '@jacco-meijer/wheelroom'
 
+/** These are suitable defaults, you probably want to add some props specific
+ * for this project
+ */
 export interface SectionProps {
   /** index required for React arrays */
   key: number
