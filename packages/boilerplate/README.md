@@ -1,3 +1,3 @@
 # boilerplate
 
-Example repo on how to use the `@jacco-meijer/wheelroom` package and the `gatsby-theme-wheelroom`
+Example repo on how to use `@jacco-meijer/wheelroom` and `gatsby-theme-wheelroom`

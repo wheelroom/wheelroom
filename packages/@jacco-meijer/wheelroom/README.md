@@ -1,8 +1,10 @@
 # @jacco-meijer/wheelroom
 
-Opinionated site framework based on Gatsby and Contentful.
+Wheelroom is an opinionated set of conventions that help reusing components when
+working with [Gatsby](https://www.gatsbyjs.org) and
+[Contentful](https://www.contentful.com).
 
-## About
+## Commands
 
 ### Generate component boilerplate
 
@@ -67,11 +69,11 @@ module.exports = {
 
 ### .env
 
-To know how to connect to your Contentul space, some ID's and tokens are
-required. The CMA token is the one written to `~/.contentfulrc.json` when you
-run `contentful login` from the command line. Beware, this token gives full
-access to everything in your space, so be sure test first with an empty space
-and do not commit `.env` to your repository.
+To connect to your Contentul space, ID's and tokens are required. The CMA token
+is the one written to `~/.contentfulrc.json` when you run `contentful login`
+from the command line. Beware, this token gives full access to everything in
+your space, so be sure test first with an empty space and do not commit `.env`
+to your repository.
 
 ```
 CONTENTFUL_SPACE_ID=paste_here
