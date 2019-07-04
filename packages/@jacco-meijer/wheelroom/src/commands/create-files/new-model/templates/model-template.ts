@@ -48,12 +48,13 @@ ${
         type: 'Symbol',
         validations: [
           {
-            in: Object.keys(variations),
+            in: variations,
           },
         ],
       },
       widgetId: 'dropdown',
-    },`
+    },
+`
     : ``
 }${modelFields}
   },

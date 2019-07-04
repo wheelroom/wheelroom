@@ -124,7 +124,8 @@ export const createNewModel = async (path: string) => {
       componentProps,
       componentClassName,
       componentType,
-      wheelroomType
+      wheelroomType,
+      componentFileName
     )
     writeTemplate(fileName, componentPath, content)
   }

@@ -13,9 +13,5 @@ export const variationsTemplate = (
  *
  */
 
-import { ${componentClassName}BasicVar } from './${componentFileName}-basic-var'
-
-export const variations = {
-  'No variations yet': ${componentClassName}BasicVar,
-}
+export const variations = ['No variations yet']
 `
