@@ -1,0 +1,3 @@
+## FeaturedPageSection
+
+Wheelroom type: section

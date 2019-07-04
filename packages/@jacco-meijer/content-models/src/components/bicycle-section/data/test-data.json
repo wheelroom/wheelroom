@@ -1,0 +1,233 @@
+[
+  {
+    "facilityName": "Zadelstraat Hoog",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 38,
+    "freePlaces": 15,
+    "occupiedPlaces": 23
+  },
+  {
+    "facilityName": "Pop Up Janskerkhof",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 1,
+    "freePlaces": 1,
+    "occupiedPlaces": 0
+  },
+  {
+    "facilityName": "Pop Up Vredenburg",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 1,
+    "freePlaces": 1,
+    "occupiedPlaces": 0
+  },
+  {
+    "facilityName": "Knoop Laag",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 1553,
+    "freePlaces": 536,
+    "occupiedPlaces": 1017
+  },
+  {
+    "facilityName": "Stadhuis",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 378,
+    "freePlaces": 186,
+    "occupiedPlaces": 192
+  },
+  {
+    "facilityName": "Jaarbeursplein",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 4226,
+    "freePlaces": 1073,
+    "occupiedPlaces": 3153
+  },
+  {
+    "facilityName": "Keizerstraat",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 321,
+    "freePlaces": 271,
+    "occupiedPlaces": 50
+  },
+  {
+    "facilityName": "Stationsplein Hoog",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 2526,
+    "freePlaces": 0,
+    "occupiedPlaces": 2526
+  },
+  {
+    "facilityName": "Vredenburg",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 807,
+    "freePlaces": 203,
+    "occupiedPlaces": 604
+  },
+  {
+    "facilityName": "Lange Koestraat Hoog",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 31,
+    "freePlaces": 23,
+    "occupiedPlaces": 8
+  },
+  {
+    "facilityName": "Laag Catharijne Hoog",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 112,
+    "freePlaces": 105,
+    "occupiedPlaces": 7
+  },
+  {
+    "facilityName": "Vredenburg Hoog",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 364,
+    "freePlaces": 171,
+    "occupiedPlaces": 193
+  },
+  {
+    "facilityName": "Pop Up Jacobskerkhof",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 1,
+    "freePlaces": 1,
+    "occupiedPlaces": 0
+  },
+  {
+    "facilityName": "UB Plein Laag",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 413,
+    "freePlaces": 34,
+    "occupiedPlaces": 379
+  },
+  {
+    "facilityName": "UB Plein",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 619,
+    "freePlaces": 197,
+    "occupiedPlaces": 422
+  },
+  {
+    "facilityName": "Keizerstraat Hoog",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 166,
+    "freePlaces": 163,
+    "occupiedPlaces": 3
+  },
+  {
+    "facilityName": "Laag Catharijne",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 298,
+    "freePlaces": 157,
+    "occupiedPlaces": 141
+  },
+  {
+    "facilityName": "Lange Koestraat Laag",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 108,
+    "freePlaces": 31,
+    "occupiedPlaces": 77
+  },
+  {
+    "facilityName": "Lange Koestraat",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 139,
+    "freePlaces": 49,
+    "occupiedPlaces": 90
+  },
+  {
+    "facilityName": "Laag Catharijne Laag",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 186,
+    "freePlaces": 52,
+    "occupiedPlaces": 134
+  },
+  {
+    "facilityName": "Vredenburg Laag",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 443,
+    "freePlaces": 37,
+    "occupiedPlaces": 406
+  },
+  {
+    "facilityName": "Zadelstraat Laag",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 126,
+    "freePlaces": 37,
+    "occupiedPlaces": 89
+  },
+  {
+    "facilityName": "Keizerstraat Laag",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 155,
+    "freePlaces": 108,
+    "occupiedPlaces": 47
+  },
+  {
+    "facilityName": "Zadelstraat",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 164,
+    "freePlaces": 52,
+    "occupiedPlaces": 112
+  },
+  {
+    "facilityName": "Knoop Hoog",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 1391,
+    "freePlaces": 978,
+    "occupiedPlaces": 413
+  },
+  {
+    "facilityName": "Pop Up Neude",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 1,
+    "freePlaces": 1,
+    "occupiedPlaces": 0
+  },
+  {
+    "facilityName": "UB Plein Hoog",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 206,
+    "freePlaces": 163,
+    "occupiedPlaces": 43
+  },
+  {
+    "facilityName": "Knoop",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 2944,
+    "freePlaces": 1514,
+    "occupiedPlaces": 1430
+  },
+  {
+    "facilityName": "Stadhuis Laag",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 223,
+    "freePlaces": 59,
+    "occupiedPlaces": 164
+  },
+  {
+    "facilityName": "Pop Up Mariaplaats",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 1,
+    "freePlaces": 1,
+    "occupiedPlaces": 0
+  },
+  {
+    "facilityName": "Stadhuis Hoog",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 155,
+    "freePlaces": 127,
+    "occupiedPlaces": 28
+  },
+  {
+    "facilityName": "Stationsplein Laag",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 2527,
+    "freePlaces": 0,
+    "occupiedPlaces": 2527
+  },
+  {
+    "facilityName": "Stationsplein",
+    "time": "2019-02-18T13:52:11.941669765Z",
+    "totalPlaces": 5053,
+    "freePlaces": 0,
+    "occupiedPlaces": 5053
+  }
+]

@@ -14,46 +14,6 @@ export const model = {
   description: 'Article section',
   displayField: 'title',
   fields: {
-    author: {
-      initialContent: 'Demo content for articleSection/author',
-      settings: {
-        helpText: 'Describe how to use the field author',
-      },
-      specs: {
-        localized: false,
-        name: 'author',
-        required: true,
-        type: 'Symbol',
-      },
-      widgetId: 'singleLine',
-    },
-    bodyText: {
-      initialContent: 'Demo content for articleSection/bodyText',
-      settings: {
-        helpText: 'Describe how to use the field bodyText',
-      },
-      specs: {
-        localized: false,
-        name: 'bodyText',
-        required: true,
-        type: 'Symbol',
-      },
-      widgetId: 'singleLine',
-    },
-    heading: {
-      initialContent: 'Demo content for articleSection/heading',
-      settings: {
-        helpText: 'Describe how to use the field heading',
-      },
-      specs: {
-        localized: false,
-        name: 'heading',
-        required: true,
-        type: 'Symbol',
-      },
-      widgetId: 'singleLine',
-    },
-
     title: {
       initialContent: 'Demo articleSection title',
       settings: {
@@ -82,7 +42,22 @@ export const model = {
         ],
       },
       widgetId: 'dropdown',
-    },  },
+    },
+    // tslint:disable-next-line: object-literal-sort-keys
+    articleText: {
+      initialContent: 'Demo articleSection articleText',
+      settings: {
+        helpText: 'For inline variation, full text of the article',
+      },
+      specs: {
+        localized: true,
+        name: 'Article text',
+        required: false,
+        type: 'RichText',
+      },
+      widgetId: 'richTextEditor',
+    },
+  },
   modelVersion: '1.0.0',
   name: 'Article section',
   type: 'articleSection',
