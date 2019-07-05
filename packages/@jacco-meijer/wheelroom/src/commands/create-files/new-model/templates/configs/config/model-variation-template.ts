@@ -1,30 +1,23 @@
-export const modelTemplate = (
-  componentDescription: string,
-  modelFields: string,
-  componentType: string,
-  wheelroomType: string
-) => `/**
+import {Vars } from '../../../create-new-model'
+
+export const modelVariationTemplate = (vars: Vars) => `/**
  * Model definition
  *
- * Component type: ${componentType}
- * Wheelroom type: ${wheelroomType}
+ * Component type: ${vars.componentType}
+ * Wheelroom type: ${vars.wheelroomType}
  *
  */
 
 import { Model } from '@jacco-meijer/wheelroom'
-${
-  ['section', 'part', 'block'].includes(wheelroomType)
-    ? `import { variations } from './variations'
-`
-    : ``
-}
+import { variations } from './variations'
+
 export const model = {
   contentBackend: 'contentful',
-  description: '${componentDescription}',
+  description: '${vars.componentDescription}',
   displayField: 'title',
   fields: {
     title: {
-      initialContent: 'Demo ${componentType} title',
+      initialContent: 'Demo ${vars.componentType} title',
       settings: {
         helpText: 'Never displayed, only used for listing within Contentful',
       },
@@ -35,15 +28,13 @@ export const model = {
       },
       widgetId: 'singleLine',
     },
-${
-  ['section', 'part', 'block'].includes(wheelroomType)
-    ? `    variation: {
+    variation: {
       initialContent: variations[0],
       settings: {
         helpText: 'Select variation',
       },
       specs: {
-        name: '${componentDescription} variation',
+        name: '${vars.componentDescription} variation',
         required: true,
         type: 'Symbol',
         validations: [
@@ -54,13 +45,11 @@ ${
       },
       widgetId: 'dropdown',
     },
-`
-    : ``
-}${modelFields}
+${vars.modelFields}
   },
   modelVersion: '1.0.0',
-  name: '${componentDescription}',
-  type: '${componentType}',
-  wheelroomType: '${wheelroomType}',
+  name: '${vars.componentDescription}',
+  type: '${vars.componentType}',
+  wheelroomType: '${vars.wheelroomType}',
 } as Model
 `

@@ -17,66 +17,59 @@ if (dotEnvResult.error) {
   throw dotEnvResult.error
 }
 
-const cmdList = async (values: { filter: string }) => {
-  const componentConfigs = await getComponentConfigs({ filter: values.filter })
+const cmdList = async (args: { filter: string }) => {
+  const componentConfigs = await getComponentConfigs({ filter: args.filter })
   await list(componentConfigs)
 }
 
-const cmdCreateModels = async (values: { filter: string }) => {
+const cmdCreateModels = async (args: { filter: string }) => {
   const context = {
-    componentConfigs: await getComponentConfigs({ filter: values.filter }),
+    componentConfigs: await getComponentConfigs({ filter: args.filter }),
   } as ContentfulApiContext
   await createModels(context)
 }
 
-const cmdCreateContent = async (values: { filter: string }) => {
+const cmdCreateContent = async (args: { filter: string }) => {
   const context = {
-    componentConfigs: await getComponentConfigs({ filter: values.filter }),
+    componentConfigs: await getComponentConfigs({ filter: args.filter }),
   } as ContentfulApiContext
   await createContent(context)
 }
 
-const cmdDeleteContent = async (values: { filter: string }) => {
+const cmdDeleteContent = async (args: { filter: string }) => {
   const context = {
-    componentConfigs: await getComponentConfigs({ filter: values.filter }),
+    componentConfigs: await getComponentConfigs({ filter: args.filter }),
   } as ContentfulApiContext
   await deleteContent(context)
 }
 
-const cmdCreateFiles = async (values: {
-  target: string
-  path: string
-  filter: string
-}) => {
-  switch (values.target) {
-    case 'fragments':
-      const componentConfigs = await getComponentConfigs({
-        filter: values.filter,
-      })
-      await createFragmentFiles(componentConfigs, values.path)
-      break
-
-    case 'new-model':
-      await createNewModel(values.path)
-      break
-
-    default:
-      console.log(`Unknown target: ${values.target}`)
-      break
-  }
+const cmdCreateFragments = async (args: { filter: string; path: string }) => {
+  const componentConfigs = await getComponentConfigs({ filter: args.filter })
+  await createFragmentFiles(componentConfigs, args.path)
 }
 
-const builderCreateFiles: CommandBuilder = (yargs2: Argv) =>
+const builderCreateFragments: CommandBuilder = (yargs2: Argv) =>
+  yargs2.positional('path', {
+    describe: 'where to create the files',
+    type: 'string',
+  })
+
+const cmdCreateNewModel = async (args: {
+  filter: string
+  componentPath: string
+  configPath: string
+}) => {
+  await createNewModel(args.componentPath, args.configPath)
+}
+
+const builderCreateNewModel: CommandBuilder = (yargs2: Argv) =>
   yargs2
-    .positional('target', {
-      describe: `fragments|new-model
-fragments: create files with required graphql fragments
-new-model: create all files needed for setting up a new model
-`,
+    .positional('component-path', {
+      describe: 'where to create the component files',
       type: 'string',
     })
-    .positional('path', {
-      describe: 'where to create the files',
+    .positional('config-path', {
+      describe: 'where to create the component config files',
       type: 'string',
     })
 
@@ -102,10 +95,16 @@ let params = yargs
     handler: cmdDeleteContent,
   })
   .command({
-    builder: builderCreateFiles,
-    command: 'create-files <target> <path> [options]',
-    describe: 'create boilerplate files',
-    handler: cmdCreateFiles as any,
+    builder: builderCreateFragments,
+    command: 'create-fragments <path> [options]',
+    describe: 'create files with required graphql fragments',
+    handler: cmdCreateFragments as any,
+  })
+  .command({
+    builder: builderCreateNewModel,
+    command: 'create-new-model <component-path> <config-path> [options]',
+    describe: 'create all files needed for setting up a new model',
+    handler: cmdCreateNewModel as any,
   })
   .command({
     command: '*',

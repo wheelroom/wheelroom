@@ -10,7 +10,7 @@ const writeFile = util.promisify(fs.writeFile)
 
 export const createFragmentFiles = async (
   componentConfigs: ComponentConfig[],
-  path: string
+  path: string,
 ) => {
   const toPath = noTrailingSlash(path)
   try {

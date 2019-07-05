@@ -5,30 +5,58 @@ import * as inquirer from 'inquirer'
 import * as util from 'util'
 import { camelToDash, firstUpper, noTrailingSlash } from '../helpers'
 import { questions } from './questions'
-import { componentBasicVarTemplate } from './templates/component-basic-var-template'
-import { componentTemplate } from './templates/component-template'
-import { getVariationTemplate } from './templates/get-variation-template'
-import { graphqlTemplate } from './templates/graphql-template'
-import { indexTemplate } from './templates/index-template'
-import { modelTemplate } from './templates/model-template'
-import { readmeTemplate } from './templates/readme-template'
-import { sectionPropsTemplate } from './templates/section-props-template'
-import { variationsTemplate } from './templates/variations-template'
+
+// Component base folder templates
+import { getVariationTemplate } from './templates/components/get-variation-template'
+import { sectionPropsTemplate } from './templates/components/section-props-template'
+
+// Component folder templates
+import { componentBasicVarTemplate } from './templates/components/component/component-basic-var-template'
+import { componentIndexTemplate } from './templates/components/component/component-index-template'
+import { componentReadmeTemplate } from './templates/components/component/component-readme-template'
+import { componentTemplate } from './templates/components/component/component-template'
+
+// Config folder templates
+import { configReadmeTemplate } from './templates/configs/config/config-readme-template'
+import { graphqlFragmentQueryTemplate } from './templates/configs/config/graphql-fragment-query-template'
+import { graphqlFragmentTemplate } from './templates/configs/config/graphql-fragment-template'
+import { indexBlockTemplate } from './templates/configs/config/index-block-template'
+import { indexSectionPartTemplate } from './templates/configs/config/index-section-part-template'
+import { indexSubPageTemplate } from './templates/configs/config/index-sub-page-global-template'
+import { modelNoVariationTemplate } from './templates/configs/config/model-no-variation-template'
+import { modelVariationTemplate } from './templates/configs/config/model-variation-template'
+import { variationsTemplate } from './templates/configs/config/variations-template'
+
+export interface Vars {
+  componentAttributes: string
+  componentClassName: string
+  componentDescription: string
+  componentFileName: string
+  componentProps: string
+  componentType: string
+  fieldsList: string
+  graphqlFields: string
+  modelFields: string
+  wheelroomType: string
+}
 
 const writeFile = util.promisify(fs.writeFile)
 
 const writeTemplate = async (
   fileName: string,
-  componentPath: string,
+  fullComponentPath: string,
   content: string
 ) => {
-  const writeTo = componentPath + '/' + fileName
+  const writeTo = fullComponentPath + '/' + fileName
 
   console.log(`Writing to ${writeTo}...`)
   await writeFile(writeTo, content)
 }
 
-export const createNewModel = async (path: string) => {
+export const createNewModel = async (
+  baseComponentPath: string,
+  baseConfigPath: string
+) => {
   const answers = await inquirer.prompt(questions)
 
   const componentType = camelCase(answers.componentName)
@@ -41,14 +69,24 @@ export const createNewModel = async (path: string) => {
   const wheelroomType = answers.wheelroomType
   const componentFolderName = camelToDash(componentType)
   const componentDescription = firstUpper(answers.componentName)
-  const componentPath = noTrailingSlash(path) + `/${componentFolderName}`
   const componentFields = answers.componentFields
     .split(',')
     .map((item: string) => camelCase(item.trim()))
     .sort()
 
+  const fullComponentPath =
+    noTrailingSlash(baseComponentPath) + `/${componentFolderName}`
   try {
-    await fse.ensureDir(componentPath)
+    await fse.ensureDir(fullComponentPath)
+  } catch (error) {
+    console.log(error)
+    process.exit(1)
+  }
+
+  const fullConfigPath =
+    noTrailingSlash(baseConfigPath) + `/${componentFolderName}`
+  try {
+    await fse.ensureDir(fullConfigPath)
   } catch (error) {
     console.log(error)
     process.exit(1)
@@ -69,6 +107,14 @@ export const createNewModel = async (path: string) => {
     .sort()
     .map(
       (fieldName: string) => `    ${fieldName}
+`
+    )
+    .join('')
+
+  const fieldsList = [...componentFields, 'variation']
+    .sort()
+    .map(
+      (fieldName: string) => `- ${fieldName}
 `
     )
     .join('')
@@ -96,88 +142,91 @@ export const createNewModel = async (path: string) => {
     .map((fieldName: string) => `${fieldName}="Value goes here" `)
     .join('')
 
-  const allWheelroomTypes = ['section', 'part', 'block', 'subPage', 'global']
+  // const allWheelroomTypes = ['section', 'part', 'block', 'subPage', 'global']
   const sectionPartBlock = ['section', 'part', 'block']
 
-  // Write helper files get-variation.tsx and section-props.ts to path
+  const vars = {
+    componentAttributes,
+    componentClassName,
+    componentDescription,
+    componentFileName,
+    componentProps,
+    componentType,
+    fieldsList,
+    graphqlFields,
+    modelFields,
+    wheelroomType,
+  } as Vars
+
+  // Write helper files get-variation.tsx and section-props.ts to baseComponentPath
   fileName = `get-variation.tsx`
   content = getVariationTemplate()
-  writeTemplate(fileName, noTrailingSlash(path), content)
+  writeTemplate(fileName, noTrailingSlash(baseComponentPath), content)
   fileName = `section-props.ts`
   content = sectionPropsTemplate()
-  writeTemplate(fileName, noTrailingSlash(path), content)
+  writeTemplate(fileName, noTrailingSlash(baseComponentPath), content)
 
+  // Write component files
   if (sectionPartBlock.includes(wheelroomType)) {
     fileName = `${componentFileName}-basic-var.tsx`
-    content = componentBasicVarTemplate(
-      componentFileName,
-      componentClassName,
-      componentType,
-      wheelroomType
-    )
-    writeTemplate(fileName, componentPath, content)
-  }
+    content = componentBasicVarTemplate(vars)
+    writeTemplate(fileName, fullComponentPath, content)
 
-  if (sectionPartBlock.includes(wheelroomType)) {
-    fileName = `${componentFileName}.tsx`
-    content = componentTemplate(
-      componentProps,
-      componentClassName,
-      componentType,
-      wheelroomType,
-      componentFileName
-    )
-    writeTemplate(fileName, componentPath, content)
-  }
+    fileName = `${componentFileName}-basic-var.tsx`
+    content = componentIndexTemplate(vars)
+    writeTemplate(fileName, fullComponentPath, content)
 
-  if (wheelroomType !== 'block') {
-    fileName = `graphql.ts`
-    content = graphqlTemplate(
-      componentType,
-      componentClassName,
-      graphqlFields,
-      wheelroomType
-    )
-    writeTemplate(fileName, componentPath, content)
-  }
-
-  if (allWheelroomTypes.includes(wheelroomType)) {
-    fileName = `model.ts`
-    content = modelTemplate(
-      componentDescription,
-      modelFields,
-      componentType,
-      wheelroomType
-    )
-    writeTemplate(fileName, componentPath, content)
-  }
-
-  if (allWheelroomTypes.includes(wheelroomType)) {
     fileName = `README.md`
-    content = readmeTemplate(
-      componentFileName,
-      componentClassName,
-      componentAttributes,
-      wheelroomType
-    )
-    writeTemplate(fileName, componentPath, content)
+    content = componentReadmeTemplate(vars)
+    writeTemplate(fileName, fullComponentPath, content)
+
+    fileName = `${componentFileName}.tsx`
+    content = componentTemplate(vars)
+    writeTemplate(fileName, fullComponentPath, content)
   }
+
+  // Write config files
+  fileName = `README.md`
+  content = configReadmeTemplate(vars)
+  writeTemplate(fileName, fullConfigPath, content)
 
   if (sectionPartBlock.includes(wheelroomType)) {
+    fileName = `model.ts`
+    content = modelVariationTemplate(vars)
+    writeTemplate(fileName, fullConfigPath, content)
+
     fileName = `variations.ts`
-    content = variationsTemplate(
-      componentFileName,
-      componentClassName,
-      componentType,
-      wheelroomType
-    )
-    writeTemplate(fileName, componentPath, content)
+    content = variationsTemplate(vars)
+    writeTemplate(fileName, fullConfigPath, content)
+
+    fileName = `graphql.ts`
+    content = graphqlFragmentTemplate(vars)
+    writeTemplate(fileName, fullConfigPath, content)
+  }
+  if (['subPage', 'global'].includes(wheelroomType)) {
+    fileName = `model.ts`
+    content = modelNoVariationTemplate(vars)
+    writeTemplate(fileName, fullConfigPath, content)
+
+    fileName = `graphql.ts`
+    content = graphqlFragmentQueryTemplate(vars)
+    writeTemplate(fileName, fullConfigPath, content)
   }
 
-  if (allWheelroomTypes.includes(wheelroomType)) {
+  if (['block'].includes(wheelroomType)) {
     fileName = `index.ts`
-    content = indexTemplate(componentFileName, componentType, wheelroomType)
-    writeTemplate(fileName, componentPath, content)
+    content = indexBlockTemplate(vars)
+    writeTemplate(fileName, fullConfigPath, content)
+  }
+  if (['section', 'part'].includes(wheelroomType)) {
+    fileName = `index.ts`
+    content = indexSectionPartTemplate(vars)
+    writeTemplate(fileName, fullConfigPath, content)
+  }
+  if (['subPage'].includes(wheelroomType)) {
+    fileName = `index.ts`
+    content = indexSubPageTemplate(vars)
+    writeTemplate(fileName, fullConfigPath, content)
   }
 
   console.log(`Done setting up ${componentType} component`)

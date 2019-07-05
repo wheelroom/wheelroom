@@ -1,6 +1,5 @@
 export const sectionPropsTemplate = () =>
-  `import { landMarkType } from '@jacco-meijer/wheelroom'
-import { NamedPaths } from '@jacco-meijer/wheelroom'
+  `import { landMarkType, NamedPaths } from '@jacco-meijer/wheelroom'
 
 /** These are suitable defaults, you probably want to add some props specific
  * for this project
