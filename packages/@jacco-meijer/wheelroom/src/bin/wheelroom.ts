@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 import * as dotenv from 'dotenv'
-import { Argv, CommandBuilder } from 'yargs'
 import * as yargs from 'yargs'
+import { Argv, CommandBuilder } from 'yargs'
 import { createContent } from '../commands/create-content/create-content'
-import { createFragmentFiles } from '../commands/create-files/fragment/create-fragment-files'
-import { createNewModel } from '../commands/create-files/new-model/create-new-model'
+import { createFragments } from '../commands/create-fragments/create-fragments'
 import { createModels } from '../commands/create-models/create-models'
+import { createNewModel } from '../commands/create-new-model/create-new-model'
 import { deleteContent } from '../commands/delete-content/delete-content'
 import { list } from '../commands/list/list'
 import { getComponentConfigs } from '../config/config'
@@ -45,7 +45,7 @@ const cmdDeleteContent = async (args: { filter: string }) => {
 
 const cmdCreateFragments = async (args: { filter: string; path: string }) => {
   const componentConfigs = await getComponentConfigs({ filter: args.filter })
-  await createFragmentFiles(componentConfigs, args.path)
+  await createFragments(componentConfigs, args.path)
 }
 
 const builderCreateFragments: CommandBuilder = (yargs2: Argv) =>

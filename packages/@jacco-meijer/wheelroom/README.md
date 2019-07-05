@@ -9,30 +9,34 @@ working with [Gatsby](https://www.gatsbyjs.org) and
 ### Generate component boilerplate
 
 Wheelroom can be used to create boilerplate for a component. It's designed to
-keep the final components in a Npm module for easy versioning and reuse. The
-boilerplate generates code for:
+keep the component configuration separate from the React component so that it
+can be moved to a npm module for easy versioning and reuse. The boilerplate
+generates code for:
 
-- a model definition to be used with Contentful,
-- a graphql query and fragment to be used with Gatbsy (`gatsby-theme-wheelroom`),
-- a README.md to be used with Styleguidist and
+#### React Component
+- a README.md to be used with Styleguidist
 - a React component to build your app or website with.
 
+#### Component configuration
+- a README.mm
+- a model definition to be used with Contentful,
+- a graphql query and fragment to be used with Gatbsy (`gatsby-theme-wheelroom`),
+
 ```
-wheelroom create-files new-model src/components
+wheelroom create-new-model src/components src/packages/component-configs
 ```
 
-Once the models are transpiled from typescript to ES2017 you can
+Once the models are transpiled from typescript you can
 
 ### Generate Graphql fragments for Gatbsy
 
 ```
-wheelroom create-files fragments src/wheelroom-fragments
+wheelroom create-fragments src/wheelroom-fragments
 ```
 
 ### Create models at Contentful
-
 ```
-wheelroom create-files new-model src/components
+wheelroom create-models
 ```
 
 ### Create and remove sample content at Contentful

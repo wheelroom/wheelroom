@@ -3,7 +3,11 @@ import * as fs from 'fs'
 import * as fse from 'fs-extra'
 import * as inquirer from 'inquirer'
 import * as util from 'util'
-import { camelToDash, firstUpper, noTrailingSlash } from '../helpers'
+import {
+  camelToDash,
+  firstUpper,
+  noTrailingSlash,
+} from '../create-fragments/helpers'
 import { questions } from './questions'
 
 // Component base folder templates

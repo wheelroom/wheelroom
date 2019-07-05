@@ -1,14 +1,14 @@
 import * as fs from 'fs'
 import * as fse from 'fs-extra'
 import * as util from 'util'
-import { ComponentConfig } from '../../../types/component-config'
-import { camelToDash, noTrailingSlash } from '../helpers'
+import { ComponentConfig } from '../../types/component-config'
+import { camelToDash, noTrailingSlash } from './helpers'
 import { fragmentTemplate } from './templates/fragment-template'
 
 const fileExtension = '.ts'
 const writeFile = util.promisify(fs.writeFile)
 
-export const createFragmentFiles = async (
+export const createFragments = async (
   componentConfigs: ComponentConfig[],
   path: string
 ) => {
