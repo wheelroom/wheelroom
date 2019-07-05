@@ -14,16 +14,6 @@ import { navigation } from './navigation'
 import { openerSection } from './opener-section'
 import { page } from './page'
 
-export * from './article'
-export * from './article-section'
-export * from './articles-section'
-export * from './author-section'
-export * from './featured-page-section'
-export * from './footer-section'
-export * from './opener-section'
-export * from './bicycle-section'
-export * from './author-section'
-
 export const componentsMap = {
   article,
   articleSection,
