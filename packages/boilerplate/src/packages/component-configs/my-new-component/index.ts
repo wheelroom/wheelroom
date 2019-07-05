@@ -1,10 +1,8 @@
-import {Vars } from '../../../create-new-model'
-
-export const indexSubPageGlobalTemplate = (vars: Vars) => `/**
+/**
  * Component index
  *
- * Component type: ${vars.componentType}
- * Wheelroom type: ${vars.wheelroomType}
+ * Component type: myNewComponent
+ * Wheelroom type: global
  *
  */
 
@@ -13,9 +11,8 @@ import { query } from './graphql'
 import { fragment } from './graphql'
 import { model } from './model'
 
-export const ${vars.componentType} = {
+export const myNewComponent = {
   fragment,
   model,
   query,
 } as ComponentConfig
-`

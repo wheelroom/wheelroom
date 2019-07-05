@@ -27,8 +27,8 @@ export const model = {
       },
       widgetId: 'singleLine',
     },
-${vars.modelFields}
-  },
+    // tslint:disable-next-line: object-literal-sort-keys
+${vars.modelFields}  },
   modelVersion: '1.0.0',
   name: '${vars.componentDescription}',
   type: '${vars.componentType}',

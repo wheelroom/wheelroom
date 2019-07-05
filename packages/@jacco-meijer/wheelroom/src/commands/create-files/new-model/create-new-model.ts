@@ -22,7 +22,7 @@ import { graphqlFragmentQueryTemplate } from './templates/configs/config/graphql
 import { graphqlFragmentTemplate } from './templates/configs/config/graphql-fragment-template'
 import { indexBlockTemplate } from './templates/configs/config/index-block-template'
 import { indexSectionPartTemplate } from './templates/configs/config/index-section-part-template'
-import { indexSubPageTemplate } from './templates/configs/config/index-sub-page-global-template'
+import { indexSubPageGlobalTemplate } from './templates/configs/config/index-sub-page-global-template'
 import { modelNoVariationTemplate } from './templates/configs/config/model-no-variation-template'
 import { modelVariationTemplate } from './templates/configs/config/model-variation-template'
 import { variationsTemplate } from './templates/configs/config/variations-template'
@@ -62,6 +62,9 @@ export const createNewModel = async (
   const componentType = camelCase(answers.componentName)
   console.log(`Thanks, setting up ${componentType} component`)
 
+  // const allWheelroomTypes = ['section', 'part', 'block', 'subPage', 'global']
+  const sectionPartBlock = ['section', 'part', 'block']
+
   const componentClassName = camelCase(answers.componentName, {
     pascalCase: true,
   })
@@ -76,11 +79,13 @@ export const createNewModel = async (
 
   const fullComponentPath =
     noTrailingSlash(baseComponentPath) + `/${componentFolderName}`
-  try {
-    await fse.ensureDir(fullComponentPath)
-  } catch (error) {
-    console.log(error)
-    process.exit(1)
+  if (sectionPartBlock.includes(wheelroomType)) {
+    try {
+      await fse.ensureDir(fullComponentPath)
+    } catch (error) {
+      console.log(error)
+      process.exit(1)
+    }
   }
 
   const fullConfigPath =
@@ -142,9 +147,6 @@ export const createNewModel = async (
     .map((fieldName: string) => `${fieldName}="Value goes here" `)
     .join('')
 
-  // const allWheelroomTypes = ['section', 'part', 'block', 'subPage', 'global']
-  const sectionPartBlock = ['section', 'part', 'block']
-
   const vars = {
     componentAttributes,
     componentClassName,
@@ -172,7 +174,7 @@ export const createNewModel = async (
     content = componentBasicVarTemplate(vars)
     writeTemplate(fileName, fullComponentPath, content)
 
-    fileName = `${componentFileName}-basic-var.tsx`
+    fileName = `index.ts`
     content = componentIndexTemplate(vars)
     writeTemplate(fileName, fullComponentPath, content)
 
@@ -185,11 +187,11 @@ export const createNewModel = async (
     writeTemplate(fileName, fullComponentPath, content)
   }
 
-  // Write config files
   fileName = `README.md`
   content = configReadmeTemplate(vars)
   writeTemplate(fileName, fullConfigPath, content)
 
+  // Write config files for section, part and block types
   if (sectionPartBlock.includes(wheelroomType)) {
     fileName = `model.ts`
     content = modelVariationTemplate(vars)
@@ -198,11 +200,16 @@ export const createNewModel = async (
     fileName = `variations.ts`
     content = variationsTemplate(vars)
     writeTemplate(fileName, fullConfigPath, content)
+  }
 
+  // Write config files for section and part types
+  if (['section', 'part'].includes(wheelroomType)) {
     fileName = `graphql.ts`
     content = graphqlFragmentTemplate(vars)
     writeTemplate(fileName, fullConfigPath, content)
   }
+
+  // Write config files for subPage and global types
   if (['subPage', 'global'].includes(wheelroomType)) {
     fileName = `model.ts`
     content = modelNoVariationTemplate(vars)
@@ -223,9 +230,9 @@ export const createNewModel = async (
     content = indexSectionPartTemplate(vars)
     writeTemplate(fileName, fullConfigPath, content)
   }
-  if (['subPage'].includes(wheelroomType)) {
+  if (['subPage', 'global'].includes(wheelroomType)) {
     fileName = `index.ts`
-    content = indexSubPageTemplate(vars)
+    content = indexSubPageGlobalTemplate(vars)
     writeTemplate(fileName, fullConfigPath, content)
   }
 

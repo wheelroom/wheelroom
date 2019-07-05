@@ -8,5 +8,5 @@ export const componentIndexTemplate = (vars: Vars) => `/**
  *
  */
 
- export * from './${vars.componentFileName}'
+export * from './${vars.componentFileName}'
 `
