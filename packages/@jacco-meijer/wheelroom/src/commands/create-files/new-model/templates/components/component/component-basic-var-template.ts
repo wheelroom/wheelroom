@@ -1,4 +1,4 @@
-import {Vars } from '../../../create-new-model'
+import { Vars } from '../../../create-new-model'
 
 export const componentBasicVarTemplate = (vars: Vars) => `/**
  * Component variation
