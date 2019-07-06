@@ -76,8 +76,8 @@
     "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "postversion": "git push && git push --tags"
+    "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "demo-postversion": "git push && git push --tags"
   },
   "version": "1.6.1"
 }
