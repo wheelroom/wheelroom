@@ -38,6 +38,7 @@ export const model = {
         helpText: 'Used for named routes togehter with path name',
       },
       specs: {
+        localized: true,
         name: 'Path',
         required: true,
         type: 'Symbol',
@@ -88,6 +89,7 @@ export const model = {
         helpText: 'Description used by search engines',
       },
       specs: {
+        localized: true,
         name: 'SEO Description',
         required: true,
         type: 'Symbol',
@@ -108,6 +110,7 @@ export const model = {
         helpText: 'Title used by search engines',
       },
       specs: {
+        localized: true,
         name: 'SEO Title',
         required: true,
         type: 'Symbol',
