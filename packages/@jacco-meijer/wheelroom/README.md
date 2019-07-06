@@ -61,13 +61,16 @@ Together with the generated fragments, components can be rendered straight away.
 module.exports = {
   defaultLocale: 'nl',
   defaultComponentResolve: `@jacco-meijer/content-models`,
-  localComponentsMap: path.resolve('./src/local-components-map.ts'),
+  initialPageSection: 'articleSection',
+  localComponentsMap: path.resolve('./dist/component-configs/components-map.js'),
   componentTypes: {
-    articleSection: {
+    articleSection: {},
+    myNewComponent: {
+      resolve: 'localComponentsMap',
+    },
+    page: {
       resolve: `@jacco-meijer/content-models`,
     },
-    demo: {},
-    page: {},
   },
 }
 ```
