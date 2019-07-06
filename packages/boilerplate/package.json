@@ -7,7 +7,7 @@
     "@contentful/rich-text-react-renderer": "13.2.0",
     "@contentful/rich-text-types": "13.1.0",
     "@emotion/core": "10.0.10",
-    "@jacco-meijer/content-models": "^1.1.4",
+    "@jacco-meijer/content-models": "^1.1.5",
     "@jacco-meijer/styled-system": "^1.1.0",
     "@jacco-meijer/wheelroom": "^1.7.1",
     "dotenv": "8.0.0",
@@ -79,5 +79,5 @@
     "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "demo-postversion": "git push && git push --tags"
   },
-  "version": "1.6.1"
+  "version": "1.6.2"
 }
