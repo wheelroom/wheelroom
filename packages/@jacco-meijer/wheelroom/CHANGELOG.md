@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.7.1...@jacco-meijer/wheelroom@1.8.0) (2019-07-06)
+
+
+### Features
+
+* add localComponentsMap config option ([865b191](https://github.com/jaccomeijer/wheelroom/commit/865b191))
+
+
+
+
+
 ## [1.7.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@1.7.0...@jacco-meijer/wheelroom@1.7.1) (2019-07-05)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom

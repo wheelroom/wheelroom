@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.6.2...boilerplate@1.7.0) (2019-07-06)
+
+
+### Features
+
+* add localComponentsMap config option ([865b191](https://github.com/jaccomeijer/wheelroom/commit/865b191))
+
+
+
+
+
 ## [1.6.2](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@1.6.1...boilerplate@1.6.2) (2019-07-06)
 
 
