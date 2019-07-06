@@ -1,10 +1,6 @@
 import { ComponentConfig } from '../types/component-config'
 import { ComponentsMap } from '../types/components-map'
-import {
-  componentType,
-  nodeModuleName,
-  nodeModulePath,
-} from '../types/simple-types'
+import { componentType, nodeModuleName, path } from '../types/simple-types'
 import {
   ComponentToBeResolved,
   ResolveInfo,
@@ -19,35 +15,33 @@ export const getAppDir = () => {
 
 export const getModule = async (
   moduleName: nodeModuleName,
-  resolveLocalModules: nodeModulePath
+  localComponentsMap: path
 ) => {
-  let module = null
   let errorMessage = ''
-  const npmModuleDir = `${getAppDir()}/node_modules/${moduleName}`
-  const localModuleDir = `${getAppDir()}/${resolveLocalModules}/${moduleName}`
-  try {
-    module = await import(npmModuleDir)
-  } catch (error) {
-    errorMessage += error
-    module = null
+  let module = null
+  if (moduleName !== 'localComponentsMap') {
+    const npmModuleDir = `${getAppDir()}/node_modules/${moduleName}`
+    try {
+      module = await import(npmModuleDir)
+    } catch (error) {
+      errorMessage = `Could not import ${npmModuleDir}: ${error}`
+      module = null
+    }
+    if (module) {
+      return module
+    }
+  } else {
+    try {
+      module = await import(localComponentsMap)
+    } catch (error) {
+      errorMessage = `Could not import ${localComponentsMap}: ${error}`
+      module = null
+    }
+    if (module) {
+      return module
+    }
   }
-  if (module) {
-    return module
-  }
-  try {
-    module = await import(localModuleDir)
-  } catch (error) {
-    errorMessage += error
-    module = null
-  }
-  if (module) {
-    return module
-  }
-  console.log(`Could not import ${moduleName}
-- tried: ${npmModuleDir}
-- tried: ${localModuleDir}
-- ${errorMessage}
-`)
+  console.log(errorMessage)
 }
 
 export const getWheelroomConfig = async () => {
@@ -74,7 +68,7 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
       if (!(moduleName in resolvers)) {
         resolvers[moduleName] = {
           componentsToResolve: [] as ComponentToBeResolved[],
-          resolveLocalModules: wheelroomConfig.resolveLocalModules,
+          localComponentsMap: wheelroomConfig.localComponentsMap,
         }
       }
       resolvers[moduleName].componentsToResolve.push({
@@ -110,8 +104,10 @@ export const getComponentConfigs = async ({
   await Promise.all(
     Object.entries(resolvers).map(
       async ([moduleName, resolveInfo]: [string, ResolveInfo]) => {
-        let module
-        module = await getModule(moduleName, resolveInfo.resolveLocalModules)
+        const module = await getModule(
+          moduleName,
+          resolveInfo.localComponentsMap
+        )
         if (!module) {
           return
         }

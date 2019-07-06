@@ -4,11 +4,10 @@ module.exports = {
   defaultLocale: 'nl',
   defaultComponentResolve: `@jacco-meijer/content-models`,
   initialPageSection: 'articleSection',
-  // resolveLocalModules: 'dist',
-  localComponentsMap: path.resolve('./src/local-components-map.ts'),
+  localComponentsMap: path.resolve('./dist/component-configs/components-map.js'),
   componentTypes: {
     articleSection: {},
-    demo: {
+    myNewComponent: {
       resolve: 'localComponentsMap',
     },
     page: {

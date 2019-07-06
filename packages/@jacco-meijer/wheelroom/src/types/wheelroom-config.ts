@@ -3,8 +3,8 @@ import {
   componentType,
   componentVariations,
   nodeModuleName,
-  nodeModulePath,
   overwriteVariations,
+  path,
 } from './simple-types'
 
 export interface ComponentToBeResolved {
@@ -20,7 +20,7 @@ export interface ComponentToBeResolved {
 }
 
 export interface ResolveInfo {
-  resolveLocalModules: string
+  localComponentsMap: string
   componentsToResolve: ComponentToBeResolved[]
 }
 
@@ -44,8 +44,8 @@ export interface WheelroomConfig {
   initialPageSection: string
   /** Default value for componentType.resolve */
   defaultComponentResolve: nodeModuleName
-  /** If set, lookup npm modules at this path */
-  resolveLocalModules: nodeModulePath
+  /** If set, lookup componentsMap object in this file */
+  localComponentsMap: path
   componentTypes: {
     [componentType: string]: WheelroomComponent
   }

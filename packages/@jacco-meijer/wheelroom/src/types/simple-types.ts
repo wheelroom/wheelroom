@@ -7,6 +7,6 @@ export type componentVariations = string[]
 /** Npm package name */
 export type nodeModuleName = string
 /** Path to npm packages */
-export type nodeModulePath = string
+export type path = string
 /** Remove existing variations */
 export type overwriteVariations = boolean
