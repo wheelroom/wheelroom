@@ -71,7 +71,6 @@
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
     "prepack": "npm run build",
-    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",

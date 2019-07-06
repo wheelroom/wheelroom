@@ -52,7 +52,6 @@
     "build:lint": "tslint --project tsconfig.json",
     "install-peers": "npm-install-peers",
     "prepack": "npm run build",
-    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
