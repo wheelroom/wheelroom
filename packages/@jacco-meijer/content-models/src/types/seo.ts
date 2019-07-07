@@ -15,16 +15,16 @@ export interface SeoContentTypeInfo {
   tags: SeoTags
 }
 
-interface AlterNateLocale {
+export interface AlterNateLocale {
   href: string
   hrefLang: string
 }
 
 export interface SeoProps {
   contentTypeInfo?: SeoContentTypeInfo
-  description: string
-  image: string
-  keywords: string[]
+  description?: string
+  image?: string
+  keywords?: string[]
   locale: string
   alternateLocales: AlterNateLocale[]
   meta: []
