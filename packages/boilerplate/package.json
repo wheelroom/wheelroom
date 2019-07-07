@@ -7,9 +7,9 @@
     "@contentful/rich-text-react-renderer": "13.2.0",
     "@contentful/rich-text-types": "13.1.0",
     "@emotion/core": "10.0.10",
-    "@jacco-meijer/content-models": "^1.1.6",
+    "@jacco-meijer/content-models": "^1.1.7",
     "@jacco-meijer/styled-system": "^1.1.1",
-    "@jacco-meijer/wheelroom": "^1.8.0",
+    "@jacco-meijer/wheelroom": "^1.8.1",
     "dotenv": "8.0.0",
     "emotion-theming": "10.0.10",
     "gatsby": "2.9.4",
@@ -21,7 +21,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.0.71",
     "gatsby-source-filesystem": "2.0.39",
-    "gatsby-theme-wheelroom": "^1.2.4",
+    "gatsby-theme-wheelroom": "^1.2.5",
     "gatsby-transformer-json": "2.1.11",
     "react": "16.8.6",
     "react-dom": "16.8.6",
@@ -79,5 +79,5 @@
     "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "demo-postversion": "git push && git push --tags"
   },
-  "version": "1.7.0"
+  "version": "1.7.1"
 }
