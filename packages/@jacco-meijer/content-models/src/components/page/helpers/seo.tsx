@@ -8,7 +8,7 @@ export const Seo = ({
   image,
   keywords,
   locale,
-  locales,
+  alternateLocales,
   meta,
   siteAuthor,
   siteDescription,
@@ -20,14 +20,14 @@ export const Seo = ({
   const metaDescription = description || siteDescription || ''
   const useKeywords = keywords || siteKeywords
   const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
-  const linkLocales = locales || []
+  const linkLocales = alternateLocales || []
   const typeTags = [
     {
       content: contentTypeInfo ? contentTypeInfo.type : 'website',
       property: 'og:type',
     },
   ]
-  if (contentTypeInfo) {
+  if (contentTypeInfo && Object.keys(contentTypeInfo).length > 0) {
     Object.keys(contentTypeInfo.tags).forEach(tag => {
       typeTags.push({
         content: contentTypeInfo.tags[tag],
@@ -106,8 +106,8 @@ export const Seo = ({
         <link
           rel="alternate"
           href={linkLocale.href}
-          hrefLang={linkLocale.name}
-          key={linkLocale.name}
+          hrefLang={linkLocale.hrefLang}
+          key={linkLocale.hrefLang}
         />
       ))}
     </Helmet>

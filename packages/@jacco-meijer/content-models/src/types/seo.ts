@@ -10,20 +10,23 @@ export interface SeoTags {
   [tagName: string]: string | undefined
 }
 
-interface SeoContentTypeInfoInt {
+interface SeoContentTypeInfo {
   type: string
   tags: SeoTags
 }
 
-export type SeoContentTypeInfo = SeoContentTypeInfoInt | null
+interface AlterNateLocale {
+  href: string
+  hrefLang: string
+}
 
 export interface SeoProps {
-  contentTypeInfo: SeoContentTypeInfo | null
+  contentTypeInfo?: SeoContentTypeInfo
   description: string
   image: string
   keywords: string[]
   locale: string
-  locales: []
+  alternateLocales: AlterNateLocale[]
   meta: []
   siteAuthor: string
   siteDescription: string
