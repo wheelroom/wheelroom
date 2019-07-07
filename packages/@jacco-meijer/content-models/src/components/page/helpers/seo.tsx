@@ -27,8 +27,8 @@ export const Seo = ({
       property: 'og:type',
     },
   ]
-  if (contentTypeInfo && Object.keys(contentTypeInfo).length > 0) {
-    Object.keys(contentTypeInfo.tags).forEach(tag => {
+  if (contentTypeInfo && contentTypeInfo.type === 'article') {
+    Object.keys(contentTypeInfo.tags as object).forEach(tag => {
       typeTags.push({
         content: contentTypeInfo.tags[tag],
         property: contentTypeInfo.type + ':' + tag,

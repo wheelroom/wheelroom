@@ -14,8 +14,11 @@ export const getSeoContentTypeInfo = (
   page: any,
   article: any
 ): SeoContentTypeInfo => {
+  const noInfo = {
+    type: 'none',
+  } as SeoContentTypeInfo
   if (!article) {
-    return null
+    return noInfo
   }
 
   // Do we have an article?
@@ -33,5 +36,5 @@ export const getSeoContentTypeInfo = (
     } as SeoContentTypeInfo
   }
 
-  return null
+  return noInfo
 }
