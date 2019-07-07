@@ -30,7 +30,7 @@ export interface SeoProps {
   meta: []
   siteAuthor: string
   siteDescription: string
-  siteKeywords: string
+  siteKeywords: string[]
   siteTitle: string
   siteVersion: string
   title: string
