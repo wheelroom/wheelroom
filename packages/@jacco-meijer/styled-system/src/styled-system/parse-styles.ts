@@ -42,7 +42,7 @@ const applyStringMaps = (cssProps: any, theme: any) => {
           cssProps[propName].forEach((propFromArray: any) => {
             let newValue = propFromArray
             if (typeof propFromArray === 'string') {
-              newValue = theme[stringMapName][propFromArray]
+              newValue = theme[stringMapName][propFromArray] || propFromArray
             }
             newArray.push(newValue)
           })
