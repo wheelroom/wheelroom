@@ -7,7 +7,7 @@ module.exports = {
   componentTypes: {
     articleSection: {},
     myNewComponent: {
-      resolve: './dist/component-configs/components-map.js',
+      resolve: './dist:component-configs',
     },
     page: {
       resolve: `@jacco-meijer/content-models`,
@@ -25,36 +25,32 @@ module.exports = {
       options: {
         defaultTemplateResolve: `@jacco-meijer/content-models`,
         templateSets: {
-          fragments: [
-            {
+          fragments: {
+            fragmentTemplate: {
               fileName: '%componentFilename%.ts',
               resolve: '@jacco-meijer/content-models',
-              template: 'fragmentTemplate',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
-          ],
-          component: [
-            {
+          },
+          component: {
+            component: {
               fileName: '%componentFilename%/%componentFilename%.ts',
-              resolve: './templates/component-template',
-              template: 'componentTemplate',
+              resolve: './dist:component-templates',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
-            {
+            componentBasicVar: {
               fileName: '%componentFilename%/%componentFilename%-basic-var.ts',
-              resolve: './templates/component-basic-var-template',
-              template: 'componentBasicVarTemplate',
+              resolve: './dist:component-templates',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
-          ],
-          config: [
-            {
+          },
+          config: {
+            graphql: {
               fileName: '%componentFilename%/graphql.ts',
-              resolve: './templates/graphql-template',
-              template: 'graphqlTemplate',
+              resolve: './dist:component-templates',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
-          ],
+          },
         },
       },
     },
