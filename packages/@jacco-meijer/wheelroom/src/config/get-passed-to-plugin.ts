@@ -1,6 +1,7 @@
 import { ComponentConfig } from '../types/component-config'
 import { ComponentsMap } from '../types/components-map'
-import { componentType, nodeModuleName, path } from '../types/simple-types'
+import { PassedToPlugins } from '../types/passed-to-plugins'
+import { componentType } from '../types/simple-types'
 import {
   ComponentToBeResolved,
   ResolveInfo,
@@ -8,53 +9,9 @@ import {
   WheelroomComponent,
   WheelroomConfig,
 } from '../types/wheelroom-config'
+import { getModule } from './get-module'
+import { readConfig } from './read-config'
 
-export const getAppDir = () => {
-  return process.cwd()
-}
-
-export const getModule = async (
-  moduleName: nodeModuleName,
-  localComponentsMap: path
-) => {
-  let errorMessage = ''
-  let module = null
-  if (moduleName !== 'localComponentsMap') {
-    const npmModuleDir = `${getAppDir()}/node_modules/${moduleName}`
-    try {
-      module = await import(npmModuleDir)
-    } catch (error) {
-      errorMessage = `Could not import ${npmModuleDir}: ${error}`
-      module = null
-    }
-    if (module) {
-      return module
-    }
-  } else {
-    try {
-      module = await import(localComponentsMap)
-    } catch (error) {
-      errorMessage = `Could not import ${localComponentsMap}: ${error}`
-      module = null
-    }
-    if (module) {
-      return module
-    }
-  }
-  console.log(errorMessage)
-}
-
-export const getWheelroomConfig = async () => {
-  let config
-  const target = `${getAppDir()}/wheelroom-config.js`
-  try {
-    config = await import(target)
-  } catch (error) {
-    console.log(`Could not load and parse: ${target}`)
-    console.log(error)
-  }
-  return config as WheelroomConfig
-}
 /** Resolve is configured per component. Here we group components by the module
  * they are resolved from. To be able to fetch the component config more
  * efficently
@@ -83,32 +40,21 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
   return resolvers
 }
 
-interface GetComponentConfigs {
-  filter?: string
-  wheelroomConfig?: WheelroomConfig
-}
-
-export const getComponentConfigs = async ({
-  filter,
-  wheelroomConfig,
-}: GetComponentConfigs) => {
+export const getPassedToPlugins = async (wheelroomConfig: WheelroomConfig) => {
   if (!wheelroomConfig) {
-    wheelroomConfig = await getWheelroomConfig()
+    wheelroomConfig = await readConfig()
   }
   const resolvers = getResolvers(wheelroomConfig)
-  if (filter) {
-    console.log('Filtering by component type', filter)
-  }
 
-  const configs = [] as ComponentConfig[]
+  const passedToPlugins = {
+    componentConfigs: [],
+    defaultLocale: wheelroomConfig.defaultLocale,
+  } as PassedToPlugins
+
   await Promise.all(
     Object.entries(resolvers).map(
       async ([moduleName, resolveInfo]: [string, ResolveInfo]) => {
-        const module = await getModule(
-          moduleName,
-          '',
-          // resolveInfo.localComponentsMap
-        )
+        const module = await getModule(moduleName)
         if (!module) {
           return
         }
@@ -120,9 +66,6 @@ export const getComponentConfigs = async ({
         const componentsMap = module.componentsMap as ComponentsMap
         resolveInfo.componentsToResolve.forEach(
           (toBeResolved: ComponentToBeResolved) => {
-            if (filter && toBeResolved.componentType !== filter) {
-              return
-            }
             if (toBeResolved.componentType in componentsMap) {
               const newConfig = {
                 defaultLocale: toBeResolved.defaultLocale,
@@ -133,7 +76,7 @@ export const getComponentConfigs = async ({
                 ...componentsMap[toBeResolved.componentType],
               } as ComponentConfig
 
-              configs.push(newConfig)
+              passedToPlugins.componentConfigs.push(newConfig)
             } else {
               console.log(
                 `Could not find ${toBeResolved.componentType} in ${moduleName}`
@@ -145,5 +88,5 @@ export const getComponentConfigs = async ({
     )
   )
 
-  return configs
+  return passedToPlugins
 }

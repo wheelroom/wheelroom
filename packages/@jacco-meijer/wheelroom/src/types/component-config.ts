@@ -1,15 +1,9 @@
-import {
-  componentLocale,
-  componentVariations,
-  overwriteVariations,
-} from './simple-types'
+import { componentVariations, overwriteVariations } from './simple-types'
 
-/** Build up internally, used to do all component processing like create-files and create-models */
+/** Build up internally and used in PassedToPlugin, used to do all component
+ * processing
+ */
 export interface ComponentConfig {
-  /** default locale */
-  defaultLocale: componentLocale
-  /** When demo page content is created, this section is used */
-  initialPageSection: string
   /** Graphql fragment for this model, used to generate files */
   fragment?: any
   /** Model object to be applied */

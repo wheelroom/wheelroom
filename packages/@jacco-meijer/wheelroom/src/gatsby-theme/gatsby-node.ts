@@ -6,32 +6,34 @@ import {
   PageContext,
 } from '../types/gatsby-node-context'
 
-const defaultLocale = 'en-US'
+const defaultLocale = 'en_US'
 
 export const runQueries = async (context: GatsbyNodeContext) => {
   console.log(`Running queries`)
   await Promise.all(
-    context.componentConfigs.map(async (componentConfig: ComponentConfig) => {
-      if (
-        ['global', 'subPage', 'page'].includes(
-          componentConfig.model.wheelroomType
-        )
-      ) {
-        console.log(
-          `Running query ${componentConfig.model.type} for type ${componentConfig.model.wheelroomType}`
-        )
-        const result = await context.graphql(componentConfig.query)
-        if (!result.data) {
-          throw new Error(
-            `Could not find any ${componentConfig.model.type} of type ${componentConfig.model.wheelroomType} at Contentful, please check the model query
-            `
+    context.passedToPlugin.componentConfigs.map(
+      async (componentConfig: ComponentConfig) => {
+        if (
+          ['global', 'subPage', 'page'].includes(
+            componentConfig.model.wheelroomType
           )
+        ) {
+          console.log(
+            `Running query ${componentConfig.model.type} for type ${componentConfig.model.wheelroomType}`
+          )
+          const result = await context.graphql(componentConfig.query)
+          if (!result.data) {
+            throw new Error(
+              `Could not find any ${componentConfig.model.type} of type ${componentConfig.model.wheelroomType} at Contentful, please check the model query
+            `
+            )
+          }
+          context.queries[componentConfig.model.wheelroomType][
+            componentConfig.model.type
+          ] = result.data[componentConfig.model.type].edges
         }
-        context.queries[componentConfig.model.wheelroomType][
-          componentConfig.model.type
-        ] = result.data[componentConfig.model.type].edges
       }
-    })
+    )
   )
 }
 
@@ -40,7 +42,7 @@ const getLocale = (page: any) => {
 }
 
 const getDefaultLocale = (context: GatsbyNodeContext): string => {
-  return context.wheelroomConfig.defaultLocale || defaultLocale
+  return context.passedToPlugin.defaultLocale || defaultLocale
 }
 
 export const buildNamedPaths = (context: GatsbyNodeContext) => {

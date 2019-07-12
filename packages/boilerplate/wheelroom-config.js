@@ -6,8 +6,8 @@ module.exports = {
   defaultComponentResolve: `@jacco-meijer/content-models`,
   componentTypes: {
     articleSection: {},
-    myNewComponent: {
-      resolve: 'dist:component-configs',
+    globals: {
+      resolve: '@jacco-meijer/content-models',
     },
     page: {
       resolve: `@jacco-meijer/content-models`,

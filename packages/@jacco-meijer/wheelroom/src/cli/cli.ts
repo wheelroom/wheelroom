@@ -2,6 +2,7 @@
 
 import * as dotenv from 'dotenv'
 import { command as listCommand } from '../commands/list/command'
+import { getPassedToPlugins } from '../config/get-passed-to-plugin'
 import { readConfig } from '../config/read-config'
 import { baseCli } from './base-cli'
 import { commandsFromPlugins } from './commands-from-plugins'
@@ -14,6 +15,7 @@ if (dotEnvResult.error) {
 const main = async (argv: string[]) => {
   const cli = baseCli(argv)
   const config = await readConfig()
+  const components = await getPassedToPlugins(config)
   const commands = await commandsFromPlugins(config)
 
   const options = config.plugins.reduce((result: any, plugin) => {
@@ -22,6 +24,7 @@ const main = async (argv: string[]) => {
   }, {})
 
   const context = {
+    components,
     options,
   }
 
