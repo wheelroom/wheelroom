@@ -4,7 +4,6 @@ import {
   componentVariations,
   nodeModuleName,
   overwriteVariations,
-  path,
 } from './simple-types'
 
 export interface ComponentToBeResolved {
@@ -20,7 +19,6 @@ export interface ComponentToBeResolved {
 }
 
 export interface ResolveInfo {
-  localComponentsMap: string
   componentsToResolve: ComponentToBeResolved[]
 }
 
@@ -37,6 +35,13 @@ export interface WheelroomComponent {
   overwriteVariations: overwriteVariations
 }
 
+export interface Plugin {
+  /** The module that exports the commandsMap */
+  resolve: nodeModuleName
+  /** Plugin options */
+  options: any
+}
+
 export interface WheelroomConfig {
   /** Locale being server from the root path */
   defaultLocale: componentLocale
@@ -44,9 +49,8 @@ export interface WheelroomConfig {
   initialPageSection: string
   /** Default value for componentType.resolve */
   defaultComponentResolve: nodeModuleName
-  /** If set, lookup componentsMap object in this file */
-  localComponentsMap: path
   componentTypes: {
     [componentType: string]: WheelroomComponent
   }
+  plugins: Plugin[]
 }

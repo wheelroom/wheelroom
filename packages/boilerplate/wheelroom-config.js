@@ -15,13 +15,13 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'wheelroom-plugin-contentful',
+      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
       options: {
         initialPageSection: 'articleSection',
       },
     },
     {
-      resolve: 'module:wheelroom-plugin-templates',
+      resolve: '@jacco-meijer/wheelroom-plugin-templates',
       options: {
         defaultTemplateResolve: `@jacco-meijer/content-models`,
         templateSets: {

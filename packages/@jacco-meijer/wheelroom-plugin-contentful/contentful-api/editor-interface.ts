@@ -1,5 +1,5 @@
-import { ContentfulApiContext } from '../types/contentful-api-context'
-import { Field } from '../types/model'
+import { ContentfulApiContext } from '../../wheelroom/src/types/contentful-api-context'
+import { Field } from '../../wheelroom/src/types/model'
 
 export const getEditorInterface = async (context: ContentfulApiContext) => {
   // If we don't have a contentType there's nothing to do here

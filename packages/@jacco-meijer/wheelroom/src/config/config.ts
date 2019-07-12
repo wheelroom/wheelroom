@@ -68,7 +68,7 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
       if (!(moduleName in resolvers)) {
         resolvers[moduleName] = {
           componentsToResolve: [] as ComponentToBeResolved[],
-          localComponentsMap: wheelroomConfig.localComponentsMap,
+          // localComponentsMap: wheelroomConfig.localComponentsMap,
         }
       }
       resolvers[moduleName].componentsToResolve.push({
@@ -106,7 +106,8 @@ export const getComponentConfigs = async ({
       async ([moduleName, resolveInfo]: [string, ResolveInfo]) => {
         const module = await getModule(
           moduleName,
-          resolveInfo.localComponentsMap
+          '',
+          // resolveInfo.localComponentsMap
         )
         if (!module) {
           return
