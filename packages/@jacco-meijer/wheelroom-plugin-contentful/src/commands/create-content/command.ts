@@ -2,9 +2,9 @@ import { Argv } from 'yargs'
 import { handler } from './handler'
 
 export const command = {
-  aliases: ['ls'],
-  command: 'list',
-  describe: 'List component configs',
+  aliases: ['cc'],
+  command: 'create-content',
+  describe: 'Create demo content from model field initialContent',
   handler: (argv: Argv) => {
     handler(argv)
   },

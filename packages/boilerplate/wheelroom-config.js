@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'dist/packages:wheelroom-plugin-contentful',
+      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
       options: {
         initialPageSection: 'articleSection',
       },

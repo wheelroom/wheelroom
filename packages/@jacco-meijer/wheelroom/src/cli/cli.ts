@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import * as dotenv from 'dotenv'
-import { listCmdBuilder } from '../commands/list/command'
+import { command as listCommand } from '../commands/list/command'
 import { readConfig } from '../config/read-config'
 import { baseCli } from './base-cli'
 import { commandsFromPlugins } from './commands-from-plugins'
@@ -14,9 +14,15 @@ if (dotEnvResult.error) {
 const main = async (argv: string[]) => {
   const cli = baseCli(argv)
   const config = await readConfig()
-  const commands = commandsFromPlugins(config)
+  const commands = await commandsFromPlugins(config)
+
+  const options = config.plugins.reduce((result: any, plugin) => {
+    result[plugin.resolve] = plugin.options
+    return result
+  }, {})
+
   const context = {
-    config,
+    options,
   }
 
   const cliWithCommands = commands.reduce(
@@ -24,7 +30,7 @@ const main = async (argv: string[]) => {
     cli
   )
 
-  return cliWithCommands.command(listCmdBuilder).parse(argv, context)
+  return cliWithCommands.command(listCommand).parse(argv, context)
 }
 
 main(process.argv.slice(2))

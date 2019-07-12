@@ -37,7 +37,17 @@ export const createContentForModel = async (context: ContentfulApiContext) => {
   }
 }
 
-export const createContent = async (context: ContentfulApiContext) => {
+export const handler = async (argv: any) => {
+  console.log('running create-content handler from plugin!')
+  console.log(
+    'Data I got:',
+    argv.options['@jacco-meijer/wheelroom-plugin-contentful']
+  )
+  return
+  const context = {
+    componentConfigs: {},
+  } as ContentfulApiContext
+
   await createAsset(context)
   for (const componentConfig of context.componentConfigs) {
     console.log(

@@ -1,1 +1,1 @@
-export * from './commands/commands-map'
+export * from './commands/commands'
