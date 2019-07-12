@@ -16,6 +16,7 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
+    "@jacco-meijer/wheelroom": "^1.8.1",
     "camelcase": "5.3.1",
     "contentful-management": "5.8.0",
     "dotenv": "8.0.0",

@@ -10,6 +10,8 @@
     "@jacco-meijer/content-models": "^1.1.10",
     "@jacco-meijer/styled-system": "^1.1.2",
     "@jacco-meijer/wheelroom": "^1.8.1",
+    "@jacco-meijer/wheelroom-plugin-contentful": "0.0.1",
+    "@jacco-meijer/wheelroom-plugin-templates": "0.0.1",
     "dotenv": "8.0.0",
     "emotion-theming": "10.0.10",
     "gatsby": "2.9.4",

@@ -7,7 +7,7 @@ module.exports = {
   componentTypes: {
     articleSection: {},
     myNewComponent: {
-      resolve: './dist:component-configs',
+      resolve: 'dist:component-configs',
     },
     page: {
       resolve: `@jacco-meijer/content-models`,
@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
+      resolve: 'dist/packages:wheelroom-plugin-contentful',
       options: {
         initialPageSection: 'articleSection',
       },
@@ -35,19 +35,19 @@ module.exports = {
           component: {
             component: {
               fileName: '%componentFilename%/%componentFilename%.ts',
-              resolve: './dist:component-templates',
+              resolve: 'dist:component-templates',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
             componentBasicVar: {
               fileName: '%componentFilename%/%componentFilename%-basic-var.ts',
-              resolve: './dist:component-templates',
+              resolve: 'dist:component-templates',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
           },
           config: {
             graphql: {
               fileName: '%componentFilename%/graphql.ts',
-              resolve: './dist:component-templates',
+              resolve: 'dist:component-templates',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
           },

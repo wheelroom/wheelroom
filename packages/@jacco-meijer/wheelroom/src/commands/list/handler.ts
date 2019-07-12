@@ -1,7 +1,8 @@
-import { Argv } from 'yargs'
 
-export const listHandler = async (argv: Argv) => {
-  console.log('argv', argv)
+export const handler = async (argv: any) => {
+  console.log('list command here')
+  // console.log('config', argv.config)
+  // console.log('filter', argv.filter)
 
   //   componentConfigs.forEach(async (config: ComponentConfig) => {
   //     console.log(`============================
