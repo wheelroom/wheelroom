@@ -32,31 +32,28 @@ module.exports = {
       resolve: '@jacco-meijer/wheelroom-plugin-templates',
       options: {
         defaultLocale: 'nl',
-        defaultTemplateResolve: `@jacco-meijer/content-models`,
+        defaultTemplateResolve: `dist/packages:templates`,
         templateSets: {
           fragments: {
             fragmentTemplate: {
               fileName: '%componentFilename%.ts',
-              resolve: '@jacco-meijer/content-models',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
           },
           component: {
             component: {
               fileName: '%componentFilename%/%componentFilename%.ts',
-              resolve: 'dist:component-templates',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
             componentBasicVar: {
               fileName: '%componentFilename%/%componentFilename%-basic-var.ts',
-              resolve: 'dist:component-templates',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
           },
           config: {
             graphql: {
               fileName: '%componentFilename%/graphql.ts',
-              resolve: 'dist:component-templates',
+              resolve: 'dist/packages:templates',
               wheelroomTypes: ['subPage', 'section', 'global', 'part'],
             },
           },

@@ -1,3 +1,3 @@
-import { command as createFragmentsCmd } from './create-fragments/command'
+import { command as createFilesCmd } from './create-files/command'
 
-export const commands = [createFragmentsCmd]
+export const commands = [createFilesCmd]

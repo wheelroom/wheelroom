@@ -5,4 +5,6 @@ export const handler = (argv: any) => {
     argv.options['@jacco-meijer/wheelroom-plugin-templates']
   )
   console.log('Components:', argv.components)
+  console.log('templateSet:', argv.templateSet)
+  console.log('path:', argv.path)
 }
