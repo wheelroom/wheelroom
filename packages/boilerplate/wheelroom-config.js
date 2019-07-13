@@ -4,12 +4,20 @@ path = require('path')
 module.exports = {
   defaultComponentResolve: `@jacco-meijer/content-models`,
   components: {
-    articleSection: {},
+    articleSection: {
+      options: {
+        variations: ['var 1', 'var 2'],
+        overwriteVariations: true,
+      },
+    },
     globals: {
       resolve: '@jacco-meijer/content-models',
     },
     page: {
       resolve: `@jacco-meijer/content-models`,
+      options: {
+        initialPageSection: 'articleSection',
+      },
     },
   },
   plugins: [
