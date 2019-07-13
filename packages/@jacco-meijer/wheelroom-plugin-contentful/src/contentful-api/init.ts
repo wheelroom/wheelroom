@@ -1,30 +1,30 @@
 // @ts-ignore
 import * as contentful from 'contentful-management'
-import { ContentfulApiContext } from '../types/contentful-api-context'
+import { Context } from '../types/context'
 
-export const getClient = async (context: ContentfulApiContext) => {
-  if (context.contentfulClient) {
+export const getClient = async (context: Context) => {
+  if (context.contentfulApi.contentfulClient) {
     return
   }
-  context.contentfulClient = contentful.createClient({
+  context.contentfulApi.contentfulClient = contentful.createClient({
     accessToken: process.env.CONTENTFUL_CMA_TOKEN,
   })
 }
 
-export const getSpace = async (context: ContentfulApiContext) => {
-  if (context.space) {
+export const getSpace = async (context: Context) => {
+  if (context.contentfulApi.space) {
     return
   }
-  context.space = await context.contentfulClient.getSpace(
+  context.contentfulApi.space = await context.contentfulApi.contentfulClient.getSpace(
     process.env.CONTENTFUL_SPACE_ID
   )
 }
 
-export const getEnvironment = async (context: ContentfulApiContext) => {
-  if (context.environment) {
+export const getEnvironment = async (context: Context) => {
+  if (context.contentfulApi.environment) {
     return
   }
-  context.environment = await context.space.getEnvironment(
+  context.contentfulApi.environment = await context.contentfulApi.space.getEnvironment(
     process.env.CONTENTFUL_ENVIRONMENT
   )
 }

@@ -4,6 +4,7 @@ path = require('path')
 module.exports = {
   defaultComponentResolve: `@jacco-meijer/content-models`,
   components: {
+    article: {},
     articleSection: {
       options: {
         variations: ['var 1', 'var 2'],
@@ -25,7 +26,6 @@ module.exports = {
       resolve: '@jacco-meijer/wheelroom-plugin-contentful',
       options: {
         defaultLocale: 'nl',
-        initialPageSection: 'articleSection',
       },
     },
     {

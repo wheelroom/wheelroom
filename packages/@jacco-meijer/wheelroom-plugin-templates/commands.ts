@@ -10,7 +10,7 @@ import { createNewModel } from '../commands/create-new-model/create-new-model'
 import { deleteContent } from '../commands/delete-content/delete-content'
 import { list } from '../commands/list/list'
 import { getComponentConfigs } from '../config/config'
-import { ContentfulApiContext } from '../types/contentful-api-context'
+import { Context } from '../types/context'
 
 const dotEnvResult = dotenv.config()
 if (dotEnvResult.error) {
@@ -25,21 +25,21 @@ const cmdList = async (args: { filter: string }) => {
 const cmdCreateModels = async (args: { filter: string }) => {
   const context = {
     componentConfigs: await getComponentConfigs({ filter: args.filter }),
-  } as ContentfulApiContext
+  } as Context
   await createModels(context)
 }
 
 const cmdCreateContent = async (args: { filter: string }) => {
   const context = {
     componentConfigs: await getComponentConfigs({ filter: args.filter }),
-  } as ContentfulApiContext
+  } as Context
   await createContent(context)
 }
 
 const cmdDeleteContent = async (args: { filter: string }) => {
   const context = {
     componentConfigs: await getComponentConfigs({ filter: args.filter }),
-  } as ContentfulApiContext
+  } as Context
   await deleteContent(context)
 }
 

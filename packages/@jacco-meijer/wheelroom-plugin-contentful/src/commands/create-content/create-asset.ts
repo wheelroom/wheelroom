@@ -6,9 +6,9 @@ import {
   uploadFile,
 } from '../../contentful-api/asset'
 import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
-import { ContentfulApiContext } from '../../types/contentful-api-context'
+import { Context } from '../../types/context'
 
-const finish = async (context: ContentfulApiContext) => {
+const finish = async (context: Context) => {
   console.log(`Succesfully created asset`)
   return context
 }
@@ -17,14 +17,11 @@ const handleError = (error: Error) => {
   console.log(error.message)
 }
 
-export const createAsset = async (context: ContentfulApiContext) => {
+export const createAsset = async (context: Context) => {
   if (Object.keys(context.components).length < 1) {
     return
   }
   console.log(`Creating demo asset =============`)
-
-  // Get locale from fist component
-  // context.defaultLocale = context.componentConfigs[0].defaultLocale
 
   try {
     await getClient(context)

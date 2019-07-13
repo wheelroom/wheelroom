@@ -1,5 +1,3 @@
-import { componentType } from './simple-types'
-
 export type contentType =
   | 'Array'
   | 'Boolean'
@@ -119,7 +117,7 @@ export interface Model {
   /** Contentful model name */
   name: string
   /** Contentful model type */
-  type: componentType
+  type: string
   /** Wheelroom model type */
   wheelroomType: wheelroomType
 }
