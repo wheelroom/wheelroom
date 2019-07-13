@@ -2,9 +2,8 @@ path = require('path')
 
 // WIP Working towards new modular setup
 module.exports = {
-  defaultLocale: 'nl',
   defaultComponentResolve: `@jacco-meijer/content-models`,
-  componentTypes: {
+  components: {
     articleSection: {},
     globals: {
       resolve: '@jacco-meijer/content-models',
@@ -17,12 +16,14 @@ module.exports = {
     {
       resolve: '@jacco-meijer/wheelroom-plugin-contentful',
       options: {
+        defaultLocale: 'nl',
         initialPageSection: 'articleSection',
       },
     },
     {
       resolve: '@jacco-meijer/wheelroom-plugin-templates',
       options: {
+        defaultLocale: 'nl',
         defaultTemplateResolve: `@jacco-meijer/content-models`,
         templateSets: {
           fragments: {

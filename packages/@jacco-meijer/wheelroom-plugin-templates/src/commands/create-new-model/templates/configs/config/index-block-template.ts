@@ -15,5 +15,5 @@ import { variations } from './variations'
 export const ${vars.componentType} = {
   model,
   variations,
-} as ComponentsMapItem
+}
 `

@@ -17,5 +17,5 @@ export const ${vars.componentType} = {
   fragment,
   model,
   variations,
-} as ComponentsMapItem
+}
 `

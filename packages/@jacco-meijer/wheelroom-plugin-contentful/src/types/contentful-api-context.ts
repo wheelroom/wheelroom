@@ -1,16 +1,12 @@
-import { ComponentConfig } from './component-config'
+import { Components } from '@jacco-meijer/wheelroom'
 import { Model } from './model'
-import {
-  componentLocale,
-  componentVariations,
-  overwriteVariations,
-} from './simple-types'
+import { componentVariations, overwriteVariations } from './simple-types'
 
 export interface ContentfulApiContext {
   /** Contentful asset object */
   asset: any
-  /** default locale */
-  defaultLocale: componentLocale
+  /** Wheelroom components */
+  components: Components
   /** Contentful Management Client */
   contentfulClient: any
   /** Contentful contentType object */
@@ -34,8 +30,6 @@ export interface ContentfulApiContext {
   editorInterface: any
   /** Contentful environment object */
   environment: any
-  /** Array of all models configs to be applied */
-  componentConfigs: ComponentConfig[]
   /** Contentful space object */
   space: any
   /** Contentful upload object */

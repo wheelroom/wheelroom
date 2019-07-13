@@ -38,15 +38,15 @@ export const createModel = async (context: ContentfulApiContext) => {
 }
 
 export const createModels = async (context: ContentfulApiContext) => {
-  for (const componentConfig of context.componentConfigs) {
-    console.log(`Applying model ${componentConfig.model.type} =============`)
-    context.contentType = null
-    context.currentModel = componentConfig.model
-    context.editorInterface = null
-    context.variationField = {
-      overwriteVariations: componentConfig.overwriteVariations,
-      variations: componentConfig.variations,
-    }
-    await createModel(context)
-  }
+  // for (const componentConfig of context.components) {
+  //   console.log(`Applying model ${componentConfig.model.type} =============`)
+  //   context.contentType = null
+  //   context.currentModel = componentConfig.model
+  //   context.editorInterface = null
+  //   context.variationField = {
+  //     overwriteVariations: componentConfig.overwriteVariations,
+  //     variations: componentConfig.variations,
+  //   }
+  //   await createModel(context)
+  // }
 }

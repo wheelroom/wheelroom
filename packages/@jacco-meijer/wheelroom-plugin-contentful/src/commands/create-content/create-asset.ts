@@ -18,13 +18,13 @@ const handleError = (error: Error) => {
 }
 
 export const createAsset = async (context: ContentfulApiContext) => {
-  if (context.componentConfigs.length < 1) {
+  if (Object.keys(context.components).length < 1) {
     return
   }
   console.log(`Creating demo asset =============`)
 
   // Get locale from fist component
-  context.defaultLocale = context.componentConfigs[0].defaultLocale
+  // context.defaultLocale = context.componentConfigs[0].defaultLocale
 
   try {
     await getClient(context)

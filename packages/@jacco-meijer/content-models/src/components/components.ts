@@ -1,5 +1,3 @@
-import { ComponentsMap } from '@jacco-meijer/wheelroom'
-
 import { article } from './article'
 import { articleSection } from './article-section'
 import { articlesSection } from './articles-section'
@@ -14,7 +12,7 @@ import { navigation } from './navigation'
 import { openerSection } from './opener-section'
 import { page } from './page'
 
-export const componentsMap = {
+export const components = {
   article,
   articleSection,
   articlesSection,
@@ -28,4 +26,4 @@ export const componentsMap = {
   navigation,
   openerSection,
   page,
-} as ComponentsMap
+}

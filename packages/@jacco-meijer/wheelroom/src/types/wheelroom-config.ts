@@ -1,56 +1,33 @@
-import {
-  componentLocale,
-  componentType,
-  componentVariations,
-  nodeModuleName,
-  overwriteVariations,
-} from './simple-types'
+import { componentName, nodeModuleName } from './simple-types'
 
 export interface ComponentToBeResolved {
-  componentType: componentType
-  /** default locale */
-  defaultLocale: componentLocale
-  /** When demo page content is created, this section is used */
-  initialPageSection: string
-  /** Value true removes the original variations from the model  */
-  overwriteVariations: overwriteVariations
-  /** Additional component variations */
-  variations: componentVariations
-}
-
-export interface ResolveInfo {
-  componentsToResolve: ComponentToBeResolved[]
+  componentName: componentName
+  options: any
 }
 
 export interface Resolvers {
-  [moduleName: string]: ResolveInfo
+  [moduleName: string]: ComponentToBeResolved[]
 }
 
 export interface WheelroomComponent {
-  /** The module that exports the componentMap */
+  /** The module that exports the components array */
   resolve: nodeModuleName
-  /** Additional component variations */
-  variations: componentVariations
-  /** Value true removes the original variations from the model  */
-  overwriteVariations: overwriteVariations
+  /** Component options */
+  options: any
 }
 
 export interface Plugin {
-  /** The module that exports the commandsMap */
+  /** The module that exports the commands array */
   resolve: nodeModuleName
   /** Plugin options */
   options: any
 }
 
 export interface WheelroomConfig {
-  /** Locale being server from the root path */
-  defaultLocale: componentLocale
-  /** When demo page content is created, this section is used */
-  initialPageSection: string
-  /** Default value for componentType.resolve */
+  /** Default value for componentName.resolve */
   defaultComponentResolve: nodeModuleName
-  componentTypes: {
-    [componentType: string]: WheelroomComponent
+  components: {
+    [componentName: string]: WheelroomComponent
   }
   plugins: Plugin[]
 }

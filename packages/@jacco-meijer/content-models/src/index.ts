@@ -1,5 +1,5 @@
 export * from './components/article/helpers/get-meta-tags'
-export * from './components/components-map'
+export * from './components/components'
 export * from './components/page/helpers/debug'
 export * from './components/page/helpers/get-meta-tags'
 export * from './components/page/helpers/landmarks'

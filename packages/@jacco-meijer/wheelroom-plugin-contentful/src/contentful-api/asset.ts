@@ -36,29 +36,29 @@ export const uploadFile = async (context: ContentfulApiContext) => {
 }
 
 export const updateAsset = async (context: ContentfulApiContext) => {
-  if (!context.asset) {
-    return
-  }
-  console.log(`Updating asset`)
-  context.asset.fields = {
-    description: { [context.defaultLocale]: 'Demo asset with fixed id' },
-    file: {
-      [context.defaultLocale]: {
-        contentType,
-        fileName,
-        uploadFrom: {
-          sys: {
-            id: context.upload.sys.id,
-            linkType: 'Upload',
-            type: 'Link',
-          },
-        },
-      },
-    },
-    title: { [context.defaultLocale]: fileName },
-  }
-  context.asset = await context.asset.update()
-  context.asset = await context.asset.processForAllLocales()
+  // if (!context.asset) {
+  //   return
+  // }
+  // console.log(`Updating asset`)
+  // context.asset.fields = {
+  //   description: { [context.defaultLocale]: 'Demo asset with fixed id' },
+  //   file: {
+  //     [context.defaultLocale]: {
+  //       contentType,
+  //       fileName,
+  //       uploadFrom: {
+  //         sys: {
+  //           id: context.upload.sys.id,
+  //           linkType: 'Upload',
+  //           type: 'Link',
+  //         },
+  //       },
+  //     },
+  //   },
+  //   title: { [context.defaultLocale]: fileName },
+  // }
+  // context.asset = await context.asset.update()
+  // context.asset = await context.asset.processForAllLocales()
 }
 
 export const publishAsset = async (context: ContentfulApiContext) => {

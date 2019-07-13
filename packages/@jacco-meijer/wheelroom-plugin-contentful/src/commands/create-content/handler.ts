@@ -8,7 +8,7 @@ import {
 } from '../../contentful-api/content'
 import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
 import { ContentfulApiContext } from '../../types/contentful-api-context'
-import { createAsset } from './create-asset'
+// import { createAsset } from './create-asset'
 
 const finish = async (context: ContentfulApiContext) => {
   console.log(`Succesfully created content for: ${context.currentModel.type}`)
@@ -43,25 +43,26 @@ export const handler = async (argv: any) => {
     'Data I got:',
     argv.options['@jacco-meijer/wheelroom-plugin-contentful']
   )
+  console.log('Components:', argv.components)
   return
-  const context = {
-    componentConfigs: {},
-  } as ContentfulApiContext
+  // const context = {
+  //   componentConfigs: {},
+  // } as ContentfulApiContext
 
-  await createAsset(context)
-  for (const componentConfig of context.componentConfigs) {
-    console.log(
-      `Creating content for model ${componentConfig.model.type} =============`
-    )
-    context.entry = null
-    context.fields = {}
-    context.currentModel = componentConfig.model
-    context.defaultLocale = componentConfig.defaultLocale
-    context.initialPageSection = componentConfig.initialPageSection
-    context.variationField = {
-      overwriteVariations: componentConfig.overwriteVariations,
-      variations: componentConfig.variations,
-    }
-    await createContentForModel(context)
-  }
+  // await createAsset(context)
+  // for (const componentConfig of context.componentConfigs) {
+  //   console.log(
+  //     `Creating content for model ${componentConfig.model.type} =============`
+  //   )
+  //   context.entry = null
+  //   context.fields = {}
+  //   context.currentModel = componentConfig.model
+  //   context.defaultLocale = componentConfig.defaultLocale
+  //   context.initialPageSection = componentConfig.initialPageSection
+  //   context.variationField = {
+  //     overwriteVariations: componentConfig.overwriteVariations,
+  //     variations: componentConfig.variations,
+  //   }
+  //   await createContentForModel(context)
+  // }
 }
