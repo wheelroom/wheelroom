@@ -17,12 +17,12 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
   const resolvers = {} as Resolvers
   Object.entries(wheelroomConfig.components).forEach(
     ([name, component]: [componentName, WheelroomComponent]) => {
-      const moduleName =
+      const componentResolve =
         component.resolve || wheelroomConfig.defaultComponentResolve
-      if (!(moduleName in resolvers)) {
-        resolvers[moduleName] = []
+      if (!(componentResolve in resolvers)) {
+        resolvers[componentResolve] = []
       }
-      resolvers[moduleName].push({
+      resolvers[componentResolve].push({
         componentName: name,
         options: component.options,
       })
@@ -58,7 +58,7 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
           if (toBeResolved.componentName in module.components) {
             const newComponent = {
               component: module.components[toBeResolved.componentName],
-              options: module.components[toBeResolved.options],
+              options: toBeResolved.options,
               sourceModule: moduleName,
             } as Component
 
