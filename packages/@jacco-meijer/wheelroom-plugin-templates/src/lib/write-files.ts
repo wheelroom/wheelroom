@@ -68,8 +68,11 @@ const writeTemplates = async ({
       async ([templateName, template]: [string, Template]) => {
         const vars = getVars(answers, template, component, componentName)
         const content = template.template(vars)
-        const [fileName, filePath] = getPath(path, template.path, vars)
-        await writeTemplate({ fileName, filePath, content, dryRun })
+        // Not content? Skip writing the file
+        if (content) {
+          const [fileName, filePath] = getPath(path, template.path, vars)
+          await writeTemplate({ fileName, filePath, content, dryRun })
+        }
       }
     )
   )
