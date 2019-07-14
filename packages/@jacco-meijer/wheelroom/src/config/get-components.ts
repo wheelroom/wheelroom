@@ -48,7 +48,7 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
         if (!module) {
           return
         }
-        console.log(`Imported module ${moduleName}`)
+        console.log(`Imported component module ${moduleName}`)
         if (module && !module.components) {
           console.log(`Could not find components object in ${moduleName}`)
           return

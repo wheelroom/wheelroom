@@ -30,42 +30,54 @@ module.exports = {
       options: {
         defaultLocale: 'nl',
         defaultTemplateResolve: `dist/packages:templates`,
-        templateSets: {
-          fragments: {
-            fragmentTemplate: {
-              fileName: '%componentFilename%.ts',
-              wheelroomTypes: ['subPage', 'section', 'global', 'part'],
+        templateSets: [
+          {
+            name: 'fragments',
+            templates: {
+              fragment: {
+                path: '%componentFilename%.ts',
+                typeFilter: ['subPage', 'section', 'global', 'part'],
+              },
             },
           },
-          component: {
-            component: {
-              fileName: '%componentFilename%/%componentFilename%.ts',
-              wheelroomTypes: ['subPage', 'section', 'global', 'part'],
-            },
-            componentBasicVar: {
-              fileName: '%componentFilename%/%componentFilename%-basic-var.ts',
-              wheelroomTypes: ['subPage', 'section', 'global', 'part'],
-            },
-          },
-          config: {
-            graphql: {
-              fileName: '%componentFilename%/graphql.ts',
-              resolve: 'dist/packages:templates',
-              wheelroomTypes: ['subPage', 'section', 'global', 'part'],
+          {
+            name: 'component',
+            questions: 'newModel',
+            templates: {
+              component: {
+                path: '%componentFilename%/%componentFilename%.ts',
+                typeFilter: ['subPage', 'section', 'global', 'part'],
+              },
+              componentBasicVar: {
+                path: '%componentFilename%/%componentFilename%-basic-var.ts',
+                typeFilter: ['subPage', 'section', 'global', 'part'],
+              },
             },
           },
-        },
+          {
+            name: 'config',
+            questions: 'newModel',
+            templates: {
+              graphql: {
+                path: '%componentFilename%/graphql.ts',
+                resolve: 'dist/packages:templates',
+                typeFilter: ['subPage', 'section', 'global', 'part'],
+              },
+            },
+          },
+        ],
       },
-      questions: [
-        {
-          default: 'My new component',
-          message: 'What is the name of the component?',
-          name: 'componentName',
-          type: 'input',
-        },
-        {
-          choices: ['section', 'part', 'block', 'subPage', 'global'],
-          message: `
+      questions: {
+        newModel: [
+          {
+            default: 'My new component',
+            message: 'What is the name of the component?',
+            name: 'componentName',
+            type: 'input',
+          },
+          {
+            choices: ['section', 'part', 'block', 'subPage', 'global'],
+            message: `
           
       Section: A section is a part of a page and has no query
       Part:    A part is part of a section and has no query
@@ -74,26 +86,27 @@ module.exports = {
       Global:  defines fields and a query, always fetched and added to every page
       
       What is the component wheelroom type?`,
-          name: 'wheelroomType',
-          type: 'rawlist',
-        },
-        {
-          default: 'author, bodyText, heading',
-          message: `
+            name: 'wheelroomType',
+            type: 'rawlist',
+          },
+          {
+            default: 'author, bodyText, heading',
+            message: `
       
       This will setup required Symbol fields. Title and variation fields are always created.
       
       What fields would you like to setup?`,
-          name: 'componentFields',
-          type: 'input',
-        },
-        {
-          default: false,
-          message: 'Do you need localized fields?',
-          name: 'localizedFields',
-          type: 'confirm',
-        },
-      ],
+            name: 'componentFields',
+            type: 'input',
+          },
+          {
+            default: false,
+            message: 'Do you need localized fields?',
+            name: 'localizedFields',
+            type: 'confirm',
+          },
+        ],
+      },
     },
   ],
 }
