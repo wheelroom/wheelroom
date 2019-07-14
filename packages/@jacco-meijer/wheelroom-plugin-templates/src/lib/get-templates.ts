@@ -19,6 +19,7 @@ const getResolvers = (
       }
       resolvers[templateResolve].push({
         options: template.options,
+        path: template.path,
         templateName: name,
       })
     }
@@ -52,6 +53,7 @@ export const getTemplates = async (
           if (toBeResolved.templateName in module.templates) {
             const newTemplate = {
               options: toBeResolved.options,
+              path: toBeResolved.path,
               sourceModule: moduleName,
               template: module.templates[toBeResolved.templateName],
             } as Template

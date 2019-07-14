@@ -35,7 +35,7 @@ module.exports = {
             loopComponents: true,
             templates: {
               fragmentTemplate: {
-                path: '%componentFilename%.ts',
+                path: '%component%.ts',
                 options: { filter: ['subPage', 'section', 'global', 'part'] },
               },
             },
@@ -44,12 +44,12 @@ module.exports = {
             name: 'component',
             questions: 'newModel',
             templates: {
-              component: {
-                path: '%componentFilename%/%componentFilename%.ts',
+              componentTemplate: {
+                path: '%component%/%component%.ts',
                 options: { filter: ['subPage', 'section', 'global', 'part'] },
               },
-              componentBasicVar: {
-                path: '%componentFilename%/%componentFilename%-basic-var.ts',
+              componentBasicVarTemplate: {
+                path: '%component%/%component%-basic-var.ts',
                 options: { filter: ['subPage', 'section', 'global', 'part'] },
               },
             },
@@ -59,7 +59,7 @@ module.exports = {
             questions: 'newModel',
             templates: {
               configReadmeTemplate: {
-                path: '%componentFilename%/README.md',
+                path: '%component%/README.md',
                 resolve: 'dist:templates',
                 options: { filter: ['subPage', 'section', 'global', 'part'] },
               },

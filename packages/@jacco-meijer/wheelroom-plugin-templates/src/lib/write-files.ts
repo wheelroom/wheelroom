@@ -1,26 +1,75 @@
 import { Component, Components } from '@jacco-meijer/wheelroom'
-import * as inquirer from 'inquirer'
+// import * as fs from 'fs'
+import * as fse from 'fs-extra'
+// import * as util from 'util'
 import { Options, TemplateSet } from '../types/options'
 import { Template, Templates } from '../types/templates'
+import { askQuestions } from './ask-questions'
 import { getTemplates } from './get-templates'
+import { getVars } from './get-vars'
+import { noTrailingSlash } from './helpers'
 
-interface WriteTemplate {
+// const writeFile = util.promisify(fs.writeFile)
+
+const writeTemplate = async (
+  fileName: string,
+  filePath: string,
+  content: string
+) => {
+  try {
+    await fse.ensureDir(filePath)
+  } catch (error) {
+    console.log(error)
+    process.exit(1)
+  }
+
+  const writeTo = `${filePath}/${fileName}`
+
+  console.log(`Writing to ${writeTo}...`)
+  // await writeFile(writeTo, content)
+}
+
+const getPath = (basePath: string, templatePath: string, vars: any) => {
+  const relPath = templatePath.replace(
+    new RegExp('%component%', 'g'),
+    vars.componentName.dashCase
+  )
+  const fullPath = noTrailingSlash(basePath) + `/${relPath}`
+  const fileName = fullPath.replace(/^.*[\\\/]/, '')
+  const filePath = fullPath.substring(0, fullPath.lastIndexOf('/'))
+  return [fileName, filePath]
+}
+
+interface WriteTemplates {
   answers?: any
-  component?: Component | null
+  component?: Component
   componentName?: string
+  path: string
   templates: Templates
 }
 
-export const writeTemplates = ({
+export const writeTemplates = async ({
   answers,
   component,
   componentName,
+  path,
   templates,
-}: WriteTemplate) => {
-  Object.entries(templates).forEach(
-    ([templateName, template]: [string, Template]) => {
-      console.log('Writing template for component', componentName, templateName)
-    }
+}: WriteTemplates) => {
+  await Promise.all(
+    Object.entries(templates).map(
+      async ([templateName, template]: [string, Template]) => {
+        const vars = getVars(answers, template, component, componentName)
+        console.log(
+          'Writing template for component',
+          vars.componentName.camelCase,
+          templateName
+        )
+        const content = 'test' // template.template(vars)
+        const [fileName, filePath] = getPath(path, template.path, vars)
+
+        await writeTemplate(fileName, filePath, content)
+      }
+    )
   )
 }
 
@@ -34,33 +83,23 @@ export const writeFiles = async (
     templateSet.templates,
     pluginOptions.defaultTemplateResolve
   )
-  let answers: any
-
-  if (pluginOptions.questionSets && templateSet.questions) {
-    if (templateSet.questions in pluginOptions.questionSets) {
-      answers = await inquirer.prompt(pluginOptions.questionSets[
-        templateSet.questions
-      ] as any)
-    } else {
-      console.log(`Could not find ${templateSet.questions} in questionSets`)
-      console.log(
-        `Available questionSets: ${Object.keys(pluginOptions.questionSets)}`
-      )
-    }
-  }
+  const answers = await askQuestions(pluginOptions, templateSet)
 
   if (templateSet.loopComponents) {
-    Object.entries(components).forEach(
-      ([componentName, component]: [string, Component]) => {
-        writeTemplates({
-          answers,
-          component,
-          componentName,
-          templates,
-        })
-      }
+    await Promise.all(
+      Object.entries(components).map(
+        async ([componentName, component]: [string, Component]) => {
+          await writeTemplates({
+            answers,
+            component,
+            componentName,
+            path,
+            templates,
+          })
+        }
+      )
     )
   } else {
-    writeTemplates({ templates })
+    await writeTemplates({ answers, path, templates })
   }
 }
