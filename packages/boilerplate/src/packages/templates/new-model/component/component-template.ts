@@ -1,6 +1,4 @@
-import { Vars } from '../../../create-new-model'
-
-export const componentTemplate = (vars: Vars) => `/**
+export const componentTemplate = (vars: any) => `/**
  * Component
  *
  * Component type: ${vars.componentType}

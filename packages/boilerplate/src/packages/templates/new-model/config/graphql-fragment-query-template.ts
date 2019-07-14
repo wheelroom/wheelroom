@@ -1,6 +1,4 @@
-import { Vars } from '../../../create-new-model'
-
-export const graphqlFragmentQueryTemplate = (vars: Vars) =>
+export const graphqlFragmentQueryTemplate = (vars: any) =>
   `/**
  * Graphql definitions
  *

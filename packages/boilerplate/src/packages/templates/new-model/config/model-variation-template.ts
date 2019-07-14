@@ -1,6 +1,4 @@
-import { Vars } from '../../../create-new-model'
-
-export const modelNoVariationTemplate = (vars: Vars) => `/**
+export const modelVariationTemplate = (vars: any) => `/**
  * Model definition
  *
  * Component type: ${vars.componentType}
@@ -9,6 +7,7 @@ export const modelNoVariationTemplate = (vars: Vars) => `/**
  */
 
 import { Model } from '@jacco-meijer/wheelroom-plugin-contentful'
+import { variations } from './variations'
 
 export const model = {
   contentBackend: 'contentful',
@@ -26,6 +25,23 @@ export const model = {
         type: 'Symbol',
       },
       widgetId: 'singleLine',
+    },
+    variation: {
+      initialContent: variations[0],
+      settings: {
+        helpText: 'Select variation',
+      },
+      specs: {
+        name: '${vars.componentDescription} variation',
+        required: true,
+        type: 'Symbol',
+        validations: [
+          {
+            in: variations,
+          },
+        ],
+      },
+      widgetId: 'dropdown',
     },
     // tslint:disable-next-line: object-literal-sort-keys
 ${vars.modelFields}  },

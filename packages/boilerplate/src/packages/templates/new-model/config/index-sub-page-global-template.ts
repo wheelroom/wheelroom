@@ -1,6 +1,4 @@
-import { Vars } from '../../../create-new-model'
-
-export const indexSectionPartTemplate = (vars: Vars) => `/**
+export const indexSubPageGlobalTemplate = (vars: any) => `/**
  * Component index
  *
  * Component type: ${vars.componentType}
@@ -8,14 +6,14 @@ export const indexSectionPartTemplate = (vars: Vars) => `/**
  *
  */
 
-import { ComponentsMapItem } from '@jacco-meijer/wheelroom'
+import { ComponentConfig } from '@jacco-meijer/wheelroom'
+import { query } from './graphql'
 import { fragment } from './graphql'
 import { model } from './model'
-import { variations } from './variations'
 
 export const ${vars.componentType} = {
   fragment,
   model,
-  variations,
-}
+  query,
+} as ComponentConfig
 `

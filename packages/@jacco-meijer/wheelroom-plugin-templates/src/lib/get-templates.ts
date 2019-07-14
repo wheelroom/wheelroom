@@ -18,6 +18,7 @@ const getResolvers = (
         resolvers[templateResolve] = []
       }
       resolvers[templateResolve].push({
+        options: template.options,
         templateName: name,
       })
     }
@@ -30,9 +31,6 @@ export const getTemplates = async (
   defaultTemplateConfigResolve: string
 ) => {
   const fetchedTemplates = {} as Templates
-  console.log(defaultTemplateConfigResolve)
-  console.log(templates)
-
   const resolvers = getResolvers(templates, defaultTemplateConfigResolve)
   await Promise.all(
     Object.entries(resolvers).map(
@@ -51,8 +49,9 @@ export const getTemplates = async (
         }
 
         templatesToResolve.forEach((toBeResolved: TemplateToBeResolved) => {
-          if (toBeResolved.templateName in module.components) {
+          if (toBeResolved.templateName in module.templates) {
             const newTemplate = {
+              options: toBeResolved.options,
               sourceModule: moduleName,
               template: module.templates[toBeResolved.templateName],
             } as Template

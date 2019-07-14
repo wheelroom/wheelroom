@@ -1,6 +1,4 @@
-import { Vars } from '../../../create-new-model'
-
-export const componentIndexTemplate = (vars: Vars) => `/**
+export const componentIndexTemplate = (vars: any) => `/**
  * Component index
  *
  * Component type: ${vars.componentType}

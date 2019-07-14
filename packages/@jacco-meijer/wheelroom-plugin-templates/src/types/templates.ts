@@ -4,6 +4,8 @@ export interface Templates {
 }
 
 export interface Template {
+  /** Custom options passed to each template */
+  options: any
   /** Template data  */
   template: any
   /** Module component was imported from */

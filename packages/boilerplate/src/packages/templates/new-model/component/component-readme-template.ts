@@ -1,6 +1,4 @@
-import { Vars } from '../../../create-new-model'
-
-export const componentReadmeTemplate = (vars: Vars) =>
+export const componentReadmeTemplate = (vars: any) =>
   `# ${vars.componentClassName}
 
 Wheelroom type: ${vars.wheelroomType}

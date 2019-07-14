@@ -2,7 +2,7 @@ import {
   getAvailableTemplateSets,
   getTemplateSet,
 } from '../../lib/get-template-sets'
-import { getTemplates } from '../../lib/get-templates'
+import { writeFiles } from '../../lib/write-files'
 import { Options } from '../../types/options'
 
 export const handler = async (argv: any) => {
@@ -20,11 +20,6 @@ export const handler = async (argv: any) => {
     console.log(`Avaialble templateSets are: ${templateSets}`)
     return
   }
-  const templates = await getTemplates(
-    templateSet.templates,
-    pluginOptions.defaultTemplateResolve
-  )
-  // console.log('Components:', argv.components)
-  console.log('templates:', templates)
-  // console.log('path:', argv.path)
+
+  await writeFiles(argv.path, templateSet, pluginOptions, argv.components)
 }

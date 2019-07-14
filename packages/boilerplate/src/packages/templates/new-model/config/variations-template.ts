@@ -1,6 +1,4 @@
-import { Vars } from '../../../create-new-model'
-
-export const variationsTemplate = (vars: Vars) => `/**
+export const variationsTemplate = (vars: any) => `/**
  * Component variation constants
  *
  * Each description serves as an ID's and is visible for Contentful content editors

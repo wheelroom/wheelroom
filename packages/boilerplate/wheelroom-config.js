@@ -28,15 +28,15 @@ module.exports = {
     {
       resolve: '@jacco-meijer/wheelroom-plugin-templates',
       options: {
-        defaultLocale: 'nl',
-        defaultTemplateResolve: `dist/packages:templates`,
+        defaultTemplateResolve: `dist:templates`,
         templateSets: [
           {
             name: 'fragments',
+            loopComponents: true,
             templates: {
-              fragment: {
+              fragmentTemplate: {
                 path: '%componentFilename%.ts',
-                typeFilter: ['subPage', 'section', 'global', 'part'],
+                options: { filter: ['subPage', 'section', 'global', 'part'] },
               },
             },
           },
@@ -46,11 +46,11 @@ module.exports = {
             templates: {
               component: {
                 path: '%componentFilename%/%componentFilename%.ts',
-                typeFilter: ['subPage', 'section', 'global', 'part'],
+                options: { filter: ['subPage', 'section', 'global', 'part'] },
               },
               componentBasicVar: {
                 path: '%componentFilename%/%componentFilename%-basic-var.ts',
-                typeFilter: ['subPage', 'section', 'global', 'part'],
+                options: { filter: ['subPage', 'section', 'global', 'part'] },
               },
             },
           },
@@ -58,26 +58,25 @@ module.exports = {
             name: 'config',
             questions: 'newModel',
             templates: {
-              graphql: {
-                path: '%componentFilename%/graphql.ts',
-                resolve: 'dist/packages:templates',
-                typeFilter: ['subPage', 'section', 'global', 'part'],
+              configReadmeTemplate: {
+                path: '%componentFilename%/README.md',
+                resolve: 'dist:templates',
+                options: { filter: ['subPage', 'section', 'global', 'part'] },
               },
             },
           },
         ],
-      },
-      questions: {
-        newModel: [
-          {
-            default: 'My new component',
-            message: 'What is the name of the component?',
-            name: 'componentName',
-            type: 'input',
-          },
-          {
-            choices: ['section', 'part', 'block', 'subPage', 'global'],
-            message: `
+        questionSets: {
+          newModel: [
+            {
+              default: 'My new component',
+              message: 'What is the name of the component?',
+              name: 'componentName',
+              type: 'input',
+            },
+            {
+              choices: ['section', 'part', 'block', 'subPage', 'global'],
+              message: `
           
       Section: A section is a part of a page and has no query
       Part:    A part is part of a section and has no query
@@ -86,26 +85,27 @@ module.exports = {
       Global:  defines fields and a query, always fetched and added to every page
       
       What is the component wheelroom type?`,
-            name: 'wheelroomType',
-            type: 'rawlist',
-          },
-          {
-            default: 'author, bodyText, heading',
-            message: `
+              name: 'wheelroomType',
+              type: 'rawlist',
+            },
+            {
+              default: 'author, bodyText, heading',
+              message: `
       
       This will setup required Symbol fields. Title and variation fields are always created.
       
       What fields would you like to setup?`,
-            name: 'componentFields',
-            type: 'input',
-          },
-          {
-            default: false,
-            message: 'Do you need localized fields?',
-            name: 'localizedFields',
-            type: 'confirm',
-          },
-        ],
+              name: 'componentFields',
+              type: 'input',
+            },
+            {
+              default: false,
+              message: 'Do you need localized fields?',
+              name: 'localizedFields',
+              type: 'confirm',
+            },
+          ],
+        },
       },
     },
   ],
