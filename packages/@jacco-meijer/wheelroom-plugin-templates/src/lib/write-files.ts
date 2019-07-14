@@ -1,7 +1,8 @@
 import { Component, Components } from '@jacco-meijer/wheelroom'
-// import * as fs from 'fs'
+import * as fs from 'fs'
 import * as fse from 'fs-extra'
-// import * as util from 'util'
+import * as inquirer from 'inquirer'
+import * as util from 'util'
 import { Options, TemplateSet } from '../types/options'
 import { Template, Templates } from '../types/templates'
 import { askQuestions } from './ask-questions'
@@ -9,24 +10,29 @@ import { getTemplates } from './get-templates'
 import { getVars } from './get-vars'
 import { noTrailingSlash } from './helpers'
 
-// const writeFile = util.promisify(fs.writeFile)
+const writeFile = util.promisify(fs.writeFile)
 
-const writeTemplate = async (
-  fileName: string,
-  filePath: string,
+interface WriteTemplate {
+  fileName: string
+  filePath: string
   content: string
-) => {
-  try {
-    await fse.ensureDir(filePath)
-  } catch (error) {
-    console.log(error)
-    process.exit(1)
-  }
+  dryRun?: boolean
+}
 
+const writeTemplate = async ({
+  fileName,
+  filePath,
+  content,
+  dryRun,
+}: WriteTemplate) => {
   const writeTo = `${filePath}/${fileName}`
-
-  console.log(`Writing to ${writeTo}...`)
-  // await writeFile(writeTo, content)
+  if (dryRun) {
+    console.log(`About to write to ${writeTo}`)
+  } else {
+    console.log(`Writing to ${writeTo}`)
+    await fse.ensureDir(filePath)
+    await writeFile(writeTo, content)
+  }
 }
 
 const getPath = (basePath: string, templatePath: string, vars: any) => {
@@ -44,14 +50,16 @@ interface WriteTemplates {
   answers?: any
   component?: Component
   componentName?: string
+  dryRun?: boolean
   path: string
   templates: Templates
 }
 
-export const writeTemplates = async ({
+const writeTemplates = async ({
   answers,
   component,
   componentName,
+  dryRun,
   path,
   templates,
 }: WriteTemplates) => {
@@ -59,18 +67,63 @@ export const writeTemplates = async ({
     Object.entries(templates).map(
       async ([templateName, template]: [string, Template]) => {
         const vars = getVars(answers, template, component, componentName)
-        console.log(
-          'Writing template for component',
-          vars.componentName.camelCase,
-          templateName
-        )
-        const content = 'test' // template.template(vars)
+        const content = template.template(vars)
         const [fileName, filePath] = getPath(path, template.path, vars)
-
-        await writeTemplate(fileName, filePath, content)
+        await writeTemplate({ fileName, filePath, content, dryRun })
       }
     )
   )
+}
+
+interface Write {
+  path: string
+  templateSet: TemplateSet
+  components: Components
+  answers: any
+  templates: Templates
+  dryRun: boolean
+}
+
+const write = async ({
+  path,
+  templateSet,
+  components,
+  answers,
+  templates,
+  dryRun,
+}: Write) => {
+  if (templateSet.loopComponents) {
+    await Promise.all(
+      Object.entries(components).map(
+        async ([componentName, component]: [string, Component]) => {
+          const writeParams = {
+            answers,
+            component,
+            componentName,
+            dryRun,
+            path,
+            templates,
+          }
+          await writeTemplates(writeParams)
+        }
+      )
+    )
+  } else {
+    await writeTemplates({ answers, path, templates })
+  }
+}
+
+const confirmWrite = async () => {
+  const confirm = [
+    {
+      default: true,
+      message: 'Continue write?',
+      name: 'confirmWrite',
+      type: 'confirm',
+    },
+  ] as any
+  const confirmAnswer: any = await inquirer.prompt(confirm)
+  return confirmAnswer.confirmWrite
 }
 
 export const writeFiles = async (
@@ -85,21 +138,9 @@ export const writeFiles = async (
   )
   const answers = await askQuestions(pluginOptions, templateSet)
 
-  if (templateSet.loopComponents) {
-    await Promise.all(
-      Object.entries(components).map(
-        async ([componentName, component]: [string, Component]) => {
-          await writeTemplates({
-            answers,
-            component,
-            componentName,
-            path,
-            templates,
-          })
-        }
-      )
-    )
-  } else {
-    await writeTemplates({ answers, path, templates })
+  const writeParams = { path, templateSet, components, answers, templates }
+  await write({ ...writeParams, dryRun: true })
+  if (await confirmWrite()) {
+    await write({ ...writeParams, dryRun: false })
   }
 }

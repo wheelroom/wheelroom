@@ -1,4 +1,4 @@
-export const sectionPropsTemplate = () =>
+export const sectionPropsTemplate = (vars: any) =>
   `import { landMarkType, NamedPaths } from '@jacco-meijer/wheelroom'
 
 /** These are suitable defaults, you probably want to add some props specific

@@ -1,4 +1,4 @@
-export const getVariationTemplate = () =>
+export const getVariationTemplate = (vars: any) =>
   `import * as React from 'react'
 
 const VariationNotFound = (props: any) => (
