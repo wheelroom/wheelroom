@@ -50,7 +50,7 @@
     "wheelroom"
   ],
   "license": "MIT",
-  "main": "gatsby-config.js",
+  "main": "index.js",
   "name": "gatsby-theme-wheelroom",
   "repository": {
     "type": "git",

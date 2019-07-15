@@ -20,8 +20,6 @@ if (!cfConfig.spaceId || !cfConfig.accessToken) {
 }
 
 module.exports = {
-  // Exprting commands makes it a valid wheelroom plugin
-  commands: [],
   plugins: [
     'gatsby-plugin-offline',
     {
