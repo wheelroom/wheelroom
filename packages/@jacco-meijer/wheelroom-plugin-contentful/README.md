@@ -26,7 +26,7 @@ CONTENTFUL_ENVIRONMENT=master
 
 ## Commands
 
-This plugin adds three commands
+This plugin adds three commands.
 
 To create the models at Contentful use:
 ```
