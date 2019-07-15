@@ -1,6 +1,9 @@
 import { nodeModuleName } from '../types/simple-types'
 import { getAppDir } from './helpers'
 
+/** import a node module from 'node_modules'. If the moduleName is prefixed
+ * with 'path/to/module:' that path will be used instead of 'node_modules'
+ */
 export const getModule = async (moduleResolve: nodeModuleName) => {
   let errorMessage = ''
 

@@ -31,7 +31,11 @@ const getResolvers = (wheelroomConfig: WheelroomConfig) => {
   return resolvers
 }
 
-export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
+/** Get component data from components object in wheelroom-config.js. If a
+ * config is passed, that config will be used. If not, the config will be loaded
+ * from file. Data is returned in a Components object.
+ */
+export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
   if (!wheelroomConfig) {
     wheelroomConfig = await readConfig()
   }

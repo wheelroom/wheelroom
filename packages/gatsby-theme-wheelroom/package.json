@@ -40,7 +40,9 @@
   },
   "files": [
     "gatsby-config.*",
-    "gatsby-node.*"
+    "gatsby-node.*",
+    "lib/*",
+    "types/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": [

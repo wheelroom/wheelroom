@@ -1,7 +1,8 @@
-import { getModule } from '../config/get-module'
 import { WheelroomConfig } from '../types/wheelroom-config'
+import { getModule } from './get-module'
 
-export const commandsFromPlugins = async (config: WheelroomConfig) => {
+/** Import commands by resolving them as configured in wheelroom config */
+export const getCommands = async (config: WheelroomConfig) => {
   const commands = [] as any[]
   await Promise.all(
     config.plugins.map(async plugin => {

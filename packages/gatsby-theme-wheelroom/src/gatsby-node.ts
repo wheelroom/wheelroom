@@ -1,21 +1,24 @@
 import {
-  buildNamedPaths,
-  createPages,
-  createSubPages,
-  GatsbyNodeContext,
-  getComponentConfigs,
-  getWheelroomConfig,
-  runQueries,
+  getComponents,
+  getPluginOptions,
+  readConfig,
 } from '@jacco-meijer/wheelroom'
+import { buildNamedPaths } from './lib/build-named-paths'
+import { createPages } from './lib/create-pages'
+import { createSubPages } from './lib/create-sub-pages'
+import { runQueries } from './lib/run-queries'
+import { Context } from './types/context'
 
 exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
 
-  const wheelroomConfig = await getWheelroomConfig()
-  const componentConfigs = await getComponentConfigs({ wheelroomConfig })
+  const config = await readConfig()
+  const components = await getComponents(config)
+  const allPluginOptions = await getPluginOptions(config)
+  const wheelroomPluginOptions = allPluginOptions['gatsby-theme-wheelroom']
 
   const context = {
-    componentConfigs,
+    components,
     createPage,
     graphql,
     namedPaths: {},
@@ -25,8 +28,8 @@ exports.createPages = async ({ graphql, actions }: any, options: any) => {
       page: {},
       subPage: {},
     },
-    wheelroomConfig,
-  } as GatsbyNodeContext
+    wheelroomPluginOptions,
+  } as Context
 
   await runQueries(context)
   buildNamedPaths(context)

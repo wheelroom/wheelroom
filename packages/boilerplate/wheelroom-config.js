@@ -23,6 +23,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-theme-wheelroom',
+      options: {
+        defaultLocale: 'nl',
+      },
+    },
+    {
       resolve: '@jacco-meijer/wheelroom-plugin-contentful',
       options: {
         defaultLocale: 'nl',

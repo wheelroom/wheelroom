@@ -1,6 +1,5 @@
-import { WheelroomConfig } from '../types/wheelroom-config'
+import { Components } from '@jacco-meijer/wheelroom'
 import { NamedPaths } from './named-paths'
-import { PassedToPlugins } from './passed-to-plugins'
 
 export interface ContentfulNode {
   id: string
@@ -17,9 +16,9 @@ export interface PluginOptions {
   pageTemplate: string
 }
 
-export interface GatsbyNodeContext {
+export interface Context {
   /** All configured models */
-  passedToPlugin: PassedToPlugins
+  components: Components
   /** Contains for each named path: path: raw path, xx: localized xx path */
   namedPaths: NamedPaths
   /** The plugin configuration options */
@@ -30,6 +29,9 @@ export interface GatsbyNodeContext {
       [componentId: string]: ContentfulObject[]
     }
   }
+  /** Options read from wheelroom-config -> plugins -> gatsby-theme-wheelroom */
+  wheelroomPluginOptions: any
+
   createPage(params: object): Promise<any>
   graphql(query: string): Promise<any>
 }
@@ -37,11 +39,11 @@ export interface GatsbyNodeContext {
 export interface PageContext {
   locale: string
   namedPaths: NamedPaths
-  [componentTypeIdKey: string]: string | NamedPaths | WheelroomConfig
+  [componentTypeIdKey: string]: string | NamedPaths
 }
 
 export interface GetPageContext {
-  context: GatsbyNodeContext
+  context: Context
   page: ContentfulNode
   subPage?: ContentfulObject
   /** Contentful model type */
