@@ -53,7 +53,7 @@
     "build:clean": "rm -rf ./dist",
     "build:compile": "tsc",
     "build:lint": "tslint --project tsconfig.json",
-    "preinstall": "npm-install-peers",
+    "postinstall": "npm-install-peers",
     "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
