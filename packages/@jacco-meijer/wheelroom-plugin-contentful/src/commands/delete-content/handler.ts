@@ -4,6 +4,8 @@ import {
   unPublishEntry,
 } from '../../contentful-api/content'
 import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
+import { componentsFound } from '../../lib/components-found'
+import { confirmAction } from '../../lib/confirm-action'
 import { getCurrentModel } from '../../lib/get-current-model'
 import { initializeContext } from '../../lib/initialize-context'
 import { readDotEnv } from '../../lib/read-dot-env'
@@ -39,7 +41,16 @@ export const deleteContentForModel = async (context: Context) => {
 export const handler = async (argv: any) => {
   readDotEnv()
   const context = initializeContext(argv)
-
+  if (!componentsFound(context.components)) {
+    return
+  }
+  const confirmed = await confirmAction(
+    'Remove Contentful demo content for these components',
+    context
+  )
+  if (!confirmed) {
+    return
+  }
   for (const [componentName, component] of Object.entries(context.components)) {
     console.log(`Removing content for model ${componentName} =============`)
     const newContext = initializeContext(argv)

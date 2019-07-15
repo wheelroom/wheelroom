@@ -24,11 +24,13 @@ export const getFields = (context: Context) => {
           break
 
         case 'Array':
+          const modelOptions = context.currentModel.modelOptions
           const arrayItems = field.specs.items || ({} as any)
           const initialContent =
             field.initialContent === 'initialPageSection' &&
-            context.currentModel.modelOptions.initialPageSection
-              ? context.currentModel.modelOptions.initialPageSection
+            modelOptions &&
+            modelOptions.initialPageSection
+              ? modelOptions.initialPageSection
               : field.initialContent
 
           switch (arrayItems.type) {
@@ -118,11 +120,16 @@ export const getFields = (context: Context) => {
 
 /** If custom variations are defined, set demo content to first variation */
 export const applyVariationField = (context: Context) => {
-  // if (context.variationField.variations.length > 0) {
-  //   context.contentfulApi.fields.variation = {
-  //     [context.pluginOptions.defaultLocale]: context.variationField.variations[0],
-  //   }
-  // }
+  const modelOptions = context.currentModel.modelOptions
+  if (
+    modelOptions &&
+    modelOptions.variations &&
+    modelOptions.variations.length > 0
+  ) {
+    context.contentfulApi.fields.variation = {
+      [context.pluginOptions.defaultLocale]: modelOptions.variations[0],
+    }
+  }
 }
 
 export const getEntry = async (context: Context) => {

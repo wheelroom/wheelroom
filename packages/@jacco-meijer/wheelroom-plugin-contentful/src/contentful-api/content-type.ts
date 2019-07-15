@@ -76,9 +76,10 @@ const getApiFields = (context: Context): any[] => {
         // See if we need to handle custom variations
         const modelOptions = context.currentModel.modelOptions
         if (
+          modelOptions &&
+          modelOptions.variations &&
           fieldId === 'variation' &&
-          specName === 'validations' &&
-          modelOptions.variations
+          specName === 'validations'
         ) {
           const existingValue = (specValue as any)[0].in
           const addValues = modelOptions.variations
