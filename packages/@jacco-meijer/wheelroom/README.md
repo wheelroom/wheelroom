@@ -23,10 +23,21 @@ wheelroom list
 
 Other commands are added through plugins.
 
+## Components
+
+Components are resolved from the **resolve** property. The
+`defaultComponentResolve` property serves as default. The resolved module is
+expected to export a **component** object. The keys of the object are the
+componentName. The values contain the component data.
+
 ## Plugins
 
 Plugins define their own set of commands. Running `wheelroom --help` shows all
 the configured commands available.
+
+Plugins are resolved from the **resolve** property. The module is expected to
+export a **commands** array. The items of the array are command modules for the
+npm `yargs` module. See `yargs` documentation for more information.
 
 ## Config
 

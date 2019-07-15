@@ -41,6 +41,13 @@ module.exports = {
 Template sets define which templates are used and where they are resolved from.
 They are grouped in template sets.
 
+A template set is defined by these fields.
+
+* **loopComponents:** If defined, all templates are called with each individual
+  component.
+* **questions:** Optional questions object. See below.
+* **templates:** Object with template names. See below.
+
 This is an example template set configuration.
 
 ```
@@ -72,25 +79,31 @@ module.exports = [
 ]
 ```
 
-A template is defined by these fields.
+## Templates
 
-### path
-Where to create the file. It may contain a sub string `%component%` which is
-replaced by the dashed version of the camelCase componentName.
+The templates are defined by a key that serves as template name and an object
+with these fields:
 
-If `loopComponents` is not set, no component will will be available. In that
-case the `questions` can be used to ask for a componentName. If the
-`componentName` field is present in the answers, that field will be converted to
-camelCase and used.
+* **path:** Where to create the file. It may contain a sub string `%component%` which
+  is replaced by the dashed version of the camelCase componentName.
 
-### options
-Optional data passed to each template.
-
+  If `loopComponents` is not set, no component will will be available. In that
+  case the `questions` can be used to ask for a componentName. If the
+  `componentName` field is present in the answers, that field will be converted
+  to camelCase and used.
+* **options:** Optional data passed to each template.
+* **resolve:** Name of npm module where to resolve the template. The plugin can
+  have a `defaultTemplateResolve` property which serves as default. The module
+  is expected to export a templates object. The keys are the template names that
+  correspond to the names in the template set configuration. The values should
+  be functions that expect a `vars` property and return the file content. If
+  nothing is returned, the file is not created.
 
 ## Questions
 
-If defined, the object is passed to the npm module inquirer, the answers object
-will be passed to each template.
+If defined, the object is passed to the npm `inquirer` module, the answers
+object will be passed to each template. See `inquirer` documentation for more
+details.
    
 This is an example questions object:
 
