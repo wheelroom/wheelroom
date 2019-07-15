@@ -1,9 +1,8 @@
-import { Component, Components } from '../../types/components'
+import { getFilteredComponents } from '../../config/get-filtered-components'
+import { Component } from '../../types/components'
 
 export const handler = async (argv: any) => {
-  console.log('filter', argv.filter)
-
-  const components = argv.components as Components
+  const components = getFilteredComponents(argv)
 
   Object.entries(components).forEach(
     ([componentName, component]: [string, Component]) => {

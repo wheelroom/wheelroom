@@ -1,5 +1,6 @@
 import 'regenerator-runtime/runtime'
 
+export * from './config/get-filtered-components'
 export * from './config/get-commands'
 export * from './config/get-components'
 export * from './config/get-module'

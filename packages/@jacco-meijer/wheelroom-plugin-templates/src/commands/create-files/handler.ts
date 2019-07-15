@@ -1,3 +1,4 @@
+import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import {
   getAvailableTemplateSets,
   getTemplateSet,
@@ -21,5 +22,10 @@ export const handler = async (argv: any) => {
     return
   }
 
-  await writeFiles(argv.path, templateSet, pluginOptions, argv.components)
+  await writeFiles(
+    argv.path,
+    templateSet,
+    pluginOptions,
+    getFilteredComponents(argv)
+  )
 }
