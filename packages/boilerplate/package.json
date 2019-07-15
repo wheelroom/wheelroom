@@ -65,13 +65,7 @@
     "build:load-env": "export $(grep -v '^#' .env | xargs)",
     "build:gatsby": "gatsby build",
     "build": "npm-run-all build:*",
-    "contentful:create-content": "wheelroom create-content",
-    "contentful:create-models": "wheelroom create-models",
-    "contentful:delete-content": "wheelroom delete-content",
     "develop": "gatsby develop",
-    "create-files:fragments": "wheelroom create-fragments src/wheelroom-fragments",
-    "create-files:new-model": "wheelroom create-new-model src/components src/packages/component-configs",
-    "wheelroom": "wheelroom",
     "lint": "tslint --project tsconfig.json",
     "list": "wheelroom list",
     "netlify": "npm-run-all build:clean build:packages build:gatsby",
@@ -79,7 +73,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
     "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "demo-postversion": "git push && git push --tags"
+    "demo-postversion": "git push && git push --tags",
+    "wheelroom": "wheelroom",
+    "wr:create-models": "wheelroom create-models",
+    "wr:create-content": "wheelroom create-content",
+    "wr:create-fragments": "wheelroom create-files fragments src/wheelroom-fragments",
+    "wr:create-new-component": "wheelroom create-files component src/components",
+    "wr:create-new-config": "wheelroom create-files config src/packages/component-configs",
+    "wr:delete-content": "wheelroom delete-content"
   },
   "version": "1.7.4"
 }

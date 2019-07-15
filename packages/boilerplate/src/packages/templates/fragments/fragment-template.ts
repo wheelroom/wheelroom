@@ -1,4 +1,7 @@
-export const fragmentTemplate = = (vars: any) => `/**
+export const fragmentTemplate = (vars: any) => {
+  console.log(vars)
+  return false
+  return `/**
  * Graphql fragment
  *
  * These fragments define the component fields. Gatsby resolves this file
@@ -12,3 +15,4 @@ export const fragmentTemplate = = (vars: any) => `/**
 import { graphql } from 'gatsby'
 export const fragment = graphql\`${vars.fragment}\`
 `
+}
