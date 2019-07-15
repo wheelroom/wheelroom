@@ -1,16 +1,10 @@
 #!/usr/bin/env node
 
-import * as dotenv from 'dotenv'
 import { command as listCommand } from '../commands/list/command'
 import { getComponents } from '../config/get-components'
 import { readConfig } from '../config/read-config'
 import { baseCli } from './base-cli'
 import { commandsFromPlugins } from './commands-from-plugins'
-
-const dotEnvResult = dotenv.config()
-if (dotEnvResult.error) {
-  throw dotEnvResult.error
-}
 
 const main = async (argv: string[]) => {
   const cli = baseCli(argv)

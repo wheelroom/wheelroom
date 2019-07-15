@@ -6,6 +6,7 @@ import {
 import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
 import { getCurrentModel } from '../../lib/get-current-model'
 import { initializeContext } from '../../lib/initialize-context'
+import { readDotEnv } from '../../lib/read-dot-env'
 import { Context } from '../../types/context'
 import { deleteAsset } from './delete-asset'
 
@@ -36,6 +37,7 @@ export const deleteContentForModel = async (context: Context) => {
 }
 
 export const handler = async (argv: any) => {
+  readDotEnv()
   const context = initializeContext(argv)
 
   for (const [componentName, component] of Object.entries(context.components)) {

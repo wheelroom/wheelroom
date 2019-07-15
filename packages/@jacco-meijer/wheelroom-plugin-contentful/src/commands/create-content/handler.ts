@@ -9,6 +9,7 @@ import {
 import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
 import { getCurrentModel } from '../../lib/get-current-model'
 import { initializeContext } from '../../lib/initialize-context'
+import { readDotEnv } from '../../lib/read-dot-env'
 import { Context } from '../../types/context'
 import { createAsset } from './create-asset'
 
@@ -42,6 +43,7 @@ export const createContentForModel = async (context: Context) => {
 }
 
 export const handler = async (argv: any) => {
+  readDotEnv()
   const context = initializeContext(argv)
   await createAsset(context)
 
