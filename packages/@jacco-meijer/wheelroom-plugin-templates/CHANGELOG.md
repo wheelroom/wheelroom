@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-templates@1.0.0-alpha.4...@jacco-meijer/wheelroom-plugin-templates@1.0.0-alpha.5) (2019-07-16)
+
+
+### Bug Fixes
+
+* inquirer quit value ([383006a](https://github.com/jaccomeijer/wheelroom/commit/383006a))
+
+
+
+
+
 # [1.0.0-alpha.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-templates@1.0.0-alpha.3...@jacco-meijer/wheelroom-plugin-templates@1.0.0-alpha.4) (2019-07-16)
 
 

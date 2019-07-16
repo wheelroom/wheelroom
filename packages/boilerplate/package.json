@@ -11,7 +11,7 @@
     "@jacco-meijer/styled-system": "^2.0.0-alpha.4",
     "@jacco-meijer/wheelroom": "^2.0.0-alpha.4",
     "@jacco-meijer/wheelroom-plugin-contentful": "^1.0.0-alpha.4",
-    "@jacco-meijer/wheelroom-plugin-templates": "^1.0.0-alpha.4",
+    "@jacco-meijer/wheelroom-plugin-templates": "^1.0.0-alpha.5",
     "camelcase": "5.3.1",
     "dotenv": "8.0.0",
     "emotion-theming": "10.0.14",
@@ -83,5 +83,5 @@
     "wr:create-new-config": "wheelroom create-files config src/packages/component-configs",
     "wr:delete-content": "wheelroom delete-content"
   },
-  "version": "2.0.0-alpha.5"
+  "version": "2.0.0-alpha.6"
 }
