@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.2](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@2.0.0-alpha.1...gatsby-theme-wheelroom@2.0.0-alpha.2) (2019-07-16)
+
+
+### Bug Fixes
+
+* add index to package ([1c68570](https://github.com/jaccomeijer/wheelroom/commit/1c68570))
+
+
+
+
+
 # [2.0.0-alpha.1](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@2.0.0-alpha.0...gatsby-theme-wheelroom@2.0.0-alpha.1) (2019-07-16)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom
