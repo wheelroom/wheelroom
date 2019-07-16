@@ -1,16 +1,12 @@
 import { Component, Components } from '@jacco-meijer/wheelroom'
-import * as fs from 'fs'
 import * as fse from 'fs-extra'
 import * as inquirer from 'inquirer'
-import * as util from 'util'
 import { Options, TemplateSet } from '../types/options'
 import { Template, Templates } from '../types/templates'
 import { askQuestions } from './ask-questions'
 import { getTemplates } from './get-templates'
 import { getVars } from './get-vars'
 import { noTrailingSlash } from './helpers'
-
-const writeFile = util.promisify(fs.writeFile)
 
 interface WriteTemplate {
   fileName: string
@@ -26,12 +22,14 @@ const writeTemplate = async ({
   dryRun,
 }: WriteTemplate) => {
   const writeTo = `${filePath}/${fileName}`
+  const exists = await fse.pathExists(writeTo)
+
   if (dryRun) {
-    console.log(`About to write to ${writeTo}`)
+    console.log(`About to ${exists ? 'OVERWRITE' : 'write'}: ${writeTo}`)
   } else {
-    console.log(`Writing to ${writeTo}`)
-    await fse.ensureDir(filePath)
-    await writeFile(writeTo, content)
+    console.log(`${exists ? 'OVERWRITING' : 'Writing'}: ${writeTo}`)
+    // This command also creates the path if the path does not exist
+    await fse.outputFile(writeTo, content)
   }
 }
 
@@ -120,7 +118,7 @@ const confirmWrite = async () => {
   const confirm = [
     {
       default: true,
-      message: 'Continue write?',
+      message: 'Proceed?',
       name: 'confirmWrite',
       type: 'confirm',
     },

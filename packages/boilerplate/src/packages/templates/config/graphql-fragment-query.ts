@@ -1,4 +1,4 @@
-export const graphqlFragmentTemplate = (vars: any) =>
+export const graphqlFragmentQuery = (vars: any) =>
   `/**
  * Graphql definitions
  *
@@ -12,4 +12,18 @@ export const fragment = \`
 ${vars.graphqlFields}
   }
 \`
-`
+
+export const query = \`
+{
+  ${vars.componentType}: allContentful${vars.componentClassName}(
+    limit: 10
+  ) {
+    edges {
+      node {
+        id
+        slug
+      }
+    }
+  }
+}
+\``

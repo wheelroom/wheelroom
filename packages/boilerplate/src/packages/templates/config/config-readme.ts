@@ -1,4 +1,4 @@
-export const configReadmeTemplate = (vars: any) =>
+export const configReadme = (vars: any) =>
   `# ${vars.componentClassName}
 
 Wheelroom type: ${vars.wheelroomType}

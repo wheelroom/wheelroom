@@ -1,4 +1,4 @@
-export const componentIndexTemplate = (vars: any) => `/**
+export const componentIndex = (vars: any) => `/**
  * Component index
  *
  * Component type: ${vars.componentType}

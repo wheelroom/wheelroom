@@ -8,9 +8,11 @@ export const askQuestions = async (
   let answers
   if (pluginOptions.questionSets && templateSet.questions) {
     if (templateSet.questions in pluginOptions.questionSets) {
+      console.log(``)
       answers = await inquirer.prompt(pluginOptions.questionSets[
         templateSet.questions
       ] as any)
+      console.log(``)
       console.log(`Thanks, now setting up template set ${templateSet.name}`)
     } else {
       console.log(

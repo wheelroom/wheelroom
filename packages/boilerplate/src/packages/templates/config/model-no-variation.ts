@@ -1,4 +1,4 @@
-export const modelNoVariationTemplate = (vars: any) => `/**
+export const modelNoVariation = (vars: any) => `/**
  * Model definition
  *
  * Component type: ${vars.componentType}

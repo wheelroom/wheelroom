@@ -51,7 +51,7 @@ export const handler = async (argv: any) => {
     return
   }
   const confirmed = await confirmAction(
-    'Create Contentful models for these components',
+    'Proceed creating Contentful models for these components',
     context
   )
   if (!confirmed) {

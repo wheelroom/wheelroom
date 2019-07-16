@@ -51,7 +51,7 @@ export const handler = async (argv: any) => {
     return
   }
   const confirmed = await confirmAction(
-    'Create Contentful demo content for these components',
+    'Proceed creating Contentful demo content for these components',
     context
   )
   if (!confirmed) {

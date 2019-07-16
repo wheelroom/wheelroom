@@ -52,7 +52,9 @@ export const handler = async (argv: any) => {
     return
   }
   for (const [componentName, component] of Object.entries(context.components)) {
-    console.log(`Removing content for model ${componentName} =============`)
+    console.log(
+      `Process removing content for model ${componentName} =============`
+    )
     const newContext = initializeContext(argv)
     newContext.currentModel = getCurrentModel(component)
 

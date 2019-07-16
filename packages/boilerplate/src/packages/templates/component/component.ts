@@ -1,4 +1,4 @@
-export const componentTemplate = (vars: any) => `/**
+export const component = (vars: any) => `/**
  * Component
  *
  * Component type: ${vars.componentType}

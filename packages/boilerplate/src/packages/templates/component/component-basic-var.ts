@@ -1,4 +1,4 @@
-export const componentBasicVarTemplate = (vars: any) => `/**
+export const componentBasicVar = (vars: any) => `/**
  * Component variation
  *
  * Component type: ${vars.componentType}

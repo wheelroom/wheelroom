@@ -1,4 +1,5 @@
-import { landMarkType, NamedPaths } from '@jacco-meijer/wheelroom'
+export const sectionProps = (vars: any) =>
+  `import { landMarkType, NamedPaths } from '@jacco-meijer/wheelroom'
 
 /** These are suitable defaults, you probably want to add some props specific
  * for this project
@@ -14,4 +15,4 @@ export interface SectionProps {
   namedPaths: NamedPaths
   /** the name of the current path */
   pathName: string
-}
+}`

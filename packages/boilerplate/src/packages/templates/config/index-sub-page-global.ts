@@ -1,4 +1,4 @@
-export const indexSubPageGlobalTemplate = (vars: any) => `/**
+export const indexSubPageGlobal = (vars: any) => `/**
  * Component index
  *
  * Component type: ${vars.componentType}
