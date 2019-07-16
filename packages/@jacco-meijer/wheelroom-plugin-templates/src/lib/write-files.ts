@@ -8,11 +8,49 @@ import { getTemplates } from './get-templates'
 import { getVars } from './get-vars'
 import { noTrailingSlash } from './helpers'
 
+type OverwritePolicy = 'y' | 'n' | 'a' | 'q' | undefined
+
 interface WriteTemplate {
   fileName: string
   filePath: string
   content: string
   dryRun?: boolean
+  lastOverwritePolicy?: OverwritePolicy
+}
+
+const askOverwritePolicy = async () => {
+  const questions = [
+    {
+      choices: [
+        {
+          key: 'y',
+          name: 'Yes',
+          value: 'y',
+        },
+        {
+          key: 'n',
+          name: 'No',
+          value: 'n',
+        },
+        {
+          key: 'a',
+          name: 'All, this one and all next',
+          value: 'a',
+        },
+        {
+          key: 'q',
+          name: 'Quit',
+          value: 'quit',
+        },
+      ],
+      default: 'y',
+      message: 'Overwrite?`:',
+      name: 'policy',
+      type: 'expand',
+    },
+  ] as any
+  const answers: any = await inquirer.prompt(questions)
+  return answers.policy
 }
 
 const writeTemplate = async ({
@@ -20,17 +58,40 @@ const writeTemplate = async ({
   filePath,
   content,
   dryRun,
+  lastOverwritePolicy,
 }: WriteTemplate) => {
   const writeTo = `${filePath}/${fileName}`
   const exists = await fse.pathExists(writeTo)
 
+  let overwritePolicy = lastOverwritePolicy
   if (dryRun) {
     console.log(`About to ${exists ? 'OVERWRITE' : 'write'}: ${writeTo}`)
   } else {
-    console.log(`${exists ? 'OVERWRITING' : 'Writing'}: ${writeTo}`)
-    // This command also creates the path if the path does not exist
-    await fse.outputFile(writeTo, content)
+    let doWrite: boolean = false
+    if (exists) {
+      if (overwritePolicy === 'a') {
+        console.log(`OVERWRITING: ${writeTo}`)
+        doWrite = true
+      } else {
+        console.log(`File exists: ${writeTo}`)
+        overwritePolicy = await askOverwritePolicy()
+        if (overwritePolicy === 'y' || overwritePolicy === 'a') {
+          console.log(`OVERWRITING: ${writeTo}`)
+          doWrite = true
+        } else {
+          console.log(`Skipping: ${writeTo}`)
+        }
+      }
+    } else {
+      console.log(`Writing: ${writeTo}`)
+      doWrite = true
+    }
+    if (doWrite) {
+      // This command also creates the path if the path does not exist
+      await fse.outputFile(writeTo, content)
+    }
   }
+  return overwritePolicy
 }
 
 const getPath = (basePath: string, templatePath: string, vars: any) => {
@@ -49,6 +110,7 @@ interface WriteTemplates {
   component?: Component
   componentName?: string
   dryRun?: boolean
+  lastOverwritePolicy?: OverwritePolicy
   path: string
   templates: Templates
 }
@@ -58,22 +120,29 @@ const writeTemplates = async ({
   component,
   componentName,
   dryRun,
+  lastOverwritePolicy,
   path,
   templates,
 }: WriteTemplates) => {
-  await Promise.all(
-    Object.entries(templates).map(
-      async ([templateName, template]: [string, Template]) => {
-        const vars = getVars(answers, template, component, componentName)
-        const content = template.template(vars)
-        // No content? Skip writing the file
-        if (content) {
-          const [fileName, filePath] = getPath(path, template.path, vars)
-          await writeTemplate({ fileName, filePath, content, dryRun })
-        }
-      }
-    )
-  )
+  let overwritePolicy: OverwritePolicy = lastOverwritePolicy
+  // Process writing files sequentially, so that we can confirm each file
+  for (const [, aTemplate] of Object.entries(templates)) {
+    const template = aTemplate as Template
+    const vars = getVars(answers, template, component, componentName)
+    const content = template.template(vars)
+    // No content? Skip writing the file
+    if (content) {
+      const [fileName, filePath] = getPath(path, template.path, vars)
+      overwritePolicy = await writeTemplate({
+        content,
+        dryRun,
+        fileName,
+        filePath,
+        lastOverwritePolicy: overwritePolicy,
+      })
+    }
+  }
+  return overwritePolicy
 }
 
 interface Write {
@@ -93,16 +162,24 @@ const write = async ({
   templates,
   dryRun,
 }: Write) => {
-  const writeParams = { answers, dryRun, path, templates }
+  let overwritePolicy: OverwritePolicy
+  const writeParams = {
+    answers,
+    dryRun,
+    path,
+    templates,
+  }
   if (templateSet.loopComponents) {
-    await Promise.all(
-      Object.entries(components).map(
-        async ([componentName, component]: [string, Component]) => {
-          // We have a component, add it as parameter
-          await writeTemplates({ ...writeParams, component, componentName })
-        }
-      )
-    )
+    // Process writing files sequentially, so that we can confirm each file
+    for (const [componentName, component] of Object.entries(components)) {
+      // We have a component, add it as parameter
+      overwritePolicy = await writeTemplates({
+        ...writeParams,
+        component,
+        componentName,
+        lastOverwritePolicy: overwritePolicy,
+      })
+    }
   } else {
     await writeTemplates(writeParams)
   }
@@ -112,7 +189,9 @@ const confirmWrite = async () => {
   const confirm = [
     {
       default: true,
-      message: 'Proceed?',
+      message: `
+Proceeding here will create new files and prompt you if a file gets overwritten.
+Proceed?`,
       name: 'confirmWrite',
       type: 'confirm',
     },
