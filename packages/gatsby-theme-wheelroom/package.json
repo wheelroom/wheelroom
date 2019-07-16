@@ -41,6 +41,7 @@
   "files": [
     "gatsby-config.*",
     "gatsby-node.*",
+    "index.*",
     "lib/*",
     "types/*"
   ],
