@@ -1,4 +1,4 @@
-import { getFilteredComponents } from '../../config/get-filtered-components'
+import { getFilteredComponents } from '../../lib/get-filtered-components'
 import { Component } from '../../types/components'
 
 export const handler = async (argv: any) => {
