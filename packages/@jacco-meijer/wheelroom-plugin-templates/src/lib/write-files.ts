@@ -40,7 +40,7 @@ const askOverwritePolicy = async () => {
         {
           key: 'q',
           name: 'Quit',
-          value: 'quit',
+          value: 'q',
         },
       ],
       default: 'y',
