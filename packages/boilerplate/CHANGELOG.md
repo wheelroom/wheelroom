@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.4](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@2.0.0-alpha.3...boilerplate@2.0.0-alpha.4) (2019-07-16)
+
+
+### Features
+
+* Added selective interactive  overwrite ([9bbcf56](https://github.com/jaccomeijer/wheelroom/commit/9bbcf56))
+
+
+
+
+
 # [2.0.0-alpha.3](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@2.0.0-alpha.2...boilerplate@2.0.0-alpha.3) (2019-07-16)
 
 **Note:** Version bump only for package boilerplate

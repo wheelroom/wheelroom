@@ -16,7 +16,7 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/wheelroom": "^2.0.0-alpha.2",
+    "@jacco-meijer/wheelroom": "^2.0.0-alpha.3",
     "camelcase": "5.3.1",
     "contentful-management": "5.9.0",
     "dotenv": "8.0.0",
@@ -72,6 +72,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
 }
