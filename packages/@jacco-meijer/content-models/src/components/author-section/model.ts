@@ -6,7 +6,7 @@
  *
  */
 
-import { Model } from '@jacco-meijer/wheelroom'
+import { Model } from '@jacco-meijer/wheelroom-plugin-contentful'
 import { variations } from './variations'
 
 export const model = {

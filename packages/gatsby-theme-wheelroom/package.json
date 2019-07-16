@@ -16,31 +16,33 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/wheelroom": "^1.8.1"
+    "@jacco-meijer/wheelroom": "^2.0.0-alpha.0"
   },
   "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
     "@types/dotenv": "6.1.1",
-    "@types/jest": "24.0.14",
-    "@types/node": "12.0.8",
-    "@types/react": "16.8.20",
+    "@types/jest": "24.0.15",
+    "@types/node": "12.6.3",
+    "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
     "npm-install-peers": "1.2.1",
     "npm-run-all": "4.1.5",
     "prettier": "1.18.2",
-    "tslint": "5.17.0",
+    "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-loader": "3.5.4",
     "tslint-plugin-prettier": "2.0.1",
     "tslint-react": "4.0.0",
-    "typescript": "3.5.2"
+    "typescript": "3.5.3"
   },
   "engines": {
     "node": ">=10.0.0"
   },
   "files": [
     "gatsby-config.*",
-    "gatsby-node.*"
+    "gatsby-node.*",
+    "lib/*",
+    "types/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": [
@@ -48,7 +50,7 @@
     "wheelroom"
   ],
   "license": "MIT",
-  "main": "gatsby-config.js",
+  "main": "index.js",
   "name": "gatsby-theme-wheelroom",
   "repository": {
     "type": "git",
@@ -71,6 +73,6 @@
     "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.2.5",
+  "version": "2.0.0-alpha.0",
   "gitHead": "6716896edc71faeb0ff0bcd507e177c87c7f5870"
 }

@@ -2,40 +2,18 @@
 
 ## What it is
 
-Wheelroom is an opinionated set of conventions that help reusing components when
-working with [Gatsby](https://www.gatsbyjs.org) and
-[Contentful](https://www.contentful.com).
+Wheelroom is a command line tool that allows for storing components (any
+javascript object) in npm modules and process the objects by plugins.
 
-Specifically it helps reusing:
+Say your components are data models, you could then e.g.
 
-- Contentful model definitions
-- Gatsby graph queries and model fragments
-- Gatsby query logic
-- Generic UI components
+- generate boilerplate code from the component data or
+- use the component data to initialize a headless CMS
 
-Wheelroom contains:
+These examples are not random, it's the two plugins that actually exist:
 
-- a boilerplate generator
-- a tool to create and update Contentful models
-- a tool to add and remove demo content for the Contentful models
-
-
-## Wheelroom types
-
-Essentially Wheelroom defines six basic component types. All types contain a
-Contentful model. Three of the types define a graph query and a graph fragment:
-
-- page: for retrieving and creating root pages
-- subPage: for retrieving and creating subPages
-- global: for retrieving globals available to all pages
-
-The other three types do not contain a query, these types are retrieved as part
-of one of the types above.
-
-- section: defines a fragment and is retrieved as a part of a page
-- part: defines a fragment and is retrieved as a part of a section
-- block: no fragment and retrieved as an embedded part of a Contentful richText
-  field
+- wheelroom-plugin-templates
+- wheelroom-plugin-contentful
 
 
 ## Monorepo
@@ -62,7 +40,7 @@ as a drop in replacement.
 
 ### [@jacco-meijer/wheelroom](./packages/@jacco-meijer/wheelroom/README.md)
 
-The Wheelroom binary.
+The Wheelroom command line tool.
 
 
 ### [boilerplate](./packages/boilerplate/README.md)

@@ -2,11 +2,12 @@
  * Model definition
  *
  * Component type: myNewComponent
- * Wheelroom type: global
+ * Wheelroom type: section
  *
  */
 
-import { Model } from '@jacco-meijer/wheelroom'
+import { Model } from '@jacco-meijer/wheelroom-plugin-contentful'
+import { variations } from './variations'
 
 export const model = {
   contentBackend: 'contentful',
@@ -24,6 +25,23 @@ export const model = {
         type: 'Symbol',
       },
       widgetId: 'singleLine',
+    },
+    variation: {
+      initialContent: variations[0],
+      settings: {
+        helpText: 'Select variation',
+      },
+      specs: {
+        name: 'My new component variation',
+        required: true,
+        type: 'Symbol',
+        validations: [
+          {
+            in: variations,
+          },
+        ],
+      },
+      widgetId: 'dropdown',
     },
     // tslint:disable-next-line: object-literal-sort-keys
     author: {
@@ -69,5 +87,5 @@ export const model = {
   modelVersion: '1.0.0',
   name: 'My new component',
   type: 'myNewComponent',
-  wheelroomType: 'global',
+  wheelroomType: 'section',
 } as Model

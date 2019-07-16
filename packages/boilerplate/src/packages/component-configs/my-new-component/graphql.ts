@@ -2,7 +2,7 @@
  * Graphql definitions
  *
  * Component type: myNewComponent
- * Wheelroom type: global
+ * Wheelroom type: section
  *
  */
 
@@ -14,19 +14,4 @@ export const fragment = `
     variation
 
   }
-`
-
-export const query = `
-{
-  myNewComponent: allContentfulMyNewComponent(
-    limit: 10
-  ) {
-    edges {
-      node {
-        id
-        slug
-      }
-    }
-  }
-}
 `

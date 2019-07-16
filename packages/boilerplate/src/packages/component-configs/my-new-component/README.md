@@ -1,6 +1,6 @@
 # MyNewComponent
 
-Wheelroom type: global
+Wheelroom type: section
 
 ## Component fields
 

@@ -1,57 +1,45 @@
-path = require('path')
+var questionSets = require('./wheelroom-question-sets')
+var templateSets = require('./wheelroom-template-sets')
 
-// WIP Working towards new modular setup
 module.exports = {
-  defaultLocale: 'nl',
   defaultComponentResolve: `@jacco-meijer/content-models`,
-  componentTypes: {
-    articleSection: {},
-    myNewComponent: {
-      resolve: './dist:component-configs',
+  components: {
+    article: {},
+    articleSection: {
+      options: {
+        variations: ['var 1', 'var 2'],
+        overwriteVariations: true,
+      },
+    },
+    globals: {
+      resolve: '@jacco-meijer/content-models',
     },
     page: {
       resolve: `@jacco-meijer/content-models`,
-    },
-  },
-  plugins: [
-    {
-      resolve: 'wheelroom-plugin-contentful',
       options: {
         initialPageSection: 'articleSection',
       },
     },
+  },
+  plugins: [
     {
-      resolve: 'module:wheelroom-plugin-templates',
+      resolve: 'gatsby-theme-wheelroom',
       options: {
-        defaultTemplateResolve: `@jacco-meijer/content-models`,
-        templateSets: {
-          fragments: {
-            fragmentTemplate: {
-              fileName: '%componentFilename%.ts',
-              resolve: '@jacco-meijer/content-models',
-              wheelroomTypes: ['subPage', 'section', 'global', 'part'],
-            },
-          },
-          component: {
-            component: {
-              fileName: '%componentFilename%/%componentFilename%.ts',
-              resolve: './dist:component-templates',
-              wheelroomTypes: ['subPage', 'section', 'global', 'part'],
-            },
-            componentBasicVar: {
-              fileName: '%componentFilename%/%componentFilename%-basic-var.ts',
-              resolve: './dist:component-templates',
-              wheelroomTypes: ['subPage', 'section', 'global', 'part'],
-            },
-          },
-          config: {
-            graphql: {
-              fileName: '%componentFilename%/graphql.ts',
-              resolve: './dist:component-templates',
-              wheelroomTypes: ['subPage', 'section', 'global', 'part'],
-            },
-          },
-        },
+        defaultLocale: 'nl',
+      },
+    },
+    {
+      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
+      options: {
+        defaultLocale: 'nl',
+      },
+    },
+    {
+      resolve: '@jacco-meijer/wheelroom-plugin-templates',
+      options: {
+        defaultTemplateResolve: `dist:templates`,
+        templateSets: templateSets,
+        questionSets: questionSets,
       },
     },
   ],
