@@ -142,5 +142,5 @@ export const model = {
   modelVersion: '1.0.0',
   name: 'Bicycle text',
   type: 'bicycleText',
-  wheelroomType: 'part',
+  wheelroomType: 'block',
 } as Model

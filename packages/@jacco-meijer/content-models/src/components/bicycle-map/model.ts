@@ -60,5 +60,5 @@ export const model = {
   modelVersion: '1.0.0',
   name: 'Bicycle map',
   type: 'bicycleMap',
-  wheelroomType: 'part',
+  wheelroomType: 'block',
 } as Model
