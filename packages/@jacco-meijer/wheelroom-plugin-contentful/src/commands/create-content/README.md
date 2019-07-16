@@ -1,7 +1,9 @@
 # wheelroom create-content
 
-Create demo content for configured models
+To create demo entries from the `initialContent` model field, use:
 
 ```
-wheelroom create-content
+wheelroom create-content [options]
 ```
+
+See plugin README for more details.

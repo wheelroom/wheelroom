@@ -40,7 +40,7 @@ wheelroom create-content [options]
 
 Demo entries have specific ids so that they can be easily deleted:
 ```
-wheelroom delete-content
+wheelroom delete-content [options]
 ```
 
 ## Config

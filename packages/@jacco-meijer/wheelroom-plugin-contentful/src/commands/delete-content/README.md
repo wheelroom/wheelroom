@@ -1,7 +1,9 @@
 # wheelroom delete-content
 
-Remove all demo content for configured models
+Demo entries have specific ids so that they can be easily deleted:
 
 ```
-wheelroom delete-content
+wheelroom delete-content [options]
 ```
+
+See plugin README for more details.
