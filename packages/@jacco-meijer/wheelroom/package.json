@@ -66,6 +66,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "gitHead": "6716896edc71faeb0ff0bcd507e177c87c7f5870"
 }
