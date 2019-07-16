@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/content-models@2.0.0-alpha.2...@jacco-meijer/content-models@2.0.0-alpha.3) (2019-07-16)
+
+
+### Bug Fixes
+
+* change wheelroomPart to block ([e46f2ac](https://github.com/jaccomeijer/wheelroom/commit/e46f2ac))
+
+
+
+
+
 # [2.0.0-alpha.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/content-models@2.0.0-alpha.1...@jacco-meijer/content-models@2.0.0-alpha.2) (2019-07-16)
 
 **Note:** Version bump only for package @jacco-meijer/content-models
