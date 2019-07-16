@@ -12,6 +12,7 @@
     "@jacco-meijer/wheelroom": "^1.8.1",
     "@jacco-meijer/wheelroom-plugin-contentful": "0.0.1",
     "@jacco-meijer/wheelroom-plugin-templates": "0.0.1",
+    "camelcase": "5.3.1",
     "dotenv": "8.0.0",
     "emotion-theming": "10.0.14",
     "gatsby": "2.13.23",

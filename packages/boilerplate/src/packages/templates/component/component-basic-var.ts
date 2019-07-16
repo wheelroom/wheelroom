@@ -1,22 +1,31 @@
-export const componentBasicVar = (vars: any) => `/**
+import { Vars } from '../types/vars'
+
+export const componentBasicVar = (vars: Vars) => {
+  // Skip this template if not present in filter array
+  if (!vars.options.filter.includes(vars.answers.wheelroomType)) {
+    return
+  }
+
+  return `/**
  * Component variation
  *
- * Component type: ${vars.componentType}
- * Wheelroom type: ${vars.wheelroomType}
+ * Component type: ${vars.componentName.camelCase}
+ * Wheelroom type: ${vars.answers.wheelroomType}
  * Variation: basic
  *
  */
 
 import * as React from 'react'
 
-import { ${vars.componentClassName}Props } from './${vars.componentFileName}'
+import { ${vars.componentName.pascalCase}Props } from './${vars.componentName.dashCase}'
 
-export const ${vars.componentClassName}BasicVar = (props: ${vars.componentClassName}Props) => {
+export const ${vars.componentName.pascalCase}BasicVar = (props: ${vars.componentName.pascalCase}Props) => {
   return (
     <div>
-      <h2>${vars.componentClassName}Basic</h2>
+      <h2>${vars.componentName.pascalCase}Basic</h2>
       <p>Hello world</p>
     </div>
   )
 }
 `
+}

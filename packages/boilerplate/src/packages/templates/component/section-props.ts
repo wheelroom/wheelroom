@@ -1,5 +1,7 @@
-export const sectionProps = (vars: any) =>
-  `import { landMarkType, NamedPaths } from '@jacco-meijer/wheelroom'
+import { Vars } from '../types/vars'
+
+export const sectionProps = (vars: Vars) =>
+  `import { landMarkType, NamedPaths } from 'gatsby-theme-wheelroom'
 
 /** These are suitable defaults, you probably want to add some props specific
  * for this project

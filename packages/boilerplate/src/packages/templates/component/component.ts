@@ -1,30 +1,49 @@
-export const component = (vars: any) => `/**
+import { getComponentFields } from '../partials/get-component-fields'
+import { Vars } from '../types/vars'
+
+export const component = (vars: Vars) => {
+  // Skip this template if not present in filter array
+  if (!vars.options.filter.includes(vars.answers.wheelroomType)) {
+    return
+  }
+
+  const fields = getComponentFields(vars.answers.componentFields)
+  const componentProps = [...fields, 'variation']
+    .sort()
+    .map(
+      (fieldName: string) => `  ${fieldName}: string
+`
+    )
+    .join('')
+
+  return `/**
  * Component
  *
- * Component type: ${vars.componentType}
- * Wheelroom type: ${vars.wheelroomType}
+ * Component type: ${vars.componentName.camelCase}
+ * Wheelroom type: ${vars.answers.wheelroomType}
  *
  */
 
-import { componentsMap } from '@jacco-meijer/content-models'
+import { components } from '@jacco-meijer/content-models'
 import * as React from 'react'
 import { getVariation } from '../get-variation'
 import { SectionProps } from '../section-props'
-import { ${vars.componentClassName}BasicVar } from './${vars.componentFileName}-basic-var'
+import { ${vars.componentName.pascalCase}BasicVar } from './${vars.componentName.dashCase}-basic-var'
 
-const componentList = [${vars.componentClassName}BasicVar]
+const componentList = [${vars.componentName.pascalCase}BasicVar]
 
-export interface ${vars.componentClassName}Props extends SectionProps {
+export interface ${vars.componentName.pascalCase}Props extends SectionProps {
   /** Gatsby fetched data */
-${vars.componentProps}}
+${componentProps}}
 
-export const ${vars.componentClassName} = (props: ${vars.componentClassName}Props) => {
+export const ${vars.componentName.pascalCase} = (props: ${vars.componentName.pascalCase}Props) => {
   const Variation = getVariation(
     props,
-    componentsMap.${vars.componentType}.variations,
+    components.${vars.componentName.camelCase}.variations,
     componentList
   )
 
   return <Variation {...props} />
 }
 `
+}

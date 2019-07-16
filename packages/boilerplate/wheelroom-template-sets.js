@@ -46,30 +46,35 @@ module.exports = [
       },
       graphqlFragmentQuery: {
         path: '%component%/graphql.ts',
+        options: { filter: ['subPage', 'global'] },
       },
       graphqlFragment: {
         path: '%component%/graphql.ts',
+        options: { filter: ['section', 'part'] },
       },
       indexBlock: {
         path: '%component%/index.ts',
+        options: { filter: ['block'] },
       },
       indexSectionPart: {
         path: '%component%/index.ts',
+        options: { filter: ['section', 'part'] },
       },
       indexSubPageGlobal: {
         path: '%component%/index.ts',
+        options: { filter: ['subPage', 'global'] },
       },
       modelNoVariation: {
         path: '%component%/model.ts',
+        options: { filter: ['subPage', 'global'] },
       },
       modelVariation: {
         path: '%component%/model.ts',
+        options: { filter: ['section', 'part', 'block'] },
       },
       variations: {
         path: '%component%/variations.ts',
-      },
-      configReadme: {
-        path: '%component%/README.md',
+        options: { filter: ['section', 'part', 'block'] },
       },
     },
   },

@@ -1,4 +1,6 @@
-export const getVariation = (vars: any) =>
+import { Vars } from '../types/vars'
+
+export const getVariation = (vars: Vars) =>
   `import * as React from 'react'
 
 const VariationNotFound = (props: any) => (
