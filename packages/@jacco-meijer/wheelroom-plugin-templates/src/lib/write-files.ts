@@ -68,6 +68,10 @@ const writeTemplate = async ({
     console.log(`About to ${exists ? 'OVERWRITE' : 'write'}: ${writeTo}`)
   } else {
     let doWrite: boolean = false
+    if (overwritePolicy === 'q') {
+      console.log(`Skipping: ${writeTo}`)
+      return overwritePolicy
+    }
     if (exists) {
       if (overwritePolicy === 'a') {
         console.log(`OVERWRITING: ${writeTo}`)
@@ -190,7 +194,7 @@ const confirmWrite = async () => {
     {
       default: true,
       message: `
-Proceeding here will create new files and prompt you if a file gets overwritten.
+Proceeding will create new files and prompt for each file that is overwritten.
 Proceed?`,
       name: 'confirmWrite',
       type: 'confirm',
