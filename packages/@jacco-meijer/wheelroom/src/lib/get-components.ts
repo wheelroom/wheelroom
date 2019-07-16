@@ -57,7 +57,7 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
           console.log(`Could not find components object in ${moduleName}`)
           return
         }
-
+        const importedComponents: string[] = []
         componentsToResolve.forEach((toBeResolved: ComponentToBeResolved) => {
           if (toBeResolved.componentName in module.components) {
             const newComponent = {
@@ -67,12 +67,14 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
             } as Component
 
             components[toBeResolved.componentName] = newComponent
+            importedComponents.push(toBeResolved.componentName)
           } else {
             console.log(
               `Could not find ${toBeResolved.componentName} in ${moduleName}`
             )
           }
         })
+        console.log(`Imported components: ${importedComponents.join(', ')}`)
       }
     )
   )

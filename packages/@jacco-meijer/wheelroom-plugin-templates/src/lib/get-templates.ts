@@ -48,7 +48,7 @@ export const getTemplates = async (
           console.log(`Could not find templates object in ${moduleName}`)
           return
         }
-
+        const importedTemplates: string[] = []
         templatesToResolve.forEach((toBeResolved: TemplateToBeResolved) => {
           if (toBeResolved.templateName in module.templates) {
             const newTemplate = {
@@ -59,12 +59,14 @@ export const getTemplates = async (
             } as Template
 
             fetchedTemplates[toBeResolved.templateName] = newTemplate
+            importedTemplates.push(toBeResolved.templateName)
           } else {
             console.log(
               `Could not find ${toBeResolved.templateName} in ${moduleName}`
             )
           }
         })
+        console.log(`Imported templates: ${importedTemplates.join(', ')}`)
       }
     )
   )

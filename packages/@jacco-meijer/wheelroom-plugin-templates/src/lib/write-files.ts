@@ -93,24 +93,18 @@ const write = async ({
   templates,
   dryRun,
 }: Write) => {
+  const writeParams = { answers, dryRun, path, templates }
   if (templateSet.loopComponents) {
     await Promise.all(
       Object.entries(components).map(
         async ([componentName, component]: [string, Component]) => {
-          const writeParams = {
-            answers,
-            component,
-            componentName,
-            dryRun,
-            path,
-            templates,
-          }
-          await writeTemplates(writeParams)
+          // We have a component, add it as parameter
+          await writeTemplates({ ...writeParams, component, componentName })
         }
       )
     )
   } else {
-    await writeTemplates({ answers, path, templates })
+    await writeTemplates(writeParams)
   }
 }
 
