@@ -68,7 +68,6 @@
     "build": "npm-run-all build:*",
     "develop": "gatsby develop",
     "lint": "tslint --project tsconfig.json",
-    "list": "wheelroom list",
     "netlify": "npm-run-all build:clean build:packages build:gatsby",
     "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -81,7 +80,8 @@
     "wr:create-fragments": "wheelroom create-files fragments src/wheelroom-fragments",
     "wr:create-new-component": "wheelroom create-files component src/components",
     "wr:create-new-config": "wheelroom create-files config src/packages/component-configs",
-    "wr:delete-content": "wheelroom delete-content"
+    "wr:delete-content": "wheelroom delete-content",
+    "wr:list": "wheelroom list"
   },
   "version": "2.0.0-alpha.6"
 }
