@@ -152,8 +152,8 @@ Another alternative is:
   field
 - Generate the component from the existing config instead of from the answers
 
-The last approach works well once the configs are saved in a npm-module.
+The last approach works well once the configs are saved in a npm module.
 Starting a new project is then as simple as configuring which existing models
-you need and then generate React component code from that,
+you need and then generate React component code from that.
 
 Questions sets can be configured as well. They are in `wheelroom-question-sets.js`.

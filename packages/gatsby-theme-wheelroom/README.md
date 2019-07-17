@@ -39,8 +39,8 @@ This theme uses the wheelroom package and configuration to access our models and
 fragments. So to be able to generate pages.
 
 To make this all work, we needed to structure the data that was in our npm
-modules. Besides the component objects The Wheelroom packages does not define
-any structure. We defined a component to be like this:
+modules. Besides the component objects The Wheelroom package does not define any
+structure. We defined a component to be like this:
 
 ```
 {
