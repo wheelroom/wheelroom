@@ -12,6 +12,8 @@ export interface ContentfulObject {
 }
 
 export interface PluginOptions {
+  /** The url of the default locale is set to '/' */
+  defaultLocale: string
   /** Path to the page template used to generate each page */
   pageTemplate: string
 }
@@ -29,8 +31,6 @@ export interface Context {
       [componentId: string]: ContentfulObject[]
     }
   }
-  /** Options read from wheelroom-config -> plugins -> gatsby-theme-wheelroom */
-  wheelroomPluginOptions: any
 
   createPage(params: object): Promise<any>
   graphql(query: string): Promise<any>

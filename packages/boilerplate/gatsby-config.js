@@ -5,6 +5,7 @@ module.exports = {
   __experimentalThemes: [
     {
       options: {
+        defaultLocale: 'nl',
         pageTemplate: path.resolve('./src/page-template.tsx'),
       },
       resolve: `gatsby-theme-wheelroom`,
