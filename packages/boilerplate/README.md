@@ -140,8 +140,20 @@ To create a new React component in `src/components` use:
 npm run wr:create-new-component
 ```
 
-Ideally you'd most likely want to create the both parts of the component at the
-same time. This can easily be configured by combining the two template sets in
-`wheelroom-template-sets.js`.
+Template sets are defined in `wheelroom-template-sets.js`.
+
+Template sets config and component could be merged into one so that they share
+the same set of answers.
+
+Another alternative is:
+
+- Generate config based on the answers
+- Manually finalize the configs by setting the proper Content Types for each
+  field
+- Generate the component from the existing config instead of from the answers
+
+The last approach works well once the configs are saved in a npm-module.
+Starting a new project is then as simple as configuring which existing models
+you need and then generate React component code from that,
 
 Questions sets can be configured as well. They are in `wheelroom-question-sets.js`.
