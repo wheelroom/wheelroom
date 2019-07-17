@@ -11,8 +11,9 @@ module.exports = {
         overwriteVariations: true,
       },
     },
-    globals: {
-      resolve: '@jacco-meijer/content-models',
+    globals: {},
+    myNewComponent: {
+      resolve: 'dist:component-configs',
     },
     page: {
       resolve: `@jacco-meijer/content-models`,
