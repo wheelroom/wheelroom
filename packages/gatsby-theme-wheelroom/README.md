@@ -9,7 +9,7 @@ Having developed a number of sites with Gatsby and Contenful reusing the
 Contentful models seemed an obvious thing to do. First step was moving the
 Contentful models and the corresponding React components into a npm module.
 
-Next we added the Gatsby required graphql fragments. Having things all in one
+Next we added the Gatsby required Graphql fragments. Having things all in one
 place was a great step forward.
 
 Once we stored our models and fragments in a consistent way, this allowed for a
@@ -20,7 +20,7 @@ This package is exactly that, a generic `gatsby-node.js` for Contentful.
 
 ## Wheelroom
 
-Storing Contentful models and Gatbsy graphql in a consistent way asked for
+Storing Contentful models and Gatbsy Graphql in a consistent way asked for
 another generic solution.
 
 Wheelroom is a npm module that allows for storing javascript objects in npm
@@ -39,8 +39,8 @@ This theme uses the wheelroom package and configuration to access our models and
 fragments. So to be able to generate pages.
 
 To make this all work, we needed to structure the data that was in our npm
-modules. The Wheelroom packages allows us to define components. This is the
-component structure we defined:
+modules. Besides the component objects The Wheelroom packages does not define
+any structure. We defined a component to be like this:
 
 ```
 {
@@ -61,18 +61,18 @@ as `Model`.
 
 ## Types
 
-Looking at the data structure above you can understand why we needed the
-template plugin. Working on the template plugin we needed a way to know what
-fields were required.
+Developing the template plugin was a result of the data structure above. Working
+on the template plugin we needed a way to know what parts of a component were
+required.
 
-A Contentful block to be used within the Rich Text Editor for example would not
-need a Graphql fragment, whereas other Contentful models, like page sections,
-required one.
+For example, a Contentful model like a page section requires a Graphql fragment.
+A Contentful block to be used within the Rich Text Editor on the other hand,
+does not.
 
 This is why we defined six component types. All of which contain a Contentful
 model, but not all of them contain a query and/or a fragment.
 
-Three of the types define a graph query and a graph fragment:
+Three of the types define a Graphql query and a Graphql fragment:
 
 - page: for retrieving and creating root pages
 - subPage: for retrieving and creating subPages
