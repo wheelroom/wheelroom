@@ -1,34 +1,77 @@
 # gatsby-theme-wheelroom
 
-Site framework based on Contentful, Gatsby and Wheelroom
+Simple generic page generator for Contentful.
 
-## Contentful models
+## History
 
-This theme works together with the `@jacco-meijer/wheelroom` package. The theme
-provides `gatsby-node.js` and `gatsby-config.js` which take care of providing
-Contentful data for configured models.
+Having developed a number of sites with Gatsby and Contenful reusing the
+Contentful models seemed an obvious thing to do. First step was moving the
+Contentful models and the corresponding React components into a npm module.
 
-Models are configured in `wheelroom-config.js`.
+Next we added the Gatsby required graphql fragments. Having things all in one
+place was a great step forward.
 
-## Install
+Once we stored our models and fragments in a consistent way, this allowed for a
+generic `gatsby-node.js`. It would pull the data from Contentful and generate
+our pages with `createPages`.
 
-Install the plugin by adding it to your `gatsby-config.js`
+This package is exactly that, a generic `gatsby-node.js` for Contentful.
+
+## Wheelroom
+
+Storing Contentful models and Gatbsy graphql in a consistent way asked for
+another generic solution.
+
+Wheelroom is a npm module that allows for storing javascript objects in npm
+modules and process those objects with plugins.
+
+## Wheelroom plugins
+
+We created two plugins
+
+- one to create Contentful models and demo content with the contentful management api
+- one to generate boilerplate content from user defined templates
+
+## Data structure
+
+This theme uses the wheelroom package and configuration to access our models and
+fragments. So to be able to generate pages.
+
+To make this all work, we needed to structure the data that was in our npm
+modules. The Wheelroom packages allows us to define components. This is the
+component structure we defined:
 
 ```
-  __experimentalThemes: [
-    {
-      options: {
-        pageTemplate: path.resolve('./src/page-template.tsx'),
-      },
-      resolve: `gatsby-theme-wheelroom`,
-    },
-  ],
+{
+  fragment,
+  model,
+  query,
+  variations,
+}
 ```
+
+Where `fragment` is the Graphql fragment used by Gatsby to identify Contentful
+model fields. The `model` describes the actual Contentful model. `query` tells
+this plugin which entries to pull from Contentful. The `variations` field is not
+relevant for this plugin, we use it for view variations.
+
+The model definition is exported from the `wheelroom-plugin-contentful` package
+as `Model`.
 
 ## Types
 
-Essentially the theme defines six basic component types. All types contain a
-Contentful model. Three of the types define a graph query and a graph fragment:
+Looking at the data structure above you can understand why we needed the
+template plugin. Working on the template plugin we needed a way to know what
+fields were required.
+
+A Contentful block to be used within the Rich Text Editor for example would not
+need a Graphql fragment, whereas other Contentful models, like page sections,
+required one.
+
+This is why we defined six component types. All of which contain a Contentful
+model, but not all of them contain a query and/or a fragment.
+
+Three of the types define a graph query and a graph fragment:
 
 - page: for retrieving and creating root pages
 - subPage: for retrieving and creating subPages
@@ -41,4 +84,27 @@ of one of the types above.
 - part: defines a fragment and is retrieved as a part of a section
 - block: no fragment and retrieved as an embedded part of a Contentful richText
   field
+
+## Configuration
+
+The components to use are configured in `wheelroom-config.js`. It simply tells
+the plugin which npm module to get the components from. A module name can be
+prefixed with `my/module/path:`. This will resolve the module from this path abd
+makes it easy to initially develop you module from your local repository.
+
+## Install
+
+Install the plugin by adding it to your `gatsby-config.js`
+
+```
+  __experimentalThemes: [
+    {
+      options: {
+        defaultLovale: 'nl',
+        pageTemplate: path.resolve('./src/page-template.tsx'),
+      },
+      resolve: `gatsby-theme-wheelroom`,
+    },
+  ],
+```
 
