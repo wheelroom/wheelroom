@@ -1,6 +1,7 @@
 # gatsby-theme-wheelroom
 
-Simple generic page generator for Contentful.
+A generic `gatsby-node.js` built on consistent models and fragments, which takes
+care of pulling data from Contentful.
 
 ## History
 

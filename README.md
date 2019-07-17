@@ -27,29 +27,27 @@ npm install lerna --global
 
 ## Packages
 
-### [@jacco-meijer/content-models](./packages/@jacco-meijer/content-models/README.md)
+### Boilerplate
 
-Example repo containing reusable components.
+See [boilerplate](./packages/boilerplate/README.md) on how to use this.
 
+### Gatsby theme wheelroom
 
-### [@jacco-meijer/styled-system](./packages/@jacco-meijer/styled-system/README.md)
+A generic `gatsby-node.js` built on consistent models and fragments, which takes
+care of pulling data from Contentful.
 
-This package tries to mimic `styled-system` functionality and could be configured
-as a drop in replacement.
+See [gatsby-theme-wheelroom](./packages/gatsby-theme-wheelroom/README.md)
 
+### Wheelroom
 
-### [@jacco-meijer/wheelroom](./packages/@jacco-meijer/wheelroom/README.md)
+Wheelroom is a command line tool that allows for storing components (any
+javascript object) in npm modules and process the objects by plugins.
 
-The Wheelroom command line tool.
+See [@jacco-meijer/wheelroom](./packages/@jacco-meijer/wheelroom/README.md)
 
+### Styled system
 
-### [boilerplate](./packages/boilerplate/README.md)
+This package tries to mimic `styled-system` functionality and can be configured
+to be a drop in replacement.
 
-Example repo on how to use `@jacco-meijer/wheelroom` and `gatsby-theme-wheelroom`
-
-
-### [gatsby-theme-wheelroom](./packages/gatsby-theme-wheelroom/README.md)
-
-Gatsby theme that works together with `@jacco-meijer/wheelroom`. The theme
-provides `gatsby-node.js` and `gatsby-config.js` which take care of providing
-Contentful data for configured models.
+See [@jacco-meijer/styled-system](./packages/@jacco-meijer/styled-system/README.md)

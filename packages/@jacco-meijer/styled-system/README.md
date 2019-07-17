@@ -1,7 +1,7 @@
 # @jacco-meijer/styled-system
 
-This package tries to mimic `styled-system` functionality and could be configured
-as a drop in replacement.
+This package tries to mimic `styled-system` functionality and can be configured
+to be a drop in replacement.
 
 ## POC
 
