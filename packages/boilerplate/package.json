@@ -7,8 +7,8 @@
     "@contentful/rich-text-react-renderer": "13.2.0",
     "@contentful/rich-text-types": "13.1.0",
     "@emotion/core": "10.0.14",
-    "@jacco-meijer/content-models": "^2.0.0-alpha.5",
-    "@jacco-meijer/styled-system": "^2.0.0-alpha.4",
+    "@jacco-meijer/content-models": "^2.0.0-alpha.6",
+    "@jacco-meijer/styled-system": "^2.0.0-alpha.5",
     "@jacco-meijer/wheelroom": "^2.0.0-alpha.4",
     "@jacco-meijer/wheelroom-plugin-contentful": "^1.0.0-alpha.4",
     "@jacco-meijer/wheelroom-plugin-templates": "^1.0.0-alpha.5",
@@ -24,7 +24,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.1.13",
     "gatsby-source-filesystem": "2.1.5",
-    "gatsby-theme-wheelroom": "^2.0.0-alpha.6",
+    "gatsby-theme-wheelroom": "^2.0.0-alpha.7",
     "gatsby-transformer-json": "2.2.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
@@ -85,5 +85,5 @@
     "wr:delete-content": "wheelroom delete-content",
     "wr:list": "wheelroom list"
   },
-  "version": "2.0.0-alpha.9"
+  "version": "2.0.0-alpha.10"
 }
