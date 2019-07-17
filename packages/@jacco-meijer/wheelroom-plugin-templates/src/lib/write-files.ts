@@ -99,10 +99,14 @@ const writeTemplate = async ({
 }
 
 const getPath = (basePath: string, templatePath: string, vars: any) => {
-  const relPath = templatePath.replace(
-    new RegExp('%component%', 'g'),
-    vars.componentName.dashCase
-  )
+  let relPath = templatePath
+
+  if (vars.componentName) {
+    relPath = templatePath.replace(
+      new RegExp('%component%', 'g'),
+      vars.componentName.dashCase
+    )
+  }
   const fullPath = noTrailingSlash(basePath) + `/${relPath}`
   const fileName = fullPath.replace(/^.*[\\\/]/, '')
   const filePath = fullPath.substring(0, fullPath.lastIndexOf('/'))
