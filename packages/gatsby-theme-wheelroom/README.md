@@ -86,6 +86,15 @@ of one of the types above.
 - block: no fragment and retrieved as an embedded part of a Contentful richText
   field
 
+| type    | model | query | fragment |
+|:--      |:--    |:--    |:--       |
+| page    |   x   |   x   |    x     |
+| subPage |   x   |   x   |    x     |
+| global  |   x   |   x   |    x     |
+| section |   x   |       |    x     |
+| part    |   x   |       |    x     |
+| block   |   x   |       |          |
+
 ## Configuration
 
 The components to use are configured in `wheelroom-config.js`. It simply tells
