@@ -9,6 +9,9 @@ module.exports = {
       options: {
         variations: ['var 1', 'var 2'],
         overwriteVariations: true,
+        // TODO: Remove overwriteVariations
+        // TODO: Add localizedFields: [..., ...]
+        // TODO: Remove variation from component config
       },
     },
     globals: {},
