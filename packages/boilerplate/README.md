@@ -35,8 +35,9 @@ You don't have to paste the token back in the terminal. Just having it in `.env`
 
 Set the `defaultLocale` option in:
 
-- `gatsby-config.js` for the `gatsby-theme-wheelroom` plugin
-- `wheelroom-config.js` for the `@jacco-meijer/wheelroom-plugin-contentful` plugin
+- [gatsby-config.js](gatsby-config.js) for the `gatsby-theme-wheelroom` plugin
+- [wheelroom-config.js](wheelroom-config.js) for the
+  `@jacco-meijer/wheelroom-plugin-contentful` plugin
 
 Compile the local packages from typescript to javascript, this will make the
 `dist:templates` and `dist:component-configs` resolve options work.
@@ -63,7 +64,7 @@ Create a dummy image asset and demo content for each model:
 npm run wr:create-content
 ```
 
-Create the required graphql fragments for Gatsby. You can overwrite the existing ones.
+Create the required GraphQL fragments for Gatsby. You can overwrite the existing ones.
 
 ```
 npm run wr:create-fragments
@@ -75,12 +76,13 @@ Start Gatsby and open http://localhost:8000
 npm run develop
 ```
 
-You can now edit `src/page-template.tsx`. E.g. add `console.log(props)` to the `PageTemplate` and inspect the
-`pageContext` prop. It contains the `pageId` key used at query in `src/page-template.tsx`.
+You can now edit [src/page-template.tsx](src/page-template.tsx). E.g. add
+`console.log(props)` to the `PageTemplate` and inspect the `pageContext` prop.
+It contains the `pageId` key used at query in `src/page-template.tsx`.
 
 Using the `globalsId` key in the same query gives you access to the site Globals from Contentful.
 
-You can now change the query in the `page-template.tsx` into:
+To illustrate this, the query in the `page-template.tsx` can be changed into:
 
 ```
   query($pageId: String, $globalsId: String) {
@@ -108,7 +110,7 @@ You can now change the query in the `page-template.tsx` into:
   }
 ```
 
-Note the graphql fragments. They start with ... and refer to the fragments we
+Note the GraphQL fragments. They start with ... and refer to the fragments we
 created a few steps back. The
 [jaccomeijer-nl](https://github.com/jaccomeijer/jaccomeijer-nl) site contains a
 full example on what is possible here.
@@ -117,12 +119,12 @@ If you look at the props passed to `PageTemplate` you see the `globals` in the
 `data` prop and the `articleSection` as an item in the `data.page.sections`
 array.
 
-This is because `initialPageSection` is set to `articleSection` in the
+This is because `initialPageSection` is set to `articleSection` in
 `wheelroom-config.js`.
 
 Finally, this is how you create new components. A component has two parts:
 
-- a Config part that defines the Contentful model and the required graphql
+- a Config part that defines the Contentful model and the required GraphQL
 - a Component part that defines the React component.
 
 To create a new component config in `src/packages/component-configs` use:
@@ -131,29 +133,26 @@ To create a new component config in `src/packages/component-configs` use:
 npm run wr:create-new-config
 ```
 
-Note that adding anything to `src/packages` requires you to run `npm run
+**Note:** Adding anything to `src/packages` requires you to run `npm run
 build:packages` in order to make it available to wheelroom.
 
-To create a new React component in `src/components` use:
+To create a new React component in `src/components` from the existing component
+configs use:
 
 ```
-npm run wr:create-new-component
+npm run wr:create-components-from-config
 ```
 
-Template sets are defined in `wheelroom-template-sets.js`.
+**Note:** The `--filter <componentName>` flag can be used for all commands to
+limit the command to one component.
 
-Template sets config and component could be merged into one so that they share
-the same set of answers.
+Template sets can be customized, they are defined in
+[wheelroom-template-sets.js](wheelroom-template-sets.js). The template sets are
+simple functions that are passed one parameter `vars`, as defined in
+[src/packages/templates/types/vars.ts](src/packages/templates/types/vars.ts).
 
-Another alternative is:
+The template returns a template literal that gets written to file. If nothing
+is returned, the file does not get written.
 
-- Generate config based on the answers
-- Manually finalize the configs by setting the proper Content Types for each
-  field
-- Generate the component from the existing config instead of from the answers
-
-The last approach works well once the configs are saved in a npm module.
-Starting a new project is then as simple as configuring which existing models
-you need and then generate React component code from that.
-
-Questions sets can be configured as well. They are in `wheelroom-question-sets.js`.
+Questions sets can also be configured. They are in
+[wheelroom-question-sets.js](wheelroom-question-sets.js).

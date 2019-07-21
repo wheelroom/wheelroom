@@ -1,8 +1,8 @@
-import { getComponentFields } from '../partials/get-component-fields'
+import { componentFields } from '../helpers/component-fields'
 import { Vars } from '../types/vars'
 
 export const configReadme = (vars: Vars) => {
-  const fields = getComponentFields(vars.answers.componentFields)
+  const fields = componentFields(vars.answers.componentFields)
   const fieldsList = [...fields, 'variation']
     .sort()
     .map(

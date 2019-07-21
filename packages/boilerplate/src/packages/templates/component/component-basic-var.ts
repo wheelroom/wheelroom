@@ -2,7 +2,9 @@ import { Vars } from '../types/vars'
 
 export const componentBasicVar = (vars: Vars) => {
   // Skip this template if not present in filter array
-  if (!vars.options.filter.includes(vars.answers.wheelroomType)) {
+  if (
+    !vars.options.filter.includes(vars.component.component.model.wheelroomType)
+  ) {
     return
   }
 
@@ -10,7 +12,7 @@ export const componentBasicVar = (vars: Vars) => {
  * Component variation
  *
  * Component type: ${vars.componentName.camelCase}
- * Wheelroom type: ${vars.answers.wheelroomType}
+ * Wheelroom type: ${vars.component.component.model.wheelroomType}
  * Variation: basic
  *
  */

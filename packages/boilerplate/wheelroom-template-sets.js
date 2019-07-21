@@ -10,8 +10,19 @@ module.exports = [
     },
   },
   {
-    name: 'component',
-    questions: 'newModel',
+    name: 'components-base',
+    templates: {
+      getVariation: {
+        path: 'get-variation.tsx',
+      },
+      sectionProps: {
+        path: 'section-props.ts',
+      },
+    },
+  },
+  {
+    name: 'components',
+    loopComponents: true,
     templates: {
       componentBasicVar: {
         path: '%component%/%component%-basic-var.tsx',
@@ -28,12 +39,6 @@ module.exports = [
       component: {
         path: '%component%/%component%.tsx',
         options: { filter: ['section', 'part', 'block'] },
-      },
-      getVariation: {
-        path: 'get-variation.tsx',
-      },
-      sectionProps: {
-        path: 'section-props.ts',
       },
     },
   },

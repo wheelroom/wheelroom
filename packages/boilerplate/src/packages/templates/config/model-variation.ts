@@ -1,4 +1,4 @@
-import { getComponentFields } from '../partials/get-component-fields'
+import { componentFields } from '../helpers/component-fields'
 import { getModelFields } from '../partials/get-model-fields'
 import { Vars } from '../types/vars'
 
@@ -8,7 +8,7 @@ export const modelVariation = (vars: Vars) => {
     return
   }
 
-  const fields = getComponentFields(vars.answers.componentFields)
+  const fields = componentFields(vars.answers.componentFields)
   const modelFields = getModelFields(fields, vars)
 
   return `/**
