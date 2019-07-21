@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-templates@1.0.0-alpha.6...@jacco-meijer/wheelroom-plugin-templates@1.0.0-beta.0) (2019-07-21)
+
+**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-templates
+
+
+
+
+
 # [1.0.0-alpha.6](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-templates@1.0.0-alpha.5...@jacco-meijer/wheelroom-plugin-templates@1.0.0-alpha.6) (2019-07-17)
 
 

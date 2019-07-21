@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@2.0.0-alpha.12...boilerplate@2.0.0-beta.0) (2019-07-21)
+
+**Note:** Version bump only for package boilerplate
+
+
+
+
+
 # [2.0.0-alpha.12](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@2.0.0-alpha.11...boilerplate@2.0.0-alpha.12) (2019-07-17)
 
 **Note:** Version bump only for package boilerplate
