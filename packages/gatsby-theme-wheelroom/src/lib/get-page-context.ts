@@ -13,16 +13,16 @@ export const getPageContext = ({
   } as PageContext
 
   // Add global ids
-  // TODO: If no globals exist, skip this
-  Object.entries(context.queries.global).forEach(([globalsName, globals]) => {
-    globals.forEach((globalsItem: ContentfulObject) => {
-      const globalsLocale = globalsItem.node.node_locale
-      if (globalsLocale === getLocale(page)) {
-        pageContext[globalsName + 'Id'] = globalsItem.node.id
-      }
+  if (Object.keys(context.queries.global).length > 0) {
+    Object.entries(context.queries.global).forEach(([globalsName, globals]) => {
+      globals.forEach((globalsItem: ContentfulObject) => {
+        const globalsLocale = globalsItem.node.node_locale
+        if (globalsLocale === getLocale(page)) {
+          pageContext[globalsName + 'Id'] = globalsItem.node.id
+        }
+      })
     })
-  })
-
+  }
   // Add page id
   pageContext[pageType + 'Id'] = page.id
 
