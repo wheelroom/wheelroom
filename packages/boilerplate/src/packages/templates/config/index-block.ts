@@ -15,11 +15,9 @@ export const indexBlock = (vars: Vars) => {
  */
 
 import { model } from './model'
-import { variations } from './variations'
 
 export const ${vars.componentName.camelCase} = {
   model,
-  variations,
 }
 `
 }

@@ -7,7 +7,6 @@
  */
 
 import { Model } from '@jacco-meijer/wheelroom-plugin-contentful'
-import { variations } from './variations'
 
 export const model = {
   contentBackend: 'contentful',
@@ -27,7 +26,7 @@ export const model = {
       widgetId: 'singleLine',
     },
     variation: {
-      initialContent: variations[0],
+      initialContent: 'firstVariation',
       settings: {
         helpText: 'Select variation',
       },
@@ -35,11 +34,6 @@ export const model = {
         name: 'Bicycle map variation',
         required: true,
         type: 'Symbol',
-        validations: [
-          {
-            in: variations,
-          },
-        ],
       },
       widgetId: 'dropdown',
     },

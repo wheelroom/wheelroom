@@ -16,12 +16,10 @@ export const indexSectionPart = (vars: Vars) => {
 
 import { fragment } from './graphql'
 import { model } from './model'
-import { variations } from './variations'
 
 export const ${vars.componentName.camelCase} = {
   fragment,
   model,
-  variations,
 }
 `
 }

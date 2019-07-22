@@ -7,9 +7,7 @@
  */
 
 import { model } from './model'
-import { variations } from './variations'
 
 export const bicycleText = {
   model,
-  variations,
 }

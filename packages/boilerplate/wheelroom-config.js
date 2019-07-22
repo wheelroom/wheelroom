@@ -12,6 +12,13 @@ module.exports = {
         // TODO: Remove overwriteVariations
         // TODO: Add localizedFields: [..., ...]
         // TODO: Remove variation from component config
+        // TODO: Add this in plugin
+        // validations: [
+        //   {
+        //     in: variations,
+        //   },
+        // ],
+
       },
     },
     globals: {},
