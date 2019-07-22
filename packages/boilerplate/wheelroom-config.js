@@ -7,21 +7,26 @@ module.exports = {
     article: {},
     articleSection: {
       options: {
-        variations: ['var 1', 'var 2'],
-        overwriteVariations: true,
-        // TODO: Remove overwriteVariations
-        // TODO: Add localizedFields: [..., ...]
-        // TODO: Remove variation from component config
-        // TODO: Add this in plugin
-        // validations: [
-        //   {
-        //     in: variations,
-        //   },
-        // ],
-
+        localizedFields: ['articleText'],
+        variations: [
+          'Inline article text, specific to this section',
+          'Linked article text, derived from slug in url',
+        ],
       },
     },
-    globals: {},
+    globals: {
+      localizedFields: [
+        'addressLine1',
+        'addressLine2',
+        'emailAddress',
+        'githubUrl',
+        'heading',
+        'siteAuthor',
+        'siteDescription',
+        'siteKeywords',
+        'siteTitle',
+      ],
+    },
     myNewComponent: {
       resolve: 'dist:component-configs',
     },
@@ -29,6 +34,12 @@ module.exports = {
       resolve: `@jacco-meijer/content-models`,
       options: {
         initialPageSection: 'articleSection',
+        localizedFields: [
+          'navigationTitle',
+          'path',
+          'seoDescription',
+          'seoTitle',
+        ],
       },
     },
   },
