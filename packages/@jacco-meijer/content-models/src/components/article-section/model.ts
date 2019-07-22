@@ -44,7 +44,6 @@ export const model = {
         helpText: 'For inline variation, full text of the article',
       },
       specs: {
-        localized: true,
         name: 'Article text',
         required: false,
         type: 'RichText',

@@ -30,11 +30,5 @@ module.exports = {
       name: 'componentFields',
       type: 'input',
     },
-    {
-      default: false,
-      message: 'Do you need localized fields?',
-      name: 'localizedFields',
-      type: 'confirm',
-    },
   ],
 }

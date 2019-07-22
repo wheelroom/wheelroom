@@ -32,7 +32,6 @@ export const model = {
         helpText: 'First line of the global address',
       },
       specs: {
-        localized: true,
         name: 'Address line 1',
         required: true,
         type: 'Symbol',
@@ -45,7 +44,6 @@ export const model = {
         helpText: 'Seconnd line of the global address',
       },
       specs: {
-        localized: true,
         name: 'Address line 2',
         required: true,
         type: 'Symbol',
@@ -58,7 +56,6 @@ export const model = {
         helpText: 'Global email address',
       },
       specs: {
-        localized: true,
         name: 'Email address',
         required: true,
         type: 'Symbol',
@@ -71,7 +68,6 @@ export const model = {
         helpText: 'Full url including protocol to Github profile',
       },
       specs: {
-        localized: true,
         name: 'githubUrl',
         required: false,
         type: 'Symbol',
@@ -84,7 +80,6 @@ export const model = {
         helpText: 'Site heading',
       },
       specs: {
-        localized: true,
         name: 'Heading',
         required: true,
         type: 'Symbol',
@@ -97,7 +92,6 @@ export const model = {
         helpText: 'Full url including protocol to Linkedin profile',
       },
       specs: {
-        localized: true,
         name: 'Linkedin url',
         required: false,
         type: 'Symbol',
@@ -110,7 +104,6 @@ export const model = {
         helpText: 'The global site author used for SEO',
       },
       specs: {
-        localized: true,
         name: 'Site author',
         required: false,
         type: 'Symbol',
@@ -123,7 +116,6 @@ export const model = {
         helpText: 'The global site description used for SEO',
       },
       specs: {
-        localized: true,
         name: 'Site description',
         required: false,
         type: 'Symbol',
@@ -139,7 +131,6 @@ export const model = {
         items: {
           type: 'Symbol',
         },
-        localized: true,
         name: 'Site keywords',
         required: false,
         type: 'Array',
@@ -152,7 +143,6 @@ export const model = {
         helpText: 'Global title used for seo',
       },
       specs: {
-        localized: true,
         name: 'Site title',
         required: false,
         type: 'Symbol',

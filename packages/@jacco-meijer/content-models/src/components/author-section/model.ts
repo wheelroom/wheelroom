@@ -44,7 +44,6 @@ export const model = {
         helpText: 'Name of the author',
       },
       specs: {
-        localized: true,
         name: 'Section heading',
         required: true,
         type: 'Symbol',
@@ -75,7 +74,6 @@ export const model = {
         helpText: 'About the author',
       },
       specs: {
-        localized: true,
         name: 'Text',
         required: true,
         type: 'Text',

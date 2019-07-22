@@ -92,7 +92,6 @@ export const model = {
         helpText: 'Heading shown before the main heading',
       },
       specs: {
-        localized: true,
         name: 'Pre heading',
         required: false,
         type: 'Symbol',
@@ -105,7 +104,6 @@ export const model = {
         helpText: 'Main heading for this opener',
       },
       specs: {
-        localized: true,
         name: 'Heading',
         required: true,
         type: 'Symbol',
@@ -118,7 +116,6 @@ export const model = {
         helpText: 'Heading shown after the main heading',
       },
       specs: {
-        localized: true,
         name: 'Sub heading',
         required: true,
         type: 'Symbol',

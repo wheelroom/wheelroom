@@ -44,7 +44,6 @@ export const model = {
         helpText: 'Full section text',
       },
       specs: {
-        localized: false,
         name: 'Section text',
         required: false,
         type: 'RichText',

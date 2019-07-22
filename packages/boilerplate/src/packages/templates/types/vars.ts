@@ -5,7 +5,6 @@ export interface Vars {
     componentName: string
     wheelroomType: string
     componentFields: string
-    localizedFields: boolean
   }
   options: {
     filter: string[]
@@ -17,8 +16,8 @@ export interface Vars {
       query: string
     }
     options: {
+      localizedFields: string[]
       variations: string[]
-      overwriteVariations: boolean
     }
     sourceModule: string
   }

@@ -65,7 +65,6 @@ export const model = {
         helpText: 'Section heading above article tiles',
       },
       specs: {
-        localized: true,
         name: 'Section heading',
         required: true,
         type: 'Symbol',

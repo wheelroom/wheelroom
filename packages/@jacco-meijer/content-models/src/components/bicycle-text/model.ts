@@ -45,7 +45,6 @@ export const model = {
           'Variables: ${numberAdded} ${pluralS} ${facilityName} ${availableSpaces}',
       },
       specs: {
-        localized: false,
         name: 'Bike added line',
         required: true,
         type: 'Symbol',
@@ -59,7 +58,6 @@ export const model = {
           'The variable ${counter} will be replaced with the actual counter',
       },
       specs: {
-        localized: false,
         name: 'Count down line',
         required: true,
         type: 'Symbol',
@@ -72,7 +70,6 @@ export const model = {
         helpText: 'Short explanation about text representing data updates',
       },
       specs: {
-        localized: false,
         name: 'Update explanation',
         required: true,
         type: 'Text',
@@ -85,7 +82,6 @@ export const model = {
         helpText: 'Time in seconds between refreshing data',
       },
       specs: {
-        localized: false,
         name: 'Update frequency',
         required: true,
         type: 'Integer',
@@ -98,7 +94,6 @@ export const model = {
         helpText: 'Text shown when no changes are detected',
       },
       specs: {
-        localized: false,
         name: 'No changes line',
         required: true,
         type: 'Symbol',
@@ -111,7 +106,6 @@ export const model = {
         helpText: 'Text shown when fething new data',
       },
       specs: {
-        localized: false,
         name: 'Refreshing line',
         required: true,
         type: 'Symbol',
@@ -125,7 +119,6 @@ export const model = {
           'Variables: ${numberRemoved} ${pluralS} ${facilityName} ${availableSpaces}',
       },
       specs: {
-        localized: false,
         name: 'Removed bike line',
         required: true,
         type: 'Symbol',

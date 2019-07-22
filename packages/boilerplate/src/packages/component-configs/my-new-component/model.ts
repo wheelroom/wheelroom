@@ -44,7 +44,6 @@ export const model = {
         helpText: 'Describe how to use the field author',
       },
       specs: {
-        localized: false,
         name: 'author',
         required: true,
         type: 'Symbol',
@@ -57,7 +56,6 @@ export const model = {
         helpText: 'Describe how to use the field bodyText',
       },
       specs: {
-        localized: false,
         name: 'bodyText',
         required: true,
         type: 'Symbol',
@@ -70,7 +68,6 @@ export const model = {
         helpText: 'Describe how to use the field heading',
       },
       specs: {
-        localized: false,
         name: 'heading',
         required: true,
         type: 'Symbol',

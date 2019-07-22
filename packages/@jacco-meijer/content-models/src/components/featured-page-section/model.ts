@@ -62,7 +62,6 @@ export const model = {
         helpText: 'Heading for the featured page section',
       },
       specs: {
-        localized: true,
         name: 'Section heading',
         required: true,
         type: 'Symbol',
@@ -93,7 +92,6 @@ export const model = {
         helpText: 'About the featured page',
       },
       specs: {
-        localized: true,
         name: 'About page',
         required: true,
         type: 'Text',

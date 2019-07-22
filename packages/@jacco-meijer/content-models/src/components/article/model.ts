@@ -32,7 +32,6 @@ export const model = {
         helpText: 'Sub title for the article',
       },
       specs: {
-        localized: false,
         name: 'Sub title',
         required: true,
         type: 'Symbol',
@@ -45,7 +44,6 @@ export const model = {
         helpText: 'Author of the article',
       },
       specs: {
-        localized: false,
         name: 'Author',
         required: true,
         type: 'Symbol',
@@ -58,7 +56,6 @@ export const model = {
         helpText: 'Date displayed with the article',
       },
       specs: {
-        localized: false,
         name: 'Date',
         required: true,
         type: 'Date',
@@ -89,7 +86,6 @@ export const model = {
         helpText: 'Slug for article',
       },
       specs: {
-        localized: false,
         name: 'Slug',
         required: true,
         type: 'Symbol',
@@ -108,7 +104,6 @@ export const model = {
         helpText: 'Full text of the article',
       },
       specs: {
-        localized: false,
         name: 'Article text',
         required: true,
         type: 'RichText',
