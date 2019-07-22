@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.1](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@2.0.0-beta.0...gatsby-theme-wheelroom@2.0.0-beta.1) (2019-07-22)
+
+
+### Bug Fixes
+
+* Skip global ids if no queries are present ([47c4856](https://github.com/jaccomeijer/wheelroom/commit/47c4856))
+
+
+
+
+
 # [2.0.0-beta.0](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@2.0.0-alpha.9...gatsby-theme-wheelroom@2.0.0-beta.0) (2019-07-21)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom
