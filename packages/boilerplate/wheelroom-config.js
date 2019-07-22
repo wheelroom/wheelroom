@@ -15,17 +15,19 @@ module.exports = {
       },
     },
     globals: {
-      localizedFields: [
-        'addressLine1',
-        'addressLine2',
-        'emailAddress',
-        'githubUrl',
-        'heading',
-        'siteAuthor',
-        'siteDescription',
-        'siteKeywords',
-        'siteTitle',
-      ],
+      options: {
+        localizedFields: [
+          'addressLine1',
+          'addressLine2',
+          'emailAddress',
+          'githubUrl',
+          'heading',
+          'siteAuthor',
+          'siteDescription',
+          'siteKeywords',
+          'siteTitle',
+        ],
+      },
     },
     myNewComponent: {
       resolve: 'dist:component-configs',

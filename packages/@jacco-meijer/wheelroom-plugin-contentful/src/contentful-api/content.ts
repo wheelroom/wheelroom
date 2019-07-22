@@ -120,7 +120,7 @@ export const getFields = (context: Context) => {
 }
 
 /** If custom variations are defined, set demo content to first variation */
-export const applyVariationsField = (context: Context) => {
+export const applyVariationField = (context: Context) => {
   let variations
   const modelOptions = context.currentModel.modelOptions
   if (
@@ -133,8 +133,10 @@ export const applyVariationsField = (context: Context) => {
     variations = defaultVariations[0]
   }
 
-  context.contentfulApi.fields.variations = {
-    [context.pluginOptions.defaultLocale]: variations,
+  if ('variation' in context.contentfulApi.fields) {
+    context.contentfulApi.fields.variation = {
+      [context.pluginOptions.defaultLocale]: variations,
+    }
   }
 }
 

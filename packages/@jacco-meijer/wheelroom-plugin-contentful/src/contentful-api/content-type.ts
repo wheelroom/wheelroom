@@ -81,7 +81,7 @@ export const getLocalizedField = (
   return false
 }
 
-const getVariationValidation = (modelOptions: any) => {
+const getVariationValidations = (modelOptions: any) => {
   let inValidation = defaultVariations
 
   // See if we need to handle custom variations
@@ -119,7 +119,7 @@ const getApiFields = (context: Context): any[] => {
         apiField[specName] = specValue
       })
       if (fieldId === 'variation') {
-        apiField.validations = getVariationValidation(
+        apiField.validations = getVariationValidations(
           context.currentModel.modelOptions
         )
       }

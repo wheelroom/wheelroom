@@ -1,5 +1,5 @@
 import {
-  applyVariationsField,
+  applyVariationField,
   createEntry,
   getEntry,
   getFields,
@@ -33,7 +33,7 @@ export const createContentForModel = async (context: Context) => {
     await getEnvironment(context)
 
     getFields(context)
-    applyVariationsField(context)
+    applyVariationField(context)
     await getEntry(context)
     await updateEntry(context)
     await createEntry(context)
