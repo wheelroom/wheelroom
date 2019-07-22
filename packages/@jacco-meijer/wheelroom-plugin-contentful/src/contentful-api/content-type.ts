@@ -1,5 +1,7 @@
 import { Context } from '../types/context'
 import { Field } from '../types/model'
+import { Model } from '../types/model'
+import { defaultVariations } from './defaults'
 
 export const getContentType = async (context: Context) => {
   try {
@@ -65,6 +67,48 @@ const getModelVersion = (contentType: any): any => {
   return result.name
 }
 
+export const getLocalizedField = (
+  fieldId: string,
+  modelOptions: any
+): boolean => {
+  if (
+    modelOptions &&
+    modelOptions.localizedFields &&
+    modelOptions.localizedFields.length > 0
+  ) {
+    return modelOptions.localizedFields.includes(fieldId)
+  }
+  return false
+}
+
+const getVariationValidation = (modelOptions: any) => {
+  let inValidation = defaultVariations
+
+  // See if we need to handle custom variations
+  if (modelOptions && modelOptions.variations) {
+    inValidation = modelOptions.variations
+  }
+  return [
+    {
+      in: inValidation,
+    },
+  ]
+}
+
+const getModelVersionFields = (model: Model) => {
+  console.log(`Setting model version to ${model.modelVersion}`)
+
+  return {
+    disabled: true,
+    id: 'modelVersion',
+    localized: false,
+    name: model.modelVersion,
+    omitted: false,
+    required: false,
+    type: 'Symbol',
+  }
+}
+
 const getApiFields = (context: Context): any[] => {
   const apiFields = []
   Object.entries(context.currentModel.model.fields).forEach(
@@ -73,42 +117,21 @@ const getApiFields = (context: Context): any[] => {
       const apiField = { id: fieldId } as any
       Object.entries(field.specs).forEach(([specName, specValue]) => {
         apiField[specName] = specValue
-        // See if we need to handle custom variations
-        const modelOptions = context.currentModel.modelOptions
-        if (
-          modelOptions &&
-          modelOptions.variations &&
-          fieldId === 'variation' &&
-          specName === 'validations'
-        ) {
-          const existingValue = (specValue as any)[0].in
-          const addValues = modelOptions.variations
-          const newValue = modelOptions.overwriteVariations
-            ? addValues
-            : [...addValues, ...existingValue]
-          apiField.validations = [
-            {
-              in: newValue,
-            },
-          ]
-        }
       })
+      if (fieldId === 'variation') {
+        apiField.validations = getVariationValidation(
+          context.currentModel.modelOptions
+        )
+      }
+
+      apiField.localized = getLocalizedField(
+        fieldId,
+        context.currentModel.modelOptions
+      )
       apiFields.push(apiField)
     }
   )
   // Add model version
-  console.log(
-    `Setting model version to ${context.currentModel.model.modelVersion}`
-  )
-  apiFields.push({
-    disabled: true,
-    id: 'modelVersion',
-    localized: false,
-    name: context.currentModel.model.modelVersion,
-    omitted: false,
-    required: false,
-    type: 'Symbol',
-  })
-
+  apiFields.push(getModelVersionFields(context.currentModel.model))
   return apiFields
 }

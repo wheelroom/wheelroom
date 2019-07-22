@@ -1,5 +1,6 @@
 import { Context } from '../types/context'
 import { Field } from '../types/model'
+import { defaultVariations } from './defaults'
 
 const demoEntryPostfix = 'DemoEntry'
 
@@ -121,14 +122,17 @@ export const getFields = (context: Context) => {
 /** If custom variations are defined, set demo content to first variation */
 export const applyVariationField = (context: Context) => {
   const modelOptions = context.currentModel.modelOptions
-  if (
+  const hasCustomVariations =
     modelOptions &&
     modelOptions.variations &&
     modelOptions.variations.length > 0
-  ) {
-    context.contentfulApi.fields.variation = {
-      [context.pluginOptions.defaultLocale]: modelOptions.variations[0],
-    }
+
+  const customVariations = modelOptions.variations || []
+
+  context.contentfulApi.fields.variation = {
+    [context.pluginOptions.defaultLocale]: hasCustomVariations
+      ? customVariations[0]
+      : defaultVariations[0],
   }
 }
 

@@ -51,7 +51,7 @@ module.exports = {
     articleSection: {
       options: {
         variations: ['var 1', 'var 2'],
-        overwriteVariations: true,
+        localizedFields: ['articleText'],
       },
     },
     globals: {

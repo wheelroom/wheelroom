@@ -6,8 +6,8 @@ export interface CurrentModel {
     initialPageSection?: string
     /** Additional component variations */
     variations?: string[]
-    /** Value true removes the original variations from the model  */
-    overwriteVariations?: boolean
+    /** List of fields for which the 'localized' property is set to true  */
+    localizedFields: string[]
   }
   /** Model object to be applied */
   model: Model
