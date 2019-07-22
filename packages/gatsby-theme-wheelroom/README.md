@@ -47,14 +47,12 @@ structure. We defined a component to be like this:
   fragment,
   model,
   query,
-  variations,
 }
 ```
 
 Where `fragment` is the Graphql fragment used by Gatsby to identify Contentful
 model fields. The `model` describes the actual Contentful model. `query` tells
-this plugin which entries to pull from Contentful. The `variations` field is not
-relevant for this plugin, we use it for view variations.
+this plugin which entries to pull from Contentful.
 
 The model definition is exported from the `wheelroom-plugin-contentful` package
 as `Model`.

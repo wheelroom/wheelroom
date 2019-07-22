@@ -9,6 +9,5 @@ module.exports = {
     '**/*.test.{js,jsx,ts,tsx}',
     '**/model.ts',
     '**/graphql.ts',
-    '**/variations.ts',
   ],
 }
