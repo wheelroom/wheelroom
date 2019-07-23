@@ -60,5 +60,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "dist/index.d.ts",
-  "version": "2.0.0-beta.6"
+  "version": "2.0.0-beta.7"
 }
