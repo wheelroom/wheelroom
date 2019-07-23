@@ -14,6 +14,7 @@ export const fragment = `
     githubUrl
     heading
     linkedinUrl
+    phoneNumber
     siteAuthor
     siteDescription
     siteKeywords

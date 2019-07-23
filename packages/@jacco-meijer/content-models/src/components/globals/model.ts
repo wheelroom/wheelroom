@@ -98,6 +98,18 @@ export const model = {
       },
       widgetId: 'singleLine',
     },
+    phoneNumber: {
+      initialContent: 'Demo content for globals/phoneNumber',
+      settings: {
+        helpText: 'Site phone number',
+      },
+      specs: {
+        name: 'Phone number',
+        required: false,
+        type: 'Symbol',
+      },
+      widgetId: 'singleLine',
+    },
     siteAuthor: {
       initialContent: 'Demo content for globals/siteAuthor',
       settings: {
