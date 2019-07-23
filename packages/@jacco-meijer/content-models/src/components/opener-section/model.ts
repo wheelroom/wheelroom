@@ -110,6 +110,18 @@ export const model = {
       },
       widgetId: 'singleLine',
     },
+    lightHeading: {
+      initialContent: false,
+      settings: {
+        helpText: 'Set to true when a dark hero image is used',
+      },
+      specs: {
+        name: 'Light heading',
+        required: false,
+        type: 'Boolean',
+      },
+      widgetId: 'boolean',
+    },
     subHeading: {
       initialContent: 'Demo content for openerSection/subHeading',
       settings: {
@@ -117,7 +129,7 @@ export const model = {
       },
       specs: {
         name: 'Sub heading',
-        required: true,
+        required: false,
         type: 'Symbol',
       },
       widgetId: 'singleLine',
