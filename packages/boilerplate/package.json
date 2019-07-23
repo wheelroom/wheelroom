@@ -7,7 +7,7 @@
     "@contentful/rich-text-react-renderer": "13.2.0",
     "@contentful/rich-text-types": "13.1.0",
     "@emotion/core": "10.0.14",
-    "@jacco-meijer/content-models": "^2.0.0-beta.7",
+    "@jacco-meijer/content-models": "^2.0.0-beta.8",
     "@jacco-meijer/styled-system": "^2.0.0-beta.2",
     "@jacco-meijer/wheelroom": "^2.0.0-beta.1",
     "@jacco-meijer/wheelroom-plugin-contentful": "^1.0.0-beta.1",
@@ -86,5 +86,5 @@
     "wr:dc": "wheelroom delete-content",
     "wr:ls": "wheelroom list"
   },
-  "version": "2.0.0-beta.7"
+  "version": "2.0.0-beta.8"
 }
