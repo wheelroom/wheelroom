@@ -22,6 +22,7 @@ export const config = {
     w: ['width'],
   },
   responsiveProperties: [
+    'flexDirection',
     'fontSize',
     'fontWeight',
     'height',
@@ -34,6 +35,7 @@ export const config = {
     'paddingLeft',
     'paddingRight',
     'paddingTop',
+    'top',
     'width',
   ],
   scales: {
