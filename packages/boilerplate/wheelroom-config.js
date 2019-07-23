@@ -55,7 +55,7 @@ module.exports = {
     {
       resolve: '@jacco-meijer/wheelroom-plugin-templates',
       options: {
-        defaultTemplateResolve: `dist:templates`,
+        defaultTemplateResolve: `@jacco-meijer/content-models`,
         templateSets: templateSets,
         questionSets: questionSets,
       },

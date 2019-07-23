@@ -10,13 +10,23 @@ module.exports = [
     },
   },
   {
+    name: 'demo-set',
+    loopComponents: true,
+    templates: {
+      demo: {
+        path: 'demo/%component%.md',
+        resolve: `dist:templates`,
+      },
+    },
+  },
+  {
     name: 'components-base',
     templates: {
-      getVariation: {
-        path: 'get-variation.tsx',
+      defaults: {
+        path: 'lib/defaults.ts',
       },
       sectionProps: {
-        path: 'section-props.ts',
+        path: 'components/section-props.ts',
       },
     },
   },
@@ -36,7 +46,11 @@ module.exports = [
         path: '%component%/README.md',
         options: { filter: ['section', 'part', 'block'] },
       },
-      component: {
+      componentVariations: {
+        path: '%component%/%component%.tsx',
+        options: { filter: ['section', 'part', 'block'] },
+      },
+      componentNoVariations: {
         path: '%component%/%component%.tsx',
         options: { filter: ['section', 'part', 'block'] },
       },
@@ -75,10 +89,6 @@ module.exports = [
       },
       modelVariation: {
         path: '%component%/model.ts',
-        options: { filter: ['section', 'part', 'block'] },
-      },
-      variations: {
-        path: '%component%/variations.ts',
         options: { filter: ['section', 'part', 'block'] },
       },
     },
