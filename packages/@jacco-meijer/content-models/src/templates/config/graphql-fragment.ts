@@ -1,6 +1,6 @@
+import { Vars } from '../../types/vars'
 import { componentFields } from '../helpers/component-fields'
 import { getGraphqlFields } from '../partials/get-graphql-fields'
-import { Vars } from '../../types/vars'
 
 export const graphqlFragment = (vars: Vars) => {
   // Skip this template if not present in filter array

@@ -1,6 +1,6 @@
+import { Vars } from '../../types/vars'
 import { componentFields } from '../helpers/component-fields'
 import { getModelFields } from '../partials/get-model-fields'
-import { Vars } from '../../types/vars'
 
 export const modelNoVariation = (vars: Vars) => {
   // Skip this template if not present in filter array
