@@ -111,7 +111,7 @@ export const model = {
       widgetId: 'singleLine',
     },
     lightHeading: {
-      initialContent: false,
+      initialContent: true,
       settings: {
         helpText: 'Set to true when a dark hero image is used',
       },
