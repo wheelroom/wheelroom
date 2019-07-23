@@ -86,4 +86,3 @@ export const model = {
   type: 'footerSection',
   wheelroomType: 'section',
 } as Model
-
