@@ -1,6 +1,6 @@
-import { Vars } from '../types/vars'
+import { Vars } from '../../types/vars'
 
-export const indexSubPageGlobal = (vars: Vars) => {
+export const indexBlock = (vars: Vars) => {
   // Skip this template if not present in filter array
   if (!vars.options.filter.includes(vars.answers.wheelroomType)) {
     return
@@ -14,14 +14,10 @@ export const indexSubPageGlobal = (vars: Vars) => {
  *
  */
 
-import { query } from './graphql'
-import { fragment } from './graphql'
 import { model } from './model'
 
 export const ${vars.componentName.camelCase} = {
-  fragment,
   model,
-  query,
 }
 `
 }

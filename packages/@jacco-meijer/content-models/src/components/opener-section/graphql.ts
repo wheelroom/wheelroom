@@ -10,6 +10,7 @@ export const fragment = `
   fragment OpenerSection on ContentfulOpenerSection {
     __typename
     heading
+    lightHeading
     preHeading
     subHeading
     image {

@@ -1,5 +1,5 @@
+import { Vars } from '../../types/vars'
 import { modelFields } from '../helpers/model-fields'
-import { Vars } from '../types/vars'
 
 export const componentReadme = (vars: Vars) => {
   // Skip this template if not present in filter array

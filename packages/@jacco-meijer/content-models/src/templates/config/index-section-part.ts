@@ -1,4 +1,4 @@
-import { Vars } from '../types/vars'
+import { Vars } from '../../types/vars'
 
 export const indexSectionPart = (vars: Vars) => {
   // Skip this template if not present in filter array

@@ -1,10 +1,18 @@
+import { Vars } from '../../types/vars'
 import { modelFields } from '../helpers/model-fields'
-import { Vars } from '../types/vars'
 
-export const component = (vars: Vars) => {
+export const componentNoVariations = (vars: Vars) => {
   // Skip this template if not present in filter array
   if (
     !vars.options.filter.includes(vars.component.component.model.wheelroomType)
+  ) {
+    return
+  }
+  // Skip this template if variations are found
+  if (
+    vars.component.options &&
+    vars.component.options.variations &&
+    vars.component.options.variations.length > 1
   ) {
     return
   }
@@ -26,24 +34,22 @@ export const component = (vars: Vars) => {
  *
  */
 
-import { components } from '@jacco-meijer/content-models'
+import { getVariation } from '@jacco-meijer/content-models'
 import * as React from 'react'
-import { getVariation } from '../get-variation'
+import { defaultVariations } from '../../lib/defaults'
 import { SectionProps } from '../section-props'
 import { ${vars.componentName.pascalCase}BasicVar } from './${vars.componentName.dashCase}-basic-var'
 
-const componentList = [${vars.componentName.pascalCase}BasicVar]
+const componentList = {
+  [defaultVariations[0]]: ${vars.componentName.pascalCase}BasicVar,
+}
 
 export interface ${vars.componentName.pascalCase}Props extends SectionProps {
   /** Gatsby fetched data */
 ${componentProps}}
 
 export const ${vars.componentName.pascalCase} = (props: ${vars.componentName.pascalCase}Props) => {
-  const Variation = getVariation(
-    props,
-    components.${vars.componentName.camelCase}.variations,
-    componentList
-  )
+  const Variation = getVariation(props, componentList)
 
   return <Variation {...props} />
 }

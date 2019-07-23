@@ -49,25 +49,25 @@ npm run build:packages
 Wheelroom can now list the available objects:
 
 ```
-npm run wr:list
+npm run wr:ls
 ```
 
 Create the configured models in your Contentful space and check the Contentful web ui:
 
 ```
-npm run wr:create-models
+npm run wr:cm
 ```
 
 Create a dummy image asset and demo content for each model:
 
 ```
-npm run wr:create-content
+npm run wr:cc
 ```
 
-Create the required GraphQL fragments for Gatsby. You can overwrite the existing ones.
+Create the required GraphQL fragments for Gatsby:
 
 ```
-npm run wr:create-fragments
+npm run wr:cf
 ```
 
 Start Gatsby and open http://localhost:8000
@@ -130,7 +130,7 @@ Finally, this is how you create new components. A component has two parts:
 To create a new component config in `src/packages/component-configs` use:
 
 ```
-npm run wr:create-new-config
+npm run wr:new-config
 ```
 
 **Note:** Adding anything to `src/packages` requires you to run `npm run
@@ -140,7 +140,7 @@ To create a new React component in `src/components` from the existing component
 configs use:
 
 ```
-npm run wr:create-components-from-config
+npm run wr:new-components
 ```
 
 **Note:** The `--filter <componentName>` flag can be used for all commands to

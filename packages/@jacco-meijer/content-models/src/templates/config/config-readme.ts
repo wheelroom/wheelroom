@@ -1,5 +1,5 @@
+import { Vars } from '../../types/vars'
 import { componentFields } from '../helpers/component-fields'
-import { Vars } from '../types/vars'
 
 export const configReadme = (vars: Vars) => {
   const fields = componentFields(vars.answers.componentFields)

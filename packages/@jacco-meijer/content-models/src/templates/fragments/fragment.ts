@@ -1,4 +1,4 @@
-import { Vars } from '../types/vars'
+import { Vars } from '../../types/vars'
 
 export const fragment = (vars: Vars) => {
   // Skip fragment if not present in filter array

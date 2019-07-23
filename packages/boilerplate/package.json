@@ -7,8 +7,8 @@
     "@contentful/rich-text-react-renderer": "13.2.0",
     "@contentful/rich-text-types": "13.1.0",
     "@emotion/core": "10.0.14",
-    "@jacco-meijer/content-models": "^2.0.0-beta.1",
-    "@jacco-meijer/styled-system": "^2.0.0-beta.0",
+    "@jacco-meijer/content-models": "^2.0.0-beta.5",
+    "@jacco-meijer/styled-system": "^2.0.0-beta.1",
     "@jacco-meijer/wheelroom": "^2.0.0-beta.1",
     "@jacco-meijer/wheelroom-plugin-contentful": "^1.0.0-beta.1",
     "@jacco-meijer/wheelroom-plugin-templates": "^1.0.0-beta.1",
@@ -76,15 +76,15 @@
     "type-check": "tsc --noEmit",
     "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "demo-postversion": "git push && git push --tags",
-    "wheelroom": "wheelroom",
-    "wr:create-models": "wheelroom create-models",
-    "wr:create-content": "wheelroom create-content",
-    "wr:create-fragments": "wheelroom create-files fragments src/wheelroom-fragments",
-    "wr:create-components-from-config": "wheelroom create-files components src/components",
-    "wr:create-components-base": "wheelroom create-files components-base src/components",
-    "wr:create-new-config": "wheelroom create-files config src/packages/component-configs",
-    "wr:delete-content": "wheelroom delete-content",
-    "wr:list": "wheelroom list"
+    "wr": "wheelroom",
+    "wr:cm": "wheelroom create-models",
+    "wr:cc": "wheelroom create-content",
+    "wr:cf": "wheelroom create-files fragments src/wheelroom-fragments",
+    "wr:new-components": "wheelroom create-files components src/components",
+    "wr:components-base": "wheelroom create-files components-base src",
+    "wr:new-config": "wheelroom create-files config src/packages/component-configs",
+    "wr:dc": "wheelroom delete-content",
+    "wr:ls": "wheelroom list"
   },
-  "version": "2.0.0-beta.1"
+  "version": "2.0.0-beta.5"
 }

@@ -1,8 +1,8 @@
+import { Vars } from '../../types/vars'
 import { componentFields } from '../helpers/component-fields'
 import { getModelFields } from '../partials/get-model-fields'
-import { Vars } from '../types/vars'
 
-export const modelNoVariation = (vars: Vars) => {
+export const modelVariation = (vars: Vars) => {
   // Skip this template if not present in filter array
   if (!vars.options.filter.includes(vars.answers.wheelroomType)) {
     return
@@ -37,6 +37,18 @@ export const model = {
         type: 'Symbol',
       },
       widgetId: 'singleLine',
+    },
+    variation: {
+      initialContent: 'firstVariation',
+      settings: {
+        helpText: 'Select variation',
+      },
+      specs: {
+        name: '${vars.componentName.firstUpperCase} variation',
+        required: true,
+        type: 'Symbol',
+      },
+      widgetId: 'dropdown',
     },
     // tslint:disable-next-line: object-literal-sort-keys
 ${modelFields}  },
