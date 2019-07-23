@@ -38,6 +38,30 @@ export const model = {
       widgetId: 'dropdown',
     },
     // tslint:disable-next-line: object-literal-sort-keys
+    addressHeading: {
+      initialContent: 'Demo content for globals/addressHeading',
+      settings: {
+        helpText: 'Heading above address',
+      },
+      specs: {
+        name: 'Address heading',
+        required: false,
+        type: 'Symbol',
+      },
+      widgetId: 'singleLine',
+    },
+    contactHeading: {
+      initialContent: 'Demo content for globals/contactHeading',
+      settings: {
+        helpText: 'Heading above contact details',
+      },
+      specs: {
+        name: 'Contact heading',
+        required: false,
+        type: 'Symbol',
+      },
+      widgetId: 'singleLine',
+    },
     navigation: {
       initialContent: 'navigation',
       settings: {
@@ -62,3 +86,4 @@ export const model = {
   type: 'footerSection',
   wheelroomType: 'section',
 } as Model
+

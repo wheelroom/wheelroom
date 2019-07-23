@@ -9,6 +9,8 @@
 export const fragment = `
   fragment FooterSection on ContentfulFooterSection {
     __typename
+    addressHeading
+    contactHeading
     navigation {
       ...Navigation
     }
