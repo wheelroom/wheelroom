@@ -41,6 +41,7 @@ export const config = {
   scales: {
     fontSizeScale: ['fontSize'],
     fontWeightScale: ['fontWeight'],
+    height: ['height'],
     lineHeightScale: ['lineHeight'],
     spaceScale: [
       'marginBottom',
