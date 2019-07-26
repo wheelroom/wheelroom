@@ -1,5 +1,5 @@
 import { Global } from '@emotion/core'
-import { Container } from '@jacco-meijer/styled-system'
+import { Box, Container, Flex } from '@jacco-meijer/styled-system'
 import { ThemeProvider } from 'emotion-theming'
 import { graphql } from 'gatsby'
 import * as React from 'react'
@@ -19,7 +19,17 @@ const PageTemplate = (props: any) => {
   return (
     <ThemeProvider theme={appTheme}>
       <Global styles={GlobalAStyles} />
-      <Container>Sections here</Container>
+      <Container>
+        <Flex color="white" fontSize={[2, 4, 6, 8]}>
+          <Box p={5} w={[1, 1 / 2]} bg="red">
+            Box
+          </Box>
+          <Box p={5} w={[1, 1 / 2]} bg="blue">
+            Box
+          </Box>
+        </Flex>
+        Sections here
+      </Container>
     </ThemeProvider>
   )
 }
