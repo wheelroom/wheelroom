@@ -2,6 +2,10 @@ import { defaultTheme } from './config/default-theme'
 import { parseStyles } from './parse-styles'
 
 export const styledSystem = (props: any) => (theme: any) => {
+  if (!props) {
+    return
+  }
+
   // Within a lerna monorepo this is caused by having two versions of the
   // emotion package
   if (Object.entries(theme).length === 0) {
