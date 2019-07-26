@@ -1,4 +1,4 @@
-import * as facepaint from 'facepaint'
+import facepaint from 'facepaint'
 import { config } from '../config/config'
 
 /** Take the props object and add @media keys to it */
