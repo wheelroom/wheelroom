@@ -4,6 +4,9 @@ import { parseProp } from './lib/parse-prop'
 
 const recursiveParse = (theme: any, props: any) => {
   const parsedProps: any = {}
+  if (!props) {
+    return ''
+  }
 
   for (const [name, value] of Object.entries(props)) {
     /** If this is an object, start a new parse */
