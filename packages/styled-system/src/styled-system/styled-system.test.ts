@@ -52,7 +52,7 @@ const fullTestResult = {
   '@media (min-width: 75em)': { fontSize: 18, lineHeight: 1.5 },
 }
 
-test('Full test', () => {
+test('Full test ', () => {
   expect(emotionCss(fullTestProps)).toStrictEqual(fullTestResult)
 })
 

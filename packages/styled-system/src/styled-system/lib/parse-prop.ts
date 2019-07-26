@@ -1,14 +1,17 @@
 import { config } from '../config/config'
 import { ResponsiveProp, StaticProp } from '../types/props'
+import { Theme, ThemeList, ThemeObject } from '../types/theme'
 
 /** Take a styled system css prop and parse it according to config/config.ts. It
  * returns a ResponsiveProp or undefined if the prop should be ignored
  */
-export const parseProp = (
-  theme: any,
-  name: string,
+interface ParseProp {
+  theme: Theme
+  name: string
   value: StaticProp | ResponsiveProp
-) => {
+}
+
+export const parseProp = ({ theme, name, value }: ParseProp) => {
   let parsedProp: ResponsiveProp
 
   /** Ignore properties */
@@ -34,7 +37,8 @@ export const parseProp = (
         parsedProp.forEach((item: any) => {
           let newValue = item
           if (typeof item === 'string') {
-            newValue = theme[stringMapName][item] || item
+            const stringMap = theme[stringMapName] as ThemeObject
+            newValue = stringMap[item] || item
           }
           newArray.push(newValue)
         })
@@ -50,7 +54,8 @@ export const parseProp = (
         parsedProp.forEach((item: any) => {
           let newValue = item
           if (Number.isInteger(item)) {
-            newValue = theme[scaleName][item]
+            const scaleList = theme[scaleName] as ThemeList
+            newValue = scaleList[item]
           }
           newArray.push(newValue)
         })

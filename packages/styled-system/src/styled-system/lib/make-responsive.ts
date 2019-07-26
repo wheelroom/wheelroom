@@ -1,18 +1,22 @@
 import facepaint from 'facepaint'
 import { config } from '../config/config'
+import { Theme } from '../types/theme'
 
 /**
  * Take the props object and add @media keys to it, returns new object
  * responsiveProps
  */
-export const makeResponsive = (theme: any, props: any) => {
+interface MakeResponsive {
+  theme: Theme
+  result: any
+}
+export const makeResponsive = ({ theme, result }: MakeResponsive) => {
   /** Apply facepaint media queries */
+  const breakPointList = theme.breakpoints as []
   const mediaQuery = facepaint(
-    theme.breakpoints.map(
-      (breakPoint: any) => `@media (min-width: ${breakPoint})`
-    )
+    breakPointList.map(breakPoint => `@media (min-width: ${breakPoint})`)
   )
-  for (const [name, value] of Object.entries(props)) {
+  for (const [name, value] of Object.entries(result)) {
     /** Skip recursive objects */
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
       continue
@@ -23,23 +27,23 @@ export const makeResponsive = (theme: any, props: any) => {
       Object.entries(mediaQueries).forEach(([query, property]) => {
         // Merge in media query together with existing one
         if (query.startsWith('@media ')) {
-          if (!props[query]) {
-            props[query] = {}
+          if (!result[query]) {
+            result[query] = {}
           }
-          Object.assign(props[query], property)
+          Object.assign(result[query], property)
         } else {
-          props[query] = property
+          result[query] = property
         }
       })
     } else {
-      if (props[name].length > 1) {
+      if (result[name].length > 1 && process.env.NODE_ENV !== 'test') {
         console.log(
           `Warning: found unhandled responsive property '${name}'.
   Using first value only. Consider adding this property to the
   responsiveProperties config array`
         )
       }
-      props[name] = props[name][0]
+      result[name] = result[name][0]
     }
   }
 }

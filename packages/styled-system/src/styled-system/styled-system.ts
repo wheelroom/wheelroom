@@ -1,7 +1,8 @@
 import { defaultTheme } from './config/default-theme'
 import { parseStyles } from './parse-styles'
+import { Theme } from './types/theme'
 
-export const styledSystem = (props: any) => (theme: any) => {
+export const styledSystem = (props: any) => (theme: Theme) => {
   if (!props) {
     return
   }
@@ -13,5 +14,5 @@ export const styledSystem = (props: any) => (theme: any) => {
     theme = defaultTheme
   }
 
-  return parseStyles(theme, props)
+  return parseStyles({ theme, props })
 }
