@@ -20,7 +20,7 @@ Responsive styles are generated with `facepaint`.
 ## Config
 
 All configuration is in one file:
-[config.ts](./src/styled-system/config.ts).
+[config.ts](./src/styled-system/config/config.ts).
 
 ## Core elements
 
