@@ -22,7 +22,6 @@
     "dotenv": "8.0.0",
     "fs-extra": "8.1.0",
     "inquirer": "6.5.0",
-    "regenerator-runtime": "0.13.2",
     "yargs": "13.3.0"
   },
   "description": "Site framework based on Contentful and Gatsby",
