@@ -94,7 +94,7 @@ export const parseProp = ({ theme, name, value }: ParseProp) => {
   } else {
     if (parsedProp.length > 1 && process.env.NODE_ENV !== 'test') {
       console.log(
-        `Warning: found unhandled responsive property '${name}'.
+        `WARNING: found unhandled responsive property '${name}'.
 Using first value only. Consider adding this property to the
 responsiveProperties config array`
       )

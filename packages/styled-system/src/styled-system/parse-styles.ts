@@ -10,6 +10,10 @@ interface RecursiveParse {
   result: any
 }
 const recursiveParse = ({ theme, props, result }: RecursiveParse) => {
+  console.log('recursiveParse', theme, props, result)
+  console.log('theme', theme)
+  console.log('props', props)
+  console.log('result', result)
   for (const name of Object.keys(props)) {
     /** If this is an object, start a new parse */
     if (
@@ -25,24 +29,20 @@ const recursiveParse = ({ theme, props, result }: RecursiveParse) => {
     /** If this is an alias, parse for each alias */
     if (name in config.propertyAliases) {
       config.propertyAliases[name].forEach((fullPropName: any) => {
-        const propObject = parseProp({
+        const propWithMediaQueries = parseProp({
           name: fullPropName,
           theme,
           value: props[name] as StaticProp | ResponsiveProp,
         })
-        if (propObject) {
-          mergeInMediaQuery({ props: result, mediaQueries: propObject })
-        }
+        mergeInMediaQuery({ result, propWithMediaQueries })
       })
     } else {
-      const propObject = parseProp({
+      const propWithMediaQueries = parseProp({
         name,
         theme,
         value: props[name] as StaticProp | ResponsiveProp,
       })
-      if (propObject) {
-        mergeInMediaQuery({ props: result, mediaQueries: propObject })
-      }
+      mergeInMediaQuery({ result, propWithMediaQueries })
     }
   }
 }
