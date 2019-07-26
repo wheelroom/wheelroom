@@ -1,4 +1,4 @@
-import { defaultTheme } from './default-theme'
+import { defaultTheme } from './config/default-theme'
 import { parseStyles } from './parse-styles'
 
 export const styledSystem = (props: any) => (theme: any) => {
