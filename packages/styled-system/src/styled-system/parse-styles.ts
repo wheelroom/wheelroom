@@ -1,5 +1,5 @@
 import { config } from './config/config'
-import { makeResponsive } from './lib/make-responsive'
+import { mergeInMediaQuery } from './lib/get-responsive-prop'
 import { parseProp } from './lib/parse-prop'
 import { ResponsiveProp, StaticProp } from './types/props'
 import { Theme } from './types/theme'
@@ -25,27 +25,26 @@ const recursiveParse = ({ theme, props, result }: RecursiveParse) => {
     /** If this is an alias, parse for each alias */
     if (name in config.propertyAliases) {
       config.propertyAliases[name].forEach((fullPropName: any) => {
-        const parsedProp = parseProp({
+        const propObject = parseProp({
           name: fullPropName,
           theme,
           value: props[name] as StaticProp | ResponsiveProp,
         })
-        if (parsedProp) {
-          result[fullPropName] = parsedProp
+        if (propObject) {
+          mergeInMediaQuery({ props: result, mediaQueries: propObject })
         }
       })
     } else {
-      const parsedProp = parseProp({
+      const propObject = parseProp({
         name,
         theme,
         value: props[name] as StaticProp | ResponsiveProp,
       })
-      if (parsedProp) {
-        result[name] = parsedProp
+      if (propObject) {
+        mergeInMediaQuery({ props: result, mediaQueries: propObject })
       }
     }
   }
-  makeResponsive({ theme, result })
 }
 interface ParseStyles {
   theme: Theme
