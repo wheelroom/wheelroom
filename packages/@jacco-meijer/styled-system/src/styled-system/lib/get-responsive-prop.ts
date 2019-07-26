@@ -24,20 +24,23 @@ export const getResponsiveProp = ({
 }
 
 export const mergeInMediaQuery = ({
-  props,
-  mediaQueries,
+  result,
+  propWithMediaQueries,
 }: {
-  props: any
-  mediaQueries: any
+  result: any
+  propWithMediaQueries: any
 }) => {
-  Object.entries(mediaQueries).forEach(([query, property]) => {
+  if (!propWithMediaQueries) {
+    return
+  }
+  Object.entries(propWithMediaQueries).forEach(([query, property]) => {
     if (query.startsWith('@media ')) {
-      if (!props[query]) {
-        props[query] = {}
+      if (!result[query]) {
+        result[query] = {}
       }
-      Object.assign(props[query], property)
+      Object.assign(result[query], property)
     } else {
-      props[query] = property
+      result[query] = property
     }
   })
 }
