@@ -5,10 +5,13 @@ to be a drop in replacement.
 
 ## POC
 
-This is a simple Proof Of Concept. The package works but has not been tested in
-any way.
+Project status still is Proof Of Concept. The package runs on some small
+production sites. There's a simple test in place that covers all functionality.
 
-Performance is unknown. No tests yet and a very poor typescript implementation.
+It should be hooked up to Travis where the test can run for Windows and Linux.
+It's been developed on macOs and only tested for that os.
+
+Performance is good at first sight, but largely untested.
 
 ## Responsive
 
@@ -18,11 +21,6 @@ Responsive styles are generated with `facepaint`.
 
 All configuration is in one file:
 [config.ts](./src/styled-system/config.ts).
-
-## Parsing
-
-It's rather simple, all parsing is done in
-[parse-styles.ts](./src/styled-system/parse-styles.ts).
 
 ## Core elements
 
