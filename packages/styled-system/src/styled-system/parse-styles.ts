@@ -10,10 +10,6 @@ interface RecursiveParse {
   result: any
 }
 const recursiveParse = ({ theme, props, result }: RecursiveParse) => {
-  console.log('recursiveParse', theme, props, result)
-  console.log('theme', theme)
-  console.log('props', props)
-  console.log('result', result)
   for (const name of Object.keys(props)) {
     /** If this is an object, start a new parse */
     if (
