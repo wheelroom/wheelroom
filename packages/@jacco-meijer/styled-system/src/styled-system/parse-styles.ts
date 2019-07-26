@@ -2,13 +2,16 @@ import { config } from './config/config'
 import { makeResponsive } from './lib/make-responsive'
 import { parseProp } from './lib/parse-prop'
 
-const recursiveParse = (theme: any, props: any) => {
-  const parsedProps: any = {}
-
+const recursiveParse = (theme: any, props: any, parsedProps: any) => {
   for (const [name, value] of Object.entries(props)) {
     /** If this is an object, start a new parse */
-    if (typeof props[name] === 'object' && !Array.isArray(props[name])) {
-      parsedProps[name] = recursiveParse(theme, props[name])
+    if (
+      typeof props[name] === 'object' &&
+      props[name] !== null &&
+      !Array.isArray(props[name])
+    ) {
+      parsedProps[name] = {}
+      recursiveParse(theme, props[name], parsedProps[name])
       continue
     }
 
@@ -28,11 +31,10 @@ const recursiveParse = (theme: any, props: any) => {
     }
   }
   makeResponsive(theme, parsedProps)
-  return parsedProps
 }
 
 export const parseStyles = (theme: any, props: any) => {
-  const result = recursiveParse(theme, props)
-  // console.log(result)
+  const result = {}
+  recursiveParse(theme, props, result)
   return result
 }

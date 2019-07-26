@@ -1,7 +1,10 @@
 import facepaint from 'facepaint'
 import { config } from '../config/config'
 
-/** Take the props object and add @media keys to it */
+/**
+ * Take the props object and add @media keys to it, returns new object
+ * responsiveProps
+ */
 export const makeResponsive = (theme: any, props: any) => {
   /** Apply facepaint media queries */
   const mediaQuery = facepaint(
@@ -11,7 +14,7 @@ export const makeResponsive = (theme: any, props: any) => {
   )
   for (const [name, value] of Object.entries(props)) {
     /** Skip recursive objects */
-    if (typeof value === 'object' && !Array.isArray(value)) {
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
       continue
     }
 
