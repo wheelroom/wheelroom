@@ -1,9 +1,11 @@
 import { config } from '../config/config'
 import { ResponsiveProp, StaticProp } from '../types/props'
 import { Theme, ThemeList, ThemeObject } from '../types/theme'
+import { getResponsiveProp } from './get-responsive-prop'
 
-/** Take a styled system css prop and parse it according to config/config.ts. It
- * returns a ResponsiveProp or undefined if the prop should be ignored
+/**
+ * Take a styled system css prop and parse it according to config/config.ts. It
+ * returns an object which may contain media queries
  */
 interface ParseProp {
   theme: Theme
@@ -13,6 +15,7 @@ interface ParseProp {
 
 export const parseProp = ({ theme, name, value }: ParseProp) => {
   let parsedProp: ResponsiveProp
+  let result: { [propName: string]: StaticProp }
 
   /** Ignore properties */
   if (config.ignoreProperties.includes(name)) {
@@ -84,5 +87,19 @@ export const parseProp = ({ theme, name, value }: ParseProp) => {
       }
     }
   )
-  return parsedProp
+
+  /** Apply facepaint media queries */
+  if (config.responsiveProperties.includes(name)) {
+    result = getResponsiveProp({ theme, propName: name, propValue: parsedProp })
+  } else {
+    if (parsedProp.length > 1 && process.env.NODE_ENV !== 'test') {
+      console.log(
+        `Warning: found unhandled responsive property '${name}'.
+Using first value only. Consider adding this property to the
+responsiveProperties config array`
+      )
+    }
+    result = { [name]: parsedProp[0] }
+  }
+  return result
 }
