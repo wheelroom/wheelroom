@@ -10,11 +10,15 @@ interface RecursiveParse {
   result: any
 }
 const recursiveParse = ({ theme, props, result }: RecursiveParse) => {
-  for (const [name, value] of Object.entries(props)) {
+  for (const name of Object.keys(props)) {
     /** If this is an object, start a new parse */
-    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+    if (
+      typeof props[name] === 'object' &&
+      props[name] !== null &&
+      !Array.isArray(props[name])
+    ) {
       result[name] = {}
-      recursiveParse({ theme, props: value, result: result[name] })
+      recursiveParse({ theme, props: props[name], result: result[name] })
       continue
     }
 
@@ -24,7 +28,7 @@ const recursiveParse = ({ theme, props, result }: RecursiveParse) => {
         const parsedProp = parseProp({
           name: fullPropName,
           theme,
-          value: value as StaticProp | ResponsiveProp,
+          value: props[name] as StaticProp | ResponsiveProp,
         })
         if (parsedProp) {
           result[fullPropName] = parsedProp
@@ -34,7 +38,7 @@ const recursiveParse = ({ theme, props, result }: RecursiveParse) => {
       const parsedProp = parseProp({
         name,
         theme,
-        value: value as StaticProp | ResponsiveProp,
+        value: props[name] as StaticProp | ResponsiveProp,
       })
       if (parsedProp) {
         result[name] = parsedProp

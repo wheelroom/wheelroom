@@ -11,19 +11,24 @@ interface MakeResponsive {
   result: any
 }
 export const makeResponsive = ({ theme, result }: MakeResponsive) => {
-  /** Apply facepaint media queries */
-  const breakPointList = theme.breakpoints as []
-  const mediaQuery = facepaint(
-    breakPointList.map(breakPoint => `@media (min-width: ${breakPoint})`)
-  )
-  for (const [name, value] of Object.entries(result)) {
+  for (const name of Object.keys(result)) {
     /** Skip recursive objects */
-    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+    if (
+      typeof result[name] === 'object' &&
+      result[name] !== null &&
+      !Array.isArray(result[name])
+    ) {
       continue
     }
 
+    /** Apply facepaint media queries */
+    const breakPointList = theme.breakpoints as []
+    const mediaQuery = facepaint(
+      breakPointList.map(breakPoint => `@media (min-width: ${breakPoint})`)
+    )
+
     if (config.responsiveProperties.includes(name)) {
-      const mediaQueries = mediaQuery({ [name]: value })[0]
+      const mediaQueries = mediaQuery({ [name]: result[name] })[0]
       Object.entries(mediaQueries).forEach(([query, property]) => {
         // Merge in media query together with existing one
         if (query.startsWith('@media ')) {
