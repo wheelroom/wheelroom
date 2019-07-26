@@ -1,4 +1,3 @@
-// @ts-ignore: ignore export = trouble
 import { config } from './config/config'
 import { makeResponsive } from './lib/make-responsive'
 import { parseProp } from './lib/parse-prop'
