@@ -1,4 +1,6 @@
-export const config = {
+import { Config } from '../types/config'
+
+export const config: Config = {
   ignoreProperties: ['children'],
   propertyAliases: {
     bg: ['backgroundColor'],

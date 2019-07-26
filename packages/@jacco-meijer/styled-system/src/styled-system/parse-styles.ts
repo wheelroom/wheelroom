@@ -1,40 +1,54 @@
 import { config } from './config/config'
 import { makeResponsive } from './lib/make-responsive'
 import { parseProp } from './lib/parse-prop'
+import { ResponsiveProp, StaticProp } from './types/props'
+import { Theme } from './types/theme'
 
-const recursiveParse = (theme: any, props: any, parsedProps: any) => {
+interface RecursiveParse {
+  theme: Theme
+  props: any
+  result: any
+}
+const recursiveParse = ({ theme, props, result }: RecursiveParse) => {
   for (const [name, value] of Object.entries(props)) {
     /** If this is an object, start a new parse */
-    if (
-      typeof props[name] === 'object' &&
-      props[name] !== null &&
-      !Array.isArray(props[name])
-    ) {
-      parsedProps[name] = {}
-      recursiveParse(theme, props[name], parsedProps[name])
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      result[name] = {}
+      recursiveParse({ theme, props: value, result: result[name] })
       continue
     }
 
     /** If this is an alias, parse for each alias */
     if (name in config.propertyAliases) {
-      config.propertyAliases[name].forEach((alias: any) => {
-        const parsedProp = parseProp(theme, alias, value as any)
+      config.propertyAliases[name].forEach((fullPropName: any) => {
+        const parsedProp = parseProp({
+          name: fullPropName,
+          theme,
+          value: value as StaticProp | ResponsiveProp,
+        })
         if (parsedProp) {
-          parsedProps[alias] = parsedProp
+          result[fullPropName] = parsedProp
         }
       })
     } else {
-      const parsedProp = parseProp(theme, name, value as any)
+      const parsedProp = parseProp({
+        name,
+        theme,
+        value: value as StaticProp | ResponsiveProp,
+      })
       if (parsedProp) {
-        parsedProps[name] = parsedProp
+        result[name] = parsedProp
       }
     }
   }
-  makeResponsive(theme, parsedProps)
+  makeResponsive({ theme, result })
 }
-
-export const parseStyles = (theme: any, props: any) => {
+interface ParseStyles {
+  theme: Theme
+  props: any
+}
+export const parseStyles = ({ theme, props }: ParseStyles) => {
   const result = {}
-  recursiveParse(theme, props, result)
+  recursiveParse({ theme, props, result })
   return result
 }
