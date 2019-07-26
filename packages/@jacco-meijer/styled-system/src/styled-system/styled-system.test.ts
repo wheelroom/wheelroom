@@ -1,7 +1,8 @@
-import { defaultTheme } from './config/default-theme'
-import { parseStyles } from './parse-styles'
+import { styledSystem } from './styled-system'
 
-const testStyle = {
+const emotionCss = (props: any) => styledSystem(props)({})
+
+const fullTestProps = {
   // Nested objects should be handled as well
   '>ul>li>p': {
     backgroundColor: 'yellow',
@@ -21,7 +22,7 @@ const testStyle = {
   w: [1, 1 / 2],
 }
 
-const expects = {
+const fullTestResult = {
   '>ul>li>p': {
     backgroundColor: 'yellow',
     paddingRight: '9px',
@@ -50,6 +51,35 @@ const expects = {
   '@media (min-width: 75em)': { fontSize: 18, lineHeight: 1.5 },
 }
 
-test('test style', () => {
-  expect(parseStyles(defaultTheme, testStyle)).toStrictEqual(expects)
+test('Full test', () => {
+  expect(emotionCss(fullTestProps)).toStrictEqual(fullTestResult)
+})
+
+const simpleTestProps = {
+  w: [1, 1 / 2],
+}
+
+const simpleTestResult = {
+  '@media (min-width: 37.5em)': {
+    width: '50%',
+  },
+  width: '100%',
+}
+
+test('Simple test', () => {
+  expect(emotionCss(simpleTestProps)).toStrictEqual(simpleTestResult)
+})
+
+const stringMapTestProps = {
+  color: ['blue', 'red'],
+  fontFamily: 'text',
+}
+
+const stringMapTestResult = {
+  color: ' #20476A',
+  fontFamily: 'Work Sans, sans-serif',
+}
+
+test('StringMap test', () => {
+  expect(emotionCss(stringMapTestProps)).toStrictEqual(stringMapTestResult)
 })
