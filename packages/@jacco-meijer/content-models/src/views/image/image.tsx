@@ -106,8 +106,8 @@ export const Image = (props: ImageProps) => {
   }
 
   return (
-    <picture css={styledSystem(pictureStyles)}>
-      <img {...imgAttrs} css={styledSystem(imgStyles)} />
+    <picture css={styledSystem({ ncss: pictureStyles })}>
+      <img {...imgAttrs} css={styledSystem({ ncss: imgStyles })} />
     </picture>
   )
 }
