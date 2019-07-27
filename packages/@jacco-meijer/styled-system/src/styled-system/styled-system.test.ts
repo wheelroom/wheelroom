@@ -24,6 +24,7 @@ const nestedTestResult = {
   color: ' #20476A',
   fontFamily: 'Work Sans, sans-serif',
   fontSize: 15,
+  // tslint:disable-next-line: object-literal-sort-keys
   '@media (min-width: 37.5em)': { fontSize: 15, lineHeight: 1.3 },
   '@media (min-width: 50em)': { fontSize: 18, lineHeight: 1.4 },
   '@media (min-width: 75em)': { fontSize: 18, lineHeight: 1.5 },
@@ -32,6 +33,7 @@ const nestedTestResult = {
   '>ul>li>p': {
     backgroundColor: 'yellow',
     paddingRight: '9px',
+    // tslint:disable-next-line: object-literal-sort-keys
     '@media (min-width: 37.5em)': { paddingRight: '15px', paddingLeft: '15px' },
     '@media (min-width: 50em)': { paddingRight: '22px', paddingLeft: '22px' },
     '@media (min-width: 75em)': { paddingRight: '30px', paddingLeft: '30px' },
@@ -60,9 +62,11 @@ const nonNestedTest = {
 
 const nonNestedResult = {
   lineHeight: 1.3,
+  // tslint:disable-next-line: object-literal-sort-keys
   '@media (min-width: 37.5em)': {
     lineHeight: 1.3,
     paddingRight: '15px',
+    // tslint:disable-next-line: object-literal-sort-keys
     paddingLeft: '15px',
     paddingTop: '9px',
     paddingBottom: '9px',
@@ -71,6 +75,7 @@ const nonNestedResult = {
   '@media (min-width: 50em)': {
     lineHeight: 1.4,
     paddingRight: '22px',
+    // tslint:disable-next-line: object-literal-sort-keys
     paddingLeft: '22px',
     paddingTop: '15px',
     paddingBottom: '15px',
@@ -78,6 +83,7 @@ const nonNestedResult = {
   '@media (min-width: 75em)': {
     lineHeight: 1.5,
     paddingRight: '30px',
+    // tslint:disable-next-line: object-literal-sort-keys
     paddingLeft: '30px',
     paddingTop: '22px',
     paddingBottom: '22px',
