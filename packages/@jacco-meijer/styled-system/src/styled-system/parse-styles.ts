@@ -4,21 +4,44 @@ import { parseProp } from './lib/parse-prop'
 import { ResponsiveProp, StaticProp } from './types/props'
 import { Theme } from './types/theme'
 
+/** Nested css props are supported by supplying them in a ncss object */
+const nestedPropName = 'ncss'
+
 interface RecursiveParse {
   theme: Theme
   props: any
   result: any
+  nestedChild?: boolean
 }
-const recursiveParse = ({ theme, props, result }: RecursiveParse) => {
+const recursiveParse = ({
+  theme,
+  props,
+  result,
+  nestedChild = false,
+}: RecursiveParse) => {
   for (const name of Object.keys(props)) {
-    /** If this is an object, start a new parse */
+    /**
+     * If this is an object named nestedPropName, or a child from that, start a
+     * new parse
+     */
     if (
       typeof props[name] === 'object' &&
       props[name] !== null &&
       !Array.isArray(props[name])
     ) {
-      result[name] = {}
-      recursiveParse({ theme, props: props[name], result: result[name] })
+      const nestedRoot = name === nestedPropName
+      if (nestedRoot || nestedChild) {
+        if (nestedChild) {
+          result[name] = {}
+        }
+        recursiveParse({
+          nestedChild: true,
+          props: props[name],
+          result: nestedRoot ? result : result[name],
+          theme,
+        })
+      }
+      /** Either way, called recursivly or not, skip futher processing */
       continue
     }
 
