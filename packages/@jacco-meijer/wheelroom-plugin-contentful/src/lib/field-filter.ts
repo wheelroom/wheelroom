@@ -1,8 +1,14 @@
 /** Returns filter function for Array.prototype.filter() */
-export const fieldFilter = (modelOptions?: any) => (field: any) => {
+export const fieldFilter = (modelOptions?: any) => ([fieldId]: [
+  string,
+  any
+]) => {
   if (modelOptions && modelOptions.skipFields) {
-    return !modelOptions.skipFields.includes(field)
-  } else {
-    return true
+    const skipThisField = modelOptions.skipFields.includes(fieldId)
+    if (skipThisField) {
+      console.log(`Skipping field ${fieldId}`)
+      return false
+    }
   }
+  return true
 }

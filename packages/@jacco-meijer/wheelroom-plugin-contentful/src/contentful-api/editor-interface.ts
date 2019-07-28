@@ -1,3 +1,4 @@
+import { fieldFilter } from '../lib/field-filter'
 import { Context } from '../types/context'
 import { Field } from '../types/model'
 
@@ -31,7 +32,11 @@ export const updateEditorInterface = async (context: Context) => {
       context,
       control.fieldId
     )
-    if (!modelField.widgetId) {
+    const skipField = !fieldFilter(context.currentModel.modelOptions)([
+      modelFieldId,
+      undefined,
+    ])
+    if (!modelField.widgetId || skipField) {
       return
     }
     console.log(`Updating editor interface for field ${modelFieldId}`)
