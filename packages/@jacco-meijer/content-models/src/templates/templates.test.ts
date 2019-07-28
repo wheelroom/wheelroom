@@ -1,7 +1,31 @@
-const myTest2 = () => {
-  return true
-}
+import { templates } from './templates'
 
-test('My test', () => {
-  expect(myTest2()).toBe(true)
+const templateNames = [
+  'componentBasicVar',
+  'componentIndex',
+  'componentNoVariations',
+  'componentReadme',
+  'componentVariations',
+  'configReadme',
+  'defaults',
+  'fragment',
+  'graphqlFragment',
+  'graphqlFragmentQuery',
+  'indexBlock',
+  'indexSectionPart',
+  'indexSubPageGlobal',
+  'modelNoVariation',
+  'modelVariation',
+  'sectionProps',
+]
+
+test('All templates are exported', () => {
+  expect(Object.keys(templates)).toStrictEqual(templateNames)
+})
+
+test('Template is a function', () => {
+  Object.keys(templates).forEach((name: string) => {
+    const template = (templates as any)[name]
+    expect(typeof template).toBe('function')
+  })
 })
