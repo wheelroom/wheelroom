@@ -16,8 +16,8 @@ export interface Vars {
       query: string
     }
     options: {
-      variations: string[]
-      localizedFields: string[]
+      variations?: string[]
+      localizedFields?: string[]
     }
     sourceModule: string
   }

@@ -7,7 +7,7 @@ export interface CurrentModel {
     /** Additional component variations */
     variations?: string[]
     /** List of fields for which the 'localized' property is set to true  */
-    localizedFields: string[]
+    localizedFields?: string[]
   }
   /** Model object to be applied */
   model: Model
