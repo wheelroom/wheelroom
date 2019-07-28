@@ -69,6 +69,6 @@
     "prepack": "npm run build"
   },
   "types": "dist/index.d.ts",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
 }
