@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.1.0...@jacco-meijer/wheelroom-plugin-contentful@1.1.1) (2019-07-28)
+
+
+### Bug Fixes
+
+* skipField bug ([9fa981a](https://github.com/jaccomeijer/wheelroom/commit/9fa981a))
+
+
+
+
+
 # [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.0.0...@jacco-meijer/wheelroom-plugin-contentful@1.1.0) (2019-07-28)
 
 
