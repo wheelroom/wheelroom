@@ -50,12 +50,15 @@ module.exports = {
     article: {},
     articleSection: {
       options: {
-        variations: ['var 1', 'var 2'],
         localizedFields: ['articleText'],
+        variations: ['var 1', 'var 2'],
       },
     },
     globals: {
       resolve: '@jacco-meijer/content-models',
+      options: {
+        skipFields: ['githubUrl', 'linkedinUrl']
+      },
     },
     page: {
       resolve: `@jacco-meijer/content-models`,

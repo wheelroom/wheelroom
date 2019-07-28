@@ -1,3 +1,4 @@
+import { fieldFilter } from '../lib/field-filter'
 import { Context } from '../types/context'
 import { Field } from '../types/model'
 import { defaultVariations } from './defaults'
@@ -5,8 +6,9 @@ import { defaultVariations } from './defaults'
 const demoEntryPostfix = 'DemoEntry'
 
 export const getFields = (context: Context) => {
-  Object.entries(context.currentModel.model.fields).forEach(
-    ([fieldId, field]: [string, Field]) => {
+  Object.entries(context.currentModel.model.fields)
+    .filter(fieldFilter(context.currentModel.modelOptions))
+    .forEach(([fieldId, field]: [string, Field]) => {
       if (!field.initialContent && field.specs.required) {
         console.log(`Field ${fieldId} is required but has no initialContent`)
       }
@@ -115,8 +117,7 @@ export const getFields = (context: Context) => {
         default:
           break
       }
-    }
-  )
+    })
 }
 
 /** If custom variations are defined, set demo content to first variation */

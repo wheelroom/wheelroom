@@ -1,3 +1,4 @@
+import { fieldFilter } from '../lib/field-filter'
 import { Context } from '../types/context'
 import { Field } from '../types/model'
 import { Model } from '../types/model'
@@ -111,8 +112,9 @@ const getModelVersionFields = (model: Model) => {
 
 const getApiFields = (context: Context): any[] => {
   const apiFields = []
-  Object.entries(context.currentModel.model.fields).forEach(
-    ([fieldId, field]: [string, Field]) => {
+  Object.entries(context.currentModel.model.fields)
+    .filter(fieldFilter(context.currentModel.modelOptions))
+    .forEach(([fieldId, field]: [string, Field]) => {
       console.log(`Adding field ${fieldId}`)
       const apiField = { id: fieldId } as any
       Object.entries(field.specs).forEach(([specName, specValue]) => {
@@ -129,8 +131,7 @@ const getApiFields = (context: Context): any[] => {
         context.currentModel.modelOptions
       )
       apiFields.push(apiField)
-    }
-  )
+    })
   // Add model version
   apiFields.push(getModelVersionFields(context.currentModel.model))
   return apiFields

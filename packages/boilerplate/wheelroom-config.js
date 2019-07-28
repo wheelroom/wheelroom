@@ -20,13 +20,13 @@ module.exports = {
           'addressLine1',
           'addressLine2',
           'emailAddress',
-          'githubUrl',
           'heading',
           'siteAuthor',
           'siteDescription',
           'siteKeywords',
           'siteTitle',
         ],
+        skipFields: ['githubUrl', 'linkedinUrl']
       },
     },
     myNewComponent: {
