@@ -70,8 +70,8 @@
     "build:clean": "rm -rf ./dist",
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
-    "prepack": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:test": "jest",
+    "prepack": "npm run build"
   },
   "types": "dist/index.d.ts",
   "version": "1.0.0",

@@ -58,9 +58,9 @@
     "build:clean": "rm -rf ./dist",
     "build:compile": "tsc",
     "build:lint": "tslint --project tsconfig.json",
+    "build:test": "jest",
     "install-peers": "npm-install-peers",
-    "prepack": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepack": "npm run build"
   },
   "types": "dist/index.d.ts",
   "version": "2.0.0"
