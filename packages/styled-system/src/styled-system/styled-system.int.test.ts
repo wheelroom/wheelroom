@@ -25,7 +25,7 @@ const nestedTestResult = {
   fontFamily: 'Work Sans, sans-serif',
   fontSize: 15,
   // tslint:disable-next-line: object-literal-sort-keys
-  '@media (min-width: 37.5em)': { fontSize: 15, lineHeight: 1.3 },
+  '@media (min-width: 37.5em)': { color: 'red', fontSize: 15, lineHeight: 1.3 },
   '@media (min-width: 50em)': { fontSize: 18, lineHeight: 1.4 },
   '@media (min-width: 75em)': { fontSize: 18, lineHeight: 1.5 },
   fontWeight: 300,
