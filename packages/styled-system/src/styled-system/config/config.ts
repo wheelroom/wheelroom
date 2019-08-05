@@ -24,6 +24,8 @@ export const config: Config = {
     w: ['width'],
   },
   responsiveProperties: [
+    'backgroundColor',
+    'color',
     'flexDirection',
     'fontSize',
     'fontWeight',
@@ -57,7 +59,19 @@ export const config: Config = {
     ],
   },
   stringMaps: {
-    colorMap: ['color', 'backgroundColor'],
+    colorMap: [
+      'backgroundColor',
+      'borderBottomColor',
+      'borderColor',
+      'borderLeftColor',
+      'borderRightColor',
+      'borderTopColor',
+      'caretColor',
+      'color',
+      'columnRuleColor',
+      'outlineColor',
+      'textDecorationColor',
+    ],
     fontMap: ['fontFamily'],
   },
   units: {
