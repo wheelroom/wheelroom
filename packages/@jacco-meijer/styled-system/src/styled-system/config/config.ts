@@ -26,6 +26,7 @@ export const config: Config = {
   responsiveProperties: [
     'backgroundColor',
     'color',
+    'display',
     'flexDirection',
     'fontSize',
     'fontWeight',
@@ -35,11 +36,13 @@ export const config: Config = {
     'marginLeft',
     'marginRight',
     'marginTop',
+    'opacity',
     'paddingBottom',
     'paddingLeft',
     'paddingRight',
     'paddingTop',
     'top',
+    'visibility',
     'width',
   ],
   scales: {
