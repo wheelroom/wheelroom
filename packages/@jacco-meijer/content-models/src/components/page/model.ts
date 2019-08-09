@@ -19,6 +19,24 @@ export const model = {
       widgetId: 'singleLine',
     },
     // tslint:disable-next-line: object-literal-sort-keys
+    image: {
+      initialContent: 'asset',
+      settings: {
+        helpText: 'Page image',
+      },
+      specs: {
+        linkType: 'Asset',
+        name: 'Image',
+        required: false,
+        type: 'Link',
+        validations: [
+          {
+            linkMimetypeGroup: ['image'],
+          },
+        ],
+      },
+      widgetId: 'assetLinkEditor',
+    },
     navigationTitle: {
       initialContent: 'Demo navigation title',
       settings: {
