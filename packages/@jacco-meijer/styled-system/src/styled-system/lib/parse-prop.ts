@@ -49,7 +49,7 @@ export const parseProp = ({ theme, name, value }: ParseProp) => {
       }
     }
   )
-  /** Apply scales */
+  /** Apply scales and allow for negative scales */
   Object.entries(config.scales).forEach(
     ([scaleName, scaleProperties]: [string, any]) => {
       if (scaleProperties.includes(name)) {
@@ -58,7 +58,11 @@ export const parseProp = ({ theme, name, value }: ParseProp) => {
           let newValue = item
           if (Number.isInteger(item)) {
             const scaleList = theme[scaleName] as ThemeList
-            newValue = scaleList[item]
+            if (item < 0) {
+              newValue = -scaleList[-item]
+            } else {
+              newValue = scaleList[item]
+            }
           }
           newArray.push(newValue)
         })

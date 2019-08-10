@@ -4,12 +4,14 @@ import { styledSystem } from './styled-system'
 const emotionCss = (props: any) => styledSystem(props)(defaultTheme)
 
 const nestedTest = {
-  // Color is not configured responsive. This should result in only 'blue' being used
   color: ['blue', 'red'],
   fontFamily: 'text',
   fontSize: [2, 2, 3, 3],
   fontWeight: 2,
+  height: 1,
   lineHeight: [3, 3, 4, 5],
+  top: [6, 8],
+  width: 1 / 2,
 
   // Nested objects in a ncss object should be handled as well
   ncss: {
@@ -23,13 +25,21 @@ const nestedTest = {
 const nestedTestResult = {
   color: ' #20476A',
   fontFamily: 'Work Sans, sans-serif',
-  fontSize: 15,
+  fontSize: '15px',
   // tslint:disable-next-line: object-literal-sort-keys
-  '@media (min-width: 37.5em)': { color: 'red', fontSize: 15, lineHeight: 1.3 },
-  '@media (min-width: 50em)': { fontSize: 18, lineHeight: 1.4 },
-  '@media (min-width: 75em)': { fontSize: 18, lineHeight: 1.5 },
+  '@media (min-width: 37.5em)': {
+    color: 'red',
+    fontSize: '15px',
+    lineHeight: 1.3,
+    top: '60px',
+  },
+  '@media (min-width: 50em)': { fontSize: '18px', lineHeight: 1.4 },
+  '@media (min-width: 75em)': { fontSize: '18px', lineHeight: 1.5 },
   fontWeight: 300,
+  height: '100px',
   lineHeight: 1.3,
+  top: '39px',
+  width: '50%',
   '>ul>li>p': {
     backgroundColor: 'yellow',
     paddingRight: '9px',
