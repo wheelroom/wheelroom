@@ -25,12 +25,14 @@ export const config: Config = {
   },
   responsiveProperties: [
     'backgroundColor',
+    'bottom',
     'color',
     'display',
     'flexDirection',
     'fontSize',
     'fontWeight',
     'height',
+    'lef',
     'lineHeight',
     'marginBottom',
     'marginLeft',
@@ -41,6 +43,7 @@ export const config: Config = {
     'paddingLeft',
     'paddingRight',
     'paddingTop',
+    'right',
     'top',
     'visibility',
     'width',
@@ -51,6 +54,8 @@ export const config: Config = {
     heightScale: ['height'],
     lineHeightScale: ['lineHeight'],
     spaceScale: [
+      'bottom',
+      'left',
       'marginBottom',
       'marginLeft',
       'marginRight',
@@ -59,6 +64,8 @@ export const config: Config = {
       'paddingLeft',
       'paddingRight',
       'paddingTop',
+      'right',
+      'top',
     ],
   },
   stringMaps: {
@@ -80,7 +87,10 @@ export const config: Config = {
   units: {
     percent: ['width'],
     px: [
+      'bottom',
+      'fontSize',
       'height',
+      'left',
       'marginBottom',
       'marginLeft',
       'marginRight',
@@ -93,6 +103,8 @@ export const config: Config = {
       'paddingLeft',
       'paddingRight',
       'paddingTop',
+      'right',
+      'top',
     ],
   },
 } as any
