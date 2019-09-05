@@ -53,7 +53,8 @@ export const ALink = (props: any) => (
 }
 ```
 
-Styled system with the existing API could not handle nested properties like this:
+Styled system with the existing API does not process nested css properties like
+this:
 
 ```
 {
@@ -63,17 +64,20 @@ Styled system with the existing API could not handle nested properties like this
 }
 ```
 
-This is because all props are passed to styled system and unknown props simply
-pass through. Going through all nested props this way is very inefficient.
+This is because a shallow evaluation of all properties of a React element is
+simple, but an efficient deep evaluation of all properties is a complex thing.
 
-The easiest solution is not to pass all props to styled system. That would
-however break the current API.
+To efficiently handle nested css properties these properties need to be passed
+to styled system separately. By adding these objects to the special `ncss`
+(derived from Nested CSS) property for example. The API would then look like
+this:
 
-`<div m={1} />` would become `<div ncss={{ m: 1 }} />`
+`<div ncss={'>ul>li>p':{mx:0}} />`
 
-That is why this version supports the current API and adds a `ncss` prop. Props
-from the current API are handled as usual. All css in the `ncss` object handles
-nested css.
+Because moving all properties to a `ncss` object would break the current API, this version supports both the current behavior as well as the `ncss` property for
+nested properties.
+
+The next major version will only have support for the `ncss` object.
 
 ```
 {
