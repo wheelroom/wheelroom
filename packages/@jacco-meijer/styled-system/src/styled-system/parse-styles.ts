@@ -1,6 +1,6 @@
-import { config } from './config/config'
 import { mergeInMediaQuery } from './lib/get-responsive-prop'
 import { parseProp } from './lib/parse-prop'
+import { Config } from './types/config'
 import { ResponsiveProp, StaticProp } from './types/props'
 import { Theme } from './types/theme'
 
@@ -8,12 +8,14 @@ import { Theme } from './types/theme'
 const nestedPropName = 'ncss'
 
 interface RecursiveParse {
+  config: Config
   theme: Theme
   props: any
   result: any
   nestedChild?: boolean
 }
 const recursiveParse = ({
+  config,
   theme,
   props,
   result,
@@ -35,6 +37,7 @@ const recursiveParse = ({
           result[name] = {}
         }
         recursiveParse({
+          config,
           nestedChild: true,
           props: props[name],
           result: nestedRoot ? result : result[name],
@@ -49,6 +52,7 @@ const recursiveParse = ({
     if (name in config.propertyAliases) {
       config.propertyAliases[name].forEach((fullPropName: any) => {
         const propWithMediaQueries = parseProp({
+          config,
           name: fullPropName,
           theme,
           value: props[name] as StaticProp | ResponsiveProp,
@@ -57,6 +61,7 @@ const recursiveParse = ({
       })
     } else {
       const propWithMediaQueries = parseProp({
+        config,
         name,
         theme,
         value: props[name] as StaticProp | ResponsiveProp,
@@ -66,11 +71,12 @@ const recursiveParse = ({
   }
 }
 interface ParseStyles {
+  config: Config
   theme: Theme
   props: any
 }
-export const parseStyles = ({ theme, props }: ParseStyles) => {
+export const parseStyles = ({ config, theme, props }: ParseStyles) => {
   const result = {}
-  recursiveParse({ theme, props, result })
+  recursiveParse({ config, theme, props, result })
   return result
 }

@@ -1,4 +1,3 @@
-type UnitName = 'px' | 'em' | 'percent'
 type CssProperty = string
 type CssProperties = CssProperty[]
 type Alias = string
@@ -16,5 +15,5 @@ export interface Config {
   stringMaps: {
     [stringMapName: string]: CssProperties
   }
-  units: { [key in UnitName]: CssProperties }
+  units: { [unitName: string]: CssProperties }
 }

@@ -1,19 +1,20 @@
-import { config } from '../config/config'
+import { Config } from '../types/config'
 import { ResponsiveProp, StaticProp } from '../types/props'
 import { Theme, ThemeList, ThemeObject } from '../types/theme'
 import { getResponsiveProp } from './get-responsive-prop'
 
 /**
- * Take a styled system css prop and parse it according to config/config.ts. It
+ * Take a styled system css prop and parse it according to config/default-config.ts. It
  * returns an object which may contain media queries
  */
 interface ParseProp {
+  config: Config
   theme: Theme
   name: string
   value: StaticProp | ResponsiveProp
 }
 
-export const parseProp = ({ theme, name, value }: ParseProp) => {
+export const parseProp = ({ config, theme, name, value }: ParseProp) => {
   let parsedProp: ResponsiveProp
   let result: { [propName: string]: StaticProp }
 

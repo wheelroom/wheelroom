@@ -1,6 +1,6 @@
 import { Config } from '../types/config'
 
-export const config: Config = {
+export const defaultConfig: Config = {
   ignoreProperties: ['children'],
   propertyAliases: {
     bg: ['backgroundColor'],
@@ -107,4 +107,4 @@ export const config: Config = {
       'top',
     ],
   },
-} as any
+}
