@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 
-import { styledSystem } from '@jacco-meijer/styled-system'
+import { emotionCss } from '../core-elements/emotion-css'
 
 export interface FluidImage {
   description: string
@@ -106,8 +106,8 @@ export const Image = (props: ImageProps) => {
   }
 
   return (
-    <picture css={styledSystem({ ncss: pictureStyles })}>
-      <img {...imgAttrs} css={styledSystem({ ncss: imgStyles })} />
+    <picture css={emotionCss({ ncss: pictureStyles })}>
+      <img {...imgAttrs} css={emotionCss({ ncss: imgStyles })} />
     </picture>
   )
 }
