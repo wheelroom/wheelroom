@@ -1,9 +1,8 @@
 import { Global } from '@emotion/core'
 import { Box, Container, Flex } from '@jacco-meijer/styled-system'
-import { ThemeProvider } from 'emotion-theming'
 import { graphql } from 'gatsby'
 import * as React from 'react'
-import { appTheme } from './theme'
+import { Fragment } from 'react'
 
 const GlobalAStyles = {
   body: {
@@ -17,7 +16,7 @@ const GlobalAStyles = {
 //
 const PageTemplate = (props: any) => {
   return (
-    <ThemeProvider theme={appTheme}>
+    <Fragment>
       <Global styles={GlobalAStyles} />
       <Container>
         <Flex color="white" fontSize={[2, 4, 6, 8]}>
@@ -30,7 +29,7 @@ const PageTemplate = (props: any) => {
         </Flex>
         Sections here
       </Container>
-    </ThemeProvider>
+    </Fragment>
   )
 }
 

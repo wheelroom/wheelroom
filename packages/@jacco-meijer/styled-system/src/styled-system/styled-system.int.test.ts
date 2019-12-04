@@ -5,26 +5,29 @@ import { styledSystem } from './styled-system'
 const emotionCss = (props: any) =>
   styledSystem(defaultConfig, defaultTheme, props)
 
-const nestedTest = {
-  color: ['blue', 'red'],
-  fontFamily: 'text',
-  fontSize: [2, 2, 3, 3],
+const nestedTestA = {
+  // Anything outside the ncss object should be skipped
+  '>li>p': {
+    backgroundColor: 'orange',
+    px: [1, 2, 3, 4],
+  },
   fontWeight: 2,
-  height: 1,
-  lineHeight: [3, 3, 4, 5],
-  top: [6, 8],
-  width: 1 / 2,
-
-  // Nested objects in a ncss object should be handled as well
   ncss: {
     '>ul>li>p': {
       backgroundColor: 'yellow',
       px: [2, 3, 4, 5],
     },
+    color: ['blue', 'red'],
+    fontFamily: 'text',
+    fontSize: [2, 2, 3, 3],
+    height: 1,
+    lineHeight: [3, 3, 4, 5],
+    top: [6, 8],
+    width: 1 / 2,
   },
 }
 
-const nestedTestResult = {
+const nestedTestAResult = {
   color: ' #20476A',
   fontFamily: 'Work Sans, sans-serif',
   fontSize: '15px',
@@ -37,7 +40,6 @@ const nestedTestResult = {
   },
   '@media (min-width: 50em)': { fontSize: '18px', lineHeight: 1.4 },
   '@media (min-width: 75em)': { fontSize: '18px', lineHeight: 1.5 },
-  fontWeight: 300,
   height: '100px',
   lineHeight: 1.3,
   top: '39px',
@@ -53,30 +55,30 @@ const nestedTestResult = {
   },
 }
 
-test('Nested', () => {
-  expect(emotionCss(nestedTest)).toStrictEqual(nestedTestResult)
+test('Nested A', () => {
+  expect(emotionCss(nestedTestA)).toStrictEqual(nestedTestAResult)
 })
 
-const nonNestedTest = {
-  // Nested objects not wrapped in ncss object should be skipped
+const nestedTestB = {
+  // Anything not wrapped in ncss object should be skipped
   '>ul>li>p': {
     backgroundColor: 'yellow',
     px: [2, 3, 4, 5],
   },
   lineHeight: [3, 3, 4, 5],
-  mb: 4,
-  ml: '20px',
-  mt: 0,
-  px: [2, 3, 4, 5],
-  py: [1, 2, 3, 4],
-  w: [1, 1 / 2],
+  ncss: {
+    mb: 4,
+    ml: '20px',
+    mt: 0,
+    px: [2, 3, 4, 5],
+    py: [1, 2, 3, 4],
+    w: [1, 1 / 2],
+  },
 }
 
-const nonNestedResult = {
-  lineHeight: 1.3,
+const nestedTestBResult = {
   // tslint:disable-next-line: object-literal-sort-keys
   '@media (min-width: 37.5em)': {
-    lineHeight: 1.3,
     paddingRight: '15px',
     // tslint:disable-next-line: object-literal-sort-keys
     paddingLeft: '15px',
@@ -85,7 +87,6 @@ const nonNestedResult = {
     width: '50%',
   },
   '@media (min-width: 50em)': {
-    lineHeight: 1.4,
     paddingRight: '22px',
     // tslint:disable-next-line: object-literal-sort-keys
     paddingLeft: '22px',
@@ -93,7 +94,6 @@ const nonNestedResult = {
     paddingBottom: '15px',
   },
   '@media (min-width: 75em)': {
-    lineHeight: 1.5,
     paddingRight: '30px',
     // tslint:disable-next-line: object-literal-sort-keys
     paddingLeft: '30px',
@@ -111,5 +111,5 @@ const nonNestedResult = {
 }
 
 test('Non nested', () => {
-  expect(emotionCss(nonNestedTest)).toStrictEqual(nonNestedResult)
+  expect(emotionCss(nestedTestB)).toStrictEqual(nestedTestBResult)
 })

@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { styledSystem } from '@jacco-meijer/styled-system'
 import { Link } from 'gatsby'
+import { emotionCss } from './emotion-css'
 
 export const GLink = (props: any) => (
   <Link
     children={props.children}
-    css={styledSystem({ textDecoration: 'none', ...props })}
+    css={emotionCss({ ncss: { textDecoration: 'none', ...props.ncss } })}
     to={props.to}
   />
 )

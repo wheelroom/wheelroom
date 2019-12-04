@@ -9,7 +9,7 @@ export const styledSystem = (
   theme: StyledSystemTheme,
   props: any
 ) => {
-  if (!props) {
+  if (!props || !('ncss' in props)) {
     return
   }
 
@@ -23,5 +23,6 @@ export const styledSystem = (
     theme = defaultTheme
   }
 
-  return parseStyles({ config, theme, props })
+  // Only parse styles found in ncss key
+  return parseStyles({ config, theme, props: props.ncss })
 }

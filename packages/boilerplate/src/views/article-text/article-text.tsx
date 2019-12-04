@@ -1,12 +1,14 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { Image } from '@jacco-meijer/content-models'
-import { Box, Heading, Text } from '@jacco-meijer/styled-system'
 import { normalizedPath } from 'gatsby-theme-wheelroom'
 import * as React from 'react'
 import { enlargingImageStyle } from '../../styles/enlarging-image'
 import { paragraphStyle } from '../../styles/paragraph'
 import { title1Style, title2Style, title3Style } from '../../styles/title'
+import { Box } from '../core-elements/grid'
+import { Heading } from '../core-elements/heading'
+import { Text } from '../core-elements/text'
 import { SimpleALink } from '../simple-a-link/simple-a-link'
 
 const getLocalizedFields = (fields: any, locale: string) => {
@@ -26,7 +28,7 @@ const getLocalizedFields = (fields: any, locale: string) => {
 const embeddedBlocks = {} as any
 
 const ImageBox = (props: any) => (
-  <Box overflow="hidden" my={[4, 5, 6, 7]}>
+  <Box ncss={{ overflow: 'hidden', my: [4, 5, 6, 7] }}>
     <Image image={props.image} objectFit="cover" {...enlargingImageStyle} />
   </Box>
 )
@@ -47,16 +49,16 @@ export const ArticleText = (props: ArticleTextProps) => {
   const options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node: Node, children: Children) => (
-        <Text {...paragraphStyle}>{children}</Text>
+        <Text ncss={paragraphStyle}>{children}</Text>
       ),
       [BLOCKS.HEADING_1]: (node: Node, children: Children) => (
-        <Heading {...title1Style}>{children}</Heading>
+        <Heading ncss={title1Style}>{children}</Heading>
       ),
       [BLOCKS.HEADING_2]: (node: Node, children: Children) => (
-        <Heading {...title2Style}>{children}</Heading>
+        <Heading ncss={title2Style}>{children}</Heading>
       ),
       [BLOCKS.HEADING_3]: (node: Node, children: Children) => (
-        <Heading {...title3Style}>{children}</Heading>
+        <Heading ncss={title3Style}>{children}</Heading>
       ),
       [BLOCKS.UL_LIST]: (node: Node, children: Children) => <ul>{children}</ul>,
       [BLOCKS.OL_LIST]: (node: Node, children: Children) => <ol>{children}</ol>,
@@ -65,7 +67,7 @@ export const ArticleText = (props: ArticleTextProps) => {
       ),
       [BLOCKS.QUOTE]: (node: Node, children: Children) => <q>{children}</q>,
       [BLOCKS.HR]: (node: Node, children: Children) => (
-        <Text {...paragraphStyle}>
+        <Text ncss={paragraphStyle}>
           <hr />
           {children}
         </Text>

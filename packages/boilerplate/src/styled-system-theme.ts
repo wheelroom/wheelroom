@@ -1,4 +1,6 @@
-export const appTheme = {
+import { StyledSystemTheme } from '@jacco-meijer/styled-system'
+
+export const styledSystemTheme: StyledSystemTheme = {
   breakpoints: ['37.5em', '50em', '75em'],
   colorMap: {
     blue: ' #20476A',
