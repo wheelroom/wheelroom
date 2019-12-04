@@ -1,6 +1,6 @@
-import { Config } from '../types/config'
+import { StyledSystemConfig } from '../types/styled-system-config'
 
-export const defaultConfig: Config = {
+export const defaultConfig: StyledSystemConfig = {
   ignoreProperties: ['children'],
   propertyAliases: {
     bg: ['backgroundColor'],

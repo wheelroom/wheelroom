@@ -1,10 +1,14 @@
 import { defaultConfig } from './config/default-config'
 import { defaultTheme } from './config/default-theme'
 import { parseStyles } from './parse-styles'
-import { Config } from './types/config'
-import { Theme } from './types/theme'
+import { StyledSystemConfig } from './types/styled-system-config'
+import { StyledSystemTheme } from './types/styled-system-theme'
 
-export const styledSystem = (config: Config, theme: Theme, props: any) => {
+export const styledSystem = (
+  config: StyledSystemConfig,
+  theme: StyledSystemTheme,
+  props: any
+) => {
   if (!props) {
     return
   }

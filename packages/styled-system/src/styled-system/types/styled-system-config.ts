@@ -3,7 +3,7 @@ type CssProperties = CssProperty[]
 type Alias = string
 type Aliases = Alias[]
 
-export interface Config {
+export interface StyledSystemConfig {
   ignoreProperties: string[]
   propertyAliases: {
     [alias: string]: Aliases

@@ -1,15 +1,15 @@
 import { mergeInMediaQuery } from './lib/get-responsive-prop'
 import { parseProp } from './lib/parse-prop'
-import { Config } from './types/config'
 import { ResponsiveProp, StaticProp } from './types/props'
-import { Theme } from './types/theme'
+import { StyledSystemConfig } from './types/styled-system-config'
+import { StyledSystemTheme } from './types/styled-system-theme'
 
 /** Nested css props are supported by supplying them in a ncss object */
 const nestedPropName = 'ncss'
 
 interface RecursiveParse {
-  config: Config
-  theme: Theme
+  config: StyledSystemConfig
+  theme: StyledSystemTheme
   props: any
   result: any
   nestedChild?: boolean
@@ -71,8 +71,8 @@ const recursiveParse = ({
   }
 }
 interface ParseStyles {
-  config: Config
-  theme: Theme
+  config: StyledSystemConfig
+  theme: StyledSystemTheme
   props: any
 }
 export const parseStyles = ({ config, theme, props }: ParseStyles) => {

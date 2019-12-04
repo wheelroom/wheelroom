@@ -1,5 +1,3 @@
-export * from './core-elements/grid'
-export * from './core-elements/a-link'
-export * from './core-elements/heading'
-export * from './core-elements/text'
 export * from './styled-system/styled-system'
+export * from './styled-system/types/styled-system-config'
+export * from './styled-system/types/styled-system-theme'

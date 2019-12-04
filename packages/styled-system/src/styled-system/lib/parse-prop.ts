@@ -1,6 +1,10 @@
-import { Config } from '../types/config'
 import { ResponsiveProp, StaticProp } from '../types/props'
-import { Theme, ThemeList, ThemeObject } from '../types/theme'
+import { StyledSystemConfig } from '../types/styled-system-config'
+import {
+  StyledSystemTheme,
+  ThemeList,
+  ThemeObject,
+} from '../types/styled-system-theme'
 import { getResponsiveProp } from './get-responsive-prop'
 
 /**
@@ -8,8 +12,8 @@ import { getResponsiveProp } from './get-responsive-prop'
  * returns an object which may contain media queries
  */
 interface ParseProp {
-  config: Config
-  theme: Theme
+  config: StyledSystemConfig
+  theme: StyledSystemTheme
   name: string
   value: StaticProp | ResponsiveProp
 }
