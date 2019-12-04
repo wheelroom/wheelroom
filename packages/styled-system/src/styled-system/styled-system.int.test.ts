@@ -1,7 +1,9 @@
+import { defaultConfig } from './config/default-config'
 import { defaultTheme } from './config/default-theme'
 import { styledSystem } from './styled-system'
 
-const emotionCss = (props: any) => styledSystem(props)(defaultTheme)
+const emotionCss = (props: any) =>
+  styledSystem(defaultConfig, defaultTheme, props)
 
 const nestedTest = {
   color: ['blue', 'red'],
