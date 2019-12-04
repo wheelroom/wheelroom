@@ -1,13 +1,13 @@
 import facepaint from 'facepaint'
 import { ResponsiveProp } from '../types/props'
-import { Theme } from '../types/theme'
+import { StyledSystemTheme } from '../types/styled-system-theme'
 
 /**
  * Take the props object and add @media keys to it, returns new object
  * responsiveProps
  */
 interface GetResponsiveProps {
-  theme: Theme
+  theme: StyledSystemTheme
   propName: string
   propValue: ResponsiveProp
 }

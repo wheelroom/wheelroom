@@ -1,6 +1,6 @@
-import { DefaultTheme } from '../types/theme'
+import { StyledSystemTheme } from '../types/styled-system-theme'
 
-export const defaultTheme: DefaultTheme = {
+export const defaultTheme: StyledSystemTheme = {
   breakpoints: ['37.5em', '50em', '75em'],
   colorMap: {
     blue: ' #20476A',
