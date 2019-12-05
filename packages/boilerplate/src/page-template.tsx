@@ -19,13 +19,9 @@ const PageTemplate = (props: any) => {
     <Fragment>
       <Global styles={GlobalAStyles} />
       <Container>
-        <Flex color="white" fontSize={[2, 4, 6, 8]}>
-          <Box p={5} w={[1, 1 / 2]} bg="red">
-            Box
-          </Box>
-          <Box p={5} w={[1, 1 / 2]} bg="blue">
-            Box
-          </Box>
+        <Flex ncss={{ color: 'white', fontSize: [2, 4, 6, 8] }}>
+          <Box ncss={{ p: 5, w: [1, 1 / 2], bg: 'red' }}>Box</Box>
+          <Box ncss={{ p: 5, w: [1, 1 / 2], bg: 'blue' }}>Box</Box>
         </Flex>
         Sections here
       </Container>
