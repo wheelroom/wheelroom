@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.3...@jacco-meijer/styled-system@3.0.0) (2019-12-05)
+
+
+### Bug Fixes
+
+* errors because of better ts defs ([6812736](https://github.com/jaccomeijer/wheelroom/commit/6812736))
+* linter ([36870d0](https://github.com/jaccomeijer/wheelroom/commit/36870d0))
+
+
+### Features
+
+* export config and theme types ([150a81b](https://github.com/jaccomeijer/wheelroom/commit/150a81b))
+* new parameter format ([40cc7ea](https://github.com/jaccomeijer/wheelroom/commit/40cc7ea))
+* require ncss object for all styling ([877ae64](https://github.com/jaccomeijer/wheelroom/commit/877ae64))
+
+
+### BREAKING CHANGES
+
+* root level styling not allowed anymore
+
+Before: <Box m=2>...</Box>
+
+After: <Box ncss={{m:2}}>...</Box>
+
+
+
+
+
 ## [2.0.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.2...@jacco-meijer/styled-system@2.0.3) (2019-08-06)
 
 **Note:** Version bump only for package @jacco-meijer/styled-system
