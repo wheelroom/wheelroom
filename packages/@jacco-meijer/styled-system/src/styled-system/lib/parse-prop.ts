@@ -1,3 +1,4 @@
+import { DynamicStyle } from 'facepaint'
 import { ResponsiveProp, StaticProp } from '../types/props'
 import { StyledSystemConfig } from '../types/styled-system-config'
 import {
@@ -20,7 +21,7 @@ interface ParseProp {
 
 export const parseProp = ({ config, theme, name, value }: ParseProp) => {
   let parsedProp: ResponsiveProp
-  let result: { [propName: string]: StaticProp }
+  let result: { [propName: string]: StaticProp } | DynamicStyle
 
   /** Ignore properties */
   if (config.ignoreProperties.includes(name)) {

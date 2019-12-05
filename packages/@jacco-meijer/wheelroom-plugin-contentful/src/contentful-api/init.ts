@@ -7,7 +7,9 @@ export const getClient = async (context: Context) => {
     return
   }
   context.contentfulApi.contentfulClient = contentful.createClient({
-    accessToken: process.env.CONTENTFUL_CMA_TOKEN,
+    accessToken:
+      process.env.CONTENTFUL_CMA_TOKEN ||
+      'process.env.CONTENTFUL_CMA_TOKEN not found',
   })
 }
 
