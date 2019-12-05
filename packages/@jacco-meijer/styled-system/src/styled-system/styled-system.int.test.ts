@@ -104,6 +104,7 @@ const nestedTestBResult = {
   marginLeft: '20px',
   marginTop: '0px',
   paddingRight: '9px',
+  // tslint:disable-next-line: object-literal-sort-keys
   paddingLeft: '9px',
   paddingTop: '4px',
   paddingBottom: '4px',
