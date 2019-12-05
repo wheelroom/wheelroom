@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.1.1...@jacco-meijer/wheelroom-plugin-contentful@1.1.2) (2019-12-05)
+
+
+### Bug Fixes
+
+* errors because of better ts defs ([6812736](https://github.com/jaccomeijer/wheelroom/commit/6812736))
+
+
+
+
+
 ## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.1.0...@jacco-meijer/wheelroom-plugin-contentful@1.1.1) (2019-07-28)
 
 

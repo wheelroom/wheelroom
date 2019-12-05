@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-templates@1.0.1...@jacco-meijer/wheelroom-plugin-templates@1.0.2) (2019-12-05)
+
+
+### Bug Fixes
+
+* linter ([ef7550a](https://github.com/jaccomeijer/wheelroom/commit/ef7550a))
+
+
+
+
+
 ## [1.0.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-templates@1.0.0...@jacco-meijer/wheelroom-plugin-templates@1.0.1) (2019-07-28)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-templates

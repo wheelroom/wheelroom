@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/content-models@2.1.4...@jacco-meijer/content-models@3.0.0) (2019-12-05)
+
+
+### Features
+
+* move image element to boilerplate ([f4997aa](https://github.com/jaccomeijer/wheelroom/commit/f4997aa))
+* new parameter format ([40cc7ea](https://github.com/jaccomeijer/wheelroom/commit/40cc7ea))
+
+
+### BREAKING CHANGES
+
+* Image element can no longer be imported from @jaccomeijer/content-models because of the styled system config and theme changes.
+
+
+
+
+
 ## [2.1.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/content-models@2.1.3...@jacco-meijer/content-models@2.1.4) (2019-08-09)
 
 **Note:** Version bump only for package @jacco-meijer/content-models

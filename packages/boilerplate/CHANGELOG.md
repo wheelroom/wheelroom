@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@2.1.4...boilerplate@3.0.0) (2019-12-05)
+
+
+### Bug Fixes
+
+* add ncss object for styling ([401589e](https://github.com/jaccomeijer/wheelroom/commit/401589e))
+
+
+### Features
+
+* move image element to boilerplate ([f4997aa](https://github.com/jaccomeijer/wheelroom/commit/f4997aa))
+* require ncss object for all styling ([877ae64](https://github.com/jaccomeijer/wheelroom/commit/877ae64))
+
+
+### BREAKING CHANGES
+
+* Image element can no longer be imported from @jaccomeijer/content-models because of the styled system config and theme changes.
+* root level styling not allowed anymore
+
+Before: <Box m=2>...</Box>
+
+After: <Box ncss={{m:2}}>...</Box>
+
+
+
+
+
 ## [2.1.4](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@2.1.3...boilerplate@2.1.4) (2019-08-09)
 
 **Note:** Version bump only for package boilerplate
