@@ -1,6 +1,5 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
-import { Image } from '@jacco-meijer/content-models'
 import { normalizedPath } from 'gatsby-theme-wheelroom'
 import * as React from 'react'
 import { enlargingImageStyle } from '../../styles/enlarging-image'
@@ -9,6 +8,7 @@ import { title1Style, title2Style, title3Style } from '../../styles/title'
 import { Box } from '../core-elements/grid'
 import { Heading } from '../core-elements/heading'
 import { Text } from '../core-elements/text'
+import { Image } from '../image/image'
 import { SimpleALink } from '../simple-a-link/simple-a-link'
 
 const getLocalizedFields = (fields: any, locale: string) => {

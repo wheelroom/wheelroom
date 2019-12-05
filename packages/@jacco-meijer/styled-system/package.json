@@ -8,22 +8,22 @@
   },
   "description": "",
   "devDependencies": {
-    "@types/facepaint": "1.2.0",
-    "@types/jest": "24.0.15",
-    "@types/node": "12.6.3",
-    "@types/react": "16.8.23",
-    "@types/react-dom": "16.8.4",
-    "jest": "24.8.0",
+    "@types/facepaint": "1.2.1",
+    "@types/jest": "24.0.23",
+    "@types/node": "12.12.14",
+    "@types/react": "16.9.15",
+    "@types/react-dom": "16.9.4",
+    "jest": "24.9.0",
     "npm-install-peers": "1.2.1",
     "npm-run-all": "4.1.5",
-    "prettier": "1.18.2",
-    "ts-jest": "24.0.2",
-    "tslint": "5.18.0",
+    "prettier": "1.19.1",
+    "ts-jest": "24.2.0",
+    "tslint": "5.20.1",
     "tslint-config-prettier": "1.18.0",
     "tslint-loader": "3.5.4",
     "tslint-plugin-prettier": "2.0.1",
-    "tslint-react": "4.0.0",
-    "typescript": "3.5.3"
+    "tslint-react": "4.1.0",
+    "typescript": "3.7.3"
   },
   "engines": {
     "node": ">=10.0.0"
