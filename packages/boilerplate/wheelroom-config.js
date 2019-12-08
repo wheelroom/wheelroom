@@ -1,6 +1,20 @@
 var questionSets = require('./wheelroom-question-sets')
 var templateSets = require('./wheelroom-template-sets')
 
+newConfig = {
+  articleSection: {
+    fields: {
+      articleText: {
+        localized: true,
+      },
+    },
+    variations: [
+      'Inline article text, specific to this section',
+      'Linked article text, derived from slug in url',
+    ],
+  },
+}
+
 module.exports = {
   defaultComponentResolve: `@jacco-meijer/content-models`,
   components: {
@@ -26,7 +40,7 @@ module.exports = {
           'siteKeywords',
           'siteTitle',
         ],
-        skipFields: ['githubUrl', 'linkedinUrl']
+        skipFields: ['githubUrl', 'linkedinUrl'],
       },
     },
     myNewComponent: {
