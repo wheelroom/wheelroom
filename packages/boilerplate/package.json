@@ -85,6 +85,5 @@
     "wr:dc": "wheelroom delete-content",
     "wr:ls": "wheelroom list"
   },
-  "type": "module",
   "version": "3.0.0"
 }
