@@ -51,7 +51,7 @@
     "typescript": "3.7.3"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=13.2.0"
   },
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "license": "MIT",
