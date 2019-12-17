@@ -61,5 +61,5 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
   "types": "dist/index.d.ts",
-  "version": "3.0.1"
+  "version": "3.0.2"
 }

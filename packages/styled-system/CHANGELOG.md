@@ -1,22 +1,25 @@
-# Change Log
+## [3.0.2](https://github.com/jaccomeijer/wheelroom/compare/v3.0.1...v3.0.2) (2019-12-17)
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.0.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.3...@jacco-meijer/styled-system@3.0.0) (2019-12-05)
+
+## [3.0.1](https://github.com/jaccomeijer/wheelroom/compare/2a3e0b631dcaab52e61c598f2cea544297674229...v3.0.1) (2019-12-17)
 
 
 ### Bug Fixes
 
-* errors because of better ts defs ([6812736](https://github.com/jaccomeijer/wheelroom/commit/6812736))
-* linter ([36870d0](https://github.com/jaccomeijer/wheelroom/commit/36870d0))
+* errors because of better ts defs ([495f276](https://github.com/jaccomeijer/wheelroom/commit/495f276d3fced9281f9b77be68f27675d32eefff))
+* handle propFromArray not being present in map ([f9484f8](https://github.com/jaccomeijer/wheelroom/commit/f9484f8f654d2edcf6ed4b56070d4a2d2bb06dc0))
+* linter ([e7b01ab](https://github.com/jaccomeijer/wheelroom/commit/e7b01ab91e9088a54e3200cd6518fece71d80d5e))
+* **styled-system:** add required modules ([2a3e0b6](https://github.com/jaccomeijer/wheelroom/commit/2a3e0b631dcaab52e61c598f2cea544297674229))
 
 
 ### Features
 
-* export config and theme types ([150a81b](https://github.com/jaccomeijer/wheelroom/commit/150a81b))
-* new parameter format ([40cc7ea](https://github.com/jaccomeijer/wheelroom/commit/40cc7ea))
-* require ncss object for all styling ([877ae64](https://github.com/jaccomeijer/wheelroom/commit/877ae64))
+* Added selective interactive  overwrite ([29dcaa0](https://github.com/jaccomeijer/wheelroom/commit/29dcaa0e0e3d7cc483832ef532460c84e890f346))
+* export config and theme types ([e7cfbfd](https://github.com/jaccomeijer/wheelroom/commit/e7cfbfd87400461ba8a7b75f1ddf40f991d52ee6))
+* moved from wheelroom lerna multi repo into separate repo ([b3c1a6d](https://github.com/jaccomeijer/wheelroom/commit/b3c1a6d690b5ba47f751d2f338a1c9afdfdc6f09))
+* new parameter format ([00156a2](https://github.com/jaccomeijer/wheelroom/commit/00156a231da930a0a146500a6a7a785cdaa00dd1))
+* require ncss object for all styling ([b3f0809](https://github.com/jaccomeijer/wheelroom/commit/b3f0809649ccbbea123585a9cadf017538e479e8))
 
 
 ### BREAKING CHANGES
@@ -29,184 +32,3 @@ After: <Box ncss={{m:2}}>...</Box>
 
 
 
-
-
-## [2.0.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.2...@jacco-meijer/styled-system@2.0.3) (2019-08-06)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-## [2.0.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.1...@jacco-meijer/styled-system@2.0.2) (2019-08-05)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-## [2.0.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0...@jacco-meijer/styled-system@2.0.1) (2019-07-28)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.16...@jacco-meijer/styled-system@2.0.0) (2019-07-27)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.16](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.15...@jacco-meijer/styled-system@2.0.0-beta.16) (2019-07-27)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.15](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.14...@jacco-meijer/styled-system@2.0.0-beta.15) (2019-07-27)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.14](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.13...@jacco-meijer/styled-system@2.0.0-beta.14) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.13](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.12...@jacco-meijer/styled-system@2.0.0-beta.13) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.12](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.11...@jacco-meijer/styled-system@2.0.0-beta.12) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.11](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.10...@jacco-meijer/styled-system@2.0.0-beta.11) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.10](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.9...@jacco-meijer/styled-system@2.0.0-beta.10) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.9](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.8...@jacco-meijer/styled-system@2.0.0-beta.9) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.8](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.7...@jacco-meijer/styled-system@2.0.0-beta.8) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.7](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.6...@jacco-meijer/styled-system@2.0.0-beta.7) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.6](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.5...@jacco-meijer/styled-system@2.0.0-beta.6) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.4...@jacco-meijer/styled-system@2.0.0-beta.5) (2019-07-24)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.3...@jacco-meijer/styled-system@2.0.0-beta.4) (2019-07-24)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.2...@jacco-meijer/styled-system@2.0.0-beta.3) (2019-07-24)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.1...@jacco-meijer/styled-system@2.0.0-beta.2) (2019-07-23)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-beta.0...@jacco-meijer/styled-system@2.0.0-beta.1) (2019-07-23)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-beta.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-alpha.5...@jacco-meijer/styled-system@2.0.0-beta.0) (2019-07-21)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-alpha.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-alpha.4...@jacco-meijer/styled-system@2.0.0-alpha.5) (2019-07-17)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
-
-
-
-
-
-# [2.0.0-alpha.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/styled-system@2.0.0-alpha.3...@jacco-meijer/styled-system@2.0.0-alpha.4) (2019-07-16)
-
-**Note:** Version bump only for package @jacco-meijer/styled-system
