@@ -1,3 +1,7 @@
+## [3.0.3](https://github.com/jaccomeijer/wheelroom/compare/v3.0.2...v3.0.3) (2019-12-17)
+
+
+
 ## [3.0.2](https://github.com/jaccomeijer/wheelroom/compare/v3.0.1...v3.0.2) (2019-12-17)
 
 
