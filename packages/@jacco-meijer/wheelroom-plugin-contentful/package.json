@@ -73,6 +73,7 @@
     "build:test": "jest",
     "prepack": "npm run build"
   },
+  "type": "module",
   "types": "dist/index.d.ts",
   "version": "1.1.2",
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"

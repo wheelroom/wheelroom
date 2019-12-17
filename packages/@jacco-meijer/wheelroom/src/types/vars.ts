@@ -1,4 +1,4 @@
-import { Model } from '@jacco-meijer/wheelroom-plugin-contentful'
+// import { Model } from '@jacco-meijer/wheelroom-plugin-contentful'
 
 export interface Vars {
   answers: {
@@ -12,7 +12,7 @@ export interface Vars {
   component: {
     component: {
       fragment: string
-      model: Model
+      // model: Model
       query: string
     }
     options: {

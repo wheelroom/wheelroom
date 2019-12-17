@@ -75,6 +75,7 @@
     "build:compile": "tsc",
     "prepack": "npm run build"
   },
+  "type": "commonjs",
   "version": "2.0.2",
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
 }
