@@ -6,13 +6,10 @@ and can be configured to be a drop in replacement.
 
 ## Project status
 
-Project status still is Proof Of Concept. The package runs on some small
-production sites. There's a simple test in place that covers all functionality.
+Needs multi platform testing.
 
 The tests need to be hooked up to Travis that properly runs the tests on Windows
 and Linux. It's been developed on macOs and builds on Netlify.
-
-Performance is good at first sight, but largely untested.
 
 ## Responsive
 
@@ -20,86 +17,78 @@ Responsive styles are generated with `facepaint`.
 
 ## Config
 
-All configuration is in one file:
-[config.ts](./src/styled-system/config/config.ts).
+The `styled-system` package this package was based on has a fixed configuration. This implementation can be fully configured by a simple configuration file.
 
-## Core elements
+- [default-config.ts](./src/styled-system/config/default-config.ts).
 
-The package contains some core elements to be used with @emotion/core:
+## Use with emotionCss
 
-```
-/** @jsx jsx */
-import { jsx } from '@emotion/core'
-import { styledSystem } from '../styled-system/styled-system'
-
-export const ALink = (props: any) => (
-  <a
-    children={props.children}
-    css={styledSystem({ textDecoration: 'none', ...props })}
-    href={props.href}
-  />
-)
-```
-
-## Nested css
-
-`Emotion.sh` these days parses nested css like this:
+Create an `emotionCss` function that can parse your styles:
 
 ```
-{
-  '>ul>li': {
-    margin: 0,
-  },
-}
-```
-
-Styled system with the existing API does not process nested css properties like
-this:
-
-```
-{
-  '>ul>li>p': {
-    mx: 0,
-  },
-}
-```
-
-This is because a shallow evaluation of all properties of a React element is
-simple, but an efficient deep evaluation of all properties is a complex thing.
-
-To efficiently handle nested css properties these properties need to be passed
-to styled system separately. By adding these objects to the special `ncss`
-(derived from Nested CSS) property for example. The API would then look like
-this:
-
-`<div ncss={'>ul>li>p':{mx:0}} />`
-
-Because moving all properties to a `ncss` object would break the current API, this version supports both the current behavior as well as the `ncss` property for
-nested properties.
-
-The next major version will only have support for the `ncss` object.
-
-```
-{
-  ncss: {
-    '>ul>li>p': {
-      mx: 0,
-    },
-  }
-}
-```
-
-A core element that handles only nested css looks like this:
-
-```
-/** @jsx jsx */
-import { jsx } from '@emotion/core'
+// Use your own project specific config and theme here
+import { defaultConfig } from '@jacco-meijer/styled-system'
+import { defaultTheme } from '@jacco-meijer/styled-system'
 import { styledSystem } from '@jacco-meijer/styled-system'
 
+export const emotionCss = (props: any) =>
+  styledSystem(defaultConfig, defaultTheme, { ncss: props.ncss })
+```
+
+- [default-config.ts](./src/styled-system/config/default-config.ts).
+- [default-theme.ts](./src/styled-system/config/default-theme.ts).
+
+## A simple grid
+
+```
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { emotionCss } from './emotion-css'
+
+export const Box = (props: any) => (
+  <div
+    css={emotionCss({ ncss: { boxSizing: 'border-box', ...props.ncss } })}
+    children={props.children}
+  />
+)
+
+export const Flex = (props: any) => (
+  <div
+    css={emotionCss({
+      ncss: {
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexWrap: 'wrap',
+        ...props.ncss,
+      },
+    })}
+    children={props.children}
+  />
+)
+
+export const Container = (props: any) => {
+  return (
+    <div
+      css={emotionCss({
+        ncss: { mx: 'auto', maxWidth: '1024px', ...props.ncss },
+      })}
+      children={props.children}
+    />
+  )
+}
+```
+
+## Link element example
+
+```
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { emotionCss } from './emotion-css'
+
 export const ALink = (props: any) => (
   <a
     children={props.children}
-    css={styledSystem( { ncss: { textDecoration: 'none', ...props.ncss }} )}
+    css={emotionCss({ ncss: { textDecoration: 'none', ...props.ncss } })}
     href={props.href}
   />
 )
