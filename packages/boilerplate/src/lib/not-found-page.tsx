@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 
-export const NotFoundPage = () => (
+const NotFoundPage = () => (
   <div>
     <Helmet>
       <meta charSet="utf-8" />
@@ -13,3 +13,5 @@ export const NotFoundPage = () => (
     <p>So sorry, this path doesn&#39;t exist!</p>
   </div>
 )
+
+export default NotFoundPage

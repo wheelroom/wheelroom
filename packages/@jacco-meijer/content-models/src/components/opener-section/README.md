@@ -1,3 +1,0 @@
-## OpenerSection
-
-Wheelroom type: section

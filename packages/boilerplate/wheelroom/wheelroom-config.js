@@ -1,8 +1,9 @@
-var questionSets = require('./wheelroom-question-sets')
 var templateSets = require('./wheelroom-template-sets')
+var templates = require('./templates/templates')
 
 module.exports = {
   fieldDefaults: {
+    helpText: '%componentName% %fieldName%',
     localized: false,
     required: false,
     type: 'shortText',
@@ -108,9 +109,8 @@ module.exports = {
     {
       resolve: '@jacco-meijer/wheelroom-plugin-templates',
       options: {
-        defaultTemplateResolve: `@jacco-meijer/content-models`,
+        templates,
         templateSets: templateSets,
-        questionSets: questionSets,
       },
     },
   ],

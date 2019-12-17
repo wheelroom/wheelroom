@@ -1,4 +1,0 @@
-## BicycleText
-
-Wheelroom type: block
-

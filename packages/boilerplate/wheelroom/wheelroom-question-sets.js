@@ -1,3 +1,7 @@
+/** 
+ * Not currenntly used in the boilerplate. Left here for possible future use.
+ */
+
 module.exports = {
   newModel: [
     {

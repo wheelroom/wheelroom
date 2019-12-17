@@ -10,16 +10,6 @@ module.exports = [
     },
   },
   {
-    name: 'demo-set',
-    loopComponents: true,
-    templates: {
-      demo: {
-        path: 'demo/%component%.md',
-        resolve: `dist:templates`,
-      },
-    },
-  },
-  {
     name: 'components-base',
     templates: {
       defaults: {

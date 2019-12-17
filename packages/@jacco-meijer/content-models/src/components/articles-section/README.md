@@ -1,3 +1,0 @@
-## ArticlesSection
-
-Wheelroom type: section
