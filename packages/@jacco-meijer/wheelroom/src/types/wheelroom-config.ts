@@ -1,19 +1,26 @@
-import { componentName, nodeModuleName } from './simple-types'
+import { nodeModuleName } from './simple-types'
 
-export interface ComponentToBeResolved {
-  componentName: componentName
-  options: any
-}
-
-export interface Resolvers {
-  [moduleName: string]: ComponentToBeResolved[]
+export interface ComponentField {
+  components: string[]
+  helpText: string
+  initialContent: number
+  localized: boolean
+  maxLength: number
+  required: boolean
+  type: 'date' | 'image' | 'multipleComponents' | 'number' | 'richText' | 'tags'
 }
 
 export interface WheelroomComponent {
-  /** The module that exports the components array */
-  resolve: nodeModuleName
-  /** Component options */
-  options: any
+  /** Fields for this component */
+  fields: {
+    [fieldName: string]: ComponentField
+  }
+  variations: string[]
+  query: {
+    /** When set this query runs for all pages */
+    mainQuery: boolean
+    type: 'page' | 'global' | 'subPage' | 'sectionOfPage' | 'partOfSection'
+  }
 }
 
 export interface Plugin {
@@ -24,10 +31,17 @@ export interface Plugin {
 }
 
 export interface WheelroomConfig {
-  /** Default value for componentName.resolve */
-  defaultComponentResolve: nodeModuleName
+  /** Defaults used if not specified */
+  fieldDefaults: {
+    helpText: string
+    localized: boolean
+    required: boolean
+    type: string
+  }
+  /** List of components */
   components: {
     [componentName: string]: WheelroomComponent
   }
+  /** Plugins to load and their options */
   plugins: Plugin[]
 }

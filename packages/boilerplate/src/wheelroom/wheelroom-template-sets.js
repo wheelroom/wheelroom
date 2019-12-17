@@ -1,4 +1,4 @@
-module.exports = [
+export const templateSets = [
   {
     name: 'fragments',
     loopComponents: true,

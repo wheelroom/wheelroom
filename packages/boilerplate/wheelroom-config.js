@@ -1,7 +1,7 @@
-var templateSets = require('./wheelroom-template-sets')
-var templates = require('./templates/templates')
+import templateSets from './src/wheelroom/wheelroom-template-sets'
+import templates from './src/wheelroom/templates/templates'
 
-module.exports = {
+export const config = {
   fieldDefaults: {
     helpText: '%componentName% %fieldName%',
     localized: false,

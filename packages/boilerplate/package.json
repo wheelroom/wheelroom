@@ -64,7 +64,6 @@
   },
   "scripts": {
     "build:clean": "rm -rf ./dist",
-    "build:packages": "tsc --project src/packages/tsconfig.json",
     "build:load-env": "export $(grep -v '^#' .env | xargs)",
     "build:gatsby": "gatsby build",
     "build": "npm-run-all build:*",
