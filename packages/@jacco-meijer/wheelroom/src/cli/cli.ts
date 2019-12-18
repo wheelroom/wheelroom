@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { command as listCommand } from '../commands/list/command'
+import { command as listCommand } from '../commands/list/command.js'
 import { getCommands } from '../lib/get-commands'
 import { getComponents } from '../lib/get-components'
 import { getPluginOptions } from '../lib/get-plugin-options'
