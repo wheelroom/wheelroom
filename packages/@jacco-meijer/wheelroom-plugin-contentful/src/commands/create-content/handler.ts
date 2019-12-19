@@ -5,8 +5,12 @@ import {
   getFields,
   publishEntry,
   updateEntry,
-} from '../../contentful-api/content'
-import { getClient, getEnvironment, getSpace } from '../../contentful-api/init.js'
+} from '../../contentful-api/content.js'
+import {
+  getClient,
+  getEnvironment,
+  getSpace,
+} from '../../contentful-api/init.js'
 import { componentsFound } from '../../lib/components-found.js'
 import { confirmAction } from '../../lib/confirm-action.js'
 import { getCurrentModel } from '../../lib/get-current-model.js'

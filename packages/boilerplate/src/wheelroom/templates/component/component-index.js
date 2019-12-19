@@ -1,6 +1,4 @@
-import { Vars } from '../../types/vars.js'
-
-export const componentIndex = (vars: Vars) => {
+export const componentIndex = (vars) => {
   // Skip this template if not present in filter array
   if (
     !vars.options.filter.includes(vars.component.component.model.wheelroomType)

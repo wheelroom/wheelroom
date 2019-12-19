@@ -1,5 +1,5 @@
-import templateSets from './src/wheelroom/wheelroom-template-sets.js'
-import templates from './src/wheelroom/templates/templates.js'
+import { templateSets } from './src/wheelroom/wheelroom-template-sets.js'
+import { templates } from './src/wheelroom/templates/templates.js'
 
 export const config = {
   fieldDefaults: {
@@ -110,7 +110,7 @@ export const config = {
       resolve: '@jacco-meijer/wheelroom-plugin-templates',
       options: {
         templates,
-        templateSets: templateSets,
+        templateSets,
       },
     },
   ],

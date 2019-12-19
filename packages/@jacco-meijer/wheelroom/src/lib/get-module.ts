@@ -12,12 +12,14 @@ export const getModule = async (moduleResolve: nodeModuleName) => {
   const moduleName = secondParm ? secondParm : firstParm
   const localModulePath = secondParm ? firstParm : null
 
+  // TODO: Find out why postfix /dist/index.js is not resolved from package.json
   const moduleDir = localModulePath
-    ? `${getAppDir()}/${localModulePath}/${moduleName}`
-    : `${getAppDir()}/node_modules/${moduleName}`
+    ? `${getAppDir()}/${localModulePath}/${moduleName}/dist/index.js`
+    : `${getAppDir()}/node_modules/${moduleName}/dist/index.js`
 
   try {
-    return await import(moduleDir)
+    const module = await import(moduleDir)
+    return module
   } catch (error) {
     errorMessage = `Could not import ${moduleDir}: ${error}`
     console.log(errorMessage)

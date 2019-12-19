@@ -1,6 +1,4 @@
-import { Vars } from '../../types/vars.js'
-
-export const fragment = (vars: Vars) => {
+export const fragment = (vars) => {
   // Skip fragment if not present in filter array
   if (
     !vars.options.filter.includes(vars.component.component.model.wheelroomType)

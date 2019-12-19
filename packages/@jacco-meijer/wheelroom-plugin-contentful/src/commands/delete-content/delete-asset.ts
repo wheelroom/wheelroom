@@ -2,8 +2,12 @@ import {
   getAsset,
   removeAsset,
   unPublishAsset,
-} from '../../contentful-api/asset'
-import { getClient, getEnvironment, getSpace } from '../../contentful-api/init.js'
+} from '../../contentful-api/asset.js'
+import {
+  getClient,
+  getEnvironment,
+  getSpace,
+} from '../../contentful-api/init.js'
 import { Context } from '../../types/context.js'
 
 const finish = async (context: Context) => {

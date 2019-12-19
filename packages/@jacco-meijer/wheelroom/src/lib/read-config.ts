@@ -11,5 +11,5 @@ export const readConfig = async () => {
     console.log(`Could not load and parse: ${target}`)
     console.log(error)
   }
-  return config as WheelroomConfig
+  return config.config as WheelroomConfig
 }

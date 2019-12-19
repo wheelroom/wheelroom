@@ -1,8 +1,7 @@
-import { Vars } from '../../types/vars.js'
 import { modelFields } from '../helpers/model-fields.js'
 import { getVariationList } from '../partials/get-variation-list.js'
 
-export const componentVariations = (vars: Vars) => {
+export const componentVariations = (vars) => {
   // Skip this template if not present in filter array
   if (
     !vars.options.filter.includes(vars.component.component.model.wheelroomType)
@@ -22,7 +21,7 @@ export const componentVariations = (vars: Vars) => {
   const componentProps = fields
     .sort()
     .map(
-      (fieldName: string) => `  ${fieldName}: string
+      (fieldName) => `  ${fieldName}: string
 `
     )
     .join('')

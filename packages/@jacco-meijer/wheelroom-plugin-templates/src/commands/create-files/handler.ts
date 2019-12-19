@@ -2,7 +2,7 @@ import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import {
   getAvailableTemplateSets,
   getTemplateSet,
-} from '../../lib/get-template-sets'
+} from '../../lib/get-template-sets.js'
 import { writeFiles } from '../../lib/write-files.js'
 import { Options } from '../../types/options.js'
 

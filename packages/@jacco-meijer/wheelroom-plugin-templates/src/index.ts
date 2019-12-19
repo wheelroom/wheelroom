@@ -1,1 +1,1 @@
-export * from './commands/commands'
+export * from './commands/commands.js'

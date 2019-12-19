@@ -1,9 +1,7 @@
-import { Vars } from '../../types/vars.js'
-
-export const getModelFields = (fields: string[], vars: Vars) =>
+export const getModelFields = (fields, vars) =>
   fields
     .map(
-      (fieldName: string) => `    ${fieldName}: {
+      (fieldName) => `    ${fieldName}: {
       initialContent: 'Demo content for ${vars.componentName.camelCase}/${fieldName}',
       settings: {
         helpText: 'Describe how to use the field ${fieldName}',

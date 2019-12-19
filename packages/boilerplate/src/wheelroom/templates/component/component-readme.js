@@ -1,7 +1,6 @@
-import { Vars } from '../../types/vars.js'
 import { modelFields } from '../helpers/model-fields.js'
 
-export const componentReadme = (vars: Vars) => {
+export const componentReadme = (vars) => {
   // Skip this template if not present in filter array
   if (
     !vars.options.filter.includes(vars.component.component.model.wheelroomType)
@@ -11,7 +10,7 @@ export const componentReadme = (vars: Vars) => {
 
   const fields = modelFields(vars.component.component.model)
   const componentAttributes = fields
-    .map((fieldName: string) => `${fieldName}="Value goes here" `)
+    .map((fieldName) => `${fieldName}="Value goes here" `)
     .join('')
 
   return `# ${vars.componentName.pascalCase}

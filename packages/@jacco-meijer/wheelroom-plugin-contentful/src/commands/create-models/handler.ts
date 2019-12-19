@@ -3,12 +3,16 @@ import {
   getContentType,
   publishContentType,
   updateContentType,
-} from '../../contentful-api/content-type'
+} from '../../contentful-api/content-type.js'
 import {
   getEditorInterface,
   updateEditorInterface,
-} from '../../contentful-api/editor-interface'
-import { getClient, getEnvironment, getSpace } from '../../contentful-api/init.js'
+} from '../../contentful-api/editor-interface.js'
+import {
+  getClient,
+  getEnvironment,
+  getSpace,
+} from '../../contentful-api/init.js'
 import { componentsFound } from '../../lib/components-found.js'
 import { confirmAction } from '../../lib/confirm-action.js'
 import { getCurrentModel } from '../../lib/get-current-model.js'
