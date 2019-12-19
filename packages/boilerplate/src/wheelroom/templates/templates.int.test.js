@@ -24,8 +24,8 @@ test('All templates are exported', () => {
 })
 
 test('Template is a function', () => {
-  Object.keys(templates).forEach((name: string) => {
-    const template = (templates as any)[name]
+  Object.keys(templates).forEach((name) => {
+    const template = (templates)[name]
     expect(typeof template).toBe('function')
   })
 })
