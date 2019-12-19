@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { emotionCss } from './emotion-css'
+import { emotionCss } from './emotion-css.js'
 
 export const ALink = (props: any) => (
   <a

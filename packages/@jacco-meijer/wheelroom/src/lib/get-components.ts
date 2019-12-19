@@ -1,6 +1,6 @@
-import { Components } from '../types/components'
-import { WheelroomConfig } from '../types/wheelroom-config'
-import { readConfig } from './read-config'
+import { Components } from '../types/components.js'
+import { WheelroomConfig } from '../types/wheelroom-config.js'
+import { readConfig } from './read-config.js'
 
 /** 
  * Rewrite this, build components from config here

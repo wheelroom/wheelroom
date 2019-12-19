@@ -1,11 +1,11 @@
-import { defaults } from './component-base/defaults'
-import { sectionProps } from './component-base/section-props'
-import { componentBasicVar } from './component/component-basic-var'
-import { componentIndex } from './component/component-index'
-import { componentNoVariations } from './component/component-no-variations'
-import { componentReadme } from './component/component-readme'
-import { componentVariations } from './component/component-variations'
-import { fragment } from './fragments/fragment'
+import { defaults } from './component-base/defaults.js'
+import { sectionProps } from './component-base/section-props.js'
+import { componentBasicVar } from './component/component-basic-var.js'
+import { componentIndex } from './component/component-index.js'
+import { componentNoVariations } from './component/component-no-variations.js'
+import { componentReadme } from './component/component-readme.js'
+import { componentVariations } from './component/component-variations.js'
+import { fragment } from './fragments/fragment.js'
 
 export const templates = {
   componentBasicVar,

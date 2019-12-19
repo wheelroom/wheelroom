@@ -1,6 +1,6 @@
 import { Component } from '@jacco-meijer/wheelroom'
-import { Template } from '../types/templates'
-import { getCases } from './get-cases'
+import { Template } from '../types/templates.js'
+import { getCases } from './get-cases.js'
 
 export const getVars = (
   answers: any,

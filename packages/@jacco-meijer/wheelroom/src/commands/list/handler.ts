@@ -1,5 +1,5 @@
-import { getFilteredComponents } from '../../lib/get-filtered-components'
-import { Component } from '../../types/components'
+import { getFilteredComponents } from '../../lib/get-filtered-components.js'
+import { Component } from '../../types/components.js'
 
 export const handler = async (argv: any) => {
   const components = getFilteredComponents(argv)

@@ -1,5 +1,5 @@
-import { Vars } from '../../types/vars'
-import { modelFields } from '../helpers/model-fields'
+import { Vars } from '../../types/vars.js'
+import { modelFields } from '../helpers/model-fields.js'
 
 export const componentNoVariations = (vars: Vars) => {
   // Skip this template if not present in filter array
@@ -36,9 +36,9 @@ export const componentNoVariations = (vars: Vars) => {
 
 import { getVariation } from '@jacco-meijer/content-models'
 import * as React from 'react'
-import { defaultVariations } from '../../lib/defaults'
-import { SectionProps } from '../section-props'
-import { ${vars.componentName.pascalCase}BasicVar } from './${vars.componentName.dashCase}-basic-var'
+import { defaultVariations } from '../../lib/defaults.js'
+import { SectionProps } from '../section-props.js'
+import { ${vars.componentName.pascalCase}BasicVar } from './${vars.componentName.dashCase}-basic-var.js'
 
 const componentList = {
   [defaultVariations[0]]: ${vars.componentName.pascalCase}BasicVar,

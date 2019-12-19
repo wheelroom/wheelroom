@@ -1,4 +1,4 @@
-import { TemplateSet } from '../types/options'
+import { TemplateSet } from '../types/options.js'
 
 export const getTemplateSet = (
   selectedTemplateSet: string,

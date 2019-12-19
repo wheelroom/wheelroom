@@ -1,5 +1,5 @@
-import { Vars } from '../../types/vars'
-import { modelFields } from '../helpers/model-fields'
+import { Vars } from '../../types/vars.js'
+import { modelFields } from '../helpers/model-fields.js'
 
 export const componentReadme = (vars: Vars) => {
   // Skip this template if not present in filter array
@@ -19,7 +19,7 @@ export const componentReadme = (vars: Vars) => {
 Wheelroom type: ${vars.component.component.model.wheelroomType}
 
 \`\`\`jsx
-import { ${vars.componentName.pascalCase} } from './${vars.componentName.dashCase}'
+import { ${vars.componentName.pascalCase} } from './${vars.componentName.dashCase}.js'
 <${vars.componentName.pascalCase} ${componentAttributes} />
 \`\`\`
 `

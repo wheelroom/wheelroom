@@ -1,12 +1,12 @@
 import { Component, Components } from '@jacco-meijer/wheelroom'
 import * as fse from 'fs-extra'
 import * as inquirer from 'inquirer'
-import { Options, TemplateSet } from '../types/options'
-import { Template, Templates } from '../types/templates'
-import { askQuestions } from './ask-questions'
-import { getTemplates } from './get-templates'
-import { getVars } from './get-vars'
-import { noTrailingSlash } from './helpers'
+import { Options, TemplateSet } from '../types/options.js'
+import { Template, Templates } from '../types/templates.js'
+import { askQuestions } from './ask-questions.js'
+import { getTemplates } from './get-templates.js'
+import { getVars } from './get-vars.js'
+import { noTrailingSlash } from './helpers.js'
 
 type OverwritePolicy = 'y' | 'n' | 'a' | 'q' | undefined
 

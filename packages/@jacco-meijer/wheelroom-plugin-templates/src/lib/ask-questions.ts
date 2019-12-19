@@ -1,5 +1,5 @@
 import * as inquirer from 'inquirer'
-import { Options, TemplateSet } from '../types/options'
+import { Options, TemplateSet } from '../types/options.js'
 
 export const askQuestions = async (
   pluginOptions: Options,

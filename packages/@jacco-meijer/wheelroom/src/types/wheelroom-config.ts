@@ -1,4 +1,4 @@
-import { nodeModuleName } from './simple-types'
+import { nodeModuleName } from './simple-types.js'
 
 export interface ComponentField {
   components: string[]

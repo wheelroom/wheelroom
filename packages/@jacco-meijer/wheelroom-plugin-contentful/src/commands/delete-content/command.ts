@@ -1,5 +1,5 @@
 import { Argv } from 'yargs'
-import { handler } from './handler'
+import { handler } from './handler.js'
 
 export const command = {
   aliases: ['dc'],

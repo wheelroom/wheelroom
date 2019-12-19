@@ -3,8 +3,8 @@ import {
   getAvailableTemplateSets,
   getTemplateSet,
 } from '../../lib/get-template-sets'
-import { writeFiles } from '../../lib/write-files'
-import { Options } from '../../types/options'
+import { writeFiles } from '../../lib/write-files.js'
+import { Options } from '../../types/options.js'
 
 export const handler = async (argv: any) => {
   const pluginOptions = argv.options[

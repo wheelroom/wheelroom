@@ -1,4 +1,4 @@
-import { Vars } from '../../types/vars'
+import { Vars } from '../../types/vars.js'
 
 export const getVariationList = (variations: string[], vars: Vars) =>
   variations

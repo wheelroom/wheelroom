@@ -1,5 +1,5 @@
 import { Component } from '@jacco-meijer/wheelroom'
-import { Context } from '../types/context'
+import { Context } from '../types/context.js'
 
 export const runQueries = async (context: Context) => {
   console.log(`Running queries`)

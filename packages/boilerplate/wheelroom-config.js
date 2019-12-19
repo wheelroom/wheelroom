@@ -1,5 +1,5 @@
-import templateSets from './src/wheelroom/wheelroom-template-sets'
-import templates from './src/wheelroom/templates/templates'
+import templateSets from './src/wheelroom/wheelroom-template-sets.js'
+import templates from './src/wheelroom/templates/templates.js'
 
 export const config = {
   fieldDefaults: {

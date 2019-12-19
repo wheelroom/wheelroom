@@ -1,8 +1,8 @@
-import { fieldFilter } from '../lib/field-filter'
-import { Context } from '../types/context'
-import { Field } from '../types/model'
-import { Model } from '../types/model'
-import { defaultVariations } from './defaults'
+import { fieldFilter } from '../lib/field-filter.js'
+import { Context } from '../types/context.js'
+import { Field } from '../types/model.js'
+import { Model } from '../types/model.js'
+import { defaultVariations } from './defaults.js'
 
 export const getContentType = async (context: Context) => {
   try {

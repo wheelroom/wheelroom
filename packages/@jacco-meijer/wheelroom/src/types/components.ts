@@ -1,4 +1,4 @@
-import { nodeModuleName } from './simple-types'
+import { nodeModuleName } from './simple-types.js'
 
 /** Passed to plugin for processing */
 export interface Components {

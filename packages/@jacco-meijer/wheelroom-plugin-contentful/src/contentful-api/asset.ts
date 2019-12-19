@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import { Context } from '../types/context'
+import { Context } from '../types/context.js'
 
 const contentType = 'image/jpg'
 const file = '../../assets/wheelroom.jpg'

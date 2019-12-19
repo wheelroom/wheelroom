@@ -1,7 +1,7 @@
 import { getModule } from '@jacco-meijer/wheelroom'
-import { TemplateConfig, TemplateConfigs } from '../types/options'
-import { Resolvers, TemplateToBeResolved } from '../types/resolvers'
-import { Template, Templates } from '../types/templates'
+import { TemplateConfig, TemplateConfigs } from '../types/options.js'
+import { Resolvers, TemplateToBeResolved } from '../types/resolvers.js'
+import { Template, Templates } from '../types/templates.js'
 
 /** Resolve is configured per template. Here we group templates by the module
  * they are resolved from. To be able to fetch the template more efficently

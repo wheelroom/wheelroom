@@ -1,6 +1,6 @@
-import { Context } from '../types/context'
-import { getPageContext } from './get-page-context'
-import { getDefaultLocale, getLocale } from './locales'
+import { Context } from '../types/context.js'
+import { getPageContext } from './get-page-context.js'
+import { getDefaultLocale, getLocale } from './locales.js'
 
 export const createSubPages = (context: Context) => {
   console.log(`Creating sub pages`)

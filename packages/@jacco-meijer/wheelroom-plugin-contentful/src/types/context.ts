@@ -1,5 +1,5 @@
 import { Components } from '@jacco-meijer/wheelroom'
-import { CurrentModel } from './current-model'
+import { CurrentModel } from './current-model.js'
 
 export interface Context {
   contentfulApi: {

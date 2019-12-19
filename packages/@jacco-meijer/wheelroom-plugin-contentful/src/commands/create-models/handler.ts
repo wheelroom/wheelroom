@@ -8,13 +8,13 @@ import {
   getEditorInterface,
   updateEditorInterface,
 } from '../../contentful-api/editor-interface'
-import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
-import { componentsFound } from '../../lib/components-found'
-import { confirmAction } from '../../lib/confirm-action'
-import { getCurrentModel } from '../../lib/get-current-model'
-import { initializeContext } from '../../lib/initialize-context'
-import { readDotEnv } from '../../lib/read-dot-env'
-import { Context } from '../../types/context'
+import { getClient, getEnvironment, getSpace } from '../../contentful-api/init.js'
+import { componentsFound } from '../../lib/components-found.js'
+import { confirmAction } from '../../lib/confirm-action.js'
+import { getCurrentModel } from '../../lib/get-current-model.js'
+import { initializeContext } from '../../lib/initialize-context.js'
+import { readDotEnv } from '../../lib/read-dot-env.js'
+import { Context } from '../../types/context.js'
 
 const finish = async (context: Context) => {
   console.log(

@@ -1,4 +1,4 @@
-import { Vars } from '../../types/vars'
+import { Vars } from '../../types/vars.js'
 
 export const componentIndex = (vars: Vars) => {
   // Skip this template if not present in filter array

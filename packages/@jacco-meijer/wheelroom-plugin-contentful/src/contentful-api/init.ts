@@ -1,6 +1,6 @@
 // @ts-ignore
 import * as contentful from 'contentful-management'
-import { Context } from '../types/context'
+import { Context } from '../types/context.js'
 
 export const getClient = async (context: Context) => {
   if (context.contentfulApi.contentfulClient) {

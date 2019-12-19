@@ -1,6 +1,6 @@
-import { fieldFilter } from '../lib/field-filter'
-import { Context } from '../types/context'
-import { Field } from '../types/model'
+import { fieldFilter } from '../lib/field-filter.js'
+import { Context } from '../types/context.js'
+import { Field } from '../types/model.js'
 
 export const getEditorInterface = async (context: Context) => {
   // If we don't have a contentType there's nothing to do here

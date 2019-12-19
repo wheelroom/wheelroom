@@ -1,5 +1,5 @@
 import * as camelCaser from 'camelcase'
-import { camelToDash, firstUpper } from './helpers'
+import { camelToDash, firstUpper } from './helpers.js'
 
 export const getCases = (anyCase: string) => {
   const camelCase = camelCaser(anyCase)

@@ -1,5 +1,5 @@
-import { Context } from '../types/context'
-import { getDefaultLocale, getLocale } from './locales'
+import { Context } from '../types/context.js'
+import { getDefaultLocale, getLocale } from './locales.js'
 
 export const buildNamedPaths = (context: Context) => {
   console.log(`Building named paths`)

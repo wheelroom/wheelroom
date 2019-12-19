@@ -1,5 +1,5 @@
 import * as inquirer from 'inquirer'
-import { Context } from '../types/context'
+import { Context } from '../types/context.js'
 
 export const confirmAction = async (question: string, context: Context) => {
   const componentList = Object.keys(context.components)
