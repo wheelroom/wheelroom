@@ -1,11 +1,13 @@
 import { templateSets } from './src/wheelroom/template-sets.js'
 import { templates } from './src/wheelroom/templates/templates.js'
 import { components } from './src/wheelroom/components.js'
-import { fieldDefinitions } from './src/wheelroom/contentful-field-definitions.js'
+import { contentfulBackend } from './src/wheelroom/contentful-backend.js'
 
 export const config = {
   components,
-  fieldDefinitions,
+  backends: {
+    contentful: contentfulBackend,
+  },
   plugins: [
     {
       options: {

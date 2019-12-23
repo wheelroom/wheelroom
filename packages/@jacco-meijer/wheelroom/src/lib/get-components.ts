@@ -9,6 +9,7 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
   if (!wheelroomConfig) {
     wheelroomConfig = await readConfig()
   }
+  console.log('Building components from', wheelroomConfig)
   const components = {} as Components
 
   return components
