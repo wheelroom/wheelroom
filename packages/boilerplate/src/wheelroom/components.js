@@ -7,7 +7,6 @@ export const components = {
         components: '%pageSectionsArray%',
         fieldType: 'multipleComponents',
         helpText: 'Select sections for this page',
-        initialContent: '%firstPageSection%',
         required: true,
       },
       seoDescription: { maxLength: 155, required: true },
@@ -74,10 +73,15 @@ export const components = {
       pageSection: true,
     },
     modelVersion: '1.0.0',
-    variations: [
-      'Inline article text, specific to this section',
-      'Linked article text, derived from slug in url',
-    ],
+    variation: {
+      fieldType: 'dropdown',
+      helpText: 'Select a variation',
+      inValidation: [
+        'Inline article text, specific to this section',
+        'Linked article text, derived from slug in url',
+      ],
+      required: true,
+    },
   },
   // Sections are retrieved as a part of a page
   articlesSection: {
