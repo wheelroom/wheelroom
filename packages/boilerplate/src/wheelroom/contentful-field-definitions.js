@@ -116,27 +116,6 @@ export const fieldDefinitions = {
       },
       widgetId: 'numberEditor',
     },
-    pageSections: {
-      initialContent: '%firstPageSection%',
-      settings: {
-        helpText: 'Select sections for this page',
-      },
-      specs: {
-        items: {
-          linkType: 'Entry',
-          type: 'Link',
-          validations: [
-            {
-              linkContentType: '%pageSectionsArray%',
-            },
-          ],
-        },
-        name: 'Sections',
-        required: true,
-        type: 'Array',
-      },
-      widgetId: 'entryLinksEditor',
-    },
     richText: {
       specs: {
         name: '%Field name%',

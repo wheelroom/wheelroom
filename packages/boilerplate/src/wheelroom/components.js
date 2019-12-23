@@ -4,7 +4,11 @@ export const components = {
       navigationTitle: { required: true },
       image: { fieldType: 'image' },
       sections: {
-        fieldType: 'pageSections',
+        components: '%pageSectionsArray%',
+        fieldType: 'multipleComponents',
+        helpText: 'Select sections for this page',
+        initialContent: '%firstPageSection%',
+        required: true,
       },
       seoDescription: { maxLength: 155, required: true },
       seoTitle: { required: true },
