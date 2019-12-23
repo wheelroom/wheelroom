@@ -14,6 +14,6 @@ export const componentIndex = (vars) => {
  *
  */
 
-export * from './${vars.componentName.dashCase}'
+export * from './${vars.componentName.kebabCase}'
 `
 }

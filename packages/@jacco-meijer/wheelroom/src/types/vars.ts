@@ -24,8 +24,8 @@ export interface Vars {
   }
   componentName: {
     camelCase: string
-    dashCase: string
-    firstUpperCase: string
+    kebabCase: string
+    sentenceCaseCase: string
     pascalCase: string
   }
 }

@@ -104,7 +104,7 @@ const getPath = (basePath: string, templatePath: string, vars: any) => {
   if (vars.componentName) {
     relPath = templatePath.replace(
       new RegExp('%component%', 'g'),
-      vars.componentName.dashCase
+      vars.componentName.kebabCase
     )
   }
   const fullPath = noTrailingSlash(basePath) + `/${relPath}`

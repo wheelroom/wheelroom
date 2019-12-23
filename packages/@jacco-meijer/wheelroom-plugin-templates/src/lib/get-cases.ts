@@ -1,17 +1,19 @@
 import * as camelCaser from 'camelcase'
-import { camelToDash, firstUpper } from './helpers.js'
+import { camelToKebab, camelToSpaces, firstUpperCase } from './helpers.js'
 
 export const getCases = (anyCase: string) => {
   const camelCase = camelCaser(anyCase)
   const pascalCase = camelCaser(anyCase, {
     pascalCase: true,
   })
-  const dashCase = camelToDash(camelCase)
-  const firstUpperCase = firstUpper(anyCase)
+  const kebabCase = camelToKebab(camelCase)
+  const lowerCase = camelToSpaces(anyCase)
+  const sentenceCase = firstUpperCase(lowerCase)
   return {
     camelCase,
-    dashCase,
-    firstUpperCase,
+    kebabCase,
+    lowerCase,
     pascalCase,
+    sentenceCase,
   }
 }

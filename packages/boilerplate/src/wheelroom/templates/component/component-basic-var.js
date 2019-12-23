@@ -17,7 +17,7 @@ export const componentBasicVar = (vars) => {
 
 import * as React from 'react'
 
-import { ${vars.componentName.pascalCase}Props } from './${vars.componentName.dashCase}.js'
+import { ${vars.componentName.pascalCase}Props } from './${vars.componentName.kebabCase}.js'
 
 export const ${vars.componentName.pascalCase}BasicVar = (props: ${vars.componentName.pascalCase}Props) => {
   return (

@@ -37,7 +37,7 @@ import { getVariation } from '@jacco-meijer/content-models'
 import * as React from 'react'
 import { defaultVariations } from '../../lib/defaults.js'
 import { SectionProps } from '../section-props.js'
-import { ${vars.componentName.pascalCase}BasicVar } from './${vars.componentName.dashCase}-basic-var.js'
+import { ${vars.componentName.pascalCase}BasicVar } from './${vars.componentName.kebabCase}-basic-var.js'
 
 const componentList = {
   [defaultVariations[0]]: ${vars.componentName.pascalCase}BasicVar,

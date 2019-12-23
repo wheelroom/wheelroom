@@ -1,117 +1,24 @@
-import { templateSets } from './src/wheelroom/wheelroom-template-sets.js'
+import { templateSets } from './src/wheelroom/template-sets.js'
 import { templates } from './src/wheelroom/templates/templates.js'
+import { components } from './src/wheelroom/components.js'
+import { fieldDefinitions } from './src/wheelroom/contentful-field-definitions.js'
 
 export const config = {
-  fieldDefaults: {
-    helpText: '%componentName% %fieldName%',
-    localized: false,
-    required: false,
-    type: 'shortText',
-  },
-  components: {
-    page: {
-      fields: {
-        navigationTitle: { required: true },
-        image: { type: 'image' },
-        seoDescription: { maxLength: 155, required: true },
-        seoTitle: { required: true },
-      },
-      query: {
-        mainQuery: true,
-        type: 'page',
-      },
-    },
-    globals: {
-      fields: {
-        addressLine1: { required: true },
-        addressLine2: { required: true },
-        emailAddress: { required: true },
-        githubUrl: {},
-        heading: { required: true },
-        linkedinUrl: {},
-        phoneNumber: {},
-        siteAuthor: {},
-        siteDescription: {},
-        siteKeywords: { type: 'tags' },
-        siteTitle: {},
-      },
-      query: {
-        mainQuery: true,
-        type: 'global',
-      },
-    },
-    article: {
-      fields: {
-        articleText: { type: 'richtText' },
-        author: { required: true },
-        createdAt: { systemField: true },
-        date: { type: 'date', required: true },
-        heading: { required: true },
-        image: { type: 'image' },
-        subHeading: {},
-        updatedAt: { systemField: true },
-      },
-      query: {
-        limit: 10,
-        mainQuery: true,
-        type: 'subPage',
-      },
-    },
-    articleSection: {
-      fields: {
-        articleText: {
-          localized: true,
-        },
-      },
-      variations: [
-        'Inline article text, specific to this section',
-        'Linked article text, derived from slug in url',
-      ],
-      query: {
-        mainQuery: false,
-        type: 'sectionOfPage',
-      },
-    },
-    articlesSection: {
-      fields: {
-        articles: {
-          type: 'multipleComponents',
-          components: ['article'],
-        },
-        heading: {},
-        maxArticles: {
-          type: 'number',
-          initialContent: 5,
-        },
-      },
-      query: {
-        mainQuery: false,
-        type: 'sectionOfPage',
-      },
-    },
-    examplePart: {
-      fields: {
-        someText: {},
-      },
-      query: {
-        mainQuery: false,
-        type: 'partOfSection',
-      },
-    },
-  },
+  components,
+  fieldDefinitions,
   plugins: [
     {
-      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
       options: {
         defaultLocale: 'nl',
       },
+      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
     },
     {
-      resolve: '@jacco-meijer/wheelroom-plugin-templates',
       options: {
         templates,
         templateSets,
       },
+      resolve: '@jacco-meijer/wheelroom-plugin-templates',
     },
   ],
 }

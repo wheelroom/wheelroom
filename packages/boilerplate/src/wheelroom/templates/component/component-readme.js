@@ -18,7 +18,7 @@ export const componentReadme = (vars) => {
 Wheelroom type: ${vars.component.component.model.wheelroomType}
 
 \`\`\`jsx
-import { ${vars.componentName.pascalCase} } from './${vars.componentName.dashCase}.js'
+import { ${vars.componentName.pascalCase} } from './${vars.componentName.kebabCase}.js'
 <${vars.componentName.pascalCase} ${componentAttributes} />
 \`\`\`
 `
