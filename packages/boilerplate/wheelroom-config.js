@@ -5,30 +5,6 @@ import { fieldDefaults } from './src/wheelroom/field-defaults.js'
 import { templates } from './src/wheelroom/templates/templates.js'
 import { templateSets } from './src/wheelroom/template-sets.js'
 
-/**
- *
- * Variables below are parsed by wheelroom. Plugins may also use the parsing
- * engine.
- *
- * Name variables
- * ==============
- * - %Component name%
- * - %component name%
- * - %componentName%
- * - %ComponentName%
- * - %component-name%
- * - %Field name%
- * - %field name%
- * - %fieldName%
- * - %FieldName%
- * - %field-name%
- *
- * GraphQL variables
- * =================
- * - %pageSectionsArray% - array of all model names with graphQl.pageSection set
- *
- */
-
 export const config = {
   commonFields,
   components,

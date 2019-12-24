@@ -8,8 +8,8 @@ export const handler = async (argv: any) => {
     ([componentName, component]: [string, Component]) => {
       console.log(`============================
   Component: ${componentName}
-  Fields:    ${component.fields}
-  GraphQL:   ${component.graphQL}
+  title:     ${component.fields.title.helpText}
+  section:   ${component.graphQL.pageSection}
 `)
     }
   )

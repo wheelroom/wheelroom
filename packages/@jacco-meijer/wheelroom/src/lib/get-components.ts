@@ -1,10 +1,9 @@
 import { Component, Components } from '../types/components.js'
+import { Field, FieldType } from '../types/fields.js'
 import { WheelroomConfig } from '../types/wheelroom-config.js'
+import { parseVariables } from './parseVariables.js'
 import { readConfig } from './read-config.js'
 
-/**
- * Rewrite this, build components from config here
- */
 export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
   if (!wheelroomConfig) {
     wheelroomConfig = await readConfig()
@@ -13,23 +12,68 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
     !('components' in wheelroomConfig) ||
     typeof wheelroomConfig.components !== 'object'
   ) {
-    console.error('error: components object not found in wheelroom config')
+    console.log('error: components object not found in wheelroom config')
   }
   if (Object.entries(wheelroomConfig.components).length < 1) {
-    console.error('error: no components found in wheelroom config')
+    console.log('error: no components found in wheelroom config')
   }
-  console.log('Building components from', wheelroomConfig)
-  Object.entries(wheelroomConfig.components).forEach(
-    ([componentName, component]: [string, Component]) => {
-      console.log(componentName, '===========================')
-      console.log('component:', component)
-      console.log('merge in common fields', wheelroomConfig?.commonFields)
-      console.log('merge in field defaults', wheelroomConfig?.fieldDefaults)
-      console.log('parse field %variables%')
-    }
+
+  const pageSectionsArray = Object.keys(wheelroomConfig.components).filter(
+    (componentName: string) =>
+      wheelroomConfig!.components[componentName].graphQL.pageSection
   )
 
-  const components = {} as Components
+  const finalComponents = {} as Components
 
-  return components
+  Object.entries(wheelroomConfig.components).forEach(
+    // Iterate over all components
+    ([componentName, component]: [string, Component]) => {
+      // Create a working copy of the component with all common fields
+      const workComponent = {
+        fields: Object.assign({}, wheelroomConfig!.commonFields || {}),
+        graphQL: component.graphQL,
+        modelVersion: component.modelVersion,
+      } as Component
+
+      Object.entries(component.fields).forEach(
+        // For each component, iterate over all fields
+        ([fieldName, field]: [string, Field]) => {
+          // Copy default field to work with
+          const workField: Field = Object.assign(
+            { type: 'shortText' as FieldType },
+            wheelroomConfig?.fieldDefaults || {}
+          )
+          // Copy field attributes to our working copy
+          Object.assign(workField, field)
+          // Create an object for upcomming parsing job
+          const parseResults = {} as {
+            [attr: string]: string | string[]
+          }
+          Object.entries(workField).forEach(
+            // Parse variables of all strings to our parseResuls object
+            ([key, value]: [string, string]) => {
+              if (typeof value !== 'string') {
+                return // Only parse strings
+              }
+              parseResults[key] = parseVariables({
+                componentName,
+                fieldName,
+                pageSectionsArray,
+                unparsed: value,
+              })
+            }
+          )
+          // Save field parse results to our working copy
+          Object.assign(workField, parseResults)
+          // Update working copy of component with our working field copy
+          workComponent.fields[fieldName] = workField
+        }
+      )
+      // Save working component copy to our object with final components
+      finalComponents[componentName] = workComponent
+    }
+  )
+  console.log(finalComponents)
+
+  return finalComponents
 }

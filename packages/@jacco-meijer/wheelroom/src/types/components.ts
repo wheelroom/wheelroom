@@ -20,5 +20,4 @@ export interface Component {
   }
   /** Used for comparing Contentful model version with repository model version  */
   modelVersion: string
-  variations: string[]
 }

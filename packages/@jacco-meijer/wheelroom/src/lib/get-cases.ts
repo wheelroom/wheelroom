@@ -1,5 +1,7 @@
-import * as camelCaser from 'camelcase'
-import { camelToKebab, camelToSpaces, firstUpperCase } from './helpers.js'
+import * as camelcase from 'camelcase'
+import { camelToKebab, camelToSpaces, firstUpperCase } from './case-helpers.js'
+
+const camelCaser = camelcase.default
 
 export const getCases = (anyCase: string) => {
   const camelCase = camelCaser(anyCase)
