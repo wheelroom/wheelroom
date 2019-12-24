@@ -7,9 +7,9 @@ export const handler = async (argv: any) => {
   Object.entries(components).forEach(
     ([componentName, component]: [string, Component]) => {
       console.log(`============================
-  Component name: ${componentName}
-  Source module:  ${component.sourceModule}
-  Options:        ${component.options}
+  Component: ${componentName}
+  Fields:    ${component.fields}
+  GraphQL:   ${component.graphQL}
 `)
     }
   )

@@ -1,12 +1,12 @@
+import { Fields } from './fields'
+
 export interface Components {
   [componentName: string]: Component
 }
 
-interface Component {
+export interface Component {
   /** Fields for this component */
-  fields: {
-    [fieldName: string]: Field
-  }
+  fields: Fields
   /** Defines which queries are generated */
   graphQL: {
     /** When set the model is retreived when generating a static version of the site */
@@ -21,15 +21,4 @@ interface Component {
   /** Used for comparing Contentful model version with repository model version  */
   modelVersion: string
   variations: string[]
-}
-
-interface Field {
-  components: string[]
-  helpText: string
-  initialContent: number
-  localized: boolean
-  maxLength: number
-  required: boolean
-  unique: boolean
-  type: 'date' | 'image' | 'multipleComponents' | 'number' | 'richText' | 'tags'
 }
