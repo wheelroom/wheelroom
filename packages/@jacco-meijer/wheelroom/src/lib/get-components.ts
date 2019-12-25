@@ -1,5 +1,5 @@
 import { Component, Components } from '../types/components.js'
-import { Field, FieldType } from '../types/fields.js'
+import { Field } from '../types/fields.js'
 import { WheelroomConfig } from '../types/wheelroom-config.js'
 import { parseVariables } from './parseVariables.js'
 import { readConfig } from './read-config.js'
@@ -28,19 +28,22 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
   Object.entries(wheelroomConfig.components).forEach(
     // Iterate over all components
     ([componentName, component]: [string, Component]) => {
-      // Create a working copy of the component with all common fields
+      // Create a working copy of the component
       const workComponent = {
-        fields: Object.assign({}, wheelroomConfig!.commonFields || {}),
+        fields: Object.assign({}, component.fields),
         graphQL: component.graphQL,
         modelVersion: component.modelVersion,
       } as Component
 
-      Object.entries(component.fields).forEach(
+      // Merge in common fields
+      Object.assign(workComponent.fields, wheelroomConfig!.commonFields || {})
+
+      Object.entries(workComponent.fields).forEach(
         // For each component, iterate over all fields
         ([fieldName, field]: [string, Field]) => {
           // Copy default field to work with
           const workField: Field = Object.assign(
-            { type: 'shortText' as FieldType },
+            {},
             wheelroomConfig?.fieldDefaults || {}
           )
           // Copy field attributes to our working copy

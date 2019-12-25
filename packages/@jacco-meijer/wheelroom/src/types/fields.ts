@@ -1,5 +1,6 @@
 export type FieldType =
   | 'date'
+  | 'dropdown'
   | 'image'
   | 'multipleComponents'
   | 'number'
@@ -8,14 +9,26 @@ export type FieldType =
   | 'tags'
 
 export interface Field {
-  components?: string[]
+  /** Components for a multipleComponents type */
+  components?: string | string[]
+  /** Help text for an input element */
   helpText?: string
-  initialContent?: number
+  /** Demo content that a field can be filled with */
+  initialContent?: number | string
+  /** Items for a dropdown field */
+  items?: string[]
+  /** Localize the field */
   localized?: boolean
+  /** Optional maximum length for a shorText field */
   maxLength?: number
+  /** Makes the field require input */
   required?: boolean
+  /** Adds the field to a graphQL fragment and not to the CMS UI */
+  systemField?: boolean
+  /** Adds a field must be unique validation */
   unique?: boolean
-  type: FieldType
+  /** Simple wheelroom field type */
+  fieldType?: FieldType
 }
 
 export interface Fields {
