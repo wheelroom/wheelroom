@@ -1,9 +1,3 @@
-import { fixtureWheelroomConfig } from '../../../../src/fixtures/wheelroom-config'
+import { fixtureWheelroomConfig } from '../../../fixtures/wheelroom-config.js'
 
-const myTestList = () => {
-  return true
-}
-
-test('My test', () => {
-  expect(fixtureWheelroomConfig.commonFields).toStrictEqual({ a: 'aa' })
-})
+console.log('running fine', 'fixtureWheelroomConfig', fixtureWheelroomConfig)

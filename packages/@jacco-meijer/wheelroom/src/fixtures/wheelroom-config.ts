@@ -1,4 +1,4 @@
-import { WheelroomConfig } from '../types/wheelroom-config'
+import { WheelroomConfig } from '../types/wheelroom-config.js'
 import { commonFields } from './wheelroom/common-fields.js'
 import { components } from './wheelroom/components.js'
 import { fieldDefaults } from './wheelroom/field-defaults.js'
