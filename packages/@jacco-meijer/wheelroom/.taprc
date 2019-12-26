@@ -1,0 +1,1 @@
+test-regex: (dist.*\/tests\/.*\.(int|unit?)\.test)\.(mjs|js|cjs|ts)$
