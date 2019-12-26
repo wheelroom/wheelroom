@@ -34,7 +34,6 @@
   "description": "Gatsby static site boilerplate with React and Typescript",
   "devDependencies": {
     "@types/dotenv": "8.2.0",
-    "@types/jest": "24.0.23",
     "@types/node": "12.12.19",
     "@types/react": "16.9.16",
     "@types/react-dom": "16.9.4",

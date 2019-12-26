@@ -20,7 +20,7 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "target": "es2015",
-    "types": ["jest", "node"]
+    "types": ["node"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": []
