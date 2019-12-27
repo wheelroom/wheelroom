@@ -1,7 +1,7 @@
-import { WheelroomConfig } from '../types/wheelroom-config.js'
-import { commonFields } from './wheelroom/common-fields.js'
-import { components } from './wheelroom/components.js'
-import { fieldDefaults } from './wheelroom/field-defaults.js'
+import { WheelroomConfig } from '../types/wheelroom-config'
+import { commonFields } from './wheelroom/common-fields'
+import { components } from './wheelroom/components'
+import { fieldDefaults } from './wheelroom/field-defaults'
 
 export const fixtureWheelroomConfig: WheelroomConfig = {
   commonFields,
