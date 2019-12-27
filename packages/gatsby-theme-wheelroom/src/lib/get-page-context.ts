@@ -1,5 +1,5 @@
-import { ContentfulObject, GetPageContext, PageContext } from '../types/context.js'
-import { getLocale } from './locales.js'
+import { ContentfulObject, GetPageContext, PageContext } from '../types/context'
+import { getLocale } from './locales'
 
 export const getPageContext = ({
   context,

@@ -1,4 +1,4 @@
-import { Context } from '../types/context.js'
+import { Context } from '../types/context'
 
 const defaultLocale = 'en-US'
 

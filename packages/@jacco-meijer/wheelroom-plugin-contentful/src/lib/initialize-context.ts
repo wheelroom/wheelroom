@@ -1,5 +1,5 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
-import { Context } from '../types/context.js'
+import { Context } from '../types/context'
 
 export const initializeContext = (argv: any) => {
   const context = {

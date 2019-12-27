@@ -2,13 +2,13 @@ import {
   getAsset,
   removeAsset,
   unPublishAsset,
-} from '../../contentful-api/asset.js'
+} from '../../contentful-api/asset'
 import {
   getClient,
   getEnvironment,
   getSpace,
-} from '../../contentful-api/init.js'
-import { Context } from '../../types/context.js'
+} from '../../contentful-api/init'
+import { Context } from '../../types/context'
 
 const finish = async (context: Context) => {
   console.log(`Succesfully deleted asset`)

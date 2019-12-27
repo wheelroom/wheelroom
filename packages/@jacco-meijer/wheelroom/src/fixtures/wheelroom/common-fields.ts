@@ -4,7 +4,7 @@
  *
  */
 
-import { Fields } from '../../types/fields.js'
+import { Fields } from '../../types/fields'
 export const commonFields: Fields = {
   title: {
     helpText: 'Never displayed, only used for listing within Contentful',

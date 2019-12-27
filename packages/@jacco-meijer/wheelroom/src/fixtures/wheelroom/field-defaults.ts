@@ -4,7 +4,7 @@
  *
  */
 
-import { Field } from '../../types/fields.js'
+import { Field } from '../../types/fields'
 
 export const fieldDefaults: Field = {
   fieldType: 'shortText',

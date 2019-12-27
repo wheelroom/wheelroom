@@ -2,7 +2,7 @@ import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
 import * as React from 'react'
 import { Fragment } from 'react'
-import { Box, Container, Flex } from './views/core-elements/grid.js'
+import { Box, Container, Flex } from './views/core-elements/grid'
 
 const GlobalAStyles = {
   body: {

@@ -1,5 +1,5 @@
-import { WheelroomConfig } from '../types/wheelroom-config.js'
-import { getAppDir } from './get-app-dir.js'
+import { WheelroomConfig } from '../types/wheelroom-config'
+import { getAppDir } from './get-app-dir'
 
 /** Read wheelroom-config.js from current working directory */
 export const readConfig = async () => {

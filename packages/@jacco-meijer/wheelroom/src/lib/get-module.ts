@@ -1,4 +1,4 @@
-import { getAppDir } from './get-app-dir.js'
+import { getAppDir } from './get-app-dir'
 
 /** import a node module from 'node_modules'. If the moduleName is prefixed
  * with 'path/to/module:' that path will be used instead of 'node_modules'

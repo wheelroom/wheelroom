@@ -1,4 +1,4 @@
-import { NamedPaths } from '../types/named-paths.js'
+import { NamedPaths } from '../types/named-paths'
 
 // Check for slug, if found, replace any %variable% with it
 export const getNamedPath = ({

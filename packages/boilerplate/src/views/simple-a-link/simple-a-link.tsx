@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { simpleLinkStyle } from '../../styles/simple-link.js'
-import { ALink } from '../core-elements/a-link.js'
+import { simpleLinkStyle } from '../../styles/simple-link'
+import { ALink } from '../core-elements/a-link'
 
 export const SimpleALink = (props: any) => {
   const linkStyle = {

@@ -1,4 +1,4 @@
-import { modelFields } from '../helpers/model-fields.js'
+import { modelFields } from '../helpers/model-fields'
 
 export const componentReadme = (vars) => {
   // Skip this template if not present in filter array
@@ -18,7 +18,7 @@ export const componentReadme = (vars) => {
 Wheelroom type: ${vars.component.component.model.wheelroomType}
 
 \`\`\`jsx
-import { ${vars.componentName.pascalCase} } from './${vars.componentName.kebabCase}.js'
+import { ${vars.componentName.pascalCase} } from './${vars.componentName.kebabCase}'
 <${vars.componentName.pascalCase} ${componentAttributes} />
 \`\`\`
 `

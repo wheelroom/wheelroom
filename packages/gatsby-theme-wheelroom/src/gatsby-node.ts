@@ -1,9 +1,9 @@
 import { getComponents } from '@jacco-meijer/wheelroom'
-import { buildNamedPaths } from './lib/build-named-paths.js'
-import { createPages } from './lib/create-pages.js'
-import { createSubPages } from './lib/create-sub-pages.js'
-import { runQueries } from './lib/run-queries.js'
-import { Context } from './types/context.js'
+import { buildNamedPaths } from './lib/build-named-paths'
+import { createPages } from './lib/create-pages'
+import { createSubPages } from './lib/create-sub-pages'
+import { runQueries } from './lib/run-queries'
+import { Context } from './types/context'
 
 exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions

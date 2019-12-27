@@ -19,8 +19,8 @@
  *
  */
 
-import { replaceAll } from './case-helpers.js'
-import { getCases } from './get-cases.js'
+import { replaceAll } from './case-helpers'
+import { getCases } from './get-cases'
 
 export const parseVariables = ({
   componentName,

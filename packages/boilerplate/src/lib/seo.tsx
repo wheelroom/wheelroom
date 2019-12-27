@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import { SeoProps } from '../types/seo.js'
+import { SeoProps } from '../types/seo'
 
 export const Seo = ({
   contentTypeInfo,

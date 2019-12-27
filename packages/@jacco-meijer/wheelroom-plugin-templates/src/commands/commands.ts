@@ -1,3 +1,3 @@
-import { command as createFilesCmd } from './create-files/command.js'
+import { command as createFilesCmd } from './create-files/command'
 
 export const commands = [createFilesCmd]

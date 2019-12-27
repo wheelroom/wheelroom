@@ -1,8 +1,8 @@
-import { Component, Components } from '../types/components.js'
-import { Field } from '../types/fields.js'
-import { WheelroomConfig } from '../types/wheelroom-config.js'
-import { parseVariables } from './parseVariables.js'
-import { readConfig } from './read-config.js'
+import { Component, Components } from '../types/components'
+import { Field } from '../types/fields'
+import { WheelroomConfig } from '../types/wheelroom-config'
+import { parseVariables } from './parseVariables'
+import { readConfig } from './read-config'
 
 export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
   if (!wheelroomConfig) {

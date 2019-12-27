@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 
-import { emotionCss } from '../core-elements/emotion-css.js'
+import { emotionCss } from '../core-elements/emotion-css'
 
 export interface FluidImage {
   description: string

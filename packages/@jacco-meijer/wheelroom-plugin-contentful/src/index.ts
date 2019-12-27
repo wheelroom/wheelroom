@@ -1,2 +1,2 @@
-export * from './commands/commands.js'
-export * from './types/model.js'
+export * from './commands/commands'
+export * from './types/model'

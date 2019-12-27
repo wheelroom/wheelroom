@@ -1,9 +1,9 @@
-import { commonFields } from './src/wheelroom/common-fields.js'
-import { components } from './src/wheelroom/components.js'
-import { contentfulFieldDefinitions } from './src/wheelroom/contentful-field-definitions.js'
-import { fieldDefaults } from './src/wheelroom/field-defaults.js'
-import { templates } from './src/wheelroom/templates/templates.js'
-import { templateSets } from './src/wheelroom/template-sets.js'
+import { commonFields } from './src/wheelroom/common-fields'
+import { components } from './src/wheelroom/components'
+import { contentfulFieldDefinitions } from './src/wheelroom/contentful-field-definitions'
+import { fieldDefaults } from './src/wheelroom/field-defaults'
+import { templates } from './src/wheelroom/templates/templates'
+import { templateSets } from './src/wheelroom/template-sets'
 
 export const config = {
   commonFields,

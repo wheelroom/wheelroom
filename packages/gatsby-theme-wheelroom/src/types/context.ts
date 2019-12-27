@@ -1,5 +1,5 @@
 import { Components } from '@jacco-meijer/wheelroom'
-import { NamedPaths } from './named-paths.js'
+import { NamedPaths } from './named-paths'
 
 export interface ContentfulNode {
   id: string

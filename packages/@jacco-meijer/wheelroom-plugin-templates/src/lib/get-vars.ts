@@ -1,5 +1,5 @@
 import { Component } from '@jacco-meijer/wheelroom'
-import { Template } from '../types/templates.js'
+import { Template } from '../types/templates'
 
 export const getVars = (
   answers: any,

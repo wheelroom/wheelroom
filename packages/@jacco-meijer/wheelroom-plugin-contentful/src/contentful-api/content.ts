@@ -1,7 +1,7 @@
-import { fieldFilter } from '../lib/field-filter.js'
-import { Context } from '../types/context.js'
-import { Field } from '../types/model.js'
-import { defaultVariations } from './defaults.js'
+import { fieldFilter } from '../lib/field-filter'
+import { Context } from '../types/context'
+import { Field } from '../types/model'
+import { defaultVariations } from './defaults'
 
 const demoEntryPostfix = 'DemoEntry'
 

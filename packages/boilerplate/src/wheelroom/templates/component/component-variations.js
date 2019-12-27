@@ -1,5 +1,5 @@
-import { modelFields } from '../helpers/model-fields.js'
-import { getVariationList } from '../partials/get-variation-list.js'
+import { modelFields } from '../helpers/model-fields'
+import { getVariationList } from '../partials/get-variation-list'
 
 export const componentVariations = (vars) => {
   // Skip this template if not present in filter array
@@ -41,8 +41,8 @@ export const componentVariations = (vars) => {
 
 import { getVariation } from '@jacco-meijer/content-models'
 import * as React from 'react'
-import { SectionProps } from '../section-props.js'
-import { ${vars.componentName.pascalCase}BasicVar } from './${vars.componentName.kebabCase}-basic-var.js'
+import { SectionProps } from '../section-props'
+import { ${vars.componentName.pascalCase}BasicVar } from './${vars.componentName.kebabCase}-basic-var'
 
 const componentList = {
 ${variationList}}

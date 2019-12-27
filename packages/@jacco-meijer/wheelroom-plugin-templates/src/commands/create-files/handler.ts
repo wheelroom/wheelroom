@@ -2,9 +2,9 @@ import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import {
   getAvailableTemplateSets,
   getTemplateSet,
-} from '../../lib/get-template-sets.js'
-import { writeFiles } from '../../lib/write-files.js'
-import { Options } from '../../types/options.js'
+} from '../../lib/get-template-sets'
+import { writeFiles } from '../../lib/write-files'
+import { Options } from '../../types/options'
 
 export const handler = async (argv: any) => {
   const pluginOptions = argv.options[

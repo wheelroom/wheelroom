@@ -1,4 +1,4 @@
-import { WheelroomConfig } from '../types/wheelroom-config.js'
+import { WheelroomConfig } from '../types/wheelroom-config'
 
 export const getPluginOptions = (config: WheelroomConfig) => {
   return config.plugins.reduce((result: any, plugin) => {

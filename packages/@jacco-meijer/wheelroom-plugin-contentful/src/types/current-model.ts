@@ -1,4 +1,4 @@
-import { Model } from './model.js'
+import { Model } from './model'
 
 export interface CurrentModel {
   modelOptions: {

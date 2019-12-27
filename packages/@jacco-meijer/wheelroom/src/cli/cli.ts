@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import { command as listCommand } from '../commands/list/command.js'
-import { getCommands } from '../lib/get-commands.js'
-import { getComponents } from '../lib/get-components.js'
-import { getPluginOptions } from '../lib/get-plugin-options.js'
-import { readConfig } from '../lib/read-config.js'
-import { baseCli } from './base-cli.js'
+import { command as listCommand } from '../commands/list/command'
+import { getCommands } from '../lib/get-commands'
+import { getComponents } from '../lib/get-components'
+import { getPluginOptions } from '../lib/get-plugin-options'
+import { readConfig } from '../lib/read-config'
+import { baseCli } from './base-cli'
 
 const main = async (argv: string[]) => {
   const cli = baseCli(argv)

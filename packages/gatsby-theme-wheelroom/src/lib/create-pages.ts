@@ -1,6 +1,6 @@
-import { Context } from '../types/context.js'
-import { getPageContext } from './get-page-context.js'
-import { getLocale } from './locales.js'
+import { Context } from '../types/context'
+import { getPageContext } from './get-page-context'
+import { getLocale } from './locales'
 
 export const createPages = (context: Context) => {
   console.log(`Creating pages`)
