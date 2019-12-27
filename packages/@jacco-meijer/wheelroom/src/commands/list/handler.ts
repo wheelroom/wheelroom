@@ -3,13 +3,23 @@ import { getFilteredComponents } from './get-filtered-components'
 
 export const handler = async (argv: any) => {
   const components = getFilteredComponents(argv)
-
+  let fields
   Object.entries(components).forEach(
     ([componentName, component]: [string, Component]) => {
+      fields = Object.keys(component.fields)
+        .map((key: string) => {
+          return key
+        })
+        .join('/')
       console.log(`============================
-  Component: ${componentName}
-  title:     ${component.fields.title.helpText}
-  section:   ${component.graphQL.pageSection}
+  Component:              ${componentName}
+  Fields:                 ${fields}
+  title initial content:  ${component.fields.title.initialContent}
+  gQL createPageQuery:    ${component.graphQL.createPageQuery}
+  gQL page section:       ${component.graphQL.pageSection ? 'Yes' : 'No'}
+  gQL fragment:           ${component.graphQL.fragment ? 'Yes' : 'No'}
+  gQL limit:              ${component.graphQL.limit || 'not present'}
+  modelVersion:           ${component.modelVersion}
 `)
     }
   )
