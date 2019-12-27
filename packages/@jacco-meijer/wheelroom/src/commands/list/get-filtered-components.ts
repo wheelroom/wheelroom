@@ -1,4 +1,4 @@
-import { Component, Components } from '../types/components'
+import { Component, Components } from '../../types/components'
 
 export const getFilteredComponents = (arv: any) => {
   let components = {} as Components

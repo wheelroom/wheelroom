@@ -1,7 +1,7 @@
-import { Component, Components } from '../types/components'
-import { Field } from '../types/fields'
-import { WheelroomConfig } from '../types/wheelroom-config'
-import { parseVariables } from './parseVariables'
+import { Component, Components } from '../../types/components'
+import { Field } from '../../types/fields'
+import { WheelroomConfig } from '../../types/wheelroom-config'
+import { parser } from '../parser/parser'
 import { readConfig } from './read-config'
 
 export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
@@ -58,7 +58,7 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
               if (typeof value !== 'string') {
                 return // Only parse strings
               }
-              parseResults[key] = parseVariables({
+              parseResults[key] = parser({
                 componentName,
                 fieldName,
                 pageSectionsArray,

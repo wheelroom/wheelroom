@@ -1,7 +1,5 @@
 import { fixtureWheelroomConfig } from '../fixtures/wheelroom-config'
 
-console.log('running fine', 'fixtureWheelroomConfig', fixtureWheelroomConfig)
-
-test('Nested A', () => {
-  expect('aa').toStrictEqual('aa')
+test('List command', () => {
+  expect(fixtureWheelroomConfig.plugins.length).toStrictEqual(2)
 })

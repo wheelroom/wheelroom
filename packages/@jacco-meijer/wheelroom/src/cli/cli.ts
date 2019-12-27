@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 import { command as listCommand } from '../commands/list/command'
-import { getCommands } from '../lib/get-commands'
-import { getComponents } from '../lib/get-components'
-import { getPluginOptions } from '../lib/get-plugin-options'
-import { readConfig } from '../lib/read-config'
+import { getCommands } from '../lib/config/get-commands'
+import { getComponents } from '../lib/config/get-components'
+import { getPluginOptions } from '../lib/config/get-plugin-options'
+import { readConfig } from '../lib/config/read-config'
 import { baseCli } from './base-cli'
 
 const main = async (argv: string[]) => {

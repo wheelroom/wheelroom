@@ -22,7 +22,7 @@
 import { replaceAll } from './case-helpers'
 import { getCases } from './get-cases'
 
-export const parseVariables = ({
+export const parser = ({
   componentName,
   fieldName,
   pageSectionsArray,
