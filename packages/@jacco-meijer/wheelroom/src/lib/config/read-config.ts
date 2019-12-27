@@ -1,10 +1,11 @@
 import { WheelroomConfig } from '../../types/wheelroom-config'
-import { getAppDir } from '../get-app-dir'
 
-/** Read wheelroom-config.js from current working directory */
-export const readConfig = async () => {
+/**
+ * Read wheelroom-config.js from a given path
+ */
+export const readConfig = async (configPath: string) => {
   let config
-  const target = `${getAppDir()}/wheelroom-config.js`
+  const target = `${configPath}/wheelroom-config.js`
   try {
     config = await import(target)
   } catch (error) {

@@ -1,12 +1,13 @@
 import { Component, Components } from '../../types/components'
 import { Field } from '../../types/fields'
 import { WheelroomConfig } from '../../types/wheelroom-config'
+import { getAppDir } from '../get-app-dir'
 import { parser } from '../parser/parser'
 import { readConfig } from './read-config'
 
 export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
   if (!wheelroomConfig) {
-    wheelroomConfig = await readConfig()
+    wheelroomConfig = await readConfig(getAppDir())
   }
   if (
     !('components' in wheelroomConfig) ||
@@ -28,7 +29,7 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
   Object.entries(wheelroomConfig.components).forEach(
     // Iterate over all components
     ([componentName, component]: [string, Component]) => {
-      // Create a working copy of the component
+      // Create a working copy for the component
       const workComponent = {
         fields: Object.assign({}, component.fields),
         graphQL: component.graphQL,
@@ -41,22 +42,23 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
       Object.entries(workComponent.fields).forEach(
         // For each component, iterate over all fields
         ([fieldName, field]: [string, Field]) => {
-          // Copy default field to work with
+          // Create a working copy of the field with default fields
           const workField: Field = Object.assign(
             {},
             wheelroomConfig?.fieldDefaults || {}
           )
-          // Copy field attributes to our working copy
+          // Copy field attributes to working copy
           Object.assign(workField, field)
-          // Create an object for upcomming parsing job
+          // Create an object for saving parse results
           const parseResults = {} as {
             [attr: string]: string | string[]
           }
           Object.entries(workField).forEach(
-            // Parse variables of all strings to our parseResuls object
+            // Parse variables of all strings
             ([key, value]: [string, string]) => {
+              // Only parse strings
               if (typeof value !== 'string') {
-                return // Only parse strings
+                return
               }
               parseResults[key] = parser({
                 componentName,
@@ -66,9 +68,9 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
               })
             }
           )
-          // Save field parse results to our working copy
+          // Merge parse results to field working copy
           Object.assign(workField, parseResults)
-          // Update working copy of component with our working field copy
+          // Update component working copy with field working copy
           workComponent.fields[fieldName] = workField
         }
       )
@@ -76,7 +78,5 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
       finalComponents[componentName] = workComponent
     }
   )
-  console.log(finalComponents)
-
   return finalComponents
 }

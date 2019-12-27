@@ -46,7 +46,7 @@ export const parser = ({
   parsed = replaceAll(parsed, '%Field name%', field.sentenceCase)
   parsed = replaceAll(parsed, '%field name%', field.lowerCase)
   parsed = replaceAll(parsed, '%FieldName%', field.pascalCase)
-  parsed = replaceAll(parsed, '%field%', field.camelCase)
+  parsed = replaceAll(parsed, '%fieldName%', field.camelCase)
   parsed = replaceAll(parsed, '%field-name%', field.kebabCase)
 
   parsed = parsed === '%pageSectionsArray%' ? pageSectionsArray : parsed

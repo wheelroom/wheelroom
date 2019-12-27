@@ -1,5 +1,5 @@
-import { fixtureWheelroomConfig } from '../fixtures/wheelroom-config'
+import { config } from '../fixtures/wheelroom-config'
 
 test('List command', () => {
-  expect(fixtureWheelroomConfig.plugins.length).toStrictEqual(2)
+  expect(config.plugins.length).toStrictEqual(2)
 })

@@ -3,7 +3,7 @@ import { commonFields } from './wheelroom/common-fields'
 import { components } from './wheelroom/components'
 import { fieldDefaults } from './wheelroom/field-defaults'
 
-export const fixtureWheelroomConfig: WheelroomConfig = {
+export const config: WheelroomConfig = {
   commonFields,
   components,
   fieldDefaults,
