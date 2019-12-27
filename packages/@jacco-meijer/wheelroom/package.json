@@ -47,11 +47,6 @@
     "dist/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
-  "jest": {
-    "preset": "ts-jest",
-    "testMatch": null,
-    "testRegex": "src/.*/tests/.*\\.ts$"
-  },
   "keywords": [
     "gatsby",
     "wheelroom"
