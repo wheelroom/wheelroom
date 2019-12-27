@@ -16,7 +16,7 @@ export const expectComponents = {
         required: true,
       },
       createdAt: {
-        fieldType: 'shortText',
+        fieldType: 'date',
         helpText: 'Created at for article',
         initialContent: 'Demo content for article created at',
         localized: false,
@@ -67,7 +67,7 @@ export const expectComponents = {
         required: true,
       },
       updatedAt: {
-        fieldType: 'shortText',
+        fieldType: 'date',
         helpText: 'Updated at for article',
         initialContent: 'Demo content for article updated at',
         localized: false,

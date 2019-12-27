@@ -10,6 +10,7 @@ export const components: Components = {
         required: true,
       },
       createdAt: {
+        fieldType: 'date',
         systemField: true,
       },
       date: {
@@ -29,6 +30,7 @@ export const components: Components = {
       },
       subHeading: {},
       updatedAt: {
+        fieldType: 'date',
         systemField: true,
       },
     },

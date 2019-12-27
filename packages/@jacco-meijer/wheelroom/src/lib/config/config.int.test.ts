@@ -6,6 +6,11 @@ import { getComponents } from './get-components'
 import { getPluginOptions } from './get-plugin-options'
 import { readConfig } from './read-config'
 
+/**
+ *  This test needs the compiled fixture in dist/fictures. To compile run
+ *
+ *  npm run build:compile
+ */
 test('Read config', async () => {
   const path = getAppDir() + '/dist/fixtures'
   const configRead = await readConfig(path)
