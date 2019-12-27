@@ -1,4 +1,5 @@
-export const expectComponents = {
+import { Components } from '../../types/components'
+export const expectComponents: Components = {
   article: {
     fields: {
       articleText: {
