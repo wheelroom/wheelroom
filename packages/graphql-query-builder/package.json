@@ -1,0 +1,70 @@
+{
+  "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/jaccomeijer/graphql-query-builder/issues"
+  },
+  "dependencies": {},
+  "description": "Site framework based on Contentful and Gatsby",
+  "devDependencies": {
+    "@types/jest": "24.0.25",
+    "@types/node": "13.1.0",
+    "conventional-changelog-cli": "2.0.31",
+    "jest": "24.9.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "1.19.1",
+    "ts-jest": "24.2.0",
+    "tslint": "5.20.1",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-loader": "3.5.4",
+    "tslint-plugin-prettier": "2.1.0",
+    "tslint-react": "4.1.0",
+    "typescript": "3.7.4"
+  },
+  "engines": {
+    "node": ">=13.2.0"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "homepage": "https://github.com/jaccomeijer/graphql-query-builder#readme",
+  "keywords": [
+    "graphql",
+    "query",
+    "builder"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@jacco-meijer/graphql-query-builder",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaccomeijer/graphql-query-builder.git"
+  },
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:clean": "rm -rf ./dist",
+    "build:lint": "tslint --project tsconfig.json",
+    "build:compile": "tsc",
+    "build:test": "jest --silent",
+    "postversion": "git push && git push --tags",
+    "prepack": "npm run build",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+  },
+  "type": "commonjs",
+  "types": "dist/index.d.ts",
+  "version": "1.0.0"
+}
