@@ -22,7 +22,7 @@ export const expectComponents: Components = {
         initialContent: 'Demo content for article created at',
         localized: false,
         required: false,
-        systemField: true,
+        system: true,
       },
       date: {
         fieldType: 'date',
@@ -73,7 +73,7 @@ export const expectComponents: Components = {
         initialContent: 'Demo content for article updated at',
         localized: false,
         required: false,
-        systemField: true,
+        system: true,
       },
     },
     graphQL: {

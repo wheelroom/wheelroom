@@ -42,7 +42,7 @@ export const components = {
     fields: {
       articleText: { fieldType: 'richtText' },
       author: { required: true },
-      createdAt: { systemField: true },
+      createdAt: { system: true },
       date: { fieldType: 'date', required: true },
       heading: { required: true },
       image: { fieldType: 'image' },
@@ -52,7 +52,7 @@ export const components = {
         initialContent: 'demo-slug-article',
       },
       subHeading: {},
-      updatedAt: { systemField: true },
+      updatedAt: { system: true },
     },
     graphQL: {
       fragment: true,

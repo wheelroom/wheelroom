@@ -11,7 +11,7 @@ export const components: Components = {
       },
       createdAt: {
         fieldType: 'date',
-        systemField: true,
+        system: true,
       },
       date: {
         fieldType: 'date',
@@ -31,7 +31,7 @@ export const components: Components = {
       subHeading: {},
       updatedAt: {
         fieldType: 'date',
-        systemField: true,
+        system: true,
       },
     },
     graphQL: {

@@ -24,7 +24,7 @@ export interface Field {
   /** Makes the field require input */
   required?: boolean
   /** Adds the field to a graphQL fragment and not to the CMS UI */
-  systemField?: boolean
+  system?: boolean
   /** Adds a field must be unique validation */
   unique?: boolean
   /** Simple wheelroom field type */
