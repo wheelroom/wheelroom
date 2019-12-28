@@ -2,10 +2,10 @@ export const components = {
   page: {
     fields: {
       navigationTitle: { required: true },
-      image: { fieldType: 'image' },
+      image: { type: 'image' },
       sections: {
         components: '%pageSectionsArray%',
-        fieldType: 'multipleComponents',
+        type: 'multipleComponents',
         helpText: 'Select sections for this page',
         required: true,
       },
@@ -29,7 +29,7 @@ export const components = {
       phoneNumber: {},
       siteAuthor: {},
       siteDescription: {},
-      siteKeywords: { fieldType: 'tags' },
+      siteKeywords: { type: 'tags' },
       siteTitle: {},
     },
     graphQL: {
@@ -40,12 +40,12 @@ export const components = {
   },
   article: {
     fields: {
-      articleText: { fieldType: 'richtText' },
+      articleText: { type: 'richtText' },
       author: { required: true },
       createdAt: { system: true },
-      date: { fieldType: 'date', required: true },
+      date: { type: 'date', required: true },
       heading: { required: true },
-      image: { fieldType: 'image' },
+      image: { type: 'image' },
       slug: {
         unique: true,
         required: true,
@@ -74,7 +74,7 @@ export const components = {
     },
     modelVersion: '1.0.0',
     variation: {
-      fieldType: 'dropdown',
+      type: 'dropdown',
       helpText: 'Select a variation',
       inValidation: [
         'Inline article text, specific to this section',
@@ -87,12 +87,12 @@ export const components = {
   articlesSection: {
     fields: {
       articles: {
-        fieldType: 'multipleComponents',
+        type: 'multipleComponents',
         components: ['article'],
       },
       heading: {},
       maxArticles: {
-        fieldType: 'number',
+        type: 'number',
         initialContent: 5,
       },
     },

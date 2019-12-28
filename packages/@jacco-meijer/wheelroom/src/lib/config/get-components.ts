@@ -42,11 +42,17 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
       Object.entries(workComponent.fields).forEach(
         // For each component, iterate over all fields
         ([fieldName, field]: [string, Field]) => {
-          // Create a working copy of the field with default fields
-          const workField: Field = Object.assign(
-            {},
-            wheelroomConfig?.fieldDefaults || {}
-          )
+          /**
+           * Create a working copy of the field with default fields. System
+           * fields are only used for building graphQL queries. We only need the
+           * default type field for these.
+           */
+          let workField: Field
+          if (field.system) {
+            workField = { type: wheelroomConfig?.fieldDefaults.type }
+          } else {
+            workField = Object.assign({}, wheelroomConfig?.fieldDefaults || {})
+          }
           // Copy field attributes to working copy
           Object.assign(workField, field)
           // Create an object for saving parse results

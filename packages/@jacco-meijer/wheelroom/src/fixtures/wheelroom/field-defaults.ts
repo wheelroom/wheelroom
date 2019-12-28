@@ -7,7 +7,7 @@
 import { Field } from '../../types/fields'
 
 export const fieldDefaults: Field = {
-  fieldType: 'shortText',
+  type: 'shortText',
   helpText: '%Field name% for %component name%',
   initialContent: 'Demo content for %component name% %field name%',
   localized: false,

@@ -28,7 +28,7 @@ export interface Field {
   /** Adds a field must be unique validation */
   unique?: boolean
   /** Simple wheelroom field type */
-  fieldType?: FieldType
+  type?: FieldType
 }
 
 export interface Fields {

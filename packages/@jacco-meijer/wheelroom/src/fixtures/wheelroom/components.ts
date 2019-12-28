@@ -4,24 +4,24 @@ export const components: Components = {
   article: {
     fields: {
       articleText: {
-        fieldType: 'richText',
+        type: 'richText',
       },
       author: {
         required: true,
       },
       createdAt: {
-        fieldType: 'date',
         system: true,
+        type: 'date',
       },
       date: {
-        fieldType: 'date',
         required: true,
+        type: 'date',
       },
       heading: {
         required: true,
       },
       image: {
-        fieldType: 'image',
+        type: 'image',
       },
       slug: {
         initialContent: 'demo-slug-article',
@@ -30,8 +30,8 @@ export const components: Components = {
       },
       subHeading: {},
       updatedAt: {
-        fieldType: 'date',
         system: true,
+        type: 'date',
       },
     },
     graphQL: {
@@ -48,13 +48,13 @@ export const components: Components = {
         localized: true,
       },
       variation: {
-        fieldType: 'dropdown',
         helpText: 'Select a variation',
         items: [
           'Inline article text, specific to this section',
           'Linked article text, derived from slug in url',
         ],
         required: true,
+        type: 'dropdown',
       },
     },
     graphQL: {
@@ -68,12 +68,12 @@ export const components: Components = {
     fields: {
       articles: {
         components: ['article'],
-        fieldType: 'multipleComponents',
+        type: 'multipleComponents',
       },
       heading: {},
       maxArticles: {
-        fieldType: 'number',
         initialContent: 5,
+        type: 'number',
       },
     },
     graphQL: {
@@ -124,7 +124,7 @@ export const components: Components = {
       siteAuthor: {},
       siteDescription: {},
       siteKeywords: {
-        fieldType: 'tags',
+        type: 'tags',
       },
       siteTitle: {},
     },
@@ -137,16 +137,16 @@ export const components: Components = {
   page: {
     fields: {
       image: {
-        fieldType: 'image',
+        type: 'image',
       },
       navigationTitle: {
         required: true,
       },
       sections: {
         components: '%pageSectionsArray%',
-        fieldType: 'multipleComponents',
         helpText: 'Select sections for this page',
         required: true,
+        type: 'multipleComponents',
       },
       seoDescription: {
         maxLength: 155,
