@@ -1,132 +1,65 @@
 # graphql-query-builder
-Build graphQL queries dynamically
 
+## About
 
-## Page query
-```graphql
-  query($pageId: String, $articleId: String, $globalsId: String) {
-    site {
-      siteMetadata {
-        siteVersion
-      }
-    }
-    page: contentfulPage(id: { eq: $pageId }) {
-      navigationTitle
-      path
-      pathName
-      seoDescription
-      seoTitle
-      sections {
-        ... on Node {
-          ...ArticleSection
-          ...ArticlesSection
-          ...AuthorSection
-          ...FeaturedPageSection
-          ...FooterSection
-          ...OpenerSection
-          ...BicycleSection
-        }
-      }
-    }
-    article: contentfulArticle(id: { eq: $articleId }) {
-      ...Article
-    }
-    globals: contentfulGlobals(id: { eq: $globalsId }) {
-      ...Globals
-    }
-    allArticles: allContentfulArticle(
-      filter: { node_locale: { eq: "en-US" } }
-      sort: { fields: date, order: DESC }
-      limit: 10
-    ) {
-      edges {
-        node {
-          ...Article
-        }
-      }
-    }
-  }
-```
+Small library to build graphQL queries dynamically.
 
-# Main queries
-## Article main query -
-Gets all articles, looks up slug and returns id
-```graphql
+## How does it work?
+
+The library translates a javascript object into a GraphQL query string.
+
+The object below:
+```javascript
 {
-  article: allContentfulArticle(
-    limit: 10
-  ) {
-    edges {
-      node {
-        id
-        node_locale
-        slug
-      }
-    }
-  }
+  fields: {
+    firstName: {},
+    lastName: {},
+  },
+  operationName: 'firstAndLastName',
+  operationType: 'query',
 }
 ```
 
-## Page main query
-Gets all pages, looks up path and returns id
+Turns into:
 ```graphql
-{
-  page: allContentfulPage {
-    edges {
-      node {
-        id
-        node_locale
-        path
-        pathName
-      }
-    }
-  }
+query firstAndLastName {
+  firstName
+  lastName
 }
 ```
 
-# Fragments
-## Article fragment
-```graphql
-  fragment Article on ContentfulArticle {
-    articleText {
-      articleText
-    }
-    author
-    createdAt
-    date
-    image {
-      title
-      description
-      fluid(maxWidth: 1024) {
-        sizes
-        src
-        srcSet
-      }
-    }
-    slug
-    subTitle
-    title
-    updatedAt
-  }
+## Examples
+
+See [jest test script](src/graphql-query-builder.int.test.ts) for a larger example.
+
+```typescript
+import { graphqlQueryBuilder as qb } from './graphql-query-builder'
+import { Question } from './types/question'
+
+const question: Question = {
+  fields: {
+    firstName: {
+      arguments: {
+        id: '4',
+      },
+    },
+    lastName: {
+      directive: {
+        name: '@include',
+        value: 'if: $withFriends',
+      },
+    },
+  },
+  operationType: 'query',
+}
+
+console.log(qb(question))
+// query {
+//  firstName(id: 4)
+//  lastName @include(if: $withFriends)
+// }
 ```
 
-## AuthorSection fragment
-```graphql
-  fragment AuthorSection on ContentfulAuthorSection {
-    __typename
-    image {
-      title
-      description
-      fluid(maxWidth: 1024) {
-        sizes
-        src
-        srcSet
-      }
-    }
-    heading
-    text {
-      text
-    }
-    variation
-  }
-```
+## Supported fields
+
+Have a look into the [typescript definitions](./src/types/question.ts) for that.
