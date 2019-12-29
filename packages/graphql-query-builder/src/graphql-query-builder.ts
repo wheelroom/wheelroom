@@ -97,7 +97,7 @@ export const graphqlQueryBuilder = (question: Question): string => {
   const name = question.operationName ? question.operationName + ' ' : ''
 
   const fields = addFields(question.fields, 2)
-  const result = `\n${type}${name}${fields}\n`
+  const result = `${type}${name}${fields}`
 
   return result
 }

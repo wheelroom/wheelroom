@@ -76,8 +76,7 @@ test('Page question', async () => {
     },
   }
 
-  const graphQL = `
-{
+  const graphQL = `{
   query(
     $articleId: String
     $globalsId: String
@@ -117,8 +116,7 @@ test('Page question', async () => {
       }
     }
   }
-}
-`
+}`
 
   expect(qb(question)).toEqual(graphQL)
 })
@@ -133,12 +131,10 @@ test('Operation name and type', async () => {
     operationType: 'query',
   }
 
-  const graphQL = `
-query firstAndLastName {
+  const graphQL = `query firstAndLastName {
   firstName
   lastName
-}
-`
+}`
 
   expect(qb(question)).toEqual(graphQL)
 })
@@ -161,12 +157,10 @@ test('Operation type, arguments and directive', async () => {
     operationType: 'query',
   }
 
-  const graphQL = `
-query {
+  const graphQL = `query {
   firstName(id: 4)
   lastName @include(if: $withFriends)
-}
-`
+}`
 
   expect(qb(question)).toEqual(graphQL)
 })
