@@ -33,8 +33,10 @@ query firstAndLastName {
 See [jest test script](src/graphql-query-builder.int.test.ts) for a larger example.
 
 ```typescript
-import { graphqlQueryBuilder as qb } from '@jacco-meijer/graphql-query-builder'
-import { Question } from '@jacco-meijer/graphql-query-builder'
+import {
+  graphqlQueryBuilder as qb,
+  Question,
+} from '@jacco-meijer/graphql-query-builder'
 
 const question: Question = {
   fields: {
