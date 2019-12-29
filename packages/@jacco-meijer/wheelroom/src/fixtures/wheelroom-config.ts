@@ -18,7 +18,6 @@ export const config: WheelroomConfig = {
     {
       options: {
         templateSets: {},
-        templates: {},
       },
       resolve: '@jacco-meijer/wheelroom-plugin-templates',
     },
