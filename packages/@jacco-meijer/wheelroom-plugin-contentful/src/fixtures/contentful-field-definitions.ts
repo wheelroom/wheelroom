@@ -18,8 +18,8 @@ export const contentfulFieldDefinitions = {
   attributeMappings: {
     components: 'specs.items.validations.0.linkContentType',
     helpText: 'settings.helpText',
-    initialContent: 'plugin-knows',
     inValidation: 'specs.validations.0.in',
+    initialContent: 'plugin-knows',
     localized: 'specs.localized',
     maxLength: 'specs.validations.0.size.max',
     required: 'specs.required',

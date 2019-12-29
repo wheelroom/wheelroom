@@ -1,4 +1,4 @@
-import { Components } from '../../types/components'
+import { Components } from '../types/components'
 
 export const components: Components = {
   article: {
