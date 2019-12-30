@@ -84,6 +84,6 @@
     "wr:dc": "wheelroom delete-content",
     "wr:ls": "wheelroom list"
   },
-  "type": "module",
+  "type": "commonjs",
   "version": "3.0.0"
 }
