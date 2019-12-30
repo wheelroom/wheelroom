@@ -1,25 +1,12 @@
 import { WheelroomConfig } from '../types/wheelroom-config'
 import { commonFields } from './common-fields'
-import { components } from './components'
+import { componentsInput } from './components-input'
 import { fieldDefaults } from './field-defaults'
+import { pluginOptionsInput } from './plugin-options-input'
 
 export const config: WheelroomConfig = {
   commonFields,
-  components,
+  components: componentsInput,
   fieldDefaults,
-  plugins: [
-    {
-      options: {
-        defaultLocale: 'nl',
-        fieldDefinitions: {},
-      },
-      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
-    },
-    {
-      options: {
-        templateSets: {},
-      },
-      resolve: '@jacco-meijer/wheelroom-plugin-templates',
-    },
-  ],
+  plugins: pluginOptionsInput,
 }

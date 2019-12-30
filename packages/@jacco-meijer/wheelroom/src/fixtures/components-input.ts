@@ -1,6 +1,6 @@
 import { Components } from '../types/components'
 
-export const components: Components = {
+export const componentsInput: Components = {
   article: {
     fields: {
       articleText: {
