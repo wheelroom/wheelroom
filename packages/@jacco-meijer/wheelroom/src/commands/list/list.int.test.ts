@@ -1,14 +1,14 @@
 import { commandListArgv } from '../../fixtures/command-list-argv'
 import { command } from './command'
 
-test('List command', () => {
+test('Command: list', () => {
   const spy = jest.spyOn(console, 'log')
   command.handler(commandListArgv as any)
   expect(spy).toHaveBeenCalledTimes(7)
   spy.mockRestore()
 })
 
-test('List command with filter', () => {
+test('Command: list with filter', () => {
   const commandListArgvWithFilter = Object.assign({}, commandListArgv)
   Object.assign(commandListArgvWithFilter, { filter: 'page' })
 
