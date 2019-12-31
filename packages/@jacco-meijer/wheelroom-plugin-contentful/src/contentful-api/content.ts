@@ -1,11 +1,9 @@
-import { fieldFilter } from '../lib/field-filter'
+import { Field } from '../types/contentful-components'
 import { Context } from '../types/context'
-import { Field } from '../types/model'
-import { defaultVariations } from './defaults'
 
 const demoEntryPostfix = 'DemoEntry'
 
-export const getFields = (context: Context) => {
+export const getFields = (context: Context, componentName: string) => {
   Object.entries(context.currentModel.model.fields)
     .filter(fieldFilter(context.currentModel.modelOptions))
     .forEach(([fieldId, field]: [string, Field]) => {

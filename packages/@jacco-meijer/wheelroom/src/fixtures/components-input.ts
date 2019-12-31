@@ -1,6 +1,6 @@
-import { Components } from '../types/components'
+import { WheelroomComponents } from '../types/wheelroom-components'
 
-export const componentsInput: Components = {
+export const componentsInput: WheelroomComponents = {
   article: {
     fields: {
       articleText: {

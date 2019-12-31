@@ -3,8 +3,8 @@
  * input for a wheelroom command. Command handlers can be added by plugins.
  */
 
-import { Components } from '../types/components'
-export const componentsOutput: Components = {
+import { WheelroomComponents } from '../types/wheelroom-components'
+export const componentsOutput: WheelroomComponents = {
   article: {
     fields: {
       __typename: {

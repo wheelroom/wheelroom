@@ -1,2 +1,2 @@
 export * from './commands/commands'
-export * from './types/model'
+export * from './types/contentful-components'

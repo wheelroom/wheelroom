@@ -1,4 +1,3 @@
-// @ts-ignore
 import * as contentful from 'contentful-management'
 import { Context } from '../types/context'
 

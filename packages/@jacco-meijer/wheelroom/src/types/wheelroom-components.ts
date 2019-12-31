@@ -1,10 +1,10 @@
 import { Fields } from './fields'
 
-export interface Components {
-  [componentName: string]: Component
+export interface WheelroomComponents {
+  [componentName: string]: WheelroomComponent
 }
 
-export interface Component {
+export interface WheelroomComponent {
   /** Fields for this component */
   fields: Fields
   /** Defines which queries are generated */

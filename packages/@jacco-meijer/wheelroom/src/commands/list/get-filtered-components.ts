@@ -1,11 +1,14 @@
-import { Component, Components } from '../../types/components'
+import {
+  WheelroomComponent,
+  WheelroomComponents,
+} from '../../types/wheelroom-components'
 
 export const getFilteredComponents = (arv: any) => {
-  let components = {} as Components
+  let components = {} as WheelroomComponents
   if ('filter' in arv) {
     console.log(`Applying filter (componentName == ${arv.filter})`)
-    Object.entries(arv.components as Components).forEach(
-      ([name, component]: [string, Component]) => {
+    Object.entries(arv.components as WheelroomComponents).forEach(
+      ([name, component]: [string, WheelroomComponent]) => {
         if (name === arv.filter) {
           components[name] = component
         }

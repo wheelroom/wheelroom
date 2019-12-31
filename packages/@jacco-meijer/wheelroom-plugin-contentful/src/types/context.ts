@@ -1,5 +1,5 @@
-import { Components } from '@jacco-meijer/wheelroom'
-import { CurrentModel } from './current-model'
+import { WheelroomComponents } from '@jacco-meijer/wheelroom'
+import { ContentfulComponents } from './contentful-components'
 
 export interface Context {
   commandLineOptions: {
@@ -31,7 +31,7 @@ export interface Context {
     defaultLocale: string
   }
   /** Wheelroom components */
-  components: Components
-  /** Current model being applied */
-  currentModel: CurrentModel
+  wheelroomComponents: WheelroomComponents
+  /** Contentful components */
+  contentfulComponents: ContentfulComponents
 }

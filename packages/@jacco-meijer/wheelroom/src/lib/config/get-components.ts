@@ -1,5 +1,8 @@
-import { Component, Components } from '../../types/components'
 import { Field } from '../../types/fields'
+import {
+  WheelroomComponent,
+  WheelroomComponents,
+} from '../../types/wheelroom-components'
 import { WheelroomConfig } from '../../types/wheelroom-config'
 import { getAppDir } from '../get-app-dir'
 import { parser } from '../parser/parser'
@@ -24,17 +27,17 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
       wheelroomConfig!.components[componentName].graphQL.pageSection
   )
 
-  const finalComponents = {} as Components
+  const finalComponents = {} as WheelroomComponents
 
   Object.entries(wheelroomConfig.components).forEach(
     // Iterate over all components
-    ([componentName, component]: [string, Component]) => {
+    ([componentName, component]: [string, WheelroomComponent]) => {
       // Create a working copy for the component
       const workComponent = {
         fields: Object.assign({}, component.fields),
         graphQL: component.graphQL,
         modelVersion: component.modelVersion,
-      } as Component
+      } as WheelroomComponent
 
       // Merge in common fields
       Object.assign(workComponent.fields, wheelroomConfig!.commonFields || {})

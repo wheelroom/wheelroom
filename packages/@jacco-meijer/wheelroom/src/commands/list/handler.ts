@@ -1,11 +1,11 @@
-import { Component } from '../../types/components'
+import { WheelroomComponent } from '../../types/wheelroom-components'
 import { getFilteredComponents } from './get-filtered-components'
 
 export const handler = async (argv: any) => {
   const components = getFilteredComponents(argv)
   let fields
   Object.entries(components).forEach(
-    ([componentName, component]: [string, Component]) => {
+    ([componentName, component]: [string, WheelroomComponent]) => {
       fields = Object.keys(component.fields)
         .map((key: string) => {
           return key
