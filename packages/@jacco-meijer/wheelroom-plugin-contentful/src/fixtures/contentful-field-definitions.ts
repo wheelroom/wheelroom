@@ -20,12 +20,10 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
   attributeMappings: {
     components: 'specs.items.validations.0.linkContentType',
     helpText: 'settings.helpText',
-    inValidation: 'specs.validations.0.in',
-    initialContent: 'plugin-knows',
+    items: 'specs.validations.0.in',
     localized: 'specs.localized',
     maxLength: 'specs.validations.0.size.max',
     required: 'specs.required',
-    type: 'specs.type',
     unique: 'specs.validations.0.unique',
   },
   /** Wheelroom field types, these are different from Contentful types */
@@ -106,4 +104,5 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'tagEditor',
     },
   },
+  systemAttributes: ['system', 'type'],
 }

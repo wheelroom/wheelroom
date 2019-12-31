@@ -8,13 +8,15 @@ export interface ContentfulComponent {
   /** Contentful field to use for listing, in this case always 'title' */
   displayField: string
   /** Contentful field definitions */
-  fields: {
-    [fieldId: string]: Field
-  }
+  fields: Fields
   /** Wheelroom model version number */
   modelVersion: string
   /** Contentful component type, filled with %componentName% */
   type: string
+}
+
+export interface Fields {
+  [fieldId: string]: Field
 }
 
 export interface Field {
