@@ -2,6 +2,9 @@ import * as inquirer from 'inquirer'
 import { Context } from '../types/context'
 
 export const confirmAction = async (question: string, context: Context) => {
+  if (context.commandLineOptions.yes) {
+    return true
+  }
   const componentList = Object.keys(context.components)
     .map((componentName: string) => componentName)
     .join(', ')

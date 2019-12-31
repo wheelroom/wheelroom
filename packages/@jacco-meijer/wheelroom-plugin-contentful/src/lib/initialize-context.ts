@@ -3,6 +3,9 @@ import { Context } from '../types/context'
 
 export const initializeContext = (argv: any) => {
   const context = {
+    commandLineOptions: {
+      yes: argv.yes,
+    },
     components: getFilteredComponents(argv),
     contentfulApi: {
       fields: {},

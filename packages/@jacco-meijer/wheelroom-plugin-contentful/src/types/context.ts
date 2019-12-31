@@ -2,6 +2,10 @@ import { Components } from '@jacco-meijer/wheelroom'
 import { CurrentModel } from './current-model'
 
 export interface Context {
+  commandLineOptions: {
+    /** Non interactive mode, answers yes to all questions */
+    yes?: boolean
+  }
   contentfulApi: {
     /** Contentful Management Client */
     contentfulClient: any

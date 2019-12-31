@@ -10,4 +10,5 @@ import { pluginOptionsOutput } from './plugin-options-output'
 export const commandArgv = {
   components: componentsOutput,
   options: pluginOptionsOutput,
+  yes: true,
 }

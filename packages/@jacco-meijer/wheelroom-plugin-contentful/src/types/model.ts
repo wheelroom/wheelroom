@@ -46,27 +46,6 @@ export type widgetID =
   | 'radio'
   | 'richTextEditor'
 
-/**
- * MODELS, QUERIES and FRAGMENTS
- * - query: used by Gatsby to retrieve data when building static pages
- * - fragment: a Graphql fragment that is part of a (page-) query
- * - model: used to create models at the headless CMS (Contentful) and to create
- *   initial content
- *
- * WHEELROOM TYPES
- *
- * All wheelroom types define a model, depending on the type a query and/or a
- * query fragment are defined
- *
- * - page: defines a query for retrieving pages
- * - subPage: defines a query for retrieving subPages and a fragment defining
- *   fields
- * - global: defines a query for retrieving globals and a fragment defining fields
- * - section: has a fragment defining fields, receives content as part of a page
- * - part: has a fragment defining fields, retrieves content as part of a section
- * - block: no query or fragment, retrieves content as part of a richText field
- *
- */
 export type wheelroomType =
   | 'block'
   | 'global'
