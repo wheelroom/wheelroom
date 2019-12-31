@@ -11,10 +11,12 @@
  * - %firstInValidation%
  * - %firstlinkContentTypeValidation%
  * - %demoAsset%
- * 
+ *
  */
 
-export const contentfulFieldDefinitions = {
+import { ContentfulFieldDefinitions } from '../types/contentful-field-definitions'
+
+export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
   attributeMappings: {
     components: 'specs.items.validations.0.linkContentType',
     helpText: 'settings.helpText',
