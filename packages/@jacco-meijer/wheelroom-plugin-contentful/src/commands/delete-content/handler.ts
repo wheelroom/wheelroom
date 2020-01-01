@@ -3,67 +3,42 @@ import {
   getEntry,
   unPublishEntry,
 } from '../../contentful-api/content'
-import {
-  getClient,
-  getEnvironment,
-  getSpace,
-} from '../../contentful-api/init'
 import { componentsFound } from '../../lib/components-found'
 import { confirmAction } from '../../lib/confirm-action'
-import { getCurrentModel } from '../../lib/get-current-model'
-import { initializeContext } from '../../lib/initialize-context'
+import { initializeContext, refreshContext } from '../../lib/initialize-context'
 import { readDotEnv } from '../../lib/read-dot-env'
-import { Context } from '../../types/context'
 import { deleteAsset } from './delete-asset'
-
-const finish = async (context: Context) => {
-  console.log(
-    `Succesfully deleted content for: ${context.currentModel.model.type}`
-  )
-  return context
-}
-
-const handleError = (error: Error) => {
-  console.log(error.message)
-}
-
-export const deleteContentForModel = async (context: Context) => {
-  try {
-    await getClient(context)
-    await getSpace(context)
-    await getEnvironment(context)
-
-    await getEntry(context)
-    await unPublishEntry(context)
-    await deleteEntry(context)
-    await finish(context)
-  } catch (error) {
-    handleError(error)
-  }
-}
 
 export const handler = async (argv: any) => {
   readDotEnv()
-  const context = initializeContext(argv)
-  if (!componentsFound(context.components)) {
+  const context = await initializeContext(argv)
+  if (!componentsFound(context.contentfulComponents)) {
     return
   }
   const confirmed = await confirmAction(
-    'Remove Contentful demo content for these components',
+    'Proceed removing Contentful demo content for these components',
     context
   )
   if (!confirmed) {
     return
   }
-  for (const [componentName, component] of Object.entries(context.components)) {
-    console.log(
-      `Process removing content for model ${componentName} =============`
-    )
-    const newContext = initializeContext(argv)
-    newContext.currentModel = getCurrentModel(component)
-
-    await deleteContentForModel(newContext)
-  }
-
   await deleteAsset(context)
+  for (const componentName of Object.keys(context.contentfulComponents)) {
+    console.log(
+      `Removing demo content for model ${componentName} =============`
+    )
+    try {
+      refreshContext(context)
+      await getEntry(context, componentName)
+      await unPublishEntry(context)
+      await deleteEntry(context)
+    } catch (error) {
+      handleError(error)
+    }
+    console.log(`Succesfully removed content for model ${componentName}`)
+  }
+}
+
+const handleError = (error: Error) => {
+  console.log(error.message)
 }

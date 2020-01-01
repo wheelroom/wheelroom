@@ -5,26 +5,10 @@ import {
   updateAsset,
   uploadFile,
 } from '../../contentful-api/asset'
-import {
-  getClient,
-  getEnvironment,
-  getSpace,
-} from '../../contentful-api/init'
+import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
 import { Context } from '../../types/context'
 
-const finish = async (context: Context) => {
-  console.log(`Succesfully created asset`)
-  return context
-}
-
-const handleError = (error: Error) => {
-  console.log(error.message)
-}
-
 export const createAsset = async (context: Context) => {
-  if (Object.keys(context.components).length < 1) {
-    return
-  }
   console.log(`Creating demo asset =============`)
 
   try {
@@ -36,8 +20,12 @@ export const createAsset = async (context: Context) => {
     await uploadFile(context)
     await updateAsset(context)
     await publishAsset(context)
-    await finish(context)
   } catch (error) {
     handleError(error)
   }
+  console.log(`Succesfully created demo asset`)
+}
+
+const handleError = (error: Error) => {
+  console.log(error.message)
 }

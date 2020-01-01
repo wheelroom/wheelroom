@@ -8,15 +8,14 @@ import {
   getEditorInterface,
   updateEditorInterface,
 } from '../../contentful-api/editor-interface'
-import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
 import { componentsFound } from '../../lib/components-found'
 import { confirmAction } from '../../lib/confirm-action'
-import { initializeContext } from '../../lib/initialize-context'
+import { initializeContext, refreshContext } from '../../lib/initialize-context'
 import { readDotEnv } from '../../lib/read-dot-env'
 
 export const handler = async (argv: any) => {
   readDotEnv()
-  const context = initializeContext(argv)
+  const context = await initializeContext(argv)
   if (!componentsFound(context.contentfulComponents)) {
     return
   }
@@ -31,9 +30,7 @@ export const handler = async (argv: any) => {
   for (const componentName of Object.keys(context.contentfulComponents)) {
     console.log(`Creating or updating model ${componentName} =============`)
     try {
-      await getClient(context)
-      await getSpace(context)
-      await getEnvironment(context)
+      refreshContext(context)
       await getContentType(context, componentName)
       await updateContentType(context, componentName)
       await createContentType(context, componentName)

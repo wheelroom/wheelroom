@@ -58,7 +58,7 @@ export const mergedFields: ContentfulComponents = {
         widgetId: 'singleLine',
       },
       image: {
-        initialContent: 'asset',
+        initialContent: 'demoAsset',
         settings: {
           helpText: 'Image for article',
         },
@@ -488,7 +488,7 @@ export const mergedFields: ContentfulComponents = {
     displayField: 'title',
     fields: {
       image: {
-        initialContent: 'asset',
+        initialContent: 'demoAsset',
         settings: {
           helpText: 'Image for page',
         },

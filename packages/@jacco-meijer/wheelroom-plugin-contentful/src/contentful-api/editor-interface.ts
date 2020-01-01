@@ -1,4 +1,4 @@
-import { Field } from '../types/contentful-components'
+import { ContentfulField } from '../types/contentful-fields'
 import { Context } from '../types/context'
 
 export const getEditorInterface = async (
@@ -39,11 +39,10 @@ export const updateEditorInterface = async (
     return
   }
   context.contentfulApi.editorInterface.controls.forEach((control: any) => {
-    const [modelFieldId, modelField]: [any, Field] = getModelFieldById(
-      context,
-      componentName,
-      control.fieldId
-    )
+    const [modelFieldId, modelField]: [
+      any,
+      ContentfulField
+    ] = getModelFieldById(context, componentName, control.fieldId)
     if (!modelField.widgetId) {
       return
     }

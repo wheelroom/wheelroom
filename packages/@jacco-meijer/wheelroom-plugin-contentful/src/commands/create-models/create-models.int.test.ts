@@ -9,6 +9,6 @@ jest.setTimeout(60000)
 test('Command: create models', async () => {
   const spy = jest.spyOn(console, 'log')
   await command.handler(argvCommand as any)
-  expect(spy).toHaveBeenCalledTimes(123)
+  expect(spy).toHaveBeenCalledTimes(46)
   spy.mockRestore()
 })

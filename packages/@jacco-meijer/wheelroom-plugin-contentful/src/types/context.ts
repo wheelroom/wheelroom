@@ -8,21 +8,21 @@ export interface Context {
   }
   contentfulApi: {
     /** Contentful Management Client */
-    contentfulClient: any
+    contentfulClient?: any
     /** Contentful asset object */
-    asset: any
+    asset?: any
     /** Contentful contentType object */
-    contentType: any
+    contentType?: any
     /** Contentful editorInterface object */
-    editorInterface: any
+    editorInterface?: any
     /** Contentful environment object */
-    environment: any
+    environment?: any
     /** Contentful demo entry */
-    entry: any
+    entry?: any
     /** Contentful field data for demo entry */
     fields: any
     /** Contentful space object */
-    space: any
+    space?: any
     /** Contentful upload object */
     upload?: any
   }
