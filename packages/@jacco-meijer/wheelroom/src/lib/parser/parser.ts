@@ -30,9 +30,9 @@ export const parser = ({
 }: {
   componentName: string
   fieldName: string
-  pageSectionsArray: string[]
+  pageSectionsArray?: string[]
   unparsed: string
-}) => {
+}): string => {
   let parsed: string | string[] = unparsed
   const component = getCases(componentName)
   const field = getCases(fieldName)
@@ -49,7 +49,9 @@ export const parser = ({
   parsed = replaceAll(parsed, '%fieldName%', field.camelCase)
   parsed = replaceAll(parsed, '%field-name%', field.kebabCase)
 
-  parsed = parsed === '%pageSectionsArray%' ? pageSectionsArray : parsed
+  if (pageSectionsArray) {
+    parsed = parsed === '%pageSectionsArray%' ? pageSectionsArray : parsed
+  }
 
-  return parsed
+  return parsed as string
 }

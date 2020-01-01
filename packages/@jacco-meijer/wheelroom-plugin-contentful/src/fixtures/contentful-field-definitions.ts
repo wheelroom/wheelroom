@@ -17,14 +17,15 @@
 import { ContentfulFieldDefinitions } from '../types/contentful-field-definitions'
 
 export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
-  attributeMappings: {
-    components: 'specs.items.validations.0.linkContentType',
-    helpText: 'settings.helpText',
-    items: 'specs.validations.0.in',
-    localized: 'specs.localized',
-    maxLength: 'specs.validations.0.size.max',
-    required: 'specs.required',
-    unique: 'specs.validations.0.unique',
+  fieldDefaults: {
+    initialContent: 'Demo content for %field name%',
+    settings: {
+      helpText: '%Field name% for %component name%',
+    },
+    specs: {
+      name: '%Field name%',
+      type: 'Symbol',
+    },
   },
   /** Wheelroom field types, these are different from Contentful types */
   fieldTypes: {
@@ -104,5 +105,4 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'tagEditor',
     },
   },
-  systemAttributes: ['system', 'type'],
 }

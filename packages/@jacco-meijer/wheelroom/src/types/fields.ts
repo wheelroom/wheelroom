@@ -21,6 +21,8 @@ export interface Field {
   localized?: boolean
   /** Optional maximum length for a shorText field */
   maxLength?: number
+  /** Name of the field in CMS */
+  name?: string
   /** Makes the field require input */
   required?: boolean
   /** Adds the field to a graphQL fragment and not to the CMS UI */
