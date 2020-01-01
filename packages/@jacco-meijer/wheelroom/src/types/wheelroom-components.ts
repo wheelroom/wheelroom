@@ -1,4 +1,4 @@
-import { Fields } from './fields'
+import { WheelroomFields } from './wheelroom-fields'
 
 export interface WheelroomComponents {
   [componentName: string]: WheelroomComponent
@@ -6,7 +6,7 @@ export interface WheelroomComponents {
 
 export interface WheelroomComponent {
   /** Fields for this component */
-  fields: Fields
+  fields: WheelroomFields
   /** Defines which queries are generated */
   graphQL: {
     /** When set the model is retreived when generating a static version of the site */

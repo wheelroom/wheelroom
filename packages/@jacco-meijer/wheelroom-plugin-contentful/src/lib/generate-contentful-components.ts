@@ -1,7 +1,7 @@
 import {
-  Field as WheelroomField,
   WheelroomComponent,
   WheelroomComponents,
+  WheelroomField,
 } from '@jacco-meijer/wheelroom'
 import { getCases } from '@jacco-meijer/wheelroom'
 import {
@@ -9,7 +9,7 @@ import {
   ContentfulComponents,
 } from '../types/contentful-components'
 import { ContentfulFieldDefinitions } from '../types/contentful-field-definitions'
-import { Fields as ContentfulFields } from '../types/fields'
+import { ContentfulFields } from '../types/contentful-fields'
 import { mergeFields } from './merge-fields'
 
 export const generateContentfulComponents = (

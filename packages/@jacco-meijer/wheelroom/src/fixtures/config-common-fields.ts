@@ -4,8 +4,8 @@
  *
  */
 
-import { Fields } from '../types/fields'
-export const configCommonFields: Fields = {
+import { WheelroomFields } from '../types/wheelroom-fields'
+export const configCommonFields: WheelroomFields = {
   __typename: {
     system: true,
   },

@@ -24,9 +24,8 @@
  *
  */
 
-import { Field as WheelroomField } from '@jacco-meijer/wheelroom'
-import { parser } from '@jacco-meijer/wheelroom'
-import { Field as ContentfulField, widgetID } from '../types/fields'
+import { parser, WheelroomField } from '@jacco-meijer/wheelroom'
+import { ContentfulField, widgetID } from '../types/contentful-fields'
 import { createIfMissing, initialContentParser } from './merge-helpers'
 
 export const mergeFields = (

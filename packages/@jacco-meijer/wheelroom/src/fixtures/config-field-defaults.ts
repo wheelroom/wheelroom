@@ -4,9 +4,9 @@
  *
  */
 
-import { Field } from '../types/fields'
+import { WheelroomField } from '../types/wheelroom-fields'
 
-export const configFieldDefaults: Field = {
+export const configFieldDefaults: WheelroomField = {
   localized: false,
   required: false,
   type: 'shortText',

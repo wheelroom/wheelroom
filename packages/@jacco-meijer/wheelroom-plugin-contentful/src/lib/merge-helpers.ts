@@ -1,4 +1,4 @@
-import { Field as WheelroomField } from '@jacco-meijer/wheelroom'
+import { WheelroomField } from '@jacco-meijer/wheelroom'
 
 /**
  * - %firstInValidation%

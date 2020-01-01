@@ -1,8 +1,8 @@
-export interface Fields {
-  [fieldId: string]: Field
+export interface ContentfulFields {
+  [fieldId: string]: ContentfulField
 }
 
-export interface Field {
+export interface ContentfulField {
   /** Wheelroom content used to create a demo entry */
   initialContent?: initialContent
   /** Contentful editor settings */

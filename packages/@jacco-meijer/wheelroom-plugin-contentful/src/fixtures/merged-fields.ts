@@ -1,4 +1,6 @@
-export const mergedFields = {
+import { ContentfulComponents } from '../types/contentful-components'
+
+export const mergedFields: ContentfulComponents = {
   article: {
     description: 'Article',
     displayField: 'title',

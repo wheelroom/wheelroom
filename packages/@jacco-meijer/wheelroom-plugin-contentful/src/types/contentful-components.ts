@@ -1,5 +1,9 @@
-import { Fields } from './fields'
+import { ContentfulFields } from './contentful-fields'
 
+/**
+ * This object is used only iside of the wheelroom-plugin-contentful. The fields
+ * object has parts that mimic the contentful API.
+ */
 export interface ContentfulComponents {
   [componentName: string]: ContentfulComponent
 }
@@ -10,7 +14,7 @@ export interface ContentfulComponent {
   /** Contentful field to use for listing, in this case always 'title' */
   displayField: string
   /** Contentful field definitions */
-  fields: Fields
+  fields: ContentfulFields
   /** Wheelroom model version number */
   modelVersion: string
   /** Contentful component type, filled with %componentName% */

@@ -1,10 +1,10 @@
-import { Field, Fields } from './fields'
 import { Plugin } from './plugins'
 import { WheelroomComponents } from './wheelroom-components'
+import { WheelroomField, WheelroomFields } from './wheelroom-fields'
 
 export interface WheelroomConfig {
-  commonFields: Fields
+  commonFields: WheelroomFields
   components: WheelroomComponents
-  fieldDefaults: Field
+  fieldDefaults: WheelroomField
   plugins: Plugin[]
 }

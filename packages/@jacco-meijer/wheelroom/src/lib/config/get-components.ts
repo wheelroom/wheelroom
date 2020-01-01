@@ -1,9 +1,9 @@
-import { Field } from '../../types/fields'
 import {
   WheelroomComponent,
   WheelroomComponents,
 } from '../../types/wheelroom-components'
 import { WheelroomConfig } from '../../types/wheelroom-config'
+import { WheelroomField } from '../../types/wheelroom-fields'
 import { getAppDir } from '../get-app-dir'
 import { parser } from '../parser/parser'
 import { readConfig } from './read-config'
@@ -44,13 +44,13 @@ export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
 
       Object.entries(workComponent.fields).forEach(
         // For each component, iterate over all fields
-        ([fieldName, field]: [string, Field]) => {
+        ([fieldName, field]: [string, WheelroomField]) => {
           /**
            * Create a working copy of the field with default fields. System
            * fields are only used for building graphQL queries. We only need the
            * default type field for these.
            */
-          let workField: Field
+          let workField: WheelroomField
           if (field.system) {
             workField = { type: wheelroomConfig?.fieldDefaults.type }
           } else {

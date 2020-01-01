@@ -8,7 +8,7 @@ export type FieldType =
   | 'shortText'
   | 'tags'
 
-export interface Field {
+export interface WheelroomField {
   /** Components for a multipleComponents type */
   components?: string | string[]
   /** Help text for an input element */
@@ -33,6 +33,6 @@ export interface Field {
   type?: FieldType
 }
 
-export interface Fields {
-  [fieldName: string]: Field
+export interface WheelroomFields {
+  [fieldName: string]: WheelroomField
 }
