@@ -56,11 +56,12 @@ export const mergedFields = {
         widgetId: 'singleLine',
       },
       image: {
-        initialContent: 'demoAsset',
+        initialContent: 'asset',
         settings: {
           helpText: 'Image for article',
         },
         specs: {
+          linkType: 'Asset',
           localized: false,
           name: 'Image',
           required: false,
@@ -187,6 +188,8 @@ export const mergedFields = {
         },
         specs: {
           items: {
+            linkType: 'Entry',
+            type: 'Link',
             validations: [
               {
                 linkContentType: ['article'],
@@ -438,6 +441,9 @@ export const mergedFields = {
           helpText: 'Site keywords for globals',
         },
         specs: {
+          items: {
+            type: 'Symbol',
+          },
           localized: false,
           name: 'Site keywords',
           required: false,
@@ -480,11 +486,12 @@ export const mergedFields = {
     displayField: 'title',
     fields: {
       image: {
-        initialContent: 'demoAsset',
+        initialContent: 'asset',
         settings: {
           helpText: 'Image for page',
         },
         specs: {
+          linkType: 'Asset',
           localized: false,
           name: 'Image',
           required: false,
@@ -517,6 +524,8 @@ export const mergedFields = {
         },
         specs: {
           items: {
+            linkType: 'Entry',
+            type: 'Link',
             validations: [
               {
                 linkContentType: ['articleSection', 'articlesSection'],

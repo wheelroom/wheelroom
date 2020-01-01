@@ -18,7 +18,7 @@ export const initialContentParser = (
     field
   )
   let parsed = unparsed
-  parsed = replaceAll(parsed, '%demoAsset%', 'demoAsset')
+  parsed = replaceAll(parsed, '%demoAsset%', 'asset')
   parsed = replaceAll(parsed, '%firstInValidation%', safeField.items[0])
   parsed = replaceAll(
     parsed,

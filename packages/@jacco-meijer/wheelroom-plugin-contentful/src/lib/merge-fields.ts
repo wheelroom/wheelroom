@@ -102,6 +102,17 @@ export const mergeFields = (
     }
     Object.assign(workingField, { initialContent })
   }
+  // Handle linkType
+  const linkType = second.specs.linkType || third.specs.linkType
+  if (linkType) {
+    workingField.specs.linkType = linkType
+  }
+
+  // Handle items
+  const items = second.specs.items || third.specs.items
+  if (items) {
+    workingField.specs.items = Object.assign({}, items)
+  }
 
   // Handle validations present in second or third components
   const validations = second.specs.validations || third.specs.validations
