@@ -1,4 +1,4 @@
-export const pluginOptionsInput = [
+export const configPluginOptions = [
   {
     options: {
       defaultLocale: 'nl',

@@ -5,7 +5,7 @@
 
 import { contentfulFieldDefinitions } from './contentful-field-definitions'
 
-export const pluginOptionsOutput = {
+export const argvPluginOptions = {
   '@jacco-meijer/wheelroom-plugin-contentful': {
     defaultLocale: 'nl',
     fieldDefinitions: contentfulFieldDefinitions,

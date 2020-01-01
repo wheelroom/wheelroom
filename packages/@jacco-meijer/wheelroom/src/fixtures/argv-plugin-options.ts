@@ -3,7 +3,7 @@
  * input for a wheelroom command. Command handlers can be added by plugins.
  */
 
-export const pluginOptionsOutput = {
+export const argvPluginOptions = {
   '@jacco-meijer/wheelroom-plugin-contentful': {
     defaultLocale: 'nl',
     fieldDefinitions: {},

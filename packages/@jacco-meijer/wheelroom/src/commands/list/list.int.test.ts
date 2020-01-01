@@ -1,20 +1,20 @@
-import { commandArgv } from '../../fixtures/command-argv'
+import { argvCommand } from '../../fixtures/argv-command'
 import { command } from './command'
 
 test('Command: list', () => {
   const spy = jest.spyOn(console, 'log')
-  command.handler(commandArgv as any)
+  command.handler(argvCommand as any)
   expect(spy).toHaveBeenCalledTimes(7)
   spy.mockRestore()
 })
 
 test('Command: list with filter', () => {
-  const commandArgvWithFilter = Object.assign({}, commandArgv, {
+  const argvCommandWithFilter = Object.assign({}, argvCommand, {
     filter: 'page',
   })
 
   const consoleSpy = jest.spyOn(console, 'log')
-  command.handler(commandArgvWithFilter as any)
+  command.handler(argvCommandWithFilter as any)
   expect(consoleSpy).toHaveBeenCalledTimes(2)
   expect(consoleSpy.mock.calls[0][0]).toEqual(
     'Applying filter (componentName == page)'

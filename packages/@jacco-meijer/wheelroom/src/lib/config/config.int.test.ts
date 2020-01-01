@@ -1,5 +1,5 @@
-import { componentsOutput } from '../../fixtures/components-output'
-import { pluginOptionsOutput } from '../../fixtures/plugin-options-output'
+import { argvComponents } from '../../fixtures/argv-components'
+import { argvPluginOptions } from '../../fixtures/argv-plugin-options'
 import { config } from '../../fixtures/wheelroom-config'
 import { getAppDir } from '../get-app-dir'
 import { getComponents } from './get-components'
@@ -19,10 +19,10 @@ test('Read config', async () => {
 
 test('Get components', async () => {
   const components = await getComponents(config)
-  expect(components).toStrictEqual(componentsOutput)
+  expect(components).toStrictEqual(argvComponents)
 })
 
 test('Get plugin options', async () => {
   const options = getPluginOptions(config)
-  expect(options).toStrictEqual(pluginOptionsOutput)
+  expect(options).toStrictEqual(argvPluginOptions)
 })

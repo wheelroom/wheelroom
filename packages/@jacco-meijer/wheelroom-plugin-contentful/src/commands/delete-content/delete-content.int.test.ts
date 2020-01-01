@@ -1,9 +1,9 @@
-import { commandArgv } from '../../fixtures/command-argv'
+import { argvCommand } from '../../fixtures/argv-command'
 import { command } from './command'
 
 test('Command: delete content', () => {
   const spy = jest.spyOn(console, 'log')
-  command.handler(commandArgv as any)
+  command.handler(argvCommand as any)
   expect(spy).toHaveBeenCalledTimes(7)
   spy.mockRestore()
 })

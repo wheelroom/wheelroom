@@ -4,10 +4,11 @@
  * Command handlers can be added by plugins.
  */
 
-import { componentsOutput } from './components-output'
-import { pluginOptionsOutput } from './plugin-options-output'
+import { argvComponents } from './argv-components'
+import { argvPluginOptions } from './argv-plugin-options'
 
-export const commandArgv = {
-  components: componentsOutput,
-  options: pluginOptionsOutput,
+export const argvCommand = {
+  components: argvComponents,
+  options: argvPluginOptions,
+  yes: true,
 }

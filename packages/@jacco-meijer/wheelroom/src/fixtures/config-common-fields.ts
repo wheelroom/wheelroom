@@ -5,7 +5,7 @@
  */
 
 import { Fields } from '../types/fields'
-export const commonFields: Fields = {
+export const configCommonFields: Fields = {
   __typename: {
     system: true,
   },

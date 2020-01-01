@@ -6,7 +6,7 @@
 
 import { Field } from '../types/fields'
 
-export const fieldDefaults: Field = {
+export const configFieldDefaults: Field = {
   localized: false,
   required: false,
   type: 'shortText',
