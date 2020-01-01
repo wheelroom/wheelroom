@@ -1,6 +1,6 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import { commandArgv } from '../fixtures/command-argv'
-import { mergedOutput } from '../fixtures/merged-output'
+import { mergedFields } from '../fixtures/merged-fields'
 import { generateContentfulComponents } from './generate-contentful-components'
 
 test('Generate contentful components', () => {
@@ -12,5 +12,5 @@ test('Generate contentful components', () => {
     wheelroomComponents,
     pluginOptions.fieldDefinitions
   )
-  expect(contentfulComponents).toStrictEqual(mergedOutput)
+  expect(contentfulComponents).toStrictEqual(mergedFields)
 })

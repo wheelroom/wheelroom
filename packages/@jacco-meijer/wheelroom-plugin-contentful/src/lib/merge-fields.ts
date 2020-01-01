@@ -1,7 +1,3 @@
-import { Field as WheelroomField } from '@jacco-meijer/wheelroom'
-import { Field as ContentfulField, widgetID } from '../types/fields'
-import { parser } from './parser'
-
 /**
  * mergeFields
  *
@@ -28,6 +24,11 @@ import { parser } from './parser'
  *
  */
 
+import { Field as WheelroomField } from '@jacco-meijer/wheelroom'
+import { parser } from '@jacco-meijer/wheelroom'
+import { Field as ContentfulField, widgetID } from '../types/fields'
+import { createIfMissing, initialContentParser } from './merge-helpers'
+
 export const mergeFields = (
   wheelroomField: WheelroomField,
   componentName: string,
@@ -39,7 +40,7 @@ export const mergeFields = (
   const second = fieldDefinition
   const third = fieldDefaults
 
-  // Hard coded system defaults
+  // Hard coded system defaults as a fourth (and last) resort
   const fourth = {
     settings: {
       helpText: '',
@@ -94,12 +95,23 @@ export const mergeFields = (
     first.initialContent || second.initialContent || third.initialContent
   if (initialContent) {
     if (typeof initialContent === 'string') {
-      initialContent = parse(initialContent)
+      initialContent = initialContentParser(
+        parse(initialContent),
+        wheelroomField
+      )
     }
     Object.assign(workingField, { initialContent })
   }
 
-  // Process validations
+  // Handle validations present in second or third components
+  const validations = second.specs.validations || third.specs.validations
+  if (validations) {
+    createIfMissing(workingField.specs, 'validations', 'array')
+    validations.forEach((validation: any) => {
+      workingField.specs.validations!.push(Object.assign({}, validation))
+    })
+  }
+  // Process other validations
   if (first.components) {
     // This could possible be a string, in that case the variable
     // %pageSectionsArray% has not been parsed properly.
@@ -139,14 +151,4 @@ export const mergeFields = (
   }
 
   return workingField
-}
-
-// Helper to add object or array if needed
-const createIfMissing = (base: any, key: string, what: 'object' | 'array') => {
-  if (key in base) {
-    return base
-  } else {
-    base[key] = what === 'object' ? {} : []
-    return base
-  }
 }

@@ -94,7 +94,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'singleLine',
     },
     tags: {
-      initialContent: '%firstInValidation%',
+      initialContent: ['tag me', 'tag you', 'tag us'],
       specs: {
         items: {
           type: 'Symbol',

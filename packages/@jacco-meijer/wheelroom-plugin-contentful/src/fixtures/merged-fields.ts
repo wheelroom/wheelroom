@@ -1,4 +1,4 @@
-export const mergedOutput = {
+export const mergedFields = {
   article: {
     description: 'Article',
     displayField: 'title',
@@ -56,7 +56,7 @@ export const mergedOutput = {
         widgetId: 'singleLine',
       },
       image: {
-        initialContent: '%demoAsset%',
+        initialContent: 'demoAsset',
         settings: {
           helpText: 'Image for article',
         },
@@ -65,6 +65,11 @@ export const mergedOutput = {
           name: 'Image',
           required: false,
           type: 'Link',
+          validations: [
+            {
+              linkMimetypeGroup: ['image'],
+            },
+          ],
         },
         widgetId: 'assetLinkEditor',
       },
@@ -147,7 +152,7 @@ export const mergedOutput = {
         widgetId: 'singleLine',
       },
       variation: {
-        initialContent: '%firstInValidation%',
+        initialContent: 'Inline article text, specific to this section',
         settings: {
           helpText: 'Select a variation',
         },
@@ -176,7 +181,7 @@ export const mergedOutput = {
     displayField: 'title',
     fields: {
       articles: {
-        initialContent: '%firstlinkContentTypeValidation%',
+        initialContent: 'article',
         settings: {
           helpText: 'Articles for articles section',
         },
@@ -428,7 +433,7 @@ export const mergedOutput = {
         widgetId: 'singleLine',
       },
       siteKeywords: {
-        initialContent: '%firstInValidation%',
+        initialContent: ['tag me', 'tag you', 'tag us'],
         settings: {
           helpText: 'Site keywords for globals',
         },
@@ -475,7 +480,7 @@ export const mergedOutput = {
     displayField: 'title',
     fields: {
       image: {
-        initialContent: '%demoAsset%',
+        initialContent: 'demoAsset',
         settings: {
           helpText: 'Image for page',
         },
@@ -484,6 +489,11 @@ export const mergedOutput = {
           name: 'Image',
           required: false,
           type: 'Link',
+          validations: [
+            {
+              linkMimetypeGroup: ['image'],
+            },
+          ],
         },
         widgetId: 'assetLinkEditor',
       },
@@ -501,7 +511,7 @@ export const mergedOutput = {
         widgetId: 'singleLine',
       },
       sections: {
-        initialContent: '%firstlinkContentTypeValidation%',
+        initialContent: 'articleSection',
         settings: {
           helpText: 'Select sections for this page',
         },
