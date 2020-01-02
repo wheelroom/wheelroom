@@ -36,7 +36,7 @@ export const templateParser = ({
   ) {
     const items = component.fields.variation.items
     const variationList = items!
-      .map((item: string) => `  [${item}]: ${compName.pascalCase}BasicVar`)
+      .map((item: string) => `  ['${item}']: ${compName.pascalCase}BasicVar,`)
       .join(`\n`)
     parsed = replaceAll(parsed, '%variationList(indent:2)%', variationList)
   }

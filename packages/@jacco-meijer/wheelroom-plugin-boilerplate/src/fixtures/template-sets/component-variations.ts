@@ -14,7 +14,7 @@ import %ComponentName%BasicVar from './%component-name%-basic-var'
 import { FluidImage } from './src/views/image/image'
 
 const componentList = {
-  %variationList(indent:2)%
+%variationList(indent:2)%
 }
 
 export interface %ComponentName%Props extends SectionProps {
