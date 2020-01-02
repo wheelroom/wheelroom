@@ -47,6 +47,12 @@ const getFileListForComponent = (
   for (const [, templateDefinition] of Object.entries(context.templateSet)) {
     const component = context.wheelroomComponent!
     const componentName = context.componentName!
+
+    const relPath = parser({
+      componentName: context.componentName!,
+      unparsed: templateDefinition.path,
+    })
+    // TODO: If we detect %variation% in the relPath, create a file for each variation
     const unparsed = templateDefinition.template
 
     const wheelroomParsed = parser({
@@ -57,10 +63,6 @@ const getFileListForComponent = (
       component,
       componentName,
       unparsed: wheelroomParsed,
-    })
-    const relPath = parser({
-      componentName: context.componentName!,
-      unparsed: templateDefinition.path,
     })
     fileList.push({
       basePath: context.basePath,
