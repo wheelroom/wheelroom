@@ -1,1 +1,0 @@
-console.error('THIS MODULE HAS BEEN DEPRECATED')

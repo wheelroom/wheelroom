@@ -4,7 +4,7 @@
  */
 
 import { WheelroomComponents } from '@jacco-meijer/wheelroom'
-export const componentsOutput: WheelroomComponents = {
+export const argvComponents: WheelroomComponents = {
   article: {
     fields: {
       __typename: {

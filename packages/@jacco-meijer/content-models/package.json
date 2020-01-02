@@ -1,33 +1,14 @@
 {
   "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
-  "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
-  },
   "dependencies": {
   },
   "description": "Deprecated",
   "devDependencies": {
   },
-  "engines": {
-    "node": ">=10.0.0"
-  },
-  "files": [
-  ],
-  "gitHead": "d86fdb5d1e21ed982456d83f1b1a4c9d073463a3",
-  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
-  "license": "MIT",
-  "main": "dist/index.js",
   "name": "@jacco-meijer/content-models",
-  "peerDependencies": {
-  },
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
-  },
-  "scripts": {
-  },
-  "version": "3.0.0"
+  "version": "3.0.0",
+  "gitHead": "d86fdb5d1e21ed982456d83f1b1a4c9d073463a3"
 }
