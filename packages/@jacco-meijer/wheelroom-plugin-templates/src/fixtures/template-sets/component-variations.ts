@@ -11,15 +11,15 @@ export const componentVariations = `/**
 import { getVariation } from '@jacco-meijer/content-models'
 import * as React from 'react'
 import { SectionProps } from '../section-props'
-import %ComponentNameBasicVar% from './%component-name%-basic-var'
+import %ComponentName%BasicVar from './%component-name%-basic-var'
 
 const componentList = {
-  // list here
+  %variationList(indent:2)%
 }
 
 export interface %ComponentName%Props extends SectionProps {
   /** Gatsby fetched data */
-  // field list here (props)
+%reactProps(indent:2)%
 }
 
 export const %ComponentName% = (props: %ComponentName%Props) => {
