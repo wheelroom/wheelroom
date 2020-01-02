@@ -1,31 +1,19 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
-import {
-  getAvailableTemplateSets,
-  getTemplateSet,
-} from '../../lib/get-template-sets'
 import { writeFiles } from '../../lib/write-files'
-import { Options } from '../../types/options'
+import { TemplateSets } from '../../types/template-sets'
 
 export const handler = async (argv: any) => {
-  const pluginOptions = argv.options[
-    '@jacco-meijer/wheelroom-plugin-templates'
-  ] as Options
+  const templateSets = argv.options['@jacco-meijer/wheelroom-plugin-templates']
+    .templateSets as TemplateSets
 
-  const templateSet = getTemplateSet(
-    argv.templateSet,
-    pluginOptions.templateSets
-  )
+  const templateSet = templateSets[argv.templateSet]
+
   if (!templateSet) {
-    const templateSets = getAvailableTemplateSets(pluginOptions.templateSets)
+    const setNames = Object.keys(templateSets).join('/')
     console.log(`Could not find templateSet ${argv.templateSet}`)
-    console.log(`Avaialble templateSets are: ${templateSets}`)
+    console.log(`Avaialble templateSets are: ${setNames}`)
     return
   }
 
-  await writeFiles(
-    argv.path,
-    templateSet,
-    pluginOptions,
-    getFilteredComponents(argv)
-  )
+  await writeFiles(argv.path, templateSet, getFilteredComponents(argv))
 }

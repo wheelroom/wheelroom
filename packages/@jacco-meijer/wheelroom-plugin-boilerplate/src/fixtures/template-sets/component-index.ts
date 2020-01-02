@@ -2,7 +2,6 @@ export const componentIndex = `/**
  * Component index
  *
  * Component type: %componentName%
- * Wheelroom type: %componentType%
  *
  */
 

@@ -1,5 +1,12 @@
+/**
+ * DEPRECATED
+ *
+ * Left here for possible future use.
+ *
+ */
+
 import * as inquirer from 'inquirer'
-import { Options, TemplateSet } from '../types/options'
+import { Options, TemplateSet } from '../types/template-sets'
 
 export const askQuestions = async (
   pluginOptions: Options,

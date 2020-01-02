@@ -3,12 +3,11 @@
  * input for a wheelroom command. Command handlers can be added by plugins.
  */
 
+import { templateSets } from './template-sets/template-sets'
+
 export const argvPluginOptions = {
   '@jacco-meijer/wheelroom-plugin-boilerplate': {
-    templateSets: {},
+    templateSets,
   },
-  '@jacco-meijer/wheelroom-plugin-contentful': {
-    defaultLocale: 'nl',
-    fieldDefinitions: {},
-  },
+  'some-other-package': {},
 }

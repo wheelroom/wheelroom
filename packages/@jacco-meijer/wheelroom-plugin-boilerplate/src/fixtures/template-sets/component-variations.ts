@@ -4,7 +4,6 @@ export const componentVariations = `/**
  * Component
  *
  * Component type: %componentName%
- * Wheelroom type: %componentType%
  *
  */
 
@@ -12,6 +11,7 @@ import { getVariation } from '@jacco-meijer/content-models'
 import * as React from 'react'
 import { SectionProps } from '../section-props'
 import %ComponentName%BasicVar from './%component-name%-basic-var'
+import { FluidImage } from './src/views/image/image'
 
 const componentList = {
   %variationList(indent:2)%

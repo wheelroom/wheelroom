@@ -1,4 +1,4 @@
-import { WheelroomField } from '@jacco-meijer/wheelroom'
+import { replaceAll, WheelroomField } from '@jacco-meijer/wheelroom'
 
 /**
  * - %firstInValidation%
@@ -40,10 +40,4 @@ export const createIfMissing = (
     base[key] = what === 'object' ? {} : []
     return base
   }
-}
-export const escapeRegExp = (str: string) => {
-  return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1')
-}
-const replaceAll = (str: string, find: string, replace: string) => {
-  return str.replace(new RegExp(escapeRegExp(find), 'g'), replace)
 }

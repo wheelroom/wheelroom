@@ -16,7 +16,7 @@ export const command = {
   },
   command: 'create-files <template-set> <path> [options]',
   describe: 'Create files defined in template set',
-  handler: (argv: Argv) => {
-    handler(argv)
+  handler: async (argv: Argv) => {
+    await handler(argv)
   },
 }

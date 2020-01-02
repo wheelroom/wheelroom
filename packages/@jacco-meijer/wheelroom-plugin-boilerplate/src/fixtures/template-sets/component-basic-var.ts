@@ -2,8 +2,7 @@ export const componentBasicVar = `/**
  * Component variation
  *
  * Component type: %componentName%
- * Wheelroom type: %componentType%
- * Variation: basic
+ * Variation: %variation%
  *
  */
 

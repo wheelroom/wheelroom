@@ -10,7 +10,5 @@ export const argvPluginOptions = {
     defaultLocale: 'nl',
     fieldDefinitions: contentfulFieldDefinitions,
   },
-  '@jacco-meijer/wheelroom-plugin-templates': {
-    templateSets: {},
-  },
+  'some-other-package': {},
 }

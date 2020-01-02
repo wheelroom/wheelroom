@@ -1,12 +1,13 @@
-import { Component, Components } from '@jacco-meijer/wheelroom'
+import {
+  noTrailingSlash,
+  WheelroomComponent,
+  WheelroomComponents,
+} from '@jacco-meijer/wheelroom'
+import { parser } from '@jacco-meijer/wheelroom'
 import * as fse from 'fs-extra'
 import * as inquirer from 'inquirer'
-import { Options, TemplateSet } from '../types/options'
-import { Template, Templates } from '../types/templates'
-import { askQuestions } from './ask-questions'
-import { getTemplates } from './get-templates'
-import { getVars } from './get-vars'
-import { noTrailingSlash } from './helpers'
+import { TemplateSet } from '../types/template-sets'
+import { templateParser } from './template-parser'
 
 type OverwritePolicy = 'y' | 'n' | 'a' | 'q' | undefined
 
@@ -98,98 +99,104 @@ const writeTemplate = async ({
   return overwritePolicy
 }
 
-const getPath = (basePath: string, templatePath: string, vars: any) => {
-  let relPath = templatePath
+const getPath = (
+  basePath: string,
+  templatePath: string,
+  componentName: string
+) => {
+  const relPath = parser({ unparsed: templatePath, componentName })
 
-  if (vars.componentName) {
-    relPath = templatePath.replace(
-      new RegExp('%component%', 'g'),
-      vars.componentName.kebabCase
-    )
-  }
   const fullPath = noTrailingSlash(basePath) + `/${relPath}`
   const fileName = fullPath.replace(/^.*[\\\/]/, '')
   const filePath = fullPath.substring(0, fullPath.lastIndexOf('/'))
   return [fileName, filePath]
 }
 
-interface WriteTemplates {
-  answers?: any
-  component?: Component
-  componentName?: string
+interface LoopTemplates {
+  component: WheelroomComponent
+  componentName: string
   dryRun?: boolean
   lastOverwritePolicy?: OverwritePolicy
-  path: string
-  templates: Templates
+  basePath: string
+  templateSet: TemplateSet
 }
 
-const writeTemplates = async ({
-  answers,
+const loopTtemplates = async ({
   component,
   componentName,
   dryRun,
   lastOverwritePolicy,
-  path,
-  templates,
-}: WriteTemplates) => {
+  basePath,
+  templateSet,
+}: LoopTemplates) => {
   let overwritePolicy: OverwritePolicy = lastOverwritePolicy
   // Process writing files sequentially, so that we can confirm each file
-  for (const [, aTemplate] of Object.entries(templates)) {
-    const template = aTemplate as Template
-    const vars = getVars(answers, template, component, componentName)
-    const content = template.template(vars)
-    // No content? Skip writing the file
-    if (content) {
-      const [fileName, filePath] = getPath(path, template.path, vars)
-      overwritePolicy = await writeTemplate({
-        content,
-        dryRun,
-        fileName,
-        filePath,
-        lastOverwritePolicy: overwritePolicy,
-      })
-    }
+  for (const [, templateDefinition] of Object.entries(templateSet)) {
+    const wheelroomParsed = parser({
+      componentName,
+      unparsed: templateDefinition.template,
+    })
+    const content = templateParser({
+      component,
+      componentName,
+      unparsed: wheelroomParsed,
+    })
+
+    const [fileName, filePath] = getPath(
+      basePath,
+      templateDefinition.path,
+      componentName
+    )
+    overwritePolicy = await writeTemplate({
+      content,
+      dryRun,
+      fileName,
+      filePath,
+      lastOverwritePolicy: overwritePolicy,
+    })
   }
   return overwritePolicy
 }
 
-interface Write {
-  path: string
+interface LoopComponents {
+  basePath: string
   templateSet: TemplateSet
-  components: Components
-  answers: any
-  templates: Templates
+  components: WheelroomComponents
   dryRun: boolean
 }
 
-const write = async ({
-  path,
+const loopComponents = async ({
+  basePath,
   templateSet,
   components,
-  answers,
-  templates,
   dryRun,
-}: Write) => {
+}: LoopComponents) => {
   let overwritePolicy: OverwritePolicy
   const writeParams = {
-    answers,
+    basePath,
     dryRun,
-    path,
-    templates,
   }
-  if (templateSet.loopComponents) {
-    // Process writing files sequentially, so that we can confirm each file
-    for (const [componentName, component] of Object.entries(components)) {
-      // We have a component, add it as parameter
-      overwritePolicy = await writeTemplates({
-        ...writeParams,
-        component,
-        componentName,
-        lastOverwritePolicy: overwritePolicy,
-      })
-    }
-  } else {
-    await writeTemplates(writeParams)
+  // Process writing components sequentially, so that we can confirm each component
+  for (const [componentName, component] of Object.entries(components)) {
+    overwritePolicy = await loopTtemplates({
+      ...writeParams,
+      component,
+      componentName,
+      lastOverwritePolicy: overwritePolicy,
+      templateSet,
+    })
+  }
+}
+
+export const writeFiles = async (
+  basePath: string,
+  templateSet: TemplateSet,
+  components: WheelroomComponents
+) => {
+  const writeParams = { basePath, templateSet, components }
+  await loopComponents({ ...writeParams, dryRun: true })
+  if (await confirmWrite()) {
+    await loopComponents({ ...writeParams, dryRun: false })
   }
 }
 
@@ -206,23 +213,4 @@ Proceed?`,
   ] as any
   const confirmAnswer: any = await inquirer.prompt(confirm)
   return confirmAnswer.confirmWrite
-}
-
-export const writeFiles = async (
-  path: string,
-  templateSet: TemplateSet,
-  pluginOptions: Options,
-  components: Components
-) => {
-  const templates = await getTemplates(
-    templateSet.templates,
-    pluginOptions.defaultTemplateResolve
-  )
-  const answers = await askQuestions(pluginOptions, templateSet)
-
-  const writeParams = { path, templateSet, components, answers, templates }
-  await write({ ...writeParams, dryRun: true })
-  if (await confirmWrite()) {
-    await write({ ...writeParams, dryRun: false })
-  }
 }
