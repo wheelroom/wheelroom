@@ -9,17 +9,10 @@ import * as inquirer from 'inquirer'
 import { TemplateSet } from '../types/template-sets'
 import { templateParser } from './template-parser'
 
-type OverwritePolicy = 'y' | 'n' | 'a' | 'q' | undefined
-
-interface WriteTemplate {
-  fileName: string
-  filePath: string
-  content: string
-  dryRun?: boolean
-  lastOverwritePolicy?: OverwritePolicy
-}
-
-const askOverwritePolicy = async () => {
+const askOverwritePolicy = async (yes: boolean) => {
+  if (yes) {
+    return 'a'
+  }
   const questions = [
     {
       choices: [
@@ -54,12 +47,24 @@ const askOverwritePolicy = async () => {
   return answers.policy
 }
 
+type OverwritePolicy = 'y' | 'n' | 'a' | 'q' | undefined
+
+interface WriteTemplate {
+  fileName: string
+  filePath: string
+  content: string
+  dryRun?: boolean
+  lastOverwritePolicy?: OverwritePolicy
+  yes: boolean
+}
+
 const writeTemplate = async ({
-  fileName,
-  filePath,
   content,
   dryRun,
+  fileName,
+  filePath,
   lastOverwritePolicy,
+  yes,
 }: WriteTemplate) => {
   const writeTo = `${filePath}/${fileName}`
   const exists = await fse.pathExists(writeTo)
@@ -79,7 +84,7 @@ const writeTemplate = async ({
         doWrite = true
       } else {
         console.log(`File exists: ${writeTo}`)
-        overwritePolicy = await askOverwritePolicy()
+        overwritePolicy = await askOverwritePolicy(yes)
         if (overwritePolicy === 'y' || overwritePolicy === 'a') {
           console.log(`OVERWRITING: ${writeTo}`)
           doWrite = true
@@ -113,21 +118,23 @@ const getPath = (
 }
 
 interface LoopTemplates {
+  basePath: string
   component: WheelroomComponent
   componentName: string
   dryRun?: boolean
   lastOverwritePolicy?: OverwritePolicy
-  basePath: string
   templateSet: TemplateSet
+  yes: boolean
 }
 
 const loopTtemplates = async ({
+  basePath,
   component,
   componentName,
   dryRun,
   lastOverwritePolicy,
-  basePath,
   templateSet,
+  yes,
 }: LoopTemplates) => {
   let overwritePolicy: OverwritePolicy = lastOverwritePolicy
   // Process writing files sequentially, so that we can confirm each file
@@ -153,6 +160,7 @@ const loopTtemplates = async ({
       fileName,
       filePath,
       lastOverwritePolicy: overwritePolicy,
+      yes,
     })
   }
   return overwritePolicy
@@ -163,6 +171,7 @@ interface LoopComponents {
   templateSet: TemplateSet
   components: WheelroomComponents
   dryRun: boolean
+  yes: boolean
 }
 
 const loopComponents = async ({
@@ -170,11 +179,13 @@ const loopComponents = async ({
   templateSet,
   components,
   dryRun,
+  yes,
 }: LoopComponents) => {
   let overwritePolicy: OverwritePolicy
   const writeParams = {
     basePath,
     dryRun,
+    yes,
   }
   // Process writing components sequentially, so that we can confirm each component
   for (const [componentName, component] of Object.entries(components)) {
@@ -191,16 +202,20 @@ const loopComponents = async ({
 export const writeFiles = async (
   basePath: string,
   templateSet: TemplateSet,
-  components: WheelroomComponents
+  components: WheelroomComponents,
+  yes: boolean
 ) => {
-  const writeParams = { basePath, templateSet, components }
+  const writeParams = { basePath, templateSet, components, yes }
   await loopComponents({ ...writeParams, dryRun: true })
-  if (await confirmWrite()) {
+  if (await confirmWrite(yes)) {
     await loopComponents({ ...writeParams, dryRun: false })
   }
 }
 
-const confirmWrite = async () => {
+const confirmWrite = async (yes: boolean) => {
+  if (yes) {
+    return true
+  }
   const confirm = [
     {
       default: true,

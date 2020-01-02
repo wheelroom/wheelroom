@@ -62,7 +62,7 @@ export const templateParser = ({
         fieldName,
         unparsed: wheelroomTypeToTsType[wheelroomType],
       })
-      reactProps += `  ${fName.lowerCase}: ${typescriptType}\n`
+      reactProps += `  ${fName.camelCase}: ${typescriptType}\n`
     }
   )
   parsed = replaceAll(parsed, '%reactProps(indent:2)%', reactProps)
