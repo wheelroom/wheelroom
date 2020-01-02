@@ -66,8 +66,8 @@
     "build:clean": "rm -rf ./dist",
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
-    "build:test": "jest --silent",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "test:cf": "jest src/commands/create-files/create-files.int.test.ts"
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",

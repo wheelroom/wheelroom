@@ -1,5 +1,5 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
-import { writeFiles } from '../../lib/write-files'
+import { writeTemplates } from '../../lib/write-templates'
 import { TemplateSets } from '../../types/template-sets'
 
 export const handler = async (argv: any) => {
@@ -16,10 +16,10 @@ export const handler = async (argv: any) => {
     return
   }
 
-  await writeFiles(
-    argv.path,
+  await writeTemplates({
+    basePath: argv.path,
     templateSet,
-    getFilteredComponents(argv),
-    argv.yes
-  )
+    wheelroomComponents: getFilteredComponents(argv),
+    yes: argv.yes,
+  })
 }
