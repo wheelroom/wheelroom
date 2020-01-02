@@ -3,10 +3,13 @@
  *
  * - %variationList(indent:2)%
  * - %reactProps(indent:2)%
+ * - %variation%
  *
  */
 
 // TODO: Parse indent variable
+// TODO: Parse %variation%
+// TODO: Handle no variation field properly
 
 import {
   getCases,
@@ -43,7 +46,7 @@ export const templateParser = ({
 
   const wheelroomTypeToTsType = {
     date: 'string',
-    dropdown: 'string[]',
+    dropdown: 'string',
     image: 'FluidImage',
     multipleComponents: 'any',
     number: 'number',
