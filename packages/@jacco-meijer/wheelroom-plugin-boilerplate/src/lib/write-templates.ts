@@ -1,31 +1,49 @@
-import { noTrailingSlash } from '@jacco-meijer/wheelroom'
 import { parser } from '@jacco-meijer/wheelroom'
+import {
+  WriteFileList,
+  writeFiles,
+  WriteFilesContext,
+} from '@jacco-meijer/wheelroom'
 import * as inquirer from 'inquirer'
-import { WriteTemplatesContext } from '../types/wite-templates-context'
+import {
+  GetFileListContext,
+  WriteTemplatesContext,
+} from '../types/wite-templates-context'
 import { templateParser } from './template-parser'
-import { writeFile } from './write-file'
 
 export const writeTemplates = async (context: WriteTemplatesContext) => {
-  await loopComponents({ ...context, dryRun: true })
+  const fileList: WriteFileList = getFileList(context)
+  const writeFilesContext: WriteFilesContext = {
+    dryRun: true,
+    fileList,
+    yes: context.yes,
+  }
+  // Do a dry run first
+  await writeFiles(writeFilesContext)
+  // Next, ask for confirmation and do the actual write
   if (await confirmWrite(context.yes)) {
-    await loopComponents({ ...context, dryRun: false })
+    await writeFiles({ ...writeFilesContext, dryRun: false })
   }
 }
 
-const loopComponents = async (context: WriteTemplatesContext) => {
-  // Process writing components sequentially, so that we can confirm each component
+// Loop components and get file list for each
+const getFileList = (context: GetFileListContext): WriteFileList => {
+  const fileList: WriteFileList = []
   for (const [componentName, component] of Object.entries(
     context.wheelroomComponents
   )) {
     context.componentName = componentName
     context.wheelroomComponent = component
-    context.lastOverwritePolicy = await loopTemplates(context)
+    fileList.push(...getFileListForComponent(context))
   }
+  return fileList
 }
 
-const loopTemplates = async (context: WriteTemplatesContext) => {
-  let overwritePolicy = context.lastOverwritePolicy
-  // Process writing files sequentially, so that we can confirm each file
+// Loop templates of a single component, parse them and return file list
+const getFileListForComponent = (
+  context: GetFileListContext
+): WriteFileList => {
+  const fileList: WriteFileList = []
   for (const [, templateDefinition] of Object.entries(context.templateSet)) {
     const component = context.wheelroomComponent!
     const componentName = context.componentName!
@@ -40,34 +58,17 @@ const loopTemplates = async (context: WriteTemplatesContext) => {
       componentName,
       unparsed: wheelroomParsed,
     })
-    const [fileName, filePath] = getPath({
-      ...context,
-      templatePath: templateDefinition.path,
+    const relPath = parser({
+      componentName: context.componentName!,
+      unparsed: templateDefinition.path,
     })
-    const dryRun = context.dryRun
-    const yes = context.yes
-    overwritePolicy = await writeFile({
+    fileList.push({
+      basePath: context.basePath,
       content,
-      dryRun,
-      fileName,
-      filePath,
-      lastOverwritePolicy: overwritePolicy,
-      yes,
+      relPath,
     })
   }
-  return overwritePolicy
-}
-
-const getPath = (context: WriteTemplatesContext) => {
-  const relPath = parser({
-    componentName: context.componentName!,
-    unparsed: context.templatePath!,
-  })
-
-  const fullPath = noTrailingSlash(context.basePath) + `/${relPath}`
-  const fileName = fullPath.replace(/^.*[\\\/]/, '')
-  const filePath = fullPath.substring(0, fullPath.lastIndexOf('/'))
-  return [fileName, filePath]
+  return fileList
 }
 
 const confirmWrite = async (yes: boolean | undefined) => {
