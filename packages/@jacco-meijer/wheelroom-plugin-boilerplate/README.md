@@ -4,11 +4,11 @@ This is a plugin for the `wheelroom` package.
 
 ## Commands
 
-This plugin adds the `create-files` command which lets you create boilerplate
+This plugin adds the `create-boilerplate` command which lets you create boilerplate
 code from component data.
 
 ```
-wheelroom create-files <template-set> <path> [options]
+wheelroom create-boilerplate <template-set> <path> [options]
 ```
 
 ## Config
