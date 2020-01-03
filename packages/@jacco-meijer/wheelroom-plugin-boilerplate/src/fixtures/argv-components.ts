@@ -89,10 +89,7 @@ export const argvComponents: WheelroomComponents = {
       },
       variation: {
         helpText: 'Select a variation',
-        items: [
-          'Inline article text, specific to this section',
-          'Linked article text, derived from slug in url',
-        ],
+        items: ['Specific to this section', 'Derived from slug in url'],
         localized: false,
         required: true,
         type: 'dropdown',

@@ -27,9 +27,10 @@ test('Template parser', async () => {
       modelVersion: '1.0.0',
     },
     componentName: 'exampleBlock',
+    singleVariationName: 'testing-single',
     unparsed: `
 This is a test %variation%
-With a %variation%
+With a capital %Variation%
 
 And some things that need to be indented: {
 %reactProps(indent:2)%
@@ -46,8 +47,8 @@ And some things that need to be indented: {
   })
 
   expect(result).toEqual(`
-This is a test single
-With a single
+This is a test testingSingle
+With a capital TestingSingle
 
 And some things that need to be indented: {
   typename: string
@@ -56,7 +57,7 @@ And some things that need to be indented: {
 }
 
     And some other things that need to be indented: {
-      ['single']: ExampleBlockSingleVar,
+      ['testing-single']: ExampleBlockTestingSingleVar,
     }
 
   And smore indenting: {

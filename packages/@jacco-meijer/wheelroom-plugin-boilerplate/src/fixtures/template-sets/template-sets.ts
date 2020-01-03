@@ -1,14 +1,18 @@
 import { TemplateSets } from '../../types/template-sets'
-import { componentBasicVar } from './component-basic-var'
+import { component } from './component'
 import { componentIndex } from './component-index'
 import { componentReadme } from './component-readme'
-import { componentVariations } from './component-variations'
+import { componentVariation } from './component-variation'
 
 export const templateSets: TemplateSets = {
   components: {
+    component: {
+      path: '%component-name%/%component-name%.tsx',
+      template: component,
+    },
     componentBasicVar: {
-      path: '%component-name%/%component-name%-basic-var.tsx',
-      template: componentBasicVar,
+      path: '%component-name%/%component-name%-%variation%-var.tsx',
+      template: componentVariation,
     },
     componentIndex: {
       path: '%component-name%/index.ts',
@@ -17,10 +21,6 @@ export const templateSets: TemplateSets = {
     componentReadme: {
       path: '%component-name%/README.md',
       template: componentReadme,
-    },
-    componentVariations: {
-      path: '%component-name%/%component-name%.tsx',
-      template: componentVariations,
     },
   },
 }

@@ -1,11 +1,11 @@
 import { getCases, WheelroomComponent } from '@jacco-meijer/wheelroom'
-import { singleVariationName } from './template-parser'
 
 interface ParseVariation {
-  component: WheelroomComponent
-  componentName: string
   argName: string
   argValue: string
+  component: WheelroomComponent
+  componentName: string
+  singleVariationName: string
 }
 
 export const parseVariation = (context: ParseVariation) => {
@@ -18,14 +18,14 @@ export const parseVariation = (context: ParseVariation) => {
 
   let variationList = ''
   let items: string[]
-  // Check for a 'variation' field
+
   if (
     'variation' in context.component.fields &&
     'items' in context.component.fields.variation
   ) {
     items = context.component.fields.variation.items!
   } else {
-    items = [singleVariationName]
+    items = [context.singleVariationName]
   }
 
   variationList = items

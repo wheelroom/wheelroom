@@ -1,5 +1,7 @@
 import { parser } from '@jacco-meijer/wheelroom'
 import {
+  getCases,
+  replaceAll,
   WriteFileList,
   writeFiles,
   WriteFilesContext,
@@ -10,6 +12,8 @@ import {
   WriteTemplatesContext,
 } from '../types/wite-templates-context'
 import { templateParser } from './template-parser'
+
+const singleVariationName = 'single'
 
 export const writeTemplates = async (context: WriteTemplatesContext) => {
   const fileList: WriteFileList = getFileList(context)
@@ -50,28 +54,58 @@ const getFileListForComponent = (
   for (const [, templateDefinition] of Object.entries(context.templateSet)) {
     const component = context.wheelroomComponent!
     const componentName = context.componentName!
+    let unparsed = templateDefinition.template
 
     const relPath = parser({
       componentName: context.componentName!,
       unparsed: templateDefinition.path,
     })
-    // TODO: If we detect %variation% in the relPath, create a file for each variation
-    const unparsed = templateDefinition.template
 
-    const wheelroomParsed = parser({
+    unparsed = parser({
       componentName,
       unparsed,
     })
-    const content = templateParser({
+
+    const templateParserContext = {
       component,
       componentName,
-      unparsed: wheelroomParsed,
-    })
-    fileList.push({
-      basePath: context.basePath,
-      content,
-      relPath,
-    })
+      singleVariationName,
+      unparsed,
+    }
+    // If we detect %variation% in the relPath, create a file for each variation
+    if (relPath.includes('%variation%')) {
+      let items: string[]
+      if (
+        'variation' in component.fields &&
+        'items' in component.fields.variation
+      ) {
+        items = component.fields.variation.items!
+      } else {
+        items = [singleVariationName]
+      }
+      items.forEach((item: string) => {
+        // Parse with current variation
+        const content = templateParser({
+          ...templateParserContext,
+          currentVariation: item,
+        })
+
+        // Finish parsing and write this variation to file
+        fileList.push({
+          basePath: context.basePath,
+          content,
+          relPath: replaceAll(relPath, '%variation%', getCases(item).kebabCase),
+        })
+      })
+    } else {
+      const content = templateParser(templateParserContext)
+      // No variations, finish parsing and write file
+      fileList.push({
+        basePath: context.basePath,
+        content,
+        relPath,
+      })
+    }
   }
   return fileList
 }
