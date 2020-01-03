@@ -1,3 +1,7 @@
+## [1.1.1](https://github.com/jaccomeijer/graphql-query-builder/compare/v1.1.0...v1.1.1) (2020-01-03)
+
+
+
 # [1.1.0](https://github.com/jaccomeijer/graphql-query-builder/compare/v1.0.3...v1.1.0) (2020-01-03)
 
 
