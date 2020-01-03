@@ -2,9 +2,13 @@ import { parser } from './parser'
 
 const componentName = 'myDemoComponent'
 const fieldName = 'myFieldName'
+const fieldType = 'someFieldType'
 const pageSectionsArray = ['pageSectionA', 'pageSectionB']
 let result
 
+/**
+ * Component name
+ */
 test('Parse %Component name%', () => {
   result = parser({
     componentName,
@@ -51,6 +55,10 @@ test('Parse %component-name%', () => {
   })
   expect(result).toEqual('This is the test case for my-demo-component')
 })
+
+/**
+ * Field name
+ */
 test('Parse %Field name%', () => {
   result = parser({
     componentName,
@@ -96,6 +104,56 @@ test('Parse %field-name%', () => {
   })
   expect(result).toEqual('This is the test case for my-field-name')
 })
+
+/**
+ * Field type
+ */
+test('Parse %Field type%', () => {
+  result = parser({
+    componentName,
+    fieldType,
+    pageSectionsArray,
+    unparsed: 'This is the test case for %Field type%',
+  })
+  expect(result).toEqual('This is the test case for Some field type')
+})
+test('Parse %field type%', () => {
+  result = parser({
+    componentName,
+    fieldType,
+    pageSectionsArray,
+    unparsed: 'This is the test case for %field type%',
+  })
+  expect(result).toEqual('This is the test case for some field type')
+})
+test('Parse %fieldType%', () => {
+  result = parser({
+    componentName,
+    fieldType,
+    pageSectionsArray,
+    unparsed: 'This is the test case for %fieldType%',
+  })
+  expect(result).toEqual('This is the test case for someFieldType')
+})
+test('Parse %FieldType%', () => {
+  result = parser({
+    componentName,
+    fieldType,
+    pageSectionsArray,
+    unparsed: 'This is the test case for %FieldType%',
+  })
+  expect(result).toEqual('This is the test case for SomeFieldType')
+})
+test('Parse %field-type%', () => {
+  result = parser({
+    componentName,
+    fieldType,
+    pageSectionsArray,
+    unparsed: 'This is the test case for %field-type%',
+  })
+  expect(result).toEqual('This is the test case for some-field-type')
+})
+
 test('Parse %field-name% and %component-name%', () => {
   result = parser({
     componentName,
