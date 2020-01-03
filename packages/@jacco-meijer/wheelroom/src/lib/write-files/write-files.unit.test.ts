@@ -4,7 +4,7 @@ import { writeFiles } from './write-files'
 const context = {
   fileList: [
     {
-      basePath: 'dist/test-output',
+      basePath: 'test-output',
       content: '# Test content\n\n## Chapter',
       relPath: 'test-file.md',
     },

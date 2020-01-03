@@ -1,6 +1,6 @@
 import * as wheelroom from '@jacco-meijer/wheelroom'
 import { argvCommand } from '../../fixtures/argv-command'
-import { writeFilesOutput } from '../../fixtures/write-files-output'
+import { resultWriteFiles } from '../../fixtures/result-write-files'
 import { command } from './command'
 
 test('Command: create files', async () => {
@@ -8,11 +8,11 @@ test('Command: create files', async () => {
   await command.handler(argvCommand as any)
   expect(fseSpy).toHaveBeenCalledTimes(2)
   expect(fseSpy).toHaveBeenNthCalledWith(1, {
-    ...writeFilesOutput,
+    ...resultWriteFiles,
     dryRun: true,
   })
   expect(fseSpy).toHaveBeenNthCalledWith(2, {
-    ...writeFilesOutput,
+    ...resultWriteFiles,
     dryRun: false,
   })
   fseSpy.mockRestore()

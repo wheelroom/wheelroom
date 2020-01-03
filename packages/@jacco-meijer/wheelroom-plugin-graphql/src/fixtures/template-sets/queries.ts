@@ -1,4 +1,4 @@
-export const query = `/**
+export const queries = `/**
 * Graphql definitions
 *
 * Component: %componentName%
@@ -6,5 +6,5 @@ export const query = `/**
 */
 
 export const query = \`
-%componentQuery(prefix:allContentful)%
+%componentQueries(prefix:allContentful)%
 \``

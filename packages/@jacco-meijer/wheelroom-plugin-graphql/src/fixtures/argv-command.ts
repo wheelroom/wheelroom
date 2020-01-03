@@ -10,7 +10,7 @@ import { argvPluginOptions } from './argv-plugin-options'
 export const argvCommand = {
   components: argvComponents,
   options: argvPluginOptions,
-  path: 'dist/test-output',
+  path: 'test-output',
   templateSet: 'gatsbyjs',
   yes: true,
 }
