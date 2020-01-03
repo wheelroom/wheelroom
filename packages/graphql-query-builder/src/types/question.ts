@@ -3,6 +3,11 @@
  */
 export interface Question {
   fields: Fields
+  /** Outputs a fragment */
+  fragment?: {
+    name: string
+    on: string
+  }
   operationName?: string
   operationType?: 'query' | 'mutation' | 'subscription'
 }

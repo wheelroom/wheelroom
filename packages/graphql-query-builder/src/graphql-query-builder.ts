@@ -97,7 +97,13 @@ export const graphqlQueryBuilder = (question: Question): string => {
   const name = question.operationName ? question.operationName + ' ' : ''
 
   const fields = addFields(question.fields, 2)
-  const result = `${type}${name}${fields}`
+
+  let result: string
+  if (question.fragment) {
+    result = `fragment ${question.fragment.name} on ${question.fragment.on} ${fields}`
+  } else {
+    result = `${type}${name}${fields}`
+  }
 
   return result
 }

@@ -139,6 +139,26 @@ test('Operation name and type', async () => {
   expect(qb(question)).toEqual(graphQL)
 })
 
+test('Fragment', async () => {
+  const question: Question = {
+    fields: {
+      firstName: {},
+      lastName: {},
+    },
+    fragment: {
+      name: 'Article',
+      on: 'ContentfulArticle'
+    },
+  }
+
+  const graphQL = `fragment Article on ContentfulArticle {
+  firstName
+  lastName
+}`
+
+  expect(qb(question)).toEqual(graphQL)
+})
+
 test('Operation type, arguments and directive', async () => {
   const question: Question = {
     fields: {
