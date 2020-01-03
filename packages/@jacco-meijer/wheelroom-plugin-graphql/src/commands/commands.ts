@@ -1,3 +1,3 @@
-import { command as createFilesCmd } from './create-files/command'
+import { command as createGraphqlCmd } from './create-graphql/command'
 
-export const commands = [createFilesCmd]
+export const commands = [createGraphqlCmd]

@@ -14,7 +14,7 @@ export const parseVariation = (context: ParseVariation) => {
     indentLevel = parseInt(context.argValue, 10)
   }
   const indentString = Array(indentLevel + 1).join(' ')
-  const compName = getCases(context.componentName)
+  const cnCase = getCases(context.componentName)
 
   let variationList = ''
   let items: string[]
@@ -31,7 +31,7 @@ export const parseVariation = (context: ParseVariation) => {
   variationList = items
     .map(
       (item: string) =>
-        `${indentString}['${item}']: ${compName.pascalCase}${
+        `${indentString}['${item}']: ${cnCase.pascalCase}${
           getCases(item).pascalCase
         }Var,`
     )

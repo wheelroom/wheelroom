@@ -15,7 +15,7 @@ wheelroom create-boilerplate <template-set> <path> [options]
 
 The plugin is configured by adding it to `wheelroom-config.js`
 
-```
+```javascript
 var templateSets = require('./wheelroom-template-sets')
 
 module.exports = {

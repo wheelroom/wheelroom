@@ -27,7 +27,6 @@ test('Template parser', async () => {
       modelVersion: '1.0.0',
     },
     componentName: 'exampleBlock',
-    singleVariationName: 'testing-single',
     unparsed: `
 This is a test %variation%
 With a capital %Variation%

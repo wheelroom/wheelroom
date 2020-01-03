@@ -1,7 +1,5 @@
 import { parser } from '@jacco-meijer/wheelroom'
 import {
-  getCases,
-  replaceAll,
   WriteFileList,
   writeFiles,
   WriteFilesContext,
@@ -23,7 +21,7 @@ export const writeTemplates = async (context: WriteTemplatesContext) => {
     fileList,
     yes: context.yes,
   }
-  // console.log(JSON.stringify(writeFilesContext, null, 2))
+  console.log('OUTPUT-HERE', JSON.stringify(writeFilesContext, null, 2))
 
   // Do a dry run first
   await writeFiles(writeFilesContext)
@@ -72,40 +70,12 @@ const getFileListForComponent = (
       singleVariationName,
       unparsed,
     }
-    // If we detect %variation% in the relPath, create a file for each variation
-    if (relPath.includes('%variation%')) {
-      let items: string[]
-      if (
-        'variation' in component.fields &&
-        'items' in component.fields.variation
-      ) {
-        items = component.fields.variation.items!
-      } else {
-        items = [singleVariationName]
-      }
-      items.forEach((item: string) => {
-        // Parse with current variation
-        const content = templateParser({
-          ...templateParserContext,
-          currentVariation: item,
-        })
-
-        // Finish parsing and write this variation to file
-        fileList.push({
-          basePath: context.basePath,
-          content,
-          relPath: replaceAll(relPath, '%variation%', getCases(item).kebabCase),
-        })
-      })
-    } else {
-      const content = templateParser(templateParserContext)
-      // No variations, finish parsing and write file
-      fileList.push({
-        basePath: context.basePath,
-        content,
-        relPath,
-      })
-    }
+    const content = templateParser(templateParserContext)
+    fileList.push({
+      basePath: context.basePath,
+      content,
+      relPath,
+    })
   }
   return fileList
 }

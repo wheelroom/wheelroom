@@ -7,20 +7,13 @@
  *
  */
 
-import {
-  getCases,
-  replaceAll,
-  WheelroomComponent,
-} from '@jacco-meijer/wheelroom'
-import { parseReactProps } from './parse-react-props'
-import { parseVariation } from './parse-variation'
-import { parseVariationImport } from './parse-variation-import'
+import { replaceAll, WheelroomComponent } from '@jacco-meijer/wheelroom'
+import { componentFragment } from './component-fragment'
+import { componentQuery } from './component-query'
 
 interface TemplatParser {
   component: WheelroomComponent
   componentName: string
-  currentVariation?: string
-  singleVariationName: string
   unparsed: string
 }
 
@@ -35,43 +28,25 @@ export const templateParser = (context: TemplatParser): string => {
     const variableName = match[1]
     const argName = match[2]
     const argValue = match[3]
-    let replacement: string
     switch (variableName) {
-      case 'variationImportList':
-        const variationImportList = parseVariationImport({
+      case 'componentQuery':
+        const variationImportList = componentQuery({
+          argName,
+          argValue,
           component: context.component,
           componentName: context.componentName,
-          singleVariationName: context.singleVariationName,
         })
         parsed = replaceAll(parsed, fullMatch, variationImportList)
 
         break
-      case 'variationList':
-        const variationList = parseVariation({
+      case 'componentFragment':
+        const variationList = componentFragment({
           argName,
           argValue,
           component: context.component,
           componentName: context.componentName,
-          singleVariationName: context.singleVariationName,
         })
         parsed = replaceAll(parsed, fullMatch, variationList)
-        break
-      case 'reactProps':
-        const reactProps = parseReactProps({
-          argName,
-          argValue,
-          component: context.component,
-          componentName: context.componentName,
-        })
-        parsed = replaceAll(parsed, fullMatch, reactProps)
-        break
-      case 'variation':
-        replacement = context.currentVariation || context.singleVariationName
-        parsed = replaceAll(parsed, fullMatch, getCases(replacement).camelCase)
-        break
-      case 'Variation':
-        replacement = context.currentVariation || context.singleVariationName
-        parsed = replaceAll(parsed, fullMatch, getCases(replacement).pascalCase)
         break
     }
     match = myRegexp.exec(context.unparsed)

@@ -1,26 +1,18 @@
 import { TemplateSets } from '../../types/template-sets'
-import { component } from './component'
-import { componentIndex } from './component-index'
-import { componentReadme } from './component-readme'
-import { componentVariation } from './component-variation'
+import { fragment } from './fragment'
+import { query } from './query'
 
 export const templateSets: TemplateSets = {
-  components: {
-    component: {
-      path: '%component-name%/%component-name%.tsx',
-      template: component,
+  gatsbyjs: {
+    fragment: {
+      filterGraphQLSetting: 'fragment',
+      path: '%component-name%-fragment.js',
+      template: fragment,
     },
-    componentBasicVar: {
-      path: '%component-name%/%component-name%-%variation%-var.tsx',
-      template: componentVariation,
-    },
-    componentIndex: {
-      path: '%component-name%/index.ts',
-      template: componentIndex,
-    },
-    componentReadme: {
-      path: '%component-name%/README.md',
-      template: componentReadme,
+    query: {
+      filterGraphQLSetting: 'createPageQuery',
+      path: '%component-name%-query.js',
+      template: query,
     },
   },
 }

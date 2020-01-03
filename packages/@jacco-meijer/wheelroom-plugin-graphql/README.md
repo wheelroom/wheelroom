@@ -4,9 +4,8 @@ This is a plugin for the `wheelroom` package.
 
 ## Commands
 
-This plugin adds the `create-graphql` command which lets you create
-boilerplate graphql. Intended use is generating files for Gatsbyjs, a static
-site generator.
+This plugin adds the `create-graphql` command which lets you create boilerplate
+graphql. Intended use is generating files for Gatsbyjs, a static site generator.
 
 ```
 wheelroom create-graphql <template-set> <path> [options]
@@ -16,7 +15,9 @@ wheelroom create-graphql <template-set> <path> [options]
 
 The plugin is configured by adding it to `wheelroom-config.js`
 
-```typescript
+```javascript
+var templateSets = require('./wheelroom-template-sets')
+
 module.exports = {
   components: {
       ...
@@ -25,7 +26,7 @@ module.exports = {
     {
       resolve: '@jacco-meijer/wheelroom-plugin-graphql',
       options: {
-        path: 'src/gatspby-graphql',
+        templateSets: templateSets,
       },
     },
   ],

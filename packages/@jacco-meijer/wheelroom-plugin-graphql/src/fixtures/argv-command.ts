@@ -11,6 +11,6 @@ export const argvCommand = {
   components: argvComponents,
   options: argvPluginOptions,
   path: 'dist/test-output',
-  templateSet: 'components',
+  templateSet: 'gatsbyjs',
   yes: true,
 }
