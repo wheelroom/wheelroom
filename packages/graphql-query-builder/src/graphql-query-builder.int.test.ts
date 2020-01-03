@@ -147,7 +147,7 @@ test('Fragment', async () => {
     },
     fragment: {
       name: 'Article',
-      on: 'ContentfulArticle'
+      on: 'ContentfulArticle',
     },
   }
 
