@@ -18,6 +18,7 @@ export const writeTemplates = async (context: WriteTemplatesContext) => {
     fileList,
     yes: context.yes,
   }
+
   // Do a dry run first
   await writeFiles(writeFilesContext)
   // Next, ask for confirmation and do the actual write
