@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 const VariationNotFound = (props: any) => (
   <div>Variation "{props.variation}" not found</div>

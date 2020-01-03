@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { simpleLinkStyle } from '../../styles/simple-link'
 import { ALink } from '../core-elements/a-link'
 

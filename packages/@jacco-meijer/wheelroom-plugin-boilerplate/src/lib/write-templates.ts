@@ -4,7 +4,7 @@ import {
   writeFiles,
   WriteFilesContext,
 } from '@jacco-meijer/wheelroom'
-import * as inquirer from 'inquirer'
+import inquirer from 'inquirer'
 import {
   GetFileListContext,
   WriteTemplatesContext,

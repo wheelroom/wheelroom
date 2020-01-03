@@ -1,4 +1,4 @@
-import * as contentful from 'contentful-management'
+import contentful from 'contentful-management'
 import { Context } from '../types/context'
 
 export const getClient = async (context: Context) => {

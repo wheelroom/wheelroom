@@ -6,7 +6,7 @@ export const componentBasicVar = `/**
  *
  */
 
-import * as React from 'react'
+import React from 'react'
 
 import { %ComponentName%Props } from './%component-name%'
 

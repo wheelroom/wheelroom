@@ -1,4 +1,4 @@
-import * as inquirer from 'inquirer'
+import inquirer from 'inquirer'
 import { Context } from '../types/context'
 
 export const confirmAction = async (question: string, context: Context) => {

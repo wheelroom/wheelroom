@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import * as React from 'react'
+import React from 'react'
 
 // This element wraps the landmark element specified in sections.jsx around each
 // section. Not that the landmarks are added in a fixed order as shown in the

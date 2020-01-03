@@ -8,7 +8,7 @@ export const componentVariations = `/**
  */
 
 import { getVariation } from '@jacco-meijer/content-models'
-import * as React from 'react'
+import React from 'react'
 import { SectionProps } from '../section-props'
 import %ComponentName%BasicVar from './%component-name%-basic-var'
 import { FluidImage } from './src/views/image/image'

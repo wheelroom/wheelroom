@@ -1,5 +1,5 @@
-import * as fse from 'fs-extra'
-import * as inquirer from 'inquirer'
+import fse from 'fs-extra'
+import inquirer from 'inquirer'
 import {
   WriteFileListItem,
   WriteFilesContext,
