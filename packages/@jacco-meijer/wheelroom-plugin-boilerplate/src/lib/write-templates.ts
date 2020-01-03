@@ -13,11 +13,13 @@ import { templateParser } from './template-parser'
 
 export const writeTemplates = async (context: WriteTemplatesContext) => {
   const fileList: WriteFileList = getFileList(context)
+
   const writeFilesContext: WriteFilesContext = {
     dryRun: true,
     fileList,
     yes: context.yes,
   }
+  // console.log(JSON.stringify(writeFilesContext, null, 2))
 
   // Do a dry run first
   await writeFiles(writeFilesContext)

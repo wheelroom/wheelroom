@@ -4,7 +4,7 @@ export const writeFilesOutput = {
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component variation\n *\n * Component type: article\n * Variation: %variation%\n *\n */\n\nimport React from 'react'\n\nimport { ArticleProps } from './article'\n\nexport const ArticleBasicVar = (props: ArticleProps) => {\n  return (\n    <div>\n      <h2>ArticleBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
+        "/**\n * Component variation\n *\n * Component type: article\n * Variation: single\n *\n */\n\nimport React from 'react'\n\nimport { ArticleProps } from './article'\n\nexport const ArticleBasicVar = (props: ArticleProps) => {\n  return (\n    <div>\n      <h2>ArticleBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
       relPath: 'article/article-basic-var.tsx',
     },
     {
@@ -22,13 +22,13 @@ export const writeFilesOutput = {
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component\n *\n * Component type: article\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ArticleBasicVar from './article-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n%variationList(indent:2)%\n}\n\nexport interface ArticleProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  articleText: {\n    articleText: string\n  }\n  author: string\n  createdAt: string\n  date: string\n  heading: string\n  image: FluidImage\n  slug: string\n  subHeading: string\n  title: string\n  updatedAt: string\n\n}\n\nexport const Article = (props: ArticleProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
+        "/**\n * Component\n *\n * Component type: article\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ArticleBasicVar from './article-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n  ['single']: ArticleSingleVar,\n}\n\nexport interface ArticleProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  articleText: {\n    articleText: string\n  }\n  author: string\n  createdAt: string\n  date: string\n  heading: string\n  image: FluidImage\n  slug: string\n  subHeading: string\n  title: string\n  updatedAt: string\n}\n\nexport const Article = (props: ArticleProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
       relPath: 'article/article.tsx',
     },
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component variation\n *\n * Component type: articleSection\n * Variation: %variation%\n *\n */\n\nimport React from 'react'\n\nimport { ArticleSectionProps } from './article-section'\n\nexport const ArticleSectionBasicVar = (props: ArticleSectionProps) => {\n  return (\n    <div>\n      <h2>ArticleSectionBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
+        "/**\n * Component variation\n *\n * Component type: articleSection\n * Variation: single\n *\n */\n\nimport React from 'react'\n\nimport { ArticleSectionProps } from './article-section'\n\nexport const ArticleSectionBasicVar = (props: ArticleSectionProps) => {\n  return (\n    <div>\n      <h2>ArticleSectionBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
       relPath: 'article-section/article-section-basic-var.tsx',
     },
     {
@@ -46,13 +46,13 @@ export const writeFilesOutput = {
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component\n *\n * Component type: articleSection\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ArticleSectionBasicVar from './article-section-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n  ['Inline article text, specific to this section']: ArticleSectionBasicVar,\n  ['Linked article text, derived from slug in url']: ArticleSectionBasicVar,\n}\n\nexport interface ArticleSectionProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  articleText: string\n  title: string\n  variation: string\n\n}\n\nexport const ArticleSection = (props: ArticleSectionProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
+        "/**\n * Component\n *\n * Component type: articleSection\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ArticleSectionBasicVar from './article-section-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n  ['Inline article text, specific to this section']: ArticleSectionInlineArticleText,SpecificToThisSectionVar,\n  ['Linked article text, derived from slug in url']: ArticleSectionLinkedArticleText,DerivedFromSlugInUrlVar,\n}\n\nexport interface ArticleSectionProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  articleText: string\n  title: string\n  variation: string\n}\n\nexport const ArticleSection = (props: ArticleSectionProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
       relPath: 'article-section/article-section.tsx',
     },
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component variation\n *\n * Component type: articlesSection\n * Variation: %variation%\n *\n */\n\nimport React from 'react'\n\nimport { ArticlesSectionProps } from './articles-section'\n\nexport const ArticlesSectionBasicVar = (props: ArticlesSectionProps) => {\n  return (\n    <div>\n      <h2>ArticlesSectionBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
+        "/**\n * Component variation\n *\n * Component type: articlesSection\n * Variation: single\n *\n */\n\nimport React from 'react'\n\nimport { ArticlesSectionProps } from './articles-section'\n\nexport const ArticlesSectionBasicVar = (props: ArticlesSectionProps) => {\n  return (\n    <div>\n      <h2>ArticlesSectionBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
       relPath: 'articles-section/articles-section-basic-var.tsx',
     },
     {
@@ -70,13 +70,13 @@ export const writeFilesOutput = {
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component\n *\n * Component type: articlesSection\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ArticlesSectionBasicVar from './articles-section-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n%variationList(indent:2)%\n}\n\nexport interface ArticlesSectionProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  articles: any\n  heading: string\n  maxArticles: number\n  title: string\n\n}\n\nexport const ArticlesSection = (props: ArticlesSectionProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
+        "/**\n * Component\n *\n * Component type: articlesSection\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ArticlesSectionBasicVar from './articles-section-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n  ['single']: ArticlesSectionSingleVar,\n}\n\nexport interface ArticlesSectionProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  articles: any\n  heading: string\n  maxArticles: number\n  title: string\n}\n\nexport const ArticlesSection = (props: ArticlesSectionProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
       relPath: 'articles-section/articles-section.tsx',
     },
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component variation\n *\n * Component type: exampleBlock\n * Variation: %variation%\n *\n */\n\nimport React from 'react'\n\nimport { ExampleBlockProps } from './example-block'\n\nexport const ExampleBlockBasicVar = (props: ExampleBlockProps) => {\n  return (\n    <div>\n      <h2>ExampleBlockBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
+        "/**\n * Component variation\n *\n * Component type: exampleBlock\n * Variation: single\n *\n */\n\nimport React from 'react'\n\nimport { ExampleBlockProps } from './example-block'\n\nexport const ExampleBlockBasicVar = (props: ExampleBlockProps) => {\n  return (\n    <div>\n      <h2>ExampleBlockBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
       relPath: 'example-block/example-block-basic-var.tsx',
     },
     {
@@ -94,13 +94,13 @@ export const writeFilesOutput = {
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component\n *\n * Component type: exampleBlock\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ExampleBlockBasicVar from './example-block-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n%variationList(indent:2)%\n}\n\nexport interface ExampleBlockProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  someText: string\n  title: string\n\n}\n\nexport const ExampleBlock = (props: ExampleBlockProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
+        "/**\n * Component\n *\n * Component type: exampleBlock\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ExampleBlockBasicVar from './example-block-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n  ['single']: ExampleBlockSingleVar,\n}\n\nexport interface ExampleBlockProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  someText: string\n  title: string\n}\n\nexport const ExampleBlock = (props: ExampleBlockProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
       relPath: 'example-block/example-block.tsx',
     },
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component variation\n *\n * Component type: examplePart\n * Variation: %variation%\n *\n */\n\nimport React from 'react'\n\nimport { ExamplePartProps } from './example-part'\n\nexport const ExamplePartBasicVar = (props: ExamplePartProps) => {\n  return (\n    <div>\n      <h2>ExamplePartBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
+        "/**\n * Component variation\n *\n * Component type: examplePart\n * Variation: single\n *\n */\n\nimport React from 'react'\n\nimport { ExamplePartProps } from './example-part'\n\nexport const ExamplePartBasicVar = (props: ExamplePartProps) => {\n  return (\n    <div>\n      <h2>ExamplePartBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
       relPath: 'example-part/example-part-basic-var.tsx',
     },
     {
@@ -118,13 +118,13 @@ export const writeFilesOutput = {
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component\n *\n * Component type: examplePart\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ExamplePartBasicVar from './example-part-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n%variationList(indent:2)%\n}\n\nexport interface ExamplePartProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  someText: string\n  title: string\n\n}\n\nexport const ExamplePart = (props: ExamplePartProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
+        "/**\n * Component\n *\n * Component type: examplePart\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport ExamplePartBasicVar from './example-part-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n  ['single']: ExamplePartSingleVar,\n}\n\nexport interface ExamplePartProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  someText: string\n  title: string\n}\n\nexport const ExamplePart = (props: ExamplePartProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
       relPath: 'example-part/example-part.tsx',
     },
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component variation\n *\n * Component type: globals\n * Variation: %variation%\n *\n */\n\nimport React from 'react'\n\nimport { GlobalsProps } from './globals'\n\nexport const GlobalsBasicVar = (props: GlobalsProps) => {\n  return (\n    <div>\n      <h2>GlobalsBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
+        "/**\n * Component variation\n *\n * Component type: globals\n * Variation: single\n *\n */\n\nimport React from 'react'\n\nimport { GlobalsProps } from './globals'\n\nexport const GlobalsBasicVar = (props: GlobalsProps) => {\n  return (\n    <div>\n      <h2>GlobalsBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
       relPath: 'globals/globals-basic-var.tsx',
     },
     {
@@ -142,13 +142,13 @@ export const writeFilesOutput = {
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component\n *\n * Component type: globals\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport GlobalsBasicVar from './globals-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n%variationList(indent:2)%\n}\n\nexport interface GlobalsProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  addressLine1: string\n  addressLine2: string\n  emailAddress: string\n  githubUrl: string\n  heading: string\n  linkedinUrl: string\n  phoneNumber: string\n  siteAuthor: string\n  siteDescription: string\n  siteKeywords: string[]\n  siteTitle: string\n  title: string\n\n}\n\nexport const Globals = (props: GlobalsProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
+        "/**\n * Component\n *\n * Component type: globals\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport GlobalsBasicVar from './globals-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n  ['single']: GlobalsSingleVar,\n}\n\nexport interface GlobalsProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  addressLine1: string\n  addressLine2: string\n  emailAddress: string\n  githubUrl: string\n  heading: string\n  linkedinUrl: string\n  phoneNumber: string\n  siteAuthor: string\n  siteDescription: string\n  siteKeywords: string[]\n  siteTitle: string\n  title: string\n}\n\nexport const Globals = (props: GlobalsProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
       relPath: 'globals/globals.tsx',
     },
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component variation\n *\n * Component type: page\n * Variation: %variation%\n *\n */\n\nimport React from 'react'\n\nimport { PageProps } from './page'\n\nexport const PageBasicVar = (props: PageProps) => {\n  return (\n    <div>\n      <h2>PageBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
+        "/**\n * Component variation\n *\n * Component type: page\n * Variation: single\n *\n */\n\nimport React from 'react'\n\nimport { PageProps } from './page'\n\nexport const PageBasicVar = (props: PageProps) => {\n  return (\n    <div>\n      <h2>PageBasic</h2>\n      <p>Hello world</p>\n    </div>\n  )\n}\n",
       relPath: 'page/page-basic-var.tsx',
     },
     {
@@ -166,7 +166,7 @@ export const writeFilesOutput = {
     {
       basePath: 'dist/test-output',
       content:
-        "/**\n * Component\n *\n * Component type: page\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport PageBasicVar from './page-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n%variationList(indent:2)%\n}\n\nexport interface PageProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  image: FluidImage\n  navigationTitle: string\n  sections: any\n  seoDescription: string\n  seoTitle: string\n  title: string\n\n}\n\nexport const Page = (props: PageProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
+        "/**\n * Component\n *\n * Component type: page\n *\n */\n\nimport { getVariation } from '@jacco-meijer/content-models'\nimport React from 'react'\nimport { SectionProps } from '../section-props'\nimport PageBasicVar from './page-basic-var'\nimport { FluidImage } from './src/views/image/image'\n\nconst componentList = {\n  ['single']: PageSingleVar,\n}\n\nexport interface PageProps extends SectionProps {\n  /** Gatsby fetched data */\n  typename: string\n  image: FluidImage\n  navigationTitle: string\n  sections: any\n  seoDescription: string\n  seoTitle: string\n  title: string\n}\n\nexport const Page = (props: PageProps) => {\n  const Variation = getVariation(props, componentList)\n\n  return <Variation {...props} />\n}\n",
       relPath: 'page/page.tsx',
     },
   ],

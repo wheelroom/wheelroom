@@ -15,4 +15,5 @@ test('Command: create files', async () => {
     ...writeFilesOutput,
     dryRun: false,
   })
+  fseSpy.mockRestore()
 })

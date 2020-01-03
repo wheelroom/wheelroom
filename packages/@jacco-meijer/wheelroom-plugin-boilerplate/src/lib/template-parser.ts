@@ -7,68 +7,59 @@
  *
  */
 
-// TODO: Parse indent variable
-// TODO: Parse %variation%
-// TODO: Handle no variation field properly
+import { replaceAll, WheelroomComponent } from '@jacco-meijer/wheelroom'
+import { parseReactProps } from './parse-react-props'
+import { parseVariation } from './parse-variation'
 
-import {
-  getCases,
-  parser,
-  replaceAll,
-  WheelroomComponent,
-  WheelroomField,
-} from '@jacco-meijer/wheelroom'
+export const singleVariationName = 'single'
 
-export const templateParser = ({
-  componentName,
-  component,
-  unparsed,
-}: {
+interface TemplatParser {
   componentName: string
   component: WheelroomComponent
+  currentVariation?: string
   unparsed: string
-}): string => {
-  let parsed = unparsed
+}
 
-  const compName = getCases(componentName)
+export const templateParser = (context: TemplatParser): string => {
+  let parsed = context.unparsed
 
-  // Check for a 'variation' field
-  if (
-    'variation' in component.fields &&
-    'items' in component.fields.variation
-  ) {
-    const items = component.fields.variation.items
-    const variationList = items!
-      .map((item: string) => `  ['${item}']: ${compName.pascalCase}BasicVar,`)
-      .join(`\n`)
-    parsed = replaceAll(parsed, '%variationList(indent:2)%', variationList)
-  }
+  const myRegexp = /%([^%()]*)(?:\((.*):(.*)\)|)%/g
+  let match = myRegexp.exec(context.unparsed)
 
-  const wheelroomTypeToTsType = {
-    date: 'string',
-    dropdown: 'string',
-    image: 'FluidImage',
-    multipleComponents: 'any',
-    number: 'number',
-    richText: `{\n    %fieldName%: string\n  }`,
-    shortText: 'string',
-    tags: 'string[]',
-  }
-
-  let reactProps = ''
-  Object.entries(component.fields).forEach(
-    ([fieldName, field]: [string, WheelroomField]) => {
-      const fName = getCases(fieldName)
-      const wheelroomType = field.type || 'shortText'
-      const typescriptType = parser({
-        componentName,
-        fieldName,
-        unparsed: wheelroomTypeToTsType[wheelroomType],
-      })
-      reactProps += `  ${fName.camelCase}: ${typescriptType}\n`
+  while (match != null) {
+    const fullMatch = match[0]
+    const variableName = match[1]
+    const argName = match[2]
+    const argValue = match[3]
+    switch (variableName) {
+      case 'variationList':
+        const variationList = parseVariation({
+          argName,
+          argValue,
+          component: context.component,
+          componentName: context.componentName,
+        })
+        parsed = replaceAll(parsed, fullMatch, variationList)
+        break
+      case 'reactProps':
+        const reactProps = parseReactProps({
+          argName,
+          argValue,
+          component: context.component,
+          componentName: context.componentName,
+        })
+        parsed = replaceAll(parsed, fullMatch, reactProps)
+        break
+      case 'variation':
+        parsed = replaceAll(
+          parsed,
+          fullMatch,
+          context.currentVariation || singleVariationName
+        )
+        break
     }
-  )
-  parsed = replaceAll(parsed, '%reactProps(indent:2)%', reactProps)
-
+    match = myRegexp.exec(context.unparsed)
+  }
+  // console.log(parsed)
   return parsed as string
 }
