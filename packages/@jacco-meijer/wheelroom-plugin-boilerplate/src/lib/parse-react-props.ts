@@ -1,5 +1,4 @@
 import {
-  getCases,
   parser,
   WheelroomComponent,
   WheelroomField,
@@ -31,14 +30,14 @@ export const parseReactProps = (context: ParseReactProps): string => {
   const indentString = Array(indentLevel + 1).join(' ')
   const reactProps = Object.entries(context.component.fields)
     .map(([fieldName, field]: [string, WheelroomField]) => {
-      const fName = getCases(fieldName)
+      // const fName = getCases(fieldName)
       const wheelroomType = field.type || 'shortText'
       const typescriptType = parser({
         componentName: context.componentName,
         fieldName,
         unparsed: wheelroomTypeToTsType[wheelroomType],
       })
-      return `${indentString}${fName.camelCase}: ${typescriptType}`
+      return `${indentString}${fieldName}: ${typescriptType}`
     })
     .join('\n')
   return reactProps

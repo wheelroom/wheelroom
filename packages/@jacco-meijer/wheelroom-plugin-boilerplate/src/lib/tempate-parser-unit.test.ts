@@ -51,7 +51,7 @@ This is a test testingSingle
 With a capital TestingSingle
 
 And some things that need to be indented: {
-  typename: string
+  __typename: string
   someText: string
   title: string
 }
@@ -61,7 +61,7 @@ And some things that need to be indented: {
     }
 
   And smore indenting: {
-    typename: string
+    __typename: string
     someText: string
     title: string
   }
