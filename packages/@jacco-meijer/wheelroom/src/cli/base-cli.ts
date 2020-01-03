@@ -22,7 +22,7 @@ const addOptions = (cli: any) => {
 }
 
 export const baseCli = (argv: string[]) => {
-  const cli = yargs.default(argv)
+  const cli = yargs(argv)
 
   return addOptions(cli)
     .usage('Usage: $0 <command> [options]')
