@@ -165,3 +165,14 @@ test('Parse %field-name% and %component-name%', () => {
     'This is the test case for my-field-name and my-demo-component'
   )
 })
+
+test('Parse %createPageQuery%', () => {
+  result = parser({
+    componentName,
+    graphQL: {
+      createPageQuery: 'global',
+    },
+    unparsed: 'This is the test case for %createPageQuery%',
+  })
+  expect(result).toEqual('This is the test case for global')
+})

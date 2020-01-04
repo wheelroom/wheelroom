@@ -27,10 +27,22 @@ export const input: TemplatParser = {
   },
   componentName: 'componentTwo',
   unparsed: `
-Component queries:
-%componentQuery(prefix:allContentful)%
+# subPage query
+%componentQuery(prefix:allContentful)
+  
+# global query
+%componentQuery(prefix:allContentful)
+  
+# page query
+%componentQuery(prefix:allContentful)
 
-Component fragment:
-%componentFragment(prefix:Contentul)%
+# Article fragment
+%componentFragment%(prefix:Contentful)
+  
+# ArticlesSection fragment
+%componentFragment%(prefix:Contentful)
+
+# FeaturedPage fragment
+%componentFragment%(prefix:Contentful)
 `,
 }

@@ -1,10 +1,11 @@
-export const query = `/**
-* Graphql definitions
+export const query = `
+* Graphql query definition
 *
-* Component: %componentName%
+* Query type: %createPageQuery%
 *
 */
 
+# subPage query
 export const query = \`
 %componentQuery(prefix:allContentful)%
 \``
