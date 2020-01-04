@@ -1,5 +1,5 @@
-export const output = `
-# subPage query
+export const subPageQueryOutput = `
+export const type = 'createPageQuery'
 export const query = \`
 {
   article: allContentfulArticle(
@@ -14,9 +14,9 @@ export const query = \`
     }
   }
 }
-\`
-
-# global query
+\``
+export const globalQueryOutput = `
+export const type = 'createPageQuery'
 export const query = \`
 {
   globals: allContentfulGlobals(
@@ -30,9 +30,9 @@ export const query = \`
     }
   }
 }
-\`
-
-# page query
+\``
+export const pageQueryOutput = `
+export const type = 'createPageQuery'
 export const query = \`
 {
   page: allContentfulPage {
@@ -46,9 +46,8 @@ export const query = \`
     }
   }
 }
-\`
-
-# Article fragment
+\``
+export const articleFragmentOutput = `
 export const fragment = \`
   fragment Article on ContentfulArticle {
     articleText {
@@ -71,9 +70,8 @@ export const fragment = \`
     title
     updatedAt
   }
-\`
-
-# ArticlesSection fragment
+\``
+export const articlesSectionFragmentOutput = `
 export const fragment = \`
   fragment ArticlesSection on ContentfulArticlesSection {
     __typename
@@ -86,9 +84,8 @@ export const fragment = \`
     }
     variation
   }
-\`
-
-# FeaturedPage fragment
+\``
+export const featuredPageSectionFragmentOutput = `
 export const fragment = \`
   fragment FeaturedPageSection on ContentfulFeaturedPageSection {
     __typename

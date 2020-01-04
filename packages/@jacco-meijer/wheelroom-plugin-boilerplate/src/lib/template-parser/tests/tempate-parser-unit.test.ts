@@ -7,5 +7,5 @@ jest.setTimeout(10000)
 test('Template parser', async () => {
   const result = templateParser(input)
 
-  expect(result).toEqual(output)
+  expect(result).toStrictEqual(output)
 })

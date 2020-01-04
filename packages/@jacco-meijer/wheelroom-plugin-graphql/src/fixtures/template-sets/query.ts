@@ -5,7 +5,7 @@ export const query = `
 *
 */
 
-# subPage query
+export const type = '%createPageQuery%'
 export const query = \`
 %componentQuery(prefix:allContentful)%
 \``

@@ -1,10 +1,10 @@
-export const fragment = `/**
-* Graphql definitions
+export const fragment = `
+* Graphql query definition
 *
-* Component: %componentName%
+* Query type: %createPageQuery%
 *
 */
 
 export const fragment = \`
-%componentFragment(prefix:Contentful)%
+%componentFragment%(prefix:Contentful)
 \``
