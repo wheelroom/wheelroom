@@ -1,18 +1,20 @@
 import * as wheelroom from '@jacco-meijer/wheelroom'
-import { argvCommand } from '../../fixtures/argv-command'
-import { writeFilesOutput } from '../../fixtures/write-files-output'
-import { command } from './command'
+import { argvCommand } from '../../../fixtures/argv-command'
+import { command } from '../command'
+import { expectCallWriteFiles } from './expect-call-write-files'
+
+jest.setTimeout(10000)
 
 test('Command: create graphql', async () => {
   const fseSpy = jest.spyOn(wheelroom, 'writeFiles')
   await command.handler(argvCommand as any)
   expect(fseSpy).toHaveBeenCalledTimes(2)
   expect(fseSpy).toHaveBeenNthCalledWith(1, {
-    ...writeFilesOutput,
+    ...expectCallWriteFiles,
     dryRun: true,
   })
   expect(fseSpy).toHaveBeenNthCalledWith(2, {
-    ...writeFilesOutput,
+    ...expectCallWriteFiles,
     dryRun: false,
   })
   fseSpy.mockRestore()

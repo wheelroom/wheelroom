@@ -11,7 +11,7 @@ import {
   GetFileListContext,
   WriteTemplatesContext,
 } from '../types/wite-templates-context'
-import { templateParser } from './template-parser'
+import { templateParser } from './template-parser/template-parser'
 
 const singleVariationName = 'single'
 

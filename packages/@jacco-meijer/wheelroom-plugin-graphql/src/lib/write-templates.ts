@@ -10,7 +10,7 @@ import {
   GetFileListContext,
   WriteTemplatesContext,
 } from '../types/wite-templates-context'
-import { templateParser } from './template-parser'
+import { templateParser } from './template-parser/template-parser'
 
 export const writeTemplates = async (context: WriteTemplatesContext) => {
   const fileList: WriteFileList = getFileList(context)

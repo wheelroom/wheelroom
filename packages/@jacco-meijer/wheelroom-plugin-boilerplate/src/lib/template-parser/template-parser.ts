@@ -16,7 +16,7 @@ import { parseReactProps } from './parse-react-props'
 import { parseVariation } from './parse-variation'
 import { parseVariationImport } from './parse-variation-import'
 
-interface TemplatParser {
+export interface TemplatParser {
   component: WheelroomComponent
   componentName: string
   currentVariation?: string

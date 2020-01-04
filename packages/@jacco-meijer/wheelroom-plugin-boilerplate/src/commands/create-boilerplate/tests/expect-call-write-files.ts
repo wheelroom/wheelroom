@@ -1,4 +1,4 @@
-export const resultWriteFiles = {
+export const expectCallWriteFiles = {
   dryRun: true,
   fileList: [
     {

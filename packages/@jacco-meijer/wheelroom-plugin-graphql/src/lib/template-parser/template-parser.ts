@@ -1,8 +1,8 @@
 /**
  * Parse these variables:
  *
- * - %variationList(indent:2)%
- * - %reactProps(indent:2)%
+ * - %componentQueries(prefix:someThing)%
+ * - %componentFragment(prefix:SomeThing)%
  * - %variation%
  *
  */
