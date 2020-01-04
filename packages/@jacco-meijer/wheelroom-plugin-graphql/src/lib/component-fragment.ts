@@ -22,6 +22,7 @@ export const componentFragment = (context: ComponentFragment) => {
   }
   const cnCase = getCases(context.componentName)
 
+  // TODO: Add sub fields per field type like e.g. image
   const fields: QbFields = {}
   Object.entries(context.component.fields).forEach(
     ([fieldName, field]: [string, WheelroomField]) => {

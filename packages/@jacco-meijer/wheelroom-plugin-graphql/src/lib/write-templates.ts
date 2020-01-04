@@ -1,17 +1,16 @@
-import { parser } from '@jacco-meijer/wheelroom'
+import { parser, WheelroomComponent } from '@jacco-meijer/wheelroom'
 import {
   WriteFileList,
   writeFiles,
   WriteFilesContext,
 } from '@jacco-meijer/wheelroom'
 import inquirer from 'inquirer'
+import { TemplateDefinition } from '../types/template-sets'
 import {
   GetFileListContext,
   WriteTemplatesContext,
 } from '../types/wite-templates-context'
 import { templateParser } from './template-parser'
-
-const singleVariationName = 'single'
 
 export const writeTemplates = async (context: WriteTemplatesContext) => {
   const fileList: WriteFileList = getFileList(context)
@@ -34,49 +33,56 @@ export const writeTemplates = async (context: WriteTemplatesContext) => {
 // Loop components and get file list for each
 const getFileList = (context: GetFileListContext): WriteFileList => {
   const fileList: WriteFileList = []
-  for (const [componentName, component] of Object.entries(
-    context.wheelroomComponents
-  )) {
-    context.componentName = componentName
-    context.wheelroomComponent = component
-    fileList.push(...getFileListForComponent(context))
-  }
+
+  Object.entries(context.templateSet).forEach(
+    ([templateName, templateDefinition]: [string, TemplateDefinition]) => {
+      context.templateDefinition = templateDefinition
+      fileList.push(...getFileListForTemplate(context))
+    }
+  )
   return fileList
 }
 
 // Loop templates of a single component, parse them and return file list
-const getFileListForComponent = (
-  context: GetFileListContext
-): WriteFileList => {
+const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
   const fileList: WriteFileList = []
-  for (const [, templateDefinition] of Object.entries(context.templateSet)) {
-    const component = context.wheelroomComponent!
-    const componentName = context.componentName!
-    let unparsed = templateDefinition.template
-
-    const relPath = parser({
-      componentName: context.componentName!,
-      unparsed: templateDefinition.path,
+  Object.entries(context.wheelroomComponents)
+    .filter(([componentName, component]: [string, WheelroomComponent]) => {
+      if (!context.templateDefinition!.filterGraphQLSetting) {
+        // Pass all if no filter is present
+        return true
+      }
+      return component.graphQL[context.templateDefinition!.filterGraphQLSetting]
     })
-
-    unparsed = parser({
-      componentName,
-      unparsed,
+    .forEach(([componentName, component]: [string, WheelroomComponent]) => {
+      let unparsed = context.templateDefinition!.template
+      const relPath = parser({
+        componentName,
+        unparsed: context.templateDefinition!.path,
+      })
+      // If the path does not have a variable, skip. Because we otherwise will
+      // overwrite the same file.
+      if (
+        relPath === context.templateDefinition!.path &&
+        fileList.length >= 1
+      ) {
+        return
+      }
+      unparsed = parser({
+        componentName,
+        unparsed,
+      })
+      const content = templateParser({
+        component,
+        componentName,
+        unparsed,
+      })
+      fileList.push({
+        basePath: context.basePath,
+        content,
+        relPath,
+      })
     })
-
-    const templateParserContext = {
-      component,
-      componentName,
-      singleVariationName,
-      unparsed,
-    }
-    const content = templateParser(templateParserContext)
-    fileList.push({
-      basePath: context.basePath,
-      content,
-      relPath,
-    })
-  }
   return fileList
 }
 

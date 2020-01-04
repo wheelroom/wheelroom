@@ -1,8 +1,5 @@
-import {
-  WheelroomComponent,
-  WheelroomComponents,
-} from '@jacco-meijer/wheelroom'
-import { TemplateSet } from './template-sets'
+import { WheelroomComponents } from '@jacco-meijer/wheelroom'
+import { TemplateDefinition, TemplateSet } from './template-sets'
 
 export interface WriteTemplatesContext {
   basePath: string
@@ -13,9 +10,7 @@ export interface WriteTemplatesContext {
 
 export interface GetFileListContext {
   basePath: string
-  componentName?: string
-  templatePath?: string
   templateSet: TemplateSet
-  wheelroomComponent?: WheelroomComponent
+  templateDefinition?: TemplateDefinition
   wheelroomComponents: WheelroomComponents
 }
