@@ -8,7 +8,7 @@ interface ComponentQuery {
   componentName: string
 }
 
-export const componentQueries = (context: ComponentQuery) => {
+export const componentQuery = (context: ComponentQuery) => {
   let prefix = ''
   if (context.argName === 'prefix') {
     prefix = context.argValue

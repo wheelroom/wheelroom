@@ -68,7 +68,7 @@
   "scripts": {
     "build": "npm-run-all build:*",
     "build:clean": "rm -rf ./dist",
-    "build:test": "jest ./src/lib/generate-contentful-components.int.test.ts",
+    "build:test": "jest ./src/lib/generate-contentful-components/tests/generate-contentful-components.int.test.ts",
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
     "prepack": "npm run build",

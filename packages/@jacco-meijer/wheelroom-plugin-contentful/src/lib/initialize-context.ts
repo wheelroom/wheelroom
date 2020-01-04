@@ -1,7 +1,7 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
 import { Context } from '../types/context'
-import { generateContentfulComponents } from './generate-contentful-components'
+import { generateContentfulComponents } from './generate-contentful-components/generate-contentful-components'
 
 export const initializeContext = async (argv: any) => {
   const pluginOptions =

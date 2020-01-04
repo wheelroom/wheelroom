@@ -1,6 +1,6 @@
 import { TemplateSets } from '../../types/template-sets'
 import { fragment } from './fragment'
-import { queries } from './queries'
+import { query } from './query'
 
 export const templateSets: TemplateSets = {
   gatsbyjs: {
@@ -11,8 +11,8 @@ export const templateSets: TemplateSets = {
     },
     query: {
       filterGraphQLSetting: 'createPageQuery',
-      path: 'graphql-queries.js',
-      template: queries,
+      path: '%component-name%-query.js',
+      template: query,
     },
   },
 }

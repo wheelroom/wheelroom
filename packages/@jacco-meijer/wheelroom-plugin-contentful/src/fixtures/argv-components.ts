@@ -188,6 +188,38 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
+  featuredPageSection: {
+    fields: {
+      featuredPage: {
+        component: 'page',
+        helpText: 'Select a page',
+        localized: false,
+        required: true,
+        type: 'singleComponent',
+      },
+      title: {
+        helpText: 'Never displayed, only used for listing within Contentful',
+        localized: false,
+        required: true,
+        type: 'shortText',
+      },
+      variation: {
+        helpText: 'Select a variation',
+        items: [
+          'Inline article text, specific to this section',
+          'Linked article text, derived from slug in url',
+        ],
+        localized: false,
+        required: true,
+        type: 'dropdown',
+      },
+    },
+    graphQL: {
+      fragment: true,
+      pageSection: true,
+    },
+    modelVersion: '1.0.0',
+  },
   globals: {
     fields: {
       __typename: {

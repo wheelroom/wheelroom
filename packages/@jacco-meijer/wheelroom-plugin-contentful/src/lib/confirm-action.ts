@@ -5,7 +5,7 @@ export const confirmAction = async (question: string, context: Context) => {
   if (context.commandLineOptions.yes) {
     return true
   }
-  const componentList = Object.keys(context.components)
+  const componentList = Object.keys(context.wheelroomComponents)
     .map((componentName: string) => componentName)
     .join(', ')
 

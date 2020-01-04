@@ -7,9 +7,9 @@ import { getCases } from '@jacco-meijer/wheelroom'
 import {
   ContentfulComponent,
   ContentfulComponents,
-} from '../types/contentful-components'
-import { ContentfulFieldDefinitions } from '../types/contentful-field-definitions'
-import { ContentfulFields } from '../types/contentful-fields'
+} from '../../types/contentful-components'
+import { ContentfulFieldDefinitions } from '../../types/contentful-field-definitions'
+import { ContentfulFields } from '../../types/contentful-fields'
 import { mergeFields } from './merge-fields'
 
 export const generateContentfulComponents = (

@@ -3,11 +3,7 @@ import {
   removeAsset,
   unPublishAsset,
 } from '../../contentful-api/asset'
-import {
-  getClient,
-  getEnvironment,
-  getSpace,
-} from '../../contentful-api/init'
+import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
 import { Context } from '../../types/context'
 
 const finish = async (context: Context) => {

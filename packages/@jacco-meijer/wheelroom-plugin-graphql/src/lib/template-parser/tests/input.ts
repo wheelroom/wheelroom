@@ -6,7 +6,7 @@ export const input: TemplatParser = {
         system: true,
         type: 'shortText',
       },
-      someText: {
+      someComponentOneText: {
         localized: false,
         required: false,
         type: 'shortText',
@@ -19,27 +19,18 @@ export const input: TemplatParser = {
       },
     },
     graphQL: {
-      fragment: false,
+      createPageQuery: 'page',
+      fragment: true,
       pageSection: false,
     },
     modelVersion: '1.0.0',
   },
-  componentName: 'exampleBlock',
-  singleVariationName: 'testing-single',
+  componentName: 'componentTwo',
   unparsed: `
-This is a test %variation%
-With a capital %Variation%
+Component queries:
+%componentQuery(prefix:allContentful)%
 
-And some things that need to be indented: {
-%reactProps(indent:2)%
-}
-
-    And some other things that need to be indented: {
-%variationList(indent:6)%
-    }
-
-  And smore indenting: {
-%reactProps(indent:4)%
-  }
+Component fragment:
+%componentFragment(prefix:Contentul)%
 `,
 }

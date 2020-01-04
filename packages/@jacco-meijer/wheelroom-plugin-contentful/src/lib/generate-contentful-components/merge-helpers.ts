@@ -1,8 +1,9 @@
 import { replaceAll, WheelroomField } from '@jacco-meijer/wheelroom'
 
 /**
- * - %firstInValidation%
- * - %firstlinkContentTypeValidation%
+ * - %firstItem%
+ * - %firstComponent%
+ * - %singleComponent%
  * - %demoAsset%
  */
 export const initialContentParser = (
@@ -14,17 +15,14 @@ export const initialContentParser = (
   // values by creating a safe field that has all values.
   const safeField = Object.assign(
     {},
-    { items: ['not-found'], components: ['not-found'] },
+    { items: ['not-found'], components: ['not-found'], component: 'not-found' },
     field
   )
   let parsed = unparsed
   parsed = replaceAll(parsed, '%demoAsset%', 'demoAsset')
-  parsed = replaceAll(parsed, '%firstInValidation%', safeField.items[0])
-  parsed = replaceAll(
-    parsed,
-    '%firstlinkContentTypeValidation%',
-    safeField.components[0]
-  )
+  parsed = replaceAll(parsed, '%firstItem%', safeField.items[0])
+  parsed = replaceAll(parsed, '%firstComponent%', safeField.components[0])
+  parsed = replaceAll(parsed, '%singleComponent%', safeField.component)
   return parsed
 }
 

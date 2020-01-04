@@ -8,8 +8,8 @@
  *
  * Initial content variables
  * =========================
- * - %firstInValidation%
- * - %firstlinkContentTypeValidation%
+ * - %firstItem%
+ * - %firstComponent%
  * - %demoAsset%
  *
  */
@@ -38,7 +38,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'datePicker',
     },
     dropdown: {
-      initialContent: '%firstInValidation%',
+      initialContent: '%firstItem%',
       specs: {
         name: '%Field name%',
         type: 'Symbol',
@@ -60,7 +60,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'assetLinkEditor',
     },
     multipleComponents: {
-      initialContent: '%firstlinkContentTypeValidation%',
+      initialContent: '%firstComponent%',
       specs: {
         items: {
           linkType: 'Entry',
@@ -92,6 +92,15 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
         type: 'Symbol',
       },
       widgetId: 'singleLine',
+    },
+    singleComponent: {
+      initialContent: '%singleComponent%',
+      specs: {
+        linkType: 'Entry',
+        name: '%Field name%',
+        type: 'Link',
+      },
+      widgetId: 'entryLinkEditor',
     },
     tags: {
       initialContent: ['tag me', 'tag you', 'tag us'],

@@ -17,6 +17,7 @@
  *
  * Process validations:
  *
+ * - component: string | string[] -> specs.validations.0.linkContentType
  * - components: string | string[] -> specs.items.validations.0.linkContentType
  * - items?: string[] -> specs.validations.0.in
  * - maxLength?: number -> specs.validations.0.size.max
@@ -25,7 +26,7 @@
  */
 
 import { parser, WheelroomField } from '@jacco-meijer/wheelroom'
-import { ContentfulField, widgetID } from '../types/contentful-fields'
+import { ContentfulField, widgetID } from '../../types/contentful-fields'
 import { createIfMissing, initialContentParser } from './merge-helpers'
 
 export const mergeFields = (
@@ -135,6 +136,14 @@ export const mergeFields = (
       linkContentType: first.components,
     })
   }
+  if (first.component) {
+    // specs.validations.0.linkContentType
+    createIfMissing(workingField.specs, 'validations', 'array')
+    workingField.specs.validations!.push({
+      linkContentType: [first.component],
+    })
+  }
+
   if (first.items) {
     // specs.validations.0.in
     createIfMissing(workingField.specs, 'validations', 'array')

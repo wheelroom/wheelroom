@@ -1,17 +1,16 @@
 /**
  * Parse these variables:
  *
- * - %componentQueries(prefix:someThing)%
- * - %componentFragment(prefix:SomeThing)%
- * - %variation%
+ * - %componentQuery(prefix:allSomething)%
+ * - %componentFragment(prefix:Something)%
  *
  */
 
 import { replaceAll, WheelroomComponent } from '@jacco-meijer/wheelroom'
 import { componentFragment } from './component-fragment'
-import { componentQueries } from './component-queries'
+import { componentQuery } from './component-query'
 
-interface TemplatParser {
+export interface TemplatParser {
   component: WheelroomComponent
   componentName: string
   unparsed: string
@@ -29,8 +28,8 @@ export const templateParser = (context: TemplatParser): string => {
     const argName = match[2]
     const argValue = match[3]
     switch (variableName) {
-      case 'componentQueries':
-        const variationImportList = componentQueries({
+      case 'componentQuery':
+        const variationImportList = componentQuery({
           argName,
           argValue,
           component: context.component,

@@ -5,11 +5,17 @@ export type FieldType =
   | 'multipleComponents'
   | 'number'
   | 'richText'
+  | 'singleComponent'
   | 'shortText'
   | 'tags'
 
 export interface WheelroomField {
-  /** Components for a multipleComponents type */
+  /** Component for a singleComponent type */
+  component?: string
+  /**
+   * Components for a multipleComponents type, this is a single string when the
+   * %pageSectionsArray% varaiable is used
+   */
   components?: string | string[]
   /** Help text for an input element */
   helpText?: string

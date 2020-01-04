@@ -76,11 +76,3 @@ export type widgetID =
   | 'dropdown'
   | 'radio'
   | 'richTextEditor'
-
-export type wheelroomType =
-  | 'block'
-  | 'global'
-  | 'page'
-  | 'part'
-  | 'section'
-  | 'subPage'

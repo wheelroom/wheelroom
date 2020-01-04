@@ -1,4 +1,5 @@
-import { ContentfulComponent, Field } from '../types/contentful-components'
+import { ContentfulComponent } from '../types/contentful-components'
+import { ContentfulField } from '../types/contentful-fields'
 import { Context } from '../types/context'
 
 export const getContentType = async (
@@ -110,7 +111,7 @@ const getApiFields = (context: Context, componentName: string): any[] => {
   const component = context.contentfulComponents[componentName]
   const apiFields = []
   Object.entries(component.fields).forEach(
-    ([fieldId, field]: [string, Field]) => {
+    ([fieldId, field]: [string, ContentfulField]) => {
       console.log(`Adding field ${fieldId}`)
       const apiField = { id: fieldId } as any
       Object.entries(field.specs).forEach(([specName, specValue]) => {

@@ -1,6 +1,6 @@
-import { ContentfulComponents } from '../types/contentful-components'
+import { ContentfulComponents } from '../../../types/contentful-components'
 
-export const mergedFields: ContentfulComponents = {
+export const output: ContentfulComponents = {
   article: {
     description: 'Article',
     displayField: 'title',
@@ -315,6 +315,67 @@ export const mergedFields: ContentfulComponents = {
     },
     modelVersion: '1.0.0',
     type: 'examplePart',
+  },
+  featuredPageSection: {
+    description: 'Featured page section',
+    displayField: 'title',
+    fields: {
+      featuredPage: {
+        initialContent: 'page',
+        settings: {
+          helpText: 'Select a page',
+        },
+        specs: {
+          linkType: 'Entry',
+          localized: false,
+          name: 'Featured page',
+          required: true,
+          type: 'Link',
+          validations: [
+            {
+              linkContentType: ['page'],
+            },
+          ],
+        },
+        widgetId: 'entryLinkEditor',
+      },
+      title: {
+        initialContent: 'Demo content for title',
+        settings: {
+          helpText: 'Never displayed, only used for listing within Contentful',
+        },
+        specs: {
+          localized: false,
+          name: 'Title',
+          required: true,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+      },
+      variation: {
+        initialContent: 'Inline article text, specific to this section',
+        settings: {
+          helpText: 'Select a variation',
+        },
+        specs: {
+          localized: false,
+          name: 'Variation',
+          required: true,
+          type: 'Symbol',
+          validations: [
+            {
+              in: [
+                'Inline article text, specific to this section',
+                'Linked article text, derived from slug in url',
+              ],
+            },
+          ],
+        },
+        widgetId: 'dropdown',
+      },
+    },
+    modelVersion: '1.0.0',
+    type: 'featuredPageSection',
   },
   globals: {
     description: 'Globals',
