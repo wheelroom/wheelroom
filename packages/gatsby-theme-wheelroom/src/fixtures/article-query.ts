@@ -8,7 +8,6 @@
 
 module.exports = {
   componentName: 'article',
-  type: 'subPage',
   query: `
   {
     article: allContentfulArticle(limit: 10) {
@@ -22,4 +21,5 @@ module.exports = {
     }
   }
   `,
+  type: 'subPage',
 }

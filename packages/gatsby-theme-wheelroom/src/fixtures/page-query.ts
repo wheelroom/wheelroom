@@ -1,24 +1,26 @@
 /**
  * Graphql query definition
  *
- * Query type: global
- * Component: globals
+ * Query type: page
+ * Component: page
  *
  */
 
 module.exports = {
-  componentName: 'globals',
-  type: 'global',
+  componentName: 'page',
   query: `
 {
-  globals: allContentfulGlobals {
+  page: allContentfulPage {
     edges {
       node {
         id
         node_locale
+        path
+        pathName
       }
     }
   }
 }
 `,
+  type: 'page',
 }

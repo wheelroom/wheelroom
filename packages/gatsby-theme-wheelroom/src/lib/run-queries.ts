@@ -1,10 +1,5 @@
-import { CreatePageQuery } from '@jacco-meijer/wheelroom'
-
-interface Query {
-  modelName: string
-  query: string
-  type: CreatePageQuery
-}
+import { QueryResults } from '../types/contentful'
+import { Query } from '../types/options'
 
 interface RunQueries {
   queries: Query[]
@@ -13,7 +8,11 @@ interface RunQueries {
 
 export const runQueries = async (context: RunQueries) => {
   console.log(`Running queries`)
-  const queryResults: any = {}
+  const queryResults: QueryResults = {
+    global: {},
+    page: {},
+    subPage: {},
+  }
   await Promise.all(
     context.queries.map(async (query: any) => {
       if (['global', 'subPage', 'page'].includes(query.type)) {

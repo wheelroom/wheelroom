@@ -70,7 +70,6 @@
     "install-peers": "npm-install-peers",
     "build:clean": "rm -f ./gatsby-config.* ./gatsby-node.*",
     "build:lint": "tslint --project tsconfig.json",
-    "build:test": "echo none",
     "build:compile": "tsc",
     "prepack": "npm run build"
   },

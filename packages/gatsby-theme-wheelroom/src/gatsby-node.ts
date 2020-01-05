@@ -1,32 +1,32 @@
 import { buildNamedPaths } from './lib/build-named-paths'
 import { createPages } from './lib/create-pages'
 import { createSubPages } from './lib/create-sub-pages'
-import { getPageContext } from './lib/get-page-context'
 import { runQueries } from './lib/run-queries'
+import { Options } from './types/options'
 
-exports.createPages = async ({ graphql, actions }: any, options: any) => {
+exports.createPages = async ({ graphql, actions }: any, options: Options) => {
   const { createPage } = actions
+  const defaultLocale = options.defaultLocale || 'en-US'
 
-  const queryResults = await runQueries(graphql, options.queries)
-  const namedPaths = buildNamedPaths(
+  const queryResults = await runQueries({ graphql, queries: options.queries })
+  const namedPaths = buildNamedPaths({
+    defaultLocale,
     queryResults,
-    options.defaultLocale || 'en-US'
-  )
+  })
   const pageTemplate = options.pageTemplate
-  const pageContext = getPageContext(queryResults, namedPaths)
 
-  createPages(
+  createPages({
     createPage,
-    pageContext,
+    defaultLocale,
     namedPaths,
-    queryResults.page,
-    pageTemplate
-  )
-  createSubPages(
+    pageTemplate,
+    queryResults,
+  })
+  createSubPages({
     createPage,
-    pageContext,
+    defaultLocale,
     namedPaths,
-    queryResults.subPage,
-    pageTemplate
-  )
+    pageTemplate,
+    queryResults,
+  })
 }

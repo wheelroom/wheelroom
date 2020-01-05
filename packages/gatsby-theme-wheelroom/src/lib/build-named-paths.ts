@@ -1,7 +1,14 @@
-export const buildNamedPaths = (queries: any, defaultLocale: string) => {
-  const namedPaths: any = {}
+import { NamedPaths } from '../types/named-paths'
+
+interface BuildNamedPaths {
+  /** Results from Contentful query */
+  queryResults: any
+  defaultLocale: string
+}
+export const buildNamedPaths = (context: BuildNamedPaths): NamedPaths => {
+  const namedPaths: NamedPaths = {}
   console.log(`Building named paths`)
-  queries.page.page.forEach((edge: any) => {
+  context.queryResults.page.page.forEach((edge: any) => {
     const page = edge.node
     if (!(page.pathName in namedPaths)) {
       namedPaths[page.pathName] = { path: '' }
@@ -9,7 +16,7 @@ export const buildNamedPaths = (queries: any, defaultLocale: string) => {
     namedPaths[page.pathName].path = page.path
     const locale = page.node_locale
     const localizedBasePath =
-      locale === defaultLocale ? page.path : '/' + locale + page.path
+      locale === context.defaultLocale ? page.path : '/' + locale + page.path
 
     // Strip trailing slashes
     namedPaths[page.pathName][locale] = localizedBasePath
