@@ -1,8 +1,12 @@
 import { Options } from './types/options'
 
+// tslint:disable-next-line: no-var-requires
 const gatsbyNode = require('./gatsby-node')
+// tslint:disable-next-line: no-var-requires
 const articleQuery = require('./fixtures/article-query')
+// tslint:disable-next-line: no-var-requires
 const globalsQuery = require('./fixtures/globals-query')
+// tslint:disable-next-line: no-var-requires
 const pageQuery = require('./fixtures/page-query')
 
 const graphqlMock = (query: string) => {
