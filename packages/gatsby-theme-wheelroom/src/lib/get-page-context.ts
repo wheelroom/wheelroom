@@ -8,7 +8,7 @@ export const getPageContext = ({
   pageType,
 }: GetPageContext): PageContext => {
   const pageContext = {
-    locale: getLocale(page),
+    locale: page.node_locale,
     namedPaths: context.namedPaths,
   } as PageContext
 
@@ -17,7 +17,7 @@ export const getPageContext = ({
     Object.entries(context.queries.global).forEach(([globalsName, globals]) => {
       globals.forEach((globalsItem: ContentfulObject) => {
         const globalsLocale = globalsItem.node.node_locale
-        if (globalsLocale === getLocale(page)) {
+        if (globalsLocale === page.node_locale) {
           pageContext[globalsName + 'Id'] = globalsItem.node.id
         }
       })

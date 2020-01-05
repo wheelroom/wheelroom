@@ -1,30 +1,32 @@
-import { getComponents } from '@jacco-meijer/wheelroom'
 import { buildNamedPaths } from './lib/build-named-paths'
 import { createPages } from './lib/create-pages'
 import { createSubPages } from './lib/create-sub-pages'
+import { getPageContext } from './lib/get-page-context'
 import { runQueries } from './lib/run-queries'
-import { Context } from './types/context'
 
 exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
 
-  const components = await getComponents()
+  const queryResults = await runQueries(graphql, options.queries)
+  const namedPaths = buildNamedPaths(
+    queryResults,
+    options.defaultLocale || 'en-US'
+  )
+  const pageTemplate = options.pageTemplate
+  const pageContext = getPageContext(queryResults, namedPaths)
 
-  const context = {
-    components,
+  createPages(
     createPage,
-    graphql,
-    namedPaths: {},
-    options,
-    queries: {
-      global: {},
-      page: {},
-      subPage: {},
-    },
-  } as Context
-
-  await runQueries(context)
-  buildNamedPaths(context)
-  createPages(context)
-  createSubPages(context)
+    pageContext,
+    namedPaths,
+    queryResults.page,
+    pageTemplate
+  )
+  createSubPages(
+    createPage,
+    pageContext,
+    namedPaths,
+    queryResults.subPage,
+    pageTemplate
+  )
 }

@@ -7,7 +7,7 @@ export const createSubPages = (context: Context) => {
   Object.entries(context.queries.page).forEach(([pageType, pageEdge]) => {
     pageEdge.forEach(edge => {
       const page = edge.node
-      const pageLocale = getLocale(page)
+      const pageLocale = page.node_locale
       const localizedBasePath = context.namedPaths[page.pathName][pageLocale]
       // Build sub pages if we find a fieldname like %slug%
       const tokens = localizedBasePath.split('%')

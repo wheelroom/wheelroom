@@ -4,9 +4,11 @@ export interface WheelroomComponents {
   [componentName: string]: WheelroomComponent
 }
 
+export type CreatePageQuery = 'page' | 'global' | 'subPage'
+
 export interface GraphQL {
   /** When set the model is retreived when generating a static version of the site */
-  createPageQuery?: 'page' | 'global' | 'subPage'
+  createPageQuery?: CreatePageQuery
   /** When set a fragment file is generated for use by a static site generator */
   fragment?: boolean
   /** The query is limited to the numer of items set here */
