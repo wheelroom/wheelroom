@@ -1,4 +1,4 @@
-export const query = `
+export const query = `/**
 * Graphql query definition
 *
 * Query type: %createPageQuery%

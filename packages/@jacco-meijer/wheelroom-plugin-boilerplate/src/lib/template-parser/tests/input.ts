@@ -1,5 +1,5 @@
-import { TemplatParser } from '../template-parser'
-export const input: TemplatParser = {
+import { TemplateParser } from '../template-parser'
+export const input: TemplateParser = {
   component: {
     fields: {
       __typename: {

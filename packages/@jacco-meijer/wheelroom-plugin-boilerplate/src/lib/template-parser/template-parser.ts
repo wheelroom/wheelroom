@@ -16,7 +16,7 @@ import { parseReactProps } from './parse-react-props'
 import { parseVariation } from './parse-variation'
 import { parseVariationImport } from './parse-variation-import'
 
-export interface TemplatParser {
+export interface TemplateParser {
   component: WheelroomComponent
   componentName: string
   currentVariation?: string
@@ -24,7 +24,7 @@ export interface TemplatParser {
   unparsed: string
 }
 
-export const templateParser = (context: TemplatParser): string => {
+export const templateParser = (context: TemplateParser): string => {
   let parsed = context.unparsed
 
   const myRegexp = /%([^(%]+)(?:\(([^)]+)\))?%/g

@@ -1,9 +1,8 @@
-export const subPageQueryOutput = `
+// createPageQuery: subPage
+export const articleQueryOutput = `
 export const query = \`
 {
-  article: allContentfulArticle(
-    limit: 10
-  ) {
+  article: allContentfulArticle(limit: 20) {
     edges {
       node {
         id
@@ -14,10 +13,12 @@ export const query = \`
   }
 }
 \``
-export const globalQueryOutput = `
+
+// createPageQuery: global
+export const articlesSectionQueryOutput = `
 export const query = \`
 {
-  globals: allContentfulGlobals(limit: 10) {
+  articlesSection: allContentfulArticlesSection(limit: 15) {
     edges {
       node {
         id
@@ -27,10 +28,12 @@ export const query = \`
   }
 }
 \``
-export const pageQueryOutput = `
+
+// createPageQuery: page
+export const featuredPageSectionQueryOutput = `
 export const query = \`
 {
-  page: allContentfulPage {
+  featuredPageSection: allContentfulFeaturedPageSection {
     edges {
       node {
         id

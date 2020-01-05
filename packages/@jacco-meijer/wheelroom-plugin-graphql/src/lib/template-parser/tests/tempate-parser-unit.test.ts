@@ -1,19 +1,19 @@
 import { templateParser } from '../template-parser'
 import {
   articleFragmentInput,
+  articleQueryInput,
   articlesSectionFragmentInput,
+  articlesSectionQueryInput,
   featuredPageSectionFragmentInput,
-  globalQueryInput,
-  pageQueryInput,
-  subPageQueryInput,
+  featuredPageSectionQueryInput,
 } from './input'
 import {
   articleFragmentOutput,
+  articleQueryOutput,
   articlesSectionFragmentOutput,
+  articlesSectionQueryOutput,
   featuredPageSectionFragmentOutput,
-  globalQueryOutput,
-  pageQueryOutput,
-  subPageQueryOutput,
+  featuredPageSectionQueryOutput,
 } from './output'
 
 jest.setTimeout(10000)
@@ -35,12 +35,16 @@ describe('Template parser should parse', () => {
     )
   })
   test('global query', async () => {
-    expect(templateParser(globalQueryInput)).toStrictEqual(globalQueryOutput)
+    expect(templateParser(articleQueryInput)).toStrictEqual(articleQueryOutput)
   })
   test('page query', async () => {
-    expect(templateParser(pageQueryInput)).toStrictEqual(pageQueryOutput)
+    expect(templateParser(articlesSectionQueryInput)).toStrictEqual(
+      articlesSectionQueryOutput
+    )
   })
   test('sub page query', async () => {
-    expect(templateParser(subPageQueryInput)).toStrictEqual(subPageQueryOutput)
+    expect(templateParser(featuredPageSectionQueryInput)).toStrictEqual(
+      featuredPageSectionQueryOutput
+    )
   })
 })

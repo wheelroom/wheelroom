@@ -20,7 +20,7 @@ export const writeTemplates = async (context: WriteTemplatesContext) => {
     fileList,
     yes: context.yes,
   }
-  // console.log('OUTPUT-HERE', JSON.stringify(writeFilesContext, null, 2))
+  console.log('OUTPUT-HERE', JSON.stringify(writeFilesContext, null, 2))
 
   // Do a dry run first
   await writeFiles(writeFilesContext)

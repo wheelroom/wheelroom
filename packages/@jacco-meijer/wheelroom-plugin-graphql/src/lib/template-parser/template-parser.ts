@@ -10,13 +10,13 @@ import { replaceAll, WheelroomComponent } from '@jacco-meijer/wheelroom'
 import { componentFragment } from './component-fragment'
 import { componentQuery } from './component-query'
 
-export interface TemplatParser {
+export interface TemplateParser {
   component: WheelroomComponent
   componentName: string
   unparsed: string
 }
 
-export const templateParser = (context: TemplatParser): string => {
+export const templateParser = (context: TemplateParser): string => {
   let parsed = context.unparsed
 
   const myRegexp = /%([^(%]+)(?:\(([^)]+)\))?%/g
