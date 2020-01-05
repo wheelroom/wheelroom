@@ -164,6 +164,10 @@ test('Operation type, arguments and directive', async () => {
   const question: Question = {
     fields: {
       firstName: {
+        fields: {
+          oneMore: {},
+        },
+        // tslint:disable-next-line: object-literal-sort-keys
         arguments: {
           id: '4',
         },
@@ -180,7 +184,9 @@ test('Operation type, arguments and directive', async () => {
   }
 
   const graphQL = `  query {
-    firstName(id: 4)
+    firstName(id: 4) {
+      oneMore
+    }
     lastName @include(if: $withFriends)
   }`
 

@@ -33,12 +33,12 @@ const addField = (
   indentLevel: number
 ): string => {
   let fieldString = fieldName
+  let addArgumentsFlag = false
+  let addSubFieldsFlag = false
   Object.entries(field).forEach(
     ([attributeName, attribute]: [string, string | Directive]) => {
       // Flag arguments and subfiels. They exapnd into multiple lines and must
       // be handled lastly.
-      let addArgumentsFlag = false
-      let addSubFieldsFlag = false
       switch (attributeName) {
         case 'alias':
           fieldString = `${attribute}: ${fieldString}`
@@ -64,21 +64,21 @@ const addField = (
           }
           break
       }
-      if (addArgumentsFlag) {
-        if (Object.keys(field.arguments!).length > 1) {
-          const argumentsMultiLine = addArgumentsMultiLine(indentLevel, field)
-          fieldString = `${fieldString}${argumentsMultiLine}`
-        } else {
-          const argumentsSingleLine = addArgumentsSingleLine(indentLevel, field)
-          fieldString = `${fieldString}${argumentsSingleLine}`
-        }
-      }
-      if (addSubFieldsFlag) {
-        const subFields = addFields(field.fields!, indentLevel + 1)
-        fieldString = `${fieldString} ${subFields}`
-      }
     }
   )
+  if (addArgumentsFlag) {
+    if (Object.keys(field.arguments!).length > 1) {
+      const argumentsMultiLine = addArgumentsMultiLine(indentLevel, field)
+      fieldString = `${fieldString}${argumentsMultiLine}`
+    } else {
+      const argumentsSingleLine = addArgumentsSingleLine(indentLevel, field)
+      fieldString = `${fieldString}${argumentsSingleLine}`
+    }
+  }
+  if (addSubFieldsFlag) {
+    const subFields = addFields(field.fields!, indentLevel + 1)
+    fieldString = `${fieldString} ${subFields}`
+  }
   const indentString = Array(indentLevel).join(INDENT_STRING)
   return `${indentString}${fieldString}\n`
 }

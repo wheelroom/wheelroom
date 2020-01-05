@@ -62,6 +62,7 @@
     "build:test": "jest --silent",
     "postversion": "git push && git push --tags",
     "prepack": "npm run build",
+    "test": "npm run build:test",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
   "type": "commonjs",
