@@ -1,7 +1,7 @@
 export const fragment = `/**
 * Graphql fragment definition
 *
-*
+* Component: %componentName%
 */
 
 export const fragment = \`

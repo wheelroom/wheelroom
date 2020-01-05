@@ -8,10 +8,7 @@ import { Context } from './types/context'
 exports.createPages = async ({ graphql, actions }: any, options: any) => {
   const { createPage } = actions
 
-  // const config = await readConfig()
   const components = await getComponents()
-  // const allPluginOptions = await getPluginOptions(config)
-  // const wheelroomPluginOptions = allPluginOptions['gatsby-theme-wheelroom']
 
   const context = {
     components,
