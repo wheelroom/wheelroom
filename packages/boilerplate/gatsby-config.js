@@ -2,7 +2,7 @@ packageJson = require('./package.json')
 path = require('path')
 
 module.exports = {
-  __experimentalThemes: [
+  plugins: [
     {
       options: {
         defaultLocale: 'nl',
@@ -10,8 +10,7 @@ module.exports = {
       },
       resolve: `gatsby-theme-wheelroom`,
     },
-  ],
-  plugins: [
+    'gatsby-plugin-offline',
     'gatsby-plugin-typescript',
     'gatsby-plugin-tslint',
     {
