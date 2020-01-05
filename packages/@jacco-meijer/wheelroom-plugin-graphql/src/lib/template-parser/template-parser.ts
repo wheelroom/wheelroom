@@ -19,31 +19,35 @@ export interface TemplatParser {
 export const templateParser = (context: TemplatParser): string => {
   let parsed = context.unparsed
 
-  const myRegexp = /%([^%()]*)(?:\((.*):(.*)\)|)%/g
+  const myRegexp = /%([^(%]+)(?:\(([^)]+)\))?%/g
   let match = myRegexp.exec(context.unparsed)
 
   while (match != null) {
+    const params: { [name: string]: string } = {}
     const fullMatch = match[0]
+    if (match[2]) {
+      const splitted = match[2].split(',')
+      splitted.forEach((fullParam: string) => {
+        const [name, value] = fullParam.split(':')
+        params[name.trim()] = value.trim()
+      })
+    }
     const variableName = match[1]
-    const argName = match[2]
-    const argValue = match[3]
     switch (variableName) {
       case 'componentQuery':
         const variationImportList = componentQuery({
-          argName,
-          argValue,
           component: context.component,
           componentName: context.componentName,
+          params,
         })
         parsed = replaceAll(parsed, fullMatch, variationImportList)
 
         break
       case 'componentFragment':
         const variationList = componentFragment({
-          argName,
-          argValue,
           component: context.component,
           componentName: context.componentName,
+          params,
         })
         parsed = replaceAll(parsed, fullMatch, variationList)
         break

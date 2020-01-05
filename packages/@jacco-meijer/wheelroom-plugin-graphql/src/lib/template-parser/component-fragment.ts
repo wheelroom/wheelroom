@@ -7,35 +7,36 @@ import {
   WheelroomComponent,
   WheelroomField,
 } from '@jacco-meijer/wheelroom'
+import { wheelroomToGraphql } from './wheelroom-to-graphql'
 
 interface ComponentFragment {
-  argName: string
-  argValue: string
+  params: {
+    [name: string]: string
+  }
   component: WheelroomComponent
   componentName: string
 }
 
 export const componentFragment = (context: ComponentFragment) => {
-  let prefix = ''
-  if (context.argName === 'prefix') {
-    prefix = context.argValue
-  }
+  const prefix = context.params.prefix || ''
+  const indentLevel = context.params.indent
+    ? parseInt(context.params.indent, 10)
+    : 0
   const cnCase = getCases(context.componentName)
 
-  // TODO: Add sub fields per field type like e.g. image
   const fields: QbFields = {}
   Object.entries(context.component.fields).forEach(
     ([fieldName, field]: [string, WheelroomField]) => {
-      fields[fieldName] = {}
+      fields[fieldName] = wheelroomToGraphql(fieldName, field)
     }
   )
-
   const queryString = qb({
     fields,
     fragment: {
       name: cnCase.pascalCase,
       on: prefix + cnCase.pascalCase,
     },
+    indentLevel: Math.floor(indentLevel / 2),
   })
 
   return queryString

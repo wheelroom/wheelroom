@@ -12,21 +12,22 @@ const wheelroomTypeToTsType = {
   number: 'number',
   richText: `{\n    %fieldName%: string\n  }`,
   shortText: 'string',
+  singleComponent: 'any',
   tags: 'string[]',
 }
 
 interface ParseReactProps {
   component: WheelroomComponent
   componentName: string
-  argName: string
-  argValue: string
+  params: {
+    [name: string]: string
+  }
 }
 
 export const parseReactProps = (context: ParseReactProps): string => {
-  let indentLevel = 0
-  if (context.argName === 'indent') {
-    indentLevel = parseInt(context.argValue, 10)
-  }
+  const indentLevel = context.params.indent
+    ? parseInt(context.params.indent, 10)
+    : 0
   const indentString = Array(indentLevel + 1).join(' ')
   const reactProps = Object.entries(context.component.fields)
     .map(([fieldName, field]: [string, WheelroomField]) => {

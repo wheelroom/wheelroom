@@ -1,5 +1,4 @@
 export const subPageQueryOutput = `
-export const type = 'createPageQuery'
 export const query = \`
 {
   article: allContentfulArticle(
@@ -16,12 +15,9 @@ export const query = \`
 }
 \``
 export const globalQueryOutput = `
-export const type = 'createPageQuery'
 export const query = \`
 {
-  globals: allContentfulGlobals(
-    limit: 10
-  ) {
+  globals: allContentfulGlobals(limit: 10) {
     edges {
       node {
         id
@@ -32,7 +28,6 @@ export const query = \`
 }
 \``
 export const pageQueryOutput = `
-export const type = 'createPageQuery'
 export const query = \`
 {
   page: allContentfulPage {
@@ -53,9 +48,7 @@ export const fragment = \`
     articleText {
       articleText
     }
-    author
     createdAt
-    date
     image {
       title
       description
@@ -65,10 +58,7 @@ export const fragment = \`
         srcSet
       }
     }
-    slug
-    subTitle
     title
-    updatedAt
   }
 \``
 export const articlesSectionFragmentOutput = `
@@ -83,6 +73,7 @@ export const fragment = \`
       }
     }
     variation
+    title
   }
 \``
 export const featuredPageSectionFragmentOutput = `
@@ -93,10 +84,7 @@ export const fragment = \`
     text {
       text
     }
-    featuredPage {
-      navigationTitle
-      pathName
-    }
+    featuredPage
     image {
       title
       description
@@ -107,6 +95,16 @@ export const fragment = \`
       }
     }
     variation
+    title
   }
-\`
-`
+\``
+
+// TODO: Add fields for singleComponent type
+/**
+ *
+ *     featuredPage {
+ *       navigationTitle
+ *       pathName
+ *     }
+ *
+ */
