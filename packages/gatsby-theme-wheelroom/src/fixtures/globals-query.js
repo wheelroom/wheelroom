@@ -1,14 +1,15 @@
 /**
-* Graphql query definition
-*
-* Query type: global
-* Component: globals
-*
-*/
+ * Graphql query definition
+ *
+ * Query type: global
+ * Component: globals
+ *
+ */
 
-export const componentName = 'globals'
-export const type = 'global'
-export const query = `
+module.exports = {
+  componentName: 'globals',
+  type: 'global',
+  query: `
 {
   globals: allContentfulGlobals {
     edges {
@@ -19,4 +20,5 @@ export const query = `
     }
   }
 }
-`
+`,
+}

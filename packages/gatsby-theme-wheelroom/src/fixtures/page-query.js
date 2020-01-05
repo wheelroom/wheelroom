@@ -1,14 +1,15 @@
 /**
-* Graphql query definition
-*
-* Query type: page
-* Component: page
-*
-*/
+ * Graphql query definition
+ *
+ * Query type: page
+ * Component: page
+ *
+ */
 
-export const componentName = 'page'
-export const type = 'page'
-export const query = `
+module.exports = {
+  componentName: 'page',
+  type: 'page',
+  query: `
 {
   page: allContentfulPage {
     edges {
@@ -21,4 +22,5 @@ export const query = `
     }
   }
 }
-`
+`,
+}
