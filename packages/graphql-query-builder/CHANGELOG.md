@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/jaccomeijer/graphql-query-builder/compare/v1.2.0...v1.2.1) (2020-01-05)
+
+
+### Bug Fixes
+
+* field and arguments order bug ([2d96a27](https://github.com/jaccomeijer/graphql-query-builder/commit/2d96a275ccdb6e452434776e99374f18ffb2eb5d))
+
+
+
 # [1.2.0](https://github.com/jaccomeijer/graphql-query-builder/compare/v1.1.1...v1.2.0) (2020-01-05)
 
 
