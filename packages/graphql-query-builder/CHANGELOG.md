@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/jaccomeijer/graphql-query-builder/compare/v1.1.1...v1.2.0) (2020-01-05)
+
+
+### Features
+
+* add indentLevel ([4e17e60](https://github.com/jaccomeijer/graphql-query-builder/commit/4e17e60123d206b7b0ad43df4d32c8ac165fa3cb))
+
+
+
 ## [1.1.1](https://github.com/jaccomeijer/graphql-query-builder/compare/v1.1.0...v1.1.1) (2020-01-03)
 
 
