@@ -95,14 +95,21 @@ const addFields = (fields: Fields, indentLevel: number): string => {
 export const graphqlQueryBuilder = (question: Question): string => {
   const type = question.operationType ? question.operationType + ' ' : ''
   const name = question.operationName ? question.operationName + ' ' : ''
-
-  const fields = addFields(question.fields, 2)
+  /**
+   * Indent level internally starts at 2
+   * Number of spaces is: (inentLevel - 1) * 2
+   * The reason is because Array(indentLevel).join('  ') is used.
+   * An array with length 1 does not result in a join at all
+   */
+  const indentLevel = question.indentLevel || 0
+  const indentString = Array(indentLevel + 1).join(INDENT_STRING)
+  const fields = addFields(question.fields, indentLevel + 2)
 
   let result: string
   if (question.fragment) {
-    result = `fragment ${question.fragment.name} on ${question.fragment.on} ${fields}`
+    result = `${indentString}fragment ${question.fragment.name} on ${question.fragment.on} ${fields}`
   } else {
-    result = `${type}${name}${fields}`
+    result = `${indentString}${type}${name}${fields}`
   }
 
   return result

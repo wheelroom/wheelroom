@@ -149,12 +149,13 @@ test('Fragment', async () => {
       name: 'Article',
       on: 'ContentfulArticle',
     },
+    indentLevel: 2,
   }
 
-  const graphQL = `fragment Article on ContentfulArticle {
-  firstName
-  lastName
-}`
+  const graphQL = `    fragment Article on ContentfulArticle {
+      firstName
+      lastName
+    }`
 
   expect(qb(question)).toEqual(graphQL)
 })
@@ -174,13 +175,14 @@ test('Operation type, arguments and directive', async () => {
         },
       },
     },
+    indentLevel: 1,
     operationType: 'query',
   }
 
-  const graphQL = `query {
-  firstName(id: 4)
-  lastName @include(if: $withFriends)
-}`
+  const graphQL = `  query {
+    firstName(id: 4)
+    lastName @include(if: $withFriends)
+  }`
 
   expect(qb(question)).toEqual(graphQL)
 })

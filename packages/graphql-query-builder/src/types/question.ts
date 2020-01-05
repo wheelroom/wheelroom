@@ -8,6 +8,8 @@ export interface Question {
     name: string
     on: string
   }
+  /** Number of spaces indent */
+  indentLevel?: number
   operationName?: string
   operationType?: 'query' | 'mutation' | 'subscription'
 }
