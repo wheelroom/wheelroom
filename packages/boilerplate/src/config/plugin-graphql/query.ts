@@ -6,8 +6,11 @@ export const query = `/**
 *
 */
 
-export const componentName = '%componentName%'
-export const type = '%createPageQuery%'
-export const query = \`
-%componentQuery(prefix:allContentful)%
-\``
+
+module.exports = {
+  componentName: '%componentName%',
+  query: \`
+%componentQuery(prefix:allContentful, indent:2)%
+\`,
+  type: '%createPageQuery%',
+}`

@@ -1,4 +1,4 @@
-import { QueryResults } from '../types/contentful'
+import { ContentfulEdge, QueryResults } from '../types/contentful'
 import { NamedPaths } from '../types/named-paths'
 import { getPageContext } from './get-page-context'
 
@@ -13,7 +13,7 @@ interface CreateSubPages {
 export const createSubPages = (context: CreateSubPages) => {
   console.log(`Creating sub pages`)
   Object.entries(context.queryResults.page).forEach(
-    ([componentName, pageEdge]) => {
+    ([componentName, pageEdge]: [string, ContentfulEdge[]]) => {
       pageEdge.forEach(edge => {
         const page = edge.node
         const pageLocale = page.node_locale || context.defaultLocale

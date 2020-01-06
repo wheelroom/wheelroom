@@ -139,6 +139,14 @@ export const configComponents: WheelroomComponents = {
       navigationTitle: {
         required: true,
       },
+      path: {
+        initialContent: '/',
+        required: true,
+      },
+      pathName: {
+        initialContent: 'home',
+        required: true,
+      },
       sections: {
         components: '%pageSectionsArray%',
         helpText: 'Select sections for this page',

@@ -5,5 +5,5 @@ export const fragment = `/**
 */
 
 export const fragment = \`
-%componentFragment(prefix:Contentful)%
+%componentFragment(prefix:Contentful, indent:0)%
 \``

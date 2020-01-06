@@ -1,14 +1,15 @@
+import { ContentfulEdge, QueryResults } from '../types/contentful'
 import { NamedPaths } from '../types/named-paths'
 
 interface BuildNamedPaths {
   /** Results from Contentful query */
-  queryResults: any
+  queryResults: QueryResults
   defaultLocale: string
 }
 export const buildNamedPaths = (context: BuildNamedPaths): NamedPaths => {
-  const namedPaths: NamedPaths = {}
   console.log(`Building named paths`)
-  context.queryResults.page.page.forEach((edge: any) => {
+  const namedPaths: NamedPaths = {}
+  context.queryResults.page.page.forEach((edge: ContentfulEdge) => {
     const page = edge.node
     if (!(page.pathName in namedPaths)) {
       namedPaths[page.pathName] = { path: '' }

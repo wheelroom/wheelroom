@@ -1,4 +1,4 @@
-import { QueryResults } from '../types/contentful'
+import { ContentfulEdge, QueryResult, QueryResults } from '../types/contentful'
 import { Query } from '../types/options'
 
 interface RunQueries {
@@ -7,11 +7,10 @@ interface RunQueries {
 }
 
 export const runQueries = async (context: RunQueries) => {
-  console.log(`Running queries`)
   const queryResults: QueryResults = {
-    global: {},
-    page: {},
-    subPage: {},
+    global: {} as QueryResult,
+    page: {} as QueryResult,
+    subPage: {} as QueryResult,
   }
   await Promise.all(
     context.queries.map(async (query: any) => {
@@ -21,12 +20,17 @@ export const runQueries = async (context: RunQueries) => {
         )
         const result = await context.graphql(query.query)
         if (!result.data) {
+          console.log(`No data received, the result may have errors:`, result)
           throw new Error(
             `Could not find any ${query.componentName} of type ${query.type} at Contentful, please check the model query
             `
           )
         }
-        queryResults[query.type] = result.data[query.componentName].edges
+        const itemCount = result.data[query.componentName].edges.length
+        console.log(`Received ${itemCount} ${query.componentName} edge(s)`)
+        queryResults[query.type][query.componentName] = result.data[
+          query.componentName
+        ].edges as ContentfulEdge[]
       }
     })
   )
