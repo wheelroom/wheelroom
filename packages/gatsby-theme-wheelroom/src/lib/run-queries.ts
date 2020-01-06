@@ -27,7 +27,9 @@ export const runQueries = async (context: RunQueries) => {
           )
         }
         const itemCount = result.data[query.componentName].edges.length
-        console.log(`Received ${itemCount} ${query.componentName} edge(s)`)
+        console.log(
+          `Received ${itemCount} ${query.componentName}/${query.type} edge(s)`
+        )
         queryResults[query.type][query.componentName] = result.data[
           query.componentName
         ].edges as ContentfulEdge[]
