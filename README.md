@@ -42,14 +42,12 @@ See [gatsby-theme-wheelroom](./packages/gatsby-theme-wheelroom/README.md)
 
 ### Wheelroom
 
-Wheelroom is a command line tool that allows for storing components (any
-javascript object) in npm modules and process the objects by plugins.
+Wheelroom is a command line tool for managing content models.
+
+Plugins are used to work with the models. Three plugins have been written:
+
+- [wheelroom-plugin-boilerplate](./packages/@jacco-meijer/wheelroom-plugin-boilerplate/README.md): template parser for generating typescript (React) files
+- [wheelroom-plugin-graphql](./packages/@jacco-meijer/wheelroom-plugin-graphql/README.md): template parser for generating (Gatbsyjs) graphql queries
+- [wheelroom-plugin-contentful](./packages/@jacco-meijer/wheelroom-plugin-contentful/README.md): for creating content models at Contentful
 
 See [@jacco-meijer/wheelroom](./packages/@jacco-meijer/wheelroom/README.md)
-
-### Styled system
-
-This package tries to mimic `styled-system` functionality and can be configured
-to be a drop in replacement.
-
-See [@jacco-meijer/styled-system](./packages/@jacco-meijer/styled-system/README.md)
