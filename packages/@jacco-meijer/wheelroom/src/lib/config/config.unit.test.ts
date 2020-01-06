@@ -12,8 +12,10 @@ import { readConfig } from './read-config'
  *  npm run build:compile
  */
 test('Read config', async () => {
-  const path = getAppDir() + '/dist/fixtures'
-  const configRead = await readConfig(path)
+  const configRead = await readConfig(
+    getAppDir(),
+    'dist/fixtures/wheelroom-config.js'
+  )
   expect(configRead).toStrictEqual(config)
 })
 

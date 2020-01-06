@@ -5,8 +5,9 @@ import { WheelroomConfig } from '../../types/wheelroom-config'
  */
 export const readConfig = async (configPath: string, customTarget?: string) => {
   let config
-  const target =
-    `${configPath}/${customTarget}` || `${configPath}/wheelroom-config.js`
+  const target = customTarget
+    ? `${configPath}/${customTarget}`
+    : `${configPath}/wheelroom-config.js`
   try {
     config = await import(target)
   } catch (error) {
