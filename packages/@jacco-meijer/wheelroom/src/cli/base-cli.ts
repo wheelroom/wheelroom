@@ -4,11 +4,6 @@ import yargs from 'yargs'
 
 const addOptions = (cli: any) => {
   const options = {
-    config: {
-      describe: 'Use specific config',
-      requiresArg: false,
-      type: 'string',
-    },
     filter: {
       alias: 'f',
       describe: 'Filter by componentType',
@@ -36,4 +31,5 @@ export const baseCli = (argv: string[]) => {
     .strict()
     .alias('h', 'help')
     .alias('v', 'version')
+    .wrap(yargs.terminalWidth())
 }
