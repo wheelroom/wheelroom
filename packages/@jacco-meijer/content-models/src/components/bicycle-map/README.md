@@ -1,3 +1,0 @@
-## BicycleMap
-
-Wheelroom type: block

@@ -1,23 +1,28 @@
-import { Context } from '../types/context'
-import { getDefaultLocale, getLocale } from './locales'
+import { ContentfulEdge, QueryResults } from '../types/contentful'
+import { NamedPaths } from '../types/named-paths'
 
-export const buildNamedPaths = (context: Context) => {
+interface BuildNamedPaths {
+  /** Results from Contentful query */
+  queryResults: QueryResults
+  defaultLocale: string
+}
+export const buildNamedPaths = (context: BuildNamedPaths): NamedPaths => {
   console.log(`Building named paths`)
-  context.queries.page.page.forEach((edge: any) => {
+  const namedPaths: NamedPaths = {}
+  context.queryResults.page.page.forEach((edge: ContentfulEdge) => {
     const page = edge.node
-    if (!(page.pathName in context.namedPaths)) {
-      context.namedPaths[page.pathName] = { path: '' }
+    if (!(page.pathName in namedPaths)) {
+      namedPaths[page.pathName] = { path: '' }
     }
-    context.namedPaths[page.pathName].path = page.path
-    const locale = getLocale(page)
+    namedPaths[page.pathName].path = page.path
+    const locale = page.node_locale
     const localizedBasePath =
-      locale === getDefaultLocale(context)
-        ? page.path
-        : '/' + locale + page.path
+      locale === context.defaultLocale ? page.path : '/' + locale + page.path
 
     // Strip trailing slashes
-    context.namedPaths[page.pathName][
-      locale
-    ] = localizedBasePath.toLowerCase().replace(/(.)\/$/, '$1')
+    namedPaths[page.pathName][locale] = localizedBasePath
+      .toLowerCase()
+      .replace(/(.)\/$/, '$1')
   })
+  return namedPaths
 }

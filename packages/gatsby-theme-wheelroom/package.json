@@ -16,13 +16,13 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/wheelroom": "^2.1.1"
+    "@jacco-meijer/wheelroom": "^3.0.0"
   },
   "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
-    "@types/jest": "24.0.23",
-    "@types/node": "12.12.14",
-    "@types/react": "16.9.15",
+    "@types/jest": "24.0.25",
+    "@types/node": "13.1.4",
+    "@types/react": "16.9.17",
     "@types/react-dom": "16.9.4",
     "jest": "24.9.0",
     "npm-install-peers": "1.2.1",
@@ -32,12 +32,12 @@
     "tslint": "5.20.1",
     "tslint-config-prettier": "1.18.0",
     "tslint-loader": "3.5.4",
-    "tslint-plugin-prettier": "2.0.1",
+    "tslint-plugin-prettier": "2.1.0",
     "tslint-react": "4.1.0",
-    "typescript": "3.7.3"
+    "typescript": "3.7.4"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=13.2.0"
   },
   "files": [
     "gatsby-config.*",
@@ -61,7 +61,6 @@
   "peerDependencies": {
     "dotenv": "8.x",
     "gatsby": "2.x",
-    "gatsby-plugin-offline": "3.x",
     "gatsby-source-contentful": "2.x",
     "react": "16.x",
     "react-dom": "16.x"
@@ -71,10 +70,10 @@
     "install-peers": "npm-install-peers",
     "build:clean": "rm -f ./gatsby-config.* ./gatsby-node.*",
     "build:lint": "tslint --project tsconfig.json",
-    "build:test": "jest",
     "build:compile": "tsc",
     "prepack": "npm run build"
   },
-  "version": "2.0.2",
+  "type": "commonjs",
+  "version": "3.0.0",
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
 }

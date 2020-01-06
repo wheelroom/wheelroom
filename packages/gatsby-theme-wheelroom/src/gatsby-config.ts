@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv'
+import dotenv from 'dotenv'
 
 // Load environment from .env in development mode
 if (process.env.NODE_ENV === 'development') {
@@ -21,7 +21,6 @@ if (!cfConfig.spaceId || !cfConfig.accessToken) {
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-offline',
     {
       options: cfConfig,
       resolve: 'gatsby-source-contentful',

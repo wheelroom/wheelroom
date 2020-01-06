@@ -1,14 +1,12 @@
-import { fieldFilter } from '../lib/field-filter'
+import { ContentfulField } from '../types/contentful-fields'
 import { Context } from '../types/context'
-import { Field } from '../types/model'
-import { defaultVariations } from './defaults'
 
 const demoEntryPostfix = 'DemoEntry'
 
-export const getFields = (context: Context) => {
-  Object.entries(context.currentModel.model.fields)
-    .filter(fieldFilter(context.currentModel.modelOptions))
-    .forEach(([fieldId, field]: [string, Field]) => {
+export const getFields = (context: Context, componentName: string) => {
+  const component = context.contentfulComponents[componentName]
+  Object.entries(component.fields).forEach(
+    ([fieldId, field]: [string, ContentfulField]) => {
       if (!field.initialContent && field.specs.required) {
         console.log(`Field ${fieldId} is required but has no initialContent`)
       }
@@ -27,22 +25,14 @@ export const getFields = (context: Context) => {
           break
 
         case 'Array':
-          const modelOptions = context.currentModel.modelOptions
           const arrayItems = field.specs.items || ({} as any)
-          const initialContent =
-            field.initialContent === 'initialPageSection' &&
-            modelOptions &&
-            modelOptions.initialPageSection
-              ? modelOptions.initialPageSection
-              : field.initialContent
-
           switch (arrayItems.type) {
             case 'Link':
               context.contentfulApi.fields[fieldId] = {
                 [context.pluginOptions.defaultLocale]: [
                   {
                     sys: {
-                      id: initialContent + demoEntryPostfix,
+                      id: field.initialContent + demoEntryPostfix,
                       linkType: 'Entry',
                       type: 'Link',
                     },
@@ -117,41 +107,19 @@ export const getFields = (context: Context) => {
         default:
           break
       }
-    })
-}
-
-/** If custom variations are defined, set demo content to first variation */
-export const applyVariationField = (context: Context) => {
-  let variations
-  const modelOptions = context.currentModel.modelOptions
-  if (
-    modelOptions &&
-    modelOptions.variations &&
-    modelOptions.variations.length > 0
-  ) {
-    variations = modelOptions.variations[0]
-  } else {
-    variations = defaultVariations[0]
-  }
-
-  if ('variation' in context.contentfulApi.fields) {
-    context.contentfulApi.fields.variation = {
-      [context.pluginOptions.defaultLocale]: variations,
     }
-  }
+  )
 }
 
-export const getEntry = async (context: Context) => {
+export const getEntry = async (context: Context, componentName: string) => {
+  const component = context.contentfulComponents[componentName]
   console.log(`Getting entry`)
   try {
     context.contentfulApi.entry = await context.contentfulApi.environment.getEntry(
-      context.currentModel.model.type + demoEntryPostfix
+      component.type + demoEntryPostfix
     )
   } catch (error) {
-    console.log(
-      `Could not find entry ${context.currentModel.model.type +
-        demoEntryPostfix}`
-    )
+    console.log(`Could not find entry ${component.type + demoEntryPostfix}`)
     context.contentfulApi.entry = null
   }
 }
@@ -166,14 +134,15 @@ export const updateEntry = async (context: Context) => {
   context.contentfulApi.entry = await context.contentfulApi.entry.update()
 }
 
-export const createEntry = async (context: Context) => {
+export const createEntry = async (context: Context, componentName: string) => {
+  const component = context.contentfulComponents[componentName]
   if (context.contentfulApi.entry) {
     return
   }
   console.log(`Creating new entry`)
   context.contentfulApi.entry = await context.contentfulApi.environment.createEntryWithId(
-    context.currentModel.model.type,
-    context.currentModel.model.type + demoEntryPostfix,
+    component.type,
+    component.type + demoEntryPostfix,
     {
       fields: context.contentfulApi.fields,
     }

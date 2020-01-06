@@ -2,9 +2,7 @@
 
 Example repo on how to use `@jacco-meijer/wheelroom` and `gatsby-theme-wheelroom`
 
-## Setup
-
-Now, how to get this all running?
+## Getting started
 
 Copy the boilerplate code into a new folder and open a terminal in that folder.
 
@@ -25,8 +23,6 @@ Contentful web ui. To obtain the `CONTENTFUL_CMA_TOKEN`, you need to install the
 npm install -g contentful-cli
 ```
 
-Then run:
-
 ```
 contentful login
 ```
@@ -39,11 +35,10 @@ Set the `defaultLocale` option in:
 - [wheelroom-config.js](wheelroom-config.js) for the
   `@jacco-meijer/wheelroom-plugin-contentful` plugin
 
-Compile the local packages from typescript to javascript, this will make the
-`dist:templates` and `dist:component-configs` resolve options work.
+Compile the config from typescript to javascript:
 
 ```
-npm run build:packages
+npm run compile-config
 ```
 
 Wheelroom can now list the available objects:
@@ -84,7 +79,7 @@ Using the `globalsId` key in the same query gives you access to the site Globals
 
 To illustrate this, the query in the `page-template.tsx` can be changed into:
 
-```
+```graphql
   query($pageId: String, $globalsId: String) {
     site {
       siteMetadata {
@@ -110,11 +105,6 @@ To illustrate this, the query in the `page-template.tsx` can be changed into:
   }
 ```
 
-Note the GraphQL fragments. They start with ... and refer to the fragments we
-created a few steps back. The
-[jaccomeijer-nl](https://github.com/jaccomeijer/jaccomeijer-nl) site contains a
-full example on what is possible here.
-
 If you look at the props passed to `PageTemplate` you see the `globals` in the
 `data` prop and the `articleSection` as an item in the `data.page.sections`
 array.
@@ -122,37 +112,14 @@ array.
 This is because `initialPageSection` is set to `articleSection` in
 `wheelroom-config.js`.
 
-Finally, this is how you create new components. A component has two parts:
 
-- a Config part that defines the Contentful model and the required GraphQL
-- a Component part that defines the React component.
-
-To create a new component config in `src/packages/component-configs` use:
-
+### Create graphql for components
 ```
-npm run wr:new-config
+npm run wr:cg
 ```
 
-**Note:** Adding anything to `src/packages` requires you to run `npm run
-build:packages` in order to make it available to wheelroom.
-
-To create a new React component in `src/components` from the existing component
-configs use:
-
+### Create boilerplate for components
 ```
-npm run wr:new-components
+npm run wr:cb
 ```
 
-**Note:** The `--filter <componentName>` flag can be used for all commands to
-limit the command to one component.
-
-Template sets can be customized, they are defined in
-[wheelroom-template-sets.js](wheelroom-template-sets.js). The template sets are
-simple functions that are passed one parameter `vars`, as defined in
-[src/packages/templates/types/vars.ts](src/packages/templates/types/vars.ts).
-
-The template returns a template literal that gets written to file. If nothing
-is returned, the file does not get written.
-
-Questions sets can also be configured. They are in
-[wheelroom-question-sets.js](wheelroom-question-sets.js).

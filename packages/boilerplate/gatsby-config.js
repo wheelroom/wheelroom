@@ -1,17 +1,21 @@
 packageJson = require('./package.json')
 path = require('path')
 
+const articleQuery = require('./src/graphql/article-query')
+const globalsQuery = require('./src/graphql/globals-query')
+const pageQuery = require('./src/graphql/page-query')
+
 module.exports = {
-  __experimentalThemes: [
+  plugins: [
     {
       options: {
         defaultLocale: 'nl',
         pageTemplate: path.resolve('./src/page-template.tsx'),
+        queries: [articleQuery, globalsQuery, pageQuery],
       },
       resolve: `gatsby-theme-wheelroom`,
     },
-  ],
-  plugins: [
+    'gatsby-plugin-offline',
     'gatsby-plugin-typescript',
     'gatsby-plugin-tslint',
     {

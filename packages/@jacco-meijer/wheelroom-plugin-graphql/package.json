@@ -1,0 +1,77 @@
+{
+  "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+  },
+  "dependencies": {
+    "@jacco-meijer/graphql-query-builder": "1.2.1",
+    "@jacco-meijer/wheelroom": "^3.0.0",
+    "inquirer": "7.0.2",
+    "yargs": "15.1.0"
+  },
+  "description": "Site framework based on Contentful and Gatsby",
+  "devDependencies": {
+    "@types/fs-extra": "8.0.1",
+    "@types/inquirer": "6.5.0",
+    "@types/jest": "24.0.25",
+    "@types/node": "13.1.4",
+    "@types/yargs": "13.0.4",
+    "fs-extra": "8.1.0",
+    "jest": "24.9.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "1.19.1",
+    "ts-jest": "24.2.0",
+    "tslint": "5.20.1",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-loader": "3.5.4",
+    "tslint-plugin-prettier": "2.1.0",
+    "tslint-react": "4.1.0",
+    "typescript": "3.7.4"
+  },
+  "engines": {
+    "node": ">=13.2.0"
+  },
+  "files": [
+    "assets/*",
+    "dist/*"
+  ],
+  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
+  "keywords": [
+    "gatsby",
+    "wheelroom"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@jacco-meijer/wheelroom-plugin-graphql",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+  },
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:clean": "rm -rf ./dist",
+    "build:lint": "tslint --project tsconfig.json",
+    "build:compile": "tsc",
+    "build:test": "jest --silent",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
+  },
+  "type": "commonjs",
+  "types": "dist/index.d.ts",
+  "version": "2.0.0"
+}

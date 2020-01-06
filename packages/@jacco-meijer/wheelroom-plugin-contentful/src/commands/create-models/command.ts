@@ -5,7 +5,7 @@ export const command = {
   aliases: ['cm'],
   command: 'create-models',
   describe: 'Create or update configured models',
-  handler: (argv: Argv) => {
-    handler(argv)
+  handler: async (argv: Argv) => {
+    await handler(argv)
   },
 }

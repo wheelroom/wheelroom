@@ -1,24 +1,28 @@
-import { Components } from '@jacco-meijer/wheelroom'
-import { CurrentModel } from './current-model'
+import { WheelroomComponents } from '@jacco-meijer/wheelroom'
+import { ContentfulComponents } from './contentful-components'
 
 export interface Context {
+  commandLineOptions: {
+    /** Non interactive mode, answers yes to all questions */
+    yes?: boolean
+  }
   contentfulApi: {
     /** Contentful Management Client */
-    contentfulClient: any
+    contentfulClient?: any
     /** Contentful asset object */
-    asset: any
+    asset?: any
     /** Contentful contentType object */
-    contentType: any
+    contentType?: any
     /** Contentful editorInterface object */
-    editorInterface: any
+    editorInterface?: any
     /** Contentful environment object */
-    environment: any
+    environment?: any
     /** Contentful demo entry */
-    entry: any
+    entry?: any
     /** Contentful field data for demo entry */
     fields: any
     /** Contentful space object */
-    space: any
+    space?: any
     /** Contentful upload object */
     upload?: any
   }
@@ -27,7 +31,7 @@ export interface Context {
     defaultLocale: string
   }
   /** Wheelroom components */
-  components: Components
-  /** Current model being applied */
-  currentModel: CurrentModel
+  wheelroomComponents: WheelroomComponents
+  /** Contentful components */
+  contentfulComponents: ContentfulComponents
 }

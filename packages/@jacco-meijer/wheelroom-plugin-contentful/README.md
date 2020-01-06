@@ -2,12 +2,6 @@
 
 This is a plugin for the `wheelroom` package.
 
-## Model
-
-This plugin requires a specific wheelroom component structure. It expects the
-`model` key in the wheelroom component object. The model itself is defined in
-[./src/types/model.ts](./src/types/model.ts)
-
 ## Contentful API keys
 
 The plugin uses the Contentful management API to create models and content.  For
@@ -47,7 +41,7 @@ wheelroom delete-content [options]
 
 The plugin is configured by adding it to `wheelroom-config.js`
 
-```
+```javascript
 module.exports = {
   components: {
       ...
@@ -57,6 +51,7 @@ module.exports = {
       resolve: '@jacco-meijer/wheelroom-plugin-contentful',
       options: {
         defaultLocale: 'nl',
+        fieldDefinitions: contentfulFieldDefinitions,
       },
     },
   ],

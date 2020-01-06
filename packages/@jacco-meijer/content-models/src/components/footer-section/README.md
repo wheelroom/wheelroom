@@ -1,3 +1,0 @@
-## FooterSection
-
-Wheelroom type: section

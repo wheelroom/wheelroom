@@ -1,34 +1,49 @@
-import { ContentfulObject, GetPageContext, PageContext } from '../types/context'
-import { getLocale } from './locales'
+import {
+  ContentfulEdge,
+  ContentfulNode,
+  QueryResults,
+} from '../types/contentful'
+import { NamedPaths } from '../types/named-paths'
 
-export const getPageContext = ({
-  context,
-  page,
-  subPage,
-  pageType,
-}: GetPageContext): PageContext => {
-  const pageContext = {
-    locale: getLocale(page),
+interface GetPageContext {
+  locale: string
+  namedPaths: NamedPaths
+  page: ContentfulNode
+  subPage?: ContentfulEdge
+  componentName: string
+  queryResults: QueryResults
+}
+
+interface PageContext {
+  locale: string
+  namedPaths: NamedPaths
+  [componentTypeIdKey: string]: string | NamedPaths
+}
+
+export const getPageContext = (context: GetPageContext): PageContext => {
+  const pageContext: PageContext = {
+    locale: context.locale,
     namedPaths: context.namedPaths,
-  } as PageContext
-
+  }
   // Add global ids
-  if (Object.keys(context.queries.global).length > 0) {
-    Object.entries(context.queries.global).forEach(([globalsName, globals]) => {
-      globals.forEach((globalsItem: ContentfulObject) => {
-        const globalsLocale = globalsItem.node.node_locale
-        if (globalsLocale === getLocale(page)) {
-          pageContext[globalsName + 'Id'] = globalsItem.node.id
-        }
-      })
-    })
+  if (Object.keys(context.queryResults.global).length > 0) {
+    Object.entries(context.queryResults.global).forEach(
+      ([globalsName, globals]) => {
+        globals.forEach((globalsItem: ContentfulEdge) => {
+          const globalsLocale = globalsItem.node.node_locale
+          if (globalsLocale === context.page.node_locale) {
+            pageContext[globalsName + 'Id'] = globalsItem.node.id
+          }
+        })
+      }
+    )
   }
   // Add page id
-  pageContext[pageType + 'Id'] = page.id
+  pageContext[context.componentName + 'Id'] = context.page.id
 
   // Add subPage id
-  if (subPage) {
-    pageContext[page.pathName + 'Id'] = subPage.node.id
+  if (context.subPage) {
+    pageContext[context.page.pathName + 'Id'] = context.subPage.node.id
   }
   return pageContext
 }

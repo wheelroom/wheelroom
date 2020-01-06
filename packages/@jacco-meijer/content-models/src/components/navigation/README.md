@@ -1,3 +1,0 @@
-## Navigation
-
-Wheelroom type: part

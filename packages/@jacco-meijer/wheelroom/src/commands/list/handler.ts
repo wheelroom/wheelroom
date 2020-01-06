@@ -1,15 +1,25 @@
-import { getFilteredComponents } from '../../lib/get-filtered-components'
-import { Component } from '../../types/components'
+import { WheelroomComponent } from '../../types/wheelroom-components'
+import { getFilteredComponents } from './get-filtered-components'
 
 export const handler = async (argv: any) => {
   const components = getFilteredComponents(argv)
-
+  let fields
   Object.entries(components).forEach(
-    ([componentName, component]: [string, Component]) => {
+    ([componentName, component]: [string, WheelroomComponent]) => {
+      fields = Object.keys(component.fields)
+        .map((key: string) => {
+          return key
+        })
+        .join('/')
       console.log(`============================
-  Component name: ${componentName}
-  Source module:  ${component.sourceModule}
-  Options:        ${component.options}
+  Component:              ${componentName}
+  Fields:                 ${fields}
+  title initial content:  ${component.fields.title.initialContent}
+  gQL createPageQuery:    ${component.graphQL.createPageQuery}
+  gQL page section:       ${component.graphQL.pageSection ? 'Yes' : 'No'}
+  gQL fragment:           ${component.graphQL.fragment ? 'Yes' : 'No'}
+  gQL limit:              ${component.graphQL.limit || 'not present'}
+  modelVersion:           ${component.modelVersion}
 `)
     }
   )

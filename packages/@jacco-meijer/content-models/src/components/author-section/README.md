@@ -1,3 +1,0 @@
-## AuthorSection
-
-Wheelroom type: section

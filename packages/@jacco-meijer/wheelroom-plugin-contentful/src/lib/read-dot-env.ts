@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv'
+import dotenv from 'dotenv'
 
 export const readDotEnv = () => {
   const dotEnvResult = dotenv.config()
