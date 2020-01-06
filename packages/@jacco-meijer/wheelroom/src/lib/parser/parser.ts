@@ -1,5 +1,9 @@
 /**
  *
+ * Component variables
+ * ===================
+ * - %componentHtmlAttributes%
+ *
  * Name variables
  * ==============
  * - %Component name%
@@ -27,11 +31,13 @@
  *
  */
 
-import { GraphQL } from '../../types/wheelroom-components'
+import { GraphQL, WheelroomComponent } from '../../types/wheelroom-components'
+import { WheelroomField } from '../../types/wheelroom-fields'
 import { replaceAll } from './case-helpers'
 import { getCases } from './get-cases'
 
 interface Parser {
+  component?: WheelroomComponent
   componentName: string
   fieldName?: string
   fieldType?: string
@@ -43,37 +49,49 @@ interface Parser {
 export const parser = (context: Parser): string => {
   let parsed: string | string[] = context.unparsed
 
-  const component = getCases(context.componentName)
-  parsed = replaceAll(parsed, '%Component name%', component.sentenceCase)
-  parsed = replaceAll(parsed, '%component name%', component.lowerCase)
-  parsed = replaceAll(parsed, '%ComponentName%', component.pascalCase)
-  parsed = replaceAll(parsed, '%componentName%', component.camelCase)
-  parsed = replaceAll(parsed, '%component-name%', component.kebabCase)
+  const cnCase = getCases(context.componentName)
+  parsed = replaceAll(parsed, '%Component name%', cnCase.sentenceCase)
+  parsed = replaceAll(parsed, '%component name%', cnCase.lowerCase)
+  parsed = replaceAll(parsed, '%ComponentName%', cnCase.pascalCase)
+  parsed = replaceAll(parsed, '%componentName%', cnCase.camelCase)
+  parsed = replaceAll(parsed, '%component-name%', cnCase.kebabCase)
 
   if (context.fieldName) {
-    const field = getCases(context.fieldName)
-    parsed = replaceAll(parsed, '%Field name%', field.sentenceCase)
-    parsed = replaceAll(parsed, '%field name%', field.lowerCase)
-    parsed = replaceAll(parsed, '%FieldName%', field.pascalCase)
-    parsed = replaceAll(parsed, '%fieldName%', field.camelCase)
-    parsed = replaceAll(parsed, '%field-name%', field.kebabCase)
+    const fCase = getCases(context.fieldName)
+    parsed = replaceAll(parsed, '%Field name%', fCase.sentenceCase)
+    parsed = replaceAll(parsed, '%field name%', fCase.lowerCase)
+    parsed = replaceAll(parsed, '%FieldName%', fCase.pascalCase)
+    parsed = replaceAll(parsed, '%fieldName%', fCase.camelCase)
+    parsed = replaceAll(parsed, '%field-name%', fCase.kebabCase)
   }
 
   if (context.fieldType) {
-    const type = getCases(context.fieldType)
-    parsed = replaceAll(parsed, '%Field type%', type.sentenceCase)
-    parsed = replaceAll(parsed, '%field type%', type.lowerCase)
-    parsed = replaceAll(parsed, '%FieldType%', type.pascalCase)
-    parsed = replaceAll(parsed, '%fieldType%', type.camelCase)
-    parsed = replaceAll(parsed, '%field-type%', type.kebabCase)
+    const tCase = getCases(context.fieldType)
+    parsed = replaceAll(parsed, '%Field type%', tCase.sentenceCase)
+    parsed = replaceAll(parsed, '%field type%', tCase.lowerCase)
+    parsed = replaceAll(parsed, '%FieldType%', tCase.pascalCase)
+    parsed = replaceAll(parsed, '%fieldType%', tCase.camelCase)
+    parsed = replaceAll(parsed, '%field-type%', tCase.kebabCase)
   }
 
+  // Parse %createPageQuery%
   if (context.graphQL) {
     parsed = replaceAll(
       parsed,
       '%createPageQuery%',
       context.graphQL.createPageQuery || 'not-found'
     )
+  }
+
+  // Parse %componentHtmlAttributes%
+  if (context.component) {
+    const htmlAttributes = Object.entries(context.component.fields)
+      .map(
+        ([fieldName, field]: [string, WheelroomField]) =>
+          `${fieldName}="${field.initialContent}"`
+      )
+      .join(' ')
+    parsed = replaceAll(parsed, '%componentHtmlAttributes%', htmlAttributes)
   }
 
   if (context.pageSectionsArray) {
