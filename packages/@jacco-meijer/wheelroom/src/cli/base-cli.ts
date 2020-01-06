@@ -4,6 +4,11 @@ import yargs from 'yargs'
 
 const addOptions = (cli: any) => {
   const options = {
+    config: {
+      describe: 'Use specific config',
+      requiresArg: false,
+      type: 'string',
+    },
     filter: {
       alias: 'f',
       describe: 'Filter by componentType',
@@ -12,7 +17,7 @@ const addOptions = (cli: any) => {
     },
     yes: {
       alias: 'y',
-      describe: 'Run without user input, answer yes to all questions',
+      describe: 'Answer yes to all questions',
       requiresArg: false,
       type: 'boolean',
     },

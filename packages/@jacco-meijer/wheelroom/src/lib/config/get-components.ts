@@ -4,14 +4,9 @@ import {
 } from '../../types/wheelroom-components'
 import { WheelroomConfig } from '../../types/wheelroom-config'
 import { WheelroomField } from '../../types/wheelroom-fields'
-import { getAppDir } from '../get-app-dir'
 import { parser } from '../parser/parser'
-import { readConfig } from './read-config'
 
-export const getComponents = async (wheelroomConfig?: WheelroomConfig) => {
-  if (!wheelroomConfig) {
-    wheelroomConfig = await readConfig(getAppDir())
-  }
+export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
   if (
     !('components' in wheelroomConfig) ||
     typeof wheelroomConfig.components !== 'object'

@@ -3,14 +3,19 @@ import { WheelroomConfig } from '../../types/wheelroom-config'
 /**
  * Read wheelroom-config.js from a given path
  */
-export const readConfig = async (configPath: string) => {
+export const readConfig = async (configPath: string, customTarget?: string) => {
   let config
-  const target = `${configPath}/wheelroom-config.js`
+  const target = customTarget || `${configPath}/wheelroom-config.js`
   try {
     config = await import(target)
   } catch (error) {
-    console.log(`Could not load and parse: ${target}`)
-    console.log(error)
+    if (error.code === 'MODULE_NOT_FOUND') {
+      console.log(`Could not find module: ${target}`)
+    } else {
+      // In case of a parser error, print full error
+      console.log(error)
+    }
+    return
   }
   return config.config as WheelroomConfig
 }

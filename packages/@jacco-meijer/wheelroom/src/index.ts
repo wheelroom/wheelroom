@@ -1,7 +1,4 @@
 export * from './commands/list/get-filtered-components'
-export * from './lib/config/get-commands'
-export * from './lib/config/get-components'
-export * from './lib/config/get-plugin-options'
 export * from './lib/parser/case-helpers'
 export * from './lib/parser/get-cases'
 export * from './lib/parser/parser'

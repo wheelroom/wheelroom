@@ -10,7 +10,11 @@ import { baseCli } from './base-cli'
 
 const main = async (argv: string[]) => {
   const cli = baseCli(argv)
-  const config = await readConfig(getAppDir())
+  const config = await readConfig(getAppDir(), process.env.WHEELROOM_CONFIG)
+  if (!config) {
+    console.log('Aborting beacuse of config not found')
+    return
+  }
   const components = await getComponents(config)
   const commands = await getCommands(config)
   const options = getPluginOptions(config)
