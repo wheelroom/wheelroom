@@ -13,6 +13,8 @@ export const getModule = async (moduleResolve: string) => {
 
   /**
    *
+   * NOTE ON TYPE = MODULE IN PACKAGE.JSON
+   *
    * Using only module name looks up module in the wheelroom package
    * node_modules folder, while the loopup should be in the boilerplate
    * node_modules folder. Using the app dir solves this but requires us to point
@@ -20,8 +22,8 @@ export const getModule = async (moduleResolve: string) => {
    *
    */
   const moduleDir = localModulePath
-    ? `${getAppDir()}/${localModulePath}/${moduleName}/dist/index.js`
-    : `${getAppDir()}/node_modules/${moduleName}/dist/index.js`
+    ? `${getAppDir()}/${localModulePath}/${moduleName}`
+    : `${getAppDir()}/node_modules/${moduleName}`
 
   try {
     const module = await import(moduleDir)

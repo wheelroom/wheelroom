@@ -8,3 +8,4 @@ logs
 node_modules/
 npm-debug.log*
 public
+/compiled-config
