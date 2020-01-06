@@ -62,6 +62,7 @@ const getFileListForComponent = (
     })
 
     unparsed = parser({
+      component: context.wheelroomComponent,
       componentName,
       unparsed,
     })
