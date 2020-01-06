@@ -10,7 +10,7 @@ Plugins are used to work with the models. Three plugins have been written:
 
 Content models are defined in javascript like this.
 
-```json
+```javascript
 article: {
   fields: {
     articleText: {
