@@ -1,14 +1,10 @@
 {
   "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
-  "dependencies": {
-  },
   "description": "Deprecated",
-  "devDependencies": {
-  },
   "name": "@jacco-meijer/wheelroom-plugin-templates",
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.2",
+  "version": "2.0.0",
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
 }

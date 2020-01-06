@@ -1,14 +1,10 @@
 {
   "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
-  "dependencies": {
-  },
   "description": "Deprecated",
-  "devDependencies": {
-  },
   "name": "@jacco-meijer/content-models",
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.0.0",
+  "version": "4.0.0",
   "gitHead": "d86fdb5d1e21ed982456d83f1b1a4c9d073463a3"
 }

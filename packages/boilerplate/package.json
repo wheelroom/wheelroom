@@ -7,12 +7,12 @@
     "@contentful/rich-text-react-renderer": "13.4.0",
     "@contentful/rich-text-types": "13.4.0",
     "@emotion/core": "10.0.22",
-    "@jacco-meijer/content-models": "3.0.0",
+    "@jacco-meijer/content-models": "^4.0.0",
     "@jacco-meijer/styled-system": "3.0.3",
-    "@jacco-meijer/wheelroom": "2.1.1",
-    "@jacco-meijer/wheelroom-plugin-boilerplate": "1.0.2",
-    "@jacco-meijer/wheelroom-plugin-contentful": "1.1.2",
-    "@jacco-meijer/wheelroom-plugin-graphql": "1.0.2",
+    "@jacco-meijer/wheelroom": "^3.0.0",
+    "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.0.0",
+    "@jacco-meijer/wheelroom-plugin-contentful": "^2.0.0",
+    "@jacco-meijer/wheelroom-plugin-graphql": "^2.0.0",
     "camelcase": "5.3.1",
     "dotenv": "8.2.0",
     "emotion-theming": "10.0.19",
@@ -25,7 +25,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.1.71",
     "gatsby-source-filesystem": "2.1.42",
-    "gatsby-theme-wheelroom": "2.0.2",
+    "gatsby-theme-wheelroom": "^3.0.0",
     "gatsby-transformer-json": "2.2.22",
     "react": "16.12.0",
     "react-dom": "16.12.0",
@@ -83,5 +83,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "3.0.0"
+  "version": "4.0.0"
 }
