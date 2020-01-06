@@ -4,5 +4,6 @@
 
 Functionality moved into:
 
-- `@jacco-meijer/wheelroom-plugin-boilerplate` and
-- `@jacco-meijer/wheelroom-plugin-graphql`
+- [@jacco-meijer/wheelroom-plugin-contentful](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-contentful)
+- [@jacco-meijer/wheelroom-plugin-boilerplate](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-boilerplate)
+- [@jacco-meijer/wheelroom-plugin-graphql](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-graphql)

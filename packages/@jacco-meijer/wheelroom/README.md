@@ -1,94 +1,31 @@
 # @jacco-meijer/wheelroom
 
-Wheelroom is a command line tool that allows for storing components (any
-javascript object) in npm modules and process the objects by plugins.
+Wheelroom is a command line tool for managing content models.
 
-Say your components are data models, you could then e.g.
+Plugins are used to work with the models. Three plugins have been written:
 
-- generate boilerplate code from the component data or
-- use the component data to initialize a headless CMS
+- wheelroom-plugin-boilerplate: template parser for generating typescript (React) files
+- wheelroom-plugin-graphql: template parser for generating (Gatbsyjs) graphql queries
+- wheelroom-plugin-contentful: for creating content models at Contentful
 
-These examples are not random, it's the two plugins that actually exist:
+Content models are defined in javascript like this.
 
-- wheelroom-plugin-templates
-- wheelroom-plugin-contentful
-
-## Commands
-
-Wheelroom itself has only one command that lists the configured components.
-
-```
-wheelroom list
-```
-
-Other commands are added through plugins.
-
-## Components
-
-Components are resolved from the **resolve** property. The
-`defaultComponentResolve` property serves as default. The resolved module is
-expected to export a **component** object. The keys of the object are the
-componentName. The values contain the component data.
-
-## Plugins
-
-Plugins define their own set of commands. Running `wheelroom --help` shows all
-the configured commands available.
-
-Plugins are resolved from the **resolve** property. The module is expected to
-export a **commands** array. The items of the array are command modules for the
-npm `yargs` module. See `yargs` documentation for more information.
-
-## Config
-
-Wheelroom is configure by defining a `wheelroom-config.js` like this:
-
-```
-module.exports = {
-  defaultComponentResolve: `@jacco-meijer/content-models`,
-  components: {
-    article: {},
-    articleSection: {
-      options: {
-        localizedFields: ['articleText'],
-        variations: ['var 1', 'var 2'],
-      },
+```json
+article: {
+  fields: {
+    articleText: {
+      type: 'richText',
     },
-    globals: {
-      resolve: '@jacco-meijer/content-models',
-      options: {
-        skipFields: ['githubUrl', 'linkedinUrl']
-      },
+    author: {
+      required: true,
     },
-    page: {
-      resolve: `@jacco-meijer/content-models`,
-      options: {
-        initialPageSection: 'articleSection',
-      },
+    createdAt: {
+      system: true,
+      type: 'date',
     },
-  },
-  plugins: [
-    {
-      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
-      options: {
-        defaultLocale: 'nl',
-      },
-    },
-    {
-      resolve: '@jacco-meijer/wheelroom-plugin-templates',
-      options: {
-        defaultTemplateResolve: `dist:templates`,
-        templateSets: templateSets,
-        questionSets: questionSets,
-      },
-    },
-    {
-      resolve: 'gatsby-theme-wheelroom',
-      options: {
-        defaultLocale: 'nl',
-      },
-    },
-  ],
+  }
 }
-
 ```
+
+Wheelroom allows for common fields and field defaults.
+
