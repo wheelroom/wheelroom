@@ -9,3 +9,6 @@ node_modules/
 npm-debug.log*
 public
 /compiled-config
+/src/components
+!/src/components/section-props.ts
+/src/graphql
