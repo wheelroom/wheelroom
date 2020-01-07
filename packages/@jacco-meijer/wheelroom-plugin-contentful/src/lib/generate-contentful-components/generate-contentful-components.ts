@@ -1,7 +1,7 @@
 import {
+  FieldType,
   WheelroomComponent,
   WheelroomComponents,
-  WheelroomField,
 } from '@jacco-meijer/wheelroom'
 import { getCases } from '@jacco-meijer/wheelroom'
 import {
@@ -24,7 +24,7 @@ export const generateContentfulComponents = (
       const fields: ContentfulFields = {}
       // For each component, loop through all configured wheelroom fields
       Object.entries(wheelroomComponent.fields).forEach(
-        ([fieldName, fieldValue]: [string, WheelroomField]) => {
+        ([fieldName, fieldValue]: [string, FieldType]) => {
           if (fieldValue.system) {
             // Skip system fields
             return

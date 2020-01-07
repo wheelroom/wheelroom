@@ -56,16 +56,14 @@ const getFileListForComponent = (
     const componentName = context.componentName!
     let unparsed = templateDefinition.template
 
-    const relPath = parser({
+    const relPath = parser(templateDefinition.path, {
       componentName: context.componentName!,
-      unparsed: templateDefinition.path,
-    }) as string
+    })
 
-    unparsed = parser({
+    unparsed = parser(unparsed, {
       component: context.wheelroomComponent,
       componentName,
-      unparsed,
-    }) as string
+    })
 
     const templateParserContext = {
       component,

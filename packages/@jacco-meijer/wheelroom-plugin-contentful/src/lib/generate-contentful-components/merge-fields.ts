@@ -25,13 +25,12 @@
  *
  */
 
-import { parser, WheelroomField } from '@jacco-meijer/wheelroom'
+import { FieldType, parser } from '@jacco-meijer/wheelroom'
 import { ContentfulField, widgetID } from '../../types/contentful-fields'
 import { createIfMissing, initialContentParser } from './merge-helpers'
-import { isArray } from 'util'
 
 export const mergeFields = (
-  wheelroomField: WheelroomField,
+  wheelroomField: FieldType,
   componentName: string,
   fieldName: string,
   fieldDefinition: ContentfulField,
@@ -63,7 +62,7 @@ export const mergeFields = (
   }
   // Parser with most arguments preset
   const parse = (unparsed: string) =>
-    parser({ componentName, fieldName, unparsed }) as string
+    parser(unparsed, { componentName, fieldName })
 
   const workingField: ContentfulField = {
     settings: {
@@ -104,7 +103,7 @@ export const mergeFields = (
     // If initial content is an array, parse the first element of the array as
     // string and turn it back into an array
     if (
-      isArray(initialContent) &&
+      Array.isArray(initialContent) &&
       wheelroomField.type === 'multipleComponents'
     ) {
       initialContent = [

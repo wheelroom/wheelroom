@@ -1,20 +1,17 @@
 import { Fields as QbFields } from '@jacco-meijer/graphql-query-builder'
-import { firstUpperCase, WheelroomField } from '@jacco-meijer/wheelroom'
+import { FieldType, firstUpperCase } from '@jacco-meijer/wheelroom'
 
 interface TypeTable {
   [name: string]: QbFields
 }
 
-export const wheelroomToGraphql = (
-  fieldName: string,
-  field: WheelroomField
-) => {
+export const wheelroomToGraphql = (fieldName: string, field: FieldType) => {
   const multipleComponentFields: QbFields = {}
   if (
     (field.type === 'multipleComponents' || field.type === 'singleComponent') &&
-    typeof field.components === 'object'
+    Array.isArray(field.allowedComponents)
   ) {
-    field.components.forEach((component: string) => {
+    field.allowedComponents.forEach((component: string) => {
       multipleComponentFields[firstUpperCase(component)] = { fragment: true }
     })
   }

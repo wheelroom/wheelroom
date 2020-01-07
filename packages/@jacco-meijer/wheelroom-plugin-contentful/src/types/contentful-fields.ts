@@ -4,7 +4,7 @@ export interface ContentfulFields {
 
 export interface ContentfulField {
   /** Wheelroom content used to create a demo entry */
-  initialContent?: initialContent
+  createContentData?: CreateContentData
   /** Contentful editor settings */
   settings?: {
     helpText?: string
@@ -43,7 +43,7 @@ export type contentType =
 
 export type linkType = 'Asset' | 'Entry'
 
-export type initialContent =
+export type CreateContentData =
   | string
   | number
   | boolean

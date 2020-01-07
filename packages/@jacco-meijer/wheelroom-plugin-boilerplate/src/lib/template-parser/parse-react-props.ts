@@ -1,8 +1,4 @@
-import {
-  parser,
-  WheelroomComponent,
-  WheelroomField,
-} from '@jacco-meijer/wheelroom'
+import { FieldType, parser, WheelroomComponent } from '@jacco-meijer/wheelroom'
 
 const wheelroomTypeToTsType = {
   date: 'string',
@@ -31,13 +27,12 @@ export const parseReactProps = (context: ParseReactProps): string => {
     : 0
   const indentString = Array(indentLevel + 1).join(' ')
   const reactProps = Object.entries(context.component.fields)
-    .map(([fieldName, field]: [string, WheelroomField]) => {
+    .map(([fieldName, field]: [string, FieldType]) => {
       // const fName = getCases(fieldName)
       const wheelroomType = field.type || 'shortText'
-      const typescriptType = parser({
+      const typescriptType = parser(wheelroomTypeToTsType[wheelroomType], {
         componentName: context.componentName,
         fieldName,
-        unparsed: wheelroomTypeToTsType[wheelroomType],
       })
       return `${indentString}${fieldName}: ${typescriptType}`
     })

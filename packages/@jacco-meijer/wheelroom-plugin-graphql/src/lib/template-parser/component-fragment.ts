@@ -3,9 +3,9 @@ import {
   graphqlQueryBuilder as qb,
 } from '@jacco-meijer/graphql-query-builder'
 import {
+  FieldType,
   getCases,
   WheelroomComponent,
-  WheelroomField,
 } from '@jacco-meijer/wheelroom'
 import { wheelroomToGraphql } from './wheelroom-to-graphql'
 
@@ -26,7 +26,7 @@ export const componentFragment = (context: ComponentFragment) => {
 
   const fields: QbFields = {}
   Object.entries(context.component.fields).forEach(
-    ([fieldName, field]: [string, WheelroomField]) => {
+    ([fieldName, field]: [string, FieldType]) => {
       fields[fieldName] = wheelroomToGraphql(fieldName, field)
     }
   )

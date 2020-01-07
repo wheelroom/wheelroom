@@ -1,4 +1,4 @@
-import { WheelroomField } from '@jacco-meijer/wheelroom'
+import { FieldType } from '@jacco-meijer/wheelroom'
 
 /**
  * - %firstItem%
@@ -7,7 +7,7 @@ import { WheelroomField } from '@jacco-meijer/wheelroom'
  */
 export const initialContentParser = (
   unparsed: string,
-  field: WheelroomField
+  field: FieldType
 ): string => {
   // If objects or arrays are missing in the field, the variable has been used
   // in a field where the value cannot be found. To prevent errors, supply empty
