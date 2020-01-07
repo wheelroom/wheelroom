@@ -45,50 +45,7 @@ export const query = graphql`
       }
     }
     page: contentfulPage(id: { eq: $pageId }) {
-      listItemHeading
-      listItemHiddenText
-      listItemImage {
-        title
-        description
-        fluid(maxWidth: 1024) {
-          sizes
-          src
-          srcSet
-        }
-      }
-      listItemInfoText {
-        listItemInfoText
-      }
-      listItemView
-      navigationHeading
-      pageHeading
-      pageImage {
-        title
-        description
-        fluid(maxWidth: 1024) {
-          sizes
-          src
-          srcSet
-        }
-      }
-      pageInfoText {
-        pageInfoText
-      }
-      path
-      pathName
-      sections {
-        ... on Node {
-          ...FooterSection
-          ...ListSection
-          ...OpenerSection
-          ...QuoteSection
-          ...TextSection
-        }
-      }
-      seoDescription
-      seoTitle
-      __typename
-      title
+      ...Page
     }
   }
 `
