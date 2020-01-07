@@ -11,7 +11,7 @@ export const wheelroomToGraphql = (
 ) => {
   const multipleComponentFields: QbFields = {}
   if (
-    field.type === 'multipleComponents' &&
+    (field.type === 'multipleComponents' || field.type === 'singleComponent') &&
     typeof field.components === 'object'
   ) {
     field.components.forEach((component: string) => {
@@ -57,7 +57,14 @@ export const wheelroomToGraphql = (
       } as QbFields,
     },
     shortText: {},
-    singleComponent: {},
+    singleComponent: {
+      fields: {
+        Node: {
+          fields: multipleComponentFields,
+          inlineFragment: true,
+        },
+      } as QbFields,
+    },
     tags: {},
   }
   return typeTable[field.type!]
