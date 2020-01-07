@@ -71,7 +71,9 @@
     "build:clean": "rm -f ./gatsby-config.* ./gatsby-node.*",
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
-    "prepack": "npm run build"
+    "build:test": "jest --silent",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
   },
   "type": "commonjs",
   "version": "3.0.1",

@@ -11,6 +11,13 @@ const pageQuery = require('./fixtures/page-query')
 
 const graphqlMock = (query: string) => {
   console.log('graphqlMock', query)
+  return {
+    data: {
+      article: { edges: [] },
+      globals: { edges: [] },
+      page: { edges: [] },
+    },
+  }
 }
 
 interface CreatePageMock {
@@ -38,7 +45,7 @@ const params = [
  * for code that runs ;-)
  */
 describe('Gatsby node should', () => {
-  test('Run', async () => {
-    expect(await gatsbyNode.createPages(...params)).toBe(true)
+  test('run without errors', async () => {
+    expect(await gatsbyNode.createPages(...params)).toBeUndefined()
   })
 })
