@@ -1,10 +1,10 @@
 export const query = `/**
-* Graphql query definition
-*
-* Query type: %createPageQuery%
-* Component: %componentName%
-*
-*/
+ * Graphql query definition
+ *
+ * Query type: %createPageQuery%
+ * Component: %componentName%
+ *
+ */
 
 
 module.exports = {
@@ -13,4 +13,5 @@ module.exports = {
 %componentQuery(prefix:allContentful, indent:2)%
 \`,
   type: '%createPageQuery%',
-}`
+}
+`

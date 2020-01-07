@@ -37,6 +37,11 @@ export const wheelroomToGraphql = (
         },
       } as QbFields,
     },
+    longText: {
+      fields: {
+        [fieldName]: {},
+      } as QbFields,
+    },
     multipleComponents: {
       fields: {
         Node: {
