@@ -1,9 +1,8 @@
 packageJson = require('./package.json')
 path = require('path')
 
-const articleQuery = require('./src/graphql/article-query')
-const globalsQuery = require('./src/graphql/globals-query')
-const pageQuery = require('./src/graphql/page-query')
+const globalsQuery = require('./src/components/globals/query')
+const pageQuery = require('./src/components/page/query')
 
 module.exports = {
   plugins: [
@@ -11,7 +10,7 @@ module.exports = {
       options: {
         defaultLocale: 'nl',
         pageTemplate: path.resolve('./src/page-template.tsx'),
-        queries: [articleQuery, globalsQuery, pageQuery],
+        queries: [globalsQuery, pageQuery],
       },
       resolve: `gatsby-theme-wheelroom`,
     },

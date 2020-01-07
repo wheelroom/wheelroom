@@ -6,12 +6,12 @@ export const templateSets: TemplateSets = {
   gatsbyjs: {
     fragment: {
       filterGraphQLSetting: 'fragment',
-      path: '%component-name%/fragment.tsx',
+      path: '%component-name%/fragment.js',
       template: fragment,
     },
     query: {
       filterGraphQLSetting: 'createPageQuery',
-      path: '%component-name%/query.tsx',
+      path: '%component-name%/query.js',
       template: query,
     },
   },
