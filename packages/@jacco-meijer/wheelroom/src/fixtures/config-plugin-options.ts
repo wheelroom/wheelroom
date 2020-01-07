@@ -1,15 +1,15 @@
 export const configPluginOptions = [
   {
     options: {
-      defaultLocale: 'nl',
-      fieldDefinitions: {},
+      testOptione: 'to-pass',
     },
-    resolve: '@jacco-meijer/wheelroom-plugin-contentful',
+    resolve: 'module-name',
   },
   {
     options: {
-      templateSets: {},
+      anotherTestOption: 'passed-to-plugin',
+      testArray: ['passed', 'to', 'plugin'],
     },
-    resolve: '@jacco-meijer/wheelroom-plugin-boilerplate',
+    resolve: 'another-module-name',
   },
 ]

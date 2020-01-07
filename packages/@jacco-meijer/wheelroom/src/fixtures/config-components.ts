@@ -1,38 +1,56 @@
 import { WheelroomComponents } from '../types/wheelroom-components'
+import {
+  DateField,
+  DropdownField,
+  ImageField,
+  LongTextField,
+  MultipleComponentsField,
+  NumberField,
+  RichTextField,
+  ShortTextField,
+  SingleComponentField,
+  TagsField,
+} from '../types/wheelroom-fields'
 
 export const configComponents: WheelroomComponents = {
-  article: {
+  allFieldTypes: {
     fields: {
-      articleText: {
-        type: 'richText',
-      },
-      author: {
-        required: true,
-      },
-      createdAt: {
-        system: true,
+      dateField: {
         type: 'date',
-      },
-      date: {
-        required: true,
-        type: 'date',
-      },
-      heading: {
-        required: true,
-      },
-      image: {
+      } as DateField,
+      dropdownField: {
+        items: ['item A', 'item B', 'item C'],
+        type: 'dropdown',
+      } as DropdownField,
+      imageField: {
         type: 'image',
-      },
-      slug: {
-        initialContent: 'demo-slug-article',
-        required: true,
-        unique: true,
-      },
-      subHeading: {},
-      updatedAt: {
-        system: true,
-        type: 'date',
-      },
+      } as ImageField,
+      longTextField: {
+        type: 'longText',
+      } as LongTextField,
+      multipleComponentsField: {
+        allowedComponents: ['page', 'firstSection', 'secondSection'],
+        initialContent: ['firstSection', 'secondSection'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      numberField: {
+        initialContent: 5,
+        type: 'number',
+      } as NumberField,
+      richTextField: {
+        type: 'richText',
+      } as RichTextField,
+      shortTextField: {
+        maxLength: 155,
+        type: 'shortText',
+      } as ShortTextField,
+      singleComponentField: {
+        allowedComponents: ['page'],
+        type: 'singleComponent',
+      } as SingleComponentField,
+      tagsField: {
+        type: 'tags',
+      } as TagsField,
     },
     graphQL: {
       createPageQuery: 'subPage',
@@ -41,21 +59,11 @@ export const configComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  // Sections are retrieved as a part of a page
-  articleSection: {
+  firstSection: {
     fields: {
-      articleText: {
-        localized: true,
-      },
-      variation: {
-        helpText: 'Select a variation',
-        items: [
-          'Inline article text, specific to this section',
-          'Linked article text, derived from slug in url',
-        ],
-        required: true,
-        type: 'dropdown',
-      },
+      defaultField: {
+        type: 'shortText',
+      } as ShortTextField,
     },
     graphQL: {
       fragment: true,
@@ -63,102 +71,63 @@ export const configComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  // Sections are retrieved as a part of a page
-  articlesSection: {
+  globalModel: {
     fields: {
-      articles: {
-        components: ['article'],
-        type: 'multipleComponents',
-      },
-      heading: {},
-      maxArticles: {
-        initialContent: 5,
-        type: 'number',
-      },
-    },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
-    },
-    modelVersion: '1.0.0',
-  },
-  // Blocks are used as an embedded part of a Contentful richText field
-  exampleBlock: {
-    fields: {
-      someText: {},
-    },
-    graphQL: {
-      fragment: false,
-      pageSection: false,
-    },
-    modelVersion: '1.0.0',
-  },
-  // Parts are retrieved as a part of a section
-  examplePart: {
-    fields: {
-      someText: {},
-    },
-    graphQL: {
-      fragment: true,
-      pageSection: false,
-    },
-    modelVersion: '1.0.0',
-  },
-  globals: {
-    fields: {
-      addressLine1: {
-        required: true,
-      },
-      addressLine2: {
-        required: true,
-      },
-      emailAddress: {
-        required: true,
-      },
-      githubUrl: {},
       heading: {
-        required: true,
-      },
-      linkedinUrl: {},
-      phoneNumber: {},
-      siteAuthor: {},
-      siteDescription: {},
-      siteKeywords: {
-        type: 'tags',
-      },
-      siteTitle: {},
+        type: 'shortText',
+      } as ShortTextField,
     },
     graphQL: {
       createPageQuery: 'global',
       fragment: true,
+      limit: 10,
     },
     modelVersion: '1.0.0',
   },
-  page: {
+  noFragment: {
     fields: {
-      image: {
-        type: 'image',
-      },
-      navigationTitle: {
-        required: true,
-      },
-      sections: {
-        components: ['%pageSectionsArray%'],
-        helpText: 'Select sections for this page',
-        required: true,
-        type: 'multipleComponents',
-      },
-      seoDescription: {
-        maxLength: 155,
-        required: true,
-      },
-      seoTitle: {
-        required: true,
-      },
+      heading: {
+        type: 'shortText',
+      } as ShortTextField,
+    },
+    graphQL: {},
+    modelVersion: '1.0.0',
+  },
+  pageModel: {
+    fields: {
+      heading: {
+        type: 'shortText',
+      } as ShortTextField,
     },
     graphQL: {
       createPageQuery: 'page',
       fragment: true,
+      limit: 10,
+    },
+    modelVersion: '1.0.0',
+  },
+  secondSection: {
+    fields: {
+      heading: {
+        type: 'shortText',
+      } as ShortTextField,
+    },
+    graphQL: {
+      fragment: true,
+      pageSection: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  subPageModel: {
+    fields: {
+      heading: {
+        type: 'shortText',
+      } as ShortTextField,
+    },
+    graphQL: {
+      createPageQuery: 'subPage',
+      fragment: true,
+      limit: 10,
     },
     modelVersion: '1.0.0',
   },

@@ -170,7 +170,7 @@ export const configComponents: WheelroomComponents = {
         required: true,
       },
       sections: {
-        components: ['%pageSectionsArray%'],
+        components: ['listSection', 'quoteSection'],
         helpText: 'Select sections for this page',
         required: true,
         type: 'multipleComponents',

@@ -4,11 +4,11 @@
  */
 
 export const argvPluginOptions = {
-  '@jacco-meijer/wheelroom-plugin-boilerplate': {
-    templateSets: {},
+  'another-module-name': {
+    anotherTestOption: 'passed-to-plugin',
+    testArray: ['passed', 'to', 'plugin'],
   },
-  '@jacco-meijer/wheelroom-plugin-contentful': {
-    defaultLocale: 'nl',
-    fieldDefinitions: {},
+  'module-name': {
+    testOptione: 'to-pass',
   },
 }

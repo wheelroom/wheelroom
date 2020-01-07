@@ -11,20 +11,23 @@ import { readConfig } from './read-config'
  *
  *  npm run build:compile
  */
-test('Read config', async () => {
-  const configRead = await readConfig(
-    getAppDir(),
-    'dist/fixtures/wheelroom-config.js'
-  )
-  expect(configRead).toStrictEqual(config)
-})
 
-test('Get components', async () => {
-  const components = await getComponents(config)
-  expect(components).toStrictEqual(argvComponents)
-})
+describe('Readig config should provide', () => {
+  test('the whole config', async () => {
+    const configRead = await readConfig(
+      getAppDir(),
+      'dist/fixtures/wheelroom-config.js'
+    )
+    expect(configRead).toStrictEqual(config)
+  })
 
-test('Get plugin options', async () => {
-  const options = getPluginOptions(config)
-  expect(options).toStrictEqual(argvPluginOptions)
+  test('the configured components', async () => {
+    const components = await getComponents(config)
+    expect(components).toStrictEqual(argvComponents)
+  })
+
+  test('the configured plugin options', async () => {
+    const options = getPluginOptions(config)
+    expect(options).toStrictEqual(argvPluginOptions)
+  })
 })

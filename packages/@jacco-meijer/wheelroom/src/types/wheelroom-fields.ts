@@ -1,4 +1,4 @@
-export type FieldType =
+export type FieldTypeName =
   | 'date'
   | 'dropdown'
   | 'image'
@@ -6,38 +6,96 @@ export type FieldType =
   | 'multipleComponents'
   | 'number'
   | 'richText'
-  | 'singleComponent'
   | 'shortText'
+  | 'singleComponent'
   | 'tags'
 
-export interface WheelroomField {
-  /**
-   * Allowed component types for singleComponent or multipleComponents field
-   * type.
-   */
-  components?: string[]
+export type FieldType =
+  | DateField
+  | DropdownField
+  | ImageField
+  | LongTextField
+  | MultipleComponentsField
+  | NumberField
+  | RichTextField
+  | ShortTextField
+  | SingleComponentField
+  | TagsField
+
+export interface CommonField {
   /** Help text for an input element */
   helpText?: string
-  /** Demo content that a field can be filled with */
-  initialContent?: number | string
-  /** Items for a dropdown field */
-  items?: string[]
   /** Localize the field */
   localized?: boolean
-  /** Optional maximum length for a shorText field */
-  maxLength?: number
   /** Name of the field in CMS */
   name?: string
   /** Makes the field require input */
   required?: boolean
-  /** Adds the field to a graphQL fragment and not to the CMS UI */
+  /** Do not create this field at the backend */
   system?: boolean
   /** Adds a field must be unique validation */
   unique?: boolean
-  /** Simple wheelroom field type */
-  type?: FieldType
 }
 
 export interface WheelroomFields {
-  [fieldName: string]: WheelroomField
+  [fieldName: string]: FieldType
+}
+
+export interface DateField extends CommonField {
+  /** Date string, e.g. 2019-06-03T00:00+01:00 */
+  initialContent?: string
+  type: 'date'
+}
+export interface DropdownField extends CommonField {
+  /** List of strings for the dropdown field */
+  items: string[]
+  /** One of the item strings */
+  initialContent?: string
+  type: 'dropdown'
+}
+export interface ImageField extends CommonField {
+  /** Sets a default image for the field */
+  initialContent?: boolean
+  type: 'image'
+}
+export interface LongTextField extends CommonField {
+  /** Initial text */
+  initialContent?: string
+  type: 'longText'
+}
+export interface MultipleComponentsField extends CommonField {
+  /** Allowed component types */
+  allowedComponents: string[]
+  /** List containing componentNames */
+  initialContent?: string[]
+  type: 'multipleComponents'
+}
+export interface NumberField extends CommonField {
+  /** Initial number */
+  initialContent?: number
+  type: 'number'
+}
+export interface RichTextField extends CommonField {
+  /** Initial text */
+  initialContent?: number | string | string[]
+  type: 'richText'
+}
+export interface ShortTextField extends CommonField {
+  /** Initial text */
+  initialContent?: number | string | string[]
+  /** Optional maximum length for a shorText field */
+  maxLength?: number
+  type: 'shortText'
+}
+export interface SingleComponentField extends CommonField {
+  /** Allowed component types */
+  allowedComponents: string[]
+  /** A componentName */
+  initialContent?: string
+  type: 'singleComponent'
+}
+export interface TagsField extends CommonField {
+  /** Demo content that a field can be filled with */
+  initialContent?: string[]
+  type: 'tags'
 }

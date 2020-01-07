@@ -1,10 +1,19 @@
 import { WheelroomComponent } from '../../types/wheelroom-components'
+import {
+  DropdownField,
+  ImageField,
+  MultipleComponentsField,
+  NumberField,
+  RichTextField,
+  ShortTextField,
+  SingleComponentField,
+  TagsField,
+} from '../../types/wheelroom-fields'
 import { parser } from './parser'
 
 const componentName = 'myDemoComponent'
 const fieldName = 'myFieldName'
 const fieldType = 'someFieldType'
-const pageSectionsArray = ['pageSectionA', 'pageSectionB']
 let result
 
 describe('The parser should parse', () => {
@@ -12,38 +21,33 @@ describe('The parser should parse', () => {
    * Component name
    */
   test('the variable %Component name%', () => {
-    result = parser({
+    result = parser('This is the test case for %Component name%', {
       componentName,
-      unparsed: 'This is the test case for %Component name%',
     })
     expect(result).toEqual('This is the test case for My demo component')
   })
 
   test('the variable %component name%', () => {
-    result = parser({
+    result = parser('This is the test case for %component name%', {
       componentName,
-      unparsed: 'This is the test case for %component name%',
     })
     expect(result).toEqual('This is the test case for my demo component')
   })
   test('the variable %componentName%', () => {
-    result = parser({
+    result = parser('This is the test case for %componentName%', {
       componentName,
-      unparsed: 'This is the test case for %componentName%',
     })
     expect(result).toEqual('This is the test case for myDemoComponent')
   })
   test('the variable %ComponentName%', () => {
-    result = parser({
+    result = parser('This is the test case for %ComponentName%', {
       componentName,
-      unparsed: 'This is the test case for %ComponentName%',
     })
     expect(result).toEqual('This is the test case for MyDemoComponent')
   })
   test('the variable %component-name%', () => {
-    result = parser({
+    result = parser('This is the test case for %component-name%', {
       componentName,
-      unparsed: 'This is the test case for %component-name%',
     })
     expect(result).toEqual('This is the test case for my-demo-component')
   })
@@ -52,42 +56,37 @@ describe('The parser should parse', () => {
    * Field name
    */
   test('the variable %Field name%', () => {
-    result = parser({
+    result = parser('This is the test case for %Field name%', {
       componentName,
       fieldName,
-      unparsed: 'This is the test case for %Field name%',
     })
     expect(result).toEqual('This is the test case for My field name')
   })
   test('the variable %field name%', () => {
-    result = parser({
+    result = parser('This is the test case for %field name%', {
       componentName,
       fieldName,
-      unparsed: 'This is the test case for %field name%',
     })
     expect(result).toEqual('This is the test case for my field name')
   })
   test('the variable %fieldName%', () => {
-    result = parser({
+    result = parser('This is the test case for %fieldName%', {
       componentName,
       fieldName,
-      unparsed: 'This is the test case for %fieldName%',
     })
     expect(result).toEqual('This is the test case for myFieldName')
   })
   test('the variable %FieldName%', () => {
-    result = parser({
+    result = parser('This is the test case for %FieldName%', {
       componentName,
       fieldName,
-      unparsed: 'This is the test case for %FieldName%',
     })
     expect(result).toEqual('This is the test case for MyFieldName')
   })
   test('the variable %field-name%', () => {
-    result = parser({
+    result = parser('This is the test case for %field-name%', {
       componentName,
       fieldName,
-      unparsed: 'This is the test case for %field-name%',
     })
     expect(result).toEqual('This is the test case for my-field-name')
   })
@@ -96,127 +95,120 @@ describe('The parser should parse', () => {
    * Field type
    */
   test('the variable %Field type%', () => {
-    result = parser({
+    result = parser('This is the test case for %Field type%', {
       componentName,
       fieldType,
-      unparsed: 'This is the test case for %Field type%',
     })
     expect(result).toEqual('This is the test case for Some field type')
   })
   test('the variable %field type%', () => {
-    result = parser({
+    result = parser('This is the test case for %field type%', {
       componentName,
       fieldType,
-      unparsed: 'This is the test case for %field type%',
     })
     expect(result).toEqual('This is the test case for some field type')
   })
   test('the variable %fieldType%', () => {
-    result = parser({
+    result = parser('This is the test case for %fieldType%', {
       componentName,
       fieldType,
-      unparsed: 'This is the test case for %fieldType%',
     })
     expect(result).toEqual('This is the test case for someFieldType')
   })
   test('the variable %FieldType%', () => {
-    result = parser({
+    result = parser('This is the test case for %FieldType%', {
       componentName,
       fieldType,
-      unparsed: 'This is the test case for %FieldType%',
     })
     expect(result).toEqual('This is the test case for SomeFieldType')
   })
   test('the variable %field-type%', () => {
-    result = parser({
+    result = parser('This is the test case for %field-type%', {
       componentName,
       fieldType,
-      unparsed: 'This is the test case for %field-type%',
     })
     expect(result).toEqual('This is the test case for some-field-type')
   })
 
   test('the variable %field-name% and %component-name%', () => {
-    result = parser({
-      componentName,
-      fieldName,
-      unparsed: 'This is the test case for %field-name% and %component-name%',
-    })
+    result = parser(
+      'This is the test case for %field-name% and %component-name%',
+      {
+        componentName,
+        fieldName,
+      }
+    )
     expect(result).toEqual(
       'This is the test case for my-field-name and my-demo-component'
     )
   })
 
-  test('the variable %createPageQuery%', () => {
-    result = parser({
-      componentName,
-      graphQL: {
-        createPageQuery: 'global',
-      },
-      unparsed: 'This is the test case for %createPageQuery%',
-    })
-    expect(result).toEqual('This is the test case for global')
-  })
-
   const component: WheelroomComponent = {
     fields: {
       dateField: {
-        initialContent: 'Content for date',
+        initialContent: 'DD',
         type: 'date',
       },
       dropdownField: {
-        initialContent: 'Content for dropdown',
+        initialContent: 'AB',
         type: 'dropdown',
-      },
+      } as DropdownField,
       imageField: {
-        initialContent: 'Content for image',
+        initialContent: true,
         type: 'image',
-      },
+      } as ImageField,
       multipleComponentsField: {
-        initialContent: 'Content for multipleComponents',
+        allowedComponents: ['page'],
+        initialContent: ['CD'],
         type: 'multipleComponents',
-      },
+      } as MultipleComponentsField,
       numberField: {
-        initialContent: 'Content for number',
+        initialContent: 5,
         type: 'number',
-      },
+      } as NumberField,
       richTextField: {
-        initialContent: 'Content for richText',
+        initialContent: 'EF',
         type: 'richText',
-      },
+      } as RichTextField,
       shortTextField: {
-        initialContent: 'Content for shortText',
+        initialContent: 'GH',
         type: 'shortText',
-      },
+      } as ShortTextField,
       singleComponentField: {
-        initialContent: 'Content for singleComponent',
+        allowedComponents: ['KL'],
+        initialContent: 'KL',
         type: 'singleComponent',
-      },
+      } as SingleComponentField,
       tagsField: {
-        initialContent: 'Content for tags',
+        initialContent: ['tag A', 'tag B', 'tag C'],
         type: 'tags',
-      },
+      } as TagsField,
     },
-    graphQL: {},
+    graphQL: {
+      createPageQuery: 'global',
+    },
     modelVersion: '1.0.0',
   }
+
   test('the variable %componentHtmlAttributes%', () => {
-    result = parser({
+    result = parser('<Element %componentHtmlAttributes% />', {
       component,
       componentName,
-      unparsed: '<Element %componentHtmlAttributes% />',
     })
     expect(result).toEqual(
-      '<Element dateField="Content for date" dropdownField="Content for dropdown" imageField="Content for image" multipleComponentsField="Content for multipleComponents" numberField="Content for number" richTextField="Content for richText" shortTextField="Content for shortText" singleComponentField="Content for singleComponent" tagsField="Content for tags" />'
+      '<Element dateField="DD" dropdownField="AB" imageField="object" multipleComponentsField="object" numberField="object" richTextField="EF" shortTextField="GH" singleComponentField="KL" tagsField="object" />'
     )
   })
-  test('the variable %pageSectionsArray%', () => {
-    result = parser({
-      component,
-      componentName,
-      pageSectionsArray,
-      unparsed: ['%pageSectionsArray%'],
-    })
-    expect(result).toStrictEqual(['pageSectionA', 'pageSectionB'])
+
+  test('the variable %componentVar(path:graphQL.createPageQuery)%', () => {
+    result = parser(
+      'This is the test case for %componentVar(path:graphQL.createPageQuery)%',
+      {
+        component,
+        componentName,
+      }
+    )
+
+    expect(result).toEqual('This is the test case for global')
   })
 })

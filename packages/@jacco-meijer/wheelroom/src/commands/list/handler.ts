@@ -14,7 +14,6 @@ export const handler = async (argv: any) => {
       console.log(`============================
   Component:              ${componentName}
   Fields:                 ${fields}
-  title initial content:  ${component.fields.title.initialContent}
   gQL createPageQuery:    ${component.graphQL.createPageQuery}
   gQL page section:       ${component.graphQL.pageSection ? 'Yes' : 'No'}
   gQL fragment:           ${component.graphQL.fragment ? 'Yes' : 'No'}

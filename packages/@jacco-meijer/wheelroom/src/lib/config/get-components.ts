@@ -3,7 +3,7 @@ import {
   WheelroomComponents,
 } from '../../types/wheelroom-components'
 import { WheelroomConfig } from '../../types/wheelroom-config'
-import { WheelroomField } from '../../types/wheelroom-fields'
+import { FieldType } from '../../types/wheelroom-fields'
 import { parser } from '../parser/parser'
 
 export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
@@ -16,11 +16,6 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
   if (Object.entries(wheelroomConfig.components).length < 1) {
     console.log('error: no components found in wheelroom config')
   }
-
-  const pageSectionsArray = Object.keys(wheelroomConfig.components).filter(
-    (componentName: string) =>
-      wheelroomConfig!.components[componentName].graphQL.pageSection
-  )
 
   const finalComponents = {} as WheelroomComponents
 
@@ -39,17 +34,18 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
 
       Object.entries(workComponent.fields).forEach(
         // For each component, iterate over all fields
-        ([fieldName, field]: [string, WheelroomField]) => {
+        ([fieldName, field]: [string, FieldType]) => {
           /**
            * Create a working copy of the field with default fields. System
            * fields are only used for building graphQL queries. We only need the
            * default type field for these.
            */
-          let workField: WheelroomField
-          if (field.system) {
-            workField = { type: wheelroomConfig?.fieldDefaults.type }
-          } else {
-            workField = Object.assign({}, wheelroomConfig?.fieldDefaults || {})
+          let workField = {} as FieldType
+          if (!field.system) {
+            workField = Object.assign(
+              {},
+              wheelroomConfig?.fieldDefaults || {}
+            ) as FieldType
           }
           // Copy field attributes to working copy
           Object.assign(workField, field)
@@ -64,11 +60,9 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
               if (typeof value !== 'string' && !Array.isArray(value)) {
                 return
               }
-              parseResults[key] = parser({
+              parseResults[key] = parser(value, {
                 componentName,
                 fieldName,
-                pageSectionsArray,
-                unparsed: value,
               })
             }
           )

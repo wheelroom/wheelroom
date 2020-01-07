@@ -4,10 +4,9 @@
  *
  */
 
-import { WheelroomField } from '../types/wheelroom-fields'
+import { CommonField } from '../types/wheelroom-fields'
 
-export const configFieldDefaults: WheelroomField = {
+export const configFieldDefaults: CommonField = {
   localized: false,
   required: false,
-  type: 'shortText',
 }
