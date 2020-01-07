@@ -14,8 +14,6 @@ describe('The parser should parse', () => {
   test('the variable %Component name%', () => {
     result = parser({
       componentName,
-      fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %Component name%',
     })
     expect(result).toEqual('This is the test case for My demo component')
@@ -24,8 +22,6 @@ describe('The parser should parse', () => {
   test('the variable %component name%', () => {
     result = parser({
       componentName,
-      fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %component name%',
     })
     expect(result).toEqual('This is the test case for my demo component')
@@ -33,8 +29,6 @@ describe('The parser should parse', () => {
   test('the variable %componentName%', () => {
     result = parser({
       componentName,
-      fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %componentName%',
     })
     expect(result).toEqual('This is the test case for myDemoComponent')
@@ -42,8 +36,6 @@ describe('The parser should parse', () => {
   test('the variable %ComponentName%', () => {
     result = parser({
       componentName,
-      fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %ComponentName%',
     })
     expect(result).toEqual('This is the test case for MyDemoComponent')
@@ -51,8 +43,6 @@ describe('The parser should parse', () => {
   test('the variable %component-name%', () => {
     result = parser({
       componentName,
-      fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %component-name%',
     })
     expect(result).toEqual('This is the test case for my-demo-component')
@@ -65,7 +55,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %Field name%',
     })
     expect(result).toEqual('This is the test case for My field name')
@@ -74,7 +63,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %field name%',
     })
     expect(result).toEqual('This is the test case for my field name')
@@ -83,7 +71,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %fieldName%',
     })
     expect(result).toEqual('This is the test case for myFieldName')
@@ -92,7 +79,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %FieldName%',
     })
     expect(result).toEqual('This is the test case for MyFieldName')
@@ -101,7 +87,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %field-name%',
     })
     expect(result).toEqual('This is the test case for my-field-name')
@@ -114,7 +99,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldType,
-      pageSectionsArray,
       unparsed: 'This is the test case for %Field type%',
     })
     expect(result).toEqual('This is the test case for Some field type')
@@ -123,7 +107,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldType,
-      pageSectionsArray,
       unparsed: 'This is the test case for %field type%',
     })
     expect(result).toEqual('This is the test case for some field type')
@@ -132,7 +115,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldType,
-      pageSectionsArray,
       unparsed: 'This is the test case for %fieldType%',
     })
     expect(result).toEqual('This is the test case for someFieldType')
@@ -141,7 +123,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldType,
-      pageSectionsArray,
       unparsed: 'This is the test case for %FieldType%',
     })
     expect(result).toEqual('This is the test case for SomeFieldType')
@@ -150,7 +131,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldType,
-      pageSectionsArray,
       unparsed: 'This is the test case for %field-type%',
     })
     expect(result).toEqual('This is the test case for some-field-type')
@@ -160,7 +140,6 @@ describe('The parser should parse', () => {
     result = parser({
       componentName,
       fieldName,
-      pageSectionsArray,
       unparsed: 'This is the test case for %field-name% and %component-name%',
     })
     expect(result).toEqual(
@@ -225,13 +204,19 @@ describe('The parser should parse', () => {
     result = parser({
       component,
       componentName,
-      graphQL: {
-        createPageQuery: 'global',
-      },
       unparsed: '<Element %componentHtmlAttributes% />',
     })
     expect(result).toEqual(
       '<Element dateField="Content for date" dropdownField="Content for dropdown" imageField="Content for image" multipleComponentsField="Content for multipleComponents" numberField="Content for number" richTextField="Content for richText" shortTextField="Content for shortText" singleComponentField="Content for singleComponent" tagsField="Content for tags" />'
     )
+  })
+  test('the variable %pageSectionsArray%', () => {
+    result = parser({
+      component,
+      componentName,
+      pageSectionsArray,
+      unparsed: ['%pageSectionsArray%'],
+    })
+    expect(result).toStrictEqual(['pageSectionA', 'pageSectionB'])
   })
 })

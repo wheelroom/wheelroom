@@ -36,18 +36,47 @@ import { WheelroomField } from '../../types/wheelroom-fields'
 import { replaceAll } from './case-helpers'
 import { getCases } from './get-cases'
 
-interface Parser {
+interface BaseParser {
   component?: WheelroomComponent
   componentName: string
   fieldName?: string
   fieldType?: string
   graphQL?: GraphQL
   pageSectionsArray?: string[]
+}
+
+interface StringParser extends BaseParser {
   unparsed: string
 }
 
-export const parser = (context: Parser): string => {
-  let parsed: string | string[] = context.unparsed
+interface Parser extends BaseParser {
+  unparsed: string | string[]
+}
+
+export const parser = (context: Parser): string | string[] => {
+  if (typeof context.unparsed === 'string') {
+    return stringParser(context as StringParser)
+  }
+  if (Array.isArray(context.unparsed)) {
+    const result: string[] = []
+    const unparsedArray: string[] = context.unparsed
+    if (
+      unparsedArray[0] === '%pageSectionsArray%' &&
+      context.pageSectionsArray
+    ) {
+      return context.pageSectionsArray
+    }
+    unparsedArray.forEach((unparsed: string) => {
+      context.unparsed = unparsed
+      result.push(stringParser(context as StringParser))
+    })
+    return result
+  }
+  return 'parser-bug'
+}
+
+const stringParser = (context: StringParser): string => {
+  let parsed: string = context.unparsed
 
   const cnCase = getCases(context.componentName)
   parsed = replaceAll(parsed, '%Component name%', cnCase.sentenceCase)
@@ -93,11 +122,5 @@ export const parser = (context: Parser): string => {
       .join(' ')
     parsed = replaceAll(parsed, '%componentHtmlAttributes%', htmlAttributes)
   }
-
-  if (context.pageSectionsArray) {
-    parsed =
-      parsed === '%pageSectionsArray%' ? context.pageSectionsArray : parsed
-  }
-
   return parsed as string
 }

@@ -1,103 +1,23 @@
 import { WheelroomComponents } from '@jacco-meijer/wheelroom'
 
 export const configComponents: WheelroomComponents = {
-  article: {
+  footerSection: {
     fields: {
-      articleText: {
-        type: 'richText',
-      },
-      author: {
-        required: true,
-      },
-      createdAt: {
-        system: true,
-        type: 'date',
-      },
-      date: {
-        required: true,
-        type: 'date',
-      },
-      heading: {
-        required: true,
-      },
-      image: {
-        type: 'image',
-      },
-      slug: {
-        initialContent: 'demo-slug-article',
-        required: true,
-        unique: true,
-      },
-      subHeading: {},
-      updatedAt: {
-        system: true,
-        type: 'date',
-      },
-    },
-    graphQL: {
-      createPageQuery: 'subPage',
-      fragment: true,
-      limit: 10,
-    },
-    modelVersion: '1.0.0',
-  },
-  // Sections are retrieved as a part of a page
-  articleSection: {
-    fields: {
-      articleText: {
-        localized: true,
-      },
-      variation: {
-        helpText: 'Select a variation',
-        items: ['Specific to this section', 'Derived from slug in url'],
+      backgroundColor: {
+        helpText: 'Select a background color',
+        items: ['blue', 'orange'],
         required: true,
         type: 'dropdown',
       },
-    },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
-    },
-    modelVersion: '1.0.0',
-  },
-  // Sections are retrieved as a part of a page
-  articlesSection: {
-    fields: {
-      articles: {
-        components: ['article'],
-        type: 'multipleComponents',
-      },
-      heading: {},
-      maxArticles: {
-        initialContent: 5,
-        type: 'number',
+      footerNavigation: {
+        components: ['navigation'],
+        required: true,
+        type: 'singleComponent',
       },
     },
     graphQL: {
       fragment: true,
       pageSection: true,
-    },
-    modelVersion: '1.0.0',
-  },
-  // Blocks are used as an embedded part of a Contentful richText field
-  exampleBlock: {
-    fields: {
-      someText: {},
-    },
-    graphQL: {
-      fragment: false,
-      pageSection: false,
-    },
-    modelVersion: '1.0.0',
-  },
-  // Parts are retrieved as a part of a section
-  examplePart: {
-    fields: {
-      someText: {},
-    },
-    graphQL: {
-      fragment: true,
-      pageSection: false,
     },
     modelVersion: '1.0.0',
   },
@@ -112,14 +32,13 @@ export const configComponents: WheelroomComponents = {
       emailAddress: {
         required: true,
       },
-      githubUrl: {},
-      heading: {
-        required: true,
-      },
       linkedinUrl: {},
       phoneNumber: {},
       siteAuthor: {},
       siteDescription: {},
+      siteHeading: {
+        required: true,
+      },
       siteKeywords: {
         type: 'tags',
       },
@@ -131,39 +50,182 @@ export const configComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  page: {
+  listSection: {
     fields: {
+      heading: { required: true },
+      listItems: {
+        components: ['page'],
+        required: true,
+        type: 'multipleComponents',
+      },
+      variation: {
+        helpText: 'Select a view variation',
+        items: ['large items', 'small items'],
+        required: true,
+        type: 'dropdown',
+      },
+    },
+    graphQL: {
+      fragment: true,
+      pageSection: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  navigation: {
+    fields: {
+      routes: {
+        components: ['page'],
+        required: true,
+        type: 'multipleComponents',
+      },
+    },
+    graphQL: {
+      fragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  openerSection: {
+    fields: {
+      boxBackgroundColor: {
+        helpText: 'Select a background color for the opener box',
+        items: ['blue', 'orange'],
+        type: 'dropdown',
+      },
+      heading: {
+        helpText: 'Overrides page heading',
+      },
       image: {
+        helpText: 'Overrides page image',
         type: 'image',
       },
-      navigationTitle: {
+      infoText: {
+        helpText: 'Overrides page info text',
+        type: 'longText',
+      },
+      mainNavigation: {
+        components: ['navigation'],
+        required: true,
+        type: 'singleComponent',
+      },
+      variation: {
+        helpText: 'Select a view variation',
+        items: ['home opener', 'page opener'],
+        required: true,
+        type: 'dropdown',
+      },
+    },
+    graphQL: {
+      fragment: true,
+      pageSection: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  page: {
+    fields: {
+      listItemHeading: {
+        helpText: 'Heading when page is a list item, overrides page heading',
+      },
+      listItemHiddenText: {
+        helpText: 'Initially hidden text when page is a list item',
+      },
+      listItemImage: {
+        helpText: 'Image when page is a list item, overrides page image',
+        type: 'image',
+      },
+      listItemInfoText: {
+        helpText:
+          'Info text when page is a list item, overrides page info text',
+        type: 'longText',
+      },
+      listItemView: {
+        helpText: 'How the page looks as a list item',
+        items: ['orange bottom', 'blue bottom', 'full image'],
+        type: 'dropdown',
+      },
+      navigationHeading: {
+        helpText: 'Heading when page is a navigation item',
+      },
+      pageHeading: {
+        helpText: 'Heading for this page',
         required: true,
       },
+      pageImage: {
+        helpText: 'Image for this page',
+        required: true,
+        type: 'image',
+      },
+      pageInfoText: {
+        helpText: 'Info text for this page',
+        required: true,
+        type: 'longText',
+      },
       path: {
+        helpText: 'System field, changing this can break things',
         initialContent: '/',
         required: true,
       },
       pathName: {
+        helpText: 'System field, changing this can break things',
         initialContent: 'home',
         required: true,
       },
       sections: {
-        components: '%pageSectionsArray%',
+        components: ['%pageSectionsArray%'],
         helpText: 'Select sections for this page',
         required: true,
         type: 'multipleComponents',
       },
       seoDescription: {
+        helpText: 'Description used by search engines like Google',
         maxLength: 155,
         required: true,
       },
       seoTitle: {
+        helpText: 'Title used by search engines like Google',
         required: true,
       },
     },
     graphQL: {
       createPageQuery: 'page',
       fragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  quoteSection: {
+    fields: {
+      avatar: {
+        helpText: 'Optional photo displayed with the quote',
+        required: false,
+        type: 'image',
+      },
+      heading: {
+        required: true,
+      },
+      subHeading: {
+        required: false,
+      },
+      text: {
+        required: true,
+        type: 'longText',
+      },
+    },
+    graphQL: {
+      fragment: true,
+      pageSection: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  textSection: {
+    fields: {
+      text: {
+        helpText: 'Rich text with headings and images',
+        required: true,
+        type: 'richText',
+      },
+    },
+    graphQL: {
+      fragment: true,
+      pageSection: true,
     },
     modelVersion: '1.0.0',
   },

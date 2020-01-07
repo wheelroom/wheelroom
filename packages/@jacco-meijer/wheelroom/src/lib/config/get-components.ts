@@ -60,8 +60,8 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
           Object.entries(workField).forEach(
             // Parse variables of all strings
             ([key, value]: [string, string]) => {
-              // Only parse strings
-              if (typeof value !== 'string') {
+              // Only parse strings and arrays of string
+              if (typeof value !== 'string' && !Array.isArray(value)) {
                 return
               }
               parseResults[key] = parser({

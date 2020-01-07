@@ -28,6 +28,7 @@
 import { parser, WheelroomField } from '@jacco-meijer/wheelroom'
 import { ContentfulField, widgetID } from '../../types/contentful-fields'
 import { createIfMissing, initialContentParser } from './merge-helpers'
+import { isArray } from 'util'
 
 export const mergeFields = (
   wheelroomField: WheelroomField,
@@ -62,7 +63,7 @@ export const mergeFields = (
   }
   // Parser with most arguments preset
   const parse = (unparsed: string) =>
-    parser({ componentName, fieldName, unparsed })
+    parser({ componentName, fieldName, unparsed }) as string
 
   const workingField: ContentfulField = {
     settings: {
@@ -100,6 +101,19 @@ export const mergeFields = (
         wheelroomField
       )
     }
+    // If initial content is an array, parse the first element of the array as
+    // string and turn it back into an array
+    if (
+      isArray(initialContent) &&
+      wheelroomField.type === 'multipleComponents'
+    ) {
+      initialContent = [
+        initialContentParser(
+          parse(initialContent[0] as string),
+          wheelroomField
+        ),
+      ]
+    }
     Object.assign(workingField, { initialContent })
   }
   // Handle linkType
@@ -124,26 +138,22 @@ export const mergeFields = (
   }
   // Process other validations
   if (first.components) {
-    // This could possible be a string, in that case the variable
-    // %pageSectionsArray% has not been parsed properly.
-    if (typeof first.components === 'string') {
-      throw new Error('BUG: %pageSectionsArray% has not been parsed')
+    // singleComponent: specs.validations.0.linkContentType
+    if (first.type === 'singleComponent') {
+      createIfMissing(workingField.specs, 'validations', 'array')
+      workingField.specs.validations!.push({
+        linkContentType: first.components,
+      })
     }
-    // specs.items.validations.0.linkContentType
-    createIfMissing(workingField.specs, 'items', 'object')
-    createIfMissing(workingField.specs.items, 'validations', 'array')
-    workingField.specs.items!.validations!.push({
-      linkContentType: first.components,
-    })
+    // multipleComponents: specs.items.validations.0.linkContentType
+    if (first.type === 'multipleComponents') {
+      createIfMissing(workingField.specs, 'items', 'object')
+      createIfMissing(workingField.specs.items, 'validations', 'array')
+      workingField.specs.items!.validations!.push({
+        linkContentType: first.components,
+      })
+    }
   }
-  if (first.component) {
-    // specs.validations.0.linkContentType
-    createIfMissing(workingField.specs, 'validations', 'array')
-    workingField.specs.validations!.push({
-      linkContentType: [first.component],
-    })
-  }
-
   if (first.items) {
     // specs.validations.0.in
     createIfMissing(workingField.specs, 'validations', 'array')

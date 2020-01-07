@@ -2,6 +2,7 @@ export type FieldType =
   | 'date'
   | 'dropdown'
   | 'image'
+  | 'longText'
   | 'multipleComponents'
   | 'number'
   | 'richText'
@@ -10,13 +11,11 @@ export type FieldType =
   | 'tags'
 
 export interface WheelroomField {
-  /** Component for a singleComponent type */
-  component?: string
   /**
-   * Components for a multipleComponents type, this is a single string when the
-   * %pageSectionsArray% varaiable is used
+   * Allowed component types for singleComponent or multipleComponents field
+   * type.
    */
-  components?: string | string[]
+  components?: string[]
   /** Help text for an input element */
   helpText?: string
   /** Demo content that a field can be filled with */

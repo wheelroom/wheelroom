@@ -1,13 +1,12 @@
 /**
- *
  * CONTENTFUL FIELD TYPE DEFINITIONS
- * =================================
  *
  * This file normally does not need any changes. It's here because you
  * ocassionally might add some project specific stuff.
  *
- * Initial content variables
- * =========================
+ *
+ * Variables for initialContent
+ *
  * - %firstItem%
  * - %firstComponent%
  * - %demoAsset%
@@ -18,7 +17,7 @@ import { ContentfulFieldDefinitions } from '@jacco-meijer/wheelroom-plugin-conte
 
 export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
   fieldDefaults: {
-    initialContent: 'Demo content for %field name%',
+    initialContent: 'Demo content for %component name% %field name%',
     settings: {
       helpText: '%Field name% for %component name%',
     },
@@ -59,8 +58,15 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       },
       widgetId: 'assetLinkEditor',
     },
+    longText: {
+      specs: {
+        name: '%Field name%',
+        type: 'Text',
+      },
+      widgetId: 'multipleLine',
+    },
     multipleComponents: {
-      initialContent: '%firstComponent%',
+      initialContent: ['%firstComponent%'],
       specs: {
         items: {
           linkType: 'Entry',
@@ -94,7 +100,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'singleLine',
     },
     singleComponent: {
-      initialContent: '%singleComponent%',
+      initialContent: '%firstComponent%',
       specs: {
         linkType: 'Entry',
         name: '%Field name%',

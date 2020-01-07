@@ -78,8 +78,8 @@
     "wr:cm": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-models",
     "wr:cc": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-content",
     "wr:dc": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom delete-content",
-    "wr:cb": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-boilerplate components src/components",
-    "wr:cg": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-graphql gatsbyjs src/graphql",
+    "wr:cb": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-boilerplate react src/components",
+    "wr:cg": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-graphql gatsbyjs src/components",
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",

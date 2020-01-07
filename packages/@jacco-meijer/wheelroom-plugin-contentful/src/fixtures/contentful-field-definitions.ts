@@ -60,7 +60,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'assetLinkEditor',
     },
     multipleComponents: {
-      initialContent: '%firstComponent%',
+      initialContent: ['%firstComponent%'],
       specs: {
         items: {
           linkType: 'Entry',
@@ -94,7 +94,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'singleLine',
     },
     singleComponent: {
-      initialContent: '%singleComponent%',
+      initialContent: '%firstComponent%',
       specs: {
         linkType: 'Entry',
         name: '%Field name%',

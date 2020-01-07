@@ -191,7 +191,7 @@ export const argvComponents: WheelroomComponents = {
   featuredPageSection: {
     fields: {
       featuredPage: {
-        component: 'page',
+        components: ['page'],
         helpText: 'Select a page',
         localized: false,
         required: true,

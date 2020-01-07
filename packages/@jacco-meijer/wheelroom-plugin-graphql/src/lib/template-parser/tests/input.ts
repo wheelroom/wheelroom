@@ -79,7 +79,7 @@ const featuredPageSection: TemplateParser = {
       },
       // tslint:disable-next-line: object-literal-sort-keys
       featuredPage: {
-        component: 'page',
+        components: ['page'],
         type: 'singleComponent',
       },
       image: {

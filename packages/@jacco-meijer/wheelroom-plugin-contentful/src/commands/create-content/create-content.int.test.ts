@@ -6,9 +6,11 @@ import { command } from './command'
  */
 jest.setTimeout(60000)
 
-test('Command: create models', async () => {
-  const spy = jest.spyOn(console, 'log')
-  await command.handler(argvCommand as any)
-  expect(spy).toBeCalled()
-  spy.mockRestore()
+describe('Command create content should', () => {
+  test('call console.log', async () => {
+    const spy = jest.spyOn(console, 'log')
+    await command.handler(argvCommand as any)
+    expect(spy).toBeCalled()
+    spy.mockRestore()
+  })
 })

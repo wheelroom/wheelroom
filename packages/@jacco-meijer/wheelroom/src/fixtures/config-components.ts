@@ -143,7 +143,7 @@ export const configComponents: WheelroomComponents = {
         required: true,
       },
       sections: {
-        components: '%pageSectionsArray%',
+        components: ['%pageSectionsArray%'],
         helpText: 'Select sections for this page',
         required: true,
         type: 'multipleComponents',

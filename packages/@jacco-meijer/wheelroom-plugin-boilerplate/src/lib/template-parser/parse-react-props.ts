@@ -8,6 +8,7 @@ const wheelroomTypeToTsType = {
   date: 'string',
   dropdown: 'string',
   image: 'FluidImage',
+  longText: `{\n    %fieldName%: string\n  }`,
   multipleComponents: 'any',
   number: 'number',
   richText: `{\n    %fieldName%: string\n  }`,

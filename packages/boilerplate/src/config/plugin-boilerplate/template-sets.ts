@@ -5,7 +5,7 @@ import { componentReadme } from './component-readme'
 import { componentVariation } from './component-variation'
 
 export const templateSets: TemplateSets = {
-  components: {
+  react: {
     component: {
       path: '%component-name%/%component-name%.tsx',
       template: component,

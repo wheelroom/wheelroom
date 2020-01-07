@@ -184,7 +184,7 @@ export const output: ContentfulComponents = {
     displayField: 'title',
     fields: {
       articles: {
-        initialContent: 'article',
+        initialContent: ['article'],
         settings: {
           helpText: 'Articles for articles section',
         },
@@ -581,7 +581,7 @@ export const output: ContentfulComponents = {
         widgetId: 'singleLine',
       },
       sections: {
-        initialContent: 'articleSection',
+        initialContent: ['articleSection'],
         settings: {
           helpText: 'Select sections for this page',
         },

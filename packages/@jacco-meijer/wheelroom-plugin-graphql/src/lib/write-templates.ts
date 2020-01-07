@@ -56,10 +56,11 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
     })
     .forEach(([componentName, component]: [string, WheelroomComponent]) => {
       let unparsed = context.templateDefinition!.template
+      // We provide a string, so we can expect a string back
       const relPath = parser({
         componentName,
         unparsed: context.templateDefinition!.path,
-      })
+      }) as string
       // If the path does not have a variable, skip. Because we otherwise will
       // overwrite the same file.
       if (
@@ -68,11 +69,12 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
       ) {
         return
       }
+      // We provide a string, so we can expect a string back
       unparsed = parser({
         componentName,
         graphQL: component.graphQL,
         unparsed,
-      })
+      }) as string
       const content = templateParser({
         component,
         componentName,
