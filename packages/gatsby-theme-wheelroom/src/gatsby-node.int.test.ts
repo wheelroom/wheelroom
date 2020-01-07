@@ -33,7 +33,10 @@ const params = [
   { graphql: graphqlMock, actions: { createPage: createPageMock } },
   options,
 ]
-
+/**
+ * Properly mocking all functionality requires some work. For now we only test
+ * for code that runs ;-)
+ */
 describe('Gatsby node should', () => {
   test('Run', async () => {
     expect(await gatsbyNode.createPages(...params)).toBe(true)
