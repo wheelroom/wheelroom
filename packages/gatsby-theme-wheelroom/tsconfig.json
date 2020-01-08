@@ -21,7 +21,7 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "target": "es2015",
-    "types": ["react", "jest"]
+    "types": ["react", "node", "jest"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": []

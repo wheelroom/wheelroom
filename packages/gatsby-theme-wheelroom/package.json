@@ -16,19 +16,20 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/wheelroom": "^3.0.1"
+    "@jacco-meijer/wheelroom": "^3.0.1",
+    "dotenv": "8.2.0"
   },
   "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
     "@types/jest": "24.0.25",
-    "@types/node": "13.1.4",
+    "@types/node": "13.1.5",
     "@types/react": "16.9.17",
     "@types/react-dom": "16.9.4",
     "jest": "24.9.0",
     "npm-install-peers": "1.2.1",
     "npm-run-all": "4.1.5",
     "prettier": "1.19.1",
-    "ts-jest": "24.2.0",
+    "ts-jest": "24.3.0",
     "tslint": "5.20.1",
     "tslint-config-prettier": "1.18.0",
     "tslint-loader": "3.5.4",
@@ -59,7 +60,6 @@
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"
   },
   "peerDependencies": {
-    "dotenv": "8.x",
     "gatsby": "2.x",
     "gatsby-source-contentful": "2.x",
     "react": "16.x",
