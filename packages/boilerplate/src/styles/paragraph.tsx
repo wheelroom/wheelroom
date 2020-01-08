@@ -1,5 +1,5 @@
 export const paragraphStyle = {
-  color: 'blue',
+  color: 'darkGrey',
   fontFamily: 'text',
   fontSize: [2, 2, 3, 3],
   fontWeight: 2,

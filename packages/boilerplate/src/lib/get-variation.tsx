@@ -9,12 +9,16 @@ const VariationPropNotFound = (props: any) => (
 )
 
 export const getVariation = (props: any, variations: any) => {
-  if (!('variation' in props)) {
-    return VariationPropNotFound
+  if ('variation' in props) {
+    if (!variations[props.variation]) {
+      return VariationNotFound
+    }
+    const Variation = variations[props.variation]
+    return Variation
   }
-  if (!variations[props.variation]) {
-    return VariationNotFound
+  if ('single' in variations) {
+    const Variation = variations.single
+    return Variation
   }
-  const Variation = variations[props.variation]
-  return Variation
+  return VariationPropNotFound
 }

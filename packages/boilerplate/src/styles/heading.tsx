@@ -1,14 +1,14 @@
-export const title1Style = {
-  color: 'darkBlue',
+export const heading1Style = {
+  color: 'darkGrey',
   fontFamily: 'heading',
-  fontSize: [4, 4, 5, 6],
+  fontSize: [6, 7, 8, 9],
   fontWeight: 6,
   lineHeight: [3, 3, 4, 5],
   mb: 3,
 }
 
-export const title2Style = {
-  color: 'darkBlue',
+export const heading2Style = {
+  color: 'darkGrey',
   fontFamily: 'heading',
   fontSize: [3, 3, 4, 5],
   fontWeight: 6,
@@ -16,8 +16,8 @@ export const title2Style = {
   mb: 2,
 }
 
-export const title3Style = {
-  color: 'darkBlue',
+export const heading3Style = {
+  color: 'darkGrey',
   fontFamily: 'heading',
   fontSize: [1, 2, 3, 4],
   fontWeight: 6,
@@ -25,8 +25,8 @@ export const title3Style = {
   mb: 1,
 }
 
-export const title4Style = {
-  color: 'darkBlue',
+export const heading4Style = {
+  color: 'darkGrey',
   fontFamily: 'heading',
   fontSize: [1, 1, 2, 3],
   fontWeight: 6,
