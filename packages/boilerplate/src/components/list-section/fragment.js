@@ -14,9 +14,22 @@ export const fragment = graphql`
 fragment ListSection on ContentfulListSection {
   heading
   listItems {
-    ... on Node {
-      ...Page
+    listItemHeading
+    listItemHiddenText
+    listItemImage {
+      title
+      description
+      fluid(maxWidth: 1024) {
+        sizes
+        src
+        srcSet
+      }
     }
+    listItemInfoText {
+      listItemInfoText
+    }
+    listItemView
+  
   }
   variation
   __typename

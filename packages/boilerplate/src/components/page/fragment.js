@@ -45,8 +45,11 @@ fragment Page on ContentfulPage {
   pathName
   sections {
     ... on Node {
+      ...FooterSection
       ...ListSection
+      ...OpenerSection
       ...QuoteSection
+      ...TextSection
     }
   }
   seoDescription

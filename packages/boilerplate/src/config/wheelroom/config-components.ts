@@ -21,6 +21,7 @@ export const configComponents: WheelroomComponents = {
       } as DropdownField,
       footerNavigation: {
         allowedComponents: ['navigation'],
+        initialContent: 'navigation',
         required: true,
         type: 'singleComponent',
       } as SingleComponentField,
@@ -79,6 +80,7 @@ export const configComponents: WheelroomComponents = {
       heading: { required: true, type: 'shortText' } as ShortTextField,
       listItems: {
         allowedComponents: ['page'],
+        expandFragmentRef: true,
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
@@ -99,6 +101,8 @@ export const configComponents: WheelroomComponents = {
     fields: {
       routes: {
         allowedComponents: ['page'],
+        expandFragmentRef: true,
+        initialContent: ['page'],
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
@@ -129,6 +133,7 @@ export const configComponents: WheelroomComponents = {
       },
       mainNavigation: {
         allowedComponents: ['navigation'],
+        initialContent: 'navigation',
         required: true,
         type: 'singleComponent',
       } as SingleComponentField,
@@ -201,8 +206,21 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
       sections: {
-        allowedComponents: ['listSection', 'quoteSection'],
+        allowedComponents: [
+          'footerSection',
+          'listSection',
+          'openerSection',
+          'quoteSection',
+          'textSection',
+        ],
         helpText: 'Select sections for this page',
+        initialContent: [
+          'openerSection',
+          'textSection',
+          'listSection',
+          'quoteSection',
+          'footerSection',
+        ],
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,

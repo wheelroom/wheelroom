@@ -6,6 +6,7 @@ import {
   FieldType,
   getCases,
   WheelroomComponent,
+  WheelroomComponents,
 } from '@jacco-meijer/wheelroom'
 import { wheelroomToGraphql } from './wheelroom-to-graphql'
 
@@ -15,6 +16,7 @@ interface ComponentFragment {
   }
   component: WheelroomComponent
   componentName: string
+  components: WheelroomComponents
 }
 
 export const componentFragment = (context: ComponentFragment) => {
@@ -27,7 +29,11 @@ export const componentFragment = (context: ComponentFragment) => {
   const fields: QbFields = {}
   Object.entries(context.component.fields).forEach(
     ([fieldName, field]: [string, FieldType]) => {
-      fields[fieldName] = wheelroomToGraphql(fieldName, field)
+      fields[fieldName] = wheelroomToGraphql(
+        context.components,
+        fieldName,
+        field
+      )
     }
   )
   const queryString = qb({

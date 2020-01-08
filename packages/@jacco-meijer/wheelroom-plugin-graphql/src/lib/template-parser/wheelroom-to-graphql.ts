@@ -3,19 +3,44 @@ import {
   FieldType,
   FieldTypeName,
   firstUpperCase,
+  WheelroomComponents,
 } from '@jacco-meijer/wheelroom'
 
 type TypeTable = Record<FieldTypeName, QbFields>
 
-export const wheelroomToGraphql = (fieldName: string, field: FieldType) => {
-  const multipleComponentFields: QbFields = {}
+export const wheelroomToGraphql = (
+  components: WheelroomComponents,
+  fieldName: string,
+  field: FieldType
+): QbFields => {
+  const allowedRef: QbFields = {
+    Node: {
+      fields: {},
+    },
+  }
   if (
     (field.type === 'multipleComponents' || field.type === 'singleComponent') &&
     Array.isArray(field.allowedComponents)
   ) {
-    field.allowedComponents.forEach((component: string) => {
-      multipleComponentFields[firstUpperCase(component)] = { fragment: true }
-    })
+    if (field.expandFragmentRef) {
+      field.allowedComponents.forEach((compName: string) => {
+        const refFields = components[compName].fields
+        Object.entries(refFields).forEach(
+          ([rFieldName, rField]: [string, FieldType]) => {
+            allowedRef.Node.fields![fieldName] = wheelroomToGraphql(
+              components,
+              rFieldName,
+              rField
+            )
+          }
+        )
+      })
+    } else {
+      allowedRef.Node.inlineFragment = true
+      field.allowedComponents.forEach((compName: string) => {
+        allowedRef.Node.fields![firstUpperCase(compName)] = { fragment: true }
+      })
+    }
   }
 
   const typeTable: TypeTable = {
@@ -42,12 +67,7 @@ export const wheelroomToGraphql = (fieldName: string, field: FieldType) => {
       } as QbFields,
     },
     multipleComponents: {
-      fields: {
-        Node: {
-          fields: multipleComponentFields,
-          inlineFragment: true,
-        },
-      } as QbFields,
+      fields: allowedRef,
     },
     number: {},
     richText: {
@@ -57,14 +77,9 @@ export const wheelroomToGraphql = (fieldName: string, field: FieldType) => {
     },
     shortText: {},
     singleComponent: {
-      fields: {
-        Node: {
-          fields: multipleComponentFields,
-          inlineFragment: true,
-        },
-      } as QbFields,
+      fields: allowedRef,
     },
     tags: {},
   }
-  return typeTable[field.type!]
+  return typeTable[field.type]
 }

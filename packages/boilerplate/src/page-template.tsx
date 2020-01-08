@@ -15,6 +15,7 @@ const GlobalAStyles = {
 // do so for all pages.
 //
 const PageTemplate = (props: any) => {
+  console.log('props', props)
   return (
     <Fragment>
       <Global styles={GlobalAStyles} />

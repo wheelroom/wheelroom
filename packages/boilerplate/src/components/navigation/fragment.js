@@ -13,9 +13,9 @@ import { graphql } from 'gatsby'
 export const fragment = graphql`
 fragment Navigation on ContentfulNavigation {
   routes {
-    ... on Node {
-      ...Page
-    }
+    navigationHeading
+    path
+    pathName
   }
   __typename
   title

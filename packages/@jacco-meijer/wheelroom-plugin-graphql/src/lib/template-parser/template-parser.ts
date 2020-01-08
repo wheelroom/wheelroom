@@ -6,12 +6,17 @@
  *
  */
 
-import { replaceAll, WheelroomComponent } from '@jacco-meijer/wheelroom'
+import {
+  replaceAll,
+  WheelroomComponent,
+  WheelroomComponents,
+} from '@jacco-meijer/wheelroom'
 import { componentFragment } from './component-fragment'
 import { componentQuery } from './component-query'
 
 export interface TemplateParser {
   component: WheelroomComponent
+  components: WheelroomComponents
   componentName: string
   unparsed: string
 }
@@ -47,6 +52,7 @@ export const templateParser = (context: TemplateParser): string => {
         const variationList = componentFragment({
           component: context.component,
           componentName: context.componentName,
+          components: context.components,
           params,
         })
         parsed = replaceAll(parsed, fullMatch, variationList)

@@ -75,6 +75,7 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
       const content = templateParser({
         component,
         componentName,
+        components: context.wheelroomComponents,
         unparsed,
       })
       fileList.push({

@@ -66,6 +66,8 @@ export interface LongTextField extends CommonField {
 export interface MultipleComponentsField extends CommonField {
   /** Allowed component types */
   allowedComponents: string[]
+  /** No creation of Fragments for all allowed, but expand, preventing circular refs */
+  expandFragmentRef?: boolean
   /** List containing componentNames */
   initialContent?: string[]
   type: 'multipleComponents'
@@ -90,6 +92,8 @@ export interface ShortTextField extends CommonField {
 export interface SingleComponentField extends CommonField {
   /** Allowed component types */
   allowedComponents: string[]
+  /** No creation of Fragments for all allowed, but expand, preventing circular refs */
+  expandFragmentRef?: boolean
   /** A componentName */
   initialContent?: string
   type: 'singleComponent'
