@@ -1,6 +1,13 @@
-import { FieldType, parser, WheelroomComponent } from '@jacco-meijer/wheelroom'
+import {
+  FieldType,
+  FieldTypeName,
+  parser,
+  WheelroomComponent,
+} from '@jacco-meijer/wheelroom'
 
-const wheelroomTypeToTsType = {
+type TypeTable = Record<FieldTypeName, string>
+
+const wheelroomTypeToTsType: TypeTable = {
   date: 'string',
   dropdown: 'string',
   image: 'FluidImage',

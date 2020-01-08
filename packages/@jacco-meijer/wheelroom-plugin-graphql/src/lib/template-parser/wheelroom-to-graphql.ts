@@ -1,9 +1,11 @@
 import { Fields as QbFields } from '@jacco-meijer/graphql-query-builder'
-import { FieldType, firstUpperCase } from '@jacco-meijer/wheelroom'
+import {
+  FieldType,
+  FieldTypeName,
+  firstUpperCase,
+} from '@jacco-meijer/wheelroom'
 
-interface TypeTable {
-  [name: string]: QbFields
-}
+type TypeTable = Record<FieldTypeName, QbFields>
 
 export const wheelroomToGraphql = (fieldName: string, field: FieldType) => {
   const multipleComponentFields: QbFields = {}

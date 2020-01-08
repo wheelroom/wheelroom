@@ -1,9 +1,7 @@
 import { Fields as QbFields } from '@jacco-meijer/graphql-query-builder'
-import { WheelroomComponent } from '@jacco-meijer/wheelroom'
+import { CreatePageQuery, WheelroomComponent } from '@jacco-meijer/wheelroom'
 
-interface TypeTable {
-  [name: string]: QbFields
-}
+type TypeTable = Record<CreatePageQuery, QbFields>
 
 const typeTable: TypeTable = {
   global: {
