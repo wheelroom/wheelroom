@@ -87,7 +87,11 @@ export const fragment = \`
     text {
       text
     }
-    featuredPage
+    featuredPage {
+      ... on Node {
+        ...Page
+      }
+    }
     image {
       title
       description
@@ -101,13 +105,3 @@ export const fragment = \`
     title
   }
 \``
-
-// TODO: Add fields for singleComponent type
-/**
- *
- *     featuredPage {
- *       navigationTitle
- *       pathName
- *     }
- *
- */

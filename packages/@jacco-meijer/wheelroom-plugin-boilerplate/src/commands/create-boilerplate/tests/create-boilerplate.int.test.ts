@@ -5,17 +5,19 @@ import { expectCallWriteFiles } from './expect-call-write-files'
 
 jest.setTimeout(10000)
 
-test('Command: create files', async () => {
-  const fseSpy = jest.spyOn(wheelroom, 'writeFiles')
-  await command.handler(argvCommand as any)
-  expect(fseSpy).toHaveBeenCalledTimes(2)
-  expect(fseSpy).toHaveBeenNthCalledWith(1, {
-    ...expectCallWriteFiles,
-    dryRun: true,
+describe('Command create boilerplate should', () => {
+  test('call wheelroom.writeFiles correctly', async () => {
+    const fseSpy = jest.spyOn(wheelroom, 'writeFiles')
+    await command.handler(argvCommand as any)
+    expect(fseSpy).toHaveBeenCalledTimes(2)
+    expect(fseSpy).toHaveBeenNthCalledWith(1, {
+      ...expectCallWriteFiles,
+      dryRun: true,
+    })
+    expect(fseSpy).toHaveBeenNthCalledWith(2, {
+      ...expectCallWriteFiles,
+      dryRun: false,
+    })
+    fseSpy.mockRestore()
   })
-  expect(fseSpy).toHaveBeenNthCalledWith(2, {
-    ...expectCallWriteFiles,
-    dryRun: false,
-  })
-  fseSpy.mockRestore()
 })

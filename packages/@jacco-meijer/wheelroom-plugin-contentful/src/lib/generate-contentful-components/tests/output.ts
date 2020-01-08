@@ -1,73 +1,51 @@
 import { ContentfulComponents } from '../../../types/contentful-components'
 
 export const output: ContentfulComponents = {
-  article: {
-    description: 'Article',
+  allFieldTypes: {
+    description: 'All field types',
     displayField: 'title',
     fields: {
-      articleText: {
-        initialContent: 'Demo content for article text',
+      dateField: {
         settings: {
-          helpText: 'Article text for article',
+          helpText: 'Date field for all field types',
         },
         specs: {
           localized: false,
-          name: 'Article text',
+          name: 'Date field',
           required: false,
-          type: 'RichText',
-        },
-        widgetId: 'richTextEditor',
-      },
-      author: {
-        initialContent: 'Demo content for author',
-        settings: {
-          helpText: 'Author for article',
-        },
-        specs: {
-          localized: false,
-          name: 'Author',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      date: {
-        initialContent: '2019-06-03T00:00+01:00',
-        settings: {
-          helpText: 'Date for article',
-        },
-        specs: {
-          localized: false,
-          name: 'Date',
-          required: true,
           type: 'Date',
         },
         widgetId: 'datePicker',
+        createContentData: '2019-06-03T00:00+01:00',
       },
-      heading: {
-        initialContent: 'Demo content for heading',
+      dropdownField: {
         settings: {
-          helpText: 'Heading for article',
+          helpText: 'Dropdown field for all field types',
         },
         specs: {
           localized: false,
-          name: 'Heading',
-          required: true,
+          name: 'Dropdown field',
+          required: false,
           type: 'Symbol',
+          validations: [
+            {
+              in: ['item A', 'item B', 'item C'],
+            },
+          ],
         },
-        widgetId: 'singleLine',
+        widgetId: 'dropdown',
+        createContentData: 'item A',
       },
-      image: {
-        initialContent: 'demoAsset',
+      imageField: {
         settings: {
-          helpText: 'Image for article',
+          helpText: 'Image field for all field types',
         },
         specs: {
-          linkType: 'Asset',
           localized: false,
-          name: 'Image',
+          name: 'Image field',
           required: false,
           type: 'Link',
+          linkType: 'Asset',
           validations: [
             {
               linkMimetypeGroup: ['image'],
@@ -75,542 +53,77 @@ export const output: ContentfulComponents = {
           ],
         },
         widgetId: 'assetLinkEditor',
+        createContentData: 'demoAsset',
       },
-      slug: {
-        initialContent: 'demo-slug-article',
+      longTextField: {
         settings: {
-          helpText: 'Slug for article',
+          helpText: 'Long text field for all field types',
         },
         specs: {
           localized: false,
-          name: 'Slug',
-          required: true,
-          type: 'Symbol',
-          validations: [
-            {
-              unique: true,
-            },
-          ],
-        },
-        widgetId: 'singleLine',
-      },
-      subHeading: {
-        initialContent: 'Demo content for sub heading',
-        settings: {
-          helpText: 'Sub heading for article',
-        },
-        specs: {
-          localized: false,
-          name: 'Sub heading',
+          name: 'Long text field',
           required: false,
-          type: 'Symbol',
+          type: 'Text',
         },
-        widgetId: 'singleLine',
+        widgetId: 'multipleLine',
+        createContentData: 'Demo content for long text field',
       },
-      title: {
-        initialContent: 'Demo content for title',
+      multipleComponentsField: {
         settings: {
-          helpText: 'Never displayed, only used for listing within Contentful',
+          helpText: 'Multiple components field for all field types',
         },
         specs: {
           localized: false,
-          name: 'Title',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-    },
-    modelVersion: '1.0.0',
-    type: 'article',
-  },
-  articleSection: {
-    description: 'Article section',
-    displayField: 'title',
-    fields: {
-      articleText: {
-        initialContent: 'Demo content for article text',
-        settings: {
-          helpText: 'Article text for article section',
-        },
-        specs: {
-          localized: true,
-          name: 'Article text',
+          name: 'Multiple components field',
           required: false,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      title: {
-        initialContent: 'Demo content for title',
-        settings: {
-          helpText: 'Never displayed, only used for listing within Contentful',
-        },
-        specs: {
-          localized: false,
-          name: 'Title',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      variation: {
-        initialContent: 'Inline article text, specific to this section',
-        settings: {
-          helpText: 'Select a variation',
-        },
-        specs: {
-          localized: false,
-          name: 'Variation',
-          required: true,
-          type: 'Symbol',
-          validations: [
-            {
-              in: [
-                'Inline article text, specific to this section',
-                'Linked article text, derived from slug in url',
-              ],
-            },
-          ],
-        },
-        widgetId: 'dropdown',
-      },
-    },
-    modelVersion: '1.0.0',
-    type: 'articleSection',
-  },
-  articlesSection: {
-    description: 'Articles section',
-    displayField: 'title',
-    fields: {
-      articles: {
-        initialContent: ['article'],
-        settings: {
-          helpText: 'Articles for articles section',
-        },
-        specs: {
+          type: 'Array',
           items: {
             linkType: 'Entry',
             type: 'Link',
             validations: [
               {
-                linkContentType: ['article'],
+                linkContentType: ['page', 'firstSection', 'secondSection'],
               },
             ],
           },
-          localized: false,
-          name: 'Articles',
-          required: false,
-          type: 'Array',
         },
         widgetId: 'entryLinksEditor',
+        createContentData: ['firstSection', 'secondSection'],
       },
-      heading: {
-        initialContent: 'Demo content for heading',
+      numberField: {
         settings: {
-          helpText: 'Heading for articles section',
+          helpText: 'Number field for all field types',
         },
         specs: {
           localized: false,
-          name: 'Heading',
-          required: false,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      maxArticles: {
-        initialContent: 5,
-        settings: {
-          helpText: 'Max articles for articles section',
-        },
-        specs: {
-          localized: false,
-          name: 'Max articles',
+          name: 'Number field',
           required: false,
           type: 'Integer',
         },
         widgetId: 'numberEditor',
+        createContentData: 5,
       },
-      title: {
-        initialContent: 'Demo content for title',
+      richTextField: {
         settings: {
-          helpText: 'Never displayed, only used for listing within Contentful',
+          helpText: 'Rich text field for all field types',
         },
         specs: {
           localized: false,
-          name: 'Title',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-    },
-    modelVersion: '1.0.0',
-    type: 'articlesSection',
-  },
-  exampleBlock: {
-    description: 'Example block',
-    displayField: 'title',
-    fields: {
-      someText: {
-        initialContent: 'Demo content for some text',
-        settings: {
-          helpText: 'Some text for example block',
-        },
-        specs: {
-          localized: false,
-          name: 'Some text',
+          name: 'Rich text field',
           required: false,
-          type: 'Symbol',
+          type: 'RichText',
         },
-        widgetId: 'singleLine',
+        widgetId: 'richTextEditor',
+        createContentData: 'Demo content for rich text field',
       },
-      title: {
-        initialContent: 'Demo content for title',
+      shortTextField: {
         settings: {
-          helpText: 'Never displayed, only used for listing within Contentful',
+          helpText: 'Short text field for all field types',
         },
         specs: {
           localized: false,
-          name: 'Title',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-    },
-    modelVersion: '1.0.0',
-    type: 'exampleBlock',
-  },
-  examplePart: {
-    description: 'Example part',
-    displayField: 'title',
-    fields: {
-      someText: {
-        initialContent: 'Demo content for some text',
-        settings: {
-          helpText: 'Some text for example part',
-        },
-        specs: {
-          localized: false,
-          name: 'Some text',
+          name: 'Short text field',
           required: false,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      title: {
-        initialContent: 'Demo content for title',
-        settings: {
-          helpText: 'Never displayed, only used for listing within Contentful',
-        },
-        specs: {
-          localized: false,
-          name: 'Title',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-    },
-    modelVersion: '1.0.0',
-    type: 'examplePart',
-  },
-  featuredPageSection: {
-    description: 'Featured page section',
-    displayField: 'title',
-    fields: {
-      featuredPage: {
-        initialContent: 'page',
-        settings: {
-          helpText: 'Select a page',
-        },
-        specs: {
-          linkType: 'Entry',
-          localized: false,
-          name: 'Featured page',
-          required: true,
-          type: 'Link',
-          validations: [
-            {
-              linkContentType: ['page'],
-            },
-          ],
-        },
-        widgetId: 'entryLinkEditor',
-      },
-      title: {
-        initialContent: 'Demo content for title',
-        settings: {
-          helpText: 'Never displayed, only used for listing within Contentful',
-        },
-        specs: {
-          localized: false,
-          name: 'Title',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      variation: {
-        initialContent: 'Inline article text, specific to this section',
-        settings: {
-          helpText: 'Select a variation',
-        },
-        specs: {
-          localized: false,
-          name: 'Variation',
-          required: true,
-          type: 'Symbol',
-          validations: [
-            {
-              in: [
-                'Inline article text, specific to this section',
-                'Linked article text, derived from slug in url',
-              ],
-            },
-          ],
-        },
-        widgetId: 'dropdown',
-      },
-    },
-    modelVersion: '1.0.0',
-    type: 'featuredPageSection',
-  },
-  globals: {
-    description: 'Globals',
-    displayField: 'title',
-    fields: {
-      addressLine1: {
-        initialContent: 'Demo content for address line1',
-        settings: {
-          helpText: 'Address line1 for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Address line1',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      addressLine2: {
-        initialContent: 'Demo content for address line2',
-        settings: {
-          helpText: 'Address line2 for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Address line2',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      emailAddress: {
-        initialContent: 'Demo content for email address',
-        settings: {
-          helpText: 'Email address for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Email address',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      githubUrl: {
-        initialContent: 'Demo content for github url',
-        settings: {
-          helpText: 'Github url for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Github url',
-          required: false,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      heading: {
-        initialContent: 'Demo content for heading',
-        settings: {
-          helpText: 'Heading for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Heading',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      linkedinUrl: {
-        initialContent: 'Demo content for linkedin url',
-        settings: {
-          helpText: 'Linkedin url for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Linkedin url',
-          required: false,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      phoneNumber: {
-        initialContent: 'Demo content for phone number',
-        settings: {
-          helpText: 'Phone number for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Phone number',
-          required: false,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      siteAuthor: {
-        initialContent: 'Demo content for site author',
-        settings: {
-          helpText: 'Site author for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Site author',
-          required: false,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      siteDescription: {
-        initialContent: 'Demo content for site description',
-        settings: {
-          helpText: 'Site description for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Site description',
-          required: false,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      siteKeywords: {
-        initialContent: ['tag me', 'tag you', 'tag us'],
-        settings: {
-          helpText: 'Site keywords for globals',
-        },
-        specs: {
-          items: {
-            type: 'Symbol',
-          },
-          localized: false,
-          name: 'Site keywords',
-          required: false,
-          type: 'Array',
-        },
-        widgetId: 'tagEditor',
-      },
-      siteTitle: {
-        initialContent: 'Demo content for site title',
-        settings: {
-          helpText: 'Site title for globals',
-        },
-        specs: {
-          localized: false,
-          name: 'Site title',
-          required: false,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      title: {
-        initialContent: 'Demo content for title',
-        settings: {
-          helpText: 'Never displayed, only used for listing within Contentful',
-        },
-        specs: {
-          localized: false,
-          name: 'Title',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-    },
-    modelVersion: '1.0.0',
-    type: 'globals',
-  },
-  page: {
-    description: 'Page',
-    displayField: 'title',
-    fields: {
-      image: {
-        initialContent: 'demoAsset',
-        settings: {
-          helpText: 'Image for page',
-        },
-        specs: {
-          linkType: 'Asset',
-          localized: false,
-          name: 'Image',
-          required: false,
-          type: 'Link',
-          validations: [
-            {
-              linkMimetypeGroup: ['image'],
-            },
-          ],
-        },
-        widgetId: 'assetLinkEditor',
-      },
-      navigationTitle: {
-        initialContent: 'Demo content for navigation title',
-        settings: {
-          helpText: 'Navigation title for page',
-        },
-        specs: {
-          localized: false,
-          name: 'Navigation title',
-          required: true,
-          type: 'Symbol',
-        },
-        widgetId: 'singleLine',
-      },
-      sections: {
-        initialContent: ['articleSection'],
-        settings: {
-          helpText: 'Select sections for this page',
-        },
-        specs: {
-          items: {
-            linkType: 'Entry',
-            type: 'Link',
-            validations: [
-              {
-                linkContentType: ['articleSection', 'articlesSection'],
-              },
-            ],
-          },
-          localized: false,
-          name: 'Sections',
-          required: true,
-          type: 'Array',
-        },
-        widgetId: 'entryLinksEditor',
-      },
-      seoDescription: {
-        initialContent: 'Demo content for seo description',
-        settings: {
-          helpText: 'Seo description for page',
-        },
-        specs: {
-          localized: false,
-          name: 'Seo description',
-          required: true,
           type: 'Symbol',
           validations: [
             {
@@ -622,22 +135,44 @@ export const output: ContentfulComponents = {
           ],
         },
         widgetId: 'singleLine',
+        createContentData: 'Demo content for short text field',
       },
-      seoTitle: {
-        initialContent: 'Demo content for seo title',
+      singleComponentField: {
         settings: {
-          helpText: 'Seo title for page',
+          helpText: 'Single component field for all field types',
         },
         specs: {
           localized: false,
-          name: 'Seo title',
-          required: true,
-          type: 'Symbol',
+          name: 'Single component field',
+          required: false,
+          type: 'Link',
+          linkType: 'Entry',
+          validations: [
+            {
+              linkContentType: ['page'],
+            },
+          ],
         },
-        widgetId: 'singleLine',
+        widgetId: 'entryLinkEditor',
+        createContentData: 'page',
+      },
+      tagsField: {
+        settings: {
+          helpText: 'Tags field for all field types',
+        },
+        specs: {
+          localized: false,
+          name: 'Tags field',
+          required: false,
+          type: 'Array',
+          items: {
+            type: 'Symbol',
+          },
+        },
+        widgetId: 'tagEditor',
+        createContentData: ['tag me', 'tag you', 'tag us'],
       },
       title: {
-        initialContent: 'Demo content for title',
         settings: {
           helpText: 'Never displayed, only used for listing within Contentful',
         },
@@ -648,9 +183,214 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
+        createContentData: 'Demo content for title',
       },
     },
     modelVersion: '1.0.0',
-    type: 'page',
+    type: 'allFieldTypes',
+  },
+  firstSection: {
+    description: 'First section',
+    displayField: 'title',
+    fields: {
+      defaultField: {
+        settings: {
+          helpText: 'Default field for first section',
+        },
+        specs: {
+          localized: false,
+          name: 'Default field',
+          required: false,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for default field',
+      },
+      title: {
+        settings: {
+          helpText: 'Never displayed, only used for listing within Contentful',
+        },
+        specs: {
+          localized: false,
+          name: 'Title',
+          required: true,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for title',
+      },
+    },
+    modelVersion: '1.0.0',
+    type: 'firstSection',
+  },
+  globalModel: {
+    description: 'Global model',
+    displayField: 'title',
+    fields: {
+      heading: {
+        settings: {
+          helpText: 'Heading for global model',
+        },
+        specs: {
+          localized: false,
+          name: 'Heading',
+          required: false,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for heading',
+      },
+      title: {
+        settings: {
+          helpText: 'Never displayed, only used for listing within Contentful',
+        },
+        specs: {
+          localized: false,
+          name: 'Title',
+          required: true,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for title',
+      },
+    },
+    modelVersion: '1.0.0',
+    type: 'globalModel',
+  },
+  noFragment: {
+    description: 'No fragment',
+    displayField: 'title',
+    fields: {
+      heading: {
+        settings: {
+          helpText: 'Heading for no fragment',
+        },
+        specs: {
+          localized: false,
+          name: 'Heading',
+          required: false,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for heading',
+      },
+      title: {
+        settings: {
+          helpText: 'Never displayed, only used for listing within Contentful',
+        },
+        specs: {
+          localized: false,
+          name: 'Title',
+          required: true,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for title',
+      },
+    },
+    modelVersion: '1.0.0',
+    type: 'noFragment',
+  },
+  pageModel: {
+    description: 'Page model',
+    displayField: 'title',
+    fields: {
+      heading: {
+        settings: {
+          helpText: 'Heading for page model',
+        },
+        specs: {
+          localized: false,
+          name: 'Heading',
+          required: false,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for heading',
+      },
+      title: {
+        settings: {
+          helpText: 'Never displayed, only used for listing within Contentful',
+        },
+        specs: {
+          localized: false,
+          name: 'Title',
+          required: true,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for title',
+      },
+    },
+    modelVersion: '1.0.0',
+    type: 'pageModel',
+  },
+  secondSection: {
+    description: 'Second section',
+    displayField: 'title',
+    fields: {
+      heading: {
+        settings: {
+          helpText: 'Heading for second section',
+        },
+        specs: {
+          localized: false,
+          name: 'Heading',
+          required: false,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for heading',
+      },
+      title: {
+        settings: {
+          helpText: 'Never displayed, only used for listing within Contentful',
+        },
+        specs: {
+          localized: false,
+          name: 'Title',
+          required: true,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for title',
+      },
+    },
+    modelVersion: '1.0.0',
+    type: 'secondSection',
+  },
+  subPageModel: {
+    description: 'Sub page model',
+    displayField: 'title',
+    fields: {
+      heading: {
+        settings: {
+          helpText: 'Heading for sub page model',
+        },
+        specs: {
+          localized: false,
+          name: 'Heading',
+          required: false,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for heading',
+      },
+      title: {
+        settings: {
+          helpText: 'Never displayed, only used for listing within Contentful',
+        },
+        specs: {
+          localized: false,
+          name: 'Title',
+          required: true,
+          type: 'Symbol',
+        },
+        widgetId: 'singleLine',
+        createContentData: 'Demo content for title',
+      },
+    },
+    modelVersion: '1.0.0',
+    type: 'subPageModel',
   },
 }

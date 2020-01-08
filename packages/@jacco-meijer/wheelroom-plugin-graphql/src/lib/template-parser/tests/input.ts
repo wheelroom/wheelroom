@@ -43,10 +43,11 @@ const articlesSection: TemplateParser = {
       },
       // tslint:disable-next-line: object-literal-sort-keys
       articles: {
-        components: ['Article'],
+        allowedComponents: ['Article'],
         type: 'multipleComponents',
       },
       variation: {
+        items: ['Choose', 'From', 'These'],
         type: 'dropdown',
       },
       title: {
@@ -79,13 +80,14 @@ const featuredPageSection: TemplateParser = {
       },
       // tslint:disable-next-line: object-literal-sort-keys
       featuredPage: {
-        components: ['page'],
+        allowedComponents: ['page'],
         type: 'singleComponent',
       },
       image: {
         type: 'image',
       },
       variation: {
+        items: ['Choose', 'From', 'These'],
         type: 'dropdown',
       },
       title: {

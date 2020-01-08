@@ -7,10 +7,10 @@ export const getFields = (context: Context, componentName: string) => {
   const component = context.contentfulComponents[componentName]
   Object.entries(component.fields).forEach(
     ([fieldId, field]: [string, ContentfulField]) => {
-      if (!field.initialContent && field.specs.required) {
-        console.log(`Field ${fieldId} is required but has no initialContent`)
+      if (!field.createContentData && field.specs.required) {
+        console.log(`Field ${fieldId} is required but has no createContentData`)
       }
-      if (!field.initialContent) {
+      if (!field.createContentData) {
         return
       }
       switch (field.specs.type) {
@@ -20,7 +20,7 @@ export const getFields = (context: Context, componentName: string) => {
         case 'Symbol':
         case 'Text':
           context.contentfulApi.fields[fieldId] = {
-            [context.pluginOptions.defaultLocale]: field.initialContent,
+            [context.pluginOptions.defaultLocale]: field.createContentData,
           }
           break
 
@@ -32,7 +32,7 @@ export const getFields = (context: Context, componentName: string) => {
                 [context.pluginOptions.defaultLocale]: [
                   {
                     sys: {
-                      id: field.initialContent + demoEntryPostfix,
+                      id: field.createContentData + demoEntryPostfix,
                       linkType: 'Entry',
                       type: 'Link',
                     },
@@ -47,7 +47,7 @@ export const getFields = (context: Context, componentName: string) => {
             case 'Symbol':
             case 'Text':
               context.contentfulApi.fields[fieldId] = {
-                [context.pluginOptions.defaultLocale]: field.initialContent,
+                [context.pluginOptions.defaultLocale]: field.createContentData,
               }
               break
           }
@@ -63,7 +63,7 @@ export const getFields = (context: Context, componentName: string) => {
                       data: {},
                       marks: [],
                       nodeType: 'text',
-                      value: field.initialContent,
+                      value: field.createContentData,
                     },
                   ],
                   data: {},
@@ -94,7 +94,7 @@ export const getFields = (context: Context, componentName: string) => {
               context.contentfulApi.fields[fieldId] = {
                 [context.pluginOptions.defaultLocale]: {
                   sys: {
-                    id: field.initialContent + demoEntryPostfix,
+                    id: field.createContentData + demoEntryPostfix,
                     linkType: 'Entry',
                     type: 'Link',
                   },

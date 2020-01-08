@@ -2,19 +2,20 @@ import { FieldType } from '@jacco-meijer/wheelroom'
 
 /**
  * - %firstItem%
- * - %firstComponent%
+ * - %firstAllowedComponent%
+ * - %firstAllowedComponentArray%
  * - %demoAsset%
  */
-export const initialContentParser = (
+export const createContentDataParser = (
   unparsed: string,
   field: FieldType
-): string => {
+): string | string[] => {
   // If objects or arrays are missing in the field, the variable has been used
   // in a field where the value cannot be found. To prevent errors, supply empty
   // values by creating a safe field that has all values.
   const safeField = Object.assign(
     {},
-    { items: ['not-found'], components: ['not-found'] },
+    { items: ['not-found'], allowedComponents: ['not-found'] },
     field
   )
   switch (unparsed) {
@@ -22,8 +23,10 @@ export const initialContentParser = (
       return 'demoAsset'
     case '%firstItem%':
       return safeField.items[0]
-    case '%firstComponent%':
-      return safeField.components[0]
+    case '%firstAllowedComponent%':
+      return safeField.allowedComponents[0]
+    case '%firstAllowedComponentArray%':
+      return [safeField.allowedComponents[0]]
   }
   return unparsed
 }

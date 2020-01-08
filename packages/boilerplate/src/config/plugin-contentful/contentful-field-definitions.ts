@@ -8,7 +8,7 @@
  * Variables for initialContent
  *
  * - %firstItem%
- * - %firstComponent%
+ * - %firstAllowedComponent%
  * - %demoAsset%
  *
  */
@@ -66,7 +66,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'multipleLine',
     },
     multipleComponents: {
-      initialContent: ['%firstComponent%'],
+      initialContent: ['%firstAllowedComponent%'],
       specs: {
         items: {
           linkType: 'Entry',
@@ -100,7 +100,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'singleLine',
     },
     singleComponent: {
-      initialContent: '%firstComponent%',
+      initialContent: '%firstAllowedComponent%',
       specs: {
         linkType: 'Entry',
         name: '%Field name%',

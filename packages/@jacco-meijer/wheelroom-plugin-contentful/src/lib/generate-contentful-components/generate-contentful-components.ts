@@ -29,12 +29,13 @@ export const generateContentfulComponents = (
             // Skip system fields
             return
           }
-          const fieldDefinition = fieldDefinitions.fieldTypes[fieldValue.type!]
+          const contentfulFieldDefinition =
+            fieldDefinitions.fieldTypes[fieldValue.type!]
           fields[fieldName] = mergeFields(
             fieldValue,
             componentName,
             fieldName,
-            fieldDefinition,
+            contentfulFieldDefinition,
             fieldDefinitions.fieldDefaults
           )
         }

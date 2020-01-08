@@ -3,12 +3,12 @@
  * input for a wheelroom command. Command handlers can be added by plugins.
  */
 
+import { contentfulFieldDefinitions } from './contentful-field-definitions'
+
 export const argvPluginOptions = {
-  'another-module-name': {
-    anotherTestOption: 'passed-to-plugin',
-    testArray: ['passed', 'to', 'plugin'],
+  '@jacco-meijer/wheelroom-plugin-contentful': {
+    defaultLocale: 'nl',
+    fieldDefinitions: contentfulFieldDefinitions,
   },
-  'module-name': {
-    testOptione: 'to-pass',
-  },
+  'some-other-package': {},
 }

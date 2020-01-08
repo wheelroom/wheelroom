@@ -10,4 +10,5 @@ import { argvPluginOptions } from './argv-plugin-options'
 export const argvCommand = {
   components: argvComponents,
   options: argvPluginOptions,
+  yes: true,
 }

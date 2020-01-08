@@ -13,6 +13,7 @@ describe('Generate contentful components should', () => {
       wheelroomComponents,
       pluginOptions.fieldDefinitions
     )
+    // console.log('OUTPUT', JSON.stringify(contentfulComponents, null, 2))
     expect(contentfulComponents).toStrictEqual(output)
   })
 })

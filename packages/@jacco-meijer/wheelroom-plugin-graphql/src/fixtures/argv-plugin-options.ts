@@ -3,12 +3,10 @@
  * input for a wheelroom command. Command handlers can be added by plugins.
  */
 
+import { templateSets } from './template-sets/template-sets'
+
 export const argvPluginOptions = {
-  'another-module-name': {
-    anotherTestOption: 'passed-to-plugin',
-    testArray: ['passed', 'to', 'plugin'],
-  },
-  'module-name': {
-    testOptione: 'to-pass',
+  '@jacco-meijer/wheelroom-plugin-graphql': {
+    templateSets,
   },
 }
