@@ -82,7 +82,7 @@ export const output: ContentfulComponents = {
             type: 'Link',
             validations: [
               {
-                linkContentType: ['page', 'firstSection', 'secondSection'],
+                linkContentType: ['pageModel', 'firstSection', 'secondSection'],
               },
             ],
           },
@@ -149,12 +149,12 @@ export const output: ContentfulComponents = {
           linkType: 'Entry',
           validations: [
             {
-              linkContentType: ['page'],
+              linkContentType: ['pageModel'],
             },
           ],
         },
         widgetId: 'entryLinkEditor',
-        createContentData: 'page',
+        createContentData: 'pageModel',
       },
       tagsField: {
         settings: {

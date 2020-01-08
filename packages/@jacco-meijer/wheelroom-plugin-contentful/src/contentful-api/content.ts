@@ -29,15 +29,18 @@ export const getFields = (context: Context, componentName: string) => {
           switch (arrayItems.type) {
             case 'Link':
               context.contentfulApi.fields[fieldId] = {
-                [context.pluginOptions.defaultLocale]: [
-                  {
-                    sys: {
-                      id: field.createContentData + demoEntryPostfix,
-                      linkType: 'Entry',
-                      type: 'Link',
-                    },
-                  },
-                ],
+                [context.pluginOptions
+                  .defaultLocale]: (field.createContentData as []).map(
+                  (data: string) => {
+                    return {
+                      sys: {
+                        id: data + demoEntryPostfix,
+                        linkType: 'Entry',
+                        type: 'Link',
+                      },
+                    }
+                  }
+                ),
               }
               break
 

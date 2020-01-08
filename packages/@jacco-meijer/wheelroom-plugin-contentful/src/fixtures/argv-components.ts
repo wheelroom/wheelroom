@@ -33,7 +33,7 @@ export const argvComponents: WheelroomComponents = {
         type: 'longText',
       },
       multipleComponentsField: {
-        allowedComponents: ['page', 'firstSection', 'secondSection'],
+        allowedComponents: ['pageModel', 'firstSection', 'secondSection'],
         initialContent: ['firstSection', 'secondSection'],
         localized: false,
         required: false,
@@ -57,7 +57,7 @@ export const argvComponents: WheelroomComponents = {
         type: 'shortText',
       },
       singleComponentField: {
-        allowedComponents: ['page'],
+        allowedComponents: ['pageModel'],
         localized: false,
         required: false,
         type: 'singleComponent',
