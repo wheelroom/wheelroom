@@ -1,9 +1,6 @@
 import fse from 'fs-extra'
 import inquirer from 'inquirer'
-import {
-  WriteFileListItem,
-  WriteFilesContext,
-} from '../../types/write-files-context'
+import { WriteFilesContext } from '../../types/write-files-context'
 import { noTrailingSlash } from '../parser/case-helpers'
 import { writeFileQuestions } from './write-files-questions'
 
@@ -11,18 +8,16 @@ type OverwritePolicy = 'y' | 'n' | 'a' | 'q' | undefined
 
 export const writeFiles = async (context: WriteFilesContext) => {
   let lastOverwritePolicy: OverwritePolicy
-  await Promise.all(
-    context.fileList.map(async (fileDetails: WriteFileListItem) => {
-      lastOverwritePolicy = await writeFile({
-        basePath: fileDetails.basePath,
-        content: fileDetails.content,
-        dryRun: context.dryRun,
-        lastOverwritePolicy,
-        relPath: fileDetails.relPath,
-        yes: context.yes,
-      })
+  for (const fileList of context.fileList) {
+    lastOverwritePolicy = await writeFile({
+      basePath: fileList.basePath,
+      content: fileList.content,
+      dryRun: context.dryRun,
+      lastOverwritePolicy,
+      relPath: fileList.relPath,
+      yes: context.yes,
     })
-  )
+  }
 }
 
 interface WriteFileContext {
