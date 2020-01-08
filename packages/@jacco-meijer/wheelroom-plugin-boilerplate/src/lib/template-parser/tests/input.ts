@@ -18,11 +18,11 @@ export const input: TemplateParser = {
         type: 'shortText',
       },
     },
-    graphQL: {
-      fragment: false,
-      pageSection: false,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asFragment: false,
+      asPageSection: false,
+    },
   },
   componentName: 'exampleBlock',
   singleVariationName: 'testing-single',

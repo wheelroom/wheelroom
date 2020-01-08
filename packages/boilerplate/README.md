@@ -59,7 +59,7 @@ Create a dummy image asset and demo content for each model:
 npm run wr:cc
 ```
 
-Create the required GraphQL fragments for Gatsby:
+Create the required Settings fragments for Gatsby:
 
 ```
 npm run wr:cf

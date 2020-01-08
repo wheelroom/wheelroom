@@ -1,8 +1,8 @@
-// createPageQuery: subPage
+// asQuery: subPage
 export const articleQueryOutput = `
 export const query = \`
 {
-  article: allContentfulArticle(limit: 20) {
+  article: allContentfulArticle(queryLimit: 20) {
     edges {
       node {
         id
@@ -14,11 +14,11 @@ export const query = \`
 }
 \``
 
-// createPageQuery: global
+// asQuery: global
 export const articlesSectionQueryOutput = `
 export const query = \`
 {
-  articlesSection: allContentfulArticlesSection(limit: 15) {
+  articlesSection: allContentfulArticlesSection(queryLimit: 15) {
     edges {
       node {
         id
@@ -29,7 +29,7 @@ export const query = \`
 }
 \``
 
-// createPageQuery: page
+// asQuery: page
 export const featuredPageSectionQueryOutput = `
 export const query = \`
 {

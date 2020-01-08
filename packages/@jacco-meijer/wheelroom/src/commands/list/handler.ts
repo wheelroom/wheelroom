@@ -14,10 +14,10 @@ export const handler = async (argv: any) => {
       console.log(`============================
   Component:              ${componentName}
   Fields:                 ${fields}
-  gQL createPageQuery:    ${component.graphQL.createPageQuery}
-  gQL page section:       ${component.graphQL.pageSection ? 'Yes' : 'No'}
-  gQL fragment:           ${component.graphQL.fragment ? 'Yes' : 'No'}
-  gQL limit:              ${component.graphQL.limit || 'not present'}
+  gQL asQuery:    ${component.settings.asQuery}
+  gQL page section:       ${component.settings.asPageSection ? 'Yes' : 'No'}
+  gQL fragment:           ${component.settings.asFragment ? 'Yes' : 'No'}
+  gQL queryLimit:              ${component.settings.queryLimit || 'not present'}
   modelVersion:           ${component.modelVersion}
 `)
     }

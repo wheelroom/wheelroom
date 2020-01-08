@@ -40,25 +40,25 @@ export const expectCallWriteFiles = {
     {
       basePath: 'test-output',
       content:
-        "/**\n* Graphql query definition\n*\n* Query type: %createPageQuery%\n* Component: allFieldTypes\n*\n*/\n\nexport const componentName = 'allFieldTypes'\nexport const type = '%createPageQuery%'\nexport const query = `\n{\n  allFieldTypes: allContentfulAllFieldTypes(limit: 10) {\n    edges {\n      node {\n        id\n        node_locale\n        slug\n      }\n    }\n  }\n}\n`",
+        "/**\n* Graphql query definition\n*\n* Query type: %asQuery%\n* Component: allFieldTypes\n*\n*/\n\nexport const componentName = 'allFieldTypes'\nexport const type = '%asQuery%'\nexport const query = `\n{\n  allFieldTypes: allContentfulAllFieldTypes(queryLimit: 10) {\n    edges {\n      node {\n        id\n        node_locale\n        slug\n      }\n    }\n  }\n}\n`",
       relPath: 'all-field-types-query.js',
     },
     {
       basePath: 'test-output',
       content:
-        "/**\n* Graphql query definition\n*\n* Query type: %createPageQuery%\n* Component: globalModel\n*\n*/\n\nexport const componentName = 'globalModel'\nexport const type = '%createPageQuery%'\nexport const query = `\n{\n  globalModel: allContentfulGlobalModel(limit: 10) {\n    edges {\n      node {\n        id\n        node_locale\n      }\n    }\n  }\n}\n`",
+        "/**\n* Graphql query definition\n*\n* Query type: %asQuery%\n* Component: globalModel\n*\n*/\n\nexport const componentName = 'globalModel'\nexport const type = '%asQuery%'\nexport const query = `\n{\n  globalModel: allContentfulGlobalModel(queryLimit: 10) {\n    edges {\n      node {\n        id\n        node_locale\n      }\n    }\n  }\n}\n`",
       relPath: 'global-model-query.js',
     },
     {
       basePath: 'test-output',
       content:
-        "/**\n* Graphql query definition\n*\n* Query type: %createPageQuery%\n* Component: pageModel\n*\n*/\n\nexport const componentName = 'pageModel'\nexport const type = '%createPageQuery%'\nexport const query = `\n{\n  pageModel: allContentfulPageModel(limit: 10) {\n    edges {\n      node {\n        id\n        node_locale\n        path\n        pathName\n      }\n    }\n  }\n}\n`",
+        "/**\n* Graphql query definition\n*\n* Query type: %asQuery%\n* Component: pageModel\n*\n*/\n\nexport const componentName = 'pageModel'\nexport const type = '%asQuery%'\nexport const query = `\n{\n  pageModel: allContentfulPageModel(queryLimit: 10) {\n    edges {\n      node {\n        id\n        node_locale\n        path\n        pathName\n      }\n    }\n  }\n}\n`",
       relPath: 'page-model-query.js',
     },
     {
       basePath: 'test-output',
       content:
-        "/**\n* Graphql query definition\n*\n* Query type: %createPageQuery%\n* Component: subPageModel\n*\n*/\n\nexport const componentName = 'subPageModel'\nexport const type = '%createPageQuery%'\nexport const query = `\n{\n  subPageModel: allContentfulSubPageModel(limit: 10) {\n    edges {\n      node {\n        id\n        node_locale\n        slug\n      }\n    }\n  }\n}\n`",
+        "/**\n* Graphql query definition\n*\n* Query type: %asQuery%\n* Component: subPageModel\n*\n*/\n\nexport const componentName = 'subPageModel'\nexport const type = '%asQuery%'\nexport const query = `\n{\n  subPageModel: allContentfulSubPageModel(queryLimit: 10) {\n    edges {\n      node {\n        id\n        node_locale\n        slug\n      }\n    }\n  }\n}\n`",
       relPath: 'sub-page-model-query.js',
     },
   ],

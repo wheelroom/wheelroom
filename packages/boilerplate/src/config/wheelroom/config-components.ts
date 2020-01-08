@@ -26,9 +26,9 @@ export const configComponents: WheelroomComponents = {
         type: 'singleComponent',
       } as SingleComponentField,
     },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
+    settings: {
+      asFragment: true,
+      asPageSection: true,
     },
     modelVersion: '1.0.0',
   },
@@ -69,9 +69,9 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
     },
-    graphQL: {
-      createPageQuery: 'global',
-      fragment: true,
+    settings: {
+      asQuery: 'global',
+      asFragment: true,
     },
     modelVersion: '1.0.0',
   },
@@ -91,9 +91,9 @@ export const configComponents: WheelroomComponents = {
         type: 'dropdown',
       } as DropdownField,
     },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
+    settings: {
+      asFragment: true,
+      asPageSection: true,
     },
     modelVersion: '1.0.0',
   },
@@ -107,8 +107,8 @@ export const configComponents: WheelroomComponents = {
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
-    graphQL: {
-      fragment: true,
+    settings: {
+      asFragment: true,
     },
     modelVersion: '1.0.0',
   },
@@ -144,9 +144,9 @@ export const configComponents: WheelroomComponents = {
         type: 'dropdown',
       } as DropdownField,
     },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
+    settings: {
+      asFragment: true,
+      asPageSection: true,
     },
     modelVersion: '1.0.0',
   },
@@ -236,9 +236,9 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
     },
-    graphQL: {
-      createPageQuery: 'page',
-      fragment: true,
+    settings: {
+      asQuery: 'page',
+      asFragment: true,
     },
     modelVersion: '1.0.0',
   },
@@ -262,9 +262,9 @@ export const configComponents: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
     },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
+    settings: {
+      asFragment: true,
+      asPageSection: true,
     },
     modelVersion: '1.0.0',
   },
@@ -276,9 +276,9 @@ export const configComponents: WheelroomComponents = {
         type: 'richText',
       } as RichTextField,
     },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
+    settings: {
+      asFragment: true,
+      asPageSection: true,
     },
     modelVersion: '1.0.0',
   },

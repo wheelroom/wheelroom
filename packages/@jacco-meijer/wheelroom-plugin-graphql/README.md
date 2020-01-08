@@ -35,7 +35,7 @@ module.exports = {
 
 ### Template sets
 
-Using typescript, template sets are defined like this. 
+Using typescript, template sets are defined like this.
 
 ```typescript
 import { TemplateSets } from '@jacco-meijer/wheelroom-plugin-graphql'
@@ -45,16 +45,15 @@ import { query } from './query'
 export const templateSets: TemplateSets = {
   gatsbyjs: {
     fragment: {
-      filterGraphQLSetting: 'fragment',
+      filterComponentSetting: 'asFragment',
       path: '%component-name%-fragment.js',
       template: fragment,
     },
     query: {
-      filterGraphQLSetting: 'createPageQuery',
+      filterComponentSetting: 'asQuery',
       path: '%component-name%-query.js',
       template: query,
     },
   },
 }
-
 ```

@@ -48,11 +48,13 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
   const fileList: WriteFileList = []
   Object.entries(context.wheelroomComponents)
     .filter(([componentName, component]: [string, WheelroomComponent]) => {
-      if (!context.templateDefinition!.filterGraphQLSetting) {
+      if (!context.templateDefinition!.filterComponentSetting) {
         // Pass all if no filter is present
         return true
       }
-      return component.graphQL[context.templateDefinition!.filterGraphQLSetting]
+      return component.settings[
+        context.templateDefinition!.filterComponentSetting
+      ]
     })
     .forEach(([componentName, component]: [string, WheelroomComponent]) => {
       let unparsed = context.templateDefinition!.template

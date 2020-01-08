@@ -1,7 +1,7 @@
 import { Fields as QbFields } from '@jacco-meijer/graphql-query-builder'
-import { CreatePageQuery, WheelroomComponent } from '@jacco-meijer/wheelroom'
+import { AsQuery, WheelroomComponent } from '@jacco-meijer/wheelroom'
 
-type TypeTable = Record<CreatePageQuery, QbFields>
+type TypeTable = Record<AsQuery, QbFields>
 
 const typeTable: TypeTable = {
   global: {
@@ -46,8 +46,8 @@ const typeTable: TypeTable = {
 }
 
 export const getWheelroomQuery = (component: WheelroomComponent): QbFields => {
-  if ('graphQL' in component && 'createPageQuery' in component.graphQL) {
-    const fields = typeTable[component.graphQL.createPageQuery!]
+  if ('settings' in component && 'asQuery' in component.settings) {
+    const fields = typeTable[component.settings.asQuery!]
     return fields
   }
   return {}

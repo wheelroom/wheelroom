@@ -184,10 +184,10 @@ describe('The parser should parse', () => {
         type: 'tags',
       } as TagsField,
     },
-    graphQL: {
-      createPageQuery: 'global',
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asQuery: 'global',
+    },
   }
 
   test('the variable %componentHtmlAttributes%', () => {
@@ -200,9 +200,9 @@ describe('The parser should parse', () => {
     )
   })
 
-  test('the variable %componentVar(path:graphQL.createPageQuery)%', () => {
+  test('the variable %componentVar(path:settings.asQuery)%', () => {
     result = parser(
-      'This is the test case for %componentVar(path:graphQL.createPageQuery)%',
+      'This is the test case for %componentVar(path:settings.asQuery)%',
       {
         component,
         componentName,

@@ -23,10 +23,10 @@ const components: WheelroomComponents = {
         type: 'singleComponent',
       },
     },
-    graphQL: {
-      createPageQuery: 'page',
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asQuery: 'page',
+    },
   },
 }
 
@@ -48,11 +48,11 @@ const article: TemplateParser = {
         type: 'shortText',
       },
     },
-    graphQL: {
-      createPageQuery: 'subPage',
-      limit: 20,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asQuery: 'subPage',
+      queryLimit: 20,
+    },
   },
   componentName: 'article',
   components,
@@ -66,31 +66,31 @@ const articlesSection: TemplateParser = {
         system: true,
         type: 'shortText',
       },
+      // tslint:disable-next-line: object-literal-sort-keys
+      articles: {
+        allowedComponents: ['Article'],
+        type: 'multipleComponents',
+      },
       heading: {
         type: 'shortText',
       },
       maxArticles: {
         type: 'number',
       },
-      // tslint:disable-next-line: object-literal-sort-keys
-      articles: {
-        allowedComponents: ['Article'],
-        type: 'multipleComponents',
+      title: {
+        required: true,
+        type: 'shortText',
       },
       variation: {
         items: ['Choose', 'From', 'These'],
         type: 'dropdown',
       },
-      title: {
-        required: true,
-        type: 'shortText',
-      },
-    },
-    graphQL: {
-      createPageQuery: 'global',
-      limit: 15,
     },
     modelVersion: '1.0.0',
+    settings: {
+      asQuery: 'global',
+      queryLimit: 15,
+    },
   },
   componentName: 'articlesSection',
   components,
@@ -104,34 +104,34 @@ const featuredPageSection: TemplateParser = {
         system: true,
         type: 'shortText',
       },
-      heading: {
-        type: 'shortText',
-      },
-      text: {
-        type: 'richText',
-      },
       // tslint:disable-next-line: object-literal-sort-keys
       featuredPage: {
         allowedComponents: ['page'],
         expandFragmentRef: true,
         type: 'singleComponent',
       },
+      heading: {
+        type: 'shortText',
+      },
       image: {
         type: 'image',
       },
-      variation: {
-        items: ['Choose', 'From', 'These'],
-        type: 'dropdown',
+      text: {
+        type: 'richText',
       },
       title: {
         required: true,
         type: 'shortText',
       },
-    },
-    graphQL: {
-      createPageQuery: 'page',
+      variation: {
+        items: ['Choose', 'From', 'These'],
+        type: 'dropdown',
+      },
     },
     modelVersion: '1.0.0',
+    settings: {
+      asQuery: 'page',
+    },
   },
   componentName: 'featuredPageSection',
   components,

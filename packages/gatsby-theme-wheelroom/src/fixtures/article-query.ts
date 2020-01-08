@@ -10,7 +10,7 @@ module.exports = {
   componentName: 'article',
   query: `
   {
-    article: allContentfulArticle(limit: 10) {
+    article: allContentfulArticle(queryLimit: 10) {
       edges {
         node {
           id

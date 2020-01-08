@@ -25,8 +25,8 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
       // Create a working copy for the component
       const workComponent = {
         fields: Object.assign({}, component.fields),
-        graphQL: component.graphQL,
         modelVersion: component.modelVersion,
+        settings: component.settings,
       } as WheelroomComponent
 
       // Merge in common fields
@@ -37,7 +37,7 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
         ([fieldName, field]: [string, FieldType]) => {
           /**
            * Create a working copy of the field with default fields. System
-           * fields are only used for building graphQL queries. We only need the
+           * fields are only used for building settings queries. We only need the
            * default type field for these.
            */
           let workField = {} as FieldType

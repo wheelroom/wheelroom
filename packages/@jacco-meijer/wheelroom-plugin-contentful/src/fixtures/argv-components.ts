@@ -74,12 +74,12 @@ export const argvComponents: WheelroomComponents = {
         type: 'shortText',
       },
     },
-    graphQL: {
-      createPageQuery: 'subPage',
-      fragment: true,
-      limit: 10,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asQuery: 'subPage',
+      queryLimit: 10,
+    },
   },
   firstSection: {
     fields: {
@@ -99,11 +99,11 @@ export const argvComponents: WheelroomComponents = {
         type: 'shortText',
       },
     },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asPageSection: true,
+    },
   },
   globalModel: {
     fields: {
@@ -123,12 +123,12 @@ export const argvComponents: WheelroomComponents = {
         type: 'shortText',
       },
     },
-    graphQL: {
-      createPageQuery: 'global',
-      fragment: true,
-      limit: 10,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asQuery: 'global',
+      queryLimit: 10,
+    },
   },
   noFragment: {
     fields: {
@@ -148,8 +148,8 @@ export const argvComponents: WheelroomComponents = {
         type: 'shortText',
       },
     },
-    graphQL: {},
     modelVersion: '1.0.0',
+    settings: {},
   },
   pageModel: {
     fields: {
@@ -169,12 +169,12 @@ export const argvComponents: WheelroomComponents = {
         type: 'shortText',
       },
     },
-    graphQL: {
-      createPageQuery: 'page',
-      fragment: true,
-      limit: 10,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asQuery: 'page',
+      queryLimit: 10,
+    },
   },
   secondSection: {
     fields: {
@@ -194,11 +194,11 @@ export const argvComponents: WheelroomComponents = {
         type: 'shortText',
       },
     },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asPageSection: true,
+    },
   },
   subPageModel: {
     fields: {
@@ -218,11 +218,11 @@ export const argvComponents: WheelroomComponents = {
         type: 'shortText',
       },
     },
-    graphQL: {
-      createPageQuery: 'subPage',
-      fragment: true,
-      limit: 10,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asQuery: 'subPage',
+      queryLimit: 10,
+    },
   },
 }

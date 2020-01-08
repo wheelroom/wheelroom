@@ -27,8 +27,13 @@ export const componentQuery = (context: ComponentQuery) => {
     fields,
   } as QbField
 
-  if ('graphQL' in context.component && 'limit' in context.component.graphQL) {
-    mainField.arguments = { limit: context.component.graphQL.limit!.toString() }
+  if (
+    'settings' in context.component &&
+    'queryLimit' in context.component.settings
+  ) {
+    mainField.arguments = {
+      queryLimit: context.component.settings.queryLimit!.toString(),
+    }
   }
 
   const queryString = qb({

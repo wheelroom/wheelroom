@@ -26,10 +26,10 @@
  * - %field-type%
  *
  *
- * GraphQL variables
+ * Settings variables
  *
- * Use %componentVar(path:graphQL.createPageQuery)% to get the value of the
- * graphQL.createPageQuery variable.
+ * Use %componentVar(path:settings.asQuery)% to get the value of the
+ * settings.asQuery variable.
  *
  */
 

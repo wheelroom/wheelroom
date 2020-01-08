@@ -1,9 +1,9 @@
-import { CreatePageQuery } from '@jacco-meijer/wheelroom'
+import { AsQuery } from '@jacco-meijer/wheelroom'
 
 export interface Query {
   modelName: string
   query: string
-  type: CreatePageQuery
+  type: AsQuery
 }
 export interface Options {
   defaultLocale: string
