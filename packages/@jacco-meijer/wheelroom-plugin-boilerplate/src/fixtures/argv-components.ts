@@ -76,6 +76,7 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asQuery: 'subPage',
       queryLimit: 10,
@@ -101,6 +102,7 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asPageSection: true,
     },
@@ -125,6 +127,7 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asQuery: 'global',
       queryLimit: 10,
@@ -149,7 +152,9 @@ export const argvComponents: WheelroomComponents = {
       },
     },
     modelVersion: '1.0.0',
-    settings: {},
+    settings: {
+      asBoilerplate: true,
+    },
   },
   pageModel: {
     fields: {
@@ -171,6 +176,7 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asQuery: 'page',
       queryLimit: 10,
@@ -196,6 +202,7 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asPageSection: true,
     },
@@ -220,6 +227,7 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asQuery: 'subPage',
       queryLimit: 10,

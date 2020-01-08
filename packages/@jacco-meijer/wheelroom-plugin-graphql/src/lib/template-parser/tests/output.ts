@@ -68,25 +68,21 @@ export const articlesSectionFragmentOutput = `
 export const fragment = \`
   fragment ArticlesSection on ContentfulArticlesSection {
     __typename
-    heading
-    maxArticles
     articles {
       ... on Node {
         ...Article
       }
     }
-    variation
+    heading
+    maxArticles
     title
+    variation
   }
 \``
 export const featuredPageSectionFragmentOutput = `
 export const fragment = \`
   fragment FeaturedPageSection on ContentfulFeaturedPageSection {
     __typename
-    heading
-    text {
-      text
-    }
     featuredPage {
       image {
         title
@@ -102,6 +98,7 @@ export const fragment = \`
         pageText
       }
     }
+    heading
     image {
       title
       description
@@ -111,7 +108,10 @@ export const fragment = \`
         srcSet
       }
     }
-    variation
+    text {
+      text
+    }
     title
+    variation
   }
 \``

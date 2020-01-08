@@ -41,7 +41,9 @@ const getFileList = (context: GetFileListContext): WriteFileList => {
   )) {
     context.componentName = componentName
     context.wheelroomComponent = component
-    fileList.push(...getFileListForComponent(context))
+    if (component.settings.asBoilerplate) {
+      fileList.push(...getFileListForComponent(context))
+    }
   }
   return fileList
 }
