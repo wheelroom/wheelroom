@@ -3,64 +3,75 @@
  * input for a wheelroom command. Command handlers can be added by plugins.
  */
 
-import { WheelroomComponents } from '@jacco-meijer/wheelroom'
+import { WheelroomComponents } from '../types/wheelroom-components'
 export const argvComponents: WheelroomComponents = {
-  article: {
+  allFieldTypes: {
     fields: {
       __typename: {
         system: true,
         type: 'shortText',
       },
-      articleText: {
+      dateField: {
         localized: false,
         required: false,
-        type: 'richText',
-      },
-      author: {
-        localized: false,
-        required: true,
-        type: 'shortText',
-      },
-      createdAt: {
-        system: true,
         type: 'date',
       },
-      date: {
+      dropdownField: {
+        items: ['item A', 'item B', 'item C'],
         localized: false,
-        required: true,
-        type: 'date',
+        required: false,
+        type: 'dropdown',
       },
-      heading: {
-        localized: false,
-        required: true,
-        type: 'shortText',
-      },
-      image: {
+      imageField: {
         localized: false,
         required: false,
         type: 'image',
       },
-      slug: {
-        initialContent: 'demo-slug-article',
-        localized: false,
-        required: true,
-        type: 'shortText',
-        unique: true,
-      },
-      subHeading: {
+      longTextField: {
         localized: false,
         required: false,
+        type: 'longText',
+      },
+      multipleComponentsField: {
+        allowedComponents: ['page', 'firstSection', 'secondSection'],
+        initialContent: ['firstSection', 'secondSection'],
+        localized: false,
+        required: false,
+        type: 'multipleComponents',
+      },
+      numberField: {
+        initialContent: 5,
+        localized: false,
+        required: false,
+        type: 'number',
+      },
+      richTextField: {
+        localized: false,
+        required: false,
+        type: 'richText',
+      },
+      shortTextField: {
+        localized: false,
+        maxLength: 155,
+        required: false,
         type: 'shortText',
+      },
+      singleComponentField: {
+        allowedComponents: ['page'],
+        localized: false,
+        required: false,
+        type: 'singleComponent',
+      },
+      tagsField: {
+        localized: false,
+        required: false,
+        type: 'tags',
       },
       title: {
         helpText: 'Never displayed, only used for listing within Contentful',
         localized: false,
         required: true,
         type: 'shortText',
-      },
-      updatedAt: {
-        system: true,
-        type: 'date',
       },
     },
     graphQL: {
@@ -70,59 +81,16 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  articleSection: {
+  firstSection: {
     fields: {
       __typename: {
         system: true,
         type: 'shortText',
       },
-      articleText: {
-        localized: true,
-        required: false,
-        type: 'shortText',
-      },
-      title: {
-        helpText: 'Never displayed, only used for listing within Contentful',
-        localized: false,
-        required: true,
-        type: 'shortText',
-      },
-      variation: {
-        helpText: 'Select a variation',
-        items: ['Specific to this section', 'Derived from slug in url'],
-        localized: false,
-        required: true,
-        type: 'dropdown',
-      },
-    },
-    graphQL: {
-      fragment: true,
-      pageSection: true,
-    },
-    modelVersion: '1.0.0',
-  },
-  articlesSection: {
-    fields: {
-      __typename: {
-        system: true,
-        type: 'shortText',
-      },
-      articles: {
-        components: ['article'],
-        localized: false,
-        required: false,
-        type: 'multipleComponents',
-      },
-      heading: {
+      defaultField: {
         localized: false,
         required: false,
         type: 'shortText',
-      },
-      maxArticles: {
-        initialContent: 5,
-        localized: false,
-        required: false,
-        type: 'number',
       },
       title: {
         helpText: 'Never displayed, only used for listing within Contentful',
@@ -137,111 +105,13 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  exampleBlock: {
+  globalModel: {
     fields: {
       __typename: {
         system: true,
-        type: 'shortText',
-      },
-      someText: {
-        localized: false,
-        required: false,
-        type: 'shortText',
-      },
-      title: {
-        helpText: 'Never displayed, only used for listing within Contentful',
-        localized: false,
-        required: true,
-        type: 'shortText',
-      },
-    },
-    graphQL: {
-      fragment: false,
-      pageSection: false,
-    },
-    modelVersion: '1.0.0',
-  },
-  examplePart: {
-    fields: {
-      __typename: {
-        system: true,
-        type: 'shortText',
-      },
-      someText: {
-        localized: false,
-        required: false,
-        type: 'shortText',
-      },
-      title: {
-        helpText: 'Never displayed, only used for listing within Contentful',
-        localized: false,
-        required: true,
-        type: 'shortText',
-      },
-    },
-    graphQL: {
-      fragment: true,
-      pageSection: false,
-    },
-    modelVersion: '1.0.0',
-  },
-  globals: {
-    fields: {
-      __typename: {
-        system: true,
-        type: 'shortText',
-      },
-      addressLine1: {
-        localized: false,
-        required: true,
-        type: 'shortText',
-      },
-      addressLine2: {
-        localized: false,
-        required: true,
-        type: 'shortText',
-      },
-      emailAddress: {
-        localized: false,
-        required: true,
-        type: 'shortText',
-      },
-      githubUrl: {
-        localized: false,
-        required: false,
         type: 'shortText',
       },
       heading: {
-        localized: false,
-        required: true,
-        type: 'shortText',
-      },
-      linkedinUrl: {
-        localized: false,
-        required: false,
-        type: 'shortText',
-      },
-      phoneNumber: {
-        localized: false,
-        required: false,
-        type: 'shortText',
-      },
-      siteAuthor: {
-        localized: false,
-        required: false,
-        type: 'shortText',
-      },
-      siteDescription: {
-        localized: false,
-        required: false,
-        type: 'shortText',
-      },
-      siteKeywords: {
-        localized: false,
-        required: false,
-        type: 'tags',
-      },
-      siteTitle: {
         localized: false,
         required: false,
         type: 'shortText',
@@ -256,41 +126,40 @@ export const argvComponents: WheelroomComponents = {
     graphQL: {
       createPageQuery: 'global',
       fragment: true,
+      limit: 10,
     },
     modelVersion: '1.0.0',
   },
-  page: {
+  noFragment: {
     fields: {
       __typename: {
         system: true,
         type: 'shortText',
       },
-      image: {
+      heading: {
         localized: false,
         required: false,
-        type: 'image',
+        type: 'shortText',
       },
-      navigationTitle: {
+      title: {
+        helpText: 'Never displayed, only used for listing within Contentful',
         localized: false,
         required: true,
         type: 'shortText',
       },
-      sections: {
-        components: ['articleSection', 'articlesSection'],
-        helpText: 'Select sections for this page',
-        localized: false,
-        required: true,
-        type: 'multipleComponents',
-      },
-      seoDescription: {
-        localized: false,
-        maxLength: 155,
-        required: true,
+    },
+    graphQL: {},
+    modelVersion: '1.0.0',
+  },
+  pageModel: {
+    fields: {
+      __typename: {
+        system: true,
         type: 'shortText',
       },
-      seoTitle: {
+      heading: {
         localized: false,
-        required: true,
+        required: false,
         type: 'shortText',
       },
       title: {
@@ -303,6 +172,56 @@ export const argvComponents: WheelroomComponents = {
     graphQL: {
       createPageQuery: 'page',
       fragment: true,
+      limit: 10,
+    },
+    modelVersion: '1.0.0',
+  },
+  secondSection: {
+    fields: {
+      __typename: {
+        system: true,
+        type: 'shortText',
+      },
+      heading: {
+        localized: false,
+        required: false,
+        type: 'shortText',
+      },
+      title: {
+        helpText: 'Never displayed, only used for listing within Contentful',
+        localized: false,
+        required: true,
+        type: 'shortText',
+      },
+    },
+    graphQL: {
+      fragment: true,
+      pageSection: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  subPageModel: {
+    fields: {
+      __typename: {
+        system: true,
+        type: 'shortText',
+      },
+      heading: {
+        localized: false,
+        required: false,
+        type: 'shortText',
+      },
+      title: {
+        helpText: 'Never displayed, only used for listing within Contentful',
+        localized: false,
+        required: true,
+        type: 'shortText',
+      },
+    },
+    graphQL: {
+      createPageQuery: 'subPage',
+      fragment: true,
+      limit: 10,
     },
     modelVersion: '1.0.0',
   },
