@@ -39,7 +39,7 @@ export default PageTemplate
 //
 
 export const query = graphql`
-  query($pageId: String) {
+  query($pageId: String, $globalsId: String) {
     site {
       siteMetadata {
         siteVersion
@@ -47,6 +47,9 @@ export const query = graphql`
     }
     page: contentfulPage(id: { eq: $pageId }) {
       ...Page
+    }
+    globals: contentfulGlobals(id: { eq: $globalsId }) {
+      ...Globals
     }
   }
 `
