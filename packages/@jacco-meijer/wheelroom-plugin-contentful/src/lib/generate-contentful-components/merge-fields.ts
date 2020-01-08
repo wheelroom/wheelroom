@@ -168,14 +168,15 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
     })
     // See comment on top of the file
     if (context.componentName === 'page' && context.fieldName === 'sections') {
-      const asPageSectionList = Object.entries(context.wrComponents).map(
-        ([compName, comp]: [string, WheelroomComponent]) => {
-          return comp.settings.asPageSection ? compName : false
-        }
+      const asPageSectionList = Object.entries(context.wrComponents)
+        .filter(
+          ([, comp]: [string, WheelroomComponent]) =>
+            comp.settings.asPageSection
+        )
+        .map(([compName, comp]: [string, WheelroomComponent]) => compName)
+      workingField.specs.items!.validations![0].linkContentType.push(
+        ...asPageSectionList
       )
-      workingField.specs.items!.validations!.push({
-        linkContentType: asPageSectionList,
-      })
       createContentData = asPageSectionList
       Object.assign(workingField, { createContentData })
     }
