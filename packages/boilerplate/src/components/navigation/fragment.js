@@ -13,9 +13,41 @@ import { graphql } from 'gatsby'
 export const fragment = graphql`
 fragment Navigation on ContentfulNavigation {
   routes {
+    listItemHeading
+    listItemHiddenText
+    listItemImage {
+      title
+      description
+      fluid(maxWidth: 1024) {
+        sizes
+        src
+        srcSet
+      }
+    }
+    listItemInfoText {
+      listItemInfoText
+    }
+    listItemView
     navigationHeading
+    pageHeading
+    pageImage {
+      title
+      description
+      fluid(maxWidth: 1024) {
+        sizes
+        src
+        srcSet
+      }
+    }
+    pageInfoText {
+      pageInfoText
+    }
     path
     pathName
+    seoDescription
+    seoTitle
+    __typename
+    title
   }
   __typename
   title

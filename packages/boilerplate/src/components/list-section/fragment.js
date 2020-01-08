@@ -29,7 +29,26 @@ fragment ListSection on ContentfulListSection {
       listItemInfoText
     }
     listItemView
-  
+    navigationHeading
+    pageHeading
+    pageImage {
+      title
+      description
+      fluid(maxWidth: 1024) {
+        sizes
+        src
+        srcSet
+      }
+    }
+    pageInfoText {
+      pageInfoText
+    }
+    path
+    pathName
+    seoDescription
+    seoTitle
+    __typename
+    title
   }
   variation
   __typename
