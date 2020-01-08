@@ -8,37 +8,49 @@ import {
 
 type TypeTable = Record<FieldTypeName, QbFields>
 
-export const wheelroomToGraphql = (
-  components: WheelroomComponents,
-  fieldName: string,
+interface WheelroomToGraphql {
+  components: WheelroomComponents
+  fieldName: string
   field: FieldType
-): QbFields => {
-  const allowedRef: QbFields = {
-    Node: {
-      fields: {},
-    },
-  }
+  recursiveCall?: boolean
+}
+
+export const wheelroomToGraphql = (context: WheelroomToGraphql): QbFields => {
+  const reference: QbFields = {}
   if (
-    (field.type === 'multipleComponents' || field.type === 'singleComponent') &&
-    Array.isArray(field.allowedComponents)
+    (context.field.type === 'multipleComponents' ||
+      context.field.type === 'singleComponent') &&
+    Array.isArray(context.field.allowedComponents)
   ) {
-    if (field.expandFragmentRef) {
-      field.allowedComponents.forEach((compName: string) => {
-        const refFields = components[compName].fields
+    if (context.field.expandFragmentRef) {
+      context.field.allowedComponents.forEach((compName: string) => {
+        const refFields = context.components[compName].fields
         Object.entries(refFields).forEach(
           ([rFieldName, rField]: [string, FieldType]) => {
-            allowedRef.Node.fields![fieldName] = wheelroomToGraphql(
-              components,
-              rFieldName,
-              rField
-            )
+            // Do not do any more recursion on multipleComponents or
+            // singleComponent fields
+            if (
+              rField.type !== 'multipleComponents' &&
+              rField.type !== 'singleComponent' &&
+              !context.recursiveCall
+            ) {
+              reference[rFieldName] = wheelroomToGraphql({
+                ...context,
+                field: rField,
+                fieldName: rFieldName,
+                recursiveCall: true,
+              })
+            }
           }
         )
       })
     } else {
-      allowedRef.Node.inlineFragment = true
-      field.allowedComponents.forEach((compName: string) => {
-        allowedRef.Node.fields![firstUpperCase(compName)] = { fragment: true }
+      reference.Node = {
+        fields: {},
+      }
+      reference.Node.inlineFragment = true
+      context.field.allowedComponents.forEach((compName: string) => {
+        reference.Node.fields![firstUpperCase(compName)] = { fragment: true }
       })
     }
   }
@@ -63,23 +75,23 @@ export const wheelroomToGraphql = (
     },
     longText: {
       fields: {
-        [fieldName]: {},
+        [context.fieldName]: {},
       } as QbFields,
     },
     multipleComponents: {
-      fields: allowedRef,
+      fields: reference,
     },
     number: {},
     richText: {
       fields: {
-        [fieldName]: {},
+        [context.fieldName]: {},
       } as QbFields,
     },
     shortText: {},
     singleComponent: {
-      fields: allowedRef,
+      fields: reference,
     },
     tags: {},
   }
-  return typeTable[field.type]
+  return typeTable[context.field.type]
 }

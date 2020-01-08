@@ -1,4 +1,34 @@
+import { WheelroomComponents } from '@jacco-meijer/wheelroom'
 import { TemplateParser } from '../template-parser'
+
+const components: WheelroomComponents = {
+  page: {
+    fields: {
+      image: {
+        type: 'image',
+      },
+      pageHeading: {
+        type: 'shortText',
+      },
+      pageText: {
+        type: 'richText',
+      },
+      shouldSkipA: {
+        allowedComponents: ['page'],
+        type: 'multipleComponents',
+      },
+      shouldSkipB: {
+        allowedComponents: ['page'],
+        expandFragmentRef: true,
+        type: 'singleComponent',
+      },
+    },
+    graphQL: {
+      createPageQuery: 'page',
+    },
+    modelVersion: '1.0.0',
+  },
+}
 
 const article: TemplateParser = {
   component: {
@@ -25,6 +55,7 @@ const article: TemplateParser = {
     modelVersion: '1.0.0',
   },
   componentName: 'article',
+  components,
   unparsed: '',
 }
 
@@ -62,6 +93,7 @@ const articlesSection: TemplateParser = {
     modelVersion: '1.0.0',
   },
   componentName: 'articlesSection',
+  components,
   unparsed: '',
 }
 
@@ -81,6 +113,7 @@ const featuredPageSection: TemplateParser = {
       // tslint:disable-next-line: object-literal-sort-keys
       featuredPage: {
         allowedComponents: ['page'],
+        expandFragmentRef: true,
         type: 'singleComponent',
       },
       image: {
@@ -101,6 +134,7 @@ const featuredPageSection: TemplateParser = {
     modelVersion: '1.0.0',
   },
   componentName: 'featuredPageSection',
+  components,
   unparsed: '',
 }
 

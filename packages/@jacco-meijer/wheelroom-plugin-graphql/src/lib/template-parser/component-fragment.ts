@@ -29,11 +29,12 @@ export const componentFragment = (context: ComponentFragment) => {
   const fields: QbFields = {}
   Object.entries(context.component.fields).forEach(
     ([fieldName, field]: [string, FieldType]) => {
-      fields[fieldName] = wheelroomToGraphql(
-        context.components,
+      const addField = wheelroomToGraphql({
+        components: context.components,
+        field,
         fieldName,
-        field
-      )
+      })
+      fields[fieldName] = addField
     }
   )
   const queryString = qb({

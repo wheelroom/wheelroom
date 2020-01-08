@@ -88,8 +88,18 @@ export const fragment = \`
       text
     }
     featuredPage {
-      ... on Node {
-        ...Page
+      image {
+        title
+        description
+        fluid(maxWidth: 1024) {
+          sizes
+          src
+          srcSet
+        }
+      }
+      pageHeading
+      pageText {
+        pageText
       }
     }
     image {
