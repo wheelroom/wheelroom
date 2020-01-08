@@ -6,6 +6,7 @@ export const output: ContentfulComponents = {
     displayField: 'title',
     fields: {
       dateField: {
+        createContentData: '2019-06-03T00:00+01:00',
         settings: {
           helpText: 'Date field for all field types',
         },
@@ -16,9 +17,9 @@ export const output: ContentfulComponents = {
           type: 'Date',
         },
         widgetId: 'datePicker',
-        createContentData: '2019-06-03T00:00+01:00',
       },
       dropdownField: {
+        createContentData: 'item A',
         settings: {
           helpText: 'Dropdown field for all field types',
         },
@@ -34,18 +35,18 @@ export const output: ContentfulComponents = {
           ],
         },
         widgetId: 'dropdown',
-        createContentData: 'item A',
       },
       imageField: {
+        createContentData: 'demoAsset',
         settings: {
           helpText: 'Image field for all field types',
         },
         specs: {
+          linkType: 'Asset',
           localized: false,
           name: 'Image field',
           required: false,
           type: 'Link',
-          linkType: 'Asset',
           validations: [
             {
               linkMimetypeGroup: ['image'],
@@ -53,9 +54,9 @@ export const output: ContentfulComponents = {
           ],
         },
         widgetId: 'assetLinkEditor',
-        createContentData: 'demoAsset',
       },
       longTextField: {
+        createContentData: 'Demo content for long text field',
         settings: {
           helpText: 'Long text field for all field types',
         },
@@ -66,17 +67,13 @@ export const output: ContentfulComponents = {
           type: 'Text',
         },
         widgetId: 'multipleLine',
-        createContentData: 'Demo content for long text field',
       },
       multipleComponentsField: {
+        createContentData: ['firstSection', 'secondSection'],
         settings: {
           helpText: 'Multiple components field for all field types',
         },
         specs: {
-          localized: false,
-          name: 'Multiple components field',
-          required: false,
-          type: 'Array',
           items: {
             linkType: 'Entry',
             type: 'Link',
@@ -86,11 +83,15 @@ export const output: ContentfulComponents = {
               },
             ],
           },
+          localized: false,
+          name: 'Multiple components field',
+          required: false,
+          type: 'Array',
         },
         widgetId: 'entryLinksEditor',
-        createContentData: ['firstSection', 'secondSection'],
       },
       numberField: {
+        createContentData: 5,
         settings: {
           helpText: 'Number field for all field types',
         },
@@ -101,9 +102,9 @@ export const output: ContentfulComponents = {
           type: 'Integer',
         },
         widgetId: 'numberEditor',
-        createContentData: 5,
       },
       richTextField: {
+        createContentData: 'Demo content for rich text field',
         settings: {
           helpText: 'Rich text field for all field types',
         },
@@ -114,9 +115,9 @@ export const output: ContentfulComponents = {
           type: 'RichText',
         },
         widgetId: 'richTextEditor',
-        createContentData: 'Demo content for rich text field',
       },
       shortTextField: {
+        createContentData: 'Demo content for short text field',
         settings: {
           helpText: 'Short text field for all field types',
         },
@@ -135,18 +136,18 @@ export const output: ContentfulComponents = {
           ],
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for short text field',
       },
       singleComponentField: {
+        createContentData: 'pageModel',
         settings: {
           helpText: 'Single component field for all field types',
         },
         specs: {
+          linkType: 'Entry',
           localized: false,
           name: 'Single component field',
           required: false,
           type: 'Link',
-          linkType: 'Entry',
           validations: [
             {
               linkContentType: ['pageModel'],
@@ -154,25 +155,25 @@ export const output: ContentfulComponents = {
           ],
         },
         widgetId: 'entryLinkEditor',
-        createContentData: 'pageModel',
       },
       tagsField: {
+        createContentData: ['tag me', 'tag you', 'tag us'],
         settings: {
           helpText: 'Tags field for all field types',
         },
         specs: {
+          items: {
+            type: 'Symbol',
+          },
           localized: false,
           name: 'Tags field',
           required: false,
           type: 'Array',
-          items: {
-            type: 'Symbol',
-          },
         },
         widgetId: 'tagEditor',
-        createContentData: ['tag me', 'tag you', 'tag us'],
       },
       title: {
+        createContentData: 'Demo content for title',
         settings: {
           helpText: 'Never displayed, only used for listing within Contentful',
         },
@@ -183,7 +184,6 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for title',
       },
     },
     modelVersion: '1.0.0',
@@ -194,6 +194,7 @@ export const output: ContentfulComponents = {
     displayField: 'title',
     fields: {
       defaultField: {
+        createContentData: 'Demo content for default field',
         settings: {
           helpText: 'Default field for first section',
         },
@@ -204,9 +205,9 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for default field',
       },
       title: {
+        createContentData: 'Demo content for title',
         settings: {
           helpText: 'Never displayed, only used for listing within Contentful',
         },
@@ -217,7 +218,6 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for title',
       },
     },
     modelVersion: '1.0.0',
@@ -228,6 +228,7 @@ export const output: ContentfulComponents = {
     displayField: 'title',
     fields: {
       heading: {
+        createContentData: 'Demo content for heading',
         settings: {
           helpText: 'Heading for global model',
         },
@@ -238,9 +239,9 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for heading',
       },
       title: {
+        createContentData: 'Demo content for title',
         settings: {
           helpText: 'Never displayed, only used for listing within Contentful',
         },
@@ -251,7 +252,6 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for title',
       },
     },
     modelVersion: '1.0.0',
@@ -262,6 +262,7 @@ export const output: ContentfulComponents = {
     displayField: 'title',
     fields: {
       heading: {
+        createContentData: 'Demo content for heading',
         settings: {
           helpText: 'Heading for no fragment',
         },
@@ -272,9 +273,9 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for heading',
       },
       title: {
+        createContentData: 'Demo content for title',
         settings: {
           helpText: 'Never displayed, only used for listing within Contentful',
         },
@@ -285,7 +286,6 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for title',
       },
     },
     modelVersion: '1.0.0',
@@ -296,6 +296,7 @@ export const output: ContentfulComponents = {
     displayField: 'title',
     fields: {
       heading: {
+        createContentData: 'Demo content for heading',
         settings: {
           helpText: 'Heading for page model',
         },
@@ -306,9 +307,9 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for heading',
       },
       title: {
+        createContentData: 'Demo content for title',
         settings: {
           helpText: 'Never displayed, only used for listing within Contentful',
         },
@@ -319,7 +320,6 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for title',
       },
     },
     modelVersion: '1.0.0',
@@ -330,6 +330,7 @@ export const output: ContentfulComponents = {
     displayField: 'title',
     fields: {
       heading: {
+        createContentData: 'Demo content for heading',
         settings: {
           helpText: 'Heading for second section',
         },
@@ -340,9 +341,9 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for heading',
       },
       title: {
+        createContentData: 'Demo content for title',
         settings: {
           helpText: 'Never displayed, only used for listing within Contentful',
         },
@@ -353,7 +354,6 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for title',
       },
     },
     modelVersion: '1.0.0',
@@ -364,6 +364,7 @@ export const output: ContentfulComponents = {
     displayField: 'title',
     fields: {
       heading: {
+        createContentData: 'Demo content for heading',
         settings: {
           helpText: 'Heading for sub page model',
         },
@@ -374,9 +375,9 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for heading',
       },
       title: {
+        createContentData: 'Demo content for title',
         settings: {
           helpText: 'Never displayed, only used for listing within Contentful',
         },
@@ -387,7 +388,6 @@ export const output: ContentfulComponents = {
           type: 'Symbol',
         },
         widgetId: 'singleLine',
-        createContentData: 'Demo content for title',
       },
     },
     modelVersion: '1.0.0',
