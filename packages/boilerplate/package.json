@@ -7,7 +7,6 @@
     "@contentful/rich-text-react-renderer": "13.4.0",
     "@contentful/rich-text-types": "13.4.0",
     "@emotion/core": "10.0.27",
-    "@jacco-meijer/content-models": "^4.0.0",
     "@jacco-meijer/styled-system": "3.0.3",
     "@jacco-meijer/wheelroom": "^3.0.1",
     "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.0.1",
