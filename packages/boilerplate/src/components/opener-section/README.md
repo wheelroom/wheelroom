@@ -2,5 +2,5 @@
 
 ```jsx
 import { OpenerSection } from './opener-section'
-<OpenerSection boxBackgroundColor="undefined" heading="undefined" image="undefined" infoText="undefined" mainNavigation="undefined" variation="undefined" __typename="undefined" title="undefined" />
+<OpenerSection boxBackgroundColor="value" heading="value" image="value" infoText="value" mainNavigation="value" variation="value" __typename="value" title="value" />
 ```

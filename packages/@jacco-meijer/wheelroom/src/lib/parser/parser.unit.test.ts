@@ -196,7 +196,7 @@ describe('The parser should parse', () => {
       componentName,
     })
     expect(result).toEqual(
-      '<Element dateField="DD" dropdownField="AB" imageField="object" multipleComponentsField="object" numberField="object" richTextField="EF" shortTextField="GH" singleComponentField="KL" tagsField="object" />'
+      '<Element dateField="DD" dropdownField="AB" imageField="value" multipleComponentsField="value" numberField="value" richTextField="EF" shortTextField="GH" singleComponentField="KL" tagsField="value" />'
     )
   })
 

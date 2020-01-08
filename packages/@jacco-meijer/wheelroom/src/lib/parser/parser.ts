@@ -28,7 +28,7 @@
  *
  * GraphQL variables
  *
- * Use %componentVar(graphQL.createPageQuery)% to get the value of the
+ * Use %componentVar(path:graphQL.createPageQuery)% to get the value of the
  * graphQL.createPageQuery variable.
  *
  */
@@ -136,7 +136,7 @@ const stringParser = (unparsed: string, context: Parser): string => {
                 `${fieldName}="${
                   typeof field.initialContent === 'string'
                     ? field.initialContent
-                    : 'object'
+                    : 'value'
                 }"`
             )
             .join(' ')

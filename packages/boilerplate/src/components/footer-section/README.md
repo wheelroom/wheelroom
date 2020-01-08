@@ -2,5 +2,5 @@
 
 ```jsx
 import { FooterSection } from './footer-section'
-<FooterSection backgroundColor="undefined" footerNavigation="undefined" __typename="undefined" title="undefined" />
+<FooterSection backgroundColor="value" footerNavigation="value" __typename="value" title="value" />
 ```

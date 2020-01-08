@@ -2,5 +2,5 @@
 
 ```jsx
 import { TextSection } from './text-section'
-<TextSection text="undefined" __typename="undefined" title="undefined" />
+<TextSection text="value" __typename="value" title="value" />
 ```

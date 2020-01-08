@@ -2,5 +2,5 @@
 
 ```jsx
 import { ListSection } from './list-section'
-<ListSection heading="undefined" listItems="undefined" variation="undefined" __typename="undefined" title="undefined" />
+<ListSection heading="value" listItems="value" variation="value" __typename="value" title="value" />
 ```

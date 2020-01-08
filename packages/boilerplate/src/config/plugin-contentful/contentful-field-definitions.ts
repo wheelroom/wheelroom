@@ -5,7 +5,7 @@
  * ocassionally might add some project specific stuff.
  *
  *
- * Variables for initialContent
+ * Variables for createContentData
  *
  * - %firstItem%
  * - %firstAllowedComponent%
@@ -17,7 +17,7 @@ import { ContentfulFieldDefinitions } from '@jacco-meijer/wheelroom-plugin-conte
 
 export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
   fieldDefaults: {
-    initialContent: 'Demo content for %component name% %field name%',
+    createContentData: 'Demo content for %component name% %field name%',
     settings: {
       helpText: '%Field name% for %component name%',
     },
@@ -29,7 +29,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
   /** Wheelroom field types, these are different from Contentful types */
   fieldTypes: {
     date: {
-      initialContent: '2019-06-03T00:00+01:00',
+      createContentData: '2019-06-03T00:00+01:00',
       specs: {
         name: '%Field name%',
         type: 'Date',
@@ -37,7 +37,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'datePicker',
     },
     dropdown: {
-      initialContent: '%firstItem%',
+      createContentData: '%firstItem%',
       specs: {
         name: '%Field name%',
         type: 'Symbol',
@@ -45,7 +45,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'dropdown',
     },
     image: {
-      initialContent: '%demoAsset%',
+      createContentData: '%demoAsset%',
       specs: {
         linkType: 'Asset',
         name: '%Field name%',
@@ -66,7 +66,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'multipleLine',
     },
     multipleComponents: {
-      initialContent: ['%firstAllowedComponent%'],
+      createContentData: '%firstAllowedComponentArray%',
       specs: {
         items: {
           linkType: 'Entry',
@@ -78,7 +78,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'entryLinksEditor',
     },
     number: {
-      initialContent: 5,
+      createContentData: 5,
       specs: {
         name: '%Field name%',
         type: 'Integer',
@@ -100,7 +100,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'singleLine',
     },
     singleComponent: {
-      initialContent: '%firstAllowedComponent%',
+      createContentData: '%firstAllowedComponent%',
       specs: {
         linkType: 'Entry',
         name: '%Field name%',
@@ -109,7 +109,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'entryLinkEditor',
     },
     tags: {
-      initialContent: ['tag me', 'tag you', 'tag us'],
+      createContentData: ['tag me', 'tag you', 'tag us'],
       specs: {
         items: {
           type: 'Symbol',

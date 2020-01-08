@@ -1,7 +1,7 @@
 export const query = `/**
  * Graphql query definition
  *
- * Query type: %createPageQuery%
+ * Query type: %componentVar(path:graphQL.createPageQuery)%
  * Component: %componentName%
  *
  */
@@ -12,6 +12,6 @@ module.exports = {
   query: \`
 %componentQuery(prefix:allContentful, indent:2)%
 \`,
-  type: '%createPageQuery%',
+  type: '%componentVar(path:graphQL.createPageQuery)%',
 }
 `

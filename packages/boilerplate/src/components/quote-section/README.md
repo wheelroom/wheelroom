@@ -2,5 +2,5 @@
 
 ```jsx
 import { QuoteSection } from './quote-section'
-<QuoteSection avatar="undefined" heading="undefined" subHeading="undefined" text="undefined" __typename="undefined" title="undefined" />
+<QuoteSection avatar="value" heading="value" subHeading="value" text="value" __typename="value" title="value" />
 ```
