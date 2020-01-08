@@ -3,16 +3,20 @@
  *
  * Take a wheelroom field and convert it to a parsed Contentful field
  *
+ * If a model named 'page' has a field named 'sections' with type
+ * 'multipleComponents', the field is populated with the names of all components
+ * that have settings.isPageSection set. Also, validations are added for these
+ * components.
  *
  * Process Wheelroom fields:
  *
  * - helpText?: string -> settings.helpText
- * - initialContent?: number | string -> initialContent
+ * - initialContent?:  string | number | boolean | string[] -> createContentData
  * - localized?: boolean -> specs.localized
  * - name?: string -> specs.name
  * - required?: boolean -> specs.required
  * - system?: boolean -> SKIP
- * - type?: FieldType -> MATCH WITH DEFINITION
+ * - type?: FieldType -> REPLACE WITH DEFINITION
  *
  *
  * Process validations:
@@ -25,17 +29,25 @@
  *
  */
 
-import { FieldType, parser } from '@jacco-meijer/wheelroom'
+import {
+  FieldType,
+  parser,
+  WheelroomComponent,
+  WheelroomComponents,
+} from '@jacco-meijer/wheelroom'
 import { ContentfulField, widgetID } from '../../types/contentful-fields'
 import { createContentDataParser, createIfMissing } from './merge-helpers'
 
-export const mergeFields = (
-  wheelroomField: FieldType,
-  componentName: string,
-  fieldName: string,
-  contentfulFieldDefinition: ContentfulField,
-  contentfulFieldDefaults: ContentfulField
-): ContentfulField => {
+interface MergeFields {
+  cfFieldDefaults: ContentfulField
+  cfFieldDefinition: ContentfulField
+  componentName: string
+  fieldName: string
+  wrComponents: WheelroomComponents
+  wrField: FieldType
+}
+
+export const mergeFields = (context: MergeFields): ContentfulField => {
   // Hard coded system defaults as a last resort
   const lastResort = {
     helpText: '',
@@ -46,65 +58,68 @@ export const mergeFields = (
   }
 
   // Add optional settings object if not present
-  if (!('settings' in contentfulFieldDefinition)) {
-    contentfulFieldDefinition.settings = {}
+  if (!('settings' in context.cfFieldDefinition)) {
+    context.cfFieldDefinition.settings = {}
   }
-  if (!('settings' in contentfulFieldDefaults)) {
-    contentfulFieldDefaults.settings = {}
+  if (!('settings' in context.cfFieldDefaults)) {
+    context.cfFieldDefaults.settings = {}
   }
-  // Parser shortcut with commandName and fieldName
+  // Parser shortcut with commandName and context.fieldName
   const parseCompNamePlusFieldName = (unparsed: string) =>
-    parser(unparsed, { componentName, fieldName })
+    parser(unparsed, {
+      componentName: context.componentName,
+      fieldName: context.fieldName,
+    })
 
   const workingField: ContentfulField = {
     settings: {
       helpText: parseCompNamePlusFieldName(
-        wheelroomField.helpText ||
-          contentfulFieldDefinition.settings!.helpText ||
-          contentfulFieldDefaults.settings!.helpText ||
+        context.wrField.helpText ||
+          context.cfFieldDefinition.settings!.helpText ||
+          context.cfFieldDefaults.settings!.helpText ||
           lastResort.helpText
       ),
     },
     specs: {
       localized:
-        wheelroomField.localized ||
-        contentfulFieldDefinition.specs.localized ||
-        contentfulFieldDefaults.specs.localized ||
+        context.wrField.localized ||
+        context.cfFieldDefinition.specs.localized ||
+        context.cfFieldDefaults.specs.localized ||
         lastResort.localized,
       name: parseCompNamePlusFieldName(
-        wheelroomField.name ||
-          contentfulFieldDefinition.specs.name ||
-          contentfulFieldDefaults.specs.name
+        context.wrField.name ||
+          context.cfFieldDefinition.specs.name ||
+          context.cfFieldDefaults.specs.name
       ),
       required:
-        wheelroomField.required ||
-        contentfulFieldDefinition.specs.required ||
-        contentfulFieldDefaults.specs.required ||
+        context.wrField.required ||
+        context.cfFieldDefinition.specs.required ||
+        context.cfFieldDefaults.specs.required ||
         lastResort.required,
       type:
-        contentfulFieldDefinition.specs.type ||
-        contentfulFieldDefaults.specs.type ||
+        context.cfFieldDefinition.specs.type ||
+        context.cfFieldDefaults.specs.type ||
         lastResort.type,
     },
     widgetId:
-      contentfulFieldDefinition.widgetId ||
-      contentfulFieldDefaults.widgetId ||
+      context.cfFieldDefinition.widgetId ||
+      context.cfFieldDefaults.widgetId ||
       lastResort.widgetId,
   }
 
-  // Handle initial content
+  // Handle initial content, a if-then-tree because of the complex union type
   let createContentData
-  if (wheelroomField.initialContent) {
-    createContentData = wheelroomField.initialContent
-  } else if (contentfulFieldDefinition.createContentData) {
-    createContentData = contentfulFieldDefinition.createContentData
-  } else if (contentfulFieldDefaults.createContentData) {
-    createContentData = contentfulFieldDefaults.createContentData
+  if (context.wrField.initialContent) {
+    createContentData = context.wrField.initialContent
+  } else if (context.cfFieldDefinition.createContentData) {
+    createContentData = context.cfFieldDefinition.createContentData
+  } else if (context.cfFieldDefaults.createContentData) {
+    createContentData = context.cfFieldDefaults.createContentData
   }
   if (typeof createContentData === 'string') {
     createContentData = createContentDataParser(
       createContentData,
-      wheelroomField
+      context.wrField
     )
     createContentData = parseCompNamePlusFieldName(createContentData as string)
   }
@@ -112,23 +127,23 @@ export const mergeFields = (
 
   // Handle linkType
   const linkType =
-    contentfulFieldDefinition.specs.linkType ||
-    contentfulFieldDefaults.specs.linkType
+    context.cfFieldDefinition.specs.linkType ||
+    context.cfFieldDefaults.specs.linkType
   if (linkType) {
     workingField.specs.linkType = linkType
   }
 
   // Handle items
   const items =
-    contentfulFieldDefinition.specs.items || contentfulFieldDefaults.specs.items
+    context.cfFieldDefinition.specs.items || context.cfFieldDefaults.specs.items
   if (items) {
     workingField.specs.items = Object.assign({}, items)
   }
 
-  // Handle validations present in contentfulFieldDefinition or contentfulFieldDefaults components
+  // Handle validations present in context.cfFieldDefinition or context.cfFieldDefaults components
   const validations =
-    contentfulFieldDefinition.specs.validations ||
-    contentfulFieldDefaults.specs.validations
+    context.cfFieldDefinition.specs.validations ||
+    context.cfFieldDefaults.specs.validations
   if (validations) {
     createIfMissing(workingField.specs, 'validations', 'array')
     validations.forEach((validation: any) => {
@@ -137,44 +152,57 @@ export const mergeFields = (
   }
   // Process other validations
   // singleComponent: specs.validations.0.linkContentType
-  if (wheelroomField.type === 'singleComponent') {
+  if (context.wrField.type === 'singleComponent') {
     createIfMissing(workingField.specs, 'validations', 'array')
     workingField.specs.validations!.push({
-      linkContentType: wheelroomField.allowedComponents,
+      linkContentType: context.wrField.allowedComponents,
     })
   }
 
   // multipleComponents: specs.items.validations.0.linkContentType
-  if (wheelroomField.type === 'multipleComponents') {
+  if (context.wrField.type === 'multipleComponents') {
     createIfMissing(workingField.specs, 'items', 'object')
     createIfMissing(workingField.specs.items, 'validations', 'array')
     workingField.specs.items!.validations!.push({
-      linkContentType: wheelroomField.allowedComponents,
+      linkContentType: context.wrField.allowedComponents,
     })
+    // See comment on top of the file
+    if (context.componentName === 'page' && context.fieldName === 'sections') {
+      const asPageSectionList = Object.entries(context.wrComponents).map(
+        ([compName, comp]: [string, WheelroomComponent]) => {
+          return comp.settings.asPageSection ? compName : false
+        }
+      )
+      workingField.specs.items!.validations!.push({
+        linkContentType: asPageSectionList,
+      })
+      createContentData = asPageSectionList
+      Object.assign(workingField, { createContentData })
+    }
   }
 
-  if (wheelroomField.type === 'dropdown') {
+  if (context.wrField.type === 'dropdown') {
     // specs.validations.0.in
     createIfMissing(workingField.specs, 'validations', 'array')
     workingField.specs.validations!.push({
-      in: wheelroomField.items,
+      in: context.wrField.items,
     })
   }
-  if (wheelroomField.type === 'shortText' && wheelroomField.maxLength) {
+  if (context.wrField.type === 'shortText' && context.wrField.maxLength) {
     // specs.validations.0.size.max
     createIfMissing(workingField.specs, 'validations', 'array')
     workingField.specs.validations!.push({
       size: {
-        max: wheelroomField.maxLength,
+        max: context.wrField.maxLength,
         min: 0,
       },
     })
   }
-  if (wheelroomField.unique) {
+  if (context.wrField.unique) {
     // specs.validations.0.unique
     createIfMissing(workingField.specs, 'validations', 'array')
     workingField.specs.validations!.push({
-      unique: wheelroomField.unique,
+      unique: context.wrField.unique,
     })
   }
 

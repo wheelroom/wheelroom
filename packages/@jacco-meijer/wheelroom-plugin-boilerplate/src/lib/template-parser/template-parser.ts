@@ -8,6 +8,7 @@
  */
 
 import {
+  FieldType,
   getCases,
   replaceAll,
   WheelroomComponent,
@@ -76,6 +77,21 @@ export const templateParser = (context: TemplateParser): string => {
       case 'Variation':
         replacement = context.currentVariation || context.singleVariationName
         parsed = replaceAll(parsed, fullMatch, getCases(replacement).pascalCase)
+        break
+      case 'componentHtmlAttributes':
+        if (context.component) {
+          const attrs = Object.entries(context.component.fields)
+            .map(
+              ([fieldName, field]: [string, FieldType]) =>
+                `${fieldName}="${
+                  typeof field.initialContent === 'string'
+                    ? field.initialContent
+                    : 'value'
+                }"`
+            )
+            .join(' ')
+          parsed = replaceAll(parsed, fullMatch, attrs)
+        }
         break
     }
     match = myRegexp.exec(context.unparsed)

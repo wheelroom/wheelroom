@@ -26,11 +26,12 @@ export const configComponents: WheelroomComponents = {
         type: 'singleComponent',
       } as SingleComponentField,
     },
+    modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asPageSection: true,
     },
-    modelVersion: '1.0.0',
   },
   globals: {
     fields: {
@@ -69,15 +70,18 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
     },
-    settings: {
-      asQuery: 'global',
-      asFragment: true,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asQuery: 'global',
+    },
   },
   listSection: {
     fields: {
-      heading: { required: true, type: 'shortText' } as ShortTextField,
+      heading: {
+        required: true,
+        type: 'shortText',
+      } as ShortTextField,
       listItems: {
         allowedComponents: ['page'],
         expandFragmentRef: true,
@@ -91,11 +95,12 @@ export const configComponents: WheelroomComponents = {
         type: 'dropdown',
       } as DropdownField,
     },
+    modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asPageSection: true,
     },
-    modelVersion: '1.0.0',
   },
   navigation: {
     fields: {
@@ -107,10 +112,11 @@ export const configComponents: WheelroomComponents = {
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
+    modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
     },
-    modelVersion: '1.0.0',
   },
   openerSection: {
     fields: {
@@ -144,11 +150,12 @@ export const configComponents: WheelroomComponents = {
         type: 'dropdown',
       } as DropdownField,
     },
+    modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asPageSection: true,
     },
-    modelVersion: '1.0.0',
   },
   page: {
     fields: {
@@ -206,21 +213,8 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
       sections: {
-        allowedComponents: [
-          'footerSection',
-          'listSection',
-          'openerSection',
-          'quoteSection',
-          'textSection',
-        ],
+        allowedComponents: [],
         helpText: 'Select sections for this page',
-        initialContent: [
-          'openerSection',
-          'textSection',
-          'listSection',
-          'quoteSection',
-          'footerSection',
-        ],
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
@@ -236,11 +230,11 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
     },
-    settings: {
-      asQuery: 'page',
-      asFragment: true,
-    },
     modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asQuery: 'page',
+    },
   },
   quoteSection: {
     fields: {
@@ -262,11 +256,12 @@ export const configComponents: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
     },
+    modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asPageSection: true,
     },
-    modelVersion: '1.0.0',
   },
   textSection: {
     fields: {
@@ -276,10 +271,11 @@ export const configComponents: WheelroomComponents = {
         type: 'richText',
       } as RichTextField,
     },
+    modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asPageSection: true,
     },
-    modelVersion: '1.0.0',
   },
 }

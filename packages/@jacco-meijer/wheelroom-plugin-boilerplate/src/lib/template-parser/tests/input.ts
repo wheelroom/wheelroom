@@ -7,6 +7,7 @@ export const input: TemplateParser = {
         type: 'shortText',
       },
       someText: {
+        initialContent: 'testing-this-here',
         localized: false,
         required: false,
         type: 'shortText',
@@ -41,5 +42,7 @@ And some things that need to be indented: {
   And smore indenting: {
 %reactProps(indent:4)%
   }
+
+<Element %componentHtmlAttributes%
 `,
 }

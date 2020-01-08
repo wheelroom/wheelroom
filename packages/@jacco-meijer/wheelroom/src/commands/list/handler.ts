@@ -12,13 +12,14 @@ export const handler = async (argv: any) => {
         })
         .join('/')
       console.log(`============================
-  Component:              ${componentName}
-  Fields:                 ${fields}
-  gQL asQuery:    ${component.settings.asQuery}
-  gQL page section:       ${component.settings.asPageSection ? 'Yes' : 'No'}
-  gQL fragment:           ${component.settings.asFragment ? 'Yes' : 'No'}
-  gQL queryLimit:              ${component.settings.queryLimit || 'not present'}
-  modelVersion:           ${component.modelVersion}
+  Component:     ${componentName}
+  Fields:        ${fields}
+  asBoilerplate: ${component.settings.asBoilerplate ? 'Yes' : 'No'}
+  asPageSection: ${component.settings.asPageSection ? 'Yes' : 'No'}
+  asFragment:    ${component.settings.asFragment ? 'Yes' : 'No'}
+  asQuery:       ${component.settings.asQuery}
+  queryLimit:    ${component.settings.queryLimit || 'not present'}
+  modelVersion:  ${component.modelVersion}
 `)
     }
   )

@@ -31,13 +31,14 @@ export const generateContentfulComponents = (
           }
           const contentfulFieldDefinition =
             fieldDefinitions.fieldTypes[fieldValue.type!]
-          fields[fieldName] = mergeFields(
-            fieldValue,
+          fields[fieldName] = mergeFields({
+            cfFieldDefaults: fieldDefinitions.fieldDefaults,
+            cfFieldDefinition: contentfulFieldDefinition,
             componentName,
             fieldName,
-            contentfulFieldDefinition,
-            fieldDefinitions.fieldDefaults
-          )
+            wrComponents: wheelroomComponents,
+            wrField: fieldValue,
+          })
         }
       )
       const component: ContentfulComponent = {

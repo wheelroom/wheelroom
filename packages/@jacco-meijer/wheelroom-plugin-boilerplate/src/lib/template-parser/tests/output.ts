@@ -17,4 +17,6 @@ And some things that need to be indented: {
     someText: string
     title: string
   }
+
+<Element __typename="value" someText="testing-this-here" title="value"
 `

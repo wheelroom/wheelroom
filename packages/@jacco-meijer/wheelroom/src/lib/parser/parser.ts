@@ -1,11 +1,5 @@
 /**
- *
- * Component variables
- *
- * - %componentHtmlAttributes%
- *
- *
- * Name variables
+ * Parses these simple string variables
  *
  * - %Component name%
  * - %component name%
@@ -34,7 +28,6 @@
  */
 
 import { WheelroomComponent } from '../../types/wheelroom-components'
-import { FieldType } from '../../types/wheelroom-fields'
 import { replaceAll } from './case-helpers'
 import { getCases } from './get-cases'
 
@@ -127,21 +120,6 @@ const stringParser = (unparsed: string, context: Parser): string => {
         break
       case 'field-type':
         parsed = replaceAll(parsed, fullMatch, ftCase.kebabCase)
-        break
-      case 'componentHtmlAttributes':
-        if (context.component) {
-          const attrs = Object.entries(context.component.fields)
-            .map(
-              ([fieldName, field]: [string, FieldType]) =>
-                `${fieldName}="${
-                  typeof field.initialContent === 'string'
-                    ? field.initialContent
-                    : 'value'
-                }"`
-            )
-            .join(' ')
-          parsed = replaceAll(parsed, fullMatch, attrs)
-        }
         break
       case 'componentVar':
         if (context.component) {

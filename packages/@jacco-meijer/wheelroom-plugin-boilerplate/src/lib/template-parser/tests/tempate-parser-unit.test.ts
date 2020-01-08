@@ -4,8 +4,10 @@ import { output } from './output'
 
 jest.setTimeout(10000)
 
-test('Template parser', async () => {
-  const result = templateParser(input)
+describe('The boilerplate parser should parse', () => {
+  test('a full example', async () => {
+    const result = templateParser(input)
 
-  expect(result).toStrictEqual(output)
+    expect(result).toStrictEqual(output)
+  })
 })

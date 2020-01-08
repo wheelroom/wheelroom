@@ -8,10 +8,11 @@
  *
  * Initial content variables
  * =========================
- * - %firstItem%
- * - %firstAllowedComponent%
- * - %firstAllowedComponentArray%
- * - %demoAsset%
+ * - %firstItem%                   wrField.items[0]
+ * - %firstAllowedComponent%       wrField.allowedComponents[0]
+ * - %firstAllowedComponentArray%  [wrField.allowedComponents[0]]
+ * - %demoAsset%                   replaced with the internal id of the demo
+ *                                 asset
  *
  */
 

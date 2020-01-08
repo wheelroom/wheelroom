@@ -16,6 +16,53 @@ const fieldName = 'myFieldName'
 const fieldType = 'someFieldType'
 let result
 
+const component: WheelroomComponent = {
+  fields: {
+    dateField: {
+      initialContent: 'DD',
+      type: 'date',
+    },
+    dropdownField: {
+      initialContent: 'AB',
+      type: 'dropdown',
+    } as DropdownField,
+    imageField: {
+      initialContent: true,
+      type: 'image',
+    } as ImageField,
+    multipleComponentsField: {
+      allowedComponents: ['page'],
+      initialContent: ['CD'],
+      type: 'multipleComponents',
+    } as MultipleComponentsField,
+    numberField: {
+      initialContent: 5,
+      type: 'number',
+    } as NumberField,
+    richTextField: {
+      initialContent: 'EF',
+      type: 'richText',
+    } as RichTextField,
+    shortTextField: {
+      initialContent: 'GH',
+      type: 'shortText',
+    } as ShortTextField,
+    singleComponentField: {
+      allowedComponents: ['KL'],
+      initialContent: 'KL',
+      type: 'singleComponent',
+    } as SingleComponentField,
+    tagsField: {
+      initialContent: ['tag A', 'tag B', 'tag C'],
+      type: 'tags',
+    } as TagsField,
+  },
+  modelVersion: '1.0.0',
+  settings: {
+    asQuery: 'global',
+  },
+}
+
 describe('The parser should parse', () => {
   /**
    * Component name
@@ -140,63 +187,6 @@ describe('The parser should parse', () => {
     )
     expect(result).toEqual(
       'This is the test case for my-field-name and my-demo-component'
-    )
-  })
-
-  const component: WheelroomComponent = {
-    fields: {
-      dateField: {
-        initialContent: 'DD',
-        type: 'date',
-      },
-      dropdownField: {
-        initialContent: 'AB',
-        type: 'dropdown',
-      } as DropdownField,
-      imageField: {
-        initialContent: true,
-        type: 'image',
-      } as ImageField,
-      multipleComponentsField: {
-        allowedComponents: ['page'],
-        initialContent: ['CD'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
-      numberField: {
-        initialContent: 5,
-        type: 'number',
-      } as NumberField,
-      richTextField: {
-        initialContent: 'EF',
-        type: 'richText',
-      } as RichTextField,
-      shortTextField: {
-        initialContent: 'GH',
-        type: 'shortText',
-      } as ShortTextField,
-      singleComponentField: {
-        allowedComponents: ['KL'],
-        initialContent: 'KL',
-        type: 'singleComponent',
-      } as SingleComponentField,
-      tagsField: {
-        initialContent: ['tag A', 'tag B', 'tag C'],
-        type: 'tags',
-      } as TagsField,
-    },
-    modelVersion: '1.0.0',
-    settings: {
-      asQuery: 'global',
-    },
-  }
-
-  test('the variable %componentHtmlAttributes%', () => {
-    result = parser('<Element %componentHtmlAttributes% />', {
-      component,
-      componentName,
-    })
-    expect(result).toEqual(
-      '<Element dateField="DD" dropdownField="AB" imageField="value" multipleComponentsField="value" numberField="value" richTextField="EF" shortTextField="GH" singleComponentField="KL" tagsField="value" />'
     )
   })
 

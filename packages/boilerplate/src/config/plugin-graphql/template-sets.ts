@@ -5,7 +5,7 @@ import { query } from './query'
 export const templateSets: TemplateSets = {
   gatsbyjs: {
     fragment: {
-      filterComponentSetting: 'fragment',
+      filterComponentSetting: 'asFragment',
       path: '%component-name%/fragment.js',
       template: fragment,
     },
