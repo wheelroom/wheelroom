@@ -99,20 +99,7 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
 
   // Handle initial content, a if-then-tree because of the complex union type
   let createContentData
-  // Do we have initial content?
   if (context.wrField.initialContent) {
-    // if (typeof context.wrField.initialContent === 'string') {
-    //   // Parse using pre loaded string parser
-    //   createContentData = preLoadedParser(context.wrField.initialContent)
-    // } else if (Array.isArray(context.wrField.initialContent)) {
-    //   // Parse as an array and add components for possible %componentNameArray%
-    //   createContentData = parser(context.wrField.initialContent, {
-    //     componentName: context.componentName,
-    //     components: context.wrComponents,
-    //     fieldName: context.fieldName,
-    //   })
-    // } else {
-    // Don't parse, use as it is (string[], number, etc.)
     createContentData = context.wrField.initialContent
     // }
   } else if (context.cfFieldDefinition.createContentData) {
