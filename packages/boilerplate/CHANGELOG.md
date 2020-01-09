@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.1.0...boilerplate@4.1.1) (2020-01-09)
+
+
+### Bug Fixes
+
+* exceeding stack by downgrade to gatsby-source-contentful@2.1.72 ([de0bf6e](https://github.com/jaccomeijer/wheelroom/commit/de0bf6e))
+
+
+
+
+
 # [4.1.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.0.1...boilerplate@4.1.0) (2020-01-09)
 
 
