@@ -1,22 +1,61 @@
 # Wheelroom
 
-## History
+Wheelroom is a command line tool for managing content models.
 
-Having developed a number of sites with Gatsby and Contenful reusing the
-Contentful models seemed an obvious thing to do. First step was moving the
-Contentful models and the corresponding React components into a npm module.
+## Plugins
 
-Next we added the Gatsby required graphql fragments. Having things all in one
-place was a great step forward.
+Plugins work with the managed models. Three plugins have been written:
 
-Once we stored our models and fragments in a consistent way, this allowed for a
-generic `gatsby-node.js`. It would pull the data from Contentful and generate
-our pages with the Gatsby API action `createPages`.
+- [wheelroom-plugin-boilerplate](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-boilerplate): template parser for generating typescript (React) files
+- [wheelroom-plugin-graphql](https://www.npmjs.com/package/@jacco-meijer//wheelroom-plugin-graphql): template parser for generating (Gatbsyjs) graphql queries
+- [wheelroom-plugin-contentful](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-contentful): for creating content models at Contentful
 
-This repo contains the packages we developed on our way to a generic
-`gatsby-node.js`. The final result is in the
-[gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroom) package.
+## Gatsby theme wheelroom
 
+A generic `gatsby-node.js` built on consistent models and fragments, which takes
+care of pulling wheelroom models from Contentful.
+
+See [gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroom)
+
+## Boilerplate
+
+Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) so see how wheelroom and `gatsby-theme-wheelroom` work together.
+
+## Models
+
+Content models are defined in javascript like this.
+
+```javascript
+  /** Wheelroom field types, these are different from Contentful types */
+  fieldTypes: {
+    date: {
+      createContentData: '2019-06-03T00:00+01:00',
+      specs: {
+        type: 'Date',
+      },
+      widgetId: 'datePicker',
+    },
+    dropdown: {
+      specs: {
+        type: 'Symbol',
+      },
+      widgetId: 'dropdown',
+    },
+    image: {
+      specs: {
+        linkType: 'Asset',
+        type: 'Link',
+        validations: [
+          {
+            linkMimetypeGroup: ['image'],
+          },
+        ],
+      },
+      widgetId: 'assetLinkEditor',
+    },
+```
+
+Wheelroom allows for common fields and field defaults.
 
 ## Monorepo
 
@@ -25,29 +64,3 @@ Wheelroom is a monorepo managed by lerna.
 ```
 npm install lerna --global
 ```
-
-
-## Packages
-
-### Boilerplate
-
-See [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) on how to use this.
-
-### Gatsby theme wheelroom
-
-A generic `gatsby-node.js` built on consistent models and fragments, which takes
-care of pulling data from Contentful.
-
-See [gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroom)
-
-### Wheelroom
-
-Wheelroom is a command line tool for managing content models.
-
-Plugins are used to work with the models. Three plugins have been written:
-
-- [wheelroom-plugin-boilerplate](https://www.npmjs.com/package/@jacco-meijer/@jacco-meijer/wheelroom-plugin-boilerplate): template parser for generating typescript (React) files
-- [wheelroom-plugin-graphql](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-graphql): template parser for generating (Gatbsyjs) graphql queries
-- [wheelroom-plugin-contentful](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-contentful): for creating content models at Contentful
-
-See [@jacco-meijer/wheelroom](https://www.npmjs.com/package/@jacco-meijer/wheelroom)

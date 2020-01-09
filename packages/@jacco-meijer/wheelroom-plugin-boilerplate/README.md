@@ -47,18 +47,22 @@ import { componentVariation } from './component-variation'
 export const templateSets: TemplateSets = {
   components: {
     component: {
+      filterComponentSetting: 'asBoilerplate',
       path: '%component-name%/%component-name%.tsx',
       template: component,
     },
     componentBasicVar: {
+      filterComponentSetting: 'asBoilerplate',
       path: '%component-name%/%component-name%-%variation%-var.tsx',
       template: componentVariation,
     },
     componentIndex: {
+      filterComponentSetting: 'asBoilerplate',
       path: '%component-name%/index.ts',
       template: componentIndex,
     },
     componentReadme: {
+      filterComponentSetting: 'asBoilerplate',
       path: '%component-name%/README.md',
       template: componentReadme,
     },

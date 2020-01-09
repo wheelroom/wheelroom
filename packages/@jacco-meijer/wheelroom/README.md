@@ -11,19 +11,19 @@ Plugins are used to work with the models. Three plugins have been written:
 Content models are defined in javascript like this.
 
 ```javascript
-article: {
-  fields: {
-    articleText: {
-      type: 'richText',
+module.exports = {
+  components: {
+      ...
+  },
+  plugins: [
+    {
+      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
+      options: {
+        defaultLocale: 'nl',
+        fieldDefinitions: contentfulFieldDefinitions,
+      },
     },
-    author: {
-      required: true,
-    },
-    createdAt: {
-      system: true,
-      type: 'date',
-    },
-  }
+  ],
 }
 ```
 
