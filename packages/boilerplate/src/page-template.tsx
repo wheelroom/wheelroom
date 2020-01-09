@@ -2,6 +2,8 @@ import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
 import React from 'react'
 import { Fragment } from 'react'
+import { GlobalsProps } from './components/globals'
+import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
 import { getPageImage } from './lib/get-page-image'
 import { Seo } from './lib/seo'
@@ -22,11 +24,11 @@ const PageTemplate = (props: any) => {
   console.log('props', props)
   pageDebug('PageTemplate', props)
 
-  const globals = props.data.globals
+  const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
-  const page = props.data.page
+  const page: PageProps = props.data.page
   const pathName = page.pathName
   const siteVersion = props.data.site.siteMetadata.siteVersion
   const sections = page.sections
