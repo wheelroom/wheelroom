@@ -213,8 +213,12 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
       sections: {
-        allowedComponents: [],
+        allowedComponents: [
+          '%componentNameArray(filter:settings.asPageSection)%',
+        ],
         helpText: 'Select sections for this page',
+        initialContent: ['%componentNameArray(filter:settings.asPageSection)%'],
+
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,

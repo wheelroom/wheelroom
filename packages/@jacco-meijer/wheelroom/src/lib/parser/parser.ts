@@ -25,14 +25,24 @@
  * Use %componentVar(path:settings.asQuery)% to get the value of the
  * settings.asQuery variable.
  *
+ * Use %componentNameArray(filter:settings.asPageSection)% to get a comma
+ * separated list of component names that have the asPageSection setting set.
+ * When used in a string within an array, the component names are added to the
+ * array.
+ *
+ *
  */
 
-import { WheelroomComponent } from '../../types/wheelroom-components'
+import {
+  WheelroomComponent,
+  WheelroomComponents,
+} from '../../types/wheelroom-components'
 import { replaceAll } from './case-helpers'
 import { getCases } from './get-cases'
 
 interface Parser {
   component?: WheelroomComponent
+  components?: WheelroomComponents
   componentName: string
   fieldName?: string
   fieldType?: string
@@ -42,21 +52,28 @@ export const parser = <T extends string | string[]>(
   context: Parser
 ): T => {
   if (typeof unparsed === 'string') {
-    return stringParser(unparsed, context) as T
+    const [parsed] = stringParser(unparsed, context)
+    return parsed as T
   }
   if (Array.isArray(unparsed)) {
     const result: string[] = []
     const unparsedArray: string[] = unparsed
     unparsedArray.forEach((str: string) => {
-      result.push(stringParser(str, context))
+      const [parsed, isArrayFlag] = stringParser(str, context)
+      if (isArrayFlag) {
+        result.push(...parsed.split(', '))
+      } else {
+        result.push(parsed)
+      }
     })
     return result as T
   }
   return 'parser-bug' as T
 }
 
-const stringParser = (unparsed: string, context: Parser): string => {
+const stringParser = (unparsed: string, context: Parser): [string, boolean] => {
   let parsed = unparsed
+  let isArrayFlag: boolean = false
 
   const myRegexp = /%([^(%]+)(?:\(([^)]+)\))?%/g
   let match = myRegexp.exec(unparsed)
@@ -68,7 +85,9 @@ const stringParser = (unparsed: string, context: Parser): string => {
       const splitted = match[2].split(',')
       splitted.forEach((fullParam: string) => {
         const [name, value] = fullParam.split(':')
-        params[name.trim()] = value.trim()
+        if (name && value) {
+          params[name.trim()] = value.trim()
+        }
       })
     }
     const variableName = match[1]
@@ -131,8 +150,25 @@ const stringParser = (unparsed: string, context: Parser): string => {
           }
         }
         break
+      case 'componentNameArray':
+        if (context.components) {
+          if ('filter' in params) {
+            const nameList = Object.entries(context.components)
+              .filter(([, comp]: [string, WheelroomComponent]) => {
+                const value = params.filter
+                  .split('.')
+                  .reduce((o: any, i) => o[i], comp)
+                return value
+              })
+              .map(([compName, comp]: [string, WheelroomComponent]) => compName)
+              .join(', ')
+            isArrayFlag = true
+            parsed = replaceAll(parsed, fullMatch, nameList)
+          }
+        }
+        break
     }
     match = myRegexp.exec(unparsed)
   }
-  return parsed
+  return [parsed, isArrayFlag]
 }

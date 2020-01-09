@@ -59,6 +59,7 @@ const component: WheelroomComponent = {
   },
   modelVersion: '1.0.0',
   settings: {
+    asPageSection: true,
     asQuery: 'global',
   },
 }
@@ -198,7 +199,38 @@ describe('The parser should parse', () => {
         componentName,
       }
     )
-
     expect(result).toEqual('This is the test case for global')
+  })
+  test('the variable %componentNameArray%', () => {
+    result = parser(
+      'This is the test case for %componentNameArray(filter:settings.asPageSection)%',
+      {
+        component,
+        componentName,
+        components: {
+          testCompA: component,
+          testCompB: component,
+          testCompC: component,
+        },
+      }
+    )
+    expect(result).toEqual(
+      'This is the test case for testCompA, testCompB, testCompC'
+    )
+  })
+  test('the variable [%componentNameArray%]', () => {
+    result = parser(
+      ['sampleD', '%componentNameArray(filter:settings.asPageSection)%'],
+      {
+        component,
+        componentName,
+        components: {
+          testCompA: component,
+          testCompB: component,
+          testCompC: component,
+        },
+      }
+    )
+    expect(result).toEqual(['sampleD', 'testCompA', 'testCompB', 'testCompC'])
   })
 })

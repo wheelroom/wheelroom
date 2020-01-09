@@ -34,7 +34,9 @@ export const templateParser = (context: TemplateParser): string => {
       const splitted = match[2].split(',')
       splitted.forEach((fullParam: string) => {
         const [name, value] = fullParam.split(':')
-        params[name.trim()] = value.trim()
+        if (name && value) {
+          params[name.trim()] = value.trim()
+        }
       })
     }
     const variableName = match[1]
