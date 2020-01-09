@@ -1,3 +1,12 @@
+## [1.2.2](https://github.com/jaccomeijer/graphql-query-builder/compare/v1.2.1...v1.2.2) (2020-01-09)
+
+
+### Bug Fixes
+
+* node version ([52cbfc5](https://github.com/jaccomeijer/graphql-query-builder/commit/52cbfc56417239957b0efbf4b8c5d24f3a639711))
+
+
+
 ## [1.2.1](https://github.com/jaccomeijer/graphql-query-builder/compare/v1.2.0...v1.2.1) (2020-01-05)
 
 
