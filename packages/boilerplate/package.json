@@ -9,9 +9,9 @@
     "@emotion/core": "10.0.27",
     "@jacco-meijer/styled-system": "3.0.3",
     "@jacco-meijer/wheelroom": "^3.1.1",
-    "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.1.1",
+    "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.2.0",
     "@jacco-meijer/wheelroom-plugin-contentful": "^2.2.0",
-    "@jacco-meijer/wheelroom-plugin-graphql": "^2.1.1",
+    "@jacco-meijer/wheelroom-plugin-graphql": "^2.1.2",
     "camelcase": "5.3.1",
     "dotenv": "8.2.0",
     "emotion-theming": "10.0.27",
@@ -82,5 +82,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "4.1.2"
+  "version": "4.1.3"
 }
