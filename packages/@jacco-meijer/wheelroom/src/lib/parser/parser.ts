@@ -1,5 +1,5 @@
 /**
- * Parses these simple string variables
+ * Variable parser, parses variables below
  *
  * - %Component name%
  * - %component name%
@@ -20,15 +20,25 @@
  * - %field-type%
  *
  *
- * Settings variables
+ * - %componentVar(path:settings.asQuery)%
+ * - Requires arguments: component
+ * - Gets the value of the settings.asQuery variable
  *
- * Use %componentVar(path:settings.asQuery)% to get the value of the
- * settings.asQuery variable.
+ * - %componentNameArray(filter:settings.asPageSection)%
+ * - Requires arguments: components
+ * - Gets a comma separated list of component names that have the asPageSection
+ *   setting set. When used within an array, the component names are added to
+ *   the array.
  *
- * Use %componentNameArray(filter:settings.asPageSection)% to get a comma
- * separated list of component names that have the asPageSection setting set.
- * When used in a string within an array, the component names are added to the
- * array.
+ * - %firstItem%
+ * - Requires arguments: field
+ * - Works on values of fields: DropdownField
+ * - Gets field.items[0]
+ *
+ * - %firstAllowedComponent%
+ * - Requires arguments: field
+ * - Works on values of fields: SingleComponentField, MultipleComponentsField
+ * - Gets field.allowedComponents[0]
  *
  *
  */
@@ -37,6 +47,7 @@ import {
   WheelroomComponent,
   WheelroomComponents,
 } from '../../types/wheelroom-components'
+import { FieldType } from '../../types/wheelroom-fields'
 import { replaceAll } from './case-helpers'
 import { getCases } from './get-cases'
 
@@ -44,6 +55,7 @@ interface Parser {
   component?: WheelroomComponent
   components?: WheelroomComponents
   componentName: string
+  field?: FieldType
   fieldName?: string
   fieldType?: string
 }
@@ -165,6 +177,37 @@ const stringParser = (unparsed: string, context: Parser): [string, boolean] => {
             isArrayFlag = true
             parsed = replaceAll(parsed, fullMatch, nameList)
           }
+        }
+        break
+      case 'firstItem':
+        if (
+          context.field &&
+          context.field.type === 'dropdown' &&
+          context.field.items.length > 0
+        ) {
+          parsed = replaceAll(parsed, fullMatch, context.field.items[0])
+        } else {
+          parsed = replaceAll(parsed, fullMatch, 'bad-field-first-item')
+        }
+        break
+      case 'firstAllowedComponent':
+        if (
+          context.field &&
+          (context.field.type === 'singleComponent' ||
+            context.field.type === 'multipleComponents') &&
+          context.field.allowedComponents.length > 0
+        ) {
+          parsed = replaceAll(
+            parsed,
+            fullMatch,
+            context.field.allowedComponents[0]
+          )
+        } else {
+          parsed = replaceAll(
+            parsed,
+            fullMatch,
+            'bad-field-first-allowed-component'
+          )
         }
         break
     }

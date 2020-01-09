@@ -13,7 +13,7 @@ import { readConfig } from './read-config'
  */
 
 describe('Readig config should provide', () => {
-  test('the whole config', async () => {
+  test('the whole config from COMPILED! dist/fixtures/wheelroom-config.js', async () => {
     const configRead = await readConfig(
       getAppDir(),
       'dist/fixtures/wheelroom-config.js'
@@ -23,6 +23,8 @@ describe('Readig config should provide', () => {
 
   test('the configured components', async () => {
     const components = await getComponents(config)
+    // console.log('COMPONENTS', JSON.stringify(components, null, 2))
+
     expect(components).toStrictEqual(argvComponents)
   })
 

@@ -20,7 +20,7 @@ export interface ContentfulField {
     }
     linkType?: linkType
     localized?: boolean
-    name: string
+    name?: string
     required?: boolean
     type: contentType
     validations?: any[]

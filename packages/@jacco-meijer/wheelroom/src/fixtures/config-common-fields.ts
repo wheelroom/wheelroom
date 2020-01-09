@@ -13,6 +13,7 @@ export const configCommonFields: WheelroomFields = {
   } as ShortTextField,
   title: {
     helpText: 'Never displayed, only used for listing within Contentful',
+    initialContent: '%Component name% generated from boilerplate',
     required: true,
     type: 'shortText',
   } as ShortTextField,

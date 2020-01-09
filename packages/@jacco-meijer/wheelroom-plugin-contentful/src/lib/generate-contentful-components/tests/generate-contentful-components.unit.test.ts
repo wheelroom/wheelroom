@@ -1,7 +1,6 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import { argvCommand } from '../../../fixtures/argv-command'
 import { generateContentfulComponents } from '../generate-contentful-components'
-import { output } from './output'
 
 describe('Generate contentful components should', () => {
   test('match the sample sets', () => {
@@ -13,7 +12,6 @@ describe('Generate contentful components should', () => {
       wheelroomComponents,
       pluginOptions.fieldDefinitions
     )
-    // console.log('OUTPUT', JSON.stringify(contentfulComponents, null, 2))
-    expect(contentfulComponents).toStrictEqual(output)
+    expect(contentfulComponents).toMatchSnapshot()
   })
 })

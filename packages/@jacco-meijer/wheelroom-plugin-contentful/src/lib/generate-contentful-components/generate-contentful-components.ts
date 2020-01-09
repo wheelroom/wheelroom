@@ -32,7 +32,6 @@ export const generateContentfulComponents = (
           const contentfulFieldDefinition =
             fieldDefinitions.fieldTypes[fieldValue.type!]
           fields[fieldName] = mergeFields({
-            cfFieldDefaults: fieldDefinitions.fieldDefaults,
             cfFieldDefinition: contentfulFieldDefinition,
             componentName,
             fieldName,

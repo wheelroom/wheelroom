@@ -1,0 +1,416 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generate contentful components should match the sample sets 1`] = `
+Object {
+  "allFieldTypes": Object {
+    "description": "All field types",
+    "displayField": "title",
+    "fields": Object {
+      "dateField": Object {
+        "createContentData": "2019-06-03T00:00+01:00",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Date field",
+          "required": false,
+          "type": "Date",
+        },
+        "widgetId": "datePicker",
+      },
+      "dropdownField": Object {
+        "createContentData": "item A",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Dropdown field",
+          "required": false,
+          "type": "Symbol",
+          "validations": Array [
+            Object {
+              "in": Array [
+                "item A",
+                "item B",
+                "item C",
+              ],
+            },
+          ],
+        },
+        "widgetId": "dropdown",
+      },
+      "imageField": Object {
+        "createContentData": "demoAsset",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "linkType": "Asset",
+          "localized": false,
+          "name": "Image field",
+          "required": false,
+          "type": "Link",
+          "validations": Array [
+            Object {
+              "linkMimetypeGroup": Array [
+                "image",
+              ],
+            },
+          ],
+        },
+        "widgetId": "assetLinkEditor",
+      },
+      "longTextField": Object {
+        "createContentData": "This is a long text field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Long text field",
+          "required": false,
+          "type": "Text",
+        },
+        "widgetId": "multipleLine",
+      },
+      "multipleComponentsField": Object {
+        "createContentData": Array [
+          "firstSection",
+          "secondSection",
+        ],
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "items": Object {
+            "linkType": "Entry",
+            "type": "Link",
+            "validations": Array [
+              Object {
+                "linkContentType": Array [
+                  "page",
+                  "firstSection",
+                  "secondSection",
+                ],
+              },
+            ],
+          },
+          "localized": false,
+          "name": "Multiple components field",
+          "required": false,
+          "type": "Array",
+        },
+        "widgetId": "entryLinksEditor",
+      },
+      "numberField": Object {
+        "createContentData": 5,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Number field",
+          "required": false,
+          "type": "Integer",
+        },
+        "widgetId": "numberEditor",
+      },
+      "richTextField": Object {
+        "createContentData": "This is a rich text field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Rich text field",
+          "required": false,
+          "type": "RichText",
+        },
+        "widgetId": "richTextEditor",
+      },
+      "shortTextField": Object {
+        "createContentData": "This is a short text field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Short text field",
+          "required": false,
+          "type": "Symbol",
+          "validations": Array [
+            Object {
+              "size": Object {
+                "max": 155,
+                "min": 0,
+              },
+            },
+          ],
+        },
+        "widgetId": "singleLine",
+      },
+      "singleComponentField": Object {
+        "createContentData": "pageModel",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "linkType": "Entry",
+          "localized": false,
+          "name": "Single component field",
+          "required": false,
+          "type": "Link",
+          "validations": Array [
+            Object {
+              "linkContentType": Array [
+                "pageModel",
+              ],
+            },
+          ],
+        },
+        "widgetId": "entryLinkEditor",
+      },
+      "tagsField": Object {
+        "createContentData": Array [
+          "tag A",
+          "tag B",
+        ],
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "items": Object {
+            "type": "Symbol",
+          },
+          "localized": false,
+          "name": "Tags field",
+          "required": false,
+          "type": "Array",
+        },
+        "widgetId": "tagEditor",
+      },
+      "title": Object {
+        "createContentData": "All field types generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "allFieldTypes",
+  },
+  "firstSection": Object {
+    "description": "First section",
+    "displayField": "title",
+    "fields": Object {
+      "defaultField": Object {
+        "createContentData": undefined,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Default field",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "First section generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "firstSection",
+  },
+  "globalModel": Object {
+    "description": "Global model",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": undefined,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Global model generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "globalModel",
+  },
+  "noFragment": Object {
+    "description": "No fragment",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": undefined,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "No fragment generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "noFragment",
+  },
+  "pageModel": Object {
+    "description": "Page model",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": undefined,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Page model generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "pageModel",
+  },
+  "secondSection": Object {
+    "description": "Second section",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": undefined,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Second section generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "secondSection",
+  },
+  "subPageModel": Object {
+    "description": "Sub page model",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": undefined,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Sub page model generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "subPageModel",
+  },
+}
+`;

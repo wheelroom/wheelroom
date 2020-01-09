@@ -19,13 +19,16 @@ export const configComponents: WheelroomComponents = {
         type: 'date',
       } as DateField,
       dropdownField: {
+        initialContent: '%firstItem%',
         items: ['item A', 'item B', 'item C'],
         type: 'dropdown',
       } as DropdownField,
       imageField: {
+        initialContent: true,
         type: 'image',
       } as ImageField,
       longTextField: {
+        initialContent: 'This is a long text field',
         type: 'longText',
       } as LongTextField,
       multipleComponentsField: {
@@ -41,17 +44,21 @@ export const configComponents: WheelroomComponents = {
         type: 'number',
       } as NumberField,
       richTextField: {
+        initialContent: 'This is a rich text field',
         type: 'richText',
       } as RichTextField,
       shortTextField: {
+        initialContent: 'This is a short text field',
         maxLength: 155,
         type: 'shortText',
       } as ShortTextField,
       singleComponentField: {
-        allowedComponents: ['page'],
+        allowedComponents: ['pageModel'],
+        initialContent: '%firstAllowedComponent%',
         type: 'singleComponent',
       } as SingleComponentField,
       tagsField: {
+        initialContent: ['tag A', 'tag B'],
         type: 'tags',
       } as TagsField,
     },
