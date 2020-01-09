@@ -1,4 +1,4 @@
-import { parser } from '@jacco-meijer/wheelroom'
+import { parser, WheelroomComponent } from '@jacco-meijer/wheelroom'
 import {
   getCases,
   replaceAll,
@@ -7,6 +7,7 @@ import {
   WriteFilesContext,
 } from '@jacco-meijer/wheelroom'
 import inquirer from 'inquirer'
+import { TemplateDefinition } from '../types/template-sets'
 import {
   GetFileListContext,
   WriteTemplatesContext,
@@ -33,81 +34,97 @@ export const writeTemplates = async (context: WriteTemplatesContext) => {
   }
 }
 
-// Loop components and get file list for each
+// Loop templates and get file list for each
 const getFileList = (context: GetFileListContext): WriteFileList => {
   const fileList: WriteFileList = []
-  for (const [componentName, component] of Object.entries(
-    context.wheelroomComponents
-  )) {
-    context.componentName = componentName
-    context.wheelroomComponent = component
-    if (component.settings.asBoilerplate) {
-      fileList.push(...getFileListForComponent(context))
+
+  Object.entries(context.templateSet).forEach(
+    ([templateName, templateDefinition]: [string, TemplateDefinition]) => {
+      context.templateDefinition = templateDefinition
+      fileList.push(...getFileListForTemplate(context))
     }
-  }
+  )
   return fileList
 }
 
-// Loop templates of a single component, parse them and return file list
-const getFileListForComponent = (
-  context: GetFileListContext
-): WriteFileList => {
+// Loop components of a single tempalte, parse and return file list
+const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
   const fileList: WriteFileList = []
-  for (const [, templateDefinition] of Object.entries(context.templateSet)) {
-    const component = context.wheelroomComponent!
-    const componentName = context.componentName!
-    let unparsed = templateDefinition.template
-
-    const relPath = parser(templateDefinition.path, {
-      componentName: context.componentName!,
-    })
-
-    unparsed = parser(unparsed, {
-      component: context.wheelroomComponent,
-      componentName,
-    })
-
-    const templateParserContext = {
-      component,
-      componentName,
-      singleVariationName,
-      unparsed,
-    }
-    // If we detect %variation% in the relPath, create a file for each variation
-    if (relPath.includes('%variation%')) {
-      let items: string[]
-      if (
-        'variation' in component.fields &&
-        'items' in component.fields.variation
-      ) {
-        items = component.fields.variation.items!
-      } else {
-        items = [singleVariationName]
+  Object.entries(context.wheelroomComponents)
+    .filter(([componentName, component]: [string, WheelroomComponent]) => {
+      if (!context.templateDefinition!.filterComponentSetting) {
+        // Pass all if no filter is present
+        return true
       }
-      items.forEach((item: string) => {
-        // Parse with current variation
-        const content = templateParser({
-          ...templateParserContext,
-          currentVariation: item,
-        })
+      return component.settings[
+        context.templateDefinition!.filterComponentSetting
+      ]
+    })
+    .forEach(([componentName, component]: [string, WheelroomComponent]) => {
+      let unparsed = context.templateDefinition!.template
+      // We provide a string, so we can expect a string back
+      const relPath = parser(context.templateDefinition!.path, {
+        componentName,
+      })
+      // If the path does not have a variable, skip. Because we otherwise will
+      // overwrite the same file.
+      if (
+        relPath === context.templateDefinition!.path &&
+        fileList.length >= 1
+      ) {
+        return
+      }
 
-        // Finish parsing and write this variation to file
+      unparsed = parser(unparsed, {
+        component,
+        componentName,
+      })
+
+      const templateParserContext = {
+        component,
+        componentName,
+        singleVariationName,
+        unparsed,
+      }
+      // If we detect %variation% in the relPath, create a file for each variation
+      if (relPath.includes('%variation%')) {
+        let items: string[]
+        if (
+          'variation' in component.fields &&
+          'items' in component.fields.variation
+        ) {
+          items = component.fields.variation.items!
+        } else {
+          items = [singleVariationName]
+        }
+        items.forEach((item: string) => {
+          // Parse with current variation
+          const content = templateParser({
+            ...templateParserContext,
+            currentVariation: item,
+          })
+
+          // Finish parsing and write this variation to file
+          fileList.push({
+            basePath: context.basePath,
+            content,
+            relPath: replaceAll(
+              relPath,
+              '%variation%',
+              getCases(item).kebabCase
+            ),
+          })
+        })
+      } else {
+        const content = templateParser(templateParserContext)
+        // No variations, finish parsing and write file
         fileList.push({
           basePath: context.basePath,
           content,
-          relPath: replaceAll(relPath, '%variation%', getCases(item).kebabCase),
+          relPath,
         })
-      })
-    } else {
-      const content = templateParser(templateParserContext)
-      // No variations, finish parsing and write file
-      fileList.push({
-        basePath: context.basePath,
-        content,
-        relPath,
-      })
-    }
-  }
+      }
+    })
   return fileList
 }
 
