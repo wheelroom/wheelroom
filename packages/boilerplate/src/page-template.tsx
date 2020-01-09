@@ -6,7 +6,7 @@ import { pageDebug } from './lib/debug'
 import { getPageImage } from './lib/get-page-image'
 import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
-import { Box, Container, Flex } from './views/core-elements/grid'
+import { Container } from './views/core-elements/grid'
 
 const GlobalAStyles = {
   body: {
@@ -66,16 +66,6 @@ const PageTemplate = (props: any) => {
     <Fragment>
       <Global styles={GlobalAStyles} />
       <Container>
-        <Flex
-          ncss={{
-            color: 'white',
-            fontFamily: 'heading',
-            fontSize: [2, 4, 6, 8],
-          }}
-        >
-          <Box ncss={{ p: 5, w: [1, 1 / 2], bg: 'orange' }}>Box</Box>
-          <Box ncss={{ p: 5, w: [1, 1 / 2], bg: 'blue' }}>Box</Box>
-        </Flex>
         <Seo {...seoProps} />
         <Sections {...sectionProps} />
       </Container>
