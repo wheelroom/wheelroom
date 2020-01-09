@@ -3,11 +3,6 @@
  *
  * Take a wheelroom field and convert it to a parsed Contentful field
  *
- * If a model named 'page' has a field named 'sections' with type
- * 'multipleComponents', the field is populated with the names of all components
- * that have settings.isPageSection set. Also, validations are added for these
- * components.
- *
  * Process Wheelroom fields:
  *
  * - helpText?: string -> settings.helpText
@@ -29,12 +24,7 @@
  *
  */
 
-import {
-  FieldType,
-  parser,
-  WheelroomComponent,
-  WheelroomComponents,
-} from '@jacco-meijer/wheelroom'
+import { FieldType, parser, WheelroomComponents } from '@jacco-meijer/wheelroom'
 import { ContentfulField, widgetID } from '../../types/contentful-fields'
 import { createContentDataParser, createIfMissing } from './merge-helpers'
 
@@ -65,7 +55,7 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
     context.cfFieldDefaults.settings = {}
   }
   // Parser shortcut with commandName and context.fieldName
-  const parseCompNamePlusFieldName = (unparsed: string) =>
+  const preLoadedParser = (unparsed: string) =>
     parser(unparsed, {
       componentName: context.componentName,
       fieldName: context.fieldName,
@@ -73,7 +63,7 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
 
   const workingField: ContentfulField = {
     settings: {
-      helpText: parseCompNamePlusFieldName(
+      helpText: preLoadedParser(
         context.wrField.helpText ||
           context.cfFieldDefinition.settings!.helpText ||
           context.cfFieldDefaults.settings!.helpText ||
@@ -86,7 +76,7 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
         context.cfFieldDefinition.specs.localized ||
         context.cfFieldDefaults.specs.localized ||
         lastResort.localized,
-      name: parseCompNamePlusFieldName(
+      name: preLoadedParser(
         context.wrField.name ||
           context.cfFieldDefinition.specs.name ||
           context.cfFieldDefaults.specs.name
@@ -109,11 +99,27 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
 
   // Handle initial content, a if-then-tree because of the complex union type
   let createContentData
+  // Do we have initial content?
   if (context.wrField.initialContent) {
+    // if (typeof context.wrField.initialContent === 'string') {
+    //   // Parse using pre loaded string parser
+    //   createContentData = preLoadedParser(context.wrField.initialContent)
+    // } else if (Array.isArray(context.wrField.initialContent)) {
+    //   // Parse as an array and add components for possible %componentNameArray%
+    //   createContentData = parser(context.wrField.initialContent, {
+    //     componentName: context.componentName,
+    //     components: context.wrComponents,
+    //     fieldName: context.fieldName,
+    //   })
+    // } else {
+    // Don't parse, use as it is (string[], number, etc.)
     createContentData = context.wrField.initialContent
+    // }
   } else if (context.cfFieldDefinition.createContentData) {
+    // No initial content configured, lookup field definition
     createContentData = context.cfFieldDefinition.createContentData
   } else if (context.cfFieldDefaults.createContentData) {
+    // No value in field definition, check default values
     createContentData = context.cfFieldDefaults.createContentData
   }
   if (typeof createContentData === 'string') {
@@ -121,7 +127,7 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
       createContentData,
       context.wrField
     )
-    createContentData = parseCompNamePlusFieldName(createContentData as string)
+    createContentData = preLoadedParser(createContentData as string)
   }
   Object.assign(workingField, { createContentData })
 
@@ -166,20 +172,6 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
     workingField.specs.items!.validations!.push({
       linkContentType: context.wrField.allowedComponents,
     })
-    // See comment on top of the file
-    if (context.componentName === 'page' && context.fieldName === 'sections') {
-      const asPageSectionList = Object.entries(context.wrComponents)
-        .filter(
-          ([, comp]: [string, WheelroomComponent]) =>
-            comp.settings.asPageSection
-        )
-        .map(([compName, comp]: [string, WheelroomComponent]) => compName)
-      workingField.specs.items!.validations![0].linkContentType.push(
-        ...asPageSectionList
-      )
-      createContentData = asPageSectionList
-      Object.assign(workingField, { createContentData })
-    }
   }
 
   if (context.wrField.type === 'dropdown') {
