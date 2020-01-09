@@ -52,6 +52,7 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
       linkedinUrl: {
+        initialContent: '%Field name% for %component name%',
         type: 'shortText',
       } as ShortTextField,
       phoneNumber: {
