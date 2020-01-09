@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.0.1...@jacco-meijer/wheelroom-plugin-contentful@2.1.0) (2020-01-09)
+
+
+### Bug Fixes
+
+* linkContentType array ([6f3f05d](https://github.com/jaccomeijer/wheelroom/commit/6f3f05d))
+
+
+### Features
+
+* implement auto fill of page.sections ([5731a99](https://github.com/jaccomeijer/wheelroom/commit/5731a99))
+
+
+
+
+
 ## [2.0.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.0.0...@jacco-meijer/wheelroom-plugin-contentful@2.0.1) (2020-01-06)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful

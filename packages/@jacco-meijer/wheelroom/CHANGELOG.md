@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.0.1...@jacco-meijer/wheelroom@3.1.0) (2020-01-09)
+
+
+### Bug Fixes
+
+* parser bug ([21d88da](https://github.com/jaccomeijer/wheelroom/commit/21d88da))
+* wait for each file to complete ([8c8ec18](https://github.com/jaccomeijer/wheelroom/commit/8c8ec18))
+
+
+### Features
+
+* add support for expandFragmentRef ([d8bf1b1](https://github.com/jaccomeijer/wheelroom/commit/d8bf1b1))
+* imlemented asBoilerplate ([4ea8007](https://github.com/jaccomeijer/wheelroom/commit/4ea8007))
+* implement auto fill of page.sections ([5731a99](https://github.com/jaccomeijer/wheelroom/commit/5731a99))
+* variable %componentNameArray(filter:settings.asPageSection)% ([a060432](https://github.com/jaccomeijer/wheelroom/commit/a060432))
+
+
+
+
+
 ## [3.0.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.0.0...@jacco-meijer/wheelroom@3.0.1) (2020-01-06)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom

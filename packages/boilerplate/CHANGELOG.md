@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.0.1...boilerplate@4.1.0) (2020-01-09)
+
+
+### Bug Fixes
+
+* linkContentType array ([6f3f05d](https://github.com/jaccomeijer/wheelroom/commit/6f3f05d))
+* parser bug ([21d88da](https://github.com/jaccomeijer/wheelroom/commit/21d88da))
+
+
+### Features
+
+* add support for expandFragmentRef ([d8bf1b1](https://github.com/jaccomeijer/wheelroom/commit/d8bf1b1))
+* implement auto fill of page.sections ([5731a99](https://github.com/jaccomeijer/wheelroom/commit/5731a99))
+* variable %componentNameArray(filter:settings.asPageSection)% ([a060432](https://github.com/jaccomeijer/wheelroom/commit/a060432))
+
+
+
+
+
 ## [4.0.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.0.0...boilerplate@4.0.1) (2020-01-06)
 
 **Note:** Version bump only for package boilerplate
