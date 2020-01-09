@@ -16,9 +16,9 @@
  *
  * Process validations:
  *
- * - components: string[] -> specs.validations.0.linkContentType
- * -                      -> specs.items.validations.0.linkContentType
- * - items?: string[] -> specs.validations.0.in
+ * - allowedComponents: string[] -> specs.validations.0.linkContentType
+ * -                             -> specs.items.validations.0.linkContentType
+ * - items: string[] -> specs.validations.0.in
  * - maxLength?: number -> specs.validations.0.size.max
  * - unique?: boolean -> specs.validations.0.unique
  *
