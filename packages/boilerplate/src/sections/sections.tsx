@@ -48,19 +48,14 @@ export const Sections = (props: any) => {
     const Section = sectionMap[section.__typename].element
     const landMark = sectionMap[section.__typename].landMark
     const sectionProps = {
-      allArticles: props.allArticles,
-      article: props.article,
-      globals: props.globals,
       key: index,
       landMark,
       locale: props.locale,
       namedPaths: props.namedPaths,
 
-      pageHeading: props.pageHeading,
-      pageImage: props.pageImage,
-      pageInfoText: props.pageInfoText,
+      globals: props.globals,
+      page: props.page,
 
-      pathName: props.pathName,
       ...section,
     } as SectionProps
     sectionList.push(<Section {...sectionProps} />)

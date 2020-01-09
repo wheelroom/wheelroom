@@ -24,7 +24,7 @@ module.exports = {
     {
       options: {
         google: {
-          families: ['Work+Sans:300'],
+          families: ['Fjalla+One:400', 'Open+Sans:400'],
         },
       },
       resolve: 'gatsby-plugin-web-font-loader',

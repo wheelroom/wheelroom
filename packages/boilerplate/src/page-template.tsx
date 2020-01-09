@@ -29,25 +29,18 @@ const PageTemplate = (props: any) => {
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const page: PageProps = props.data.page
-  const pathName = page.pathName
   const siteVersion = props.data.site.siteMetadata.siteVersion
   const sections = page.sections
-
-  // Page user data
-  const pageHeading = page.pageHeading
-  const pageImage = page.pageImage
-  const pageInfoText = page.pageInfoText
 
   const image = getPageImage(page, 'ContentfulOpenerSection')
 
   const sectionProps = {
-    globals,
     locale,
     namedPaths,
-    pageHeading,
-    pageImage,
-    pageInfoText,
-    pathName,
+
+    globals,
+    page,
+
     sections,
   }
   const seoProps = {

@@ -11,7 +11,7 @@ export const styledSystemTheme: StyledSystemTheme = {
     white: ' #FFFFFF',
   },
   fontMap: {
-    heading: 'Maven Pro, sans-serif',
+    heading: 'Fjalla One, sans-serif',
     text: 'Open Sans, sans-serif',
   },
   fontSizeScale: [0, 12, 13, 15, 18, 22, 27, 33, 40, 48, 57, 67, 78, 90],

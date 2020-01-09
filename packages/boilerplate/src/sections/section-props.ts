@@ -1,4 +1,6 @@
 import { landMarkType, NamedPaths } from 'gatsby-theme-wheelroom'
+import { GlobalsProps } from '../components/globals'
+import { PageProps } from '../components/page'
 
 /** These are suitable defaults, you probably want to add some props specific
  * for this project
@@ -12,6 +14,7 @@ export interface SectionProps {
   locale: string
   /** an object with path names and there actual (localized) paths */
   namedPaths: NamedPaths
-  /** the name of the current path */
-  pathName: string
+
+  globals: GlobalsProps
+  page: PageProps
 }
