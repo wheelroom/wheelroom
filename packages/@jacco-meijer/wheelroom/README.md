@@ -4,9 +4,9 @@ Wheelroom is a command line tool for managing content models.
 
 Plugins are used to work with the models. Three plugins have been written:
 
-- [wheelroom-plugin-boilerplate](../wheelroom-plugin-boilerplate/README.md): template parser for generating typescript (React) files
-- [wheelroom-plugin-graphql](../wheelroom-plugin-graphql/README.md): template parser for generating (Gatbsyjs) graphql queries
-- [wheelroom-plugin-contentful](../wheelroom-plugin-contentful/README.md): for creating content models at Contentful
+- [wheelroom-plugin-boilerplate](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-boilerplate): template parser for generating typescript (React) files
+- [wheelroom-plugin-graphql](https://www.npmjs.com/package/@jacco-meijer//wheelroom-plugin-graphql): template parser for generating (Gatbsyjs) graphql queries
+- [wheelroom-plugin-contentful](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-contentful): for creating content models at Contentful
 
 Content models are defined in javascript like this.
 
