@@ -9,7 +9,7 @@ export const confirmAction = async (question: string, context: Context) => {
     .map((componentName: string) => componentName)
     .join(', ')
 
-  const message = `${question}: ${componentList}?`
+  const message = `${question}:\n${componentList}?`
   const confirm = [
     {
       default: true,

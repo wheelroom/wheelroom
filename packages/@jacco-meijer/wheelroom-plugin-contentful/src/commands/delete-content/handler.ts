@@ -5,12 +5,16 @@ import {
 } from '../../contentful-api/content'
 import { componentsFound } from '../../lib/components-found'
 import { confirmAction } from '../../lib/confirm-action'
+import { envComplete } from '../../lib/env-complete'
 import { initializeContext, refreshContext } from '../../lib/initialize-context'
 import { readDotEnv } from '../../lib/read-dot-env'
 import { deleteAsset } from './delete-asset'
 
 export const handler = async (argv: any) => {
   readDotEnv()
+  if (!envComplete()) {
+    return
+  }
   const context = await initializeContext(argv)
   if (!componentsFound(context.contentfulComponents)) {
     return
