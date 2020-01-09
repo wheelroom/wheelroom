@@ -22,7 +22,7 @@ export const writeFileQuestions = [
         value: 'q',
       },
     ],
-    default: 'y',
+    default: 'n',
     message: 'Overwrite?`:',
     name: 'policy',
     type: 'expand',
