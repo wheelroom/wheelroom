@@ -3,10 +3,9 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import { Fragment } from 'react'
 import { pageDebug } from './lib/debug'
-import { getPageImage } from './lib/get-page-meta-tags'
+import { getPageImage } from './lib/get-page-image'
 import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
-import { SeoProps } from './types/seo'
 import { Box, Container, Flex } from './views/core-elements/grid'
 
 const GlobalAStyles = {
@@ -61,7 +60,7 @@ const PageTemplate = (props: any) => {
     siteTitle: globals.siteTitle,
     siteVersion,
     title: page.seoTitle,
-  } as SeoProps
+  }
 
   return (
     <Fragment>

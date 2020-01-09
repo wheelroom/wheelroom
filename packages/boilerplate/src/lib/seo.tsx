@@ -1,37 +1,62 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { SeoProps } from '../types/seo'
 
-export const Seo = ({
-  contentTypeInfo,
-  description,
-  image,
-  keywords,
-  locale,
-  alternateLocales,
-  meta,
-  siteAuthor,
-  siteDescription,
-  siteKeywords,
-  siteTitle,
-  siteVersion,
-  title,
-}: SeoProps) => {
-  const metaDescription = description || siteDescription || ''
-  const useKeywords = keywords || siteKeywords
+export interface AlternateLocale {
+  href: string
+  hrefLang: string
+}
+
+export interface SeoContentTypeInfo {
+  type: 'article' | 'none'
+  tags: SeoTags
+}
+
+export interface SeoTags {
+  author?: string
+  first_name?: string
+  gender?: string
+  last_name?: string
+  modified_time?: string
+  published_time?: string
+  section?: string
+  username?: string
+  [tagName: string]: string | undefined
+}
+
+interface SeoProps {
+  contentTypeInfo?: SeoContentTypeInfo
+  description?: string
+  image?: string
+  keywords?: string[]
+  locale: string
+  alternateLocales?: AlternateLocale[]
+  meta: any[]
+  siteAuthor: string
+  siteDescription: string
+  siteKeywords: string[]
+  siteTitle: string
+  siteVersion: string
+  title: string
+}
+
+export const Seo = (context: SeoProps) => {
+  const metaDescription = context.description || context.siteDescription || ''
+  const useKeywords = context.keywords || context.siteKeywords
   const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
-  const linkLocales = alternateLocales || []
+  const linkLocales = context.alternateLocales || []
   const typeTags = [
     {
-      content: contentTypeInfo ? contentTypeInfo.type : 'website',
+      content: context.contentTypeInfo
+        ? context.contentTypeInfo.type
+        : 'website',
       property: 'og:type',
     },
   ]
-  if (contentTypeInfo && contentTypeInfo.type === 'article') {
-    Object.keys(contentTypeInfo.tags as object).forEach(tag => {
+  if (context.contentTypeInfo && context.contentTypeInfo.type === 'article') {
+    Object.keys(context.contentTypeInfo.tags as object).forEach(tag => {
       typeTags.push({
-        content: contentTypeInfo.tags[tag],
-        property: contentTypeInfo.type + ':' + tag,
+        content: context.contentTypeInfo!.tags[tag],
+        property: context.contentTypeInfo!.type + ':' + tag,
       } as any)
     })
   }
@@ -39,13 +64,13 @@ export const Seo = ({
   return (
     <Helmet
       htmlAttributes={{
-        lang: locale,
+        lang: context.locale,
       }}
-      title={title}
-      titleTemplate={`%s | ${siteTitle}`}
+      title={context.title}
+      titleTemplate={`%s | ${context.siteTitle}`}
       meta={[
         {
-          content: siteVersion,
+          content: context.siteVersion,
           name: 'site-version',
         },
         {
@@ -60,11 +85,11 @@ export const Seo = ({
         ////////////////////////////////////////////////
         /// Open Graph
         {
-          content: title,
+          content: context.title,
           property: 'og:title',
         },
         {
-          content: image,
+          content: context.image,
           property: 'og:image',
         },
         {
@@ -72,7 +97,7 @@ export const Seo = ({
           property: 'og:description',
         },
         {
-          content: locale,
+          content: context.locale,
           property: 'og:locale',
         },
 
@@ -83,11 +108,11 @@ export const Seo = ({
           name: 'twitter:card',
         },
         {
-          content: siteAuthor,
+          content: context.siteAuthor,
           name: 'twitter:creator',
         },
         {
-          content: title,
+          content: context.title,
           name: 'twitter:title',
         },
         {
@@ -95,11 +120,11 @@ export const Seo = ({
           name: 'twitter:description',
         },
         {
-          content: image,
+          content: context.image,
           name: 'twitter:image',
         },
       ]
-        .concat(meta)
+        .concat(context.meta)
         .concat(typeTags)}
     >
       {linkLocales.map((linkLocale: any) => (
@@ -112,4 +137,33 @@ export const Seo = ({
       ))}
     </Helmet>
   )
+}
+
+export const getSeoContentTypeInfo = (
+  page: any,
+  article: any
+): SeoContentTypeInfo => {
+  const noInfo = {
+    type: 'none',
+  } as SeoContentTypeInfo
+  if (!article) {
+    return noInfo
+  }
+
+  // Do we have an article?
+  if (page.pathName === 'article') {
+    return {
+      tags: {
+        author: article.author,
+        modified_time: article.updatedAt,
+        published_time: article.createdAt,
+        section: 'Technology',
+        // expiration_time: '',
+        // tag: '',
+      },
+      type: 'article',
+    } as SeoContentTypeInfo
+  }
+
+  return noInfo
 }
