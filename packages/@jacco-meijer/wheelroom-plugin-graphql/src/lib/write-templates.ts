@@ -30,7 +30,7 @@ export const writeTemplates = async (context: WriteTemplatesContext) => {
   }
 }
 
-// Loop components and get file list for each
+// Loop templates and get file list for each
 const getFileList = (context: GetFileListContext): WriteFileList => {
   const fileList: WriteFileList = []
 
@@ -43,7 +43,7 @@ const getFileList = (context: GetFileListContext): WriteFileList => {
   return fileList
 }
 
-// Loop templates of a single component, parse them and return file list
+// Loop components of a single tempalte, parse and return file list
 const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
   const fileList: WriteFileList = []
   Object.entries(context.wheelroomComponents)
