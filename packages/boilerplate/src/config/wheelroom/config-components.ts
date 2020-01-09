@@ -218,7 +218,6 @@ export const configComponents: WheelroomComponents = {
         ],
         helpText: 'Select sections for this page',
         initialContent: ['%componentNameArray(filter:settings.asPageSection)%'],
-
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,

@@ -29,8 +29,11 @@ export const configComponents: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       multipleComponentsField: {
-        allowedComponents: ['page', 'firstSection', 'secondSection'],
-        initialContent: ['firstSection', 'secondSection'],
+        allowedComponents: [
+          'page',
+          '%componentNameArray(filter:settings.asPageSection)%',
+        ],
+        initialContent: ['%componentNameArray(filter:settings.asPageSection)%'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
       numberField: {

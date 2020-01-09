@@ -62,6 +62,7 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
               }
               parseResults[key] = parser(value, {
                 componentName,
+                components: wheelroomConfig.components,
                 fieldName,
               })
             }
