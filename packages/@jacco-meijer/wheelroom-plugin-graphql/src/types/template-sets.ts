@@ -12,7 +12,7 @@ export interface TemplateSet {
 
 export interface TemplateDefinition {
   /** Filter by components with a fragment or with a asQuery setting */
-  filterComponentSetting: SettingsKeys
+  filterComponentSetting?: SettingsKeys
   /** String literal template with %-variables */
   template: string
   /** E.g. path/to/file/README.md */
