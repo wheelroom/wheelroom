@@ -1,9 +1,11 @@
 /**
  * Parse these variables:
  *
+ * - %variationImportList%
  * - %variationList(indent:2)%
  * - %reactProps(indent:2)%
  * - %variation%
+ * - %componentHtmlAttributes%
  *
  */
 
