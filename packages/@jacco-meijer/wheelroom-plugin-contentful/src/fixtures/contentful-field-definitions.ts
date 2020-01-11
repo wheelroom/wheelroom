@@ -15,7 +15,6 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
   /** Wheelroom field types, these are different from Contentful types */
   fieldTypes: {
     date: {
-      createContentData: '2019-06-03T00:00+01:00',
       specs: {
         type: 'Date',
       },
@@ -51,13 +50,11 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
           linkType: 'Entry',
           type: 'Link',
         },
-        name: '%Field name%',
         type: 'Array',
       },
       widgetId: 'entryLinksEditor',
     },
     number: {
-      createContentData: 5,
       specs: {
         type: 'Integer',
       },
@@ -83,7 +80,6 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       widgetId: 'entryLinkEditor',
     },
     tags: {
-      createContentData: ['tag me', 'tag you', 'tag us'],
       specs: {
         items: {
           type: 'Symbol',
