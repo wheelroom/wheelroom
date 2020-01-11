@@ -230,13 +230,13 @@ export const configComponents: WheelroomComponents = {
       } as LongTextField,
       path: {
         helpText: 'System field, changing this can break things',
-        initialContent: '/',
+        initialContent: '/boilerplate',
         required: true,
         type: 'shortText',
       } as ShortTextField,
       pathName: {
         helpText: 'System field, changing this can break things',
-        initialContent: 'home',
+        initialContent: 'boilerplate',
         required: true,
         type: 'shortText',
       } as ShortTextField,
