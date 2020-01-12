@@ -11,25 +11,6 @@ import {
 import { FieldType } from '../../types/wheelroom-fields'
 import { getCases } from './get-cases'
 
-// Import all replace functions and export them as one
-import { componentNameFunc } from './replace-functions/component-name'
-import { componentNameArrayFunc } from './replace-functions/component-name-array'
-import { componentVarFunc } from './replace-functions/component-var'
-import { fieldNameFunc } from './replace-functions/field-name'
-import { fieldTypeFunc } from './replace-functions/field-type'
-import { firstAllowedComponentFunc } from './replace-functions/first-allowed-component'
-import { firstItemFunc } from './replace-functions/first-item'
-
-export const replaceFunctions = [
-  ...componentNameFunc,
-  ...componentNameArrayFunc,
-  ...componentVarFunc,
-  ...fieldNameFunc,
-  ...fieldTypeFunc,
-  ...firstAllowedComponentFunc,
-  ...firstItemFunc,
-]
-
 interface CreateParser {
   component?: WheelroomComponent
   components?: WheelroomComponents
@@ -39,46 +20,19 @@ interface CreateParser {
   fieldType?: string
 }
 
+/** Contains member variables and methods for the object createParser returns */
 interface ParserMembers {
+  _replaceFunctionsLookup: ReplaceFunctionsLookup
+  _returnsArray: boolean
   replaceVars: ReplaceVars
-  replaceFunctionsLookup: ReplaceFunctionsLookup
-  returnsArray: boolean
+  _parseString: (unparsed: string) => string
   addParseFunctions: (parseFunctions: ReplaceFunctionsList) => void
-  parseString: (unparsed: string) => string
   parse<T extends string | string[]>(unparsed: T): T
 }
 
 export const createParser = (context: CreateParser) => {
   const parser: ParserMembers = {
-    addParseFunctions(addReplaceFunctions: ReplaceFunctionsList) {
-      addReplaceFunctions.reduce((result: ReplaceFunctionsLookup, rf) => {
-        result[rf.search] = rf
-        return result
-      }, this.replaceFunctionsLookup)
-    },
-
-    parse<T extends string | string[]>(unparsed: T): T {
-      if (typeof unparsed === 'string') {
-        const parsed = this.parseString(unparsed)
-        return parsed as T
-      }
-      if (Array.isArray(unparsed)) {
-        const result: string[] = []
-        const unparsedArray: string[] = unparsed
-        unparsedArray.forEach((str: string) => {
-          const parsed = this.parseString(str)
-          if (this.returnsArray) {
-            result.push(...parsed.split(', '))
-          } else {
-            result.push(parsed)
-          }
-        })
-        return result as T
-      }
-      return 'bug-create-parser' as T
-    },
-
-    parseString(unparsed: string) {
+    _parseString(unparsed: string) {
       const params: ReplaceParams = {}
       const parsed = unparsed.replace(
         /%([^(%]+)(?:\(([^)]+)\))?%/g,
@@ -92,10 +46,10 @@ export const createParser = (context: CreateParser) => {
               }
             })
           }
-          if (match1 in this.replaceFunctionsLookup) {
-            this.returnsArray =
-              this.replaceFunctionsLookup[match1].returnsArray || false
-            const func = this.replaceFunctionsLookup[match1].replace
+          if (match1 in this._replaceFunctionsLookup) {
+            this._returnsArray =
+              this._replaceFunctionsLookup[match1].returnsArray || false
+            const func = this._replaceFunctionsLookup[match1].replace
             const replaced = func(this.replaceVars, params)
             return replaced
           } else {
@@ -105,7 +59,34 @@ export const createParser = (context: CreateParser) => {
       )
       return parsed
     },
-    replaceFunctionsLookup: {},
+    addParseFunctions(addReplaceFunctions: ReplaceFunctionsList) {
+      addReplaceFunctions.reduce((result: ReplaceFunctionsLookup, rf) => {
+        result[rf.search] = rf
+        return result
+      }, this._replaceFunctionsLookup)
+    },
+    parse<T extends string | string[]>(unparsed: T): T {
+      if (typeof unparsed === 'string') {
+        const parsed = this._parseString(unparsed)
+        return parsed as T
+      }
+      if (Array.isArray(unparsed)) {
+        const result: string[] = []
+        const unparsedArray: string[] = unparsed
+        unparsedArray.forEach((str: string) => {
+          const parsed = this._parseString(str)
+          if (this._returnsArray) {
+            result.push(...parsed.split(', '))
+          } else {
+            result.push(parsed)
+          }
+        })
+        return result as T
+      }
+      return 'bug-create-parser' as T
+    },
+    _replaceFunctionsLookup: {},
+    _returnsArray: false,
     replaceVars: {
       cases: {},
       component: context.component,
@@ -115,7 +96,6 @@ export const createParser = (context: CreateParser) => {
       fieldName: context.fieldName,
       fieldType: context.fieldType,
     },
-    returnsArray: false,
   }
   if (parser.replaceVars.componentName) {
     parser.replaceVars.cases.componentName = getCases(

@@ -2,18 +2,26 @@ import { WheelroomComponent, WheelroomComponents } from './wheelroom-components'
 import { FieldType } from './wheelroom-fields'
 
 export interface Cases {
+  /** The camelCase version of the string */
   camelCase: string
+  /** The kebabCase version of the string */
   kebabCase: string
+  /** The lowerCase version of the string */
   lowerCase: string
+  /** The pascalCase version of the string */
   pascalCase: string
+  /** The sentenceCase version of the string */
   sentenceCase: string
 }
 
 export type ReplaceFunction = (rv: ReplaceVars, rp: ReplaceParams) => string
 
 export interface ReplaceFunctionContext {
+  /** function that returns the new value of the search string */
   replace: ReplaceFunction
+  /** The search string the replace function returns a value for */
   search: string
+  /** When set, returns a string that was build by array.join(', ') */
   returnsArray?: boolean
 }
 
@@ -25,8 +33,11 @@ export type ReplaceFunctionsList = ReplaceFunctionContext[]
 
 export interface ReplaceVars {
   cases: {
+    /** The component name in all case variants */
     componentName?: Cases
+    /** The field name in all case variants */
     fieldName?: Cases
+    /** The field type in all case variants */
     fieldType?: Cases
   }
   component?: WheelroomComponent

@@ -9,7 +9,8 @@ import {
   SingleComponentField,
   TagsField,
 } from '../../types/wheelroom-fields'
-import { createParser, replaceFunctions } from './create-parser'
+import { createParser } from './create-parser'
+import { replaceFunctions } from './replace-functions/replace-functions'
 
 const componentName = 'myDemoComponent'
 const fieldName = 'myFieldName'
