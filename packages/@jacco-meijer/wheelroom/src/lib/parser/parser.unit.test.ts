@@ -9,12 +9,12 @@ import {
   SingleComponentField,
   TagsField,
 } from '../../types/wheelroom-fields'
-import { parser } from './parser'
+import { createParser, replaceFunctions } from './create-parser'
 
 const componentName = 'myDemoComponent'
 const fieldName = 'myFieldName'
 const fieldType = 'someFieldType'
-let result
+let result: string | string[]
 
 const component: WheelroomComponent = {
   fields: {
@@ -65,39 +65,42 @@ const component: WheelroomComponent = {
   },
 }
 
+const parser = createParser({
+  component,
+  componentName,
+  components: {
+    testCompA: component,
+    testCompB: component,
+    testCompC: component,
+  },
+  fieldName,
+  fieldType,
+})
+parser.addParseFunctions(replaceFunctions)
+
 describe('The parser should parse', () => {
   /**
    * Component name
    */
   test('variable %Component name%', () => {
-    result = parser('This is the test case for %Component name%', {
-      componentName,
-    })
+    result = parser.parse('This is the test case for %Component name%')
     expect(result).toEqual('This is the test case for My demo component')
   })
 
   test('variable %component name%', () => {
-    result = parser('This is the test case for %component name%', {
-      componentName,
-    })
+    result = parser.parse('This is the test case for %component name%')
     expect(result).toEqual('This is the test case for my demo component')
   })
   test('variable %componentName%', () => {
-    result = parser('This is the test case for %componentName%', {
-      componentName,
-    })
+    result = parser.parse('This is the test case for %componentName%')
     expect(result).toEqual('This is the test case for myDemoComponent')
   })
   test('variable %ComponentName%', () => {
-    result = parser('This is the test case for %ComponentName%', {
-      componentName,
-    })
+    result = parser.parse('This is the test case for %ComponentName%')
     expect(result).toEqual('This is the test case for MyDemoComponent')
   })
   test('variable %component-name%', () => {
-    result = parser('This is the test case for %component-name%', {
-      componentName,
-    })
+    result = parser.parse('This is the test case for %component-name%')
     expect(result).toEqual('This is the test case for my-demo-component')
   })
 
@@ -105,38 +108,23 @@ describe('The parser should parse', () => {
    * Field name
    */
   test('variable %Field name%', () => {
-    result = parser('This is the test case for %Field name%', {
-      componentName,
-      fieldName,
-    })
+    result = parser.parse('This is the test case for %Field name%')
     expect(result).toEqual('This is the test case for My field name')
   })
   test('variable %field name%', () => {
-    result = parser('This is the test case for %field name%', {
-      componentName,
-      fieldName,
-    })
+    result = parser.parse('This is the test case for %field name%')
     expect(result).toEqual('This is the test case for my field name')
   })
   test('variable %fieldName%', () => {
-    result = parser('This is the test case for %fieldName%', {
-      componentName,
-      fieldName,
-    })
+    result = parser.parse('This is the test case for %fieldName%')
     expect(result).toEqual('This is the test case for myFieldName')
   })
   test('variable %FieldName%', () => {
-    result = parser('This is the test case for %FieldName%', {
-      componentName,
-      fieldName,
-    })
+    result = parser.parse('This is the test case for %FieldName%')
     expect(result).toEqual('This is the test case for MyFieldName')
   })
   test('variable %field-name%', () => {
-    result = parser('This is the test case for %field-name%', {
-      componentName,
-      fieldName,
-    })
+    result = parser.parse('This is the test case for %field-name%')
     expect(result).toEqual('This is the test case for my-field-name')
   })
 
@@ -144,38 +132,23 @@ describe('The parser should parse', () => {
    * Field type
    */
   test('variable %Field type%', () => {
-    result = parser('This is the test case for %Field type%', {
-      componentName,
-      fieldType,
-    })
+    result = parser.parse('This is the test case for %Field type%')
     expect(result).toEqual('This is the test case for Some field type')
   })
   test('variable %field type%', () => {
-    result = parser('This is the test case for %field type%', {
-      componentName,
-      fieldType,
-    })
+    result = parser.parse('This is the test case for %field type%')
     expect(result).toEqual('This is the test case for some field type')
   })
   test('variable %fieldType%', () => {
-    result = parser('This is the test case for %fieldType%', {
-      componentName,
-      fieldType,
-    })
+    result = parser.parse('This is the test case for %fieldType%')
     expect(result).toEqual('This is the test case for someFieldType')
   })
   test('variable %FieldType%', () => {
-    result = parser('This is the test case for %FieldType%', {
-      componentName,
-      fieldType,
-    })
+    result = parser.parse('This is the test case for %FieldType%')
     expect(result).toEqual('This is the test case for SomeFieldType')
   })
   test('variable %field-type%', () => {
-    result = parser('This is the test case for %field-type%', {
-      componentName,
-      fieldType,
-    })
+    result = parser.parse('This is the test case for %field-type%')
     expect(result).toEqual('This is the test case for some-field-type')
   })
 
@@ -184,92 +157,53 @@ describe('The parser should parse', () => {
    */
 
   test('two variables %field-name% and %component-name%', () => {
-    result = parser(
-      'This is the test case for %field-name% and %component-name%',
-      {
-        componentName,
-        fieldName,
-      }
+    result = parser.parse(
+      'This is the test case for %field-name% and %component-name%'
     )
     expect(result).toEqual(
       'This is the test case for my-field-name and my-demo-component'
     )
   })
-  test('array with %field-name% and %component-name%', () => {
-    result = parser(['%field-name%', '%component-name%'], {
-      componentName,
-      fieldName,
-    })
-    expect(result).toEqual(['my-field-name', 'my-demo-component'])
-  })
+
   test('variable %componentVar(path:settings.asQuery)%', () => {
-    result = parser(
-      'This is the test case for %componentVar(path:settings.asQuery)%',
-      {
-        component,
-        componentName,
-      }
+    result = parser.parse(
+      'This is the test case for %componentVar(path:settings.asQuery)%'
     )
     expect(result).toEqual('This is the test case for global')
   })
   test('variable %componentNameArray%', () => {
-    result = parser(
-      'This is the test case for %componentNameArray(filter:settings.asPageSection)%',
-      {
-        component,
-        componentName,
-        components: {
-          testCompA: component,
-          testCompB: component,
-          testCompC: component,
-        },
-      }
+    result = parser.parse(
+      'This is the test case for %componentNameArray(filter:settings.asPageSection)%'
     )
     expect(result).toEqual(
       'This is the test case for testCompA, testCompB, testCompC'
     )
   })
   test('variable [%componentNameArray%]', () => {
-    result = parser(
-      ['sampleD', '%componentNameArray(filter:settings.asPageSection)%'],
-      {
-        component,
-        componentName,
-        components: {
-          testCompA: component,
-          testCompB: component,
-          testCompC: component,
-        },
-      }
-    )
+    result = parser.parse([
+      'sampleD',
+      '%componentNameArray(filter:settings.asPageSection)%',
+    ])
     expect(result).toEqual(['sampleD', 'testCompA', 'testCompB', 'testCompC'])
   })
   test('variable %firstItem% with proper field', () => {
-    result = parser('This is the test case for %firstItem%', {
-      componentName,
-      field: component.fields.dropdownField,
-    })
+    parser.replaceVars.field = component.fields.dropdownField
+    result = parser.parse('This is the test case for %firstItem%')
     expect(result).toEqual('This is the test case for first item')
   })
   test('variable %firstItem% with wrong field', () => {
-    result = parser('This is the test case for %firstItem%', {
-      componentName,
-      field: component.fields.numberField,
-    })
+    parser.replaceVars.field = component.fields.numberField
+    result = parser.parse('This is the test case for %firstItem%')
     expect(result).toEqual('This is the test case for bad-field-first-item')
   })
   test('variable %firstAllowedComponent% with singleComponent field', () => {
-    result = parser('This is the test case for %firstAllowedComponent%', {
-      componentName,
-      field: component.fields.singleComponentField,
-    })
+    parser.replaceVars.field = component.fields.singleComponentField
+    result = parser.parse('This is the test case for %firstAllowedComponent%')
     expect(result).toEqual('This is the test case for KL')
   })
   test('array %firstAllowedComponent% with multipleComponents field', () => {
-    result = parser(['%firstAllowedComponent%'], {
-      componentName,
-      field: component.fields.multipleComponentsField,
-    })
+    parser.replaceVars.field = component.fields.multipleComponentsField
+    result = parser.parse(['%firstAllowedComponent%'])
     expect(result).toEqual(['page'])
   })
 })
