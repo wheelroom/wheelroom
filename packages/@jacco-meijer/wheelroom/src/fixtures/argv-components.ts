@@ -8,10 +8,12 @@ export const argvComponents: WheelroomComponents = {
   allFieldTypes: {
     fields: {
       __typename: {
+        initialContent: 'Initial content for short text field',
         system: true,
         type: 'shortText',
       },
       dateField: {
+        initialContent: '2019-06-03T00:00+01:00',
         localized: false,
         name: 'Date field',
         required: false,
@@ -103,10 +105,12 @@ export const argvComponents: WheelroomComponents = {
   firstSection: {
     fields: {
       __typename: {
+        initialContent: 'Initial content for short text field',
         system: true,
         type: 'shortText',
       },
       defaultField: {
+        initialContent: 'Initial content for short text field',
         localized: false,
         name: 'Default field',
         required: false,
@@ -130,10 +134,12 @@ export const argvComponents: WheelroomComponents = {
   globalModel: {
     fields: {
       __typename: {
+        initialContent: 'Initial content for short text field',
         system: true,
         type: 'shortText',
       },
       heading: {
+        initialContent: 'Initial content for short text field',
         localized: false,
         name: 'Heading',
         required: false,
@@ -158,10 +164,12 @@ export const argvComponents: WheelroomComponents = {
   noFragment: {
     fields: {
       __typename: {
+        initialContent: 'Initial content for short text field',
         system: true,
         type: 'shortText',
       },
       heading: {
+        initialContent: 'Initial content for short text field',
         localized: false,
         name: 'Heading',
         required: false,
@@ -182,10 +190,12 @@ export const argvComponents: WheelroomComponents = {
   pageModel: {
     fields: {
       __typename: {
+        initialContent: 'Initial content for short text field',
         system: true,
         type: 'shortText',
       },
       heading: {
+        initialContent: 'Initial content for short text field',
         localized: false,
         name: 'Heading',
         required: false,
@@ -210,10 +220,12 @@ export const argvComponents: WheelroomComponents = {
   secondSection: {
     fields: {
       __typename: {
+        initialContent: 'Initial content for short text field',
         system: true,
         type: 'shortText',
       },
       heading: {
+        initialContent: 'Initial content for short text field',
         localized: false,
         name: 'Heading',
         required: false,
@@ -237,10 +249,12 @@ export const argvComponents: WheelroomComponents = {
   subPageModel: {
     fields: {
       __typename: {
+        initialContent: 'Initial content for short text field',
         system: true,
         type: 'shortText',
       },
       heading: {
+        initialContent: 'Initial content for short text field',
         localized: false,
         name: 'Heading',
         required: false,

@@ -44,9 +44,14 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
           if (!field.system) {
             workField = Object.assign(
               {},
-              wheelroomConfig?.fieldDefaults || {}
+              wheelroomConfig.fieldDefaults.commonFieldDefaults || {}
             ) as FieldType
           }
+          // Copy field type specific defaults
+          Object.assign(
+            workField,
+            wheelroomConfig.fieldDefaults.fieldTypeDefaults[field.type]
+          )
           // Copy field attributes to working copy
           Object.assign(workField, field)
           // Create an object for saving parse results
