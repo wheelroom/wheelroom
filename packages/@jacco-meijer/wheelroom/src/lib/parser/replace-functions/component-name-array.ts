@@ -1,7 +1,7 @@
 /**
  * %componentNameArray(filter:settings.asPageSection)%
  *
- * Requires arguments: components
+ * Requires vars: components
  *
  * Gets a comma separated list of component names that have the asPageSection
  * setting set. When used within an array, the %-variable entry is removed from

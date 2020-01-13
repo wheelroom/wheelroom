@@ -1,7 +1,7 @@
 /**
  * %firstItem%
  *
- * Requires arguments: field
+ * Requires vars: field
  *
  * Works on values of fields: DropdownField
  *

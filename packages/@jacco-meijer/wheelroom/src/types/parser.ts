@@ -14,7 +14,10 @@ export interface Cases {
   sentenceCase: string
 }
 
-export type ReplaceFunction = (rv: ReplaceVars, rp: ReplaceParams) => string
+export type ReplaceFunction = (
+  replaceVars: any,
+  replaceParams: ReplaceParams
+) => string
 
 export interface ReplaceFunctionContext {
   /** function that returns the new value of the search string */

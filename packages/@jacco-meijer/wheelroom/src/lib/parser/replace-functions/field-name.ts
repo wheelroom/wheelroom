@@ -5,7 +5,7 @@
  * - %FieldName%
  * - %field-name%
  *
- * Requires arguments: fieldName
+ * Requires vars: fieldName
  *
  */
 

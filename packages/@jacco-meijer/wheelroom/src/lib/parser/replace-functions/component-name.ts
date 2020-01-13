@@ -5,7 +5,7 @@
  * - %ComponentName%
  * - %component-name%
  *
- * Requires arguments: componentName
+ * Requires vars: componentName
  *
  */
 

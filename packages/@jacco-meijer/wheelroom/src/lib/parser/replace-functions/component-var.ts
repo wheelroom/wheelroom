@@ -1,7 +1,7 @@
 /**
  * %componentVar(path:settings.asQuery)%
  *
- * Requires arguments: component
+ * Requires vars: component
  *
  * Gets the value of the settings.asQuery variable
  *

@@ -15,9 +15,9 @@ import {
   replaceAll,
   WheelroomComponent,
 } from '@jacco-meijer/wheelroom'
-import { parseReactProps } from './parse-react-props'
-import { parseVariation } from './parse-variation'
-import { parseVariationImport } from './parse-variation-import'
+import { parseReactProps } from './replace-functions/react-props/parse-react-props'
+import { parseVariationImport } from './replace-functions/variation-import-list/parse-variation-import'
+import { parseVariation } from './replace-functions/variation-list/parse-variation'
 
 export interface TemplateParser {
   component: WheelroomComponent

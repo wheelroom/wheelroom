@@ -1,7 +1,7 @@
 /**
  * %firstAllowedComponent%
  *
- * Requires arguments: field
+ * Requires vars: field
  *
  * Works on values of fields: SingleComponentField, MultipleComponentsField
  *
