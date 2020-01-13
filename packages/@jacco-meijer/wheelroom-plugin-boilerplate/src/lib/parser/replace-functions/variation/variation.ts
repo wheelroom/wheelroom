@@ -1,5 +1,9 @@
 /**
- * %variation% and %Variation%
+ * - %Variation name%
+ * - %variation name%
+ * - %variationName%
+ * - %VariationName%
+ * - %variation-name%
  *
  * Requires vars: currentVariation, singleVariationName
  *
@@ -7,25 +11,62 @@
  *
  */
 
-import { ReplaceFunctionsList, ReplaceParams } from '@jacco-meijer/wheelroom'
-import { getCases } from '@jacco-meijer/wheelroom'
+import {
+  getCases,
+  ReplaceFunctionsList,
+  ReplaceParams,
+} from '@jacco-meijer/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
 
 export const variationFunc: ReplaceFunctionsList = [
   {
     replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
-      const replacement =
-        vars.currentVariation || vars.singleVariationName || 'bug-variation'
-      return getCases(replacement).camelCase
+      const varName =
+        vars.currentVariation ||
+        vars.singleVariationName ||
+        'bug-variation-name'
+      return getCases(varName).sentenceCase
     },
-    search: 'variation',
+    search: 'Variation name',
   },
   {
     replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
-      const replacement =
-        vars.currentVariation || vars.singleVariationName || 'bug-variation'
-      return getCases(replacement).pascalCase
+      const varName =
+        vars.currentVariation ||
+        vars.singleVariationName ||
+        'bug-variation-name'
+      return getCases(varName).pascalCase
     },
-    search: 'Variation',
+    search: 'VariationName',
+  },
+  {
+    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+      const varName =
+        vars.currentVariation ||
+        vars.singleVariationName ||
+        'bug-variation-name'
+      return getCases(varName).lowerCase
+    },
+    search: 'variation name',
+  },
+  {
+    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+      const varName =
+        vars.currentVariation ||
+        vars.singleVariationName ||
+        'bug-variation-name'
+      return getCases(varName).kebabCase
+    },
+    search: 'variation-name',
+  },
+  {
+    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+      const varName =
+        vars.currentVariation ||
+        vars.singleVariationName ||
+        'bug-variation-name'
+      return getCases(varName).camelCase
+    },
+    search: 'variationName',
   },
 ]

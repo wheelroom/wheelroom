@@ -14,7 +14,7 @@ export const templateSets: TemplateSets = {
     },
     componentBasicVar: {
       filterComponentSetting: 'asBoilerplate',
-      path: '%component-name%/%component-name%-%variation%-var.tsx',
+      path: '%component-name%/%component-name%-%variation-name%-var.tsx',
       template: componentVariation,
     },
     componentIndex: {

@@ -31,8 +31,8 @@ const replaceVars: ReplaceVarsExt = {
 }
 
 const unparsed = `
-This is a test %variation%
-With a capital %Variation%
+This is a test %variationName%
+With a capital %VariationName%
 
 And some things that need to be indented: {
 %reactProps(indent:2)%

@@ -120,9 +120,18 @@ export const argvComponents: WheelroomComponents = {
         required: true,
         type: 'shortText',
       },
+      variation: {
+        helpText: 'Select a view variation',
+        initialContent: 'large items',
+        items: ['large items', 'small items'],
+        name: 'Variation',
+        required: true,
+        type: 'dropdown',
+      },
     },
     modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asPageSection: true,
     },
@@ -177,7 +186,9 @@ export const argvComponents: WheelroomComponents = {
       },
     },
     modelVersion: '1.0.0',
-    settings: {},
+    settings: {
+      asBoilerplate: true,
+    },
   },
   pageModel: {
     fields: {
@@ -230,6 +241,7 @@ export const argvComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
     settings: {
+      asBoilerplate: true,
       asFragment: true,
       asPageSection: true,
     },

@@ -4,8 +4,6 @@ import {
   WheelroomComponent,
 } from '@jacco-meijer/wheelroom'
 import {
-  getCases,
-  replaceAll,
   WriteFileList,
   writeFiles,
   WriteFilesContext,
@@ -75,19 +73,10 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
         components: context.wheelroomComponents,
         singleVariationName,
       })
-      // We provide a string, so we can expect a string back
-      const relPath = parser.parse(context.templateDefinition!.path)
-      // If the path does not have a variable, skip. Because we otherwise will
-      // overwrite the same file.
-      if (
-        relPath === context.templateDefinition!.path &&
-        fileList.length >= 1
-      ) {
-        return
-      }
+      const unparsedPath = context.templateDefinition!.path
 
-      // If we detect %variation% in the relPath, create a file for each variation
-      if (relPath.includes('%variation%')) {
+      // If we detect %variation-name% in the relPath, create a file for each variation
+      if (unparsedPath.includes('%variation-name%')) {
         let items: string[]
         if (
           'variation' in component.fields &&
@@ -106,11 +95,7 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
           fileList.push({
             basePath: context.basePath,
             content,
-            relPath: replaceAll(
-              relPath,
-              '%variation%',
-              getCases(item).kebabCase
-            ),
+            relPath: parser.parse(unparsedPath),
           })
         })
       } else {
@@ -119,7 +104,7 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
         fileList.push({
           basePath: context.basePath,
           content,
-          relPath,
+          relPath: parser.parse(unparsedPath),
         })
       }
     })
