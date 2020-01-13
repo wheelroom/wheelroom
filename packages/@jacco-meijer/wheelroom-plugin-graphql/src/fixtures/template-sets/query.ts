@@ -1,13 +1,17 @@
 export const query = `/**
-* Graphql query definition
-*
-* Query type: %asQuery%
-* Component: %componentName%
-*
-*/
+ * Graphql query definition
+ *
+ * Query type: %componentVar(path:settings.asQuery)%
+ * Component: %componentName%
+ *
+ */
 
-export const componentName = '%componentName%'
-export const type = '%asQuery%'
-export const query = \`
-%componentQuery(prefix:allContentful)%
-\``
+
+module.exports = {
+  componentName: '%componentName%',
+  query: \`
+%componentQuery(prefix:allContentful, indent:2)%
+\`,
+  type: '%componentVar(path:settings.asQuery)%',
+}
+`

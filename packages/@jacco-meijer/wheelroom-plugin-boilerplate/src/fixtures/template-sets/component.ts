@@ -7,10 +7,10 @@ export const component = `/**
  *
  */
 
-import { getVariation } from '@jacco-meijer/content-models'
 import React from 'react'
-import { SectionProps } from '../section-props'
-import { FluidImage } from './src/views/image/image'
+import { getVariation } from '../../lib/get-variation'
+import { FluidImage } from '../../views/image/image'
+import { SectionProps } from '../../sections/section-props'
 %variationImportList%
 
 const componentList = {
