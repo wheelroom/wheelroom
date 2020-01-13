@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.1.3...@jacco-meijer/wheelroom@3.2.0) (2020-01-13)
+
+
+### Features
+
+* field defaults per field type ([882459d](https://github.com/jaccomeijer/wheelroom/commit/882459d9df08fc7f25104e48b9d12cbd74dbb38b))
+
+
+
+
+
 ## [3.1.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.1.2...@jacco-meijer/wheelroom@3.1.3) (2020-01-09)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom
