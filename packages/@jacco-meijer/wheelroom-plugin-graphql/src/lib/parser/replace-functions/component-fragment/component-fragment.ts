@@ -11,7 +11,7 @@ import { ReplaceFunctionsList, ReplaceParams } from '@jacco-meijer/wheelroom'
 import { ReplaceVars } from '@jacco-meijer/wheelroom'
 import { fragmentCreator } from './fragment-creator'
 
-export const reactPropsFunc: ReplaceFunctionsList = [
+export const componentFragmentFunc: ReplaceFunctionsList = [
   {
     replace: (vars: ReplaceVars, params: ReplaceParams) => {
       if (vars.componentName && vars.component && vars.components) {
@@ -25,6 +25,6 @@ export const reactPropsFunc: ReplaceFunctionsList = [
       }
       return 'bug-component-fragment'
     },
-    search: 'reactProps',
+    search: 'componentFragment',
   },
 ]

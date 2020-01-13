@@ -1,5 +1,5 @@
 import { WheelroomComponents } from '@jacco-meijer/wheelroom'
-import { TemplateParser } from '../template-parser'
+import { ReplaceVars } from '@jacco-meijer/wheelroom'
 
 const components: WheelroomComponents = {
   page: {
@@ -30,7 +30,7 @@ const components: WheelroomComponents = {
   },
 }
 
-const article: TemplateParser = {
+const article: ReplaceVars = {
   component: {
     fields: {
       articleText: {
@@ -56,10 +56,9 @@ const article: TemplateParser = {
   },
   componentName: 'article',
   components,
-  unparsed: '',
 }
 
-const articlesSection: TemplateParser = {
+const articlesSection: ReplaceVars = {
   component: {
     fields: {
       __typename: {
@@ -94,10 +93,9 @@ const articlesSection: TemplateParser = {
   },
   componentName: 'articlesSection',
   components,
-  unparsed: '',
 }
 
-const featuredPageSection: TemplateParser = {
+const featuredPageSection: ReplaceVars = {
   component: {
     fields: {
       __typename: {
@@ -135,69 +133,58 @@ const featuredPageSection: TemplateParser = {
   },
   componentName: 'featuredPageSection',
   components,
-  unparsed: '',
 }
 
-const articleUnparsed = `
+const articleQueryUnparsed = `
 export const query = \`
 %componentQuery(prefix:allContentful, indent:0)%
 \``
-export const articleQueryInput: TemplateParser = Object.assign({}, article, {
-  unparsed: articleUnparsed,
-})
+export const articleQueryInput = {
+  replaceVars: article,
+  unparsed: articleQueryUnparsed,
+}
 
 const articlesSectionQueryUnparsed = `
 export const query = \`
 %componentQuery(prefix:allContentful, indent:0)%
 \``
-export const articlesSectionQueryInput: TemplateParser = Object.assign(
-  {},
-  articlesSection,
-  {
-    unparsed: articlesSectionQueryUnparsed,
-  }
-)
+export const articlesSectionQueryInput = {
+  replaceVars: articlesSection,
+  unparsed: articlesSectionQueryUnparsed,
+}
 
 const featuredPageSectionQueryUnparsed = `
 export const query = \`
 %componentQuery(prefix:allContentful, indent:0)%
 \``
-export const featuredPageSectionQueryInput: TemplateParser = Object.assign(
-  {},
-  featuredPageSection,
-  {
-    unparsed: featuredPageSectionQueryUnparsed,
-  }
-)
+export const featuredPageSectionQueryInput = {
+  replaceVars: featuredPageSection,
+  unparsed: featuredPageSectionQueryUnparsed,
+}
 
 const articleFragmentUnparsed = `
 export const fragment = \`
 %componentFragment(prefix:Contentful, indent:2)%
 \``
-export const articleFragmentInput: TemplateParser = Object.assign({}, article, {
+export const articleFragmentInput = {
+  replaceVars: article,
   unparsed: articleFragmentUnparsed,
-})
+}
 
 const articlesSectionFragmentUnparsed = `
 export const fragment = \`
 %componentFragment(prefix:Contentful, indent:2)%
 \``
-export const articlesSectionFragmentInput: TemplateParser = Object.assign(
-  {},
-  articlesSection,
-  {
-    unparsed: articlesSectionFragmentUnparsed,
-  }
-)
+export const articlesSectionFragmentInput = {
+  replaceVars: articlesSection,
+  unparsed: articlesSectionFragmentUnparsed,
+}
 
 const featuredPageSectionFragmentUnparsed = `
 export const fragment = \`
 %componentFragment(prefix:Contentful, indent:2)%
 \``
-export const featuredPageSectionFragmentInput: TemplateParser = Object.assign(
-  {},
-  featuredPageSection,
-  {
-    unparsed: featuredPageSectionFragmentUnparsed,
-  }
-)
+export const featuredPageSectionFragmentInput = {
+  replaceVars: featuredPageSection,
+  unparsed: featuredPageSectionFragmentUnparsed,
+}

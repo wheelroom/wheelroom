@@ -1,5 +1,6 @@
-import { TemplateParser } from '../template-parser'
-export const input: TemplateParser = {
+import { ReplaceVarsExt } from '../../../types/parser'
+
+const replaceVars: ReplaceVarsExt = {
   component: {
     fields: {
       __typename: {
@@ -27,7 +28,9 @@ export const input: TemplateParser = {
   },
   componentName: 'exampleBlock',
   singleVariationName: 'testing-single',
-  unparsed: `
+}
+
+const unparsed = `
 This is a test %variation%
 With a capital %Variation%
 
@@ -44,5 +47,9 @@ And some things that need to be indented: {
   }
 
 <Element %componentHtmlAttributes%
-`,
+`
+
+export const input = {
+  replaceVars,
+  unparsed,
 }

@@ -10,7 +10,7 @@ import {
   TagsField,
 } from '../../types/wheelroom-fields'
 import { createParser } from './create-parser'
-import { replaceFunctions } from './replace-functions/replace-functions'
+import { replaceFunctions } from './replace-functions'
 
 const componentName = 'myDemoComponent'
 const fieldName = 'myFieldName'

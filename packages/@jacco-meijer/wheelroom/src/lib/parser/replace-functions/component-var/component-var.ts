@@ -11,7 +11,7 @@ import {
   ReplaceFunctionsList,
   ReplaceParams,
   ReplaceVars,
-} from '../../../types/parser'
+} from '../../../../types/parser'
 
 export const componentVarFunc: ReplaceFunctionsList = [
   {

@@ -11,7 +11,7 @@ import { ReplaceFunctionsList, ReplaceParams } from '@jacco-meijer/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
 import { parseVariation } from './parse-variation'
 
-export const componentHtmlAttributesFunc: ReplaceFunctionsList = [
+export const variationListFunc: ReplaceFunctionsList = [
   {
     replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
       if (vars.component && vars.componentName && vars.singleVariationName) {
@@ -23,9 +23,9 @@ export const componentHtmlAttributesFunc: ReplaceFunctionsList = [
         })
         return variationList
       } else {
-        return 'bug-componentHtmlAttributes'
+        return 'bug-variation-list'
       }
     },
-    search: 'componentHtmlAttributes',
+    search: 'variationList',
   },
 ]

@@ -11,7 +11,7 @@ import { ReplaceFunctionsList, ReplaceParams } from '@jacco-meijer/wheelroom'
 import { ReplaceVars } from '@jacco-meijer/wheelroom'
 import { queryCreator } from './query-creator'
 
-export const componentHtmlAttributesFunc: ReplaceFunctionsList = [
+export const compoentQueryFunc: ReplaceFunctionsList = [
   {
     replace: (vars: ReplaceVars, params: ReplaceParams) => {
       if (vars.component && vars.componentName) {
@@ -24,6 +24,6 @@ export const componentHtmlAttributesFunc: ReplaceFunctionsList = [
       }
       return 'bug-component-query'
     },
-    search: 'componentHtmlAttributes',
+    search: 'componentQuery',
   },
 ]

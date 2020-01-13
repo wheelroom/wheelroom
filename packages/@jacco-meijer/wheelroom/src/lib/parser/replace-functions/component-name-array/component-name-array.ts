@@ -13,8 +13,8 @@ import {
   ReplaceFunctionsList,
   ReplaceParams,
   ReplaceVars,
-} from '../../../types/parser'
-import { WheelroomComponent } from '../../../types/wheelroom-components'
+} from '../../../../types/parser'
+import { WheelroomComponent } from '../../../../types/wheelroom-components'
 
 export const componentNameArrayFunc: ReplaceFunctionsList = [
   {

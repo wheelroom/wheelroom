@@ -6,7 +6,7 @@ import {
 import { WheelroomConfig } from '../../types/wheelroom-config'
 import { FieldType } from '../../types/wheelroom-fields'
 import { createParser } from '../parser/create-parser'
-import { replaceFunctions } from '../parser/replace-functions/replace-functions'
+import { replaceFunctions } from '../parser/replace-functions'
 
 export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
   if (

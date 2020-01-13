@@ -13,8 +13,8 @@ import {
   ReplaceFunctionsList,
   ReplaceParams,
   ReplaceVars,
-} from '../../../types/parser'
-import { getCases } from '../get-cases'
+} from '../../../../types/parser'
+import { getCases } from '../../get-cases'
 
 export const fieldNameFunc: ReplaceFunctionsList = [
   {
