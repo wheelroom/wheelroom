@@ -130,43 +130,43 @@ export const expectCallWriteFiles = {
     {
       basePath: 'test-output',
       content:
-        "# All field types\n\n```jsx\nimport { AllFieldTypes } from './all-field-types'\n<AllFieldTypes %componentFields% />\n```\n",
+        '# All field types\n\n```jsx\nimport { AllFieldTypes } from \'./all-field-types\'\n<AllFieldTypes __typename="value" dateField="value" dropdownField="item A" imageField="value" longTextField="This is a long text field" multipleComponentsField="value" numberField="value" richTextField="This is a rich text field" shortTextField="This is a short text field" singleComponentField="pageModel" tagsField="value" title="All field types generated from boilerplate" />\n```\n',
       relPath: 'all-field-types/README.md',
     },
     {
       basePath: 'test-output',
       content:
-        "# First section\n\n```jsx\nimport { FirstSection } from './first-section'\n<FirstSection %componentFields% />\n```\n",
+        '# First section\n\n```jsx\nimport { FirstSection } from \'./first-section\'\n<FirstSection __typename="value" defaultField="value" title="First section generated from boilerplate" />\n```\n',
       relPath: 'first-section/README.md',
     },
     {
       basePath: 'test-output',
       content:
-        "# Global model\n\n```jsx\nimport { GlobalModel } from './global-model'\n<GlobalModel %componentFields% />\n```\n",
+        '# Global model\n\n```jsx\nimport { GlobalModel } from \'./global-model\'\n<GlobalModel __typename="value" heading="value" title="Global model generated from boilerplate" />\n```\n',
       relPath: 'global-model/README.md',
     },
     {
       basePath: 'test-output',
       content:
-        "# No fragment\n\n```jsx\nimport { NoFragment } from './no-fragment'\n<NoFragment %componentFields% />\n```\n",
+        '# No fragment\n\n```jsx\nimport { NoFragment } from \'./no-fragment\'\n<NoFragment __typename="value" heading="value" title="No fragment generated from boilerplate" />\n```\n',
       relPath: 'no-fragment/README.md',
     },
     {
       basePath: 'test-output',
       content:
-        "# Page model\n\n```jsx\nimport { PageModel } from './page-model'\n<PageModel %componentFields% />\n```\n",
+        '# Page model\n\n```jsx\nimport { PageModel } from \'./page-model\'\n<PageModel __typename="value" heading="value" title="Page model generated from boilerplate" />\n```\n',
       relPath: 'page-model/README.md',
     },
     {
       basePath: 'test-output',
       content:
-        "# Second section\n\n```jsx\nimport { SecondSection } from './second-section'\n<SecondSection %componentFields% />\n```\n",
+        '# Second section\n\n```jsx\nimport { SecondSection } from \'./second-section\'\n<SecondSection __typename="value" heading="value" title="Second section generated from boilerplate" />\n```\n',
       relPath: 'second-section/README.md',
     },
     {
       basePath: 'test-output',
       content:
-        "# Sub page model\n\n```jsx\nimport { SubPageModel } from './sub-page-model'\n<SubPageModel %componentFields% />\n```\n",
+        '# Sub page model\n\n```jsx\nimport { SubPageModel } from \'./sub-page-model\'\n<SubPageModel __typename="value" heading="value" title="Sub page model generated from boilerplate" />\n```\n',
       relPath: 'sub-page-model/README.md',
     },
   ],

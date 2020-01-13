@@ -1,4 +1,8 @@
-import { parser, WheelroomComponent } from '@jacco-meijer/wheelroom'
+import {
+  createParser,
+  replaceFunctions,
+  WheelroomComponent,
+} from '@jacco-meijer/wheelroom'
 import {
   getCases,
   replaceAll,
@@ -12,7 +16,7 @@ import {
   GetFileListContext,
   WriteTemplatesContext,
 } from '../types/wite-templates-context'
-import { templateParser } from './parser/template-parser'
+import { replaceFunctions as localReplaceFunction } from './parser/replace-functions'
 
 const singleVariationName = 'single'
 
@@ -50,6 +54,9 @@ const getFileList = (context: GetFileListContext): WriteFileList => {
 // Loop components of a single tempalte, parse and return file list
 const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
   const fileList: WriteFileList = []
+  const parser = createParser({})
+  parser.addReplaceFunctions([...replaceFunctions, ...localReplaceFunction])
+
   Object.entries(context.wheelroomComponents)
     .filter(([componentName, component]: [string, WheelroomComponent]) => {
       if (!context.templateDefinition!.filterComponentSetting) {
@@ -61,11 +68,15 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
       ]
     })
     .forEach(([componentName, component]: [string, WheelroomComponent]) => {
-      let unparsed = context.templateDefinition!.template
-      // We provide a string, so we can expect a string back
-      const relPath = parser(context.templateDefinition!.path, {
+      const unparsed = context.templateDefinition!.template
+      parser.updateVars({
+        component,
         componentName,
+        components: context.wheelroomComponents,
+        singleVariationName,
       })
+      // We provide a string, so we can expect a string back
+      const relPath = parser.parse(context.templateDefinition!.path)
       // If the path does not have a variable, skip. Because we otherwise will
       // overwrite the same file.
       if (
@@ -75,18 +86,6 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
         return
       }
 
-      unparsed = parser(unparsed, {
-        component,
-        componentName,
-      })
-
-      const templateParserContext = {
-        component,
-        componentName,
-        components: context.wheelroomComponents,
-        singleVariationName,
-        unparsed,
-      }
       // If we detect %variation% in the relPath, create a file for each variation
       if (relPath.includes('%variation%')) {
         let items: string[]
@@ -100,10 +99,8 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
         }
         items.forEach((item: string) => {
           // Parse with current variation
-          const content = templateParser({
-            ...templateParserContext,
-            currentVariation: item,
-          })
+          parser.updateVars({ currentVariation: item })
+          const content = parser.parse(unparsed)
 
           // Finish parsing and write this variation to file
           fileList.push({
@@ -117,8 +114,8 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
           })
         })
       } else {
-        const content = templateParser(templateParserContext)
         // No variations, finish parsing and write file
+        const content = parser.parse(unparsed)
         fileList.push({
           basePath: context.basePath,
           content,

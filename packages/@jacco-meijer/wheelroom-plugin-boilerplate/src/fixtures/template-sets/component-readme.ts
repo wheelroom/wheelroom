@@ -2,6 +2,6 @@ export const componentReadme = `# %Component name%
 
 \`\`\`jsx
 import { %ComponentName% } from './%component-name%'
-<%ComponentName% %componentFields% />
+<%ComponentName% %componentHtmlAttributes% />
 \`\`\`
 `

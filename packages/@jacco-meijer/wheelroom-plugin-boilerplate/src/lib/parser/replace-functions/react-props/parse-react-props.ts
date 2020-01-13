@@ -1,7 +1,8 @@
 import {
+  createParser,
   FieldType,
   FieldTypeName,
-  parser,
+  replaceFunctions,
   WheelroomComponent,
 } from '@jacco-meijer/wheelroom'
 
@@ -35,12 +36,13 @@ export const parseReactProps = (context: ParseReactProps): string => {
   const indentString = Array(indentLevel + 1).join(' ')
   const reactProps = Object.entries(context.component.fields)
     .map(([fieldName, field]: [string, FieldType]) => {
-      // const fName = getCases(fieldName)
-      const wheelroomType = field.type || 'shortText'
-      const typescriptType = parser(wheelroomTypeToTsType[wheelroomType], {
+      const parser = createParser({
         componentName: context.componentName,
         fieldName,
       })
+      parser.addReplaceFunctions(replaceFunctions)
+      const wheelroomType = field.type || 'shortText'
+      const typescriptType = parser.parse(wheelroomTypeToTsType[wheelroomType])
       return `${indentString}${fieldName}: ${typescriptType}`
     })
     .join('\n')
