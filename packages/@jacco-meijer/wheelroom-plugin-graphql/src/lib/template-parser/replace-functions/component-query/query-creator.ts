@@ -13,7 +13,7 @@ interface ComponentQuery {
   componentName: string
 }
 
-export const componentQuery = (context: ComponentQuery) => {
+export const queryCreator = (context: ComponentQuery) => {
   const prefix = context.params.prefix || ''
   const indentLevel = context.params.indent
     ? parseInt(context.params.indent, 10)

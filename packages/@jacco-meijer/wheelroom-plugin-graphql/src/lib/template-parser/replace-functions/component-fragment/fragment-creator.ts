@@ -19,7 +19,7 @@ interface ComponentFragment {
   components: WheelroomComponents
 }
 
-export const componentFragment = (context: ComponentFragment) => {
+export const fragmentCreator = (context: ComponentFragment) => {
   const prefix = context.params.prefix || ''
   const indentLevel = context.params.indent
     ? parseInt(context.params.indent, 10)

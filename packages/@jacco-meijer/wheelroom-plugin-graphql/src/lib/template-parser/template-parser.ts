@@ -11,8 +11,8 @@ import {
   WheelroomComponent,
   WheelroomComponents,
 } from '@jacco-meijer/wheelroom'
-import { componentFragment } from './component-fragment'
-import { componentQuery } from './component-query'
+import { fragmentCreator } from './replace-functions/component-fragment/fragment-creator'
+import { queryCreator } from './replace-functions/component-query/query-creator'
 
 export interface TemplateParser {
   component: WheelroomComponent
@@ -42,7 +42,7 @@ export const templateParser = (context: TemplateParser): string => {
     const variableName = match[1]
     switch (variableName) {
       case 'componentQuery':
-        const variationImportList = componentQuery({
+        const variationImportList = queryCreator({
           component: context.component,
           componentName: context.componentName,
           params,
@@ -51,7 +51,7 @@ export const templateParser = (context: TemplateParser): string => {
 
         break
       case 'componentFragment':
-        const variationList = componentFragment({
+        const variationList = fragmentCreator({
           component: context.component,
           componentName: context.componentName,
           components: context.components,
