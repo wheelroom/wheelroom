@@ -39,7 +39,7 @@ export const createParser = (vars: any) => {
             const replaced = func(this._replaceVars, params)
             return replaced
           } else {
-            return `bug--replace-function-not-found-${match1}`
+            return `bug-replace-function-not-found-${match1}`
           }
         }
       )
