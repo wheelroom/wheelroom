@@ -46,6 +46,7 @@ const multipleComponents: MultipleComponentsField = {
   initialContent: ['%firstAllowedComponent%'],
   type: 'multipleComponents',
 }
+// tslint:disable-next-line: variable-name
 const number: NumberField = {
   initialContent: 5,
   type: 'number',
