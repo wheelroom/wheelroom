@@ -7,7 +7,7 @@ Object {
     "displayField": "title",
     "fields": Object {
       "dateField": Object {
-        "createContentData": "2019-06-03T00:00+01:00",
+        "createContentData": undefined,
         "settings": Object {
           "helpText": "",
         },
