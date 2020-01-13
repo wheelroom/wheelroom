@@ -1,7 +1,6 @@
 export * from './commands/list/get-filtered-components'
 export * from './lib/parser/case-helpers'
 export * from './lib/parser/get-cases'
-export * from './lib/parser/parser'
 export * from './lib/parser/create-parser'
 export * from './lib/parser/replace-functions'
 export * from './lib/write-files/write-files'
