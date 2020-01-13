@@ -64,42 +64,25 @@ module.exports = {
 Using typescript, Contentful field definitions are defined like this. 
 
 ```typescript
-import { ContentfulFieldDefinitions } from '@jacco-meijer/wheelroom-plugin-contentful'
-
 export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
-  fieldDefaults: {
-    initialContent: 'Demo content for %field name%',
-    settings: {
-      helpText: '%Field name% for %component name%',
-    },
-    specs: {
-      name: '%Field name%',
-      type: 'Symbol',
-    },
-  },
   /** Wheelroom field types, these are different from Contentful types */
   fieldTypes: {
     date: {
-      initialContent: '2019-06-03T00:00+01:00',
+      createContentData: '2019-06-03T00:00+01:00',
       specs: {
-        name: '%Field name%',
         type: 'Date',
       },
       widgetId: 'datePicker',
     },
     dropdown: {
-      initialContent: '%firstItem%',
       specs: {
-        name: '%Field name%',
         type: 'Symbol',
       },
       widgetId: 'dropdown',
     },
     image: {
-      initialContent: '%demoAsset%',
       specs: {
         linkType: 'Asset',
-        name: '%Field name%',
         type: 'Link',
         validations: [
           {
