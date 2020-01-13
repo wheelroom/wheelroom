@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: quoteSection
- * Variation: single
+ * Variation: Single
  *
  */
 

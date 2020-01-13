@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: listSection
- * Variation: smallItems
+ * Variation: Small items
  *
  */
 

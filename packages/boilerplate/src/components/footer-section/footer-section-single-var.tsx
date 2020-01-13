@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: footerSection
- * Variation: single
+ * Variation: Single
  *
  */
 

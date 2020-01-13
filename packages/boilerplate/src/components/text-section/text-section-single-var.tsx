@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: textSection
- * Variation: single
+ * Variation: Single
  *
  */
 

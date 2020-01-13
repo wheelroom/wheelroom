@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: openerSection
- * Variation: pageOpener
+ * Variation: Page opener
  *
  */
 

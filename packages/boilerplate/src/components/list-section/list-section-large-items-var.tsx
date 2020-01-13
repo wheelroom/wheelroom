@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: listSection
- * Variation: largeItems
+ * Variation: Large items
  *
  */
 

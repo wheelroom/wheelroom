@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: navigation
- * Variation: single
+ * Variation: Single
  *
  */
 
