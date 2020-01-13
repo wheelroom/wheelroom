@@ -14,40 +14,41 @@ import {
   ReplaceParams,
   ReplaceVars,
 } from '../../../types/parser'
+import { getCases } from '../get-cases'
 
 export const componentNameFunc: ReplaceFunctionsList = [
   {
     replace: (vars: ReplaceVars, params: ReplaceParams) =>
-      vars.cases.componentName
-        ? vars.cases.componentName.sentenceCase
+      vars.componentName
+        ? getCases(vars.componentName).sentenceCase
         : 'bug-no-component-name',
     search: 'Component name',
   },
   {
     replace: (vars: ReplaceVars, params: ReplaceParams) =>
-      vars.cases.componentName
-        ? vars.cases.componentName.pascalCase
+      vars.componentName
+        ? getCases(vars.componentName).pascalCase
         : 'bug-no-component-name',
     search: 'ComponentName',
   },
   {
     replace: (vars: ReplaceVars, params: ReplaceParams) =>
-      vars.cases.componentName
-        ? vars.cases.componentName.lowerCase
+      vars.componentName
+        ? getCases(vars.componentName).lowerCase
         : 'bug-no-component-name',
     search: 'component name',
   },
   {
     replace: (vars: ReplaceVars, params: ReplaceParams) =>
-      vars.cases.componentName
-        ? vars.cases.componentName.kebabCase
+      vars.componentName
+        ? getCases(vars.componentName).kebabCase
         : 'bug-no-component-name',
     search: 'component-name',
   },
   {
     replace: (vars: ReplaceVars, params: ReplaceParams) =>
-      vars.cases.componentName
-        ? vars.cases.componentName.camelCase
+      vars.componentName
+        ? getCases(vars.componentName).camelCase
         : 'bug-no-component-name',
     search: 'componentName',
   },

@@ -4,21 +4,6 @@ import {
   ReplaceParams,
   ReplaceVars,
 } from '../../types/parser'
-import {
-  WheelroomComponent,
-  WheelroomComponents,
-} from '../../types/wheelroom-components'
-import { FieldType } from '../../types/wheelroom-fields'
-import { getCases } from './get-cases'
-
-interface CreateParser {
-  component?: WheelroomComponent
-  components?: WheelroomComponents
-  componentName?: string
-  field?: FieldType
-  fieldName?: string
-  fieldType?: string
-}
 
 /** Contains member variables and methods for the object createParser returns */
 interface ParserMembers {
@@ -26,13 +11,12 @@ interface ParserMembers {
   _returnsArray: boolean
   _replaceVars: ReplaceVars
   _parseString: (unparsed: string) => string
-  _updateCases: () => void
   addReplaceFunctions: (parseFunctions: ReplaceFunctionsList) => void
-  updateVars: (vars: CreateParser) => void
+  updateVars: (vars: any) => void
   parse<T extends string | string[]>(unparsed: T): T
 }
 
-export const createParser = (context: CreateParser) => {
+export const createParser = (vars: any) => {
   const parser: ParserMembers = {
     _parseString(unparsed: string) {
       const params: ReplaceParams = {}
@@ -61,23 +45,6 @@ export const createParser = (context: CreateParser) => {
       )
       return parsed
     },
-    _updateCases() {
-      if (parser._replaceVars.componentName) {
-        parser._replaceVars.cases.componentName = getCases(
-          parser._replaceVars.componentName
-        )
-      }
-      if (parser._replaceVars.fieldName) {
-        parser._replaceVars.cases.fieldName = getCases(
-          parser._replaceVars.fieldName
-        )
-      }
-      if (parser._replaceVars.fieldType) {
-        parser._replaceVars.cases.fieldType = getCases(
-          parser._replaceVars.fieldType
-        )
-      }
-    },
     addReplaceFunctions(addReplaceFunctions: ReplaceFunctionsList) {
       addReplaceFunctions.reduce((result: ReplaceFunctionsLookup, rf) => {
         result[rf.search] = rf
@@ -104,22 +71,13 @@ export const createParser = (context: CreateParser) => {
       }
       return 'bug-create-parser' as T
     },
-    updateVars(vars: CreateParser) {
+    updateVars(vars: any) {
       Object.assign(this._replaceVars, vars)
-      this._updateCases()
     },
     _replaceFunctionsLookup: {},
-    _replaceVars: {
-      cases: {},
-      component: context.component,
-      componentName: context.componentName,
-      components: context.components,
-      field: context.field,
-      fieldName: context.fieldName,
-      fieldType: context.fieldType,
-    },
+    _replaceVars: {},
     _returnsArray: false,
   }
-  parser._updateCases()
+  parser.updateVars(vars)
   return parser
 }

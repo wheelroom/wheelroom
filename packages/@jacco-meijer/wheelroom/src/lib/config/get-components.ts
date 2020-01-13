@@ -1,3 +1,4 @@
+import { ReplaceVars } from '../../types/parser'
 import {
   WheelroomComponent,
   WheelroomComponents,
@@ -21,13 +22,13 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
   // Create a parser
   const parser = createParser({
     components: wheelroomConfig.components,
-  })
+  } as ReplaceVars)
   parser.addReplaceFunctions(replaceFunctions)
 
   Object.entries(wheelroomConfig.components).forEach(
     // Iterate over all components
     ([componentName, component]: [string, WheelroomComponent]) => {
-      parser.updateVars({ component, componentName })
+      parser.updateVars({ component, componentName } as ReplaceVars)
 
       // Create a working copy for the component
       const workComponent = {
@@ -72,7 +73,11 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
               if (typeof value !== 'string' && !Array.isArray(value)) {
                 return
               }
-              parser.updateVars({ field, fieldName, fieldType: field.type })
+              parser.updateVars({
+                field,
+                fieldName,
+                fieldType: field.type,
+              } as ReplaceVars)
               parseResults[key] = parser.parse(value)
             }
           )

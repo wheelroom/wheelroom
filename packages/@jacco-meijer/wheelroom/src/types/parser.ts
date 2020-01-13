@@ -32,14 +32,6 @@ export interface ReplaceFunctionsLookup {
 export type ReplaceFunctionsList = ReplaceFunctionContext[]
 
 export interface ReplaceVars {
-  cases: {
-    /** The component name in all case variants */
-    componentName?: Cases
-    /** The field name in all case variants */
-    fieldName?: Cases
-    /** The field type in all case variants */
-    fieldType?: Cases
-  }
   component?: WheelroomComponent
   components?: WheelroomComponents
   componentName?: string
