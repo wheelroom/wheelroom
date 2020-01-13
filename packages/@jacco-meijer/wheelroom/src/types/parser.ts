@@ -42,7 +42,7 @@ export interface ReplaceVars {
   }
   component?: WheelroomComponent
   components?: WheelroomComponents
-  componentName: string
+  componentName?: string
   field?: FieldType
   fieldName?: string
   fieldType?: string

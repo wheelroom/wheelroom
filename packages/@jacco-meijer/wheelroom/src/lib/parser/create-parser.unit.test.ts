@@ -77,7 +77,7 @@ const parser = createParser({
   fieldName,
   fieldType,
 })
-parser.addParseFunctions(replaceFunctions)
+parser.addReplaceFunctions(replaceFunctions)
 
 describe('The parser should parse', () => {
   /**
@@ -188,22 +188,22 @@ describe('The parser should parse', () => {
     expect(result).toEqual(['sampleD', 'testCompA', 'testCompB', 'testCompC'])
   })
   test('variable %firstItem% with proper field', () => {
-    parser.replaceVars.field = component.fields.dropdownField
+    parser.updateVars({ field: component.fields.dropdownField })
     result = parser.parse('This is the test case for %firstItem%')
     expect(result).toEqual('This is the test case for first item')
   })
   test('variable %firstItem% with wrong field', () => {
-    parser.replaceVars.field = component.fields.numberField
+    parser.updateVars({ field: component.fields.numberField })
     result = parser.parse('This is the test case for %firstItem%')
     expect(result).toEqual('This is the test case for bad-field-first-item')
   })
   test('variable %firstAllowedComponent% with singleComponent field', () => {
-    parser.replaceVars.field = component.fields.singleComponentField
+    parser.updateVars({ field: component.fields.singleComponentField })
     result = parser.parse('This is the test case for %firstAllowedComponent%')
     expect(result).toEqual('This is the test case for KL')
   })
   test('array %firstAllowedComponent% with multipleComponents field', () => {
-    parser.replaceVars.field = component.fields.multipleComponentsField
+    parser.updateVars({ field: component.fields.multipleComponentsField })
     result = parser.parse(['%firstAllowedComponent%'])
     expect(result).toEqual(['page'])
   })

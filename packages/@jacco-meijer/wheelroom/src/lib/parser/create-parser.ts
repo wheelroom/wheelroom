@@ -14,7 +14,7 @@ import { getCases } from './get-cases'
 interface CreateParser {
   component?: WheelroomComponent
   components?: WheelroomComponents
-  componentName: string
+  componentName?: string
   field?: FieldType
   fieldName?: string
   fieldType?: string
@@ -24,9 +24,11 @@ interface CreateParser {
 interface ParserMembers {
   _replaceFunctionsLookup: ReplaceFunctionsLookup
   _returnsArray: boolean
-  replaceVars: ReplaceVars
+  _replaceVars: ReplaceVars
   _parseString: (unparsed: string) => string
-  addParseFunctions: (parseFunctions: ReplaceFunctionsList) => void
+  _updateCases: () => void
+  addReplaceFunctions: (parseFunctions: ReplaceFunctionsList) => void
+  updateVars: (vars: CreateParser) => void
   parse<T extends string | string[]>(unparsed: T): T
 }
 
@@ -50,7 +52,7 @@ export const createParser = (context: CreateParser) => {
             this._returnsArray =
               this._replaceFunctionsLookup[match1].returnsArray || false
             const func = this._replaceFunctionsLookup[match1].replace
-            const replaced = func(this.replaceVars, params)
+            const replaced = func(this._replaceVars, params)
             return replaced
           } else {
             return `bug--replace-function-not-found-${match1}`
@@ -59,7 +61,24 @@ export const createParser = (context: CreateParser) => {
       )
       return parsed
     },
-    addParseFunctions(addReplaceFunctions: ReplaceFunctionsList) {
+    _updateCases() {
+      if (parser._replaceVars.componentName) {
+        parser._replaceVars.cases.componentName = getCases(
+          parser._replaceVars.componentName
+        )
+      }
+      if (parser._replaceVars.fieldName) {
+        parser._replaceVars.cases.fieldName = getCases(
+          parser._replaceVars.fieldName
+        )
+      }
+      if (parser._replaceVars.fieldType) {
+        parser._replaceVars.cases.fieldType = getCases(
+          parser._replaceVars.fieldType
+        )
+      }
+    },
+    addReplaceFunctions(addReplaceFunctions: ReplaceFunctionsList) {
       addReplaceFunctions.reduce((result: ReplaceFunctionsLookup, rf) => {
         result[rf.search] = rf
         return result
@@ -85,9 +104,12 @@ export const createParser = (context: CreateParser) => {
       }
       return 'bug-create-parser' as T
     },
+    updateVars(vars: CreateParser) {
+      Object.assign(this._replaceVars, vars)
+      this._updateCases()
+    },
     _replaceFunctionsLookup: {},
-    _returnsArray: false,
-    replaceVars: {
+    _replaceVars: {
       cases: {},
       component: context.component,
       componentName: context.componentName,
@@ -96,18 +118,8 @@ export const createParser = (context: CreateParser) => {
       fieldName: context.fieldName,
       fieldType: context.fieldType,
     },
+    _returnsArray: false,
   }
-  if (parser.replaceVars.componentName) {
-    parser.replaceVars.cases.componentName = getCases(
-      parser.replaceVars.componentName
-    )
-  }
-  if (parser.replaceVars.fieldName) {
-    parser.replaceVars.cases.fieldName = getCases(parser.replaceVars.fieldName)
-  }
-  if (parser.replaceVars.fieldType) {
-    parser.replaceVars.cases.fieldType = getCases(parser.replaceVars.fieldType)
-  }
-
+  parser._updateCases()
   return parser
 }

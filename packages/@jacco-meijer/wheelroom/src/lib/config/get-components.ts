@@ -4,7 +4,8 @@ import {
 } from '../../types/wheelroom-components'
 import { WheelroomConfig } from '../../types/wheelroom-config'
 import { FieldType } from '../../types/wheelroom-fields'
-import { parser } from '../parser/parser'
+import { createParser } from '../parser/create-parser'
+import { replaceFunctions } from '../parser/replace-functions/replace-functions'
 
 export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
   if (
@@ -16,12 +17,18 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
   if (Object.entries(wheelroomConfig.components).length < 1) {
     console.log('error: no components found in wheelroom config')
   }
-
   const finalComponents = {} as WheelroomComponents
+  // Create a parser
+  const parser = createParser({
+    components: wheelroomConfig.components,
+  })
+  parser.addReplaceFunctions(replaceFunctions)
 
   Object.entries(wheelroomConfig.components).forEach(
     // Iterate over all components
     ([componentName, component]: [string, WheelroomComponent]) => {
+      parser.updateVars({ component, componentName })
+
       // Create a working copy for the component
       const workComponent = {
         fields: Object.assign({}, component.fields),
@@ -65,14 +72,8 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
               if (typeof value !== 'string' && !Array.isArray(value)) {
                 return
               }
-              parseResults[key] = parser(value, {
-                component,
-                componentName,
-                components: wheelroomConfig.components,
-                field,
-                fieldName,
-                fieldType: field.type,
-              })
+              parser.updateVars({ field, fieldName, fieldType: field.type })
+              parseResults[key] = parser.parse(value)
             }
           )
           // Merge parse results to field working copy
