@@ -71,8 +71,8 @@ export const createParser = (vars: any) => {
       }
       return 'bug-create-parser' as T
     },
-    updateVars(vars: any) {
-      Object.assign(this._replaceVars, vars)
+    updateVars(addVars: any) {
+      Object.assign(this._replaceVars, addVars)
     },
     _replaceFunctionsLookup: {},
     _replaceVars: {},
