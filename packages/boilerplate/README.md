@@ -41,31 +41,49 @@ Compile the config from typescript to javascript:
 npm run compile-config
 ```
 
-Wheelroom can now list the available objects:
+Wheelroom can now list the available models:
 
 ```
 npm run wr:ls
 ```
 
-Create the configured models in your Contentful space and check the Contentful web ui:
+Create the configured models in your Contentful space and check the Contentful
+web ui.
 
 ```
 npm run wr:cm
 ```
 
-Create a dummy image asset and demo content for each model:
+Create a dummy image asset and demo content for each model. You need to run it
+twice because on the first run some references have not yet been created. To
+prevent this, a future version should create the content in a smarter order.
 
 ```
 npm run wr:cc
 ```
 
-Create the required Settings fragments for Gatsby:
+Create the required graphql fragments for Gatsby:
 
 ```
-npm run wr:cf
+npm run wr:cg
 ```
 
-Start Gatsby and open http://localhost:8000
+Create boilerplate code for all models:
+
+```
+npm run wr:cb
+```
+
+Fix boilerplate imports not ordered properly:
+
+```
+npm run lint-fix
+```
+
+
+The generated react code for the sections is used in [src/sections/sections.tsx](./src/sections/sections.tsx).
+
+Start Gatsby and open http://localhost:8000/boilerplate
 
 ```
 npm run develop
@@ -75,10 +93,6 @@ You can now edit [src/page-template.tsx](src/page-template.tsx). E.g. add
 `console.log(props)` to the `PageTemplate` and inspect the `pageContext` prop.
 It contains the `pageId` key used at query in `src/page-template.tsx`.
 
-Using the `globalsId` key in the same query gives you access to the site Globals from Contentful.
-
-To illustrate this, the query in the `page-template.tsx` can be changed into:
-
 ```graphql
   query($pageId: String, $globalsId: String) {
     site {
@@ -87,39 +101,10 @@ To illustrate this, the query in the `page-template.tsx` can be changed into:
       }
     }
     page: contentfulPage(id: { eq: $pageId }) {
-      navigationTitle
-      path
-      pathName
-      seoDescription
-      seoTitle
-      sections {
-        ... on Node {
-          ...ArticleSection
-          ...MyNewComponent
-        }
-      }
+      ...Page
     }
     globals: contentfulGlobals(id: { eq: $globalsId }) {
       ...Globals
     }
   }
 ```
-
-If you look at the props passed to `PageTemplate` you see the `globals` in the
-`data` prop and the `articleSection` as an item in the `data.page.sections`
-array.
-
-This is because `initialPageSection` is set to `articleSection` in
-`wheelroom-config.js`.
-
-
-### Create graphql for components
-```
-npm run wr:cg
-```
-
-### Create boilerplate for components
-```
-npm run wr:cb
-```
-

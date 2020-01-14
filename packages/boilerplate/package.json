@@ -62,6 +62,7 @@
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"
   },
   "scripts": {
+    "lint-fix": "tslint --project tsconfig.json --fix",
     "build:clean": "rm -rf ./dist",
     "build:gatsby": "gatsby build",
     "netlify": "npm-run-all build:*",
