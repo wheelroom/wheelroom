@@ -2,6 +2,14 @@
 
 Wheelroom is a command line tool for managing content models.
 
+## Monorepo
+
+This is a monorepo managed by [lerna](https://www.npmjs.com/package/lerna).
+
+```
+npm install lerna --global
+```
+
 ## Plugins
 
 Plugins work with the managed models. Three plugins have been written:
@@ -23,44 +31,33 @@ Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/m
 
 ## Models
 
-Content models are defined in javascript like this.
+Content models are defined in typescript like this.
 
-```javascript
-  /** Wheelroom field types, these are different from Contentful types */
-  fieldTypes: {
-    date: {
-      createContentData: '2019-06-03T00:00+01:00',
-      specs: {
-        type: 'Date',
-      },
-      widgetId: 'datePicker',
+```typescript
+export const configComponents: WheelroomComponents = {
+  footerSection: {
+    fields: {
+      backgroundColor: {
+        helpText: 'Select a background color',
+        items: ['blue', 'orange'],
+        required: true,
+        type: 'dropdown',
+      } as DropdownField,
+      footerNavigation: {
+        allowedComponents: ['navigation'],
+        required: true,
+        type: 'singleComponent',
+      } as SingleComponentField,
     },
-    dropdown: {
-      specs: {
-        type: 'Symbol',
-      },
-      widgetId: 'dropdown',
+    modelVersion: '1.0.0',
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+      asPageSection: true,
     },
-    image: {
-      specs: {
-        linkType: 'Asset',
-        type: 'Link',
-        validations: [
-          {
-            linkMimetypeGroup: ['image'],
-          },
-        ],
-      },
-      widgetId: 'assetLinkEditor',
-    },
+  },
+...
 ```
 
 Wheelroom allows for common fields and field defaults.
 
-## Monorepo
-
-Wheelroom is a monorepo managed by lerna.
-
-```
-npm install lerna --global
-```
