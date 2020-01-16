@@ -14,6 +14,19 @@ module.exports = {
       },
       resolve: `gatsby-theme-wheelroom`,
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        background_color: '#E8E8E8',
+        display: 'standalone',
+        icon: 'src/favicon.png', // This path is relative to the root of the site.
+        include_favicon: true, // Include favicon
+        name: 'Wheelroom boilerplate',
+        short_name: 'boilerplate',
+        start_url: '/',
+        theme_color: '#86C2A1',
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-typescript',
     'gatsby-plugin-tslint',

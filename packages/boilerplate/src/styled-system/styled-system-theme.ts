@@ -4,10 +4,10 @@ export const styledSystemTheme: StyledSystemTheme = {
   breakpoints: ['37.5em', '50em', '75em'],
   colorMap: {
     black: '#000000',
-    blue: ' #3E95B0',
+    cyan: '#D7FFF1',
     darkGrey: '#121212',
-    orange: '#D58209',
-    purple: '#372B39',
+    green: ' #86C2A1',
+    mint: '#AAFCB8',
     white: ' #FFFFFF',
   },
   fontMap: {
