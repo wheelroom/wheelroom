@@ -66,12 +66,65 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
     richText: {
       specs: {
         type: 'RichText',
+
+        validations: [
+          {
+            nodes: {},
+          },
+          {
+            enabledMarks: ['bold', 'italic', 'underline'],
+            message: 'Only bold, italic, and underline marks are allowed',
+          },
+          {
+            enabledNodeTypes: [
+              'heading-1',
+              'heading-2',
+              'heading-3',
+              'heading-4',
+              'unordered-list',
+              'embedded-asset-block',
+              'hyperlink',
+              'entry-hyperlink',
+            ],
+            message:
+              'Only heading 1, heading 2, heading 3, heading 4, unordered list, asset, link to Url, and link to entry nodes are allowed',
+          },
+        ],
       },
       widgetId: 'richTextEditor',
     },
     shortText: {
       specs: {
         type: 'Symbol',
+      },
+      widgetId: 'singleLine',
+    },
+    shortTextCamelCase: {
+      specs: {
+        type: 'Symbol',
+        validations: [
+          {
+            message: 'Please use camel case: onlyCamelCaseAllowed',
+            regexp: {
+              pattern: '^[a-z]+([A-Z][a-z0-9]+)*$',
+            },
+          },
+        ],
+      },
+      widgetId: 'singleLine',
+    },
+    shortTextPath: {
+      specs: {
+        type: 'Symbol',
+        validations: [
+          {
+            message: 'Please use a valid path: /only/valid/paths/allowed',
+            regexp: {
+              // ^\/[a-z0-9\._/~%\-\+&\#\?!=\(\)@]*$
+              pattern: '^\\/[a-z0-9\\._/~%\\-\\+&\\#\\?!=\\(\\)@]*$',
+            },
+          },
+        ],
       },
       widgetId: 'singleLine',
     },

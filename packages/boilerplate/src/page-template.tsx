@@ -5,7 +5,7 @@ import { Fragment } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
-import { getPageImage } from './lib/get-page-image'
+import { getOpenerOrPageImage } from './lib/get-opener-or-page-image'
 import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { Container } from './views/core-elements/grid'
@@ -21,7 +21,6 @@ const GlobalAStyles = {
 // do so for all pages.
 //
 const PageTemplate = (props: any) => {
-  console.log('props', props)
   pageDebug('PageTemplate', props)
 
   const globals: GlobalsProps = props.data.globals
@@ -32,7 +31,7 @@ const PageTemplate = (props: any) => {
   const siteVersion = props.data.site.siteMetadata.siteVersion
   const sections = page.sections
 
-  const image = getPageImage(page, 'ContentfulOpenerSection')
+  const image = getOpenerOrPageImage(page)
 
   const sectionProps = {
     locale,
@@ -45,7 +44,7 @@ const PageTemplate = (props: any) => {
   }
   const seoProps = {
     description: page.seoDescription,
-    image,
+    imageSrc: image.fluid.src,
     keywords,
     locale,
     meta: [],

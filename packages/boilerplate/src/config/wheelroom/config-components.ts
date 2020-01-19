@@ -1,4 +1,3 @@
-import { WheelroomComponents } from '@jacco-meijer/wheelroom'
 import {
   DropdownField,
   ImageField,
@@ -9,8 +8,13 @@ import {
   SingleComponentField,
   TagsField,
 } from '@jacco-meijer/wheelroom'
+import {
+  CustomWheelroomComponents,
+  ShortTextCamelCaseField,
+  ShortTextPathField,
+} from './custom-fields'
 
-export const configComponents: WheelroomComponents = {
+export const configComponents: CustomWheelroomComponents = {
   footerSection: {
     fields: {
       backgroundColor: {
@@ -201,14 +205,16 @@ export const configComponents: WheelroomComponents = {
         helpText: 'System field, changing this can break things',
         initialContent: '/boilerplate',
         required: true,
-        type: 'shortText',
-      } as ShortTextField,
+        type: 'shortTextPath',
+        unique: true,
+      } as ShortTextPathField,
       pathName: {
         helpText: 'System field, changing this can break things',
         initialContent: 'boilerplate',
         required: true,
-        type: 'shortText',
-      } as ShortTextField,
+        type: 'shortTextCamelCase',
+        unique: true,
+      } as ShortTextCamelCaseField,
       sections: {
         allowedComponents: [
           '%componentNameArray(filter:settings.asPageSection)%',

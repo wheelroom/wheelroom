@@ -26,7 +26,7 @@ export interface SeoTags {
 interface SeoProps {
   contentTypeInfo?: SeoContentTypeInfo
   description?: string
-  image?: string
+  imageSrc?: string
   keywords?: string[]
   locale: string
   alternateLocales?: AlternateLocale[]
@@ -34,7 +34,7 @@ interface SeoProps {
   siteAuthor: string
   siteDescription: string
   siteKeywords: string[]
-  siteTitle: string
+  siteHeading: string
   siteVersion: string
   title: string
 }
@@ -67,7 +67,7 @@ export const Seo = (context: SeoProps) => {
         lang: context.locale,
       }}
       title={context.title}
-      titleTemplate={`%s | ${context.siteTitle}`}
+      titleTemplate={`%s | ${context.siteHeading}`}
       meta={[
         {
           content: context.siteVersion,
@@ -89,7 +89,7 @@ export const Seo = (context: SeoProps) => {
           property: 'og:title',
         },
         {
-          content: context.image,
+          content: context.imageSrc,
           property: 'og:image',
         },
         {
@@ -120,7 +120,7 @@ export const Seo = (context: SeoProps) => {
           name: 'twitter:description',
         },
         {
-          content: context.image,
+          content: context.imageSrc,
           name: 'twitter:image',
         },
       ]
