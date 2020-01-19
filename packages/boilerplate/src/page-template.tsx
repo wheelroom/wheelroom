@@ -1,14 +1,14 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
 import React from 'react'
-import { Fragment } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
 import { getOpenerOrPageImage } from './lib/get-opener-or-page-image'
 import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
-import { Container } from './views/core-elements/grid'
+import { getAllPaddingObject } from './styles/global-padding'
+import { Box, Container } from './views/core-elements/grid'
 
 const GlobalAStyles = {
   body: {
@@ -57,13 +57,17 @@ const PageTemplate = (props: any) => {
   }
 
   return (
-    <Fragment>
+    <Box
+      ncss={{
+        ...getAllPaddingObject('page'),
+      }}
+    >
       <Global styles={GlobalAStyles} />
       <Container>
         <Seo {...seoProps} />
         <Sections {...sectionProps} />
       </Container>
-    </Fragment>
+    </Box>
   )
 }
 
