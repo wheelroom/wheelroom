@@ -4,10 +4,10 @@
 export const getPageImage = (page: any, sectionTypeName: string) => {
   for (const section of page.sections) {
     if (section.__typename === sectionTypeName) {
-      if (!section.image) {
+      if (!section.pageImage) {
         return
       }
-      return section.image.fluid.src
+      return section.pageImage.fluid.src
     }
   }
 }

@@ -14,6 +14,7 @@ module.exports = {
       },
       resolve: `gatsby-theme-wheelroom`,
     },
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
