@@ -16,7 +16,7 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/wheelroom": "^3.2.1",
+    "@jacco-meijer/wheelroom": "^3.2.2",
     "inquirer": "7.0.0",
     "yargs": "15.0.2"
   },
@@ -72,5 +72,5 @@
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
-  "version": "2.2.5"
+  "version": "2.2.6"
 }

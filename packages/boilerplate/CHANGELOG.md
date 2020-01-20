@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.1.10...boilerplate@4.2.0) (2020-01-20)
+
+
+### Bug Fixes
+
+* gatsby-plugin-react-helmet ([e4ed77c](https://github.com/jaccomeijer/wheelroom/commit/e4ed77c1186d31ca831d244c910a4804aac55e60))
+
+
+### Features
+
+* add gatsby-plugin-manifest ([af02fbe](https://github.com/jaccomeijer/wheelroom/commit/af02fbeae25728de380b8f1bd9aad57b7e0bfd4a))
+* custom wheelroom fields ([1465253](https://github.com/jaccomeijer/wheelroom/commit/1465253b78b84ca692519fe859e9db5675de591b))
+* global padding ([484201b](https://github.com/jaccomeijer/wheelroom/commit/484201bc6dc6d89701db5fdba049abdfd79b33c3))
+
+
+
+
+
 ## [4.1.10](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.1.9...boilerplate@4.1.10) (2020-01-13)
 
 **Note:** Version bump only for package boilerplate

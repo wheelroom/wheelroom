@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.9](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.0.8...gatsby-theme-wheelroom@3.0.9) (2020-01-20)
+
+**Note:** Version bump only for package gatsby-theme-wheelroom
+
+
+
+
+
 ## [3.0.8](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.0.7...gatsby-theme-wheelroom@3.0.8) (2020-01-13)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom
