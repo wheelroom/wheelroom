@@ -32,7 +32,7 @@ You don't have to paste the token back in the terminal. Just having it in `.env`
 Set the `defaultLocale` option in:
 
 - [gatsby-config.js](gatsby-config.js) for the `gatsby-theme-wheelroom` plugin
-- [wheelroom-config.js](./src/config/wheelroom-config.ts) for the
+- [src/config/wheelroom/config-plugin-options.ts](./src/config/wheelroom/config-plugin-options.ts) for the
   `@jacco-meijer/wheelroom-plugin-contentful` plugin
 
 Compile the config from typescript to javascript:
