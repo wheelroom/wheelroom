@@ -27,7 +27,7 @@ See [gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroo
 
 ## Boilerplate
 
-Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) so see how wheelroom and `gatsby-theme-wheelroom` work together.
+Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) to so see how wheelroom and `gatsby-theme-wheelroom` work together.
 
 ## Models
 

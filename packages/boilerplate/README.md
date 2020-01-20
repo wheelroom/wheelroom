@@ -1,6 +1,6 @@
 # boilerplate
 
-Example repo on how to use `@jacco-meijer/wheelroom` and `gatsby-theme-wheelroom`
+Example repo on how to use [@jacco-meijer/wheelroom](https://www.npmjs.com/package/@jacco-meijer/wheelroom) and [gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroom)
 
 ## Getting started
 
@@ -32,7 +32,7 @@ You don't have to paste the token back in the terminal. Just having it in `.env`
 Set the `defaultLocale` option in:
 
 - [gatsby-config.js](gatsby-config.js) for the `gatsby-theme-wheelroom` plugin
-- [wheelroom-config.js](wheelroom-config.js) for the
+- [wheelroom-config.js](./src/config/wheelroom-config.ts) for the
   `@jacco-meijer/wheelroom-plugin-contentful` plugin
 
 Compile the config from typescript to javascript:
@@ -83,15 +83,18 @@ npm run lint-fix
 
 The generated react code for the sections is used in [src/sections/sections.tsx](./src/sections/sections.tsx).
 
-Start Gatsby and open http://localhost:8000/boilerplate
+Start Gatsby
 
 ```
 npm run develop
 ```
 
+Open http://localhost:8000/boilerplate
+
+
 You can now edit [src/page-template.tsx](src/page-template.tsx). E.g. add
 `console.log(props)` to the `PageTemplate` and inspect the `pageContext` prop.
-It contains the `pageId` key used at query in `src/page-template.tsx`.
+It contains the `pageId` key used in the query in [src/page-template.tsx](src/page-template.tsx):
 
 ```graphql
   query($pageId: String, $globalsId: String) {

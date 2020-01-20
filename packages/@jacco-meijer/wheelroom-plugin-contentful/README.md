@@ -1,6 +1,8 @@
 # @jacco-meijer/wheelroom-plugin-contentful
 
-This is a plugin for the `wheelroom` package.
+This is a plugin for the [@jacco-meijer/wheelroom](https://www.npmjs.com/package/@jacco-meijer/wheelroom) package.
+
+Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
 
 ## Contentful API keys
 
