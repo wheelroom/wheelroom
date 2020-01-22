@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.2](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.2.1...boilerplate@4.2.2) (2020-01-22)
+
+
+### Bug Fixes
+
+* auto lint ([c18b144](https://github.com/jaccomeijer/wheelroom/commit/c18b144))
+* use typePostfix ([83a1478](https://github.com/jaccomeijer/wheelroom/commit/83a1478))
+
+
+
+
+
 ## [4.2.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.2.0...boilerplate@4.2.1) (2020-01-22)
 
 
