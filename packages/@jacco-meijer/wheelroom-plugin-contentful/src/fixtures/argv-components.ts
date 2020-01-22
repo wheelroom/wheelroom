@@ -69,6 +69,15 @@ export const argvComponents: WheelroomComponents = {
         required: false,
         type: 'shortText',
       },
+      shortTextFieldExtended: {
+        initialContent: 'This is a short text field',
+        localized: false,
+        maxLength: 155,
+        name: 'Short text field',
+        required: false,
+        type: 'shortText',
+        typePostfix: 'Extended',
+      },
       singleComponentField: {
         allowedComponents: ['pageModel'],
         initialContent: 'pageModel',

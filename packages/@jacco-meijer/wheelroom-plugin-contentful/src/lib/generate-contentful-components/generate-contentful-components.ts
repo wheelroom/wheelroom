@@ -29,8 +29,22 @@ export const generateContentfulComponents = (
             // Skip system fields
             return
           }
-          const contentfulFieldDefinition =
-            fieldDefinitions.fieldTypes[fieldValue.type!]
+          let contentfulFieldDefinition
+          // If field.typePostfix is present, use it
+          if (
+            'typePostfix' in fieldValue &&
+            fieldValue.type + fieldValue.typePostfix in
+              fieldDefinitions.fieldTypes
+          ) {
+            contentfulFieldDefinition =
+              fieldDefinitions.fieldTypes[
+                fieldValue.type + fieldValue.typePostfix
+              ]
+          } else {
+            // Field.typePostfix not present, use field.type
+            contentfulFieldDefinition =
+              fieldDefinitions.fieldTypes[fieldValue.type!]
+          }
           fields[fieldName] = mergeFields({
             cfFieldDefinition: contentfulFieldDefinition,
             componentName,

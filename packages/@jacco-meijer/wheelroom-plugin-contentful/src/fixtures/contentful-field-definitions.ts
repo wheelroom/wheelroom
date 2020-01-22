@@ -72,6 +72,20 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       },
       widgetId: 'singleLine',
     },
+    shortTextExtended: {
+      specs: {
+        type: 'Symbol',
+        validations: [
+          {
+            message: 'Please use camel case: onlyCamelCaseAllowed',
+            regexp: {
+              pattern: '^[a-z]+([A-Z][a-z0-9]+)*$',
+            },
+          },
+        ],
+      },
+      widgetId: 'singleLine',
+    },
     singleComponent: {
       specs: {
         linkType: 'Entry',

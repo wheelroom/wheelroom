@@ -151,6 +151,33 @@ Object {
         },
         "widgetId": "singleLine",
       },
+      "shortTextFieldExtended": Object {
+        "createContentData": "This is a short text field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Short text field",
+          "required": false,
+          "type": "Symbol",
+          "validations": Array [
+            Object {
+              "message": "Please use camel case: onlyCamelCaseAllowed",
+              "regexp": Object {
+                "pattern": "^[a-z]+([A-Z][a-z0-9]+)*$",
+              },
+            },
+            Object {
+              "size": Object {
+                "max": 155,
+                "min": 0,
+              },
+            },
+          ],
+        },
+        "widgetId": "singleLine",
+      },
       "singleComponentField": Object {
         "createContentData": "pageModel",
         "settings": Object {
