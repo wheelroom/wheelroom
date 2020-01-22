@@ -34,7 +34,7 @@ export interface CommonField {
   /** Do not create this field at the backend */
   system?: boolean
   /** Allows for extending fields without overriding the fixed FieldType */
-  typePostFix?: string
+  typePostfix?: string
   /** Adds a field must be unique validation */
   unique?: boolean
 }
