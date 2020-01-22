@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.2.5...@jacco-meijer/wheelroom-plugin-contentful@2.3.0) (2020-01-22)
+
+
+### Features
+
+* use new typePostfix attribute ([feaedc3](https://github.com/jaccomeijer/wheelroom/commit/feaedc3))
+
+
+
+
+
 ## [2.2.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.2.4...@jacco-meijer/wheelroom-plugin-contentful@2.2.5) (2020-01-20)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful

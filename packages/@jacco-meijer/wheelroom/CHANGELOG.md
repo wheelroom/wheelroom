@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.2.2...@jacco-meijer/wheelroom@3.3.0) (2020-01-22)
+
+
+### Bug Fixes
+
+* not typePostFix but typePostfix ([35316bf](https://github.com/jaccomeijer/wheelroom/commit/35316bf))
+
+
+### Features
+
+* CommonField.typePostFix property for extending field types ([a94b565](https://github.com/jaccomeijer/wheelroom/commit/a94b565))
+
+
+
+
+
 ## [3.2.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.2.1...@jacco-meijer/wheelroom@3.2.2) (2020-01-20)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom
