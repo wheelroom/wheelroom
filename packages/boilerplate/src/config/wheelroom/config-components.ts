@@ -7,14 +7,10 @@ import {
   ShortTextField,
   SingleComponentField,
   TagsField,
+  WheelroomComponents,
 } from '@jacco-meijer/wheelroom'
-import {
-  CustomWheelroomComponents,
-  ShortTextCamelCaseField,
-  ShortTextPathField,
-} from './custom-fields'
 
-export const configComponents: CustomWheelroomComponents = {
+export const configComponents: WheelroomComponents = {
   footerSection: {
     fields: {
       backgroundColor: {
@@ -205,16 +201,18 @@ export const configComponents: CustomWheelroomComponents = {
         helpText: 'System field, changing this can break things',
         initialContent: '/boilerplate',
         required: true,
-        type: 'shortTextPath',
+        type: 'shortText',
+        typePostfix: 'Path',
         unique: true,
-      } as ShortTextPathField,
+      } as ShortTextField,
       pathName: {
         helpText: 'System field, changing this can break things',
         initialContent: 'boilerplate',
         required: true,
-        type: 'shortTextCamelCase',
+        type: 'shortText',
+        typePostfix: 'CamelCase',
         unique: true,
-      } as ShortTextCamelCaseField,
+      } as ShortTextField,
       sections: {
         allowedComponents: [
           '%componentNameArray(filter:settings.asPageSection)%',
