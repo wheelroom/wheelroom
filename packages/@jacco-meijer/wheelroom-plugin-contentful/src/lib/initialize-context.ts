@@ -1,10 +1,8 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
+import { ContentSet } from '../types/content-set'
 import { Context } from '../types/context'
-import {
-  ContentSet,
-  getCfComponents,
-} from './get-cf-components/get-cf-components'
+import { getCfComponents } from './get-cf-components/get-cf-components'
 
 export const initializeContext = async (argv: any) => {
   const pluginOptions =
@@ -34,7 +32,6 @@ export const initializeContext = async (argv: any) => {
       contentSet
     ),
     pluginOptions,
-    wheelroomComponents,
   }
 
   // Initialize the Contentful client

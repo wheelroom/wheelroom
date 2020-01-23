@@ -3,20 +3,10 @@ import {
   WheelroomComponent,
   WheelroomComponents,
 } from '@jacco-meijer/wheelroom'
+import { Content, ContentSet } from '../../types/content-set'
 import { ContentfulComponents } from '../../types/contentful-components'
 import { ContentfulFieldDefinitions } from '../../types/contentful-field-definitions'
 import { getCfComponent } from './get-cf-component'
-
-interface Content {
-  fields: {
-    [fieldName: string]: any
-  }
-  model: string
-}
-
-export interface ContentSet {
-  [modelName: string]: Content
-}
 
 export const getCfComponents = (
   wrComponents: WheelroomComponents,

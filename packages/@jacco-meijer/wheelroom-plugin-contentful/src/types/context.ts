@@ -1,4 +1,3 @@
-import { WheelroomComponents } from '@jacco-meijer/wheelroom'
 import { ContentfulComponents } from './contentful-components'
 
 export interface Context {
@@ -32,8 +31,6 @@ export interface Context {
     /** default locale */
     defaultLocale: string
   }
-  /** Wheelroom components */
-  wheelroomComponents: WheelroomComponents
   /** Contentful components */
   contentfulComponents: ContentfulComponents
 }
