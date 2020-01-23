@@ -20,10 +20,7 @@ Object {
         "widgetId": "datePicker",
       },
       "dropdownField": Object {
-        "createContentData": Array [
-          "choose",
-          "here",
-        ],
+        "createContentData": "item A",
         "settings": Object {
           "helpText": "",
         },
@@ -80,7 +77,7 @@ Object {
       },
       "multipleComponentsField": Object {
         "createContentData": Array [
-          "firstSection",
+          "firstSectionA",
           "secondSection",
         ],
         "settings": Object {
@@ -182,7 +179,7 @@ Object {
         "widgetId": "singleLine",
       },
       "singleComponentField": Object {
-        "createContentData": "noFragmentModelPage",
+        "createContentData": "anotherPage",
         "settings": Object {
           "helpText": "",
         },
@@ -256,11 +253,7 @@ Object {
         "widgetId": "datePicker",
       },
       "dropdownField": Object {
-        "createContentData": Array [
-          "more",
-          "choice",
-          "here",
-        ],
+        "createContentData": "item B",
         "settings": Object {
           "helpText": "",
         },
@@ -317,7 +310,7 @@ Object {
       },
       "multipleComponentsField": Object {
         "createContentData": Array [
-          "firstSection",
+          "firstSectionB",
           "secondSection",
         ],
         "settings": Object {
@@ -419,7 +412,7 @@ Object {
         "widgetId": "singleLine",
       },
       "singleComponentField": Object {
-        "createContentData": "noFragmentModelPage",
+        "createContentData": "anotherPage",
         "settings": Object {
           "helpText": "",
         },
