@@ -15,6 +15,8 @@ export interface ContentfulComponent {
   displayField: string
   /** Contentful field definitions */
   fields: ContentfulFields
+  /** Contentful id that is used when creating an instance of this component */
+  id?: string
   /** Wheelroom model version number */
   modelVersion: string
   /** Contentful component type, filled with %componentName% */

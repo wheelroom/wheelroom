@@ -1,15 +1,28 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
 import { Context } from '../types/context'
-import { generateContentfulComponents } from './generate-contentful-components/generate-contentful-components'
+import {
+  ContentSet,
+  generateContentfulComponents,
+} from './generate-contentful-components/generate-contentful-components'
 
 export const initializeContext = async (argv: any) => {
   const pluginOptions =
     argv.options['@jacco-meijer/wheelroom-plugin-contentful']
   const wheelroomComponents = getFilteredComponents(argv)
 
+  let contentSet: ContentSet | undefined
+  if (
+    argv.contentSet &&
+    pluginOptions.contentSets &&
+    argv.contentSet in pluginOptions.contentSets
+  ) {
+    contentSet = pluginOptions.contentSets[argv.contentSet]
+  }
+
   const context: Context = {
     commandLineOptions: {
+      contentSet: argv.contentSet,
       yes: argv.yes,
     },
     contentfulApi: {
@@ -17,7 +30,8 @@ export const initializeContext = async (argv: any) => {
     },
     contentfulComponents: generateContentfulComponents(
       wheelroomComponents,
-      pluginOptions.fieldDefinitions
+      pluginOptions.fieldDefinitions,
+      contentSet
     ),
     pluginOptions,
     wheelroomComponents,

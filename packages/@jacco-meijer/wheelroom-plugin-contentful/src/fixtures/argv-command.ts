@@ -5,12 +5,11 @@
  */
 
 import { argvComponents } from './argv-components'
-import { argvContent } from './argv-content'
 import { argvPluginOptions } from './argv-plugin-options'
 
 export const argvCommand = {
   components: argvComponents,
-  content: argvContent,
+  contentSet: undefined as string | undefined,
   options: argvPluginOptions,
   yes: true,
 }

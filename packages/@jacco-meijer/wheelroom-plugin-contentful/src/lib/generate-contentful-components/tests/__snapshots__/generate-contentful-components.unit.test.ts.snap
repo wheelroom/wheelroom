@@ -152,13 +152,13 @@ Object {
         "widgetId": "singleLine",
       },
       "shortTextFieldExtended": Object {
-        "createContentData": "This is a short text field",
+        "createContentData": "onlyCamelCaseAllowdForThisExtendedField",
         "settings": Object {
           "helpText": "",
         },
         "specs": Object {
           "localized": false,
-          "name": "Short text field",
+          "name": "Short text field extended",
           "required": false,
           "type": "Symbol",
           "validations": Array [

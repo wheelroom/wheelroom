@@ -7,8 +7,8 @@ import { command } from './command'
 jest.setTimeout(60000)
 
 describe('Command create content should', () => {
-  test('create initial content when no test set is specified', async () => {
-    argvCommand.contentSet = undefined
+  test('create content set test', async () => {
+    argvCommand.contentSet = 'test'
     const spy = jest.spyOn(console, 'log')
     await command.handler(argvCommand as any)
     expect(spy).toBeCalled()

@@ -3,6 +3,8 @@ import { ContentfulComponents } from './contentful-components'
 
 export interface Context {
   commandLineOptions: {
+    /** Name of content set to use */
+    contentSet?: string
     /** Non interactive mode, answers yes to all questions */
     yes?: boolean
   }

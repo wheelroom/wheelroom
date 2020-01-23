@@ -71,10 +71,10 @@ export const argvComponents: WheelroomComponents = {
         type: 'shortText',
       },
       shortTextFieldExtended: {
-        initialContent: 'This is a short text field',
+        initialContent: 'onlyCamelCaseAllowdForThisExtendedField',
         localized: false,
         maxLength: 155,
-        name: 'Short text field',
+        name: 'Short text field extended',
         required: false,
         type: 'shortText',
         typePostfix: 'Extended',
