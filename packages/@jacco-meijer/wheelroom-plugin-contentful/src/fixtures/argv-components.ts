@@ -4,6 +4,7 @@
  */
 
 import { WheelroomComponents } from '@jacco-meijer/wheelroom'
+
 export const argvComponents: WheelroomComponents = {
   allFieldTypes: {
     fields: {
