@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.3.0...@jacco-meijer/wheelroom-plugin-contentful@2.4.0) (2020-01-23)
+
+
+### Bug Fixes
+
+* component id in message ([b40a998](https://github.com/jaccomeijer/wheelroom/commit/b40a998892d85339b969023ab3b4589d04b5420f))
+* sorting ([d854754](https://github.com/jaccomeijer/wheelroom/commit/d85475435166e469b24103d326703f925920ad60))
+* type errors ([b65578f](https://github.com/jaccomeijer/wheelroom/commit/b65578f9fd6d1e4e248f4b7c4956313a41119dbb))
+* update snapshots ([41cdaff](https://github.com/jaccomeijer/wheelroom/commit/41cdaff2020bd30d7ecdbcae385c303123afe103))
+
+
+### Features
+
+* create content sets ([a8c50c5](https://github.com/jaccomeijer/wheelroom/commit/a8c50c5256edc56d0a3b4de660c0c53146c8e704))
+* ordered content creation ([13b5d55](https://github.com/jaccomeijer/wheelroom/commit/13b5d553afdfa58b8563f9f7cb9f9c39ccf5c30a))
+
+
+
+
+
 # [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.2.5...@jacco-meijer/wheelroom-plugin-contentful@2.3.0) (2020-01-22)
 
 
