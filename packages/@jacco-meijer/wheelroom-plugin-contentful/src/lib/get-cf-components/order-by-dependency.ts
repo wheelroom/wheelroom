@@ -19,18 +19,17 @@ const getReferences = (content: ContentfulContent): string[] => {
   return isReferingTo
 }
 
-export const orderByDependency = (
-  cfContentSet: ContentfulContentSet
-): ContentfulContentSet => {
-  const withoutReferences: ContentfulContentSet = []
-  const withReferences: ContentfulContentSet = []
+const compare = (contentA: ContentfulContent, contentB: ContentfulContent) => {
+  const refCountA = getReferences(contentA)
+  const refCountB = getReferences(contentB)
+  if (refCountA > refCountB) {
+    return 1
+  } else if (refCountB > refCountA) {
+    return -1
+  }
+  return 0
+}
 
-  cfContentSet.forEach((cfContent: ContentfulContent) => {
-    if (getReferences(cfContent).length > 0) {
-      withReferences.push(cfContent)
-    } else {
-      withoutReferences.push(cfContent)
-    }
-  })
-  return [...withoutReferences, ...withReferences]
+export const orderByDependency = (cfContentSet: ContentfulContentSet): void => {
+  cfContentSet.sort(compare)
 }

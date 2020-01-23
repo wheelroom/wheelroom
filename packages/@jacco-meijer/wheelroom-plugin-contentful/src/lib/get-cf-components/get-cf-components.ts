@@ -28,7 +28,7 @@ export const getCfComponents = (
   }
 
   // Sort content creation so that dependencies get created first
-  cfContentSet = orderByDependency(cfContentSet)
+  orderByDependency(cfContentSet)
 
   // Loop through all content, set each field initialContent and process with
   // matching component
