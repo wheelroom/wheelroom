@@ -1,9 +1,16 @@
-import { getFields } from '../../contentful-api/content'
+import {
+  createEntry,
+  getEntry,
+  getFields,
+  publishEntry,
+  updateEntry,
+} from '../../contentful-api/content'
 import { componentsFound } from '../../lib/components-found'
 import { confirmAction } from '../../lib/confirm-action'
 import { envComplete } from '../../lib/env-complete'
 import { initializeContext, refreshContext } from '../../lib/initialize-context'
 import { readDotEnv } from '../../lib/read-dot-env'
+import { createAsset } from './create-asset'
 
 export const handler = async (argv: any) => {
   readDotEnv()
@@ -21,23 +28,21 @@ export const handler = async (argv: any) => {
   if (!confirmed) {
     return
   }
-  // await createAsset(context)
-  for (const componentName of Object.keys(context.contentfulComponents)) {
-    console.log(
-      `Creating demo content for model ${componentName} =============`
-    )
+  await createAsset(context)
+  for (const componentId of Object.keys(context.contentfulComponents)) {
+    console.log(`Creating demo content for model ${componentId} =============`)
     try {
       refreshContext(context)
-      getFields(context, componentName)
+      getFields(context, componentId)
       // DEBUG: skip for now
-      // await getEntry(context, componentName)
-      // await updateEntry(context)
-      // await createEntry(context, componentName)
-      // await publishEntry(context)
+      await getEntry(context, componentId)
+      await updateEntry(context)
+      await createEntry(context, componentId)
+      await publishEntry(context)
     } catch (error) {
       handleError(error)
     }
-    console.log(`Succesfully created content for model ${componentName}`)
+    console.log(`Succesfully created content for model ${componentId}`)
   }
 }
 

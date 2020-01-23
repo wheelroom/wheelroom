@@ -2,11 +2,8 @@ import { ContentfulComponent } from '../types/contentful-components'
 import { ContentfulField } from '../types/contentful-fields'
 import { Context } from '../types/context'
 
-export const getContentType = async (
-  context: Context,
-  componentName: string
-) => {
-  const component = context.contentfulComponents[componentName]
+export const getContentType = async (context: Context, componentId: string) => {
+  const component = context.contentfulComponents[componentId]
   try {
     context.contentfulApi.contentType = await context.contentfulApi.environment.getContentType(
       component.type
@@ -25,9 +22,9 @@ export const getContentType = async (
 
 export const updateContentType = async (
   context: Context,
-  componentName: string
+  componentId: string
 ) => {
-  const component = context.contentfulComponents[componentName]
+  const component = context.contentfulComponents[componentId]
   // If we don't have a contentType there's nothing to do here
   if (context.contentfulApi.contentType === null) {
     return
@@ -35,19 +32,16 @@ export const updateContentType = async (
   console.log(`Updating content type`)
   context.contentfulApi.contentType.description = component.description
   context.contentfulApi.contentType.displayField = component.displayField
-  context.contentfulApi.contentType.fields = getApiFields(
-    context,
-    componentName
-  )
-  context.contentfulApi.contentType.name = componentName
+  context.contentfulApi.contentType.fields = getApiFields(context, componentId)
+  context.contentfulApi.contentType.name = componentId
   context.contentfulApi.contentType = await context.contentfulApi.contentType.update()
 }
 
 export const createContentType = async (
   context: Context,
-  componentName: string
+  componentId: string
 ) => {
-  const component = context.contentfulComponents[componentName]
+  const component = context.contentfulComponents[componentId]
   // Only create a new one if we it does not exist yet
   if (context.contentfulApi.contentType !== null) {
     return
@@ -58,15 +52,15 @@ export const createContentType = async (
     {
       description: component.description,
       displayField: component.displayField,
-      fields: getApiFields(context, componentName),
-      name: componentName,
+      fields: getApiFields(context, componentId),
+      name: componentId,
     }
   )
 }
 
 export const publishContentType = async (
   context: Context,
-  componentName: string
+  componentId: string
 ) => {
   console.log(`Publishing content type`)
   context.contentfulApi.contentType = await context.contentfulApi.contentType.publish()
@@ -107,8 +101,8 @@ const getModelVersionFields = (component: ContentfulComponent) => {
   }
 }
 
-const getApiFields = (context: Context, componentName: string): any[] => {
-  const component = context.contentfulComponents[componentName]
+const getApiFields = (context: Context, componentId: string): any[] => {
+  const component = context.contentfulComponents[componentId]
   const apiFields = []
   Object.entries(component.fields).forEach(
     ([fieldId, field]: [string, ContentfulField]) => {

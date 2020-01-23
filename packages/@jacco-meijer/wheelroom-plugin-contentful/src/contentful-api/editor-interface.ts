@@ -3,9 +3,9 @@ import { Context } from '../types/context'
 
 export const getEditorInterface = async (
   context: Context,
-  componentName: string
+  componentId: string
 ) => {
-  const component = context.contentfulComponents[componentName]
+  const component = context.contentfulComponents[componentId]
   // If we don't have a contentType there's nothing to do here
   if (context.contentfulApi.contentType === null) {
     return
@@ -18,10 +18,10 @@ export const getEditorInterface = async (
 
 const getModelFieldById = (
   context: Context,
-  componentName: string,
+  componentId: string,
   fieldIdLookup: string
 ): any => {
-  const component = context.contentfulComponents[componentName]
+  const component = context.contentfulComponents[componentId]
   const result = Object.entries(component.fields).find(
     ([fieldId, field]: any) => {
       return fieldId === fieldIdLookup
@@ -32,7 +32,7 @@ const getModelFieldById = (
 
 export const updateEditorInterface = async (
   context: Context,
-  componentName: string
+  componentId: string
 ) => {
   // If we don't have a editorInterface there's nothing to do here
   if (context.contentfulApi.editorInterface === null) {
@@ -42,7 +42,7 @@ export const updateEditorInterface = async (
     const [modelFieldId, modelField]: [
       any,
       ContentfulField
-    ] = getModelFieldById(context, componentName, control.fieldId)
+    ] = getModelFieldById(context, componentId, control.fieldId)
     if (!modelField.widgetId) {
       return
     }

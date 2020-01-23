@@ -1,11 +1,17 @@
 import { ContentfulFields } from './contentful-fields'
 
 /**
- * This object is used only iside of the wheelroom-plugin-contentful. The fields
+ * This object is used only inside wheelroom-plugin-contentful. The fields
  * object has parts that mimic the contentful API.
+ *
+ * Each component has a componentId key, this id is used when creating an
+ * instance of the component.
+ *
  */
+
 export interface ContentfulComponents {
-  [componentName: string]: ContentfulComponent
+  /** Contentful id that is used when creating an instance of the component */
+  [componentId: string]: ContentfulComponent
 }
 
 export interface ContentfulComponent {
@@ -15,8 +21,6 @@ export interface ContentfulComponent {
   displayField: string
   /** Contentful field definitions */
   fields: ContentfulFields
-  /** Contentful id that is used when creating an instance of this component */
-  id?: string
   /** Wheelroom model version number */
   modelVersion: string
   /** Contentful component type, filled with %componentName% */

@@ -3,8 +3,8 @@ import { Context } from '../types/context'
 
 const demoEntryPostfix = 'DemoEntry'
 
-export const getFields = (context: Context, componentName: string) => {
-  const component = context.contentfulComponents[componentName]
+export const getFields = (context: Context, componentId: string) => {
+  const component = context.contentfulComponents[componentId]
   Object.entries(component.fields).forEach(
     ([fieldId, field]: [string, ContentfulField]) => {
       if (!field.createContentData && field.specs.required) {
@@ -114,8 +114,8 @@ export const getFields = (context: Context, componentName: string) => {
   )
 }
 
-export const getEntry = async (context: Context, componentName: string) => {
-  const component = context.contentfulComponents[componentName]
+export const getEntry = async (context: Context, componentId: string) => {
+  const component = context.contentfulComponents[componentId]
   console.log(`Getting entry`)
   try {
     context.contentfulApi.entry = await context.contentfulApi.environment.getEntry(
@@ -137,8 +137,8 @@ export const updateEntry = async (context: Context) => {
   context.contentfulApi.entry = await context.contentfulApi.entry.update()
 }
 
-export const createEntry = async (context: Context, componentName: string) => {
-  const component = context.contentfulComponents[componentName]
+export const createEntry = async (context: Context, componentId: string) => {
+  const component = context.contentfulComponents[componentId]
   if (context.contentfulApi.entry) {
     return
   }
