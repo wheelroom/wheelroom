@@ -1,6 +1,6 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
-import { ContentSet } from '../types/content-set'
+import { WheelroomContentSet } from '../types/content-set'
 import { Context } from '../types/context'
 import { getCfComponents } from './get-cf-components/get-cf-components'
 
@@ -9,7 +9,7 @@ export const initializeContext = async (argv: any) => {
     argv.options['@jacco-meijer/wheelroom-plugin-contentful']
   const wheelroomComponents = getFilteredComponents(argv)
 
-  let contentSet: ContentSet | undefined
+  let contentSet: WheelroomContentSet | undefined
   if (
     argv.contentSet &&
     pluginOptions.contentSets &&
@@ -32,6 +32,7 @@ export const initializeContext = async (argv: any) => {
       contentSet
     ),
     pluginOptions,
+    wheelroomComponents,
   }
 
   // Initialize the Contentful client
