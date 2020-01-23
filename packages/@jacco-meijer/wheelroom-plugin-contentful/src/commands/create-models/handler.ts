@@ -31,20 +31,22 @@ export const handler = async (argv: any) => {
     return
   }
 
-  for (const componentId of Object.keys(context.contentfulComponents)) {
-    console.log(`Creating or updating model ${componentId} =============`)
+  for (const component of context.contentfulComponents) {
+    console.log(
+      `Creating or updating model ${component.componentId} =============`
+    )
     try {
       refreshContext(context)
-      await getContentType(context, componentId)
-      await updateContentType(context, componentId)
-      await createContentType(context, componentId)
-      await publishContentType(context, componentId)
-      await getEditorInterface(context, componentId)
-      await updateEditorInterface(context, componentId)
+      await getContentType(context, component)
+      await updateContentType(context, component)
+      await createContentType(context, component)
+      await publishContentType(context)
+      await getEditorInterface(context, component)
+      await updateEditorInterface(context, component)
     } catch (error) {
       handleError(error)
     }
-    console.log(`Succesfully created model ${componentId}`)
+    console.log(`Succesfully created model ${component}`)
   }
 }
 

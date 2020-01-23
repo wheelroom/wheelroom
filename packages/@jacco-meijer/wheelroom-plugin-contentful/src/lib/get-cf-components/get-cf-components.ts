@@ -5,7 +5,7 @@ import {
 } from '@jacco-meijer/wheelroom'
 import { ContentfulComponents } from '../../types/contentful-components'
 import { ContentfulFieldDefinitions } from '../../types/contentful-field-definitions'
-import { processWrComponent } from './process-wr-component'
+import { getCfComponent } from './get-cf-component'
 
 interface Content {
   fields: {
@@ -18,18 +18,18 @@ export interface ContentSet {
   [modelName: string]: Content
 }
 
-export const generateContentfulComponents = (
-  wheelroomComponents: WheelroomComponents,
+export const getCfComponents = (
+  wrComponents: WheelroomComponents,
   fieldDefinitions: ContentfulFieldDefinitions,
   contentSet?: ContentSet
 ): ContentfulComponents => {
-  const components: ContentfulComponents = {}
+  const cfComponents: ContentfulComponents = []
   if (contentSet) {
     // Loop through all content, set each field initialContent and process with
     // matching component
     Object.entries(contentSet).forEach(
       ([componentId, content]: [string, Content]) => {
-        const matchingWrComponent = wheelroomComponents[content.model]
+        const matchingWrComponent = wrComponents[content.model]
         const wrComponentWithContent: WheelroomComponent = {
           fields: {},
           modelVersion: matchingWrComponent.modelVersion,
@@ -47,28 +47,30 @@ export const generateContentfulComponents = (
             )
           }
         )
-        const component = processWrComponent({
+        const cfComponent = getCfComponent({
+          componentId,
           componentName: content.model,
           fieldDefinitions,
-          wheelroomComponent: wrComponentWithContent,
-          wheelroomComponents,
+          wrComponent: wrComponentWithContent,
+          wrComponents,
         })
-        components[componentId] = component
+        cfComponents.push(cfComponent)
       }
     )
   } else {
-    // Loop through all configured wheelroom components, set componentId to componentName
-    Object.entries(wheelroomComponents).forEach(
-      ([componentName, wheelroomComponent]: [string, WheelroomComponent]) => {
-        const component = processWrComponent({
+    // Loop through all configured wrComponents, use componentName for componentId
+    Object.entries(wrComponents).forEach(
+      ([componentName, wrComponent]: [string, WheelroomComponent]) => {
+        const cfComponent = getCfComponent({
+          componentId: componentName,
           componentName,
           fieldDefinitions,
-          wheelroomComponent,
-          wheelroomComponents,
+          wrComponent,
+          wrComponents,
         })
-        components[componentName] = component
+        cfComponents.push(cfComponent)
       }
     )
   }
-  return components
+  return cfComponents
 }

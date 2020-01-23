@@ -9,12 +9,11 @@ import { ContentfulFields } from './contentful-fields'
  *
  */
 
-export interface ContentfulComponents {
-  /** Contentful id that is used when creating an instance of the component */
-  [componentId: string]: ContentfulComponent
-}
+export type ContentfulComponents = ContentfulComponent[]
 
 export interface ContentfulComponent {
+  /** Id that is used when creating an instance of the component */
+  componentId: string
   /** Contentful description of this model, filled with %Component name% */
   description: string
   /** Contentful field to use for listing, in this case always 'title' */

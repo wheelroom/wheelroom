@@ -29,20 +29,22 @@ export const handler = async (argv: any) => {
     return
   }
   await createAsset(context)
-  for (const componentId of Object.keys(context.contentfulComponents)) {
-    console.log(`Creating demo content for model ${componentId} =============`)
+  for (const component of context.contentfulComponents) {
+    console.log(
+      `Creating demo content for model ${component.componentId} =============`
+    )
     try {
       refreshContext(context)
-      getFields(context, componentId)
+      getFields(context, component)
       // DEBUG: skip for now
-      await getEntry(context, componentId)
+      await getEntry(context, component)
       await updateEntry(context)
-      await createEntry(context, componentId)
+      await createEntry(context, component)
       await publishEntry(context)
     } catch (error) {
       handleError(error)
     }
-    console.log(`Succesfully created content for model ${componentId}`)
+    console.log(`Succesfully created content for model ${component}`)
   }
 }
 

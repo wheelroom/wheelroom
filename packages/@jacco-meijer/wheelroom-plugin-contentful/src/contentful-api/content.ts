@@ -1,10 +1,10 @@
+import { ContentfulComponent } from '../types/contentful-components'
 import { ContentfulField } from '../types/contentful-fields'
 import { Context } from '../types/context'
 
 // const demoEntryPostfix = 'DemoEntry'
 
-export const getFields = (context: Context, componentId: string) => {
-  const component = context.contentfulComponents[componentId]
+export const getFields = (context: Context, component: ContentfulComponent) => {
   Object.entries(component.fields).forEach(
     ([fieldId, field]: [string, ContentfulField]) => {
       if (!field.createContentData && field.specs.required) {
@@ -114,14 +114,17 @@ export const getFields = (context: Context, componentId: string) => {
   )
 }
 
-export const getEntry = async (context: Context, componentId: string) => {
+export const getEntry = async (
+  context: Context,
+  component: ContentfulComponent
+) => {
   console.log(`Getting entry`)
   try {
     context.contentfulApi.entry = await context.contentfulApi.environment.getEntry(
-      componentId
+      component.componentId
     )
   } catch (error) {
-    console.log(`Could not find entry ${componentId}`)
+    console.log(`Could not find entry ${component.componentId}`)
     context.contentfulApi.entry = null
   }
 }
@@ -136,15 +139,17 @@ export const updateEntry = async (context: Context) => {
   context.contentfulApi.entry = await context.contentfulApi.entry.update()
 }
 
-export const createEntry = async (context: Context, componentId: string) => {
-  const component = context.contentfulComponents[componentId]
+export const createEntry = async (
+  context: Context,
+  component: ContentfulComponent
+) => {
   if (context.contentfulApi.entry) {
     return
   }
   console.log(`Creating new entry`)
   context.contentfulApi.entry = await context.contentfulApi.environment.createEntryWithId(
     component.type,
-    componentId,
+    component.componentId,
     {
       fields: context.contentfulApi.fields,
     }

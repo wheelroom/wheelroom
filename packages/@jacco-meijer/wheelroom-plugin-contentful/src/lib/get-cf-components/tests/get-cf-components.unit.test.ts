@@ -1,7 +1,7 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import { argvCommand } from '../../../fixtures/argv-command'
 import { argvContentSets } from '../../../fixtures/argv-content-sets'
-import { generateContentfulComponents } from '../generate-contentful-components'
+import { getCfComponents } from '../get-cf-components'
 
 describe('Generate contentful components should', () => {
   test('match the sample set without content', () => {
@@ -9,7 +9,7 @@ describe('Generate contentful components should', () => {
       argvCommand.options['@jacco-meijer/wheelroom-plugin-contentful']
     const wheelroomComponents = getFilteredComponents(argvCommand)
 
-    const contentfulComponents = generateContentfulComponents(
+    const contentfulComponents = getCfComponents(
       wheelroomComponents,
       pluginOptions.fieldDefinitions
     )
@@ -21,7 +21,7 @@ describe('Generate contentful components should', () => {
       argvCommand.options['@jacco-meijer/wheelroom-plugin-contentful']
     const wheelroomComponents = getFilteredComponents(argvCommand)
 
-    const contentfulComponents = generateContentfulComponents(
+    const contentfulComponents = getCfComponents(
       wheelroomComponents,
       pluginOptions.fieldDefinitions,
       argvContentSets.test

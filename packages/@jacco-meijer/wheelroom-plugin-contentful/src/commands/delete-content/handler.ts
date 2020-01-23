@@ -27,17 +27,19 @@ export const handler = async (argv: any) => {
     return
   }
   await deleteAsset(context)
-  for (const componentId of Object.keys(context.contentfulComponents)) {
-    console.log(`Removing demo content for model ${componentId} =============`)
+  for (const component of context.contentfulComponents) {
+    console.log(
+      `Removing demo content for model ${component.componentId} =============`
+    )
     try {
       refreshContext(context)
-      await getEntry(context, componentId)
+      await getEntry(context, component)
       await unPublishEntry(context)
       await deleteEntry(context)
     } catch (error) {
       handleError(error)
     }
-    console.log(`Succesfully removed content for model ${componentId}`)
+    console.log(`Succesfully removed content for model ${component}`)
   }
 }
 

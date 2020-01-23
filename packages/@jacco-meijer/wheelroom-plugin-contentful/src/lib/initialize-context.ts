@@ -3,8 +3,8 @@ import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
 import { Context } from '../types/context'
 import {
   ContentSet,
-  generateContentfulComponents,
-} from './generate-contentful-components/generate-contentful-components'
+  getCfComponents,
+} from './get-cf-components/get-cf-components'
 
 export const initializeContext = async (argv: any) => {
   const pluginOptions =
@@ -28,7 +28,7 @@ export const initializeContext = async (argv: any) => {
     contentfulApi: {
       fields: {},
     },
-    contentfulComponents: generateContentfulComponents(
+    contentfulComponents: getCfComponents(
       wheelroomComponents,
       pluginOptions.fieldDefinitions,
       contentSet

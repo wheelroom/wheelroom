@@ -11,16 +11,17 @@ import { mergeFields } from './merge-fields'
 
 interface ProcessWrComponent {
   componentName: string
+  componentId: string
   fieldDefinitions: ContentfulFieldDefinitions
-  wheelroomComponent: WheelroomComponent
-  wheelroomComponents: WheelroomComponents
+  wrComponent: WheelroomComponent
+  wrComponents: WheelroomComponents
 }
 
-export const processWrComponent = (context: ProcessWrComponent) => {
+export const getCfComponent = (context: ProcessWrComponent) => {
   const componentNameCases = getCases(context.componentName)
   const fields: ContentfulFields = {}
   // For each component, loop through all configured wheelroom fields
-  Object.entries(context.wheelroomComponent.fields).forEach(
+  Object.entries(context.wrComponent.fields).forEach(
     ([fieldName, fieldValue]: [string, FieldType]) => {
       if (fieldValue.system) {
         // Skip system fields
@@ -46,17 +47,18 @@ export const processWrComponent = (context: ProcessWrComponent) => {
         cfFieldDefinition: contentfulFieldDefinition,
         componentName: context.componentName,
         fieldName,
-        wrComponents: context.wheelroomComponents,
+        wrComponents: context.wrComponents,
         wrField: fieldValue,
       })
     }
   )
-  const component: ContentfulComponent = {
+  const cfComponent: ContentfulComponent = {
+    componentId: context.componentId,
     description: componentNameCases.sentenceCase,
     displayField: 'title',
     fields,
-    modelVersion: context.wheelroomComponent.modelVersion,
+    modelVersion: context.wrComponent.modelVersion,
     type: componentNameCases.camelCase,
   }
-  return component
+  return cfComponent
 }

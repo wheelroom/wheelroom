@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Generate contentful components should match the sample set with a content set 1`] = `
-Object {
-  "allFieldTypesPage1": Object {
+Array [
+  Object {
+    "componentId": "allFieldTypesPage1",
     "description": "All field types",
     "displayField": "title",
     "fields": Object {
@@ -235,7 +236,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "allFieldTypes",
   },
-  "allFieldTypesPage2": Object {
+  Object {
+    "componentId": "allFieldTypesPage2",
     "description": "All field types",
     "displayField": "title",
     "fields": Object {
@@ -468,7 +470,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "allFieldTypes",
   },
-  "anotherPage": Object {
+  Object {
+    "componentId": "anotherPage",
     "description": "Page model",
     "displayField": "title",
     "fields": Object {
@@ -502,7 +505,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "pageModel",
   },
-  "firstSectionA": Object {
+  Object {
+    "componentId": "firstSectionA",
     "description": "First section",
     "displayField": "title",
     "fields": Object {
@@ -536,7 +540,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "firstSection",
   },
-  "firstSectionB": Object {
+  Object {
+    "componentId": "firstSectionB",
     "description": "First section",
     "displayField": "title",
     "fields": Object {
@@ -570,7 +575,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "firstSection",
   },
-  "firstSectionC": Object {
+  Object {
+    "componentId": "firstSectionC",
     "description": "First section",
     "displayField": "title",
     "fields": Object {
@@ -604,7 +610,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "firstSection",
   },
-  "globals": Object {
+  Object {
+    "componentId": "globals",
     "description": "Global model",
     "displayField": "title",
     "fields": Object {
@@ -638,7 +645,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "globalModel",
   },
-  "noFragment": Object {
+  Object {
+    "componentId": "noFragment",
     "description": "No fragment",
     "displayField": "title",
     "fields": Object {
@@ -672,7 +680,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "noFragment",
   },
-  "secondSection": Object {
+  Object {
+    "componentId": "secondSection",
     "description": "Second section",
     "displayField": "title",
     "fields": Object {
@@ -706,7 +715,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "secondSection",
   },
-  "someSubPage": Object {
+  Object {
+    "componentId": "someSubPage",
     "description": "Sub page model",
     "displayField": "title",
     "fields": Object {
@@ -740,12 +750,13 @@ Object {
     "modelVersion": "1.0.0",
     "type": "subPageModel",
   },
-}
+]
 `;
 
 exports[`Generate contentful components should match the sample set without content 1`] = `
-Object {
-  "allFieldTypes": Object {
+Array [
+  Object {
+    "componentId": "allFieldTypes",
     "description": "All field types",
     "displayField": "title",
     "fields": Object {
@@ -978,7 +989,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "allFieldTypes",
   },
-  "firstSection": Object {
+  Object {
+    "componentId": "firstSection",
     "description": "First section",
     "displayField": "title",
     "fields": Object {
@@ -1012,7 +1024,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "firstSection",
   },
-  "globalModel": Object {
+  Object {
+    "componentId": "globalModel",
     "description": "Global model",
     "displayField": "title",
     "fields": Object {
@@ -1046,7 +1059,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "globalModel",
   },
-  "noFragment": Object {
+  Object {
+    "componentId": "noFragment",
     "description": "No fragment",
     "displayField": "title",
     "fields": Object {
@@ -1080,7 +1094,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "noFragment",
   },
-  "pageModel": Object {
+  Object {
+    "componentId": "pageModel",
     "description": "Page model",
     "displayField": "title",
     "fields": Object {
@@ -1114,7 +1129,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "pageModel",
   },
-  "secondSection": Object {
+  Object {
+    "componentId": "secondSection",
     "description": "Second section",
     "displayField": "title",
     "fields": Object {
@@ -1148,7 +1164,8 @@ Object {
     "modelVersion": "1.0.0",
     "type": "secondSection",
   },
-  "subPageModel": Object {
+  Object {
+    "componentId": "subPageModel",
     "description": "Sub page model",
     "displayField": "title",
     "fields": Object {
@@ -1182,5 +1199,5 @@ Object {
     "modelVersion": "1.0.0",
     "type": "subPageModel",
   },
-}
+]
 `;
