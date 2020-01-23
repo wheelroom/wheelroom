@@ -43,10 +43,10 @@ export const handler = async (argv: any) => {
       await publishContentType(context)
       await getEditorInterface(context, component)
       await updateEditorInterface(context, component)
+      console.log(`Succesfully created model ${component.componentId}`)
     } catch (error) {
       handleError(error)
     }
-    console.log(`Succesfully created model ${component}`)
   }
 }
 

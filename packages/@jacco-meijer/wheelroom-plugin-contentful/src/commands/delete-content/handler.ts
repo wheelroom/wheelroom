@@ -36,10 +36,12 @@ export const handler = async (argv: any) => {
       await getEntry(context, component)
       await unPublishEntry(context)
       await deleteEntry(context)
+      console.log(
+        `Succesfully removed content for model ${component.componentId}`
+      )
     } catch (error) {
       handleError(error)
     }
-    console.log(`Succesfully removed content for model ${component}`)
   }
 }
 

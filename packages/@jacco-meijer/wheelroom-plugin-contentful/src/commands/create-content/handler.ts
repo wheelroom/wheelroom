@@ -41,10 +41,12 @@ export const handler = async (argv: any) => {
       await updateEntry(context)
       await createEntry(context, component)
       await publishEntry(context)
+      console.log(
+        `Succesfully created content for model ${component.componentId}`
+      )
     } catch (error) {
       handleError(error)
     }
-    console.log(`Succesfully created content for model ${component}`)
   }
 }
 
