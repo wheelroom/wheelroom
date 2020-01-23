@@ -1,6 +1,756 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Generate contentful components should match the sample sets 1`] = `
+exports[`Generate contentful components should match the sample set with a content set 1`] = `
+Object {
+  "allFieldTypesPage1": Object {
+    "description": "All field types",
+    "displayField": "title",
+    "fields": Object {
+      "dateField": Object {
+        "createContentData": "2019-06-03T00:00+01:00",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Date field",
+          "required": false,
+          "type": "Date",
+        },
+        "widgetId": "datePicker",
+      },
+      "dropdownField": Object {
+        "createContentData": Array [
+          "choose",
+          "here",
+        ],
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Dropdown field",
+          "required": false,
+          "type": "Symbol",
+          "validations": Array [
+            Object {
+              "in": Array [
+                "item A",
+                "item B",
+                "item C",
+              ],
+            },
+          ],
+        },
+        "widgetId": "dropdown",
+      },
+      "imageField": Object {
+        "createContentData": "demoAsset",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "linkType": "Asset",
+          "localized": false,
+          "name": "Image field",
+          "required": false,
+          "type": "Link",
+          "validations": Array [
+            Object {
+              "linkMimetypeGroup": Array [
+                "image",
+              ],
+            },
+          ],
+        },
+        "widgetId": "assetLinkEditor",
+      },
+      "longTextField": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Long text field",
+          "required": false,
+          "type": "Text",
+        },
+        "widgetId": "multipleLine",
+      },
+      "multipleComponentsField": Object {
+        "createContentData": Array [
+          "firstSection",
+          "secondSection",
+        ],
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "items": Object {
+            "linkType": "Entry",
+            "type": "Link",
+            "validations": Array [
+              Object {
+                "linkContentType": Array [
+                  "page",
+                  "firstSection",
+                  "secondSection",
+                ],
+              },
+            ],
+          },
+          "localized": false,
+          "name": "Multiple components field",
+          "required": false,
+          "type": "Array",
+        },
+        "widgetId": "entryLinksEditor",
+      },
+      "numberField": Object {
+        "createContentData": 25,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Number field",
+          "required": false,
+          "type": "Integer",
+        },
+        "widgetId": "numberEditor",
+      },
+      "richTextField": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Rich text field",
+          "required": false,
+          "type": "RichText",
+        },
+        "widgetId": "richTextEditor",
+      },
+      "shortTextField": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Short text field",
+          "required": false,
+          "type": "Symbol",
+          "validations": Array [
+            Object {
+              "size": Object {
+                "max": 155,
+                "min": 0,
+              },
+            },
+          ],
+        },
+        "widgetId": "singleLine",
+      },
+      "shortTextFieldExtended": Object {
+        "createContentData": "onlyCamelCaseHere",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Short text field extended",
+          "required": false,
+          "type": "Symbol",
+          "validations": Array [
+            Object {
+              "message": "Please use camel case: onlyCamelCaseAllowed",
+              "regexp": Object {
+                "pattern": "^[a-z]+([A-Z][a-z0-9]+)*$",
+              },
+            },
+            Object {
+              "size": Object {
+                "max": 155,
+                "min": 0,
+              },
+            },
+          ],
+        },
+        "widgetId": "singleLine",
+      },
+      "singleComponentField": Object {
+        "createContentData": "noFragmentModelPage",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "linkType": "Entry",
+          "localized": false,
+          "name": "Single component field",
+          "required": false,
+          "type": "Link",
+          "validations": Array [
+            Object {
+              "linkContentType": Array [
+                "pageModel",
+              ],
+            },
+          ],
+        },
+        "widgetId": "entryLinkEditor",
+      },
+      "tagsField": Object {
+        "createContentData": Array [
+          "some",
+          "tags",
+        ],
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "items": Object {
+            "type": "Symbol",
+          },
+          "localized": false,
+          "name": "Tags field",
+          "required": false,
+          "type": "Array",
+        },
+        "widgetId": "tagEditor",
+      },
+      "title": Object {
+        "createContentData": "Testing allFieldTypesPage #1",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "allFieldTypes",
+  },
+  "allFieldTypesPage2": Object {
+    "description": "All field types",
+    "displayField": "title",
+    "fields": Object {
+      "dateField": Object {
+        "createContentData": "2020-06-03T00:00+01:00",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Date field",
+          "required": false,
+          "type": "Date",
+        },
+        "widgetId": "datePicker",
+      },
+      "dropdownField": Object {
+        "createContentData": Array [
+          "more",
+          "choice",
+          "here",
+        ],
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Dropdown field",
+          "required": false,
+          "type": "Symbol",
+          "validations": Array [
+            Object {
+              "in": Array [
+                "item A",
+                "item B",
+                "item C",
+              ],
+            },
+          ],
+        },
+        "widgetId": "dropdown",
+      },
+      "imageField": Object {
+        "createContentData": "demoAsset",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "linkType": "Asset",
+          "localized": false,
+          "name": "Image field",
+          "required": false,
+          "type": "Link",
+          "validations": Array [
+            Object {
+              "linkMimetypeGroup": Array [
+                "image",
+              ],
+            },
+          ],
+        },
+        "widgetId": "assetLinkEditor",
+      },
+      "longTextField": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Long text field",
+          "required": false,
+          "type": "Text",
+        },
+        "widgetId": "multipleLine",
+      },
+      "multipleComponentsField": Object {
+        "createContentData": Array [
+          "firstSection",
+          "secondSection",
+        ],
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "items": Object {
+            "linkType": "Entry",
+            "type": "Link",
+            "validations": Array [
+              Object {
+                "linkContentType": Array [
+                  "page",
+                  "firstSection",
+                  "secondSection",
+                ],
+              },
+            ],
+          },
+          "localized": false,
+          "name": "Multiple components field",
+          "required": false,
+          "type": "Array",
+        },
+        "widgetId": "entryLinksEditor",
+      },
+      "numberField": Object {
+        "createContentData": 25,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Number field",
+          "required": false,
+          "type": "Integer",
+        },
+        "widgetId": "numberEditor",
+      },
+      "richTextField": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Rich text field",
+          "required": false,
+          "type": "RichText",
+        },
+        "widgetId": "richTextEditor",
+      },
+      "shortTextField": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Short text field",
+          "required": false,
+          "type": "Symbol",
+          "validations": Array [
+            Object {
+              "size": Object {
+                "max": 155,
+                "min": 0,
+              },
+            },
+          ],
+        },
+        "widgetId": "singleLine",
+      },
+      "shortTextFieldExtended": Object {
+        "createContentData": "onlyCamelCaseHere",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Short text field extended",
+          "required": false,
+          "type": "Symbol",
+          "validations": Array [
+            Object {
+              "message": "Please use camel case: onlyCamelCaseAllowed",
+              "regexp": Object {
+                "pattern": "^[a-z]+([A-Z][a-z0-9]+)*$",
+              },
+            },
+            Object {
+              "size": Object {
+                "max": 155,
+                "min": 0,
+              },
+            },
+          ],
+        },
+        "widgetId": "singleLine",
+      },
+      "singleComponentField": Object {
+        "createContentData": "noFragmentModelPage",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "linkType": "Entry",
+          "localized": false,
+          "name": "Single component field",
+          "required": false,
+          "type": "Link",
+          "validations": Array [
+            Object {
+              "linkContentType": Array [
+                "pageModel",
+              ],
+            },
+          ],
+        },
+        "widgetId": "entryLinkEditor",
+      },
+      "tagsField": Object {
+        "createContentData": Array [
+          "some",
+          "tags",
+        ],
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "items": Object {
+            "type": "Symbol",
+          },
+          "localized": false,
+          "name": "Tags field",
+          "required": false,
+          "type": "Array",
+        },
+        "widgetId": "tagEditor",
+      },
+      "title": Object {
+        "createContentData": "Testing allFieldTypesPage #2",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "allFieldTypes",
+  },
+  "anotherPage": Object {
+    "description": "Page model",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Testing another page model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "pageModel",
+  },
+  "firstSectionA": Object {
+    "description": "First section",
+    "displayField": "title",
+    "fields": Object {
+      "defaultField": Object {
+        "createContentData": "First content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Default field",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "A - Testing first section model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "firstSection",
+  },
+  "firstSectionB": Object {
+    "description": "First section",
+    "displayField": "title",
+    "fields": Object {
+      "defaultField": Object {
+        "createContentData": "Second content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Default field",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "B - Testing first section model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "firstSection",
+  },
+  "firstSectionC": Object {
+    "description": "First section",
+    "displayField": "title",
+    "fields": Object {
+      "defaultField": Object {
+        "createContentData": "Third content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Default field",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "C - Testing first section model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "firstSection",
+  },
+  "globals": Object {
+    "description": "Global model",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Testing global model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "globalModel",
+  },
+  "noFragment": Object {
+    "description": "No fragment",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Testing no fragment model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "noFragment",
+  },
+  "secondSection": Object {
+    "description": "Second section",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "testing second section model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "secondSection",
+  },
+  "someSubPage": Object {
+    "description": "Sub page model",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Testing some sub page",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "subPageModel",
+  },
+}
+`;
+
+exports[`Generate contentful components should match the sample set without content 1`] = `
 Object {
   "allFieldTypes": Object {
     "description": "All field types",

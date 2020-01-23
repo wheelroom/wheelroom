@@ -4,25 +4,19 @@ import {
   WheelroomComponents,
 } from '@jacco-meijer/wheelroom'
 import { getCases } from '@jacco-meijer/wheelroom'
-import {
-  ContentfulComponent,
-  ContentfulComponents,
-} from '../../types/contentful-components'
+import { ContentfulComponent } from '../../types/contentful-components'
 import { ContentfulFieldDefinitions } from '../../types/contentful-field-definitions'
 import { ContentfulFields } from '../../types/contentful-fields'
-import { ContentSet } from './generate-contentful-components'
 import { mergeFields } from './merge-fields'
 
-interface ProcessWrComponents {
+interface ProcessWrComponent {
   componentName: string
-  components: ContentfulComponents
-  contentSet: ContentSet | undefined
   fieldDefinitions: ContentfulFieldDefinitions
   wheelroomComponent: WheelroomComponent
   wheelroomComponents: WheelroomComponents
 }
 
-export const processWrComponents = (context: ProcessWrComponents) => {
+export const processWrComponent = (context: ProcessWrComponent) => {
   const componentNameCases = getCases(context.componentName)
   const fields: ContentfulFields = {}
   // For each component, loop through all configured wheelroom fields
@@ -64,5 +58,5 @@ export const processWrComponents = (context: ProcessWrComponents) => {
     modelVersion: context.wheelroomComponent.modelVersion,
     type: componentNameCases.camelCase,
   }
-  context.components[context.componentName] = component
+  return component
 }

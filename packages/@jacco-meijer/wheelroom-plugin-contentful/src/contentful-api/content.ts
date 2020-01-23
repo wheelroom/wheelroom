@@ -1,7 +1,7 @@
 import { ContentfulField } from '../types/contentful-fields'
 import { Context } from '../types/context'
 
-const demoEntryPostfix = 'DemoEntry'
+// const demoEntryPostfix = 'DemoEntry'
 
 export const getFields = (context: Context, componentId: string) => {
   const component = context.contentfulComponents[componentId]
@@ -34,7 +34,7 @@ export const getFields = (context: Context, componentId: string) => {
                   (data: string) => {
                     return {
                       sys: {
-                        id: data + demoEntryPostfix,
+                        id: data, // + demoEntryPostfix,
                         linkType: 'Entry',
                         type: 'Link',
                       },
@@ -97,7 +97,7 @@ export const getFields = (context: Context, componentId: string) => {
               context.contentfulApi.fields[fieldId] = {
                 [context.pluginOptions.defaultLocale]: {
                   sys: {
-                    id: field.createContentData + demoEntryPostfix,
+                    id: field.createContentData, // + demoEntryPostfix,
                     linkType: 'Entry',
                     type: 'Link',
                   },
@@ -115,14 +115,13 @@ export const getFields = (context: Context, componentId: string) => {
 }
 
 export const getEntry = async (context: Context, componentId: string) => {
-  const component = context.contentfulComponents[componentId]
   console.log(`Getting entry`)
   try {
     context.contentfulApi.entry = await context.contentfulApi.environment.getEntry(
-      component.type + demoEntryPostfix
+      componentId
     )
   } catch (error) {
-    console.log(`Could not find entry ${component.type + demoEntryPostfix}`)
+    console.log(`Could not find entry ${componentId}`)
     context.contentfulApi.entry = null
   }
 }
@@ -145,7 +144,7 @@ export const createEntry = async (context: Context, componentId: string) => {
   console.log(`Creating new entry`)
   context.contentfulApi.entry = await context.contentfulApi.environment.createEntryWithId(
     component.type,
-    component.type + demoEntryPostfix,
+    componentId,
     {
       fields: context.contentfulApi.fields,
     }

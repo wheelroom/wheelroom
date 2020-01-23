@@ -67,5 +67,5 @@ type Model =
   | SubPageModelModel
 
 export interface ArgvContent {
-  [pageName: string]: Model
+  [componentId: string]: Model
 }

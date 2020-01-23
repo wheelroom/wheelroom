@@ -45,7 +45,7 @@ Object.entries(argvComponents).forEach(
 content += `${modelString}
 
 export interface ArgvContent {
-  [pageName: string]: Model
+  [componentId: string]: Model
 }
 `
 
