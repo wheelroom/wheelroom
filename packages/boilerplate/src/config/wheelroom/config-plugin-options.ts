@@ -5,6 +5,7 @@ import { templateSets as graphqlTemplates } from '../plugin-graphql/template-set
 export const configPluginOptions = [
   {
     options: {
+      // contentSets: argvContentSets,
       defaultLocale: 'nl',
       fieldDefinitions: contentfulFieldDefinitions,
     },
