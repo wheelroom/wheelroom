@@ -3,286 +3,6 @@
 exports[`Generate contentful components should match the sample set with a content set 1`] = `
 Array [
   Object {
-    "componentId": "anotherPage",
-    "description": "Page model",
-    "displayField": "title",
-    "fields": Object {
-      "heading": Object {
-        "createContentData": "Content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Heading",
-          "required": false,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-      "title": Object {
-        "createContentData": "Testing another page model",
-        "settings": Object {
-          "helpText": "Never displayed, only used for listing within Contentful",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Title",
-          "required": true,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-    },
-    "modelVersion": "1.0.0",
-    "type": "pageModel",
-  },
-  Object {
-    "componentId": "firstSectionA",
-    "description": "First section",
-    "displayField": "title",
-    "fields": Object {
-      "defaultField": Object {
-        "createContentData": "First content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Default field",
-          "required": false,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-      "title": Object {
-        "createContentData": "A - Testing first section model",
-        "settings": Object {
-          "helpText": "Never displayed, only used for listing within Contentful",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Title",
-          "required": true,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-    },
-    "modelVersion": "1.0.0",
-    "type": "firstSection",
-  },
-  Object {
-    "componentId": "firstSectionB",
-    "description": "First section",
-    "displayField": "title",
-    "fields": Object {
-      "defaultField": Object {
-        "createContentData": "Second content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Default field",
-          "required": false,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-      "title": Object {
-        "createContentData": "B - Testing first section model",
-        "settings": Object {
-          "helpText": "Never displayed, only used for listing within Contentful",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Title",
-          "required": true,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-    },
-    "modelVersion": "1.0.0",
-    "type": "firstSection",
-  },
-  Object {
-    "componentId": "firstSectionC",
-    "description": "First section",
-    "displayField": "title",
-    "fields": Object {
-      "defaultField": Object {
-        "createContentData": "Third content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Default field",
-          "required": false,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-      "title": Object {
-        "createContentData": "C - Testing first section model",
-        "settings": Object {
-          "helpText": "Never displayed, only used for listing within Contentful",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Title",
-          "required": true,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-    },
-    "modelVersion": "1.0.0",
-    "type": "firstSection",
-  },
-  Object {
-    "componentId": "globals",
-    "description": "Global model",
-    "displayField": "title",
-    "fields": Object {
-      "heading": Object {
-        "createContentData": "Content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Heading",
-          "required": false,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-      "title": Object {
-        "createContentData": "Testing global model",
-        "settings": Object {
-          "helpText": "Never displayed, only used for listing within Contentful",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Title",
-          "required": true,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-    },
-    "modelVersion": "1.0.0",
-    "type": "globalModel",
-  },
-  Object {
-    "componentId": "noFragment",
-    "description": "No fragment",
-    "displayField": "title",
-    "fields": Object {
-      "heading": Object {
-        "createContentData": "Content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Heading",
-          "required": false,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-      "title": Object {
-        "createContentData": "Testing no fragment model",
-        "settings": Object {
-          "helpText": "Never displayed, only used for listing within Contentful",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Title",
-          "required": true,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-    },
-    "modelVersion": "1.0.0",
-    "type": "noFragment",
-  },
-  Object {
-    "componentId": "secondSection",
-    "description": "Second section",
-    "displayField": "title",
-    "fields": Object {
-      "heading": Object {
-        "createContentData": "Content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Heading",
-          "required": false,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-      "title": Object {
-        "createContentData": "testing second section model",
-        "settings": Object {
-          "helpText": "Never displayed, only used for listing within Contentful",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Title",
-          "required": true,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-    },
-    "modelVersion": "1.0.0",
-    "type": "secondSection",
-  },
-  Object {
-    "componentId": "someSubPage",
-    "description": "Sub page model",
-    "displayField": "title",
-    "fields": Object {
-      "heading": Object {
-        "createContentData": "Content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Heading",
-          "required": false,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-      "title": Object {
-        "createContentData": "Testing some sub page",
-        "settings": Object {
-          "helpText": "Never displayed, only used for listing within Contentful",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Title",
-          "required": true,
-          "type": "Symbol",
-        },
-        "widgetId": "singleLine",
-      },
-    },
-    "modelVersion": "1.0.0",
-    "type": "subPageModel",
-  },
-  Object {
     "componentId": "allFieldTypesPage1",
     "description": "All field types",
     "displayField": "title",
@@ -750,18 +470,48 @@ Array [
     "modelVersion": "1.0.0",
     "type": "allFieldTypes",
   },
-]
-`;
-
-exports[`Generate contentful components should match the sample set without content 1`] = `
-Array [
   Object {
-    "componentId": "firstSection",
+    "componentId": "anotherPage",
+    "description": "Page model",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Testing another page model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "pageModel",
+  },
+  Object {
+    "componentId": "firstSectionA",
     "description": "First section",
     "displayField": "title",
     "fields": Object {
       "defaultField": Object {
-        "createContentData": undefined,
+        "createContentData": "First content for testing this field",
         "settings": Object {
           "helpText": "",
         },
@@ -774,7 +524,7 @@ Array [
         "widgetId": "singleLine",
       },
       "title": Object {
-        "createContentData": "First section generated from boilerplate",
+        "createContentData": "A - Testing first section model",
         "settings": Object {
           "helpText": "Never displayed, only used for listing within Contentful",
         },
@@ -791,12 +541,82 @@ Array [
     "type": "firstSection",
   },
   Object {
-    "componentId": "globalModel",
+    "componentId": "firstSectionB",
+    "description": "First section",
+    "displayField": "title",
+    "fields": Object {
+      "defaultField": Object {
+        "createContentData": "Second content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Default field",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "B - Testing first section model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "firstSection",
+  },
+  Object {
+    "componentId": "firstSectionC",
+    "description": "First section",
+    "displayField": "title",
+    "fields": Object {
+      "defaultField": Object {
+        "createContentData": "Third content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Default field",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "C - Testing first section model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "firstSection",
+  },
+  Object {
+    "componentId": "globals",
     "description": "Global model",
     "displayField": "title",
     "fields": Object {
       "heading": Object {
-        "createContentData": undefined,
+        "createContentData": "Content for testing this field",
         "settings": Object {
           "helpText": "",
         },
@@ -809,7 +629,7 @@ Array [
         "widgetId": "singleLine",
       },
       "title": Object {
-        "createContentData": "Global model generated from boilerplate",
+        "createContentData": "Testing global model",
         "settings": Object {
           "helpText": "Never displayed, only used for listing within Contentful",
         },
@@ -831,7 +651,7 @@ Array [
     "displayField": "title",
     "fields": Object {
       "heading": Object {
-        "createContentData": undefined,
+        "createContentData": "Content for testing this field",
         "settings": Object {
           "helpText": "",
         },
@@ -844,7 +664,7 @@ Array [
         "widgetId": "singleLine",
       },
       "title": Object {
-        "createContentData": "No fragment generated from boilerplate",
+        "createContentData": "Testing no fragment model",
         "settings": Object {
           "helpText": "Never displayed, only used for listing within Contentful",
         },
@@ -861,8 +681,83 @@ Array [
     "type": "noFragment",
   },
   Object {
-    "componentId": "pageModel",
-    "description": "Page model",
+    "componentId": "secondSection",
+    "description": "Second section",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "testing second section model",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "secondSection",
+  },
+  Object {
+    "componentId": "someSubPage",
+    "description": "Sub page model",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Testing some sub page",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "subPageModel",
+  },
+]
+`;
+
+exports[`Generate contentful components should match the sample set without content 1`] = `
+Array [
+  Object {
+    "componentId": "subPageModel",
+    "description": "Sub page model",
     "displayField": "title",
     "fields": Object {
       "heading": Object {
@@ -879,7 +774,7 @@ Array [
         "widgetId": "singleLine",
       },
       "title": Object {
-        "createContentData": "Page model generated from boilerplate",
+        "createContentData": "Sub page model generated from boilerplate",
         "settings": Object {
           "helpText": "Never displayed, only used for listing within Contentful",
         },
@@ -893,7 +788,7 @@ Array [
       },
     },
     "modelVersion": "1.0.0",
-    "type": "pageModel",
+    "type": "subPageModel",
   },
   Object {
     "componentId": "secondSection",
@@ -931,8 +826,8 @@ Array [
     "type": "secondSection",
   },
   Object {
-    "componentId": "subPageModel",
-    "description": "Sub page model",
+    "componentId": "pageModel",
+    "description": "Page model",
     "displayField": "title",
     "fields": Object {
       "heading": Object {
@@ -949,7 +844,7 @@ Array [
         "widgetId": "singleLine",
       },
       "title": Object {
-        "createContentData": "Sub page model generated from boilerplate",
+        "createContentData": "Page model generated from boilerplate",
         "settings": Object {
           "helpText": "Never displayed, only used for listing within Contentful",
         },
@@ -963,7 +858,112 @@ Array [
       },
     },
     "modelVersion": "1.0.0",
-    "type": "subPageModel",
+    "type": "pageModel",
+  },
+  Object {
+    "componentId": "noFragment",
+    "description": "No fragment",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": undefined,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "No fragment generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "noFragment",
+  },
+  Object {
+    "componentId": "globalModel",
+    "description": "Global model",
+    "displayField": "title",
+    "fields": Object {
+      "heading": Object {
+        "createContentData": undefined,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Heading",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "Global model generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "globalModel",
+  },
+  Object {
+    "componentId": "firstSection",
+    "description": "First section",
+    "displayField": "title",
+    "fields": Object {
+      "defaultField": Object {
+        "createContentData": undefined,
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Default field",
+          "required": false,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+      "title": Object {
+        "createContentData": "First section generated from boilerplate",
+        "settings": Object {
+          "helpText": "Never displayed, only used for listing within Contentful",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Title",
+          "required": true,
+          "type": "Symbol",
+        },
+        "widgetId": "singleLine",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "type": "firstSection",
   },
   Object {
     "componentId": "allFieldTypes",
