@@ -17,8 +17,8 @@ export const contentSetFromComponents = (
   Object.entries(wrComponents).forEach(
     ([componentName, wrComponent]: [string, WheelroomComponent]) => {
       const content: ContentfulContent = {
-        allowedComponents: [],
         componentId: componentName,
+        dependsOnModels: [],
         fields: {},
         model: componentName,
       }
@@ -26,9 +26,9 @@ export const contentSetFromComponents = (
         ([fieldName, field]: [string, FieldType]) => {
           if ('allowedComponents' in field) {
             if (Array.isArray(field.allowedComponents)) {
-              content.allowedComponents.push(...field.allowedComponents)
+              content.dependsOnModels.push(...field.allowedComponents)
             } else {
-              content.allowedComponents.push(field.allowedComponents)
+              content.dependsOnModels.push(field.allowedComponents)
             }
           }
           content.fields[fieldName] = {

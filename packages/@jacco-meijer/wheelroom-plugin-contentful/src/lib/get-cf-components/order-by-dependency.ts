@@ -4,7 +4,7 @@ import {
 } from '../../types/content-set'
 
 const compare = (contentA: ContentfulContent, contentB: ContentfulContent) => {
-  if (contentA.allowedComponents.includes(contentB.model)) {
+  if (contentA.dependsOnModels.includes(contentB.model)) {
     return 1
   } else {
     return -1
