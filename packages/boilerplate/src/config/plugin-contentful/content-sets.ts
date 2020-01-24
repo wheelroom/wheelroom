@@ -6,11 +6,11 @@
 
 import { ContentTypes } from './content-types'
 
-export interface ArgvContentSets {
+export interface ContentSets {
   [contentSetName: string]: ContentTypes
 }
 
-export const argvContentSets: ArgvContentSets = {
+export const contentSets: ContentSets = {
   boilerplate: {
     footerSection: {
       fields: {
