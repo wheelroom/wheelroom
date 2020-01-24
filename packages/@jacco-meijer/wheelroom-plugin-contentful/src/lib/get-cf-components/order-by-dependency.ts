@@ -12,7 +12,5 @@ const compare = (contentA: ContentfulContent, contentB: ContentfulContent) => {
 }
 
 export const orderByDependency = (cfContentSet: ContentfulContentSet): void => {
-  console.log('sort BEFORE', cfContentSet)
   cfContentSet.sort(compare)
-  console.log('sort AFTER', cfContentSet)
 }
