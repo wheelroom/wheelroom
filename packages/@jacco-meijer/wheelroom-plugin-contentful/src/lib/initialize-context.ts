@@ -15,7 +15,18 @@ export const initializeContext = async (argv: any) => {
     pluginOptions.contentSets &&
     argv.contentSet in pluginOptions.contentSets
   ) {
+    console.log(`Using content set ${argv.contentSet}`)
     contentSet = pluginOptions.contentSets[argv.contentSet]
+  } else {
+    if (argv.contentSet) {
+      console.log(
+        `Could not find content set ${argv.contentSet}, creating one entry for every model`
+      )
+    } else {
+      console.log(
+        `Content set argument not present, creating one entry for every model`
+      )
+    }
   }
 
   const context: Context = {
