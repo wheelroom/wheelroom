@@ -16,15 +16,24 @@ export const contentSetFromContentSet = (
   Object.entries(wrContentSet).forEach(
     ([componentId, wrContent]: [string, WheelroomContent]) => {
       const content: ContentfulContent = {
+        allowedComponents: [],
         componentId,
         fields: {},
         model: wrContent.model,
       }
       Object.entries(wrContent.fields).forEach(
         ([fieldName, initialContent]: [string, string]) => {
+          const wrField = wrComponents[wrContent.model].fields[fieldName]
+          if ('allowedComponents' in wrField) {
+            if (Array.isArray(wrField.allowedComponents)) {
+              content.allowedComponents.push(...wrField.allowedComponents)
+            } else {
+              content.allowedComponents.push(wrField.allowedComponents)
+            }
+          }
           content.fields[fieldName] = {
             initialContent,
-            type: wrComponents[wrContent.model].fields[fieldName].type,
+            type: wrField.type,
           } as ContentfulContentField
         }
       )

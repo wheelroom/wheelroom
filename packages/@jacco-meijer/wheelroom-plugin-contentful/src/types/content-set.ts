@@ -18,6 +18,8 @@ export interface ContentfulContentField {
 
 /** Data in flat structure with field type added so that it can be sorted */
 export interface ContentfulContent {
+  /** Componets this model is linking to. For the best creation order */
+  allowedComponents: string[]
   componentId: string
   model: string
   fields: {
