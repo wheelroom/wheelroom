@@ -10,14 +10,22 @@ export const initializeContext = async (argv: any) => {
   const wheelroomComponents = getFilteredComponents(argv)
 
   let contentSet: WheelroomContentSet | undefined
+  let setNamesAvailable
+
   if (
-    argv.contentSet &&
     pluginOptions.contentSets &&
     argv.contentSet in pluginOptions.contentSets
   ) {
+    setNamesAvailable = Object.keys(pluginOptions.contentSets).join('/')
+  }
+
+  if (argv.contentSet && setNamesAvailable) {
     console.log(`Using content set ${argv.contentSet}`)
     contentSet = pluginOptions.contentSets[argv.contentSet]
   } else {
+    if (setNamesAvailable) {
+      console.log('Available content sets:', setNamesAvailable)
+    }
     if (argv.contentSet) {
       console.log(
         `Could not find content set ${argv.contentSet}, creating one entry for every model`
@@ -28,7 +36,6 @@ export const initializeContext = async (argv: any) => {
       )
     }
   }
-
   const context: Context = {
     commandLineOptions: {
       contentSet: argv.contentSet,
