@@ -4,8 +4,16 @@ import { componentIndex } from './component-index'
 import { componentInterfaceOnly } from './component-interface-only'
 import { componentReadme } from './component-readme'
 import { componentVariation } from './component-variation'
+import { contentTypes } from './content-types'
 
 export const templateSets: TemplateSets = {
+  contentTypes: {
+    contentTypes: {
+      filterComponentSetting: 'asBoilerplate',
+      path: 'src/config/plugin-contentful/content-types.ts',
+      template: contentTypes,
+    },
+  },
   react: {
     component: {
       filterComponentSetting: 'asBoilerplate',

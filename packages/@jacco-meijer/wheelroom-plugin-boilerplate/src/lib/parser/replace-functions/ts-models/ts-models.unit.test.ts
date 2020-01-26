@@ -11,7 +11,6 @@ describe('The boilerplate parser should parse', () => {
 
     expect(result).toStrictEqual(`    interface ComponentA {
       fields: {
-        __typename: string
         someText: string
         title: string
       }
@@ -19,7 +18,6 @@ describe('The boilerplate parser should parse', () => {
     }
     interface ComponentB {
       fields: {
-        __typename: string
         someText: string
         title: string
       }

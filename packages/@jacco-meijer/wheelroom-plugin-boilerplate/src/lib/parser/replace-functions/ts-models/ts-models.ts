@@ -36,6 +36,7 @@ ${indentString}  fields: {
               component,
               componentName,
               params: Object.assign({}, params, { indent: fieldsIndent }),
+              skipFields: ['__typename'],
             })
             result += `${reactProps}\n`
             result += `${indentString}  }\n`

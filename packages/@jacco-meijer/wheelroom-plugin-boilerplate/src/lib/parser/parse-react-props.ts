@@ -27,6 +27,7 @@ interface ParseReactProps {
   params: {
     [name: string]: string
   }
+  skipFields?: string[]
 }
 
 export const parseReactProps = (context: ParseReactProps): string => {
@@ -35,6 +36,14 @@ export const parseReactProps = (context: ParseReactProps): string => {
     : 0
   const indentString = Array(indentLevel + 1).join(' ')
   const reactProps = Object.entries(context.component.fields)
+    .filter(([fieldName, field]: [string, FieldType]) => {
+      if (Array.isArray(context.skipFields)) {
+        return context.skipFields.includes(fieldName) ? false : true
+      } else {
+        // If no filter present, include all
+        return true
+      }
+    })
     .map(([fieldName, field]: [string, FieldType]) => {
       const parser = createParser({
         componentName: context.componentName,
