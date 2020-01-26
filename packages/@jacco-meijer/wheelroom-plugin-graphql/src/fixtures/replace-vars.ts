@@ -135,56 +135,9 @@ const featuredPageSection: ReplaceVars = {
   components,
 }
 
-const articleQueryUnparsed = `
-export const query = \`
-%componentQuery(prefix:allContentful, indent:0)%
-\``
-export const articleQueryInput = {
-  replaceVars: article,
-  unparsed: articleQueryUnparsed,
-}
-
-const articlesSectionQueryUnparsed = `
-export const query = \`
-%componentQuery(prefix:allContentful, indent:0)%
-\``
-export const articlesSectionQueryInput = {
-  replaceVars: articlesSection,
-  unparsed: articlesSectionQueryUnparsed,
-}
-
-const featuredPageSectionQueryUnparsed = `
-export const query = \`
-%componentQuery(prefix:allContentful, indent:0)%
-\``
-export const featuredPageSectionQueryInput = {
-  replaceVars: featuredPageSection,
-  unparsed: featuredPageSectionQueryUnparsed,
-}
-
-const articleFragmentUnparsed = `
-export const fragment = \`
-%componentFragment(prefix:Contentful, indent:2)%
-\``
-export const articleFragmentInput = {
-  replaceVars: article,
-  unparsed: articleFragmentUnparsed,
-}
-
-const articlesSectionFragmentUnparsed = `
-export const fragment = \`
-%componentFragment(prefix:Contentful, indent:2)%
-\``
-export const articlesSectionFragmentInput = {
-  replaceVars: articlesSection,
-  unparsed: articlesSectionFragmentUnparsed,
-}
-
-const featuredPageSectionFragmentUnparsed = `
-export const fragment = \`
-%componentFragment(prefix:Contentful, indent:2)%
-\``
-export const featuredPageSectionFragmentInput = {
-  replaceVars: featuredPageSection,
-  unparsed: featuredPageSectionFragmentUnparsed,
+export const replaceVars = {
+  article,
+  articlesSection,
+  components,
+  featuredPageSection,
 }
