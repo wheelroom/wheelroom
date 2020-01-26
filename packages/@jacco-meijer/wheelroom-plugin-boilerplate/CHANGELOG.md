@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.7...@jacco-meijer/wheelroom-plugin-boilerplate@2.3.0) (2020-01-26)
+
+
+### Features
+
+* %tsModels% and %tsModelTypes% ([0dc1f16](https://github.com/jaccomeijer/wheelroom/commit/0dc1f1639ce83103e9b67a38135a3245052bb3f7))
+
+
+
+
+
 ## [2.2.7](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.6...@jacco-meijer/wheelroom-plugin-boilerplate@2.2.7) (2020-01-22)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate

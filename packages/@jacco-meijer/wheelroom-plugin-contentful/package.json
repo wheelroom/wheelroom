@@ -16,7 +16,7 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/wheelroom": "^3.3.0",
+    "@jacco-meijer/wheelroom": "^3.3.1",
     "camelcase": "5.3.1",
     "contentful-management": "5.12.0",
     "dotenv": "8.2.0",
@@ -80,6 +80,6 @@
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "gitHead": "a93d512ea3e59fbea59483e106cacf39162c1a9b"
 }
