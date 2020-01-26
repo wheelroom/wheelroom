@@ -6,7 +6,7 @@ jest.setTimeout(10000)
 describe('The boilerplate parser should parse', () => {
   const parser = createParser(replaceVars)
   parser.addReplaceFunctions(variationImportListFunc)
-  test('variable: %variation-import-list%', async () => {
+  test('variable: %variationImportList%', async () => {
     const result = parser.parse('%variationImportList%')
 
     expect(result).toStrictEqual(

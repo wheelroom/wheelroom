@@ -52,7 +52,7 @@ const getFileList = (context: GetFileListContext): WriteFileList => {
 // Loop components of a single tempalte, parse and return file list
 const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
   const fileList: WriteFileList = []
-  const parser = createParser({})
+  const parser = createParser({ components: context.wheelroomComponents })
   parser.addReplaceFunctions([...replaceFunctions, ...localReplaceFunction])
 
   Object.entries(context.wheelroomComponents)
@@ -70,7 +70,6 @@ const getFileListForTemplate = (context: GetFileListContext): WriteFileList => {
       parser.updateVars({
         component,
         componentName,
-        components: context.wheelroomComponents,
         singleVariationName,
       })
       const unparsedPath = context.templateDefinition!.path

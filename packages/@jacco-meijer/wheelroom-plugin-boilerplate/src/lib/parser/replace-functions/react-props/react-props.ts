@@ -9,7 +9,7 @@
 
 import { ReplaceFunctionsList, ReplaceParams } from '@jacco-meijer/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
-import { parseReactProps } from './parse-react-props'
+import { parseReactProps } from '../../parse-react-props'
 
 export const reactPropsFunc: ReplaceFunctionsList = [
   {
