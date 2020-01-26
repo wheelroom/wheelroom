@@ -1,6 +1,6 @@
-import { ReplaceVarsExt } from '../../../types/parser'
+import { ReplaceVarsExt } from '../types/parser'
 
-const replaceVars: ReplaceVarsExt = {
+export const replaceVars: ReplaceVarsExt = {
   component: {
     fields: {
       __typename: {
@@ -27,29 +27,5 @@ const replaceVars: ReplaceVarsExt = {
     },
   },
   componentName: 'exampleBlock',
-  singleVariationName: 'testing-single',
-}
-
-const unparsed = `
-This is a test %variationName%
-With a capital %VariationName%
-
-And some things that need to be indented: {
-%reactProps(indent:2)%
-}
-
-    And some other things that need to be indented: {
-%variationList(indent:6)%
-    }
-
-  And smore indenting: {
-%reactProps(indent:4)%
-  }
-
-<Element %componentHtmlAttributes%
-`
-
-export const input = {
-  replaceVars,
-  unparsed,
+  singleVariationName: 'testingSingle',
 }
