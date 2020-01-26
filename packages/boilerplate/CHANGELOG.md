@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.9](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.2.8...boilerplate@4.2.9) (2020-01-26)
+
+
+### Bug Fixes
+
+* ignore __typename ([37cd3a1](https://github.com/jaccomeijer/wheelroom/commit/37cd3a176b38c5abc86f9b7f1b4b4bf204763759))
+
+
+
+
+
 ## [4.2.8](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.2.7...boilerplate@4.2.8) (2020-01-26)
 
 **Note:** Version bump only for package boilerplate

@@ -9,7 +9,7 @@
     "@emotion/core": "10.0.27",
     "@jacco-meijer/styled-system": "3.0.3",
     "@jacco-meijer/wheelroom": "^3.3.1",
-    "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.3.0",
+    "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.4.0",
     "@jacco-meijer/wheelroom-plugin-contentful": "^2.5.1",
     "@jacco-meijer/wheelroom-plugin-graphql": "^2.1.11",
     "camelcase": "5.3.1",
@@ -87,5 +87,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "4.2.8"
+  "version": "4.2.9"
 }
