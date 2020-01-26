@@ -4,7 +4,6 @@
  *
  */
 
-import { FluidImage } from '../../views/image/image'
 import { ContentTypes } from './content-types'
 
 export interface ContentSets {
@@ -57,8 +56,8 @@ export const contentSets: ContentSets = {
       fields: {
         boxBackgroundColor: 'any',
         heading: 'any',
-        image: {} as FluidImage,
-        infoText: { infoText: 'any' },
+        image: true,
+        infoText: '',
         mainNavigation: 'any',
         title: '',
         variation: 'any',
@@ -69,13 +68,13 @@ export const contentSets: ContentSets = {
       fields: {
         listItemHeading: 'any',
         listItemHiddenText: 'any',
-        listItemImage: {} as FluidImage,
-        listItemInfoText: { listItemInfoText: 'any' },
+        listItemImage: true,
+        listItemInfoText: '',
         listItemView: 'any',
         navigationHeading: 'any',
         pageHeading: 'any',
-        pageImage: {} as FluidImage,
-        pageInfoText: { pageInfoText: 'any' },
+        pageImage: true,
+        pageInfoText: '',
         path: 'any',
         pathName: 'any',
         sections: 'any',
@@ -87,10 +86,10 @@ export const contentSets: ContentSets = {
     },
     quote: {
       fields: {
-        avatar: {} as FluidImage,
+        avatar: true,
         heading: 'any',
         subHeading: 'any',
-        text: { text: 'any' },
+        text: '',
         title: '',
       },
       model: 'quoteSection',
@@ -106,7 +105,7 @@ export const contentSets: ContentSets = {
     },
     text: {
       fields: {
-        text: { text: 'any' },
+        text: '',
         title: '',
       },
       model: 'textSection',
