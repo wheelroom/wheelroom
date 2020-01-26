@@ -1,93 +1,114 @@
-interface FooterSectionModel {
+import { FluidImage } from '../../views/image/image'
+
+interface FooterSection {
   fields: {
-    backgroundColor: any
+    backgroundColor: string
     footerNavigation: any
+    title: string
   }
   model: 'footerSection'
 }
-interface GlobalsModel {
+interface Globals {
   fields: {
-    addressLine1: any
-    addressLine2: any
-    emailAddress: any
-    linkedinUrl?: any
-    phoneNumber?: any
-    siteAuthor?: any
-    siteDescription?: any
-    siteHeading: any
-    siteKeywords?: any
-    siteTitle?: any
+    addressLine1: string
+    addressLine2: string
+    emailAddress: string
+    linkedinUrl: string
+    phoneNumber: string
+    siteAuthor: string
+    siteDescription: string
+    siteHeading: string
+    siteKeywords: string[]
+    siteTitle: string
+    title: string
   }
   model: 'globals'
 }
-interface ListSectionModel {
+interface ListSection {
   fields: {
-    heading: any
+    heading: string
     listItems: any
-    variation: any
+    variation: string
+    title: string
   }
   model: 'listSection'
 }
-interface NavigationModel {
+interface Navigation {
   fields: {
     routes: any
+    title: string
   }
   model: 'navigation'
 }
-interface OpenerSectionModel {
+interface OpenerSection {
   fields: {
-    boxBackgroundColor?: any
-    heading?: any
-    image?: any
-    infoText?: any
+    boxBackgroundColor: string
+    heading: string
+    image: FluidImage
+    infoText: {
+      infoText: string
+    }
     mainNavigation: any
-    variation: any
+    variation: string
+    title: string
   }
   model: 'openerSection'
 }
-interface PageModel {
+interface Page {
   fields: {
-    listItemHeading?: any
-    listItemHiddenText?: any
-    listItemImage?: any
-    listItemInfoText?: any
-    listItemView?: any
-    navigationHeading?: any
-    pageHeading: any
-    pageImage: any
-    pageInfoText: any
-    path: any
-    pathName: any
+    listItemHeading: string
+    listItemHiddenText: string
+    listItemImage: FluidImage
+    listItemInfoText: {
+      listItemInfoText: string
+    }
+    listItemView: string
+    navigationHeading: string
+    pageHeading: string
+    pageImage: FluidImage
+    pageInfoText: {
+      pageInfoText: string
+    }
+    path: string
+    pathName: string
     sections: any
-    seoDescription: any
-    seoTitle: any
+    seoDescription: string
+    seoTitle: string
+    title: string
   }
   model: 'page'
 }
-interface QuoteSectionModel {
+interface QuoteSection {
   fields: {
-    avatar?: any
-    heading: any
-    subHeading?: any
-    text: any
+    avatar: FluidImage
+    heading: string
+    subHeading: string
+    text: {
+      text: string
+    }
+    title: string
   }
   model: 'quoteSection'
 }
-interface TextSectionModel {
+interface TextSection {
   fields: {
-    text: any
+    text: {
+      text: string
+    }
+    title: string
   }
   model: 'textSection'
 }
+
 type Model =
-  | FooterSectionModel
-  | GlobalsModel
-  | ListSectionModel
-  | NavigationModel
-  | OpenerSectionModel
-  | PageModel
-  | QuoteSectionModel
-  | TextSectionModel
+  | FooterSection
+  | Globals
+  | ListSection
+  | Navigation
+  | OpenerSection
+  | Page
+  | QuoteSection
+  | TextSection
 
 export interface ContentTypes {
   [componentId: string]: Model

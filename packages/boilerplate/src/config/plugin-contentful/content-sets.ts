@@ -4,6 +4,7 @@
  *
  */
 
+import { FluidImage } from '../../views/image/image'
 import { ContentTypes } from './content-types'
 
 export interface ContentSets {
@@ -15,7 +16,8 @@ export const contentSets: ContentSets = {
     footerSection: {
       fields: {
         backgroundColor: 'blue',
-        footerNavigation: 'any',
+        footerNavigation: [],
+        title: '',
       },
       model: 'footerSection',
     },
@@ -29,8 +31,9 @@ export const contentSets: ContentSets = {
         siteAuthor: 'any',
         siteDescription: 'any',
         siteHeading: 'any',
-        siteKeywords: 'any',
+        siteKeywords: ['any'],
         siteTitle: 'any',
+        title: '',
       },
       model: 'globals',
     },
@@ -38,6 +41,7 @@ export const contentSets: ContentSets = {
       fields: {
         heading: 'any',
         listItems: 'any',
+        title: '',
         variation: 'any',
       },
       model: 'listSection',
@@ -45,6 +49,7 @@ export const contentSets: ContentSets = {
     navigation: {
       fields: {
         routes: 'any',
+        title: '',
       },
       model: 'navigation',
     },
@@ -52,9 +57,10 @@ export const contentSets: ContentSets = {
       fields: {
         boxBackgroundColor: 'any',
         heading: 'any',
-        image: 'any',
-        infoText: 'any',
+        image: {} as FluidImage,
+        infoText: { infoText: 'any' },
         mainNavigation: 'any',
+        title: '',
         variation: 'any',
       },
       model: 'openerSection',
@@ -63,27 +69,29 @@ export const contentSets: ContentSets = {
       fields: {
         listItemHeading: 'any',
         listItemHiddenText: 'any',
-        listItemImage: 'any',
-        listItemInfoText: 'any',
+        listItemImage: {} as FluidImage,
+        listItemInfoText: { listItemInfoText: 'any' },
         listItemView: 'any',
         navigationHeading: 'any',
         pageHeading: 'any',
-        pageImage: 'any',
-        pageInfoText: 'any',
+        pageImage: {} as FluidImage,
+        pageInfoText: { pageInfoText: 'any' },
         path: 'any',
         pathName: 'any',
         sections: 'any',
         seoDescription: 'any',
         seoTitle: 'any',
+        title: '',
       },
       model: 'page',
     },
     quote: {
       fields: {
-        avatar: 'any',
+        avatar: {} as FluidImage,
         heading: 'any',
         subHeading: 'any',
-        text: 'any',
+        text: { text: 'any' },
+        title: '',
       },
       model: 'quoteSection',
     },
@@ -91,13 +99,15 @@ export const contentSets: ContentSets = {
       fields: {
         heading: 'any',
         listItems: 'any',
+        title: '',
         variation: 'any',
       },
       model: 'listSection',
     },
     text: {
       fields: {
-        text: 'any',
+        text: { text: 'any' },
+        title: '',
       },
       model: 'textSection',
     },
