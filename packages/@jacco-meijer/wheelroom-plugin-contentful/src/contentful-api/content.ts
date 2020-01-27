@@ -1,12 +1,16 @@
+// tslint:disable-next-line: no-var-requires
+const richTextFromMarkdown = require('@contentful/rich-text-from-markdown')
+  .richTextFromMarkdown
 import { ContentfulComponent } from '../types/contentful-components'
 import { ContentfulField } from '../types/contentful-fields'
 import { Context } from '../types/context'
 
-// const demoEntryPostfix = 'DemoEntry'
-
-export const getFields = (context: Context, component: ContentfulComponent) => {
+export const getFields = async (
+  context: Context,
+  component: ContentfulComponent
+) => {
   Object.entries(component.fields).forEach(
-    ([fieldId, field]: [string, ContentfulField]) => {
+    async ([fieldId, field]: [string, ContentfulField]) => {
       if (!field.createContentData && field.specs.required) {
         console.log(`Field ${fieldId} is required but has no createContentData`)
       }
@@ -57,25 +61,9 @@ export const getFields = (context: Context, component: ContentfulComponent) => {
           break
 
         case 'RichText':
+          const document = await richTextFromMarkdown(field.createContentData)
           context.contentfulApi.fields[fieldId] = {
-            [context.pluginOptions.defaultLocale]: {
-              content: [
-                {
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      nodeType: 'text',
-                      value: field.createContentData,
-                    },
-                  ],
-                  data: {},
-                  nodeType: 'paragraph',
-                },
-              ],
-              data: {},
-              nodeType: 'document',
-            },
+            [context.pluginOptions.defaultLocale]: document,
           }
           break
 
