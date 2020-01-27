@@ -84,7 +84,7 @@ export const contentSets: ContentSets = {
         listItemInfoText:
           'Onze producten zijn biologisch, harmonisch en zeer interessant.',
         listItemView: 'full image',
-        navigationHeading: 'home',
+        navigationHeading: 'product',
         pageHeading:
           'Een product in economische zin is een tastbare zaak met een bepaalde waarde.',
         pageImage: true,
@@ -109,7 +109,7 @@ export const contentSets: ContentSets = {
     productOpener: {
       fields: {
         boxBackgroundColor: 'mint',
-        heading: 'any',
+        heading: 'Onze producten bevatten alles voor een zomerse dag',
         image: true,
         infoText: '',
         mainNavigation: 'openerNavigatie',
@@ -126,7 +126,7 @@ export const contentSets: ContentSets = {
         listItemInfoText:
           'Waarom zijn we hier, wat we doen, onzie visie en onze passie.',
         listItemView: 'green bottom',
-        navigationHeading: 'home',
+        navigationHeading: 'achtergrond',
         pageHeading:
           'Op dit moment is er maar één gemeente in Nederland zonder achtergrond.',
         pageImage: true,
@@ -150,7 +150,7 @@ export const contentSets: ContentSets = {
     backgroundOpener: {
       fields: {
         boxBackgroundColor: 'mint',
-        heading: 'any',
+        heading: 'Ooit was er geen merknaam. Vandaag gelukkig wel.',
         image: true,
         infoText: '',
         mainNavigation: 'openerNavigatie',
@@ -166,7 +166,7 @@ export const contentSets: ContentSets = {
         listItemImage: true,
         listItemInfoText: 'Hoe je ons kunt bellen, e-mailen en faxen.',
         listItemView: 'full image',
-        navigationHeading: 'home',
+        navigationHeading: 'contact',
         pageHeading: 'Contact?',
         pageImage: true,
         pageInfoText:
@@ -190,7 +190,7 @@ export const contentSets: ContentSets = {
     contactOpener: {
       fields: {
         boxBackgroundColor: 'green',
-        heading: 'any',
+        heading: 'Met communicatie meer bereik',
         image: true,
         infoText: '',
         mainNavigation: 'openerNavigatie',
@@ -272,7 +272,7 @@ export const contentSets: ContentSets = {
     },
     endOfPageLinks: {
       fields: {
-        heading: 'any',
+        heading: 'Kijk ook eens hier',
         listItems: ['homePage'],
         title: 'Einde pagina referenties',
         variation: 'large items',

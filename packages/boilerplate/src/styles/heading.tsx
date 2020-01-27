@@ -1,7 +1,7 @@
 export const heading0Style = {
   color: 'darkGrey',
   fontFamily: 'heading',
-  fontSize: [7, 8, 9, 10],
+  fontSize: [10, 11, 12, 13],
   fontWeight: 5,
   lineHeight: [3, 3, 4, 4],
 }
