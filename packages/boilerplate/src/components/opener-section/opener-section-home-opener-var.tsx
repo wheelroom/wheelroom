@@ -8,13 +8,17 @@
 
 import React from 'react'
 
+import { Box, Flex } from '../../views/core-elements/grid'
 import { OpenerSectionProps } from './opener-section'
 
 export const OpenerSectionHomeOpenerVar = (props: OpenerSectionProps) => {
   return (
-    <div>
+    <Flex>
       <h2>OpenerSectionHomeOpenerVar</h2>
-      <p>Hello world</p>
-    </div>
+      <Flex ncss={{ bg: 'blue' }}>
+        <Box ncss={{ w: [1, 1 / 2] }}>Heading</Box>
+        <Box ncss={{ w: [1, 1 / 2] }}>{props.heading}</Box>
+      </Flex>
+    </Flex>
   )
 }
