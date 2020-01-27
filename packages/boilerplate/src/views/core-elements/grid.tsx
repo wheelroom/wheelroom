@@ -27,7 +27,7 @@ export const Container = (props: any) => {
   return (
     <div
       css={emotionCss({
-        ncss: { mx: 'auto', maxWidth: '1024px', ...props.ncss },
+        ncss: { mx: 'auto', maxWidth: '1200px', ...props.ncss },
       })}
       children={props.children}
     />
