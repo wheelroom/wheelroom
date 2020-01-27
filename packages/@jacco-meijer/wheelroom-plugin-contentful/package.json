@@ -16,6 +16,7 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
+    "@contentful/rich-text-from-markdown": "13.4.0",
     "@jacco-meijer/wheelroom": "^3.3.2",
     "camelcase": "5.3.1",
     "contentful-management": "5.12.0",

@@ -226,7 +226,7 @@ export const contentSets: ContentSets = {
     merkarchitectuurText: {
       fields: {
         text:
-          "De verschillende merken van een onderneming vormen wat de merkarchitectuur (Engels: 'brand architecture') wordt genoemd. Soms hebben die merken ook wat betreft de naam een duidelijke relatie. McDonald's gebruikt bijvoorbeeld voor verschillende producten het voorvoegsel 'Mc-' (McFlurry, McKroket), evenals Nestlé (Nescafé, Nesquik, Nespresso).",
+          "# Merkenarchitectuur\nDe verschillende merken van een onderneming vormen wat de merkarchitectuur (Engels: 'brand architecture') wordt genoemd. Soms hebben die merken ook wat betreft de naam een duidelijke relatie. McDonald's gebruikt bijvoorbeeld voor verschillende producten het voorvoegsel 'Mc-' (McFlurry, McKroket), evenals Nestlé (Nescafé, Nesquik, Nespresso).",
         title: 'Tekst merkarchitectuur',
       },
       model: 'textSection',

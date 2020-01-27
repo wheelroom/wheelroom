@@ -8,7 +8,6 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { SectionProps } from '../../sections/section-props'
-import { FluidImage } from '../../views/image/image'
 import { TextSectionSingleVar } from './text-section-single-var'
 
 const componentList = {
@@ -18,7 +17,7 @@ const componentList = {
 export interface TextSectionProps extends SectionProps {
   /** Gatsby fetched data */
   text: {
-    text: string
+    json: any
   }
   __typename: string
   title: string
