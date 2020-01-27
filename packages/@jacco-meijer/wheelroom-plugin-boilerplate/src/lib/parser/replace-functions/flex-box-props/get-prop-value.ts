@@ -6,7 +6,7 @@ export const getPropValue = (fieldName: string, field: FieldType) => {
   const wheelroomTypeToTsType: TypeTable = {
     date: `{props.${fieldName}}`,
     dropdown: `{props.${fieldName}}`,
-    image: `<Image src={props.${fieldName}} {...imageProps} />`,
+    image: `<Image image={props.${fieldName}} {...imageProps} />`,
     longText: `{props.${fieldName}.${fieldName}}`,
     multipleComponents: `{props.${fieldName}}`,
     number: `{props.${fieldName}}`,
