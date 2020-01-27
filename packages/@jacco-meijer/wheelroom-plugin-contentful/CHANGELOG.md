@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.6.1...@jacco-meijer/wheelroom-plugin-contentful@2.7.0) (2020-01-27)
+
+
+### Bug Fixes
+
+* check for component existence ([6545fd8](https://github.com/jaccomeijer/wheelroom/commit/6545fd896a1ee3e95e32950e00e5500065811ab9))
+
+
+### Features
+
+* add richTextFromMarkdown ([e2d16d6](https://github.com/jaccomeijer/wheelroom/commit/e2d16d6660e57f87731249e6617c518519e9af1b))
+
+
+
+
+
 ## [2.6.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.6.0...@jacco-meijer/wheelroom-plugin-contentful@2.6.1) (2020-01-27)
 
 

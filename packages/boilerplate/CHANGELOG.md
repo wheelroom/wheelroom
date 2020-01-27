@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.3.0...boilerplate@4.3.1) (2020-01-27)
+
+
+### Bug Fixes
+
+* color scheme ([6fcda0d](https://github.com/jaccomeijer/wheelroom/commit/6fcda0d93b30c3357e0bf4ade07d900d8705b05e))
+
+
+
+
+
 # [4.3.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.2.12...boilerplate@4.3.0) (2020-01-27)
 
 
