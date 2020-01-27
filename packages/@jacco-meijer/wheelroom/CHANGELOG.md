@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.3.1...@jacco-meijer/wheelroom@3.3.2) (2020-01-27)
+
+
+### Bug Fixes
+
+* ShortTextField and RichTextField initialContent types ([539804c](https://github.com/jaccomeijer/wheelroom/commit/539804c))
+
+
+
+
+
 ## [3.3.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.3.0...@jacco-meijer/wheelroom@3.3.1) (2020-01-26)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom

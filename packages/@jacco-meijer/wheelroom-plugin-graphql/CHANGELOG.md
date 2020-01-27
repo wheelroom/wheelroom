@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.12](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.11...@jacco-meijer/wheelroom-plugin-graphql@2.1.12) (2020-01-27)
+
+**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+
+
+
+
+
 ## [2.1.11](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.10...@jacco-meijer/wheelroom-plugin-graphql@2.1.11) (2020-01-26)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
