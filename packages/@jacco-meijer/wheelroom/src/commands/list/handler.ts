@@ -1,4 +1,4 @@
-import { getFilteredComponents } from '../../lib/get-filtered-components'
+import { getFilteredComponents } from '../../lib/config/get-filtered-components'
 import { WheelroomComponent } from '../../types/wheelroom-components'
 
 export const handler = async (argv: any) => {

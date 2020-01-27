@@ -1,4 +1,4 @@
-export * from './lib/get-filtered-components'
+export * from './lib/config/get-filtered-components'
 export * from './lib/parser/case-helpers'
 export * from './lib/parser/get-cases'
 export * from './lib/parser/create-parser'
