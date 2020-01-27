@@ -5,7 +5,7 @@ export const command = {
   aliases: ['cc'],
   builder: (yargs: any) => {
     yargs.positional('content-set', {
-      describe: 'What content set to create',
+      describe: 'Content set to be created',
       type: 'string',
     })
   },

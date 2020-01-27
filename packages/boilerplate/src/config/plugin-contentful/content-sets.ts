@@ -18,7 +18,7 @@ export const contentSets: ContentSets = {
         addressLine1: 'Grote straat 55',
         addressLine2: '1234 AB  Grootendam',
         emailAddress: 'info@grootenmerkbaar.io',
-        linkedinUrl: '',
+        linkedinUrl: 'n/a',
         phoneNumber: '030-1234567',
         siteAuthor: 'Ad van den autheur',
         siteDescription:
@@ -33,7 +33,7 @@ export const contentSets: ContentSets = {
     homePage: {
       fields: {
         listItemHeading: '',
-        listItemHiddenText: '',
+        listItemHiddenText: 'n/a',
         listItemImage: true,
         listItemInfoText: '',
         listItemView: 'blue bottom',
@@ -62,7 +62,7 @@ export const contentSets: ContentSets = {
         boxBackgroundColor: 'blue',
         heading: '',
         image: true,
-        infoText: '',
+        infoText: 'n/a',
         mainNavigation: 'openerNavigatie',
         title: 'Homepagina opener',
         variation: 'home opener',
