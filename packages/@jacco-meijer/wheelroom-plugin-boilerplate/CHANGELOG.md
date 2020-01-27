@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.5.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.0) (2020-01-27)
+
+
+### Bug Fixes
+
+* image src ([afb847c](https://github.com/jaccomeijer/wheelroom/commit/afb847c))
+
+
+### Features
+
+* flex box props component template ([500d69e](https://github.com/jaccomeijer/wheelroom/commit/500d69e))
+
+
+
+
+
 # [2.5.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.4.1...@jacco-meijer/wheelroom-plugin-boilerplate@2.5.0) (2020-01-27)
 
 

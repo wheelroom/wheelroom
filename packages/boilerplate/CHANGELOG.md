@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.2.12...boilerplate@4.3.0) (2020-01-27)
+
+
+### Features
+
+* flex box props component template ([500d69e](https://github.com/jaccomeijer/wheelroom/commit/500d69e))
+
+
+
+
+
 ## [4.2.12](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.2.11...boilerplate@4.2.12) (2020-01-27)
 
 **Note:** Version bump only for package boilerplate
