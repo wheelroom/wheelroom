@@ -36,7 +36,6 @@ export const handler = async (argv: any) => {
     try {
       refreshContext(context)
       getFields(context, component)
-      // DEBUG: skip for now
       await getEntry(context, component)
       await updateEntry(context)
       await createEntry(context, component)
