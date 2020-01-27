@@ -10,6 +10,7 @@ import {
   WheelroomComponents,
 } from '@jacco-meijer/wheelroom'
 
+// tslint:disable: object-literal-sort-keys
 export const configComponents: WheelroomComponents = {
   footerSection: {
     fields: {
@@ -156,28 +157,6 @@ export const configComponents: WheelroomComponents = {
   },
   page: {
     fields: {
-      listItemHeading: {
-        helpText: 'Heading when page is a list item, overrides page heading',
-        type: 'shortText',
-      } as ShortTextField,
-      listItemHiddenText: {
-        helpText: 'Initially hidden text when page is a list item',
-        type: 'shortText',
-      } as ShortTextField,
-      listItemImage: {
-        helpText: 'Image when page is a list item, overrides page image',
-        type: 'image',
-      } as ImageField,
-      listItemInfoText: {
-        helpText:
-          'Info text when page is a list item, overrides page info text',
-        type: 'longText',
-      } as LongTextField,
-      listItemView: {
-        helpText: 'How the page looks as a list item',
-        items: ['mint bottom', 'green bottom', 'full image'],
-        type: 'dropdown',
-      } as DropdownField,
       navigationHeading: {
         helpText: 'Heading when page is a navigation item',
         type: 'shortText',
@@ -233,6 +212,28 @@ export const configComponents: WheelroomComponents = {
         required: true,
         type: 'shortText',
       } as ShortTextField,
+      listItemHeading: {
+        helpText: 'Heading when page is a list item, overrides page heading',
+        type: 'shortText',
+      } as ShortTextField,
+      listItemHiddenText: {
+        helpText: 'Initially hidden text when page is a list item',
+        type: 'shortText',
+      } as ShortTextField,
+      listItemImage: {
+        helpText: 'Image when page is a list item, overrides page image',
+        type: 'image',
+      } as ImageField,
+      listItemInfoText: {
+        helpText:
+          'Info text when page is a list item, overrides page info text',
+        type: 'longText',
+      } as LongTextField,
+      listItemView: {
+        helpText: 'How the page looks as a list item',
+        items: ['mint bottom', 'green bottom', 'full image'],
+        type: 'dropdown',
+      } as DropdownField,
     },
     modelVersion: '1.0.0',
     settings: {
