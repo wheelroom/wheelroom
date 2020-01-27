@@ -36,7 +36,7 @@ export const contentSets: ContentSets = {
         listItemHiddenText: 'n/a',
         listItemImage: true,
         listItemInfoText: '',
-        listItemView: 'blue bottom',
+        listItemView: 'green bottom',
         navigationHeading: 'home',
         pageHeading: 'Deze merknaam is fantastisch',
         pageImage: true,
@@ -59,7 +59,7 @@ export const contentSets: ContentSets = {
     },
     homeOpener: {
       fields: {
-        boxBackgroundColor: 'blue',
+        boxBackgroundColor: 'green',
         heading: '',
         image: true,
         infoText: 'n/a',
@@ -83,7 +83,7 @@ export const contentSets: ContentSets = {
         listItemImage: true,
         listItemInfoText:
           'Onze producten zijn biologisch, harmonisch en zeer interessant.',
-        listItemView: 'blue bottom',
+        listItemView: 'full image',
         navigationHeading: 'home',
         pageHeading:
           'Een product in economische zin is een tastbare zaak met een bepaalde waarde.',
@@ -108,7 +108,7 @@ export const contentSets: ContentSets = {
     },
     productOpener: {
       fields: {
-        boxBackgroundColor: 'orange',
+        boxBackgroundColor: 'mint',
         heading: 'any',
         image: true,
         infoText: '',
@@ -125,7 +125,7 @@ export const contentSets: ContentSets = {
         listItemImage: true,
         listItemInfoText:
           'Waarom zijn we hier, wat we doen, onzie visie en onze passie.',
-        listItemView: 'blue bottom',
+        listItemView: 'green bottom',
         navigationHeading: 'home',
         pageHeading:
           'Op dit moment is er maar één gemeente in Nederland zonder achtergrond.',
@@ -149,7 +149,7 @@ export const contentSets: ContentSets = {
     },
     backgroundOpener: {
       fields: {
-        boxBackgroundColor: 'blue',
+        boxBackgroundColor: 'mint',
         heading: 'any',
         image: true,
         infoText: '',
@@ -165,7 +165,7 @@ export const contentSets: ContentSets = {
         listItemHiddenText: '',
         listItemImage: true,
         listItemInfoText: 'Hoe je ons kunt bellen, e-mailen en faxen.',
-        listItemView: 'orange bottom',
+        listItemView: 'full image',
         navigationHeading: 'home',
         pageHeading: 'Contact?',
         pageImage: true,
@@ -189,7 +189,7 @@ export const contentSets: ContentSets = {
     },
     contactOpener: {
       fields: {
-        boxBackgroundColor: 'orange',
+        boxBackgroundColor: 'green',
         heading: 'any',
         image: true,
         infoText: '',
@@ -281,7 +281,7 @@ export const contentSets: ContentSets = {
     },
     standardFooter: {
       fields: {
-        backgroundColor: 'blue',
+        backgroundColor: 'mint',
         footerNavigation: 'footerNavigatie',
         title: 'Standaard footer',
       },

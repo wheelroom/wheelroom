@@ -15,7 +15,7 @@ export const configComponents: WheelroomComponents = {
     fields: {
       backgroundColor: {
         helpText: 'Select a background color',
-        items: ['blue', 'orange'],
+        items: ['green', 'mint'],
         required: true,
         type: 'dropdown',
       } as DropdownField,
@@ -120,7 +120,7 @@ export const configComponents: WheelroomComponents = {
     fields: {
       boxBackgroundColor: {
         helpText: 'Select a background color for the opener box',
-        items: ['blue', 'orange'],
+        items: ['green', 'mint'],
         type: 'dropdown',
       } as DropdownField,
       heading: {
@@ -175,7 +175,7 @@ export const configComponents: WheelroomComponents = {
       } as LongTextField,
       listItemView: {
         helpText: 'How the page looks as a list item',
-        items: ['orange bottom', 'blue bottom', 'full image'],
+        items: ['mint bottom', 'green bottom', 'full image'],
         type: 'dropdown',
       } as DropdownField,
       navigationHeading: {

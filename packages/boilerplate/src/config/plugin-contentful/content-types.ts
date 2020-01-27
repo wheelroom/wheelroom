@@ -1,6 +1,6 @@
 interface FooterSectionModel {
   fields: {
-    backgroundColor: 'blue' | 'orange'
+    backgroundColor: 'green' | 'mint'
     footerNavigation: 'openerNavigatie' | 'footerNavigatie'
     title: string
   }
@@ -42,7 +42,7 @@ interface NavigationModel {
 }
 interface OpenerSectionModel {
   fields: {
-    boxBackgroundColor?: 'blue' | 'orange'
+    boxBackgroundColor?: 'green' | 'mint'
     heading?: string
     image?: boolean
     infoText?: string
@@ -58,7 +58,7 @@ interface PageModel {
     listItemHiddenText?: string
     listItemImage?: boolean
     listItemInfoText?: string
-    listItemView?: 'orange bottom' | 'blue bottom' | 'full image'
+    listItemView?: 'mint bottom' | 'green bottom' | 'full image'
     navigationHeading?: string
     pageHeading: string
     pageImage: boolean
