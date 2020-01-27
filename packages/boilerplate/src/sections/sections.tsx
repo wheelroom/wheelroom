@@ -7,6 +7,8 @@ import { QuoteSection } from '../components/quote-section'
 import { TextSection } from '../components/text-section'
 import { Landmarks } from '../lib/landmarks'
 import { SectionProps } from '../sections/section-props'
+import { getSinglePadding } from '../styles/global-padding'
+import { Box } from '../views/core-elements/grid'
 
 export interface SectionMap {
   [contentfulSectionName: string]: {
@@ -48,8 +50,6 @@ export const Sections = (props: any) => {
     const Section = sectionMap[section.__typename].element
     const landMark = sectionMap[section.__typename].landMark
     const sectionProps = {
-      key: index,
-      landMark,
       locale: props.locale,
       namedPaths: props.namedPaths,
 
@@ -58,7 +58,24 @@ export const Sections = (props: any) => {
 
       ...section,
     } as SectionProps
-    sectionList.push(<Section {...sectionProps} />)
+
+    // Left and right padding is added per section specifically
+    const pb = getSinglePadding('section', 'bottom')
+    const pt = getSinglePadding('section', 'top')
+
+    sectionList.push(
+      <Box
+        landMark={landMark}
+        key={index}
+        ncss={{
+          pb,
+          // All sections have padding at the top, force opener to have no padding
+          pt: index === 0 ? 0 : pt,
+        }}
+      >
+        <Section {...sectionProps} />
+      </Box>
+    )
   })
 
   // Add proper landmarks (header, main and footer) around sections

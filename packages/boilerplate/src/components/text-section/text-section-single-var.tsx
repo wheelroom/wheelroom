@@ -13,7 +13,10 @@ import {
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import React, { Fragment } from 'react'
 import { enlargingImageStyle } from '../../styles/enlarging-image'
-import { getAllPaddingObject } from '../../styles/global-padding'
+import {
+  getAllPaddingObject,
+  getSinglePadding,
+} from '../../styles/global-padding'
 import {
   heading1Style,
   heading2Style,
@@ -55,8 +58,8 @@ const ImageBox = (props: { image: FluidImage }) => (
 const TextBox = (props: { children: any }) => (
   <Box
     ncss={{
-      ...getAllPaddingObject('section'),
-      w: 1,
+      px: getSinglePadding('section', 'left'),
+      w: [1, 1 / 2],
     }}
   >
     {props.children}
@@ -65,7 +68,8 @@ const TextBox = (props: { children: any }) => (
 const HeadingBox = (props: { children: any }) => (
   <Box
     ncss={{
-      w: 1,
+      px: getSinglePadding('section', 'left'),
+      w: [1],
     }}
   >
     {props.children}
@@ -213,7 +217,7 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
 
   return (
     <Fragment>
-      <Box>{documentToReactComponents(props.text.json, options)}</Box>
+      <Flex>{documentToReactComponents(props.text.json, options)}</Flex>
     </Fragment>
   )
 }
