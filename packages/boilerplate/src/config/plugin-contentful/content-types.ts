@@ -78,8 +78,8 @@ interface PageModel {
       | 'careQuote'
       | 'buildLoveQuote'
       | 'passionQuote'
-      | 'eindePaginaLinks'
-      | 'standaardFooter'
+      | 'endOfPageLinks'
+      | 'standardFooter'
     >
     seoDescription: string
     seoTitle: string
