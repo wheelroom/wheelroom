@@ -81,12 +81,12 @@ export interface NumberField extends CommonField {
 }
 export interface RichTextField extends CommonField {
   /** Initial text */
-  initialContent?: number | string | string[]
+  initialContent?: string
   type: 'richText'
 }
 export interface ShortTextField extends CommonField {
   /** Initial text */
-  initialContent?: number | string | string[]
+  initialContent?: string
   /** Optional maximum length for a shorText field */
   maxLength?: number
   type: 'shortText'
