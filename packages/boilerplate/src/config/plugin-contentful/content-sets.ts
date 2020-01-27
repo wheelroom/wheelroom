@@ -10,12 +10,33 @@ export interface ContentSets {
   [contentSetName: string]: ContentTypes
 }
 
+// tslint:disable: object-literal-sort-keys
 export const contentSets: ContentSets = {
   boilerplate: {
+    homePage: {
+      fields: {
+        listItemHeading: 'Home page',
+        listItemHiddenText: '',
+        listItemImage: true,
+        listItemInfoText: '',
+        listItemView: 'blue bottom',
+        navigationHeading: '',
+        pageHeading: '',
+        pageImage: true,
+        pageInfoText: '',
+        path: '',
+        pathName: '',
+        sections: [],
+        seoDescription: '',
+        seoTitle: '',
+        title: '',
+      },
+      model: 'page',
+    },
     footerSection: {
       fields: {
         backgroundColor: 'blue',
-        footerNavigation: [],
+        footerNavigation: 'navigation',
         title: '',
       },
       model: 'footerSection',
@@ -39,50 +60,30 @@ export const contentSets: ContentSets = {
     listSection: {
       fields: {
         heading: 'any',
-        listItems: 'any',
+        listItems: ['page'],
         title: '',
-        variation: 'any',
+        variation: 'large items',
       },
       model: 'listSection',
     },
     navigation: {
       fields: {
-        routes: 'any',
+        routes: ['page'],
         title: '',
       },
       model: 'navigation',
     },
     openerSection: {
       fields: {
-        boxBackgroundColor: 'any',
+        boxBackgroundColor: 'blue',
         heading: 'any',
         image: true,
         infoText: '',
-        mainNavigation: 'any',
+        mainNavigation: 'navigation',
         title: '',
-        variation: 'any',
+        variation: 'home opener',
       },
       model: 'openerSection',
-    },
-    page: {
-      fields: {
-        listItemHeading: 'any',
-        listItemHiddenText: 'any',
-        listItemImage: true,
-        listItemInfoText: '',
-        listItemView: 'any',
-        navigationHeading: 'any',
-        pageHeading: 'any',
-        pageImage: true,
-        pageInfoText: '',
-        path: 'any',
-        pathName: 'any',
-        sections: 'any',
-        seoDescription: 'any',
-        seoTitle: 'any',
-        title: '',
-      },
-      model: 'page',
     },
     quote: {
       fields: {
@@ -97,9 +98,9 @@ export const contentSets: ContentSets = {
     somePage: {
       fields: {
         heading: 'any',
-        listItems: 'any',
+        listItems: ['page'],
         title: '',
-        variation: 'any',
+        variation: 'large items',
       },
       model: 'listSection',
     },

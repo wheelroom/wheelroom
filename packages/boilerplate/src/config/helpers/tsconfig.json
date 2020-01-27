@@ -8,13 +8,13 @@
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "outDir": "../../compiled-config",
+    "outDir": "../../../compiled-config",
     "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
     "target": "es3"
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.json"],
+  "include": ["content-types-generator.ts"],
   "exclude": []
 }

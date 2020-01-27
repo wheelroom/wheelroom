@@ -1,88 +1,88 @@
 interface FooterSectionModel {
   fields: {
-    backgroundColor: any
-    footerNavigation: any
+    backgroundColor: 'blue' | 'orange'
+    footerNavigation: 'navigation'
     title: string
   }
   model: 'footerSection'
 }
 interface GlobalsModel {
   fields: {
-    addressLine1: any
-    addressLine2: any
-    emailAddress: any
-    linkedinUrl?: any
-    phoneNumber?: any
-    siteAuthor?: any
-    siteDescription?: any
-    siteHeading: any
-    siteKeywords?: any
-    siteTitle?: any
+    addressLine1: string
+    addressLine2: string
+    emailAddress: string
+    linkedinUrl?: string
+    phoneNumber?: string
+    siteAuthor?: string
+    siteDescription?: string
+    siteHeading: string
+    siteKeywords?: string[]
+    siteTitle?: string
     title: string
   }
   model: 'globals'
 }
 interface ListSectionModel {
   fields: {
-    heading: any
-    listItems: any
-    variation: any
+    heading: string
+    listItems: Array<'page'>
+    variation: 'large items' | 'small items'
     title: string
   }
   model: 'listSection'
 }
 interface NavigationModel {
   fields: {
-    routes: any
+    routes: Array<'page'>
     title: string
   }
   model: 'navigation'
 }
 interface OpenerSectionModel {
   fields: {
-    boxBackgroundColor?: any
-    heading?: any
-    image?: any
-    infoText?: any
-    mainNavigation: any
-    variation: any
+    boxBackgroundColor?: 'blue' | 'orange'
+    heading?: string
+    image?: boolean
+    infoText?: string
+    mainNavigation: 'navigation'
+    variation: 'home opener' | 'page opener'
     title: string
   }
   model: 'openerSection'
 }
 interface PageModel {
   fields: {
-    listItemHeading?: any
-    listItemHiddenText?: any
-    listItemImage?: any
-    listItemInfoText?: any
-    listItemView?: any
-    navigationHeading?: any
-    pageHeading: any
-    pageImage: any
-    pageInfoText: any
-    path: any
-    pathName: any
-    sections: any
-    seoDescription: any
-    seoTitle: any
+    listItemHeading?: string
+    listItemHiddenText?: string
+    listItemImage?: boolean
+    listItemInfoText?: string
+    listItemView?: 'orange bottom' | 'blue bottom' | 'full image'
+    navigationHeading?: string
+    pageHeading: string
+    pageImage: boolean
+    pageInfoText: string
+    path: string
+    pathName: string
+    sections: string[]
+    seoDescription: string
+    seoTitle: string
     title: string
   }
   model: 'page'
 }
 interface QuoteSectionModel {
   fields: {
-    avatar?: any
-    heading: any
-    subHeading?: any
-    text: any
+    avatar?: boolean
+    heading: string
+    subHeading?: string
+    text: string
     title: string
   }
   model: 'quoteSection'
 }
 interface TextSectionModel {
   fields: {
-    text: any
+    text: string
     title: string
   }
   model: 'textSection'
