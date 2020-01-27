@@ -1,7 +1,7 @@
 import {
   WheelroomComponent,
   WheelroomComponents,
-} from '../../types/wheelroom-components'
+} from '../types/wheelroom-components'
 
 export const getFilteredComponents = (arv: any) => {
   let components = {} as WheelroomComponents
