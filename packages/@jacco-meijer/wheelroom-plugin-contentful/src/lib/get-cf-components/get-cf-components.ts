@@ -35,6 +35,10 @@ export const getCfComponents = (
   // Loop through all content, set each field initialContent and process with
   // matching component
   cfContentSet.forEach((cfContent: ContentfulContent) => {
+    if (!(cfContent.model in wrComponents)) {
+      // Most probably the filter argument is active
+      return
+    }
     const matchingWrComponent = wrComponents[cfContent.model]
     const wrComponentWithContent: WheelroomComponent = {
       fields: {},

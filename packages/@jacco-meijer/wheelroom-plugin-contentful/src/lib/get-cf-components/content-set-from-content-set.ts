@@ -23,6 +23,10 @@ export const contentSetFromContentSet = (
       }
       Object.entries(wrContent.fields).forEach(
         ([fieldName, initialContent]: [string, string]) => {
+          if (!(wrContent.model in wrComponents)) {
+            // Most probably the filter argument is active
+            return
+          }
           const wrField = wrComponents[wrContent.model].fields[fieldName]
           if ('allowedComponents' in wrField) {
             if (Array.isArray(wrField.allowedComponents)) {
