@@ -10,7 +10,7 @@
     "@jacco-meijer/styled-system": "3.0.3",
     "@jacco-meijer/wheelroom": "^3.3.2",
     "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.4.1",
-    "@jacco-meijer/wheelroom-plugin-contentful": "^2.6.0",
+    "@jacco-meijer/wheelroom-plugin-contentful": "^2.6.1",
     "@jacco-meijer/wheelroom-plugin-graphql": "^2.1.12",
     "camelcase": "5.3.1",
     "dotenv": "8.2.0",
@@ -86,5 +86,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "4.2.10"
+  "version": "4.2.11"
 }

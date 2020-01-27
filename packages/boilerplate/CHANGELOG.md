@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.11](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.2.10...boilerplate@4.2.11) (2020-01-27)
+
+
+### Bug Fixes
+
+* delete command content-set parameter ([4ce34c8](https://github.com/jaccomeijer/wheelroom/commit/4ce34c8))
+
+
+
+
+
 ## [4.2.10](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.2.9...boilerplate@4.2.10) (2020-01-27)
 
 **Note:** Version bump only for package boilerplate

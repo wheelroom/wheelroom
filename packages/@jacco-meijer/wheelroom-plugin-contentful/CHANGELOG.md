@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.6.0...@jacco-meijer/wheelroom-plugin-contentful@2.6.1) (2020-01-27)
+
+
+### Bug Fixes
+
+* delete command content-set parameter ([4ce34c8](https://github.com/jaccomeijer/wheelroom/commit/4ce34c8))
+
+
+
+
+
 # [2.6.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.5.1...@jacco-meijer/wheelroom-plugin-contentful@2.6.0) (2020-01-27)
 
 
