@@ -57,7 +57,7 @@ export const contentSets: ContentSets = {
         heading: 'any',
         image: true,
         infoText: '',
-        mainNavigation: 'navigation',
+        mainNavigation: 'openerNavigatie',
         title: '',
         variation: 'home opener',
       },
@@ -65,7 +65,7 @@ export const contentSets: ContentSets = {
     },
     openerNavigatie: {
       fields: {
-        routes: ['page'],
+        routes: ['homePage'],
         title: '',
       },
       model: 'navigation',
@@ -99,7 +99,7 @@ export const contentSets: ContentSets = {
         heading: 'any',
         image: true,
         infoText: '',
-        mainNavigation: 'navigation',
+        mainNavigation: 'openerNavigatie',
         title: '',
         variation: 'home opener',
       },
@@ -134,7 +134,7 @@ export const contentSets: ContentSets = {
         heading: 'any',
         image: true,
         infoText: '',
-        mainNavigation: 'navigation',
+        mainNavigation: 'openerNavigatie',
         title: '',
         variation: 'home opener',
       },
@@ -167,7 +167,7 @@ export const contentSets: ContentSets = {
         heading: 'any',
         image: true,
         infoText: '',
-        mainNavigation: 'navigation',
+        mainNavigation: 'openerNavigatie',
         title: '',
         variation: 'home opener',
       },
@@ -247,7 +247,7 @@ export const contentSets: ContentSets = {
     eindePaginaLinks: {
       fields: {
         heading: 'any',
-        listItems: ['page'],
+        listItems: ['homePage'],
         title: '',
         variation: 'large items',
       },
@@ -256,14 +256,14 @@ export const contentSets: ContentSets = {
     standaardFooter: {
       fields: {
         backgroundColor: 'blue',
-        footerNavigation: 'navigation',
+        footerNavigation: 'footerNavigatie',
         title: '',
       },
       model: 'footerSection',
     },
     footerNavigatie: {
       fields: {
-        routes: ['page'],
+        routes: ['homePage'],
         title: '',
       },
       model: 'navigation',

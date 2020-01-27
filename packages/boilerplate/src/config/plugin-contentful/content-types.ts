@@ -1,7 +1,7 @@
 interface FooterSectionModel {
   fields: {
     backgroundColor: 'blue' | 'orange'
-    footerNavigation: 'navigation'
+    footerNavigation: 'openerNavigatie' | 'footerNavigatie'
     title: string
   }
   model: 'footerSection'
@@ -25,7 +25,9 @@ interface GlobalsModel {
 interface ListSectionModel {
   fields: {
     heading: string
-    listItems: Array<'page'>
+    listItems: Array<
+      'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'
+    >
     variation: 'large items' | 'small items'
     title: string
   }
@@ -33,7 +35,7 @@ interface ListSectionModel {
 }
 interface NavigationModel {
   fields: {
-    routes: Array<'page'>
+    routes: Array<'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'>
     title: string
   }
   model: 'navigation'
@@ -44,7 +46,7 @@ interface OpenerSectionModel {
     heading?: string
     image?: boolean
     infoText?: string
-    mainNavigation: 'navigation'
+    mainNavigation: 'openerNavigatie' | 'footerNavigatie'
     variation: 'home opener' | 'page opener'
     title: string
   }
