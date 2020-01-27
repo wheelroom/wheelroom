@@ -201,40 +201,80 @@ export const contentSets: ContentSets = {
     },
     contactText: {
       fields: {
-        text:
-          'Bij communicatie wordt informatie met elkaar gedeeld door middel van geluid (zoals bij spraak en toon) en vorm (zoals beeld, symboliek en tekst). Het contact omvat ook handelingen want door gedrag worden eindeloos veel betekenissen kenbaar gemaakt. De impact van (on–)bewuste daden kan heel groot zijn bij betekenistoekenning: non-verbale communicatie kan zelfs de doorslag geven boven doelbewust gekozen woorden en symboliek. Denk aan de (on–)geloofwaardigheid van een gesprekspartner die beweert dat hij niet nerveus is, maar wel zweet en trilt. Gedrag moet hier ruim worden uitgelegd: zo kunnen architecten door middel van een bouwwerk mensen imponeren of juist op hun gemak stellen. De keuze voor de plaats en de gebruikte beweging of stijl, geweld, mode, muziek en mimiek zijn slechts enkele voorbeelden die met communicatief handelen c.q. gedrag te maken hebben. Ook door geur, warmte, licht, kleur, intonatie, smaak en zelfs door pauzes of door te zwijgen kan men betekenissen versturen en indrukken verkrijgen. Omdat er niet zoiets bestaat als anti-gedrag, is het onmogelijk om niet te communiceren, stelde de psycholoog Watzlawick vast.',
+        text: `# Communicatie
+
+Bij communicatie wordt informatie met elkaar gedeeld door middel van geluid
+(zoals bij spraak en toon) en vorm (zoals beeld, symboliek en tekst). Het
+contact omvat ook handelingen want door gedrag worden eindeloos veel
+betekenissen kenbaar gemaakt. De impact van (on–)bewuste daden kan heel groot
+zijn bij betekenistoekenning: non-verbale communicatie kan zelfs de doorslag
+geven boven doelbewust gekozen woorden en symboliek.
+
+## Geloofwaardigheid
+
+Denk aan de (on–)geloofwaardigheid van een gesprekspartner die beweert dat hij
+niet nerveus is, maar wel zweet en trilt. Gedrag moet hier ruim worden
+uitgelegd: zo kunnen architecten door middel van een bouwwerk mensen imponeren
+of juist op hun gemak stellen. De keuze voor de plaats en de gebruikte beweging
+of stijl, geweld, mode, muziek en mimiek zijn slechts enkele voorbeelden die met
+communicatief handelen c.q. gedrag te maken hebben. Ook door geur, warmte,
+licht, kleur, intonatie, smaak en zelfs door pauzes of door te zwijgen kan men
+betekenissen versturen en indrukken verkrijgen. Omdat er niet zoiets bestaat als
+anti-gedrag, is het onmogelijk om niet te communiceren, stelde de psycholoog
+Watzlawick vast.`,
         title: 'Tekst communicatie',
       },
       model: 'textSection',
     },
     productcodeText: {
       fields: {
-        text:
-          'Een product kan gekenmerkt worden door een productnummer, ook wel artikelcode genoemd. Bekende voorbeelden daarvan zijn de barcode of streepjescode EAN en het ISBN. Hierin wordt een product qua vorm, functie en passendheid uniek weergegeven (form, fit and function).',
+        text: `# Productcode
+
+Een product kan gekenmerkt worden door een productnummer, ook wel artikelcode
+genoemd. Bekende voorbeelden daarvan zijn de barcode of streepjescode EAN en het
+ISBN. Hierin wordt een product qua vorm, functie en passendheid uniek
+weergegeven (form, fit and function).`,
         title: 'Tekst productcode',
       },
       model: 'textSection',
     },
     merkverwateringText: {
       fields: {
-        text:
-          "Merkverwatering is het verschijnsel dat een merknaam van een bepaald product of dienst zo bekend wordt, dat men in de spreektaal deze naam ook gaat gebruiken om te refereren aan soortgelijke producten van een ander merk. Deze betiteling is overigens feitelijk onjuist; niet het merk, maar de merknaam is verwaterd. De eigenaar van het merk behoudt het unieke recht om de naam als merk te presenteren. Unilever heeft bijvoorbeeld 'Vaseline' nog altijd als geregistreerd woordmerk in handen. Concurrenten mogen vaseline alleen onder die naam verkopen onder een paraplumerk.",
+        text: `# Merkverwatering
+
+Merkverwatering is het verschijnsel dat een merknaam van een bepaald product of
+dienst zo bekend wordt, dat men in de spreektaal deze naam ook gaat gebruiken om
+te refereren aan soortgelijke producten van een ander merk. Deze betiteling is
+overigens feitelijk onjuist; niet het merk, maar de merknaam is verwaterd. De
+eigenaar van het merk behoudt het unieke recht om de naam als merk te
+presenteren. Unilever heeft bijvoorbeeld 'Vaseline' nog altijd als geregistreerd
+woordmerk in handen. Concurrenten mogen vaseline alleen onder die naam verkopen
+onder een paraplumerk.`,
         title: 'Tekst merkverwatering',
       },
       model: 'textSection',
     },
     merkarchitectuurText: {
       fields: {
-        text:
-          "# Merkenarchitectuur\nDe verschillende merken van een onderneming vormen wat de merkarchitectuur (Engels: 'brand architecture') wordt genoemd. Soms hebben die merken ook wat betreft de naam een duidelijke relatie. McDonald's gebruikt bijvoorbeeld voor verschillende producten het voorvoegsel 'Mc-' (McFlurry, McKroket), evenals Nestlé (Nescafé, Nesquik, Nespresso).",
+        text: `# Merkenarchitectuur
+
+De verschillende merken van een onderneming vormen wat de merkarchitectuur
+(Engels: 'brand architecture') wordt genoemd. Soms hebben die merken ook wat
+betreft de naam een duidelijke relatie. McDonald's gebruikt bijvoorbeeld voor
+verschillende producten het voorvoegsel 'Mc-' (McFlurry, McKroket), evenals
+Nestlé (Nescafé, Nesquik, Nespresso).`,
         title: 'Tekst merkarchitectuur',
       },
       model: 'textSection',
     },
     naamcreatieText: {
       fields: {
-        text:
-          "Het verzinnen van merknamen wordt 'naamcreatie' of 'naamontwikkeling' genoemd. Er is in Nederland en België een klein aantal hierin gespecialiseerde bureaus actief, in navolging van Amerikaanse 'naming agencies'. In het bedenken van namen gespecialiseerde copywriters heten 'naamcreatieven'.",
+        text: `# Naamcreatie
+
+Het verzinnen van merknamen wordt 'naamcreatie' of 'naamontwikkeling' genoemd.
+Er is in Nederland en België een klein aantal hierin gespecialiseerde bureaus
+actief, in navolging van Amerikaanse 'naming agencies'. In het bedenken van
+namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
         title: 'Tekst naamcreatie',
       },
       model: 'textSection',
