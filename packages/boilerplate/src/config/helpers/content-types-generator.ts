@@ -48,6 +48,19 @@ const getAllowedComponentIds = (field: FieldType, limitResults: string[]) => {
   }
 }
 
+const getPageSections = (field: FieldType, limitResults: string[]) => {
+  // Limit values to defined components that have settings.asPageSection
+  if (field.type === 'multipleComponents') {
+    Object.entries(contentSets[TEMPLATE_SET]).forEach(
+      ([componentId, compInstance]: [string, any]) => {
+        if (configComponents[compInstance.model].settings.asPageSection) {
+          limitResults.push(`'${componentId}'`)
+        }
+      }
+    )
+  }
+}
+
 const getFieldValue = (field: FieldType) => {
   const limitResults: string[] = []
   getAllowedComponentIds(field, limitResults)
@@ -89,9 +102,16 @@ Object.entries(configComponents).forEach(
         if (fieldName[0] === '_') {
           return
         }
-        content += `    ${fieldName}${
-          field.required ? '' : '?'
-        }: ${getFieldValue(field)}
+        let fieldValue = getFieldValue(field)
+        if (fieldName === 'sections') {
+          // Sections are set with the %componentNameArray% variable, handle
+          // them manually here
+          const limitResults: string[] = []
+          getPageSections(field, limitResults)
+          fieldValue = `Array<${limitResults.join(' | ')}>`
+        }
+
+        content += `    ${fieldName}${field.required ? '' : '?'}: ${fieldValue}
 `
       }
     )

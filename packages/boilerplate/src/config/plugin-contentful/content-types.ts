@@ -65,7 +65,22 @@ interface PageModel {
     pageInfoText: string
     path: string
     pathName: string
-    sections: string[]
+    sections: Array<
+      | 'homeOpener'
+      | 'productOpener'
+      | 'backgroundOpener'
+      | 'contactOpener'
+      | 'contactText'
+      | 'productcodeText'
+      | 'merkverwateringText'
+      | 'merkarchitectuurText'
+      | 'naamcreatieText'
+      | 'careQuote'
+      | 'buildLoveQuote'
+      | 'passionQuote'
+      | 'eindePaginaLinks'
+      | 'standaardFooter'
+    >
     seoDescription: string
     seoTitle: string
     title: string
