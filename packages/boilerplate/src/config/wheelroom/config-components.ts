@@ -66,9 +66,6 @@ export const configComponents: WheelroomComponents = {
       siteKeywords: {
         type: 'tags',
       } as TagsField,
-      siteTitle: {
-        type: 'shortText',
-      } as ShortTextField,
     },
     modelVersion: '1.0.0',
     settings: {

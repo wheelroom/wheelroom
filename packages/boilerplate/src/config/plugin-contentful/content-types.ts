@@ -17,7 +17,6 @@ interface GlobalsModel {
     siteDescription?: string
     siteHeading: string
     siteKeywords?: string[]
-    siteTitle?: string
     title: string
   }
   model: 'globals'

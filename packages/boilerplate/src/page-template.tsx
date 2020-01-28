@@ -50,8 +50,8 @@ const PageTemplate = (props: any) => {
     meta: [],
     siteAuthor: globals.siteAuthor,
     siteDescription: globals.siteDescription,
+    siteHeading: globals.siteHeading,
     siteKeywords: globals.siteKeywords,
-    siteTitle: globals.siteTitle,
     siteVersion,
     title: page.seoTitle,
   }

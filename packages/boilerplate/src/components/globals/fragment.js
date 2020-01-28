@@ -21,7 +21,6 @@ fragment Globals on ContentfulGlobals {
   siteDescription
   siteHeading
   siteKeywords
-  siteTitle
   __typename
   title
 }

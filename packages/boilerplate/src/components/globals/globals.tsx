@@ -18,7 +18,6 @@ export interface GlobalsProps {
   siteDescription: string
   siteHeading: string
   siteKeywords: string[]
-  siteTitle: string
   __typename: string
   title: string
 }

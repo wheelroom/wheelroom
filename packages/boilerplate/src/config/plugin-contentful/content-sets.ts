@@ -36,7 +36,6 @@ export const contentSets: ContentSets = {
           'Merknamen zijn namen voor producten, diensten of organisaties.',
         siteHeading: 'Deze merknaam is fantastisch',
         siteKeywords: ['merknaam', 'onderwerp', 'onderscheid', 'essentie'],
-        siteTitle: 'Merknamen worden op verschillende manieren ingedeeld.',
         title: 'Globale instellingen voor deze site',
       },
       model: 'globals',
