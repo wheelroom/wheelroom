@@ -1,6 +1,17 @@
 /**
- * Fixture content for testing
+ * Defines the boilerplate content set. In Dutch.
  *
+ * The set is build up out of 4 pages: home, product, background and contact.
+ * The pages demonstrate the use of the models:
+ *
+ * - footerSection
+ * - globals
+ * - listSection
+ * - navigation
+ * - openerSection
+ * - page
+ * - quoteSection
+ * - textSection
  *
  */
 
