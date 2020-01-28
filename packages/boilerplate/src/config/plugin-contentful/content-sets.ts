@@ -44,7 +44,7 @@ export const contentSets: ContentSets = {
       fields: {
         listItemHeading: '',
         listItemHiddenText: 'n/a',
-        listItemImage: true,
+        listItemImage: false,
         listItemInfoText: '',
         listItemView: 'green bottom',
         navigationHeading: 'home',
@@ -71,7 +71,7 @@ export const contentSets: ContentSets = {
       fields: {
         boxBackgroundColor: 'green',
         heading: '',
-        image: true,
+        image: false,
         infoText: 'n/a',
         mainNavigation: 'openerNavigatie',
         title: 'Homepagina opener',
@@ -90,7 +90,7 @@ export const contentSets: ContentSets = {
       fields: {
         listItemHeading: 'Onze producten',
         listItemHiddenText: '',
-        listItemImage: true,
+        listItemImage: false,
         listItemInfoText:
           'Onze producten zijn biologisch, harmonisch en zeer interessant.',
         listItemView: 'full image',
@@ -120,7 +120,7 @@ export const contentSets: ContentSets = {
       fields: {
         boxBackgroundColor: 'mint',
         heading: 'Onze producten bevatten alles voor een zomerse dag',
-        image: true,
+        image: false,
         infoText: '',
         mainNavigation: 'openerNavigatie',
         title: 'Productpagina opener',
@@ -132,7 +132,7 @@ export const contentSets: ContentSets = {
       fields: {
         listItemHeading: 'Achtergrond informatie',
         listItemHiddenText: '',
-        listItemImage: true,
+        listItemImage: false,
         listItemInfoText:
           'Waarom zijn we hier, wat we doen, onze visie en onze passies.',
         listItemView: 'green bottom',
@@ -161,7 +161,7 @@ export const contentSets: ContentSets = {
       fields: {
         boxBackgroundColor: 'mint',
         heading: 'Ooit was er geen merknaam. Vandaag gelukkig wel.',
-        image: true,
+        image: false,
         infoText: '',
         mainNavigation: 'openerNavigatie',
         title: 'Achtergrondpagina opener',
@@ -173,7 +173,7 @@ export const contentSets: ContentSets = {
       fields: {
         listItemHeading: 'Contactinformatie',
         listItemHiddenText: '',
-        listItemImage: true,
+        listItemImage: false,
         listItemInfoText: 'Hoe je ons kunt bellen, e-mailen en faxen.',
         listItemView: 'full image',
         navigationHeading: 'contact',
@@ -201,7 +201,7 @@ export const contentSets: ContentSets = {
       fields: {
         boxBackgroundColor: 'green',
         heading: 'Met communicatie meer bereik',
-        image: true,
+        image: false,
         infoText: '',
         mainNavigation: 'openerNavigatie',
         title: 'Contactpagina opener',
