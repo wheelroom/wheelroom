@@ -124,7 +124,7 @@ export const contentSets: ContentSets = {
         listItemHiddenText: '',
         listItemImage: true,
         listItemInfoText:
-          'Waarom zijn we hier, wat we doen, onzie visie en onze passie.',
+          'Waarom zijn we hier, wat we doen, onze visie en onze passies.',
         listItemView: 'green bottom',
         navigationHeading: 'achtergrond',
         pageHeading:

@@ -28,7 +28,7 @@ export const FooterSectionSingleVar = (props: FooterSectionProps) => {
     >
       <Flex
         ncss={{
-          alignItems: 'center',
+          alignItems: ['center', 'center', 'flex-start'],
           flexDirection: 'column',
           ...getAllPaddingObject('textBox'),
           w: [1, 1, 1 / 2],
