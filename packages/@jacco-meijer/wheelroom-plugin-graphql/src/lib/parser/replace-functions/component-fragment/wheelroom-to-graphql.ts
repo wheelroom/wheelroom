@@ -84,7 +84,7 @@ export const wheelroomToGraphql = (context: WheelroomToGraphql): QbFields => {
     number: {},
     richText: {
       fields: {
-        [context.fieldName]: {},
+        json: {},
       } as QbFields,
     },
     shortText: {},
