@@ -12,21 +12,6 @@ import { graphql } from 'gatsby'
 
 export const fragment = graphql`
 fragment Page on ContentfulPage {
-  listItemHeading
-  listItemHiddenText
-  listItemImage {
-    title
-    description
-    fluid(maxWidth: 1024) {
-      sizes
-      src
-      srcSet
-    }
-  }
-  listItemInfoText {
-    listItemInfoText
-  }
-  listItemView
   navigationHeading
   pageHeading
   pageImage {
@@ -54,6 +39,21 @@ fragment Page on ContentfulPage {
   }
   seoDescription
   seoTitle
+  listItemHeading
+  listItemHiddenText
+  listItemImage {
+    title
+    description
+    fluid(maxWidth: 1024) {
+      sizes
+      src
+      srcSet
+    }
+  }
+  listItemInfoText {
+    listItemInfoText
+  }
+  listItemView
   __typename
   title
 }
