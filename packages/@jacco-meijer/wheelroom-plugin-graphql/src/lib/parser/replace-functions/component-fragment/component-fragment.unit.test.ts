@@ -18,7 +18,7 @@ describe('Graphql parser should parse', () => {
     export const fragment = \`
       fragment Article on ContentfulArticle {
         articleText {
-          articleText
+          json
         }
         createdAt
         image {
@@ -84,7 +84,7 @@ describe('Graphql parser should parse', () => {
           }
           pageHeading
           pageText {
-            pageText
+            json
           }
         }
         heading
@@ -98,7 +98,7 @@ describe('Graphql parser should parse', () => {
           }
         }
         text {
-          text
+          json
         }
         title
         variation
