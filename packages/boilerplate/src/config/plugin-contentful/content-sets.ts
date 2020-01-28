@@ -44,7 +44,7 @@ export const contentSets: ContentSets = {
       fields: {
         listItemHeading: '',
         listItemHiddenText: 'n/a',
-        listItemImage: false,
+        listItemImage: true,
         listItemInfoText: '',
         listItemView: 'green bottom',
         navigationHeading: 'home',
@@ -71,7 +71,7 @@ export const contentSets: ContentSets = {
       fields: {
         boxBackgroundColor: 'green',
         heading: '',
-        image: false,
+        image: true,
         infoText: 'n/a',
         mainNavigation: 'openerNavigatie',
         title: 'Homepagina opener',
