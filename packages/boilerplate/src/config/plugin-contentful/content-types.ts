@@ -25,9 +25,7 @@ interface GlobalsModel {
 interface ListSectionModel {
   fields: {
     heading: string
-    listItems: Array<
-      'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'
-    >
+    listItems: Array<'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'>
     variation: 'large items' | 'small items'
     title: string
   }
@@ -54,35 +52,20 @@ interface OpenerSectionModel {
 }
 interface PageModel {
   fields: {
-    listItemHeading?: string
-    listItemHiddenText?: string
-    listItemImage?: boolean
-    listItemInfoText?: string
-    listItemView?: 'mint bottom' | 'green bottom' | 'full image'
     navigationHeading?: string
     pageHeading: string
     pageImage: boolean
     pageInfoText: string
     path: string
     pathName: string
-    sections: Array<
-      | 'homeOpener'
-      | 'productOpener'
-      | 'backgroundOpener'
-      | 'contactOpener'
-      | 'contactText'
-      | 'productcodeText'
-      | 'merkverwateringText'
-      | 'merkarchitectuurText'
-      | 'naamcreatieText'
-      | 'careQuote'
-      | 'buildLoveQuote'
-      | 'passionQuote'
-      | 'endOfPageLinks'
-      | 'standardFooter'
-    >
+    sections: Array<'homeOpener' | 'productOpener' | 'backgroundOpener' | 'contactOpener' | 'contactText' | 'productcodeText' | 'merkverwateringText' | 'merkarchitectuurText' | 'naamcreatieText' | 'careQuote' | 'buildLoveQuote' | 'passionQuote' | 'endOfPageLinks' | 'endOfPageLinksLarge' | 'standardFooter'>
     seoDescription: string
     seoTitle: string
+    listItemHeading?: string
+    listItemHiddenText?: string
+    listItemImage?: boolean
+    listItemInfoText?: string
+    listItemView?: 'mint bottom' | 'green bottom' | 'full image'
     title: string
   }
   model: 'page'

@@ -12,7 +12,7 @@ export const heading1Style = {
   fontSize: [6, 7, 8, 9],
   fontWeight: 4,
   lineHeight: [3, 3, 4, 4],
-  pb: [1, 2, 3, 4],
+  pb: [2, 2, 3, 4],
 }
 
 export const heading2Style = {

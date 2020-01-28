@@ -7,7 +7,6 @@
  */
 
 import React, { Fragment } from 'react'
-import { getAllPaddingObject } from '../../styles/global-padding'
 import { heading0Style } from '../../styles/heading'
 import { Box, Flex } from '../../views/core-elements/grid'
 import { Heading } from '../../views/core-elements/heading'
@@ -30,9 +29,8 @@ export const OpenerSectionHomeOpenerVar = (props: OpenerSectionProps) => {
             alignItems: 'center',
             height: '100%',
             justifyContent: 'center',
-            left: 0,
-            ...getAllPaddingObject('textBox'),
             position: 'absolute',
+            px: ['20px', '200px'],
             textAlign: 'center',
             top: 0,
             w: 1,

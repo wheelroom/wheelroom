@@ -36,7 +36,7 @@ const sectionMap = {
   },
   ContentfulQuoteSection: {
     element: QuoteSection,
-    landMark: 'aside',
+    landMark: 'main',
   },
   ContentfulTextSection: {
     element: TextSection,

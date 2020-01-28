@@ -48,7 +48,7 @@ export const contentSets: ContentSets = {
           'homeOpener',
           'merkarchitectuurText',
           'passionQuote',
-          'endOfPageLinks',
+          'endOfPageLinksLarge',
           'standardFooter',
         ],
         seoDescription: 'Specifiek voor SEO',
@@ -95,8 +95,8 @@ export const contentSets: ContentSets = {
         sections: [
           'productOpener',
           'productcodeText',
-          'merkverwateringText',
           'buildLoveQuote',
+          'merkverwateringText',
           'endOfPageLinks',
           'standardFooter',
         ],
@@ -161,7 +161,7 @@ export const contentSets: ContentSets = {
     },
     contactPage: {
       fields: {
-        listItemHeading: 'Onze contactinformatie',
+        listItemHeading: 'Contactinformatie',
         listItemHiddenText: '',
         listItemImage: true,
         listItemInfoText: 'Hoe je ons kunt bellen, e-mailen en faxen.',
@@ -176,8 +176,8 @@ export const contentSets: ContentSets = {
         sections: [
           'contactOpener',
           'contactText',
-          'naamcreatieText',
           'passionQuote',
+          'naamcreatieText',
           'endOfPageLinks',
           'standardFooter',
         ],
@@ -313,8 +313,17 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
     endOfPageLinks: {
       fields: {
         heading: 'Kijk ook eens hier',
-        listItems: ['homePage'],
-        title: 'Einde pagina referenties',
+        listItems: ['productPage', 'backgroundPage', 'contactPage'],
+        title: 'Referenties klein',
+        variation: 'small items',
+      },
+      model: 'listSection',
+    },
+    endOfPageLinksLarge: {
+      fields: {
+        heading: 'Kijk ook eens hier',
+        listItems: ['productPage', 'backgroundPage', 'contactPage'],
+        title: 'Referenties groot',
         variation: 'large items',
       },
       model: 'listSection',

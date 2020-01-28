@@ -5,7 +5,7 @@ export const styledSystemTheme: StyledSystemTheme = {
   colorMap: {
     black: '#000000',
     cyan: '#D7FFF1',
-    darkGrey: '#121212',
+    darkGrey: '#434343',
     green: ' #86C2A1',
     mint: '#AAFCB8',
     white: ' #FFFFFF',

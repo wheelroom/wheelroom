@@ -23,26 +23,16 @@ type GlobalPadding = Record<
 
 // tslint:disable: object-literal-sort-keys
 const globalPadding: GlobalPadding = {
-  image: {
-    mobile: { top: 0, bottom: 3, left: 0, right: 0 },
-    tablet: { top: 0, bottom: 5, left: 0, right: 0 },
-    desktop: { top: 0, bottom: 6, left: 0, right: 0 },
-    widescreen: { top: 0, bottom: 7, left: 7, right: 7 },
-  },
+  image: [4, 5, 6, 6],
   navLinks: 2,
   page: { top: 0, bottom: 8, left: 0, right: 0 },
   section: {
-    mobile: { top: 3, bottom: 0, left: 4, right: 4 },
-    tablet: { top: 4, bottom: 0, left: 5, right: 5 },
-    desktop: { top: 5, bottom: 6, left: 6, right: 6 },
-    widescreen: { top: 6, bottom: 6, left: 0, right: 0 },
+    mobile: { top: 2, bottom: 1, left: 4, right: 4 },
+    tablet: { top: 3, bottom: 2, left: 5, right: 5 },
+    desktop: { top: 4, bottom: 3, left: 6, right: 6 },
+    widescreen: { top: 5, bottom: 4, left: 0, right: 0 },
   },
-  textBox: {
-    mobile: { top: 4, bottom: 5, left: 4, right: 4 },
-    tablet: { top: 4, bottom: 5, left: 4, right: 4 },
-    desktop: { top: 5, bottom: 6, left: 5, right: 5 },
-    widescreen: { top: 5, bottom: 6, left: 5, right: 5 },
-  },
+  textBox: [4, 5, 6, 6],
   listItem: {
     mobile: { top: 3, bottom: 3, left: 4, right: 3 },
     tablet: { top: 3, bottom: 4, left: 4, right: 3 },

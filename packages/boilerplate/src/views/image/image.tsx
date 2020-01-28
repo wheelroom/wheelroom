@@ -18,6 +18,8 @@ type styleProp = string | string[] | number | number[]
 export interface ImageProps {
   '&:hover'?: any
   alt?: string
+  border?: string
+  borderRadius?: string | string[]
   clipPath?: string
   height?: styleProp
   /** fluid image object, see defaultProps */
@@ -36,11 +38,11 @@ export interface ImageProps {
 const overlayStyles = {
   gradient: {
     '&::after': {
-      background: 'transparent',
-      backgroundColor:
-        'linear-gradient( 0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 35% )',
+      background:
+        'linear-gradient( 0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 80% )',
       bottom: '0',
       content: '""',
+      display: 'block',
       left: '0',
       position: 'absolute',
       right: '0',
@@ -68,12 +70,14 @@ export const Image = (props: ImageProps) => {
 
   const pictureStyles = {
     '&:hover': props['&:hover'],
+    border: props.border || 'initial',
     display: 'block',
     height: props.height,
     maxHeight: props.maxHeight,
     minHeight: props.minHeight,
     my: props.my,
     transition: props.transition,
+    width: '100%',
     ...overlayStyleProps,
   }
 
@@ -90,6 +94,7 @@ export const Image = (props: ImageProps) => {
   const fluidImage = props.image || defaultFluidImage
 
   const imgStyles = {
+    borderRadius: props.borderRadius || 'initial',
     clipPath: props.clipPath,
     display: 'block',
     height: '100%',

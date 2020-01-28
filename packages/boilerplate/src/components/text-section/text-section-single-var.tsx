@@ -59,7 +59,7 @@ const TextBox = (props: { children: any }) => (
   <Box
     ncss={{
       px: getSinglePadding('section', 'left'),
-      w: [1, 1 / 2],
+      w: [1, 1, 1 / 2, 1 / 2],
     }}
   >
     {props.children}
@@ -140,7 +140,6 @@ const ListItemBox = (props: { node: any; locale: string }) => {
 }
 
 export const TextSectionSingleVar = (props: TextSectionProps) => {
-  console.log(props)
   const regularLinkStyle = {
     '&:hover': {
       textDecoration: 'underline',
