@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.14](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.13...@jacco-meijer/wheelroom-plugin-graphql@2.1.14) (2020-01-28)
+
+
+### Bug Fixes
+
+* retreive rich text as json ([0034acb](https://github.com/jaccomeijer/wheelroom/commit/0034acb))
+
+
+
+
+
 ## [2.1.13](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.12...@jacco-meijer/wheelroom-plugin-graphql@2.1.13) (2020-01-27)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql

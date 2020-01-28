@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.2](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.3.1...boilerplate@4.3.2) (2020-01-28)
+
+
+### Bug Fixes
+
+* padding ([54c52b8](https://github.com/jaccomeijer/wheelroom/commit/54c52b8))
+* sort order components ([e47783b](https://github.com/jaccomeijer/wheelroom/commit/e47783b))
+
+
+
+
+
 ## [4.3.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.3.0...boilerplate@4.3.1) (2020-01-27)
 
 
