@@ -45,8 +45,8 @@ cp .env-template .env
 ```
 
 The `CONTENTFUL_SPACE_ID` and `CONTENTFUL_DELIVERY_TOKEN` are found within the
-Contentful web ui. To obtain the `CONTENTFUL_CMA_TOKEN`, you need to install the
-Contentful cli:
+Contentful web ui at `Settings -> API keys`. To obtain the
+`CONTENTFUL_CMA_TOKEN`, you need to install the Contentful cli:
 
 ```bash
 npm install -g contentful-cli
@@ -202,6 +202,13 @@ npm run develop
 ```
 
 Open http://localhost:8000/boilerplate
+
+### Styled system
+
+The templates use a style system: [@jacco-meijer/styled-system](https://www.npmjs.com/package/@jacco-meijer/styled-system). It's a simple typescript rewrite of [styled-system.com](https://styled-system.com) and makes it fully configurable. Styled system itself is based on [System UI Theme Specification](https://system-ui.com/theme/).
+
+The config file can be found here: [./src/styled-system/styled-system-config.ts](./src/styled-system/styled-system-config.ts). To configure the theme, look here: [./src/styled-system/styled-system-theme.ts](./src/styled-system/styled-system-theme.ts)
+
 
 ### Page template
 
