@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 /**
  * Component variation
  *
@@ -39,7 +38,9 @@ export const QuoteSectionSingleVar = (props: QuoteSectionProps) => {
           <b>{props.heading}</b>
         </Heading>
         <Heading ncss={{ ...heading2Style }}>{props.subHeading}</Heading>
-        <Text ncss={{ ...paragraph1Style }}>"{props.text.text}..."</Text>
+        <Text ncss={{ ...paragraph1Style }}>
+          &quot;{props.text.text}...&quot;
+        </Text>
       </Box>
     </Flex>
   )
