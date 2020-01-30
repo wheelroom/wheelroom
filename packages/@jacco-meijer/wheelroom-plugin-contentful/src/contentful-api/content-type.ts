@@ -2,6 +2,15 @@ import { ContentfulComponent } from '../types/contentful-components'
 import { ContentfulField } from '../types/contentful-fields'
 import { Context } from '../types/context'
 
+export const getContentTypes = async (context: Context) => {
+  try {
+    context.contentfulApi.allContentTypes = await context.contentfulApi.environment.getContentTypes()
+  } catch (error) {
+    console.log(`Could not list all content types`)
+    context.contentfulApi.allContentTypes = null
+  }
+}
+
 export const getContentType = async (
   context: Context,
   component: ContentfulComponent
