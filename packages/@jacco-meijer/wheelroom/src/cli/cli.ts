@@ -12,7 +12,9 @@ const main = async (argv: string[]) => {
   const cli = baseCli(argv)
   const config = await readConfig(getAppDir(), process.env.WHEELROOM_CONFIG)
   if (!config) {
-    console.log('Aborting beacuse of config not found')
+    console.log(
+      'Aborting beacuse of config not found. Suggestion: compile the config from typescript.'
+    )
     return
   }
   const components = await getComponents(config)
