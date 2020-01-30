@@ -21,7 +21,7 @@ export interface ContentSets {
   [contentSetName: string]: ContentTypes
 }
 
-// tslint:disable: object-literal-sort-keys
+// eslint:disable: object-literal-sort-keys
 export const contentSets: ContentSets = {
   boilerplate: {
     globals: {

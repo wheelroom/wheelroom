@@ -65,7 +65,7 @@ const articlesSection: ReplaceVars = {
         system: true,
         type: 'shortText',
       },
-      // tslint:disable-next-line: object-literal-sort-keys
+      // eslint:disable-next-line: object-literal-sort-keys
       articles: {
         allowedComponents: ['Article'],
         type: 'multipleComponents',
@@ -102,7 +102,7 @@ const featuredPageSection: ReplaceVars = {
         system: true,
         type: 'shortText',
       },
-      // tslint:disable-next-line: object-literal-sort-keys
+      // eslint:disable-next-line: object-literal-sort-keys
       featuredPage: {
         allowedComponents: ['page'],
         expandFragmentRef: true,

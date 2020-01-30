@@ -1,4 +1,4 @@
-// tslint:disable-next-line: no-var-requires
+// eslint:disable-next-line: no-var-requires
 const richTextFromMarkdown = require('@contentful/rich-text-from-markdown')
   .richTextFromMarkdown
 import { ContentfulComponent } from '../types/contentful-components'

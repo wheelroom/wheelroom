@@ -30,7 +30,7 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-typescript',
-    'gatsby-plugin-tslint',
+    'gatsby-plugin-eslint',
     {
       options: {},
       resolve: `gatsby-plugin-emotion`,

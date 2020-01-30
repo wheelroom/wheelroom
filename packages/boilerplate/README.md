@@ -187,7 +187,7 @@ Fix boilerplate imports not ordered properly:
 npm run lint-fix
 ```
 
-This runs: `tslint --project tsconfig.json --fix`.
+This runs: `eslint 'src/**/*.{js,ts,tsx}' --fix`.
 
 ### Sections
 

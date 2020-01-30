@@ -10,7 +10,7 @@ import {
   WheelroomComponents,
 } from '@jacco-meijer/wheelroom'
 
-// tslint:disable: object-literal-sort-keys
+// eslint:disable: object-literal-sort-keys
 export const configComponents: WheelroomComponents = {
   footerSection: {
     fields: {

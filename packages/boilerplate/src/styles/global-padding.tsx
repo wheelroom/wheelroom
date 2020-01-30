@@ -21,7 +21,7 @@ type GlobalPadding = Record<
   PaddingBrakepoints | number[] | number | Padding
 >
 
-// tslint:disable: object-literal-sort-keys
+// eslint:disable: object-literal-sort-keys
 const globalPadding: GlobalPadding = {
   image: [4, 5, 6, 6],
   navLinks: 2,
