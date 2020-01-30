@@ -41,7 +41,7 @@ export const getCfComponent = (context: ProcessWrComponent) => {
       } else {
         // Field.typePostfix not present, use field.type
         contentfulFieldDefinition =
-          context.fieldDefinitions.fieldTypes[fieldValue.type!]
+          context.fieldDefinitions.fieldTypes[fieldValue.type]
       }
       fields[fieldName] = mergeFields({
         cfFieldDefinition: contentfulFieldDefinition,

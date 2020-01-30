@@ -11,6 +11,27 @@ export const getContentTypes = async (context: Context) => {
   }
 }
 
+const getModelVersion = (contentType: any): any => {
+  const result = contentType.fields.find((field: any) => {
+    return field.id === 'modelVersion'
+  })
+  return result.name
+}
+
+export const getLocalizedField = (
+  fieldId: string,
+  modelOptions: any
+): boolean => {
+  if (
+    modelOptions &&
+    modelOptions.localizedFields &&
+    modelOptions.localizedFields.length > 0
+  ) {
+    return modelOptions.localizedFields.includes(fieldId)
+  }
+  return false
+}
+
 export const getContentType = async (
   context: Context,
   component: ContentfulComponent
@@ -29,6 +50,40 @@ export const getContentType = async (
     console.log(`Could not find content type ${component.type}`)
     context.contentfulApi.contentType = null
   }
+}
+
+const getModelVersionFields = (component: ContentfulComponent) => {
+  console.log(`Setting model version to ${component.modelVersion}`)
+
+  return {
+    disabled: true,
+    id: 'modelVersion',
+    localized: false,
+    name: component.modelVersion,
+    omitted: false,
+    required: false,
+    type: 'Symbol',
+  }
+}
+
+const getApiFields = (
+  context: Context,
+  component: ContentfulComponent
+): any[] => {
+  const apiFields = []
+  Object.entries(component.fields).forEach(
+    ([fieldId, field]: [string, ContentfulField]) => {
+      console.log(`Adding field ${fieldId}`)
+      const apiField = { id: fieldId } as any
+      Object.entries(field.specs).forEach(([specName, specValue]) => {
+        apiField[specName] = specValue
+      })
+      apiFields.push(apiField)
+    }
+  )
+  // Add model version
+  apiFields.push(getModelVersionFields(component))
+  return apiFields
 }
 
 export const updateContentType = async (
@@ -70,59 +125,4 @@ export const createContentType = async (
 export const publishContentType = async (context: Context) => {
   console.log(`Publishing content type`)
   context.contentfulApi.contentType = await context.contentfulApi.contentType.publish()
-}
-
-const getModelVersion = (contentType: any): any => {
-  const result = contentType.fields.find((field: any) => {
-    return field.id === 'modelVersion'
-  })
-  return result.name
-}
-
-export const getLocalizedField = (
-  fieldId: string,
-  modelOptions: any
-): boolean => {
-  if (
-    modelOptions &&
-    modelOptions.localizedFields &&
-    modelOptions.localizedFields.length > 0
-  ) {
-    return modelOptions.localizedFields.includes(fieldId)
-  }
-  return false
-}
-
-const getModelVersionFields = (component: ContentfulComponent) => {
-  console.log(`Setting model version to ${component.modelVersion}`)
-
-  return {
-    disabled: true,
-    id: 'modelVersion',
-    localized: false,
-    name: component.modelVersion,
-    omitted: false,
-    required: false,
-    type: 'Symbol',
-  }
-}
-
-const getApiFields = (
-  context: Context,
-  component: ContentfulComponent
-): any[] => {
-  const apiFields = []
-  Object.entries(component.fields).forEach(
-    ([fieldId, field]: [string, ContentfulField]) => {
-      console.log(`Adding field ${fieldId}`)
-      const apiField = { id: fieldId } as any
-      Object.entries(field.specs).forEach(([specName, specValue]) => {
-        apiField[specName] = specValue
-      })
-      apiFields.push(apiField)
-    }
-  )
-  // Add model version
-  apiFields.push(getModelVersionFields(component))
-  return apiFields
 }

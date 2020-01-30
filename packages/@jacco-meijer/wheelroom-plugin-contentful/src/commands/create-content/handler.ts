@@ -12,6 +12,10 @@ import { initializeContext, refreshContext } from '../../lib/initialize-context'
 import { readDotEnv } from '../../lib/read-dot-env'
 import { createAsset } from './create-asset'
 
+const handleError = (error: Error) => {
+  console.log(error.message)
+}
+
 export const handler = async (argv: any) => {
   readDotEnv()
   if (!envComplete()) {
@@ -47,8 +51,4 @@ export const handler = async (argv: any) => {
       handleError(error)
     }
   }
-}
-
-const handleError = (error: Error) => {
-  console.log(error.message)
 }

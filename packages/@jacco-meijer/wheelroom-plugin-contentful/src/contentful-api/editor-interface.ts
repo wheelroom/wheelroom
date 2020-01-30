@@ -20,11 +20,9 @@ const getModelFieldById = (
   component: ContentfulComponent,
   fieldIdLookup: string
 ): any => {
-  const result = Object.entries(component.fields).find(
-    ([fieldId, field]: any) => {
-      return fieldId === fieldIdLookup
-    }
-  )
+  const result = Object.entries(component.fields).find(([fieldId]: any) => {
+    return fieldId === fieldIdLookup
+  })
   return result || [fieldIdLookup, {}]
 }
 

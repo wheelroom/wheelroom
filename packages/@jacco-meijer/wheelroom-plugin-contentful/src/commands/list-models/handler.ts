@@ -3,6 +3,10 @@ import { envComplete } from '../../lib/env-complete'
 import { initializeContext } from '../../lib/initialize-context'
 import { readDotEnv } from '../../lib/read-dot-env'
 
+const handleError = (error: Error) => {
+  console.log(error.message)
+}
+
 export const handler = async (argv: any) => {
   readDotEnv()
   if (!envComplete()) {
@@ -32,8 +36,4 @@ export const handler = async (argv: any) => {
     const fields = ct.fields.map((field: any) => field.id).join('/')
     console.log(`ID:${ct.sys.id}\nFIELDS: ${fields}\n`)
   })
-}
-
-const handleError = (error: Error) => {
-  console.log(error.message)
 }

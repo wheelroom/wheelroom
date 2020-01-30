@@ -8,6 +8,10 @@ import {
 import { getClient, getEnvironment, getSpace } from '../../contentful-api/init'
 import { Context } from '../../types/context'
 
+const handleError = (error: Error) => {
+  console.log(error.message)
+}
+
 export const createAsset = async (context: Context) => {
   console.log(`Creating demo asset =============`)
 
@@ -24,8 +28,4 @@ export const createAsset = async (context: Context) => {
     handleError(error)
   }
   console.log(`Succesfully created demo asset`)
-}
-
-const handleError = (error: Error) => {
-  console.log(error.message)
 }
