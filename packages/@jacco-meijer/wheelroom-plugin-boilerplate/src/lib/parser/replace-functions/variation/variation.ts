@@ -11,16 +11,12 @@
  *
  */
 
-import {
-  getCases,
-  ReplaceFunctionsList,
-  ReplaceParams,
-} from '@jacco-meijer/wheelroom'
+import { getCases, ReplaceFunctionsList } from '@jacco-meijer/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
 
 export const variationFunc: ReplaceFunctionsList = [
   {
-    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+    replace: (vars: ReplaceVarsExt) => {
       const varName =
         vars.currentVariation ||
         vars.singleVariationName ||
@@ -30,7 +26,7 @@ export const variationFunc: ReplaceFunctionsList = [
     search: 'Variation name',
   },
   {
-    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+    replace: (vars: ReplaceVarsExt) => {
       const varName =
         vars.currentVariation ||
         vars.singleVariationName ||
@@ -40,7 +36,7 @@ export const variationFunc: ReplaceFunctionsList = [
     search: 'VariationName',
   },
   {
-    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+    replace: (vars: ReplaceVarsExt) => {
       const varName =
         vars.currentVariation ||
         vars.singleVariationName ||
@@ -50,7 +46,7 @@ export const variationFunc: ReplaceFunctionsList = [
     search: 'variation name',
   },
   {
-    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+    replace: (vars: ReplaceVarsExt) => {
       const varName =
         vars.currentVariation ||
         vars.singleVariationName ||
@@ -60,7 +56,7 @@ export const variationFunc: ReplaceFunctionsList = [
     search: 'variation-name',
   },
   {
-    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+    replace: (vars: ReplaceVarsExt) => {
       const varName =
         vars.currentVariation ||
         vars.singleVariationName ||

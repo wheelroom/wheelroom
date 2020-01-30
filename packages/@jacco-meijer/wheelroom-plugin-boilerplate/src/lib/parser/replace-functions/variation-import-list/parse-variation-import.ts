@@ -16,7 +16,7 @@ export const parseVariationImport = (context: ParseVariationImport) => {
     'variation' in context.component.fields &&
     'items' in context.component.fields.variation
   ) {
-    items = context.component.fields.variation.items!
+    items = context.component.fields.variation.items
   } else {
     items = [context.singleVariationName]
   }

@@ -7,16 +7,12 @@
  *
  */
 
-import {
-  FieldType,
-  ReplaceFunctionsList,
-  ReplaceParams,
-} from '@jacco-meijer/wheelroom'
+import { FieldType, ReplaceFunctionsList } from '@jacco-meijer/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
 
 export const componentHtmlAttributesFunc: ReplaceFunctionsList = [
   {
-    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+    replace: (vars: ReplaceVarsExt) => {
       if (vars.component) {
         const attrs = Object.entries(vars.component.fields)
           .map(

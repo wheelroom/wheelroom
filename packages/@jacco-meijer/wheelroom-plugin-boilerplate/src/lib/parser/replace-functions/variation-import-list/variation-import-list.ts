@@ -7,13 +7,13 @@
  *
  */
 
-import { ReplaceFunctionsList, ReplaceParams } from '@jacco-meijer/wheelroom'
+import { ReplaceFunctionsList } from '@jacco-meijer/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
 import { parseVariationImport } from './parse-variation-import'
 
 export const variationImportListFunc: ReplaceFunctionsList = [
   {
-    replace: (vars: ReplaceVarsExt, params: ReplaceParams) => {
+    replace: (vars: ReplaceVarsExt) => {
       if (vars.component && vars.componentName && vars.singleVariationName) {
         const variationImportList = parseVariationImport({
           component: vars.component,

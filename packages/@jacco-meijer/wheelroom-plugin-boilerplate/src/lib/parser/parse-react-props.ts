@@ -36,7 +36,7 @@ export const parseReactProps = (context: ParseReactProps): string => {
     : 0
   const indentString = Array(indentLevel + 1).join(' ')
   const reactProps = Object.entries(context.component.fields)
-    .filter(([fieldName, field]: [string, FieldType]) => {
+    .filter(([fieldName]: [string, FieldType]) => {
       if (Array.isArray(context.skipFields)) {
         return context.skipFields.includes(fieldName) ? false : true
       } else {

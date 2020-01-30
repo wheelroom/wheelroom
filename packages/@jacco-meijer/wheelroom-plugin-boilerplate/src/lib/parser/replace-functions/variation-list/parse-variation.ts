@@ -24,7 +24,7 @@ export const parseVariation = (context: ParseVariation) => {
     'items' in context.component.fields.variation &&
     context.component.fields.variation.type === 'dropdown'
   ) {
-    items = context.component.fields.variation.items!
+    items = context.component.fields.variation.items
   } else {
     items = [context.singleVariationName]
   }
