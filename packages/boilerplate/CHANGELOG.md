@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.3](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.3.2...boilerplate@4.3.3) (2020-01-30)
+
+
+### Bug Fixes
+
+* remove siteTitle ([36a11a4](https://github.com/jaccomeijer/wheelroom/commit/36a11a4))
+
+
+
+
+
 ## [4.3.2](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.3.1...boilerplate@4.3.2) (2020-01-28)
 
 
