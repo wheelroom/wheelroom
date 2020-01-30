@@ -13,6 +13,8 @@ export interface Context {
     contentfulClient?: any
     /** Contentful asset object */
     asset?: any
+    /** All Contentful contentType objects found in a space */
+    allContentTypes?: any
     /** Contentful contentType object */
     contentType?: any
     /** Contentful editorInterface object */
