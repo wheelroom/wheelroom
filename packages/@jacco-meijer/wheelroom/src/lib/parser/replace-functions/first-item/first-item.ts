@@ -9,15 +9,11 @@
  *
  */
 
-import {
-  ReplaceFunctionsList,
-  ReplaceParams,
-  ReplaceVars,
-} from '../../../../types/parser'
+import { ReplaceFunctionsList, ReplaceVars } from '../../../../types/parser'
 
 export const firstItemFunc: ReplaceFunctionsList = [
   {
-    replace: (vars: ReplaceVars, params: ReplaceParams) => {
+    replace: (vars: ReplaceVars) => {
       if (
         vars.field &&
         vars.field.type === 'dropdown' &&

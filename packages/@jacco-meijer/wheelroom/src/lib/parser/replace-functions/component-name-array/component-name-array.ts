@@ -28,7 +28,7 @@ export const componentNameArrayFunc: ReplaceFunctionsList = [
                 .reduce((o: any, i) => o[i], comp)
               return value
             })
-            .map(([compName, comp]: [string, WheelroomComponent]) => compName)
+            .map(([compName]: [string, WheelroomComponent]) => compName)
             .join(', ')
           return nameList
         }

@@ -6,27 +6,19 @@ import { writeFileQuestions } from './write-files-questions'
 
 type OverwritePolicy = 'y' | 'n' | 'a' | 'q' | undefined
 
-export const writeFiles = async (context: WriteFilesContext) => {
-  let lastOverwritePolicy: OverwritePolicy
-  for (const fileList of context.fileList) {
-    lastOverwritePolicy = await writeFile({
-      basePath: fileList.basePath,
-      content: fileList.content,
-      dryRun: context.dryRun,
-      lastOverwritePolicy,
-      relPath: fileList.relPath,
-      yes: context.yes,
-    })
+const askOverwritePolicy = async (yes: boolean | undefined) => {
+  if (yes) {
+    return 'a'
   }
+  const answers: any = await inquirer.prompt(writeFileQuestions)
+  return answers.policy
 }
 
-interface WriteFileContext {
-  basePath: string
-  content: string
-  dryRun: boolean | undefined
-  lastOverwritePolicy: OverwritePolicy
-  relPath: string
-  yes: boolean | undefined
+const getPath = (basePath: string, relPath: string) => {
+  const fullPath = noTrailingSlash(basePath) + `/${relPath}`
+  const fileName = fullPath.replace(/^.*[\\\/]/, '')
+  const filePath = fullPath.substring(0, fullPath.lastIndexOf('/'))
+  return [fileName, filePath]
 }
 
 const writeFile = async (context: WriteFileContext) => {
@@ -39,7 +31,7 @@ const writeFile = async (context: WriteFileContext) => {
   if (context.dryRun) {
     console.log(`About to ${exists ? 'OVERWRITE' : 'write'}: ${writeTo}`)
   } else {
-    let doWrite: boolean = false
+    let doWrite = false
     if (overwritePolicy === 'q') {
       console.log(`Skipping: ${writeTo}`)
       return overwritePolicy
@@ -70,17 +62,25 @@ const writeFile = async (context: WriteFileContext) => {
   return overwritePolicy
 }
 
-const askOverwritePolicy = async (yes: boolean | undefined) => {
-  if (yes) {
-    return 'a'
+export const writeFiles = async (context: WriteFilesContext) => {
+  let lastOverwritePolicy: OverwritePolicy
+  for (const fileList of context.fileList) {
+    lastOverwritePolicy = await writeFile({
+      basePath: fileList.basePath,
+      content: fileList.content,
+      dryRun: context.dryRun,
+      lastOverwritePolicy,
+      relPath: fileList.relPath,
+      yes: context.yes,
+    })
   }
-  const answers: any = await inquirer.prompt(writeFileQuestions)
-  return answers.policy
 }
 
-const getPath = (basePath: string, relPath: string) => {
-  const fullPath = noTrailingSlash(basePath) + `/${relPath}`
-  const fileName = fullPath.replace(/^.*[\\\/]/, '')
-  const filePath = fullPath.substring(0, fullPath.lastIndexOf('/'))
-  return [fileName, filePath]
+interface WriteFileContext {
+  basePath: string
+  content: string
+  dryRun: boolean | undefined
+  lastOverwritePolicy: OverwritePolicy
+  relPath: string
+  yes: boolean | undefined
 }
