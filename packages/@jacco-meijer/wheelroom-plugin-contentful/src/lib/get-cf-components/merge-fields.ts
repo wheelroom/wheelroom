@@ -97,7 +97,6 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
   if (validations) {
     createIfMissing(workingField.specs, 'validations', 'array')
     validations.forEach((validation: any) => {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       workingField.specs.validations!.push(Object.assign({}, validation))
     })
   }
@@ -107,7 +106,6 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
   // singleComponent: specs.validations.0.linkContentType
   if (context.wrField.type === 'singleComponent') {
     createIfMissing(workingField.specs, 'validations', 'array')
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     workingField.specs.validations!.push({
       linkContentType: context.wrField.allowedComponents,
     })
@@ -116,7 +114,6 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
   if (context.wrField.type === 'multipleComponents') {
     createIfMissing(workingField.specs, 'items', 'object')
     createIfMissing(workingField.specs.items, 'validations', 'array')
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     workingField.specs.items!.validations!.push({
       linkContentType: context.wrField.allowedComponents,
     })
@@ -124,7 +121,6 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
   if (context.wrField.type === 'dropdown') {
     // specs.validations.0.in
     createIfMissing(workingField.specs, 'validations', 'array')
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     workingField.specs.validations!.push({
       in: context.wrField.items,
     })
@@ -132,7 +128,6 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
   if (context.wrField.type === 'shortText' && context.wrField.maxLength) {
     // specs.validations.0.size.max
     createIfMissing(workingField.specs, 'validations', 'array')
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     workingField.specs.validations!.push({
       size: {
         max: context.wrField.maxLength,
@@ -143,7 +138,6 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
   if (context.wrField.unique) {
     // specs.validations.0.unique
     createIfMissing(workingField.specs, 'validations', 'array')
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     workingField.specs.validations!.push({
       unique: context.wrField.unique,
     })

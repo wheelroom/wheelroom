@@ -47,7 +47,7 @@ const typeTable: TypeTable = {
 
 export const getWheelroomQuery = (component: WheelroomComponent): QbFields => {
   if ('settings' in component && 'asQuery' in component.settings) {
-    const fields = typeTable[component.settings.asQuery!]
+    const fields = typeTable[component.settings.asQuery || 'page']
     return fields
   }
   return {}

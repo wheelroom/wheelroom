@@ -8,7 +8,6 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { SectionProps } from '../../sections/section-props'
-import { FluidImage } from '../../views/image/image'
 import { ListSectionLargeItemsVar } from './list-section-large-items-var'
 import { ListSectionSmallItemsVar } from './list-section-small-items-var'
 

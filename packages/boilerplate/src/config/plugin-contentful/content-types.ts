@@ -24,7 +24,9 @@ interface GlobalsModel {
 interface ListSectionModel {
   fields: {
     heading: string
-    listItems: Array<'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'>
+    listItems: Array<
+      'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'
+    >
     variation: 'large items' | 'small items'
     title: string
   }
@@ -57,7 +59,23 @@ interface PageModel {
     pageInfoText: string
     path: string
     pathName: string
-    sections: Array<'homeOpener' | 'productOpener' | 'backgroundOpener' | 'contactOpener' | 'contactText' | 'productcodeText' | 'merkverwateringText' | 'merkarchitectuurText' | 'naamcreatieText' | 'careQuote' | 'buildLoveQuote' | 'passionQuote' | 'endOfPageLinks' | 'endOfPageLinksLarge' | 'standardFooter'>
+    sections: Array<
+      | 'homeOpener'
+      | 'productOpener'
+      | 'backgroundOpener'
+      | 'contactOpener'
+      | 'contactText'
+      | 'productcodeText'
+      | 'merkverwateringText'
+      | 'merkarchitectuurText'
+      | 'naamcreatieText'
+      | 'careQuote'
+      | 'buildLoveQuote'
+      | 'passionQuote'
+      | 'endOfPageLinks'
+      | 'endOfPageLinksLarge'
+      | 'standardFooter'
+    >
     seoDescription: string
     seoTitle: string
     listItemHeading?: string

@@ -1,10 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 
 const VariationNotFound = (props: any) => (
   <div>Variation "{props.variation}" not found</div>
 )
 
-const VariationPropNotFound = (props: any) => (
+const VariationPropNotFound = () => (
   <div>Property 'props.variation' not found</div>
 )
 

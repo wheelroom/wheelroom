@@ -1,12 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { Options } from './types/options'
 
-// eslint:disable-next-line: no-var-requires
 const gatsbyNode = require('./gatsby-node')
-// eslint:disable-next-line: no-var-requires
 const articleQuery = require('./fixtures/article-query')
-// eslint:disable-next-line: no-var-requires
 const globalsQuery = require('./fixtures/globals-query')
-// eslint:disable-next-line: no-var-requires
 const pageQuery = require('./fixtures/page-query')
 
 const graphqlMock = (query: string) => {

@@ -1,4 +1,5 @@
-export const fragment = `/**
+export const fragment = `/* eslint-disable prettier/prettier */
+/**
  * Graphql fragment definition
  *
  * These fragments define the component fields. Gatsby resolves this file

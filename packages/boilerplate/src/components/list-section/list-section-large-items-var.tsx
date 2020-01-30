@@ -46,16 +46,16 @@ const LargeListItems = (props: { items: PageProps[] }) => {
         <Flex>
           <Box ncss={{ w: [1, 2 / 3], ...getAllPaddingObject('textBox') }}>
             <Heading
-              children={heading}
               ncss={{
                 ...heading3Style,
                 color: 'white',
               }}
-            />
-            <Text
-              ncss={{ ...paragraph2Style, color: 'white' }}
-              children={infoText}
-            />
+            >
+              {heading}
+            </Heading>
+            <Text ncss={{ ...paragraph2Style, color: 'white' }}>
+              {infoText}
+            </Text>
           </Box>
           <Box ncss={{ w: [1, 1 / 3] }}>
             <Image image={image} height={[1, 2, 2, 2]} />

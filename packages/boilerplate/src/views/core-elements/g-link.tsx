@@ -5,10 +5,11 @@ import { emotionCss } from './emotion-css'
 
 export const GLink = (props: any) => (
   <Link
-    children={props.children}
     css={emotionCss({
       ncss: { display: 'block', textDecoration: 'none', ...props.ncss },
     })}
     to={props.to}
-  />
+  >
+    {props.children}
+  </Link>
 )

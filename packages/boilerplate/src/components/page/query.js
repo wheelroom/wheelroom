@@ -6,7 +6,6 @@
  *
  */
 
-
 module.exports = {
   componentName: 'page',
   query: `

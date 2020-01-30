@@ -61,7 +61,6 @@ export const wheelroomToGraphql = (context: WheelroomToGraphql): QbFields => {
     image: {
       fields: {
         title: {},
-        // eslint:disable-next-line: object-literal-sort-keys
         description: {},
         fluid: {
           arguments: { maxWidth: '1024' },

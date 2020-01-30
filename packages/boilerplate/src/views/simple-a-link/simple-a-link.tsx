@@ -7,5 +7,9 @@ export const SimpleALink = (props: any) => {
     ...simpleLinkStyle,
     color: props.toggleInverse ? 'white' : 'darkBlue',
   }
-  return <ALink ncss={linkStyle} children={props.children} href={props.href} />
+  return (
+    <ALink ncss={linkStyle} href={props.href}>
+      {props.children}
+    </ALink>
+  )
 }

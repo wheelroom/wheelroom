@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /**
  * Component variation
  *
@@ -83,8 +84,9 @@ const ListBox = (props: { children: any }) => (
         ...paragraph1Style,
         w: 1,
       }}
-      children={props.children}
-    />
+    >
+      {props.children}
+    </Flex>
   </TextBox>
 )
 
@@ -140,6 +142,7 @@ const ListItemBox = (props: { node: any; locale: string }) => {
 }
 
 export const TextSectionSingleVar = (props: TextSectionProps) => {
+  const textSectionProps = props
   const regularLinkStyle = {
     '&:hover': {
       textDecoration: 'underline',
@@ -149,10 +152,10 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
   }
   const options = {
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node: Node, children: Children) => {
+      [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
         return (
           <TextBox>
-            <Text ncss={paragraph1Style} children={children} />
+            <Text ncss={paragraph1Style}>{children}</Text>
           </TextBox>
         )
       },
@@ -165,48 +168,50 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
         )
       },
       [INLINES.ENTRY_HYPERLINK]: (node: Node, children: Children) => {
-        const internalPath = node.data.target.fields.path[props.locale]
+        const internalPath =
+          node.data.target.fields.path[textSectionProps.locale]
         return (
           <GLink ncss={regularLinkStyle} to={internalPath}>
             {children}
           </GLink>
         )
       },
-      [BLOCKS.OL_LIST]: (node: Node, children: Children) => {
+      [BLOCKS.OL_LIST]: (_node: Node, children: Children) => {
         return <ListBox>{children}</ListBox>
       },
-      [BLOCKS.UL_LIST]: (node: Node, children: Children) => {
+      [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
         return <ListBox>{children}</ListBox>
       },
-      [BLOCKS.LIST_ITEM]: (node: Node, children: Children) => {
-        return <ListItemBox node={node} locale={props.locale} />
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      [BLOCKS.LIST_ITEM]: (node: Node, _children: Children) => {
+        return <ListItemBox node={node} locale={textSectionProps.locale} />
       },
-      [BLOCKS.HEADING_1]: (node: Node, children: Children) => (
+      [BLOCKS.HEADING_1]: (_node: Node, children: Children) => (
         <HeadingBox>
-          <Heading children={children} ncss={heading1Style} />
+          <Heading ncss={heading1Style}>{children}</Heading>
         </HeadingBox>
       ),
-      [BLOCKS.HEADING_2]: (node: Node, children: Children) => (
+      [BLOCKS.HEADING_2]: (_node: Node, children: Children) => (
         <HeadingBox>
-          <Heading children={children} ncss={heading2Style} />
+          <Heading ncss={heading2Style}>{children}</Heading>
         </HeadingBox>
       ),
-      [BLOCKS.HEADING_3]: (node: Node, children: Children) => (
+      [BLOCKS.HEADING_3]: (_node: Node, children: Children) => (
         <HeadingBox>
-          <Heading children={children} ncss={heading3Style} />
+          <Heading ncss={heading3Style}>{children}</Heading>
         </HeadingBox>
       ),
-      [BLOCKS.HEADING_4]: (node: Node, children: Children) => (
+      [BLOCKS.HEADING_4]: (_node: Node, children: Children) => (
         <HeadingBox>
-          <Heading children={children} ncss={heading4Style} />
+          <Heading ncss={heading4Style}>{children}</Heading>
         </HeadingBox>
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         const image = {
-          description: fields.title[props.locale],
+          description: fields.title[textSectionProps.locale],
           fluid: {
-            src: fields.file[props.locale].url + '?w=1024&q=50',
+            src: fields.file[textSectionProps.locale].url + '?w=1024&q=50',
           },
         } as FluidImage
         return <ImageBox image={image} />

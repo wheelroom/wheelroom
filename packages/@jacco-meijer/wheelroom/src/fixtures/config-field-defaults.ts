@@ -46,7 +46,6 @@ const multipleComponents: MultipleComponentsField = {
   initialContent: ['%firstAllowedComponent%'],
   type: 'multipleComponents',
 }
-// eslint:disable-next-line: variable-name
 const number: NumberField = {
   initialContent: 5,
   type: 'number',

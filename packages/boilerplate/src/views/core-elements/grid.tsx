@@ -3,10 +3,9 @@ import { jsx } from '@emotion/core'
 import { emotionCss } from './emotion-css'
 
 export const Box = (props: any) => (
-  <div
-    css={emotionCss({ ncss: { boxSizing: 'border-box', ...props.ncss } })}
-    children={props.children}
-  />
+  <div css={emotionCss({ ncss: { boxSizing: 'border-box', ...props.ncss } })}>
+    {props.children}
+  </div>
 )
 
 export const Flex = (props: any) => (
@@ -19,8 +18,9 @@ export const Flex = (props: any) => (
         ...props.ncss,
       },
     })}
-    children={props.children}
-  />
+  >
+    {props.children}
+  </div>
 )
 
 export const Container = (props: any) => {
@@ -29,7 +29,8 @@ export const Container = (props: any) => {
       css={emotionCss({
         ncss: { mx: 'auto', maxWidth: '1200px', ...props.ncss },
       })}
-      children={props.children}
-    />
+    >
+      {props.children}
+    </div>
   )
 }

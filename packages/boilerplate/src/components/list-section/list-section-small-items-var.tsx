@@ -53,16 +53,16 @@ const LargeListItems = (props: { items: PageProps[] }) => {
             }}
           >
             <Heading
-              children={heading}
               ncss={{
                 ...heading3Style,
                 color: 'white',
               }}
-            />
-            <Text
-              ncss={{ ...paragraph2Style, color: 'white' }}
-              children={infoText}
-            />
+            >
+              {heading}
+            </Heading>
+            <Text ncss={{ ...paragraph2Style, color: 'white' }}>
+              {infoText}
+            </Text>
           </Box>
         </Box>
       </GLink>
