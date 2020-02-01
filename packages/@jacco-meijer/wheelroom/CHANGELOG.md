@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.3.4...@jacco-meijer/wheelroom@3.4.0) (2020-02-01)
+
+
+### Features
+
+* add suggestion when config is missing ([dc56f74](https://github.com/jaccomeijer/wheelroom/commit/dc56f74d3a24c34c046a9d5b1253f0c97602e813))
+
+
+
+
+
 ## [3.3.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.3.3...@jacco-meijer/wheelroom@3.3.4) (2020-01-30)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom
