@@ -13,7 +13,10 @@ const main = async (argv: string[]) => {
   const config = await readConfig(getAppDir(), process.env.WHEELROOM_CONFIG)
   if (!config) {
     console.log(
-      'Aborting beacuse of config not found. Suggestion: compile the config from typescript.'
+      `Aborting: config not found. Suggestion: compile the config from typescript.
+WHEELROOM_CONFIG=${process.env.WHEELROOM_CONFIG || 'wheelroom-config.js'}
+path=${getAppDir()}
+`
     )
     return
   }
