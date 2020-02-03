@@ -1,5 +1,6 @@
 import { WheelroomComponents } from '@jacco-meijer/wheelroom'
 import { ContentfulComponents } from './contentful-components'
+import { ContentfulFieldDefinitions } from './contentful-field-definitions'
 
 export interface Context {
   commandLineOptions: {
@@ -33,6 +34,8 @@ export interface Context {
   pluginOptions: {
     /** default locale */
     defaultLocale: string
+    /** Field definitions */
+    fieldDefinitions: ContentfulFieldDefinitions
   }
   /** Contentful components */
   contentfulComponents: ContentfulComponents
