@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.8.2...@jacco-meijer/wheelroom-plugin-contentful@2.9.0) (2020-02-03)
+
+
+### Features
+
+* list-models command mimics original wheelroom config ([ae988f6](https://github.com/jaccomeijer/wheelroom/commit/ae988f6))
+
+
+
+
+
 ## [2.8.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.8.1...@jacco-meijer/wheelroom-plugin-contentful@2.8.2) (2020-02-01)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
