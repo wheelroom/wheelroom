@@ -23,13 +23,24 @@ const addSpecificFields = (obj: any, field: any) => {
     obj.type = 'dropdown'
     obj.items = field.validations[0].in
   }
-  if (field.type === 'Link' && field.validations[0].linkMimetypeGroup) {
+  if (
+    field.type === 'Link' &&
+    field.validations &&
+    field.validations[0] &&
+    field.validations[0].linkMimetypeGroup
+  ) {
     obj.type = 'image'
   }
   if (field.type === 'Text') {
     obj.type = 'longText'
   }
-  if (field.type === 'Array' && field.items.type === 'Link') {
+  if (
+    field.type === 'Array' &&
+    field.items.type === 'Link' &&
+    field.validations &&
+    field.validations[0] &&
+    field.validations[0].linkContentType
+  ) {
     obj.type = 'multipleComponents'
     obj.allowedComponents = field.items.validations[0].linkContentType
   }
@@ -42,7 +53,12 @@ const addSpecificFields = (obj: any, field: any) => {
   if (field.type === 'Symbol') {
     obj.type = 'shortText'
   }
-  if (field.type === 'Link' && field.validations[0].linkContentType) {
+  if (
+    field.type === 'Link' &&
+    field.validations &&
+    field.validations[0] &&
+    field.validations[0].linkContentType
+  ) {
     obj.type = 'singleComponent'
     obj.allowedComponents = field.validations[0].linkContentType
   }
