@@ -8,7 +8,7 @@ const handleError = (error: Error) => {
   console.log(error.message)
 }
 
-/** 
+/**
  * This is about reverse engineering from Contentful to the original WHeelroom
  * config. However useful for the time being, this command needs improvement.
  *
