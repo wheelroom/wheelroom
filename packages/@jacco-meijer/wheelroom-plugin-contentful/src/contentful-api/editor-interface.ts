@@ -16,6 +16,16 @@ export const getEditorInterface = async (
   console.log(`Fetched editor interface`)
 }
 
+export const getEditorInterfaceByType = async (
+  context: Context,
+  type: string
+) => {
+  const editorInterface = await context.contentfulApi.environment.getEditorInterfaceForContentType(
+    type
+  )
+  return editorInterface
+}
+
 const getModelFieldById = (
   component: ContentfulComponent,
   fieldIdLookup: string
