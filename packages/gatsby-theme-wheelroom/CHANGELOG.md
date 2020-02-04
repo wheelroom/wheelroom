@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.0.17...gatsby-theme-wheelroom@3.1.0) (2020-02-04)
+
+
+### Features
+
+* use CONTENTFUL_ENVIRONMENT ([5c9cbd1](https://github.com/jaccomeijer/wheelroom/commit/5c9cbd1))
+
+
+
+
+
 ## [3.0.17](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.0.16...gatsby-theme-wheelroom@3.0.17) (2020-02-04)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom
