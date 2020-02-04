@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.1.1...gatsby-theme-wheelroom@3.1.2) (2020-02-04)
+
+
+### Bug Fixes
+
+* subPageId bug ([656ff7e](https://github.com/jaccomeijer/wheelroom/commit/656ff7ec65bc5b2711fcbbab6f45617c12df8877))
+
+
+
+
+
 ## [3.1.1](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.1.0...gatsby-theme-wheelroom@3.1.1) (2020-02-04)
 
 
