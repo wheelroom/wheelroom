@@ -45,7 +45,6 @@ export const handler = async (argv: any) => {
         addFields(
           context,
           editorInterface,
-
           configComponents[ct.sys.id][field.id],
           field
         )

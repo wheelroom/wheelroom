@@ -1,29 +1,25 @@
 import { Context } from '../../types/context'
 import { ContentfulField } from '../../types/contentful-fields'
+import { compareObjects } from './compare-objects'
 
-// Does test object have all required fields?
-const compare = (testObject: any, requiredFields: any) => {
-  for (const prop in requiredFields) {
-    if (
-      testObject.hasOwnProperty(prop) &&
-      requiredFields.hasOwnProperty(prop)
-    ) {
-      if (
-        requiredFields[prop] &&
-        typeof testObject[prop] == 'object' &&
-        typeof requiredFields[prop] == 'object'
-      ) {
-        if (!compare(testObject[prop], requiredFields[prop])) {
-          return false
-        }
-      } else if (testObject[prop] != requiredFields[prop]) {
-        return false
-      }
-    } else {
-      return false
+// How details is the definition? The more detail, the higher the weight. In
+// case if multiple definition matches, the one with the heighest weight is
+// used.
+const fieldDefWeight = (fieldDef: ContentfulField) => {
+  let weight = 0
+  if (fieldDef.settings && fieldDef.settings.helpText) {
+    weight++
+  }
+  if (fieldDef.specs) {
+    weight += Object.keys(fieldDef.specs).length
+    if (fieldDef.specs.validations) {
+      weight += fieldDef.specs.validations.length
     }
   }
-  return true
+  if (fieldDef.widgetId) {
+    weight++
+  }
+  return weight
 }
 
 export const addFields = (
@@ -54,11 +50,21 @@ export const addFields = (
     },
     widgetId: thisFieldEditorInterface.widgetId,
   }
+  let lastWeight = 0
   // Loop through fieldDefs and find object that matches thisFieldDef
   Object.entries(fieldDefs.fieldTypes).forEach(
     ([fieldType, fieldDef]: [string, ContentfulField]) => {
       // Does thisFieldDef have all fields present in fieldDef?
-      if (compare(thisFieldDef, fieldDef)) {
+      if (compareObjects(thisFieldDef, fieldDef)) {
+        const newWeight = fieldDefWeight(fieldDef)
+        if (newWeight >= lastWeight) {
+          Object.keys(addToObj).forEach((key: string) => {
+            delete addToObj[key]
+          })
+          lastWeight = newWeight
+        } else {
+          return
+        }
         addToObj.type = fieldType
         if (fieldType === 'dropdown') {
           addToObj.items = field.validations[0].in
@@ -85,9 +91,6 @@ export const addFields = (
         if (field.name) {
           addToObj.name = field.name
         }
-        // TODO: When multiple fields match, eg shortText and dropdown, choose wisely
-        // Don't look any further
-        // return
       }
     }
   )
