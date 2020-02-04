@@ -24,7 +24,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.1.72",
     "gatsby-source-filesystem": "2.1.45",
-    "gatsby-theme-wheelroom": "^3.1.0",
+    "gatsby-theme-wheelroom": "^3.1.1",
     "gatsby-transformer-json": "2.2.24",
     "react": "16.12.0",
     "react-dom": "16.12.0",
@@ -87,5 +87,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "4.3.12"
+  "version": "4.3.13"
 }
