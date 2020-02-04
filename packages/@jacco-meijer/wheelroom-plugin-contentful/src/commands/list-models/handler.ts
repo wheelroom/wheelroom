@@ -39,13 +39,25 @@ export const handler = async (argv: any) => {
     allContentTypes.items.map(async (ct: any) => {
       // Fetch editor interface
       const editorInterface = await getEditorInterfaceByType(context, ct.sys.id)
-      configComponents[ct.sys.id] = {}
+      configComponents[ct.sys.id] = {
+        fields: {},
+        settings: {
+          asBoilerplate: false,
+          asFragment: false,
+          asPageSection: false,
+        },
+      }
       ct.fields.forEach((field: any) => {
-        configComponents[ct.sys.id][field.id] = {}
+        if (field.id === 'modelVersion') {
+          configComponents[ct.sys.id].modelVersion = field.name
+          // Don't add this field, continue with next field
+          return
+        }
+        configComponents[ct.sys.id].fields[field.id] = {}
         addFields(
           context,
           editorInterface,
-          configComponents[ct.sys.id][field.id],
+          configComponents[ct.sys.id].fields[field.id],
           field
         )
       })
