@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.4...@jacco-meijer/wheelroom-plugin-contentful@2.9.5) (2020-02-04)
+
+
+### Bug Fixes
+
+* use proper field and settings object ([3dfaf24](https://github.com/jaccomeijer/wheelroom/commit/3dfaf24))
+
+
+
+
+
 ## [2.9.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.3...@jacco-meijer/wheelroom-plugin-contentful@2.9.4) (2020-02-04)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
