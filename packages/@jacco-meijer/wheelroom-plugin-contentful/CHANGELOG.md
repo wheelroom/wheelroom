@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.3...@jacco-meijer/wheelroom-plugin-contentful@2.9.4) (2020-02-04)
+
+**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
+
+
+
+
+
 ## [2.9.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.2...@jacco-meijer/wheelroom-plugin-contentful@2.9.3) (2020-02-04)
 
 
