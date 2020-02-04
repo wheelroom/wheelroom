@@ -8,9 +8,14 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
-const cfConfig = {
+const cfConfig: any = {
   accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
   spaceId: process.env.CONTENTFUL_SPACE_ID,
+}
+
+// Pass CONTENTFUL_ENVIRONMENT when available
+if (process.env.CONTENTFUL_ENVIRONMENT) {
+  cfConfig.environment = process.env.CONTENTFUL_ENVIRONMENT
 }
 
 if (!cfConfig.spaceId || !cfConfig.accessToken) {
