@@ -55,6 +55,7 @@ export const createSubPages = (context: CreateSubPages) => {
               locale: subPageLocale,
               namedPaths: context.namedPaths,
               page,
+              subPage: page,
               queryResults: context.queryResults,
             }),
             path: pagePath,

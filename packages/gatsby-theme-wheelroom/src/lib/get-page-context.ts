@@ -9,7 +9,7 @@ interface GetPageContext {
   locale: string
   namedPaths: NamedPaths
   page: ContentfulNode
-  subPage?: ContentfulEdge
+  subPage?: ContentfulNode
   componentName: string
   queryResults: QueryResults
 }
@@ -43,7 +43,7 @@ export const getPageContext = (context: GetPageContext): PageContext => {
 
   // Add subPage id
   if (context.subPage) {
-    pageContext[context.page.pathName + 'Id'] = context.subPage.node.id
+    pageContext[context.page.pathName + 'Id'] = context.subPage.id
   }
   return pageContext
 }
