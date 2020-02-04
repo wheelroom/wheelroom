@@ -13,7 +13,8 @@ This has been developed and tested on macOS. Ubuntu should not give any
 problems. Windows has never been tried, there's possibly some unresolved path
 issues there. I'd be happy to know.
 
-The boilerplate depends on [NodeJS](https://nodejs.org)
+The boilerplate depends on [nodeJS](https://nodejs.org) and uses
+[Typescript](https://www.typescriptlang.org).
 
 ### Clone boilerplate
 
@@ -201,7 +202,7 @@ Start Gatsby by
 npm run develop
 ```
 
-Open http://localhost:8000/boilerplate
+Open http://localhost:8000
 
 ### Styled system
 
