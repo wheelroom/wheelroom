@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.2...@jacco-meijer/wheelroom-plugin-contentful@2.9.3) (2020-02-04)
+
+
+### Bug Fixes
+
+* fieldDefs overwriting ([5db6dea](https://github.com/jaccomeijer/wheelroom/commit/5db6dea7832a724e55e6d7bc9bde37de27f0a9e1))
+
+
+
+
+
+## [2.9.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.1...@jacco-meijer/wheelroom-plugin-contentful@2.9.2) (2020-02-03)
+
+
+### Bug Fixes
+
+* use field defs for generating list-models output ([ff2491b](https://github.com/jaccomeijer/wheelroom/commit/ff2491b58d61e80b437c53f0db597efa7f390ab9))
+
+
+
+
+
 ## [2.9.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.0...@jacco-meijer/wheelroom-plugin-contentful@2.9.1) (2020-02-03)
 
 
