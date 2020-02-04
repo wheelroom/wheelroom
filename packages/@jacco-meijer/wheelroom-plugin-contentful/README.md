@@ -22,22 +22,45 @@ CONTENTFUL_ENVIRONMENT=master
 
 ## Commands
 
-This plugin adds three commands.
+This plugin adds four commands.
+
+### create-models
 
 To create the models at Contentful use:
 ```
 wheelroom create-models [options]
 ```
 
+### create-content
+
 To create demo entries from the `initialContent` model field, use:
 ```
 wheelroom create-content [options]
 ```
 
+To create entries from a content set, use:
+```
+wheelroom create-content [content-set] [options]
+```
+
+### delete-content
+
 Demo entries have specific ids so that they can be easily deleted:
 ```
 wheelroom delete-content [options]
 ```
+
+### list-models
+
+To list models that have been configured at Contentful:
+```
+wheelroom list-models
+```
+
+This command matches the fields returned from Contentful with the field
+definitions passed to the plugin. The output is JSON that can easily be
+converted into a new wheelroom component config.
+
 
 ## Config
 
