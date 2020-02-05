@@ -15,7 +15,7 @@ const wheelroomTypeToTsType: TypeTable = {
   longText: `{\n    %fieldName%: string\n  }`,
   multipleComponents: 'any',
   number: 'number',
-  richText: `{\n    %fieldName%: string\n  }`,
+  richText: `{\n    json: string\n  }`,
   shortText: 'string',
   singleComponent: 'any',
   tags: 'string[]',
