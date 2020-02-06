@@ -61,7 +61,7 @@ Wheelroom can now list the available models configured in [config-components.ts]
 npm run wr:ls
 ```
 
-### Create Contentul models
+## Create Contentul models
 
 Create the configured models in your Contentful space and check the Contentful
 web ui.

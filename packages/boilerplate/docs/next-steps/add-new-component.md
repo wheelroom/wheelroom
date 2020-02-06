@@ -6,6 +6,7 @@ New components are added in a few steps:
 
 - Add the component and compile the new config
 - Create the new model at Contentful
+- Create content for the new model
 - Generate Graphql fragments and queries
 - Create React boilerplate code
 - Update the section list
@@ -36,6 +37,29 @@ npm run wr:cm -- --filter newComponent
 > **_NOTE:_** This runs: `WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-models`. It sets the config and runs the `create-models`
 > command added by
 > [wheelroom-plugin-contentful](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-contentful).
+
+## Create content for the new model
+
+Because of the way `gatsby-source-contentful` works ([see here](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-contentful#notes-on-contentful-content-models)), at least one entry of the model must exist - and - all fields of this entry must have a value.
+
+There's three way's of doing this.
+
+### 1. Manually
+
+Open the web ui and create an entry. Fill all fields with `n/a`.
+
+### 2. Use initialContent property
+
+Add the property `initialContent` to each field of your model. An entry with the
+initial content for each field will be created when you run:
+
+```bash
+npm run wr -- create-content --filter newComponent
+```
+
+### 3. Create a content set
+
+Add demo content to [content-sets.ts](../../src/config/plugin-contentful/content-sets.ts).
 
 ## Create Graphql fragments and queries
 
