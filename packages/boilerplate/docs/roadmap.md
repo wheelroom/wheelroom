@@ -1,14 +1,14 @@
 # Roadmap
 
-## Content
+## Ideas
 
-- Provide useful content set
+- More examples
+- More template designs
+- Plugins for Prismic
+-
 
-## Design
+### More info
 
-- Add basic design for content set
-
-## Models
-
-- Add example on how to add new model to default content
-
+- [Getting started](./getting-started.md)
+- [How it works](./how-it-works.md)
+- [Roadmap](./roadmap.md)
