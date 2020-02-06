@@ -26,14 +26,16 @@ export interface Context {
     entry?: any
     /** Contentful field data for demo entry */
     fields: any
+    /** All defined Contentful locale objects */
+    locales?: [] | null
+    /** Default Contentful locale object */
+    defaultLocale?: any
     /** Contentful space object */
     space?: any
     /** Contentful upload object */
     upload?: any
   }
   pluginOptions: {
-    /** default locale */
-    defaultLocale: string
     /** Field definitions */
     fieldDefinitions: ContentfulFieldDefinitions
   }

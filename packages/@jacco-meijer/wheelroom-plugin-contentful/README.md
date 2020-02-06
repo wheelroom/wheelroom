@@ -75,7 +75,6 @@ module.exports = {
     {
       resolve: '@jacco-meijer/wheelroom-plugin-contentful',
       options: {
-        defaultLocale: 'nl',
         fieldDefinitions: contentfulFieldDefinitions,
       },
     },

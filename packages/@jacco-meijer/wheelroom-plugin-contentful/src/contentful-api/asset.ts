@@ -47,12 +47,13 @@ export const updateAsset = async (context: Context) => {
     return
   }
   console.log(`Updating asset`)
+  const defaultLocale = context.contentfulApi.defaultLocale.code
   context.contentfulApi.asset.fields = {
     description: {
-      [context.pluginOptions.defaultLocale]: 'Demo asset with fixed id',
+      [defaultLocale]: 'Demo asset with fixed id',
     },
     file: {
-      [context.pluginOptions.defaultLocale]: {
+      [defaultLocale]: {
         contentType,
         fileName,
         uploadFrom: {
@@ -64,7 +65,7 @@ export const updateAsset = async (context: Context) => {
         },
       },
     },
-    title: { [context.pluginOptions.defaultLocale]: fileName },
+    title: { [defaultLocale]: fileName },
   }
   context.contentfulApi.asset = await context.contentfulApi.asset.update()
   context.contentfulApi.asset = await context.contentfulApi.asset.processForAllLocales()

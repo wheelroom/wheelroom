@@ -1,4 +1,4 @@
-import { WheelroomConfig } from '../types/wheelroom-config'
+import { WheelroomConfig } from '../../../types/wheelroom-config'
 import { configCommonFields } from './config-common-fields'
 import { configComponents } from './config-components'
 import { configFieldDefaults } from './config-field-defaults'

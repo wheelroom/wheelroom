@@ -1,0 +1,620 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Command create graphql should call wheelroom.writeFiles correctly 1`] = `
+Array [
+  Array [
+    Object {
+      "dryRun": true,
+      "fileList": Array [
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: allFieldTypes
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment AllFieldTypes on ContentfulAllFieldTypes {
+  __typename
+  dateField
+  dropdownField
+  imageField {
+    title
+    description
+    fluid(maxWidth: 1024) {
+      sizes
+      src
+      srcSet
+    }
+  }
+  longTextField {
+    longTextField
+  }
+  multipleComponentsField {
+    ... on Node {
+      ...Page
+      ...FirstSection
+      ...SecondSection
+    }
+  }
+  numberField
+  richTextField {
+    json
+  }
+  shortTextField
+  singleComponentField {
+    ... on Node {
+      ...Page
+    }
+  }
+  tagsField
+  title
+}
+\`
+",
+          "relPath": "all-field-types/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: firstSection
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment FirstSection on ContentfulFirstSection {
+  __typename
+  defaultField
+  title
+}
+\`
+",
+          "relPath": "first-section/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: globalModel
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment GlobalModel on ContentfulGlobalModel {
+  __typename
+  heading
+  title
+}
+\`
+",
+          "relPath": "global-model/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: pageModel
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment PageModel on ContentfulPageModel {
+  __typename
+  heading
+  title
+}
+\`
+",
+          "relPath": "page-model/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: secondSection
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment SecondSection on ContentfulSecondSection {
+  __typename
+  heading
+  title
+}
+\`
+",
+          "relPath": "second-section/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: subPageModel
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment SubPageModel on ContentfulSubPageModel {
+  __typename
+  heading
+  title
+}
+\`
+",
+          "relPath": "sub-page-model/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql query definition
+ *
+ * Query type: subPage
+ * Component: allFieldTypes
+ *
+ */
+
+
+module.exports = {
+  componentName: 'allFieldTypes',
+  query: \`
+  {
+    allFieldTypes: allContentfulAllFieldTypes(queryLimit: 10) {
+      edges {
+        node {
+          id
+          node_locale
+          slug
+        }
+      }
+    }
+  }
+\`,
+  type: 'subPage',
+}
+",
+          "relPath": "all-field-types/query.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql query definition
+ *
+ * Query type: global
+ * Component: globalModel
+ *
+ */
+
+
+module.exports = {
+  componentName: 'globalModel',
+  query: \`
+  {
+    globalModel: allContentfulGlobalModel(queryLimit: 10) {
+      edges {
+        node {
+          id
+          node_locale
+        }
+      }
+    }
+  }
+\`,
+  type: 'global',
+}
+",
+          "relPath": "global-model/query.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql query definition
+ *
+ * Query type: page
+ * Component: pageModel
+ *
+ */
+
+
+module.exports = {
+  componentName: 'pageModel',
+  query: \`
+  {
+    pageModel: allContentfulPageModel(queryLimit: 10) {
+      edges {
+        node {
+          id
+          node_locale
+          path
+          pathName
+        }
+      }
+    }
+  }
+\`,
+  type: 'page',
+}
+",
+          "relPath": "page-model/query.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql query definition
+ *
+ * Query type: subPage
+ * Component: subPageModel
+ *
+ */
+
+
+module.exports = {
+  componentName: 'subPageModel',
+  query: \`
+  {
+    subPageModel: allContentfulSubPageModel(queryLimit: 10) {
+      edges {
+        node {
+          id
+          node_locale
+          slug
+        }
+      }
+    }
+  }
+\`,
+  type: 'subPage',
+}
+",
+          "relPath": "sub-page-model/query.js",
+        },
+      ],
+      "yes": true,
+    },
+  ],
+  Array [
+    Object {
+      "dryRun": false,
+      "fileList": Array [
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: allFieldTypes
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment AllFieldTypes on ContentfulAllFieldTypes {
+  __typename
+  dateField
+  dropdownField
+  imageField {
+    title
+    description
+    fluid(maxWidth: 1024) {
+      sizes
+      src
+      srcSet
+    }
+  }
+  longTextField {
+    longTextField
+  }
+  multipleComponentsField {
+    ... on Node {
+      ...Page
+      ...FirstSection
+      ...SecondSection
+    }
+  }
+  numberField
+  richTextField {
+    json
+  }
+  shortTextField
+  singleComponentField {
+    ... on Node {
+      ...Page
+    }
+  }
+  tagsField
+  title
+}
+\`
+",
+          "relPath": "all-field-types/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: firstSection
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment FirstSection on ContentfulFirstSection {
+  __typename
+  defaultField
+  title
+}
+\`
+",
+          "relPath": "first-section/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: globalModel
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment GlobalModel on ContentfulGlobalModel {
+  __typename
+  heading
+  title
+}
+\`
+",
+          "relPath": "global-model/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: pageModel
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment PageModel on ContentfulPageModel {
+  __typename
+  heading
+  title
+}
+\`
+",
+          "relPath": "page-model/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: secondSection
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment SecondSection on ContentfulSecondSection {
+  __typename
+  heading
+  title
+}
+\`
+",
+          "relPath": "second-section/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql fragment definition
+ *
+ * These fragments define the component fields. Gatsby resolves this file
+ * by scanning the src folder, then adds the fragments to the main page query.
+ *
+ *
+ * Component: subPageModel
+ */
+
+import { graphql } from 'gatsby'
+
+export const fragment = graphql\`
+fragment SubPageModel on ContentfulSubPageModel {
+  __typename
+  heading
+  title
+}
+\`
+",
+          "relPath": "sub-page-model/fragment.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql query definition
+ *
+ * Query type: subPage
+ * Component: allFieldTypes
+ *
+ */
+
+
+module.exports = {
+  componentName: 'allFieldTypes',
+  query: \`
+  {
+    allFieldTypes: allContentfulAllFieldTypes(queryLimit: 10) {
+      edges {
+        node {
+          id
+          node_locale
+          slug
+        }
+      }
+    }
+  }
+\`,
+  type: 'subPage',
+}
+",
+          "relPath": "all-field-types/query.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql query definition
+ *
+ * Query type: global
+ * Component: globalModel
+ *
+ */
+
+
+module.exports = {
+  componentName: 'globalModel',
+  query: \`
+  {
+    globalModel: allContentfulGlobalModel(queryLimit: 10) {
+      edges {
+        node {
+          id
+          node_locale
+        }
+      }
+    }
+  }
+\`,
+  type: 'global',
+}
+",
+          "relPath": "global-model/query.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql query definition
+ *
+ * Query type: page
+ * Component: pageModel
+ *
+ */
+
+
+module.exports = {
+  componentName: 'pageModel',
+  query: \`
+  {
+    pageModel: allContentfulPageModel(queryLimit: 10) {
+      edges {
+        node {
+          id
+          node_locale
+          path
+          pathName
+        }
+      }
+    }
+  }
+\`,
+  type: 'page',
+}
+",
+          "relPath": "page-model/query.js",
+        },
+        Object {
+          "basePath": "test-output",
+          "content": "/**
+ * Graphql query definition
+ *
+ * Query type: subPage
+ * Component: subPageModel
+ *
+ */
+
+
+module.exports = {
+  componentName: 'subPageModel',
+  query: \`
+  {
+    subPageModel: allContentfulSubPageModel(queryLimit: 10) {
+      edges {
+        node {
+          id
+          node_locale
+          slug
+        }
+      }
+    }
+  }
+\`,
+  type: 'subPage',
+}
+",
+          "relPath": "sub-page-model/query.js",
+        },
+      ],
+      "yes": true,
+    },
+  ],
+]
+`;

@@ -9,7 +9,6 @@ import { contentfulFieldDefinitions } from './contentful-field-definitions'
 export const argvPluginOptions = {
   '@jacco-meijer/wheelroom-plugin-contentful': {
     contentSets: argvContentSets,
-    defaultLocale: 'nl',
     fieldDefinitions: contentfulFieldDefinitions,
   },
   'some-other-package': {},

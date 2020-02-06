@@ -9,6 +9,7 @@ export const getFields = async (
   context: Context,
   component: ContentfulComponent
 ) => {
+  const defaultLocale = context.contentfulApi.defaultLocale.code
   Object.entries(component.fields).forEach(
     async ([fieldId, field]: [string, ContentfulField]) => {
       if (!field.createContentData && field.specs.required) {
@@ -24,7 +25,7 @@ export const getFields = async (
         case 'Symbol':
         case 'Text':
           context.contentfulApi.fields[fieldId] = {
-            [context.pluginOptions.defaultLocale]: field.createContentData,
+            [defaultLocale]: field.createContentData,
           }
           break
 
@@ -33,8 +34,7 @@ export const getFields = async (
           switch (arrayItems.type) {
             case 'Link':
               context.contentfulApi.fields[fieldId] = {
-                [context.pluginOptions
-                  .defaultLocale]: (field.createContentData as []).map(
+                [defaultLocale]: (field.createContentData as []).map(
                   (data: string) => {
                     return {
                       sys: {
@@ -54,7 +54,7 @@ export const getFields = async (
             case 'Symbol':
             case 'Text':
               context.contentfulApi.fields[fieldId] = {
-                [context.pluginOptions.defaultLocale]: field.createContentData,
+                [defaultLocale]: field.createContentData,
               }
               break
           }
@@ -63,7 +63,7 @@ export const getFields = async (
         case 'RichText':
           const document = await richTextFromMarkdown(field.createContentData)
           context.contentfulApi.fields[fieldId] = {
-            [context.pluginOptions.defaultLocale]: document,
+            [defaultLocale]: document,
           }
           break
 
@@ -71,7 +71,7 @@ export const getFields = async (
           switch (field.specs.linkType) {
             case 'Asset':
               context.contentfulApi.fields[fieldId] = {
-                [context.pluginOptions.defaultLocale]: {
+                [defaultLocale]: {
                   sys: {
                     id: 'demoAsset',
                     linkType: 'Asset',
@@ -83,7 +83,7 @@ export const getFields = async (
 
             case 'Entry':
               context.contentfulApi.fields[fieldId] = {
-                [context.pluginOptions.defaultLocale]: {
+                [defaultLocale]: {
                   sys: {
                     id: field.createContentData, // + demoEntryPostfix,
                     linkType: 'Entry',

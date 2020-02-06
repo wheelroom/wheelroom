@@ -1,4 +1,4 @@
-import { WheelroomComponents } from '../types/wheelroom-components'
+import { WheelroomComponents } from '../../../types/wheelroom-components'
 import {
   DateField,
   DropdownField,
@@ -10,7 +10,7 @@ import {
   ShortTextField,
   SingleComponentField,
   TagsField,
-} from '../types/wheelroom-fields'
+} from '../../../types/wheelroom-fields'
 
 export const configComponents: WheelroomComponents = {
   allFieldTypes: {

@@ -63,12 +63,9 @@ is enough.
 
 ### Default locale for Contentful
 
-Set the `defaultLocale` option in:
+Set the `defaultLocale` option in [gatsby-config.js](gatsby-config.js) for the `gatsby-theme-wheelroom` plugin.
 
-- [gatsby-config.js](gatsby-config.js) for the `gatsby-theme-wheelroom` plugin
-- [src/config/wheelroom/config-plugin-options.ts](./src/config/wheelroom/config-plugin-options.ts) for the
-  `@jacco-meijer/wheelroom-plugin-contentful` plugin
-
+The locale defined here will not have the locale path prefix like `/en-US/some-page`.
 
 ### Compile wheelroom config
 

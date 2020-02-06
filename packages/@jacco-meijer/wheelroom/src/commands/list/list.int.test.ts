@@ -1,4 +1,4 @@
-import { argvCommand } from '../../fixtures/argv-command'
+import { argvCommand } from './fixtures/argv-command'
 import { command } from './command'
 
 test('Command: list', () => {

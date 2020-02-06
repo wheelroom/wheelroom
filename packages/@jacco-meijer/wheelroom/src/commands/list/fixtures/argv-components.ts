@@ -3,7 +3,7 @@
  * input for a wheelroom command. Command handlers can be added by plugins.
  */
 
-import { WheelroomComponents } from '../types/wheelroom-components'
+import { WheelroomComponents } from '../../../types/wheelroom-components'
 export const argvComponents: WheelroomComponents = {
   allFieldTypes: {
     fields: {

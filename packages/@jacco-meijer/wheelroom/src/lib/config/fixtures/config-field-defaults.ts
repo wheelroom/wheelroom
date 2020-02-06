@@ -4,7 +4,7 @@
  *
  */
 
-import { FieldDefaults } from '../types/wheelroom-config'
+import { FieldDefaults } from '../../../types/wheelroom-config'
 import {
   CommonField,
   DateField,
@@ -17,7 +17,7 @@ import {
   ShortTextField,
   SingleComponentField,
   TagsField,
-} from '../types/wheelroom-fields'
+} from '../../../types/wheelroom-fields'
 
 const commonFieldDefaults: CommonField = {
   localized: false,

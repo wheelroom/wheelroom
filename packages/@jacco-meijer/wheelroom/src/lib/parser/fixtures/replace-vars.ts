@@ -1,4 +1,4 @@
-import { WheelroomComponent } from '../types/wheelroom-components'
+import { WheelroomComponent } from '../../../types/wheelroom-components'
 import {
   DropdownField,
   ImageField,
@@ -8,7 +8,7 @@ import {
   ShortTextField,
   SingleComponentField,
   TagsField,
-} from '../types/wheelroom-fields'
+} from '../../../types/wheelroom-fields'
 
 const componentName = 'myDemoComponent'
 const fieldName = 'myFieldName'

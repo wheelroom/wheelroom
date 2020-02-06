@@ -4,7 +4,10 @@
  *
  */
 
-import { ShortTextField, WheelroomFields } from '../types/wheelroom-fields'
+import {
+  ShortTextField,
+  WheelroomFields,
+} from '../../../types/wheelroom-fields'
 
 export const configCommonFields: WheelroomFields = {
   __typename: {

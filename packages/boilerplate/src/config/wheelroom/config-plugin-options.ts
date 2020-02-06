@@ -7,7 +7,6 @@ export const configPluginOptions = [
   {
     options: {
       contentSets,
-      defaultLocale: 'nl',
       fieldDefinitions: contentfulFieldDefinitions,
     },
     resolve: '@jacco-meijer/wheelroom-plugin-contentful',

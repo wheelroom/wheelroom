@@ -1,5 +1,10 @@
 import { getFilteredComponents } from '@jacco-meijer/wheelroom'
-import { getClient, getEnvironment, getSpace } from '../contentful-api/init'
+import {
+  getClient,
+  getEnvironment,
+  getSpace,
+  getLocales,
+} from '../contentful-api/init'
 import { Context } from '../types/context'
 import { getCfComponents } from './get-cf-components/get-cf-components'
 import { getContentSets } from './get-content-sets'
@@ -31,6 +36,7 @@ export const initializeContext = async (argv: any) => {
   await getClient(context)
   await getSpace(context)
   await getEnvironment(context)
+  await getLocales(context)
 
   return context
 }

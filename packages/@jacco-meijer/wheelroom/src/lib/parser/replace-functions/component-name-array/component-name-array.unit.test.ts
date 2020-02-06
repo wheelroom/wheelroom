@@ -1,4 +1,4 @@
-import { replaceVars } from '../../../../fixtures/replace-vars'
+import { replaceVars } from '../../fixtures/replace-vars'
 import { createParser } from '../../create-parser'
 import { componentNameArrayFunc } from './component-name-array'
 jest.setTimeout(10000)

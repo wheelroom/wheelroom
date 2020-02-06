@@ -29,3 +29,19 @@ export const getEnvironment = async (context: Context) => {
     process.env.CONTENTFUL_ENVIRONMENT
   )
 }
+
+export const getLocales = async (context: Context) => {
+  console.log(`Getting locales`)
+  try {
+    const result = await context.contentfulApi.environment.getLocales()
+    context.contentfulApi.locales = result.items
+    context.contentfulApi.defaultLocale = result.items.find(
+      (locale: any) => locale.default
+    )
+    console.log(`Default locale: ${context.contentfulApi.defaultLocale.code}`)
+  } catch (error) {
+    console.log(`Could not fetch locales`)
+    context.contentfulApi.locales = null
+    context.contentfulApi.defaultLocale = null
+  }
+}

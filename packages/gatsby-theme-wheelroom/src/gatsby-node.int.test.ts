@@ -28,7 +28,7 @@ const createPageMock = (p: CreatePageMock) => {
 }
 
 const options: Options = {
-  defaultLocale: 'nl-NL',
+  defaultLocale: 'en-US',
   pageTemplate: '<html>Hello</html>',
   queries: [articleQuery, globalsQuery, pageQuery],
 }

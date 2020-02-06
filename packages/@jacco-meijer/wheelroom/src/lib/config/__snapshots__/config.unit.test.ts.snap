@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Readig config should provide the configured components 1`] = `
+Object {
+  "allFieldTypes": Object {
+    "fields": Object {
+      "__typename": Object {
+        "initialContent": "Initial content for short text field",
+        "system": true,
+        "type": "shortText",
+      },
+      "dateField": Object {
+        "initialContent": "2019-06-03T00:00+01:00",
+        "localized": false,
+        "name": "Date field",
+        "required": false,
+        "type": "date",
+      },
+      "dropdownField": Object {
+        "initialContent": "item A",
+        "items": Array [
+          "item A",
+          "item B",
+          "item C",
+        ],
+        "localized": false,
+        "name": "Dropdown field",
+        "required": false,
+        "type": "dropdown",
+      },
+      "imageField": Object {
+        "initialContent": true,
+        "localized": false,
+        "name": "Image field",
+        "required": false,
+        "type": "image",
+      },
+      "longTextField": Object {
+        "initialContent": "This is a long text field",
+        "localized": false,
+        "name": "Long text field",
+        "required": false,
+        "type": "longText",
+      },
+      "multipleComponentsField": Object {
+        "allowedComponents": Array [
+          "page",
+          "firstSection",
+          "secondSection",
+        ],
+        "initialContent": Array [
+          "firstSection",
+          "secondSection",
+        ],
+        "localized": false,
+        "name": "Multiple components field",
+        "required": false,
+        "type": "multipleComponents",
+      },
+      "numberField": Object {
+        "initialContent": 5,
+        "localized": false,
+        "name": "Number field",
+        "required": false,
+        "type": "number",
+      },
+      "richTextField": Object {
+        "initialContent": "This is a rich text field",
+        "localized": false,
+        "name": "Rich text field",
+        "required": false,
+        "type": "richText",
+      },
+      "shortTextField": Object {
+        "initialContent": "This is a short text field",
+        "localized": false,
+        "maxLength": 155,
+        "name": "Short text field",
+        "required": false,
+        "type": "shortText",
+      },
+      "singleComponentField": Object {
+        "allowedComponents": Array [
+          "pageModel",
+        ],
+        "initialContent": "pageModel",
+        "localized": false,
+        "name": "Single component field",
+        "required": false,
+        "type": "singleComponent",
+      },
+      "tagsField": Object {
+        "initialContent": Array [
+          "tag A",
+          "tag B",
+        ],
+        "localized": false,
+        "name": "Tags field",
+        "required": false,
+        "type": "tags",
+      },
+      "title": Object {
+        "helpText": "Never displayed, only used for listing within Contentful",
+        "initialContent": "All field types generated from boilerplate",
+        "localized": false,
+        "name": "Title",
+        "required": true,
+        "type": "shortText",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "settings": Object {
+      "asFragment": true,
+      "asQuery": "subPage",
+      "queryLimit": 10,
+    },
+  },
+  "firstSection": Object {
+    "fields": Object {
+      "__typename": Object {
+        "initialContent": "Initial content for short text field",
+        "system": true,
+        "type": "shortText",
+      },
+      "defaultField": Object {
+        "initialContent": "Initial content for short text field",
+        "localized": false,
+        "name": "Default field",
+        "required": false,
+        "type": "shortText",
+      },
+      "title": Object {
+        "helpText": "Never displayed, only used for listing within Contentful",
+        "initialContent": "First section generated from boilerplate",
+        "localized": false,
+        "name": "Title",
+        "required": true,
+        "type": "shortText",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "settings": Object {
+      "asFragment": true,
+      "asPageSection": true,
+    },
+  },
+  "globalModel": Object {
+    "fields": Object {
+      "__typename": Object {
+        "initialContent": "Initial content for short text field",
+        "system": true,
+        "type": "shortText",
+      },
+      "heading": Object {
+        "initialContent": "Initial content for short text field",
+        "localized": false,
+        "name": "Heading",
+        "required": false,
+        "type": "shortText",
+      },
+      "title": Object {
+        "helpText": "Never displayed, only used for listing within Contentful",
+        "initialContent": "Global model generated from boilerplate",
+        "localized": false,
+        "name": "Title",
+        "required": true,
+        "type": "shortText",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "settings": Object {
+      "asFragment": true,
+      "asQuery": "global",
+      "queryLimit": 10,
+    },
+  },
+  "noFragment": Object {
+    "fields": Object {
+      "__typename": Object {
+        "initialContent": "Initial content for short text field",
+        "system": true,
+        "type": "shortText",
+      },
+      "heading": Object {
+        "initialContent": "Initial content for short text field",
+        "localized": false,
+        "name": "Heading",
+        "required": false,
+        "type": "shortText",
+      },
+      "title": Object {
+        "helpText": "Never displayed, only used for listing within Contentful",
+        "initialContent": "No fragment generated from boilerplate",
+        "localized": false,
+        "name": "Title",
+        "required": true,
+        "type": "shortText",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "settings": Object {},
+  },
+  "pageModel": Object {
+    "fields": Object {
+      "__typename": Object {
+        "initialContent": "Initial content for short text field",
+        "system": true,
+        "type": "shortText",
+      },
+      "heading": Object {
+        "initialContent": "Initial content for short text field",
+        "localized": false,
+        "name": "Heading",
+        "required": false,
+        "type": "shortText",
+      },
+      "title": Object {
+        "helpText": "Never displayed, only used for listing within Contentful",
+        "initialContent": "Page model generated from boilerplate",
+        "localized": false,
+        "name": "Title",
+        "required": true,
+        "type": "shortText",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "settings": Object {
+      "asFragment": true,
+      "asQuery": "page",
+      "queryLimit": 10,
+    },
+  },
+  "secondSection": Object {
+    "fields": Object {
+      "__typename": Object {
+        "initialContent": "Initial content for short text field",
+        "system": true,
+        "type": "shortText",
+      },
+      "heading": Object {
+        "initialContent": "Initial content for short text field",
+        "localized": false,
+        "name": "Heading",
+        "required": false,
+        "type": "shortText",
+      },
+      "title": Object {
+        "helpText": "Never displayed, only used for listing within Contentful",
+        "initialContent": "Second section generated from boilerplate",
+        "localized": false,
+        "name": "Title",
+        "required": true,
+        "type": "shortText",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "settings": Object {
+      "asFragment": true,
+      "asPageSection": true,
+    },
+  },
+  "subPageModel": Object {
+    "fields": Object {
+      "__typename": Object {
+        "initialContent": "Initial content for short text field",
+        "system": true,
+        "type": "shortText",
+      },
+      "heading": Object {
+        "initialContent": "Initial content for short text field",
+        "localized": false,
+        "name": "Heading",
+        "required": false,
+        "type": "shortText",
+      },
+      "title": Object {
+        "helpText": "Never displayed, only used for listing within Contentful",
+        "initialContent": "Sub page model generated from boilerplate",
+        "localized": false,
+        "name": "Title",
+        "required": true,
+        "type": "shortText",
+      },
+    },
+    "modelVersion": "1.0.0",
+    "settings": Object {
+      "asFragment": true,
+      "asQuery": "subPage",
+      "queryLimit": 10,
+    },
+  },
+}
+`;
+
+exports[`Readig config should provide the configured plugin options 1`] = `
+Object {
+  "another-module-name": Object {
+    "anotherTestOption": "passed-to-plugin",
+    "testArray": Array [
+      "passed",
+      "to",
+      "plugin",
+    ],
+  },
+  "module-name": Object {
+    "testOptione": "to-pass",
+  },
+}
+`;

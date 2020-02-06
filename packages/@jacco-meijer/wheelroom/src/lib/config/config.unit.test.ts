@@ -1,35 +1,31 @@
-import { argvComponents } from '../../fixtures/argv-components'
-import { argvPluginOptions } from '../../fixtures/argv-plugin-options'
-import { config } from '../../fixtures/wheelroom-config'
+import { config } from './fixtures/wheelroom-config'
 import { getAppDir } from '../get-app-dir'
 import { getComponents } from './get-components'
 import { getPluginOptions } from './get-plugin-options'
 import { readConfig } from './read-config'
 
 /**
- *  This test needs the compiled fixture in dist/fictures. To compile run
+ *  This test needs the compiled fixture in dist/lib/config/fixtures. To compile run
  *
  *  npm run build:compile
  */
 
 describe('Readig config should provide', () => {
-  test('the whole config from COMPILED! dist/fixtures/wheelroom-config.js', async () => {
+  test('the whole config from COMPILED! dist/lib/config/fixtures/wheelroom-config.js', async () => {
     const configRead = await readConfig(
       getAppDir(),
-      'dist/fixtures/wheelroom-config.js'
+      'dist/lib/config/fixtures/wheelroom-config.js'
     )
     expect(configRead).toStrictEqual(config)
   })
 
   test('the configured components', async () => {
     const components = await getComponents(config)
-    // console.log('COMPONENTS', JSON.stringify(components, null, 2))
-
-    expect(components).toStrictEqual(argvComponents)
+    expect(components).toMatchSnapshot()
   })
 
   test('the configured plugin options', async () => {
     const options = getPluginOptions(config)
-    expect(options).toStrictEqual(argvPluginOptions)
+    expect(options).toMatchSnapshot()
   })
 })
