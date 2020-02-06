@@ -8,7 +8,7 @@ module.exports = {
   plugins: [
     {
       options: {
-        defaultLocale: 'nl',
+        defaultLocale: 'en-US',
         pageTemplate: path.resolve('./src/page-template.tsx'),
         queries: [globalsQuery, pageQuery],
       },
