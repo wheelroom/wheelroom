@@ -1,3 +1,12 @@
+## [3.0.4](https://github.com/jaccomeijer/wheelroom/compare/v3.0.3...v3.0.4) (2020-02-06)
+
+
+### Bug Fixes
+
+* github urls ([6053e6e](https://github.com/jaccomeijer/wheelroom/commit/6053e6e3051865be910a27f998986f09ef179df7))
+
+
+
 ## [3.0.3](https://github.com/jaccomeijer/wheelroom/compare/v3.0.2...v3.0.3) (2019-12-17)
 
 
