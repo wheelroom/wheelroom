@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.3.14...boilerplate@4.4.0) (2020-02-06)
+
+
+### Features
+
+* change default locale from 'nl' to 'en-US' ([69b6682](https://github.com/jaccomeijer/wheelroom/commit/69b6682))
+
+
+
+
+
 ## [4.3.14](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.3.13...boilerplate@4.3.14) (2020-02-04)
 
 **Note:** Version bump only for package boilerplate

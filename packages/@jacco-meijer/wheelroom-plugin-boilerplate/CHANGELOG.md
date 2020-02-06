@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.4...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.5) (2020-02-06)
+
+
+### Bug Fixes
+
+* %reactProps% must use json for rich text ([6a7eb34](https://github.com/jaccomeijer/wheelroom/commit/6a7eb34))
+
+
+
+
+
 ## [2.6.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.3...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.4) (2020-02-04)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
