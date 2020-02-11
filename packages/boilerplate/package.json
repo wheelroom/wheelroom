@@ -33,6 +33,7 @@
   },
   "description": "Gatsby static site boilerplate with React and Typescript",
   "devDependencies": {
+    "@svgr/cli": "5.1.0",
     "@types/dotenv": "8.2.0",
     "@types/fs-extra": "8.0.1",
     "@types/node": "13.1.5",
@@ -75,6 +76,7 @@
     "develop": "gatsby develop",
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "start": "npm run develop",
+    "svgr": "svgr --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg src/svg",
     "type-check": "tsc --noEmit",
     "demo-load-env": "export $(grep -v '^#' .env | xargs)",
     "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
