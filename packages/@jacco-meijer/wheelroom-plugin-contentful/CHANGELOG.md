@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.6...@jacco-meijer/wheelroom-plugin-contentful@2.10.0) (2020-02-11)
+
+
+### Bug Fixes
+
+* dependency order ([e312634](https://github.com/jaccomeijer/wheelroom/commit/e312634894c480f12feb968deab4d713fa01354f))
+
+
+### Features
+
+* handle circular references with retry table ([c70f245](https://github.com/jaccomeijer/wheelroom/commit/c70f245072b7a5146f1340010dfc6b834d6ea756))
+
+
+
+
+
 ## [2.9.6](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.5...@jacco-meijer/wheelroom-plugin-contentful@2.9.6) (2020-02-06)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.5.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.4.1...boilerplate@4.5.0) (2020-02-11)
+
+
+### Features
+
+* setup svg conversions ([f07c090](https://github.com/jaccomeijer/wheelroom/commit/f07c0906d51370da0a120f90f1b8ac6080e14cf8))
+
+
+
+
+
 ## [4.4.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.4.0...boilerplate@4.4.1) (2020-02-06)
 
 **Note:** Version bump only for package boilerplate
