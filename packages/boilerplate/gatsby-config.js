@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 packageJson = require('./package.json')
 path = require('path')
 
@@ -42,6 +43,13 @@ module.exports = {
         },
       },
       resolve: 'gatsby-plugin-web-font-loader',
+    },
+    {
+      resolve: `gatsby-plugin-schema-snapshot`,
+      options: {
+        path: `schema.gql`,
+        update: true,
+      },
     },
   ],
   siteMetadata: {

@@ -20,6 +20,7 @@
     "gatsby-plugin-manifest": "2.2.37",
     "gatsby-plugin-offline": "3.0.30",
     "gatsby-plugin-react-helmet": "3.1.20",
+    "gatsby-plugin-schema-snapshot": "1.0.0",
     "gatsby-plugin-typescript": "2.1.25",
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.1.72",
