@@ -76,14 +76,8 @@ Create a dummy image asset and the boilerplate content set found in
 [content-sets.ts](../src/config/plugin-contentful/content-sets.ts).
 
 ```bash
-# Run this twice
 npm run wr:cc
 ```
-
-> **_NOTE_:** You need to run it twice because on the first run some references
-> have not yet been created. To prevent this, a future version should learn how to
-> handle circular references. A page has an opener, an opener has navigation and
-> navigation has pages.
 
 ## Start development server
 
