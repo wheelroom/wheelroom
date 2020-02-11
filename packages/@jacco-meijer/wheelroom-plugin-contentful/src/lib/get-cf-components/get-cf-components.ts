@@ -30,7 +30,7 @@ export const getCfComponents = (
   // Sort content creation so that dependencies get created first
   orderByDependency(cfContentSet)
   const creationOrder = cfContentSet.map(c => c.componentId).join(' < ')
-  console.log('Ordered by dependency', creationOrder)
+  console.log('Dependency order:', creationOrder)
 
   // Loop through all content, set each field initialContent and process with
   // matching component
