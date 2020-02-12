@@ -260,6 +260,7 @@ module.exports = {
     pageModel: allContentfulPageModel(queryLimit: 10) {
       edges {
         node {
+          contentful_id
           id
           node_locale
           path
@@ -566,6 +567,7 @@ module.exports = {
     pageModel: allContentfulPageModel(queryLimit: 10) {
       edges {
         node {
+          contentful_id
           id
           node_locale
           path

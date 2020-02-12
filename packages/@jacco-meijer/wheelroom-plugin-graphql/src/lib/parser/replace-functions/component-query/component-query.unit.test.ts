@@ -44,6 +44,7 @@ export const query = \`
         featuredPageSection: allContentfulFeaturedPageSection {
           edges {
             node {
+              contentful_id
               id
               node_locale
               path

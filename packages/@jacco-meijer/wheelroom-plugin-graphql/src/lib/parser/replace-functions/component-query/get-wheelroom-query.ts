@@ -21,6 +21,7 @@ const typeTable: TypeTable = {
       fields: {
         node: {
           fields: {
+            contentful_id: {},
             id: {},
             node_locale: {},
             path: {},
