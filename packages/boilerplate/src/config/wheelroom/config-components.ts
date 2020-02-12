@@ -267,7 +267,7 @@ export const configComponents: WheelroomComponents = {
       image: {
         helpText:
           'Afbeelding van de pagina, wordt gebruikt in andere secties als die geen eigen afbeelding hebben',
-        name: 'Paginaafbeelding',
+        name: 'Pagina-afbeelding',
         type: 'image',
       } as ImageField,
       abstract: {
