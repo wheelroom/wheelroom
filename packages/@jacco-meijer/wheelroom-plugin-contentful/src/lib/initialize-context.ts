@@ -14,7 +14,10 @@ export const initializeContext = async (argv: any) => {
     argv.options['@jacco-meijer/wheelroom-plugin-contentful']
   const wheelroomComponents = getFilteredComponents(argv)
 
-  const contentSet = getContentSets(argv, pluginOptions)
+  let contentSet
+  if (['create-content', 'delete-content'].includes(argv._)) {
+    contentSet = getContentSets(argv, pluginOptions)
+  }
   const context: Context = {
     commandLineOptions: {
       contentSet: argv.contentSet,

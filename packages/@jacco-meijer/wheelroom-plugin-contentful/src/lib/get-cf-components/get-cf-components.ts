@@ -6,8 +6,8 @@ import {
 import { ContentfulContent, WheelroomContentSet } from '../../types/content-set'
 import { ContentfulComponents } from '../../types/contentful-components'
 import { ContentfulFieldDefinitions } from '../../types/contentful-field-definitions'
-import { contentSetFromComponents } from './content-set-from-components'
-import { contentSetFromContentSet } from './content-set-from-content-set'
+import { cfContentSetFromComponents } from './content-set-from-components'
+import { cfContentSetFromWrContentSet } from './content-set-from-content-set'
 import { getCfComponent } from './get-cf-component'
 import { orderByDependency } from './order-by-dependency'
 
@@ -22,9 +22,9 @@ export const getCfComponents = (
   // content
   let cfContentSet
   if (contentSet) {
-    cfContentSet = contentSetFromContentSet(contentSet, wrComponents)
+    cfContentSet = cfContentSetFromWrContentSet(contentSet, wrComponents)
   } else {
-    cfContentSet = contentSetFromComponents(wrComponents)
+    cfContentSet = cfContentSetFromComponents(wrComponents)
   }
 
   // Sort content creation so that dependencies get created first

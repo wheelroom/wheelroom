@@ -7,7 +7,7 @@ import {
   WheelroomContentSet,
 } from '../../types/content-set'
 
-export const contentSetFromContentSet = (
+export const cfContentSetFromWrContentSet = (
   wrContentSet: WheelroomContentSet,
   wrComponents: WheelroomComponents
 ): ContentfulContentSet => {

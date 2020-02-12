@@ -9,7 +9,7 @@ import {
   ContentfulContentSet,
 } from '../../types/content-set'
 
-export const contentSetFromComponents = (
+export const cfContentSetFromComponents = (
   wrComponents: WheelroomComponents
 ): ContentfulContentSet => {
   const contentSet: ContentfulContentSet = []
