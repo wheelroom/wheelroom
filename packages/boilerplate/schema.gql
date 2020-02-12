@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-02-12T21:31:21.091Z ###
+### Type definitions saved at 2020-02-12T21:32:51.852Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -105,7 +105,7 @@ type contentfulPageAbstractTextNode implements Node @dontInfer {
   abstract: String
 }
 
-type ContentfulPage implements Node @dontInfer {
+type ContentfulPage implements Node {
   title: String
   path: String
   heading: String
@@ -140,7 +140,7 @@ type ContentfulNavigation implements Node @dontInfer {
   node_locale: String
 }
 
-type ContentfulOpenerSection implements Node @dontInfer {
+type ContentfulOpenerSection implements Node {
   title: String
   variation: String
   boxBackgroundColor: String
@@ -222,7 +222,7 @@ type ContentfulNavigationSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulListItem implements Node @dontInfer {
+type ContentfulListItem implements Node {
   title: String
   view: String
   heading: String
@@ -344,7 +344,7 @@ type contentfulQuoteSectionAbstractTextNode implements Node @dontInfer {
   abstract: String
 }
 
-type ContentfulQuoteSection implements Node @dontInfer {
+type ContentfulQuoteSection implements Node {
   title: String
   heading: String
   subHeading: String
@@ -391,7 +391,7 @@ type contentfulTextSectionTextRichTextNodeContentContent {
   nodeType: String
 }
 
-type ContentfulTextSection implements Node @dontInfer {
+type ContentfulTextSection implements Node {
   title: String
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   text: contentfulTextSectionTextRichTextNode @link(by: "id", from: "text___NODE")
