@@ -263,7 +263,6 @@ module.exports = {
           id
           node_locale
           path
-          pathName
         }
       }
     }
@@ -570,7 +569,6 @@ module.exports = {
           id
           node_locale
           path
-          pathName
         }
       }
     }

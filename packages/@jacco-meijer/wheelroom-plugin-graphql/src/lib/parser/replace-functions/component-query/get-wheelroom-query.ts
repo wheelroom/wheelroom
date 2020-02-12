@@ -24,7 +24,6 @@ const typeTable: TypeTable = {
             id: {},
             node_locale: {},
             path: {},
-            pathName: {},
           },
         },
       },
