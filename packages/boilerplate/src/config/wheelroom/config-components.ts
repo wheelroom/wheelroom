@@ -14,13 +14,16 @@ export const configComponents: WheelroomComponents = {
   footerSection: {
     fields: {
       backgroundColor: {
-        helpText: 'Select a background color',
+        helpText: 'Kies een achtergrondkleur voor deze sectie',
         items: ['green', 'mint'],
+        name: 'Sectie achtergrondkleur',
         required: true,
         type: 'dropdown',
       } as DropdownField,
-      footerNavigation: {
+      navigation: {
         allowedComponents: ['navigation'],
+        helpText: 'Navigatie onderaan deze sectie',
+        name: 'Sectienavigatie',
         required: true,
         type: 'singleComponent',
       } as SingleComponentField,
@@ -35,34 +38,50 @@ export const configComponents: WheelroomComponents = {
   globals: {
     fields: {
       addressLine1: {
-        required: true,
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Adres eerste regel',
         type: 'shortText',
       } as ShortTextField,
       addressLine2: {
-        required: true,
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Adres tweede regel',
         type: 'shortText',
       } as ShortTextField,
       emailAddress: {
-        required: true,
+        helpText: 'Beschiknaar in alle secties',
+        name: 'E=mailadres',
         type: 'shortText',
       } as ShortTextField,
       linkedinUrl: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Url naar linkedin profiel',
         type: 'shortText',
       } as ShortTextField,
       phoneNumber: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Telefoonnummer',
         type: 'shortText',
       } as ShortTextField,
       siteAuthor: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Site auteur',
         type: 'shortText',
       } as ShortTextField,
       siteDescription: {
+        helpText:
+          'Omschrijving van de site, gebruikt door zoek machines zoals Google',
+        name: 'Site omschrijving',
         type: 'shortText',
       } as ShortTextField,
       siteHeading: {
-        required: true,
+        helpText: 'Titel van de site, gebruikt door zoek machines zoals Google',
+        name: 'Site titel',
         type: 'shortText',
       } as ShortTextField,
       siteKeywords: {
+        helpText:
+          'Sleutelwoorden voor de site, gebruikt door zoek machines zoals Google',
+        name: 'Site sleutelwoorden',
         type: 'tags',
       } as TagsField,
     },
@@ -72,24 +91,71 @@ export const configComponents: WheelroomComponents = {
       asQuery: 'global',
     },
   },
-  listSection: {
+  listItem: {
     fields: {
-      heading: {
-        required: true,
-        type: 'shortText',
-      } as ShortTextField,
-      listItems: {
+      view: {
+        helpText: 'Hoe wordt de tegel weergegeven?',
+        name: 'Tegelweergave',
+        items: ['onderkant mint', 'onderkant groen', 'volledige afbeelding'],
+        type: 'dropdown',
+      } as DropdownField,
+      link: {
         allowedComponents: ['page'],
         expandFragmentRef: true,
-        required: true,
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
+        helpText: 'Navigeer naar deze link bij klik op de tegel',
+        name: 'Tegel-link',
+        type: 'singleComponent',
+      } as SingleComponentField,
+      heading: {
+        helpText: 'Gebruik deze titel en niet die van de link',
+        name: 'Tegeltitel',
+        type: 'shortText',
+      } as ShortTextField,
+      image: {
+        helpText: 'Gebruik deze afbeelding en niet die van de link',
+        name: 'Tegelafbeelding',
+        type: 'image',
+      } as ImageField,
+      abstract: {
+        helpText:
+          'Gebruik deze tekst op de tegel en niet de samenvattingstekst van de link',
+        name: 'Tegeltekst',
+        type: 'longText',
+      } as LongTextField,
+      extraText: {
+        helpText:
+          'In eerste instantie verborgen, verschijnt na interactie zoals bijvoorbeeld een klik',
+        name: 'Tegeltekst bij interactie',
+        type: 'shortText',
+      } as ShortTextField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+    },
+  },
+  listSection: {
+    fields: {
       variation: {
-        helpText: 'Select a view variation',
-        items: ['large items', 'small items'],
+        helpText: 'Hoe deze sectie wordt weergegeven',
+        items: ['grote tegels', 'kleine tegels'],
+        name: 'Sectieweergave',
         required: true,
         type: 'dropdown',
       } as DropdownField,
+      items: {
+        allowedComponents: ['listItem'],
+        helpText: 'Tegels in deze sectie',
+        name: 'Sectietegels',
+        required: true,
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      heading: {
+        helpText: 'Titel bovenaan deze sectie',
+        name: 'Sectietitel',
+        type: 'shortText',
+      } as ShortTextField,
     },
     modelVersion: '1.0.0',
     settings: {
@@ -100,9 +166,11 @@ export const configComponents: WheelroomComponents = {
   },
   navigation: {
     fields: {
-      routes: {
+      pages: {
         allowedComponents: ['page'],
         expandFragmentRef: true,
+        helpText: "Pagina's in deze navigatie",
+        name: "Pagina's",
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
@@ -115,34 +183,44 @@ export const configComponents: WheelroomComponents = {
   },
   openerSection: {
     fields: {
-      boxBackgroundColor: {
-        helpText: 'Select a background color for the opener box',
-        items: ['green', 'mint'],
+      variation: {
+        helpText: 'Hoe deze sectie wordt weergegeven',
+        items: ['home pagina', 'normale pagina'],
+        name: 'Sectieweergave',
+        required: true,
         type: 'dropdown',
       } as DropdownField,
-      heading: {
-        helpText: 'Overrides page heading',
-        type: 'shortText',
-      } as ShortTextField,
-      image: {
-        helpText: 'Overrides page image',
-        type: 'image',
-      } as ImageField,
-      infoText: {
-        helpText: 'Overrides page info text',
-        type: 'longText',
-      },
-      mainNavigation: {
+      navigation: {
         allowedComponents: ['navigation'],
+        helpText: 'Navigatie in deze sectie',
+        name: 'Sectienavigatie',
         required: true,
         type: 'singleComponent',
       } as SingleComponentField,
-      variation: {
-        helpText: 'Select a view variation',
-        items: ['home opener', 'page opener'],
+      boxBackgroundColor: {
+        helpText: 'Kies een achtergrondkleur voor de tekstbox in deze sectie',
+        items: ['green', 'mint'],
+        name: 'Tekstboxachtergrondkleur',
         required: true,
         type: 'dropdown',
       } as DropdownField,
+      heading: {
+        helpText: 'Gebruik deze titel in deze sectie en niet de paginatitel',
+        name: 'Sectietitel',
+        type: 'shortText',
+      } as ShortTextField,
+      image: {
+        helpText:
+          'Gebruik deze afbeelding in deze sectie en niet de pagina-afbeelding',
+        name: 'Sectieafbeelding',
+        type: 'image',
+      } as ImageField,
+      abstract: {
+        helpText:
+          'Gebruik deze tekst in deze sectie en niet de samenvattingstekst van de pagina',
+        name: 'Tekstboxtekst',
+        type: 'longText',
+      },
     },
     modelVersion: '1.0.0',
     settings: {
@@ -153,83 +231,63 @@ export const configComponents: WheelroomComponents = {
   },
   page: {
     fields: {
-      navigationHeading: {
-        helpText: 'Heading when page is a navigation item',
-        type: 'shortText',
-      } as ShortTextField,
-      pageHeading: {
-        helpText: 'Heading for this page',
-        required: true,
-        type: 'shortText',
-      } as ShortTextField,
-      pageImage: {
-        helpText: 'Image for this page',
-        required: true,
-        type: 'image',
-      } as ImageField,
-      pageInfoText: {
-        helpText: 'Info text for this page',
-        required: true,
-        type: 'longText',
-      } as LongTextField,
       path: {
-        helpText: 'System field, changing this can break things',
+        helpText:
+          'Laatste deel van de URL naar deze pagina. Bijvoorbeeld: www.mijnsite.nl/stel-dit-deel-hier-in',
         initialContent: '/boilerplate',
+        name: 'Pagina URL',
         required: true,
         type: 'shortText',
         typePostfix: 'Path',
-        unique: true,
-      } as ShortTextField,
-      pathName: {
-        helpText: 'System field, changing this can break things',
-        initialContent: 'boilerplate',
-        required: true,
-        type: 'shortText',
-        typePostfix: 'CamelCase',
         unique: true,
       } as ShortTextField,
       sections: {
         allowedComponents: [
           '%componentNameArray(filter:settings.asPageSection)%',
         ],
-        helpText: 'Select sections for this page',
+        helpText: 'Kies de secties die met elkaar deze pagina vormen',
         initialContent: ['%componentNameArray(filter:settings.asPageSection)%'],
+        name: 'Paginasecties',
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      seoDescription: {
-        helpText: 'Description used by search engines like Google',
-        maxLength: 155,
-        required: true,
+      heading: {
+        helpText:
+          'Titel van de pagina, wordt gebruikt in andere secties als die geen eigen titel hebben',
+        name: 'Paginatitel',
         type: 'shortText',
       } as ShortTextField,
-      seoTitle: {
-        helpText: 'Title used by search engines like Google',
-        required: true,
+      navigationHeading: {
+        helpText:
+          'Naam van de pagina wanneer deze wordt weergegeven om te navigeren',
+        name: 'Navigatietitel',
         type: 'shortText',
       } as ShortTextField,
-      listItemHeading: {
-        helpText: 'Heading when page is a list item, overrides page heading',
-        type: 'shortText',
-      } as ShortTextField,
-      listItemHiddenText: {
-        helpText: 'Initially hidden text when page is a list item',
-        type: 'shortText',
-      } as ShortTextField,
-      listItemImage: {
-        helpText: 'Image when page is a list item, overrides page image',
+      image: {
+        helpText:
+          'Afbeelding van de pagina, wordt gebruikt in andere secties als die geen eigen afbeelding hebben',
+        name: 'Paginaafbeelding',
         type: 'image',
       } as ImageField,
-      listItemInfoText: {
+      abstract: {
         helpText:
-          'Info text when page is a list item, overrides page info text',
+          'Samenvatting van de pagina, wordt gebruikt in andere secties als die geen eigen samenvatting hebben',
+        name: 'Paginasamenvatting',
         type: 'longText',
-      } as LongTextField,
-      listItemView: {
-        helpText: 'How the page looks as a list item',
-        items: ['mint bottom', 'green bottom', 'full image'],
-        type: 'dropdown',
-      } as DropdownField,
+      },
+      seoTitle: {
+        helpText:
+          'Titel van de pagina, gebruikt door zoek machines zoals Google',
+        name: 'SEO titel',
+        type: 'shortText',
+      } as ShortTextField,
+      seoDescription: {
+        helpText:
+          'Omschrijving van de pagina, gebruikt door zoek machines zoals Google',
+        maxLength: 155,
+        name: 'SEO omschrijving',
+        type: 'shortText',
+      } as ShortTextField,
     },
     modelVersion: '1.0.0',
     settings: {
@@ -239,23 +297,29 @@ export const configComponents: WheelroomComponents = {
   },
   quoteSection: {
     fields: {
-      avatar: {
-        helpText: 'Optional photo displayed with the quote',
-        required: false,
-        type: 'image',
-      },
       heading: {
+        helpText: 'Naam van de persoon die deze uitspraak deed',
+        name: 'Naam persoon',
         required: true,
         type: 'shortText',
       } as ShortTextField,
       subHeading: {
-        required: false,
+        helpText: 'In welke functie de persoon deze uitspraak deed',
+        name: 'Functie persoon',
+        required: true,
         type: 'shortText',
       } as ShortTextField,
-      text: {
+      abstract: {
+        helpText: 'Dat wat de persoon gezegd heeft',
+        name: 'Uitspraak',
         required: true,
         type: 'longText',
-      } as LongTextField,
+      },
+      image: {
+        helpText: 'Afbeelding van de persoon',
+        name: 'Foto persoon',
+        type: 'image',
+      } as ImageField,
     },
     modelVersion: '1.0.0',
     settings: {
@@ -267,7 +331,8 @@ export const configComponents: WheelroomComponents = {
   textSection: {
     fields: {
       text: {
-        helpText: 'Rich text with headings and images',
+        helpText: 'Eenvoudig opgemaakte tekst veld met kopjes en afbeeldingen',
+        name: 'Tekst',
         required: true,
         type: 'richText',
       } as RichTextField,
