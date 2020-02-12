@@ -3,34 +3,20 @@ import {
   WheelroomComponent,
   WheelroomComponents,
 } from '@jacco-meijer/wheelroom'
-import { ContentfulContent, WheelroomContentSet } from '../../types/content-set'
+import {
+  ContentfulContent,
+  ContentfulContentSet,
+} from '../../types/content-set'
 import { ContentfulComponents } from '../../types/contentful-components'
 import { ContentfulFieldDefinitions } from '../../types/contentful-field-definitions'
-import { cfContentSetFromComponents } from './content-set-from-components'
-import { cfContentSetFromWrContentSet } from './content-set-from-content-set'
 import { getCfComponent } from './get-cf-component'
-import { orderByDependency } from './order-by-dependency'
 
 export const getCfComponents = (
   wrComponents: WheelroomComponents,
   fieldDefinitions: ContentfulFieldDefinitions,
-  contentSet?: WheelroomContentSet
+  cfContentSet: ContentfulContentSet
 ): ContentfulComponents => {
   const cfComponents: ContentfulComponents = []
-
-  // If no content is set, create one based on component names and initial
-  // content
-  let cfContentSet
-  if (contentSet) {
-    cfContentSet = cfContentSetFromWrContentSet(contentSet, wrComponents)
-  } else {
-    cfContentSet = cfContentSetFromComponents(wrComponents)
-  }
-
-  // Sort content creation so that dependencies get created first
-  orderByDependency(cfContentSet)
-  const creationOrder = cfContentSet.map(c => c.componentId).join(' < ')
-  console.log('Dependency order:', creationOrder)
 
   // Loop through all content, set each field initialContent and process with
   // matching component

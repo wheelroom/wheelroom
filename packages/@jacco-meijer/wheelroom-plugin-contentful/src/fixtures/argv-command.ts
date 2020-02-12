@@ -8,6 +8,7 @@ import { argvComponents } from './argv-components'
 import { argvPluginOptions } from './argv-plugin-options'
 
 export const argvCommand = {
+  _: ['create-content'],
   components: argvComponents,
   contentSet: undefined as string | undefined,
   options: argvPluginOptions,

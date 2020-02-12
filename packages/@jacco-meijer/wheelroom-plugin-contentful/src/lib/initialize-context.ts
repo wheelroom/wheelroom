@@ -7,17 +7,35 @@ import {
 } from '../contentful-api/init'
 import { Context } from '../types/context'
 import { getCfComponents } from './get-cf-components/get-cf-components'
-import { getContentSets } from './get-content-sets'
+import { getWrContentSets } from './get-content-sets'
+import { orderByDependency } from './get-cf-content-set/order-by-dependency'
+import { getCfContentSet } from './get-cf-content-set/get-cf-content-set'
 
 export const initializeContext = async (argv: any) => {
   const pluginOptions =
     argv.options['@jacco-meijer/wheelroom-plugin-contentful']
   const wheelroomComponents = getFilteredComponents(argv)
 
-  let contentSet
-  if (['create-content', 'delete-content'].includes(argv._)) {
-    contentSet = getContentSets(argv, pluginOptions)
+  let wrContentSet
+  let cfContentSet
+
+  if (['create-content', 'delete-content'].includes(argv._[0])) {
+    // We need a Wheelroom content set. Display messages on what we do, if no
+    // content set is present create a set with each model present
+
+    wrContentSet = getWrContentSets(argv, pluginOptions)
+    cfContentSet = getCfContentSet(wheelroomComponents, wrContentSet)
+    // Sort content creation so that dependencies get created first
+    orderByDependency(cfContentSet)
+    const creationOrder = cfContentSet.map(c => c.componentId).join(' < ')
+    console.log('Dependency order:', creationOrder)
+  } else {
+    // We don't need a Wheelroom content set, create a set with each model
+    // present
+
+    cfContentSet = getCfContentSet(wheelroomComponents)
   }
+
   const context: Context = {
     commandLineOptions: {
       contentSet: argv.contentSet,
@@ -29,7 +47,7 @@ export const initializeContext = async (argv: any) => {
     contentfulComponents: getCfComponents(
       wheelroomComponents,
       pluginOptions.fieldDefinitions,
-      contentSet
+      cfContentSet
     ),
     pluginOptions,
     wheelroomComponents,

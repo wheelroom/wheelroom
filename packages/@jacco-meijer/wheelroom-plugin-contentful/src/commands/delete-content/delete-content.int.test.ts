@@ -8,6 +8,7 @@ jest.setTimeout(60000)
 
 describe('Command delete content should', () => {
   test('delete default content set when no test set is specified', async () => {
+    argvCommand._[0] = 'delete-content'
     argvCommand.contentSet = undefined
     const spy = jest.spyOn(console, 'log')
     await command.handler(argvCommand as any)
@@ -16,6 +17,7 @@ describe('Command delete content should', () => {
   })
 
   test('delete content set test', async () => {
+    argvCommand._[0] = 'delete-content'
     argvCommand.contentSet = 'test'
     const spy = jest.spyOn(console, 'log')
     await command.handler(argvCommand as any)

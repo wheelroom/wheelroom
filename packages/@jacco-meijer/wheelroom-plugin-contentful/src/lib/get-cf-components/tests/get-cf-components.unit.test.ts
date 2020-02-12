@@ -2,6 +2,8 @@ import { getFilteredComponents } from '@jacco-meijer/wheelroom'
 import { argvCommand } from '../../../fixtures/argv-command'
 import { argvContentSets } from '../../../fixtures/argv-content-sets'
 import { getCfComponents } from '../get-cf-components'
+import { getCfContentSet } from '../../get-cf-content-set/get-cf-content-set'
+import { orderByDependency } from '../../get-cf-content-set/order-by-dependency'
 
 describe('Generate contentful components should', () => {
   test('match the sample set without content', () => {
@@ -9,9 +11,12 @@ describe('Generate contentful components should', () => {
       argvCommand.options['@jacco-meijer/wheelroom-plugin-contentful']
     const wheelroomComponents = getFilteredComponents(argvCommand)
 
+    const cfContentSet = getCfContentSet(wheelroomComponents)
+    orderByDependency(cfContentSet)
     const contentfulComponents = getCfComponents(
       wheelroomComponents,
-      pluginOptions.fieldDefinitions
+      pluginOptions.fieldDefinitions,
+      cfContentSet
     )
     expect(contentfulComponents).toMatchSnapshot()
   })
@@ -21,10 +26,15 @@ describe('Generate contentful components should', () => {
       argvCommand.options['@jacco-meijer/wheelroom-plugin-contentful']
     const wheelroomComponents = getFilteredComponents(argvCommand)
 
+    const cfContentSet = getCfContentSet(
+      wheelroomComponents,
+      argvContentSets.test
+    )
+    orderByDependency(cfContentSet)
     const contentfulComponents = getCfComponents(
       wheelroomComponents,
       pluginOptions.fieldDefinitions,
-      argvContentSets.test
+      cfContentSet
     )
     expect(contentfulComponents).toMatchSnapshot()
   })
