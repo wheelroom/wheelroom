@@ -5,3 +5,7 @@ export interface NamedPaths {
     [localeName: string]: string
   }
 }
+
+export interface PathNames {
+  [path: string]: string  
+}

@@ -1,5 +1,5 @@
 import { ContentfulEdge, QueryResults } from '../types/contentful'
-import { NamedPaths } from '../types/named-paths'
+import { NamedPaths, PathNames } from '../types/named-paths'
 import { getPageContext } from './get-page-context'
 
 interface CreatePages {
@@ -8,6 +8,7 @@ interface CreatePages {
   pageTemplate: string
   queryResults: QueryResults
   createPage(params: object): Promise<any>
+  pathNames: PathNames
 }
 
 export const createPages = (context: CreatePages) => {
@@ -16,8 +17,9 @@ export const createPages = (context: CreatePages) => {
     ([componentName, pageEdge]: [string, ContentfulEdge[]]) => {
       pageEdge.forEach(edge => {
         const page = edge.node
+        const pathName = context.pathNames[page.path]
         const locale = page.node_locale || context.defaultLocale
-        const localizedBasePath = context.namedPaths[page.pathName][locale]
+        const localizedBasePath = context.namedPaths[pathName][locale]
         const tokens = localizedBasePath.split('%')
         if (tokens.length === 3) {
           return

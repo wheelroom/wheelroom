@@ -14,6 +14,7 @@ module.exports = {
     page: allContentfulPage {
       edges {
         node {
+          contentful_id
           id
           node_locale
           path
