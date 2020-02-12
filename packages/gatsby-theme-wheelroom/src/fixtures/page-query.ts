@@ -16,7 +16,6 @@ module.exports = {
         id
         node_locale
         path
-        pathName
       }
     }
   }
