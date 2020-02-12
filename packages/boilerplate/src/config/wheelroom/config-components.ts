@@ -255,6 +255,7 @@ export const configComponents: WheelroomComponents = {
         helpText:
           'Titel van de pagina, wordt gebruikt in andere secties als die geen eigen titel hebben',
         name: 'Paginatitel',
+        required: true,
         type: 'shortText',
       } as ShortTextField,
       navigationHeading: {
