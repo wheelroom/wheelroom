@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.6](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.5...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.6) (2020-02-12)
+
+**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
+
+
+
+
+
 ## [2.6.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.4...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.5) (2020-02-06)
 
 

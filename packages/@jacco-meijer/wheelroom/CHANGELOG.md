@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.4.2...@jacco-meijer/wheelroom@3.5.0) (2020-02-12)
+
+
+### Features
+
+* move common fields to top ([68219b6](https://github.com/jaccomeijer/wheelroom/commit/68219b6))
+
+
+
+
+
 ## [3.4.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.4.1...@jacco-meijer/wheelroom@3.4.2) (2020-02-06)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom

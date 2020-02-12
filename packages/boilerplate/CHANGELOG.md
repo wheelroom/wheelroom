@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.5.0...boilerplate@4.6.0) (2020-02-12)
+
+
+### Features
+
+* add gatsby-plugin-schema-snapshot ([3f94057](https://github.com/jaccomeijer/wheelroom/commit/3f94057))
+
+
+
+
+
 # [4.5.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.4.1...boilerplate@4.5.0) (2020-02-11)
 
 
