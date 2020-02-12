@@ -32,13 +32,16 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
 
       // Create a working copy for the component
       const workComponent = {
-        fields: Object.assign({}, component.fields),
+        fields: {},
         modelVersion: component.modelVersion,
         settings: component.settings,
       } as WheelroomComponent
 
-      // Merge in common fields
+      // Merge in common fields first
       Object.assign(workComponent.fields, wheelroomConfig.commonFields || {})
+
+      // Merge in in all other fields next
+      Object.assign(workComponent.fields, component.fields || {})
 
       Object.entries(workComponent.fields).forEach(
         // For each component, iterate over all fields
