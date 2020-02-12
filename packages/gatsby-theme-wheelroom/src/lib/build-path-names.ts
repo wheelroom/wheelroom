@@ -22,22 +22,27 @@ export const buildPathNames = (context: BuildPathNames): PathNames => {
   const pagesByContentfulId = context.queryResults.page.page.reduce(
     (result: any, edge: ContentfulEdge) => {
       const page = edge.node
-      result[page.contentful_id] = { [page.node_locale]: page }
+      if (!(page.contentful_id in result)) {
+        result[page.contentful_id] = {}
+      }
+      result[page.contentful_id][page.node_locale] = page
       return result
     },
     {}
   )
-  console.log('pagesByContentfulId', pagesByContentfulId)
 
   context.queryResults.page.page.forEach((edge: ContentfulEdge) => {
     const page = edge.node
     const defaultLocalePage =
       pagesByContentfulId[page.contentful_id][context.defaultLocale]
-    const pathName = pathToCamelCase(defaultLocalePage.path)
+    let pathName = pathToCamelCase(defaultLocalePage.path)
+    // If pathName attribute exists, use it
+    if (page.pathName) {
+      pathName = page.pathName
+    }
     if (!(page.path in pathNames)) {
       pathNames[page.path] = pathName
     }
   })
-  console.log('pathNames', pathNames)
   return pathNames
 }

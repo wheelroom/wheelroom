@@ -5,10 +5,10 @@ import { optionsValidator } from './lib/options-validator'
 import { runQueries } from './lib/run-queries'
 import { Options } from './types/options'
 import { buildPathNames } from './lib/build-path-names'
+import { getDefaultLocale } from './lib/get-default-locale'
 
 exports.createPages = async ({ graphql, actions }: any, options: Options) => {
   const { createPage } = actions
-  const defaultLocale = options.defaultLocale || 'en-US'
   const optionsHealth = optionsValidator(options)
   if (optionsHealth.valid) {
     console.log(optionsHealth.message)
@@ -17,6 +17,11 @@ exports.createPages = async ({ graphql, actions }: any, options: Options) => {
   }
 
   const queryResults = await runQueries({ graphql, queries: options.queries })
+  const defaultLocale = options.defaultLocale || getDefaultLocale({
+    queryResults,
+  })
+  console.log('Using default locale:', defaultLocale)
+
   const pathNames = buildPathNames({
     defaultLocale,
     queryResults,

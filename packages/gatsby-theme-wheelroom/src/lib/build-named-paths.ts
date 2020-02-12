@@ -15,9 +15,8 @@ export const buildNamedPaths = (context: BuildNamedPaths): NamedPaths => {
     const page = edge.node
     const pathName: string = context.pathNames[page.path]
     if (!(pathName in namedPaths)) {
-      namedPaths[pathName] = { path: '' }
+      namedPaths[pathName] = {}
     }
-    namedPaths[pathName].path = page.path
     const locale = page.node_locale
     const localizedBasePath =
       locale === context.defaultLocale ? page.path : '/' + locale + page.path
