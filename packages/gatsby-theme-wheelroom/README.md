@@ -17,7 +17,7 @@ headless CMS like contentful, generate graphql and generate boilerplate code.
 
 The theme can handle three query types:
 
-- page: pages have a path and pathName which are used to create the actual pages
+- page: pages have a path which is used to create the actual pages
 - subPage: subPages have a slug from which the path is created
 - global: global data is added to every page
 

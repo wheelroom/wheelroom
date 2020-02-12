@@ -30,8 +30,6 @@ When the Gatsby development server starts, this is what happens:
   each path.
 - Page queries have `type: 'page'` defined. These entries have a `path`
   attribute.
-- Page queries return a `pathName` attribute to build named paths for easy site
-  localization.
 - Graphql `ids` for page content are added to the page context of each page
   template. Eg `pageId`, `globalsId` or `articleId`.
 - Once all page templates are ready, Gatsby scans the `src` folder to build a
