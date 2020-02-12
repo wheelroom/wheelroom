@@ -18,5 +18,5 @@ export const getOpenerOrPageImage = (page: PageProps): FluidImage => {
   if (openerImage) {
     return openerImage
   }
-  return page.pageImage
+  return page.image
 }
