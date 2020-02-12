@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-02-12T20:53:57.710Z ###
+### Type definitions saved at 2020-02-12T21:28:10.488Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -66,6 +66,14 @@ type Directory implements Node @dontInfer {
   ctime: Date! @dateformat
   birthtime: Date @deprecated(reason: "Use `birthTime` instead")
   birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+}
+
+type SitePage implements Node @dontInfer {
+  path: String!
+  component: String!
+  internalComponentName: String!
+  componentChunkName: String!
+  matchPath: String
 }
 
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
@@ -166,6 +174,7 @@ type ContentfulOpenerSectionSysContentTypeSys {
   type: String
   linkType: String
   id: String
+  contentful_id: String
 }
 
 type ContentfulFooterSection implements Node @derivedTypes @dontInfer {
@@ -194,6 +203,7 @@ type ContentfulFooterSectionSysContentTypeSys {
   type: String
   linkType: String
   id: String
+  contentful_id: String
 }
 
 type ContentfulNavigationSys @derivedTypes {
@@ -209,6 +219,7 @@ type ContentfulNavigationSysContentTypeSys {
   type: String
   linkType: String
   id: String
+  contentful_id: String
 }
 
 type ContentfulListItem implements Node @derivedTypes @dontInfer {
@@ -255,6 +266,7 @@ type ContentfulListSectionSysContentTypeSys {
   type: String
   linkType: String
   id: String
+  contentful_id: String
 }
 
 type contentfulListItemAbstractTextNode implements Node @dontInfer {
@@ -274,6 +286,7 @@ type ContentfulListItemSysContentTypeSys {
   type: String
   linkType: String
   id: String
+  contentful_id: String
 }
 
 type ContentfulPageSys @derivedTypes {
@@ -289,6 +302,7 @@ type ContentfulPageSysContentTypeSys {
   type: String
   linkType: String
   id: String
+  contentful_id: String
 }
 
 type ContentfulGlobals implements Node @derivedTypes @dontInfer {
@@ -323,6 +337,7 @@ type ContentfulGlobalsSysContentTypeSys {
   type: String
   linkType: String
   id: String
+  contentful_id: String
 }
 
 type contentfulQuoteSectionAbstractTextNode implements Node @dontInfer {
@@ -357,6 +372,7 @@ type ContentfulQuoteSectionSysContentTypeSys {
   type: String
   linkType: String
   id: String
+  contentful_id: String
 }
 
 type contentfulTextSectionTextRichTextNode implements Node @derivedTypes @dontInfer {
@@ -400,6 +416,7 @@ type ContentfulTextSectionSysContentTypeSys {
   type: String
   linkType: String
   id: String
+  contentful_id: String
 }
 
 type ContentfulContentType implements Node @dontInfer {
