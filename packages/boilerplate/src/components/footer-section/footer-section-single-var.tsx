@@ -6,56 +6,75 @@
  *
  */
 
-import React from 'react'
-import { getAllPaddingObject } from '../../styles/global-padding'
-import { paragraph1Style } from '../../styles/paragraph'
+import React, { Fragment } from 'react'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Text } from '../../views/core-elements/text'
-import { NavLinks } from '../navigation/nav-links'
+import { Image } from '../../views/image/image'
 import { FooterSectionProps } from './footer-section'
 
-const addressStyle = { ...paragraph1Style, color: 'white', pb: 0 }
+const FlexContainer = Flex
+const FlexBox = Box
+
+const flexContainerProps = {
+  ncss: {
+    bg: 'mint',
+    fontFamily: 'text',
+    maxHeight: '300px',
+    mb: 1,
+    overflow: 'hidden',
+    p: 3,
+    w: [1],
+  },
+}
+
+
+const flexBoxProps = {
+  ncss: { w: [1, 1 / 4] },
+}
+
+const imageProps = {
+  objectFit: 'cover',
+}
 
 export const FooterSectionSingleVar = (props: FooterSectionProps) => {
   return (
-    <Flex
-      ncss={{
-        bg: 'darkGrey',
-        flexDirection: 'row',
-        mb: 7,
-        w: 1,
-      }}
-    >
-      <Flex
+    <Fragment>
+      <FlexContainer
         ncss={{
-          alignItems: ['center', 'center', 'flex-start'],
-          flexDirection: 'column',
-          ...getAllPaddingObject('textBox'),
-          w: [1, 1, 1 / 2],
+          ...flexContainerProps.ncss,
+          bg: 'green',
+          fontFamily: 'heading',
+          fontSize: 7,
+          my: 4,
         }}
       >
-        <NavLinks routes={props.footerNavigation.routes} />
-      </Flex>
-      <Flex
-        ncss={{
-          flexDirection: 'column',
-          w: [1, 1, 1 / 2],
-        }}
-      >
-        <Flex
-          ncss={{
-            ...getAllPaddingObject('textBox'),
-            alignItems: ['center', 'center', 'flex-start'],
-            flexDirection: 'column',
-          }}
-        >
-          <Text ncss={addressStyle}>{props.globals.addressLine1}</Text>
-          <Text ncss={addressStyle}>{props.globals.addressLine2}</Text>
-          <Box ncss={{ p: 3 }} />
-          <Text ncss={addressStyle}>{props.globals.phoneNumber}</Text>
-          <Text ncss={addressStyle}>{props.globals.emailAddress}</Text>
-        </Flex>
-      </Flex>
-    </Flex>
+        <FlexBox ncss={{ ...flexBoxProps.ncss, w: 1 }}>
+          Footer section single var
+        </FlexBox>
+      </FlexContainer>
+            <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>__typename</FlexBox>
+        <FlexBox {...flexBoxProps}>optional</FlexBox>
+        <FlexBox {...flexBoxProps}>shortText</FlexBox>
+        <FlexBox {...flexBoxProps}>{props.__typename}</FlexBox>
+      </FlexContainer>
+      <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>title</FlexBox>
+        <FlexBox {...flexBoxProps}>required</FlexBox>
+        <FlexBox {...flexBoxProps}>shortText</FlexBox>
+        <FlexBox {...flexBoxProps}>{props.title}</FlexBox>
+      </FlexContainer>
+      <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>backgroundColor</FlexBox>
+        <FlexBox {...flexBoxProps}>required</FlexBox>
+        <FlexBox {...flexBoxProps}>dropdown</FlexBox>
+        <FlexBox {...flexBoxProps}>{props.backgroundColor}</FlexBox>
+      </FlexContainer>
+      <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>navigation</FlexBox>
+        <FlexBox {...flexBoxProps}>required</FlexBox>
+        <FlexBox {...flexBoxProps}>singleComponent</FlexBox>
+        <FlexBox {...flexBoxProps}>navigation</FlexBox>
+      </FlexContainer>
+    </Fragment>
   )
 }

@@ -5,8 +5,12 @@
  *
  */
 
+import { FluidImage } from '../../views/image/image'
+
 export interface GlobalsProps {
   /** Gatsby fetched data */
+  __typename: string
+  title: string
   addressLine1: string
   addressLine2: string
   emailAddress: string
@@ -16,6 +20,4 @@ export interface GlobalsProps {
   siteDescription: string
   siteHeading: string
   siteKeywords: string[]
-  __typename: string
-  title: string
 }

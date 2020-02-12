@@ -7,28 +7,28 @@
 
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
-import { SectionProps } from '../../sections/section-props'
 import { FluidImage } from '../../views/image/image'
-import { OpenerSectionHomeOpenerVar } from './opener-section-home-opener-var'
-import { OpenerSectionPageOpenerVar } from './opener-section-page-opener-var'
+import { SectionProps } from '../../sections/section-props'
+import { OpenerSectionHomePaginaVar } from './opener-section-home-pagina-var'
+import { OpenerSectionNormalePaginaVar } from './opener-section-normale-pagina-var'
 
 const componentList = {
-  ['home opener']: OpenerSectionHomeOpenerVar,
-  ['page opener']: OpenerSectionPageOpenerVar,
+  ['home pagina']: OpenerSectionHomePaginaVar,
+  ['normale pagina']: OpenerSectionNormalePaginaVar,
 }
 
 export interface OpenerSectionProps extends SectionProps {
   /** Gatsby fetched data */
+  __typename: string
+  title: string
+  variation: string
+  navigation: any
   boxBackgroundColor: string
   heading: string
   image: FluidImage
-  infoText: {
-    infoText: string
+  abstract: {
+    abstract: string
   }
-  mainNavigation: any
-  variation: string
-  __typename: string
-  title: string
 }
 
 export const OpenerSection = (props: OpenerSectionProps) => {

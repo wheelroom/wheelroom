@@ -6,6 +6,7 @@
  *
  */
 
+
 module.exports = {
   componentName: 'page',
   query: `
@@ -16,7 +17,6 @@ module.exports = {
           id
           node_locale
           path
-          pathName
         }
       }
     }

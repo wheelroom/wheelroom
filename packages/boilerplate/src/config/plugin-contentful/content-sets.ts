@@ -41,18 +41,12 @@ export const contentSets: ContentSets = {
     },
     homePage: {
       fields: {
-        listItemHeading: '',
-        listItemHiddenText: 'n/a',
-        listItemImage: true,
-        listItemInfoText: '',
-        listItemView: 'green bottom',
         navigationHeading: 'home',
-        pageHeading: 'Deze merknaam is fantastisch',
-        pageImage: true,
-        pageInfoText:
+        heading: 'Deze merknaam is fantastisch',
+        image: true,
+        abstract:
           "Een merk is een teken om goederen of diensten te onderscheiden. Een merknaam kan daartoe dienen, maar het begrip 'merk' is breder en omvat ook de verschijningsvorm van de naam, het logo en kan ook iets anders zijn dan een naam, bijvoorbeeld een kleur of een beeldmerk.",
         path: '/',
-        pathName: 'home',
         sections: [
           'homeOpener',
           'merkarchitectuurText',
@@ -60,8 +54,6 @@ export const contentSets: ContentSets = {
           'endOfPageLinksLarge',
           'standardFooter',
         ],
-        seoDescription: 'Specifiek voor SEO',
-        seoTitle: 'Homepagina',
         title: 'Home',
       },
       model: 'page',
@@ -69,38 +61,28 @@ export const contentSets: ContentSets = {
     homeOpener: {
       fields: {
         boxBackgroundColor: 'green',
-        heading: '',
-        image: true,
-        infoText: 'n/a',
-        mainNavigation: 'openerNavigatie',
+        navigation: 'openerNavigatie',
         title: 'Homepagina opener',
-        variation: 'home opener',
+        variation: 'home pagina',
       },
       model: 'openerSection',
     },
     openerNavigatie: {
       fields: {
-        routes: ['homePage', 'productPage', 'backgroundPage', 'contactPage'],
+        pages: ['homePage', 'productPage', 'backgroundPage', 'contactPage'],
         title: 'Opener navigatie',
       },
       model: 'navigation',
     },
     productPage: {
       fields: {
-        listItemHeading: 'Onze producten',
-        listItemHiddenText: '',
-        listItemImage: false,
-        listItemInfoText:
-          'Onze producten zijn biologisch, harmonisch en zeer interessant.',
-        listItemView: 'full image',
         navigationHeading: 'product',
-        pageHeading:
+        heading:
           'Een product in economische zin is een tastbare zaak met een bepaalde waarde.',
-        pageImage: true,
-        pageInfoText:
+        image: true,
+        abstract:
           'Een product kan worden vergezeld van productinformatie. Voor veel productcategorieën is het beschrijven van het product wettelijk vastgelegd. Zo moeten voedselproducten voorzien zijn van een etiket met de ingrediënten, de inhoud en de houdbaarheidsdatum.',
         path: '/producten',
-        pathName: 'producten',
         sections: [
           'productOpener',
           'productcodeText',
@@ -109,8 +91,6 @@ export const contentSets: ContentSets = {
           'endOfPageLinks',
           'standardFooter',
         ],
-        seoDescription: 'Specifiek voor SEO',
-        seoTitle: 'Productpagina',
         title: 'Producten',
       },
       model: 'page',
@@ -118,31 +98,21 @@ export const contentSets: ContentSets = {
     productOpener: {
       fields: {
         boxBackgroundColor: 'mint',
-        heading: 'Onze producten bevatten alles voor een zomerse dag',
-        image: false,
-        infoText: '',
-        mainNavigation: 'openerNavigatie',
+        navigation: 'openerNavigatie',
         title: 'Productpagina opener',
-        variation: 'page opener',
+        variation: 'normale pagina',
       },
       model: 'openerSection',
     },
     backgroundPage: {
       fields: {
-        listItemHeading: 'Achtergrond informatie',
-        listItemHiddenText: '',
-        listItemImage: false,
-        listItemInfoText:
-          'Waarom zijn we hier, wat we doen, onze visie en onze passies.',
-        listItemView: 'green bottom',
         navigationHeading: 'achtergrond',
-        pageHeading:
+        heading:
           'Op dit moment is er maar één gemeente in Nederland zonder achtergrond.',
-        pageImage: true,
-        pageInfoText:
+        image: true,
+        abstract:
           'In de journalistiek wordt de term achtergrond gebruikt voor de feitelijke en betekenisgevende context waarin het dagelijkse nieuws zich afspeelt.',
         path: '/achtergrond',
-        pathName: 'achtergrond',
         sections: [
           'backgroundOpener',
           'naamcreatieText',
@@ -150,8 +120,6 @@ export const contentSets: ContentSets = {
           'endOfPageLinks',
           'standardFooter',
         ],
-        seoDescription: 'Specifiek voor SEO',
-        seoTitle: 'Achtergrondpagina',
         title: 'Achtergrond',
       },
       model: 'page',
@@ -159,29 +127,20 @@ export const contentSets: ContentSets = {
     backgroundOpener: {
       fields: {
         boxBackgroundColor: 'mint',
-        heading: 'Ooit was er geen merknaam. Vandaag gelukkig wel.',
-        image: false,
-        infoText: '',
-        mainNavigation: 'openerNavigatie',
+        navigation: 'openerNavigatie',
         title: 'Achtergrondpagina opener',
-        variation: 'page opener',
+        variation: 'normale pagina',
       },
       model: 'openerSection',
     },
     contactPage: {
       fields: {
-        listItemHeading: 'Contactinformatie',
-        listItemHiddenText: '',
-        listItemImage: false,
-        listItemInfoText: 'Hoe je ons kunt bellen, e-mailen en faxen.',
-        listItemView: 'full image',
         navigationHeading: 'contact',
-        pageHeading: 'Contact?',
-        pageImage: true,
-        pageInfoText:
+        heading: 'Contact',
+        image: true,
+        abstract:
           'Communicatie is een activiteit waarbij levende wezens betekenissen uitwisselen door op elkaars signalen te reageren. ',
         path: '/contact',
-        pathName: 'contact',
         sections: [
           'contactOpener',
           'contactText',
@@ -190,8 +149,6 @@ export const contentSets: ContentSets = {
           'endOfPageLinks',
           'standardFooter',
         ],
-        seoDescription: 'Specifiek voor SEO',
-        seoTitle: 'Contactpagina',
         title: 'Contact',
       },
       model: 'page',
@@ -199,12 +156,9 @@ export const contentSets: ContentSets = {
     contactOpener: {
       fields: {
         boxBackgroundColor: 'green',
-        heading: 'Met communicatie meer bereik',
-        image: false,
-        infoText: '',
-        mainNavigation: 'openerNavigatie',
+        navigation: 'openerNavigatie',
         title: 'Contactpagina opener',
-        variation: 'page opener',
+        variation: 'normale pagina',
       },
       model: 'openerSection',
     },
@@ -290,20 +244,20 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
     },
     careQuote: {
       fields: {
-        avatar: true,
+        image: true,
         heading: 'Gary Vaynerchuk',
         subHeading: 'Ondernemer, spreker & marketing expert',
-        text: 'De beste marketing strategie ooit: CARE.',
+        abstract: 'De beste marketing strategie ooit: CARE.',
         title: 'Quote Gary Vaynerchuk',
       },
       model: 'quoteSection',
     },
     buildLoveQuote: {
       fields: {
-        avatar: true,
+        image: true,
         heading: 'Brian Chesky',
         subHeading: 'Cofounder van Airbnb',
-        text:
+        abstract:
           'Bouw iets waar 100 mensen van houden, niet iets dat 1 miljoen mensen een soort van leuk vinden.',
         title: 'Quote Brian Chesky',
       },
@@ -311,43 +265,68 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
     },
     passionQuote: {
       fields: {
-        avatar: true,
+        image: true,
         heading: 'Michael Hyatt',
         subHeading: 'Virtual business mentor',
-        text: 'Marketing gaat eigenlijk gewoon over het delen van je passie.',
+        abstract:
+          'Marketing gaat eigenlijk gewoon over het delen van je passie.',
         title: 'Quote Michael Hyatt',
       },
       model: 'quoteSection',
     },
+    productPageItem: {
+      fields: {
+        link: 'productPage',
+        view: 'volledige afbeelding',
+        title: 'Tegel productpagina',
+      },
+      model: 'listItem',
+    },
+    backgroundPageItem: {
+      fields: {
+        link: 'backgroundPage',
+        view: 'onderkant groen',
+        title: 'Tegel achtergrondpagina',
+      },
+      model: 'listItem',
+    },
+    contactPageItem: {
+      fields: {
+        link: 'contactPage',
+        view: 'onderkant mint',
+        title: 'Tegel contactpagina',
+      },
+      model: 'listItem',
+    },
     endOfPageLinks: {
       fields: {
         heading: 'Kijk ook eens hier',
-        listItems: ['productPage', 'backgroundPage', 'contactPage'],
+        items: ['productPageItem', 'backgroundPageItem', 'contactPageItem'],
         title: 'Referenties klein',
-        variation: 'small items',
+        variation: 'kleine tegels',
       },
       model: 'listSection',
     },
     endOfPageLinksLarge: {
       fields: {
         heading: 'Kijk ook eens hier',
-        listItems: ['productPage', 'backgroundPage', 'contactPage'],
+        items: ['productPageItem', 'backgroundPageItem', 'contactPageItem'],
         title: 'Referenties groot',
-        variation: 'large items',
+        variation: 'grote tegels',
       },
       model: 'listSection',
     },
     standardFooter: {
       fields: {
         backgroundColor: 'mint',
-        footerNavigation: 'footerNavigatie',
+        navigation: 'footerNavigatie',
         title: 'Standaard footer',
       },
       model: 'footerSection',
     },
     footerNavigatie: {
       fields: {
-        routes: ['productPage', 'backgroundPage', 'contactPage'],
+        pages: ['productPage', 'backgroundPage', 'contactPage'],
         title: 'Footer navigatie',
       },
       model: 'navigation',

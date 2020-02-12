@@ -13,10 +13,10 @@ import { graphql } from 'gatsby'
 
 export const fragment = graphql`
 fragment TextSection on ContentfulTextSection {
+  __typename
+  title
   text {
     json
   }
-  __typename
-  title
 }
 `

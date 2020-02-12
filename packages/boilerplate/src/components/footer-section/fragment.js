@@ -13,13 +13,13 @@ import { graphql } from 'gatsby'
 
 export const fragment = graphql`
 fragment FooterSection on ContentfulFooterSection {
+  __typename
+  title
   backgroundColor
-  footerNavigation {
+  navigation {
     ... on Node {
       ...Navigation
     }
   }
-  __typename
-  title
 }
 `

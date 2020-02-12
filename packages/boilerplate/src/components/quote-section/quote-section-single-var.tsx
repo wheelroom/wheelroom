@@ -6,42 +6,87 @@
  *
  */
 
-import React from 'react'
-import { getSinglePadding } from '../../styles/global-padding'
-import { heading1Style, heading2Style } from '../../styles/heading'
-import { paragraph1Style } from '../../styles/paragraph'
-import { AvatarImageBox } from '../../views/avatar-image-box/avatar-image-box'
+import React, { Fragment } from 'react'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Heading } from '../../views/core-elements/heading'
-import { Text } from '../../views/core-elements/text'
+import { Image } from '../../views/image/image'
 import { QuoteSectionProps } from './quote-section'
 
+const FlexContainer = Flex
+const FlexBox = Box
+
+const flexContainerProps = {
+  ncss: {
+    bg: 'mint',
+    fontFamily: 'text',
+    maxHeight: '300px',
+    mb: 1,
+    overflow: 'hidden',
+    p: 3,
+    w: [1],
+  },
+}
+
+
+const flexBoxProps = {
+  ncss: { w: [1, 1 / 4] },
+}
+
+const imageProps = {
+  objectFit: 'cover',
+}
+
 export const QuoteSectionSingleVar = (props: QuoteSectionProps) => {
-  const imageSizes = ['100px', '150px', '170px', '200px']
   return (
-    <Flex
-      ncss={{
-        px: getSinglePadding('section', 'left'),
-        w: 1,
-      }}
-    >
-      <Box ncss={{ w: imageSizes, h: imageSizes }}>
-        <AvatarImageBox image={props.avatar} />
-      </Box>
-      <Box
+    <Fragment>
+      <FlexContainer
         ncss={{
-          pl: getSinglePadding('textBox', 'left'),
-          w: 2 / 3,
+          ...flexContainerProps.ncss,
+          bg: 'green',
+          fontFamily: 'heading',
+          fontSize: 7,
+          my: 4,
         }}
       >
-        <Heading ncss={{ ...heading1Style }}>
-          <b>{props.heading}</b>
-        </Heading>
-        <Heading ncss={{ ...heading2Style }}>{props.subHeading}</Heading>
-        <Text ncss={{ ...paragraph1Style }}>
-          &quot;{props.text.text}...&quot;
-        </Text>
-      </Box>
-    </Flex>
+        <FlexBox ncss={{ ...flexBoxProps.ncss, w: 1 }}>
+          Quote section single var
+        </FlexBox>
+      </FlexContainer>
+            <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>__typename</FlexBox>
+        <FlexBox {...flexBoxProps}>optional</FlexBox>
+        <FlexBox {...flexBoxProps}>shortText</FlexBox>
+        <FlexBox {...flexBoxProps}>{props.__typename}</FlexBox>
+      </FlexContainer>
+      <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>title</FlexBox>
+        <FlexBox {...flexBoxProps}>required</FlexBox>
+        <FlexBox {...flexBoxProps}>shortText</FlexBox>
+        <FlexBox {...flexBoxProps}>{props.title}</FlexBox>
+      </FlexContainer>
+      <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>heading</FlexBox>
+        <FlexBox {...flexBoxProps}>required</FlexBox>
+        <FlexBox {...flexBoxProps}>shortText</FlexBox>
+        <FlexBox {...flexBoxProps}>{props.heading}</FlexBox>
+      </FlexContainer>
+      <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>subHeading</FlexBox>
+        <FlexBox {...flexBoxProps}>required</FlexBox>
+        <FlexBox {...flexBoxProps}>shortText</FlexBox>
+        <FlexBox {...flexBoxProps}>{props.subHeading}</FlexBox>
+      </FlexContainer>
+      <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>abstract</FlexBox>
+        <FlexBox {...flexBoxProps}>required</FlexBox>
+        <FlexBox {...flexBoxProps}>longText</FlexBox>
+        <FlexBox {...flexBoxProps}>{props.abstract ? props.abstract.abstract : 'null'}</FlexBox>
+      </FlexContainer>
+      <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>image</FlexBox>
+        <FlexBox {...flexBoxProps}>optional</FlexBox>
+        <FlexBox {...flexBoxProps}>image</FlexBox>
+        <FlexBox {...flexBoxProps}><Image image={props.image} {...imageProps} /></FlexBox>
+      </FlexContainer>
+    </Fragment>
   )
 }

@@ -13,6 +13,8 @@ import { graphql } from 'gatsby'
 
 export const fragment = graphql`
 fragment Globals on ContentfulGlobals {
+  __typename
+  title
   addressLine1
   addressLine2
   emailAddress
@@ -22,7 +24,5 @@ fragment Globals on ContentfulGlobals {
   siteDescription
   siteHeading
   siteKeywords
-  __typename
-  title
 }
 `

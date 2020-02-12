@@ -13,6 +13,14 @@ import { graphql } from 'gatsby'
 
 export const fragment = graphql`
 fragment OpenerSection on ContentfulOpenerSection {
+  __typename
+  title
+  variation
+  navigation {
+    ... on Node {
+      ...Navigation
+    }
+  }
   boxBackgroundColor
   heading
   image {
@@ -24,16 +32,8 @@ fragment OpenerSection on ContentfulOpenerSection {
       srcSet
     }
   }
-  infoText {
-    infoText
+  abstract {
+    abstract
   }
-  mainNavigation {
-    ... on Node {
-      ...Navigation
-    }
-  }
-  variation
-  __typename
-  title
 }
 `

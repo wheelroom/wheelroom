@@ -13,7 +13,14 @@ import { graphql } from 'gatsby'
 
 export const fragment = graphql`
 fragment QuoteSection on ContentfulQuoteSection {
-  avatar {
+  __typename
+  title
+  heading
+  subHeading
+  abstract {
+    abstract
+  }
+  image {
     title
     description
     fluid(maxWidth: 1024) {
@@ -22,12 +29,5 @@ fragment QuoteSection on ContentfulQuoteSection {
       srcSet
     }
   }
-  heading
-  subHeading
-  text {
-    text
-  }
-  __typename
-  title
 }
 `

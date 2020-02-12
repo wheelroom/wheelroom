@@ -7,22 +7,23 @@
 
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
+import { FluidImage } from '../../views/image/image'
 import { SectionProps } from '../../sections/section-props'
-import { ListSectionLargeItemsVar } from './list-section-large-items-var'
-import { ListSectionSmallItemsVar } from './list-section-small-items-var'
+import { ListSectionGroteTegelsVar } from './list-section-grote-tegels-var'
+import { ListSectionKleineTegelsVar } from './list-section-kleine-tegels-var'
 
 const componentList = {
-  ['large items']: ListSectionLargeItemsVar,
-  ['small items']: ListSectionSmallItemsVar,
+  ['grote tegels']: ListSectionGroteTegelsVar,
+  ['kleine tegels']: ListSectionKleineTegelsVar,
 }
 
 export interface ListSectionProps extends SectionProps {
   /** Gatsby fetched data */
-  heading: string
-  listItems: any
-  variation: string
   __typename: string
   title: string
+  variation: string
+  items: any
+  heading: string
 }
 
 export const ListSection = (props: ListSectionProps) => {
