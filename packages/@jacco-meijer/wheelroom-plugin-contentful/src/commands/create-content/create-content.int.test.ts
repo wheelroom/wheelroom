@@ -6,7 +6,6 @@ import { command } from './command'
  */
 jest.setTimeout(60000)
 
-
 describe('Command create content should', () => {
   test('create default content set when no test set is specified', async () => {
     argvCommand._[0] = 'create-content'

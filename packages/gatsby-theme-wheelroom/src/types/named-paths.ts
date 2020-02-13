@@ -6,5 +6,5 @@ export interface NamedPaths {
 }
 
 export interface PathNames {
-  [path: string]: string  
+  [path: string]: string
 }
