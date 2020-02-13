@@ -21,7 +21,7 @@ export const NavLinks = (props: NavLinksProps) => (
           display: 'block',
         }}
       >
-        {page.navigationHeading}
+        {page.navigationHeading || page.heading}
       </GLink>
     ))}
   </Fragment>
