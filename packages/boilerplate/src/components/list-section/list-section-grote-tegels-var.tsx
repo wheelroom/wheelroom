@@ -26,7 +26,7 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
   const itemsList = props.items.map((item: ListItemProps, index: number) => {
     const image = item.image || item.link.image
     const heading = item.heading || item.link.heading
-    const infoText =
+    const abstract =
       (item.abstract && item.abstract.abstract) ||
       (item.link.abstract && item.link.abstract.abstract)
 
@@ -54,7 +54,7 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
               {heading}
             </Heading>
             <Text ncss={{ ...paragraph2Style, color: 'white' }}>
-              {infoText}
+              {abstract}
             </Text>
           </Box>
           <Box ncss={{ w: [1, 1 / 3] }}>
