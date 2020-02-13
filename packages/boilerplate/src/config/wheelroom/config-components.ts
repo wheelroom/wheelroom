@@ -131,7 +131,6 @@ export const configComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
     settings: {
-      asBoilerplate: true,
       asFragment: true,
     },
   },

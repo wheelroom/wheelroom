@@ -7,98 +7,60 @@
  */
 
 import React, { Fragment } from 'react'
+import { getAllPaddingObject } from '../../styles/global-padding'
+import { heading1Style } from '../../styles/heading'
+import { paragraph2Style } from '../../styles/paragraph'
 import { Box, Flex } from '../../views/core-elements/grid'
+import { Heading } from '../../views/core-elements/heading'
+import { Text } from '../../views/core-elements/text'
 import { Image } from '../../views/image/image'
+import { Navigation } from '../navigation'
 import { OpenerSectionProps } from './opener-section'
 
-const FlexContainer = Flex
-const FlexBox = Box
-
-const flexContainerProps = {
-  ncss: {
-    bg: 'mint',
-    fontFamily: 'text',
-    maxHeight: '300px',
-    mb: 1,
-    overflow: 'hidden',
-    p: 3,
-    w: [1],
-  },
-}
-
-
-const flexBoxProps = {
-  ncss: { w: [1, 1 / 4] },
-}
-
-const imageProps = {
-  objectFit: 'cover',
-}
-
 export const OpenerSectionNormalePaginaVar = (props: OpenerSectionProps) => {
+  const image = props.image || props.page.image
+  const heading = props.heading || props.page.heading
+  const abstract =
+    (props.abstract && props.abstract.abstract) ||
+    (props.page.abstract && props.page.abstract.abstract)
+
   return (
     <Fragment>
-      <FlexContainer
-        ncss={{
-          ...flexContainerProps.ncss,
-          bg: 'green',
-          fontFamily: 'heading',
-          fontSize: 7,
-          my: 4,
-        }}
-      >
-        <FlexBox ncss={{ ...flexBoxProps.ncss, w: 1 }}>
-          Opener section normale pagina var
-        </FlexBox>
-      </FlexContainer>
-            <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>__typename</FlexBox>
-        <FlexBox {...flexBoxProps}>optional</FlexBox>
-        <FlexBox {...flexBoxProps}>shortText</FlexBox>
-        <FlexBox {...flexBoxProps}>{props.__typename}</FlexBox>
-      </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>title</FlexBox>
-        <FlexBox {...flexBoxProps}>required</FlexBox>
-        <FlexBox {...flexBoxProps}>shortText</FlexBox>
-        <FlexBox {...flexBoxProps}>{props.title}</FlexBox>
-      </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>variation</FlexBox>
-        <FlexBox {...flexBoxProps}>required</FlexBox>
-        <FlexBox {...flexBoxProps}>dropdown</FlexBox>
-        <FlexBox {...flexBoxProps}>{props.variation}</FlexBox>
-      </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>navigation</FlexBox>
-        <FlexBox {...flexBoxProps}>required</FlexBox>
-        <FlexBox {...flexBoxProps}>singleComponent</FlexBox>
-        <FlexBox {...flexBoxProps}>navigation</FlexBox>
-      </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>boxBackgroundColor</FlexBox>
-        <FlexBox {...flexBoxProps}>required</FlexBox>
-        <FlexBox {...flexBoxProps}>dropdown</FlexBox>
-        <FlexBox {...flexBoxProps}>{props.boxBackgroundColor}</FlexBox>
-      </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>heading</FlexBox>
-        <FlexBox {...flexBoxProps}>optional</FlexBox>
-        <FlexBox {...flexBoxProps}>shortText</FlexBox>
-        <FlexBox {...flexBoxProps}>{props.heading}</FlexBox>
-      </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>image</FlexBox>
-        <FlexBox {...flexBoxProps}>optional</FlexBox>
-        <FlexBox {...flexBoxProps}>image</FlexBox>
-        <FlexBox {...flexBoxProps}><Image image={props.image} {...imageProps} /></FlexBox>
-      </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>abstract</FlexBox>
-        <FlexBox {...flexBoxProps}>optional</FlexBox>
-        <FlexBox {...flexBoxProps}>longText</FlexBox>
-        <FlexBox {...flexBoxProps}>{props.abstract ? props.abstract.abstract : 'null'}</FlexBox>
-      </FlexContainer>
+      <Box ncss={{ w: [1], height: [5, 5, 6, 6], position: 'relative' }}>
+        <Box ncss={{ position: 'relative', h: '100%' }}>
+          <Image image={image} objectFit="cover" height="100%" />
+        </Box>
+        <Box
+          ncss={{
+            ...getAllPaddingObject('textBox'),
+            bottom: '50px',
+            overflow: 'hidden',
+            position: 'absolute',
+            right: '20px',
+            w: [7 / 8, 6 / 8, 4 / 8, 4 / 8],
+          }}
+        >
+          <Heading ncss={heading1Style}>{heading}</Heading>
+          <Text
+            ncss={{
+              ...paragraph2Style,
+              color: 'darkGrey',
+            }}
+          >
+            {abstract}
+          </Text>
+        </Box>
+        <Flex
+          ncss={{
+            left: 0,
+            position: 'absolute',
+            top: 0,
+            w: 1,
+          }}
+        >
+          <Navigation pages={props.navigation.pages} />
+        </Flex>
+      </Box>
     </Fragment>
   )
 }

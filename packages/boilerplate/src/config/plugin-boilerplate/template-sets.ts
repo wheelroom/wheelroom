@@ -23,12 +23,12 @@ export const templateSets: TemplateSets = {
       template: componentIndex,
     },
     componentIndex2: {
-      filterComponentSetting: 'asQuery',
+      filterComponentSetting: 'asFragment',
       path: '%component-name%/index.ts',
       template: componentIndex,
     },
     componentInterfaceOnly: {
-      filterComponentSetting: 'asQuery',
+      filterComponentSetting: 'asFragment',
       path: '%component-name%/%component-name%.tsx',
       template: componentInterfaceOnly,
     },
