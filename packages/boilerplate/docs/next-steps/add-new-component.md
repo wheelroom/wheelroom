@@ -91,6 +91,17 @@ The `react` template set is written to `src/components`.
 
 When you're adding a section you need to add it to the section list: [sections.tsx](../../src/sections/sections.tsx).
 
+## Update schema
+
+This is a complex topic that - for now - is covered only briefly.
+
+The boilerplate uses [gatsby-plugin-snapshot](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-schema-snapshot) to make sure that empty fields in Contentful models are properly handled.
+
+When adding a new model, the schema snapshot needs to be updated.
+
+- The schema is here: [schema](./../../schema.gql).
+- The plugin is configured here: [gatsby-config.js](../../gatsby-config.js)
+
 ## Restart Gatsby
 
 Kill the development server with `^C` and start it again:
