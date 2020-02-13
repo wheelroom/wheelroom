@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.1.4...gatsby-theme-wheelroom@3.2.0) (2020-02-13)
+
+
+### Features
+
+* auto create path names ([bd282bc](https://github.com/jaccomeijer/wheelroom/commit/bd282bc))
+* check for valid locale ([51a6844](https://github.com/jaccomeijer/wheelroom/commit/51a6844))
+
+
+
+
+
 ## [3.1.4](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.1.3...gatsby-theme-wheelroom@3.1.4) (2020-02-12)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom

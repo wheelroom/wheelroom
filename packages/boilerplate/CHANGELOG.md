@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.7.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.6.0...boilerplate@4.7.0) (2020-02-13)
+
+
+### Bug Fixes
+
+* make page heading a required field ([6ddb00b](https://github.com/jaccomeijer/wheelroom/commit/6ddb00b))
+* pagina-afbeelding ([a5cd50a](https://github.com/jaccomeijer/wheelroom/commit/a5cd50a))
+* square favicon ([5b8824a](https://github.com/jaccomeijer/wheelroom/commit/5b8824a))
+
+
+### Features
+
+* check for valid locale ([51a6844](https://github.com/jaccomeijer/wheelroom/commit/51a6844))
+
+
+
+
+
 # [4.6.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.5.0...boilerplate@4.6.0) (2020-02-12)
 
 
