@@ -23,6 +23,8 @@ npm install
 
 ## Setup Contentful tokens
 
+Sign up for a free account at Contentful.
+
 Create a new `.env` by copying the template:
 
 ```bash
@@ -70,6 +72,8 @@ web ui.
 npm run wr:cm
 ```
 
+> **_NOTE:_** All fields have a `name` attribute that contains the Dutch translation. Removing this attribute makes it fall back to the default value which is the English '%Field name%'. Future versions should have this properly localized.
+
 ## Create Contentful content set
 
 Create a dummy image asset and the boilerplate content set found in
@@ -78,6 +82,8 @@ Create a dummy image asset and the boilerplate content set found in
 ```bash
 npm run wr:cc
 ```
+
+> **_NOTE:_** All content is in Dutch. Future versions should have this properly localized.
 
 ## Start development server
 

@@ -2,9 +2,12 @@
 
 ## Ideas
 
+- Add localization for component-configs and content-sets
+- Add documentation on schema snapshots
+- Examples on how to connect to API's easily (Shopify, etc.)
 - More examples
 - More template designs
-- Plugins for Prismic
+- Plugins for other CMS's like Prismic
 -
 
 ### More info
