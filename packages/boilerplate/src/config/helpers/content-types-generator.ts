@@ -11,9 +11,10 @@
  *
  * link?: 'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'
  *
- * Runs like this: npx tsc --project src/config/helpers/tsconfig.json node
- * compiled-config/helpers/content-types-generator.js
- *
+ * Runs like this:
+ * - npx tsc --project src/config/helpers/tsconfig.json
+ * - node compiled-config/helpers/content-types-generator.js
+ * 
  *
  * Note: the script needs a valid content set to generate content types for the
  * same content set. This means you can easily get stuck. When by accident
