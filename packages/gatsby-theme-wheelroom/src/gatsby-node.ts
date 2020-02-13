@@ -5,7 +5,7 @@ import { optionsValidator } from './lib/options-validator'
 import { runQueries } from './lib/run-queries'
 import { Options } from './types/options'
 import { buildPathNames } from './lib/build-path-names'
-import { getDefaultLocale } from './lib/get-default-locale'
+import { getLocales } from './lib/get-locales'
 
 exports.createPages = async ({ graphql, actions }: any, options: Options) => {
   const { createPage } = actions
@@ -17,10 +17,23 @@ exports.createPages = async ({ graphql, actions }: any, options: Options) => {
   }
 
   const queryResults = await runQueries({ graphql, queries: options.queries })
-  const defaultLocale = options.defaultLocale || getDefaultLocale({
+  const locales = getLocales({
     queryResults,
   })
-  console.log('Using default locale:', defaultLocale)
+  let defaultLocale = options.defaultLocale
+  if (!defaultLocale) {
+    console.log(
+      `Default locale not set, using locale of first page: ${locales[0]}`
+    )
+    defaultLocale = locales[0]
+  } else if (!locales.includes(defaultLocale)) {
+    console.log(
+      `Warning: default locale ${defaultLocale} not found, using: ${locales[0]} instead`
+    )
+    defaultLocale = locales[0]
+  } else {
+    console.log('Default locale:', defaultLocale)
+  }
 
   const pathNames = buildPathNames({
     defaultLocale,
