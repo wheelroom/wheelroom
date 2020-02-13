@@ -44,7 +44,7 @@ const PageTemplate = (props: any) => {
   }
   const seoProps = {
     description: page.seoDescription,
-    imageSrc: image.fluid.src,
+    imageSrc: image && image.fluid.src,
     keywords,
     locale,
     meta: [],
