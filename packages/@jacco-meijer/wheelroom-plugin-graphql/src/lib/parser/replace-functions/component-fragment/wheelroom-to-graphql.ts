@@ -25,7 +25,9 @@ export const wheelroomToGraphql = (context: WheelroomToGraphql): QbFields => {
     if (context.field.expandFragmentRef) {
       if (Object.keys(context.components).length === 1) {
         console.log(`Warning: expandFragmentRef detected with only one component present, did you use a filter?
-  - The %componentFragment(prefix:x)% needs another component to be able to expand the reference`)
+  - The %componentFragment(prefix:x)% needs another component to be able to expand the reference
+  - This will result in the field ${context.field.type}/${context.field.name} to be empty
+  - Instead, run without filter and use the prompt to only write the file you need`)
       }
       context.field.allowedComponents.forEach((compName: string) => {
         if (!(compName in context.components)) {
