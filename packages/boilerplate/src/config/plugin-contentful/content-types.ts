@@ -1,3 +1,10 @@
+/**
+ * Content set types
+ * 
+ * This was generated with the helper code in ../helpers/content-types-generator.ts
+ * 
+ */
+
 interface FooterSectionModel {
   fields: {
     backgroundColor: 'green' | 'mint'

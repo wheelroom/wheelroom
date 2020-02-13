@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.5.0...@jacco-meijer/wheelroom@3.6.0) (2020-02-13)
+
+
+### Features
+
+* check for valid locale ([51a6844](https://github.com/jaccomeijer/wheelroom/commit/51a6844))
+
+
+
+
+
 # [3.5.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.4.2...@jacco-meijer/wheelroom@3.5.0) (2020-02-12)
 
 

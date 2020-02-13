@@ -5,14 +5,14 @@ import { GLink } from '../../views/core-elements/g-link'
 import { PageProps } from '../page/page'
 
 interface NavLinksProps {
-  routes: PageProps[]
+  pages: PageProps[]
 }
 export const NavLinks = (props: NavLinksProps) => (
   <Fragment>
-    {props.routes.map((route: PageProps) => (
+    {props.pages.map((page: PageProps) => (
       <GLink
-        key={route.pathName}
-        to={route.path}
+        key={page.path}
+        to={page.path}
         ncss={{
           ...navigationHeadingStyle,
           ...getAllPaddingObject('navLinks'),
@@ -21,7 +21,7 @@ export const NavLinks = (props: NavLinksProps) => (
           display: 'block',
         }}
       >
-        {route.navigationHeading}
+        {page.navigationHeading || page.heading}
       </GLink>
     ))}
   </Fragment>

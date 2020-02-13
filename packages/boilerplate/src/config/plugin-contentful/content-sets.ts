@@ -276,6 +276,9 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
     },
     productPageItem: {
       fields: {
+        abstract:
+          'Onze producten zijn fantastisch. Deze tekst overschijft de pagina samenvatting.',
+        heading: 'Geniale producten',
         link: 'productPage',
         view: 'volledige afbeelding',
         title: 'Tegel productpagina',
@@ -284,7 +287,10 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
     },
     backgroundPageItem: {
       fields: {
-        link: 'backgroundPage',
+        abstract:
+          'Wie zijn wij? Deze tekst overschijft de pagina samenvatting.',
+          heading: 'Voorgrond en achterhoofd',
+          link: 'backgroundPage',
         view: 'onderkant groen',
         title: 'Tegel achtergrondpagina',
       },
@@ -292,6 +298,8 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
     },
     contactPageItem: {
       fields: {
+        abstract:
+          'Omarm de nostalgie. Stuur een fax! Deze tekst overschijft de pagina samenvatting.',
         link: 'contactPage',
         view: 'onderkant mint',
         title: 'Tegel contactpagina',
