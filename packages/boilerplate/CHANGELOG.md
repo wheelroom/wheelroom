@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.7.0...boilerplate@4.7.1) (2020-02-13)
+
+
+### Bug Fixes
+
+* handle pages without image ([be45a1a](https://github.com/jaccomeijer/wheelroom/commit/be45a1a98e49e4e503eb73f151b69c6422f540c4))
+* use page heading when navigationHeading is empty ([972218c](https://github.com/jaccomeijer/wheelroom/commit/972218cf8fde85a64fa14f90653c2525214be272))
+
+
+
+
+
 # [4.7.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.6.0...boilerplate@4.7.0) (2020-02-13)
 
 
