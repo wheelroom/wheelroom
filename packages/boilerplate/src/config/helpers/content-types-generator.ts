@@ -1,11 +1,25 @@
 /**
  * Generates this typescript file: src/config/plugin-contentful/content-types.ts
  *
- * for WheelroomComponents object that can be used to write content.
+ * How it works
  *
- * Runs like this:
- * npx tsc --project src/config/helpers/tsconfig.json
- * node compiled-config/helpers/content-types-generator.js
+ * The script imports the content set from ../plugin-contentful/content-sets
+ * Next the script imports the components from ../wheelroom/config-components
+ *
+ * It then generates interface definitions for each component. The content set
+ * is used to find valid component names in references. Like e.g.
+ *
+ * link?: 'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'
+ *
+ * Runs like this: npx tsc --project src/config/helpers/tsconfig.json node
+ * compiled-config/helpers/content-types-generator.js
+ *
+ *
+ * Note: the script needs a valid content set to generate content types for the
+ * same content set. This means you can easily get stuck. When by accident
+ * invalid types are generated, the content set is invalid and the generator
+ * cannot be used to fix the invalid types. Use git to revert in that case or
+ * fix the content set manually.
  *
  */
 
