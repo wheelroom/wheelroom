@@ -9,6 +9,7 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
+import { contentfulPagePreview } from './lib/contentful-page-preview/contentful-page-preview'
 
 const GlobalAStyles = {
   body: {
@@ -22,6 +23,8 @@ const GlobalAStyles = {
 //
 const PageTemplate = (props: any) => {
   pageDebug('PageTemplate', props)
+  // Replace page data with preview data if ?preview=pageEntryId is set
+  contentfulPagePreview(props)
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
@@ -78,6 +81,11 @@ export const query = graphql`
     site {
       siteMetadata {
         siteVersion
+        secrets {
+          spaceId
+          previewToken
+          environemnt
+        }
       }
     }
     page: contentfulPage(id: { eq: $pageId }) {
