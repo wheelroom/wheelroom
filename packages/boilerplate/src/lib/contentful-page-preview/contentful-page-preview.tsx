@@ -1,6 +1,6 @@
 import queryString from 'query-string'
 import * as contentful from 'contentful'
-import { normalize } from './normalize'
+import { getGatsbyFields } from './get-gatsby-fields'
 
 export const contentfulPagePreview = (props: any) => {
   const secrets = props.data.site.siteMetadata.secrets
@@ -34,15 +34,21 @@ Space; ${cfConfig.space}`
 
   console.log(`Fetching preview data for page: ${queryParams.preview}`)
   client
-    .getEntry(queryParams.preview)
-    .then(entry => {
+    .getEntries({
+      'sys.id': queryParams.preview,
+      include: 3,
+    })
+    .then(entries => {
+      const entry = JSON.parse(entries.stringifySafe()).items[0]
+      // const entry = entries.items[0]
       console.log('CF ENTRY', entry)
+      console.log('G PAGE', props.data.page)
       const contentTypeId = entry.sys.contentType.sys.id
 
       client
         .getContentTypes(contentTypeId)
-        .then((contentTypes) => {
-          const contentTypeFields = contentTypes.items.reduce(
+        .then(contentTypes => {
+          const contentModel = contentTypes.items.reduce(
             (outerResult: any, contentType: any) => {
               outerResult[contentType.name] = contentType.fields.reduce(
                 (innerResult: any, field: any) => {
@@ -56,17 +62,10 @@ Space; ${cfConfig.space}`
             {}
           )
 
-          const normalized = normalize(
-            contentTypeFields,
-            contentTypeId,
-            entry.fields,
-            props.data.page
-          )
+          const normalized = getGatsbyFields(contentModel, entry)
+          console.log('NORMALIZED', normalized)
         })
         .catch(console.error)
-
-      // console.log('EXISTING', props.data.page)
-      // console.log('NORMALIZED', normalized)
     })
     .catch(err => console.log(err))
 }
