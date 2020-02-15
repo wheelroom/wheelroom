@@ -1,6 +1,7 @@
 import queryString from 'query-string'
 import * as contentful from 'contentful'
 import { getGatsbyFields } from './get-gatsby-fields'
+import { contentModelByIds } from './content-model-by-ids'
 
 export const contentfulPagePreview = (props: any) => {
   const secrets = props.data.site.siteMetadata.secrets
@@ -41,28 +42,14 @@ Space; ${cfConfig.space}`
     .then(entries => {
       const entry = JSON.parse(entries.stringifySafe()).items[0]
       // const entry = entries.items[0]
-      console.log('CF ENTRY', entry)
-      console.log('G PAGE', props.data.page)
       const contentTypeId = entry.sys.contentType.sys.id
 
       client
         .getContentTypes(contentTypeId)
         .then(contentTypes => {
-          const contentModel = contentTypes.items.reduce(
-            (outerResult: any, contentType: any) => {
-              outerResult[contentType.name] = contentType.fields.reduce(
-                (innerResult: any, field: any) => {
-                  innerResult[field.id] = field
-                  return innerResult
-                },
-                {}
-              )
-              return outerResult
-            },
-            {}
-          )
-
+          const contentModel = contentModelByIds(contentTypes)
           const normalized = getGatsbyFields(contentModel, entry)
+          console.log('G PAGE', props.data.page)
           console.log('NORMALIZED', normalized)
         })
         .catch(console.error)

@@ -22,6 +22,9 @@ export const getGatsbyField = (
     case 'Symbol':
       return cfField
       break
+    case 'RichText':
+      return { json: cfField }
+      break
     case 'Text':
       return { [fieldName]: cfField }
     case 'Link':
@@ -49,12 +52,17 @@ export const getGatsbyField = (
           }
           break
         default:
-          console.log('CF', contentType.type, contentType.linkType, cfField)
+          console.log(
+            'TODO: CF',
+            contentType.type,
+            contentType.linkType,
+            cfField
+          )
           break
       }
 
     default:
-      console.log('CF', contentType.type, contentType.linkType, cfField)
+      console.log('TODO: CF', contentType.type, contentType.linkType, cfField)
       break
   }
 }
