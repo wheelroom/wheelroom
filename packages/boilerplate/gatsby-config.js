@@ -17,7 +17,6 @@ if (process.env.NODE_ENV === 'development') {
   if (dotEnvResult.error) {
     throw dotEnvResult.error
   }
-  console.log('dotEnv', dotEnvResult)
 }
 
 module.exports = {
