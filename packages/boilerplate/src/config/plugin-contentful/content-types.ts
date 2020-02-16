@@ -1,8 +1,8 @@
 /**
  * Content set types
- * 
+ *
  * This was generated with the helper code in ../helpers/content-types-generator.ts
- * 
+ *
  */
 
 interface FooterSectionModel {
@@ -71,7 +71,23 @@ interface OpenerSectionModel {
 interface PageModel {
   fields: {
     path: string
-    sections: Array<'homeOpener' | 'productOpener' | 'backgroundOpener' | 'contactOpener' | 'contactText' | 'productcodeText' | 'merkverwateringText' | 'merkarchitectuurText' | 'naamcreatieText' | 'careQuote' | 'buildLoveQuote' | 'passionQuote' | 'endOfPageLinks' | 'endOfPageLinksLarge' | 'standardFooter'>
+    sections: Array<
+      | 'homeOpener'
+      | 'productOpener'
+      | 'backgroundOpener'
+      | 'contactOpener'
+      | 'contactText'
+      | 'productcodeText'
+      | 'merkverwateringText'
+      | 'merkarchitectuurText'
+      | 'naamcreatieText'
+      | 'careQuote'
+      | 'buildLoveQuote'
+      | 'passionQuote'
+      | 'endOfPageLinks'
+      | 'endOfPageLinksLarge'
+      | 'standardFooter'
+    >
     heading: string
     navigationHeading?: string
     image?: boolean

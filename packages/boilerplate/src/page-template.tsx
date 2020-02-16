@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useState } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
@@ -9,6 +9,7 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
+import { PreviewUpdateButton } from './lib/preview-update-button'
 
 const GlobalAStyles = {
   body: {
@@ -21,13 +22,14 @@ const GlobalAStyles = {
 // do so for all pages.
 //
 const PageTemplate = (props: any) => {
+  const [previewPage, setPreviewPage] = useState()
   pageDebug('PageTemplate', props)
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
-  const page: PageProps = props.data.page
+  const page: PageProps = previewPage || props.data.page
   const siteVersion = props.data.site.siteMetadata.siteVersion
   const sections = page.sections
 
@@ -66,6 +68,11 @@ const PageTemplate = (props: any) => {
       <Container>
         <Seo {...seoProps} />
         <Sections {...sectionProps} />
+        <PreviewUpdateButton
+          previewSecrets={props.data.site.siteMetadata.secrets}
+          searchQuery={props.location.search}
+          setPreviewPage={setPreviewPage}
+        />
       </Container>
     </Box>
   )
@@ -78,6 +85,11 @@ export const query = graphql`
     site {
       siteMetadata {
         siteVersion
+        secrets {
+          spaceId
+          previewToken
+          environemnt
+        }
       }
     }
     page: contentfulPage(id: { eq: $pageId }) {
