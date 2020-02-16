@@ -32,6 +32,7 @@ export const PreviewUpdateButton = (props: PreviewUpdateButtonProps) => {
       entryId,
     })
     props.setPreviewPage(fetchedPage)
+    console.log(fetchedPage)
     setLoading(false)
   }
 
@@ -53,7 +54,7 @@ export const PreviewUpdateButton = (props: PreviewUpdateButtonProps) => {
         height: '70px',
         justifyContent: 'center',
         p: 2,
-        position: 'absolute',
+        position: 'fixed',
         right: '30px',
         top: '30px',
         width: '100px',
