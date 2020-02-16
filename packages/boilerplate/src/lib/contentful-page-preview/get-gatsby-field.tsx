@@ -1,13 +1,12 @@
 import { getGatsbyFields } from './get-gatsby-fields'
-
-type ContentfulField = any
+import { ContentfulField, GatsbyField } from './types/entries'
 
 export const getGatsbyField = (
   contentModel: any,
   contentTypeId: string,
   fieldName: string,
   cfField: ContentfulField
-) => {
+): GatsbyField => {
   const contentType = contentModel[contentTypeId][fieldName]
 
   switch (contentType.type) {

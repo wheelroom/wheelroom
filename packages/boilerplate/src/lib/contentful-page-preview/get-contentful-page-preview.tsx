@@ -1,21 +1,25 @@
 import * as contentful from 'contentful'
 import { getGatsbyFields } from './get-gatsby-fields'
 import { contentModelByIds } from './content-model-by-ids'
+import { PreviewSecrets } from './types/preview-secrets'
+import { GatsbyFields } from './types/entries'
 
-export const contentfulPagePreview = async (
-  pageTemplateProps: any,
+interface ContentfulPagePreviewProps {
+  previewSecrets: PreviewSecrets
   entryId: string
-) => {
-  const secrets = pageTemplateProps.data.site.siteMetadata.secrets
+}
 
+export const getContentfulPagePreview = async (
+  context: ContentfulPagePreviewProps
+): Promise<GatsbyFields | undefined> => {
   const cfConfig: any = {
-    accessToken: secrets.previewToken,
+    accessToken: context.previewSecrets.previewToken,
     host: 'preview.contentful.com',
-    space: secrets.spaceId,
+    space: context.previewSecrets.spaceId,
   }
-  if (secrets.environment) {
-    // Pass CONTENTFUL_ENVIRONMENT when available
-    cfConfig.environment = secrets.environment
+  if (context.previewSecrets.environment) {
+    // Pass CONTENTFUL_ENVIRONMENT only when available
+    cfConfig.environment = context.previewSecrets.environment
   }
   if (!(cfConfig.accessToken && cfConfig.space)) {
     console.error(
@@ -29,7 +33,7 @@ Space; ${cfConfig.space}`
   try {
     client = contentful.createClient(cfConfig)
     const entries = await client.getEntries({
-      'sys.id': entryId,
+      'sys.id': context.entryId,
       include: 3,
     })
     const entry = JSON.parse(entries.stringifySafe()).items[0]
@@ -39,6 +43,7 @@ Space; ${cfConfig.space}`
     const normalized = getGatsbyFields(contentModel, entry)
     return normalized
   } catch (error) {
-    console.log(`Could not fetch ${entryId}: ${error.message}`)
+    console.log(`Could not fetch ${context.entryId}: ${error.message}`)
   }
+  return
 }

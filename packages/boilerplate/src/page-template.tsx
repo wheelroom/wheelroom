@@ -69,7 +69,8 @@ const PageTemplate = (props: any) => {
         <Seo {...seoProps} />
         <Sections {...sectionProps} />
         <PreviewUpdateButton
-          pageTemplateProps={props}
+          previewSecrets={props.data.site.siteMetadata.secrets}
+          searchQuery={props.location.search}
           setPreviewPage={setPreviewPage}
         />
       </Container>

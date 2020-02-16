@@ -1,7 +1,5 @@
 import { getGatsbyField } from './get-gatsby-field'
-
-type ContentfulEntry = any
-type GatsbyFields = any
+import { ContentfulEntry, GatsbyFields } from './types/entries'
 
 /**
  * Contentful data exists in two formats here:
@@ -23,7 +21,7 @@ export const getGatsbyFields = (
   cfEntry: ContentfulEntry
 ): GatsbyFields => {
   const contentTypeId = cfEntry.sys.contentType.sys.id
-  const convertedFields: any = {
+  const convertedFields: GatsbyFields = {
     __typename: PREFIX + firstUpperCase(contentTypeId),
   }
   // Loop all Contentful fields and convert to Gatsby

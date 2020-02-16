@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react'
-import { contentfulPagePreview } from './contentful-page-preview'
+import { getContentfulPagePreview } from './get-contentful-page-preview'
 import React from 'react'
 import { Flex } from '../../views/core-elements/grid'
 import { heading4Style } from '../../styles/heading'
 import { Spinner } from '../../views/spinner/spinner'
 import queryString from 'query-string'
+import { PreviewSecrets } from './types/preview-secrets'
 
 interface PreviewUpdateButtonProps {
-  pageTemplateProps: any
   setPreviewPage: (fetchedPage: any) => any
+  previewSecrets: PreviewSecrets
+  searchQuery: string
 }
 
 export const PreviewUpdateButton = (props: PreviewUpdateButtonProps) => {
   const [loading, setLoading] = useState(false)
 
-  const queryParams = queryString.parse(props.pageTemplateProps.location.search)
+  const queryParams = queryString.parse(props.searchQuery)
   if (!('preview' in queryParams)) {
     return null
   }
@@ -25,10 +27,10 @@ export const PreviewUpdateButton = (props: PreviewUpdateButtonProps) => {
 
   async function getPreviewPage() {
     setLoading(true)
-    const fetchedPage = await contentfulPagePreview(
-      props.pageTemplateProps,
-      entryId
-    )
+    const fetchedPage = await getContentfulPagePreview({
+      previewSecrets: props.previewSecrets,
+      entryId,
+    })
     props.setPreviewPage(fetchedPage)
     setLoading(false)
   }
