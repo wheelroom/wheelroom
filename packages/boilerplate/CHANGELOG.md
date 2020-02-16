@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.8.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.7.1...boilerplate@4.8.0) (2020-02-16)
+
+
+### Features
+
+* add preview update button ([9eb5870](https://github.com/jaccomeijer/wheelroom/commit/9eb5870e03cc8aeffc6b45b31f9dd288d42b7302))
+* convert contentful to gatsby props ([8026f3c](https://github.com/jaccomeijer/wheelroom/commit/8026f3cb418d7bfd127188c721676fac83919f2d))
+
+
+
+
+
 ## [4.7.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.7.0...boilerplate@4.7.1) (2020-02-13)
 
 
