@@ -5,8 +5,6 @@
  *
  */
 
-import { FluidImage } from '../../views/image/image'
-
 export interface GlobalsProps {
   /** Gatsby fetched data */
   __typename: string

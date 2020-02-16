@@ -289,8 +289,8 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
       fields: {
         abstract:
           'Wie zijn wij? Deze tekst overschijft de pagina samenvatting.',
-          heading: 'Voorgrond en achterhoofd',
-          link: 'backgroundPage',
+        heading: 'Voorgrond en achterhoofd',
+        link: 'backgroundPage',
         view: 'onderkant groen',
         title: 'Tegel achtergrondpagina',
       },
