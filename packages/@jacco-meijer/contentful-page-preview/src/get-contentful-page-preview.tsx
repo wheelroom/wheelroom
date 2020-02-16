@@ -6,9 +6,18 @@ import { GatsbyFields } from './types/entries'
 
 interface ContentfulPagePreviewProps {
   previewSecrets: PreviewSecrets
+  /** Entry id to fetch from Contentful */
   entryId: string
 }
-
+/**
+ * Given a Contentful entry ID and secrets, this method:
+ *
+ * - fetches the entry from Contentful
+ * - fetches the content model from Contentful
+ * - adapts Contentful data to match Gatsby Graphql schema
+ * - returns React props for Gatbsy
+ *
+ */
 export const getContentfulPagePreview = async (
   context: ContentfulPagePreviewProps
 ): Promise<GatsbyFields | undefined> => {

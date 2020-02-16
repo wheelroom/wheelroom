@@ -9,7 +9,7 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
-import { PreviewUpdateButton } from './lib/contentful-page-preview/preview-update-button'
+import { PreviewUpdateButton } from './lib/preview-update-button'
 
 const GlobalAStyles = {
   body: {

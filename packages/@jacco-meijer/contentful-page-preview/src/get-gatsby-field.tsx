@@ -1,9 +1,15 @@
 import { getGatsbyFields } from './get-gatsby-fields'
-import { ContentfulField, GatsbyField } from './types/entries'
+import { ContentfulField, GatsbyField, ContentfulModel } from './types/entries'
+
+/**
+ * Converts a single field from Contentful to Gatbsy React props
+ */
 
 export const getGatsbyField = (
-  contentModel: any,
+  contentModel: ContentfulModel,
+  /** Contentful content type id */
   contentTypeId: string,
+  /** Contentful and Gatbsy field name */
   fieldName: string,
   cfField: ContentfulField
 ): GatsbyField => {

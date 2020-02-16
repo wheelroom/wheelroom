@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { getContentfulPagePreview } from './get-contentful-page-preview'
+import { getContentfulPagePreview } from '@jacco-meijer/contentful-page-preview'
 import React from 'react'
-import { Flex } from '../../views/core-elements/grid'
-import { heading4Style } from '../../styles/heading'
-import { Spinner } from '../../views/spinner/spinner'
+import { Flex } from '../views/core-elements/grid'
+import { heading4Style } from '../styles/heading'
+import { Spinner } from '../views/spinner/spinner'
 import queryString from 'query-string'
-import { PreviewSecrets } from './types/preview-secrets'
+import { PreviewSecrets } from '@jacco-meijer/contentful-page-preview'
 
 interface PreviewUpdateButtonProps {
   setPreviewPage: (fetchedPage: any) => any
