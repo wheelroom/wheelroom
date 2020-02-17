@@ -5,13 +5,14 @@ const globalsQuery = require('./src/components/globals/query')
 const pageQuery = require('./src/components/page/query')
 const dotenv = require('dotenv')
 
-/** 
+/**
  * Load environment from .env in development mode
- * 
+ *
  * The Contentful deleviery tokens are set by gatsby-theme-wheelroom. These
  * tokens are used for setting up a Contentful preview environment
- * 
- */ 
+ *
+ */
+
 if (process.env.NODE_ENV === 'development') {
   const dotEnvResult = dotenv.config()
   if (dotEnvResult.error) {
@@ -69,10 +70,9 @@ module.exports = {
   siteMetadata: {
     siteVersion: packageJson.version,
     secrets: {
-      spaceId: process.env.CONTENTFUL_SPACE_ID,
-      previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
-      environemnt: process.env.CONTENTFUL_ENVIRONMENT,
-      
+      spaceId: process.env.CONTENTFUL_SPACE_ID || 'dummy',
+      previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN || 'dummy',
+      environment: process.env.CONTENTFUL_ENVIRONMENT || 'dummy',
     },
   },
 }

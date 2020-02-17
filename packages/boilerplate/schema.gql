@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-02-12T21:32:51.852Z ###
+### Type definitions saved at 2020-02-17T16:22:00.687Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -76,7 +76,7 @@ type SitePage implements Node @dontInfer {
   matchPath: String
 }
 
-type ContentfulAsset implements Node @dontInfer {
+type ContentfulAsset implements Node @derivedTypes @dontInfer {
   contentful_id: String
   file: ContentfulAssetFile
   title: String
@@ -84,14 +84,14 @@ type ContentfulAsset implements Node @dontInfer {
   node_locale: String
 }
 
-type ContentfulAssetFile {
+type ContentfulAssetFile @derivedTypes {
   url: String
   details: ContentfulAssetFileDetails
   fileName: String
   contentType: String
 }
 
-type ContentfulAssetFileDetails {
+type ContentfulAssetFileDetails @derivedTypes {
   size: Int
   image: ContentfulAssetFileDetailsImage
 }
@@ -127,7 +127,7 @@ type ContentfulPage implements Node {
 
 union ContentfulFooterSectionContentfulListSectionContentfulOpenerSectionContentfulQuoteSectionContentfulTextSectionUnion = ContentfulFooterSection | ContentfulListSection | ContentfulOpenerSection | ContentfulQuoteSection | ContentfulTextSection
 
-type ContentfulNavigation implements Node @dontInfer {
+type ContentfulNavigation implements Node @derivedTypes @dontInfer {
   title: String
   pages: [ContentfulPage] @link(by: "id", from: "pages___NODE")
   openersection: [ContentfulOpenerSection] @link(by: "id", from: "openersection___NODE")
@@ -161,12 +161,12 @@ type contentfulOpenerSectionAbstractTextNode implements Node @dontInfer {
   abstract: String
 }
 
-type ContentfulOpenerSectionSys {
+type ContentfulOpenerSectionSys @derivedTypes {
   revision: Int
   contentType: ContentfulOpenerSectionSysContentType
 }
 
-type ContentfulOpenerSectionSysContentType {
+type ContentfulOpenerSectionSysContentType @derivedTypes {
   sys: ContentfulOpenerSectionSysContentTypeSys
 }
 
@@ -177,7 +177,7 @@ type ContentfulOpenerSectionSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulFooterSection implements Node @dontInfer {
+type ContentfulFooterSection implements Node @derivedTypes @dontInfer {
   title: String
   backgroundColor: String
   navigation: ContentfulNavigation @link(by: "id", from: "navigation___NODE")
@@ -190,12 +190,12 @@ type ContentfulFooterSection implements Node @dontInfer {
   node_locale: String
 }
 
-type ContentfulFooterSectionSys {
+type ContentfulFooterSectionSys @derivedTypes {
   revision: Int
   contentType: ContentfulFooterSectionSysContentType
 }
 
-type ContentfulFooterSectionSysContentType {
+type ContentfulFooterSectionSysContentType @derivedTypes {
   sys: ContentfulFooterSectionSysContentTypeSys
 }
 
@@ -206,12 +206,12 @@ type ContentfulFooterSectionSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulNavigationSys {
+type ContentfulNavigationSys @derivedTypes {
   revision: Int
   contentType: ContentfulNavigationSysContentType
 }
 
-type ContentfulNavigationSysContentType {
+type ContentfulNavigationSysContentType @derivedTypes {
   sys: ContentfulNavigationSysContentTypeSys
 }
 
@@ -239,7 +239,7 @@ type ContentfulListItem implements Node {
   node_locale: String
 }
 
-type ContentfulListSection implements Node @dontInfer {
+type ContentfulListSection implements Node @derivedTypes @dontInfer {
   title: String
   variation: String
   heading: String
@@ -253,12 +253,12 @@ type ContentfulListSection implements Node @dontInfer {
   node_locale: String
 }
 
-type ContentfulListSectionSys {
+type ContentfulListSectionSys @derivedTypes {
   revision: Int
   contentType: ContentfulListSectionSysContentType
 }
 
-type ContentfulListSectionSysContentType {
+type ContentfulListSectionSysContentType @derivedTypes {
   sys: ContentfulListSectionSysContentTypeSys
 }
 
@@ -273,12 +273,12 @@ type contentfulListItemAbstractTextNode implements Node @dontInfer {
   abstract: String
 }
 
-type ContentfulListItemSys {
+type ContentfulListItemSys @derivedTypes {
   revision: Int
   contentType: ContentfulListItemSysContentType
 }
 
-type ContentfulListItemSysContentType {
+type ContentfulListItemSysContentType @derivedTypes {
   sys: ContentfulListItemSysContentTypeSys
 }
 
@@ -289,12 +289,12 @@ type ContentfulListItemSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulPageSys {
+type ContentfulPageSys @derivedTypes {
   revision: Int
   contentType: ContentfulPageSysContentType
 }
 
-type ContentfulPageSysContentType {
+type ContentfulPageSysContentType @derivedTypes {
   sys: ContentfulPageSysContentTypeSys
 }
 
@@ -305,7 +305,7 @@ type ContentfulPageSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulGlobals implements Node @dontInfer {
+type ContentfulGlobals implements Node @derivedTypes @dontInfer {
   title: String
   addressLine1: String
   addressLine2: String
@@ -324,12 +324,12 @@ type ContentfulGlobals implements Node @dontInfer {
   node_locale: String
 }
 
-type ContentfulGlobalsSys {
+type ContentfulGlobalsSys @derivedTypes {
   revision: Int
   contentType: ContentfulGlobalsSysContentType
 }
 
-type ContentfulGlobalsSysContentType {
+type ContentfulGlobalsSysContentType @derivedTypes {
   sys: ContentfulGlobalsSysContentTypeSys
 }
 
@@ -359,12 +359,12 @@ type ContentfulQuoteSection implements Node {
   node_locale: String
 }
 
-type ContentfulQuoteSectionSys {
+type ContentfulQuoteSectionSys @derivedTypes {
   revision: Int
   contentType: ContentfulQuoteSectionSysContentType
 }
 
-type ContentfulQuoteSectionSysContentType {
+type ContentfulQuoteSectionSysContentType @derivedTypes {
   sys: ContentfulQuoteSectionSysContentTypeSys
 }
 
@@ -375,13 +375,13 @@ type ContentfulQuoteSectionSysContentTypeSys {
   contentful_id: String
 }
 
-type contentfulTextSectionTextRichTextNode implements Node @dontInfer {
+type contentfulTextSectionTextRichTextNode implements Node @derivedTypes @dontInfer {
   content: [contentfulTextSectionTextRichTextNodeContent]
   nodeType: String
   text: String
 }
 
-type contentfulTextSectionTextRichTextNodeContent {
+type contentfulTextSectionTextRichTextNodeContent @derivedTypes {
   content: [contentfulTextSectionTextRichTextNodeContentContent]
   nodeType: String
 }
@@ -403,12 +403,12 @@ type ContentfulTextSection implements Node {
   node_locale: String
 }
 
-type ContentfulTextSectionSys {
+type ContentfulTextSectionSys @derivedTypes {
   revision: Int
   contentType: ContentfulTextSectionSysContentType
 }
 
-type ContentfulTextSectionSysContentType {
+type ContentfulTextSectionSysContentType @derivedTypes {
   sys: ContentfulTextSectionSysContentTypeSys
 }
 
