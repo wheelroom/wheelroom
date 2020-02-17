@@ -63,6 +63,8 @@ module.exports = {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {
         path: `schema.gql`,
+        // When updating the schema, make sure all models have content and all
+        // fields have a value.
         update: false,
       },
     },
@@ -70,9 +72,9 @@ module.exports = {
   siteMetadata: {
     siteVersion: packageJson.version,
     secrets: {
-      spaceId: process.env.CONTENTFUL_SPACE_ID || 'dummy',
-      previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN || 'dummy',
-      environment: process.env.CONTENTFUL_ENVIRONMENT || 'dummy',
+      spaceId: process.env.CONTENTFUL_SPACE_ID,
+      previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
+      environment: process.env.CONTENTFUL_ENVIRONMENT,
     },
   },
 }
