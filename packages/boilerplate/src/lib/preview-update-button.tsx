@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getContentfulPagePreview } from '@jacco-meijer/contentful-page-preview'
+import { createPagePreview } from '@jacco-meijer/contentful-page-preview'
 import React from 'react'
 import { Flex } from '../views/core-elements/grid'
 import { heading4Style } from '../styles/heading'
@@ -27,12 +27,12 @@ export const PreviewUpdateButton = (props: PreviewUpdateButtonProps) => {
 
   async function getPreviewPage() {
     setLoading(true)
-    const fetchedPage = await getContentfulPagePreview({
-      previewSecrets: props.previewSecrets,
+    const pagePreview = createPagePreview({
       entryId,
+      previewSecrets: props.previewSecrets,
     })
+    const fetchedPage = await pagePreview.getGatbsyFields()
     props.setPreviewPage(fetchedPage)
-    console.log(fetchedPage)
     setLoading(false)
   }
 
