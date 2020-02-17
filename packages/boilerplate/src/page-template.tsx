@@ -33,8 +33,12 @@ const PageTemplate = (props: any) => {
   const siteVersion = props.data.site.siteMetadata.siteVersion
   const sections = page.sections
 
-  const image = getOpenerOrPageImage(page)
+  // Since we allow draft preview content, sections can be undefined
+  if (!page.sections) {
+    return 'No sections'
+  }
 
+  const image = getOpenerOrPageImage(page)
   const sectionProps = {
     locale,
     namedPaths,
