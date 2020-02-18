@@ -24,16 +24,16 @@ import { ListItemProps } from '../list-item'
 
 const LargeListItems = (props: { items: ListItemProps[] }) => {
   const itemsList = props.items.map((item: ListItemProps, index: number) => {
-    const image = item.image || item.link.image
-    const heading = item.heading || item.link.heading
+    const image = item.image || (item.link && item.link.image)
+    const heading = item.heading || (item.link && item.link.heading)
     const abstract =
       (item.abstract && item.abstract.abstract) ||
-      (item.link.abstract && item.link.abstract.abstract)
+      (item.link && item.link.abstract && item.link.abstract.abstract)
 
     return (
       <GLink
         key={index}
-        to={item.link.path}
+        to={item.link && item.link.path}
         ncss={{
           bg: 'darkGrey',
           display: 'block',
