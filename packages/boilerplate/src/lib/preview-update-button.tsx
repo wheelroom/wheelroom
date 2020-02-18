@@ -57,7 +57,7 @@ export const PreviewUpdateButton = (props: PreviewUpdateButtonProps) => {
         position: 'fixed',
         right: '30px',
         top: '30px',
-        width: '100px',
+        width: '150px',
       }}
     >
       {loading ? <Spinner /> : 'Update'}
