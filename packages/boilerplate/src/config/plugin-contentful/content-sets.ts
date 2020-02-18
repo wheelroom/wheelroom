@@ -23,7 +23,7 @@ export interface ContentSets {
 
 export const contentSets: ContentSets = {
   boilerplate: {
-    globals: {
+    siteGlobals: {
       fields: {
         addressLine1: 'Grote straat 55',
         addressLine2: '1234 AB  Grootendam',
