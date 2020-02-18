@@ -24,6 +24,7 @@ const GlobalAStyles = {
 const PageTemplate = (props: any) => {
   const [previewPage, setPreviewPage] = useState()
   pageDebug('PageTemplate', props)
+  console.log(props)
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
