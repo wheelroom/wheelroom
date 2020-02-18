@@ -24,7 +24,6 @@ const GlobalAStyles = {
 const PageTemplate = (props: any) => {
   const [previewPage, setPreviewPage] = useState()
   pageDebug('PageTemplate', props)
-  console.log(props)
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
@@ -75,7 +74,7 @@ const PageTemplate = (props: any) => {
         <Sections {...sectionProps} />
         <PreviewUpdateButton
           previewSecrets={props.data.site.siteMetadata.secrets}
-          searchQuery={props.location.search}
+          entryId={props.pageContext.pageContentfulId}
           setPreviewPage={setPreviewPage}
         />
       </Container>

@@ -6,29 +6,37 @@ import { heading4Style } from '../styles/heading'
 import { Spinner } from '../views/spinner/spinner'
 import queryString from 'query-string'
 import { PreviewSecrets } from '@jacco-meijer/contentful-page-preview'
+import { useLocation } from '@reach/router'
+
+export const inPreviewMode = (): boolean => {
+  const queryParams = queryString.parse(useLocation().search)
+  return 'preview' in queryParams
+}
+
+export const getPreviewQueryString = (): string => {
+  if (inPreviewMode()) {
+    return '?preview'
+  } else {
+    return ''
+  }
+}
 
 interface PreviewUpdateButtonProps {
   setPreviewPage: (fetchedPage: any) => any
   previewSecrets: PreviewSecrets
-  searchQuery: string
+  entryId: string
 }
 
 export const PreviewUpdateButton = (props: PreviewUpdateButtonProps) => {
   const [loading, setLoading] = useState(false)
-
-  const queryParams = queryString.parse(props.searchQuery)
-  if (!('preview' in queryParams)) {
+  if (!inPreviewMode()) {
     return null
   }
-  if (!(queryParams.preview && typeof queryParams.preview === 'string')) {
-    return null
-  }
-  const entryId = queryParams.preview
 
   async function getPreviewPage() {
     setLoading(true)
     const pagePreview = createPagePreview({
-      entryId,
+      entryId: props.entryId,
       previewSecrets: props.previewSecrets,
     })
     const fetchedPage = await pagePreview.getGatbsyFields()
