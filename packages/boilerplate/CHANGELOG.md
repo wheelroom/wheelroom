@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.9.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.8.0...boilerplate@4.9.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* button width ([407f784](https://github.com/jaccomeijer/wheelroom/commit/407f784b1603e9e6ce01f2c42a92fd7d81899b9e))
+* empty sections for draft content ([fbf5f0d](https://github.com/jaccomeijer/wheelroom/commit/fbf5f0d64b5ae919864a720c6cfb2a4cdf6892da))
+* globales rename to siteGlobals ([3f22c08](https://github.com/jaccomeijer/wheelroom/commit/3f22c0828cacc3310bbd535bdeb26607fb56515d))
+* item.link could be undefined in a preview ([bccab76](https://github.com/jaccomeijer/wheelroom/commit/bccab768b3d7d75e6d7dfab62d98af6189ac881d))
+* update schema to match site secrets ([43cd133](https://github.com/jaccomeijer/wheelroom/commit/43cd133ce37644e26ec9c5c980c60a69c0bcdc61))
+* update to fixed contentful-page-preview ([1551bd2](https://github.com/jaccomeijer/wheelroom/commit/1551bd2ac17802dae099e1ca2424498341c3c759))
+
+
+### Features
+
+* Add page contentful_id ([9627f9f](https://github.com/jaccomeijer/wheelroom/commit/9627f9ff22d9610b14f4e9f63aefa7a7254ca079))
+* remain in preview mode when following links ([3c921ff](https://github.com/jaccomeijer/wheelroom/commit/3c921ffb35937e93f8f21d5ef696e1792527e2fb))
+
+
+
+
+
 # [4.8.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.7.1...boilerplate@4.8.0) (2020-02-16)
 
 
