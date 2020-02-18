@@ -42,7 +42,8 @@ export const getPageContext = (context: GetPageContext): PageContext => {
   pageContext[context.componentName + 'Id'] = context.page.id
 
   // Add page contentful_id
-  pageContext[context.componentName + 'ContentfulId'] = context.page.contentful_id
+  pageContext[context.componentName + 'ContentfulId'] =
+    context.page.contentful_id
 
   // Add subPage id
   if (context.subPage) {
