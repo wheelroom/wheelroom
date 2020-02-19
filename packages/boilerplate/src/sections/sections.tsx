@@ -50,6 +50,7 @@ export const Sections = (props: any) => {
     const Section = sectionMap[section.__typename].element
     const landMark = sectionMap[section.__typename].landMark
     const sectionProps = {
+      index,
       locale: props.locale,
       namedPaths: props.namedPaths,
 

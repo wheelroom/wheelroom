@@ -6,8 +6,8 @@ import { PageProps } from '../components/page'
  * for this project
  */
 export interface SectionProps {
-  /** index required for React arrays */
-  key: number
+  /** index can be used by sections */
+  index: number
   /** the landmark this section will be wrapped in */
   landMark: landMarkType
   /** the current (two characters) locale */
