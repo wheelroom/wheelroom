@@ -11,7 +11,7 @@ import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
-import { BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
+import { BLOCKS, INLINES, Document, MARKS } from '@contentful/rich-text-types'
 import React, { Fragment } from 'react'
 import { enlargingImageStyle } from '../../styles/enlarging-image'
 import {
@@ -29,7 +29,7 @@ import { ALink } from '../../views/core-elements/a-link'
 import { GLink } from '../../views/core-elements/g-link'
 import { Box, Flex } from '../../views/core-elements/grid'
 import { Heading } from '../../views/core-elements/heading'
-import { Text } from '../../views/core-elements/text'
+import { Text, Span, Ul, Li } from '../../views/core-elements/text'
 import { FluidImage, Image } from '../../views/image/image'
 import { TextSectionProps } from './text-section'
 
@@ -56,91 +56,6 @@ const ImageBox = (props: { image: FluidImage }) => (
   </Fragment>
 )
 
-const TextBox = (props: { children: any }) => (
-  <Box
-    ncss={{
-      px: getSinglePadding('section', 'left'),
-      w: [1, 1, 1 / 2, 1 / 2],
-    }}
-  >
-    {props.children}
-  </Box>
-)
-const HeadingBox = (props: { children: any }) => (
-  <Box
-    ncss={{
-      px: getSinglePadding('section', 'left'),
-      w: [1],
-    }}
-  >
-    {props.children}
-  </Box>
-)
-
-const ListBox = (props: { children: any }) => (
-  <TextBox>
-    <Flex
-      ncss={{
-        ...paragraph1Style,
-        w: 1,
-      }}
-    >
-      {props.children}
-    </Flex>
-  </TextBox>
-)
-
-const ListItemBox = (props: { node: any; locale: string }) => {
-  const base = props.node.content[0]
-  let text = ''
-  let uri
-  let internalPath
-  if (base.content.length > 1) {
-    text = base.content[1].content[0].value
-    if ('target' in base.content[1].data) {
-      if ('path' in base.content[1].data.target.fields) {
-        internalPath = base.content[1].data.target.fields.path[props.locale]
-      } else {
-        // Someone linked to something else than a page, ignore this
-        internalPath = '/'
-      }
-    } else {
-      uri = base.content[1].data.uri
-    }
-  } else {
-    text = base.content[0].value
-  }
-  const showAsLink = uri || internalPath
-  const innerItem = (
-    <Flex
-      ncss={{
-        cursor: showAsLink ? 'pointer' : 'initial',
-        ...getAllPaddingObject('listItem'),
-        w: 1,
-      }}
-    >
-      {text}
-    </Flex>
-  )
-  const linkStyle = {
-    display: 'block',
-    py: 1,
-    w: 1,
-  }
-  if (internalPath) {
-    return (
-      <GLink to={internalPath} ncss={linkStyle}>
-        {innerItem}
-      </GLink>
-    )
-  }
-  return (
-    <ALink href={uri} ncss={linkStyle}>
-      {innerItem}
-    </ALink>
-  )
-}
-
 export const TextSectionSingleVar = (props: TextSectionProps) => {
   const textSectionProps = props
   const regularLinkStyle = {
@@ -151,12 +66,34 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
     textDecoration: 'none',
   }
   const options = {
+    renderText: text => {
+      return text
+        .split('\n')
+        .reduce((children: Children, textSegment, index) => {
+          return [...children, index > 0 && <br key={index} />, textSegment]
+        }, [])
+    },
+    renderMark: {
+      [MARKS.BOLD]: text => (
+        <Span
+          ncss={{
+            fontWeight: 7,
+          }}
+        >
+          {text}
+        </Span>
+      ),
+    },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
+        return <Text ncss={{ ...paragraph1Style }}>{children}</Text>
+      },
+      [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
+        return <Ul ncss={{ ...paragraph1Style }}>{children}</Ul>
+      },
+      [BLOCKS.LIST_ITEM]: (_node: Node, children: Children) => {
         return (
-          <TextBox>
-            <Text ncss={paragraph1Style}>{children}</Text>
-          </TextBox>
+          <Li ncss={{ ...paragraph1Style, pb: 0, p: { pb: 0 } }}>{children}</Li>
         )
       },
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {
@@ -169,6 +106,7 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
       },
       [INLINES.ENTRY_HYPERLINK]: (node: Node, children: Children) => {
         const internalPath =
+          node.data.target.fields &&
           node.data.target.fields.path[textSectionProps.locale]
         return (
           <GLink ncss={regularLinkStyle} to={internalPath}>
@@ -176,35 +114,17 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
           </GLink>
         )
       },
-      [BLOCKS.OL_LIST]: (_node: Node, children: Children) => {
-        return <ListBox>{children}</ListBox>
-      },
-      [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
-        return <ListBox>{children}</ListBox>
-      },
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      [BLOCKS.LIST_ITEM]: (node: Node, _children: Children) => {
-        return <ListItemBox node={node} locale={textSectionProps.locale} />
-      },
       [BLOCKS.HEADING_1]: (_node: Node, children: Children) => (
-        <HeadingBox>
-          <Heading ncss={heading1Style}>{children}</Heading>
-        </HeadingBox>
+        <Heading ncss={{ ...heading1Style, w: 1 }}>{children}</Heading>
       ),
       [BLOCKS.HEADING_2]: (_node: Node, children: Children) => (
-        <HeadingBox>
-          <Heading ncss={heading2Style}>{children}</Heading>
-        </HeadingBox>
+        <Heading ncss={{ ...heading2Style, w: 1 }}>{children}</Heading>
       ),
       [BLOCKS.HEADING_3]: (_node: Node, children: Children) => (
-        <HeadingBox>
-          <Heading ncss={heading3Style}>{children}</Heading>
-        </HeadingBox>
+        <Heading ncss={{ ...heading3Style, w: 1 }}>{children}</Heading>
       ),
       [BLOCKS.HEADING_4]: (_node: Node, children: Children) => (
-        <HeadingBox>
-          <Heading ncss={heading4Style}>{children}</Heading>
-        </HeadingBox>
+        <Heading ncss={{ ...heading4Style, w: 1 }}>{children}</Heading>
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
@@ -220,13 +140,16 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
   } as Options
 
   return (
-    <Fragment>
-      <Flex>
-        {documentToReactComponents(
-          (props.text.json as unknown) as Document,
-          options
-        )}
-      </Flex>
-    </Fragment>
+    <Flex
+      ncss={{
+        pl: getSinglePadding('section', 'left'),
+        pr: getSinglePadding('section', 'right'),
+      }}
+    >
+      {documentToReactComponents(
+        (props.text.json as unknown) as Document,
+        options
+      )}
+    </Flex>
   )
 }
