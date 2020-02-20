@@ -33,6 +33,8 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-helmet": "5.2.1",
+    "react-redux": "7.2.0",
+    "redux": "4.0.5",
     "yargs": "15.1.0"
   },
   "description": "Gatsby static site boilerplate with React and Typescript",
