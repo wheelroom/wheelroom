@@ -1,0 +1,9 @@
+# dependencies
+.DS_Store
+/gatsby-config.*
+/gatsby-node.*
+/index.*
+/lib
+/node_modules
+/types
+/fixtures
