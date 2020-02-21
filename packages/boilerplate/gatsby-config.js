@@ -4,6 +4,9 @@ path = require('path')
 const globalsQuery = require('./src/components/globals/query')
 const pageQuery = require('./src/components/page/query')
 const dotenv = require('dotenv')
+const { someModule } = require('gatsby-theme-admin-panel')
+
+console.log('someModule', someModule)
 
 /**
  * Load environment from .env in development mode
@@ -23,7 +26,7 @@ if (process.env.NODE_ENV === 'development') {
 module.exports = {
   plugins: [
     {
-      options: { present: true },
+      options: { modules: [someModule.reducer] },
       resolve: `gatsby-theme-admin-panel`,
     },
     {

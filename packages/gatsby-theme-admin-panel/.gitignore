@@ -1,10 +1,13 @@
 # dependencies
 .DS_Store
+/gatsby-browser.*
 /gatsby-config.*
 /gatsby-node.*
+/gatsby-ssr.*
 /index.*
 /lib
 /node_modules
 /types
 /fixtures
 /store
+/admin-modules
