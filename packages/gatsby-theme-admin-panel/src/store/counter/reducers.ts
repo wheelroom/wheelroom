@@ -10,10 +10,13 @@ export const counterReducer = (
 ): CounterState => {
   switch (action.type) {
     case COUNT_UP: {
-      return {
-        ...state,
-        ...action.payload,
-      }
+      return Object.assign({}, state, {
+        count: state.count + 1,
+      })
+      // return {
+      //   ...state,
+      //   ...action.payload,
+      // }
     }
     default:
       return state

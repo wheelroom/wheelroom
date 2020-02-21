@@ -6,7 +6,9 @@ exports.counterInitialState = {
 exports.counterReducer = (state = exports.counterInitialState, action) => {
     switch (action.type) {
         case types_1.COUNT_UP: {
-            return Object.assign(Object.assign({}, state), action.payload);
+            return Object.assign({}, state, {
+                count: state.count + 1,
+            });
         }
         default:
             return state;
