@@ -23,6 +23,10 @@ if (process.env.NODE_ENV === 'development') {
 module.exports = {
   plugins: [
     {
+      options: { present: true },
+      resolve: `gatsby-theme-admin-panel`,
+    },
+    {
       options: {
         defaultLocale: 'en-US',
         pageTemplate: path.resolve('./src/page-template.tsx'),
@@ -46,10 +50,12 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-typescript',
-    'gatsby-plugin-eslint',
+    'gatsby-plugin-emotion',
     {
-      options: {},
-      resolve: `gatsby-plugin-emotion`,
+      options: {
+        exclude: /(node_modules|.cache|public|gatsby-theme-admin-panel)/,
+      },
+      resolve: 'gatsby-plugin-eslint',
     },
     {
       options: {

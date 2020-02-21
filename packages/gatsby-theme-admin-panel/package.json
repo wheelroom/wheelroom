@@ -21,6 +21,7 @@
     "@types/node": "13.1.5",
     "@types/react": "16.9.17",
     "@types/react-dom": "16.9.4",
+    "@types/react-redux": "7.1.7",
     "@typescript-eslint/eslint-plugin": "2.18.0",
     "@typescript-eslint/parser": "2.18.0",
     "eslint": "6.8.0",
@@ -39,12 +40,12 @@
     "node": ">=12.0.0"
   },
   "files": [
-    "gatsby-browser.*",
     "gatsby-config.*",
     "gatsby-node.*",
-    "gatsby-ssr.*",
     "index.*",
-    "wrap-with-provider.*"
+    "lib/*",
+    "state/*",
+    "types/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": [

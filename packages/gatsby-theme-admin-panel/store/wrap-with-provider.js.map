@@ -1,0 +1,1 @@
+{"version":3,"file":"wrap-with-provider.js","sourceRoot":"","sources":["../src/store/wrap-with-provider.tsx"],"names":[],"mappings":";;;;AAAA,kDAAyB;AACzB,6CAAsC;AACtC,mCAAqC;AAMxB,QAAA,gBAAgB,GAAG,CAAC,KAA4B,EAAE,EAAE;IAC/D,MAAM,KAAK,GAAG,mBAAW,EAAE,CAAA;IAC3B,OAAO,8BAAC,sBAAQ,IAAC,KAAK,EAAE,KAAK,IAAG,KAAK,CAAC,OAAO,CAAY,CAAA;AAC3D,CAAC,CAAA"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"actions.js","sourceRoot":"","sources":["../../src/store/counter/actions.ts"],"names":[],"mappings":";AAAA,mCAAoE;AAEpE,SAAgB,OAAO,CAAC,UAAwB;IAC9C,OAAO;QACL,IAAI,EAAE,gBAAQ;QACd,OAAO,EAAE,UAAU;KACpB,CAAA;AACH,CAAC;AALD,0BAKC"}

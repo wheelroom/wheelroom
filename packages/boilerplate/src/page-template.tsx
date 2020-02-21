@@ -10,6 +10,27 @@ import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
 import { PreviewUpdateButton } from './lib/preview-update-button'
+import { connect } from 'react-redux'
+
+const Counter = (props: any) => {
+  console.log(props)
+  return (
+    <div>
+      <p>Count: {props.count}</p>
+      <button onClick={props.increment}>Increment</button>
+    </div>
+  )
+}
+
+const mapStateToProps = (state: any) => {
+  return { count: state.counter.count }
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+  return { increment: () => dispatch({ type: `COUNT_UP` }) }
+}
+
+const ConnectedCounter = connect(mapStateToProps, mapDispatchToProps)(Counter)
 
 const GlobalAStyles = {
   body: {
@@ -71,6 +92,7 @@ const PageTemplate = (props: any) => {
       <Global styles={GlobalAStyles} />
       <Container>
         <Seo {...seoProps} />
+        <ConnectedCounter />
         <Sections {...sectionProps} />
         <PreviewUpdateButton
           previewSecrets={props.data.site.siteMetadata.secrets}
