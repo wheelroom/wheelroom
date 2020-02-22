@@ -1,11 +1,11 @@
 import { SomeModuleState, SomeModuleActionTypes, COUNT_DOWN } from './types'
 
-export const someModuleInitialState: SomeModuleState = {
+const initialState: SomeModuleState = {
   count: 45,
 }
 
-export const someModuleReducer = (
-  state: SomeModuleState = someModuleInitialState,
+export const reducer = (
+  state: SomeModuleState = initialState,
   action: SomeModuleActionTypes
 ): SomeModuleState => {
   switch (action.type) {

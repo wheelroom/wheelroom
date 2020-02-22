@@ -1,15 +1,13 @@
-import { combineReducers } from 'redux'
-import { counterReducer } from './counter/reducers'
-import { createStore as reduxCreateStore } from 'redux'
-import { counterInitialState } from './counter/reducers'
+import { combineReducers, createStore } from 'redux'
+import { createReducerRegistry } from './create-reducer-registry'
 
-const rootReducer = combineReducers({
-  counter: counterReducer,
+const initialState = {}
+export const reducerRegistry = createReducerRegistry()
+
+const reducer = combineReducers(reducerRegistry.getReducers())
+export const store = createStore(reducer, initialState)
+
+// Replace the store's reducer whenever a new reducer is registered.
+reducerRegistry.setChangeListener((reducers) => {
+  store.replaceReducer(combineReducers(reducers))
 })
-
-const initialState = {
-  counter: counterInitialState,
-}
-
-export type RootState = ReturnType<typeof rootReducer>
-export const createStore = () => reduxCreateStore(rootReducer, initialState)

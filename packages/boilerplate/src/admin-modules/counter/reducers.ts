@@ -1,11 +1,12 @@
 import { CounterState, CounterActionTypes, COUNT_UP } from './types'
+import { Reducer } from 'redux'
 
-export const counterInitialState: CounterState = {
+const initialState: CounterState = {
   count: 99,
 }
 
-export const counterReducer = (
-  state: CounterState = counterInitialState,
+export const reducer: Reducer<CounterState, CounterActionTypes> = (
+  state: CounterState = initialState,
   action: CounterActionTypes
 ): CounterState => {
   switch (action.type) {
