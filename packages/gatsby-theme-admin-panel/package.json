@@ -80,5 +80,6 @@
   },
   "type": "commonjs",
   "version": "0.0.1",
-  "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
+  "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1",
+  "dependencies": {}
 }

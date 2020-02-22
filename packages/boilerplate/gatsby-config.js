@@ -23,7 +23,10 @@ if (process.env.NODE_ENV === 'development') {
 module.exports = {
   plugins: [
     {
-      options: {},
+      options: {
+        path: '/admin',
+        template: path.resolve(`./src/admin-modules/admin-panel.tsx`),
+      },
       resolve: `gatsby-theme-admin-panel`,
     },
     {

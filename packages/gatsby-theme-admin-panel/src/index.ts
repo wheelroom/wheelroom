@@ -1,1 +1,1 @@
-export { reducerRegistry } from './store/store'
+export { reducerRegistry, adminModuleRegistry } from './store/store'
