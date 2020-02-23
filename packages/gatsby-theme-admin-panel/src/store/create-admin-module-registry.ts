@@ -1,13 +1,8 @@
-export interface AdminModule {
-  backgroundColor: string
-  heading: string
-  name?: string
-  path: string
-}
+import { AdminModuleItem, AdminModule } from "./types"
 
 export interface AdminModuleRegistry {
-  _adminModules: AdminModule[]
-  getAdminModules: () => AdminModule[]
+  _adminModules: AdminModuleItem[]
+  getAdminModules: () => AdminModuleItem[]
   register: (name: string, adminModule: AdminModule) => void
 }
 
@@ -18,8 +13,8 @@ export const createAdminModuleRegistry = (): AdminModuleRegistry => {
       return this._adminModules
     },
     register(name, adminModule) {
-      adminModule.name = name
-      this._adminModules.push(adminModule)
+      const adminModuleItem: AdminModuleItem = {...adminModule, name}
+      this._adminModules.push(adminModuleItem)
     },
   }
   return adminModuleRegistry

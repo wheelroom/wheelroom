@@ -1,20 +1,11 @@
+import { ReducerRegistry } from "./types"
+
 /**
  * As described here:
  * http://nicolasgallagher.com/redux-modules-and-code-splitting/
  * 
  */
 
-import { ReducersMapObject } from 'redux'
-
-type Listener = (reducers: ReducersMapObject<any, any>) => void
-
-export interface ReducerRegistry {
-  _emitChange: any
-  _reducers: ReducersMapObject<any, any>
-  getReducers: () => ReducersMapObject<any, any>
-  register: (name: string, reducer: any) => void
-  setChangeListener: (listener: Listener) => void
-}
 
 export const createReducerRegistry = (): ReducerRegistry => {
   const reducerRegistry: ReducerRegistry = {
