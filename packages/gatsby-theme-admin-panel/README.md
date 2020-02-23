@@ -1,31 +1,21 @@
 # gatsby-theme-admin-panel
 
-Draft architecture of this module.
+Draft architecture of this package.
 
 ## This package
 
 - admin panel installs by wrapping the Gatsby root element with a Redux store
 - adds registerAdminModule functionality to store
 - adds route that displays admin modules
-- customization:
-  - admin panel title
-  - panel fg/bg color
-  - admin route, defaults to /admin
-
-## Admin module packages
-
-- admin modules are separate npm packages
-- admin modules load as gatsby themes
-- admin modules register by wrapping the page element
-- a admin module specifies
-  - module id
-  - tile title
-  - tile image
-  - tile color
-  - redux reducer
+- customization by changing admin-panel template
+- reducerRegistry allows for admin modules to add reducers
+- adminModuleRegistry allows for admin modules to register:
+  - name
+  - heading
+  - image
   - path
-- admin modules add redux dispatch messages that can be used in the app
-- admin modules have access to page props
+- admin modules are added as npm modules, either as gatsby theme or as a plain
+  module
 
 ## Example admin modules
 
