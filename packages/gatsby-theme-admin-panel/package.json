@@ -22,7 +22,6 @@
     "@types/react": "16.9.17",
     "@types/react-dom": "16.9.4",
     "@types/react-redux": "7.1.7",
-    "@types/redux-actions": "2.6.1",
     "@typescript-eslint/eslint-plugin": "2.18.0",
     "@typescript-eslint/parser": "2.18.0",
     "eslint": "6.8.0",
@@ -68,7 +67,6 @@
     "react-dom": "16.x",
     "react-redux": "7.x",
     "react": "16.x",
-    "redux-actions": "2.x",
     "redux-thunk": "2.x",
     "redux": "4.x"
   },
@@ -83,9 +81,5 @@
   },
   "type": "commonjs",
   "version": "0.0.1",
-  "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1",
-  "dependencies": {
-    "redux-actions": "2.6.5",
-    "redux-thunk": "2.3.0"
-  }
+  "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
 }
