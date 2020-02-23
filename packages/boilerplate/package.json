@@ -36,6 +36,8 @@
     "react-helmet": "5.2.1",
     "react-redux": "7.2.0",
     "redux": "4.0.5",
+    "redux-actions": "2.6.5",
+    "redux-thunk": "2.3.0",
     "yargs": "15.1.0"
   },
   "description": "Gatsby static site boilerplate with React and Typescript",
@@ -48,6 +50,7 @@
     "@types/react-dom": "16.9.5",
     "@types/react-helmet": "5.0.15",
     "@types/react-redux": "7.1.7",
+    "@types/redux-actions": "2.6.1",
     "@types/yargs": "15.0.3",
     "@typescript-eslint/eslint-plugin": "2.20.0",
     "@typescript-eslint/parser": "2.20.0",

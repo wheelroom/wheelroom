@@ -6,7 +6,6 @@ export interface AdminModule {
   path: string
 }
 
-// Adds name
 export interface AdminModuleItem extends AdminModule {
   name: string
 }
@@ -20,3 +19,15 @@ export interface ReducerRegistry {
   register: (name: string, reducer: any) => void
   setChangeListener: (listener: Listener) => void
 }
+
+export interface SystemState {
+  version: string
+}
+
+export const GET_VERSION = 'GET_VERSION'
+
+export interface GetVersionAction {
+  type: typeof GET_VERSION
+  payload: SystemState
+}
+export type SystemActionTypes = GetVersionAction
