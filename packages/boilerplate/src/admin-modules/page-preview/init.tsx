@@ -16,10 +16,9 @@ const registerModule: RegisterModuleAction = {
   },
 }
 
-export const intPagePreview = () => {
+export const initPagePreview = () => {
   const [, adminModuleDispatch] = useAdminModuleReducer()
   useEffect(() => {
-    console.log('initializing module')
     adminModuleDispatch(registerModule)
   }, [])
 }
