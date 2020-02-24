@@ -1,6 +1,5 @@
 # dependencies
 .DS_Store
-/admin-modules
 /fixtures
 /gatsby-browser.*
 /gatsby-config.*
@@ -9,5 +8,4 @@
 /index.*
 /lib
 /node_modules
-/store
 /types

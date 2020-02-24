@@ -1,2 +1,2 @@
-export { reducerRegistry, adminModuleRegistry } from './store/store'
-export * from './store/types'
+export { useAdminModuleReducer } from './lib/provider'
+export * from './lib/types'

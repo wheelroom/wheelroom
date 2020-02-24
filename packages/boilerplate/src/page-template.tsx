@@ -9,8 +9,8 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
-import { PreviewUpdateButton } from './lib/preview-update-button'
-import { useSelector, useDispatch } from 'react-redux'
+import { PreviewUpdateButton } from './admin-modules/page-preview/preview-update-button'
+import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
 
 const GlobalAStyles = {
   body: {
@@ -23,14 +23,10 @@ const GlobalAStyles = {
 // do so for all pages.
 //
 const PageTemplate = (props: any) => {
-  const state = useSelector(state => state)
-  // const dispatch = useDispatch()
-
-  console.log('state', state)
-  // console.log('dispatch', dispatch({ type: 'GET_VERSION' }))
-
   const [previewPage, setPreviewPage] = useState()
   pageDebug('PageTemplate', props)
+  const [adminModuleState] = useAdminModuleReducer()
+  console.log('adminModuleState', adminModuleState.modules)
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords

@@ -1,4 +1,3 @@
-
 interface PluginOptions {
   path: string
   template: any
