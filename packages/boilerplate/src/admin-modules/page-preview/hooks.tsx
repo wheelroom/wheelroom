@@ -1,15 +1,13 @@
 import { useReducer, Dispatch } from 'react'
 import { pagePreviewReducer } from './reducers'
-import {
-  useAdminModuleReducer,
-} from 'gatsby-theme-admin-panel'
-import { State, Action } from './types'
+import { State, ActionTypes } from './types'
 
-interface UsePagePreviewProps {}
+interface UsePagePreviewProps {
+  initialState: State
+}
 
-export const usePagePreview = (props: UsePagePreviewProps
-): [State, Dispatch<Action>] => {
-  const [adminModuleState] = useAdminModuleReducer()
-
-  return useReducer(pagePreviewReducer, { adminModuleState })
+export const usePagePreview = (
+  props: UsePagePreviewProps
+): [State, Dispatch<ActionTypes>] => {
+  return useReducer(pagePreviewReducer, props.initialState)
 }
