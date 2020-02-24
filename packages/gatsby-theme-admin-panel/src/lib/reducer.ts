@@ -25,6 +25,12 @@ export const mainReducer: Reducer<State, ActionTypes> = (
         modules,
       }
 
+    case 'SET_PAGE_PROPS':
+      return {
+        ...state,
+        pageProps: action.pageProps,
+      }
+
     default:
       return state
   }

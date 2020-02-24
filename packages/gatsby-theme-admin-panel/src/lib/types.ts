@@ -33,8 +33,14 @@ export interface UpdateModuleData extends BaseAction {
   moduleData: any
 }
 
-export type ActionTypes = RegisterModuleAction | UpdateModuleData
+export interface SetPageProps extends BaseAction {
+  type: 'SET_PAGE_PROPS'
+  pageProps: any
+}
+
+export type ActionTypes = RegisterModuleAction | UpdateModuleData | SetPageProps
 
 export interface State {
   modules: AdminModules
+  pageProps?: any
 }

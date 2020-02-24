@@ -11,6 +11,7 @@ import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
 import { PreviewUpdateButton } from './admin-modules/page-preview/preview-update-button'
 import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
+// import { usePagePreview } from './admin-modules/page-preview/hooks'
 
 const GlobalAStyles = {
   body: {
@@ -26,7 +27,9 @@ const PageTemplate = (props: any) => {
   const [previewPage, setPreviewPage] = useState()
   pageDebug('PageTemplate', props)
   const [adminModuleState] = useAdminModuleReducer()
-  console.log('adminModuleState', adminModuleState.modules)
+  console.log('adminModuleState', adminModuleState)
+  // const [pagePreviewState, dispatch] = usePagePreview()
+  // console.log('pagePreviewState', pagePreviewState)
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
