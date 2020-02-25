@@ -22,9 +22,12 @@ const Modules = (props: { modules: AdminModules }) => {
             w: 1 / 3,
           }}
         >
-          <b>{moduleName}</b><br />
-          {module.heading}<br />
-          {module.path}<br />
+          <b>{moduleName}</b>
+          <br />
+          {module.heading}
+          <br />
+          {module.path}
+          <br />
         </Box>
       )
     }
