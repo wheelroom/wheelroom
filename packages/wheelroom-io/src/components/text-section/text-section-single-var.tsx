@@ -62,7 +62,11 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
     '&:hover': {
       textDecoration: 'underline',
     },
-    color: 'orange',
+    '&:focus': {
+      color: 'amber',
+      textDecoration: 'underline',
+    },
+    color: 'azure',
     textDecoration: 'none',
   }
   const options = {

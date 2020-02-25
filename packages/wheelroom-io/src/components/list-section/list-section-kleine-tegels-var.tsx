@@ -41,7 +41,7 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
           w: [1, 1 / 2, 1 / 3, 1 / 4],
         }}
       >
-        <Box ncss={{ m: 1, bg: 'darkGrey' }}>
+        <Box ncss={{ m: 1, bg: 'metal' }}>
           <Image image={image} height={[2, 2, 3, 3]} overlay="gradient" />
           <Box
             ncss={{

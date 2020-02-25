@@ -44,7 +44,7 @@ export const OpenerSectionNormalePaginaVar = (props: OpenerSectionProps) => {
           <Text
             ncss={{
               ...paragraph2Style,
-              color: 'darkGrey',
+              color: 'metal',
             }}
           >
             {abstract}

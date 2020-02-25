@@ -17,8 +17,8 @@ export const NavLinks = (props: NavLinksProps) => (
           ...navigationHeadingStyle,
           ...getAllPaddingObject('navLinks'),
           '&:hover': { textDecoration: 'underline' },
-          color: 'white',
-          display: 'block',
+          '&:focus': { textDecoration: 'underline', color: 'amber' },
+          color: 'azure',
         }}
       >
         {page.navigationHeading || page.heading}

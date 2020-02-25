@@ -20,7 +20,7 @@ export const FooterSectionSingleVar = (props: FooterSectionProps) => {
   return (
     <Flex
       ncss={{
-        bg: 'darkGrey',
+        bg: 'caviar',
         flexDirection: 'row',
         mb: 7,
         w: 1,

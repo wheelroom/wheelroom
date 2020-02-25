@@ -1,8 +1,13 @@
 export const simpleLinkStyle = {
+  color: 'azure',
+  cursor: 'pointer',
+  textDecoration: 'none',
   '&:hover': {
     textDecoration: 'underline',
   },
   '&:visited': {},
-  cursor: 'pointer',
-  textDecoration: 'none',
+  '&:focus': {
+    border: 2,
+    borderColor: 'amber',
+  },
 }

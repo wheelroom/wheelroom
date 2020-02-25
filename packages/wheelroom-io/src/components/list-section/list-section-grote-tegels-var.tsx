@@ -35,7 +35,7 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
         key={index}
         to={item.link && item.link.path}
         ncss={{
-          bg: 'darkGrey',
+          bg: 'metal',
           display: 'block',
           mb: 1,
           overflow: 'hidden',
