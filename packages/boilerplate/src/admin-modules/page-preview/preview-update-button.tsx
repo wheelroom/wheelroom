@@ -1,55 +1,25 @@
-import { useEffect, useState } from 'react'
-import { createPagePreview } from '@jacco-meijer/contentful-page-preview'
 import React from 'react'
 import { Flex } from '../../views/core-elements/grid'
 import { heading4Style } from '../../styles/heading'
 import { Spinner } from '../../views/spinner/spinner'
-import queryString from 'query-string'
-import { PreviewSecrets } from '@jacco-meijer/contentful-page-preview'
-import { useLocation } from '@reach/router'
+import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
+import { State } from './types'
+import { getPreviewPageState } from './getters'
+import { fetchPage } from './reducers'
 
-export const inPreviewMode = (): boolean => {
-  const queryParams = queryString.parse(useLocation().search)
-  return 'preview' in queryParams
-}
-
-export const getPreviewQueryString = (): string => {
-  if (inPreviewMode()) {
-    return '?preview'
-  } else {
-    return ''
-  }
-}
-
-interface PreviewUpdateButtonProps {
-  setPreviewPage: (fetchedPage: any) => any
-  previewSecrets: PreviewSecrets
-  entryId: string
-}
-
-export const PreviewUpdateButton = (props: PreviewUpdateButtonProps) => {
-  const [loading, setLoading] = useState(false)
-  if (!inPreviewMode()) {
+export const PreviewUpdateButton = () => {
+  const [adminModuleState] = useAdminModuleReducer()
+  const state: State | undefined = getPreviewPageState(adminModuleState)
+  if (!state || !state.inPreviewMode) {
     return null
   }
-
-  async function getPreviewPage() {
-    setLoading(true)
-    const pagePreview = createPagePreview({
-      entryId: props.entryId,
-      previewSecrets: props.previewSecrets,
-    })
-    const fetchedPage = await pagePreview.getGatbsyFields()
-    props.setPreviewPage(fetchedPage)
-    setLoading(false)
+  const fetch = () => {
+    fetchPage(adminModuleState)
   }
 
-  useEffect(() => {
-    getPreviewPage()
-  }, [])
   return (
     <Flex
-      onClick={getPreviewPage}
+      onClick={fetch}
       ncss={{
         ...heading4Style,
         alignItems: 'center',
@@ -68,7 +38,7 @@ export const PreviewUpdateButton = (props: PreviewUpdateButtonProps) => {
         width: '150px',
       }}
     >
-      {loading ? <Spinner /> : 'Update'}
+      {state.isFetching ? <Spinner /> : 'Update'}
     </Flex>
   )
 }

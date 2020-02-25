@@ -1,5 +1,3 @@
-import { Dispatch } from 'react'
-
 export interface State {
   /** Show page with preview content fetched from Contentful */
   inPreviewMode: boolean
@@ -26,11 +24,6 @@ export interface SetIsFetching extends BaseAction {
   type: 'SET_IS_FETCHING'
   isFetching: boolean
 }
-
-export type ActionCreator = (
-  displatch: Dispatch<ActionTypes>,
-  getState: () => State
-) => any
 
 export type ActionTypes =
   | SetPreviewMode

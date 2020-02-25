@@ -1,7 +1,8 @@
-import { State, ActionTypes, ActionCreator } from './types'
+import { ActionTypes, State } from './types'
 import { createPagePreview } from '@jacco-meijer/contentful-page-preview'
-import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
+import { State as AdminPanelState } from 'gatsby-theme-admin-panel'
 import { Dispatch } from 'react'
+import { getPreviewPageDispatch, getPreviewPageState } from './getters'
 
 export const pagePreviewReducer = (
   state: State,
@@ -22,25 +23,27 @@ export const pagePreviewReducer = (
   }
 }
 
-export const fetchPage = () => {
-  const [adminModuleState] = useAdminModuleReducer()
-  console.log(adminModuleState.pageProps)
+export const fetchPage = (adminModuleState: AdminPanelState) => {
+  const dispatch = getPreviewPageDispatch(adminModuleState)
+  const state = getPreviewPageState(adminModuleState)
+  if (!dispatch || !state || !state.inPreviewMode) {
+    return
+  }
+
   const pageProps = adminModuleState.pageProps
   const entryId = pageProps.pageContext.pageContentfulId
   const previewSecrets = pageProps.data.site.siteMetadata.secrets
 
-  return (dispatch: Dispatch<ActionTypes | ActionCreator>) => {
-    async function getPreviewPage() {
-      const pagePreview = createPagePreview({
-        entryId,
-        previewSecrets,
-      })
-      const fetchedPage = await pagePreview.getGatbsyFields()
-      dispatch({ type: 'SET_PREVIEW_PAGE', previewPage: fetchedPage })
-      dispatch({ type: 'SET_IS_FETCHING', isFetching: false })
-    }
-
-    dispatch({ type: 'SET_IS_FETCHING', isFetching: true })
-    getPreviewPage()
+  async function getPreviewPage(dispatch: Dispatch<ActionTypes>) {
+    const pagePreview = createPagePreview({
+      entryId,
+      previewSecrets,
+    })
+    const fetchedPage = await pagePreview.getGatbsyFields()
+    dispatch({ type: 'SET_PREVIEW_PAGE', previewPage: fetchedPage })
+    dispatch({ type: 'SET_IS_FETCHING', isFetching: false })
   }
+
+  dispatch({ type: 'SET_IS_FETCHING', isFetching: true })
+  getPreviewPage(dispatch)
 }

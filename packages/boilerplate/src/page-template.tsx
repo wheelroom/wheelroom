@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React, { useState } from 'react'
+import React from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
@@ -11,7 +11,7 @@ import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
 import { PreviewUpdateButton } from './admin-modules/page-preview/preview-update-button'
 import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
-// import { usePagePreview } from './admin-modules/page-preview/hooks'
+import { getPreviewPage } from './admin-modules/page-preview/getters'
 
 const GlobalAStyles = {
   body: {
@@ -24,10 +24,9 @@ const GlobalAStyles = {
 // do so for all pages.
 //
 const PageTemplate = (props: any) => {
-  const [previewPage, setPreviewPage] = useState()
   pageDebug('PageTemplate', props)
   const [adminModuleState] = useAdminModuleReducer()
-  console.log('adminModuleState', adminModuleState)
+  const previewPage = getPreviewPage(adminModuleState)
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
@@ -76,11 +75,7 @@ const PageTemplate = (props: any) => {
       <Container>
         <Seo {...seoProps} />
         <Sections {...sectionProps} />
-        <PreviewUpdateButton
-          previewSecrets={props.data.site.siteMetadata.secrets}
-          entryId={props.pageContext.pageContentfulId}
-          setPreviewPage={setPreviewPage}
-        />
+        <PreviewUpdateButton />
       </Container>
     </Box>
   )
