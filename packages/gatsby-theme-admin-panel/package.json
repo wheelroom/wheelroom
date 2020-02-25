@@ -74,6 +74,6 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
 }
