@@ -17,12 +17,14 @@ const registerPagePreview: RegisterModule = {
 }
 
 export const usePagePreview = () => {
-  const [state, dispatch] = useReducer(pagePreviewReducer, initialState)
   const [, adminModuleDispatch] = useAdminModuleReducer()
   const queryParams = queryString.parse(useLocation().search)
   initialState.inPreviewMode = 'preview' in queryParams
+  const [state, dispatch] = useReducer(pagePreviewReducer, initialState)
+  console.log('starting to register', state)
 
   useEffect(() => {
+    console.log('registering')
     registerPagePreview.module.useReducer = [state, dispatch]
     adminModuleDispatch(registerPagePreview)
   }, [state])

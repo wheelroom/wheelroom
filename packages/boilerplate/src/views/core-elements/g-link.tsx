@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
 import { emotionCss } from './emotion-css'
 import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
-import { getPreviewQueryString } from '../../admin-modules/page-preview/getters'
+import { getPreviewQueryString } from '@jacco-meijer/gatsby-theme-admin-modules'
 
 export const GLink = (props: any) => {
   const [adminModuleState] = useAdminModuleReducer()

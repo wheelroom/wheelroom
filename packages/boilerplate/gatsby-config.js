@@ -25,10 +25,11 @@ module.exports = {
     {
       options: {
         path: '/admin',
-        template: path.resolve(`./src/admin-modules/admin-panel.tsx`),
+        template: path.resolve('./src/admin-module-resources/admin-panel.tsx'),
       },
       resolve: `gatsby-theme-admin-panel`,
     },
+    '@jacco-meijer/gatsby-theme-admin-modules',
     {
       options: {
         defaultLocale: 'en-US',
@@ -56,7 +57,7 @@ module.exports = {
     'gatsby-plugin-emotion',
     {
       options: {
-        exclude: /(node_modules|.cache|public|gatsby-theme-admin-panel)/,
+        exclude: /(node_modules|.cache|public|gatsby-theme-admin-panel|gatsby-theme-admin-modules)/,
       },
       resolve: 'gatsby-plugin-eslint',
     },

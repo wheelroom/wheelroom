@@ -9,9 +9,9 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
-import { PreviewUpdateButton } from './admin-modules/page-preview/preview-update-button'
+import { PreviewUpdateButton } from './admin-module-resources/preview-update-button'
 import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
-import { getPreviewPage } from './admin-modules/page-preview/getters'
+import { getPreviewPage } from '@jacco-meijer/gatsby-theme-admin-modules'
 
 const GlobalAStyles = {
   body: {
@@ -27,6 +27,7 @@ const PageTemplate = (props: any) => {
   pageDebug('PageTemplate', props)
   const [adminModuleState] = useAdminModuleReducer()
   const previewPage = getPreviewPage(adminModuleState)
+  console.log('page mounted', adminModuleState)
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords

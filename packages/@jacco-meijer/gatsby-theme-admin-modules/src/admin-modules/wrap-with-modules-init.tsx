@@ -25,5 +25,6 @@ const Wrapper = (props: any) => {
 }
 
 export const wrapWithModulesInit = (args: any) => {
+  console.log('wrapper loading')
   return <Wrapper {...args.props}>{args.element}</Wrapper>
 }

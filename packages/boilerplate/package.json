@@ -8,6 +8,7 @@
     "@contentful/rich-text-types": "14.1.0",
     "@emotion/core": "10.0.27",
     "@jacco-meijer/contentful-page-preview": "1.1.1",
+    "@jacco-meijer/gatsby-theme-admin-modules": "1.0.0",
     "@jacco-meijer/styled-system": "3.0.4",
     "@jacco-meijer/wheelroom": "^3.6.1",
     "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.6.8",
