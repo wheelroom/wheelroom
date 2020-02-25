@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.2](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@5.1.1...boilerplate@5.1.2) (2020-02-25)
+
+
+### Bug Fixes
+
+* add gatsby-ssr and gatsby-browser to package ([8fd724f](https://github.com/jaccomeijer/wheelroom/commit/8fd724f))
+
+
+
+
+
 ## [5.1.1](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@5.1.0...boilerplate@5.1.1) (2020-02-25)
 
 **Note:** Version bump only for package boilerplate
