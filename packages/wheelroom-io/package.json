@@ -1,7 +1,11 @@
 {
-  "author": "Jacco Meijer",
+  "author": "Wheelroom",
+  "contributors": [
+    "Jacco Meijer",
+    "Thijs Krooswijk"
+  ],
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom-io/issues"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "13.4.0",
@@ -36,7 +40,16 @@
     "react-helmet": "5.2.1",
     "yargs": "15.1.0"
   },
-  "description": "Gatsby static site boilerplate with React and Typescript",
+  "description": "A JAMstack boilerplate for services, like Gatsby, Contentful, Netlify and much more",
+  "keywords": [
+    "wheelroom",
+    "gatsby",
+    "contentful",
+    "netlify",
+    "cli",
+    "react",
+    "typescript"
+  ],
   "devDependencies": {
     "@svgr/cli": "5.1.0",
     "@types/dotenv": "8.2.0",
@@ -63,14 +76,14 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom-io#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "boilerplate",
+  "name": "wheelroom-io",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+    "url": "git+https://github.com/wheelroom/wheelroom-io.git"
   },
   "scripts": {
     "lint-fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
@@ -95,5 +108,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "5.0.0"
+  "version": "1.0.0"
 }
