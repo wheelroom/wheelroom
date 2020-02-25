@@ -28,8 +28,6 @@ const PageTemplate = (props: any) => {
   pageDebug('PageTemplate', props)
   const [adminModuleState] = useAdminModuleReducer()
   console.log('adminModuleState', adminModuleState)
-  // const [pagePreviewState, dispatch] = usePagePreview()
-  // console.log('pagePreviewState', pagePreviewState)
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords

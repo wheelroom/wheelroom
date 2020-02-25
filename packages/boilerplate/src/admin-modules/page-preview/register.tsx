@@ -1,10 +1,9 @@
-import { RegisterModuleAction } from 'gatsby-theme-admin-panel'
+import { RegisterModule } from 'gatsby-theme-admin-panel'
 
-export const registerPagePreview: RegisterModuleAction = {
+export const registerPagePreview: RegisterModule = {
   type: 'REGISTER_MODULE',
   moduleId: 'pagePreview',
   module: {
-    data: {},
     heading: 'Page preview admin module',
     options: {},
     order: 1,

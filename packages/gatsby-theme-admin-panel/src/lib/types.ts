@@ -1,11 +1,13 @@
+import { Dispatch } from 'react'
+
 export interface AdminModule {
-  /** Mutable data space for each module */
-  data: any
+  /** [dispatch, state] for each module */
+  useReducer?: [any, Dispatch<any>]
   /** Heading used in admin panel */
   heading: string
   /** Image used in admin panel */
   image?: any
-  /** Immutable options set when module is registered */
+  /** Options set when module is registered */
   options: any
   /** Order in admin panel */
   order: number
@@ -21,16 +23,17 @@ export interface BaseAction {
   type: string
 }
 
-export interface RegisterModuleAction extends BaseAction {
+export interface State {
+  /** All admin modules register here */
+  modules: AdminModules
+  /** SET_PAGE_PROPS action can save page props here */
+  pageProps?: any
+}
+
+export interface RegisterModule extends BaseAction {
   type: 'REGISTER_MODULE'
   moduleId: string
   module: AdminModule
-}
-
-export interface UpdateModuleData extends BaseAction {
-  type: 'UPDATE_MODULE_DATA'
-  moduleId: string
-  moduleData: any
 }
 
 export interface SetPageProps extends BaseAction {
@@ -38,9 +41,4 @@ export interface SetPageProps extends BaseAction {
   pageProps: any
 }
 
-export type ActionTypes = RegisterModuleAction | UpdateModuleData | SetPageProps
-
-export interface State {
-  modules: AdminModules
-  pageProps?: any
-}
+export type ActionTypes = RegisterModule | SetPageProps

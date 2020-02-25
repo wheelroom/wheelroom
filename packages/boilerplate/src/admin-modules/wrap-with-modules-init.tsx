@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { registerPagePreview } from './page-preview/register'
 import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
+import { pagePreviewReducer } from './page-preview/reducers'
+import { initialState } from './page-preview/initial-state'
 
 // This wrapper has the root element around and can therefore access the admin
 // module provider
 const Wrapper = (props: any) => {
+  const [dispatch, state] = useReducer(pagePreviewReducer, initialState)
   const [, adminModuleDispatch] = useAdminModuleReducer()
   useEffect(() => {
     adminModuleDispatch({
@@ -13,6 +16,7 @@ const Wrapper = (props: any) => {
     })
 
     // Add other inits here
+    registerPagePreview.module.useReducer = [dispatch, state]
     adminModuleDispatch(registerPagePreview)
   }, [])
 
