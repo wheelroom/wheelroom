@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@5.0.0...boilerplate@5.1.0) (2020-02-25)
+
+
+### Features
+
+* gitignore with JetBrains support ([d0f24da](https://github.com/jaccomeijer/wheelroom/commit/d0f24da))
+
+
+
+
+
 # [5.0.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.9.0...boilerplate@5.0.0) (2020-02-25)
 
 
