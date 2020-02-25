@@ -9,19 +9,12 @@ export const mainReducer: Reducer<State, ActionTypes> = (
 ): State => {
   switch (action.type) {
     case 'REGISTER_MODULE':
-      return {
-        ...state,
-        modules: {
-          ...state.modules,
-          [action.moduleId]: action.module,
-        },
-      }
+      state.modules[action.moduleId] = action.module
+      return state
 
     case 'SET_PAGE_PROPS':
-      return {
-        ...state,
-        pageProps: action.pageProps,
-      }
+      state.pageProps = action.pageProps
+      return state
 
     default:
       return state
