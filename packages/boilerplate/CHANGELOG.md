@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.9.0...boilerplate@5.0.0) (2020-02-25)
+
+
+### Bug Fixes
+
+* add index to section props ([cb0a683](https://github.com/jaccomeijer/wheelroom/commit/cb0a683))
+
+
+### Features
+
+* add redux ([516288a](https://github.com/jaccomeijer/wheelroom/commit/516288a))
+* admin modules ([5a4a091](https://github.com/jaccomeijer/wheelroom/commit/5a4a091))
+
+
+
+
+
 # [4.9.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@4.8.0...boilerplate@4.9.0) (2020-02-18)
 
 

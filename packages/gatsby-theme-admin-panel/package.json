@@ -61,8 +61,8 @@
   },
   "peerDependencies": {
     "gatsby": "2.x",
-    "react-dom": "16.x",
-    "react": "16.x"
+    "react": "16.x",
+    "react-dom": "16.x"
   },
   "scripts": {
     "build": "npm-run-all build:*",
@@ -74,6 +74,6 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
 }
