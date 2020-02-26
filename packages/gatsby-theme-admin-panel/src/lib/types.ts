@@ -1,8 +1,12 @@
 import { Dispatch } from 'react'
 
 export interface AdminModule {
-  /** [dispatch, state] for each module */
-  useReducer?: [any, Dispatch<any>]
+  /** store actions, dispatch and state */
+  store?: {
+    state: any
+    dispatch: Dispatch<any>
+    actions: any
+  }
   /** Heading used in admin panel */
   heading: string
   /** Image used in admin panel */
@@ -28,6 +32,7 @@ export interface AdminPanelState {
   modules: AdminModules
   /** SET_PAGE_PROPS action can save page props here */
   pageProps?: any
+  [id: string]: any
 }
 
 export interface RegisterModule extends BaseAction {

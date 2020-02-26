@@ -1,5 +1,5 @@
 import { AdminPanelState } from './types'
 
-export const state: AdminPanelState = {
+export const initialState: AdminPanelState = {
   modules: {},
 }
