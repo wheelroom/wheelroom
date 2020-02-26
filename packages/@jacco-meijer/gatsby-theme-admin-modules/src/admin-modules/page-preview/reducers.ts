@@ -4,7 +4,7 @@ export const pagePreviewReducer = (
   state: AdminModuleState,
   action: ActionTypes
 ): AdminModuleState => {
-  console.log('page preview reducer', action)
+  console.log('REDUCER: page preview', action)
   switch (action.type) {
     case 'SET_PREVIEW_PAGE':
       return { ...state, previewPage: action.previewPage }

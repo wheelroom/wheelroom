@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React, { useEffect } from 'react'
+import React, { useContext } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
@@ -10,7 +10,7 @@ import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
 import { PreviewUpdateButton } from './admin-module-resources/preview-update-button'
-import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
+import { AdminModuleContext } from 'gatsby-theme-admin-panel'
 import { getPreviewPage } from '@jacco-meijer/gatsby-theme-admin-modules'
 
 const GlobalAStyles = {
@@ -25,16 +25,11 @@ const GlobalAStyles = {
 //
 const PageTemplate = (props: any) => {
   pageDebug('PageTemplate', props)
-  const [adminModuleState] = useAdminModuleReducer()
-  const previewPage = getPreviewPage(adminModuleState)
-  console.log('render: page with modules:', adminModuleState.modules)
+  const { adminPanelState } = useContext(AdminModuleContext)
+  const previewPage = getPreviewPage(adminPanelState)
+  console.log('render: page with preview page:', previewPage)
 
-  let page: PageProps = props.data.page
-
-  useEffect(() => {
-    console.log('use effect: page template')
-    page = previewPage || props.data.page
-  }, [previewPage])
+  const page: PageProps = previewPage || props.data.page
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords

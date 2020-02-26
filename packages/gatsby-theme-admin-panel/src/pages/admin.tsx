@@ -1,10 +1,11 @@
 import React, { Fragment, useContext, useEffect } from 'react'
 import { AdminModules, AdminModule } from '../lib/types'
-import { AdminModuleContext, UpdateAdminModuleContext } from '../lib/provider'
+import { AdminModuleContext } from '../index'
 
 // TODO: Come up with a real panel ;-)
 
 const Modules = (props: { modules: AdminModules }) => {
+  console.log('render: modules', props.modules)
   const moduleList = Object.entries(props.modules).map(
     ([moduleName, module]: [string, AdminModule]) => {
       return (
@@ -19,18 +20,24 @@ const Modules = (props: { modules: AdminModules }) => {
 }
 
 const AdminPanel = (props: any) => {
-  const { adminPanelState } = useContext(AdminModuleContext)
-  const updates = useContext(UpdateAdminModuleContext)
-  console.log('render: admin panel', updates, adminPanelState)
+  const { adminPanelState, adminPanelDispatch } = useContext(AdminModuleContext)
+  console.log('render: admin panel', adminPanelState.modules)
+
   useEffect(() => {
-    console.log('admin panel - newState', updates, adminPanelState)
+    console.log('render: admin panel (use effect [adminPanelState])')
   }, [adminPanelState])
+
+  const test = () => {
+    console.log(adminPanelState)
+    adminPanelDispatch({ type: 'SET_PAGE_PROPS', pageProps: { name: 'value' } })
+  }
 
   return (
     <Fragment>
-      <h1>Admin panel {updates}</h1>
-      <p>This is a work in progress.</p>
+      <h1>Admin panel</h1>
+      <p>This is a work in progress...</p>
       <Modules modules={adminPanelState.modules} />
+      <button onClick={test}>test</button>
     </Fragment>
   )
 }
