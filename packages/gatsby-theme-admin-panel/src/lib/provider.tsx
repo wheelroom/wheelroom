@@ -1,28 +1,45 @@
 import React, {
   createContext,
-  useContext,
   useReducer,
-  Reducer,
   Dispatch,
+  useEffect,
+  useState,
 } from 'react'
-import { ActionTypes, AdminPanelState } from './types'
-import { state } from './state'
+import { ActionTypes } from './types'
+import { initialState } from './initial-state'
+import { mainReducer } from './reducer'
 
-const defaultValue: [AdminPanelState, Dispatch<ActionTypes>] = [state, () => null]
-export const AdminModuleContext = createContext(defaultValue)
+const initialDispatch: Dispatch<ActionTypes> = () => {}
+export const AdminModuleContext = createContext({
+  adminPanelState: initialState,
+  adminPanelDispatch: initialDispatch,
+})
+
+export const UpdateAdminModuleContext = createContext(0)
 
 interface AdminModuleProviderProps {
-  reducer: Reducer<AdminPanelState, ActionTypes>
-  initialState: AdminPanelState
   children: any
 }
 
-export const AdminModuleProvider = (props: AdminModuleProviderProps) => (
-  <AdminModuleContext.Provider
-    value={useReducer(props.reducer, props.initialState)}
-  >
-    {props.children}
-  </AdminModuleContext.Provider>
-)
+export const AdminModuleProvider = (props: AdminModuleProviderProps) => {
+  console.log('render: admin module provider')
+  const [updates, setUpdates] = useState(0)
+  const [adminPanelState, adminPanelDispatch] = useReducer(
+    mainReducer,
+    initialState
+  )
+  useEffect(() => {
+    setUpdates(updates + 1)
+    console.log('admin module provider - newState', updates, adminPanelState)
+  }, [adminPanelState])
 
-export const useAdminModuleReducer = () => useContext(AdminModuleContext)
+  return (
+    <AdminModuleContext.Provider
+      value={{ adminPanelState, adminPanelDispatch }}
+    >
+      <UpdateAdminModuleContext.Provider value={updates}>
+        {props.children}
+      </UpdateAdminModuleContext.Provider>
+    </AdminModuleContext.Provider>
+  )
+}

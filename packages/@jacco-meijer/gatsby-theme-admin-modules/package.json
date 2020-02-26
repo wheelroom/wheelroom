@@ -40,12 +40,13 @@
     "node": ">=12.0.0"
   },
   "files": [
+    "admin-modules/*",
     "gatsby-browser.*",
     "gatsby-config.*",
     "gatsby-node.*",
     "gatsby-ssr.*",
     "index.*",
-    "admin-modules/*",
+    "pages/*",
     "types/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
@@ -64,7 +65,7 @@
   },
   "peerDependencies": {
     "@emotion/core": "10.x",
-    "@reach/router": "1.3.1",
+    "@reach/router": "1.x",
     "gatsby": "2.x",
     "gatsby-theme-admin-panel": "1.x",
     "react": "16.x",
