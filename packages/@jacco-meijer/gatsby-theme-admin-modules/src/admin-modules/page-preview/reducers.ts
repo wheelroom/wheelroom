@@ -1,13 +1,13 @@
-import { ActionTypes, State } from './types'
+import { ActionTypes, AdminModuleState } from './types'
 import { createPagePreview } from '@jacco-meijer/contentful-page-preview'
-import { State as AdminPanelState } from 'gatsby-theme-admin-panel'
+import { AdminPanelState } from 'gatsby-theme-admin-panel'
 import { Dispatch } from 'react'
 import { getPreviewPageDispatch, getPreviewPageState } from './getters'
 
 export const pagePreviewReducer = (
-  state: State,
+  state: AdminModuleState,
   action: ActionTypes
-): State => {
+): AdminModuleState => {
   switch (action.type) {
     case 'SET_PREVIEW_PAGE':
       return { ...state, previewPage: action.previewPage }

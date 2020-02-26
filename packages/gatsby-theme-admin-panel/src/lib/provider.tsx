@@ -5,15 +5,15 @@ import React, {
   Reducer,
   Dispatch,
 } from 'react'
-import { ActionTypes, State } from './types'
+import { ActionTypes, AdminPanelState } from './types'
 import { state } from './state'
 
-const defaultValue: [State, Dispatch<ActionTypes>] = [state, () => null]
+const defaultValue: [AdminPanelState, Dispatch<ActionTypes>] = [state, () => null]
 export const AdminModuleContext = createContext(defaultValue)
 
 interface AdminModuleProviderProps {
-  reducer: Reducer<State, ActionTypes>
-  initialState: State
+  reducer: Reducer<AdminPanelState, ActionTypes>
+  initialState: AdminPanelState
   children: any
 }
 

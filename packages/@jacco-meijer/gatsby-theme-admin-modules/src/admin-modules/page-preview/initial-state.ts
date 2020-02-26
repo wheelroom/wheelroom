@@ -1,6 +1,6 @@
-import { State } from './types'
+import { AdminModuleState } from './types'
 
-export const initialState: State = {
+export const initialState: AdminModuleState = {
   inPreviewMode: false,
   isFetching: false,
 }

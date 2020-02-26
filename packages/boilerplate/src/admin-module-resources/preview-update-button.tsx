@@ -3,13 +3,13 @@ import { Flex } from '../views/core-elements/grid'
 import { heading4Style } from '../styles/heading'
 import { Spinner } from '../views/spinner/spinner'
 import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
-import { State } from '@jacco-meijer/gatsby-theme-admin-modules'
+import { AdminModuleState } from '@jacco-meijer/gatsby-theme-admin-modules'
 import { getPreviewPageState } from '@jacco-meijer/gatsby-theme-admin-modules'
 import { fetchPage } from '@jacco-meijer/gatsby-theme-admin-modules'
 
 export const PreviewUpdateButton = () => {
   const [adminModuleState] = useAdminModuleReducer()
-  const state: State | undefined = getPreviewPageState(adminModuleState)
+  const state: AdminModuleState | undefined = getPreviewPageState(adminModuleState)
   if (!state || !state.inPreviewMode) {
     return null
   }
