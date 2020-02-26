@@ -1,12 +1,14 @@
 import { Dispatch } from 'react'
 
+export interface AdminModuleStore {
+  state: any
+  dispatch: Dispatch<any>
+  actions: any
+}
+
 export interface AdminModule {
   /** store actions, dispatch and state */
-  store?: {
-    state: any
-    dispatch: Dispatch<any>
-    actions: any
-  }
+  store?: AdminModuleStore
   /** Heading used in admin panel */
   heading: string
   /** Image used in admin panel */

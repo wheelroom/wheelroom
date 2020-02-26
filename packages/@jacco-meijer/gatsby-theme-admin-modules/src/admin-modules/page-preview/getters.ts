@@ -1,6 +1,8 @@
-import { AdminPanelState } from 'gatsby-theme-admin-panel'
+import { AdminPanelState, AdminModuleStore } from 'gatsby-theme-admin-panel'
 
-export const getPreviewPageStore = (adminPanelState: AdminPanelState) => {
+export const getPreviewPageStore = (
+  adminPanelState: AdminPanelState
+): AdminModuleStore | undefined => {
   if (!('pagePreview' in adminPanelState.modules)) {
     return
   }
@@ -16,7 +18,8 @@ export const getPreviewPage = (adminPanelState: AdminPanelState) => {
 
   const pageProps = adminPanelState.pageProps
   const currentPagePath = pageProps && pageProps.path
-  const previewPagePath = store && store.state.previewPage && store.state.previewPage.path
+  const previewPagePath =
+    store && store.state.previewPage && store.state.previewPage.path
   const isFetching = store && store.state.isFetching
   const inPreviewMode = store && store.state.inPreviewMode
 
@@ -24,7 +27,12 @@ export const getPreviewPage = (adminPanelState: AdminPanelState) => {
     store?.actions.fetchPage(adminPanelState)
   }
 
-  if (store && store.state && store.state.inPreviewMode && store.state.previewPage) {
+  if (
+    store &&
+    store.state &&
+    store.state.inPreviewMode &&
+    store.state.previewPage
+  ) {
     return store.state.previewPage
   }
 }

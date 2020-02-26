@@ -8,4 +8,5 @@
 /index.*
 /lib
 /node_modules
+/pages
 /types
