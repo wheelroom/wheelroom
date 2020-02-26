@@ -1,11 +1,11 @@
-import { State as AdminPanelState } from 'gatsby-theme-admin-panel'
-import { State, ActionTypes } from './types'
+import { AdminPanelState } from 'gatsby-theme-admin-panel'
+import { AdminModuleState, ActionTypes } from './types'
 import { Dispatch } from 'react'
 import { fetchPage } from './reducers'
 
 export const getPreviewPageUseReducer = (
   adminModuleState: AdminPanelState
-): [State, Dispatch<ActionTypes>] | undefined => {
+): [AdminModuleState, Dispatch<ActionTypes>] | undefined => {
   if (!('pagePreview' in adminModuleState.modules)) {
     return
   }
@@ -18,12 +18,12 @@ export const getPreviewPageUseReducer = (
 
 export const getPreviewPageState = (
   adminModuleState: AdminPanelState
-): State | undefined => {
+): AdminModuleState | undefined => {
   const pagePreviewUseReducer = getPreviewPageUseReducer(adminModuleState)
   if (!pagePreviewUseReducer) {
     return
   }
-  const [state]: [State, Dispatch<ActionTypes>] = pagePreviewUseReducer
+  const [state]: [AdminModuleState, Dispatch<ActionTypes>] = pagePreviewUseReducer
   return state
 }
 
@@ -34,7 +34,7 @@ export const getPreviewPageDispatch = (
   if (!pagePreviewUseReducer) {
     return
   }
-  const [, dispatch]: [State, Dispatch<ActionTypes>] = pagePreviewUseReducer
+  const [, dispatch]: [AdminModuleState, Dispatch<ActionTypes>] = pagePreviewUseReducer
   return dispatch
 }
 

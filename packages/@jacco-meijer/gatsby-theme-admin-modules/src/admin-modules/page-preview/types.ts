@@ -1,4 +1,4 @@
-export interface State {
+export interface AdminModuleState {
   /** Show page with preview content fetched from Contentful */
   inPreviewMode: boolean
   /** Preview content fetched from contentful */
