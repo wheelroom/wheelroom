@@ -1,16 +1,16 @@
-import { AdminModuleState, ActionTypes } from './types'
+import { PagePreviewState, ActionTypes } from './types'
 import { Dispatch } from 'react'
 import { createPagePreview } from '@jacco-meijer/contentful-page-preview'
-import { AdminPanelState } from 'gatsby-theme-admin-panel'
+import { AdminCoreState } from '@jacco-meijer/admin-core'
 
 export const useActions = (
-  state: AdminModuleState,
+  state: PagePreviewState,
   dispatch: Dispatch<ActionTypes>
 ) => {
-  const fetchPage = (adminPanelState: AdminPanelState) => {
+  const fetchPage = (adminCoreState: AdminCoreState) => {
     console.log('fetPage called')
 
-    const pageProps = adminPanelState.pageProps
+    const pageProps = adminCoreState.pageProps
     const entryId = pageProps.pageContext.pageContentfulId
     const previewSecrets = pageProps.data.site.siteMetadata.secrets
 

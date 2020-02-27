@@ -1,13 +1,13 @@
-import { ActionTypes, AdminPanelState } from './types'
+import { ActionTypes, AdminCoreState } from './types'
 import { Reducer } from 'react'
 
 // const deepCopy = (obj: any) => JSON.parse(JSON.stringify(obj))
 
-export const mainReducer: Reducer<AdminPanelState, ActionTypes> = (
-  state: AdminPanelState,
+export const mainReducer: Reducer<AdminCoreState, ActionTypes> = (
+  state: AdminCoreState,
   action: ActionTypes
-): AdminPanelState => {
-  console.log('REDUCER: admin panel', action)
+): AdminCoreState => {
+  console.log('REDUCER: admin core', action)
   switch (action.type) {
     case 'REGISTER_MODULE':
       return {

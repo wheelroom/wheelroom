@@ -1,22 +1,22 @@
-import { AdminPanelState, AdminModuleStore } from 'gatsby-theme-admin-panel'
+import { AdminCoreState, AdminModuleStore } from '@jacco-meijer/admin-core'
 
 export const getPreviewPageStore = (
-  adminPanelState: AdminPanelState
+  adminCoreState: AdminCoreState
 ): AdminModuleStore | undefined => {
-  if (!('pagePreview' in adminPanelState.modules)) {
+  if (!('pagePreview' in adminCoreState.modules)) {
     return
   }
-  const pagePreview = adminPanelState.modules.pagePreview
+  const pagePreview = adminCoreState.modules.pagePreview
   if (!pagePreview.store) {
     return
   }
   return pagePreview.store
 }
 
-export const getPreviewPage = (adminPanelState: AdminPanelState) => {
-  const store = getPreviewPageStore(adminPanelState)
+export const getPreviewPage = (adminCoreState: AdminCoreState) => {
+  const store = getPreviewPageStore(adminCoreState)
 
-  const pageProps = adminPanelState.pageProps
+  const pageProps = adminCoreState.pageProps
   const currentPagePath = pageProps && pageProps.path
   const previewPagePath =
     store && store.state.previewPage && store.state.previewPage.path
@@ -24,7 +24,7 @@ export const getPreviewPage = (adminPanelState: AdminPanelState) => {
   const inPreviewMode = store && store.state.inPreviewMode
 
   if (currentPagePath !== previewPagePath && !isFetching && inPreviewMode) {
-    store?.actions.fetchPage(adminPanelState)
+    store?.actions.fetchPage(adminCoreState)
   }
 
   if (
@@ -38,9 +38,9 @@ export const getPreviewPage = (adminPanelState: AdminPanelState) => {
 }
 
 export const getPreviewQueryString = (
-  adminPanelState: AdminPanelState
+  adminCoreState: AdminCoreState
 ): string => {
-  const store = getPreviewPageStore(adminPanelState)
+  const store = getPreviewPageStore(adminCoreState)
   if (store && store.state.inPreviewMode) {
     return '?preview'
   } else {

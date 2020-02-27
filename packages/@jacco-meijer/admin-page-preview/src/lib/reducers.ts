@@ -1,9 +1,9 @@
-import { ActionTypes, AdminModuleState } from './types'
+import { ActionTypes, PagePreviewState } from './types'
 
 export const pagePreviewReducer = (
-  state: AdminModuleState,
+  state: PagePreviewState,
   action: ActionTypes
-): AdminModuleState => {
+): PagePreviewState => {
   console.log('REDUCER: page preview', action)
   switch (action.type) {
     case 'SET_PREVIEW_PAGE':

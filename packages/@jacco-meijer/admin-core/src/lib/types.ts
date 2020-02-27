@@ -29,7 +29,7 @@ export interface BaseAction {
   type: string
 }
 
-export interface AdminPanelState {
+export interface AdminCoreState {
   /** All admin modules register here */
   modules: AdminModules
   /** SET_PAGE_PROPS action can save page props here */

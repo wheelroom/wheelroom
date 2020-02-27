@@ -7,7 +7,6 @@
     "@contentful/rich-text-react-renderer": "13.4.0",
     "@contentful/rich-text-types": "14.1.0",
     "@emotion/core": "10.0.27",
-    "@jacco-meijer/contentful-page-preview": "1.1.1",
     "@jacco-meijer/admin-core": "1.0.0",
     "@jacco-meijer/admin-page-preview": "1.0.0",
     "@jacco-meijer/admin-panel": "1.0.0",

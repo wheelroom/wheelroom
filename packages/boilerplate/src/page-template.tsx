@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useContext } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
@@ -9,7 +9,8 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
-import { PreviewUpdateButton } from './admin-module-resources/preview-update-button'
+import { PreviewUpdateButton } from '@jacco-meijer/admin-page-preview'
+import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 const GlobalAStyles = {
   body: {
@@ -22,6 +23,15 @@ const GlobalAStyles = {
 // do so for all pages.
 //
 const PageTemplate = (props: any) => {
+  const { adminCoreState, adminCoreDispatch } = useContext(AdminCoreContext)
+  console.log('render: page', adminCoreState)
+
+  const test = () => {
+    console.log(adminCoreState)
+    adminCoreDispatch({ type: 'SET_PAGE_PROPS', pageProps: { name: 'value' } })
+  }
+  
+
   pageDebug('PageTemplate', props)
   const page: PageProps = props.data.page
   const globals: GlobalsProps = props.data.globals
@@ -66,6 +76,7 @@ const PageTemplate = (props: any) => {
         ...getAllPaddingObject('page'),
       }}
     >
+      <button onClick={test}>test</button>
       <Global styles={GlobalAStyles} />
       <Container>
         <Seo {...seoProps} />

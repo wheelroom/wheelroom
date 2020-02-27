@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect } from 'react'
-import { AdminModules, AdminModule } from '../lib/types'
-import { AdminModuleContext } from '../index'
+import { AdminModules, AdminModule } from '@jacco-meijer/admin-core'
+import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 // TODO: Come up with a real panel ;-)
 
@@ -19,27 +19,25 @@ const Modules = (props: { modules: AdminModules }) => {
   return <ul>{moduleList}</ul>
 }
 
-const AdminPanel = () => {
-  const { adminPanelState, adminPanelDispatch } = useContext(AdminModuleContext)
-  console.log('render: admin panel', adminPanelState.modules)
+export const AdminPanel = () => {
+  const { adminCoreState, adminCoreDispatch } = useContext(AdminCoreContext)
+  console.log('render: admin panel', adminCoreState.modules)
 
   useEffect(() => {
-    console.log('render: admin panel (use effect [adminPanelState])')
-  }, [adminPanelState])
+    console.log('render: admin panel (use effect [adminCoreState])')
+  }, [adminCoreState])
 
   const test = () => {
-    console.log(adminPanelState)
-    adminPanelDispatch({ type: 'SET_PAGE_PROPS', pageProps: { name: 'value' } })
+    console.log(adminCoreState)
+    adminCoreDispatch({ type: 'SET_PAGE_PROPS', pageProps: { name: 'value' } })
   }
 
   return (
     <Fragment>
       <h1>Admin panel</h1>
       <p>This is a work in progress...</p>
-      <Modules modules={adminPanelState.modules} />
+      <Modules modules={adminCoreState.modules} />
       <button onClick={test}>test</button>
     </Fragment>
   )
 }
-
-export default AdminPanel

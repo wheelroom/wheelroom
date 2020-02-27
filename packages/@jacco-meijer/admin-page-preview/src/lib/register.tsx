@@ -1,4 +1,4 @@
-import { RegisterModule } from 'gatsby-theme-admin-panel'
+import { RegisterModule } from '@jacco-meijer/admin-core'
 
 export const registerPagePreview: RegisterModule = {
   type: 'REGISTER_MODULE',

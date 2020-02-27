@@ -49,7 +49,7 @@ module.exports = {
     'gatsby-plugin-emotion',
     {
       options: {
-        exclude: /(node_modules|.cache|public|gatsby-theme-admin-panel|gatsby-theme-admin-modules)/,
+        exclude: /(node_modules|.cache|public|@jacco-meijer\/admin-|)/,
       },
       resolve: 'gatsby-plugin-eslint',
     },

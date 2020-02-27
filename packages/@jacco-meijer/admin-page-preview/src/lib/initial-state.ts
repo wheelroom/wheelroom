@@ -1,6 +1,6 @@
-import { AdminModuleState } from './types'
+import { PagePreviewState } from './types'
 
-export const initialState: AdminModuleState = {
+export const initialState: PagePreviewState = {
   inPreviewMode: false,
   isFetching: false,
 }
