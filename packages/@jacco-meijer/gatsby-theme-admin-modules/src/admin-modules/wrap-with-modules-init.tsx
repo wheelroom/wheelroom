@@ -1,4 +1,4 @@
-import React, {  } from 'react'
+import React from 'react'
 import { ModulesInit } from './page-preview/modules-init'
 
 // This wrapper has the root element around and can therefore access the admin
