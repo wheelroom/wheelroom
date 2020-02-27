@@ -1,23 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Flex } from '../views/core-elements/grid'
 import { heading4Style } from '../styles/heading'
 import { Spinner } from '../views/spinner/spinner'
-import { AdminModuleContext } from 'gatsby-theme-admin-panel'
-import { AdminModuleState } from '@jacco-meijer/gatsby-theme-admin-modules'
-import { getPreviewPageStore } from '@jacco-meijer/gatsby-theme-admin-modules'
 
 export const PreviewUpdateButton = () => {
-  const { adminPanelState } = useContext(AdminModuleContext)
-
-  const store = getPreviewPageStore(adminPanelState)
-
-  const state: AdminModuleState | undefined = store && store.state
-  if (!state || !state.inPreviewMode) {
-    return null
-  }
   const fetch = () => {
-    store?.actions.fetchPage(adminPanelState)
+    console.log('fetch here')
   }
+  const state = { isFetching: false }
 
   return (
     <Flex

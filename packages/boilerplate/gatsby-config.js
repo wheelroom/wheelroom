@@ -22,8 +22,6 @@ if (process.env.NODE_ENV === 'development') {
 
 module.exports = {
   plugins: [
-    `gatsby-theme-admin-panel`,
-    '@jacco-meijer/gatsby-theme-admin-modules',
     {
       options: {
         defaultLocale: 'en-US',
