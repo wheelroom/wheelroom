@@ -19,7 +19,7 @@ const Modules = (props: { modules: AdminModules }) => {
   return <ul>{moduleList}</ul>
 }
 
-const AdminPanel = (props: any) => {
+const AdminPanel = () => {
   const { adminPanelState, adminPanelDispatch } = useContext(AdminModuleContext)
   console.log('render: admin panel', adminPanelState.modules)
 

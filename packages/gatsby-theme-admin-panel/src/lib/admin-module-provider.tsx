@@ -3,7 +3,9 @@ import { ActionTypes } from './types'
 import { initialState } from './initial-state'
 import { mainReducer } from './reducer'
 
-const initialDispatch: Dispatch<ActionTypes> = () => {}
+const initialDispatch: Dispatch<ActionTypes> = () => {
+  console.log('Error: context value found found')
+}
 export const AdminModuleContext = createContext({
   adminPanelState: initialState,
   adminPanelDispatch: initialDispatch,

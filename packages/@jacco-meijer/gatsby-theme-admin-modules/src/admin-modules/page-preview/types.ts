@@ -12,7 +12,7 @@ export interface BaseAction {
 
 export interface SetPreviewPage extends BaseAction {
   type: 'SET_PREVIEW_PAGE'
-  previewPage: any,
+  previewPage: any
 }
 
 export interface SetPreviewMode extends BaseAction {
@@ -25,7 +25,4 @@ export interface SetIsFetching extends BaseAction {
   isFetching: boolean
 }
 
-export type ActionTypes =
-  | SetPreviewMode
-  | SetIsFetching
-  | SetPreviewPage
+export type ActionTypes = SetPreviewMode | SetIsFetching | SetPreviewPage
