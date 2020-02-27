@@ -1,3 +1,3 @@
-# @jacco-meijer/admin-modules
+# @jacco-meijer/admin-page-preview
 
 TBW
