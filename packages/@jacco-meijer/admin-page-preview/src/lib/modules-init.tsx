@@ -9,7 +9,7 @@ import { useActions } from './actions'
 
 export const ModulesInit = (props: any) => {
   console.log('render: modules init')
-  const { adminCoreState, adminCoreDispatch } = useContext(AdminCoreContext)
+  const { adminCoreDispatch } = useContext(AdminCoreContext)
 
   const [pagePreviewState, pagePreviewDispatch] = useReducer(
     pagePreviewReducer,
@@ -33,8 +33,8 @@ export const ModulesInit = (props: any) => {
   }, [])
 
   useEffect(() => {
-    console.log('render: page wrapper (use effect [adminCoreState])')
-  }, [adminCoreState])
+    console.log('render: modules init (use effect [pagePreviewState])')
+  }, [pagePreviewState])
 
   return props.children
 }
