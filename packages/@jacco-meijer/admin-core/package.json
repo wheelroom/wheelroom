@@ -76,10 +76,5 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.0.0",
-  "dependencies": {
-    "@jacco-meijer/contentful-page-preview": "1.1.1",
-    "gatsby-theme-admin-panel": "1.0.3",
-    "query-string": "6.11.0"
-  }
+  "version": "1.0.0"
 }
