@@ -39,14 +39,9 @@
     "node": ">=12.0.0"
   },
   "files": [
-    "gatsby-browser.*",
-    "gatsby-config.*",
-    "gatsby-node.*",
-    "gatsby-ssr.*",
-    "index.*",
-    "lib/*",
-    "pages/*",
-    "types/*"
+    "dist/index.*",
+    "dist/lib/*",
+    "dist/types/*"
   ],
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": [
@@ -56,8 +51,8 @@
     "panel"
   ],
   "license": "MIT",
-  "main": "index.js",
-  "name": "gatsby-theme-admin-panel",
+  "main": "dist/index.js",
+  "name": "admin-panel",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"
