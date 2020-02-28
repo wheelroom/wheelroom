@@ -8,8 +8,8 @@ const dotenv = require('dotenv')
 /**
  * Load environment from .env in development mode
  *
- * The Contentful deleviery tokens are set by gatsby-theme-wheelroom. These
- * tokens are used for setting up a Contentful preview environment
+ * The Contentful delivery tokens are set by gatsby-theme-wheelroom.
+ * These tokens are used for setting up a Contentful preview environment.
  *
  */
 
