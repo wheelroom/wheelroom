@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo Before:
+ls -l @jacco-meijer/admin-core/node_modules/react
+ls -l @jacco-meijer/admin-panel/node_modules/react
+ls -l @jacco-meijer/admin-page-preview/node_modules/react
+ls -l gatsby-theme-wheelroom/node_modules/react
+
+rm -rf @jacco-meijer/admin-core/node_modules/react
+ln -s boilerplate/node_modules/react @jacco-meijer/admin-core/node_modules/react
+
+rm -rf @jacco-meijer/admin-panel/node_modules/react
+ln -s boilerplate/node_modules/react @jacco-meijer/admin-panel/node_modules/react
+
+rm -rf @jacco-meijer/admin-page-preview/node_modules/react 
+ln -s boilerplate/node_modules/react @jacco-meijer/admin-page-preview/node_modules/react
+
+rm -rf gatsby-theme-wheelroom/node_modules/react 
+ln -s boilerplate/node_modules/react gatsby-theme-wheelroom/node_modules/react
+
+echo After
+ls -l @jacco-meijer/admin-core/node_modules/react
+ls -l @jacco-meijer/admin-panel/node_modules/react
+ls -l @jacco-meijer/admin-page-preview/node_modules/react
+ls -l gatsby-theme-wheelroom/node_modules/react
