@@ -1,6 +1,11 @@
 import { RegisterModule } from '@jacco-meijer/admin-core'
 
-export const registerPagePreview: RegisterModule = {
+/**
+ * Action payload dispatched to admin core store. Register this module. Before
+ * registering, the module.store value is provide with a React reducer.
+ *
+ */
+export const pagePreviewRegister: RegisterModule = {
   type: 'REGISTER_MODULE',
   moduleId: 'pagePreview',
   module: {

@@ -1,4 +1,5 @@
 import { AdminCoreState, AdminModuleStore } from '@jacco-meijer/admin-core'
+import { PagePreviewState } from './types'
 
 export const getPreviewPageStore = (
   adminCoreState: AdminCoreState
@@ -14,26 +15,33 @@ export const getPreviewPageStore = (
 }
 
 export const getPreviewPage = (adminCoreState: AdminCoreState) => {
-  const store = getPreviewPageStore(adminCoreState)
-
+  console.log('getPreviewPage: call')
+  const pagePreviewStore = getPreviewPageStore(adminCoreState)
   const pageProps = adminCoreState.pageProps
-  const currentPagePath = pageProps && pageProps.path
-  const previewPagePath =
-    store && store.state.previewPage && store.state.previewPage.path
-  const isFetching = store && store.state.isFetching
-  const inPreviewMode = store && store.state.inPreviewMode
-
-  if (currentPagePath !== previewPagePath && !isFetching && inPreviewMode) {
-    store?.actions.fetchPage(adminCoreState)
+  if (!pagePreviewStore || !pageProps) {
+    return
   }
-
+  console.log('getPreviewPage: call step 1')
+  const pagePreviewState: PagePreviewState = pagePreviewStore.state
+  if (!pagePreviewState.inPreviewMode) {
+    return
+  }
+  const previewPage = pagePreviewState.previewPage
+  console.log('getPreviewPage: call step 2')
   if (
-    store &&
-    store.state &&
-    store.state.inPreviewMode &&
-    store.state.previewPage
+    !pagePreviewState.isFetching &&
+    (!previewPage || pageProps.path !== previewPage.path)
   ) {
-    return store.state.previewPage
+    console.log('getPreviewPage: fetching')
+    pagePreviewStore.actions.fetchPage(adminCoreState)
+  }
+  console.log(
+    'getPreviewPage: call step 3',
+    pageProps.path,
+    previewPage && previewPage.path
+  )
+  if (previewPage) {
+    return previewPage
   }
 }
 

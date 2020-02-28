@@ -60,7 +60,6 @@
     "url": "git+https://github.com/jaccomeijer/wheelroom.git"
   },
   "peerDependencies": {
-    "@emotion/core": "10.x",
     "@reach/router": "1.x",
     "gatsby": "2.x",
     "react": "16.x",

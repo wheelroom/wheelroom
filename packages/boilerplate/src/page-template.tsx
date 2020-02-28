@@ -9,7 +9,7 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
-import { PreviewUpdateButton } from '@jacco-meijer/admin-page-preview'
+import { PreviewUpdateButton, getPreviewPage } from '@jacco-meijer/admin-page-preview'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 const GlobalAStyles = {
@@ -23,17 +23,12 @@ const GlobalAStyles = {
 // do so for all pages.
 //
 const PageTemplate = (props: any) => {
-  const { adminCoreState, adminCoreDispatch } = useContext(AdminCoreContext)
+  const { adminCoreState } = useContext(AdminCoreContext)
   console.log('render: page', adminCoreState)
-
-  const test = () => {
-    console.log(adminCoreState)
-    adminCoreDispatch({ type: 'SET_PAGE_PROPS', pageProps: { name: 'value' } })
-  }
-  
+  const previewPage = getPreviewPage(adminCoreState)
 
   pageDebug('PageTemplate', props)
-  const page: PageProps = props.data.page
+  const page: PageProps = previewPage || props.data.page
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
   const locale = props.pageContext.locale
@@ -76,7 +71,6 @@ const PageTemplate = (props: any) => {
         ...getAllPaddingObject('page'),
       }}
     >
-      <button onClick={test}>test</button>
       <Global styles={GlobalAStyles} />
       <Container>
         <Seo {...seoProps} />

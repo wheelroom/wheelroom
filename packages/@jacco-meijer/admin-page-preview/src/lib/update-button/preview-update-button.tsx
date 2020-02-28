@@ -4,12 +4,25 @@ import { Spinner } from './spinner'
 import { useContext } from 'react'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { getPreviewPageStore } from '../getters'
+import { PagePreviewState } from '../types'
+
+/** 
+ * Default preview update buttom 
+ *
+ * Once a proper admin panel is in place, fetching a preview can be triggered
+ * from there.
+ *
+ */
 
 export const PreviewUpdateButton = () => {
   const { adminCoreState } = useContext(AdminCoreContext)
   console.log('render: preview button', adminCoreState.modules)
   const store = getPreviewPageStore(adminCoreState)
   if (!store) {
+    return null
+  }
+  const pagePreviewState: PagePreviewState = store.state
+  if (!pagePreviewState.inPreviewMode) {
     return null
   }
   const fetch = () => {

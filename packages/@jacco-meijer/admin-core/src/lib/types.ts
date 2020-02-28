@@ -34,7 +34,8 @@ export interface AdminCoreState {
   modules: AdminModules
   /** SET_PAGE_PROPS action can save page props here */
   pageProps?: any
-  [id: string]: any
+  /** Module id of which state updated - '*' for matching all */
+  lastModuleId: string
 }
 
 export interface RegisterModule extends BaseAction {
@@ -43,9 +44,14 @@ export interface RegisterModule extends BaseAction {
   module: AdminModule
 }
 
+export interface SetLastModuleId extends BaseAction {
+  type: 'SET_LAST_MODULE_ID'
+  moduleId: string
+}
+
 export interface SetPageProps extends BaseAction {
   type: 'SET_PAGE_PROPS'
   pageProps: any
 }
 
-export type ActionTypes = RegisterModule | SetPageProps
+export type ActionTypes = RegisterModule | SetPageProps | SetLastModuleId

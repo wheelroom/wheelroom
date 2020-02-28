@@ -24,6 +24,12 @@ export const mainReducer: Reducer<AdminCoreState, ActionTypes> = (
         pageProps: action.pageProps,
       }
 
+    case 'SET_LAST_MODULE_ID':
+      return {
+        ...state,
+        lastModuleId: action.moduleId,
+      }
+
     default:
       return state
   }
