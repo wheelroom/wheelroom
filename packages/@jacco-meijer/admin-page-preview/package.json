@@ -75,11 +75,11 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "@emotion/core": "10.0.28",
-    "@jacco-meijer/admin-core": "1.x",
-    "@jacco-meijer/admin-panel": "1.x",
+    "@jacco-meijer/admin-core": "^1.0.1",
+    "@jacco-meijer/admin-panel": "^1.0.1",
     "@jacco-meijer/contentful-page-preview": "1.1.1",
     "query-string": "6.11.0"
   }
