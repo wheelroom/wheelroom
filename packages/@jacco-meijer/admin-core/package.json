@@ -44,6 +44,7 @@
     "dist/lib/*",
     "dist/types/*"
   ],
+  "gitHead": "39bdcd117386e393ae219c27e4022589a004648d",
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": [
     "gatsby",
@@ -55,10 +56,6 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/admin-core",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
-  },
   "peerDependencies": {
     "@emotion/core": "10.x",
     "@reach/router": "1.x",
@@ -66,12 +63,19 @@
     "react": "16.x",
     "react-dom": "16.x"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+  },
   "scripts": {
     "build": "npm-run-all build:*",
-    "install-peers": "npm-install-peers",
     "build:clean": "rm -f ./gatsby-config.* ./gatsby-node.*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "install-peers": "npm-install-peers",
     "prepack": "npm run build",
     "test": "npm run build:test"
   },

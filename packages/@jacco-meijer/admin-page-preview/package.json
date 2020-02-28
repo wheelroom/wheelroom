@@ -15,6 +15,13 @@
   "bugs": {
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
+  "dependencies": {
+    "@emotion/core": "10.0.28",
+    "@jacco-meijer/admin-core": "^1.0.1",
+    "@jacco-meijer/admin-panel": "^1.0.1",
+    "@jacco-meijer/contentful-page-preview": "1.1.1",
+    "query-string": "6.11.0"
+  },
   "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
     "@types/jest": "24.0.25",
@@ -44,6 +51,7 @@
     "dist/lib/*",
     "dist/types/*"
   ],
+  "gitHead": "39bdcd117386e393ae219c27e4022589a004648d",
   "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "keywords": [
     "gatsby",
@@ -55,32 +63,28 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/admin-page-preview",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
-  },
   "peerDependencies": {
     "@reach/router": "1.x",
     "gatsby": "2.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+  },
   "scripts": {
     "build": "npm-run-all build:*",
-    "install-peers": "npm-install-peers",
     "build:clean": "rm -f ./gatsby-config.* ./gatsby-node.*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "install-peers": "npm-install-peers",
     "prepack": "npm run build",
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.0.1",
-  "dependencies": {
-    "@emotion/core": "10.0.28",
-    "@jacco-meijer/admin-core": "^1.0.1",
-    "@jacco-meijer/admin-panel": "^1.0.1",
-    "@jacco-meijer/contentful-page-preview": "1.1.1",
-    "query-string": "6.11.0"
-  }
+  "version": "1.0.1"
 }
