@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useContext } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
@@ -9,6 +9,11 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
+import {
+  PreviewUpdateButton,
+  getPreviewPage,
+} from '@jacco-meijer/admin-page-preview'
+import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 const GlobalAStyles = {
   body: {
@@ -23,7 +28,11 @@ const GlobalAStyles = {
 const PageTemplate = (props: any) => {
   pageDebug('PageTemplate', props)
 
-  const page: PageProps = props.data.page
+  // Get preview page from admin core state if available
+  const { adminCoreState } = useContext(AdminCoreContext)
+  const previewPage = getPreviewPage(adminCoreState)
+  const page: PageProps = previewPage || props.data.page
+
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
   const locale = props.pageContext.locale
@@ -70,6 +79,7 @@ const PageTemplate = (props: any) => {
       <Container>
         <Seo {...seoProps} />
         <Sections {...sectionProps} />
+        <PreviewUpdateButton />
       </Container>
     </Box>
   )

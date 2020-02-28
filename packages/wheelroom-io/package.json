@@ -1,17 +1,15 @@
 {
-  "author": "Wheelroom",
-  "contributors": [
-    "Jacco Meijer",
-    "Thijs Krooswijk"
-  ],
+  "author": "Jacco Meijer",
   "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom-io/issues"
+    "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "13.4.0",
     "@contentful/rich-text-types": "14.1.0",
     "@emotion/core": "10.0.27",
-    "@jacco-meijer/contentful-page-preview": "1.1.1",
+    "@jacco-meijer/admin-core": "^1.0.1",
+    "@jacco-meijer/admin-page-preview": "^1.0.1",
+    "@jacco-meijer/admin-panel": "^1.0.1",
     "@jacco-meijer/styled-system": "3.0.4",
     "@jacco-meijer/wheelroom": "^3.6.1",
     "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.6.8",
@@ -21,15 +19,15 @@
     "camelcase": "5.3.1",
     "dotenv": "8.2.0",
     "emotion-theming": "10.0.27",
-    "gatsby": "2.19.21",
+    "gatsby": "2.19.18",
     "gatsby-plugin-emotion": "4.1.22",
-    "gatsby-plugin-manifest": "2.2.42",
+    "gatsby-plugin-manifest": "2.2.41",
     "gatsby-plugin-offline": "3.0.35",
     "gatsby-plugin-react-helmet": "3.1.22",
     "gatsby-plugin-schema-snapshot": "1.0.0",
     "gatsby-plugin-typescript": "2.1.27",
     "gatsby-plugin-web-font-loader": "1.0.4",
-    "gatsby-source-contentful": "2.1.87",
+    "gatsby-source-contentful": "2.1.86",
     "gatsby-source-filesystem": "2.1.48",
     "gatsby-theme-wheelroom": "^3.3.0",
     "gatsby-transformer-json": "2.2.26",
@@ -39,27 +37,18 @@
     "react-helmet": "5.2.1",
     "yargs": "15.1.0"
   },
-  "description": "A JAMstack boilerplate for services, like Gatsby, Contentful, Netlify and much more",
-  "keywords": [
-    "wheelroom",
-    "gatsby",
-    "contentful",
-    "netlify",
-    "cli",
-    "react",
-    "typescript"
-  ],
+  "description": "Gatsby static site boilerplate with React and Typescript",
   "devDependencies": {
-    "@svgr/cli": "5.2.0",
+    "@svgr/cli": "5.1.0",
     "@types/dotenv": "8.2.0",
     "@types/fs-extra": "8.1.0",
-    "@types/node": "13.7.4",
-    "@types/react": "16.9.22",
+    "@types/node": "13.7.2",
+    "@types/react": "16.9.20",
     "@types/react-dom": "16.9.5",
     "@types/react-helmet": "5.0.15",
     "@types/yargs": "15.0.3",
-    "@typescript-eslint/eslint-plugin": "2.21.0",
-    "@typescript-eslint/parser": "2.21.0",
+    "@typescript-eslint/eslint-plugin": "2.20.0",
+    "@typescript-eslint/parser": "2.20.0",
     "conventional-changelog-cli": "2.0.31",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
@@ -70,19 +59,19 @@
     "gatsby-plugin-eslint": "2.0.8",
     "npm-run-all": "4.1.5",
     "prettier": "1.19.1",
-    "typescript": "3.8.2"
+    "typescript": "3.7.5"
   },
   "engines": {
     "node": ">=12.0.0"
   },
-  "homepage": "https://github.com/wheelroom/wheelroom-io#readme",
+  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "wheelroom-io",
+  "name": "boilerplate",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom-io.git"
+    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
   },
   "scripts": {
     "lint-fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
@@ -107,5 +96,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "1.0.0"
+  "version": "5.1.3"
 }
