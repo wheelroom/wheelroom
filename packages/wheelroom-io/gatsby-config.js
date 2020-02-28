@@ -24,13 +24,6 @@ module.exports = {
   plugins: [
     {
       options: {
-        path: '/admin',
-        template: path.resolve(`./src/admin-modules/admin-panel.tsx`),
-      },
-      resolve: `gatsby-theme-admin-panel`,
-    },
-    {
-      options: {
         defaultLocale: 'en-US',
         pageTemplate: path.resolve('./src/page-template.tsx'),
         queries: [globalsQuery, pageQuery],

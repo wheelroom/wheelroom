@@ -2,12 +2,8 @@
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
 import { emotionCss } from './emotion-css'
-import { useAdminModuleReducer } from 'gatsby-theme-admin-panel'
-import { getPreviewQueryString } from '../../admin-modules/page-preview/getters'
 
 export const GLink = (props: any) => {
-  const [adminModuleState] = useAdminModuleReducer()
-
   return (
     <Link
       css={emotionCss({
@@ -17,7 +13,7 @@ export const GLink = (props: any) => {
           ...props.ncss,
         },
       })}
-      to={props.to + getPreviewQueryString(adminModuleState)}
+      to={props.to + ''}
     >
       {props.children}
     </Link>

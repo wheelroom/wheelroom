@@ -31,7 +31,6 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.1.87",
     "gatsby-source-filesystem": "2.1.48",
-    "gatsby-theme-admin-panel": "^1.0.3",
     "gatsby-theme-wheelroom": "^3.3.0",
     "gatsby-transformer-json": "2.2.26",
     "query-string": "6.11.0",
