@@ -8,11 +8,11 @@ export const Spinner = () => {
     borderRadius: '50%',
     borderTopColor: '#555',
     borderStyle: 'solid',
-    borderTopWidth: '8px',
-    borderWidth: '8px',
+    borderTopWidth: '4px',
+    borderWidth: '4px',
     display: 'inline-block',
-    height: '40px',
-    width: '40px',
+    height: '30px',
+    width: '30px',
 
     '@keyframes spin': {
       '0%': { transform: 'rotate(0deg)' },

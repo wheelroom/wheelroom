@@ -8,8 +8,6 @@ export const useActions = (
   dispatch: Dispatch<ActionTypes>
 ) => {
   const fetchPage = (adminCoreState: AdminCoreState) => {
-    console.log('fetPage called')
-
     const pageProps = adminCoreState.pageProps
     const entryId = pageProps.pageContext.pageContentfulId
     const previewSecrets = pageProps.data.site.siteMetadata.secrets

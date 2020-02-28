@@ -7,6 +7,5 @@ const UseAdminModules = (props: any) => {
 }
 
 export const wrapWithUseAdminModules = (args: { props: any; element: any }) => {
-  console.log('render: page wrapper')
   return <UseAdminModules {...args.props}>{args.element}</UseAdminModules>
 }

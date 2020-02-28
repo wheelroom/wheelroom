@@ -15,31 +15,26 @@ export const getPreviewPageStore = (
 }
 
 export const getPreviewPage = (adminCoreState: AdminCoreState) => {
-  console.log('getPreviewPage: call')
   const pagePreviewStore = getPreviewPageStore(adminCoreState)
   const pageProps = adminCoreState.pageProps
   if (!pagePreviewStore || !pageProps) {
+    // Make sure the preview store has been initialized
     return
   }
-  console.log('getPreviewPage: call step 1')
   const pagePreviewState: PagePreviewState = pagePreviewStore.state
   if (!pagePreviewState.inPreviewMode) {
+    // Make sure we're in preview mode
     return
   }
   const previewPage = pagePreviewState.previewPage
-  console.log('getPreviewPage: call step 2')
   if (
     !pagePreviewState.isFetching &&
     (!previewPage || pageProps.path !== previewPage.path)
   ) {
-    console.log('getPreviewPage: fetching')
+    // If there's no preview yet, or we navigated to another page. Fetch a fresh
+    // copy.
     pagePreviewStore.actions.fetchPage(adminCoreState)
   }
-  console.log(
-    'getPreviewPage: call step 3',
-    pageProps.path,
-    previewPage && previewPage.path
-  )
   if (previewPage) {
     return previewPage
   }

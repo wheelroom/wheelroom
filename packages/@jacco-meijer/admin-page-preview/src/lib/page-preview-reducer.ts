@@ -4,7 +4,6 @@ export const pagePreviewReducer = (
   state: PagePreviewState,
   action: ActionTypes
 ): PagePreviewState => {
-  console.log('REDUCER: page preview', action)
   switch (action.type) {
     case 'SET_PREVIEW_PAGE':
       return { ...state, previewPage: action.previewPage }

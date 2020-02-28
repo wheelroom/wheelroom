@@ -1,11 +1,10 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { AdminModules, AdminModule } from '@jacco-meijer/admin-core'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 // TODO: Come up with a real panel ;-)
 
 const Modules = (props: { modules: AdminModules }) => {
-  console.log('render: modules', props.modules)
   const moduleList = Object.entries(props.modules).map(
     ([moduleName, module]: [string, AdminModule]) => {
       return (
@@ -21,11 +20,6 @@ const Modules = (props: { modules: AdminModules }) => {
 
 export const AdminPanel = () => {
   const { adminCoreState, adminCoreDispatch } = useContext(AdminCoreContext)
-  console.log('render: admin panel', adminCoreState.modules)
-
-  useEffect(() => {
-    console.log('render: admin panel (use effect [adminCoreState])')
-  }, [adminCoreState])
 
   const test = () => {
     console.log(adminCoreState)

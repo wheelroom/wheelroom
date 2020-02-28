@@ -19,7 +19,6 @@ import { useActions } from './use-actions'
  *
  */
 export const usePagePreview = (pageProps: any) => {
-  console.log('render: modules init')
   const { adminCoreDispatch } = useContext(AdminCoreContext)
 
   const [pagePreviewState, pagePreviewDispatch] = useReducer(
@@ -39,13 +38,11 @@ export const usePagePreview = (pageProps: any) => {
   }
   useEffect(() => {
     // Register module only once
-    console.log('render: modules init (use effect [])')
     adminCoreDispatch(pagePreviewRegister)
   }, [])
 
   useEffect(() => {
     // Update page props
-    console.log('render: modules init (use effect [pageProps])')
     adminCoreDispatch({
       type: 'SET_PAGE_PROPS',
       pageProps,
@@ -53,7 +50,6 @@ export const usePagePreview = (pageProps: any) => {
   }, [pageProps])
 
   useEffect(() => {
-    console.log('render: modules init (use effect [pagePreviewState])')
     adminCoreDispatch({
       type: 'SET_LAST_MODULE_ID',
       moduleId: pagePreviewRegister.moduleId,

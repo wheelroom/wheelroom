@@ -9,7 +9,10 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import { getAllPaddingObject } from './styles/global-padding'
 import { Box, Container } from './views/core-elements/grid'
-import { PreviewUpdateButton, getPreviewPage } from '@jacco-meijer/admin-page-preview'
+import {
+  PreviewUpdateButton,
+  getPreviewPage,
+} from '@jacco-meijer/admin-page-preview'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 const GlobalAStyles = {
@@ -23,12 +26,13 @@ const GlobalAStyles = {
 // do so for all pages.
 //
 const PageTemplate = (props: any) => {
-  const { adminCoreState } = useContext(AdminCoreContext)
-  console.log('render: page', adminCoreState)
-  const previewPage = getPreviewPage(adminCoreState)
-
   pageDebug('PageTemplate', props)
+
+  // Get preview page from admin core state if available
+  const { adminCoreState } = useContext(AdminCoreContext)
+  const previewPage = getPreviewPage(adminCoreState)
   const page: PageProps = previewPage || props.data.page
+
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
   const locale = props.pageContext.locale

@@ -7,7 +7,6 @@ export const mainReducer: Reducer<AdminCoreState, ActionTypes> = (
   state: AdminCoreState,
   action: ActionTypes
 ): AdminCoreState => {
-  console.log('REDUCER: admin core', action)
   switch (action.type) {
     case 'REGISTER_MODULE':
       return {

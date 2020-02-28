@@ -6,8 +6,8 @@ import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { getPreviewPageStore } from '../getters'
 import { PagePreviewState } from '../types'
 
-/** 
- * Default preview update buttom 
+/**
+ * Default preview update buttom
  *
  * Once a proper admin panel is in place, fetching a preview can be triggered
  * from there.
@@ -16,7 +16,6 @@ import { PagePreviewState } from '../types'
 
 export const PreviewUpdateButton = () => {
   const { adminCoreState } = useContext(AdminCoreContext)
-  console.log('render: preview button', adminCoreState.modules)
   const store = getPreviewPageStore(adminCoreState)
   if (!store) {
     return null
@@ -36,19 +35,21 @@ export const PreviewUpdateButton = () => {
         alignItems: 'center',
         backgroundColor: '#eee',
         borderColor: '#ccc',
-        borderRadius: '10px',
+        borderRadius: '5px',
         borderStyle: 'solid',
-        borderWidth: '10px',
+        borderWidth: '2px',
         cursor: 'pointer',
         display: 'flex',
+        fontFamily: 'sans-serif',
+        fontSize: '1em',
         flexDirection: 'row',
-        height: '70px',
+        height: '40px',
         justifyContent: 'center',
         padding: '5px',
         position: 'fixed',
         right: '30px',
         top: '30px',
-        width: '150px',
+        width: '100px',
       }}
     >
       {store.state.isFetching ? <Spinner /> : 'Update'}
