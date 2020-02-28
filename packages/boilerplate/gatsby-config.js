@@ -24,13 +24,6 @@ module.exports = {
   plugins: [
     {
       options: {
-        path: '/admin',
-        template: path.resolve(`./src/admin-modules/admin-panel.tsx`),
-      },
-      resolve: `gatsby-theme-admin-panel`,
-    },
-    {
-      options: {
         defaultLocale: 'en-US',
         pageTemplate: path.resolve('./src/page-template.tsx'),
         queries: [globalsQuery, pageQuery],
@@ -56,7 +49,7 @@ module.exports = {
     'gatsby-plugin-emotion',
     {
       options: {
-        exclude: /(node_modules|.cache|public|gatsby-theme-admin-panel)/,
+        exclude: /(node_modules|.cache|public|@jacco-meijer\/admin-|)/,
       },
       resolve: 'gatsby-plugin-eslint',
     },

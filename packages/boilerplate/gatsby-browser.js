@@ -1,5 +1,7 @@
-/* eslint-disable */
+import { wrapWithProvider } from '@jacco-meijer/admin-core'
+import { wrapWithUseAdminModules } from './src/admin-resources/wrap-with-use-admin-modules'
 
-const { wrapWithModulesInit } = require('./src/admin-modules/wrap-with-modules-init')
-export const wrapPageElement = wrapWithModulesInit
+export const wrapRootElement = wrapWithProvider
+export const wrapPageElement = wrapWithUseAdminModules
+
 export const onServiceWorkerUpdateReady = () => window.location.reload(true)
