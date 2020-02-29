@@ -9,9 +9,8 @@ interface NavLinksProps {
 export const NavLinks = (props: NavLinksProps) => (
   <Fragment>
     {props.pages.map((page: PageProps) => (
-      <li key={page.toString()}>
+      <li key={page.path}>
         <GLink
-          key={page.path}
           to={page.path}
           ncss={{
             ...navigationHeadingStyle,
