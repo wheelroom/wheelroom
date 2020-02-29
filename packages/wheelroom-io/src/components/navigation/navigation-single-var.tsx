@@ -7,14 +7,27 @@
  */
 
 import React from 'react'
-import { Flex } from '../../views/core-elements/grid'
 import { NavLinks } from './nav-links'
 import { NavigationProps } from './navigation'
+import { emotionCss } from '../../views/core-elements/emotion-css'
 
 export const NavigationSingleVar = (props: NavigationProps) => {
   return (
-    <Flex ncss={{ bg: 'white', p: 3 }}>
+    <ul
+      css={emotionCss({
+        ncss: {
+          display: 'flex',
+          flexDirection: 'row',
+          listStyle: 'none',
+          flexWrap: 'wrap',
+          mb: 0,
+          mt: 0,
+          pl: 0,
+          ...props.ncss,
+        },
+      })}
+    >
       <NavLinks pages={props.pages} />
-    </Flex>
+    </ul>
   )
 }

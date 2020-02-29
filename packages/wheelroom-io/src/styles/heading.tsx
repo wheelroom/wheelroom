@@ -52,8 +52,11 @@ export const navigationHeadingStyle = {
   fontSize: [3, 4],
   m: 0,
   mr: 3,
+  pl: 1,
+  pr: 1,
+  pt: 3,
+  pb: 3,
   textDecoration: 'none',
   '&:hover': { textDecoration: 'underline' },
   '&:focus': { textDecoration: 'underline', color: 'amber' },
-  '&:last-child': { mr: 0 },
 }
