@@ -7,19 +7,13 @@ import { pageDebug } from './lib/debug'
 import { getOpenerOrPageImage } from './lib/get-opener-or-page-image'
 import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
-import { getAllPaddingObject } from './styles/global-padding'
-import { Box, Container } from './views/core-elements/grid'
 import {
   PreviewUpdateButton,
   getPreviewPage,
 } from '@jacco-meijer/admin-page-preview'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
-const GlobalAStyles = {
-  body: {
-    margin: 0,
-  },
-}
+import { GlobalStyles } from './styles/global-styles'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -71,7 +65,7 @@ const PageTemplate = (props: any) => {
 
   return (
     <>
-      <Global styles={GlobalAStyles} />
+      <Global styles={GlobalStyles} />
       <Seo {...seoProps} />
       <Sections {...sectionProps} />
       <PreviewUpdateButton />
