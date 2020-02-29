@@ -12,8 +12,6 @@ export const GLink = (props: any) => {
     <Link
       css={emotionCss({
         ncss: {
-          display: 'inline-block',
-          textDecoration: 'none',
           ...props.ncss,
         },
       })}
