@@ -70,18 +70,12 @@ const PageTemplate = (props: any) => {
   }
 
   return (
-    <Box
-      ncss={{
-        ...getAllPaddingObject('page'),
-      }}
-    >
+    <>
       <Global styles={GlobalAStyles} />
-      <Container>
-        <Seo {...seoProps} />
-        <Sections {...sectionProps} />
-        <PreviewUpdateButton />
-      </Container>
-    </Box>
+      <Seo {...seoProps} />
+      <Sections {...sectionProps} />
+      <PreviewUpdateButton />
+    </>
   )
 }
 
