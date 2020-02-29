@@ -14,6 +14,7 @@ import {
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 import { GlobalStyles } from './styles/global-styles'
+import { GlobalReset } from './styles/global-reset'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -65,7 +66,7 @@ const PageTemplate = (props: any) => {
 
   return (
     <>
-      <Global styles={GlobalStyles} />
+      <Global styles={[GlobalStyles, GlobalReset]} />
       <Seo {...seoProps} />
       <Sections {...sectionProps} />
       <PreviewUpdateButton />
