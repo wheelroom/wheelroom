@@ -26,6 +26,7 @@ export const OpenerSectionNormalePaginaVar = (props: OpenerSectionProps) => {
 
   return (
     <Fragment>
+      <Navigation pages={props.navigation.pages} />
       <Box ncss={{ w: [1], height: [5, 5, 6, 6], position: 'relative' }}>
         <Box ncss={{ position: 'relative', h: '100%' }}>
           <Image image={image} objectFit="cover" height="100%" />
@@ -57,9 +58,7 @@ export const OpenerSectionNormalePaginaVar = (props: OpenerSectionProps) => {
             top: 0,
             w: 1,
           }}
-        >
-          <Navigation pages={props.navigation.pages} />
-        </Flex>
+        ></Flex>
       </Box>
     </Fragment>
   )
