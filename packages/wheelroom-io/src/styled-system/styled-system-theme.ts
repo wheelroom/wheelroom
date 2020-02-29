@@ -15,13 +15,13 @@ export const styledSystemTheme: StyledSystemTheme = {
   },
   fontMap: {
     heading:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI" , Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
     text:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI" , Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
   },
-  fontSizeScale: [0, 12, 14, 16, 18, 22, 27, 33, 40, 48, 57, 67, 78, 90],
-  fontWeightScale: [0, 100, 200, 300, 400, 500, 600, 700, 800, 900],
-  heightScale: [0, 100, 200, 300, 400, 500, 600, 700, 800, 900],
-  lineHeightScale: [0, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2],
-  spaceScale: [0, 4, 9, 15, 22, 30, 39, 49, 60, 72, 85],
+  fontSizeScale: [10, 12, 14, 16, 20, 24, 32, 42, 56, 72],
+  fontWeightScale: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+  heightScale: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+  lineHeightScale: [1, 1.15, 1.25, 1.5],
+  spaceScale: [0, 4, 8, 16, 24, 32, 40, 48, 64, 72],
 }
