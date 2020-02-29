@@ -1,34 +1,19 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { emotionCss } from './emotion-css'
-
-export type ElementName =
-  | 'a'
-  | 'applet'
-  | 'button'
-  | 'form'
-  | 'frame'
-  | 'iframe'
-  | 'img'
-  | 'input'
-  | 'map'
-  | 'meta'
-  | 'object'
-  | 'param'
-  | 'select'
-  | 'textarea>'
+import { InlineElementName, BlockLevelElementName } from './styles'
 
 export interface GridProps {
   /** Render as another HTML element */
-  is: ElementName
+  is?: InlineElementName | BlockLevelElementName
   /** React children */
-  children: any
+  children?: any
   /** Nested emotion css styling */
-  ncss: any
+  ncss?: any
 }
 
 export interface BoxProps extends GridProps {
-  onClick: () => any
+  onClick?: () => any
 }
 
 export const Box = (props: BoxProps) => {
@@ -43,7 +28,7 @@ export const Box = (props: BoxProps) => {
 }
 
 export interface FlexProps extends GridProps {
-  onClick: () => any
+  onClick?: () => any
 }
 
 export const Flex = (props: FlexProps) => {
@@ -63,7 +48,7 @@ export const Flex = (props: FlexProps) => {
 }
 
 export interface ContainerProps extends GridProps {
-  onClick: () => any
+  onClick?: () => any
 }
 
 export const Container = (props: ContainerProps) => {

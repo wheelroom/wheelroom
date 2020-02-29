@@ -31,9 +31,11 @@ import { ALink } from '../../views/core-elements/a-link'
 import { GLink } from '../../views/core-elements/g-link'
 import { Box, Flex } from '../../views/core-elements/grid'
 import { H1, H2, H3, H4, H5, H6 } from '../../views/core-elements/heading'
-import { Text, Span, Ul, Li } from '../../views/core-elements/text'
+import { Paragraph } from '../../views/core-elements/paragraph'
 import { FluidImage, Image } from '../../views/image/image'
 import { TextSectionProps } from './text-section'
+import { Any } from '../../views/core-elements/any'
+import { List } from '../../views/core-elements/list'
 
 type Node = any
 type Children = any
@@ -81,25 +83,32 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
     },
     renderMark: {
       [MARKS.BOLD]: text => (
-        <Span
+        <Any
+          is="span"
           ncss={{
             fontWeight: 7,
           }}
         >
           {text}
-        </Span>
+        </Any>
       ),
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
-        return <Text ncss={{ ...paragraph1Style }}>{children}</Text>
+        return <Paragraph ncss={{ ...paragraph1Style }}>{children}</Paragraph>
       },
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
-        return <Ul ncss={{ ...paragraph1Style }}>{children}</Ul>
+        return (
+          <List is="ul" ncss={{ ...paragraph1Style }}>
+            {children}
+          </List>
+        )
       },
       [BLOCKS.LIST_ITEM]: (_node: Node, children: Children) => {
         return (
-          <Li ncss={{ ...paragraph1Style, pb: 0, p: { pb: 0 } }}>{children}</Li>
+          <List is="li" ncss={{ ...paragraph1Style, pb: 0, p: { pb: 0 } }}>
+            {children}
+          </List>
         )
       },
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {

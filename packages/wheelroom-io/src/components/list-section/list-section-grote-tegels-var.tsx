@@ -16,7 +16,7 @@ import { paragraph2Style } from '../../styles/paragraph'
 import { GLink } from '../../views/core-elements/g-link'
 import { Box, Flex } from '../../views/core-elements/grid'
 import { H3 } from '../../views/core-elements/heading'
-import { Text } from '../../views/core-elements/text'
+import { Paragraph } from '../../views/core-elements/paragraph'
 import { Image } from '../../views/image/image'
 import { ListSectionProps } from './list-section'
 import { ListSectionHeading } from './list-section-heading'
@@ -53,9 +53,9 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
             >
               {heading}
             </H3>
-            <Text ncss={{ ...paragraph2Style, color: 'white' }}>
+            <Paragraph ncss={{ ...paragraph2Style, color: 'white' }}>
               {abstract}
-            </Text>
+            </Paragraph>
           </Box>
           <Box ncss={{ w: [1, 1 / 3] }}>
             <Image image={image} height={[1, 2, 2, 2]} />

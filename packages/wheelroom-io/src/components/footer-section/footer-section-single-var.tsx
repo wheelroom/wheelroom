@@ -10,7 +10,7 @@ import React from 'react'
 import { getAllPaddingObject } from '../../styles/global-padding'
 import { paragraph1Style } from '../../styles/paragraph'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Text } from '../../views/core-elements/text'
+import { Paragraph } from '../../views/core-elements/paragraph'
 import { NavLinks } from '../navigation/nav-links'
 import { FooterSectionProps } from './footer-section'
 
@@ -49,11 +49,17 @@ export const FooterSectionSingleVar = (props: FooterSectionProps) => {
             flexDirection: 'column',
           }}
         >
-          <Text ncss={addressStyle}>{props.globals.addressLine1}</Text>
-          <Text ncss={addressStyle}>{props.globals.addressLine2}</Text>
+          <Paragraph ncss={addressStyle}>
+            {props.globals.addressLine1}
+          </Paragraph>
+          <Paragraph ncss={addressStyle}>
+            {props.globals.addressLine2}
+          </Paragraph>
           <Box ncss={{ p: 3 }} />
-          <Text ncss={addressStyle}>{props.globals.phoneNumber}</Text>
-          <Text ncss={addressStyle}>{props.globals.emailAddress}</Text>
+          <Paragraph ncss={addressStyle}>{props.globals.phoneNumber}</Paragraph>
+          <Paragraph ncss={addressStyle}>
+            {props.globals.emailAddress}
+          </Paragraph>
         </Flex>
       </Flex>
     </Flex>

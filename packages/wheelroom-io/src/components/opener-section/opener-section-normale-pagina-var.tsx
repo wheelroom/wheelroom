@@ -12,7 +12,7 @@ import { heading1Style } from '../../styles/heading'
 import { paragraph2Style } from '../../styles/paragraph'
 import { Box, Flex } from '../../views/core-elements/grid'
 import { H1 } from '../../views/core-elements/heading'
-import { Text } from '../../views/core-elements/text'
+import { Paragraph } from '../../views/core-elements/paragraph'
 import { Image } from '../../views/image/image'
 import { Navigation } from '../navigation'
 import { OpenerSectionProps } from './opener-section'
@@ -41,14 +41,14 @@ export const OpenerSectionNormalePaginaVar = (props: OpenerSectionProps) => {
           }}
         >
           <H1 ncss={heading1Style}>{heading}</H1>
-          <Text
+          <Paragraph
             ncss={{
               ...paragraph2Style,
               color: 'metal',
             }}
           >
             {abstract}
-          </Text>
+          </Paragraph>
         </Box>
         <Flex
           ncss={{

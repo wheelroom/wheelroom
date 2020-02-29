@@ -13,7 +13,7 @@ import { paragraph1Style } from '../../styles/paragraph'
 import { AvatarImageBox } from '../../views/avatar-image-box/avatar-image-box'
 import { Box, Flex } from '../../views/core-elements/grid'
 import { H2, H3 } from '../../views/core-elements/heading'
-import { Text } from '../../views/core-elements/text'
+import { Paragraph } from '../../views/core-elements/paragraph'
 import { QuoteSectionProps } from './quote-section'
 
 export const QuoteSectionSingleVar = (props: QuoteSectionProps) => {
@@ -36,9 +36,9 @@ export const QuoteSectionSingleVar = (props: QuoteSectionProps) => {
       >
         <H2 ncss={{ ...heading2Style }}>{props.heading}</H2>
         <H3 ncss={{ ...heading3Style }}>{props.subHeading}</H3>
-        <Text ncss={{ ...paragraph1Style }}>
+        <Paragraph ncss={{ ...paragraph1Style }}>
           &quot;{props.abstract.abstract}...&quot;
-        </Text>
+        </Paragraph>
       </Box>
     </Flex>
   )
