@@ -9,11 +9,11 @@ import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { FluidImage } from '../../views/image/image'
 import { SectionProps } from '../../sections/section-props'
-import { OpenerSectionHomePaginaVar } from './opener-section-home-pagina-var'
+import { OpenerSectionHomeVar } from './opener-section-home-pagina-var'
 import { OpenerSectionNormalePaginaVar } from './opener-section-normale-pagina-var'
 
 const componentList = {
-  ['home pagina']: OpenerSectionHomePaginaVar,
+  ['home pagina']: OpenerSectionHomeVar,
   ['normale pagina']: OpenerSectionNormalePaginaVar,
 }
 

@@ -9,13 +9,15 @@
 import React from 'react'
 import { NavLinks } from './nav-links'
 import { NavigationProps } from './navigation'
-import { emotionCss } from '../../views/core-elements/emotion-css'
+import { List } from '../../views/core-elements/list'
+import { Any } from '../../views/core-elements/any'
 
 export const NavigationSingleVar = (props: NavigationProps) => {
   return (
-    <ul
-      css={emotionCss({
-        ncss: {
+    <Any is={'nav'} ncss={{ label: 'Nav' }}>
+      <List
+        ncss={{
+          label: 'NavItems',
           display: 'flex',
           flexDirection: 'row',
           listStyle: 'none',
@@ -23,11 +25,10 @@ export const NavigationSingleVar = (props: NavigationProps) => {
           mb: 0,
           mt: 0,
           pl: 0,
-          ...props.ncss,
-        },
-      })}
-    >
-      <NavLinks pages={props.pages} />
-    </ul>
+        }}
+      >
+        <NavLinks pages={props.pages} />
+      </List>
+    </Any>
   )
 }
