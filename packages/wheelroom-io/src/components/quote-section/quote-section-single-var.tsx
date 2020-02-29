@@ -8,11 +8,11 @@
 
 import React from 'react'
 import { getSinglePadding } from '../../styles/global-padding'
-import { heading1Style, heading2Style } from '../../styles/heading'
+import { heading2Style, heading3Style } from '../../styles/heading'
 import { paragraph1Style } from '../../styles/paragraph'
 import { AvatarImageBox } from '../../views/avatar-image-box/avatar-image-box'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Heading } from '../../views/core-elements/heading'
+import { H2, H3 } from '../../views/core-elements/heading'
 import { Text } from '../../views/core-elements/text'
 import { QuoteSectionProps } from './quote-section'
 
@@ -34,10 +34,8 @@ export const QuoteSectionSingleVar = (props: QuoteSectionProps) => {
           w: 2 / 3,
         }}
       >
-        <Heading ncss={{ ...heading1Style }}>
-          <b>{props.heading}</b>
-        </Heading>
-        <Heading ncss={{ ...heading2Style }}>{props.subHeading}</Heading>
+        <H2 ncss={{ ...heading2Style }}>{props.heading}</H2>
+        <H3 ncss={{ ...heading3Style }}>{props.subHeading}</H3>
         <Text ncss={{ ...paragraph1Style }}>
           &quot;{props.abstract.abstract}...&quot;
         </Text>

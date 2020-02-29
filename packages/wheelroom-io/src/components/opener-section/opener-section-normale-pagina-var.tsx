@@ -11,7 +11,7 @@ import { getAllPaddingObject } from '../../styles/global-padding'
 import { heading1Style } from '../../styles/heading'
 import { paragraph2Style } from '../../styles/paragraph'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Heading } from '../../views/core-elements/heading'
+import { H1 } from '../../views/core-elements/heading'
 import { Text } from '../../views/core-elements/text'
 import { Image } from '../../views/image/image'
 import { Navigation } from '../navigation'
@@ -40,7 +40,7 @@ export const OpenerSectionNormalePaginaVar = (props: OpenerSectionProps) => {
             w: [7 / 8, 6 / 8, 4 / 8, 4 / 8],
           }}
         >
-          <Heading ncss={heading1Style}>{heading}</Heading>
+          <H1 ncss={heading1Style}>{heading}</H1>
           <Text
             ncss={{
               ...paragraph2Style,

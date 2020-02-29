@@ -1,11 +1,3 @@
-export const heading0Style = {
-  color: 'black',
-  fontFamily: 'heading',
-  fontSize: [10, 11, 12, 13],
-  fontWeight: 7,
-  lineHeight: [3, 3, 4, 4],
-}
-
 export const heading1Style = {
   color: 'black',
   fontFamily: 'heading',
@@ -34,6 +26,22 @@ export const heading3Style = {
 }
 
 export const heading4Style = {
+  color: 'black',
+  fontFamily: 'heading',
+  fontSize: [3, 4, 5, 6],
+  fontWeight: 7,
+  lineHeight: [3, 3, 4, 4],
+}
+
+export const heading5Style = {
+  color: 'black',
+  fontFamily: 'heading',
+  fontSize: [3, 4, 5, 6],
+  fontWeight: 7,
+  lineHeight: [3, 3, 4, 4],
+}
+
+export const heading6Style = {
   color: 'black',
   fontFamily: 'heading',
   fontSize: [3, 4, 5, 6],

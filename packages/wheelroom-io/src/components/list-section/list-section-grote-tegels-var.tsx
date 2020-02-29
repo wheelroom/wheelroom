@@ -15,7 +15,7 @@ import { heading3Style } from '../../styles/heading'
 import { paragraph2Style } from '../../styles/paragraph'
 import { GLink } from '../../views/core-elements/g-link'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Heading } from '../../views/core-elements/heading'
+import { H3 } from '../../views/core-elements/heading'
 import { Text } from '../../views/core-elements/text'
 import { Image } from '../../views/image/image'
 import { ListSectionProps } from './list-section'
@@ -45,14 +45,14 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
       >
         <Flex>
           <Box ncss={{ w: [1, 2 / 3], ...getAllPaddingObject('textBox') }}>
-            <Heading
+            <H3
               ncss={{
                 ...heading3Style,
                 color: 'white',
               }}
             >
               {heading}
-            </Heading>
+            </H3>
             <Text ncss={{ ...paragraph2Style, color: 'white' }}>
               {abstract}
             </Text>

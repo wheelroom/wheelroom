@@ -7,9 +7,9 @@
  */
 
 import React, { Fragment } from 'react'
-import { heading0Style } from '../../styles/heading'
+import { heading2Style } from '../../styles/heading'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Heading } from '../../views/core-elements/heading'
+import { H2 } from '../../views/core-elements/heading'
 import { Image } from '../../views/image/image'
 import { Navigation } from '../navigation/navigation'
 import { OpenerSectionProps } from './opener-section'
@@ -36,7 +36,7 @@ export const OpenerSectionHomePaginaVar = (props: OpenerSectionProps) => {
             w: 1,
           }}
         >
-          <Heading ncss={heading0Style}>{heading}</Heading>
+          <H2 ncss={heading2Style}>{heading}</H2>
         </Flex>
         <Flex
           ncss={{
