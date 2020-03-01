@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { navigationHeaderStyle } from '../../styles/navigation'
 import { GLink } from '../../views/core-elements/g-link'
 import { PageProps } from '../page'
-import {Any} from "../../views/core-elements/any";
+import { Any } from '../../views/core-elements/any'
 
 interface NavLinksProps {
   pages: PageProps[]
