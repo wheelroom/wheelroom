@@ -7,6 +7,9 @@ import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { getPreviewQueryString } from '@jacco-meijer/admin-page-preview'
 
 export const GLink = (props: any) => {
+  if (!props.to) {
+    return null
+  }
   const { adminCoreState } = useContext(AdminCoreContext)
   return (
     <Link
