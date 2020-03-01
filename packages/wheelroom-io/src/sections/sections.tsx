@@ -5,10 +5,9 @@ import { ListSection } from '../components/list-section'
 import { OpenerSection } from '../components/opener-section'
 import { QuoteSection } from '../components/quote-section'
 import { TextSection } from '../components/text-section'
-import { Landmarks } from '../lib/landmarks'
+import { Landmarks, Landmark } from '../lib/landmarks'
 import { SectionProps } from '../sections/section-props'
 import { getSinglePadding } from '../styles/global-padding'
-import { Box } from '../views/core-elements/grid'
 
 export interface SectionMap {
   [contentfulSectionName: string]: {
@@ -65,7 +64,7 @@ export const Sections = (props: any) => {
     const pt = getSinglePadding('section', 'top')
 
     sectionList.push(
-      <Box
+      <Landmark
         landMark={landMark}
         key={index}
         ncss={{
@@ -75,7 +74,7 @@ export const Sections = (props: any) => {
         }}
       >
         <Section {...sectionProps} />
-      </Box>
+      </Landmark>
     )
   })
 
