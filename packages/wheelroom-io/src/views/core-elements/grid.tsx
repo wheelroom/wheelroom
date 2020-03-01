@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { emotionCss } from './emotion-css'
+import { systemCss } from '../../styled-system/system-css'
 import { InlineElementName, BlockLevelElementName } from './styles'
 
 export interface GridProps {
@@ -17,8 +17,9 @@ export interface BoxProps extends GridProps {
 }
 
 export const Box = (props: BoxProps) => {
-  const css = emotionCss({
-    ncss: { boxSizing: 'border-box', ...props.ncss },
+  const label = `Box-${props.is}` || 'Box-div'
+  const css = systemCss({
+    ncss: { label, boxSizing: 'border-box', ...props.ncss },
   })
   const attrs = {
     css,
@@ -32,11 +33,13 @@ export interface FlexProps extends GridProps {
 }
 
 export const Flex = (props: FlexProps) => {
-  const css = emotionCss({
+  const label = `Flex-${props.is}` || 'Flex-div'
+  const css = systemCss({
     ncss: {
       boxSizing: 'border-box',
       display: 'flex',
       flexWrap: 'wrap',
+      label,
       ...props.ncss,
     },
   })
@@ -52,10 +55,12 @@ export interface ContainerProps extends GridProps {
 }
 
 export const Container = (props: ContainerProps) => {
-  const css = emotionCss({
+  const label = `Container-${props.is}` || 'Container-div'
+  const css = systemCss({
     ncss: {
-      mx: 'auto',
+      label,
       maxWidth: '1200px',
+      mx: 'auto',
       ...props.ncss,
     },
   })

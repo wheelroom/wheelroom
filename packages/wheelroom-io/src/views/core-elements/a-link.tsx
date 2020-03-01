@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { emotionCss } from './emotion-css'
+import { systemCss } from '../../styled-system/system-css'
 
 export const ALink = (props: any) => (
   <a
-    css={emotionCss({
+    css={systemCss({
       ncss: { display: 'inline-block', textDecoration: 'none', ...props.ncss },
     })}
     href={props.href}

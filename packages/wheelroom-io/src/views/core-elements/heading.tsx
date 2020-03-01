@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { emotionCss } from './emotion-css'
+import { systemCss } from '../../styled-system/system-css'
 import {
   heading1Style,
   heading2Style,
@@ -16,37 +16,37 @@ interface HeadingProps {
 }
 
 export const H1 = (props: HeadingProps) => (
-  <h1 css={emotionCss({ ncss: { ...heading1Style, ...props.ncss } })}>
+  <h1 css={systemCss({ ncss: { ...heading1Style, ...props.ncss } })}>
     {props.children}
   </h1>
 )
 
 export const H2 = (props: HeadingProps) => (
-  <h2 css={emotionCss({ ncss: { ...heading2Style, ...props.ncss } })}>
+  <h2 css={systemCss({ ncss: { ...heading2Style, ...props.ncss } })}>
     {props.children}
   </h2>
 )
 
 export const H3 = (props: HeadingProps) => (
-  <h3 css={emotionCss({ ncss: { ...heading3Style, ...props.ncss } })}>
+  <h3 css={systemCss({ ncss: { ...heading3Style, ...props.ncss } })}>
     {props.children}
   </h3>
 )
 
 export const H4 = (props: HeadingProps) => (
-  <h4 css={emotionCss({ ncss: { ...heading4Style, ...props.ncss } })}>
+  <h4 css={systemCss({ ncss: { ...heading4Style, ...props.ncss } })}>
     {props.children}
   </h4>
 )
 
 export const H5 = (props: HeadingProps) => (
-  <h5 css={emotionCss({ ncss: { ...heading5Style, ...props.ncss } })}>
+  <h5 css={systemCss({ ncss: { ...heading5Style, ...props.ncss } })}>
     {props.children}
   </h5>
 )
 
 export const H6 = (props: HeadingProps) => (
-  <h6 css={emotionCss({ ncss: { ...heading6Style, ...props.ncss } })}>
+  <h6 css={systemCss({ ncss: { ...heading6Style, ...props.ncss } })}>
     {props.children}
   </h6>
 )

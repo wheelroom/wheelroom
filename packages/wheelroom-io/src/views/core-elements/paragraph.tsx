@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { emotionCss } from './emotion-css'
+import { systemCss } from '../../styled-system/system-css'
 
 export interface ParagraphProps {
   /** React children */
@@ -10,5 +10,5 @@ export interface ParagraphProps {
 }
 
 export const Paragraph = (props: ParagraphProps) => (
-  <p css={emotionCss({ ncss: props.ncss })}>{props.children}</p>
+  <p css={systemCss({ ncss: props.ncss })}>{props.children}</p>
 )

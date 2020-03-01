@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { emotionCss } from './emotion-css'
+import { systemCss } from '../../styled-system/system-css'
 import { ListElementName } from './styles'
 
 export interface ListProps {
@@ -13,8 +13,9 @@ export interface ListProps {
 }
 
 export const List = (props: ListProps) => {
-  const css = emotionCss({
-    ncss: { ...props.ncss },
+  const label = `List-${props.is}`
+  const css = systemCss({
+    ncss: { label, ...props.ncss },
   })
   const attrs = {
     css,

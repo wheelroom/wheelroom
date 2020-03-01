@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { emotionCss } from './emotion-css'
+import { systemCss } from '../../styled-system/system-css'
 
 export interface AnyProps {
   /** Render as another HTML element */
-  is?: any
+  is: any
   /** React children */
   children?: any
   /** Nested emotion css styling */
@@ -12,8 +12,9 @@ export interface AnyProps {
 }
 
 export const Any = (props: AnyProps) => {
-  const css = emotionCss({
-    ncss: { ...props.ncss },
+  const label = `Any-${props.is}`
+  const css = systemCss({
+    ncss: { label, ...props.ncss },
   })
   const attrs = {
     css,
