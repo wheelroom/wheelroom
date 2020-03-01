@@ -27,6 +27,10 @@ const PageTemplate = (props: any) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   const previewPage = getPreviewPage(adminCoreState)
   const page: PageProps = previewPage || props.data.page
+  // Since we allow draft preview content, sections can be undefined
+  if (!page.sections) {
+    return 'No sections'
+  }
 
   const globals: GlobalsProps = props.data.globals
   const keywords = globals.siteKeywords
@@ -34,11 +38,6 @@ const PageTemplate = (props: any) => {
   const namedPaths = props.pageContext.namedPaths
   const siteVersion = props.data.site.siteMetadata.siteVersion
   const sections = page.sections
-
-  // Since we allow draft preview content, sections can be undefined
-  if (!page.sections) {
-    return 'No sections'
-  }
 
   const image = getOpenerOrPageImage(page)
   const sectionProps = {
