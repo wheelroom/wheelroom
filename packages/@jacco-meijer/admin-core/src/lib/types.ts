@@ -4,7 +4,7 @@ export type AdminModuleStore = any
 
 export interface AdminModule {
   /** module state */
-  store: AdminModuleStore
+  store?: AdminModuleStore
   /** Heading used in admin panel */
   heading: string
   /** Image used in admin panel */
