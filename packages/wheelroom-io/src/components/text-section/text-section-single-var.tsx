@@ -63,15 +63,8 @@ const ImageBox = (props: { image: FluidImage }) => (
 export const TextSectionSingleVar = (props: TextSectionProps) => {
   const textSectionProps = props
   const regularLinkStyle = {
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-    '&:focus': {
-      color: 'amber',
-      textDecoration: 'underline',
-    },
-    color: 'azure',
-    textDecoration: 'none',
+    '&:hover': {},
+    '&:focus': {},
   }
   const options = {
     renderText: text => {

@@ -19,7 +19,7 @@ export interface BoxProps extends GridProps {
 export const Box = (props: BoxProps) => {
   const label = `Box-${props.is}` || 'Box-div'
   const css = systemCss({
-    ncss: { label, boxSizing: 'border-box', ...props.ncss },
+    ncss: { label, ...props.ncss },
   })
   const attrs = {
     css,
@@ -36,7 +36,6 @@ export const Flex = (props: FlexProps) => {
   const label = `Flex-${props.is}` || 'Flex-div'
   const css = systemCss({
     ncss: {
-      boxSizing: 'border-box',
       display: 'flex',
       flexWrap: 'wrap',
       label,
@@ -59,7 +58,9 @@ export const Container = (props: ContainerProps) => {
   const css = systemCss({
     ncss: {
       label,
-      maxWidth: '1200px',
+      display: 'flex',
+      px: 3,
+      my: 0,
       mx: 'auto',
       ...props.ncss,
     },

@@ -5,7 +5,7 @@ import { systemCss } from '../../styled-system/system-css'
 export const ALink = (props: any) => (
   <a
     css={systemCss({
-      ncss: { display: 'inline-block', textDecoration: 'none', ...props.ncss },
+      ncss: { ...props.ncss },
     })}
     href={props.href}
   >

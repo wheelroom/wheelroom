@@ -19,7 +19,7 @@ export const styledSystemTheme: StyledSystemTheme = {
     text:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
   },
-  fontSizeScale: [10, 12, 14, 16, 20, 24, 32, 42, 56, 72],
+  fontSizeScale: [10, 12, 14, 16, 18, 20, 24, 32, 42, 56, 72],
   fontWeightScale: [100, 200, 300, 400, 500, 600, 700, 800, 900],
   heightScale: [100, 200, 300, 400, 500, 600, 700, 800, 900],
   lineHeightScale: [1, 1.15, 1.25, 1.5],

@@ -6,8 +6,5 @@ export const simpleLinkStyle = {
     textDecoration: 'underline',
   },
   '&:visited': {},
-  '&:focus': {
-    border: 2,
-    borderColor: 'amber',
-  },
+  '&:focus': {},
 }
