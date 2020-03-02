@@ -17,10 +17,6 @@ export const useFetchPreviewPage = (setPreviewPage: (page: any) => void) => {
       // Make sure the preview store has been initialized
       return
     }
-    // TOD: Localize preview fetch
-    if (pageProps.pageContext.locale !== 'en-US') {
-      return
-    }
     const pagePreviewState: PagePreviewState = pagePreviewStore.state
     if (!pagePreviewState.inPreviewMode) {
       // Make sure we're in preview mode

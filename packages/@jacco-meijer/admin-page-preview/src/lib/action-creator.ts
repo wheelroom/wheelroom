@@ -20,6 +20,7 @@ export const actionCreator = (
     const pageProps = adminCoreState.pageProps
     const entryId = pageProps.pageContext.pageContentfulId
     const previewSecrets = pageProps.data.site.siteMetadata.secrets
+    const locale = pageProps.pageContext.locale
 
     if (!pageProps.pageContext.pageContentfulId) {
       console.log(
@@ -30,6 +31,7 @@ export const actionCreator = (
     async function getPreviewPage(dispatch: Dispatch<ActionTypes>) {
       const pagePreview = createPagePreview({
         entryId,
+        locale,
         previewSecrets,
       })
       const fetchedPage = await pagePreview.getGatbsyFields()
