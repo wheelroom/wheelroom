@@ -26,40 +26,40 @@ export const H1 = (props: HeadingProps) => {
 export const H2 = (props: HeadingProps) => {
   const ncss = props.ncss || {}
   return (
-    <h1 css={systemCss({ ncss: { ...heading2Style, ...ncss } })}>
+    <h2 css={systemCss({ ncss: { ...heading2Style, ...ncss } })}>
       {props.children}
-    </h1>
+    </h2>
   )
 }
 export const H3 = (props: HeadingProps) => {
   const ncss = props.ncss || {}
   return (
-    <h1 css={systemCss({ ncss: { ...heading3Style, ...ncss } })}>
+    <h3 css={systemCss({ ncss: { ...heading3Style, ...ncss } })}>
       {props.children}
-    </h1>
+    </h3>
   )
 }
 export const H4 = (props: HeadingProps) => {
   const ncss = props.ncss || {}
   return (
-    <h1 css={systemCss({ ncss: { ...heading4Style, ...ncss } })}>
+    <h4 css={systemCss({ ncss: { ...heading4Style, ...ncss } })}>
       {props.children}
-    </h1>
+    </h4>
   )
 }
 export const H5 = (props: HeadingProps) => {
   const ncss = props.ncss || {}
   return (
-    <h1 css={systemCss({ ncss: { ...heading5Style, ...ncss } })}>
+    <h5 css={systemCss({ ncss: { ...heading5Style, ...ncss } })}>
       {props.children}
-    </h1>
+    </h5>
   )
 }
 export const H6 = (props: HeadingProps) => {
   const ncss = props.ncss || {}
   return (
-    <h1 css={systemCss({ ncss: { ...heading6Style, ...ncss } })}>
+    <h6 css={systemCss({ ncss: { ...heading6Style, ...ncss } })}>
       {props.children}
-    </h1>
+    </h6>
   )
 }
