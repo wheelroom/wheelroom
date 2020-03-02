@@ -17,14 +17,14 @@ export const mainReducer: Reducer<AdminCoreState, ActionTypes> = (
         },
       }
 
-    case 'SET_ADMIN_MODULE_STATE':
+    case 'SET_ADMIN_MODULE_STORE':
       return {
         ...state,
         modules: {
           ...state.modules,
           [action.moduleId]: {
             ...state.modules[action.moduleId],
-            state: action.state,
+            store: action.store,
           },
         },
       }

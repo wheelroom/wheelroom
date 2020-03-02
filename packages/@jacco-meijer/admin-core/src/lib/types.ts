@@ -1,10 +1,10 @@
 import { Dispatch } from 'react'
 
-export type AdminModuleState = any
+export type AdminModuleStore = any
 
 export interface AdminModule {
   /** module state */
-  state: AdminModuleState
+  store: AdminModuleStore
   /** Heading used in admin panel */
   heading: string
   /** Image used in admin panel */
@@ -40,10 +40,10 @@ export interface RegisterModule extends BaseAction {
   module: AdminModule
 }
 
-export interface SetAdminModuleState extends BaseAction {
-  type: 'SET_ADMIN_MODULE_STATE'
+export interface SetAdminModuleStore extends BaseAction {
+  type: 'SET_ADMIN_MODULE_STORE'
   moduleId: string
-  state: AdminModuleState
+  store: AdminModuleStore
 }
 
 export interface SetLastModuleId extends BaseAction {
@@ -58,7 +58,7 @@ export interface SetPageProps extends BaseAction {
 
 export type ActionTypes =
   | RegisterModule
-  | SetAdminModuleState
+  | SetAdminModuleStore
   | SetLastModuleId
   | SetPageProps
 
