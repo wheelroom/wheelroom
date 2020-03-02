@@ -1,5 +1,5 @@
 import { landMarkType } from 'gatsby-theme-wheelroom'
-import * as React from 'react'
+import React from 'react'
 import { FooterSection } from '../components/footer-section'
 import { ListSection } from '../components/list-section'
 import { OpenerSection } from '../components/opener-section'
@@ -7,7 +7,6 @@ import { QuoteSection } from '../components/quote-section'
 import { TextSection } from '../components/text-section'
 import { Landmarks, Landmark } from '../lib/landmarks'
 import { SectionProps } from '../sections/section-props'
-import { getSinglePadding } from '../styles/global-padding'
 
 export interface SectionMap {
   [contentfulSectionName: string]: {
@@ -59,20 +58,8 @@ export const Sections = (props: any) => {
       ...section,
     } as SectionProps
 
-    // Left and right padding is added per section specifically
-    const pb = getSinglePadding('section', 'bottom')
-    const pt = getSinglePadding('section', 'top')
-
     sectionList.push(
-      <Landmark
-        landMark={landMark}
-        key={index}
-        ncss={{
-          pb,
-          // All sections have padding at the top, force opener to have no padding
-          pt: index === 0 ? 0 : pt,
-        }}
-      >
+      <Landmark landMark={landMark} key={index}>
         <Section {...sectionProps} />
       </Landmark>
     )
