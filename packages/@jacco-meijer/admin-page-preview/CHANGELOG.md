@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.1.0...@jacco-meijer/admin-page-preview@1.1.1) (2020-03-02)
+
+
+### Bug Fixes
+
+* react hooks trouble ([0aad00a](https://github.com/jaccomeijer/wheelroom/commit/0aad00ac1adc8e1de6c2819f9b23faf30313811a))
+
+
+
+
+
 # [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.0.1...@jacco-meijer/admin-page-preview@1.1.0) (2020-03-02)
 
 
