@@ -32,5 +32,6 @@ export const useFetchPreviewPage = (setPreviewPage: (page: any) => void) => {
       pagePreviewStore.actions.fetchPage(adminCoreState)
     }
     setPreviewPage(previewPage)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [adminCoreState])
 }

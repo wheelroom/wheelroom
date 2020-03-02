@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useReducer, useContext } from 'react'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import queryString from 'query-string'
