@@ -23,8 +23,8 @@ export const Landmarks = (props: any) => {
 
   return (
     <Fragment>
-      <header>{landMarkedChildren.header}</header>
-      <main>{landMarkedChildren.main}</main>
+      <header role="banner">{landMarkedChildren.header}</header>
+      <main role="main">{landMarkedChildren.main}</main>
       <aside>{landMarkedChildren.aside}</aside>
       <footer>{landMarkedChildren.footer}</footer>
     </Fragment>
@@ -32,12 +32,12 @@ export const Landmarks = (props: any) => {
 }
 
 export const Landmark = (props: any) => {
-  const label = 'Landmark-div'
+  const label = 'Landmark-section'
   const css = systemCss({
-    ncss: { label, boxSizing: 'border-box', ...props.ncss },
+    ncss: { label, ...props.ncss },
   })
   const attrs = {
     css,
   }
-  return jsx('div', attrs, props.children)
+  return jsx('section', attrs, props.children)
 }
