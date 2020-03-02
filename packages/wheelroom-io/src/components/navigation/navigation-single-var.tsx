@@ -12,6 +12,8 @@ import { NavigationProps } from './navigation'
 import { List } from '../../views/core-elements/list'
 import { GLink } from '../../views/core-elements/g-link'
 import { Box, Container, Flex } from '../../views/core-elements/grid'
+import { buttonPrimaryStyle } from '../../styles/button'
+import { ALink } from '../../views/core-elements/a-link'
 
 const wrapperStyle = {
   label: 'Wrapper',
@@ -37,9 +39,9 @@ const logoStyle = {
 }
 
 const logoLinkStyle = {
-  fontFamily: 'text',
+  fontFamily: 'display',
   textDecoration: 'none',
-  fontSize: 4,
+  fontSize: [4, 5],
   fontWeight: 5,
   color: 'black',
   mr: 5,
@@ -47,14 +49,16 @@ const logoLinkStyle = {
 
 const navStyle = {
   label: 'Nav',
+  display: 'flex',
   flex: '1',
+  alignItems: 'center',
 }
 
 const listStyle = {
   label: 'NavItems',
   display: 'flex',
+  flex: '1',
   flexDirection: 'row',
-  alignItems: 'center',
   listStyle: 'none',
   flexWrap: 'wrap',
   mb: 0,
@@ -79,6 +83,14 @@ export const NavigationSingleVar = (props: NavigationProps) => {
           <List is="ul" ncss={listStyle}>
             <NavLinks pages={props.pages} />
           </List>
+          <Flex>
+            <ALink
+              href="https://github.com/wheelroom/wheelroom-io"
+              ncss={{ ...buttonPrimaryStyle }}
+            >
+              Get started
+            </ALink>
+          </Flex>
         </Flex>
       </Container>
     </Box>
