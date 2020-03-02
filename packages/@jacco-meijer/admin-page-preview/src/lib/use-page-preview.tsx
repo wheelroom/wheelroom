@@ -30,7 +30,7 @@ export const usePagePreview = (pageProps: any) => {
   useEffect(() => {
     // Register module only once
     adminCoreDispatch(pagePreviewRegister)
-  }, [])
+  }, [adminCoreDispatch])
 
   useEffect(() => {
     // Update page props
@@ -38,14 +38,14 @@ export const usePagePreview = (pageProps: any) => {
       type: 'SET_PAGE_PROPS',
       pageProps,
     })
-  }, [pageProps])
+  }, [pageProps, adminCoreDispatch])
 
   useEffect(() => {
     adminCoreDispatch({
       type: 'SET_LAST_MODULE_ID',
       moduleId: pagePreviewRegister.moduleId,
     })
-  }, [pagePreviewState])
+  }, [pagePreviewState, adminCoreDispatch])
 
   useEffect(() => {
     // Temp solution, use query string to set preview mode. This should be set by
@@ -62,5 +62,5 @@ export const usePagePreview = (pageProps: any) => {
         dispatch: pagePreviewDispatch,
       },
     })
-  }, [pagePreviewState])
+  }, [pagePreviewState, adminCoreDispatch, actions, location.search])
 }
