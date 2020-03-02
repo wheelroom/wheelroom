@@ -1,9 +1,9 @@
-import React, { createContext, useReducer, Dispatch } from 'react'
-import { ActionTypes } from './types'
+import React, { createContext, useReducer } from 'react'
+import { AdminCoreDispatch } from './types'
 import { initialState } from './initial-state'
 import { mainReducer } from './reducer'
 
-const initialDispatch: Dispatch<ActionTypes> = () => {
+const initialDispatch: AdminCoreDispatch = () => {
   console.log('Error: admin core context value not found')
 }
 export const AdminCoreContext = createContext({
