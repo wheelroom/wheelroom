@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@5.1.3...boilerplate@5.2.0) (2020-03-02)
+
+
+### Features
+
+* add bootstrap-packages.sh script ([b3d13a9](https://github.com/jaccomeijer/wheelroom/commit/b3d13a92d5c5c7ce8b6fa4169232a756cd2089f6))
+* add eslint react-hooks plugin ([a3ccbb7](https://github.com/jaccomeijer/wheelroom/commit/a3ccbb7f87ba49acb13f22082af552e7d4af74ba))
+* add react-hooks/exhaustive-deps ([d89e289](https://github.com/jaccomeijer/wheelroom/commit/d89e28901b158d1ef191958a18280d926c08fd7a))
+
+
+
+
+
 ## [5.1.3](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@5.1.2...boilerplate@5.1.3) (2020-02-28)
 
 **Note:** Version bump only for package boilerplate

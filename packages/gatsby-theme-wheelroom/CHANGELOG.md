@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.3.0...gatsby-theme-wheelroom@3.4.0) (2020-03-02)
+
+
+### Features
+
+* add bootstrap-packages.sh script ([b3d13a9](https://github.com/jaccomeijer/wheelroom/commit/b3d13a92d5c5c7ce8b6fa4169232a756cd2089f6))
+* add eslint react-hooks plugin ([a3ccbb7](https://github.com/jaccomeijer/wheelroom/commit/a3ccbb7f87ba49acb13f22082af552e7d4af74ba))
+* add react-hooks/exhaustive-deps ([d89e289](https://github.com/jaccomeijer/wheelroom/commit/d89e28901b158d1ef191958a18280d926c08fd7a))
+
+
+
+
+
 # [3.3.0](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.2.1...gatsby-theme-wheelroom@3.3.0) (2020-02-18)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.6.1...@jacco-meijer/wheelroom@3.7.0) (2020-03-02)
+
+
+### Features
+
+* add eslint react-hooks plugin ([a3ccbb7](https://github.com/jaccomeijer/wheelroom/commit/a3ccbb7f87ba49acb13f22082af552e7d4af74ba))
+* add react-hooks/exhaustive-deps ([d89e289](https://github.com/jaccomeijer/wheelroom/commit/d89e28901b158d1ef191958a18280d926c08fd7a))
+
+
+
+
+
 ## [3.6.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.6.0...@jacco-meijer/wheelroom@3.6.1) (2020-02-13)
 
 **Note:** Version bump only for package @jacco-meijer/wheelroom
