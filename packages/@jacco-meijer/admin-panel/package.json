@@ -73,7 +73,7 @@
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:clean": "rm -f ./gatsby-config.* ./gatsby-node.*",
+    "build:clean": "rm -f ./dist",
     "build:compile": "tsc",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "install-peers": "npm-install-peers",
