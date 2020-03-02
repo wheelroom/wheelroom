@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.1.1...@jacco-meijer/admin-page-preview@1.2.0) (2020-03-02)
+
+
+### Features
+
+* locale support ([9e253d5](https://github.com/jaccomeijer/wheelroom/commit/9e253d517f46d86583d31e093947561564ce7f6e))
+
+
+
+
+
 ## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.1.0...@jacco-meijer/admin-page-preview@1.1.1) (2020-03-02)
 
 
