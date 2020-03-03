@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.4.0...gatsby-theme-wheelroom@3.4.1) (2020-03-03)
+
+
+### Bug Fixes
+
+* new admin module method names ([e1dfee5](https://github.com/jaccomeijer/wheelroom/commit/e1dfee5))
+
+
+
+
+
 # [3.4.0](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.3.0...gatsby-theme-wheelroom@3.4.0) (2020-03-02)
 
 

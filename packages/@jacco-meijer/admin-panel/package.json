@@ -16,13 +16,12 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/admin-core": "^1.1.1"
+    "@jacco-meijer/admin-core": "^1.1.2"
   },
   "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
     "@types/jest": "24.0.25",
     "@types/node": "13.1.5",
-    "@types/react": "16.9.17",
     "@types/react-dom": "16.9.4",
     "@typescript-eslint/eslint-plugin": "2.18.0",
     "@typescript-eslint/parser": "2.18.0",
@@ -60,6 +59,7 @@
   "name": "@jacco-meijer/admin-panel",
   "peerDependencies": {
     "@emotion/core": "10.x",
+    "@types/react": "16.x",
     "gatsby": "2.x",
     "react": "16.x",
     "react-dom": "16.x"
@@ -81,5 +81,5 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.1.1"
+  "version": "1.1.2"
 }
