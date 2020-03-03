@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import { usePagePreview } from '@jacco-meijer/admin-page-preview'
+import { useInitPagePreview } from '@jacco-meijer/admin-page-preview'
 
 const UseAdminModules = (props: any) => {
-  usePagePreview(props)
+  useInitPagePreview(props)
   return <Fragment>{props.children}</Fragment>
 }
 
