@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.28",
-    "@jacco-meijer/admin-core": "^1.1.1",
-    "@jacco-meijer/admin-panel": "^1.1.1",
+    "@jacco-meijer/admin-core": "^1.1.2",
+    "@jacco-meijer/admin-panel": "^1.1.2",
     "@jacco-meijer/contentful-page-preview": "1.2.0"
   },
   "description": "Site framework based on Contentful and Gatsby",
@@ -64,8 +64,8 @@
   "name": "@jacco-meijer/admin-page-preview",
   "peerDependencies": {
     "@reach/router": "1.x",
-    "gatsby": "2.x",
     "@types/react": "16.x",
+    "gatsby": "2.x",
     "query-string": "6.11.1",
     "react": "16.x",
     "react-dom": "16.x"
@@ -87,5 +87,5 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.2.0"
+  "version": "1.2.1"
 }
