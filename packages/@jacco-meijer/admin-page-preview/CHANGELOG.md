@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.1...@jacco-meijer/admin-page-preview@1.4.2) (2020-03-03)
+
+
+### Bug Fixes
+
+* pageProps.data.page ([3b17822](https://github.com/jaccomeijer/wheelroom/commit/3b17822a99f880e0b804994c91e513f83ab28fa4))
+
+
+
+
+
 ## [1.4.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.0...@jacco-meijer/admin-page-preview@1.4.1) (2020-03-03)
 
 
