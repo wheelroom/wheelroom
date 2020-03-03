@@ -7,7 +7,14 @@ import { useContext, useLayoutEffect } from 'react'
  * Check for a preview page being present, fetch a new one if needede.
  */
 
-export const useFetchPreviewPage = (setPreviewPage: (page: any) => void) => {
+const defaultNeedsFetch = (page: any, previewPage: any): boolean => {
+  return page.path !== previewPage.path || !previewPage
+}
+
+export const useFetchPreviewPage = (
+  setPreviewPage: (page: any) => void,
+  needsFetch: (p: any, pp: any) => boolean = defaultNeedsFetch
+) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   const pagePreviewStore = getPreviewPageStore(adminCoreState)
 
@@ -23,10 +30,7 @@ export const useFetchPreviewPage = (setPreviewPage: (page: any) => void) => {
       return
     }
     const previewPage = pagePreviewState.previewPage
-    if (
-      !pagePreviewState.isFetching &&
-      (!previewPage || pageProps.path !== previewPage.path)
-    ) {
+    if (!pagePreviewState.isFetching && needsFetch(pageProps, previewPage)) {
       // If there's no preview yet, or we navigated to another page. Fetch a fresh
       // copy.
       pagePreviewStore.actions.fetchPage(adminCoreState)
