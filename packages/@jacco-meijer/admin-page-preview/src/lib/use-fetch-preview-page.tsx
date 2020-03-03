@@ -8,7 +8,10 @@ import { useContext, useLayoutEffect } from 'react'
  */
 
 const defaultNeedsFetch = (page: any, previewPage: any): boolean => {
-  return page.path !== previewPage.path || !previewPage
+  if (!previewPage) {
+    return true
+  }
+  return page.path !== previewPage.path
 }
 
 export const useFetchPreviewPage = (
