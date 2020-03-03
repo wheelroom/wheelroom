@@ -38,6 +38,15 @@ import { List } from '../../views/core-elements/list'
 type Node = any
 type Children = any
 
+// Get the plain value, if it is localized, get the localized value
+const getLocalizedValue = (locale: string, value: any) => {
+  if (typeof value === 'object' && locale in value) {
+    return value[locale]
+  } else {
+    return value
+  }
+}
+
 const ImageBox = (props: { image: FluidImage }) => (
   <Fragment>
     <Box
@@ -148,9 +157,11 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         const image = {
-          description: fields.title[textSectionProps.locale],
+          description: getLocalizedValue(textSectionProps.locale, fields.title),
           fluid: {
-            src: fields.file[textSectionProps.locale].url + '?w=2560&q=50',
+            src:
+              getLocalizedValue(textSectionProps.locale, fields.file).url +
+              '?w=2560&q=50',
           },
         } as FluidImage
         return <ImageBox image={image} />
