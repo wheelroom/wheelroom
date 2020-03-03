@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.0...@jacco-meijer/admin-page-preview@1.4.1) (2020-03-03)
+
+
+### Bug Fixes
+
+* previewPage always starts undefined ([93c72bf](https://github.com/jaccomeijer/wheelroom/commit/93c72bf9f9aed966a172a29c6c58d2cf4d4cc566))
+
+
+
+
+
 # [1.4.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.3.0...@jacco-meijer/admin-page-preview@1.4.0) (2020-03-03)
 
 
