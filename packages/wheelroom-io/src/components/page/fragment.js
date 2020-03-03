@@ -30,7 +30,7 @@ fragment Page on ContentfulPage {
   image {
     title
     description
-    fluid(maxWidth: 1024) {
+    fluid(maxWidth: 2560) {
       sizes
       src
       srcSet

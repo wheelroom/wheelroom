@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: listSection
- * Variation: Grote tegels
+ * Variation: Kleine tegels
  *
  */
 
@@ -35,16 +35,23 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
         key={index}
         to={item.link && item.link.path}
         ncss={{
-          bg: 'metal',
           display: 'block',
-          mb: 1,
           overflow: 'hidden',
           position: 'relative',
-          w: 1,
+          w: [1, 1 / 2, 1 / 3, 1 / 4],
         }}
       >
-        <Flex>
-          <Box ncss={{ w: [1, 2 / 3], ...getAllPaddingObject('textBox') }}>
+        <Box ncss={{ m: 1, bg: 'metal' }}>
+          <Image image={image} height={[2, 2, 3, 3]} overlay="gradient" />
+          <Box
+            ncss={{
+              ...getAllPaddingObject('textBox'),
+              bottom: 0,
+              left: 0,
+              position: 'absolute',
+              w: 1,
+            }}
+          >
             <H3
               ncss={{
                 ...heading3Style,
@@ -57,21 +64,22 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
               {abstract}
             </Paragraph>
           </Box>
-          <Box ncss={{ w: [1, 1 / 3] }}>
-            <Image image={image} height={[1, 2, 2, 2]} />
-          </Box>
-        </Flex>
+        </Box>
       </GLink>
     )
   })
   return <Fragment>{itemsList}</Fragment>
 }
 
-export const ListSectionGroteTegelsVar = (props: ListSectionProps) => {
+export const ListSectionSmallItemsVar = (props: ListSectionProps) => {
   return (
-    <Box ncss={{ px: getSinglePadding('section', 'left') }}>
-      <ListSectionHeading heading={props.heading} />
-      <LargeListItems items={props.items} />
-    </Box>
+    <Fragment>
+      <Flex ncss={{ px: getSinglePadding('section', 'left') }}>
+        <ListSectionHeading heading={props.heading} />
+      </Flex>
+      <Flex ncss={{ px: getSinglePadding('section', 'left') }}>
+        <LargeListItems items={props.items} />
+      </Flex>
+    </Fragment>
   )
 }

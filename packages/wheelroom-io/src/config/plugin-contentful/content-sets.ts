@@ -1,7 +1,7 @@
 /**
- * Defines the boilerplate content set. In Dutch.
+ * Defines the boilerplate content set. In English.
  *
- * The set is build up out of 4 pages: home, product, background and contact.
+ * The set is build up out of 5 pages: home, documentation, showcase, plugins and about.
  * The pages demonstrate the use of the models:
  *
  * - footerSection
@@ -25,34 +25,33 @@ export const contentSets: ContentSets = {
   boilerplate: {
     siteGlobals: {
       fields: {
-        addressLine1: 'Grote straat 55',
-        addressLine2: '1234 AB  Grootendam',
-        emailAddress: 'info@grootenmerkbaar.io',
+        addressLine1: 'AddressLine 1',
+        addressLine2: '1234 AB  Utrecht',
+        emailAddress: 'info@wheelroom.io',
         linkedinUrl: 'n/a',
         phoneNumber: '030-1234567',
-        siteAuthor: 'Ad van den autheur',
-        siteDescription:
-          'Merknamen zijn namen voor producten, diensten of organisaties.',
-        siteHeading: 'Deze merknaam is fantastisch',
-        siteKeywords: ['merknaam', 'onderwerp', 'onderscheid', 'essentie'],
-        title: 'Globale instellingen voor deze site',
+        siteAuthor: 'John Doe',
+        siteDescription: 'Site description.',
+        siteHeading: 'Site heading',
+        siteKeywords: ['Wheelroom', 'io', 'TypeScript', 'Contentful'],
+        title: 'Wheelroom',
       },
       model: 'globals',
     },
     homePage: {
       fields: {
         navigationHeading: 'home',
-        heading: 'Deze merknaam is fantastisch',
+        heading: 'Build amazing things with Wheelroom',
         image: true,
         abstract:
-          "Een merk is een teken om goederen of diensten te onderscheiden. Een merknaam kan daartoe dienen, maar het begrip 'merk' is breder en omvat ook de verschijningsvorm van de naam, het logo en kan ook iets anders zijn dan een naam, bijvoorbeeld een kleur of een beeldmerk.",
+          'Wheelroom is an open source command line tool that helps developers build blazing fast websites and apps',
         path: '/',
         sections: [
           'homeOpener',
-          'merkarchitectuurText',
+          'wheelroomIntroductionText',
           'passionQuote',
           'endOfPageLinksLarge',
-          'standardFooter',
+          'defaultFooter',
         ],
         title: 'Home',
       },
@@ -60,185 +59,153 @@ export const contentSets: ContentSets = {
     },
     homeOpener: {
       fields: {
-        boxBackgroundColor: 'green',
-        navigation: 'openerNavigatie',
-        title: 'Homepagina opener',
-        variation: 'home pagina',
+        boxBackgroundColor: 'white',
+        navigation: 'openerNavigation',
+        title: 'Home opener',
+        variation: 'home page',
       },
       model: 'openerSection',
     },
-    openerNavigatie: {
+    openerNavigation: {
       fields: {
-        pages: ['homePage', 'productPage', 'backgroundPage', 'contactPage'],
-        title: 'Opener navigatie',
+        pages: [
+          'homePage',
+          'documentationPage',
+          'pluginsPage',
+          'showcasePage',
+          'aboutPage',
+        ],
+        title: 'Opener navigation',
       },
       model: 'navigation',
     },
-    productPage: {
+    documentationPage: {
       fields: {
-        navigationHeading: 'product',
-        heading:
-          'Een product in economische zin is een tastbare zaak met een bepaalde waarde.',
+        navigationHeading: 'documentation',
+        heading: 'Heading',
         image: true,
-        abstract:
-          'Een product kan worden vergezeld van productinformatie. Voor veel productcategorieën is het beschrijven van het product wettelijk vastgelegd. Zo moeten voedselproducten voorzien zijn van een etiket met de ingrediënten, de inhoud en de houdbaarheidsdatum.',
-        path: '/producten',
+        abstract: 'Abstract',
+        path: '/documentation',
         sections: [
-          'productOpener',
-          'productcodeText',
-          'buildLoveQuote',
-          'merkverwateringText',
-          'endOfPageLinks',
-          'standardFooter',
+          'navigationOpener',
+          'documentationText',
+          'defaultFooter',
         ],
-        title: 'Producten',
+        title: 'Documentation',
       },
       model: 'page',
     },
-    productOpener: {
+    navigationOpener: {
       fields: {
-        boxBackgroundColor: 'mint',
-        navigation: 'openerNavigatie',
-        title: 'Productpagina opener',
-        variation: 'normale pagina',
+        boxBackgroundColor: 'transparent',
+        navigation: 'openerNavigation',
+        title: 'Navigation only opener',
+        variation: 'navigation only',
       },
       model: 'openerSection',
     },
-    backgroundPage: {
+    pluginsPage: {
       fields: {
-        navigationHeading: 'achtergrond',
-        heading:
-          'Op dit moment is er maar één gemeente in Nederland zonder achtergrond.',
+        navigationHeading: 'plugins',
+        heading: 'Heading.',
         image: true,
-        abstract:
-          'In de journalistiek wordt de term achtergrond gebruikt voor de feitelijke en betekenisgevende context waarin het dagelijkse nieuws zich afspeelt.',
-        path: '/achtergrond',
+        abstract: 'Abstract.',
+        path: '/plugins',
         sections: [
-          'backgroundOpener',
-          'naamcreatieText',
+          'navigationOpener',
+          'pluginsText',
           'careQuote',
           'endOfPageLinks',
-          'standardFooter',
+          'defaultFooter',
         ],
-        title: 'Achtergrond',
+        title: 'Plugins',
       },
       model: 'page',
     },
-    backgroundOpener: {
+    showcasePage: {
       fields: {
-        boxBackgroundColor: 'mint',
-        navigation: 'openerNavigatie',
-        title: 'Achtergrondpagina opener',
-        variation: 'normale pagina',
-      },
-      model: 'openerSection',
-    },
-    contactPage: {
-      fields: {
-        navigationHeading: 'contact',
-        heading: 'Contact',
+        navigationHeading: 'showcase',
+        heading: 'Heading',
         image: true,
-        abstract:
-          'Communicatie is een activiteit waarbij levende wezens betekenissen uitwisselen door op elkaars signalen te reageren. ',
-        path: '/contact',
+        abstract: 'Abstract',
+        path: '/showcase',
         sections: [
-          'contactOpener',
-          'contactText',
-          'passionQuote',
-          'naamcreatieText',
+          'navigationOpener',
+          'showcaseText',
+          'buildLoveQuote',
+          'aboutText',
           'endOfPageLinks',
-          'standardFooter',
+          'defaultFooter',
         ],
-        title: 'Contact',
+        title: 'Showcase',
       },
       model: 'page',
     },
-    contactOpener: {
+    aboutPage: {
       fields: {
-        boxBackgroundColor: 'green',
-        navigation: 'openerNavigatie',
-        title: 'Contactpagina opener',
-        variation: 'normale pagina',
+        navigationHeading: 'about',
+        heading: 'About',
+        image: true,
+        abstract: 'Abstract.',
+        path: '/about',
+        sections: [
+          'navigationOpener',
+          'aboutText',
+          'passionQuote',
+          'showcaseText',
+          'endOfPageLinks',
+          'defaultFooter',
+        ],
+        title: 'About',
       },
-      model: 'openerSection',
+      model: 'page',
     },
-    contactText: {
+    aboutText: {
       fields: {
-        text: `# Communicatie
+        text: `## About text
 
-Bij communicatie wordt informatie met elkaar gedeeld door middel van geluid
-(zoals bij spraak en toon) en vorm (zoals beeld, symboliek en tekst). Het
-contact omvat ook handelingen want door gedrag worden eindeloos veel
-betekenissen kenbaar gemaakt. De impact van (on–)bewuste daden kan heel groot
-zijn bij betekenistoekenning: non-verbale communicatie kan zelfs de doorslag
-geven boven doelbewust gekozen woorden en symboliek.
+Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.
 
-## Geloofwaardigheid
+### Heading 3
 
-Denk aan de (on–)geloofwaardigheid van een gesprekspartner die beweert dat hij
-niet nerveus is, maar wel zweet en trilt. Gedrag moet hier ruim worden
-uitgelegd: zo kunnen architecten door middel van een bouwwerk mensen imponeren
-of juist op hun gemak stellen. De keuze voor de plaats en de gebruikte beweging
-of stijl, geweld, mode, muziek en mimiek zijn slechts enkele voorbeelden die met
-communicatief handelen c.q. gedrag te maken hebben. Ook door geur, warmte,
-licht, kleur, intonatie, smaak en zelfs door pauzes of door te zwijgen kan men
-betekenissen versturen en indrukken verkrijgen. Omdat er niet zoiets bestaat als
-anti-gedrag, is het onmogelijk om niet te communiceren, stelde de psycholoog
-Watzlawick vast.`,
-        title: 'Tekst communicatie',
+Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.`,
+        title: 'About text',
       },
       model: 'textSection',
     },
-    productcodeText: {
+    showcaseText: {
       fields: {
-        text: `# Productcode
+        text: `## Showcase text
 
-Een product kan gekenmerkt worden door een productnummer, ook wel artikelcode
-genoemd. Bekende voorbeelden daarvan zijn de barcode of streepjescode EAN en het
-ISBN. Hierin wordt een product qua vorm, functie en passendheid uniek
-weergegeven (form, fit and function).`,
-        title: 'Tekst productcode',
+Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.`,
+        title: 'Showcase text',
       },
       model: 'textSection',
     },
-    merkverwateringText: {
+    documentationText: {
       fields: {
-        text: `# Merkverwatering
+        text: `## Documentation text
 
-Merkverwatering is het verschijnsel dat een merknaam van een bepaald product of
-dienst zo bekend wordt, dat men in de spreektaal deze naam ook gaat gebruiken om
-te refereren aan soortgelijke producten van een ander merk. Deze betiteling is
-overigens feitelijk onjuist; niet het merk, maar de merknaam is verwaterd. De
-eigenaar van het merk behoudt het unieke recht om de naam als merk te
-presenteren. Unilever heeft bijvoorbeeld 'Vaseline' nog altijd als geregistreerd
-woordmerk in handen. Concurrenten mogen vaseline alleen onder die naam verkopen
-onder een paraplumerk.`,
-        title: 'Tekst merkverwatering',
+Lorem ipsum.`,
+        title: 'Documentation text',
       },
       model: 'textSection',
     },
-    merkarchitectuurText: {
+    wheelroomIntroductionText: {
       fields: {
-        text: `# Merkenarchitectuur
+        text: `## Wheelroom introduction text
 
-De verschillende merken van een onderneming vormen wat de merkarchitectuur
-(Engels: 'brand architecture') wordt genoemd. Soms hebben die merken ook wat
-betreft de naam een duidelijke relatie. McDonald's gebruikt bijvoorbeeld voor
-verschillende producten het voorvoegsel 'Mc-' (McFlurry, McKroket), evenals
-Nestlé (Nescafé, Nesquik, Nespresso).`,
-        title: 'Tekst merkarchitectuur',
+Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.`,
+        title: 'Wheelroom introduction text',
       },
       model: 'textSection',
     },
-    naamcreatieText: {
+    pluginsText: {
       fields: {
-        text: `# Naamcreatie
+        text: `## Plugins text
 
-Het verzinnen van merknamen wordt 'naamcreatie' of 'naamontwikkeling' genoemd.
-Er is in Nederland en België een klein aantal hierin gespecialiseerde bureaus
-actief, in navolging van Amerikaanse 'naming agencies'. In het bedenken van
-namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
-        title: 'Tekst naamcreatie',
+Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.`,
+        title: 'Plugins text',
       },
       model: 'textSection',
     },
@@ -247,7 +214,7 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
         image: true,
         heading: 'Gary Vaynerchuk',
         subHeading: 'Ondernemer, spreker & marketing expert',
-        abstract: 'De beste marketing strategie ooit: aandacht.',
+        abstract: 'Abstract.',
         title: 'Quote Gary Vaynerchuk',
       },
       model: 'quoteSection',
@@ -257,8 +224,7 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
         image: true,
         heading: 'Brian Chesky',
         subHeading: 'Cofounder van Airbnb',
-        abstract:
-          'Bouw iets waar 100 mensen van houden, niet iets dat 1 miljoen mensen een soort van leuk vinden.',
+        abstract: 'Abstract.',
         title: 'Quote Brian Chesky',
       },
       model: 'quoteSection',
@@ -268,74 +234,77 @@ namen gespecialiseerde copywriters heten 'naamcreatieven'.`,
         image: true,
         heading: 'Michael Hyatt',
         subHeading: 'Virtual business mentor',
-        abstract:
-          'Marketing gaat eigenlijk gewoon over het delen van je passie.',
+        abstract: 'Abstract.',
         title: 'Quote Michael Hyatt',
       },
       model: 'quoteSection',
     },
-    productPageItem: {
+    showcasePageItem: {
       fields: {
-        abstract:
-          'Onze producten zijn fantastisch. Deze tekst overschijft de pagina samenvatting.',
-        heading: 'Geniale producten',
-        link: 'productPage',
-        view: 'volledige afbeelding',
-        title: 'Tegel productpagina',
+        abstract: 'Abstract.',
+        heading: 'Heading',
+        link: 'showcasePage',
+        view: 'full width image',
+        title: 'Item showcase page',
       },
       model: 'listItem',
     },
-    backgroundPageItem: {
+    documentationPageItem: {
       fields: {
-        abstract:
-          'Wie zijn wij? Deze tekst overschijft de pagina samenvatting.',
-        heading: 'Voorgrond en achterhoofd',
-        link: 'backgroundPage',
-        view: 'onderkant groen',
-        title: 'Tegel achtergrondpagina',
+        abstract: 'Abstract.',
+        heading: 'Heading',
+        link: 'showcasePage',
+        view: 'bottom black',
+        title: 'Item documentation page',
       },
       model: 'listItem',
     },
-    contactPageItem: {
+    aboutPageItem: {
       fields: {
-        abstract:
-          'Omarm de nostalgie. Stuur een fax! Deze tekst overschijft de pagina samenvatting.',
-        link: 'contactPage',
-        view: 'onderkant mint',
-        title: 'Tegel contactpagina',
+        abstract: 'Abstract',
+        heading: 'Heading',
+        link: 'aboutPage',
+        view: 'bottom white',
+        title: 'Item about page',
       },
       model: 'listItem',
     },
     endOfPageLinks: {
       fields: {
-        heading: 'Kijk ook eens hier',
-        items: ['productPageItem', 'backgroundPageItem', 'contactPageItem'],
-        title: 'Referenties klein',
-        variation: 'kleine tegels',
+        heading: 'Check',
+        items: ['showcasePageItem', 'documentationPageItem', 'aboutPageItem'],
+        title: 'References small',
+        variation: 'small items',
       },
       model: 'listSection',
     },
     endOfPageLinksLarge: {
       fields: {
-        heading: 'Kijk ook eens hier',
-        items: ['productPageItem', 'backgroundPageItem', 'contactPageItem'],
-        title: 'Referenties groot',
-        variation: 'grote tegels',
+        heading: 'Check',
+        items: ['showcasePageItem', 'documentationPageItem', 'aboutPageItem'],
+        title: 'References large',
+        variation: 'large items',
       },
       model: 'listSection',
     },
-    standardFooter: {
+    defaultFooter: {
       fields: {
-        backgroundColor: 'mint',
-        navigation: 'footerNavigatie',
-        title: 'Standaard footer',
+        backgroundColor: 'white',
+        navigation: 'footerNavigation',
+        title: 'Default footer',
       },
       model: 'footerSection',
     },
-    footerNavigatie: {
+    footerNavigation: {
       fields: {
-        pages: ['productPage', 'backgroundPage', 'contactPage'],
-        title: 'Footer navigatie',
+        pages: [
+          'homePage',
+          'documentationPage',
+          'pluginsPage',
+          'showcasePage',
+          'aboutPage',
+        ],
+        title: 'Footer navigation',
       },
       model: 'navigation',
     },

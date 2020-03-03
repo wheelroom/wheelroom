@@ -7,8 +7,8 @@
 
 interface FooterSectionModel {
   fields: {
-    backgroundColor: 'green' | 'mint'
-    navigation: 'openerNavigatie' | 'footerNavigatie'
+    backgroundColor: 'black' | 'white'
+    navigation: 'openerNavigation' | 'footerNavigation'
     title: string
   }
   model: 'footerSection'
@@ -30,8 +30,13 @@ interface GlobalsModel {
 }
 interface ListItemModel {
   fields: {
-    view?: 'onderkant mint' | 'onderkant groen' | 'volledige afbeelding'
-    link?: 'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'
+    view?: 'bottom white' | 'bottom black' | 'full width image'
+    link?:
+      | 'homePage'
+      | 'documentationPage'
+      | 'pluginsPage'
+      | 'showcasePage'
+      | 'aboutPage'
     heading?: string
     image?: boolean
     abstract?: string
@@ -42,7 +47,7 @@ interface ListItemModel {
 }
 interface ListSectionModel {
   fields: {
-    variation: 'grote tegels' | 'kleine tegels'
+    variation: 'large items' | 'small items'
     items: string[]
     heading?: string
     title: string
@@ -51,16 +56,22 @@ interface ListSectionModel {
 }
 interface NavigationModel {
   fields: {
-    pages: Array<'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'>
+    pages: Array<
+      | 'homePage'
+      | 'documentationPage'
+      | 'pluginsPage'
+      | 'showcasePage'
+      | 'aboutPage'
+    >
     title: string
   }
   model: 'navigation'
 }
 interface OpenerSectionModel {
   fields: {
-    variation: 'home pagina' | 'normale pagina'
-    navigation: 'openerNavigatie' | 'footerNavigatie'
-    boxBackgroundColor: 'green' | 'mint'
+    variation: 'navigation only' | 'home page'
+    navigation: 'openerNavigation' | 'footerNavigation'
+    boxBackgroundColor: 'transparent' | 'black' | 'white'
     heading?: string
     image?: boolean
     abstract?: string
@@ -73,20 +84,18 @@ interface PageModel {
     path: string
     sections: Array<
       | 'homeOpener'
-      | 'productOpener'
-      | 'backgroundOpener'
-      | 'contactOpener'
-      | 'contactText'
-      | 'productcodeText'
-      | 'merkverwateringText'
-      | 'merkarchitectuurText'
-      | 'naamcreatieText'
+      | 'navigationOpener'
+      | 'aboutText'
+      | 'showcaseText'
+      | 'pluginsText'
+      | 'wheelroomIntroductionText'
+      | 'documentationText'
       | 'careQuote'
       | 'buildLoveQuote'
       | 'passionQuote'
       | 'endOfPageLinks'
       | 'endOfPageLinksLarge'
-      | 'standardFooter'
+      | 'defaultFooter'
     >
     heading: string
     navigationHeading?: string

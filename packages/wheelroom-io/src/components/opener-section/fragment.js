@@ -26,7 +26,7 @@ fragment OpenerSection on ContentfulOpenerSection {
   image {
     title
     description
-    fluid(maxWidth: 1024) {
+    fluid(maxWidth: 2560) {
       sizes
       src
       srcSet

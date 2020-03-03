@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: listSection
- * Variation: Kleine tegels
+ * Variation: Large items
  *
  */
 
@@ -35,27 +35,19 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
         key={index}
         to={item.link && item.link.path}
         ncss={{
+          bg: 'metal',
           display: 'block',
+          mb: 1,
           overflow: 'hidden',
           position: 'relative',
-          w: [1, 1 / 2, 1 / 3, 1 / 4],
+          w: 1,
         }}
       >
-        <Box ncss={{ m: 1, bg: 'metal' }}>
-          <Image image={image} height={[2, 2, 3, 3]} overlay="gradient" />
-          <Box
-            ncss={{
-              ...getAllPaddingObject('textBox'),
-              bottom: 0,
-              left: 0,
-              position: 'absolute',
-              w: 1,
-            }}
-          >
+        <Flex>
+          <Box ncss={{ w: [1, 2 / 3], ...getAllPaddingObject('textBox') }}>
             <H3
               ncss={{
-                ...heading3Style,
-                color: 'white',
+                ...heading3Style
               }}
             >
               {heading}
@@ -64,22 +56,21 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
               {abstract}
             </Paragraph>
           </Box>
-        </Box>
+          <Box ncss={{ w: [1, 1 / 3] }}>
+            <Image image={image} height={[1, 2, 2, 2]} />
+          </Box>
+        </Flex>
       </GLink>
     )
   })
   return <Fragment>{itemsList}</Fragment>
 }
 
-export const ListSectionKleineTegelsVar = (props: ListSectionProps) => {
+export const ListSectionLargeItemsVar = (props: ListSectionProps) => {
   return (
-    <Fragment>
-      <Flex ncss={{ px: getSinglePadding('section', 'left') }}>
-        <ListSectionHeading heading={props.heading} />
-      </Flex>
-      <Flex ncss={{ px: getSinglePadding('section', 'left') }}>
-        <LargeListItems items={props.items} />
-      </Flex>
-    </Fragment>
+    <Box ncss={{ px: getSinglePadding('section', 'left') }}>
+      <ListSectionHeading heading={props.heading} />
+      <LargeListItems items={props.items} />
+    </Box>
   )
 }

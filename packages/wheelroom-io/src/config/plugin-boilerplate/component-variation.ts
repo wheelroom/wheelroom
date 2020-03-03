@@ -16,7 +16,7 @@ const FlexBox = Box
 
 const flexContainerProps = {
   ncss: {
-    bg: 'mint',
+    bg: 'white',
     fontFamily: 'text',
     maxHeight: '300px',
     mb: 1,
@@ -41,7 +41,7 @@ export const %ComponentName%%VariationName%Var = (props: %ComponentName%Props) =
       <FlexContainer
         ncss={{
           ...flexContainerProps.ncss,
-          bg: 'green',
+          bg: 'black',
           fontFamily: 'heading',
           fontSize: 7,
           my: 4,

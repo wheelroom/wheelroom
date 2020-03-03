@@ -14,7 +14,7 @@ import { Paragraph } from '../../views/core-elements/paragraph'
 import { NavLinks } from '../navigation/nav-links'
 import { FooterSectionProps } from './footer-section'
 
-const addressStyle = { ...paragraph1Style, color: 'white', pb: 0 }
+const addressStyle = { ...paragraph1Style }
 
 export const FooterSectionSingleVar = (props: FooterSectionProps) => {
   return (

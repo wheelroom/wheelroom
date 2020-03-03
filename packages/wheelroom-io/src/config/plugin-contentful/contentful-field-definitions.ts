@@ -4,7 +4,7 @@
  * =================================
  *
  * This file normally does not need any changes. It's here because you
- * ocassionally might add some project specific stuff.
+ * occasionally might add some project specific stuff.
  *
  *
  */

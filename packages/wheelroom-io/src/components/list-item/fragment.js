@@ -25,7 +25,7 @@ fragment ListItem on ContentfulListItem {
     image {
       title
       description
-      fluid(maxWidth: 1024) {
+      fluid(maxWidth: 2560) {
         sizes
         src
         srcSet
@@ -41,7 +41,7 @@ fragment ListItem on ContentfulListItem {
   image {
     title
     description
-    fluid(maxWidth: 1024) {
+    fluid(maxWidth: 2560) {
       sizes
       src
       srcSet
