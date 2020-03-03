@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
@@ -9,9 +9,8 @@ import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import {
   PreviewUpdateButton,
-  getPreviewPage,
+  useFetchPreviewPage,
 } from '@jacco-meijer/admin-page-preview'
-import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 import { GlobalStyles } from './styles/global-styles'
 import { GlobalReset } from './styles/global-reset'
@@ -22,12 +21,10 @@ import { GlobalReset } from './styles/global-reset'
 //
 const PageTemplate = (props: any) => {
   pageDebug('PageTemplate', props)
+  const [previewPage, setPreviewPage] = useState()
+  useFetchPreviewPage(setPreviewPage)
 
-  // Get preview page from admin core state if available
-  const { adminCoreState } = useContext(AdminCoreContext)
-  const previewPage = getPreviewPage(adminCoreState)
   const page: PageProps = previewPage || props.data.page
-  // Since we allow draft preview content, sections can be undefined
   if (!page.sections) {
     return 'No sections'
   }
