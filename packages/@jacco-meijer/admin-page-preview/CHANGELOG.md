@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.2.1...@jacco-meijer/admin-page-preview@1.3.0) (2020-03-03)
+
+
+### Features
+
+* move default button to bottom right ([5fbeb43](https://github.com/jaccomeijer/wheelroom/commit/5fbeb43))
+
+
+
+
+
 ## [1.2.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.2.0...@jacco-meijer/admin-page-preview@1.2.1) (2020-03-03)
 
 
