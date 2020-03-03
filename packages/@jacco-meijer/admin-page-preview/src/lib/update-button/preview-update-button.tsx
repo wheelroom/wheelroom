@@ -48,7 +48,7 @@ export const PreviewUpdateButton = () => {
         padding: '5px',
         position: 'fixed',
         right: '30px',
-        top: '30px',
+        bottom: '30px',
         width: '100px',
       }}
     >
