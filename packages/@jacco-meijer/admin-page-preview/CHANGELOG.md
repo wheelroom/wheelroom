@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.3.0...@jacco-meijer/admin-page-preview@1.4.0) (2020-03-03)
+
+
+### Features
+
+* add optional needsFetch parameter ([a0db1de](https://github.com/jaccomeijer/wheelroom/commit/a0db1de4014b362bf93ef608891bde986bd99d3d))
+
+
+
+
+
 # [1.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.2.1...@jacco-meijer/admin-page-preview@1.3.0) (2020-03-03)
 
 
