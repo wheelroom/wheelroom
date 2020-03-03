@@ -8,7 +8,7 @@
     "@contentful/rich-text-types": "14.1.0",
     "@emotion/core": "10.0.28",
     "@jacco-meijer/admin-core": "^1.1.2",
-    "@jacco-meijer/admin-page-preview": "^1.2.1",
+    "@jacco-meijer/admin-page-preview": "^1.3.0",
     "@jacco-meijer/admin-panel": "^1.1.2",
     "@jacco-meijer/styled-system": "3.0.4",
     "@jacco-meijer/wheelroom": "^3.7.0",
