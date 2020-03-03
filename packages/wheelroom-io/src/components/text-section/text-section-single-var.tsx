@@ -14,10 +14,7 @@ import {
 import { BLOCKS, INLINES, Document, MARKS } from '@contentful/rich-text-types'
 import React, { Fragment } from 'react'
 import { enlargingImageStyle } from '../../styles/enlarging-image'
-import {
-  getAllPaddingObject,
-  getSinglePadding,
-} from '../../styles/global-padding'
+import { getAllPaddingObject } from '../../styles/global-padding'
 import {
   heading1Style,
   heading2Style,
@@ -27,9 +24,10 @@ import {
   heading6Style,
 } from '../../styles/heading'
 import { paragraph1Style } from '../../styles/paragraph'
+import { simpleLinkStyle } from '../../styles/simple-link'
 import { ALink } from '../../views/core-elements/a-link'
 import { GLink } from '../../views/core-elements/g-link'
-import { Box, Flex } from '../../views/core-elements/grid'
+import { Box, Container, Flex } from '../../views/core-elements/grid'
 import { H1, H2, H3, H4, H5, H6 } from '../../views/core-elements/heading'
 import { Paragraph } from '../../views/core-elements/paragraph'
 import { FluidImage, Image } from '../../views/image/image'
@@ -62,10 +60,17 @@ const ImageBox = (props: { image: FluidImage }) => (
 
 export const TextSectionSingleVar = (props: TextSectionProps) => {
   const textSectionProps = props
-  const regularLinkStyle = {
-    '&:hover': {},
-    '&:focus': {},
+  const wrapperStyle = {
+    label: 'Wrapper',
+    mt: 9,
   }
+
+  const containerStyle = {
+    label: 'Container',
+    height: '100%',
+    justifyContent: 'space-between',
+  }
+
   const options = {
     renderText: text => {
       return text
@@ -77,9 +82,9 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
     renderMark: {
       [MARKS.BOLD]: text => (
         <Any
-          is="span"
+          is="strong"
           ncss={{
-            fontWeight: 7,
+            fontWeight: 5,
           }}
         >
           {text}
@@ -99,7 +104,7 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
       },
       [BLOCKS.LIST_ITEM]: (_node: Node, children: Children) => {
         return (
-          <List is="li" ncss={{ ...paragraph1Style, pb: 0, p: { pb: 0 } }}>
+          <List is="li" ncss={{ ...paragraph1Style }}>
             {children}
           </List>
         )
@@ -107,7 +112,7 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {
         const uri = node.data.uri
         return (
-          <ALink href={uri} ncss={regularLinkStyle}>
+          <ALink href={uri} ncss={{ ...simpleLinkStyle }}>
             {children}
           </ALink>
         )
@@ -117,35 +122,35 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
           node.data.target.fields &&
           node.data.target.fields.path[textSectionProps.locale]
         return (
-          <GLink ncss={regularLinkStyle} to={internalPath}>
+          <GLink ncss={{ ...simpleLinkStyle }} to={internalPath}>
             {children}
           </GLink>
         )
       },
       [BLOCKS.HEADING_1]: (_node: Node, children: Children) => (
-        <H1 ncss={{ ...heading1Style, w: 1 }}>{children}</H1>
+        <H1 ncss={{ ...heading1Style }}>{children}</H1>
       ),
       [BLOCKS.HEADING_2]: (_node: Node, children: Children) => (
-        <H2 ncss={{ ...heading2Style, w: 1 }}>{children}</H2>
+        <H2 ncss={{ ...heading2Style, mt: 3 }}>{children}</H2>
       ),
       [BLOCKS.HEADING_3]: (_node: Node, children: Children) => (
-        <H3 ncss={{ ...heading3Style, w: 1 }}>{children}</H3>
+        <H3 ncss={{ ...heading3Style, mt: 3 }}>{children}</H3>
       ),
       [BLOCKS.HEADING_4]: (_node: Node, children: Children) => (
-        <H4 ncss={{ ...heading4Style, w: 1 }}>{children}</H4>
+        <H4 ncss={{ ...heading4Style, mt: 3 }}>{children}</H4>
       ),
       [BLOCKS.HEADING_5]: (_node: Node, children: Children) => (
-        <H5 ncss={{ ...heading5Style, w: 1 }}>{children}</H5>
+        <H5 ncss={{ ...heading5Style, mt: 3 }}>{children}</H5>
       ),
       [BLOCKS.HEADING_6]: (_node: Node, children: Children) => (
-        <H6 ncss={{ ...heading6Style, w: 1 }}>{children}</H6>
+        <H6 ncss={{ ...heading6Style, mt: 3 }}>{children}</H6>
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         const image = {
           description: fields.title[textSectionProps.locale],
           fluid: {
-            src: fields.file[textSectionProps.locale].url + '?w=1024&q=50',
+            src: fields.file[textSectionProps.locale].url + '?w=2560&q=50',
           },
         } as FluidImage
         return <ImageBox image={image} />
@@ -154,16 +159,23 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
   } as Options
 
   return (
-    <Flex
-      ncss={{
-        pl: getSinglePadding('section', 'left'),
-        pr: getSinglePadding('section', 'right'),
-      }}
-    >
-      {documentToReactComponents(
-        (props.text.json as unknown) as Document,
-        options
-      )}
-    </Flex>
+    <Box is="div" ncss={wrapperStyle}>
+      <Container is="div" ncss={containerStyle}>
+        <Flex
+          is="div"
+          ncss={{
+            label: 'text',
+            mx: 'auto',
+            my: 5,
+            maxWidth: '640px',
+          }}
+        >
+          {documentToReactComponents(
+            (props.text.json as unknown) as Document,
+            options
+          )}
+        </Flex>
+      </Container>
+    </Box>
   )
 }
