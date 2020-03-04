@@ -34,18 +34,10 @@ import { FluidImage, Image } from '../../views/image/image'
 import { TextSectionProps } from './text-section'
 import { Any } from '../../views/core-elements/any'
 import { List } from '../../views/core-elements/list'
+import { getLocalizedValue } from './get-localized-value'
 
 type Node = any
 type Children = any
-
-// Get the plain value, if it is localized, get the localized value
-const getLocalizedValue = (locale: string, value: any) => {
-  if (typeof value === 'object' && locale in value) {
-    return value[locale]
-  } else {
-    return value
-  }
-}
 
 const ImageBox = (props: { image: FluidImage }) => (
   <Fragment>
