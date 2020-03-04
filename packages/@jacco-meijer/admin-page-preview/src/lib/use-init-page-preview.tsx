@@ -42,13 +42,6 @@ export const useInitPagePreview = (pageProps: any) => {
   }, [pageProps])
 
   useEffect(() => {
-    adminCoreDispatch({
-      type: 'SET_LAST_MODULE_ID',
-      moduleId: pagePreviewRegister.moduleId,
-    })
-  }, [pagePreviewState])
-
-  useEffect(() => {
     // Temp solution, use query string to set preview mode. This should be set by
     // using the admin module itself. The query parameter then becomes obsolete.
     const queryParams = queryString.parse(location.search)
@@ -62,6 +55,10 @@ export const useInitPagePreview = (pageProps: any) => {
         state: pagePreviewState,
         dispatch: pagePreviewDispatch,
       },
+    })
+    adminCoreDispatch({
+      type: 'SET_LAST_MODULE_ID',
+      moduleId: pagePreviewRegister.moduleId,
     })
   }, [pagePreviewState])
 }
