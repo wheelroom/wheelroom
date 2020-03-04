@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-
 import { systemCss } from '../../styled-system/system-css'
 
 export interface FluidImage {
@@ -17,11 +16,13 @@ type styleProp = string | string[] | number | number[]
 
 export interface ImageProps {
   '&:hover'?: any
-  alt?: string
+  description?: string
+  title?: string
   border?: string
   borderRadius?: string | string[]
   clipPath?: string
   height?: styleProp
+  width?: any
   /** fluid image object, see defaultProps */
   image?: FluidImage
   maxHeight?: styleProp
@@ -33,6 +34,7 @@ export interface ImageProps {
   objectFit?: string
   /** like the css property */
   transition?: string
+  caption?: boolean
 }
 
 const overlayStyles = {
@@ -70,14 +72,14 @@ export const Image = (props: ImageProps) => {
 
   const pictureStyles = {
     '&:hover': props['&:hover'],
-    border: props.border || 'initial',
+    border: props.border,
     display: 'block',
     height: props.height,
     maxHeight: props.maxHeight,
     minHeight: props.minHeight,
     my: props.my,
     transition: props.transition,
-    width: '100%',
+    width: props.width,
     ...overlayStyleProps,
   }
 
@@ -85,34 +87,56 @@ export const Image = (props: ImageProps) => {
     description: 'no description',
     fluid: {
       sizes: '',
-      src: '//placehold.it/512',
+      src: '//placehold.it/1024',
       srcSet: '',
     },
-    title: 'no title',
+    title: 'No alternate text available',
   } as FluidImage
 
   const fluidImage = props.image || defaultFluidImage
 
   const imgStyles = {
-    borderRadius: props.borderRadius || 'initial',
+    borderRadius: props.borderRadius,
     clipPath: props.clipPath,
     display: 'block',
-    height: '100%',
-    objectFit: props.objectFit || 'cover',
+    height: 'auto',
+    objectFit: props.objectFit,
     width: '100%',
   }
 
   const imgAttrs = {
-    alt: fluidImage.description || fluidImage.title || 'no description',
+    alt: fluidImage.title || 'No alternate text available',
+    title: fluidImage.title || null,
     sizes: fluidImage.fluid.sizes,
-    src: fluidImage.fluid.src || '//placehold.it/512',
+    src: fluidImage.fluid.src,
     srcSet: fluidImage.fluid.srcSet,
-    width: '100%',
+  }
+
+  const imgCaptionStyles = {
+    fontFamily: 'text',
+    fontSize: [1, 2],
+    fontWeight: 2,
+    my: 2,
+  }
+
+  const imgCaption = {
+    show: props.caption,
+  }
+
+  const ImageCaption = (imgCaption: any) => {
+    if (imgCaption.show && fluidImage.description)
+      return (
+        <figcaption css={systemCss({ ncss: imgCaptionStyles })}>
+          {fluidImage.description}
+        </figcaption>
+      )
+    else return null
   }
 
   return (
     <picture css={systemCss({ ncss: pictureStyles })}>
       <img {...imgAttrs} css={systemCss({ ncss: imgStyles })} />
+      <ImageCaption {...imgCaption} />
     </picture>
   )
 }

@@ -13,8 +13,6 @@ import {
 } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, INLINES, Document, MARKS } from '@contentful/rich-text-types'
 import React, { Fragment } from 'react'
-import { enlargingImageStyle } from '../../styles/enlarging-image'
-import { getAllPaddingObject } from '../../styles/global-padding'
 import {
   heading1Style,
   heading2Style,
@@ -41,21 +39,7 @@ type Children = any
 
 const ImageBox = (props: { image: FluidImage }) => (
   <Fragment>
-    <Box
-      ncss={{
-        h: [2, 3, 4, 5],
-        overflow: 'hidden',
-        ...getAllPaddingObject('image'),
-        w: 1,
-      }}
-    >
-      <Image
-        image={props.image}
-        objectFit="cover"
-        height="100%"
-        {...enlargingImageStyle}
-      />
-    </Box>
+    <Image caption image={props.image} my={[4, 5]} />
   </Fragment>
 )
 
@@ -83,7 +67,7 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
     renderMark: {
       [MARKS.BOLD]: text => (
         <Any
-          is="strong"
+          is="b"
           ncss={{
             fontWeight: 5,
           }}
@@ -149,14 +133,18 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         const image = {
-          description: getLocalizedValue(textSectionProps.locale, fields.title),
+          title: getLocalizedValue(textSectionProps.locale, fields.title),
+          description: getLocalizedValue(
+            textSectionProps.locale,
+            fields.description
+          ),
           fluid: {
             src:
               getLocalizedValue(textSectionProps.locale, fields.file).url +
               '?w=2560&q=50',
           },
         } as FluidImage
-        return <ImageBox image={image} />
+        return <ImageBox image={image} key={node.data.target.id} />
       },
     },
   } as Options
