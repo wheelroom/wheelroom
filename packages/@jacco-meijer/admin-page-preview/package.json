@@ -54,6 +54,9 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/admin-page-preview",
+  "dependencies": {
+    "@jacco-meijer/contentful-page-preview": "1.2.0"
+  },
   "peerDependencies": {
     "@emotion/core": "10.x",
     "@jacco-meijer/admin-core": "^1.x",
