@@ -18,6 +18,7 @@ remove_redundant_react_packages() {
     rm -rf packages/@jacco-meijer/admin-core/node_modules/$1
     rm -rf packages/@jacco-meijer/admin-panel/node_modules/$1
     rm -rf packages/@jacco-meijer/admin-page-preview/node_modules/$1
+    rm -rf packages/@jacco-meijer/admin-theme-switcher/node_modules/$1
     rm -rf packages/gatsby-theme-wheelroom/node_modules/$1
 }
 
@@ -33,6 +34,7 @@ link_react_packages_to_boilerplate() {
     ln -s $REACT_PATH packages/@jacco-meijer/admin-core/node_modules/$1
     ln -s $REACT_PATH packages/@jacco-meijer/admin-panel/node_modules/$1
     ln -s $REACT_PATH packages/@jacco-meijer/admin-page-preview/node_modules/$1
+    ln -s $REACT_PATH packages/@jacco-meijer/admin-theme-switcher/node_modules/$1
     ln -s $REACT_PATH packages/gatsby-theme-wheelroom/node_modules/$1
 }
 
