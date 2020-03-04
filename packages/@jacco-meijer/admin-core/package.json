@@ -55,7 +55,6 @@
   "main": "dist/index.js",
   "name": "@jacco-meijer/admin-core",
   "peerDependencies": {
-    "@emotion/core": "10.x",
     "@types/react": "16.x",
     "react": "16.x",
     "react-dom": "16.x"
