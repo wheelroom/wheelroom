@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.4...@jacco-meijer/admin-page-preview@1.4.5) (2020-03-04)
+
+
+### Bug Fixes
+
+* add missing dependency ontentful-page-preview ([ad1c197](https://github.com/jaccomeijer/wheelroom/commit/ad1c197787ce6fcf32b6c688faa15c8a7ff270c0))
+
+
+
+
+
 ## [1.4.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.3...@jacco-meijer/admin-page-preview@1.4.4) (2020-03-04)
 
 
