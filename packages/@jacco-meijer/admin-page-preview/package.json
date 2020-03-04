@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.28",
-    "@jacco-meijer/admin-core": "^1.1.3",
-    "@jacco-meijer/admin-panel": "^1.1.3",
+    "@jacco-meijer/admin-core": "^1.1.4",
+    "@jacco-meijer/admin-panel": "^1.1.4",
     "@jacco-meijer/contentful-page-preview": "1.2.0"
   },
   "description": "Page preview module for WHeelroom admin",
@@ -84,5 +84,5 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.4.2"
+  "version": "1.4.3"
 }

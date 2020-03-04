@@ -7,10 +7,10 @@
     "@contentful/rich-text-react-renderer": "13.4.0",
     "@contentful/rich-text-types": "14.1.0",
     "@emotion/core": "10.0.27",
-    "@jacco-meijer/admin-core": "^1.1.3",
-    "@jacco-meijer/admin-page-preview": "^1.4.2",
-    "@jacco-meijer/admin-panel": "^1.1.3",
-    "@jacco-meijer/admin-theme-switcher": "^1.0.0",
+    "@jacco-meijer/admin-core": "^1.1.4",
+    "@jacco-meijer/admin-page-preview": "^1.4.3",
+    "@jacco-meijer/admin-panel": "^1.1.4",
+    "@jacco-meijer/admin-theme-switcher": "^1.0.1",
     "@jacco-meijer/styled-system": "3.0.4",
     "@jacco-meijer/wheelroom": "^3.7.0",
     "@jacco-meijer/wheelroom-plugin-boilerplate": "^2.7.0",
@@ -98,5 +98,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "5.2.7"
+  "version": "5.2.8"
 }
