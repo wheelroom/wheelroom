@@ -19,7 +19,6 @@ remove_redundant_react_packages() {
     rm -rf packages/@jacco-meijer/admin-panel/node_modules/$1
     rm -rf packages/@jacco-meijer/admin-page-preview/node_modules/$1
     rm -rf packages/@jacco-meijer/admin-theme-switcher/node_modules/$1
-    rm -rf packages/gatsby-theme-wheelroom/node_modules/$1
 }
 
 link_react_packages_to_boilerplate() {
@@ -29,13 +28,10 @@ link_react_packages_to_boilerplate() {
         return
     fi
 
-    REACT_PATH="../../../boilerplate/node_modules/$1"
-
-    ln -s $REACT_PATH packages/@jacco-meijer/admin-core/node_modules/$1
-    ln -s $REACT_PATH packages/@jacco-meijer/admin-panel/node_modules/$1
-    ln -s $REACT_PATH packages/@jacco-meijer/admin-page-preview/node_modules/$1
-    ln -s $REACT_PATH packages/@jacco-meijer/admin-theme-switcher/node_modules/$1
-    ln -s $REACT_PATH packages/gatsby-theme-wheelroom/node_modules/$1
+    ln -s $2 packages/@jacco-meijer/admin-core/node_modules/$1
+    ln -s $2 packages/@jacco-meijer/admin-panel/node_modules/$1
+    ln -s $2 packages/@jacco-meijer/admin-page-preview/node_modules/$1
+    ln -s $2 packages/@jacco-meijer/admin-theme-switcher/node_modules/$1
 }
 
 echo "Preparing packages"
@@ -52,10 +48,10 @@ lerna run install-peers
 
 if [ -d "packages/boilerplate/node_modules/react" ]; then
     remove_redundant_react_packages react
-    link_react_packages_to_boilerplate react
+    link_react_packages_to_boilerplate react ../../../boilerplate/node_modules/react
 
     remove_redundant_react_packages @types/react
-    link_react_packages_to_boilerplate @types/react
+    link_react_packages_to_boilerplate @types/react ../../../../boilerplate/node_modules/@types/react
 
 else
     echo "Warning: could not find packages/boilerplate/node_modules/react"
