@@ -80,5 +80,5 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.4.3"
+  "version": "1.4.4"
 }

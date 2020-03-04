@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-core@1.1.4...@jacco-meijer/admin-core@1.1.5) (2020-03-04)
+
+
+### Bug Fixes
+
+* peer dependencies ([b24d23e](https://github.com/jaccomeijer/wheelroom/commit/b24d23edf770399ae574d80319d2bf04073132d1))
+
+
+
+
+
 ## [1.1.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-core@1.1.3...@jacco-meijer/admin-core@1.1.4) (2020-03-04)
 
 

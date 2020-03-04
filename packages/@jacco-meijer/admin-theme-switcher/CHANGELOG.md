@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-theme-switcher@1.0.1...@jacco-meijer/admin-theme-switcher@1.0.2) (2020-03-04)
+
+
+### Bug Fixes
+
+* peer dependencies ([b24d23e](https://github.com/jaccomeijer/wheelroom/commit/b24d23edf770399ae574d80319d2bf04073132d1))
+
+
+
+
+
 ## 1.0.1 (2020-03-04)
 
 
