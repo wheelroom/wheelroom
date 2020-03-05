@@ -1,4 +1,4 @@
-import { lightTheme } from '../styled-system/light-theme'
+import { scales } from '../styled-system/scales'
 
 export interface Padding {
   bottom: number
@@ -17,7 +17,7 @@ const getBreakpoint = (
   type: PaddingType
 ): string => {
   // Get space scale from theme
-  const spaceScale = lightTheme.spaceScale as number[]
+  const spaceScale = scales.spaceScale as number[]
   if (typeof padding === 'number') {
     const all = spaceScale[padding]
     return `${all}px`
