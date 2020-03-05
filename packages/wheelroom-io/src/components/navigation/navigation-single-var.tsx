@@ -6,7 +6,7 @@
  *
  */
 
-import React from 'react'
+import React, { useState, Fragment } from 'react'
 import { NavLinks } from './nav-links'
 import { NavigationProps } from './navigation'
 import { List } from '../../views/core-elements/list'
@@ -67,32 +67,64 @@ const listStyle = {
 }
 
 export const NavigationSingleVar = (props: NavigationProps) => {
+  const [activeThemeMode, setThemeMode] = useState('light')
+
+  const handleThemeMode = (activeThemeMode: string) => {
+    if (activeThemeMode == 'light') activeThemeMode = 'dark'
+    else activeThemeMode = 'light'
+    setThemeMode(activeThemeMode)
+  }
+
   return (
-    <Box is="div" ncss={wrapperStyle}>
-      <Container ncss={containerStyle}>
-        <Flex is="div" ncss={logoStyle}>
-          <GLink
-            ncss={logoLinkStyle}
-            to="/"
-            aria-label="Wheelroom, Back to homepage"
-          >
-            Wheelroom
-          </GLink>
-        </Flex>
-        <Flex is={'nav'} ncss={navStyle}>
-          <List is="ul" ncss={listStyle}>
-            <NavLinks pages={props.pages} />
-          </List>
-          <Flex>
-            <ALink
-              href="https://github.com/wheelroom/wheelroom-io"
-              ncss={{ ...buttonPrimaryStyle }}
+    <Fragment>
+      <ALink
+        href="#content"
+        ncss={{
+          label: 'Spacer',
+          display: 'block',
+          w: 1,
+          height: '70px',
+          ':focus': {
+            position: 'relative',
+            zIndex: 1002,
+          },
+        }}
+      >
+        Skip to Wheelroom Content
+      </ALink>
+      <Box is="div" ncss={wrapperStyle}>
+        <Container ncss={containerStyle}>
+          <Flex is="div" ncss={logoStyle}>
+            <GLink
+              ncss={logoLinkStyle}
+              to="/"
+              aria-label="Wheelroom, Back to homepage"
             >
-              Get started
-            </ALink>
+              Wheelroom
+            </GLink>
           </Flex>
-        </Flex>
-      </Container>
-    </Box>
+          <Flex is={'nav'} ncss={navStyle}>
+            <List is="ul" ncss={listStyle}>
+              <NavLinks pages={props.pages} />
+            </List>
+            <Flex>
+              <ALink
+                href="https://github.com/wheelroom/wheelroom-io"
+                ncss={{ ...buttonPrimaryStyle }}
+              >
+                Get started
+              </ALink>
+              <Box
+                is="div"
+                ncss={{ ...buttonPrimaryStyle, ml: 2 }}
+                onClick={() => handleThemeMode(activeThemeMode)}
+              >
+                {activeThemeMode === 'dark' ? '☀' : '☾'}
+              </Box>
+            </Flex>
+          </Flex>
+        </Container>
+      </Box>
+    </Fragment>
   )
 }
