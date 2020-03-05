@@ -1,3 +1,12 @@
+## [3.0.5](https://github.com/jaccomeijer/wheelroom/compare/v3.0.4...v3.0.5) (2020-03-05)
+
+
+### Bug Fixes
+
+* check for valid object ([479783c](https://github.com/jaccomeijer/wheelroom/commit/479783cb3905149cd05f3af8256ae54f0dbc12db))
+
+
+
 ## [3.0.4](https://github.com/jaccomeijer/wheelroom/compare/v3.0.3...v3.0.4) (2020-02-06)
 
 
