@@ -4,7 +4,7 @@ import { useInitThemeSwitcher } from '@jacco-meijer/admin-theme-switcher'
 import { themeNames } from './theme-names'
 
 const UseAdminModules = (props: any) => {
-  useInitThemeSwitcher(themeNames)
+  useInitThemeSwitcher(themeNames())
   useInitPagePreview(props)
   return <Fragment>{props.children}</Fragment>
 }

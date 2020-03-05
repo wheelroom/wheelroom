@@ -1,12 +1,17 @@
 import { ThemeNames } from '@jacco-meijer/admin-theme-switcher'
 
-export const themeNames: ThemeNames = {
-  light: {
-    name: 'Light theme',
-    default: true,
-  },
-  dark: {
-    name: 'Dark theme',
-    default: false,
-  },
+export const themeNames = (): ThemeNames => {
+  const supportsDarkMode =
+    window.matchMedia('(prefers-color-scheme: dark)').matches === true
+
+  return {
+    light: {
+      name: 'Light theme',
+      default: supportsDarkMode ? false : true,
+    },
+    dark: {
+      name: 'Dark theme',
+      default: supportsDarkMode ? true : false,
+    },
+  }
 }
