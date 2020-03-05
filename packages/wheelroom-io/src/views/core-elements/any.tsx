@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 
 export interface AnyProps {
   /** Render as another HTML element */
@@ -12,10 +13,14 @@ export interface AnyProps {
 }
 
 export const Any = (props: AnyProps) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `Any-${props.is}`
-  const css = systemCss({
-    ncss: { label, ...props.ncss },
-  })
+  const css = systemCss(
+    {
+      ncss: { label, ...props.ncss },
+    },
+    currentThemeId
+  )
   const attrs = {
     css,
   }

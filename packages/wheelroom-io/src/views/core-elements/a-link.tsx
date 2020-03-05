@@ -1,14 +1,22 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 
-export const ALink = (props: any) => (
-  <a
-    css={systemCss({
-      ncss: { ...props.ncss },
-    })}
-    href={props.href}
-  >
-    {props.children}
-  </a>
-)
+export const ALink = (props: any) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
+
+  return (
+    <a
+      css={systemCss(
+        {
+          ncss: { ...props.ncss },
+        },
+        currentThemeId
+      )}
+      href={props.href}
+    >
+      {props.children}
+    </a>
+  )
+}

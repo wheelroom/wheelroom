@@ -63,17 +63,21 @@ export interface ContainerProps extends GridProps {
 }
 
 export const Container = (props: ContainerProps) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `Container-${props.is || 'div'}`
-  const css = systemCss({
-    ncss: {
-      label,
-      display: 'flex',
-      px: 3,
-      my: 0,
-      mx: 'auto',
-      ...props.ncss,
+  const css = systemCss(
+    {
+      ncss: {
+        label,
+        display: 'flex',
+        px: 3,
+        my: 0,
+        mx: 'auto',
+        ...props.ncss,
+      },
     },
-  })
+    currentThemeId
+  )
   const attrs = {
     css,
     onClick: props.onClick,

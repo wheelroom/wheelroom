@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { ListElementName } from './styles'
+import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 
 export interface ListProps {
   /** Render as another HTML element */
@@ -13,10 +14,14 @@ export interface ListProps {
 }
 
 export const List = (props: ListProps) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `List-${props.is}`
-  const css = systemCss({
-    ncss: { label, ...props.ncss },
-  })
+  const css = systemCss(
+    {
+      ncss: { label, ...props.ncss },
+    },
+    currentThemeId
+  )
   const attrs = {
     css,
   }
