@@ -12,11 +12,14 @@ import { NavigationProps } from './navigation'
 import { List } from '../../views/core-elements/list'
 import { GLink } from '../../views/core-elements/g-link'
 import { Box, Container, Flex } from '../../views/core-elements/grid'
-import { buttonPrimaryStyle } from '../../styles/button'
+import { buttonPrimaryStyle, buttonSecondaryStyle } from '../../styles/button'
 import { ALink } from '../../views/core-elements/a-link'
 
 import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
+
+import { ThemeId } from '../../styled-system/system-css'
+import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 
 const wrapperStyle = {
   label: 'Wrapper',
@@ -73,7 +76,17 @@ export const NavigationSingleVar = (props: NavigationProps) => {
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
-  const handleThemeMode = themeSwitcherStore?.actions.setActiveTheme
+  const setThemeMode = themeSwitcherStore?.actions.setActiveTheme
+  // Get current Theme ID
+  const currentThemeMode = useGetCurrentThemeId() as ThemeId
+
+  const handleThemeMode = () => {
+    if (currentThemeMode === 'light') {
+      setThemeMode('dark')
+    } else {
+      setThemeMode('light')
+    }
+  }
 
   return (
     <Fragment>
@@ -115,16 +128,10 @@ export const NavigationSingleVar = (props: NavigationProps) => {
                 Get started
               </ALink>
               <Box
-                ncss={{ ...buttonPrimaryStyle, ml: 2 }}
-                onClick={() => handleThemeMode('dark')}
+                ncss={{ ...buttonSecondaryStyle, ml: 2, textTransform: 'capitalize', minWidth: '70px' }}
+                onClick={() => handleThemeMode()}
               >
-                Set theme dark
-              </Box>
-              <Box
-                ncss={{ ...buttonPrimaryStyle, ml: 2 }}
-                onClick={() => handleThemeMode('light')}
-              >
-                Set theme light
+                {currentThemeMode}
               </Box>
             </Flex>
           </Flex>

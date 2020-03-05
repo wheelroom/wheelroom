@@ -11,3 +11,21 @@ export const buttonPrimaryStyle = {
   '&:visited': {},
   '&:focus': {},
 }
+
+export const buttonSecondaryStyle = {
+  userSelect: 'none',
+  fontFamily: 'text',
+  textAlign: 'center',
+  color: 'text',
+  bg: 'transparent',
+  border: '1px solid',
+  borderColor: 'metal',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  py: '8px',
+  px: '16px',
+  '&:hover': {},
+  '&:visited': {},
+  '&:focus': {},
+}
