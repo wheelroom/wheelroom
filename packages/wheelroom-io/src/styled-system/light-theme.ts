@@ -1,6 +1,6 @@
 import { StyledSystemTheme } from '@jacco-meijer/styled-system'
 
-export const styledSystemTheme: StyledSystemTheme = {
+export const lightTheme: StyledSystemTheme = {
   breakpoints: ['37.5em', '50em', '75em'],
   colorMap: {
     black: '#000000',
