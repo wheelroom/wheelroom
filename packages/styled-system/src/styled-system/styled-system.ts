@@ -13,12 +13,12 @@ export const styledSystem = (
     return
   }
 
-  if (Object.entries(config).length === 0) {
+  if (!config || Object.entries(config).length === 0) {
     console.log(`Config not found, using default config`)
     config = defaultConfig
   }
 
-  if (Object.entries(theme).length === 0) {
+  if (!theme || Object.entries(theme).length === 0) {
     console.log(`Theme not found, using default theme`)
     theme = defaultTheme
   }
