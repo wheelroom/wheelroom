@@ -51,6 +51,10 @@ const logoLinkStyle = {
   fontWeight: 5,
   color: 'text',
   mr: 5,
+  sup: {
+    color: 'metal',
+    fontWeight: 3,
+  },
 }
 
 const navStyle = {
@@ -99,6 +103,14 @@ export const NavigationSingleVar = (props: NavigationProps) => {
           height: '70px',
           ':focus': {
             position: 'relative',
+            display: 'flex',
+            color: 'black',
+            fontFamily: 'text',
+            fontWeight: 5,
+            backgroundColor: 'amber',
+            textAlign: 'center',
+            lineHeight: '70px',
+            justifyContent: 'center',
             zIndex: 1002,
           },
         }}
@@ -113,7 +125,10 @@ export const NavigationSingleVar = (props: NavigationProps) => {
               to="/"
               aria-label="Wheelroom, Back to homepage"
             >
-              Wheelroom
+              Wheelroom{' '}
+              <sup>
+                <small>1.0.0</small>
+              </sup>
             </GLink>
           </Flex>
           <Flex is={'nav'} ncss={navStyle}>
@@ -128,7 +143,12 @@ export const NavigationSingleVar = (props: NavigationProps) => {
                 Get started
               </ALink>
               <Box
-                ncss={{ ...buttonSecondaryStyle, ml: 2, textTransform: 'capitalize', minWidth: '70px' }}
+                ncss={{
+                  ...buttonSecondaryStyle,
+                  ml: 2,
+                  textTransform: 'capitalize',
+                  minWidth: '70px',
+                }}
                 onClick={() => handleThemeMode()}
               >
                 {currentThemeMode}
