@@ -4,6 +4,7 @@ export const themeNames = (): ThemeNames => {
   const supportsDarkMode =
     window.matchMedia('(prefers-color-scheme: dark)').matches === true
 
+  console.log('supportsDarkMode', supportsDarkMode)
   return {
     light: {
       name: 'Light theme',
