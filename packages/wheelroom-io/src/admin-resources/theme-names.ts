@@ -1,8 +1,10 @@
 import { ThemeNames } from '@jacco-meijer/admin-theme-switcher'
 
 export const themeNames = (): ThemeNames => {
+  const isServer = typeof window === 'undefined'
   const supportsDarkMode =
-    window && window.matchMedia('(prefers-color-scheme: dark)').matches === true
+    !isServer &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches === true
 
   return {
     light: {
