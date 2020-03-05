@@ -6,7 +6,7 @@
  *
  */
 
-import React, { useState, Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { NavLinks } from './nav-links'
 import { NavigationProps } from './navigation'
 import { List } from '../../views/core-elements/list'
@@ -14,6 +14,9 @@ import { GLink } from '../../views/core-elements/g-link'
 import { Box, Container, Flex } from '../../views/core-elements/grid'
 import { buttonPrimaryStyle } from '../../styles/button'
 import { ALink } from '../../views/core-elements/a-link'
+
+import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
+import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 const wrapperStyle = {
   label: 'Wrapper',
@@ -67,13 +70,10 @@ const listStyle = {
 }
 
 export const NavigationSingleVar = (props: NavigationProps) => {
-  const [activeThemeMode, setThemeMode] = useState('light')
-
-  const handleThemeMode = (activeThemeMode: string) => {
-    if (activeThemeMode == 'light') activeThemeMode = 'dark'
-    else activeThemeMode = 'light'
-    setThemeMode(activeThemeMode)
-  }
+  // Theme switcher admin module
+  const { adminCoreState } = useContext(AdminCoreContext)
+  const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
+  const handleThemeMode = themeSwitcherStore?.actions.setActiveTheme
 
   return (
     <Fragment>
@@ -115,11 +115,16 @@ export const NavigationSingleVar = (props: NavigationProps) => {
                 Get started
               </ALink>
               <Box
-                is="div"
                 ncss={{ ...buttonPrimaryStyle, ml: 2 }}
-                onClick={() => handleThemeMode(activeThemeMode)}
+                onClick={() => handleThemeMode('light')}
               >
-                {activeThemeMode === 'dark' ? '☀' : '☾'}
+                Set light theme
+              </Box>
+              <Box
+                ncss={{ ...buttonPrimaryStyle, ml: 2 }}
+                onClick={() => handleThemeMode('dark')}
+              >
+                Set dark theme
               </Box>
             </Flex>
           </Flex>

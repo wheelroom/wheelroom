@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
@@ -13,8 +13,6 @@ import {
 } from '@jacco-meijer/admin-page-preview'
 import { GlobalStyles } from './styles/global-styles'
 import { GlobalReset } from './styles/global-reset'
-import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
-import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -27,11 +25,6 @@ const PageTemplate = (props: any) => {
   const [previewPage, setPreviewPage] = useState()
   useFetchPreviewPage(setPreviewPage)
   const page: PageProps = previewPage || props.data.page
-
-  // Theme switcher admin module
-  const { adminCoreState } = useContext(AdminCoreContext)
-  const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
-  const setActiveTheme = themeSwitcherStore?.actions.setActiveTheme
 
   if (!page.sections) {
     return 'No sections'
@@ -73,8 +66,6 @@ const PageTemplate = (props: any) => {
       <Global styles={[GlobalStyles, GlobalReset]} />
       <Seo {...seoProps} />
       <Sections {...sectionProps} />
-      <button onClick={() => setActiveTheme('light')}>Set light theme</button>
-      <button onClick={() => setActiveTheme('dark')}>Set dark theme</button>
       <PreviewUpdateButton />
     </>
   )
