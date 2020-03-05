@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 
 export interface FluidImage {
   description: string
@@ -68,6 +69,7 @@ const overlayStyles = {
 }
 
 export const Image = (props: ImageProps) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const overlayStyleProps = props.overlay ? overlayStyles[props.overlay] : {}
 
   const pictureStyles = {
@@ -114,6 +116,7 @@ export const Image = (props: ImageProps) => {
 
   const imgCaptionStyles = {
     fontFamily: 'text',
+    color: 'text',
     fontSize: [1, 2],
     fontWeight: 2,
     my: 2,
@@ -126,7 +129,7 @@ export const Image = (props: ImageProps) => {
   const ImageCaption = (imgCaption: any) => {
     if (imgCaption.show && fluidImage.description)
       return (
-        <figcaption css={systemCss({ ncss: imgCaptionStyles })}>
+        <figcaption css={systemCss({ ncss: imgCaptionStyles }, currentThemeId)}>
           {fluidImage.description}
         </figcaption>
       )
@@ -134,7 +137,7 @@ export const Image = (props: ImageProps) => {
   }
 
   return (
-    <picture css={systemCss({ ncss: pictureStyles })}>
+    <picture css={systemCss({ ncss: pictureStyles }, currentThemeId)}>
       <img {...imgAttrs} css={systemCss({ ncss: imgStyles })} />
       <ImageCaption {...imgCaption} />
     </picture>
