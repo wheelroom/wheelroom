@@ -1,5 +1,5 @@
 export const navigationHeaderStyle = {
-  color: 'azure',
+  color: 'link',
   fontFamily: 'text',
   fontSize: [3, 4],
   display: 'block',

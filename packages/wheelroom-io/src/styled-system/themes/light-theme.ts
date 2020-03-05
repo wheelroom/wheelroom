@@ -12,5 +12,9 @@ export const lightTheme: StyledSystemTheme = {
     ...colors,
     heading: colors.black,
     text: colors.black,
+    link: colors.azure,
+    button: colors.white,
+    bg: colors.white,
+    border: colors.silver,
   },
 }

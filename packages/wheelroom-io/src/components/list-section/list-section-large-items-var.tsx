@@ -7,10 +7,6 @@
  */
 
 import React, { Fragment } from 'react'
-import {
-  getAllPaddingObject,
-  getSinglePadding,
-} from '../../styles/global-padding'
 import { heading3Style } from '../../styles/heading'
 import { paragraph2Style } from '../../styles/paragraph'
 import { GLink } from '../../views/core-elements/g-link'
@@ -35,24 +31,25 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
         key={index}
         to={item.link && item.link.path}
         ncss={{
-          bg: 'metal',
           display: 'block',
-          mb: 1,
+          color: 'text',
+          bg: 'metal',
           overflow: 'hidden',
           position: 'relative',
           w: 1,
         }}
       >
         <Flex>
-          <Box ncss={{ w: [1, 2 / 3], ...getAllPaddingObject('textBox') }}>
+          <Box ncss={{ w: [1, 2 / 3] }}>
             <H3
               ncss={{
-                ...heading3Style
+                ...heading3Style,
+                color: 'text',
               }}
             >
               {heading}
             </H3>
-            <Paragraph ncss={{ ...paragraph2Style, color: 'white' }}>
+            <Paragraph ncss={{ ...paragraph2Style, color: 'text' }}>
               {abstract}
             </Paragraph>
           </Box>
@@ -68,7 +65,7 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
 
 export const ListSectionLargeItemsVar = (props: ListSectionProps) => {
   return (
-    <Box ncss={{ px: getSinglePadding('section', 'left') }}>
+    <Box is="div" ncss={{ label: 'Wrapper', bg: 'bg' }}>
       <ListSectionHeading heading={props.heading} />
       <LargeListItems items={props.items} />
     </Box>

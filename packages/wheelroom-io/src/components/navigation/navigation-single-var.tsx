@@ -21,13 +21,13 @@ import { AdminCoreContext } from '@jacco-meijer/admin-core'
 const wrapperStyle = {
   label: 'Wrapper',
   position: 'fixed',
-  bg: 'white',
+  bg: 'bg',
   width: '100%',
   zIndex: 1000,
   top: 0,
   height: '70px',
   borderBottom: '1px solid',
-  borderColor: 'silver',
+  borderColor: 'border',
 }
 
 const containerStyle = {
@@ -46,7 +46,7 @@ const logoLinkStyle = {
   textDecoration: 'none',
   fontSize: [4, 5],
   fontWeight: 5,
-  color: 'black',
+  color: 'text',
   mr: 5,
 }
 
@@ -116,15 +116,15 @@ export const NavigationSingleVar = (props: NavigationProps) => {
               </ALink>
               <Box
                 ncss={{ ...buttonPrimaryStyle, ml: 2 }}
-                onClick={() => handleThemeMode('light')}
+                onClick={() => handleThemeMode('dark')}
               >
-                Set light theme
+                Set theme dark
               </Box>
               <Box
                 ncss={{ ...buttonPrimaryStyle, ml: 2 }}
-                onClick={() => handleThemeMode('dark')}
+                onClick={() => handleThemeMode('light')}
               >
-                Set dark theme
+                Set theme light
               </Box>
             </Flex>
           </Flex>

@@ -1,5 +1,5 @@
 export const simpleLinkStyle = {
-  color: 'azure',
+  color: 'link',
   cursor: 'pointer',
   textDecoration: 'none',
   '&:hover': {

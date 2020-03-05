@@ -9,7 +9,6 @@
 import React, { Fragment } from 'react'
 import {
   getAllPaddingObject,
-  getSinglePadding,
 } from '../../styles/global-padding'
 import { heading3Style } from '../../styles/heading'
 import { paragraph2Style } from '../../styles/paragraph'
@@ -35,32 +34,27 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
         key={index}
         to={item.link && item.link.path}
         ncss={{
-          display: 'block',
-          overflow: 'hidden',
           position: 'relative',
-          w: [1, 1 / 2, 1 / 3, 1 / 4],
+          w: [1, 1 / 2, 1 / 3],
         }}
       >
-        <Box ncss={{ m: 1, bg: 'metal' }}>
+        <Box ncss={{ m: 3, bg: 'metal' }}>
           <Image image={image} height={[2, 2, 3, 3]} overlay="gradient" />
           <Box
             ncss={{
               ...getAllPaddingObject('textBox'),
-              bottom: 0,
-              left: 0,
-              position: 'absolute',
               w: 1,
             }}
           >
             <H3
               ncss={{
                 ...heading3Style,
-                color: 'white',
+                color: 'text',
               }}
             >
               {heading}
             </H3>
-            <Paragraph ncss={{ ...paragraph2Style, color: 'white' }}>
+            <Paragraph ncss={{ ...paragraph2Style, color: 'text' }}>
               {abstract}
             </Paragraph>
           </Box>
@@ -73,13 +67,11 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
 
 export const ListSectionSmallItemsVar = (props: ListSectionProps) => {
   return (
-    <Fragment>
-      <Flex ncss={{ px: getSinglePadding('section', 'left') }}>
-        <ListSectionHeading heading={props.heading} />
-      </Flex>
-      <Flex ncss={{ px: getSinglePadding('section', 'left') }}>
+    <Box is="div" ncss={{ label: 'Wrapper', bg: 'bg' }}>
+      <ListSectionHeading heading={props.heading} />
+      <Flex>
         <LargeListItems items={props.items} />
       </Flex>
-    </Fragment>
+    </Box>
   )
 }

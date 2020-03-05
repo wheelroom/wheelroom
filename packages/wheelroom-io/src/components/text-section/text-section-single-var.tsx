@@ -47,7 +47,7 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
   const textSectionProps = props
   const wrapperStyle = {
     label: 'Wrapper',
-    mt: 9,
+    bg: 'bg',
   }
 
   const containerStyle = {
@@ -157,7 +157,7 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
           ncss={{
             label: 'text',
             mx: 'auto',
-            my: 5,
+            my: 7,
             maxWidth: '640px',
           }}
         >

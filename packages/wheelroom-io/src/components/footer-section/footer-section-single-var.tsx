@@ -7,61 +7,52 @@
  */
 
 import React from 'react'
-import { getAllPaddingObject } from '../../styles/global-padding'
 import { paragraph1Style } from '../../styles/paragraph'
-import { Box, Flex } from '../../views/core-elements/grid'
+import { Box, Container, Flex } from '../../views/core-elements/grid'
 import { Paragraph } from '../../views/core-elements/paragraph'
+import { List } from '../../views/core-elements/list'
 import { NavLinks } from '../navigation/nav-links'
 import { FooterSectionProps } from './footer-section'
+
+const wrapperStyle = {
+  label: 'Wrapper',
+  color: 'text',
+  bg: 'bg',
+  borderTop: '1px solid',
+  borderColor: 'border',
+}
+
+const containerStyle = {
+  label: 'Container',
+  height: '100%',
+  justifyContent: 'space-between',
+}
 
 const addressStyle = { ...paragraph1Style }
 
 export const FooterSectionSingleVar = (props: FooterSectionProps) => {
   return (
-    <Flex
-      ncss={{
-        bg: 'caviar',
-        flexDirection: 'row',
-        mb: 7,
-        w: 1,
-      }}
-    >
-      <Flex
-        ncss={{
-          alignItems: ['center', 'center', 'flex-start'],
-          flexDirection: 'column',
-          ...getAllPaddingObject('textBox'),
-          w: [1, 1, 1 / 2],
-        }}
-      >
-        <NavLinks pages={props.navigation.pages} />
-      </Flex>
-      <Flex
-        ncss={{
-          flexDirection: 'column',
-          w: [1, 1, 1 / 2],
-        }}
-      >
-        <Flex
-          ncss={{
-            ...getAllPaddingObject('textBox'),
-            alignItems: ['center', 'center', 'flex-start'],
-            flexDirection: 'column',
-          }}
-        >
-          <Paragraph ncss={addressStyle}>
-            {props.globals.addressLine1}
-          </Paragraph>
-          <Paragraph ncss={addressStyle}>
-            {props.globals.addressLine2}
-          </Paragraph>
-          <Box ncss={{ p: 3 }} />
-          <Paragraph ncss={addressStyle}>{props.globals.phoneNumber}</Paragraph>
-          <Paragraph ncss={addressStyle}>
-            {props.globals.emailAddress}
-          </Paragraph>
+    <Box is="div" ncss={wrapperStyle}>
+      <Container ncss={containerStyle}>
+        <Flex is="div">
+          <List is="ul">
+            <NavLinks pages={props.navigation.pages} />
+          </List>
         </Flex>
-      </Flex>
-    </Flex>
+        <Flex is="div">
+          <Box>
+            <Paragraph ncss={addressStyle}>
+              {props.globals.addressLine1}
+              <br />
+              {props.globals.addressLine2}
+              <br />
+              {props.globals.phoneNumber}
+              <br />
+              {props.globals.emailAddress}
+            </Paragraph>
+          </Box>
+        </Flex>
+      </Container>
+    </Box>
   )
 }

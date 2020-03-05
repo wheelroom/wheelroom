@@ -1,6 +1,6 @@
 export const buttonPrimaryStyle = {
   fontFamily: 'text',
-  color: 'white',
+  color: 'button',
   bg: 'azure',
   borderRadius: '4px',
   cursor: 'pointer',

@@ -12,5 +12,9 @@ export const darkTheme: StyledSystemTheme = {
     ...colors,
     heading: colors.white,
     text: colors.white,
+    link: colors.azure,
+    button: colors.white,
+    bg: colors.caviar,
+    border: colors.bullet,
   },
 }

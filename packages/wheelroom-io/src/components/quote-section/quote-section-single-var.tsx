@@ -23,6 +23,8 @@ export const QuoteSectionSingleVar = (props: QuoteSectionProps) => {
       ncss={{
         px: getSinglePadding('section', 'left'),
         w: 1,
+        color: 'text',
+        bg: 'bg',
       }}
     >
       <Box ncss={{ w: imageSizes, h: imageSizes }}>

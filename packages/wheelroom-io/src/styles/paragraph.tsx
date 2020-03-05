@@ -1,5 +1,5 @@
 export const paragraph1Style = {
-  color: 'black',
+  color: 'text',
   fontFamily: 'text',
   fontSize: [3, 4],
   lineHeight: [3],
@@ -8,7 +8,7 @@ export const paragraph1Style = {
 }
 
 export const paragraph2Style = {
-  color: 'black',
+  color: 'text',
   fontFamily: 'text',
   fontSize: [3, 4],
   lineHeight: [3],
