@@ -9,7 +9,7 @@ export const styledSystem = (
   theme: StyledSystemTheme,
   props: any
 ) => {
-  if (!props || !('ncss' in props)) {
+  if (!props || !('ncss' in props) || typeof props.ncss !== 'object') {
     return
   }
 
