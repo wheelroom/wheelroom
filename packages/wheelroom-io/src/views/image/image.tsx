@@ -29,8 +29,6 @@ export interface ImageProps {
   maxHeight?: styleProp
   minHeight?: styleProp
   my?: styleProp
-  /** optional overlay */
-  overlay?: 'solid' | 'gradient'
   /** like the css property */
   objectFit?: string
   /** like the css property */
@@ -38,39 +36,8 @@ export interface ImageProps {
   caption?: boolean
 }
 
-const overlayStyles = {
-  gradient: {
-    '&::after': {
-      background:
-        'linear-gradient( 0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 80% )',
-      bottom: '0',
-      content: '""',
-      display: 'block',
-      left: '0',
-      position: 'absolute',
-      right: '0',
-      top: '0',
-    },
-    position: 'relative',
-  },
-  solid: {
-    '&::after': {
-      backgroundColor: 'rgba(0, 0, 0, 0.2)',
-      bottom: '0',
-      content: '""',
-      display: 'block',
-      left: '0',
-      position: 'absolute',
-      right: '0',
-      top: '0',
-    },
-    position: 'relative',
-  },
-}
-
 export const Image = (props: ImageProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const overlayStyleProps = props.overlay ? overlayStyles[props.overlay] : {}
 
   const pictureStyles = {
     '&:hover': props['&:hover'],
@@ -82,7 +49,6 @@ export const Image = (props: ImageProps) => {
     my: props.my,
     transition: props.transition,
     width: props.width,
-    ...overlayStyleProps,
   }
 
   const defaultFluidImage = {
@@ -101,7 +67,7 @@ export const Image = (props: ImageProps) => {
     borderRadius: props.borderRadius,
     clipPath: props.clipPath,
     display: 'block',
-    height: 'auto',
+    height: props.height || 'auto',
     objectFit: props.objectFit,
     width: '100%',
   }

@@ -15,3 +15,10 @@ export const paragraph2Style = {
   mt: 0,
   mb: 3,
 }
+
+export const paragraphHeroStyle = {
+  color: 'caviar',
+  fontFamily: 'text',
+  fontSize: [5, 6],
+  lineHeight: [3, 4],
+}
