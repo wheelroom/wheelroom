@@ -1,3 +1,12 @@
+## [3.0.6](https://github.com/jaccomeijer/wheelroom/compare/v3.0.5...v3.0.6) (2020-03-05)
+
+
+### Bug Fixes
+
+* check for valid theme and config ([168f4cb](https://github.com/jaccomeijer/wheelroom/commit/168f4cb1efe23d74253465788b656aa536bdc621))
+
+
+
 ## [3.0.5](https://github.com/jaccomeijer/wheelroom/compare/v3.0.4...v3.0.5) (2020-03-05)
 
 
