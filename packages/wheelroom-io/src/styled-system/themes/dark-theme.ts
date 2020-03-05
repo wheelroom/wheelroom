@@ -8,8 +8,8 @@ export const darkTheme: StyledSystemTheme = {
   ...maps,
   ...scales,
   colorMap: {
-    black: '#000000',
-    white: '#FFFFFF',
+    black: '#FFFFFF',
+    white: '#000000',
     skyblue: 'rgba(35, 122, 252, 0.1)',
     azure: '#237AFC',
     amber: '#FCA623',

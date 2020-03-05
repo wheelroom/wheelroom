@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { InlineElementName, BlockLevelElementName } from './styles'
+import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 
 export interface GridProps {
   /** Render as another HTML element */
@@ -17,10 +18,14 @@ export interface BoxProps extends GridProps {
 }
 
 export const Box = (props: BoxProps) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `Box-${props.is || 'div'}`
-  const css = systemCss({
-    ncss: { label, ...props.ncss },
-  })
+  const css = systemCss(
+    {
+      ncss: { label, ...props.ncss },
+    },
+    currentThemeId
+  )
   const attrs = {
     css,
     onClick: props.onClick,
@@ -33,15 +38,19 @@ export interface FlexProps extends GridProps {
 }
 
 export const Flex = (props: FlexProps) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `Flex-${props.is || 'div'}`
-  const css = systemCss({
-    ncss: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      label,
-      ...props.ncss,
+  const css = systemCss(
+    {
+      ncss: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        label,
+        ...props.ncss,
+      },
     },
-  })
+    currentThemeId
+  )
   const attrs = {
     css,
     onClick: props.onClick,
