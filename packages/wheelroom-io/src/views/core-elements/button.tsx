@@ -12,19 +12,28 @@ export interface ButtonProps {
   /** Nested emotion css styling */
   ncss?: any
   /** Button value attribute */
-  value?: any
+  value?: string | number | string[] | undefined
+  /** Button type attribute */
+  type?: 'button' | 'submit' | 'reset' | undefined
   /** Button onClick function */
   onClick?: any
+  /** Button aria-label attribute */
+  ariaLabel?: string | undefined
+  /** Button title attribute */
+  title?: string | undefined
+  /** Button disabled attribute */
+  disabled?: boolean | undefined
 }
 
 export const Button = (props: ButtonProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
   const { adminCoreState } = useContext(AdminCoreContext)
-  if (!props.value) {
-    return null
-  }
   return (
     <button
+      type={props.type}
+      title={props.title}
+      disabled={props.disabled}
+      aria-label={props.ariaLabel}
       css={systemCss(
         {
           ncss: { ...props.ncss },

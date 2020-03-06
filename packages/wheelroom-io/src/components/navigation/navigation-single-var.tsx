@@ -144,14 +144,17 @@ export const NavigationSingleVar = (props: NavigationProps) => {
                 Get started
               </ALink>
               <Button
+                type="button"
+                title={`Current theme is ` + currentThemeMode}
+                ariaLabel={`Current theme is ` + currentThemeMode}
                 ncss={{
                   ...buttonSecondaryStyle,
                   ml: 2,
                   textTransform: 'capitalize',
                   minWidth: '70px',
                 }}
+                value=""
                 onClick={() => handleThemeMode()}
-                value="handleThemeMode"
               >
                 {currentThemeMode}
               </Button>
