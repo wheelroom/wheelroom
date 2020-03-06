@@ -14,6 +14,8 @@ export interface ALinkProps {
   ariaLabel?: string | undefined
   /** Link title attribute */
   title?: string | undefined
+  /** Link role attribute */
+  role?: string | undefined
   /** Link target attribute */
   target?: '_blank' | '_self' | '_parent' | '_top' | undefined
   /** Link ID attribute */
@@ -45,6 +47,7 @@ export const ALink = (props: ALinkProps) => {
       id={props.id}
       rel={props.rel}
       title={props.title}
+      role={props.role}
       download={props.download}
       target={props.target}
       aria-label={props.ariaLabel}
