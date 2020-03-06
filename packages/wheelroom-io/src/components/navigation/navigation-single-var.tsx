@@ -20,6 +20,7 @@ import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 import { ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { Button } from '../../views/core-elements/button'
 
 const wrapperStyle = {
   label: 'Wrapper',
@@ -142,7 +143,7 @@ export const NavigationSingleVar = (props: NavigationProps) => {
               >
                 Get started
               </ALink>
-              <Box
+              <Button
                 ncss={{
                   ...buttonSecondaryStyle,
                   ml: 2,
@@ -150,9 +151,10 @@ export const NavigationSingleVar = (props: NavigationProps) => {
                   minWidth: '70px',
                 }}
                 onClick={() => handleThemeMode()}
+                value="handleThemeMode"
               >
                 {currentThemeMode}
-              </Box>
+              </Button>
             </Flex>
           </Flex>
         </Container>
