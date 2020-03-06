@@ -88,7 +88,7 @@ export const OpenerSectionHomeVar = (props: OpenerSectionProps) => {
                 }}
                 to="/documentation"
               >
-                Try Wheelroom
+                Try Wheelroom for Free
               </GLink>
             </Box>
           </Container>
