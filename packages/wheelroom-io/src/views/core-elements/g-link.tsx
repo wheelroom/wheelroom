@@ -12,8 +12,14 @@ export interface GLinkProps {
   children?: any
   /** Nested emotion css styling */
   ncss?: any
-  /** Gatsby Link */
+  /** Gatsby Link URL attribute */
   to?: any
+  /** Gatsby Link ID attribute */
+  id?: string | undefined
+  /** Gatsby Link aria-label attribute */
+  ariaLabel?: string | undefined
+  /** Gatsby Link title attribute */
+  title?: string | undefined
 }
 
 export const GLink = (props: GLinkProps) => {
@@ -24,6 +30,9 @@ export const GLink = (props: GLinkProps) => {
   }
   return (
     <Link
+      id={props.id}
+      title={props.title}
+      aria-label={props.ariaLabel}
       css={systemCss(
         {
           ncss: {
