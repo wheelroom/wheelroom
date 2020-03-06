@@ -9,11 +9,7 @@
 import React, { Fragment } from 'react'
 import { heading1Style } from '../../styles/heading'
 import { paragraphHeroStyle } from '../../styles/paragraph'
-import {
-  buttonPrimaryStyle,
-  buttonPrimaryTransparentStyle,
-  buttonSecondaryStyle,
-} from '../../styles/button'
+import { buttonPrimaryStyle } from '../../styles/button'
 import { Box, Container } from '../../views/core-elements/grid'
 import { H1 } from '../../views/core-elements/heading'
 import { Paragraph } from '../../views/core-elements/paragraph'
