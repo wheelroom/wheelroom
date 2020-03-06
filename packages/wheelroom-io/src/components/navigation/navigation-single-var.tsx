@@ -138,9 +138,6 @@ export const NavigationSingleVar = (props: NavigationProps) => {
             </List>
             <Flex>
               <ALink
-                target="_self"
-                ariaLabel="Get started with Wheelroom for Free"
-                title="Get started"
                 href="https://github.com/wheelroom/wheelroom-io"
                 ncss={{ ...buttonPrimaryStyle }}
               >
