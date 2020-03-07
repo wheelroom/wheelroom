@@ -169,17 +169,17 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
         </Flex>
       </Container>
       {/* Demo Flex element, should be removed here */}
-      <Flex
+      <Any
         is="div"
         ncss={{
-          label: 'text',
+          label: 'demo-figure',
           mx: 'auto',
-          my: 7,
-          maxWidth: '240px',
+          py: 7,
+          w: [1 / 2, 1 / 2, 1 / 3, 1 / 4],
         }}
       >
         <SvgStack />
-      </Flex>
+      </Any>
       {/* End of demo Flex element, should be removed here */}
     </Box>
   )
