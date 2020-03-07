@@ -9,3 +9,10 @@ export const colors = {
   bullet: '#666666',
   caviar: '#222222',
 }
+
+export const svgColors = {
+  deepSea: '#001640',
+  carib: '#00B4DB',
+  straw: '#A32700',
+  sinas: '#EA8C00',
+}

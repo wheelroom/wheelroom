@@ -33,6 +33,7 @@ import { TextSectionProps } from './text-section'
 import { Any } from '../../views/core-elements/any'
 import { List } from '../../views/core-elements/list'
 import { getLocalizedValue } from './get-localized-value'
+import { SvgStack } from './stack'
 
 type Node = any
 type Children = any
@@ -167,6 +168,19 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
           )}
         </Flex>
       </Container>
+      {/* Demo Flex element, should be removed here */}
+      <Flex
+        is="div"
+        ncss={{
+          label: 'text',
+          mx: 'auto',
+          my: 7,
+          maxWidth: '240px',
+        }}
+      >
+        <SvgStack />
+      </Flex>
+      {/* End of demo Flex element, should be removed here */}
     </Box>
   )
 }

@@ -11,3 +11,7 @@ const themeMap = {
 
 export const systemCss = (props: any, themeId: ThemeId = 'light') =>
   styledSystem(styledSystemConfig, themeMap[themeId], { ncss: props.ncss })
+
+export const getColorMap = (themeId: ThemeId = 'light') => {
+  return themeMap[themeId].colorMap
+}
