@@ -7,10 +7,6 @@ const dotenv = require('dotenv')
 
 /**
  * Load environment from .env in development mode
- *
- * The Contentful deleviery tokens are set by gatsby-theme-wheelroom. These
- * tokens are used for setting up a Contentful preview environment
- *
  */
 
 if (process.env.NODE_ENV === 'development') {
@@ -20,8 +16,28 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
+const cfConfig = {
+  accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+}
+
+// Pass CONTENTFUL_ENVIRONMENT when available
+if (process.env.CONTENTFUL_ENVIRONMENT) {
+  cfConfig.environment = process.env.CONTENTFUL_ENVIRONMENT
+}
+
+if (!cfConfig.spaceId || !cfConfig.accessToken) {
+  throw new Error(
+    'Contentful spaceId and the delivery token need to be provided.'
+  )
+}
+
 module.exports = {
   plugins: [
+    {
+      options: cfConfig,
+      resolve: 'gatsby-source-contentful',
+    },
     {
       options: {
         defaultLocale: 'en-US',
