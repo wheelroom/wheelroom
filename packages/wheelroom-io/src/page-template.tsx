@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
@@ -62,12 +62,12 @@ const PageTemplate = (props: any) => {
   }
 
   return (
-    <>
+    <Fragment>
       <Global styles={[GlobalStyles, GlobalReset]} />
       <Seo {...seoProps} />
       <Sections {...sectionProps} />
       <PreviewUpdateButton />
-    </>
+    </Fragment>
   )
 }
 
