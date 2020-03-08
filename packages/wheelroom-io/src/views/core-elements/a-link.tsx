@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { LinkRelationshipAttribute } from './types'
 
 export interface ALinkProps {
   /** React children */
@@ -23,21 +24,7 @@ export interface ALinkProps {
   /** Link download attribute */
   download?: boolean | undefined
   /** Link relationship attribute */
-  rel?:
-    | 'alternate'
-    | 'author'
-    | 'bookmark'
-    | 'external'
-    | 'help'
-    | 'license'
-    | 'next'
-    | 'nofollow'
-    | 'noreferrer'
-    | 'noopener'
-    | 'prev'
-    | 'search'
-    | 'tag'
-    | undefined
+  rel?: LinkRelationshipAttribute | undefined
 }
 
 export const ALink = (props: ALinkProps) => {
