@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { InlineElementName, BlockLevelElementName } from './styles'
+import { InlineElementName, BlockLevelElementName } from './types'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 
 export interface GridProps {
