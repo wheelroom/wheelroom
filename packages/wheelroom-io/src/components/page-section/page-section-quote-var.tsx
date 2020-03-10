@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: pageSection
- * Variation: Large
+ * Variation: Quote
  *
  */
 
@@ -34,7 +34,7 @@ const imageProps = {
   objectFit: 'cover',
 }
 
-export const PageSectionLargeVar = (props: PageSectionProps) => {
+export const PageSectionQuoteVar = (props: PageSectionProps) => {
   return (
     <Fragment>
       <FlexContainer
@@ -47,7 +47,7 @@ export const PageSectionLargeVar = (props: PageSectionProps) => {
         }}
       >
         <FlexBox ncss={{ ...flexBoxProps.ncss, w: 1 }}>
-          Page section large var
+          Page section quote var
         </FlexBox>
       </FlexContainer>
             <FlexContainer {...flexContainerProps}>

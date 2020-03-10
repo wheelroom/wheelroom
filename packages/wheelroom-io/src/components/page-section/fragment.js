@@ -41,5 +41,9 @@ fragment PageSection on ContentfulPageSection {
       json
     }
   }
+  navigation {
+    __typename
+    title
+  }
 }
 `

@@ -2,12 +2,13 @@
  * Component variation
  *
  * Component type: pageSection
- * Variation: Klein
+ * Variation: Small
  *
  */
 
 import React, { Fragment } from 'react'
 import { Box, Flex } from '../../views/core-elements/grid'
+import { Image } from '../../views/image/image'
 import { PageSectionProps } from './page-section'
 
 const FlexContainer = Flex
@@ -29,6 +30,10 @@ const flexBoxProps = {
   ncss: { w: [1, 1 / 4] },
 }
 
+const imageProps = {
+  objectFit: 'cover',
+}
+
 export const PageSectionSmallVar = (props: PageSectionProps) => {
   return (
     <Fragment>
@@ -42,10 +47,10 @@ export const PageSectionSmallVar = (props: PageSectionProps) => {
         }}
       >
         <FlexBox ncss={{ ...flexBoxProps.ncss, w: 1 }}>
-          Page section klein var
+          Page section small var
         </FlexBox>
       </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
+            <FlexContainer {...flexContainerProps}>
         <FlexBox {...flexBoxProps}>__typename</FlexBox>
         <FlexBox {...flexBoxProps}>optional</FlexBox>
         <FlexBox {...flexBoxProps}>shortText</FlexBox>
@@ -74,6 +79,12 @@ export const PageSectionSmallVar = (props: PageSectionProps) => {
         <FlexBox {...flexBoxProps}>optional</FlexBox>
         <FlexBox {...flexBoxProps}>singleComponent</FlexBox>
         <FlexBox {...flexBoxProps}>text</FlexBox>
+      </FlexContainer>
+      <FlexContainer {...flexContainerProps}>
+        <FlexBox {...flexBoxProps}>navigation</FlexBox>
+        <FlexBox {...flexBoxProps}>optional</FlexBox>
+        <FlexBox {...flexBoxProps}>singleComponent</FlexBox>
+        <FlexBox {...flexBoxProps}>navigation</FlexBox>
       </FlexContainer>
     </Fragment>
   )

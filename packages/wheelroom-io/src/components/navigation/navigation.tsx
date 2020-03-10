@@ -1,7 +1,7 @@
 /**
  * Component
  *
- * Component type: action
+ * Component type: navigation
  *
  */
 
@@ -9,23 +9,20 @@ import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { FluidImage } from '../../views/image/image'
 import { SectionProps } from '../../sections/section-props'
-import { ActionSingleVar } from './action-single-var'
+import { NavigationSingleVar } from './navigation-single-var'
 
 const componentList = {
-  ['single']: ActionSingleVar,
+  ['single']: NavigationSingleVar,
 }
 
-export interface ActionProps extends SectionProps {
+export interface NavigationProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
   title: string
-  heading: string
-  page: any
-  url: string
   actions: any
 }
 
-export const Action = (props: ActionProps) => {
+export const Navigation = (props: NavigationProps) => {
   const Variation = getVariation(props, componentList)
 
   return <Variation {...props} />

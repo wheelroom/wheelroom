@@ -52,6 +52,10 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
         typePostfix: 'Url',
       } as ShortTextField,
+      actions: {
+        allowedComponents: ['action'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
     },
     settings: {
       asBoilerplate: true,
@@ -59,7 +63,19 @@ export const configComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-
+  navigation: {
+    fields: {
+      actions: {
+        allowedComponents: ['action'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+    },
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
   text: {
     fields: {
       text: {
@@ -73,35 +89,10 @@ export const configComponents: WheelroomComponents = {
       asFragment: true,
     },
   },
-  navigationSection: {
-    fields: {
-      variation: {
-        items: ['Page header', 'Page footer'],
-        type: 'dropdown',
-      } as DropdownField,
-      topic: {
-        allowedComponents: ['topic'],
-        expandFragmentRef: true,
-        type: 'singleComponent',
-      } as SingleComponentField,
-      navigation: {
-        allowedComponents: ['page'],
-        expandFragmentRef: true,
-        required: true,
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
-    },
-    modelVersion: '1.0.0',
-    settings: {
-      asBoilerplate: true,
-      asFragment: true,
-      asPageSection: true,
-    },
-  },
   pageSection: {
     fields: {
       variation: {
-        items: ['Large', 'Small'],
+        items: ['extra-large', 'large', 'medium', 'small', 'quote'],
         type: 'dropdown',
       } as DropdownField,
       topics: {
@@ -111,6 +102,11 @@ export const configComponents: WheelroomComponents = {
       } as MultipleComponentsField,
       text: {
         allowedComponents: ['text'],
+        expandFragmentRef: true,
+        type: 'singleComponent',
+      } as SingleComponentField,
+      navigation: {
+        allowedComponents: ['navigation'],
         expandFragmentRef: true,
         type: 'singleComponent',
       } as SingleComponentField,
@@ -130,9 +126,6 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
         typePostfix: 'Path',
         unique: true,
-      } as ShortTextField,
-      navigationHeading: {
-        type: 'shortText',
       } as ShortTextField,
       sections: {
         allowedComponents: [
