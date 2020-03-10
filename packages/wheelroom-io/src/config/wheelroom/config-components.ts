@@ -76,7 +76,7 @@ export const configComponents: WheelroomComponents = {
   navigationSection: {
     fields: {
       variation: {
-        items: ['Page Header', 'Page Footer'],
+        items: ['Page header', 'Page footer'],
         type: 'dropdown',
       } as DropdownField,
       topic: {
