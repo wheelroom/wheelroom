@@ -166,14 +166,16 @@ type ContentfulPageSection implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulTopic implements Node @derivedTypes @dontInfer {
+type ContentfulTopic implements Node @derivedTypes {
   title: String
   heading: String
   icon: String
   image: ContentfulAsset @link(by: "id", from: "image___NODE")
   actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
-  pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
-  abstract: contentfulTopicAbstractTextNode @link(by: "id", from: "abstract___NODE")
+  pagesection: [ContentfulPageSection]
+    @link(by: "id", from: "pagesection___NODE")
+  abstract: contentfulTopicAbstractTextNode
+    @link(by: "id", from: "abstract___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
@@ -200,7 +202,8 @@ type ContentfulAction implements Node @derivedTypes @dontInfer {
 type ContentfulNavigation implements Node @derivedTypes @dontInfer {
   title: String
   actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
-  pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
+  pagesection: [ContentfulPageSection]
+    @link(by: "id", from: "pagesection___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
@@ -261,9 +264,10 @@ type ContentfulTopicSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulText implements Node @derivedTypes @dontInfer {
+type ContentfulText implements Node @derivedTypes {
   title: String
-  pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
+  pagesection: [ContentfulPageSection]
+    @link(by: "id", from: "pagesection___NODE")
   text: contentfulTextTextRichTextNode @link(by: "id", from: "text___NODE")
   spaceId: String
   contentful_id: String
