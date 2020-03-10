@@ -123,6 +123,34 @@ export const createContentType = async (
 }
 
 export const publishContentType = async (context: Context) => {
+  // If we don't have a contentType there's nothing to do here
+  if (context.contentfulApi.contentType === null) {
+    return
+  }
   console.log(`Publishing content type`)
   context.contentfulApi.contentType = await context.contentfulApi.contentType.publish()
+}
+
+export const unpublishContentType = async (
+  context: Context,
+  component: ContentfulComponent
+) => {
+  // If we don't have a contentType there's nothing to do here
+  if (context.contentfulApi.contentType === null) {
+    return
+  }
+  console.log(`Deactivating content type`)
+  context.contentfulApi.contentType = await context.contentfulApi.contentType.unpublish()
+}
+
+export const deleteContentType = async (
+  context: Context,
+  component: ContentfulComponent
+) => {
+  // If we don't have a contentType there's nothing to do here
+  if (context.contentfulApi.contentType === null) {
+    return
+  }
+  console.log(`Deleting content type`)
+  context.contentfulApi.contentType = await context.contentfulApi.contentType.delete()
 }

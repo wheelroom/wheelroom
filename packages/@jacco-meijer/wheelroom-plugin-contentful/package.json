@@ -79,6 +79,7 @@
     "api-test:cc": "jest ./src/commands/create-content/create-content.int.test.ts",
     "api-test:cc-test": "jest ./src/commands/create-content/create-content-test.int.test.ts",
     "api-test:cm": "jest ./src/commands/create-models/create-models.int.test.ts",
+    "api-test:dm": "jest ./src/commands/delete-models/delete-models.int.test.ts",
     "api-test:dc": "jest ./src/commands/delete-content/delete-content.int.test.ts",
     "test": "npm run build:test"
   },

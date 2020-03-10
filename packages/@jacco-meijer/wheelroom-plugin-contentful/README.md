@@ -61,6 +61,15 @@ This command matches the fields returned from Contentful with the field
 definitions passed to the plugin. The output is JSON that can easily be
 converted into a new wheelroom component config.
 
+### delete-models
+
+To delete models from Contentful:
+```
+wheelroom delete-models
+```
+
+Note that no content for the model may exist.
+
 
 ## Config
 
