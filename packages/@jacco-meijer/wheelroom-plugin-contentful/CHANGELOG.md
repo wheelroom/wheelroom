@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.12.0...@jacco-meijer/wheelroom-plugin-contentful@2.12.1) (2020-03-10)
+
+
+### Bug Fixes
+
+* actually export new command ([f8d2e1d](https://github.com/jaccomeijer/wheelroom/commit/f8d2e1d))
+
+
+
+
+
 # [2.12.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.11.0...@jacco-meijer/wheelroom-plugin-contentful@2.12.0) (2020-03-10)
 
 
