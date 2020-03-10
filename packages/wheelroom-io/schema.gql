@@ -1,0 +1,349 @@
+### Type definitions saved at 2020-03-10T15:30:02.115Z ###
+
+type File implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+}
+
+type Directory implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+}
+
+type SitePage implements Node @dontInfer {
+  path: String!
+  component: String!
+  internalComponentName: String!
+  componentChunkName: String!
+  matchPath: String
+}
+
+type ContentfulAsset implements Node @dontInfer {
+  contentful_id: String
+  file: ContentfulAssetFile
+  title: String
+  description: String
+  node_locale: String
+}
+
+type ContentfulAssetFile {
+  url: String
+  details: ContentfulAssetFileDetails
+  fileName: String
+  contentType: String
+}
+
+type ContentfulAssetFileDetails {
+  size: Int
+  image: ContentfulAssetFileDetailsImage
+}
+
+type ContentfulAssetFileDetailsImage {
+  width: Int
+  height: Int
+}
+
+type ContentfulGlobals implements Node @dontInfer {
+  title: String
+  addressLine1: String
+  addressLine2: String
+  emailAddress: String
+  linkedinUrl: String
+  phoneNumber: String
+  siteAuthor: String
+  siteDescription: String
+  siteHeading: String
+  siteKeywords: [String]
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulGlobalsSys
+  node_locale: String
+}
+
+type ContentfulGlobalsSys {
+  revision: Int
+  contentType: ContentfulGlobalsSysContentType
+}
+
+type ContentfulGlobalsSysContentType {
+  sys: ContentfulGlobalsSysContentTypeSys
+}
+
+type ContentfulGlobalsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulPage implements Node @dontInfer {
+  title: String
+  path: String
+  navigationHeading: String
+  seoTitle: String
+  seoDescription: String
+  sections: [ContentfulNavigationSectionContentfulPageSectionUnion] @link(by: "id", from: "sections___NODE")
+  action: [ContentfulAction] @link(by: "id", from: "action___NODE")
+  navigationsection: [ContentfulNavigationSection] @link(by: "id", from: "navigationsection___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulPageSys
+  node_locale: String
+}
+
+union ContentfulNavigationSectionContentfulPageSectionUnion = ContentfulNavigationSection | ContentfulPageSection
+
+type ContentfulAction implements Node @dontInfer {
+  title: String
+  heading: String
+  url: String
+  page: ContentfulPage @link(by: "id", from: "page___NODE")
+  topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulActionSys
+  node_locale: String
+}
+
+type ContentfulTopic implements Node @dontInfer {
+  title: String
+  heading: String
+  icon: String
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
+  navigationsection: [ContentfulNavigationSection] @link(by: "id", from: "navigationsection___NODE")
+  pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
+  abstract: contentfulTopicAbstractTextNode @link(by: "id", from: "abstract___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulTopicSys
+  node_locale: String
+}
+
+type ContentfulNavigationSection implements Node @dontInfer {
+  title: String
+  variation: String
+  topic: ContentfulTopic @link(by: "id", from: "topic___NODE")
+  navigation: [ContentfulPage] @link(by: "id", from: "navigation___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulNavigationSectionSys
+  node_locale: String
+}
+
+type ContentfulNavigationSectionSys {
+  revision: Int
+  contentType: ContentfulNavigationSectionSysContentType
+}
+
+type ContentfulNavigationSectionSysContentType {
+  sys: ContentfulNavigationSectionSysContentTypeSys
+}
+
+type ContentfulNavigationSectionSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulPageSection implements Node @dontInfer {
+  title: String
+  variation: String
+  topics: [ContentfulTopic] @link(by: "id", from: "topics___NODE")
+  text: ContentfulText @link(by: "id", from: "text___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulPageSectionSys
+  node_locale: String
+}
+
+type ContentfulText implements Node @dontInfer {
+  title: String
+  pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
+  text: contentfulTextTextRichTextNode @link(by: "id", from: "text___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulTextSys
+  node_locale: String
+}
+
+type contentfulTextTextRichTextNode implements Node @dontInfer {
+  content: [contentfulTextTextRichTextNodeContent]
+  nodeType: String
+  text: String
+}
+
+type contentfulTextTextRichTextNodeContent {
+  content: [contentfulTextTextRichTextNodeContentContent]
+  nodeType: String
+}
+
+type contentfulTextTextRichTextNodeContentContent {
+  value: String
+  nodeType: String
+}
+
+type ContentfulTextSys {
+  revision: Int
+  contentType: ContentfulTextSysContentType
+}
+
+type ContentfulTextSysContentType {
+  sys: ContentfulTextSysContentTypeSys
+}
+
+type ContentfulTextSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulPageSectionSys {
+  revision: Int
+  contentType: ContentfulPageSectionSysContentType
+}
+
+type ContentfulPageSectionSysContentType {
+  sys: ContentfulPageSectionSysContentTypeSys
+}
+
+type ContentfulPageSectionSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTopicAbstractTextNode implements Node @dontInfer {
+  abstract: String
+}
+
+type ContentfulTopicSys {
+  revision: Int
+  contentType: ContentfulTopicSysContentType
+}
+
+type ContentfulTopicSysContentType {
+  sys: ContentfulTopicSysContentTypeSys
+}
+
+type ContentfulTopicSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulActionSys {
+  revision: Int
+  contentType: ContentfulActionSysContentType
+}
+
+type ContentfulActionSysContentType {
+  sys: ContentfulActionSysContentTypeSys
+}
+
+type ContentfulActionSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulPageSys {
+  revision: Int
+  contentType: ContentfulPageSysContentType
+}
+
+type ContentfulPageSysContentType {
+  sys: ContentfulPageSysContentTypeSys
+}
+
+type ContentfulPageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulContentType implements Node @dontInfer {
+  name: String
+  displayField: String
+  description: String
+}

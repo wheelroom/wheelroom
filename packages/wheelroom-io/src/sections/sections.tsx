@@ -1,12 +1,9 @@
 import { landMarkType } from 'gatsby-theme-wheelroom'
 import React from 'react'
-import { FooterSection } from '../components/footer-section'
-import { ListSection } from '../components/list-section'
-import { OpenerSection } from '../components/opener-section'
-import { QuoteSection } from '../components/quote-section'
-import { TextSection } from '../components/text-section'
 import { Landmarks, Landmark } from '../lib/landmarks'
 import { SectionProps } from '../sections/section-props'
+import { NavigationSection } from '../components/navigation-section/navigation-section'
+import { PageSection } from '../components/page-section/page-section'
 
 export interface SectionMap {
   [contentfulSectionName: string]: {
@@ -20,24 +17,12 @@ export interface SectionMap {
 // an influence on the section order. See landmarks.jsx for more info on this.
 //
 const sectionMap = {
-  ContentfulFooterSection: {
-    element: FooterSection,
-    landMark: 'footer',
-  },
-  ContentfulListSection: {
-    element: ListSection,
+  ContentfulNavigationSection: {
+    element: NavigationSection,
     landMark: 'main',
   },
-  ContentfulOpenerSection: {
-    element: OpenerSection,
-    landMark: 'header',
-  },
-  ContentfulQuoteSection: {
-    element: QuoteSection,
-    landMark: 'main',
-  },
-  ContentfulTextSection: {
-    element: TextSection,
+  ContentfulPageSection: {
+    element: PageSection,
     landMark: 'main',
   },
 } as SectionMap
