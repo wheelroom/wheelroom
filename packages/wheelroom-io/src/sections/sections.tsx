@@ -2,7 +2,6 @@ import { landMarkType } from 'gatsby-theme-wheelroom'
 import React from 'react'
 import { Landmarks, Landmark } from '../lib/landmarks'
 import { SectionProps } from '../sections/section-props'
-import { NavigationSection } from '../components/navigation-section/navigation-section'
 import { PageSection } from '../components/page-section/page-section'
 
 export interface SectionMap {
@@ -17,10 +16,6 @@ export interface SectionMap {
 // an influence on the section order. See landmarks.jsx for more info on this.
 //
 const sectionMap = {
-  ContentfulNavigationSection: {
-    element: NavigationSection,
-    landMark: 'main',
-  },
   ContentfulPageSection: {
     element: PageSection,
     landMark: 'main',
