@@ -16,7 +16,7 @@ const FlexBox = Box
 
 const flexContainerProps = {
   ncss: {
-    bg: 'white',
+    bg: '#EEE',
     fontFamily: 'text',
     maxHeight: '300px',
     mb: 1,
@@ -25,7 +25,6 @@ const flexContainerProps = {
     w: [1],
   },
 }
-
 
 const flexBoxProps = {
   ncss: { w: [1, 1 / 4] },
@@ -41,7 +40,7 @@ export const TopicSingleVar = (props: TopicProps) => {
       <FlexContainer
         ncss={{
           ...flexContainerProps.ncss,
-          bg: 'black',
+          bg: '#CCC',
           fontFamily: 'heading',
           fontSize: 7,
           my: 4,
