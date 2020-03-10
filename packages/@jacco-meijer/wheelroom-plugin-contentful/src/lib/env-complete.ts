@@ -19,6 +19,9 @@ export const envComplete = (): boolean => {
   if (process.env.WHEELROOM_PROJECT_NAME) {
     console.log(`Project: ${process.env.WHEELROOM_PROJECT_NAME}`)
   }
+  if (process.env.CONTENTFUL_ENVIRONMENT) {
+    console.log(`Environment: ${process.env.CONTENTFUL_ENVIRONMENT}`)
+  }
   console.log(`Contentful space: ${process.env.CONTENTFUL_SPACE_ID}`)
   return true
 }
