@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.14](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@5.2.13...boilerplate@5.2.14) (2020-03-10)
+
+
+### Bug Fixes
+
+* add gatsby-source-contentful since it was removed from gatsby-theme-wheelroom ([b8ccbbe](https://github.com/jaccomeijer/wheelroom/commit/b8ccbbe))
+
+
+
+
+
 ## [5.2.13](https://github.com/jaccomeijer/wheelroom/compare/boilerplate@5.2.12...boilerplate@5.2.13) (2020-03-08)
 
 **Note:** Version bump only for package boilerplate

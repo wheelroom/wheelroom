@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.11.0...@jacco-meijer/wheelroom-plugin-contentful@2.12.0) (2020-03-10)
+
+
+### Features
+
+* new  command delete-models ([ebacc15](https://github.com/jaccomeijer/wheelroom/commit/ebacc15))
+* print configured environment ([2008a0f](https://github.com/jaccomeijer/wheelroom/commit/2008a0f))
+
+
+
+
+
 # [2.11.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.10.3...@jacco-meijer/wheelroom-plugin-contentful@2.11.0) (2020-03-02)
 
 
