@@ -7,10 +7,8 @@
 
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
-import { FluidImage } from '../../views/image/image'
 import { SectionProps } from '../../sections/section-props'
 import { NavigationSectionPageHeaderVar } from './navigation-section-page-header-var'
-import { NavigationSectionPaginabeginNormaalVar } from './navigation-section-paginabegin-normaal-var'
 import { NavigationSectionPageFooterVar } from './navigation-section-page-footer-var'
 
 const componentList = {
