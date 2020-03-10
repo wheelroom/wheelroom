@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.4.2...gatsby-theme-wheelroom@4.0.0) (2020-03-08)
+
+
+### Features
+
+* remove gatsby-config.js ([6f492e0](https://github.com/jaccomeijer/wheelroom/commit/6f492e0d70051fd5bbe140db429c9a51e8e5a4b5))
+
+
+### BREAKING CHANGES
+
+* gatsby-source-contenful was removed from theme. Projects that use this plugin now must configure the gatsby-source-contentful plugin. See plugin documentation.
+
+plugins: [
+  {
+    options: cfConfig,
+    resolve: 'gatsby-source-contentful',
+  },
+],
+
+
+
+
+
 ## [3.4.2](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.4.1...gatsby-theme-wheelroom@3.4.2) (2020-03-03)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom
