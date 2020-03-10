@@ -8,7 +8,6 @@
 
 import React, { Fragment } from 'react'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Image } from '../../views/image/image'
 import { ActionProps } from './action'
 
 const FlexContainer = Flex
@@ -30,10 +29,6 @@ const flexBoxProps = {
   ncss: { w: [1, 1 / 4] },
 }
 
-const imageProps = {
-  objectFit: 'cover',
-}
-
 export const ActionSingleVar = (props: ActionProps) => {
   return (
     <Fragment>
@@ -50,7 +45,7 @@ export const ActionSingleVar = (props: ActionProps) => {
           Action single var
         </FlexBox>
       </FlexContainer>
-            <FlexContainer {...flexContainerProps}>
+      <FlexContainer {...flexContainerProps}>
         <FlexBox {...flexBoxProps}>__typename</FlexBox>
         <FlexBox {...flexBoxProps}>optional</FlexBox>
         <FlexBox {...flexBoxProps}>shortText</FlexBox>

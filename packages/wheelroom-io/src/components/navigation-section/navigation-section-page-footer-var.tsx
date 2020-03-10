@@ -2,14 +2,14 @@
  * Component variation
  *
  * Component type: navigationSection
- * Variation: Paginabegin home
+ * Variation: Page footer
  *
  */
 
 import React, { Fragment } from 'react'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Image } from '../../views/image/image'
 import { NavigationSectionProps } from './navigation-section'
+import {H2} from "../../views/core-elements/heading";
 
 const FlexContainer = Flex
 const FlexBox = Box
@@ -30,11 +30,9 @@ const flexBoxProps = {
   ncss: { w: [1, 1 / 4] },
 }
 
-const imageProps = {
-  objectFit: 'cover',
-}
-
-export const NavigationSectionPaginabeginHomeVar = (props: NavigationSectionProps) => {
+export const NavigationSectionPageFooterVar = (
+  props: NavigationSectionProps
+) => {
   return (
     <Fragment>
       <FlexContainer
@@ -46,11 +44,11 @@ export const NavigationSectionPaginabeginHomeVar = (props: NavigationSectionProp
           my: 4,
         }}
       >
-        <FlexBox ncss={{ ...flexBoxProps.ncss, w: 1 }}>
-          Navigation section paginabegin home var
-        </FlexBox>
+        <H2 ncss={{ ...flexBoxProps.ncss, w: 1 }}>
+          Navigation section <strong>Page footer</strong> var
+        </H2>
       </FlexContainer>
-            <FlexContainer {...flexContainerProps}>
+      <FlexContainer {...flexContainerProps}>
         <FlexBox {...flexBoxProps}>__typename</FlexBox>
         <FlexBox {...flexBoxProps}>optional</FlexBox>
         <FlexBox {...flexBoxProps}>shortText</FlexBox>

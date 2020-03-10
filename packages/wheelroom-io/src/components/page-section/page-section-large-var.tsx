@@ -1,15 +1,14 @@
 /**
  * Component variation
  *
- * Component type: navigationSection
- * Variation: Paginabegin normaal
+ * Component type: pageSection
+ * Variation: Groot
  *
  */
 
 import React, { Fragment } from 'react'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Image } from '../../views/image/image'
-import { NavigationSectionProps } from './navigation-section'
+import { PageSectionProps } from './page-section'
 
 const FlexContainer = Flex
 const FlexBox = Box
@@ -30,11 +29,7 @@ const flexBoxProps = {
   ncss: { w: [1, 1 / 4] },
 }
 
-const imageProps = {
-  objectFit: 'cover',
-}
-
-export const NavigationSectionPaginabeginNormaalVar = (props: NavigationSectionProps) => {
+export const PageSectionLargeVar = (props: PageSectionProps) => {
   return (
     <Fragment>
       <FlexContainer
@@ -47,10 +42,10 @@ export const NavigationSectionPaginabeginNormaalVar = (props: NavigationSectionP
         }}
       >
         <FlexBox ncss={{ ...flexBoxProps.ncss, w: 1 }}>
-          Navigation section paginabegin normaal var
+          Page section groot var
         </FlexBox>
       </FlexContainer>
-            <FlexContainer {...flexContainerProps}>
+      <FlexContainer {...flexContainerProps}>
         <FlexBox {...flexBoxProps}>__typename</FlexBox>
         <FlexBox {...flexBoxProps}>optional</FlexBox>
         <FlexBox {...flexBoxProps}>shortText</FlexBox>
@@ -69,16 +64,16 @@ export const NavigationSectionPaginabeginNormaalVar = (props: NavigationSectionP
         <FlexBox {...flexBoxProps}>{props.variation}</FlexBox>
       </FlexContainer>
       <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>topic</FlexBox>
+        <FlexBox {...flexBoxProps}>topics</FlexBox>
         <FlexBox {...flexBoxProps}>optional</FlexBox>
-        <FlexBox {...flexBoxProps}>singleComponent</FlexBox>
+        <FlexBox {...flexBoxProps}>multipleComponents</FlexBox>
         <FlexBox {...flexBoxProps}>topic</FlexBox>
       </FlexContainer>
       <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>navigation</FlexBox>
-        <FlexBox {...flexBoxProps}>required</FlexBox>
-        <FlexBox {...flexBoxProps}>multipleComponents</FlexBox>
-        <FlexBox {...flexBoxProps}>page</FlexBox>
+        <FlexBox {...flexBoxProps}>text</FlexBox>
+        <FlexBox {...flexBoxProps}>optional</FlexBox>
+        <FlexBox {...flexBoxProps}>singleComponent</FlexBox>
+        <FlexBox {...flexBoxProps}>text</FlexBox>
       </FlexContainer>
     </Fragment>
   )

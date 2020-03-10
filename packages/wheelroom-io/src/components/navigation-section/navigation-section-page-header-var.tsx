@@ -2,13 +2,12 @@
  * Component variation
  *
  * Component type: navigationSection
- * Variation: Paginaeinde
+ * Variation: Page header
  *
  */
 
 import React, { Fragment } from 'react'
 import { Box, Flex } from '../../views/core-elements/grid'
-import { Image } from '../../views/image/image'
 import { NavigationSectionProps } from './navigation-section'
 
 const FlexContainer = Flex
@@ -30,11 +29,9 @@ const flexBoxProps = {
   ncss: { w: [1, 1 / 4] },
 }
 
-const imageProps = {
-  objectFit: 'cover',
-}
-
-export const NavigationSectionPaginaeindeVar = (props: NavigationSectionProps) => {
+export const NavigationSectionPageHeaderVar = (
+  props: NavigationSectionProps
+) => {
   return (
     <Fragment>
       <FlexContainer
@@ -47,10 +44,10 @@ export const NavigationSectionPaginaeindeVar = (props: NavigationSectionProps) =
         }}
       >
         <FlexBox ncss={{ ...flexBoxProps.ncss, w: 1 }}>
-          Navigation section paginaeinde var
+          Navigation section <strong>Page header</strong> variation
         </FlexBox>
       </FlexContainer>
-            <FlexContainer {...flexContainerProps}>
+      <FlexContainer {...flexContainerProps}>
         <FlexBox {...flexBoxProps}>__typename</FlexBox>
         <FlexBox {...flexBoxProps}>optional</FlexBox>
         <FlexBox {...flexBoxProps}>shortText</FlexBox>

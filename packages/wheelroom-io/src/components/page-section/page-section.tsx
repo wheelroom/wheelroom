@@ -7,14 +7,13 @@
 
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
-import { FluidImage } from '../../views/image/image'
 import { SectionProps } from '../../sections/section-props'
-import { PageSectionGrootVar } from './page-section-groot-var'
-import { PageSectionKleinVar } from './page-section-klein-var'
+import { PageSectionLargeVar } from './page-section-large-var'
+import { PageSectionSmallVar } from './page-section-small-var'
 
 const componentList = {
-  ['Groot']: PageSectionGrootVar,
-  ['Klein']: PageSectionKleinVar,
+  ['Large']: PageSectionLargeVar,
+  ['Small']: PageSectionSmallVar,
 }
 
 export interface PageSectionProps extends SectionProps {

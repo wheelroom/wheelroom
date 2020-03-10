@@ -76,7 +76,7 @@ export const configComponents: WheelroomComponents = {
   navigationSection: {
     fields: {
       variation: {
-        items: ['Paginabegin home', 'Paginabegin normaal', 'Paginaeinde'],
+        items: ['Page Header', 'Page Footer'],
         type: 'dropdown',
       } as DropdownField,
       topic: {
@@ -101,7 +101,7 @@ export const configComponents: WheelroomComponents = {
   pageSection: {
     fields: {
       variation: {
-        items: ['Groot', 'Klein'],
+        items: ['Large', 'Small'],
         type: 'dropdown',
       } as DropdownField,
       topics: {

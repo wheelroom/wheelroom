@@ -17,7 +17,7 @@ import { GlobalReset } from './styles/global-reset'
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
 // do so for all pages.
-//
+
 const PageTemplate = (props: any) => {
   pageDebug('PageTemplate', props)
 
