@@ -11,122 +11,80 @@ import {
 } from '@jacco-meijer/wheelroom'
 
 export const configComponents: WheelroomComponents = {
-  footerSection: {
+  topic: {
     fields: {
-      backgroundColor: {
-        helpText: 'Choose a background color for this section',
-        items: ['transparent', 'black', 'white'],
-        name: 'Section background color',
-        required: true,
-        type: 'dropdown',
-      } as DropdownField,
-      navigation: {
-        allowedComponents: ['navigation'],
-        helpText: 'Navigation at the bottom of this section',
-        name: 'Navigation section',
-        required: true,
-        type: 'singleComponent',
-      } as SingleComponentField,
-    },
-    modelVersion: '1.0.0',
-    settings: {
-      asBoilerplate: true,
-      asFragment: true,
-      asPageSection: true,
-    },
-  },
-  globals: {
-    fields: {
-      addressLine1: {
-        helpText: 'Available in all sections',
-        name: 'First line address',
-        type: 'shortText',
-      } as ShortTextField,
-      addressLine2: {
-        helpText: 'Available in all sections',
-        name: 'Second line address',
-        type: 'shortText',
-      } as ShortTextField,
-      emailAddress: {
-        helpText: 'Available in all sections',
-        name: 'E-mail address',
-        type: 'shortText',
-      } as ShortTextField,
-      linkedinUrl: {
-        helpText: 'Available in all sections',
-        name: 'Linkedin profile URL',
-        type: 'shortText',
-      } as ShortTextField,
-      phoneNumber: {
-        helpText: 'Available in all sections',
-        name: 'Phone number',
-        type: 'shortText',
-      } as ShortTextField,
-      siteAuthor: {
-        helpText: 'Available in all sections',
-        name: 'Site author',
-        type: 'shortText',
-      } as ShortTextField,
-      siteDescription: {
-        helpText:
-          'Description for the site, used by search engines such as Google',
-        name: 'Site description',
-        type: 'shortText',
-      } as ShortTextField,
-      siteHeading: {
-        helpText: 'Title for the site, used by search engines such as Google',
-        name: 'Site title',
-        type: 'shortText',
-      } as ShortTextField,
-      siteKeywords: {
-        helpText:
-          'Keywords for the site, used by search engines such as Google',
-        name: 'Site keywords',
-        type: 'tags',
-      } as TagsField,
-    },
-    modelVersion: '1.0.0',
-    settings: {
-      asFragment: true,
-      asQuery: 'global',
-    },
-  },
-  listItem: {
-    fields: {
-      view: {
-        helpText: 'How is the item displayed?',
-        name: 'Item view',
-        items: ['bottom white', 'bottom black', 'full width image'],
-        type: 'dropdown',
-      } as DropdownField,
-      link: {
-        allowedComponents: ['page'],
-        expandFragmentRef: true,
-        helpText: 'Navigate to this link by clicking on the link',
-        name: 'Item link',
-        type: 'singleComponent',
-      } as SingleComponentField,
       heading: {
-        helpText: 'Use title and not the link',
-        name: 'Item title',
+        helpText: 'Titel van het onderwerp, zonder punt aan eind',
+        name: 'Onderwerp titel',
         type: 'shortText',
       } as ShortTextField,
-      image: {
-        helpText: 'Use image and not the link',
-        name: 'Item image',
-        type: 'image',
-      } as ImageField,
       abstract: {
-        helpText:
-          'Use text on item and not the summary of the link',
-        name: 'Item text',
+        helpText: 'Korte omschrijving van het onderwerp, sluit af met een punt',
+        name: 'Onderwerp tekst',
         type: 'longText',
       } as LongTextField,
-      extraText: {
-        helpText: 'Initially hidden but appears after a click',
-        name: 'Item text after interaction',
+      image: {
+        helpText: 'Afbeelding bij het onderwerp',
+        name: 'Onderwerp afbeelding',
+        type: 'image',
+      } as ImageField,
+      icon: {
+        helpText: 'Icoon bij het onderwerp',
+        name: 'Onderwerp icoon',
+        items: ['aap', 'noot', 'mies'],
+        type: 'dropdown',
+      } as DropdownField,
+      actions: {
+        allowedComponents: ['action'],
+        helpText:
+          'Acties bij het onderwerp. Een actie heeft een eigen naam en kan ook linken naar een extern bron.',
+        name: 'Onderwerp acties',
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+    },
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  action: {
+    fields: {
+      heading: {
+        helpText: 'Naam van de actie, zonder punt aan eind',
+        name: 'Actie naam',
         type: 'shortText',
       } as ShortTextField,
+      page: {
+        allowedComponents: ['page'],
+        expandFragmentRef: true,
+        helpText: 'De pagina waar de actie naar linkt (of gebruik de URL)',
+        name: 'Actie paginalink',
+        type: 'singleComponent',
+      } as SingleComponentField,
+      url: {
+        helpText: 'De URL waar de actie naar linkt (of gebruik de paginalink)',
+        initialContent: 'https://localhost:8000',
+        name: 'Actie URL',
+        type: 'shortText',
+        typePostfix: 'Url',
+      } as ShortTextField,
+    },
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
+
+  text: {
+    fields: {
+      text: {
+        helpText: 'Eenvoudig opgemaakte tekstveld met kopjes en afbeeldingen',
+        name: 'Tekst',
+        required: true,
+        type: 'richText',
+      } as RichTextField,
     },
     modelVersion: '1.0.0',
     settings: {
@@ -134,27 +92,29 @@ export const configComponents: WheelroomComponents = {
       asFragment: true,
     },
   },
-  listSection: {
+  navigationSection: {
     fields: {
       variation: {
-        helpText: 'How this section is displayed',
-        items: ['large items', 'small items'],
-        name: 'Section view',
-        required: true,
+        helpText: 'Hoe de sectie wordt weergegeven',
+        name: 'Sectie weergave',
+        items: ['Paginabegin home', 'Paginabegin normaal', 'Paginaeinde'],
         type: 'dropdown',
       } as DropdownField,
-      items: {
-        allowedComponents: ['listItem'],
-        helpText: 'Items in this section',
-        name: 'Section items',
+      topic: {
+        allowedComponents: ['topic'],
+        expandFragmentRef: true,
+        helpText: 'Het onderwerp dat wordt weergegeven in de sectie',
+        name: 'Sectie onderwerp',
+        type: 'singleComponent',
+      } as SingleComponentField,
+      navigation: {
+        allowedComponents: ['page'],
+        expandFragmentRef: true,
+        helpText: "Pagina's in het menu van de sectie",
+        name: 'Menuitems',
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      heading: {
-        helpText: 'Title at the top of this section',
-        name: 'Section title',
-        type: 'shortText',
-      } as ShortTextField,
     },
     modelVersion: '1.0.0',
     settings: {
@@ -163,61 +123,29 @@ export const configComponents: WheelroomComponents = {
       asPageSection: true,
     },
   },
-  navigation: {
-    fields: {
-      pages: {
-        allowedComponents: ['page'],
-        expandFragmentRef: true,
-        helpText: 'Add pages to the navigation',
-        name: 'Pages',
-        required: true,
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
-    },
-    modelVersion: '1.0.0',
-    settings: {
-      asBoilerplate: true,
-      asFragment: true,
-    },
-  },
-  openerSection: {
+  pageSection: {
     fields: {
       variation: {
-        helpText: 'How this section is displayed',
-        items: ['home page', 'navigation only'],
-        name: 'Section view',
-        required: true,
+        helpText: 'Hoe de sectie wordt weergegeven',
+        name: 'Sectie weergave',
+        items: ['Groot', 'Klein'],
         type: 'dropdown',
       } as DropdownField,
-      navigation: {
-        allowedComponents: ['navigation'],
-        helpText: 'Navigation in this section',
-        name: 'Section navigation',
-        required: true,
+      topics: {
+        allowedComponents: ['topic'],
+        expandFragmentRef: true,
+        helpText:
+          'Eén of meerder onderwerpen die worden weergegeven in de sectie',
+        name: 'Sectie onderwerpen',
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      text: {
+        allowedComponents: ['text'],
+        expandFragmentRef: true,
+        helpText: 'Tekst voor de sectie',
+        name: 'Sectie tekst',
         type: 'singleComponent',
       } as SingleComponentField,
-      boxBackgroundColor: {
-        helpText: 'Choose a background color for the text box in this section',
-        items: ['transparent', 'black', 'white'],
-        name: 'Section background color',
-        type: 'dropdown',
-      } as DropdownField,
-      heading: {
-        helpText: 'Use title in this section and not the page title',
-        name: 'Section title',
-        type: 'shortText',
-      } as ShortTextField,
-      image: {
-        helpText: 'Use image in this section and not the page image',
-        name: 'Section image',
-        type: 'image',
-      } as ImageField,
-      abstract: {
-        helpText:
-          'Use text in this section and not the summary text of the page',
-        name: 'Section text',
-        type: 'longText',
-      },
     },
     modelVersion: '1.0.0',
     settings: {
@@ -230,58 +158,41 @@ export const configComponents: WheelroomComponents = {
     fields: {
       path: {
         helpText:
-          'Last part of the URL (slug) to this page. For example: www.wheelroom.com/this-is-a-slug',
+          'Laatste deel van de URL naar deze pagina. Bijvoorbeeld: www.mijnsite.nl/stel-dit-deel-hier-in',
         initialContent: '/boilerplate',
-        name: 'Page URL',
+        name: 'Pagina URL',
         required: true,
         type: 'shortText',
         typePostfix: 'Path',
         unique: true,
       } as ShortTextField,
+      navigationHeading: {
+        helpText:
+          'Naam van de pagina wanneer deze wordt weergegeven om te navigeren',
+        name: 'Navigatietitel',
+        type: 'shortText',
+      } as ShortTextField,
       sections: {
         allowedComponents: [
           '%componentNameArray(filter:settings.asPageSection)%',
         ],
-        helpText: 'Choose the sections that together form this page',
+        helpText: 'Kies de secties die met elkaar deze pagina vormen',
         initialContent: ['%componentNameArray(filter:settings.asPageSection)%'],
-        name: 'Page sections',
+        name: 'Paginasecties',
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      heading: {
-        helpText:
-          'Title of the page is used in other sections if they do not have their own title',
-        name: 'Page title',
-        required: true,
-        type: 'shortText',
-      } as ShortTextField,
-      navigationHeading: {
-        helpText: 'Name of the page when it is displayed for navigation',
-        name: 'Navigation title',
-        type: 'shortText',
-      } as ShortTextField,
-      image: {
-        helpText:
-          'Image of the page is used in other sections if they do not have their own image',
-        name: 'Page image',
-        type: 'image',
-      } as ImageField,
-      abstract: {
-        helpText:
-          'Page summary, used in other sections if they do not have their own summary',
-        name: 'Page summary',
-        type: 'longText',
-      },
       seoTitle: {
-        helpText: 'Title of the page used by search engines such as Google',
-        name: 'SEO title',
+        helpText:
+          'Titel van de pagina, gebruikt door zoek machines zoals Google',
+        name: 'SEO titel',
         type: 'shortText',
       } as ShortTextField,
       seoDescription: {
         helpText:
-          'Description of the page used by search engines such as Google',
+          'Omschrijving van de pagina, gebruikt door zoek machines zoals Google',
         maxLength: 155,
-        name: 'SEO description',
+        name: 'SEO omschrijving',
         type: 'shortText',
       } as ShortTextField,
     },
@@ -291,53 +202,60 @@ export const configComponents: WheelroomComponents = {
       asQuery: 'page',
     },
   },
-  quoteSection: {
+  globals: {
     fields: {
-      heading: {
-        helpText: 'Name of the person who made this statement',
-        name: 'Name person',
-        required: true,
+      addressLine1: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Adres eerste regel',
         type: 'shortText',
       } as ShortTextField,
-      subHeading: {
-        helpText: 'In which position is the person who made the statement',
-        name: 'Position',
-        required: true,
+      addressLine2: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Adres tweede regel',
         type: 'shortText',
       } as ShortTextField,
-      abstract: {
-        helpText: 'Something the person said',
-        name: 'Statement',
-        required: true,
-        type: 'longText',
-      },
-      image: {
-        helpText: 'Image of the person',
-        name: 'Image person',
-        type: 'image',
-      } as ImageField,
+      emailAddress: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'E=mailadres',
+        type: 'shortText',
+      } as ShortTextField,
+      linkedinUrl: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Url naar linkedin profiel',
+        type: 'shortText',
+      } as ShortTextField,
+      phoneNumber: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Telefoonnummer',
+        type: 'shortText',
+      } as ShortTextField,
+      siteAuthor: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Site auteur',
+        type: 'shortText',
+      } as ShortTextField,
+      siteDescription: {
+        helpText:
+          'Omschrijving van de site, gebruikt door zoek machines zoals Google',
+        name: 'Site omschrijving',
+        type: 'shortText',
+      } as ShortTextField,
+      siteHeading: {
+        helpText: 'Titel van de site, gebruikt door zoek machines zoals Google',
+        name: 'Site titel',
+        type: 'shortText',
+      } as ShortTextField,
+      siteKeywords: {
+        helpText:
+          'Sleutelwoorden voor de site, gebruikt door zoek machines zoals Google',
+        name: 'Site sleutelwoorden',
+        type: 'tags',
+      } as TagsField,
     },
     modelVersion: '1.0.0',
     settings: {
-      asBoilerplate: true,
       asFragment: true,
-      asPageSection: true,
-    },
-  },
-  textSection: {
-    fields: {
-      text: {
-        helpText: 'Basic formatted text field with headings and images',
-        name: 'Text',
-        required: true,
-        type: 'richText',
-      } as RichTextField,
-    },
-    modelVersion: '1.0.0',
-    settings: {
-      asBoilerplate: true,
-      asFragment: true,
-      asPageSection: true,
+      asQuery: 'global',
     },
   },
 }

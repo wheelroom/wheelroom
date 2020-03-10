@@ -116,10 +116,24 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
         type: 'Symbol',
         validations: [
           {
-            message: 'Please use a valid path: /only/valid/paths/allowed',
+            message: 'Please use a valid path: /this/is/a/valid/path',
             regexp: {
-              // ^\/[a-z0-9\._/~%\-\+&\#\?!=\(\)@]*$
               pattern: '^\\/[a-z0-9\\._/~%\\-\\+&\\#\\?!=\\(\\)@]*$',
+            },
+          },
+        ],
+      },
+      widgetId: 'singleLine',
+    },
+    shortTextUrl: {
+      specs: {
+        type: 'Symbol',
+        validations: [
+          {
+            message: 'Please use a valid url: https://this/is/a/valid/url',
+            regexp: {
+              pattern:
+                '^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$',
             },
           },
         ],
