@@ -19,12 +19,10 @@ if (process.env.NODE_ENV === 'development') {
 const cfConfig = {
   accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
   spaceId: process.env.CONTENTFUL_SPACE_ID,
+  environment: process.env.CONTENTFUL_ENVIRONMENT,
 }
-
-// Pass CONTENTFUL_ENVIRONMENT when available
-if (process.env.CONTENTFUL_ENVIRONMENT) {
-  cfConfig.environment = process.env.CONTENTFUL_ENVIRONMENT
-}
+// Override env setting here, so that Netlify can build this branch
+// cfConfig.environment = 'newModels'
 
 if (!cfConfig.spaceId || !cfConfig.accessToken) {
   throw new Error(
@@ -90,9 +88,9 @@ module.exports = {
   siteMetadata: {
     siteVersion: packageJson.version,
     secrets: {
-      spaceId: process.env.CONTENTFUL_SPACE_ID,
+      environment: cfConfig.environment,
       previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
-      environment: process.env.CONTENTFUL_ENVIRONMENT,
+      spaceId: cfConfig.spaceId,
     },
   },
 }
