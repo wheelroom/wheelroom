@@ -12,7 +12,7 @@
     "@contentful/rich-text-types": "14.1.0",
     "@emotion/core": "10.0.28",
     "@jacco-meijer/admin-core": "^1.1.5",
-    "@jacco-meijer/admin-page-preview": "^1.4.8",
+    "@jacco-meijer/admin-page-preview": "^1.4.10",
     "@jacco-meijer/admin-panel": "^1.1.5",
     "@jacco-meijer/admin-theme-switcher": "1.0.3",
     "@jacco-meijer/styled-system": "3.0.6",
