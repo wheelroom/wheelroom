@@ -20,6 +20,7 @@ fragment Action on ContentfulAction {
     __typename
     title
     path
+    navigationHeading
     seoTitle
     seoDescription
   }

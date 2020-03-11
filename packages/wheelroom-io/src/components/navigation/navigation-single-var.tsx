@@ -107,7 +107,6 @@ export const NavigationSingleVar = (props: NavigationProps) => {
   const setThemeMode = themeSwitcherStore?.actions.setActiveTheme
   // Get current Theme ID
   const currentThemeMode = useGetCurrentThemeId() as ThemeId
-  console.log('nav', props)
 
   const handleThemeMode = () => {
     if (currentThemeMode === 'light') {
