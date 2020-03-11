@@ -74,7 +74,7 @@ export const Hero = (props: HeroProps) => {
                 {props.topic.heading}
               </H1>
               <Paragraph ncss={{ ...paragraphHeroStyle, my: 3 }}>
-                A new approach to faster, more secure websites.
+                {props.topic.abstract}
               </Paragraph>
               <GLink
                 ncss={{
