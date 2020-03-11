@@ -7,9 +7,9 @@
  */
 
 import React from 'react'
-import { Box, Flex } from '../../views/core-elements/grid'
-import { PageSectionProps } from './page-section'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { Box, Flex } from '../views/core-elements/grid'
+import { PageSectionProps } from '../components/page-section/page-section'
+import { getPageSectionInfo } from './get-page-section-info'
 
 const yesNo = (value: boolean) => {
   return value ? 'yes' : 'no'
