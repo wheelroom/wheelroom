@@ -5,7 +5,6 @@ import { PageProps } from '../page/page'
 import React from 'react'
 
 const ActionGlink = (props: PageProps) => {
-  console.log(props)
   return (
     <GLink
       to={props.path}
