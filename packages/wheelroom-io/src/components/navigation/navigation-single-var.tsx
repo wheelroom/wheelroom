@@ -41,6 +41,25 @@ const containerStyle = {
   justifyContent: 'space-between',
 }
 
+const skipToContent = {
+  label: 'Skip',
+  display: 'block',
+  w: 1,
+  height: '70px',
+  ':focus': {
+    position: 'relative',
+    display: 'flex',
+    color: 'black',
+    fontFamily: 'text',
+    fontWeight: 5,
+    backgroundColor: 'amber',
+    textAlign: 'center',
+    lineHeight: '70px',
+    justifyContent: 'center',
+    zIndex: 1002,
+  },
+}
+
 const logoStyle = {
   label: 'Logo',
   alignItems: 'center',
@@ -97,24 +116,7 @@ export const NavigationSingleVar = (props: NavigationProps) => {
     <Fragment>
       <ALink
         href="#content"
-        ncss={{
-          label: 'Spacer',
-          display: 'block',
-          w: 1,
-          height: '70px',
-          ':focus': {
-            position: 'relative',
-            display: 'flex',
-            color: 'black',
-            fontFamily: 'text',
-            fontWeight: 5,
-            backgroundColor: 'amber',
-            textAlign: 'center',
-            lineHeight: '70px',
-            justifyContent: 'center',
-            zIndex: 1002,
-          },
-        }}
+        ncss={skipToContent}
       >
         Skip to Wheelroom Content
       </ALink>
