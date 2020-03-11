@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-03-11T13:39:34.565Z ###
+### Type definitions saved at 2020-03-11T14:05:30.312Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -129,6 +129,7 @@ type ContentfulNavigation implements Node @derivedTypes @dontInfer {
 type ContentfulPage implements Node @derivedTypes @dontInfer {
   title: String
   path: String
+  navigationHeading: String
   seoTitle: String
   seoDescription: String
   sections: [ContentfulPageSection] @link(by: "id", from: "sections___NODE")

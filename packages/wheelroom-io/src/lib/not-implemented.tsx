@@ -23,6 +23,10 @@ export const NotImplemented = (props: PageSectionProps) => {
         Variation not implemented: {props.variation}
       </Box>
       <Box ncss={{ bg: '#eee', p: 3, w: 1 }}>
+        hasAction: {yesNo(info.hasAction)}
+        <br />
+        actionCount: {info.actionCount}
+        <br />
         hasNavigation: {yesNo(info.hasNavigation)}
         <br />
         hasText: {yesNo(info.hasText)}

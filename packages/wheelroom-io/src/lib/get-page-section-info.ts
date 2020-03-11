@@ -10,11 +10,17 @@ export interface PageSectionInfo {
 
 export const getPageSectionInfo = (pageSection: PageSectionProps) => {
   const info = {
+    hasAction: false,
+    actionCount: 0,
     hasNavigation: false,
     hasText: false,
     hasTopic: false,
     topicCount: 0,
     variation: pageSection.variation,
+  }
+  if (pageSection.actions && Array.isArray(pageSection.actions)) {
+    info.hasAction = true
+    info.actionCount = pageSection.actions.length
   }
   if (pageSection.topics && Array.isArray(pageSection.topics)) {
     info.hasTopic = true

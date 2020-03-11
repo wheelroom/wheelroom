@@ -143,6 +143,9 @@ export const configComponents: WheelroomComponents = {
         typePostfix: 'Path',
         unique: true,
       } as ShortTextField,
+      navigationHeading: {
+        type: 'shortText',
+      } as ShortTextField,
       sections: {
         allowedComponents: [
           '%componentNameArray(filter:settings.asPageSection)%',

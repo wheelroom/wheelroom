@@ -12,6 +12,7 @@ export interface PageProps {
   __typename: string
   title: string
   path: string
+  navigationHeading: string
   sections: any
   seoTitle: string
   seoDescription: string

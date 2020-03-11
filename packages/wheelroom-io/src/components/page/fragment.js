@@ -16,6 +16,7 @@ fragment Page on ContentfulPage {
   __typename
   title
   path
+  navigationHeading
   sections {
     ... on Node {
       ...PageSection

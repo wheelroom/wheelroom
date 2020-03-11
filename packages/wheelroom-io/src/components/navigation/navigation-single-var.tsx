@@ -7,7 +7,7 @@
  */
 
 import React, { Fragment, useContext } from 'react'
-import { MainNavLinks } from './main-nav-links'
+import { NavLinks } from './nav-links'
 import { NavigationProps } from './navigation'
 import { List } from '../../views/core-elements/list'
 import { GLink } from '../../views/core-elements/g-link'
@@ -21,7 +21,7 @@ import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 import { Button } from '../../views/core-elements/button'
-import { SubNavLinks } from './sub-nav-links'
+import { NavAction } from './nav-action'
 
 const wrapperStyle = {
   label: 'Wrapper',
@@ -133,10 +133,10 @@ export const NavigationSingleVar = (props: NavigationProps) => {
           </Flex>
           <Flex is={'nav'} ncss={navStyle}>
             <List is="ul" ncss={listStyle}>
-              <MainNavLinks actions={props.navigation.actions[0].actions} />
+              <NavLinks actions={props.navigation} />
             </List>
             <Flex>
-              <SubNavLinks actions={props.navigation.actions[1].actions} />
+              <NavAction {...props.action} />
               <Button
                 type="button"
                 title={`Current theme is ` + currentThemeMode}
