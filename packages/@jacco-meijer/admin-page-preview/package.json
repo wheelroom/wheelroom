@@ -55,7 +55,7 @@
   "main": "dist/index.js",
   "name": "@jacco-meijer/admin-page-preview",
   "dependencies": {
-    "@jacco-meijer/contentful-page-preview": "1.2.3"
+    "@jacco-meijer/contentful-page-preview": "1.2.4"
   },
   "peerDependencies": {
     "@emotion/core": "10.x",
