@@ -54,6 +54,7 @@ export const configComponents: WheelroomComponents = {
       } as ShortTextField,
       actions: {
         allowedComponents: ['action'],
+        expandFragmentRef: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -97,17 +98,14 @@ export const configComponents: WheelroomComponents = {
       } as DropdownField,
       topics: {
         allowedComponents: ['topic'],
-        expandFragmentRef: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
       text: {
         allowedComponents: ['text'],
-        expandFragmentRef: true,
         type: 'singleComponent',
       } as SingleComponentField,
       navigation: {
         allowedComponents: ['navigation'],
-        expandFragmentRef: true,
         type: 'singleComponent',
       } as SingleComponentField,
     },
