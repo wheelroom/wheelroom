@@ -16,11 +16,11 @@ import { Navigation } from '../navigation/navigation'
 export const PageSectionFullVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (
-    info.hasNavigation &&
-    info.navigationSegmentCount > 0 &&
-    info.hasTopic &&
+    !info.hasText &&
     info.hasAction &&
-    !info.hasText
+    info.hasNavigation &&
+    info.hasTopic &&
+    info.navigationSegmentCount > 0
   ) {
     const segments = props.navigation.segments
     return (
@@ -32,11 +32,11 @@ export const PageSectionFullVar = (props: PageSectionProps) => {
     )
   }
   if (
-    info.hasNavigation &&
-    info.navigationSegmentCount > 0 &&
+    !info.hasText &&
     !info.hasTopic &&
-    !info.hasAction &&
-    !info.hasText
+    info.hasAction &&
+    info.hasNavigation &&
+    info.navigationSegmentCount > 0
   ) {
     const segments = props.navigation.segments
     return <Navigation segments={segments} action={props.actions[0]} />
