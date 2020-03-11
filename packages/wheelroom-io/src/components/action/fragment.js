@@ -25,9 +25,10 @@ fragment Action on ContentfulAction {
   }
   url
   actions {
-    ... on Node {
-      ...Action
-    }
+    __typename
+    title
+    heading
+    url
   }
 }
 `

@@ -6,68 +6,162 @@
  *
  */
 
-import React, { Fragment } from 'react'
-import { Box, Flex } from '../../views/core-elements/grid'
-import { Image } from '../../views/image/image'
+import React, { Fragment, useContext } from 'react'
+import { NavLinks } from './nav-links'
 import { NavigationProps } from './navigation'
+import { List } from '../../views/core-elements/list'
+import { GLink } from '../../views/core-elements/g-link'
+import { Box, Container, Flex } from '../../views/core-elements/grid'
+import { buttonPrimaryStyle, buttonSecondaryStyle } from '../../styles/button'
+import { ALink } from '../../views/core-elements/a-link'
 
-const FlexContainer = Flex
-const FlexBox = Box
+import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
+import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
-const flexContainerProps = {
-  ncss: {
-    bg: '#EEE',
-    fontFamily: 'text',
-    maxHeight: '300px',
-    mb: 1,
-    overflow: 'hidden',
-    p: 3,
-    w: [1],
+import { ThemeId } from '../../styled-system/system-css'
+import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { Button } from '../../views/core-elements/button'
+
+const wrapperStyle = {
+  label: 'Wrapper',
+  position: 'fixed',
+  bg: 'bg',
+  width: '100%',
+  zIndex: 1000,
+  top: 0,
+  height: '70px',
+  borderBottom: '1px solid',
+  borderColor: 'border',
+}
+
+const containerStyle = {
+  label: 'Container',
+  height: '100%',
+  justifyContent: 'space-between',
+}
+
+const logoStyle = {
+  label: 'Logo',
+  alignItems: 'center',
+}
+
+const logoLinkStyle = {
+  fontFamily: 'display',
+  textDecoration: 'none',
+  fontSize: [4, 5],
+  fontWeight: 5,
+  color: 'text',
+  mr: 5,
+  sup: {
+    color: 'metal',
+    fontWeight: 3,
   },
 }
 
-const flexBoxProps = {
-  ncss: { w: [1, 1 / 4] },
+const navStyle = {
+  label: 'Nav',
+  display: 'flex',
+  flex: '1',
+  alignItems: 'center',
 }
 
-const imageProps = {
-  objectFit: 'cover',
+const listStyle = {
+  label: 'NavItems',
+  display: 'flex',
+  flex: '1',
+  flexDirection: 'row',
+  listStyle: 'none',
+  flexWrap: 'wrap',
+  mb: 0,
+  mt: 0,
+  pl: 0,
 }
 
 export const NavigationSingleVar = (props: NavigationProps) => {
+  // Theme switcher admin module
+  const { adminCoreState } = useContext(AdminCoreContext)
+  const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
+  const setThemeMode = themeSwitcherStore?.actions.setActiveTheme
+  // Get current Theme ID
+  const currentThemeMode = useGetCurrentThemeId() as ThemeId
+
+  const handleThemeMode = () => {
+    if (currentThemeMode === 'light') {
+      setThemeMode('dark')
+    } else {
+      setThemeMode('light')
+    }
+  }
+
   return (
     <Fragment>
-      <FlexContainer
+      <ALink
+        href="#content"
         ncss={{
-          ...flexContainerProps.ncss,
-          bg: '#CCC',
-          fontFamily: 'heading',
-          fontSize: 7,
-          my: 4,
+          label: 'Spacer',
+          display: 'block',
+          w: 1,
+          height: '70px',
+          ':focus': {
+            position: 'relative',
+            display: 'flex',
+            color: 'black',
+            fontFamily: 'text',
+            fontWeight: 5,
+            backgroundColor: 'amber',
+            textAlign: 'center',
+            lineHeight: '70px',
+            justifyContent: 'center',
+            zIndex: 1002,
+          },
         }}
       >
-        <FlexBox ncss={{ ...flexBoxProps.ncss, w: 1 }}>
-          Navigation single var
-        </FlexBox>
-      </FlexContainer>
-            <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>__typename</FlexBox>
-        <FlexBox {...flexBoxProps}>optional</FlexBox>
-        <FlexBox {...flexBoxProps}>shortText</FlexBox>
-        <FlexBox {...flexBoxProps}>{props.__typename}</FlexBox>
-      </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>title</FlexBox>
-        <FlexBox {...flexBoxProps}>required</FlexBox>
-        <FlexBox {...flexBoxProps}>shortText</FlexBox>
-        <FlexBox {...flexBoxProps}>{props.title}</FlexBox>
-      </FlexContainer>
-      <FlexContainer {...flexContainerProps}>
-        <FlexBox {...flexBoxProps}>actions</FlexBox>
-        <FlexBox {...flexBoxProps}>optional</FlexBox>
-        <FlexBox {...flexBoxProps}>multipleComponents</FlexBox>
-        <FlexBox {...flexBoxProps}>action</FlexBox>
-      </FlexContainer>
+        Skip to Wheelroom Content
+      </ALink>
+      <Box is="div" ncss={wrapperStyle}>
+        <Container ncss={containerStyle}>
+          <Flex is="div" ncss={logoStyle}>
+            <GLink
+              ncss={logoLinkStyle}
+              to="/"
+              aria-label="Wheelroom, Back to homepage"
+            >
+              Wheelroom{' '}
+              <sup>
+                <small>1.0.0</small>
+              </sup>
+            </GLink>
+          </Flex>
+          <Flex is={'nav'} ncss={navStyle}>
+            <List is="ul" ncss={listStyle}>
+              <NavLinks actions={props.actions} />
+            </List>
+            <Flex>
+              <ALink
+                href="https://github.com/wheelroom/wheelroom-io"
+                ncss={{ ...buttonPrimaryStyle }}
+              >
+                Get started
+              </ALink>
+              <Button
+                type="button"
+                title={`Current theme is ` + currentThemeMode}
+                ariaLabel={`Current theme is ` + currentThemeMode}
+                ncss={{
+                  ...buttonSecondaryStyle,
+                  ml: 2,
+                  textTransform: 'capitalize',
+                  minWidth: '70px',
+                }}
+                value=""
+                onClick={() => handleThemeMode()}
+              >
+                {currentThemeMode}
+              </Button>
+            </Flex>
+          </Flex>
+        </Container>
+      </Box>
     </Fragment>
   )
 }

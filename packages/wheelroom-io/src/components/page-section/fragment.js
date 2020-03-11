@@ -17,33 +17,19 @@ fragment PageSection on ContentfulPageSection {
   title
   variation
   topics {
-    __typename
-    title
-    heading
-    abstract {
-      abstract
+    ... on Node {
+      ...Topic
     }
-    image {
-      title
-      description
-      fluid(maxWidth: 1024) {
-        sizes
-        src
-        srcSet
-      }
-    }
-    icon
   }
   text {
-    __typename
-    title
-    text {
-      json
+    ... on Node {
+      ...Text
     }
   }
   navigation {
-    __typename
-    title
+    ... on Node {
+      ...Navigation
+    }
   }
 }
 `
