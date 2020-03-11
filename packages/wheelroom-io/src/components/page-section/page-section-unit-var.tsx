@@ -1,15 +1,15 @@
 /**
  * Component variation
  *
- * Component type: text
- * Variation: Single
+ * Component type: pageSection
+ * Variation: Unit
  *
  */
 
 import React from 'react'
-import { TextProps } from './text'
+import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../lib/not-implemented'
 
-export const TextSingleVar = (props: TextProps) => {
+export const PageSectionUnitVar = (props: PageSectionProps) => {
   return <NotImplemented {...props} />
 }

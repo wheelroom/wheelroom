@@ -81,7 +81,7 @@ module.exports = {
         path: `schema.gql`,
         // When updating the schema, make sure all models have content and all
         // fields have a value.
-        update: false,
+        update: true,
       },
     },
   ],

@@ -8,19 +8,21 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { NavigationSingleVar } from './navigation-single-var'
+import { NavigationSegmentProps } from '../navigation-segment'
 import { ActionProps } from '../action'
-import { PageProps } from '../page/page'
 
 const componentList = {
   ['single']: NavigationSingleVar,
 }
 
 export interface NavigationProps {
+  /** Gatsby fetched data */
   // __typename: string
   // title: string
-  // heading: string
+  segments: NavigationSegmentProps[]
+
+  /** Local prop */
   action: ActionProps
-  pages: PageProps[]
 }
 
 export const Navigation = (props: NavigationProps) => {

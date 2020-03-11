@@ -1,8 +1,8 @@
+import React, { Fragment } from 'react'
 import { navigationHeaderStyle } from '../../styles/navigation'
 import { GLink } from '../../views/core-elements/g-link'
 import { Any } from '../../views/core-elements/any'
 import { PageProps } from '../page/page'
-import React from 'react'
 
 const ActionGlink = (props: PageProps) => {
   return (
@@ -18,13 +18,15 @@ const ActionGlink = (props: PageProps) => {
   )
 }
 
-interface NavLinksProps {
+export interface NavLinksProps {
   pages: PageProps[]
 }
+
 export const NavLinks = (props: NavLinksProps) => {
-  return props.pages.map((page: PageProps) => (
+  const links = props.pages.map((page: PageProps) => (
     <Any is={'li'} ncss={{ label: 'NavItem' }} key={page.navigationHeading}>
       <ActionGlink {...page} />
     </Any>
   ))
+  return <Fragment>{links}</Fragment>
 }

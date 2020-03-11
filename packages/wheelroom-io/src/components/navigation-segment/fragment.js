@@ -6,19 +6,23 @@
  * by scanning the src folder, then adds the fragments to the main page query.
  *
  *
- * Component: navigationGroup
+ * Component: navigationSegment
  */
 
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment NavigationGroup on ContentfulNavigationGroup {
+fragment NavigationSegment on ContentfulNavigationSegment {
   __typename
   title
-  navigationGroup {
-    ... on Node {
-      ...Navigation
-    }
+  heading
+  pages {
+    __typename
+    title
+    path
+    navigationHeading
+    seoTitle
+    seoDescription
   }
 }
 `

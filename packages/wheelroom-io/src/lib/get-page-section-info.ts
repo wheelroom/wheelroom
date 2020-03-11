@@ -1,7 +1,10 @@
 import { PageSectionProps } from '../components/page-section/page-section'
 
 export interface PageSectionInfo {
+  hasAction: boolean
+  actionCount: number
   hasNavigation: boolean
+  navigationSegmentCount: number
   hasText: boolean
   hasTopic: boolean
   topicCount: number
@@ -13,6 +16,7 @@ export const getPageSectionInfo = (pageSection: PageSectionProps) => {
     hasAction: false,
     actionCount: 0,
     hasNavigation: false,
+    navigationSegmentCount: 0,
     hasText: false,
     hasTopic: false,
     topicCount: 0,
@@ -29,8 +33,12 @@ export const getPageSectionInfo = (pageSection: PageSectionProps) => {
   if (pageSection.text) {
     info.hasText = true
   }
-  if (pageSection.navigation) {
+  if (
+    pageSection.navigation &&
+    Array.isArray(pageSection.navigation.segments)
+  ) {
     info.hasNavigation = true
+    info.navigationSegmentCount = pageSection.navigation.segments.length
   }
   return info
 }

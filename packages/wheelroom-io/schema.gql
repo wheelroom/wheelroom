@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-03-11T14:05:30.312Z ###
+### Type definitions saved at 2020-03-11T17:34:04.347Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -101,28 +101,28 @@ type ContentfulAssetFileDetailsImage {
   height: Int
 }
 
-type ContentfulNavigationGroup implements Node @derivedTypes @dontInfer {
+type ContentfulNavigation implements Node @derivedTypes @dontInfer {
   title: String
-  navigationGroup: [ContentfulNavigation] @link(by: "id", from: "navigationGroup___NODE")
+  segments: [ContentfulNavigationSegment] @link(by: "id", from: "segments___NODE")
   pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
-  sys: ContentfulNavigationGroupSys
+  sys: ContentfulNavigationSys
   node_locale: String
 }
 
-type ContentfulNavigation implements Node @derivedTypes @dontInfer {
+type ContentfulNavigationSegment implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   pages: [ContentfulPage] @link(by: "id", from: "pages___NODE")
-  navigationgroup: [ContentfulNavigationGroup] @link(by: "id", from: "navigationgroup___NODE")
+  navigation: [ContentfulNavigation] @link(by: "id", from: "navigation___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
-  sys: ContentfulNavigationSys
+  sys: ContentfulNavigationSegmentSys
   node_locale: String
 }
 
@@ -134,7 +134,7 @@ type ContentfulPage implements Node @derivedTypes @dontInfer {
   seoDescription: String
   sections: [ContentfulPageSection] @link(by: "id", from: "sections___NODE")
   action: [ContentfulAction] @link(by: "id", from: "action___NODE")
-  navigation: [ContentfulNavigation] @link(by: "id", from: "navigation___NODE")
+  navigationsegment: [ContentfulNavigationSegment] @link(by: "id", from: "navigationsegment___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
@@ -148,7 +148,7 @@ type ContentfulPageSection implements Node @derivedTypes @dontInfer {
   variation: String
   topics: [ContentfulTopic] @link(by: "id", from: "topics___NODE")
   text: ContentfulText @link(by: "id", from: "text___NODE")
-  navigation: ContentfulNavigationGroup @link(by: "id", from: "navigation___NODE")
+  navigation: ContentfulNavigation @link(by: "id", from: "navigation___NODE")
   actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
@@ -159,7 +159,7 @@ type ContentfulPageSection implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulTopic implements Node @derivedTypes {
+type ContentfulTopic implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   icon: String
@@ -175,7 +175,7 @@ type ContentfulTopic implements Node @derivedTypes {
   node_locale: String
 }
 
-type ContentfulAction implements Node @derivedTypes {
+type ContentfulAction implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   url: String
@@ -226,7 +226,7 @@ type ContentfulTopicSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulText implements Node @derivedTypes {
+type ContentfulText implements Node @derivedTypes @dontInfer {
   title: String
   pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
   text: contentfulTextTextRichTextNode @link(by: "id", from: "text___NODE")
@@ -302,6 +302,22 @@ type ContentfulPageSysContentTypeSys {
   contentful_id: String
 }
 
+type ContentfulNavigationSegmentSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulNavigationSegmentSysContentType
+}
+
+type ContentfulNavigationSegmentSysContentType @derivedTypes {
+  sys: ContentfulNavigationSegmentSysContentTypeSys
+}
+
+type ContentfulNavigationSegmentSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
 type ContentfulNavigationSys @derivedTypes {
   revision: Int
   contentType: ContentfulNavigationSysContentType
@@ -312,22 +328,6 @@ type ContentfulNavigationSysContentType @derivedTypes {
 }
 
 type ContentfulNavigationSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulNavigationGroupSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulNavigationGroupSysContentType
-}
-
-type ContentfulNavigationGroupSysContentType @derivedTypes {
-  sys: ContentfulNavigationGroupSysContentTypeSys
-}
-
-type ContentfulNavigationGroupSysContentTypeSys {
   type: String
   linkType: String
   id: String

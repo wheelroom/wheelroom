@@ -60,7 +60,7 @@ export const configComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  navigation: {
+  navigationSegment: {
     fields: {
       heading: {
         type: 'shortText',
@@ -78,10 +78,10 @@ export const configComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  navigationGroup: {
+  navigation: {
     fields: {
-      navigationGroup: {
-        allowedComponents: ['navigation'],
+      segments: {
+        allowedComponents: ['navigationSegment'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -107,7 +107,7 @@ export const configComponents: WheelroomComponents = {
   pageSection: {
     fields: {
       variation: {
-        items: ['extra-large', 'large', 'medium', 'small', 'quote'],
+        items: ['full', 'half', 'quarter', 'unit'],
         type: 'dropdown',
       } as DropdownField,
       topics: {
@@ -119,7 +119,7 @@ export const configComponents: WheelroomComponents = {
         type: 'singleComponent',
       } as SingleComponentField,
       navigation: {
-        allowedComponents: ['navigationGroup'],
+        allowedComponents: ['navigation'],
         type: 'singleComponent',
       } as SingleComponentField,
       actions: {

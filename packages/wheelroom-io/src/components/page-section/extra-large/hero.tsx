@@ -16,13 +16,13 @@ import { Image } from '../../../views/image/image'
 import { Navigation } from '../../navigation'
 import { TopicProps } from '../../topic'
 import { ActionProps } from '../../action'
-import { PageProps } from '../../page/page'
 import { HeroAction } from './hero-action'
+import { NavigationSegmentProps } from '../../navigation-segment'
 
 export interface HeroProps {
   topic: TopicProps
   action: ActionProps
-  pages: PageProps[]
+  segments: NavigationSegmentProps[]
 }
 
 export const Hero = (props: HeroProps) => {
@@ -30,7 +30,7 @@ export const Hero = (props: HeroProps) => {
     Array.isArray(props.topic.actions) && props.topic.actions.length > 0
   return (
     <Fragment>
-      <Navigation pages={props.pages} action={props.action} />
+      <Navigation segments={props.segments} action={props.action} />
       <Box
         is="div"
         ncss={{

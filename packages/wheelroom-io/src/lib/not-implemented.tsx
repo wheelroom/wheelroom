@@ -29,6 +29,8 @@ export const NotImplemented = (props: PageSectionProps) => {
         <br />
         hasNavigation: {yesNo(info.hasNavigation)}
         <br />
+        navigationSegmentCount: {info.navigationSegmentCount}
+        <br />
         hasText: {yesNo(info.hasText)}
         <br />
         hasTopic: {yesNo(info.hasTopic)}

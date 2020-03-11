@@ -6,8 +6,10 @@
  *
  */
 
+import React from 'react'
 import { ActionProps } from './action'
+import { NotImplemented } from '../../lib/not-implemented'
 
 export const ActionSingleVar = (props: ActionProps) => {
-  return null
+  return <NotImplemented {...props} />
 }

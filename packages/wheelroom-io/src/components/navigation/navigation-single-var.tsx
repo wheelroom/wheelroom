@@ -7,7 +7,6 @@
  */
 
 import React, { Fragment, useContext } from 'react'
-import { NavLinks } from './nav-links'
 import { NavigationProps } from './navigation'
 import { List } from '../../views/core-elements/list'
 import { GLink } from '../../views/core-elements/g-link'
@@ -22,9 +21,8 @@ import { ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 import { Button } from '../../views/core-elements/button'
 import { NavAction } from './nav-action'
-import { PageProps } from '../page/page'
-import { ActionProps } from '../action'
-import { NavigationGroupProps } from '../navigation-group'
+import { NavigationSegmentProps } from '../navigation-segment'
+import { NavLinks } from './nav-links'
 
 const wrapperStyle = {
   label: 'Wrapper',
@@ -107,6 +105,7 @@ export const NavigationSingleVar = (props: NavigationProps) => {
   const setThemeMode = themeSwitcherStore?.actions.setActiveTheme
   // Get current Theme ID
   const currentThemeMode = useGetCurrentThemeId() as ThemeId
+  const navSegment = props.segments[0] as NavigationSegmentProps
 
   const handleThemeMode = () => {
     if (currentThemeMode === 'light') {
@@ -136,7 +135,7 @@ export const NavigationSingleVar = (props: NavigationProps) => {
           </Flex>
           <Flex is={'nav'} ncss={navStyle}>
             <List is="ul" ncss={listStyle}>
-              <NavLinks pages={props.pages} />
+              <NavLinks pages={navSegment.pages} />
             </List>
             <Flex>
               <NavAction {...props.action} />

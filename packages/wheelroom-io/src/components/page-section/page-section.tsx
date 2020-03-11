@@ -8,19 +8,20 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { SectionProps } from '../../sections/section-props'
-import { PageSectionExtraLargeVar } from './page-section-extra-large-var'
-import { PageSectionLargeVar } from './page-section-large-var'
-import { PageSectionMediumVar } from './page-section-medium-var'
-import { PageSectionSmallVar } from './page-section-small-var'
-import { PageSectionQuoteVar } from './page-section-quote-var'
-import { NavigationGroupProps } from '../navigation-group'
+import { PageSectionFullVar } from './page-section-full-var'
+import { PageSectionHalfVar } from './page-section-half-var'
+import { PageSectionQuarterVar } from './page-section-quarter-var'
+import { PageSectionUnitVar } from './page-section-unit-var'
+import { ActionProps } from '../action'
+import { NavigationProps } from '../navigation'
+import { TopicProps } from '../topic'
+import { TextProps } from '../text'
 
 const componentList = {
-  ['extra-large']: PageSectionExtraLargeVar,
-  ['large']: PageSectionLargeVar,
-  ['medium']: PageSectionMediumVar,
-  ['small']: PageSectionSmallVar,
-  ['quote']: PageSectionQuoteVar,
+  ['full']: PageSectionFullVar,
+  ['half']: PageSectionHalfVar,
+  ['quarter']: PageSectionQuarterVar,
+  ['unit']: PageSectionUnitVar,
 }
 
 export interface PageSectionProps extends SectionProps {
@@ -28,10 +29,10 @@ export interface PageSectionProps extends SectionProps {
   __typename: string
   title: string
   variation: string
-  topics: any
-  text: any
-  navigation: NavigationGroupProps
-  actions: any
+  topics: TopicProps[]
+  text: TextProps
+  navigation: NavigationProps
+  actions: ActionProps[]
 }
 
 export const PageSection = (props: PageSectionProps) => {
