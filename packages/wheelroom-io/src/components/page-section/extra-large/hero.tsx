@@ -9,13 +9,11 @@
 import React, { Fragment } from 'react'
 import { heading1Style } from '../../../styles/heading'
 import { paragraphHeroStyle } from '../../../styles/paragraph'
-import { buttonPrimaryStyle } from '../../../styles/button'
 import { Box, Container } from '../../../views/core-elements/grid'
 import { H1 } from '../../../views/core-elements/heading'
 import { Paragraph } from '../../../views/core-elements/paragraph'
 import { Image } from '../../../views/image/image'
 import { Navigation } from '../../navigation'
-import { GLink } from '../../../views/core-elements/g-link'
 import { TopicProps } from '../../topic'
 import { ActionProps } from '../../action'
 import { PageProps } from '../../page/page'
@@ -28,6 +26,8 @@ export interface HeroProps {
 }
 
 export const Hero = (props: HeroProps) => {
+  const topicHasAction =
+    Array.isArray(props.topic.actions) && props.topic.actions.length > 0
   return (
     <Fragment>
       <Navigation pages={props.pages} action={props.action} />
@@ -80,7 +80,7 @@ export const Hero = (props: HeroProps) => {
               <Paragraph ncss={{ ...paragraphHeroStyle, my: 3 }}>
                 {props.topic.abstract && props.topic.abstract.abstract}
               </Paragraph>
-              <HeroAction {...props.topic.actions[0]} />
+              {topicHasAction && <HeroAction {...props.topic.actions[0]} />}
             </Box>
           </Container>
         </Container>
