@@ -19,6 +19,7 @@ import { GLink } from '../../../views/core-elements/g-link'
 import { TopicProps } from '../../topic'
 import { ActionProps } from '../../action'
 import { PageProps } from '../../page/page'
+import { HeroAction } from './hero-action'
 
 export interface HeroProps {
   topic: TopicProps
@@ -79,18 +80,7 @@ export const Hero = (props: HeroProps) => {
               <Paragraph ncss={{ ...paragraphHeroStyle, my: 3 }}>
                 {props.topic.abstract && props.topic.abstract.abstract}
               </Paragraph>
-              <GLink
-                ncss={{
-                  ...buttonPrimaryStyle,
-                  fontSize: [4, 5],
-                  display: 'inline-flex',
-                  py: 3,
-                  px: 4,
-                }}
-                to="/documentation"
-              >
-                Try Wheelroom for Free
-              </GLink>
+              <HeroAction {...props.action} />
             </Box>
           </Container>
         </Container>
