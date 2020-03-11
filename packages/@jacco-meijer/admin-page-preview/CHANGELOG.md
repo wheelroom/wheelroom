@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.9](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.8...@jacco-meijer/admin-page-preview@1.4.9) (2020-03-11)
+
+**Note:** Version bump only for package @jacco-meijer/admin-page-preview
+
+
+
+
+
 ## [1.4.8](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.7...@jacco-meijer/admin-page-preview@1.4.8) (2020-03-11)
 
 **Note:** Version bump only for package @jacco-meijer/admin-page-preview
