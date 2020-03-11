@@ -74,7 +74,7 @@ export const Hero = (props: HeroProps) => {
                 {props.topic.heading}
               </H1>
               <Paragraph ncss={{ ...paragraphHeroStyle, my: 3 }}>
-                {props.topic.abstract}
+                {props.topic.abstract && props.topic.abstract.abstract}
               </Paragraph>
               <GLink
                 ncss={{
