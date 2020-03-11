@@ -14,19 +14,22 @@ import { Box, Container } from '../../../views/core-elements/grid'
 import { H1 } from '../../../views/core-elements/heading'
 import { Paragraph } from '../../../views/core-elements/paragraph'
 import { Image } from '../../../views/image/image'
-import { Navigation, NavigationProps } from '../../navigation'
+import { Navigation } from '../../navigation'
 import { GLink } from '../../../views/core-elements/g-link'
 import { TopicProps } from '../../topic'
+import { ActionProps } from '../../action'
 
 export interface HeroProps {
   topic: TopicProps
-  navigation: NavigationProps
+  navigation: {
+    actions: ActionProps[]
+  }
 }
 
 export const Hero = (props: HeroProps) => {
   return (
     <Fragment>
-      <Navigation actions={props.navigation.actions} />
+      <Navigation navigation={props.navigation} />
       <Box
         is="div"
         ncss={{

@@ -36,16 +36,19 @@ const ActionAlink = (props: { action: ActionProps }) => {
 interface NavLinksProps {
   actions: ActionProps[]
 }
-export const NavLinks = (props: NavLinksProps) => (
-  <Fragment>
-    {props.actions.map((action: ActionProps) => (
-      <Any is={'li'} ncss={{ label: 'NavItem' }} key={action.heading}>
-        {action.page ? (
-          <ActionGlink action={action} />
-        ) : (
-          <ActionAlink action={action} />
-        )}
-      </Any>
-    ))}
-  </Fragment>
-)
+export const MainNavLinks = (props: NavLinksProps) => {
+  console.log('main links', props)
+  return (
+    <Fragment>
+      {props.actions.map((action: ActionProps) => (
+        <Any is={'li'} ncss={{ label: 'NavItem' }} key={action.heading}>
+          {action.page ? (
+            <ActionGlink action={action} />
+          ) : (
+            <ActionAlink action={action} />
+          )}
+        </Any>
+      ))}
+    </Fragment>
+  )
+}

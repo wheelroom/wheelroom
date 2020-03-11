@@ -8,13 +8,16 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { NavigationSingleVar } from './navigation-single-var'
+import { ActionProps } from '../action'
 
 const componentList = {
   ['single']: NavigationSingleVar,
 }
 
 export interface NavigationProps {
-  actions: any
+  navigation: {
+    actions: ActionProps[]
+  }
 }
 
 export const Navigation = (props: NavigationProps) => {

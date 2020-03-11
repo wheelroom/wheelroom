@@ -16,10 +16,10 @@ import { Navigation } from '../navigation'
 export const PageSectionExtraLargeVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasNavigation && info.hasTopic && !info.hasText) {
-    return <Hero topic={props.topics[0]} navigation={props.navigation} />
+    return <Hero topic={props.topics[0]} navigation={{ ...props.navigation }} />
   }
   if (info.hasNavigation && !info.hasTopic && !info.hasText) {
-    return <Navigation actions={props.navigation.actions} />
+    return <Navigation navigation={{ ...props.navigation }} />
   }
 
   return <NotImplemented {...props} />

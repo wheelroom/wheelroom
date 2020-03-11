@@ -7,12 +7,12 @@
  */
 
 import React, { Fragment, useContext } from 'react'
-import { NavLinks } from './nav-links'
+import { MainNavLinks } from './main-nav-links'
 import { NavigationProps } from './navigation'
 import { List } from '../../views/core-elements/list'
 import { GLink } from '../../views/core-elements/g-link'
 import { Box, Container, Flex } from '../../views/core-elements/grid'
-import { buttonPrimaryStyle, buttonSecondaryStyle } from '../../styles/button'
+import { buttonSecondaryStyle } from '../../styles/button'
 import { ALink } from '../../views/core-elements/a-link'
 
 import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
@@ -21,6 +21,7 @@ import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 import { Button } from '../../views/core-elements/button'
+import { SubNavLinks } from './sub-nav-links'
 
 const wrapperStyle = {
   label: 'Wrapper',
@@ -92,7 +93,6 @@ export const NavigationSingleVar = (props: NavigationProps) => {
       setThemeMode('light')
     }
   }
-
   return (
     <Fragment>
       <ALink
@@ -134,15 +134,10 @@ export const NavigationSingleVar = (props: NavigationProps) => {
           </Flex>
           <Flex is={'nav'} ncss={navStyle}>
             <List is="ul" ncss={listStyle}>
-              <NavLinks actions={props.actions} />
+              <MainNavLinks actions={props.navigation.actions[0].actions} />
             </List>
             <Flex>
-              <ALink
-                href="https://github.com/wheelroom/wheelroom-io"
-                ncss={{ ...buttonPrimaryStyle }}
-              >
-                Get started
-              </ALink>
+              <SubNavLinks actions={props.navigation.actions[1].actions} />
               <Button
                 type="button"
                 title={`Current theme is ` + currentThemeMode}
