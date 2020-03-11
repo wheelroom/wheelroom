@@ -28,7 +28,7 @@ fragment PageSection on ContentfulPageSection {
   }
   navigation {
     ... on Node {
-      ...Navigation
+      ...NavigationGroup
     }
   }
 }

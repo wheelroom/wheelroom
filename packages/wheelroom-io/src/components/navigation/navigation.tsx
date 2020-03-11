@@ -7,17 +7,20 @@
 
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
+import { FluidImage } from '../../views/image/image'
+import { SectionProps } from '../../sections/section-props'
 import { NavigationSingleVar } from './navigation-single-var'
-import { ActionProps } from '../action'
 
 const componentList = {
   ['single']: NavigationSingleVar,
 }
 
-export interface NavigationProps {
-  navigation: {
-    actions: ActionProps[]
-  }
+export interface NavigationProps extends SectionProps {
+  /** Gatsby fetched data */
+  __typename: string
+  title: string
+  heading: string
+  pages: any
 }
 
 export const Navigation = (props: NavigationProps) => {

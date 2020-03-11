@@ -52,8 +52,20 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
         typePostfix: 'Url',
       } as ShortTextField,
-      actions: {
-        allowedComponents: ['action'],
+    },
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  navigation: {
+    fields: {
+      heading: {
+        type: 'shortText',
+      } as ShortTextField,
+      pages: {
+        allowedComponents: ['page'],
         expandFragmentRef: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
@@ -64,10 +76,10 @@ export const configComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  navigation: {
+  navigationGroup: {
     fields: {
-      actions: {
-        allowedComponents: ['action'],
+      navigationGroup: {
+        allowedComponents: ['navigation'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -105,7 +117,7 @@ export const configComponents: WheelroomComponents = {
         type: 'singleComponent',
       } as SingleComponentField,
       navigation: {
-        allowedComponents: ['navigation'],
+        allowedComponents: ['navigationGroup'],
         type: 'singleComponent',
       } as SingleComponentField,
     },

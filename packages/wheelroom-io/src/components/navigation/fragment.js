@@ -15,10 +15,13 @@ export const fragment = graphql`
 fragment Navigation on ContentfulNavigation {
   __typename
   title
-  actions {
-    ... on Node {
-      ...Action
-    }
+  heading
+  pages {
+    __typename
+    title
+    path
+    seoTitle
+    seoDescription
   }
 }
 `
