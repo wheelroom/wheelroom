@@ -80,7 +80,7 @@ export const Hero = (props: HeroProps) => {
               <Paragraph ncss={{ ...paragraphHeroStyle, my: 3 }}>
                 {props.topic.abstract && props.topic.abstract.abstract}
               </Paragraph>
-              <HeroAction {...props.action} />
+              <HeroAction {...props.topic.actions[0]} />
             </Box>
           </Container>
         </Container>
