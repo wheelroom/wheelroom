@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-03-11T12:58:50.053Z ###
+### Type definitions saved at 2020-03-11T13:39:34.565Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -148,6 +148,7 @@ type ContentfulPageSection implements Node @derivedTypes @dontInfer {
   topics: [ContentfulTopic] @link(by: "id", from: "topics___NODE")
   text: ContentfulText @link(by: "id", from: "text___NODE")
   navigation: ContentfulNavigationGroup @link(by: "id", from: "navigation___NODE")
+  actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   contentful_id: String
@@ -157,7 +158,7 @@ type ContentfulPageSection implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulTopic implements Node @derivedTypes {
+type ContentfulTopic implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   icon: String
@@ -179,6 +180,7 @@ type ContentfulAction implements Node @derivedTypes @dontInfer {
   url: String
   page: ContentfulPage @link(by: "id", from: "page___NODE")
   topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
+  pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
@@ -223,7 +225,7 @@ type ContentfulTopicSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulText implements Node @derivedTypes {
+type ContentfulText implements Node @derivedTypes @dontInfer {
   title: String
   pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
   text: contentfulTextTextRichTextNode @link(by: "id", from: "text___NODE")
