@@ -114,10 +114,7 @@ export const NavigationSingleVar = (props: NavigationProps) => {
   }
   return (
     <Fragment>
-      <ALink
-        href="#content"
-        ncss={skipToContent}
-      >
+      <ALink href="#content" ncss={skipToContent}>
         Skip to Wheelroom Content
       </ALink>
       <Box is="div" ncss={wrapperStyle}>
