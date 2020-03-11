@@ -23,6 +23,7 @@ const sectionMap = {
 } as SectionMap
 
 export const Sections = (props: any) => {
+  console.log('sections', props)
   const sectionList = [] as JSX.Element[]
   props.sections.forEach((section: any, index: number) => {
     const Section = sectionMap[section.__typename].element

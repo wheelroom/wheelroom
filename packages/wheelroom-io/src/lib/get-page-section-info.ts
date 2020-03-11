@@ -14,7 +14,7 @@ export const getPageSectionInfo = (pageSection: PageSectionProps) => {
     hasText: false,
     hasTopic: false,
     topicCount: 0,
-    variation: '',
+    variation: pageSection.variation,
   }
   if (pageSection.topics && Array.isArray(pageSection.topics)) {
     info.hasTopic = true
