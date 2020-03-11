@@ -33,6 +33,8 @@ export const actionCreator = (
         entryId,
         locale,
         previewSecrets,
+        include: 10,
+        maxDepth: 8,
       })
       const fetchedPage = await pagePreview.getGatbsyFields()
       dispatch({ type: 'SET_PREVIEW_PAGE', previewPage: fetchedPage })
