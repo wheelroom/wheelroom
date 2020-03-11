@@ -17,22 +17,19 @@ import { Image } from '../../../views/image/image'
 import { Navigation } from '../../navigation'
 import { GLink } from '../../../views/core-elements/g-link'
 import { TopicProps } from '../../topic'
-import { NavigationGroupProps } from '../../navigation-group'
 import { ActionProps } from '../../action'
+import { PageProps } from '../../page/page'
 
 export interface HeroProps {
   topic: TopicProps
   action: ActionProps
-  navigationGroup: NavigationGroupProps
+  pages: PageProps[]
 }
 
 export const Hero = (props: HeroProps) => {
   return (
     <Fragment>
-      <Navigation
-        navigationGroup={props.navigationGroup}
-        action={props.action}
-      />
+      <Navigation pages={props.pages} action={props.action} />
       <Box
         is="div"
         ncss={{

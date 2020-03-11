@@ -22,6 +22,9 @@ import { ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 import { Button } from '../../views/core-elements/button'
 import { NavAction } from './nav-action'
+import { PageProps } from '../page/page'
+import { ActionProps } from '../action'
+import { NavigationGroupProps } from '../navigation-group'
 
 const wrapperStyle = {
   label: 'Wrapper',
@@ -104,6 +107,7 @@ export const NavigationSingleVar = (props: NavigationProps) => {
   const setThemeMode = themeSwitcherStore?.actions.setActiveTheme
   // Get current Theme ID
   const currentThemeMode = useGetCurrentThemeId() as ThemeId
+  console.log('nav', props)
 
   const handleThemeMode = () => {
     if (currentThemeMode === 'light') {
@@ -133,7 +137,7 @@ export const NavigationSingleVar = (props: NavigationProps) => {
           </Flex>
           <Flex is={'nav'} ncss={navStyle}>
             <List is="ul" ncss={listStyle}>
-              <NavLinks actions={props.navigation} />
+              <NavLinks pages={props.pages} />
             </List>
             <Flex>
               <NavAction {...props.action} />
