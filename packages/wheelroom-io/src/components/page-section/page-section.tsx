@@ -31,6 +31,7 @@ export interface PageSectionProps extends SectionProps {
   topics: any
   text: any
   navigation: any
+  actions: any
 }
 
 export const PageSection = (props: PageSectionProps) => {

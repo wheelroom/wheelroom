@@ -31,5 +31,10 @@ fragment PageSection on ContentfulPageSection {
       ...NavigationGroup
     }
   }
+  actions {
+    ... on Node {
+      ...Action
+    }
+  }
 }
 `

@@ -44,6 +44,7 @@ export const configComponents: WheelroomComponents = {
       } as ShortTextField,
       page: {
         allowedComponents: ['page'],
+        // Limit expanding pages, prevent circ refs
         expandFragmentRef: true,
         type: 'singleComponent',
       } as SingleComponentField,
@@ -66,6 +67,7 @@ export const configComponents: WheelroomComponents = {
       } as ShortTextField,
       pages: {
         allowedComponents: ['page'],
+        // Limit expanding pages, prevent circ refs
         expandFragmentRef: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
@@ -120,6 +122,10 @@ export const configComponents: WheelroomComponents = {
         allowedComponents: ['navigationGroup'],
         type: 'singleComponent',
       } as SingleComponentField,
+      actions: {
+        allowedComponents: ['action'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
     },
     modelVersion: '1.0.0',
     settings: {
