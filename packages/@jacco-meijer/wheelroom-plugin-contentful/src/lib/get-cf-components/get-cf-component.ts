@@ -43,6 +43,17 @@ export const getCfComponent = (context: ProcessWrComponent) => {
         contentfulFieldDefinition =
           context.fieldDefinitions.fieldTypes[fieldValue.type]
       }
+      if (!contentfulFieldDefinition) {
+        console.log(
+          `Warning: field type '${fieldValue.type}' not found in  Contentful field definitions`
+        )
+        console.log(
+          `Available field types: '${Object.keys(
+            context.fieldDefinitions.fieldTypes
+          ).join(', ')}'`
+        )
+        return
+      }
       fields[fieldName] = mergeFields({
         cfFieldDefinition: contentfulFieldDefinition,
         componentName: context.componentName,
