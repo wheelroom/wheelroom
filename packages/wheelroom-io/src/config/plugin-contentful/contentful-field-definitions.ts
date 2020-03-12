@@ -156,5 +156,19 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       },
       widgetId: 'tagEditor',
     },
+    // dropdownCheckbox: {
+    //   specs: {
+    //     items: {
+    //       type: 'Symbol',
+    //       // validations: [
+    //       //   {
+    //       //     in: ['value1', 'value2'],
+    //       //   },
+    //       // ],
+    //     },
+    //     type: 'Array',
+    //   },
+    //   widgetId: 'checkbox',
+    // },
   },
 }

@@ -107,7 +107,14 @@ export const configComponents: WheelroomComponents = {
   pageSection: {
     fields: {
       variation: {
-        items: ['full', 'half', 'quarter', 'unit'],
+        items: [
+          'cards',
+          'featured list',
+          'featured',
+          'headline',
+          'hero',
+          'images',
+        ],
         type: 'dropdown',
       } as DropdownField,
       topics: {
@@ -126,6 +133,11 @@ export const configComponents: WheelroomComponents = {
         allowedComponents: ['action'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
+      // hideTopicElements: {
+      //   items: ['icon', 'image', 'heading', 'abstract', 'action', 'reversed'],
+      //   type: 'dropdown',
+      //   typePostfix: 'Checkbox',
+      // } as DropdownField,
     },
     modelVersion: '1.0.0',
     settings: {
