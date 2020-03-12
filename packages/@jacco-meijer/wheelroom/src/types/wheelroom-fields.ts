@@ -105,3 +105,10 @@ export interface TagsField extends CommonField {
   initialContent?: string[]
   type: 'tags'
 }
+export interface CheckboxField extends CommonField {
+  /** List of strings for the checkbox field */
+  items: string[]
+  /** Demo content that a field can be filled with */
+  initialContent?: string[]
+  type: 'checkbox'
+}
