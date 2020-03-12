@@ -1,11 +1,3 @@
-/**
- * Component variation
- *
- * Component type: pageSection
- * Variation: Medium
- *
- */
-
 import React from 'react'
 import { Box, Flex } from '../views/core-elements/grid'
 import { PageSectionProps } from '../components/page-section/page-section'
