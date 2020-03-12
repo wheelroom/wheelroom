@@ -48,3 +48,15 @@ export const Sections = (props: any) => {
   // Add proper landmarks (header, main and footer) around sections
   return <Landmarks>{sectionList}</Landmarks>
 }
+
+/**
+ *
+ * if (index=0 && (variation='hero' || hasNavigation)) => <header role="banner">
+ *
+ * if (index=last && hasNavigation) => <footer role="contentinfo">
+ *
+ * all others are <main role="main">
+ *
+ * add variation prop to Landmark and use this for css label
+ *
+ */
