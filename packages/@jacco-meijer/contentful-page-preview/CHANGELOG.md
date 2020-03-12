@@ -3,15 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 1.3.1 (2020-03-12)
-
-**Note:** Version bump only for package @jacco-meijer/contentful-page-preview
+## [1.3.2](https://github.com/jaccomeijer/contentful-page-preview/compare/@jacco-meijer/contentful-page-preview@1.3.1...@jacco-meijer/contentful-page-preview@1.3.2) (2020-03-12)
 
 
+### Bug Fixes
+
+* level ([371fde3](https://github.com/jaccomeijer/contentful-page-preview/commit/371fde35203c64087066b8ee83eb5f560032ccd4))
+* level parameter ([229ed52](https://github.com/jaccomeijer/contentful-page-preview/commit/229ed5262d3824308ff611d500ccb5abb06cc8dc))
 
 
 
-## 1.3.1 (2020-03-12)
+
+
+## 1.3.2 (2020-03-12)
 
 
 ### Bug Fixes
@@ -55,6 +59,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * increase include to 10 ([7f0c2ad](https://github.com/jaccomeijer/contentful-page-preview/commit/7f0c2ad93717ec494aaed801f5cb52165a0445bc))
 * inquirer quit value ([383006a](https://github.com/jaccomeijer/contentful-page-preview/commit/383006a777f569af0c54f1b527154c40706987eb))
 * item.link could be undefined in a preview ([bccab76](https://github.com/jaccomeijer/contentful-page-preview/commit/bccab768b3d7d75e6d7dfab62d98af6189ac881d))
+* level ([371fde3](https://github.com/jaccomeijer/contentful-page-preview/commit/371fde35203c64087066b8ee83eb5f560032ccd4))
+* level parameter ([229ed52](https://github.com/jaccomeijer/contentful-page-preview/commit/229ed5262d3824308ff611d500ccb5abb06cc8dc))
 * link to plugin config ([8f1843a](https://github.com/jaccomeijer/contentful-page-preview/commit/8f1843aa4c03a95b748763d43655af2918f0e685))
 * linkContentType array ([6f3f05d](https://github.com/jaccomeijer/contentful-page-preview/commit/6f3f05d16f9cd9e47a2c4b0317f2280d4150a38c))
 * linter ([ef7550a](https://github.com/jaccomeijer/contentful-page-preview/commit/ef7550a39ceffb56faba28ef5e433ed5f250d6b0))
