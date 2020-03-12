@@ -4,4 +4,4 @@
 /node_modules
 /test-output
 .env
-src/__snapshots__
+src/__snapshots__/api*
