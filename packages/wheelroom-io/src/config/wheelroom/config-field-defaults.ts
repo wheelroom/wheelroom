@@ -17,12 +17,18 @@ import {
   ShortTextField,
   SingleComponentField,
   TagsField,
+  CheckboxField,
 } from '@jacco-meijer/wheelroom'
 
 const commonFieldDefaults: CommonField = {
   localized: false,
   name: '%Field name%',
   required: false,
+}
+const checkbox: CheckboxField = {
+  initialContent: ['check'],
+  items: ['check', 'box'],
+  type: 'checkbox',
 }
 const date: DateField = {
   initialContent: '2019-06-03T00:00+01:00',
@@ -71,6 +77,7 @@ const tags: TagsField = {
 export const configFieldDefaults: FieldDefaults = {
   commonFieldDefaults,
   fieldTypeDefaults: {
+    checkbox,
     date,
     dropdown,
     image,

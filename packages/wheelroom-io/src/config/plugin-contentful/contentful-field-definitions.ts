@@ -14,6 +14,15 @@ import { ContentfulFieldDefinitions } from '@jacco-meijer/wheelroom-plugin-conte
 export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
   /** Wheelroom field types, these are different from Contentful types */
   fieldTypes: {
+    checkbox: {
+      specs: {
+        items: {
+          type: 'Symbol',
+        },
+        type: 'Array',
+      },
+      widgetId: 'checkbox',
+    },
     date: {
       specs: {
         type: 'Date',
@@ -156,19 +165,5 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       },
       widgetId: 'tagEditor',
     },
-    // dropdownCheckbox: {
-    //   specs: {
-    //     items: {
-    //       type: 'Symbol',
-    //       // validations: [
-    //       //   {
-    //       //     in: ['value1', 'value2'],
-    //       //   },
-    //       // ],
-    //     },
-    //     type: 'Array',
-    //   },
-    //   widgetId: 'checkbox',
-    // },
   },
 }

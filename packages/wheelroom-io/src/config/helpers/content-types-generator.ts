@@ -38,6 +38,7 @@ const TEMPLATE_SET = 'boilerplate'
 type TypeTable = Record<FieldTypeName, string>
 
 const wheelroomTypeToTsType: TypeTable = {
+  checkbox: 'string[]',
   date: 'string',
   dropdown: '',
   image: 'boolean',

@@ -8,6 +8,7 @@ import {
   SingleComponentField,
   TagsField,
   WheelroomComponents,
+  CheckboxField,
 } from '@jacco-meijer/wheelroom'
 
 export const configComponents: WheelroomComponents = {
@@ -121,6 +122,17 @@ export const configComponents: WheelroomComponents = {
         allowedComponents: ['topic'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
+      topicOptions: {
+        items: [
+          'Hide icon',
+          'Hide image',
+          'Hide heading',
+          'Hide abstract',
+          'Hide action',
+          'Reversed order',
+        ],
+        type: 'checkbox',
+      } as CheckboxField,
       text: {
         allowedComponents: ['text'],
         type: 'singleComponent',
@@ -133,11 +145,6 @@ export const configComponents: WheelroomComponents = {
         allowedComponents: ['action'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      // hideTopicElements: {
-      //   items: ['icon', 'image', 'heading', 'abstract', 'action', 'reversed'],
-      //   type: 'dropdown',
-      //   typePostfix: 'Checkbox',
-      // } as DropdownField,
     },
     modelVersion: '1.0.0',
     settings: {
@@ -166,6 +173,10 @@ export const configComponents: WheelroomComponents = {
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
+      theme: {
+        items: ['light', 'dark'],
+        type: 'dropdown',
+      } as DropdownField,
       seoTitle: {
         type: 'shortText',
       } as ShortTextField,
