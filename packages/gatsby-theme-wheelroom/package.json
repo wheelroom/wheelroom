@@ -16,7 +16,7 @@
     "url": "https://github.com/jaccomeijer/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/wheelroom": "^3.7.0",
+    "@jacco-meijer/wheelroom": "^3.8.0",
     "camelcase": "5.3.1",
     "dotenv": "8.2.0"
   },
@@ -78,6 +78,6 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1"
 }

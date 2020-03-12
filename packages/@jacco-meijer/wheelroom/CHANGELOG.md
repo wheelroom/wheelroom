@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.7.0...@jacco-meijer/wheelroom@3.8.0) (2020-03-12)
+
+
+### Features
+
+* add CheckboxField type ([a789ed0](https://github.com/jaccomeijer/wheelroom/commit/a789ed05781966d0aff5e88dc4017b815be0b442))
+* checkbox support ([fd5d196](https://github.com/jaccomeijer/wheelroom/commit/fd5d196384eaaef08d9c65354d06b39b3a8ba14c))
+
+
+
+
+
 # [3.7.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.6.1...@jacco-meijer/wheelroom@3.7.0) (2020-03-02)
 
 

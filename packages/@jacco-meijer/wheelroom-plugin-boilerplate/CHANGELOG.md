@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.7.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.8.0) (2020-03-12)
+
+
+### Features
+
+* checkbox support ([fd5d196](https://github.com/jaccomeijer/wheelroom/commit/fd5d196384eaaef08d9c65354d06b39b3a8ba14c))
+
+
+
+
+
 # [2.7.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.8...@jacco-meijer/wheelroom-plugin-boilerplate@2.7.0) (2020-03-02)
 
 

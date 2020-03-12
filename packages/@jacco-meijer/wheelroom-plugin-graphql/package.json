@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@jacco-meijer/graphql-query-builder": "1.2.2",
-    "@jacco-meijer/wheelroom": "^3.7.0",
+    "@jacco-meijer/wheelroom": "^3.8.0",
     "inquirer": "7.0.2",
     "yargs": "15.1.0"
   },
@@ -76,5 +76,5 @@
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
-  "version": "2.2.0"
+  "version": "2.3.0"
 }

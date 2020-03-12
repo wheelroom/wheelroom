@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.2.0...@jacco-meijer/wheelroom-plugin-graphql@2.3.0) (2020-03-12)
+
+
+### Features
+
+* checkbox support ([fd5d196](https://github.com/jaccomeijer/wheelroom/commit/fd5d196384eaaef08d9c65354d06b39b3a8ba14c))
+
+
+
+
+
 # [2.2.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.21...@jacco-meijer/wheelroom-plugin-graphql@2.2.0) (2020-03-02)
 
 
