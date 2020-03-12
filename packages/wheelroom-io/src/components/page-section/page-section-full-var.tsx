@@ -16,6 +16,7 @@ import { Navigation } from '../navigation/navigation'
 export const PageSectionFullVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (
+    info.index === 0 &&
     !info.hasText &&
     info.hasAction &&
     info.hasNavigation &&

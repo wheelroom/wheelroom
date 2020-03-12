@@ -1,24 +1,26 @@
 import { PageSectionProps } from '../components/page-section/page-section'
 
 export interface PageSectionInfo {
-  hasAction: boolean
   actionCount: number
+  hasAction: boolean
   hasNavigation: boolean
-  navigationSegmentCount: number
   hasText: boolean
   hasTopic: boolean
+  index: number
+  navigationSegmentCount: number
   topicCount: number
   variation: string
 }
 
 export const getPageSectionInfo = (pageSection: PageSectionProps) => {
   const info = {
-    hasAction: false,
     actionCount: 0,
+    hasAction: false,
     hasNavigation: false,
-    navigationSegmentCount: 0,
     hasText: false,
     hasTopic: false,
+    index: pageSection.index,
+    navigationSegmentCount: 0,
     topicCount: 0,
     variation: pageSection.variation,
   }
