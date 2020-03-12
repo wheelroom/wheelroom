@@ -37,6 +37,7 @@ const PageTemplate = (props: any) => {
   const siteVersion = props.data.site.siteMetadata.siteVersion
   const sections = page.sections
 
+  // TODO: Needs fix, new models broke this
   const image = getOpenerOrPageImage(page)
   const sectionProps = {
     locale,
