@@ -20,7 +20,7 @@ describe('Get contentful page preview should', () => {
   pagePreview._contentModel = contentModel
 
   test('get gatsby fields', async () => {
-    const gatsbyFields = pagePreview._processCfEntry(pagePreview._cfEntry)
+    const gatsbyFields = pagePreview._processCfEntry(pagePreview._cfEntry, 0)
 
     expect(gatsbyFields).toMatchSnapshot()
   })
