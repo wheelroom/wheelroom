@@ -131,10 +131,7 @@ export const publishContentType = async (context: Context) => {
   context.contentfulApi.contentType = await context.contentfulApi.contentType.publish()
 }
 
-export const unpublishContentType = async (
-  context: Context,
-  component: ContentfulComponent
-) => {
+export const unpublishContentType = async (context: Context) => {
   // If we don't have a contentType there's nothing to do here
   if (context.contentfulApi.contentType === null) {
     return
@@ -143,10 +140,7 @@ export const unpublishContentType = async (
   context.contentfulApi.contentType = await context.contentfulApi.contentType.unpublish()
 }
 
-export const deleteContentType = async (
-  context: Context,
-  component: ContentfulComponent
-) => {
+export const deleteContentType = async (context: Context) => {
   // If we don't have a contentType there's nothing to do here
   if (context.contentfulApi.contentType === null) {
     return

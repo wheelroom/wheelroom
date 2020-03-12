@@ -9,6 +9,7 @@ import {
 type TypeTable = Record<FieldTypeName, string>
 
 const wheelroomTypeToTsType: TypeTable = {
+  checkbox: 'string[]',
   date: 'string',
   dropdown: 'string',
   image: 'FluidImage',

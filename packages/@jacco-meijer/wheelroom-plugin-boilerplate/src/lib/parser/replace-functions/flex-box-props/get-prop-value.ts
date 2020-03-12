@@ -9,6 +9,7 @@ type TypeTable = Record<FieldTypeName, string>
 
 export const getPropValue = (fieldName: string, field: FieldType) => {
   const wheelroomTypeToTsType: TypeTable = {
+    checkbox: `{props.${fieldName}}`,
     date: `{props.${fieldName}}`,
     dropdown: `{props.${fieldName}}`,
     image: `<Image image={props.${fieldName}} {...imageProps} />`,

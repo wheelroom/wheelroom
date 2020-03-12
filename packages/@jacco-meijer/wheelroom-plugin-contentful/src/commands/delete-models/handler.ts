@@ -35,8 +35,8 @@ export const handler = async (argv: any) => {
     try {
       refreshContext(context)
       await getContentType(context, component)
-      await unpublishContentType(context, component)
-      await deleteContentType(context, component)
+      await unpublishContentType(context)
+      await deleteContentType(context)
       console.log(`Succesfully deleted model ${component.componentId}`)
     } catch (error) {
       handleError(error)

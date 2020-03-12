@@ -88,12 +88,7 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
   if (linkType) {
     workingField.specs.linkType = linkType
   }
-  // Handle specs.items
-  const items = context.cfFieldDefinition.specs.items
-  if (items) {
-    workingField.specs.items = Object.assign({}, items)
-  }
-  // Handle validations present in context.cfFieldDefinition
+  // Handle validations present in context.cfFieldDefinition.specs
   const validations = context.cfFieldDefinition.specs.validations
   if (validations) {
     createIfMissing(workingField.specs, 'validations', 'array')
@@ -101,9 +96,42 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
       workingField.specs.validations!.push(Object.assign({}, validation))
     })
   }
+  // Handle validations present in context.cfFieldDefinition.specs.items
+  const itemsValidations =
+    context.cfFieldDefinition.specs.items &&
+    context.cfFieldDefinition.specs.items.validations
+  if (itemsValidations) {
+    createIfMissing(workingField.specs, 'items', 'object')
+    createIfMissing(workingField.specs.items, 'validations', 'array')
+    itemsValidations.forEach((validation: any) => {
+      workingField.specs.items!.validations!.push(Object.assign({}, validation))
+    })
+  }
+
+  // Handle specs.items
+  // TODO: Do we need this? Only dropdown and checkbox fields have this
+  const items = context.cfFieldDefinition.specs.items
+  if (items) {
+    workingField.specs.items = Object.assign({}, items)
+  }
 
   // Process other validations
 
+  // dropdown: specs.validations.0.in
+  if (context.wrField.type === 'dropdown') {
+    createIfMissing(workingField.specs, 'validations', 'array')
+    workingField.specs.validations!.push({
+      in: context.wrField.items,
+    })
+  }
+  // checkbox: specs.items.validations.0.in
+  if (context.wrField.type === 'checkbox') {
+    createIfMissing(workingField.specs, 'items', 'object')
+    createIfMissing(workingField.specs.items, 'validations', 'array')
+    workingField.specs.items!.validations!.push({
+      in: context.wrField.items,
+    })
+  }
   // singleComponent: specs.validations.0.linkContentType
   if (context.wrField.type === 'singleComponent') {
     createIfMissing(workingField.specs, 'validations', 'array')
@@ -117,13 +145,6 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
     createIfMissing(workingField.specs.items, 'validations', 'array')
     workingField.specs.items!.validations!.push({
       linkContentType: context.wrField.allowedComponents,
-    })
-  }
-  if (context.wrField.type === 'dropdown') {
-    // specs.validations.0.in
-    createIfMissing(workingField.specs, 'validations', 'array')
-    workingField.specs.validations!.push({
-      in: context.wrField.items,
     })
   }
   if (context.wrField.type === 'shortText' && context.wrField.maxLength) {

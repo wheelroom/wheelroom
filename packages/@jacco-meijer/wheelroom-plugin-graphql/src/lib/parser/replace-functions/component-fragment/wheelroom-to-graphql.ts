@@ -66,6 +66,7 @@ export const wheelroomToGraphql = (context: WheelroomToGraphql): QbFields => {
   }
 
   const typeTable: TypeTable = {
+    checkbox: {},
     date: {},
     dropdown: {},
     image: {
