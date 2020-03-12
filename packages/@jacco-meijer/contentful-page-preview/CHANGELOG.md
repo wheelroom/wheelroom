@@ -3,19 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.3.2](https://github.com/jaccomeijer/contentful-page-preview/compare/@jacco-meijer/contentful-page-preview@1.3.1...@jacco-meijer/contentful-page-preview@1.3.2) (2020-03-12)
+## [1.3.3](https://github.com/jaccomeijer/contentful-page-preview/compare/@jacco-meijer/contentful-page-preview@1.3.2...@jacco-meijer/contentful-page-preview@1.3.3) (2020-03-12)
 
 
 ### Bug Fixes
 
-* level ([371fde3](https://github.com/jaccomeijer/contentful-page-preview/commit/371fde35203c64087066b8ee83eb5f560032ccd4))
-* level parameter ([229ed52](https://github.com/jaccomeijer/contentful-page-preview/commit/229ed5262d3824308ff611d500ccb5abb06cc8dc))
+* update snapshot ([fe202cc](https://github.com/jaccomeijer/contentful-page-preview/commit/fe202cc49221bd9ad1f67e4d3d66c72ec0900b22))
 
 
 
 
 
-## 1.3.2 (2020-03-12)
+## 1.3.3 (2020-03-12)
 
 
 ### Bug Fixes
@@ -103,6 +102,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * typo ([78cfeb8](https://github.com/jaccomeijer/contentful-page-preview/commit/78cfeb85ac8d83ea083b45762e35dc8517f73086))
 * unquoted quotes ([76a0ed8](https://github.com/jaccomeijer/contentful-page-preview/commit/76a0ed880443fb28fd7ac8794dc369012aa48d37))
 * update schema to match site secrets ([43cd133](https://github.com/jaccomeijer/contentful-page-preview/commit/43cd133ce37644e26ec9c5c980c60a69c0bcdc61))
+* update snapshot ([fe202cc](https://github.com/jaccomeijer/contentful-page-preview/commit/fe202cc49221bd9ad1f67e4d3d66c72ec0900b22))
 * update snapshot ([34c52cf](https://github.com/jaccomeijer/contentful-page-preview/commit/34c52cf70c0f736cb73724f91953e2523ecd410a))
 * update snapshots ([41cdaff](https://github.com/jaccomeijer/contentful-page-preview/commit/41cdaff2020bd30d7ecdbcae385c303123afe103))
 * update to fixed contentful-page-preview ([1551bd2](https://github.com/jaccomeijer/contentful-page-preview/commit/1551bd2ac17802dae099e1ca2424498341c3c759))

@@ -8,7 +8,7 @@
     "@contentful/rich-text-types": "14.1.0",
     "@emotion/core": "10.0.27",
     "@jacco-meijer/admin-core": "^1.1.5",
-    "@jacco-meijer/admin-page-preview": "^1.4.12",
+    "@jacco-meijer/admin-page-preview": "^1.4.13",
     "@jacco-meijer/admin-panel": "^1.1.5",
     "@jacco-meijer/admin-theme-switcher": "^1.0.3",
     "@jacco-meijer/styled-system": "3.0.4",
@@ -98,5 +98,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "5.2.20"
+  "version": "5.2.21"
 }
