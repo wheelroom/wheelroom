@@ -22,6 +22,7 @@ fragment Page on ContentfulPage {
       ...PageSection
     }
   }
+  theme
   seoTitle
   seoDescription
 }

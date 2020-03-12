@@ -14,6 +14,7 @@ export interface PageProps {
   path: string
   navigationHeading: string
   sections: any
+  theme: string
   seoTitle: string
   seoDescription: string
 }

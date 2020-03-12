@@ -2,18 +2,18 @@
  * Component variation
  *
  * Component type: pageSection
- * Variation: Full
+ * Variation: Hero
  *
  */
 
 import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../lib/not-implemented'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { Hero } from './extra-large/hero'
 import { Navigation } from '../navigation/navigation'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { Hero } from './hero/hero'
 
-export const PageSectionFullVar = (props: PageSectionProps) => {
+export const PageSectionHeroVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (
     info.index === 0 &&

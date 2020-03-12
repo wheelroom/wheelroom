@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-03-11T17:34:04.347Z ###
+### Type definitions saved at 2020-03-12T19:31:51.451Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -130,6 +130,7 @@ type ContentfulPage implements Node @derivedTypes @dontInfer {
   title: String
   path: String
   navigationHeading: String
+  theme: String
   seoTitle: String
   seoDescription: String
   sections: [ContentfulPageSection] @link(by: "id", from: "sections___NODE")
@@ -146,6 +147,7 @@ type ContentfulPage implements Node @derivedTypes @dontInfer {
 type ContentfulPageSection implements Node @derivedTypes @dontInfer {
   title: String
   variation: String
+  topicOptions: [String]
   topics: [ContentfulTopic] @link(by: "id", from: "topics___NODE")
   text: ContentfulText @link(by: "id", from: "text___NODE")
   navigation: ContentfulNavigation @link(by: "id", from: "navigation___NODE")
@@ -159,7 +161,7 @@ type ContentfulPageSection implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulTopic implements Node @derivedTypes {
+type ContentfulTopic implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   icon: String
@@ -175,7 +177,7 @@ type ContentfulTopic implements Node @derivedTypes {
   node_locale: String
 }
 
-type ContentfulAction implements Node @derivedTypes {
+type ContentfulAction implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   url: String
@@ -226,7 +228,7 @@ type ContentfulTopicSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulText implements Node @derivedTypes {
+type ContentfulText implements Node @derivedTypes @dontInfer {
   title: String
   pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
   text: contentfulTextTextRichTextNode @link(by: "id", from: "text___NODE")

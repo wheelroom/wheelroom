@@ -21,6 +21,7 @@ fragment PageSection on ContentfulPageSection {
       ...Topic
     }
   }
+  topicOptions
   text {
     ... on Node {
       ...Text

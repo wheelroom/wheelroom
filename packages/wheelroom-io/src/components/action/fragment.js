@@ -21,6 +21,7 @@ fragment Action on ContentfulAction {
     title
     path
     navigationHeading
+    theme
     seoTitle
     seoDescription
   }

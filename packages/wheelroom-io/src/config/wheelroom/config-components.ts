@@ -123,6 +123,7 @@ export const configComponents: WheelroomComponents = {
         type: 'multipleComponents',
       } as MultipleComponentsField,
       topicOptions: {
+        initialContent: ['Hide icon'],
         items: [
           'Hide icon',
           'Hide image',

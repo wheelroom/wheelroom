@@ -8,8 +8,8 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { NavigationSingleVar } from './navigation-single-var'
-import { NavigationSegmentProps } from '../navigation-segment'
-import { ActionProps } from '../action'
+import { NavigationSegmentProps } from '../navigation-segment/navigation-segment'
+import { ActionProps } from '../action/action'
 
 const componentList = {
   ['single']: NavigationSingleVar,

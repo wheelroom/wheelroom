@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: pageSection
- * Variation: Quote
+ * Variation: Images
  *
  */
 
@@ -10,6 +10,6 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../lib/not-implemented'
 
-export const PageSectionQuoteVar = (props: PageSectionProps) => {
+export const PageSectionImagesVar = (props: PageSectionProps) => {
   return <NotImplemented {...props} />
 }

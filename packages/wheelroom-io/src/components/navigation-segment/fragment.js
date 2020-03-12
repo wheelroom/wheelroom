@@ -21,6 +21,7 @@ fragment NavigationSegment on ContentfulNavigationSegment {
     title
     path
     navigationHeading
+    theme
     seoTitle
     seoDescription
   }
