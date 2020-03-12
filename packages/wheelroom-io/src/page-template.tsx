@@ -24,8 +24,6 @@ const PageTemplate = (props: any) => {
   // Page preview admin module
   const [previewPage, setPreviewPage] = useState()
   useFetchPreviewPage(setPreviewPage)
-  console.log('page', props.data.page)
-  console.log('previewPage', previewPage)
   const page: PageProps = previewPage || props.data.page
 
   if (!page.sections) {
