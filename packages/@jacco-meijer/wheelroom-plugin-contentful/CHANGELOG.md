@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.13.0...@jacco-meijer/wheelroom-plugin-contentful@2.14.0) (2020-03-12)
+
+
+### Features
+
+* warn when contentful field type cannot be found ([8f68683](https://github.com/jaccomeijer/wheelroom/commit/8f68683ea39199bcc6bb38f028f043e2e96c6387))
+
+
+
+
+
 # [2.13.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.12.1...@jacco-meijer/wheelroom-plugin-contentful@2.13.0) (2020-03-12)
 
 
