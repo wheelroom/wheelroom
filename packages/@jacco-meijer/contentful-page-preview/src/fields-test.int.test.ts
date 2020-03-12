@@ -16,22 +16,25 @@ describe('Get gatsby field should', () => {
   pagePreview._contentModel = contentModel
 
   test('parse Symbol field', async () => {
-    const gatsbyField = pagePreview._processCfField('page', 'title', 'home')
+    const gatsbyField = pagePreview._processCfField('page', 'title', 'home', 0)
     expect(gatsbyField).toStrictEqual('home')
   })
   test('parse Array field', async () => {
     const pageMock = { sys: { contentType: { sys: { id: 'page' } } } }
-    const gatsbyField = pagePreview._processCfField('page', 'sections', [
-      pageMock,
-      pageMock,
-    ])
+    const gatsbyField = pagePreview._processCfField(
+      'page',
+      'sections',
+      [pageMock, pageMock],
+      0
+    )
     expect(gatsbyField).toStrictEqual([])
   })
   test('parse RichText field', async () => {
     const gatsbyField = pagePreview._processCfField(
       'textSection',
       'text',
-      'Rich text'
+      'Rich text',
+      0
     )
     expect(gatsbyField).toStrictEqual({ json: 'Rich text' })
   })
@@ -39,7 +42,8 @@ describe('Get gatsby field should', () => {
     const gatsbyField = pagePreview._processCfField(
       'page',
       'abstract',
-      'Some text'
+      'Some text',
+      0
     )
     expect(gatsbyField).toStrictEqual({ abstract: 'Some text' })
   })
@@ -47,7 +51,8 @@ describe('Get gatsby field should', () => {
     const gatsbyField = pagePreview._processCfField(
       'page',
       'image',
-      cfImageField
+      cfImageField,
+      0
     )
     expect(gatsbyField).toStrictEqual({
       description: 'Demo asset with fixed id',
