@@ -9,6 +9,7 @@ export type FieldTypeName =
   | 'shortText'
   | 'singleComponent'
   | 'tags'
+  | 'checkbox'
 
 export type FieldType =
   | DateField
@@ -21,6 +22,7 @@ export type FieldType =
   | ShortTextField
   | SingleComponentField
   | TagsField
+  | CheckboxField
 
 export interface CommonField {
   /** Help text for an input element */
@@ -106,7 +108,7 @@ export interface TagsField extends CommonField {
   type: 'tags'
 }
 export interface CheckboxField extends CommonField {
-  /** List of strings for the checkbox field */
+  /** List of strings for the checkbox field validation */
   items: string[]
   /** Demo content that a field can be filled with */
   initialContent?: string[]
