@@ -1,4 +1,4 @@
-export const componentVariation = `/**
+export const componentAsPageSection = `/**
  * Component variation
  *
  * Component type: %componentName%

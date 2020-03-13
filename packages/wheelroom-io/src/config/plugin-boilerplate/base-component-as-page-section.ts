@@ -1,6 +1,6 @@
 /** Get fields from a configured model */
 
-export const component = `/**
+export const baseComponentAsPageSection = `/**
  * Component
  *
  * Component type: %componentName%

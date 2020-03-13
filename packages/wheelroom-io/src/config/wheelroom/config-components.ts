@@ -149,7 +149,8 @@ export const configComponents: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
     settings: {
-      asBoilerplate: true,
+      // asPageSection will create boilerplate code
+      asBoilerplate: false,
       asFragment: true,
       asPageSection: true,
     },

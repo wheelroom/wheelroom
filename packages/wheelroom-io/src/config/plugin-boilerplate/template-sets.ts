@@ -1,21 +1,33 @@
 import { TemplateSets } from '@jacco-meijer/wheelroom-plugin-boilerplate'
-import { component } from './component'
+import { baseComponentAsBoilerplate } from './base-component-as-boilerplate'
+import { baseComponentAsPageSection } from './base-component-as-page-section'
 import { componentIndex } from './component-index'
 import { componentInterfaceOnly } from './component-interface-only'
 import { componentReadme } from './component-readme'
-import { componentVariation } from './component-variation'
+import { componentAsPageSection } from './component-as-page-section'
+import { componentAsBoilerplate } from './component-as-boilerplate'
 
 export const templateSets: TemplateSets = {
   react: {
-    component: {
+    baseComponentAsBoilerplate: {
       filterComponentSetting: 'asBoilerplate',
       path: '%component-name%/%component-name%.tsx',
-      template: component,
+      template: baseComponentAsBoilerplate,
     },
-    componentBasicVar: {
+    baseComponentAsPageSection: {
+      filterComponentSetting: 'asPageSection',
+      path: '%component-name%/%component-name%.tsx',
+      template: baseComponentAsPageSection,
+    },
+    componentAsPageSection: {
+      filterComponentSetting: 'asPageSection',
+      path: '%component-name%/%component-name%-%variation-name%-var.tsx',
+      template: componentAsPageSection,
+    },
+    componentAsBoilerplate: {
       filterComponentSetting: 'asBoilerplate',
       path: '%component-name%/%component-name%-%variation-name%-var.tsx',
-      template: componentVariation,
+      template: componentAsBoilerplate,
     },
     componentIndex: {
       filterComponentSetting: 'asBoilerplate',
