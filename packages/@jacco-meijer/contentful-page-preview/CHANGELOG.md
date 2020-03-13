@@ -3,18 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.3.3](https://github.com/jaccomeijer/contentful-page-preview/compare/@jacco-meijer/contentful-page-preview@1.3.2...@jacco-meijer/contentful-page-preview@1.3.3) (2020-03-12)
+## [1.3.4](https://github.com/jaccomeijer/contentful-page-preview/compare/@jacco-meijer/contentful-page-preview@1.3.3...@jacco-meijer/contentful-page-preview@1.3.4) (2020-03-13)
 
 
 ### Bug Fixes
 
-* update snapshot ([fe202cc](https://github.com/jaccomeijer/contentful-page-preview/commit/fe202cc49221bd9ad1f67e4d3d66c72ec0900b22))
+* missing Array/items.type Symbol ([45affa3](https://github.com/jaccomeijer/contentful-page-preview/commit/45affa3463ded3c8fd85844365ac9ea5a47421d4))
 
 
 
 
 
-## 1.3.3 (2020-03-12)
+## 1.3.4 (2020-03-13)
 
 
 ### Bug Fixes
@@ -67,6 +67,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * localize page path ([7df381b](https://github.com/jaccomeijer/contentful-page-preview/commit/7df381b901a9b1d85cbf542d5dfe503db8fee13a))
 * make page heading a required field ([6ddb00b](https://github.com/jaccomeijer/contentful-page-preview/commit/6ddb00ba2910e80d412be957640a3138c1406f44))
 * message about content set only when relevant ([3956666](https://github.com/jaccomeijer/contentful-page-preview/commit/3956666dfa21c44edf0eeba5ef0441656cc54132))
+* missing Array/items.type Symbol ([45affa3](https://github.com/jaccomeijer/contentful-page-preview/commit/45affa3463ded3c8fd85844365ac9ea5a47421d4))
 * new admin module method names ([e1dfee5](https://github.com/jaccomeijer/contentful-page-preview/commit/e1dfee58fe681336cd3cf67f23a7739db8922cad))
 * not typePostFix but typePostfix ([35316bf](https://github.com/jaccomeijer/contentful-page-preview/commit/35316bfc166c921bab8edf72f7c5d99019af8758))
 * overwrite q option ([c6ce49b](https://github.com/jaccomeijer/contentful-page-preview/commit/c6ce49b5f9e2e08f9a8d2bc9c3c24e5377af31f5))
@@ -122,6 +123,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * add %componentHtmlAttributes% ([3b04224](https://github.com/jaccomeijer/contentful-page-preview/commit/3b04224b4887e1b597c805fde33f9587c6ac151c))
 * add block wheelroom type ([be34d6d](https://github.com/jaccomeijer/contentful-page-preview/commit/be34d6d027fa98fdf133e12eb7cfe06b81516903))
 * add bootstrap-packages.sh script ([b3d13a9](https://github.com/jaccomeijer/contentful-page-preview/commit/b3d13a92d5c5c7ce8b6fa4169232a756cd2089f6))
+* add CheckboxField type ([a789ed0](https://github.com/jaccomeijer/contentful-page-preview/commit/a789ed05781966d0aff5e88dc4017b815be0b442))
 * add eslint react-hooks plugin ([a3ccbb7](https://github.com/jaccomeijer/contentful-page-preview/commit/a3ccbb7f87ba49acb13f22082af552e7d4af74ba))
 * add filterComponentSetting ([c997ed7](https://github.com/jaccomeijer/contentful-page-preview/commit/c997ed7fe969d651f03ee0a5e31d06e52e84892d))
 * add gatsby-plugin-manifest ([af02fbe](https://github.com/jaccomeijer/contentful-page-preview/commit/af02fbeae25728de380b8f1bd9aad57b7e0bfd4a))
@@ -144,6 +146,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * auto create path names ([bd282bc](https://github.com/jaccomeijer/contentful-page-preview/commit/bd282bc60945db02497f6863c3eae263246b8e3b))
 * change default locale from 'nl' to 'en-US' ([69b6682](https://github.com/jaccomeijer/contentful-page-preview/commit/69b6682face16611c77563cb247fec8dd4bdc9f5))
 * check for valid locale ([51a6844](https://github.com/jaccomeijer/contentful-page-preview/commit/51a684460fcccd8d56bfc35098ec816e92343655))
+* checkbox support ([fd5d196](https://github.com/jaccomeijer/contentful-page-preview/commit/fd5d196384eaaef08d9c65354d06b39b3a8ba14c))
 * CommonField.typePostFix property for extending field types ([a94b565](https://github.com/jaccomeijer/contentful-page-preview/commit/a94b565a0ef7f77334efa2466185d94d2d0688bd))
 * convert contentful to gatsby props ([8026f3c](https://github.com/jaccomeijer/contentful-page-preview/commit/8026f3cb418d7bfd127188c721676fac83919f2d))
 * create content sets ([a8c50c5](https://github.com/jaccomeijer/contentful-page-preview/commit/a8c50c5256edc56d0a3b4de660c0c53146c8e704))
@@ -182,6 +185,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * use CONTENTFUL_ENVIRONMENT ([5c9cbd1](https://github.com/jaccomeijer/contentful-page-preview/commit/5c9cbd177f962ea3ebbb6cd86e85281ae56d302a))
 * use new typePostfix attribute ([feaedc3](https://github.com/jaccomeijer/contentful-page-preview/commit/feaedc3ff271b0ab81321b65bd3005bb6e083b67))
 * variable %componentNameArray(filter:settings.asPageSection)% ([a060432](https://github.com/jaccomeijer/contentful-page-preview/commit/a060432e82161bb1f2d7c0fe79138b4ed086e435))
+* warn when contentful field type cannot be found ([8f68683](https://github.com/jaccomeijer/contentful-page-preview/commit/8f68683ea39199bcc6bb38f028f043e2e96c6387))
 * **config:** better error reporting ([8682465](https://github.com/jaccomeijer/contentful-page-preview/commit/86824657296c47af9fbda38ba28c61baa845115a))
 * **create-content:** use the configured defaultLocale ([194c3d0](https://github.com/jaccomeijer/contentful-page-preview/commit/194c3d004a2cfe9337bfaca12d49e935f048bc96))
 * **create-files:** implement create-files new-model ([01af4b9](https://github.com/jaccomeijer/contentful-page-preview/commit/01af4b928a7aabc33a933d2b9461be192315647a))
