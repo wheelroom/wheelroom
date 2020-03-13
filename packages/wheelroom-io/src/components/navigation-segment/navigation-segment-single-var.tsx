@@ -8,8 +8,8 @@
 
 import React from 'react'
 import { NavigationSegmentProps } from './navigation-segment'
-import { NotImplemented } from '../../lib/not-implemented'
 
 export const NavigationSegmentSingleVar = (props: NavigationSegmentProps) => {
-  return <NotImplemented {...props} />
+  console.log('NavigationSegmentSingleVar props', props)
+  return <div>NavigationSegmentSingleVar</div>
 }
