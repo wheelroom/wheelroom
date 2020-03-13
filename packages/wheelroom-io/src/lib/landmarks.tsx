@@ -20,7 +20,11 @@ const getLandmark = (
   return 'main'
 }
 
-export const Landmark = (props: { variation: string; children: any }) => {
+export const Landmark = (props: {
+  variation: string
+  children: any
+  key: number
+}) => {
   const label = 'variation-' + props.variation || 'single'
   const css = systemCss({
     ncss: { label },
@@ -52,7 +56,11 @@ export const Landmarks = (props: any) => {
   React.Children.forEach(props.children, child => {
     landMarkedChildren[
       getLandmark(child.props, React.Children.count(props.children))
-    ].push(<Landmark variation={child.props.variation}>{child}</Landmark>)
+    ].push(
+      <Landmark key={child.props.index} variation={child.props.variation}>
+        {child}
+      </Landmark>
+    )
   })
 
   return (
