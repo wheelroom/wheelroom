@@ -6,7 +6,6 @@ export const query = `/**
  *
  */
 
-
 module.exports = {
   componentName: '%componentName%',
   query: \`
