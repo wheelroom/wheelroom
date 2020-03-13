@@ -8,14 +8,13 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { FluidImage } from '../../views/image/image'
-import { SectionProps } from '../../sections/section-props'
 import { TopicSingleVar } from './topic-single-var'
 
 const componentList = {
   ['single']: TopicSingleVar,
 }
 
-export interface TopicProps extends SectionProps {
+export interface TopicProps {
   /** Gatsby fetched data */
   __typename: string
   title: string
