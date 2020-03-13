@@ -9,6 +9,7 @@ export const baseComponentAsBoilerplate = `/**
 
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
+import { FluidImage } from '../../views/image/image'
 %variationImportList%
 
 const componentList = {
