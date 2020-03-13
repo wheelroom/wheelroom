@@ -1,5 +1,6 @@
 import { createPagePreview } from './create-page-preview'
 import dotenv from 'dotenv'
+import { PreviewSecrets } from './types/preview-secrets'
 
 jest.setTimeout(10000)
 
@@ -12,7 +13,8 @@ describe('Get contentful page preview with real secrets should', () => {
   const previewSecrets = {
     previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
     spaceId: process.env.CONTENTFUL_SPACE_ID,
-  }
+    environment: process.env.CONTENTFUL_ENVIRONMENT,
+  } as PreviewSecrets
   if (!previewSecrets.previewToken) {
     console.log('Missing env: CONTENTFUL_PREVIEW_TOKEN')
     return
@@ -21,13 +23,14 @@ describe('Get contentful page preview with real secrets should', () => {
     console.log('Missing env: CONTENTFUL_SPACE_ID')
     return
   }
+  if (!previewSecrets.environment) {
+    console.log('Missing env: CONTENTFUL_ENVIRONMENT')
+    return
+  }
 
   const pagePreview = createPagePreview({
-    previewSecrets: {
-      previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN || '',
-      spaceId: process.env.CONTENTFUL_SPACE_ID || '',
-    },
-    entryId: '78Jd0tSe8deq3HzDXVwLAd',
+    previewSecrets,
+    entryId: 'page',
     // locale: 'nl',
   })
 

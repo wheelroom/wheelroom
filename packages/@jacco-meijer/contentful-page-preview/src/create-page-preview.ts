@@ -61,6 +61,19 @@ interface CreatePagePreviewContext {
 const firstUpperCase = (str: string): string =>
   str.charAt(0).toUpperCase() + str.slice(1)
 
+const reportMissingType = (
+  name: string,
+  value: any,
+  contentType: any,
+  cfField: ContentfulField
+) => {
+  console.log(
+    `Error: missing '${name}' with value '${value}'`,
+    contentType,
+    cfField
+  )
+}
+
 export const createPagePreview = (context: CreatePagePreviewContext) => {
   const pagePreview: PagePreviewMembers = {
     async getGatbsyFields() {
@@ -116,7 +129,7 @@ export const createPagePreview = (context: CreatePagePreviewContext) => {
         return
       }
 
-      if (!('fields' in cfEntry)) {
+      if (!(typeof cfEntry === 'object' && 'fields' in cfEntry)) {
         return
       }
 
@@ -149,14 +162,29 @@ export const createPagePreview = (context: CreatePagePreviewContext) => {
 
       switch (contentType.type) {
         case 'Array':
-          const gatsbyArray: any[] = []
-          cfField.forEach((entry: any) => {
-            const gEntry = this._processCfEntry(entry, level + 1)
-            if (gEntry) {
-              gatsbyArray.push(gEntry)
-            }
-          })
-          return gatsbyArray
+          switch (contentType.items.type) {
+            case 'Link':
+              const gatsbyArray: any[] = []
+              cfField.forEach((entry: any) => {
+                const gEntry = this._processCfEntry(entry, level + 1)
+                if (gEntry) {
+                  gatsbyArray.push(gEntry)
+                }
+              })
+              return gatsbyArray
+              break
+            case 'Symbol':
+              return cfField
+              break
+            default:
+              reportMissingType(
+                'Array/items.type',
+                contentType.items.type,
+                contentType,
+                cfField
+              )
+              break
+          }
         case 'Date':
         case 'Integer':
         case 'Symbol':
@@ -195,22 +223,17 @@ export const createPagePreview = (context: CreatePagePreviewContext) => {
               }
               break
             default:
-              console.log(
-                'TODO: CF',
-                contentType.type,
+              reportMissingType(
+                'Link/linkType',
                 contentType.linkType,
+                contentType,
                 cfField
               )
               break
           }
 
         default:
-          console.log(
-            'TODO: CF',
-            contentType.type,
-            contentType.linkType,
-            cfField
-          )
+          reportMissingType('type', contentType.type, contentType, cfField)
           break
       }
     },
