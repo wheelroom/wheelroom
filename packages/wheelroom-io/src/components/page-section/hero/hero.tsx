@@ -18,15 +18,9 @@ import { TopicProps } from '../../topic'
 import { ActionProps } from '../../action'
 import { HeroAction } from './hero-action'
 import { NavigationSegmentProps } from '../../navigation-segment'
-import { SvgArchive, SvgSun, SvgMoon } from '../../../svg/feather'
+import { IconMap } from '../../../svg/feather/iconMap'
 
-const iconStyle = { color: 'text', mr: 2, w: [1 / 10] }
-
-const IconMap: any = {
-  aap: SvgMoon,
-  noot: SvgSun,
-  mies: SvgArchive,
-}
+const iconStyle = { color: 'text', w: [1 / 10] }
 
 export interface HeroProps {
   topic: TopicProps
