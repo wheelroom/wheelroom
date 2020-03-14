@@ -11,7 +11,7 @@ import {
   getAllPaddingObject,
 } from '../../styles/global-padding'
 import { heading3Style } from '../../styles/heading'
-import { paragraph2Style } from '../../styles/paragraph'
+import { paragraphStyle } from '../../styles/paragraph'
 import { GLink } from '../../views/core-elements/g-link'
 import { Box, Flex } from '../../views/core-elements/grid'
 import { H3 } from '../../views/core-elements/heading'
@@ -54,7 +54,7 @@ const LargeListItems = (props: { items: ListItemProps[] }) => {
             >
               {heading}
             </H3>
-            <Paragraph ncss={{ ...paragraph2Style, color: 'text' }}>
+            <Paragraph ncss={{ ...paragraphStyle, color: 'text' }}>
               {abstract}
             </Paragraph>
           </Box>

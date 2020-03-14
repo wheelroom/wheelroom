@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { paragraphStyle } from '../../styles/paragraph'
 
 export interface ParagraphProps {
   /** React children */
@@ -14,7 +15,12 @@ export const Paragraph = (props: ParagraphProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
 
   return (
-    <p css={systemCss({ ncss: props.ncss }, currentThemeId)}>
+    <p
+      css={systemCss(
+        { ncss: { ...paragraphStyle, ...props.ncss } },
+        currentThemeId
+      )}
+    >
       {props.children}
     </p>
   )

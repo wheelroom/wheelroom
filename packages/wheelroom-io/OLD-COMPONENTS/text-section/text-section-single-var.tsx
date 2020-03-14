@@ -21,7 +21,7 @@ import {
   heading5Style,
   heading6Style,
 } from '../../styles/heading'
-import { paragraph1Style } from '../../styles/paragraph'
+import { paragraphStyle } from '../../styles/paragraph'
 import { simpleLinkStyle } from '../../styles/simple-link'
 import { ALink } from '../../views/core-elements/a-link'
 import { GLink } from '../../views/core-elements/g-link'
@@ -79,18 +79,18 @@ export const TextSectionSingleVar = (props: TextSectionProps) => {
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
-        return <Paragraph ncss={{ ...paragraph1Style }}>{children}</Paragraph>
+        return <Paragraph ncss={{ ...paragraphStyle }}>{children}</Paragraph>
       },
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List is="ul" ncss={{ ...paragraph1Style }}>
+          <List is="ul" ncss={{ ...paragraphStyle }}>
             {children}
           </List>
         )
       },
       [BLOCKS.LIST_ITEM]: (_node: Node, children: Children) => {
         return (
-          <List is="li" ncss={{ ...paragraph1Style }}>
+          <List is="li" ncss={{ ...paragraphStyle }}>
             {children}
           </List>
         )

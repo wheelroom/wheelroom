@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { paragraph1Style } from '../../styles/paragraph'
+import { paragraphStyle } from '../../styles/paragraph'
 import { simpleLinkStyle } from '../../styles/simple-link'
 import { Box, Container, Flex } from '../../views/core-elements/grid'
 import { Paragraph } from '../../views/core-elements/paragraph'
@@ -53,7 +53,7 @@ const listStyle = {
   pl: 0,
 }
 
-const addressStyle = { ...paragraph1Style }
+const addressStyle = { ...paragraphStyle }
 
 export const FooterSectionSingleVar = (props: FooterSectionProps) => {
   return (
