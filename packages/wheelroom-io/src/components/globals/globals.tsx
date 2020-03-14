@@ -5,7 +5,7 @@
  *
  */
 
-import { FluidImage } from '../../views/image/image'
+import { FluidImage } from '../../views/core-elements/image'
 
 export interface GlobalsProps {
   /** Gatsby fetched data */

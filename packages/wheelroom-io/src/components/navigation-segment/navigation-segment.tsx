@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
-import { FluidImage } from '../../views/image/image'
+import { FluidImage } from '../../views/core-elements/image'
 import { NavigationSegmentSingleVar } from './navigation-segment-single-var'
 
 const componentList = {
