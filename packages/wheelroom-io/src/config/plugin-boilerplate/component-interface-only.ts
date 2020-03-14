@@ -7,7 +7,7 @@ export const componentInterfaceOnly = `/**
  *
  */
 
-import { FluidImage } from '../../views/image/image'
+import { FluidImage } from '../../core/elements/types'
 
 export interface %ComponentName%Props {
   /** Gatsby fetched data */
