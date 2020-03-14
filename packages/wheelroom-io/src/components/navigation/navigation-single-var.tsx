@@ -102,17 +102,13 @@ export const NavigationSingleVar = (props: NavigationProps) => {
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
-  const setThemeMode = themeSwitcherStore?.actions.setActiveTheme
-  // Get current Theme ID
-  const currentThemeMode = useGetCurrentThemeId() as ThemeId
+  const setActiveTheme = themeSwitcherStore?.actions.setActiveTheme
+  const activeThemeId = themeSwitcherStore?.state.activeThemeId
+
   const navSegment = props.segments[0] as NavigationSegmentProps
 
-  const handleThemeMode = () => {
-    if (currentThemeMode === 'light') {
-      setThemeMode('dark')
-    } else {
-      setThemeMode('light')
-    }
+  const toggleTheme = () => {
+    setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
   }
   return (
     <Fragment>
@@ -141,8 +137,8 @@ export const NavigationSingleVar = (props: NavigationProps) => {
               <NavAction {...props.action} />
               <Button
                 type="button"
-                title={`Current theme is ` + currentThemeMode}
-                ariaLabel={`Current theme is ` + currentThemeMode}
+                title={`Current theme is ` + activeThemeId}
+                ariaLabel={`Current theme is ` + activeThemeId}
                 ncss={{
                   ...buttonSecondaryStyle,
                   ml: 2,
@@ -150,9 +146,9 @@ export const NavigationSingleVar = (props: NavigationProps) => {
                   minWidth: '70px',
                 }}
                 value=""
-                onClick={() => handleThemeMode()}
+                onClick={() => toggleTheme()}
               >
-                {currentThemeMode}
+                {activeThemeId}
               </Button>
             </Flex>
           </Flex>
