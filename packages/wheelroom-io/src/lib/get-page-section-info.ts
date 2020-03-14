@@ -21,6 +21,7 @@ export const getPageSectionInfo = (pageSection: PageSectionProps) => {
     hasTopic: false,
     index: pageSection.index,
     navigationSegmentCount: 0,
+    path: pageSection.page.path,
     topicCount: 0,
     variation: pageSection.variation,
   }
