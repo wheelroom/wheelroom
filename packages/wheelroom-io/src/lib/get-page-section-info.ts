@@ -8,6 +8,7 @@ export interface PageSectionInfo {
   hasTopic: boolean
   index: number
   navigationSegmentCount: number
+  path: string
   topicCount: number
   variation: string
 }
