@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
-import { paragraphStyle } from '../../styles/paragraph'
+import { paragraphStyle } from '../styles/paragraph'
 
 export interface ParagraphProps {
   /** React children */

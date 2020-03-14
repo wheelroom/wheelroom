@@ -8,7 +8,7 @@ import {
   heading4Style,
   heading5Style,
   heading6Style,
-} from '../../styles/heading'
+} from '../styles/heading'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 
 interface HeadingProps {

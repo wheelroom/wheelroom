@@ -7,8 +7,8 @@
 
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
-import { FluidImage } from '../../views/core-elements/image'
 import { TopicSingleVar } from './topic-single-var'
+import { FluidImage } from '../../core/elements/types'
 
 const componentList = {
   ['single']: TopicSingleVar,

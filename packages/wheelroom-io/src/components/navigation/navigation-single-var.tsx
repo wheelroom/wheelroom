@@ -8,18 +8,16 @@
 
 import React, { Fragment, useContext } from 'react'
 import { NavigationProps } from './navigation'
-import { List } from '../../views/core-elements/list'
-import { GLink } from '../../views/core-elements/g-link'
-import { Box, Container, Flex } from '../../views/core-elements/grid'
+import { List } from '../../core/elements/list'
+import { GLink } from '../../core/elements/g-link'
+import { Box, Container, Flex } from '../../core/elements/grid'
 import { buttonSecondaryStyle } from '../../styles/button'
-import { ALink } from '../../views/core-elements/a-link'
+import { ALink } from '../../core/elements/a-link'
 
 import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
-import { ThemeId } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
-import { Button } from '../../views/core-elements/button'
+import { Button } from '../../core/elements/button'
 import { NavAction } from './nav-action'
 import { NavigationSegmentProps } from '../navigation-segment'
 import { NavLinks } from './nav-links'

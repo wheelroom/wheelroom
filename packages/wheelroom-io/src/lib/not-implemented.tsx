@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex } from '../views/core-elements/grid'
+import { Box, Flex } from '../core/elements/grid'
 import { PageSectionProps } from '../components/page-section/page-section'
 import { getPageSectionInfo } from './get-page-section-info'
 import { SvgBell } from '../svg/feather'
@@ -26,6 +26,8 @@ export const NotImplemented = (props: PageSectionProps) => {
         hasNavigation: {yesNo(info.hasNavigation)}
         <br />
         navigationSegmentCount: {info.navigationSegmentCount}
+        <br />
+        path: {info.path}
         <br />
         hasText: {yesNo(info.hasText)}
         <br />

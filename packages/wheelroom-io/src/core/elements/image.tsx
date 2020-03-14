@@ -2,18 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
-
-export interface FluidImage {
-  description: string
-  fluid: {
-    sizes: string
-    src: string
-    srcSet: string
-  }
-  title: string
-}
-
-type styleProp = string | string[] | number | number[]
+import { styleProp, FluidImage } from './types'
 
 export interface ImageProps {
   '&:hover'?: any

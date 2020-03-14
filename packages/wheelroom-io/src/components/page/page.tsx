@@ -5,8 +5,6 @@
  *
  */
 
-import { FluidImage } from '../../views/core-elements/image'
-
 export interface PageProps {
   /** Gatsby fetched data */
   __typename: string

@@ -7,12 +7,12 @@
  */
 
 import React, { Fragment } from 'react'
-import { heading1Style } from '../../../styles/heading'
-import { paragraphHeroStyle } from '../../../styles/paragraph'
-import { Box, Container } from '../../../views/core-elements/grid'
-import { H1 } from '../../../views/core-elements/heading'
-import { Paragraph } from '../../../views/core-elements/paragraph'
-import { Image } from '../../../views/core-elements/image'
+import { heading1Style } from '../../../core/styles/heading'
+import { paragraphHeroStyle } from '../../../core/styles/paragraph'
+import { Box, Container } from '../../../core/elements/grid'
+import { H1 } from '../../../core/elements/heading'
+import { Paragraph } from '../../../core/elements/paragraph'
+import { Image } from '../../../core/elements/image'
 import { Navigation } from '../../navigation'
 import { TopicProps } from '../../topic'
 import { ActionProps } from '../../action'

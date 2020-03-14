@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { GLink } from '../../views/core-elements/g-link'
-import { ALink } from '../../views/core-elements/a-link'
+import { GLink } from '../../core/elements/g-link'
+import { ALink } from '../../core/elements/a-link'
 import { ActionProps } from '../action'
 import { buttonPrimaryStyle } from '../../styles/button'
 

@@ -84,3 +84,15 @@ export type LinkRelationshipAttribute =
   | 'prev'
   | 'search'
   | 'tag'
+
+export interface FluidImage {
+  description: string
+  fluid: {
+    sizes: string
+    src: string
+    srcSet: string
+  }
+  title: string
+}
+
+export type styleProp = string | string[] | number | number[]

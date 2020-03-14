@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { navigationHeaderStyle } from '../../styles/navigation'
-import { GLink } from '../../views/core-elements/g-link'
-import { Any } from '../../views/core-elements/any'
+import { GLink } from '../../core/elements/g-link'
+import { Any } from '../../core/elements/any'
 import { PageProps } from '../page/page'
 
 const ActionGlink = (props: PageProps) => {

@@ -1,5 +1,5 @@
 import { PageProps } from '../components/page/page'
-import { FluidImage } from '../views/core-elements/image'
+import { FluidImage } from '../core/elements/types'
 
 // In order to supply an image tag for a page, find the image associated with
 // the opener section of the page.
