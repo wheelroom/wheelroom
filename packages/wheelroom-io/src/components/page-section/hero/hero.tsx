@@ -18,6 +18,15 @@ import { TopicProps } from '../../topic'
 import { ActionProps } from '../../action'
 import { HeroAction } from './hero-action'
 import { NavigationSegmentProps } from '../../navigation-segment'
+import { SvgArchive, SvgSun, SvgMoon } from '../../../svg/feather'
+
+const iconStyle = { color: 'text', mr: 2, w: [1 / 10] }
+
+const IconMap: any = {
+  aap: SvgMoon,
+  noot: SvgSun,
+  mies: SvgArchive,
+}
 
 export interface HeroProps {
   topic: TopicProps
@@ -26,6 +35,7 @@ export interface HeroProps {
 }
 
 export const Hero = (props: HeroProps) => {
+  const Icon = IconMap[props.topic.icon || 'aap']
   const topicHasAction =
     Array.isArray(props.topic.actions) && props.topic.actions.length > 0
   return (
@@ -74,6 +84,7 @@ export const Hero = (props: HeroProps) => {
                 w: 1,
               }}
             >
+              <Icon strokeWidth={3} ncss={iconStyle} />
               <H1 ncss={{ ...heading1Style, mb: 0, color: 'caviar' }}>
                 {props.topic.heading}
               </H1>
