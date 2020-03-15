@@ -16,6 +16,8 @@ export const lightTheme: StyledSystemTheme = {
     button: colors.white,
     bg: colors.white,
     border: colors.silver,
+    cardsBorder: colors.silver,
+    cardsShadow: colors.silver,
 
     // Svg colors
     jarPrimary: svgColors.deepSea,

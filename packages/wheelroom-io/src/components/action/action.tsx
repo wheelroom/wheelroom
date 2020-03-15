@@ -15,14 +15,14 @@ const componentList = {
 
 export interface ActionProps {
   /** Gatsby fetched data */
-  __typename: string
-  title: string
-  heading: string
-  page: any
-  url: string
+  __typename?: string
+  title?: string
+  heading?: string
+  page?: any
+  url?: string
 
   /** Local data */
-  ncss: any
+  ncss?: any
 }
 
 export const Action = (props: ActionProps) => {

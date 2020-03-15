@@ -18,6 +18,8 @@ export interface ImageProps {
   maxHeight?: styleProp
   minHeight?: styleProp
   my?: styleProp
+  padding?: styleProp
+  margin?: styleProp
   /** like the css property */
   objectFit?: string
   /** like the css property */
@@ -36,6 +38,8 @@ export const Image = (props: ImageProps) => {
     maxHeight: props.maxHeight,
     minHeight: props.minHeight,
     my: props.my,
+    p: props.padding,
+    m: props.margin,
     transition: props.transition,
     width: props.width,
   }

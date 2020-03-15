@@ -7,17 +7,17 @@
  */
 
 import React, { Fragment } from 'react'
-import { Box, Container } from '../../../core/elements/grid'
+import { Box, Flex } from '../../../core/elements/grid'
 import { TopicProps } from '../../topic'
-import { TextProps } from '../../text'
-import { ActionProps } from '../../action'
 import { Paragraph } from '../../../core/elements/paragraph'
 import { H3 } from '../../../core/elements/heading'
+import { Image } from '../../../core/elements/image'
+import { ActionSingleVar } from '../../action/action-single-var'
+import { buttonPrimaryStyle } from '../../../core/styles/button'
+import { heading3Style } from '../../../core/styles/heading'
 
 export interface CardsProps {
-  text?: TextProps
   topic?: TopicProps
-  action?: ActionProps
 }
 
 export const Cards = (props: CardsProps) => {
@@ -27,16 +27,71 @@ export const Cards = (props: CardsProps) => {
         is="div"
         ncss={{
           label: 'Cards',
+          display: 'flex',
+          flexDirection: 'column',
+          flex: '1',
+          bg: 'bg',
+          boxShadow: '0 0 16px',
+          color: 'cardsShadow',
+          border: '1px solid',
+          borderColor: 'borderShadow',
+          borderRadius: 3,
+          maxWidth: '285px',
+          m: 2,
+          transition: 'transform .25s ease',
+          ':hover': {
+            cursor: 'pointer',
+            transform: 'scale(1.05)',
+          },
         }}
       >
-        <H3>{props.topic?.heading}</H3>
-        <Paragraph
+        <Image
+          image={props.topic?.image}
+          objectFit="cover"
+          height="184px"
+          margin="16px"
+        />
+        <Box
+          is="header"
           ncss={{
-            color: 'text',
+            label: 'Copy',
+            flex: '1 1 auto',
+            mx: 3,
           }}
         >
-          {props.topic?.abstract.abstract}
-        </Paragraph>
+          <H3
+            ncss={{
+              ...heading3Style,
+            }}
+          >
+            {props.topic?.heading}
+          </H3>
+          <Paragraph
+            ncss={{
+              color: 'text',
+            }}
+          >
+            {props.topic?.abstract.abstract}
+          </Paragraph>
+        </Box>
+        <Flex
+          is="div"
+          ncss={{
+            label: 'Cta',
+            mx: 3,
+            mb: 3,
+            flex: '0 1 auto',
+          }}
+        >
+          <ActionSingleVar
+            url={props.topic?.actions[0].url}
+            heading={props.topic?.actions[0].heading}
+            title={props.topic?.actions[0].title}
+            ncss={{
+              ...buttonPrimaryStyle,
+            }}
+          />
+        </Flex>
       </Box>
     </Fragment>
   )

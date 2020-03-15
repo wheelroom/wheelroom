@@ -8,6 +8,7 @@ export const colors = {
   metal: '#AAAAAA',
   bullet: '#666666',
   caviar: '#222222',
+  ghost: '#111111',
 }
 
 export const svgColors = {
