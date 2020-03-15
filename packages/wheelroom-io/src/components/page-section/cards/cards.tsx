@@ -12,7 +12,7 @@ import { TopicProps } from '../../topic'
 import { Paragraph } from '../../../core/elements/paragraph'
 import { H3 } from '../../../core/elements/heading'
 import { Image } from '../../../core/elements/image'
-import { ActionSingleVar } from '../../action/action-single-var'
+import { Action } from '../../action/action'
 import { buttonPrimaryStyle } from '../../../core/styles/button'
 import { heading3Style } from '../../../core/styles/heading'
 
@@ -83,7 +83,7 @@ export const Cards = (props: CardsProps) => {
             flex: '0 1 auto',
           }}
         >
-          <ActionSingleVar
+          <Action
             url={props.topic?.actions[0].url}
             heading={props.topic?.actions[0].heading}
             title={props.topic?.actions[0].title}
