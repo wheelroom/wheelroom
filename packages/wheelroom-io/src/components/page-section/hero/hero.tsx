@@ -18,7 +18,7 @@ import { TopicProps } from '../../topic'
 import { ActionProps, Action } from '../../action'
 import { NavigationSegmentProps } from '../../navigation-segment'
 import { IconMap } from '../../../svg/feather/iconMap'
-import { buttonPrimaryStyle } from '../../../styles/button'
+import { buttonPrimaryStyle } from '../../../core/styles/button'
 
 const iconStyle = { color: 'text', w: [1 / 10] }
 

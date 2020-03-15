@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { GLink } from '../../core/elements/g-link'
 import { ALink } from '../../core/elements/a-link'
 import { ActionProps } from '../action'
-import { buttonPrimaryStyle } from '../../styles/button'
+import { buttonPrimaryStyle } from '../../core/styles/button'
 
 const ActionGlink = (props: ActionProps) => {
   return (

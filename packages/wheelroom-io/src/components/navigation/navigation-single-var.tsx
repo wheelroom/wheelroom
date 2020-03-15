@@ -11,7 +11,7 @@ import { NavigationProps } from './navigation'
 import { List } from '../../core/elements/list'
 import { GLink } from '../../core/elements/g-link'
 import { Box, Container, Flex } from '../../core/elements/grid'
-import { buttonSecondaryStyle } from '../../styles/button'
+import { buttonSecondaryStyle } from '../../core/styles/button'
 import { ALink } from '../../core/elements/a-link'
 
 import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
