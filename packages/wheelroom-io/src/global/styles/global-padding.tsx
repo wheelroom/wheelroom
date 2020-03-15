@@ -7,7 +7,7 @@ import {
   PaddingBrakepoints,
   PaddingType,
   parsePadding,
-} from '../lib/padding'
+} from '../../lib/padding'
 
 type PaddingName =
   | 'image'

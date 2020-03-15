@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '../../core/elements/grid'
+import { Box } from '../../../core/elements/grid'
 
 export const Spinner = () => {
   const spinnerStyle = {

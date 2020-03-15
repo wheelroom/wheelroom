@@ -11,8 +11,8 @@ import {
   PreviewUpdateButton,
   useFetchPreviewPage,
 } from '@jacco-meijer/admin-page-preview'
-import { GlobalStyles } from './styles/global-styles'
-import { GlobalReset } from './styles/global-reset'
+import { GlobalStyles } from './global/styles/global-styles'
+import { GlobalReset } from './global/styles/global-reset'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
