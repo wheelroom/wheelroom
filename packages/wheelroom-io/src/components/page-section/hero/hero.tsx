@@ -15,12 +15,20 @@ import { Paragraph } from '../../../core/elements/paragraph'
 import { Image } from '../../../core/elements/image'
 import { Navigation } from '../../navigation'
 import { TopicProps } from '../../topic'
-import { ActionProps } from '../../action'
-import { HeroAction } from './hero-action'
+import { ActionProps, Action } from '../../action'
 import { NavigationSegmentProps } from '../../navigation-segment'
 import { IconMap } from '../../../svg/feather/iconMap'
+import { buttonPrimaryStyle } from '../../../styles/button'
 
 const iconStyle = { color: 'text', w: [1 / 10] }
+
+const heroActionStyle = {
+  ...buttonPrimaryStyle,
+  fontSize: [4, 5],
+  display: 'inline-flex',
+  py: 3,
+  px: 4,
+}
 
 export interface HeroProps {
   topic: TopicProps
@@ -85,7 +93,9 @@ export const Hero = (props: HeroProps) => {
               <Paragraph ncss={{ ...paragraphHeroStyle, my: 3 }}>
                 {props.topic.abstract && props.topic.abstract.abstract}
               </Paragraph>
-              {topicHasAction && <HeroAction {...props.topic.actions[0]} />}
+              {topicHasAction && (
+                <Action {...props.topic.actions[0]} ncss={heroActionStyle} />
+              )}
             </Box>
           </Container>
         </Container>
