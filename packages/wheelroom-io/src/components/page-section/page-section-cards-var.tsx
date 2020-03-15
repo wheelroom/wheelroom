@@ -17,6 +17,10 @@ export const PageSectionCardsVar = (props: PageSectionProps) => {
   if (info.hasTopic) {
     return <Cards topics={props.topics} />
   }
-  /** If your variation doesn't exist Wheelroom will display this notification */
+
+  /**
+   * If you did not return a view above, Wheelroom will display this
+   * notification
+   */
   return <NotImplemented {...props} />
 }

@@ -20,6 +20,8 @@ export interface TextProps {
   text: {
     json: string
   }
+  /** Local props */
+  locale: string
 }
 
 export const Text = (props: TextProps) => {

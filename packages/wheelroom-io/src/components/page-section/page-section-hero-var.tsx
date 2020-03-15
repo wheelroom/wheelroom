@@ -43,5 +43,9 @@ export const PageSectionHeroVar = (props: PageSectionProps) => {
     return <Navigation segments={segments} action={props.actions[0]} />
   }
 
+  /**
+   * If you did not return a view above, Wheelroom will display this
+   * notification
+   */
   return <NotImplemented {...props} />
 }
