@@ -35,6 +35,7 @@ import {
 } from '@contentful/rich-text-react-renderer'
 
 const simpleLinkStyle = {
+  color: 'azure',
   '&:hover': {
     textDecoration: 'underline',
   },
