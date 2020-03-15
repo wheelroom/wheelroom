@@ -24,11 +24,8 @@ import { NavLinks } from './nav-links'
 
 const wrapperStyle = {
   label: 'Wrapper',
-  position: 'fixed',
   bg: 'bg',
   width: '100%',
-  zIndex: 1000,
-  top: 0,
   height: '70px',
   borderBottom: '1px solid',
   borderColor: 'border',
@@ -42,12 +39,13 @@ const containerStyle = {
 
 const skipToContent = {
   label: 'Skip',
-  display: 'block',
-  w: 1,
-  height: '70px',
+  position: 'absolute',
+  left: '-100%',
   ':focus': {
-    position: 'relative',
-    display: 'flex',
+    w: 1,
+    left: 0,
+    top: 0,
+    right: 0,
     color: 'black',
     fontFamily: 'text',
     fontWeight: 5,
