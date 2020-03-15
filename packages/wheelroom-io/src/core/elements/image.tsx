@@ -18,6 +18,7 @@ export interface ImageProps {
   maxHeight?: styleProp
   minHeight?: styleProp
   my?: styleProp
+  mb?: styleProp
   padding?: styleProp
   margin?: styleProp
   /** like the css property */
@@ -38,6 +39,7 @@ export const Image = (props: ImageProps) => {
     maxHeight: props.maxHeight,
     minHeight: props.minHeight,
     my: props.my,
+    mb: props.mb,
     p: props.padding,
     m: props.margin,
     transition: props.transition,

@@ -29,10 +29,6 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
   if (info.hasText) {
     return <Text {...props.text} locale={props.locale} />
   }
-
-  /**
-   * If you did not return a view above, Wheelroom will display this
-   * notification
-   */
+  /** If you did not return a view above, Wheelroom will display this notification */
   return <NotImplemented {...props} />
 }
