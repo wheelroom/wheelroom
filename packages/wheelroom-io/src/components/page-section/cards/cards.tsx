@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Card } from './card'
-import { Box, Container } from '../../core/elements/grid'
+import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps } from '../../topic'
 
 export interface CardsProps {

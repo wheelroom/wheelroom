@@ -4,7 +4,7 @@ import { TopicProps } from '../../topic'
 import { Paragraph } from '../../../core/elements/paragraph'
 import { H3 } from '../../../core/elements/heading'
 import { Image } from '../../../core/elements/image'
-import { Action } from '../../action/action'
+import { Action } from '../../action'
 import { buttonPrimaryStyle } from '../../../core/styles/button'
 import { heading3Style } from '../../../core/styles/heading'
 

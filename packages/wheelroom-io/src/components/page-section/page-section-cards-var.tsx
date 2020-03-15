@@ -15,7 +15,7 @@ import { Cards } from './cards/cards'
 export const PageSectionCardsVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasTopic) {
-    return <Cards topic={props.topics[0]} />
+    return <Cards topics={props.topics} />
   }
   /** If your variation doesn't exist Wheelroom will display this notification */
   return <NotImplemented {...props} />
