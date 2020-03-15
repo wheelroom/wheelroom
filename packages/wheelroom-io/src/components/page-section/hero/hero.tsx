@@ -1,8 +1,8 @@
 /**
  * Component variation
  *
- * Component type: openerSection
- * Variation: Home page
+ * Component type: pageSection
+ * Variation: Hero
  *
  */
 
