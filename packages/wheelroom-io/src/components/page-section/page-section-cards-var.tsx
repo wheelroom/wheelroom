@@ -6,41 +6,17 @@
  *
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import { PageSectionProps } from './page-section'
-import { Cards } from './cards/cards'
-import { Box, Container } from '../../core/elements/grid'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { NotImplemented } from '../../lib/not-implemented'
+import { Cards } from './cards/cards'
 
 export const PageSectionCardsVar = (props: PageSectionProps) => {
-  if (props.topics) {
-    const cards = props.topics.map((topic, index) => (
-      <Cards key={index} topic={topic} />
-    ))
-    return (
-      <Fragment>
-        <Box
-          is="div"
-          ncss={{
-            label: 'Wrapper',
-            bg: 'bg',
-            py: 8,
-          }}
-        >
-          <Container
-            ncss={{
-              label: 'Container',
-              maxWidth: '1280px',
-              m: 'auto',
-              justifyContent: 'center',
-              px: [2, 5, 7],
-              w: 1,
-            }}
-          >
-            {cards}
-          </Container>
-        </Box>
-      </Fragment>
-    )
-  } else return <NotImplemented {...props} />
+  const info = getPageSectionInfo(props)
+  if (info.hasTopic) {
+    return <Cards topic={props.topics[0]} />
+  }
+  /** If your variation doesn't exist Wheelroom will display this notification */
+  return <NotImplemented {...props} />
 }

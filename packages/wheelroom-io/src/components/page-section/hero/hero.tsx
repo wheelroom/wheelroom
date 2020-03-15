@@ -1,11 +1,3 @@
-/**
- * Component variation
- *
- * Component type: pageSection
- * Variation: Hero
- *
- */
-
 import React, { Fragment } from 'react'
 import { heading1Style } from '../../../core/styles/heading'
 import { paragraphHeroStyle } from '../../../core/styles/paragraph'
