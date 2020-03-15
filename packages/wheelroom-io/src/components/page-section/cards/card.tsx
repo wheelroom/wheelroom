@@ -26,9 +26,10 @@ export const Card = (props: CardProps) => {
           boxShadow: '0 0 16px',
           color: 'cardsShadow',
           border: '1px solid',
-          borderColor: 'borderShadow',
+          borderColor: 'cardsBorder',
           borderRadius: 3,
-          maxWidth: '285px',
+          maxWidth: '280px',
+          minWidth: '280px',
           m: 2,
           transition: 'transform .25s ease',
           ':hover': {

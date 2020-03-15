@@ -29,6 +29,8 @@ export const Cards = (props: CardsProps) => {
             justifyContent: 'center',
             px: [2, 5, 7],
             w: 1,
+            flexDirection: ['column', 'row'],
+            alignItems: ['center', 'initial'],
           }}
         >
           {card}
