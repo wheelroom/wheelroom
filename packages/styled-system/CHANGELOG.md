@@ -1,3 +1,12 @@
+# [3.1.0](https://github.com/jaccomeijer/wheelroom/compare/v3.0.6...v3.1.0) (2020-03-16)
+
+
+### Features
+
+* initialZeroScales ([0fbcfa6](https://github.com/jaccomeijer/wheelroom/commit/0fbcfa6e32f5d7145920ef8c6f4e369df44285a4))
+
+
+
 ## [3.0.6](https://github.com/jaccomeijer/wheelroom/compare/v3.0.5...v3.0.6) (2020-03-05)
 
 
