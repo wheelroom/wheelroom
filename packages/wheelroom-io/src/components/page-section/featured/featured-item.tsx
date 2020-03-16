@@ -21,7 +21,6 @@ export const FeaturedItem = (props: FeaturedProps) => {
           label: 'Featured',
           display: 'flex',
           flexDirection: ['column', 'column', 'row'],
-          justifyContent: 'space-evenly',
         }}
       >
         <Box
