@@ -8,6 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { NavigationSegmentSingleVar } from './navigation-segment-single-var'
+import { PageProps } from '../page/page'
 
 const componentList = {
   ['single']: NavigationSegmentSingleVar,
@@ -18,7 +19,7 @@ export interface NavigationSegmentProps {
   __typename: string
   title: string
   heading: string
-  pages: any
+  pages: PageProps[]
 }
 
 export const NavigationSegment = (props: NavigationSegmentProps) => {

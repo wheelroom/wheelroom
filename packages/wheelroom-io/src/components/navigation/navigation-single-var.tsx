@@ -18,9 +18,9 @@ import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 
 import { Button } from '../../core/elements/button'
-import { NavAction } from './nav-action'
 import { NavigationSegmentProps } from '../navigation-segment'
 import { NavLinks } from './nav-links'
+import { Action } from '../action/action'
 
 const wrapperStyle = {
   label: 'Wrapper',
@@ -130,7 +130,7 @@ export const NavigationSingleVar = (props: NavigationProps) => {
               <NavLinks pages={navSegment.pages} />
             </List>
             <Flex>
-              <NavAction {...props.action} />
+              <Action {...props.action} />
               <Button
                 type="button"
                 title={`Current theme is ` + activeThemeId}
