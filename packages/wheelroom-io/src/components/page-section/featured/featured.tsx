@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { SinlgeFeatured } from './single-featured'
+import { SingleFeatured } from './single-featured'
 import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps } from '../../topic'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
@@ -32,7 +32,7 @@ export const Featured = (props: FeaturedProps) => {
     return null
   }
   const featuredList = props.topics.map((topic, index) => (
-    <SinlgeFeatured key={index} topic={topic} />
+    <SingleFeatured key={index} topic={topic} />
   ))
   return (
     <Fragment>

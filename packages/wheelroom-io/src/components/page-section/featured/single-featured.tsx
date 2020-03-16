@@ -12,7 +12,7 @@ export interface FeaturedProps {
   topic?: TopicProps
 }
 
-export const SinlgeFeatured = (props: FeaturedProps) => {
+export const SingleFeatured = (props: FeaturedProps) => {
   return (
     <Fragment>
       <Box
