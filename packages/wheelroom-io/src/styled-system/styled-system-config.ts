@@ -59,7 +59,6 @@ export const styledSystemConfig: StyledSystemConfig = {
   scales: {
     fontSizeScale: ['fontSize'],
     fontWeightScale: ['fontWeight'],
-    heightScale: ['height'],
     lineHeightScale: ['lineHeight'],
     spaceScale: [
       'bottom',
@@ -76,6 +75,7 @@ export const styledSystemConfig: StyledSystemConfig = {
       'top',
     ],
   },
+  initialZeroScales: ['fontSizeScale', 'fontWeightScale', 'lineHeightScale'],
   stringMaps: {
     colorMap: [
       'backgroundColor',
@@ -93,26 +93,28 @@ export const styledSystemConfig: StyledSystemConfig = {
     fontMap: ['fontFamily'],
   },
   units: {
-    percent: ['width'],
-    px: [
+    percent: [
       'bottom',
-      'fontSize',
-      'height',
       'left',
+      'right',
+      'top',
+      'height',
+      'width',
+      'maxWidth',
+      'minWidth',
+      'maxHeight',
+      'minHeight',
+    ],
+    px: [
+      'fontSize',
       'marginBottom',
       'marginLeft',
       'marginRight',
       'marginTop',
-      'maxHeight',
-      'maxWidth',
-      'minHeight',
-      'minWidth',
       'paddingBottom',
       'paddingLeft',
       'paddingRight',
       'paddingTop',
-      'right',
-      'top',
     ],
   },
 }
