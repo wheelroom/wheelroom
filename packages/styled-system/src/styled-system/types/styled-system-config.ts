@@ -12,6 +12,7 @@ export interface StyledSystemConfig {
   scales: {
     [scaleName: string]: CssProperties
   }
+  initialZeroScales: CssProperties
   stringMaps: {
     [stringMapName: string]: CssProperties
   }

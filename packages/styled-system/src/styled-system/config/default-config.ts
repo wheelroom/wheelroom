@@ -68,6 +68,7 @@ export const defaultConfig: StyledSystemConfig = {
       'top',
     ],
   },
+  initialZeroScales: ['fontSizeScale', 'fontWeightScale', 'lineHeightScale'],
   stringMaps: {
     colorMap: [
       'backgroundColor',

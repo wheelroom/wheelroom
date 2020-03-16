@@ -69,6 +69,9 @@ export const parseProp = ({ config, theme, name, value }: ParseProp) => {
             } else {
               newValue = scaleList[item]
             }
+            if (item === 0 && config.initialZeroScales.includes(scaleName)) {
+              newValue = 'initial'
+            }
           }
           newArray.push(newValue)
         })
