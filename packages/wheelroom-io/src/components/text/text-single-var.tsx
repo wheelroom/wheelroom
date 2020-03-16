@@ -36,6 +36,7 @@ import {
 
 const simpleLinkStyle = {
   color: 'azure',
+  wordBreak: 'break-all',
   '&:hover': {
     textDecoration: 'underline',
   },
