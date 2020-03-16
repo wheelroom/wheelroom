@@ -8,11 +8,11 @@ import { Action } from '../../action'
 import { buttonPrimaryStyle } from '../../../core/styles/button'
 import { heading3Style } from '../../../core/styles/heading'
 
-export interface CardProps {
+export interface SingleCardProps {
   topic?: TopicProps
 }
 
-export const Card = (props: CardProps) => {
+export const SingleCard = (props: SingleCardProps) => {
   return (
     <Fragment>
       <Box

@@ -13,7 +13,9 @@ export interface PageSectionInfo {
   variation: string
 }
 
-export const getPageSectionInfo = (pageSection: PageSectionProps) => {
+export const getPageSectionInfo = (
+  pageSection: PageSectionProps
+): PageSectionInfo => {
   const info = {
     actionCount: 0,
     hasAction: false,

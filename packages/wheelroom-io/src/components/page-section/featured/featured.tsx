@@ -1,15 +1,38 @@
 import React, { Fragment } from 'react'
-import { FeaturedItem } from './featured-item'
+import { SinlgeFeatured } from './single-featured'
 import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps } from '../../topic'
+import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { TextProps } from '../../text'
 
 export interface FeaturedProps {
+  info: PageSectionInfo
+  locale: string
+  text?: TextProps
   topics: TopicProps[]
 }
 
+/**
+ *
+ * Requires one or more topics, optional a text.
+ *
+ * - One topic: the topic is displayed
+ * - Two topics: the image of the first topic is displayed, the two topics ared
+ *   shown next to the image
+ * - Four topics: the image of the first topic is displayed, the four topics
+ *   ared shown next to the image
+ * - Topic and text: The image of the first topic is displayed, the text shows
+ *   next to the image
+ *
+ */
+
 export const Featured = (props: FeaturedProps) => {
-  const featured = props.topics.map((topic, index) => (
-    <FeaturedItem key={index} topic={topic} />
+  // Headline needs topics or text, return null (render nothing) otherwise
+  if (!(props.info.hasTopic || props.info.hasText)) {
+    return null
+  }
+  const featuredList = props.topics.map((topic, index) => (
+    <SinlgeFeatured key={index} topic={topic} />
   ))
   return (
     <Fragment>
@@ -33,7 +56,7 @@ export const Featured = (props: FeaturedProps) => {
             alignItems: ['center', 'initial'],
           }}
         >
-          {featured}
+          {featuredList}
         </Container>
       </Box>
     </Fragment>

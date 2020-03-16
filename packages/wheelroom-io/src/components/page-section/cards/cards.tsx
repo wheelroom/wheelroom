@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Card } from './card'
+import { SingleCard } from './single-card'
 import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps } from '../../topic'
 
@@ -7,9 +7,15 @@ export interface CardsProps {
   topics: TopicProps[]
 }
 
+/**
+ *
+ * Accepts one or more cards
+ *
+ */
+
 export const Cards = (props: CardsProps) => {
-  const card = props.topics.map((topic, index) => (
-    <Card key={index} topic={topic} />
+  const cards = props.topics.map((topic, index) => (
+    <SingleCard key={index} topic={topic} />
   ))
   return (
     <Fragment>
@@ -34,7 +40,7 @@ export const Cards = (props: CardsProps) => {
             flexWrap: 'wrap',
           }}
         >
-          {card}
+          {cards}
         </Container>
       </Box>
     </Fragment>
