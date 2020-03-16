@@ -31,6 +31,7 @@ export const Cards = (props: CardsProps) => {
             w: 1,
             flexDirection: ['column', 'row'],
             alignItems: ['center', 'initial'],
+            flexWrap: 'wrap',
           }}
         >
           {card}
