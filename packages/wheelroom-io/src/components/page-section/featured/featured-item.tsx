@@ -21,6 +21,8 @@ export const FeaturedItem = (props: FeaturedProps) => {
           label: 'Featured',
           display: 'flex',
           flexDirection: ['column', 'column', 'row'],
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
         }}
       >
         <Box
@@ -28,8 +30,7 @@ export const FeaturedItem = (props: FeaturedProps) => {
             label: 'Featured-Image',
             display: 'flex',
             flexDirection: 'column',
-            flex: '1 1 auto',
-            w: [1, 1, 1 / 2],
+            w: [1, 1, 1 / 2.5],
             mb: [3, 3, 0],
           }}
         >
@@ -40,7 +41,7 @@ export const FeaturedItem = (props: FeaturedProps) => {
             label: 'Featured-Copy',
             display: 'flex',
             flexDirection: 'column',
-            flex: '1 1 auto',
+            w: [1, 1, 1 / 2.5],
           }}
         >
           <Box
