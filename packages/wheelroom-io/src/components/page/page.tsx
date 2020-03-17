@@ -5,6 +5,8 @@
  *
  */
 
+import { FluidImage } from '../../core/elements/types'
+
 export interface PageProps {
   /** Gatsby fetched data */
   __typename: string
@@ -15,4 +17,5 @@ export interface PageProps {
   theme: string
   seoTitle: string
   seoDescription: string
+  seoImage: FluidImage
 }

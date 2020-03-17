@@ -4,7 +4,6 @@ import React, { useState, Fragment } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './lib/debug'
-import { getOpenerOrPageImage } from './lib/get-opener-or-page-image'
 import { Seo } from './lib/seo'
 import { Sections } from './sections/sections'
 import {
@@ -38,7 +37,6 @@ const PageTemplate = (props: any) => {
   const sections = page.sections
 
   // TODO: Needs fix, new models broke this
-  const image = getOpenerOrPageImage(page)
   const sectionProps = {
     locale,
     namedPaths,
@@ -50,7 +48,7 @@ const PageTemplate = (props: any) => {
   }
   const seoProps = {
     description: page.seoDescription,
-    imageSrc: image && image.fluid.src,
+    imageSrc: page.seoImage && page.seoImage.fluid.src,
     keywords,
     locale,
     meta: [],

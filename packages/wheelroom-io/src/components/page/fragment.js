@@ -25,5 +25,14 @@ fragment Page on ContentfulPage {
   theme
   seoTitle
   seoDescription
+  seoImage {
+    title
+    description
+    fluid(maxWidth: 1024) {
+      sizes
+      src
+      srcSet
+    }
+  }
 }
 `
