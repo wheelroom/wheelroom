@@ -68,14 +68,6 @@ module.exports = {
       resolve: 'gatsby-plugin-eslint',
     },
     {
-      options: {
-        google: {
-          families: ['Fjalla+One:400', 'Open+Sans:400'],
-        },
-      },
-      resolve: 'gatsby-plugin-web-font-loader',
-    },
-    {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {
         path: `schema.gql`,

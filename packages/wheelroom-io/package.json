@@ -31,7 +31,6 @@
     "gatsby-plugin-react-helmet": "3.1.24",
     "gatsby-plugin-schema-snapshot": "1.0.0",
     "gatsby-plugin-typescript": "2.2.5",
-    "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.1.98",
     "gatsby-source-filesystem": "2.1.56",
     "gatsby-theme-wheelroom": "^4.0.2",
