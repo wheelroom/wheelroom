@@ -469,6 +469,9 @@ export const configComponents: WheelroomComponents = {
         maxLength: 155,
         type: 'shortText',
       } as ShortTextField,
+      seoImage: {
+        type: 'image',
+      } as ImageField,
     },
     modelVersion: '1.0.0',
     settings: {
