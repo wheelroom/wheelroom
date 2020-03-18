@@ -11,6 +11,7 @@ import {
   heading6Style,
 } from '../../core/styles/heading'
 import { Paragraph } from '../../core/elements/paragraph'
+import { TopicOptions } from '../page-section/get-topic-options'
 
 const headingStyleMap = {
   h1: heading1Style,
@@ -51,6 +52,8 @@ export interface TopicHeaderProps {
   paragraphStyle?: any
   /** Override default heading style */
   headingStyle?: any
+  /** Topic options */
+  options: TopicOptions
 }
 
 export const TopicHeader = (props: TopicHeaderProps) => {
@@ -61,14 +64,22 @@ export const TopicHeader = (props: TopicHeaderProps) => {
   const defaultHeadingStyle = headingStyleMap[useHeading]
   const headingStyle = props.headingStyle || {}
 
+  if (props.options.hideHeading && props.options.hideAbstract) {
+    return null
+  }
+
   return (
     <Box is="header" ncss={{ ...defaultWrapperStyle, ...headerWrapperStyle }}>
-      <Heading ncss={{ ...defaultHeadingStyle, ...headingStyle }}>
-        {props.topic.heading}
-      </Heading>
-      <Paragraph ncss={{ ...defaultParagraphStyle, ...paragraphStyle }}>
-        {props.topic.abstract && props.topic.abstract.abstract}
-      </Paragraph>
+      {!props.options.hideHeading && (
+        <Heading ncss={{ ...defaultHeadingStyle, ...headingStyle }}>
+          {props.topic.heading}
+        </Heading>
+      )}
+      {!props.options.hideAbstract && (
+        <Paragraph ncss={{ ...defaultParagraphStyle, ...paragraphStyle }}>
+          {props.topic.abstract && props.topic.abstract.abstract}
+        </Paragraph>
+      )}
     </Box>
   )
 }

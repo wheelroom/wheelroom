@@ -3,11 +3,13 @@ import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { TextProps } from '../../text/text'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { TopicOption } from '../page-section'
 
 export interface HeadlineProps {
   info: PageSectionInfo
   text?: TextProps
   topic?: TopicProps
+  topicOptions: TopicOption[]
 }
 
 /**
@@ -48,6 +50,7 @@ export const Headline = (props: HeadlineProps) => {
           {props.topic && (
             <Topic
               {...props.topic}
+              topicOptions={props.topicOptions}
               text={props.text}
               topicWrapperStyle={{
                 flex: '1',

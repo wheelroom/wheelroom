@@ -21,6 +21,7 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
         info={info}
         topic={topic}
         text={{ ...props.text, locale: props.locale }}
+        topicOptions={props.topicOptions}
       />
     )
   }

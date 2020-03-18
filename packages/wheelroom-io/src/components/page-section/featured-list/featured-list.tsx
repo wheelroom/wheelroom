@@ -2,10 +2,12 @@ import React, { Fragment } from 'react'
 import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { TopicOption } from '../page-section'
 
 export interface FeaturedListProps {
   info: PageSectionInfo
   topics: TopicProps[]
+  topicOptions: TopicOption[]
 }
 
 /**
@@ -25,6 +27,7 @@ export const FeaturedList = (props: FeaturedListProps) => {
     <Topic
       key={index}
       {...topic}
+      topicOptions={props.topicOptions}
       topicWrapperStyle={{
         flexDirection: ['column', 'row'],
       }}

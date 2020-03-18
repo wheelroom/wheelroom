@@ -5,6 +5,7 @@ import { Box } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { buttonPrimaryStyle } from '../../../core/styles/button'
 import { TextProps } from '../../text/text'
+import { TopicOption } from '../page-section'
 
 const heroActionStyle = {
   ...buttonPrimaryStyle,
@@ -17,6 +18,7 @@ const heroActionStyle = {
 export interface HeroProps {
   topic: TopicProps
   text?: TextProps
+  topicOptions: TopicOption[]
 }
 
 export const Hero = (props: HeroProps) => {
@@ -30,6 +32,7 @@ export const Hero = (props: HeroProps) => {
       >
         <Topic
           {...props.topic}
+          topicOptions={props.topicOptions}
           text={props.text}
           topicWrapperStyle={{
             position: 'relative',

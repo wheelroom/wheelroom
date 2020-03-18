@@ -15,7 +15,7 @@ import { Cards } from './cards/cards'
 export const PageSectionCardsVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasTopic) {
-    return <Cards topics={props.topics} />
+    return <Cards topics={props.topics} topicOptions={props.topicOptions} />
   }
 
   /**

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
+import { TopicOption } from '../../page-section/page-section'
 
 export interface CardsProps {
   topics: TopicProps[]
+  topicOptions: TopicOption[]
 }
 
 /**
@@ -16,6 +18,7 @@ export const Cards = (props: CardsProps) => {
   const cards = props.topics.map((topic, index) => (
     <Topic
       key={index}
+      topicOptions={props.topicOptions}
       {...topic}
       imageProps={{
         height: '184px',
