@@ -15,5 +15,5 @@ interface NavigationFooterProps extends NavigationProps {
 }
 
 export const NavigationFooter = (props: NavigationFooterProps) => {
-  return <div>Getting there {props.segments.length}</div>
+  return <div>Getting there: {props.topics[0].heading}</div>
 }
