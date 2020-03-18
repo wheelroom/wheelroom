@@ -64,6 +64,7 @@ export const Headline = (props: HeadlineProps) => {
                 flex: '1 1 auto',
               }}
               headingStyle={heading1Style}
+              useHeading="h1"
               paragraphStyle={{
                 color: 'text',
                 fontSize: [5, 6],

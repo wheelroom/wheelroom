@@ -30,6 +30,8 @@ interface TopicLocalProps {
   headerWrapperStyle?: any
   /** Override default heading style */
   headingStyle?: any
+  /** Defaults to h3 */
+  useHeading?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   /** Override default paragraph style */
   paragraphStyle?: any
 

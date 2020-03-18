@@ -71,6 +71,7 @@ export const Featured = (props: FeaturedProps) => {
             mx: 3,
           }}
           headingStyle={heading2Style}
+          useHeading="h2"
           paragraphStyle={{
             color: 'text',
           }}

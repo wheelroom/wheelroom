@@ -27,6 +27,7 @@ export const TopicSingleVar = (props: TopicProps) => {
           headerWrapperStyle={props.headerWrapperStyle}
           headingStyle={props.headingStyle}
           paragraphStyle={props.paragraphStyle}
+          useHeading={props.useHeading}
         />
         <TopicAction
           action={props.actions[0]}
