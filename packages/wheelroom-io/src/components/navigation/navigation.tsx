@@ -10,13 +10,13 @@ import { NavigationSegmentProps } from '../navigation-segment/navigation-segment
 /**
  * The component list is removed here.
  *
- * Navigation has two display types:
+ * Navigation has two variations:
  *
  * - NavigationHeader
  * - NavigationFooter
  *
- * Because we do not want to bother the editor with these variations, we have
- * did not add these variations to the component model.
+ * Because we do not want to bother the editor with these variations, we didn't
+ * add these variations to the component model.
  *
  * This file remains here to provide with boierplated generated NavigationProps.
  *
