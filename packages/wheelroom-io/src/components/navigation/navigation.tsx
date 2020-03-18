@@ -18,7 +18,7 @@ import { NavigationSegmentProps } from '../navigation-segment/navigation-segment
  * Because we do not want to bother the editor with these variations, we didn't
  * add these variations to the component model.
  *
- * This file remains here to provide with boierplated generated NavigationProps.
+ * This file remains here to provide with boilerplate generated NavigationProps.
  *
  */
 

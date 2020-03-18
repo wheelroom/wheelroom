@@ -3,14 +3,23 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { InlineElementName, BlockLevelElementName } from './types'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { boxStyle, flexStyle, containerStyle } from '../styles/grid'
 
 export interface GridProps {
   /** Render as another HTML element */
-  is?: InlineElementName | BlockLevelElementName
+  is?: InlineElementName | BlockLevelElementName | undefined
   /** React children */
   children?: any
   /** Nested emotion css styling */
   ncss?: any
+  /** Grid title attribute */
+  title?: string | undefined
+  /** Grid aria-label attribute */
+  ariaLabel?: string | undefined
+  /** Grid hidden attribute */
+  hidden?: boolean | undefined
+  /** Grid tabIndex attribute */
+  tabIndex?: number | undefined
 }
 
 export interface BoxProps extends GridProps {
@@ -22,12 +31,16 @@ export const Box = (props: BoxProps) => {
   const label = `Box-${props.is || 'div'}`
   const css = systemCss(
     {
-      ncss: { label, ...props.ncss },
+      ncss: { label, ...boxStyle, ...props.ncss },
     },
     currentThemeId
   )
   const attrs = {
     css,
+    hidden: props.hidden,
+    title: props.title,
+    ariaLabel: props.ariaLabel,
+    tabIndex: props.tabIndex,
     onClick: props.onClick,
   }
   return jsx(props.is || 'div', attrs, props.children)
@@ -43,9 +56,8 @@ export const Flex = (props: FlexProps) => {
   const css = systemCss(
     {
       ncss: {
-        display: 'flex',
-        flexWrap: 'wrap',
         label,
+        ...flexStyle,
         ...props.ncss,
       },
     },
@@ -53,6 +65,10 @@ export const Flex = (props: FlexProps) => {
   )
   const attrs = {
     css,
+    hidden: props.hidden,
+    title: props.title,
+    ariaLabel: props.ariaLabel,
+    tabIndex: props.tabIndex,
     onClick: props.onClick,
   }
   return jsx(props.is || 'div', attrs, props.children)
@@ -69,10 +85,7 @@ export const Container = (props: ContainerProps) => {
     {
       ncss: {
         label,
-        display: 'flex',
-        px: 3,
-        my: 0,
-        mx: 'auto',
+        ...containerStyle,
         ...props.ncss,
       },
     },
@@ -80,6 +93,10 @@ export const Container = (props: ContainerProps) => {
   )
   const attrs = {
     css,
+    hidden: props.hidden,
+    title: props.title,
+    ariaLabel: props.ariaLabel,
+    tabIndex: props.tabIndex,
     onClick: props.onClick,
   }
   return jsx(props.is || 'div', attrs, props.children)
