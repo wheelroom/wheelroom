@@ -14,7 +14,27 @@ const componentList = {
   ['single']: TopicSingleVar,
 }
 
-export interface TopicProps {
+interface TopicLocalProps {
+  /** Override default wrapper styling */
+  topicWrapperStyle?: any
+
+  /** Override default image props */
+  imageProps?: any
+
+  /** Override default styling of the wrapper */
+  headerWrapperStyle?: any
+  /** Override default heading style */
+  headingStyle?: any
+  /** Override default paragraph style */
+  paragraphStyle?: any
+
+  /** Override default styling of the wrapper */
+  actionWrapperStyle?: any
+  /** Override default button style */
+  buttonStyle?: any
+}
+
+export interface TopicProps extends TopicLocalProps {
   /** Gatsby fetched data */
   __typename: string
   title: string

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
-import { SingleCard } from './single-card'
 import { Box, Container } from '../../../core/elements/grid'
-import { TopicProps } from '../../topic'
+import { TopicProps, Topic } from '../../topic'
 
 export interface CardsProps {
   topics: TopicProps[]
@@ -15,7 +14,7 @@ export interface CardsProps {
 
 export const Cards = (props: CardsProps) => {
   const cards = props.topics.map((topic, index) => (
-    <SingleCard key={index} topic={topic} />
+    <Topic key={index} {...topic} />
   ))
   return (
     <Fragment>
