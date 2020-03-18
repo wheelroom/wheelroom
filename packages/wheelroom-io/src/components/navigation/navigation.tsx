@@ -5,28 +5,26 @@
  *
  */
 
-import React from 'react'
-import { getVariation } from '../../lib/get-variation'
-import { NavigationSingleVar } from './navigation-single-var'
 import { NavigationSegmentProps } from '../navigation-segment/navigation-segment'
-import { ActionProps } from '../action/action'
 
-const componentList = {
-  ['single']: NavigationSingleVar,
-}
+/**
+ * The component list is removed here.
+ *
+ * Navigation has two display types:
+ *
+ * - NavigationHeader
+ * - NavigationFooter
+ *
+ * Because we do not want to bother the editor with these variations, we have
+ * did not add these variations to the component model.
+ *
+ * This file remains here to provide with boierplated generated NavigationProps.
+ *
+ */
 
 export interface NavigationProps {
   /** Gatsby fetched data */
   // __typename: string
   // title: string
   segments: NavigationSegmentProps[]
-
-  /** Local prop */
-  action: ActionProps
-}
-
-export const Navigation = (props: NavigationProps) => {
-  const Variation = getVariation(props, componentList)
-
-  return <Variation {...props} />
 }

@@ -9,20 +9,24 @@
 import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../lib/not-implemented'
-import { Navigation } from '../navigation/navigation'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { NavigationHeader } from '../navigation/navigation-header'
+import { NavigationFooter } from '../navigation/navigation-footer'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
+  if (info.hasAction && info.hasNavigation) {
+    const segments = props.navigation.segments
+    return <NavigationHeader segments={segments} action={props.actions[0]} />
+  }
+
   if (
-    !info.hasText &&
-    !info.hasTopic &&
-    info.hasAction &&
     info.hasNavigation &&
-    info.navigationSegmentCount > 0
+    info.hasTopic &&
+    info.index === info.sectionCount - 1
   ) {
     const segments = props.navigation.segments
-    return <Navigation segments={segments} action={props.actions[0]} />
+    return <NavigationFooter segments={segments} topics={props.topics} />
   }
 
   /**

@@ -7,94 +7,34 @@
  */
 
 import React, { Fragment, useContext } from 'react'
-import { NavigationProps } from './navigation'
-import { List } from '../../core/elements/list'
-import { GLink } from '../../core/elements/g-link'
-import { Box, Container, Flex } from '../../core/elements/grid'
-import { buttonSecondaryStyle } from '../../core/styles/button'
-import { ALink } from '../../core/elements/a-link'
-
-import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
+import { Action, ActionProps } from '../action/action'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
-
+import { ALink } from '../../core/elements/a-link'
+import { Box, Container, Flex } from '../../core/elements/grid'
 import { Button } from '../../core/elements/button'
+import { buttonSecondaryStyle } from '../../core/styles/button'
+import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
+import { GLink } from '../../core/elements/g-link'
+import { List } from '../../core/elements/list'
+import { NavigationProps } from './navigation'
 import { NavigationSegmentProps } from '../navigation-segment'
 import { NavLinks } from './nav-links'
-import { Action } from '../action/action'
+import {
+  skipToContent,
+  wrapperStyle,
+  containerStyle,
+  logoStyle,
+  logoLinkStyle,
+  navStyle,
+  listStyle,
+} from './navigation-styles'
 
-const wrapperStyle = {
-  label: 'Wrapper',
-  bg: 'bg',
-  width: '100%',
-  height: '70px',
-  borderBottom: '1px solid',
-  borderColor: 'border',
+interface NavigationHeaderProps extends NavigationProps {
+  /** Action is displayed as a button at the right side of the navigation */
+  action: ActionProps
 }
 
-const containerStyle = {
-  label: 'Container',
-  height: '100%',
-  justifyContent: 'space-between',
-}
-
-const skipToContent = {
-  label: 'Skip',
-  position: 'absolute',
-  left: '-100%',
-  ':focus': {
-    w: 1,
-    left: 0,
-    top: 0,
-    right: 0,
-    color: 'black',
-    fontFamily: 'text',
-    fontWeight: 5,
-    backgroundColor: 'amber',
-    textAlign: 'center',
-    lineHeight: '70px',
-    justifyContent: 'center',
-    zIndex: 1002,
-  },
-}
-
-const logoStyle = {
-  label: 'Logo',
-  alignItems: 'center',
-}
-
-const logoLinkStyle = {
-  fontFamily: 'display',
-  textDecoration: 'none',
-  fontSize: [4, 5],
-  fontWeight: 5,
-  color: 'text',
-  mr: 5,
-  sup: {
-    color: 'metal',
-    fontWeight: 3,
-  },
-}
-
-const navStyle = {
-  label: 'Nav',
-  display: 'flex',
-  flex: '1',
-  alignItems: 'center',
-}
-
-const listStyle = {
-  label: 'NavItems',
-  display: 'flex',
-  flex: '1',
-  flexDirection: 'row',
-  listStyle: 'none',
-  flexWrap: 'wrap',
-  mb: 0,
-  mt: 0,
-  pl: 0,
-}
-
-export const NavigationSingleVar = (props: NavigationProps) => {
+export const NavigationHeader = (props: NavigationHeaderProps) => {
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
