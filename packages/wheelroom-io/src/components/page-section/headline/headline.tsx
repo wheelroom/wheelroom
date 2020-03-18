@@ -48,6 +48,7 @@ export const Headline = (props: HeadlineProps) => {
           {props.topic && (
             <Topic
               {...props.topic}
+              text={props.text}
               topicWrapperStyle={{
                 flex: '1',
                 w: 1,

@@ -30,6 +30,7 @@ export const Hero = (props: HeroProps) => {
       >
         <Topic
           {...props.topic}
+          text={props.text}
           topicWrapperStyle={{
             position: 'relative',
             overflow: 'hidden',

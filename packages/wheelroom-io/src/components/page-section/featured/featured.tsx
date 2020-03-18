@@ -49,6 +49,7 @@ export const Featured = (props: FeaturedProps) => {
       >
         <Topic
           {...props.topic}
+          text={props.text}
           topicWrapperStyle={{
             flexDirection: ['column', 'column', 'row'],
             justifyContent: 'space-evenly',
