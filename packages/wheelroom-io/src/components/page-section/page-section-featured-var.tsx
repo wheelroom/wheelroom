@@ -20,8 +20,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
       <Featured
         info={info}
         topic={props.topics[0]}
-        text={props.text}
-        locale={props.locale}
+        text={{ ...props.text, locale: props.locale }}
       />
     )
   }

@@ -4,6 +4,7 @@ import { paragraphHeroStyle } from '../../../core/styles/paragraph'
 import { Box } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { buttonPrimaryStyle } from '../../../core/styles/button'
+import { TextProps } from '../../text/text'
 
 const heroActionStyle = {
   ...buttonPrimaryStyle,
@@ -15,6 +16,7 @@ const heroActionStyle = {
 
 export interface HeroProps {
   topic: TopicProps
+  text?: TextProps
 }
 
 export const Hero = (props: HeroProps) => {

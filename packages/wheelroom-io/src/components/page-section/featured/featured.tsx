@@ -6,7 +6,6 @@ import { TextProps } from '../../text'
 
 export interface FeaturedProps {
   info: PageSectionInfo
-  locale: string
   text?: TextProps
   topic: TopicProps
 }

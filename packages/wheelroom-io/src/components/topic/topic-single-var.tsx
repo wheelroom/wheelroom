@@ -13,6 +13,7 @@ import { TopicImage } from './topic-image'
 import { TopicHeader } from './topic-header'
 import { TopicAction } from './topic-action'
 import { TopicContentWrapper } from './topic-content-wrapper'
+import { Text } from '../text'
 
 export const TopicSingleVar = (props: TopicProps) => {
   return (
@@ -22,6 +23,7 @@ export const TopicSingleVar = (props: TopicProps) => {
         imageWrapperStyle={props.imageWrapperStyle}
       />
       <TopicContentWrapper contentWrapperStyle={props.contentWrapperStyle}>
+        {props.text?.text && <Text {...props.text} />}
         <TopicHeader
           topic={props}
           headerWrapperStyle={props.headerWrapperStyle}

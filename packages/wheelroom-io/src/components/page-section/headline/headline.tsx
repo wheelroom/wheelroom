@@ -6,7 +6,6 @@ import { PageSectionInfo } from '../../../lib/get-page-section-info'
 
 export interface HeadlineProps {
   info: PageSectionInfo
-  locale: string
   text?: TextProps
   topic?: TopicProps
 }
