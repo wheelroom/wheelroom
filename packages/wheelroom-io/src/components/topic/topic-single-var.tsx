@@ -6,7 +6,7 @@
  *
  */
 
-import React from 'react'
+import React, { Fragment } from 'react'
 import { TopicProps } from './topic'
 import { TopicWrapper } from './topic-wrapper'
 import { TopicImage } from './topic-image'
@@ -16,6 +16,7 @@ import { TopicContentWrapper } from './topic-content-wrapper'
 import { Text } from '../text'
 
 export const TopicSingleVar = (props: TopicProps) => {
+  const hasText = props.text && props.text.text && props.text.locale
   return (
     <TopicWrapper topicWrapperStyle={props.topicWrapperStyle}>
       <TopicImage
@@ -23,19 +24,23 @@ export const TopicSingleVar = (props: TopicProps) => {
         imageWrapperStyle={props.imageWrapperStyle}
       />
       <TopicContentWrapper contentWrapperStyle={props.contentWrapperStyle}>
-        {props.text?.text && <Text {...props.text} />}
-        <TopicHeader
-          topic={props}
-          headerWrapperStyle={props.headerWrapperStyle}
-          headingStyle={props.headingStyle}
-          paragraphStyle={props.paragraphStyle}
-          useHeading={props.useHeading}
-        />
-        <TopicAction
-          action={props.actions[0]}
-          actionWrapperStyle={props.actionWrapperStyle}
-          actionStyle={props.actionStyle}
-        />
+        {hasText && <Text {...props.text!} />}
+        {!hasText && (
+          <Fragment>
+            <TopicHeader
+              topic={props}
+              headerWrapperStyle={props.headerWrapperStyle}
+              headingStyle={props.headingStyle}
+              paragraphStyle={props.paragraphStyle}
+              useHeading={props.useHeading}
+            />
+            <TopicAction
+              action={props.actions[0]}
+              actionWrapperStyle={props.actionWrapperStyle}
+              actionStyle={props.actionStyle}
+            />
+          </Fragment>
+        )}
       </TopicContentWrapper>
     </TopicWrapper>
   )
