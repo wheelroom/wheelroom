@@ -56,7 +56,7 @@ export const Hero = (props: HeroProps) => {
           headingStyle={{ ...heading1Style, mb: 0, color: 'caviar' }}
           useHeading="h1"
           paragraphStyle={{ ...paragraphHeroStyle, my: 3 }}
-          buttonStyle={heroActionStyle}
+          actionStyle={heroActionStyle}
         />
       </Box>
     </Fragment>

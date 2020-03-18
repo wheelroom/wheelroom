@@ -18,12 +18,12 @@ export interface TopicActionProps {
   /** Override default styling of the wrapper */
   actionWrapperStyle?: any
   /** Override default button style */
-  buttonStyle?: any
+  actionStyle?: any
 }
 
 export const TopicAction = (props: TopicActionProps) => {
   const actionWrapperStyle = props.actionWrapperStyle || {}
-  const buttonStyle = props.buttonStyle || {}
+  const actionStyle = props.actionStyle || {}
   return (
     <Box ncss={{ ...defaultWrapperStyle, ...actionWrapperStyle }}>
       <Action
@@ -32,7 +32,7 @@ export const TopicAction = (props: TopicActionProps) => {
         title={props.action.title}
         ncss={{
           ...buttonPrimaryStyle,
-          ...buttonStyle,
+          ...actionStyle,
         }}
       />
     </Box>

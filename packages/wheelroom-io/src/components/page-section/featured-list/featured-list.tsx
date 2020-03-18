@@ -26,7 +26,6 @@ export const FeaturedList = (props: FeaturedListProps) => {
       key={index}
       {...topic}
       topicWrapperStyle={{
-        display: 'flex',
         flexDirection: ['column', 'row'],
       }}
       imageWrapperStyle={{
@@ -40,9 +39,6 @@ export const FeaturedList = (props: FeaturedListProps) => {
         flexDirection: 'column',
         w: [1, 2 / 3, 3 / 4],
         p: 3,
-      }}
-      paragraphStyle={{
-        color: 'text',
       }}
       actionWrapperStyle={{
         display: 'flex',

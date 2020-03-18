@@ -38,7 +38,10 @@ interface TopicLocalProps {
   /** Override default styling of the action wrapper */
   actionWrapperStyle?: any
   /** Override default button style */
-  buttonStyle?: any
+  actionStyle?: any
+
+  /** Replace content box (header, abstract, action) with ricth text */
+  text?: any
 }
 
 export interface TopicProps extends TopicLocalProps {

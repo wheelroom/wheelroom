@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 
@@ -40,32 +40,32 @@ export const Cards = (props: CardsProps) => {
       }}
     />
   ))
-  return (
-    <Fragment>
-      <Box
-        is="div"
-        ncss={{
-          label: 'Wrapper',
-          bg: 'bg',
-          py: 8,
-        }}
-      >
-        <Container
-          ncss={{
-            alignItems: ['center', 'initial'],
-            flexDirection: ['column', 'row'],
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            label: 'Container',
-            m: 'auto',
-            maxWidth: '1280px',
-            px: [2, 5, 7],
-            w: 1,
-          }}
-        >
-          {cards}
-        </Container>
-      </Box>
-    </Fragment>
-  )
+  return <CardWrapper>{cards}</CardWrapper>
 }
+
+const CardWrapper = (props: { children: any }) => (
+  <Box
+    is="div"
+    ncss={{
+      label: 'Wrapper',
+      bg: 'bg',
+      py: 8,
+    }}
+  >
+    <Container
+      ncss={{
+        alignItems: ['center', 'initial'],
+        flexDirection: ['column', 'row'],
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        label: 'Container',
+        m: 'auto',
+        maxWidth: '1280px',
+        px: [2, 5, 7],
+        w: 1,
+      }}
+    >
+      {props.children}
+    </Container>
+  </Box>
+)

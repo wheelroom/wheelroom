@@ -3,7 +3,6 @@ import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { TextProps } from '../../text'
-import { heading2Style } from '../../../core/styles/heading'
 
 export interface FeaturedProps {
   info: PageSectionInfo
@@ -70,11 +69,7 @@ export const Featured = (props: FeaturedProps) => {
           headerWrapperStyle={{
             mx: 3,
           }}
-          headingStyle={heading2Style}
           useHeading="h2"
-          paragraphStyle={{
-            color: 'text',
-          }}
           actionWrapperStyle={{
             display: 'flex',
             mx: 3,

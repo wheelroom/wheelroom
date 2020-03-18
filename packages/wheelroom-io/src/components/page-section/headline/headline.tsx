@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { Box, Container } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
-import { heading1Style } from '../../../core/styles/heading'
 import { TextProps } from '../../text/text'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 
@@ -51,8 +50,6 @@ export const Headline = (props: HeadlineProps) => {
             <Topic
               {...props.topic}
               topicWrapperStyle={{
-                display: 'flex',
-                flexDirection: 'column',
                 flex: '1',
                 w: 1,
                 textAlign: 'center',
@@ -63,10 +60,8 @@ export const Headline = (props: HeadlineProps) => {
               contentWrapperStyle={{
                 flex: '1 1 auto',
               }}
-              headingStyle={heading1Style}
               useHeading="h1"
               paragraphStyle={{
-                color: 'text',
                 fontSize: [5, 6],
                 lineHeight: [3, 4],
               }}
@@ -74,7 +69,7 @@ export const Headline = (props: HeadlineProps) => {
                 mx: 'auto',
                 flex: '0 1 auto',
               }}
-              buttonStyle={{
+              actionStyle={{
                 mx: 2,
                 fontSize: [5, 6],
                 lineHeight: [3, 4],

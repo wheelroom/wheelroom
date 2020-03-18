@@ -32,7 +32,7 @@ export const TopicSingleVar = (props: TopicProps) => {
         <TopicAction
           action={props.actions[0]}
           actionWrapperStyle={props.actionWrapperStyle}
-          buttonStyle={props.buttonStyle}
+          actionStyle={props.actionStyle}
         />
       </TopicContentWrapper>
     </TopicWrapper>
