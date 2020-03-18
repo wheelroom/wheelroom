@@ -1,28 +1,18 @@
 import React, { Fragment } from 'react'
-import { SingleFeaturedList } from './single-featured-list'
 import { Box, Container } from '../../../core/elements/grid'
-import { TopicProps } from '../../topic'
+import { TopicProps, Topic } from '../../topic'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
-import { TextProps } from '../../text'
 
 export interface FeaturedListProps {
   info: PageSectionInfo
-  locale: string
-  text?: TextProps
   topics: TopicProps[]
 }
 
 /**
  *
- * Requires one or more topics, optional a text.
+ * Requires one or more topics.
  *
- * - One topic: the topic is displayed
- * - Two topics: the image of the first topic is displayed, the two topics ared
- *   shown next to the image
- * - Four topics: the image of the first topic is displayed, the four topics
- *   ared shown next to the image
- * - Topic and text: The image of the first topic is displayed, the text shows
- *   next to the image
+ * The topics are displayed as featured items below each other.
  *
  */
 
@@ -32,7 +22,32 @@ export const FeaturedList = (props: FeaturedListProps) => {
     return null
   }
   const featuredList = props.topics.map((topic, index) => (
-    <SingleFeaturedList key={index} topic={topic} />
+    <Topic
+      key={index}
+      {...topic}
+      topicWrapperStyle={{
+        display: 'flex',
+        flexDirection: ['column', 'row'],
+      }}
+      imageWrapperStyle={{
+        display: 'flex',
+        flexDirection: 'column',
+        w: [1 / 3, 1 / 3, 1 / 4],
+        p: 3,
+      }}
+      contentWrapperStyle={{
+        display: 'flex',
+        flexDirection: 'column',
+        w: [1, 2 / 3, 3 / 4],
+        p: 3,
+      }}
+      paragraphStyle={{
+        color: 'text',
+      }}
+      actionWrapperStyle={{
+        display: 'flex',
+      }}
+    />
   ))
   return (
     <Fragment>

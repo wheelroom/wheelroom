@@ -3,7 +3,7 @@ import { Box } from '../../core/elements/grid'
 
 /** This style needs cleaning up, onyl default values here */
 const defaultWrapperStyle = {
-  label: 'TopicContentWrapper',
+  label: 'TopicContent',
 }
 
 export interface TopicContentWrapperProps {

@@ -6,7 +6,7 @@ import { Box } from '../../core/elements/grid'
 const defaultWrapperStyle = {
   display: 'flex',
   flexDirection: 'row',
-  label: 'TopicActionWrapper',
+  label: 'TopicAction',
   mx: 3,
   mb: 3,
   flex: '0 1 auto',
