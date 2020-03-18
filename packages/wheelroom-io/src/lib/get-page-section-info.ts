@@ -9,6 +9,7 @@ export interface PageSectionInfo {
   index: number
   navigationSegmentCount: number
   path: string
+  sectionCount: number
   topicCount: number
   variation: string
 }
@@ -25,14 +26,23 @@ export const getPageSectionInfo = (
     index: pageSection.index,
     navigationSegmentCount: 0,
     path: pageSection.page.path,
+    sectionCount: pageSection.page.sections.length,
     topicCount: 0,
     variation: pageSection.variation,
   }
-  if (pageSection.actions && Array.isArray(pageSection.actions)) {
+  if (
+    pageSection.actions &&
+    Array.isArray(pageSection.actions) &&
+    pageSection.actions.length > 0
+  ) {
     info.hasAction = true
     info.actionCount = pageSection.actions.length
   }
-  if (pageSection.topics && Array.isArray(pageSection.topics)) {
+  if (
+    pageSection.topics &&
+    Array.isArray(pageSection.topics) &&
+    pageSection.topics.length > 0
+  ) {
     info.hasTopic = true
     info.topicCount = pageSection.topics.length
   }
@@ -41,7 +51,8 @@ export const getPageSectionInfo = (
   }
   if (
     pageSection.navigation &&
-    Array.isArray(pageSection.navigation.segments)
+    Array.isArray(pageSection.navigation.segments) &&
+    pageSection.navigation.segments.length > 0
   ) {
     info.hasNavigation = true
     info.navigationSegmentCount = pageSection.navigation.segments.length
