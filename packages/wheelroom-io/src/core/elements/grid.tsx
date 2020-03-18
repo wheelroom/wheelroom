@@ -14,6 +14,8 @@ export interface GridProps {
   ncss?: any
   /** Grid id attribute */
   id?: string | undefined
+  /** Grid role attribute */
+  role?: 'modal' | string | undefined
   /** Grid title attribute */
   title?: string | undefined
   /** Grid aria-label attribute */
@@ -43,10 +45,11 @@ export const Box = (props: BoxProps) => {
     css,
     id: props.id,
     hidden: props.hidden,
+    role: props.role,
     title: props.title,
     'aria-label': props.ariaLabel,
     'aria-hidden': props.ariaHidden,
-    tabIndex: props.tabIndex,
+    'tab-index': props.tabIndex,
     onClick: props.onClick,
   }
   return jsx(props.is || 'div', attrs, props.children)
@@ -73,9 +76,11 @@ export const Flex = (props: FlexProps) => {
     css,
     id: props.id,
     hidden: props.hidden,
+    role: props.role,
     title: props.title,
-    ariaLabel: props.ariaLabel,
-    tabIndex: props.tabIndex,
+    'aria-label': props.ariaLabel,
+    'aria-hidden': props.ariaHidden,
+    'tab-index': props.tabIndex,
     onClick: props.onClick,
   }
   return jsx(props.is || 'div', attrs, props.children)
@@ -102,9 +107,11 @@ export const Container = (props: ContainerProps) => {
     css,
     id: props.id,
     hidden: props.hidden,
+    role: props.role,
     title: props.title,
-    ariaLabel: props.ariaLabel,
-    tabIndex: props.tabIndex,
+    'aria-label': props.ariaLabel,
+    'aria-hidden': props.ariaHidden,
+    'tab-index': props.tabIndex,
     onClick: props.onClick,
   }
   return jsx(props.is || 'div', attrs, props.children)
