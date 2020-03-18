@@ -23,11 +23,12 @@ export const Cards = (props: CardsProps) => {
       }}
       topicWrapperStyle={{
         bg: 'bg',
-        boxShadow: '0 0 16px',
-        color: 'cardsShadow',
         border: '1px solid',
         borderColor: 'cardsBorder',
         borderRadius: 3,
+        boxShadow: '0 0 16px',
+        color: 'cardsShadow',
+        flex: '1',
         maxWidth: '280px',
         minWidth: '280px',
         m: 2,
@@ -51,15 +52,15 @@ export const Cards = (props: CardsProps) => {
       >
         <Container
           ncss={{
-            label: 'Container',
-            maxWidth: '1280px',
-            m: 'auto',
+            alignItems: ['center', 'initial'],
+            flexDirection: ['column', 'row'],
+            flexWrap: 'wrap',
             justifyContent: 'center',
+            label: 'Container',
+            m: 'auto',
+            maxWidth: '1280px',
             px: [2, 5, 7],
             w: 1,
-            flexDirection: ['column', 'row'],
-            alignItems: ['center', 'initial'],
-            flexWrap: 'wrap',
           }}
         >
           {cards}

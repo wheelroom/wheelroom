@@ -1,11 +1,3 @@
-/**
- * Component variation
- *
- * Component type: topic
- * Variation: Single
- *
- */
-
 import React from 'react'
 import { Image, ImageProps } from '../../core/elements/image'
 import { Box } from '../../core/elements/grid'

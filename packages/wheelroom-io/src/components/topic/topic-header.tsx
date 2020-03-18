@@ -1,11 +1,3 @@
-/**
- * Component variation
- *
- * Component type: topic
- * Variation: Single
- *
- */
-
 import React from 'react'
 import { TopicProps } from './topic'
 import { Box } from '../../core/elements/grid'

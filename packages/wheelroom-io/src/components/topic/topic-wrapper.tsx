@@ -1,11 +1,3 @@
-/**
- * Component variation
- *
- * Component type: topic
- * Variation: Single
- *
- */
-
 import React from 'react'
 import { Box } from '../../core/elements/grid'
 
@@ -13,9 +5,6 @@ const defaultWrapperStyle = {
   label: 'TopicWrapper',
   display: 'flex',
   flexDirection: 'column',
-  flex: '1',
-  maxWidth: '500px',
-  minWidth: '500px',
 }
 
 export interface TopicWrapperProps {
