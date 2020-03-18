@@ -26,7 +26,6 @@ export const SvgMoreVertical = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={12} cy={12} r={1} />
       <circle cx={12} cy={5} r={1} />

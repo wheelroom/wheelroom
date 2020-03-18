@@ -26,7 +26,6 @@ export const SvgLayout = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <rect x={3} y={3} width={18} height={18} rx={2} ry={2} />
       <path d="M3 9h18M9 21V9" />

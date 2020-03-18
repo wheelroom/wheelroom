@@ -8,13 +8,7 @@ export const SvgStack = (props: SVGProps<SVGSVGElement>) => {
   const primary = colorMap.primary
   const secondary = colorMap.secondary
   return (
-    <svg
-      viewBox="0 0 931 1265"
-      fill="none"
-      width="100%"
-      id={componentId}
-      {...props}
-    >
+    <svg viewBox="0 0 931 1265" fill="none" width="100%" id={componentId}>
       <path
         d="M239.869 1238.08H46.291C20.725 1238.08 0 1217.36 0 1191.79V1023.4a46.288 46.288 0 0114.472-33.621l14.955-14.152a46.29 46.29 0 0014.472-33.622v-42.837h201.613v43.884a46.288 46.288 0 0013.203 32.373l14.241 14.556a46.282 46.282 0 0113.203 32.369v169.44c0 25.57-20.725 46.29-46.29 46.29z"
         fill="#00B4DB"

@@ -26,7 +26,6 @@ export const SvgHash = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18" />
     </svg>

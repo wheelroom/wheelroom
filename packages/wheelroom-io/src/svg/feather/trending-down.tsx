@@ -26,7 +26,6 @@ export const SvgTrendingDown = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M23 18l-9.5-9.5-5 5L1 6" />
       <path d="M17 18h6v-6" />

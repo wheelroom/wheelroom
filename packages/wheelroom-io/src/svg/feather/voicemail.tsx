@@ -26,7 +26,6 @@ export const SvgVoicemail = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={5.5} cy={11.5} r={4.5} />
       <circle cx={18.5} cy={11.5} r={4.5} />

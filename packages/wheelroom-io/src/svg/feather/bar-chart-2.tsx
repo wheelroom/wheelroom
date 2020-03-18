@@ -26,7 +26,6 @@ export const SvgBarChart2 = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M18 20V10M12 20V4M6 20v-6" />
     </svg>

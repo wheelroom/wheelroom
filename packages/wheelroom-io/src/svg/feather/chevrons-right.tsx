@@ -26,7 +26,6 @@ export const SvgChevronsRight = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M13 17l5-5-5-5M6 17l5-5-5-5" />
     </svg>

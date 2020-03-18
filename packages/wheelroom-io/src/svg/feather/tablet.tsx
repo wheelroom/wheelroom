@@ -26,7 +26,6 @@ export const SvgTablet = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <rect x={4} y={2} width={16} height={20} rx={2} ry={2} />
       <path d="M12 18h.01" />

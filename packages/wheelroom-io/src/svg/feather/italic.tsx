@@ -26,7 +26,6 @@ export const SvgItalic = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M19 4h-9M14 20H5M15 4L9 20" />
     </svg>

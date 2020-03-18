@@ -26,7 +26,6 @@ export const SvgAlignJustify = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M21 10H3M21 6H3M21 14H3M21 18H3" />
     </svg>

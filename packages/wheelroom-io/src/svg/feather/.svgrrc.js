@@ -1,6 +1,7 @@
 path = require('path')
 svgrCliUtil = require('@svgr/cli/lib/util')
 module.exports = {
+  expandProps: false,
   svgProps: {
     css: '{css}',
     id: '{componentId}',

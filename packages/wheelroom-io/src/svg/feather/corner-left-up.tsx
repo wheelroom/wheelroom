@@ -26,7 +26,6 @@ export const SvgCornerLeftUp = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M14 9L9 4 4 9" />
       <path d="M20 20h-7a4 4 0 01-4-4V4" />

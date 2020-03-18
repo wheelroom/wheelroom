@@ -26,7 +26,6 @@ export const SvgMinusCircle = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={12} cy={12} r={10} />
       <path d="M8 12h8" />

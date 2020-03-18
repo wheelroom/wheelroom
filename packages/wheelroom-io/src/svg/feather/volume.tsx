@@ -26,7 +26,6 @@ export const SvgVolume = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M11 5L6 9H2v6h4l5 4V5z" />
     </svg>

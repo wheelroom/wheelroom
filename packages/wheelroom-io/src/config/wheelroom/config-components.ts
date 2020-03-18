@@ -398,6 +398,7 @@ export const configComponents: WheelroomComponents = {
           'headline',
           'hero',
           'images',
+          'navigation',
         ],
         type: 'dropdown',
       } as DropdownField,

@@ -26,7 +26,6 @@ export const SvgArrowLeftCircle = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={12} cy={12} r={10} />
       <path d="M12 8l-4 4 4 4M16 12H8" />

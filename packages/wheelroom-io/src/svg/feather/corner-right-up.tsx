@@ -26,7 +26,6 @@ export const SvgCornerRightUp = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M10 9l5-5 5 5" />
       <path d="M4 20h7a4 4 0 004-4V4" />

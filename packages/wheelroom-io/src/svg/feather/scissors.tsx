@@ -26,7 +26,6 @@ export const SvgScissors = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={6} cy={6} r={3} />
       <circle cx={6} cy={18} r={3} />

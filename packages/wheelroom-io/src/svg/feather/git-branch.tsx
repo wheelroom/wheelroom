@@ -26,7 +26,6 @@ export const SvgGitBranch = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M6 3v12" />
       <circle cx={18} cy={6} r={3} />

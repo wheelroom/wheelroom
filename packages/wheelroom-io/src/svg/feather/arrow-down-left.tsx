@@ -26,7 +26,6 @@ export const SvgArrowDownLeft = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M17 7L7 17M17 17H7V7" />
     </svg>

@@ -26,7 +26,6 @@ export const SvgFastForward = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M13 19l9-7-9-7v14zM2 19l9-7-9-7v14z" />
     </svg>

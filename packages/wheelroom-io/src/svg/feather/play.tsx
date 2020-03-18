@@ -26,7 +26,6 @@ export const SvgPlay = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M5 3l14 9-14 9V3z" />
     </svg>

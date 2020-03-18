@@ -26,7 +26,6 @@ export const SvgGitCommit = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={12} cy={12} r={4} />
       <path d="M1.05 12H7M17.01 12h5.95" />

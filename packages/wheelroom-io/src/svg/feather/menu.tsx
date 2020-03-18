@@ -26,7 +26,6 @@ export const SvgMenu = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M3 12h18M3 6h18M3 18h18" />
     </svg>

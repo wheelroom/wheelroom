@@ -26,7 +26,6 @@ export const SvgShoppingCart = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={9} cy={21} r={1} />
       <circle cx={20} cy={21} r={1} />

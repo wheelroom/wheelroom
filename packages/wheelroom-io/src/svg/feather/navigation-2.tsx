@@ -26,7 +26,6 @@ export const SvgNavigation2 = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M12 2l7 19-7-4-7 4 7-19z" />
     </svg>

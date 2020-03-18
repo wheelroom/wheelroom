@@ -26,7 +26,6 @@ export const SvgSkipBack = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M19 20L9 12l10-8v16zM5 19V5" />
     </svg>

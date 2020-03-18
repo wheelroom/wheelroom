@@ -26,7 +26,6 @@ export const SvgMusic = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M9 18V5l12-2v13" />
       <circle cx={6} cy={18} r={3} />

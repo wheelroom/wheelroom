@@ -26,7 +26,6 @@ export const SvgMinus = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M5 12h14" />
     </svg>

@@ -26,7 +26,6 @@ export const SvgPlusCircle = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={12} cy={12} r={10} />
       <path d="M12 8v8M8 12h8" />

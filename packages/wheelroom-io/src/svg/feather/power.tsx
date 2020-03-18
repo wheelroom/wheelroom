@@ -26,7 +26,6 @@ export const SvgPower = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M18.36 6.64a9 9 0 11-12.73 0M12 2v10" />
     </svg>

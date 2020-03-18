@@ -5,19 +5,20 @@
  *
  */
 
-import React from 'react'
+import { ActionProps } from '../action/action'
 import { getVariation } from '../../lib/get-variation'
-import { SectionProps } from '../../sections/section-props'
+import { NavigationProps } from '../navigation/navigation'
 import { PageSectionCardsVar } from './page-section-cards-var'
 import { PageSectionFeaturedListVar } from './page-section-featured-list-var'
 import { PageSectionFeaturedVar } from './page-section-featured-var'
 import { PageSectionHeadlineVar } from './page-section-headline-var'
 import { PageSectionHeroVar } from './page-section-hero-var'
 import { PageSectionImagesVar } from './page-section-images-var'
-import { ActionProps } from '../action/action'
-import { NavigationProps } from '../navigation/navigation'
+import { PageSectionNavigationVar } from './page-section-navigation-var'
+import { SectionProps } from '../../sections/section-props'
 import { TextProps } from '../text/text'
 import { TopicProps } from '../topic/topic'
+import React from 'react'
 
 const componentList = {
   ['cards']: PageSectionCardsVar,
@@ -26,6 +27,7 @@ const componentList = {
   ['headline']: PageSectionHeadlineVar,
   ['hero']: PageSectionHeroVar,
   ['images']: PageSectionImagesVar,
+  ['navigation']: PageSectionNavigationVar,
 }
 
 export interface PageSectionProps extends SectionProps {

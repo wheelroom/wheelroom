@@ -26,7 +26,6 @@ export const SvgTerminal = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M4 17l6-6-6-6M12 19h8" />
     </svg>

@@ -26,7 +26,6 @@ export const SvgArchive = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4" />
     </svg>

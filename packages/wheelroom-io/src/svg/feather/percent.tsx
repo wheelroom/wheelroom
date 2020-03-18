@@ -26,7 +26,6 @@ export const SvgPercent = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M19 5L5 19" />
       <circle cx={6.5} cy={6.5} r={2.5} />

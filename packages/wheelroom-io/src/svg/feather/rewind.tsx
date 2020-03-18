@@ -26,7 +26,6 @@ export const SvgRewind = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M11 19l-9-7 9-7v14zM22 19l-9-7 9-7v14z" />
     </svg>

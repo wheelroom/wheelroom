@@ -26,7 +26,6 @@ export const SvgZoomIn = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={11} cy={11} r={8} />
       <path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />

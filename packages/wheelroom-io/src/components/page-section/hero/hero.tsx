@@ -5,10 +5,8 @@ import { Box, Container } from '../../../core/elements/grid'
 import { H1 } from '../../../core/elements/heading'
 import { Paragraph } from '../../../core/elements/paragraph'
 import { Image } from '../../../core/elements/image'
-import { Navigation } from '../../navigation'
 import { TopicProps } from '../../topic'
-import { ActionProps, Action } from '../../action'
-import { NavigationSegmentProps } from '../../navigation-segment'
+import { Action } from '../../action'
 import { IconMap } from '../../../svg/feather/iconMap'
 import { buttonPrimaryStyle } from '../../../core/styles/button'
 
@@ -24,8 +22,6 @@ const heroActionStyle = {
 
 export interface HeroProps {
   topic: TopicProps
-  action: ActionProps
-  segments: NavigationSegmentProps[]
 }
 
 export const Hero = (props: HeroProps) => {
@@ -34,7 +30,6 @@ export const Hero = (props: HeroProps) => {
     Array.isArray(props.topic.actions) && props.topic.actions.length > 0
   return (
     <Fragment>
-      <Navigation segments={props.segments} action={props.action} />
       <Box
         is="div"
         ncss={{

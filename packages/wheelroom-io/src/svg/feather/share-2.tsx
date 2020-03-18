@@ -26,7 +26,6 @@ export const SvgShare2 = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={18} cy={5} r={3} />
       <circle cx={6} cy={12} r={3} />

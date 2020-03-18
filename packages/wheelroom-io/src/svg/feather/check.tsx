@@ -26,7 +26,6 @@ export const SvgCheck = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M20 6L9 17l-5-5" />
     </svg>

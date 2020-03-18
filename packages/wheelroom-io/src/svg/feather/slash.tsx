@@ -26,7 +26,6 @@ export const SvgSlash = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={12} cy={12} r={10} />
       <path d="M4.93 4.93l14.14 14.14" />

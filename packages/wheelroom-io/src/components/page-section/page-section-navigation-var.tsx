@@ -2,20 +2,27 @@
  * Component variation
  *
  * Component type: pageSection
- * Variation: Hero
+ * Variation: Navigation
  *
  */
 
 import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../lib/not-implemented'
+import { Navigation } from '../navigation/navigation'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { Hero } from './hero/hero'
 
-export const PageSectionHeroVar = (props: PageSectionProps) => {
+export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
-  if (info.index === 1 && info.hasTopic) {
-    return <Hero topic={props.topics[0]} />
+  if (
+    !info.hasText &&
+    !info.hasTopic &&
+    info.hasAction &&
+    info.hasNavigation &&
+    info.navigationSegmentCount > 0
+  ) {
+    const segments = props.navigation.segments
+    return <Navigation segments={segments} action={props.actions[0]} />
   }
 
   /**

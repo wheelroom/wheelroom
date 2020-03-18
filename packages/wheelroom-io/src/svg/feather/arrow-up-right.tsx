@@ -26,7 +26,6 @@ export const SvgArrowUpRight = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M7 17L17 7M7 7h10v10" />
     </svg>

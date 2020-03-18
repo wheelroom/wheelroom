@@ -26,7 +26,6 @@ export const SvgStopCircle = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={12} cy={12} r={10} />
       <path d="M9 9h6v6H9z" />

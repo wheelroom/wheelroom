@@ -10,7 +10,10 @@ const getLandmark = (
   sectionCount: number
 ): string => {
   const info = getPageSectionInfo(pageProps)
-  if (info.index === 0 && (info.variation === 'hero' || info.hasNavigation)) {
+  if (
+    info.index <= 1 &&
+    (info.variation === 'hero' || info.variation === 'navigation')
+  ) {
     return 'header'
   }
   if (info.index === sectionCount - 1 && info.hasNavigation) {

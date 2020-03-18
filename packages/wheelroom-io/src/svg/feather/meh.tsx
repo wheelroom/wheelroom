@@ -26,7 +26,6 @@ export const SvgMeh = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <circle cx={12} cy={12} r={10} />
       <path d="M8 15h8M9 9h.01M15 9h.01" />

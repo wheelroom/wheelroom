@@ -26,7 +26,6 @@ export const SvgUnderline = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M6 3v7a6 6 0 006 6 6 6 0 006-6V3M4 21h16" />
     </svg>

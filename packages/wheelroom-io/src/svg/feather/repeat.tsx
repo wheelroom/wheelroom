@@ -26,7 +26,6 @@ export const SvgRepeat = (props: IconProps) => {
       css={css}
       id={componentId}
       width="100%"
-      {...props}
     >
       <path d="M17 1l4 4-4 4" />
       <path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4" />
