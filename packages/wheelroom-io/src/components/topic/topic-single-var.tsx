@@ -16,7 +16,10 @@ import { TopicAction } from './topic-action'
 export const TopicSingleVar = (props: TopicProps) => {
   return (
     <TopicWrapper topicWrapperStyle={props.topicWrapperStyle}>
-      <TopicImage image={props.image} {...props.imageProps} />
+      <TopicImage
+        imageProps={{ image: props.image }}
+        imageWrapperStyle={props.imageWrapperStyle}
+      />
       <TopicHeader
         topic={props}
         headerWrapperStyle={props.headerWrapperStyle}
