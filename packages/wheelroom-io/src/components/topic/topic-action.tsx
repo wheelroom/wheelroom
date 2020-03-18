@@ -6,7 +6,7 @@ import { buttonPrimaryStyle } from '../../core/styles/button'
 const defaultWrapperStyle = {
   display: 'flex',
   flexDirection: 'row',
-  label: 'Cta',
+  label: 'TopicActionWrapper',
   mx: 3,
   mb: 3,
   flex: '0 1 auto',

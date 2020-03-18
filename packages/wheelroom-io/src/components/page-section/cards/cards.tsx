@@ -14,7 +14,14 @@ export interface CardsProps {
 
 export const Cards = (props: CardsProps) => {
   const cards = props.topics.map((topic, index) => (
-    <Topic key={index} {...topic} />
+    <Topic
+      key={index}
+      {...topic}
+      imageProps={{
+        height: '184px',
+        margin: '16px',
+      }}
+    />
   ))
   return (
     <Fragment>

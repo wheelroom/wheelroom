@@ -14,7 +14,7 @@ import { heading3Style } from '../../core/styles/heading'
 import { Paragraph } from '../../core/elements/paragraph'
 
 const defaultWrapperStyle = {
-  label: 'Copy',
+  label: 'TopicHeaderWrapper',
   flex: '1 1 auto',
   mx: 3,
 }

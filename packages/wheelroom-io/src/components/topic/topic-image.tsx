@@ -10,12 +10,12 @@ import React from 'react'
 import { Image, ImageProps } from '../../core/elements/image'
 import { Any } from '../../core/elements/any'
 
-const defaultWrapperStyle = {}
+const defaultWrapperStyle = {
+  label: 'TopicImageWrapper',
+}
 
 const defaultImageProps = {
   objectFit: 'cover',
-  height: '184px',
-  margin: '16px',
 }
 
 export interface TopicImageProps {

@@ -18,7 +18,7 @@ export const TopicSingleVar = (props: TopicProps) => {
   return (
     <TopicWrapper topicWrapperStyle={props.topicWrapperStyle}>
       <TopicImage
-        imageProps={{ image: props.image }}
+        imageProps={{ ...props.imageProps, image: props.image }}
         imageWrapperStyle={props.imageWrapperStyle}
       />
       <TopicContentWrapper contentWrapperStyle={props.contentWrapperStyle}>

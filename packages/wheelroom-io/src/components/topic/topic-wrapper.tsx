@@ -11,7 +11,7 @@ import { Box } from '../../core/elements/grid'
 
 /** This style needs cleaning up, onyl default values here */
 const defaultWrapperStyle = {
-  label: 'Card',
+  label: 'TopicWrapper',
   display: 'flex',
   flexDirection: 'column',
   flex: '1',
