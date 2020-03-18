@@ -18,6 +18,8 @@ export const lightTheme: StyledSystemTheme = {
     border: colors.silver,
     cardsBorder: colors.silver,
     cardsShadow: colors.silver,
+    modalBorder: colors.bullet,
+    modalShadow: colors.bullet,
 
     // Svg colors
     jarPrimary: svgColors.deepSea,

@@ -32,8 +32,10 @@ import {
   logoLinkStyle,
   navStyle,
   listStyle,
+  listMobileStyle,
   menuStyle,
-  mobileMenuStyle,
+  modalStyle,
+  modalContentStyle,
 } from './navigation-styles'
 
 interface NavigationHeaderProps extends NavigationProps {
@@ -59,8 +61,12 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
   function reducer(state: any, action: any) {
     switch (action.type) {
       case 'show':
+        document.body.classList.add('modal-open')
+        document.body.style.overflow = 'hidden'
         return { visible: true }
       case 'hide':
+        document.body.classList.remove('modal-open')
+        document.body.style.overflow = ''
         return { visible: false }
       default:
         throw new Error()
@@ -92,8 +98,8 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
             <List is="ul" ncss={listStyle}>
               <NavLinks pages={navSegment.pages} />
             </List>
-            <Flex>
-              <Action {...props.action} />
+            <Flex is="div" ncss={{ label: 'NavSettings' }}>
+              <Action ncss={{ ...buttonPrimaryStyle }} {...props.action} />
               <Button
                 type="button"
                 title={`Current theme is ` + activeThemeId}
@@ -114,14 +120,15 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
           <Flex
             is="div"
             ncss={{
+              label: 'ToggleMenu',
               ...menuStyle,
             }}
           >
             <Button
               ariaExpanded={state.visible === true}
               ariaPressed={state.visible === true}
-              ariaControls="MobileNavigation"
-              ariaLabel="Toggle Menu"
+              ariaControls="header-navigation"
+              ariaLabel="Open header navigation"
               value=""
               role="button"
               ncss={{
@@ -135,34 +142,63 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
         </Container>
       </Box>
       <Box
-        is="nav"
+        is="div"
+        role="dialog"
+        tabIndex={-1}
         ncss={{
-          label: 'MobileOnly',
-          display: state.visible === true ? 'block' : 'none',
+          label: 'Modal',
+          ...modalStyle,
+          visibility: state.visible === true ? 'visible' : 'hidden',
         }}
         hidden={true}
       >
-        <Box
+        <Flex
           is="section"
-          id="MobileNavigation"
-          ncss={{ label: 'Modal', ...mobileMenuStyle }}
-          ariaLabel="Main menu"
+          role="document"
+          id="header-navigation"
+          ncss={{ label: 'ModalContent', ...modalContentStyle }}
+          ariaLabel="Header navigation"
         >
           <Button
-            ariaLabel="Close menu"
+            ariaLabel="Close header navigation"
             value=""
             role="button"
             onClick={() => dispatch({ type: 'hide' })}
-            ncss={{ ...buttonSecondaryStyle }}
+            ncss={{
+              ...buttonPrimaryStyle,
+              mt: 3,
+              mr: 3,
+              p: 1,
+              w: '36px',
+              h: '36px',
+            }}
           >
             <Box ariaHidden={true}>
               <Icon />
             </Box>
           </Button>
-          <List is="ul" ncss={{ label: 'NavList' }}>
+          <List is="ul" ncss={{ label: 'NavList', ...listMobileStyle }}>
             <NavLinks pages={navSegment.pages} />
           </List>
-        </Box>
+          <Flex is="div" ncss={{ label: 'NavSettings', w: 1, p: 3 }}>
+            <Action ncss={{ ...buttonPrimaryStyle, w: 1 }} {...props.action} />
+            <Button
+              type="button"
+              title={`Current theme is ` + activeThemeId}
+              ariaLabel={`Current theme is ` + activeThemeId}
+              ncss={{
+                ...buttonSecondaryStyle,
+                ml: 2,
+                w: 1,
+                textTransform: 'capitalize',
+              }}
+              value=""
+              onClick={() => toggleTheme()}
+            >
+              {activeThemeId}
+            </Button>
+          </Flex>
+        </Flex>
       </Box>
     </Fragment>
   )
