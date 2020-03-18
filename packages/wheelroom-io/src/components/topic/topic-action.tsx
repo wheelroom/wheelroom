@@ -1,11 +1,3 @@
-/**
- * Component variation
- *
- * Component type: topic
- * Variation: Single
- *
- */
-
 import React from 'react'
 import { Action, ActionProps } from '../action'
 import { Any } from '../../core/elements/any'
