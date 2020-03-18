@@ -67,13 +67,13 @@ export const logoLinkStyle = {
 
 export const navStyle = {
   label: 'Nav',
-  display: 'flex',
+  display: ['none', 'flex', 'flex'],
   flex: '1',
   alignItems: 'center',
 }
 
 export const listStyle = {
-  label: 'NavItems',
+  label: 'NavList',
   display: 'flex',
   flex: '1',
   flexDirection: 'row',
@@ -82,4 +82,17 @@ export const listStyle = {
   mb: 0,
   mt: 0,
   pl: 0,
+}
+
+export const menuStyle = {
+  display: ['block', 'none', 'none'],
+}
+
+export const mobileMenuStyle = {
+  position: 'fixed',
+  bg: 'bg',
+  top: 0,
+  bottom: 0,
+  w: 1,
+  height: 100,
 }

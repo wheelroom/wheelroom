@@ -6,14 +6,19 @@
  *
  */
 
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useReducer } from 'react'
 import { Action, ActionProps } from '../action/action'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { ALink } from '../../core/elements/a-link'
 import { Box, Container, Flex } from '../../core/elements/grid'
 import { Button } from '../../core/elements/button'
-import { buttonSecondaryStyle } from '../../core/styles/button'
+import {
+  buttonPrimaryStyle,
+  buttonSecondaryStyle,
+} from '../../core/styles/button'
 import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
+import { IconMap } from '../../svg/feather/iconMap'
+const Icon = IconMap.x
 import { GLink } from '../../core/elements/g-link'
 import { List } from '../../core/elements/list'
 import { NavigationProps } from './navigation'
@@ -27,6 +32,8 @@ import {
   logoLinkStyle,
   navStyle,
   listStyle,
+  menuStyle,
+  mobileMenuStyle,
 } from './navigation-styles'
 
 interface NavigationHeaderProps extends NavigationProps {
@@ -46,6 +53,22 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
   }
+
+  const initMenu = { visible: false }
+
+  function reducer(state: any, action: any) {
+    switch (action.type) {
+      case 'show':
+        return { visible: true }
+      case 'hide':
+        return { visible: false }
+      default:
+        throw new Error()
+    }
+  }
+
+  const [state, dispatch] = useReducer(reducer, initMenu)
+
   return (
     <Fragment>
       <ALink href="#content" ncss={skipToContent}>
@@ -88,7 +111,58 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               </Button>
             </Flex>
           </Flex>
+          <Flex
+            is="div"
+            ncss={{
+              ...menuStyle,
+            }}
+          >
+            <Button
+              ariaExpanded={state.visible === true}
+              ariaPressed={state.visible === true}
+              ariaControls="MobileNavigation"
+              ariaLabel="Toggle Menu"
+              value=""
+              role="button"
+              ncss={{
+                ...buttonPrimaryStyle,
+              }}
+              onClick={() => dispatch({ type: 'show' })}
+            >
+              Menu
+            </Button>
+          </Flex>
         </Container>
+      </Box>
+      <Box
+        is="nav"
+        ncss={{
+          label: 'MobileOnly',
+          display: state.visible === true ? 'block' : 'none',
+        }}
+        hidden={true}
+      >
+        <Box
+          is="section"
+          id="MobileNavigation"
+          ncss={{ label: 'Modal', ...mobileMenuStyle }}
+          ariaLabel="Main menu"
+        >
+          <Button
+            ariaLabel="Close menu"
+            value=""
+            role="button"
+            onClick={() => dispatch({ type: 'hide' })}
+            ncss={{ ...buttonSecondaryStyle }}
+          >
+            <Box ariaHidden={true}>
+              <Icon />
+            </Box>
+          </Button>
+          <List is="ul" ncss={{ label: 'NavList' }}>
+            <NavLinks pages={navSegment.pages} />
+          </List>
+        </Box>
       </Box>
     </Fragment>
   )

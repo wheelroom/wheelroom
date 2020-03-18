@@ -12,10 +12,14 @@ export interface GridProps {
   children?: any
   /** Nested emotion css styling */
   ncss?: any
+  /** Grid id attribute */
+  id?: string | undefined
   /** Grid title attribute */
   title?: string | undefined
   /** Grid aria-label attribute */
   ariaLabel?: string | undefined
+  /** Grid aria-hidden attribute */
+  ariaHidden?: boolean | undefined
   /** Grid hidden attribute */
   hidden?: boolean | undefined
   /** Grid tabIndex attribute */
@@ -37,9 +41,11 @@ export const Box = (props: BoxProps) => {
   )
   const attrs = {
     css,
+    id: props.id,
     hidden: props.hidden,
     title: props.title,
-    ariaLabel: props.ariaLabel,
+    'aria-label': props.ariaLabel,
+    'aria-hidden': props.ariaHidden,
     tabIndex: props.tabIndex,
     onClick: props.onClick,
   }
@@ -65,6 +71,7 @@ export const Flex = (props: FlexProps) => {
   )
   const attrs = {
     css,
+    id: props.id,
     hidden: props.hidden,
     title: props.title,
     ariaLabel: props.ariaLabel,
@@ -93,6 +100,7 @@ export const Container = (props: ContainerProps) => {
   )
   const attrs = {
     css,
+    id: props.id,
     hidden: props.hidden,
     title: props.title,
     ariaLabel: props.ariaLabel,
