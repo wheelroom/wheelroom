@@ -1,7 +1,7 @@
 import React from 'react'
 import { Action, ActionProps } from '../action'
-import { Any } from '../../core/elements/any'
 import { buttonPrimaryStyle } from '../../core/styles/button'
+import { Box } from '../../core/elements/grid'
 
 const defaultWrapperStyle = {
   display: 'flex',
@@ -25,7 +25,7 @@ export const TopicAction = (props: TopicActionProps) => {
   const actionWrapperStyle = props.actionWrapperStyle || {}
   const buttonStyle = props.buttonStyle || {}
   return (
-    <Any is="div" ncss={{ ...defaultWrapperStyle, ...actionWrapperStyle }}>
+    <Box ncss={{ ...defaultWrapperStyle, ...actionWrapperStyle }}>
       <Action
         url={props.action.url}
         heading={props.action.heading}
@@ -35,6 +35,6 @@ export const TopicAction = (props: TopicActionProps) => {
           ...buttonStyle,
         }}
       />
-    </Any>
+    </Box>
   )
 }

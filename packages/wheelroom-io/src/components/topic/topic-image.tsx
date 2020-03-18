@@ -8,7 +8,7 @@
 
 import React from 'react'
 import { Image, ImageProps } from '../../core/elements/image'
-import { Any } from '../../core/elements/any'
+import { Box } from '../../core/elements/grid'
 
 const defaultWrapperStyle = {
   label: 'TopicImageWrapper',
@@ -28,8 +28,8 @@ export interface TopicImageProps {
 export const TopicImage = (props: TopicImageProps) => {
   const imageWrapperStyle = props.imageWrapperStyle || {}
   return (
-    <Any is="div" ncss={{ ...defaultWrapperStyle, ...imageWrapperStyle }}>
+    <Box ncss={{ ...defaultWrapperStyle, ...imageWrapperStyle }}>
       <Image {...defaultImageProps} {...props.imageProps} />
-    </Any>
+    </Box>
   )
 }

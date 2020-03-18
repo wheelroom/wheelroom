@@ -15,7 +15,7 @@ export interface TopicContentWrapperProps {
 export const TopicContentWrapper = (props: TopicContentWrapperProps) => {
   const contentWrapperStyle = props.contentWrapperStyle || {}
   return (
-    <Box is="div" ncss={{ ...defaultWrapperStyle, ...contentWrapperStyle }}>
+    <Box ncss={{ ...defaultWrapperStyle, ...contentWrapperStyle }}>
       {props.children}
     </Box>
   )

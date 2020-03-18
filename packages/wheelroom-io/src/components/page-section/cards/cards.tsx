@@ -21,6 +21,22 @@ export const Cards = (props: CardsProps) => {
         height: '184px',
         margin: '16px',
       }}
+      topicWrapperStyle={{
+        bg: 'bg',
+        boxShadow: '0 0 16px',
+        color: 'cardsShadow',
+        border: '1px solid',
+        borderColor: 'cardsBorder',
+        borderRadius: 3,
+        maxWidth: '280px',
+        minWidth: '280px',
+        m: 2,
+        transition: 'transform .25s ease',
+        ':hover': {
+          cursor: 'pointer',
+          transform: 'scale(1.05)',
+        },
+      }}
     />
   ))
   return (
