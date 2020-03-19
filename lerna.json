@@ -12,7 +12,7 @@
       "message": "chore(release): release"
     },
     "bootstrap": {
-      "hoist": true,
+      "hoist": false,
       "nohoist": "gatsby"
     },
     "ignoreChanges": ["**/ixtures/**", "**/tests/**", "**/*.md"]
