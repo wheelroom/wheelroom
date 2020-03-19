@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Box, Container } from '../../../core/elements/grid'
+import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicOption } from '../page-section'
@@ -58,10 +58,8 @@ export const FeaturedList = (props: FeaturedListProps) => {
           py: 8,
         }}
       >
-        <Container
+        <ContainerMaxWidth
           ncss={{
-            label: 'Container',
-            maxWidth: '1280px',
             m: 'auto',
             justifyContent: 'center',
             px: [2, 5, 7],
@@ -71,7 +69,7 @@ export const FeaturedList = (props: FeaturedListProps) => {
           }}
         >
           {featuredList}
-        </Container>
+        </ContainerMaxWidth>
       </Box>
     </Fragment>
   )

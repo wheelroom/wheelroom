@@ -7,7 +7,23 @@ import {
   commonFlexStyle,
   commonContainerStyle,
   commonBoxStyle,
+  commonContainerMaxWidthStyle,
 } from '../styles/grid'
+
+const getAttrs = (props: GridProps) => {
+  const attrs = {
+    id: props.id,
+    hidden: props.hidden,
+    role: props.role,
+    title: props.title,
+    'aria-modal': props.ariaModal,
+    'aria-label': props.ariaLabel,
+    'aria-hidden': props.ariaHidden,
+    'tab-index': props.tabIndex,
+    onClick: props.onClick,
+  }
+  return attrs
+}
 
 export interface GridProps {
   /** Render as another HTML element */
@@ -32,44 +48,28 @@ export interface GridProps {
   hidden?: boolean | undefined
   /** Grid tabIndex attribute */
   tabIndex?: number | undefined
-}
-
-export interface BoxProps extends GridProps {
+  /** On click handler */
   onClick?: () => any
 }
 
-export const Box = (props: BoxProps) => {
+export const Box = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `Box-${props.is || 'div'}`
-  const css = systemCss(
+  const attrs: any = getAttrs(props)
+  attrs.css = systemCss(
     {
       ncss: { label, ...commonBoxStyle, ...props.ncss },
     },
     currentThemeId
   )
-  const attrs = {
-    css,
-    id: props.id,
-    hidden: props.hidden,
-    role: props.role,
-    title: props.title,
-    'aria-modal': props.ariaModal,
-    'aria-label': props.ariaLabel,
-    'aria-hidden': props.ariaHidden,
-    'tab-index': props.tabIndex,
-    onClick: props.onClick,
-  }
   return jsx(props.is || 'div', attrs, props.children)
 }
 
-export interface FlexProps extends GridProps {
-  onClick?: () => any
-}
-
-export const Flex = (props: FlexProps) => {
+export const Flex = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `Flex-${props.is || 'div'}`
-  const css = systemCss(
+  const attrs: any = getAttrs(props)
+  attrs.css = systemCss(
     {
       ncss: {
         label,
@@ -79,29 +79,14 @@ export const Flex = (props: FlexProps) => {
     },
     currentThemeId
   )
-  const attrs = {
-    css,
-    id: props.id,
-    hidden: props.hidden,
-    role: props.role,
-    title: props.title,
-    'aria-modal': props.ariaModal,
-    'aria-label': props.ariaLabel,
-    'aria-hidden': props.ariaHidden,
-    'tab-index': props.tabIndex,
-    onClick: props.onClick,
-  }
   return jsx(props.is || 'div', attrs, props.children)
 }
 
-export interface ContainerProps extends GridProps {
-  onClick?: () => any
-}
-
-export const Container = (props: ContainerProps) => {
+export const Container = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `Container-${props.is || 'div'}`
-  const css = systemCss(
+  const attrs: any = getAttrs(props)
+  attrs.css = systemCss(
     {
       ncss: {
         label,
@@ -111,17 +96,22 @@ export const Container = (props: ContainerProps) => {
     },
     currentThemeId
   )
-  const attrs = {
-    css,
-    id: props.id,
-    hidden: props.hidden,
-    role: props.role,
-    title: props.title,
-    'aria-modal': props.ariaModal,
-    'aria-label': props.ariaLabel,
-    'aria-hidden': props.ariaHidden,
-    'tab-index': props.tabIndex,
-    onClick: props.onClick,
-  }
+  return jsx(props.is || 'div', attrs, props.children)
+}
+
+export const ContainerMaxWidth = (props: GridProps) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
+  const label = `ContainerMaxWidth-${props.is || 'div'}`
+  const attrs: any = getAttrs(props)
+  attrs.css = systemCss(
+    {
+      ncss: {
+        label,
+        ...commonContainerMaxWidthStyle,
+        ...props.ncss,
+      },
+    },
+    currentThemeId
+  )
   return jsx(props.is || 'div', attrs, props.children)
 }

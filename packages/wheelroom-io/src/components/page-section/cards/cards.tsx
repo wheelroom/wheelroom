@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container } from '../../../core/elements/grid'
+import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { TopicOption } from '../../page-section/page-section'
 
@@ -55,7 +55,7 @@ const CardWrapper = (props: { children: any }) => (
       py: 8,
     }}
   >
-    <Container
+    <ContainerMaxWidth
       ncss={{
         alignItems: ['center', 'initial'],
         flexDirection: ['column', 'row'],
@@ -63,12 +63,11 @@ const CardWrapper = (props: { children: any }) => (
         justifyContent: 'center',
         label: 'Container',
         m: 'auto',
-        maxWidth: '1280px',
         px: [2, 5, 7],
         w: 1,
       }}
     >
       {props.children}
-    </Container>
+    </ContainerMaxWidth>
   </Box>
 )

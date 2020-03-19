@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Box, Container } from '../../../core/elements/grid'
+import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { TextProps } from '../../text/text'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
@@ -36,10 +36,8 @@ export const Headline = (props: HeadlineProps) => {
           label: 'Wrapper',
         }}
       >
-        <Container
+        <ContainerMaxWidth
           ncss={{
-            label: 'Container',
-            maxWidth: '1280px',
             m: 'auto',
             px: [2, 5, 7],
             w: 1,
@@ -79,7 +77,7 @@ export const Headline = (props: HeadlineProps) => {
               }}
             />
           )}
-        </Container>
+        </ContainerMaxWidth>
       </Box>
     </Fragment>
   )

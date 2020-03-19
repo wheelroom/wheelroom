@@ -4,7 +4,14 @@ export const commonFlexStyle = {
 }
 export const commonContainerStyle = {
   display: 'flex',
-  px: 3,
-  my: 0,
   mx: 'auto',
+  my: 0,
+  px: 3,
+}
+export const commonContainerMaxWidthStyle = {
+  display: 'flex',
+  maxWidth: '1280px',
+  mx: 'auto',
+  my: 0,
+  px: 3,
 }
