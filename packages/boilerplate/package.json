@@ -1,7 +1,7 @@
 {
   "author": "Jacco Meijer",
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "13.4.0",

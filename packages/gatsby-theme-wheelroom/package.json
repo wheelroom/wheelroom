@@ -13,7 +13,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
     "@jacco-meijer/wheelroom": "^3.8.0",

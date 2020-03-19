@@ -13,7 +13,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
     "@contentful/rich-text-from-markdown": "13.4.0",

@@ -1,7 +1,7 @@
 {
   "author": "Jacco Meijer <jacco@jaccomeijer.nl> (https://www.jaccomeijer.nl)",
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
     "facepaint": "1.2.1"

@@ -16,7 +16,7 @@
     "wheelroom": "dist/cli/cli.js"
   },
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
     "camelcase": "5.3.1",
