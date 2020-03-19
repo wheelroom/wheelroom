@@ -38,7 +38,7 @@
     "dist/*"
   ],
   "gitHead": "d05f370188630cfed34a6d42f3d88a21fc7e55b1",
-  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom",
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@jacco-meijer/styled-system",

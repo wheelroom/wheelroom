@@ -48,7 +48,7 @@
     "lib/*",
     "types/*"
   ],
-  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
     "gatsby",
     "wheelroom"
