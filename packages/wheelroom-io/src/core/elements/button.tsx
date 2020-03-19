@@ -6,6 +6,7 @@ import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { getPreviewQueryString } from '@jacco-meijer/admin-page-preview'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
 import { commonButtonStyle } from '../styles/button'
+import React from 'react'
 
 export interface ButtonProps {
   /** React children */
@@ -40,13 +41,13 @@ export interface ButtonProps {
   tabIndex?: number | undefined
 }
 
-export const Button = (props: ButtonProps) => {
+export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
   const { adminCoreState } = useContext(AdminCoreContext)
   return (
     <button
       id={props.id}
-      ref={props.ref}
+      ref={ref}
       type={props.type}
       role={props.role}
       title={props.title}
@@ -67,4 +68,4 @@ export const Button = (props: ButtonProps) => {
       {props.children}
     </button>
   )
-}
+})
