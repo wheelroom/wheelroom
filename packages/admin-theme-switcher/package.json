@@ -59,8 +59,8 @@
   "main": "dist/index.js",
   "name": "@wheelroom/admin-theme-switcher",
   "peerDependencies": {
-    "@wheelroom/admin-core": "1.x",
     "@types/react": "16.x",
+    "@wheelroom/admin-core": "1.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
@@ -81,5 +81,5 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.0.3"
+  "version": "1.0.4"
 }

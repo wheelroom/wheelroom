@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.8.1 (2020-03-19)
+
+
+### Bug Fixes
+
+* gitHead ([c9ac0bc](https://github.com/wheelroom/wheelroom/commit/c9ac0bccc309e7b615424a310f66bea27851aa3f))
+* global replace [@jacco-meijer](https://github.com/jacco-meijer) with [@wheelroom](https://github.com/wheelroom) ([eac3c94](https://github.com/wheelroom/wheelroom/commit/eac3c949381a2a5ce2a7aa656f458681b680dc6c))
+* homepage ([54f37c3](https://github.com/wheelroom/wheelroom/commit/54f37c32233d4cab3faf4d9311ec56faf2837ef4))
+* issue url ([ed6af86](https://github.com/wheelroom/wheelroom/commit/ed6af864c251bcba2731ce3890c6c3a498d97cad))
+* keywords ([fc45668](https://github.com/wheelroom/wheelroom/commit/fc456689bb0ad07a8f848ff962f48400e0afbcc1))
+* package name ([68cf7cd](https://github.com/wheelroom/wheelroom/commit/68cf7cd473b9c8b35144c37768e2311c51a90c75))
+* repo url ([ddad3cc](https://github.com/wheelroom/wheelroom/commit/ddad3cc6c861fb6ae9afce676e49e24c5a32d781))
+* sync package versions ([860d0ff](https://github.com/wheelroom/wheelroom/commit/860d0ffe09d318c42d71351cd7f4ba7951e6b882))
+
+
+
+
+
 # [3.8.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.7.0...@wheelroom/wheelroom@3.8.0) (2020-03-12)
 
 
