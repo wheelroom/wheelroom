@@ -72,9 +72,7 @@
     "build:test": "jest --silent",
     "api-test:create-page": "jest  --testMatch '**/api-test-create-page-preview.ts'",
     "prepack": "npm run build",
-    "test": "npm run build:test",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "postversion": "git push && git push --tags"
+    "test": "npm run build:test"
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",

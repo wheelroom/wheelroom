@@ -66,10 +66,8 @@
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
     "build:test": "jest --silent",
-    "postversion": "git push && git push --tags",
     "prepack": "npm run build",
-    "test": "npm run build:test",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+    "test": "npm run build:test"
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",

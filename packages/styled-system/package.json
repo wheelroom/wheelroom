@@ -60,9 +60,7 @@
     "build:compile": "tsc",
     "build:test": "jest",
     "install-peers": "npm-install-peers",
-    "postversion": "git push && git push --tags",
-    "prepack": "npm run build",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+    "prepack": "npm run build"
   },
   "types": "dist/index.d.ts",
   "version": "3.1.0"
