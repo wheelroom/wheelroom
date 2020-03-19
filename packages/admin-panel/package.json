@@ -58,7 +58,7 @@
   "name": "@wheelroom/admin-panel",
   "peerDependencies": {
     "@emotion/core": "10.x",
-    "@jacco-meijer/admin-core": "^1.x",
+    "@wheelroom/admin-core": "^1.x",
     "@types/react": "16.x",
     "react": "16.x",
     "react-dom": "16.x"

@@ -59,7 +59,7 @@
   "main": "dist/index.js",
   "name": "@wheelroom/admin-theme-switcher",
   "peerDependencies": {
-    "@jacco-meijer/admin-core": "1.x",
+    "@wheelroom/admin-core": "1.x",
     "@types/react": "16.x",
     "react": "16.x",
     "react-dom": "16.x"

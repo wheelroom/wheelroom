@@ -16,7 +16,7 @@
     "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/wheelroom": "^3.8.0",
+    "@wheelroom/wheelroom": "^3.8.0",
     "inquirer": "7.0.0",
     "yargs": "15.0.2"
   },
