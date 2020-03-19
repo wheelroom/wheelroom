@@ -46,9 +46,12 @@
   ],
   "homepage": "https://github.com/jaccomeijer/contentful-page-preview#readme",
   "keywords": [
-    "gatsby",
-    "wheelroom",
     "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
     "graphql"
   ],
   "license": "MIT",

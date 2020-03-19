@@ -45,6 +45,11 @@
   ],
   "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
     "wheelroom",
     "admin",
     "page",

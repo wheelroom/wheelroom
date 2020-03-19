@@ -40,6 +40,12 @@
   ],
   "homepage": "https://github.com/jaccomeijer/graphql-query-builder#readme",
   "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
     "graphql",
     "query",
     "builder"

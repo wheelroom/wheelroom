@@ -52,7 +52,11 @@
   ],
   "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
-    "gatsby",
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
     "wheelroom"
   ],
   "license": "MIT",
