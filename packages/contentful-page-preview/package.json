@@ -53,7 +53,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/contentful-page-preview",
+  "name": "@wheelroom/contentful-page-preview",
   "publishConfig": {
     "access": "public"
   },

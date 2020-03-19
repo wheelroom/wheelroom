@@ -41,7 +41,7 @@
   "homepage": "https://github.com/wheelroom/wheelroom",
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/styled-system",
+  "name": "@wheelroom/styled-system",
   "peerDependencies": {
     "@emotion/core": "10.x",
     "react": "16.x",

@@ -61,7 +61,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/wheelroom-plugin-contentful",
+  "name": "@wheelroom/wheelroom-plugin-contentful",
   "publishConfig": {
     "access": "public"
   },

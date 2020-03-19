@@ -56,7 +56,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/wheelroom-plugin-boilerplate",
+  "name": "@wheelroom/wheelroom-plugin-boilerplate",
   "publishConfig": {
     "access": "public"
   },

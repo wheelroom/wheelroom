@@ -53,7 +53,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/admin-theme-switcher",
+  "name": "@wheelroom/admin-theme-switcher",
   "peerDependencies": {
     "@jacco-meijer/admin-core": "1.x",
     "@types/react": "16.x",

@@ -53,7 +53,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/admin-core",
+  "name": "@wheelroom/admin-core",
   "peerDependencies": {
     "@types/react": "16.x",
     "react": "16.x",

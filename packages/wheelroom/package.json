@@ -59,7 +59,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/wheelroom",
+  "name": "@wheelroom/wheelroom",
   "publishConfig": {
     "access": "public"
   },

@@ -51,7 +51,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/admin-panel",
+  "name": "@wheelroom/admin-panel",
   "peerDependencies": {
     "@emotion/core": "10.x",
     "@jacco-meijer/admin-core": "^1.x",

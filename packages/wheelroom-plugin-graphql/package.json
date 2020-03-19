@@ -57,7 +57,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/wheelroom-plugin-graphql",
+  "name": "@wheelroom/wheelroom-plugin-graphql",
   "publishConfig": {
     "access": "public"
   },
