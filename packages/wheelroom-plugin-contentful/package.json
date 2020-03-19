@@ -13,11 +13,11 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
     "@contentful/rich-text-from-markdown": "13.4.0",
-    "@jacco-meijer/wheelroom": "^3.8.0",
+    "@wheelroom/wheelroom": "3.8.0",
     "camelcase": "5.3.1",
     "contentful-management": "5.12.0",
     "dotenv": "8.2.0",
@@ -54,20 +54,24 @@
     "assets/*",
     "dist/*"
   ],
-  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
-    "gatsby",
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
     "wheelroom"
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/wheelroom-plugin-contentful",
+  "name": "@wheelroom/wheelroom-plugin-contentful",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
   "scripts": {
     "build": "npm-run-all build:*",
@@ -85,6 +89,5 @@
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
-  "version": "2.14.0",
-  "gitHead": "c6487a1253a6f9c8c50c89bddb08ed0e24957427"
+  "version": "2.14.0"
 }

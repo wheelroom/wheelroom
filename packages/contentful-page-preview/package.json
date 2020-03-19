@@ -13,7 +13,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/jaccomeijer/contentful-page-preview/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
     "contentful": "7.14.0",
@@ -44,22 +44,25 @@
   "files": [
     "dist/*"
   ],
-  "homepage": "https://github.com/jaccomeijer/contentful-page-preview#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
-    "gatsby",
-    "wheelroom",
     "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
     "graphql"
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/contentful-page-preview",
+  "name": "@wheelroom/contentful-page-preview",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaccomeijer/contentful-page-preview.git"
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
   "scripts": {
     "build": "npm-run-all build:*",
@@ -69,9 +72,7 @@
     "build:test": "jest --silent",
     "api-test:create-page": "jest  --testMatch '**/api-test-create-page-preview.ts'",
     "prepack": "npm run build",
-    "test": "npm run build:test",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "postversion": "git push && git push --tags"
+    "test": "npm run build:test"
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",

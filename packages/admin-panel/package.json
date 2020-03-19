@@ -13,7 +13,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "description": "Admin panel for Wheelroom admin",
   "devDependencies": {
@@ -42,19 +42,23 @@
     "dist/lib/*",
     "dist/types/*"
   ],
-  "gitHead": "39bdcd117386e393ae219c27e4022589a004648d",
-  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
     "wheelroom",
     "admin",
     "panel"
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/admin-panel",
+  "name": "@wheelroom/admin-panel",
   "peerDependencies": {
     "@emotion/core": "10.x",
-    "@jacco-meijer/admin-core": "^1.x",
+    "@wheelroom/admin-core": "1.x",
     "@types/react": "16.x",
     "react": "16.x",
     "react-dom": "16.x"
@@ -64,7 +68,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
   "scripts": {
     "build": "npm-run-all build:*",

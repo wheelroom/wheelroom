@@ -13,7 +13,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/jaccomeijer/graphql-query-builder/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {},
   "description": "Site framework based on Contentful and Gatsby",
@@ -38,21 +38,27 @@
   "files": [
     "dist/*"
   ],
-  "homepage": "https://github.com/jaccomeijer/graphql-query-builder#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
     "graphql",
     "query",
     "builder"
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/graphql-query-builder",
+  "name": "@wheelroom/graphql-query-builder",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaccomeijer/graphql-query-builder.git"
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
   "scripts": {
     "build": "npm-run-all build:*",
@@ -60,10 +66,8 @@
     "build:lint": "tslint --project tsconfig.json",
     "build:compile": "tsc",
     "build:test": "jest --silent",
-    "postversion": "git push && git push --tags",
     "prepack": "npm run build",
-    "test": "npm run build:test",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+    "test": "npm run build:test"
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",

@@ -13,11 +13,11 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
-    "@jacco-meijer/graphql-query-builder": "1.2.2",
-    "@jacco-meijer/wheelroom": "^3.8.0",
+    "@wheelroom/graphql-query-builder": "1.2.2",
+    "@wheelroom/wheelroom": "3.8.0",
     "inquirer": "7.0.2",
     "yargs": "15.1.0"
   },
@@ -50,20 +50,24 @@
     "assets/*",
     "dist/*"
   ],
-  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
-    "gatsby",
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
     "wheelroom"
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/wheelroom-plugin-graphql",
+  "name": "@wheelroom/wheelroom-plugin-graphql",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
   "scripts": {
     "build": "npm-run-all build:*",

@@ -13,7 +13,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/jaccomeijer/wheelroom/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "description": "Core admin module for wheelroom framework",
   "devDependencies": {
@@ -43,9 +43,13 @@
     "dist/lib/*",
     "dist/types/*"
   ],
-  "gitHead": "39bdcd117386e393ae219c27e4022589a004648d",
-  "homepage": "https://github.com/jaccomeijer/wheelroom#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
     "wheelroom",
     "admin",
     "page",
@@ -53,7 +57,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "@jacco-meijer/admin-core",
+  "name": "@wheelroom/admin-core",
   "peerDependencies": {
     "@types/react": "16.x",
     "react": "16.x",
@@ -64,7 +68,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaccomeijer/wheelroom.git"
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
   "scripts": {
     "build": "npm-run-all build:*",
