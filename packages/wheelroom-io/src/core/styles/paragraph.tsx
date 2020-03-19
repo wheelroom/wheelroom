@@ -5,14 +5,15 @@ export const commonParagraphStyle = {
 
 /** This style is added to the Paragraph element as the default */
 export const paragraphStyle = {
-  fontSize: [3, 4],
-  lineHeight: [3],
+  fontSize: [4, 5],
+  lineHeight: [4],
   mt: 0,
   mb: 3,
 }
 
 export const paragraphHeroStyle = {
   color: 'caviar',
-  fontSize: [5, 6],
-  lineHeight: [3, 4],
+  fontSize: [7, 8],
+  lineHeight: [5, 6],
+  my: 4,
 }

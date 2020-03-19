@@ -8,8 +8,6 @@ const defaultWrapperStyle = {
   flexDirection: 'row',
   label: 'TopicAction',
   mx: 3,
-  mb: 3,
-  flex: '0 1 auto',
 }
 
 export interface TopicActionProps {

@@ -14,6 +14,14 @@ import { Paragraph } from '../../core/elements/paragraph'
 import { TopicOptions } from '../page-section/get-topic-options'
 import { IconMap } from '../../svg/feather/iconMap'
 
+const defaultIconStyle = {
+  width: '40px',
+  height: '40px',
+  color: 'svgStroke',
+  strokeWidth: '1px',
+  mb: 2,
+}
+
 const headingStyleMap = {
   h1: heading1Style,
   h2: heading2Style,
@@ -60,7 +68,7 @@ export interface TopicHeaderProps {
 const Icon = (props: { name: string }) => {
   if (props.name && props.name in IconMap) {
     const RenderIcon = IconMap[props.name]
-    return <RenderIcon />
+    return <RenderIcon ncss={{ ...defaultIconStyle }} />
   }
   return null
 }

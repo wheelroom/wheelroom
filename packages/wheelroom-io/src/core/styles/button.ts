@@ -1,4 +1,6 @@
 export const commonButtonStyle = {
+  display: 'inline-flex',
+  justifyContent: 'center',
   bg: 'azure',
   border: '1px solid',
   borderColor: 'azure',
@@ -8,7 +10,6 @@ export const commonButtonStyle = {
   fontFamily: 'text',
   px: '16px',
   py: '8px',
-  textAlign: 'center',
   textDecoration: 'none',
   userSelect: 'none',
   '&:hover': {},

@@ -23,7 +23,7 @@ interface TopicLocalProps {
   topicWrapperStyle?: any
 
   /** Override default content wrapper styling */
-  contentWrapperStyle: any
+  contentWrapperStyle?: any
 
   /** Override default image props */
   imageProps?: any

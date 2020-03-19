@@ -20,6 +20,7 @@ export const darkTheme: StyledSystemTheme = {
     cardsShadow: colors.ghost,
     modalBorder: colors.ghost,
     modalShadow: colors.ghost,
+    svgStroke: colors.bullet,
 
     // Svg colors
     jarPrimary: svgColors.straw,

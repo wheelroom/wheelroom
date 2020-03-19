@@ -1,12 +1,10 @@
 export const commonImageImgStyle = {
   display: 'block',
   height: 'auto',
-  objectFit: 'cover',
   width: '100%',
 }
-export const commonImagePictureStyle = {
-  display: 'block',
-}
+
+export const commonImagePictureStyle = {}
 
 export const commonImageFigcaptionStyle = {
   fontFamily: 'text',
