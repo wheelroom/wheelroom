@@ -12,8 +12,7 @@ import { orderByDependency } from './get-cf-content-set/order-by-dependency'
 import { getCfContentSet } from './get-cf-content-set/get-cf-content-set'
 
 export const initializeContext = async (argv: any) => {
-  const pluginOptions =
-    argv.options['@wheelroom/wheelroom-plugin-contentful']
+  const pluginOptions = argv.options['@wheelroom/wheelroom-plugin-contentful']
   const wheelroomComponents = getFilteredComponents(argv)
 
   let wrContentSet
