@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { TopicProps } from './topic'
 import { Box } from '../../core/elements/grid'
 import { H3, H1, H2, H4, H5, H6 } from '../../core/elements/heading'
@@ -59,7 +59,8 @@ export interface TopicHeaderProps {
 
 const Icon = (props: { name: string }) => {
   if (props.name && props.name in IconMap) {
-    return IconMap[props.name]
+    const RenderIcon = IconMap[props.name]
+    return <RenderIcon />
   }
   return null
 }
