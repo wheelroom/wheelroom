@@ -1,36 +1,28 @@
-export const commonButtonStyle = {}
-
-export const buttonPrimaryStyle = {
-  fontFamily: 'text',
-  color: 'button',
+export const commonButtonStyle = {
   bg: 'azure',
-  borderRadius: '4px',
-  cursor: 'pointer',
-  textDecoration: 'none',
-  textAlign: 'center',
   border: '1px solid',
   borderColor: 'azure',
-  py: '8px',
+  borderRadius: '4px',
+  color: 'button',
+  cursor: 'pointer',
+  fontFamily: 'text',
   px: '16px',
+  py: '8px',
+  textAlign: 'center',
+  textDecoration: 'none',
+  userSelect: 'none',
   '&:hover': {},
   '&:visited': {},
   '&:focus': {},
 }
 
+export const buttonPrimaryStyle = {
+  ...commonButtonStyle,
+}
+
 export const buttonSecondaryStyle = {
-  userSelect: 'none',
-  fontFamily: 'text',
-  textAlign: 'center',
-  color: 'text',
+  ...commonButtonStyle,
   bg: 'transparent',
-  border: '1px solid',
   borderColor: 'metal',
-  borderRadius: '4px',
-  cursor: 'pointer',
-  textDecoration: 'none',
-  py: '8px',
-  px: '16px',
-  '&:hover': {},
-  '&:visited': {},
-  '&:focus': {},
+  color: 'text',
 }
