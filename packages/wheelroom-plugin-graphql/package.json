@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@wheelroom/graphql-query-builder": "1.2.2",
-    "@wheelroom/wheelroom": "^3.8.0",
+    "@wheelroom/wheelroom": "3.8.0",
     "inquirer": "7.0.2",
     "yargs": "15.1.0"
   },
