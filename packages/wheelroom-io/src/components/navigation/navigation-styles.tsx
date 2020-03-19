@@ -115,14 +115,12 @@ export const modalStyle = {
   height: 1,
   zIndex: 1050,
   justifyContent: 'flex-end',
-  '.modal-open &': {
-    overflowY: 'auto',
-  },
+  visibility: 'hidden',
   ':before': {
     content: '""',
     height: 1,
     width: 1,
-    bg: 'rgba(0, 0, 0, 0.5)',
+    bg: 'rgba(0, 0, 0, .5)',
     position: 'fixed',
     zIndex: -1,
     top: 0,
@@ -131,10 +129,26 @@ export const modalStyle = {
     right: 0,
     opacity: 0,
     transition: 'opacity 0s ease',
-    '.modal-open &': {
-      opacity: 1,
-      transition: 'opacity 2s ease',
-    },
+  },
+}
+
+export const modalOpenStyle = {
+  ...modalStyle,
+  visibility: 'visible',
+  overflowY: 'auto',
+  ':before': {
+    content: '""',
+    height: 1,
+    width: 1,
+    bg: 'rgba(0, 0, 0, .5)',
+    position: 'fixed',
+    zIndex: -1,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    opacity: 1,
+    transition: 'opacity 2s ease',
   },
 }
 
@@ -154,10 +168,12 @@ export const modalContentStyle = {
   opacity: 0,
   transform: 'scale(0)',
   transition: 'transform .1s ease 0s, opacity .1s ease 0s',
-  '.modal-open &': {
-    transform: 'scale(1)',
-    opacity: 1,
-    transition:
-      'transform .35s cubic-bezier(.8,-.4,.2,1.44) 0s, opacity .35s cubic-bezier(.8,-.4,.2,1.44) 0s',
-  },
+}
+
+export const modalContentOpenStyle = {
+  ...modalContentStyle,
+  transform: 'scale(1)',
+  opacity: 1,
+  transition:
+    'transform .35s cubic-bezier(.8,-.4,.2,1.44) 0s, opacity .35s cubic-bezier(.8,-.4,.2,1.44) 0s',
 }

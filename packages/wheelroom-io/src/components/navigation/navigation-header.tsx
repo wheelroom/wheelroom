@@ -6,7 +6,7 @@
  *
  */
 
-import React, { Fragment, useContext, useState } from 'react'
+import React, { Fragment, useContext, useState, useRef } from 'react'
 import { Action, ActionProps } from '../action'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { ALink } from '../../core/elements/a-link'
@@ -33,7 +33,9 @@ import {
   listMobileStyle,
   menuStyle,
   modalStyle,
+  modalOpenStyle,
   modalContentStyle,
+  modalContentOpenStyle,
 } from './navigation-styles'
 import { IconMap } from '../../svg/feather/iconMap'
 const XIcon = IconMap.x
@@ -50,9 +52,20 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
   const setActiveTheme = themeSwitcherStore?.actions.setActiveTheme
   const activeThemeId = themeSwitcherStore?.state.activeThemeId
   const [menuVisible, setMenuVisible] = useState(false)
+  const buttonRef = useRef(null)
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
+  }
+
+  const openMenu = () => {
+    setMenuVisible(true)
+  }
+
+  const closeMenu = () => {
+    setMenuVisible(false)
+    console.log(buttonRef.current)
+    // buttonRef.current.focus()
   }
 
   const navSegment = props.segments[0] as NavigationSegmentProps
@@ -117,7 +130,8 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               ncss={{
                 ...buttonPrimaryStyle,
               }}
-              onClick={() => setMenuVisible(true)}
+              ref={buttonRef}
+              onClick={() => openMenu()}
             >
               Menu
             </Button>
@@ -127,26 +141,27 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               tabIndex={-1}
               ncss={{
                 label: 'Modal',
-                ...modalStyle,
-                visibility: menuVisible ? 'visible' : 'hidden',
+                ...(menuVisible ? modalOpenStyle : modalStyle),
               }}
               ariaHidden={menuVisible ? false : undefined}
               ariaModal={menuVisible ? true : undefined}
               hidden={true}
             >
-              Modal layer visible
               <Flex
                 is="section"
                 role="document"
                 id="header-navigation"
-                ncss={{ label: 'ModalContent', ...modalContentStyle }}
+                ncss={{
+                  label: 'ModalContent',
+                  ...(menuVisible ? modalContentOpenStyle : modalContentStyle),
+                }}
                 ariaLabel="Header navigation"
               >
                 <Button
                   ariaLabel="Close header navigation"
                   value=""
                   role="button"
-                  onClick={() => setMenuVisible(false)}
+                  onClick={() => closeMenu()}
                   ncss={{
                     ...buttonPrimaryStyle,
                     mt: 3,

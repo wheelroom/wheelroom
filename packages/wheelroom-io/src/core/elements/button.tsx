@@ -18,6 +18,8 @@ export interface ButtonProps {
   type?: 'button' | 'submit' | 'reset' | undefined
   /** Button role attribute */
   role?: 'button' | undefined
+  /** Button ref attribute */
+  ref?: any
   /** Button id attribute */
   id?: string | undefined
   /** Button onClick function */
@@ -44,6 +46,7 @@ export const Button = (props: ButtonProps) => {
   return (
     <button
       id={props.id}
+      ref={props.ref}
       type={props.type}
       role={props.role}
       title={props.title}
