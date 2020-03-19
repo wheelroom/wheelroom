@@ -43,7 +43,6 @@
     "dist/lib/*",
     "dist/types/*"
   ],
-  "gitHead": "39bdcd117386e393ae219c27e4022589a004648d",
   "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
     "wheelroom",
