@@ -6,7 +6,7 @@
  *
  */
 
-import React, { Fragment, useContext, useReducer, useState } from 'react'
+import React, { Fragment, useContext, useState } from 'react'
 import { Action, ActionProps } from '../action'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { ALink } from '../../core/elements/a-link'
@@ -36,7 +36,7 @@ import {
   modalContentStyle,
 } from './navigation-styles'
 import { IconMap } from '../../svg/feather/iconMap'
-const Icon = IconMap.x
+const XIcon = IconMap.x
 
 interface NavigationHeaderProps extends NavigationProps {
   /** Action is displayed as a button at the right side of the navigation */
@@ -49,42 +49,13 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
   const setActiveTheme = themeSwitcherStore?.actions.setActiveTheme
   const activeThemeId = themeSwitcherStore?.state.activeThemeId
-
-  const navSegment = props.segments[0] as NavigationSegmentProps
+  const [showMenu, setShowMenu] = useState(false)
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
   }
 
-  /** Modal – https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html */
-  const initMenu = { visible: false }
-
-  /** Restore :focus after user close the Modal */
-  const [focus, setFocus] = useState('')
-  const setLastFocus = (focus: string) => {
-    setFocus(focus)
-  }
-
-  function reducer(state: any, action: any) {
-    switch (action.type) {
-      case 'show':
-        document.body.classList.add('modal-open')
-        document.body.style.overflow = 'hidden'
-        // set last element ID for restoring the focus
-        setLastFocus(document.activeElement.id)
-        return { visible: true }
-      case 'hide':
-        document.body.classList.remove('modal-open')
-        document.body.style.overflow = ''
-        // restore focus on previous element
-        document.getElementById(focus).focus()
-        return { visible: false }
-      default:
-        throw new Error()
-    }
-  }
-
-  const [state, dispatch] = useReducer(reducer, initMenu)
+  const navSegment = props.segments[0] as NavigationSegmentProps
 
   return (
     <Fragment>
@@ -137,8 +108,8 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
           >
             <Button
               id="modal-dialog"
-              ariaExpanded={state.visible === true}
-              ariaPressed={state.visible === true}
+              ariaExpanded={showMenu}
+              ariaPressed={showMenu}
               ariaControls="header-navigation"
               ariaLabel="Open header navigation"
               value=""
@@ -146,7 +117,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               ncss={{
                 ...buttonPrimaryStyle,
               }}
-              onClick={() => dispatch({ type: 'show' })}
+              onClick={() => setShowMenu(true)}
             >
               Menu
             </Button>
@@ -157,10 +128,10 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               ncss={{
                 label: 'Modal',
                 ...modalStyle,
-                visibility: state.visible === true ? 'visible' : 'hidden',
+                visibility: showMenu ? 'visible' : 'hidden',
               }}
-              ariaHidden={state.visible === false ? false : undefined}
-              ariaModal={state.visible === true ? true : undefined}
+              ariaHidden={showMenu ? false : undefined}
+              ariaModal={showMenu ? true : undefined}
               hidden={true}
             >
               <Flex
@@ -174,7 +145,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                   ariaLabel="Close header navigation"
                   value=""
                   role="button"
-                  onClick={() => dispatch({ type: 'hide' })}
+                  onClick={() => setShowMenu(false)}
                   ncss={{
                     ...buttonPrimaryStyle,
                     mt: 3,
@@ -185,7 +156,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                   }}
                 >
                   <Box ariaHidden={true}>
-                    <Icon />
+                    <XIcon />
                   </Box>
                 </Button>
                 <List is="ul" ncss={{ label: 'NavList', ...listMobileStyle }}>
