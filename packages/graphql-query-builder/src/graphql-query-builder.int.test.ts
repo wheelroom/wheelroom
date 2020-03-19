@@ -20,7 +20,6 @@ test('Page question', async () => {
               },
             },
           },
-          // tslint:disable-next-line: object-literal-sort-keys
           contentfulPage: {
             alias: 'page',
             arguments: {
@@ -32,13 +31,11 @@ test('Page question', async () => {
               pathName: {},
               seoDescription: {},
               seoTitle: {},
-              // tslint:disable-next-line: object-literal-sort-keys
-              sections: {
+                  sections: {
                 fields: {
                   Node: {
                     inlineFragment: true,
-                    // tslint:disable-next-line: object-literal-sort-keys
-                    fields: {
+                              fields: {
                       ArticleSection: { fragment: true },
                       ArticlesSection: { fragment: true },
                       AuthorSection: { fragment: true },
@@ -56,8 +53,7 @@ test('Page question', async () => {
             arguments: {
               filter: '{ node_locale: { eq: "en-US" } }',
               sort: '{ fields: date, order: DESC }',
-              // tslint:disable-next-line: object-literal-sort-keys
-              limit: '10',
+                  limit: '10',
             },
             fields: {
               edges: {
@@ -167,7 +163,6 @@ test('Operation type, arguments and directive', async () => {
         fields: {
           oneMore: {},
         },
-        // tslint:disable-next-line: object-literal-sort-keys
         arguments: {
           id: '4',
         },
