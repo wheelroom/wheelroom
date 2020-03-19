@@ -165,6 +165,7 @@ export const TextSingleVar = (props: TextProps) => {
             mx: 'auto',
             my: 7,
             maxWidth: '640px',
+            flexDirection: 'column',
           }}
         >
           {documentToReactComponents(
