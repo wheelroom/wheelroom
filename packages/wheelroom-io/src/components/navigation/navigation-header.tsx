@@ -49,7 +49,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
   const setActiveTheme = themeSwitcherStore?.actions.setActiveTheme
   const activeThemeId = themeSwitcherStore?.state.activeThemeId
-  const [showMenu, setShowMenu] = useState(false)
+  const [menuVisible, setMenuVisible] = useState(false)
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
@@ -108,8 +108,8 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
           >
             <Button
               id="modal-dialog"
-              ariaExpanded={showMenu}
-              ariaPressed={showMenu}
+              ariaExpanded={menuVisible}
+              ariaPressed={menuVisible}
               ariaControls="header-navigation"
               ariaLabel="Open header navigation"
               value=""
@@ -117,7 +117,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               ncss={{
                 ...buttonPrimaryStyle,
               }}
-              onClick={() => setShowMenu(true)}
+              onClick={() => setMenuVisible(true)}
             >
               Menu
             </Button>
@@ -128,12 +128,13 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               ncss={{
                 label: 'Modal',
                 ...modalStyle,
-                visibility: showMenu ? 'visible' : 'hidden',
+                visibility: menuVisible ? 'visible' : 'hidden',
               }}
-              ariaHidden={showMenu ? false : undefined}
-              ariaModal={showMenu ? true : undefined}
+              ariaHidden={menuVisible ? false : undefined}
+              ariaModal={menuVisible ? true : undefined}
               hidden={true}
             >
+              Modal layer visible
               <Flex
                 is="section"
                 role="document"
@@ -145,7 +146,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                   ariaLabel="Close header navigation"
                   value=""
                   role="button"
-                  onClick={() => setShowMenu(false)}
+                  onClick={() => setMenuVisible(false)}
                   ncss={{
                     ...buttonPrimaryStyle,
                     mt: 3,
