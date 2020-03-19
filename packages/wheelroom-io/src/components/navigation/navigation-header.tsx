@@ -7,7 +7,7 @@
  */
 
 import React, { Fragment, useContext, useReducer } from 'react'
-import { Action, ActionProps } from '../action/action'
+import { Action, ActionProps } from '../action'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { ALink } from '../../core/elements/a-link'
 import { Box, Container, Flex } from '../../core/elements/grid'
@@ -17,9 +17,6 @@ import {
   buttonSecondaryStyle,
 } from '../../core/styles/button'
 import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
-import { IconMap } from '../../svg/feather/iconMap'
-//TODO: Move this down
-const Icon = IconMap.x
 import { GLink } from '../../core/elements/g-link'
 import { List } from '../../core/elements/list'
 import { NavigationProps } from './navigation'
@@ -38,6 +35,8 @@ import {
   modalStyle,
   modalContentStyle,
 } from './navigation-styles'
+import { IconMap } from '../../svg/feather/iconMap'
+const Icon = IconMap.x
 
 interface NavigationHeaderProps extends NavigationProps {
   /** Action is displayed as a button at the right side of the navigation */
@@ -45,7 +44,7 @@ interface NavigationHeaderProps extends NavigationProps {
 }
 
 export const NavigationHeader = (props: NavigationHeaderProps) => {
-  // Theme switcher admin module
+  /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
   const setActiveTheme = themeSwitcherStore?.actions.setActiveTheme
@@ -57,13 +56,25 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
   }
 
+  /** Modal – https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html */
   const initMenu = { visible: false }
+  /** Restore :focus after user close the Modal */
+  const setFocus = () => {
+    const setLastFocusElement = document.activeElement.id
+    console.log(setLastFocusElement)
+    return setLastFocusElement
+  }
+  // const getFocus = () => {
+  //   document.getElementById(setLastFocusElement).focus()
+  // }
 
   function reducer(state: any, action: any) {
     switch (action.type) {
       case 'show':
         document.body.classList.add('modal-open')
         document.body.style.overflow = 'hidden'
+        // set last element ID for restoring the focus
+        console.log(setFocus())
         return { visible: true }
       case 'hide':
         document.body.classList.remove('modal-open')
@@ -121,11 +132,12 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
           <Flex
             is="div"
             ncss={{
-              label: 'ToggleMenu',
+              label: 'ModalDialog',
               ...menuStyle,
             }}
           >
             <Button
+              id="modal-dialog"
               ariaExpanded={state.visible === true}
               ariaPressed={state.visible === true}
               ariaControls="header-navigation"
@@ -139,67 +151,72 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
             >
               Menu
             </Button>
+            <Box
+              is="div"
+              role="dialog"
+              tabIndex={-1}
+              ncss={{
+                label: 'Modal',
+                ...modalStyle,
+                visibility: state.visible === true ? 'visible' : 'hidden',
+              }}
+              ariaHidden={state.visible === false ? false : undefined}
+              ariaModal={state.visible === true ? true : undefined}
+              hidden={true}
+            >
+              <Flex
+                is="section"
+                role="document"
+                id="header-navigation"
+                ncss={{ label: 'ModalContent', ...modalContentStyle }}
+                ariaLabel="Header navigation"
+              >
+                <Button
+                  ariaLabel="Close header navigation"
+                  value=""
+                  role="button"
+                  onClick={() => dispatch({ type: 'hide' })}
+                  ncss={{
+                    ...buttonPrimaryStyle,
+                    mt: 3,
+                    mr: 3,
+                    p: 1,
+                    w: '36px',
+                    h: '36px',
+                  }}
+                >
+                  <Box ariaHidden={true}>
+                    <Icon />
+                  </Box>
+                </Button>
+                <List is="ul" ncss={{ label: 'NavList', ...listMobileStyle }}>
+                  <NavLinks pages={navSegment.pages} />
+                </List>
+                <Flex is="div" ncss={{ label: 'NavSettings', w: 1, p: 3 }}>
+                  <Action
+                    ncss={{ ...buttonPrimaryStyle, w: 1 }}
+                    {...props.action}
+                  />
+                  <Button
+                    type="button"
+                    title={`Current theme is ` + activeThemeId}
+                    ariaLabel={`Current theme is ` + activeThemeId}
+                    ncss={{
+                      ...buttonSecondaryStyle,
+                      ml: 2,
+                      w: 1,
+                      textTransform: 'capitalize',
+                    }}
+                    value=""
+                    onClick={() => toggleTheme()}
+                  >
+                    {activeThemeId}
+                  </Button>
+                </Flex>
+              </Flex>
+            </Box>
           </Flex>
         </Container>
-      </Box>
-      <Box
-        is="div"
-        role="dialog"
-        tabIndex={-1}
-        ncss={{
-          label: 'Modal',
-          ...modalStyle,
-          visibility: state.visible === true ? 'visible' : 'hidden',
-        }}
-        hidden={true}
-      >
-        <Flex
-          is="section"
-          role="document"
-          id="header-navigation"
-          ncss={{ label: 'ModalContent', ...modalContentStyle }}
-          ariaLabel="Header navigation"
-        >
-          <Button
-            ariaLabel="Close header navigation"
-            value=""
-            role="button"
-            onClick={() => dispatch({ type: 'hide' })}
-            ncss={{
-              ...buttonPrimaryStyle,
-              mt: 3,
-              mr: 3,
-              p: 1,
-              w: '36px',
-              h: '36px',
-            }}
-          >
-            <Box ariaHidden={true}>
-              <Icon />
-            </Box>
-          </Button>
-          <List is="ul" ncss={{ label: 'NavList', ...listMobileStyle }}>
-            <NavLinks pages={navSegment.pages} />
-          </List>
-          <Flex is="div" ncss={{ label: 'NavSettings', w: 1, p: 3 }}>
-            <Action ncss={{ ...buttonPrimaryStyle, w: 1 }} {...props.action} />
-            <Button
-              type="button"
-              title={`Current theme is ` + activeThemeId}
-              ariaLabel={`Current theme is ` + activeThemeId}
-              ncss={{
-                ...buttonSecondaryStyle,
-                ml: 2,
-                w: 1,
-                textTransform: 'capitalize',
-              }}
-              value=""
-              onClick={() => toggleTheme()}
-            >
-              {activeThemeId}
-            </Button>
-          </Flex>
-        </Flex>
       </Box>
     </Fragment>
   )

@@ -17,6 +17,8 @@ export interface ButtonProps {
   type?: 'button' | 'submit' | 'reset' | undefined
   /** Button role attribute */
   role?: 'button' | undefined
+  /** Button id attribute */
+  id?: string | undefined
   /** Button onClick function */
   onClick?: any
   /** Button aria-label attribute */
@@ -40,6 +42,7 @@ export const Button = (props: ButtonProps) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   return (
     <button
+      id={props.id}
       type={props.type}
       role={props.role}
       title={props.title}

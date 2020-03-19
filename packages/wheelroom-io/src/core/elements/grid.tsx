@@ -20,6 +20,8 @@ export interface GridProps {
   title?: string | undefined
   /** Grid aria-label attribute */
   ariaLabel?: string | undefined
+  /** Grid aria-modal attribute */
+  ariaModal?: boolean
   /** Grid aria-hidden attribute */
   ariaHidden?: boolean | undefined
   /** Grid hidden attribute */
@@ -47,6 +49,7 @@ export const Box = (props: BoxProps) => {
     hidden: props.hidden,
     role: props.role,
     title: props.title,
+    'aria-modal': props.ariaModal,
     'aria-label': props.ariaLabel,
     'aria-hidden': props.ariaHidden,
     'tab-index': props.tabIndex,
@@ -78,6 +81,7 @@ export const Flex = (props: FlexProps) => {
     hidden: props.hidden,
     role: props.role,
     title: props.title,
+    'aria-modal': props.ariaModal,
     'aria-label': props.ariaLabel,
     'aria-hidden': props.ariaHidden,
     'tab-index': props.tabIndex,
@@ -109,6 +113,7 @@ export const Container = (props: ContainerProps) => {
     hidden: props.hidden,
     role: props.role,
     title: props.title,
+    'aria-modal': props.ariaModal,
     'aria-label': props.ariaLabel,
     'aria-hidden': props.ariaHidden,
     'tab-index': props.tabIndex,
