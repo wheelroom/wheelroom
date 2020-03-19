@@ -64,8 +64,8 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
 
   const closeMenu = () => {
     setMenuVisible(false)
-    console.log(buttonRef.current)
-    // buttonRef.current.focus()
+    const element: HTMLElement = buttonRef.current!
+    element.focus()
   }
 
   const navSegment = props.segments[0] as NavigationSegmentProps
