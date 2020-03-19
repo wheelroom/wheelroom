@@ -76,6 +76,7 @@ const addField = (
     }
   }
   if (addSubFieldsFlag) {
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const subFields = addFields(field.fields!, indentLevel + 1)
     fieldString = `${fieldString} ${subFields}`
   }

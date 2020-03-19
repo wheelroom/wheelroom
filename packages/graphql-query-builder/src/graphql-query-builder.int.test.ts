@@ -31,11 +31,11 @@ test('Page question', async () => {
               pathName: {},
               seoDescription: {},
               seoTitle: {},
-                  sections: {
+              sections: {
                 fields: {
                   Node: {
                     inlineFragment: true,
-                              fields: {
+                    fields: {
                       ArticleSection: { fragment: true },
                       ArticlesSection: { fragment: true },
                       AuthorSection: { fragment: true },
@@ -53,7 +53,7 @@ test('Page question', async () => {
             arguments: {
               filter: '{ node_locale: { eq: "en-US" } }',
               sort: '{ fields: date, order: DESC }',
-                  limit: '10',
+              limit: '10',
             },
             fields: {
               edges: {
