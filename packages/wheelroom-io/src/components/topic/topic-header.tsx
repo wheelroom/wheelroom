@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { TopicProps } from './topic'
 import { Box } from '../../core/elements/grid'
 import { H3, H1, H2, H4, H5, H6 } from '../../core/elements/heading'
