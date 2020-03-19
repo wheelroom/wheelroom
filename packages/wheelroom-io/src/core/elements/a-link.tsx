@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { LinkRelationshipAttribute } from './types'
 import { commonALinkStyle } from '../styles/a-link'
 

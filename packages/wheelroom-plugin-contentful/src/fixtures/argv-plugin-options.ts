@@ -7,7 +7,7 @@ import { argvContentSets } from './argv-content-sets'
 import { contentfulFieldDefinitions } from './contentful-field-definitions'
 
 export const argvPluginOptions = {
-  '@jacco-meijer/wheelroom-plugin-contentful': {
+  '@wheelroom/wheelroom-plugin-contentful': {
     contentSets: argvContentSets,
     fieldDefinitions: contentfulFieldDefinitions,
   },

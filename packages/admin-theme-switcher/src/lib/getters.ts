@@ -1,4 +1,4 @@
-import { AdminCoreState } from '@jacco-meijer/admin-core'
+import { AdminCoreState } from '@wheelroom/admin-core'
 import { ThemeSwitcherStore, ThemeNames } from './types'
 
 export const getThemeSwitcherStore = (

@@ -1,3 +1,3 @@
-# @jacco-meijer/admin-page-preview
+# @wheelroom/admin-page-preview
 
 TBW

@@ -9,18 +9,18 @@ export const configPluginOptions = [
       contentSets,
       fieldDefinitions: contentfulFieldDefinitions,
     },
-    resolve: '@jacco-meijer/wheelroom-plugin-contentful',
+    resolve: '@wheelroom/wheelroom-plugin-contentful',
   },
   {
     options: {
       templateSets: boilerplateTemplates,
     },
-    resolve: '@jacco-meijer/wheelroom-plugin-boilerplate',
+    resolve: '@wheelroom/wheelroom-plugin-boilerplate',
   },
   {
     options: {
       templateSets: graphqlTemplates,
     },
-    resolve: '@jacco-meijer/wheelroom-plugin-graphql',
+    resolve: '@wheelroom/wheelroom-plugin-graphql',
   },
 ]

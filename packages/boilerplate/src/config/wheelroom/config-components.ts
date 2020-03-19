@@ -8,7 +8,7 @@ import {
   SingleComponentField,
   TagsField,
   WheelroomComponents,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 
 export const configComponents: WheelroomComponents = {
   footerSection: {

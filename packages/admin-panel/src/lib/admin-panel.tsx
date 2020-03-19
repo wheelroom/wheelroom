@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react'
-import { AdminModules, AdminModule } from '@jacco-meijer/admin-core'
-import { AdminCoreContext } from '@jacco-meijer/admin-core'
+import { AdminModules, AdminModule } from '@wheelroom/admin-core'
+import { AdminCoreContext } from '@wheelroom/admin-core'
 
 // TODO: Come up with a real panel ;-)
 

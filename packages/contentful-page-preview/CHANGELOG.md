@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.3.4](https://github.com/jaccomeijer/contentful-page-preview/compare/@jacco-meijer/contentful-page-preview@1.3.3...@jacco-meijer/contentful-page-preview@1.3.4) (2020-03-13)
+## [1.3.4](https://github.com/jaccomeijer/contentful-page-preview/compare/@wheelroom/contentful-page-preview@1.3.3...@wheelroom/contentful-page-preview@1.3.4) (2020-03-13)
 
 
 ### Bug Fixes

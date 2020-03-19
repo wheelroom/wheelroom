@@ -1,4 +1,4 @@
-import { RegisterModule } from '@jacco-meijer/admin-core'
+import { RegisterModule } from '@wheelroom/admin-core'
 
 /**
  * Action payload dispatched to admin core store. Register this module. Before

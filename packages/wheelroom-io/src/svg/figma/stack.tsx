@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react'
 import { getColorMap } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 const componentId = 'svg-stack'
 export const SvgStack = (props: SVGProps<SVGSVGElement>) => {
   const currentThemeId: any = useGetCurrentThemeId()

@@ -1,6 +1,6 @@
 import { PagePreviewState } from './types'
 import { getPreviewPageStore } from './getters'
-import { AdminCoreContext } from '@jacco-meijer/admin-core'
+import { AdminCoreContext } from '@wheelroom/admin-core'
 import { useContext, useLayoutEffect } from 'react'
 
 /**

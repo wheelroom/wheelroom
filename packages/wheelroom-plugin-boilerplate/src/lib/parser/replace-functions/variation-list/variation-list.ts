@@ -7,7 +7,7 @@
  *
  */
 
-import { ReplaceFunctionsList, ReplaceParams } from '@jacco-meijer/wheelroom'
+import { ReplaceFunctionsList, ReplaceParams } from '@wheelroom/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
 import { parseVariation } from './parse-variation'
 

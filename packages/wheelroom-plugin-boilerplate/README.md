@@ -1,6 +1,6 @@
-# @jacco-meijer/wheelroom-plugin-boilerplate
+# @wheelroom/wheelroom-plugin-boilerplate
 
-This is a plugin for the [@jacco-meijer/wheelroom](https://www.npmjs.com/package/@jacco-meijer/wheelroom) package.
+This is a plugin for the [@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom) package.
 
 Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
 
@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: '@jacco-meijer/wheelroom-plugin-boilerplate',
+      resolve: '@wheelroom/wheelroom-plugin-boilerplate',
       options: {
         templateSets: templateSets,
       },
@@ -40,7 +40,7 @@ module.exports = {
 Using typescript, template sets are defined like this. 
 
 ```typescript
-import { TemplateSets } from '@jacco-meijer/wheelroom-plugin-boilerplate'
+import { TemplateSets } from '@wheelroom/wheelroom-plugin-boilerplate'
 import { component } from './component'
 import { componentIndex } from './component-index'
 import { componentReadme } from './component-readme'

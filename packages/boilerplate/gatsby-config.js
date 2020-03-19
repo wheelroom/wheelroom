@@ -65,7 +65,7 @@ module.exports = {
     'gatsby-plugin-emotion',
     {
       options: {
-        exclude: /(node_modules|.cache|public|@jacco-meijer\/admin-|)/,
+        exclude: /(node_modules|.cache|public|@wheelroom\/admin-|)/,
       },
       resolve: 'gatsby-plugin-eslint',
     },

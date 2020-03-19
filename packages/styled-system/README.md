@@ -1,4 +1,4 @@
-# @jacco-meijer/styled-system
+# @wheelroom/styled-system
 
 This package tries to mimic
 [styled-system](https://github.com/styled-system/styled-system) functionality
@@ -27,9 +27,9 @@ Create an `emotionCss` function that can parse your styles:
 
 ```
 // Use your own project specific config and theme here
-import { defaultConfig } from '@jacco-meijer/styled-system'
-import { defaultTheme } from '@jacco-meijer/styled-system'
-import { styledSystem } from '@jacco-meijer/styled-system'
+import { defaultConfig } from '@wheelroom/styled-system'
+import { defaultTheme } from '@wheelroom/styled-system'
+import { styledSystem } from '@wheelroom/styled-system'
 
 export const emotionCss = (props: any) =>
   styledSystem(defaultConfig, defaultTheme, { ncss: props.ncss })

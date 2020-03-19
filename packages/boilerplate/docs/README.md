@@ -1,7 +1,7 @@
 # Docs
 
 Example repo on how to use
-[@jacco-meijer/wheelroom](https://www.npmjs.com/package/@jacco-meijer/wheelroom)
+[@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom)
 and
 [gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroom)
 

@@ -1,4 +1,4 @@
-import { ThemeNames } from '@jacco-meijer/admin-theme-switcher'
+import { ThemeNames } from '@wheelroom/admin-theme-switcher'
 
 export const themeNames = (): ThemeNames => {
   const isServer = typeof window === 'undefined'

@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.8.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.7.0...@jacco-meijer/wheelroom@3.8.0) (2020-03-12)
+# [3.8.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.7.0...@wheelroom/wheelroom@3.8.0) (2020-03-12)
 
 
 ### Features
@@ -15,7 +15,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.7.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.6.1...@jacco-meijer/wheelroom@3.7.0) (2020-03-02)
+# [3.7.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.6.1...@wheelroom/wheelroom@3.7.0) (2020-03-02)
 
 
 ### Features
@@ -27,15 +27,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.6.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.6.0...@jacco-meijer/wheelroom@3.6.1) (2020-02-13)
+## [3.6.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.6.0...@wheelroom/wheelroom@3.6.1) (2020-02-13)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
-# [3.6.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.5.0...@jacco-meijer/wheelroom@3.6.0) (2020-02-13)
+
+
+# [3.6.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.5.0...@wheelroom/wheelroom@3.6.0) (2020-02-13)
 
 
 ### Features
@@ -46,7 +46,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.5.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.4.2...@jacco-meijer/wheelroom@3.5.0) (2020-02-12)
+# [3.5.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.4.2...@wheelroom/wheelroom@3.5.0) (2020-02-12)
 
 
 ### Features
@@ -57,23 +57,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.4.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.4.1...@jacco-meijer/wheelroom@3.4.2) (2020-02-06)
+## [3.4.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.4.1...@wheelroom/wheelroom@3.4.2) (2020-02-06)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
-
-
-
-## [3.4.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.4.0...@jacco-meijer/wheelroom@3.4.1) (2020-02-04)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
 
 
-# [3.4.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.3.4...@jacco-meijer/wheelroom@3.4.0) (2020-02-01)
+## [3.4.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.4.0...@wheelroom/wheelroom@3.4.1) (2020-02-04)
+
+**Note:** Version bump only for package @wheelroom/wheelroom
+
+
+
+
+
+# [3.4.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.3.4...@wheelroom/wheelroom@3.4.0) (2020-02-01)
 
 
 ### Features
@@ -84,23 +84,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.3.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.3.3...@jacco-meijer/wheelroom@3.3.4) (2020-01-30)
+## [3.3.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.3.3...@wheelroom/wheelroom@3.3.4) (2020-01-30)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
-
-
-
-## [3.3.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.3.2...@jacco-meijer/wheelroom@3.3.3) (2020-01-27)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
 
 
-## [3.3.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.3.1...@jacco-meijer/wheelroom@3.3.2) (2020-01-27)
+## [3.3.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.3.2...@wheelroom/wheelroom@3.3.3) (2020-01-27)
+
+**Note:** Version bump only for package @wheelroom/wheelroom
+
+
+
+
+
+## [3.3.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.3.1...@wheelroom/wheelroom@3.3.2) (2020-01-27)
 
 
 ### Bug Fixes
@@ -111,15 +111,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.3.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.3.0...@jacco-meijer/wheelroom@3.3.1) (2020-01-26)
+## [3.3.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.3.0...@wheelroom/wheelroom@3.3.1) (2020-01-26)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
-# [3.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.2.2...@jacco-meijer/wheelroom@3.3.0) (2020-01-22)
+
+
+# [3.3.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.2.2...@wheelroom/wheelroom@3.3.0) (2020-01-22)
 
 
 ### Bug Fixes
@@ -135,23 +135,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.2.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.2.1...@jacco-meijer/wheelroom@3.2.2) (2020-01-20)
+## [3.2.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.2.1...@wheelroom/wheelroom@3.2.2) (2020-01-20)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
-
-
-
-## [3.2.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.2.0...@jacco-meijer/wheelroom@3.2.1) (2020-01-13)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
 
 
-# [3.2.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.1.3...@jacco-meijer/wheelroom@3.2.0) (2020-01-13)
+## [3.2.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.2.0...@wheelroom/wheelroom@3.2.1) (2020-01-13)
+
+**Note:** Version bump only for package @wheelroom/wheelroom
+
+
+
+
+
+# [3.2.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.1.3...@wheelroom/wheelroom@3.2.0) (2020-01-13)
 
 
 ### Features
@@ -162,15 +162,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.1.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.1.2...@jacco-meijer/wheelroom@3.1.3) (2020-01-09)
+## [3.1.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.1.2...@wheelroom/wheelroom@3.1.3) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
-## [3.1.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.1.1...@jacco-meijer/wheelroom@3.1.2) (2020-01-09)
+
+
+## [3.1.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.1.1...@wheelroom/wheelroom@3.1.2) (2020-01-09)
 
 
 ### Bug Fixes
@@ -181,15 +181,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.1.0...@jacco-meijer/wheelroom@3.1.1) (2020-01-09)
+## [3.1.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.1.0...@wheelroom/wheelroom@3.1.1) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
-# [3.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.0.1...@jacco-meijer/wheelroom@3.1.0) (2020-01-09)
+
+
+# [3.1.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.0.1...@wheelroom/wheelroom@3.1.0) (2020-01-09)
 
 
 ### Bug Fixes
@@ -209,15 +209,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.0.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@3.0.0...@jacco-meijer/wheelroom@3.0.1) (2020-01-06)
+## [3.0.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@3.0.0...@wheelroom/wheelroom@3.0.1) (2020-01-06)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
-# [3.0.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@2.1.1...@jacco-meijer/wheelroom@3.0.0) (2020-01-06)
+
+
+# [3.0.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@2.1.1...@wheelroom/wheelroom@3.0.0) (2020-01-06)
 
 
 ### Bug Fixes
@@ -235,15 +235,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@2.1.0...@jacco-meijer/wheelroom@2.1.1) (2019-12-05)
+## [2.1.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@2.1.0...@wheelroom/wheelroom@2.1.1) (2019-12-05)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
-# [2.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@2.0.0...@jacco-meijer/wheelroom@2.1.0) (2019-07-28)
+
+
+# [2.1.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@2.0.0...@wheelroom/wheelroom@2.1.0) (2019-07-28)
 
 
 ### Features
@@ -254,30 +254,30 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.0.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@2.0.0-beta.1...@jacco-meijer/wheelroom@2.0.0) (2019-07-27)
+# [2.0.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@2.0.0-beta.1...@wheelroom/wheelroom@2.0.0) (2019-07-27)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
-
-
-
-# [2.0.0-beta.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@2.0.0-beta.0...@jacco-meijer/wheelroom@2.0.0-beta.1) (2019-07-22)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
 
 
-# [2.0.0-beta.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@2.0.0-alpha.4...@jacco-meijer/wheelroom@2.0.0-beta.0) (2019-07-21)
+# [2.0.0-beta.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@2.0.0-beta.0...@wheelroom/wheelroom@2.0.0-beta.1) (2019-07-22)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom
 
 
 
-# [2.0.0-alpha.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom@2.0.0-alpha.3...@jacco-meijer/wheelroom@2.0.0-alpha.4) (2019-07-16)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom
+
+# [2.0.0-beta.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@2.0.0-alpha.4...@wheelroom/wheelroom@2.0.0-beta.0) (2019-07-21)
+
+**Note:** Version bump only for package @wheelroom/wheelroom
+
+
+
+
+
+# [2.0.0-alpha.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom@2.0.0-alpha.3...@wheelroom/wheelroom@2.0.0-alpha.4) (2019-07-16)
+
+**Note:** Version bump only for package @wheelroom/wheelroom

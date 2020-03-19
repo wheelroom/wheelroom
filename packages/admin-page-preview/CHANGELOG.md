@@ -3,39 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.4.14](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.13...@jacco-meijer/admin-page-preview@1.4.14) (2020-03-13)
+## [1.4.14](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.13...@wheelroom/admin-page-preview@1.4.14) (2020-03-13)
 
-**Note:** Version bump only for package @jacco-meijer/admin-page-preview
-
-
-
-
-
-## [1.4.13](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.12...@jacco-meijer/admin-page-preview@1.4.13) (2020-03-12)
-
-**Note:** Version bump only for package @jacco-meijer/admin-page-preview
+**Note:** Version bump only for package @wheelroom/admin-page-preview
 
 
 
 
 
-## [1.4.12](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.11...@jacco-meijer/admin-page-preview@1.4.12) (2020-03-12)
+## [1.4.13](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.12...@wheelroom/admin-page-preview@1.4.13) (2020-03-12)
 
-**Note:** Version bump only for package @jacco-meijer/admin-page-preview
-
-
-
-
-
-## [1.4.11](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.10...@jacco-meijer/admin-page-preview@1.4.11) (2020-03-12)
-
-**Note:** Version bump only for package @jacco-meijer/admin-page-preview
+**Note:** Version bump only for package @wheelroom/admin-page-preview
 
 
 
 
 
-## [1.4.10](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.9...@jacco-meijer/admin-page-preview@1.4.10) (2020-03-11)
+## [1.4.12](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.11...@wheelroom/admin-page-preview@1.4.12) (2020-03-12)
+
+**Note:** Version bump only for package @wheelroom/admin-page-preview
+
+
+
+
+
+## [1.4.11](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.10...@wheelroom/admin-page-preview@1.4.11) (2020-03-12)
+
+**Note:** Version bump only for package @wheelroom/admin-page-preview
+
+
+
+
+
+## [1.4.10](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.9...@wheelroom/admin-page-preview@1.4.10) (2020-03-11)
 
 
 ### Bug Fixes
@@ -46,39 +46,39 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.4.9](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.8...@jacco-meijer/admin-page-preview@1.4.9) (2020-03-11)
+## [1.4.9](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.8...@wheelroom/admin-page-preview@1.4.9) (2020-03-11)
 
-**Note:** Version bump only for package @jacco-meijer/admin-page-preview
-
-
-
-
-
-## [1.4.8](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.7...@jacco-meijer/admin-page-preview@1.4.8) (2020-03-11)
-
-**Note:** Version bump only for package @jacco-meijer/admin-page-preview
+**Note:** Version bump only for package @wheelroom/admin-page-preview
 
 
 
 
 
-## [1.4.7](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.6...@jacco-meijer/admin-page-preview@1.4.7) (2020-03-06)
+## [1.4.8](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.7...@wheelroom/admin-page-preview@1.4.8) (2020-03-11)
 
-**Note:** Version bump only for package @jacco-meijer/admin-page-preview
-
-
-
-
-
-## [1.4.6](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.5...@jacco-meijer/admin-page-preview@1.4.6) (2020-03-06)
-
-**Note:** Version bump only for package @jacco-meijer/admin-page-preview
+**Note:** Version bump only for package @wheelroom/admin-page-preview
 
 
 
 
 
-## [1.4.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.4...@jacco-meijer/admin-page-preview@1.4.5) (2020-03-04)
+## [1.4.7](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.6...@wheelroom/admin-page-preview@1.4.7) (2020-03-06)
+
+**Note:** Version bump only for package @wheelroom/admin-page-preview
+
+
+
+
+
+## [1.4.6](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.5...@wheelroom/admin-page-preview@1.4.6) (2020-03-06)
+
+**Note:** Version bump only for package @wheelroom/admin-page-preview
+
+
+
+
+
+## [1.4.5](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.4...@wheelroom/admin-page-preview@1.4.5) (2020-03-04)
 
 
 ### Bug Fixes
@@ -89,7 +89,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.4.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.3...@jacco-meijer/admin-page-preview@1.4.4) (2020-03-04)
+## [1.4.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.3...@wheelroom/admin-page-preview@1.4.4) (2020-03-04)
 
 
 ### Bug Fixes
@@ -100,7 +100,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.4.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.2...@jacco-meijer/admin-page-preview@1.4.3) (2020-03-04)
+## [1.4.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.2...@wheelroom/admin-page-preview@1.4.3) (2020-03-04)
 
 
 ### Bug Fixes
@@ -112,7 +112,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.4.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.1...@jacco-meijer/admin-page-preview@1.4.2) (2020-03-03)
+## [1.4.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.1...@wheelroom/admin-page-preview@1.4.2) (2020-03-03)
 
 
 ### Bug Fixes
@@ -123,7 +123,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.4.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.4.0...@jacco-meijer/admin-page-preview@1.4.1) (2020-03-03)
+## [1.4.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.4.0...@wheelroom/admin-page-preview@1.4.1) (2020-03-03)
 
 
 ### Bug Fixes
@@ -134,7 +134,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.4.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.3.0...@jacco-meijer/admin-page-preview@1.4.0) (2020-03-03)
+# [1.4.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.3.0...@wheelroom/admin-page-preview@1.4.0) (2020-03-03)
 
 
 ### Features
@@ -145,7 +145,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.2.1...@jacco-meijer/admin-page-preview@1.3.0) (2020-03-03)
+# [1.3.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.2.1...@wheelroom/admin-page-preview@1.3.0) (2020-03-03)
 
 
 ### Features
@@ -156,7 +156,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.2.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.2.0...@jacco-meijer/admin-page-preview@1.2.1) (2020-03-03)
+## [1.2.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.2.0...@wheelroom/admin-page-preview@1.2.1) (2020-03-03)
 
 
 ### Bug Fixes
@@ -167,7 +167,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.2.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.1.1...@jacco-meijer/admin-page-preview@1.2.0) (2020-03-02)
+# [1.2.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.1.1...@wheelroom/admin-page-preview@1.2.0) (2020-03-02)
 
 
 ### Features
@@ -178,7 +178,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.1.0...@jacco-meijer/admin-page-preview@1.1.1) (2020-03-02)
+## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.1.0...@wheelroom/admin-page-preview@1.1.1) (2020-03-02)
 
 
 ### Bug Fixes
@@ -189,7 +189,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-page-preview@1.0.1...@jacco-meijer/admin-page-preview@1.1.0) (2020-03-02)
+# [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-page-preview@1.0.1...@wheelroom/admin-page-preview@1.1.0) (2020-03-02)
 
 
 ### Bug Fixes
@@ -208,4 +208,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.1 (2020-02-28)
 
-**Note:** Version bump only for package @jacco-meijer/admin-page-preview
+**Note:** Version bump only for package @wheelroom/admin-page-preview

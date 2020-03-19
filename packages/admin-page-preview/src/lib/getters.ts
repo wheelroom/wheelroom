@@ -1,4 +1,4 @@
-import { AdminCoreState } from '@jacco-meijer/admin-core'
+import { AdminCoreState } from '@wheelroom/admin-core'
 import { PagePreviewStore } from './types'
 
 export const getPreviewPageStore = (

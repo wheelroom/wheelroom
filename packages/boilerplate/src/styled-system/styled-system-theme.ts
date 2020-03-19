@@ -1,4 +1,4 @@
-import { StyledSystemTheme } from '@jacco-meijer/styled-system'
+import { StyledSystemTheme } from '@wheelroom/styled-system'
 
 export const styledSystemTheme: StyledSystemTheme = {
   breakpoints: ['37.5em', '50em', '75em'],

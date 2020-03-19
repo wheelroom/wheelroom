@@ -8,7 +8,7 @@
 
 import React, { Fragment, useContext, useState, useRef } from 'react'
 import { Action, ActionProps } from '../action'
-import { AdminCoreContext } from '@jacco-meijer/admin-core'
+import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../../core/elements/a-link'
 import { Box, Container, Flex } from '../../core/elements/grid'
 import { Button } from '../../core/elements/button'
@@ -16,7 +16,7 @@ import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
 } from '../../core/styles/button'
-import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
+import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { GLink } from '../../core/elements/g-link'
 import { List } from '../../core/elements/list'
 import { NavigationProps } from './navigation'

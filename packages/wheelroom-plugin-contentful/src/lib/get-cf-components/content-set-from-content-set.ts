@@ -1,4 +1,4 @@
-import { WheelroomComponents } from '@jacco-meijer/wheelroom'
+import { WheelroomComponents } from '@wheelroom/wheelroom'
 import {
   ContentfulContent,
   ContentfulContentField,

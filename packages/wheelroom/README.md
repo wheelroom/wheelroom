@@ -1,4 +1,4 @@
-# @jacco-meijer/wheelroom
+# @wheelroom/wheelroom
 
 Wheelroom is a command line tool for managing content models.
 
@@ -12,9 +12,9 @@ Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/m
 
 Plugins are used to work with the models. Three plugins have been written:
 
-- [wheelroom-plugin-boilerplate](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-boilerplate): template parser for generating typescript (React) files
-- [wheelroom-plugin-graphql](https://www.npmjs.com/package/@jacco-meijer//wheelroom-plugin-graphql): template parser for generating (Gatbsyjs) graphql queries
-- [wheelroom-plugin-contentful](https://www.npmjs.com/package/@jacco-meijer/wheelroom-plugin-contentful): for creating content models at Contentful
+- [wheelroom-plugin-boilerplate](https://www.npmjs.com/package/@wheelroom/wheelroom-plugin-boilerplate): template parser for generating typescript (React) files
+- [wheelroom-plugin-graphql](https://www.npmjs.com/package/@wheelroom//wheelroom-plugin-graphql): template parser for generating (Gatbsyjs) graphql queries
+- [wheelroom-plugin-contentful](https://www.npmjs.com/package/@wheelroom/wheelroom-plugin-contentful): for creating content models at Contentful
 
 A plugin for [prismic.io](https://prismic.io) can be easily added.
 

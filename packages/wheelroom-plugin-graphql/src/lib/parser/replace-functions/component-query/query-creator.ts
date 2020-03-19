@@ -1,8 +1,8 @@
 import {
   Field as QbField,
   graphqlQueryBuilder as qb,
-} from '@jacco-meijer/graphql-query-builder'
-import { getCases, WheelroomComponent } from '@jacco-meijer/wheelroom'
+} from '@wheelroom/graphql-query-builder'
+import { getCases, WheelroomComponent } from '@wheelroom/wheelroom'
 import { getWheelroomQuery } from './get-wheelroom-query'
 
 interface ComponentQuery {

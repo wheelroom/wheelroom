@@ -10,7 +10,7 @@ import {
   heading6Style,
   commonHeadingStyle,
 } from '../styles/heading'
-import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 
 interface HeadingProps {
   ncss?: any

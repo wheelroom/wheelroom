@@ -1,4 +1,4 @@
-import { WheelroomConfig } from '@jacco-meijer/wheelroom'
+import { WheelroomConfig } from '@wheelroom/wheelroom'
 import { configCommonFields } from './wheelroom/config-common-fields'
 import { configComponents } from './wheelroom/config-components'
 import { configFieldDefaults } from './wheelroom/config-field-defaults'

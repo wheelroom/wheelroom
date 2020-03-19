@@ -1,4 +1,4 @@
-import { StyledSystemTheme } from '@jacco-meijer/styled-system'
+import { StyledSystemTheme } from '@wheelroom/styled-system'
 import { scales } from '../scales'
 import { maps } from '../maps'
 import { breakpoints } from '../breakpoints'

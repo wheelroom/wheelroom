@@ -1,4 +1,4 @@
-import { createParser } from '@jacco-meijer/wheelroom'
+import { createParser } from '@wheelroom/wheelroom'
 import { replaceVars } from '../../../../fixtures/replace-vars'
 import { componentFragmentFunc } from './component-fragment'
 jest.setTimeout(10000)

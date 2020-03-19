@@ -11,7 +11,7 @@
  *
  */
 
-import { getCases, ReplaceFunctionsList } from '@jacco-meijer/wheelroom'
+import { getCases, ReplaceFunctionsList } from '@wheelroom/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
 
 export const variationFunc: ReplaceFunctionsList = [

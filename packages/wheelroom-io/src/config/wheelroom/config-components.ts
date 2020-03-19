@@ -9,7 +9,7 @@ import {
   TagsField,
   WheelroomComponents,
   CheckboxField,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 
 export const configComponents: WheelroomComponents = {
   topic: {

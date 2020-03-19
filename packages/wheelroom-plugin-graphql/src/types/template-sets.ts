@@ -1,4 +1,4 @@
-import { Settings } from '@jacco-meijer/wheelroom'
+import { Settings } from '@wheelroom/wheelroom'
 
 export type SettingsKeys = keyof Settings
 

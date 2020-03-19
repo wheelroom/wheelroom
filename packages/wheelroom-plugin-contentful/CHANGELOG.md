@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.14.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.13.0...@jacco-meijer/wheelroom-plugin-contentful@2.14.0) (2020-03-12)
+# [2.14.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.13.0...@wheelroom/wheelroom-plugin-contentful@2.14.0) (2020-03-12)
 
 
 ### Features
@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.13.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.12.1...@jacco-meijer/wheelroom-plugin-contentful@2.13.0) (2020-03-12)
+# [2.13.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.12.1...@wheelroom/wheelroom-plugin-contentful@2.13.0) (2020-03-12)
 
 
 ### Features
@@ -26,7 +26,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.12.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.12.0...@jacco-meijer/wheelroom-plugin-contentful@2.12.1) (2020-03-10)
+## [2.12.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.12.0...@wheelroom/wheelroom-plugin-contentful@2.12.1) (2020-03-10)
 
 
 ### Bug Fixes
@@ -37,7 +37,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.12.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.11.0...@jacco-meijer/wheelroom-plugin-contentful@2.12.0) (2020-03-10)
+# [2.12.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.11.0...@wheelroom/wheelroom-plugin-contentful@2.12.0) (2020-03-10)
 
 
 ### Features
@@ -49,7 +49,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.11.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.10.3...@jacco-meijer/wheelroom-plugin-contentful@2.11.0) (2020-03-02)
+# [2.11.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.10.3...@wheelroom/wheelroom-plugin-contentful@2.11.0) (2020-03-02)
 
 
 ### Features
@@ -61,15 +61,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.10.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.10.2...@jacco-meijer/wheelroom-plugin-contentful@2.10.3) (2020-02-13)
+## [2.10.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.10.2...@wheelroom/wheelroom-plugin-contentful@2.10.3) (2020-02-13)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
-## [2.10.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.10.1...@jacco-meijer/wheelroom-plugin-contentful@2.10.2) (2020-02-13)
+
+
+## [2.10.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.10.1...@wheelroom/wheelroom-plugin-contentful@2.10.2) (2020-02-13)
 
 
 ### Bug Fixes
@@ -81,15 +81,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.10.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.10.0...@jacco-meijer/wheelroom-plugin-contentful@2.10.1) (2020-02-12)
+## [2.10.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.10.0...@wheelroom/wheelroom-plugin-contentful@2.10.1) (2020-02-12)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
-# [2.10.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.6...@jacco-meijer/wheelroom-plugin-contentful@2.10.0) (2020-02-11)
+
+
+# [2.10.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.9.6...@wheelroom/wheelroom-plugin-contentful@2.10.0) (2020-02-11)
 
 
 ### Bug Fixes
@@ -105,15 +105,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.9.6](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.5...@jacco-meijer/wheelroom-plugin-contentful@2.9.6) (2020-02-06)
+## [2.9.6](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.9.5...@wheelroom/wheelroom-plugin-contentful@2.9.6) (2020-02-06)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
-## [2.9.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.4...@jacco-meijer/wheelroom-plugin-contentful@2.9.5) (2020-02-04)
+
+
+## [2.9.5](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.9.4...@wheelroom/wheelroom-plugin-contentful@2.9.5) (2020-02-04)
 
 
 ### Bug Fixes
@@ -124,15 +124,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.9.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.3...@jacco-meijer/wheelroom-plugin-contentful@2.9.4) (2020-02-04)
+## [2.9.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.9.3...@wheelroom/wheelroom-plugin-contentful@2.9.4) (2020-02-04)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
-## [2.9.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.2...@jacco-meijer/wheelroom-plugin-contentful@2.9.3) (2020-02-04)
+
+
+## [2.9.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.9.2...@wheelroom/wheelroom-plugin-contentful@2.9.3) (2020-02-04)
 
 
 ### Bug Fixes
@@ -143,7 +143,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.9.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.1...@jacco-meijer/wheelroom-plugin-contentful@2.9.2) (2020-02-03)
+## [2.9.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.9.1...@wheelroom/wheelroom-plugin-contentful@2.9.2) (2020-02-03)
 
 
 ### Bug Fixes
@@ -154,7 +154,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.9.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.9.0...@jacco-meijer/wheelroom-plugin-contentful@2.9.1) (2020-02-03)
+## [2.9.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.9.0...@wheelroom/wheelroom-plugin-contentful@2.9.1) (2020-02-03)
 
 
 ### Bug Fixes
@@ -165,7 +165,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.9.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.8.2...@jacco-meijer/wheelroom-plugin-contentful@2.9.0) (2020-02-03)
+# [2.9.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.8.2...@wheelroom/wheelroom-plugin-contentful@2.9.0) (2020-02-03)
 
 
 ### Features
@@ -176,23 +176,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.8.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.8.1...@jacco-meijer/wheelroom-plugin-contentful@2.8.2) (2020-02-01)
+## [2.8.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.8.1...@wheelroom/wheelroom-plugin-contentful@2.8.2) (2020-02-01)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
-
-
-
-## [2.8.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.8.0...@jacco-meijer/wheelroom-plugin-contentful@2.8.1) (2020-01-30)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
 
 
-# [2.8.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.7.0...@jacco-meijer/wheelroom-plugin-contentful@2.8.0) (2020-01-30)
+## [2.8.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.8.0...@wheelroom/wheelroom-plugin-contentful@2.8.1) (2020-01-30)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
+
+
+
+
+
+# [2.8.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.7.0...@wheelroom/wheelroom-plugin-contentful@2.8.0) (2020-01-30)
 
 
 ### Features
@@ -204,7 +204,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.7.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.6.1...@jacco-meijer/wheelroom-plugin-contentful@2.7.0) (2020-01-27)
+# [2.7.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.6.1...@wheelroom/wheelroom-plugin-contentful@2.7.0) (2020-01-27)
 
 
 ### Bug Fixes
@@ -220,7 +220,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.6.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.6.0...@jacco-meijer/wheelroom-plugin-contentful@2.6.1) (2020-01-27)
+## [2.6.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.6.0...@wheelroom/wheelroom-plugin-contentful@2.6.1) (2020-01-27)
 
 
 ### Bug Fixes
@@ -231,7 +231,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.6.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.5.1...@jacco-meijer/wheelroom-plugin-contentful@2.6.0) (2020-01-27)
+# [2.6.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.5.1...@wheelroom/wheelroom-plugin-contentful@2.6.0) (2020-01-27)
 
 
 ### Features
@@ -242,15 +242,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.5.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.5.0...@jacco-meijer/wheelroom-plugin-contentful@2.5.1) (2020-01-26)
+## [2.5.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.5.0...@wheelroom/wheelroom-plugin-contentful@2.5.1) (2020-01-26)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
-# [2.5.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.4.3...@jacco-meijer/wheelroom-plugin-contentful@2.5.0) (2020-01-24)
+
+
+# [2.5.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.4.3...@wheelroom/wheelroom-plugin-contentful@2.5.0) (2020-01-24)
 
 
 ### Features
@@ -261,23 +261,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.4.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.4.2...@jacco-meijer/wheelroom-plugin-contentful@2.4.3) (2020-01-24)
+## [2.4.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.4.2...@wheelroom/wheelroom-plugin-contentful@2.4.3) (2020-01-24)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
-
-
-
-## [2.4.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.4.1...@jacco-meijer/wheelroom-plugin-contentful@2.4.2) (2020-01-24)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
 
 
-## [2.4.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.4.0...@jacco-meijer/wheelroom-plugin-contentful@2.4.1) (2020-01-24)
+## [2.4.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.4.1...@wheelroom/wheelroom-plugin-contentful@2.4.2) (2020-01-24)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
+
+
+
+
+
+## [2.4.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.4.0...@wheelroom/wheelroom-plugin-contentful@2.4.1) (2020-01-24)
 
 
 ### Bug Fixes
@@ -288,7 +288,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.4.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.3.0...@jacco-meijer/wheelroom-plugin-contentful@2.4.0) (2020-01-23)
+# [2.4.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.3.0...@wheelroom/wheelroom-plugin-contentful@2.4.0) (2020-01-23)
 
 
 ### Bug Fixes
@@ -308,7 +308,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.2.5...@jacco-meijer/wheelroom-plugin-contentful@2.3.0) (2020-01-22)
+# [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.2.5...@wheelroom/wheelroom-plugin-contentful@2.3.0) (2020-01-22)
 
 
 ### Features
@@ -319,23 +319,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.2.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.2.4...@jacco-meijer/wheelroom-plugin-contentful@2.2.5) (2020-01-20)
+## [2.2.5](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.2.4...@wheelroom/wheelroom-plugin-contentful@2.2.5) (2020-01-20)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
-
-
-
-## [2.2.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.2.3...@jacco-meijer/wheelroom-plugin-contentful@2.2.4) (2020-01-13)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
 
 
-## [2.2.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.2.2...@jacco-meijer/wheelroom-plugin-contentful@2.2.3) (2020-01-13)
+## [2.2.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.2.3...@wheelroom/wheelroom-plugin-contentful@2.2.4) (2020-01-13)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
+
+
+
+
+
+## [2.2.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.2.2...@wheelroom/wheelroom-plugin-contentful@2.2.3) (2020-01-13)
 
 
 ### Bug Fixes
@@ -346,23 +346,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.2.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.2.1...@jacco-meijer/wheelroom-plugin-contentful@2.2.2) (2020-01-09)
+## [2.2.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.2.1...@wheelroom/wheelroom-plugin-contentful@2.2.2) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
-
-
-
-## [2.2.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.2.0...@jacco-meijer/wheelroom-plugin-contentful@2.2.1) (2020-01-09)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
 
 
-# [2.2.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.1.1...@jacco-meijer/wheelroom-plugin-contentful@2.2.0) (2020-01-09)
+## [2.2.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.2.0...@wheelroom/wheelroom-plugin-contentful@2.2.1) (2020-01-09)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
+
+
+
+
+
+# [2.2.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.1.1...@wheelroom/wheelroom-plugin-contentful@2.2.0) (2020-01-09)
 
 
 ### Features
@@ -373,15 +373,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.1.0...@jacco-meijer/wheelroom-plugin-contentful@2.1.1) (2020-01-09)
+## [2.1.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.1.0...@wheelroom/wheelroom-plugin-contentful@2.1.1) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
-# [2.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.0.1...@jacco-meijer/wheelroom-plugin-contentful@2.1.0) (2020-01-09)
+
+
+# [2.1.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.0.1...@wheelroom/wheelroom-plugin-contentful@2.1.0) (2020-01-09)
 
 
 ### Bug Fixes
@@ -397,15 +397,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.0.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@2.0.0...@jacco-meijer/wheelroom-plugin-contentful@2.0.1) (2020-01-06)
+## [2.0.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.0.0...@wheelroom/wheelroom-plugin-contentful@2.0.1) (2020-01-06)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
-# [2.0.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.1.2...@jacco-meijer/wheelroom-plugin-contentful@2.0.0) (2020-01-06)
+
+
+# [2.0.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@1.1.2...@wheelroom/wheelroom-plugin-contentful@2.0.0) (2020-01-06)
 
 
 ### Features
@@ -416,7 +416,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.1.1...@jacco-meijer/wheelroom-plugin-contentful@1.1.2) (2019-12-05)
+## [1.1.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@1.1.1...@wheelroom/wheelroom-plugin-contentful@1.1.2) (2019-12-05)
 
 
 ### Bug Fixes
@@ -427,7 +427,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.1.0...@jacco-meijer/wheelroom-plugin-contentful@1.1.1) (2019-07-28)
+## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@1.1.0...@wheelroom/wheelroom-plugin-contentful@1.1.1) (2019-07-28)
 
 
 ### Bug Fixes
@@ -438,7 +438,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.0.0...@jacco-meijer/wheelroom-plugin-contentful@1.1.0) (2019-07-28)
+# [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@1.0.0...@wheelroom/wheelroom-plugin-contentful@1.1.0) (2019-07-28)
 
 
 ### Features
@@ -449,38 +449,38 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.0.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.0.0-beta.2...@jacco-meijer/wheelroom-plugin-contentful@1.0.0) (2019-07-27)
+# [1.0.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@1.0.0-beta.2...@wheelroom/wheelroom-plugin-contentful@1.0.0) (2019-07-27)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
-
-
-
-# [1.0.0-beta.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.0.0-beta.1...@jacco-meijer/wheelroom-plugin-contentful@1.0.0-beta.2) (2019-07-26)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
 
 
-# [1.0.0-beta.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.0.0-beta.0...@jacco-meijer/wheelroom-plugin-contentful@1.0.0-beta.1) (2019-07-22)
+# [1.0.0-beta.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@1.0.0-beta.1...@wheelroom/wheelroom-plugin-contentful@1.0.0-beta.2) (2019-07-26)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
-
-
-
-
-
-# [1.0.0-beta.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.0.0-alpha.4...@jacco-meijer/wheelroom-plugin-contentful@1.0.0-beta.0) (2019-07-21)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
 
 
 
 
 
-# [1.0.0-alpha.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-contentful@1.0.0-alpha.3...@jacco-meijer/wheelroom-plugin-contentful@1.0.0-alpha.4) (2019-07-16)
+# [1.0.0-beta.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@1.0.0-beta.0...@wheelroom/wheelroom-plugin-contentful@1.0.0-beta.1) (2019-07-22)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-contentful
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
+
+
+
+
+
+# [1.0.0-beta.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@1.0.0-alpha.4...@wheelroom/wheelroom-plugin-contentful@1.0.0-beta.0) (2019-07-21)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
+
+
+
+
+
+# [1.0.0-alpha.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@1.0.0-alpha.3...@wheelroom/wheelroom-plugin-contentful@1.0.0-alpha.4) (2019-07-16)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful

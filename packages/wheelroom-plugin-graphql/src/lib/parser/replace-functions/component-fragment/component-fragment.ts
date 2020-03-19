@@ -7,8 +7,8 @@
  *
  */
 
-import { ReplaceFunctionsList, ReplaceParams } from '@jacco-meijer/wheelroom'
-import { ReplaceVars } from '@jacco-meijer/wheelroom'
+import { ReplaceFunctionsList, ReplaceParams } from '@wheelroom/wheelroom'
+import { ReplaceVars } from '@wheelroom/wheelroom'
 import { fragmentCreator } from './fragment-creator'
 
 export const componentFragmentFunc: ReplaceFunctionsList = [

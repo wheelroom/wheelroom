@@ -17,7 +17,7 @@ import {
   ShortTextField,
   SingleComponentField,
   TagsField,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 
 const commonFieldDefaults: CommonField = {
   localized: false,

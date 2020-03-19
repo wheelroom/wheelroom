@@ -1,5 +1,5 @@
-import { Fields as QbFields } from '@jacco-meijer/graphql-query-builder'
-import { AsQuery, WheelroomComponent } from '@jacco-meijer/wheelroom'
+import { Fields as QbFields } from '@wheelroom/graphql-query-builder'
+import { AsQuery, WheelroomComponent } from '@wheelroom/wheelroom'
 
 type TypeTable = Record<AsQuery, QbFields>
 

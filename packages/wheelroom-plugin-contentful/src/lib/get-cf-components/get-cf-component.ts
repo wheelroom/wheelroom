@@ -2,8 +2,8 @@ import {
   FieldType,
   WheelroomComponent,
   WheelroomComponents,
-} from '@jacco-meijer/wheelroom'
-import { getCases } from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
+import { getCases } from '@wheelroom/wheelroom'
 import { ContentfulComponent } from '../../types/contentful-components'
 import { ContentfulFieldDefinitions } from '../../types/contentful-field-definitions'
 import { ContentfulFields } from '../../types/contentful-fields'

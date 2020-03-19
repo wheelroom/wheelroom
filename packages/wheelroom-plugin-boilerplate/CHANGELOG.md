@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.8.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.7.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.8.0) (2020-03-12)
+# [2.8.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.7.0...@wheelroom/wheelroom-plugin-boilerplate@2.8.0) (2020-03-12)
 
 
 ### Features
@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.7.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.8...@jacco-meijer/wheelroom-plugin-boilerplate@2.7.0) (2020-03-02)
+# [2.7.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.6.8...@wheelroom/wheelroom-plugin-boilerplate@2.7.0) (2020-03-02)
 
 
 ### Features
@@ -26,31 +26,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.6.8](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.7...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.8) (2020-02-13)
+## [2.6.8](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.6.7...@wheelroom/wheelroom-plugin-boilerplate@2.6.8) (2020-02-13)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
-
-
-
-## [2.6.7](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.6...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.7) (2020-02-13)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
 
 
-## [2.6.6](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.5...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.6) (2020-02-12)
+## [2.6.7](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.6.6...@wheelroom/wheelroom-plugin-boilerplate@2.6.7) (2020-02-13)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
-## [2.6.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.4...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.5) (2020-02-06)
+
+
+## [2.6.6](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.6.5...@wheelroom/wheelroom-plugin-boilerplate@2.6.6) (2020-02-12)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
+
+
+
+
+
+## [2.6.5](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.6.4...@wheelroom/wheelroom-plugin-boilerplate@2.6.5) (2020-02-06)
 
 
 ### Bug Fixes
@@ -61,39 +61,39 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.6.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.3...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.4) (2020-02-04)
+## [2.6.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.6.3...@wheelroom/wheelroom-plugin-boilerplate@2.6.4) (2020-02-04)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
-
-
-
-## [2.6.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.2...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.3) (2020-02-01)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
 
 
-## [2.6.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.1...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.2) (2020-01-30)
+## [2.6.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.6.2...@wheelroom/wheelroom-plugin-boilerplate@2.6.3) (2020-02-01)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
-
-
-
-## [2.6.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.6.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.1) (2020-01-27)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
 
 
-# [2.6.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.5.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.6.0) (2020-01-27)
+## [2.6.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.6.1...@wheelroom/wheelroom-plugin-boilerplate@2.6.2) (2020-01-30)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
+
+
+
+
+
+## [2.6.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.6.0...@wheelroom/wheelroom-plugin-boilerplate@2.6.1) (2020-01-27)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
+
+
+
+
+
+# [2.6.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.5.0...@wheelroom/wheelroom-plugin-boilerplate@2.6.0) (2020-01-27)
 
 
 ### Bug Fixes
@@ -109,7 +109,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.5.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.4.1...@jacco-meijer/wheelroom-plugin-boilerplate@2.5.0) (2020-01-27)
+# [2.5.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.4.1...@wheelroom/wheelroom-plugin-boilerplate@2.5.0) (2020-01-27)
 
 
 ### Features
@@ -120,15 +120,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.4.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.4.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.4.1) (2020-01-27)
+## [2.4.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.4.0...@wheelroom/wheelroom-plugin-boilerplate@2.4.1) (2020-01-27)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
-# [2.4.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.3.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.4.0) (2020-01-26)
+
+
+# [2.4.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.3.0...@wheelroom/wheelroom-plugin-boilerplate@2.4.0) (2020-01-26)
 
 
 ### Bug Fixes
@@ -144,7 +144,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.7...@jacco-meijer/wheelroom-plugin-boilerplate@2.3.0) (2020-01-26)
+# [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.2.7...@wheelroom/wheelroom-plugin-boilerplate@2.3.0) (2020-01-26)
 
 
 ### Features
@@ -155,31 +155,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.2.7](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.6...@jacco-meijer/wheelroom-plugin-boilerplate@2.2.7) (2020-01-22)
+## [2.2.7](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.2.6...@wheelroom/wheelroom-plugin-boilerplate@2.2.7) (2020-01-22)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
-
-
-
-## [2.2.6](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.5...@jacco-meijer/wheelroom-plugin-boilerplate@2.2.6) (2020-01-20)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
 
 
-## [2.2.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.4...@jacco-meijer/wheelroom-plugin-boilerplate@2.2.5) (2020-01-13)
+## [2.2.6](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.2.5...@wheelroom/wheelroom-plugin-boilerplate@2.2.6) (2020-01-20)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
-## [2.2.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.3...@jacco-meijer/wheelroom-plugin-boilerplate@2.2.4) (2020-01-13)
+
+
+## [2.2.5](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.2.4...@wheelroom/wheelroom-plugin-boilerplate@2.2.5) (2020-01-13)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
+
+
+
+
+
+## [2.2.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.2.3...@wheelroom/wheelroom-plugin-boilerplate@2.2.4) (2020-01-13)
 
 
 ### Bug Fixes
@@ -190,31 +190,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.2.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.2...@jacco-meijer/wheelroom-plugin-boilerplate@2.2.3) (2020-01-10)
+## [2.2.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.2.2...@wheelroom/wheelroom-plugin-boilerplate@2.2.3) (2020-01-10)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
-
-
-
-## [2.2.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.1...@jacco-meijer/wheelroom-plugin-boilerplate@2.2.2) (2020-01-09)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
 
 
-## [2.2.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.2.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.2.1) (2020-01-09)
+## [2.2.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.2.1...@wheelroom/wheelroom-plugin-boilerplate@2.2.2) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
-# [2.2.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.1.1...@jacco-meijer/wheelroom-plugin-boilerplate@2.2.0) (2020-01-09)
+
+
+## [2.2.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.2.0...@wheelroom/wheelroom-plugin-boilerplate@2.2.1) (2020-01-09)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
+
+
+
+
+
+# [2.2.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.1.1...@wheelroom/wheelroom-plugin-boilerplate@2.2.0) (2020-01-09)
 
 
 ### Features
@@ -225,15 +225,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.1.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.1.1) (2020-01-09)
+## [2.1.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.1.0...@wheelroom/wheelroom-plugin-boilerplate@2.1.1) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 
-# [2.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.0.1...@jacco-meijer/wheelroom-plugin-boilerplate@2.1.0) (2020-01-09)
+
+
+# [2.1.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.0.1...@wheelroom/wheelroom-plugin-boilerplate@2.1.0) (2020-01-09)
 
 
 ### Features
@@ -246,9 +246,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.0.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-boilerplate@2.0.0...@jacco-meijer/wheelroom-plugin-boilerplate@2.0.1) (2020-01-06)
+## [2.0.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.0.0...@wheelroom/wheelroom-plugin-boilerplate@2.0.1) (2020-01-06)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-boilerplate
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-boilerplate
 
 
 

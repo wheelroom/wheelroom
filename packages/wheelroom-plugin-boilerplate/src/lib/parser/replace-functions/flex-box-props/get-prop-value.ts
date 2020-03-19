@@ -3,7 +3,7 @@ import {
   FieldTypeName,
   MultipleComponentsField,
   SingleComponentField,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 
 type TypeTable = Record<FieldTypeName, string>
 

@@ -1,4 +1,4 @@
-import { WheelroomComponent } from '@jacco-meijer/wheelroom'
+import { WheelroomComponent } from '@wheelroom/wheelroom'
 import { ReplaceVarsExt } from '../types/parser'
 
 const componentA = {

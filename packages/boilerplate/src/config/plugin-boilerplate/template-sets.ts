@@ -1,4 +1,4 @@
-import { TemplateSets } from '@jacco-meijer/wheelroom-plugin-boilerplate'
+import { TemplateSets } from '@wheelroom/wheelroom-plugin-boilerplate'
 import { component } from './component'
 import { componentIndex } from './component-index'
 import { componentInterfaceOnly } from './component-interface-only'

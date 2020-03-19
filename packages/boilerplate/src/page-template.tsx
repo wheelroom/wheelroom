@@ -12,7 +12,7 @@ import { Box, Container } from './views/core-elements/grid'
 import {
   PreviewUpdateButton,
   useFetchPreviewPage,
-} from '@jacco-meijer/admin-page-preview'
+} from '@wheelroom/admin-page-preview'
 
 const GlobalAStyles = {
   body: {

@@ -1,3 +1,3 @@
-# @jacco-meijer/admin-theme-switcher
+# @wheelroom/admin-theme-switcher
 
 TBW

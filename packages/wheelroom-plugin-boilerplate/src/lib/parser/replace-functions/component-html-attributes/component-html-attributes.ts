@@ -7,7 +7,7 @@
  *
  */
 
-import { FieldType, ReplaceFunctionsList } from '@jacco-meijer/wheelroom'
+import { FieldType, ReplaceFunctionsList } from '@wheelroom/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
 
 export const componentHtmlAttributesFunc: ReplaceFunctionsList = [

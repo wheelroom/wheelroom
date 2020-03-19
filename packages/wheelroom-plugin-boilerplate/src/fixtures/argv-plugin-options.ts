@@ -5,7 +5,7 @@
 import { templateSets } from '../fixtures/template-sets/template-sets'
 
 export const argvPluginOptions = {
-  '@jacco-meijer/wheelroom-plugin-boilerplate': {
+  '@wheelroom/wheelroom-plugin-boilerplate': {
     templateSets,
   },
 }

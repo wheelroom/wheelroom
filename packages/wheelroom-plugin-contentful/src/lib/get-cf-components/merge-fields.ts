@@ -25,7 +25,7 @@
  *
  */
 
-import { FieldType, WheelroomComponents } from '@jacco-meijer/wheelroom'
+import { FieldType, WheelroomComponents } from '@wheelroom/wheelroom'
 import { ContentfulField } from '../../types/contentful-fields'
 import { createIfMissing } from './merge-helpers'
 

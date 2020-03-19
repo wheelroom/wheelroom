@@ -11,7 +11,7 @@ import {
   FieldType,
   ReplaceFunctionsList,
   ReplaceParams,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 import { ReplaceVarsExt } from '../../../../types/parser'
 import { getPropValue } from './get-prop-value'
 

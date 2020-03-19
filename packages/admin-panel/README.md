@@ -1,3 +1,3 @@
-# @jacco-meijer/admin-panel
+# @wheelroom/admin-panel
 
 TBW

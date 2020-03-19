@@ -9,7 +9,7 @@
  *
  */
 
-import { FieldType, WheelroomComponent } from '@jacco-meijer/wheelroom'
+import { FieldType, WheelroomComponent } from '@wheelroom/wheelroom'
 import fse from 'fs-extra'
 import { argvComponents } from './argv-components'
 

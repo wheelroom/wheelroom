@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { Spinner } from './spinner'
 import { useContext } from 'react'
-import { AdminCoreContext } from '@jacco-meijer/admin-core'
+import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewPageStore } from '../getters'
 import { PagePreviewState } from '../types'
 

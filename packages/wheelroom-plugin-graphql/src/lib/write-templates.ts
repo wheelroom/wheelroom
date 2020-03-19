@@ -2,12 +2,12 @@ import {
   createParser,
   replaceFunctions,
   WheelroomComponent,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 import {
   WriteFileList,
   writeFiles,
   WriteFilesContext,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 import inquirer from 'inquirer'
 import { TemplateDefinition } from '../types/template-sets'
 import {

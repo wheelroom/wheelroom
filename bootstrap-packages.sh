@@ -15,10 +15,10 @@ remove_redundant_react_packages() {
         echo "No argument supplied"
         return
     fi
-    rm -rf packages/@jacco-meijer/admin-core/node_modules/$1
-    rm -rf packages/@jacco-meijer/admin-panel/node_modules/$1
-    rm -rf packages/@jacco-meijer/admin-page-preview/node_modules/$1
-    rm -rf packages/@jacco-meijer/admin-theme-switcher/node_modules/$1
+    rm -rf packages/admin-core/node_modules/$1
+    rm -rf packages/admin-panel/node_modules/$1
+    rm -rf packages/admin-page-preview/node_modules/$1
+    rm -rf packages/admin-theme-switcher/node_modules/$1
 }
 
 link_react_packages_to_boilerplate() {
@@ -28,10 +28,10 @@ link_react_packages_to_boilerplate() {
         return
     fi
 
-    ln -s $2 packages/@jacco-meijer/admin-core/node_modules/$1
-    ln -s $2 packages/@jacco-meijer/admin-panel/node_modules/$1
-    ln -s $2 packages/@jacco-meijer/admin-page-preview/node_modules/$1
-    ln -s $2 packages/@jacco-meijer/admin-theme-switcher/node_modules/$1
+    ln -s $2 packages/admin-core/node_modules/$1
+    ln -s $2 packages/admin-panel/node_modules/$1
+    ln -s $2 packages/admin-page-preview/node_modules/$1
+    ln -s $2 packages/admin-theme-switcher/node_modules/$1
 }
 
 echo "Preparing packages"

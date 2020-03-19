@@ -1,4 +1,4 @@
-import * as wheelroom from '@jacco-meijer/wheelroom'
+import * as wheelroom from '@wheelroom/wheelroom'
 import { argvCommand } from '../../../fixtures/argv-command'
 import { command } from '../command'
 

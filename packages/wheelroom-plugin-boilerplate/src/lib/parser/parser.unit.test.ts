@@ -1,4 +1,4 @@
-import { createParser, replaceFunctions } from '@jacco-meijer/wheelroom'
+import { createParser, replaceFunctions } from '@wheelroom/wheelroom'
 import { replaceVars } from '../../fixtures/replace-vars'
 import { replaceFunctions as localReplaceFunction } from './replace-functions'
 

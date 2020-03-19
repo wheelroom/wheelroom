@@ -1,4 +1,4 @@
-import { styledSystem } from '@jacco-meijer/styled-system'
+import { styledSystem } from '@wheelroom/styled-system'
 import { styledSystemConfig } from './styled-system-config'
 import { lightTheme } from './themes/light-theme'
 import { darkTheme } from './themes/dark-theme'

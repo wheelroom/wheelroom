@@ -4,7 +4,7 @@ import {
   FieldTypeName,
   replaceFunctions,
   WheelroomComponent,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 
 type TypeTable = Record<FieldTypeName, string>
 

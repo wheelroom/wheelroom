@@ -2,9 +2,9 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useContext } from 'react'
-import { AdminCoreContext } from '@jacco-meijer/admin-core'
-import { getPreviewQueryString } from '@jacco-meijer/admin-page-preview'
-import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { AdminCoreContext } from '@wheelroom/admin-core'
+import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
+import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { commonButtonStyle } from '../styles/button'
 import React from 'react'
 

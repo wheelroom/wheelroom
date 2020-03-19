@@ -1,5 +1,5 @@
-import { WheelroomComponents } from '@jacco-meijer/wheelroom'
-import { ReplaceVars } from '@jacco-meijer/wheelroom'
+import { WheelroomComponents } from '@wheelroom/wheelroom'
+import { ReplaceVars } from '@wheelroom/wheelroom'
 
 const components: WheelroomComponents = {
   page: {

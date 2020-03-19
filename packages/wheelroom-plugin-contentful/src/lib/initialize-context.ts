@@ -1,4 +1,4 @@
-import { getFilteredComponents } from '@jacco-meijer/wheelroom'
+import { getFilteredComponents } from '@wheelroom/wheelroom'
 import {
   getClient,
   getEnvironment,
@@ -13,7 +13,7 @@ import { getCfContentSet } from './get-cf-content-set/get-cf-content-set'
 
 export const initializeContext = async (argv: any) => {
   const pluginOptions =
-    argv.options['@jacco-meijer/wheelroom-plugin-contentful']
+    argv.options['@wheelroom/wheelroom-plugin-contentful']
   const wheelroomComponents = getFilteredComponents(argv)
 
   let wrContentSet

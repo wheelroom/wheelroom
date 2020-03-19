@@ -1,6 +1,6 @@
-# @jacco-meijer/wheelroom-plugin-graphql
+# @wheelroom/wheelroom-plugin-graphql
 
-This is a plugin for the [@jacco-meijer/wheelroom](https://www.npmjs.com/package/@jacco-meijer/wheelroom) package.
+This is a plugin for the [@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom) package.
 
 Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
 
@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: '@jacco-meijer/wheelroom-plugin-graphql',
+      resolve: '@wheelroom/wheelroom-plugin-graphql',
       options: {
         templateSets: templateSets,
       },
@@ -40,7 +40,7 @@ module.exports = {
 Using typescript, template sets are defined like this.
 
 ```typescript
-import { TemplateSets } from '@jacco-meijer/wheelroom-plugin-graphql'
+import { TemplateSets } from '@wheelroom/wheelroom-plugin-graphql'
 import { fragment } from './fragment'
 import { query } from './query'
 

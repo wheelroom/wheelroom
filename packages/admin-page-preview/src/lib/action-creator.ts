@@ -1,7 +1,7 @@
 import { PagePreviewState, ActionTypes } from './types'
 import { Dispatch } from 'react'
-import { createPagePreview } from '@jacco-meijer/contentful-page-preview'
-import { AdminCoreState } from '@jacco-meijer/admin-core'
+import { createPagePreview } from '@wheelroom/contentful-page-preview'
+import { AdminCoreState } from '@wheelroom/admin-core'
 import { getPreviewPageStore } from './getters'
 
 export const actionCreator = (

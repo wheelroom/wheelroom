@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.1.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-panel@1.1.4...@jacco-meijer/admin-panel@1.1.5) (2020-03-04)
+## [1.1.5](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-panel@1.1.4...@wheelroom/admin-panel@1.1.5) (2020-03-04)
 
 
 ### Bug Fixes
@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-panel@1.1.3...@jacco-meijer/admin-panel@1.1.4) (2020-03-04)
+## [1.1.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-panel@1.1.3...@wheelroom/admin-panel@1.1.4) (2020-03-04)
 
 
 ### Bug Fixes
@@ -25,15 +25,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-panel@1.1.2...@jacco-meijer/admin-panel@1.1.3) (2020-03-03)
+## [1.1.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-panel@1.1.2...@wheelroom/admin-panel@1.1.3) (2020-03-03)
 
-**Note:** Version bump only for package @jacco-meijer/admin-panel
-
-
+**Note:** Version bump only for package @wheelroom/admin-panel
 
 
 
-## [1.1.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-panel@1.1.1...@jacco-meijer/admin-panel@1.1.2) (2020-03-03)
+
+
+## [1.1.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-panel@1.1.1...@wheelroom/admin-panel@1.1.2) (2020-03-03)
 
 
 ### Bug Fixes
@@ -44,15 +44,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-panel@1.1.0...@jacco-meijer/admin-panel@1.1.1) (2020-03-02)
+## [1.1.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-panel@1.1.0...@wheelroom/admin-panel@1.1.1) (2020-03-02)
 
-**Note:** Version bump only for package @jacco-meijer/admin-panel
-
-
+**Note:** Version bump only for package @wheelroom/admin-panel
 
 
 
-# [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-panel@1.0.1...@jacco-meijer/admin-panel@1.1.0) (2020-03-02)
+
+
+# [1.1.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-panel@1.0.1...@wheelroom/admin-panel@1.1.0) (2020-03-02)
 
 
 ### Features
@@ -66,7 +66,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.1 (2020-02-28)
 
-**Note:** Version bump only for package @jacco-meijer/admin-panel
+**Note:** Version bump only for package @wheelroom/admin-panel
 
 
 

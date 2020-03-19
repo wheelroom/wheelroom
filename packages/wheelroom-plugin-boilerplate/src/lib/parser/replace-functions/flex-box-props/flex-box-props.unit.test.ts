@@ -1,4 +1,4 @@
-import { createParser } from '@jacco-meijer/wheelroom'
+import { createParser } from '@wheelroom/wheelroom'
 import { replaceVars } from '../../../../fixtures/replace-vars'
 import { flexBoxPropsFunc } from './flex-box-props'
 jest.setTimeout(10000)

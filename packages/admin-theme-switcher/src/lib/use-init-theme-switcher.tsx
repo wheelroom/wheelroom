@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useReducer, useContext } from 'react'
-import { AdminCoreContext } from '@jacco-meijer/admin-core'
+import { AdminCoreContext } from '@wheelroom/admin-core'
 import { pagePreviewRegister } from './theme-switcher-register'
 import { themeSwitcherReducer } from './theme-switcher-reducer'
 import { initialState } from './initial-state'

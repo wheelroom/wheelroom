@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { useInitPagePreview } from '@jacco-meijer/admin-page-preview'
+import { useInitPagePreview } from '@wheelroom/admin-page-preview'
 
 const UseAdminModules = (props: any) => {
   useInitPagePreview(props)

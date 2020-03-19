@@ -1,10 +1,10 @@
-import { Fields as QbFields } from '@jacco-meijer/graphql-query-builder'
+import { Fields as QbFields } from '@wheelroom/graphql-query-builder'
 import {
   FieldType,
   FieldTypeName,
   firstUpperCase,
   WheelroomComponents,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 
 type TypeTable = Record<FieldTypeName, QbFields>
 

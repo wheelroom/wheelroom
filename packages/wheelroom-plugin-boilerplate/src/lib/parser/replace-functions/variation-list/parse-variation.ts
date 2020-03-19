@@ -1,4 +1,4 @@
-import { getCases, WheelroomComponent } from '@jacco-meijer/wheelroom'
+import { getCases, WheelroomComponent } from '@wheelroom/wheelroom'
 
 interface ParseVariation {
   params: {

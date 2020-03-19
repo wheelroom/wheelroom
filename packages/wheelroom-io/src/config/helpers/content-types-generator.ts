@@ -28,7 +28,7 @@ import {
   FieldType,
   FieldTypeName,
   WheelroomComponent,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 import * as fse from 'fs-extra'
 import { contentSets } from '../plugin-contentful/content-sets'
 import { configComponents } from '../wheelroom/config-components'

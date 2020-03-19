@@ -1,5 +1,5 @@
 {
-  "packages": ["packages/*", "packages/@jacco-meijer/*"],
+  "packages": ["packages/*"],
   "version": "independent",
   "command": {
     "add": {

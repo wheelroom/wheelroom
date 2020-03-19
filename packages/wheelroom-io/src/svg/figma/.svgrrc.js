@@ -12,7 +12,7 @@ module.exports = {
     return typeScriptTpl.ast`
     import React, { SVGProps } from 'react';
     import { getColorMap } from '../../styled-system/system-css'
-    import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+    import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
     
     const componentId = '${svgrCliUtil.transformFilename(
       opts.state.componentName,

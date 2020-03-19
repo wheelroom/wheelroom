@@ -6,7 +6,7 @@
 import { templateSets } from './template-sets/template-sets'
 
 export const argvPluginOptions = {
-  '@jacco-meijer/wheelroom-plugin-graphql': {
+  '@wheelroom/wheelroom-plugin-graphql': {
     templateSets,
   },
 }

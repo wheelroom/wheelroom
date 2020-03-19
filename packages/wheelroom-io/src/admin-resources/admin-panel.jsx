@@ -1,3 +1,3 @@
-import { AdminPanel } from '@jacco-meijer/admin-panel'
+import { AdminPanel } from '@wheelroom/admin-panel'
 
 export default AdminPanel

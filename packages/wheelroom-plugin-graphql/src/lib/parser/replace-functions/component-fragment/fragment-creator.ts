@@ -1,13 +1,13 @@
 import {
   Fields as QbFields,
   graphqlQueryBuilder as qb,
-} from '@jacco-meijer/graphql-query-builder'
+} from '@wheelroom/graphql-query-builder'
 import {
   FieldType,
   getCases,
   WheelroomComponent,
   WheelroomComponents,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 import { wheelroomToGraphql } from './wheelroom-to-graphql'
 
 interface ComponentFragment {

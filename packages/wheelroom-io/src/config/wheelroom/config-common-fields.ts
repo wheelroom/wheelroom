@@ -4,8 +4,8 @@
  *
  */
 
-import { WheelroomFields } from '@jacco-meijer/wheelroom'
-import { ShortTextField } from '@jacco-meijer/wheelroom'
+import { WheelroomFields } from '@wheelroom/wheelroom'
+import { ShortTextField } from '@wheelroom/wheelroom'
 
 export const configCommonFields: WheelroomFields = {
   __typename: {

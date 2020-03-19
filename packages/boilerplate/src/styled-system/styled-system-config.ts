@@ -1,4 +1,4 @@
-import { StyledSystemConfig } from '@jacco-meijer/styled-system'
+import { StyledSystemConfig } from '@wheelroom/styled-system'
 
 export const styledSystemConfig: StyledSystemConfig = {
   ignoreProperties: ['children'],

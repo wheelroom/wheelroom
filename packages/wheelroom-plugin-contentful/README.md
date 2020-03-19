@@ -1,6 +1,6 @@
-# @jacco-meijer/wheelroom-plugin-contentful
+# @wheelroom/wheelroom-plugin-contentful
 
-This is a plugin for the [@jacco-meijer/wheelroom](https://www.npmjs.com/package/@jacco-meijer/wheelroom) package.
+This is a plugin for the [@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom) package.
 
 Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
 
@@ -82,7 +82,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: '@jacco-meijer/wheelroom-plugin-contentful',
+      resolve: '@wheelroom/wheelroom-plugin-contentful',
       options: {
         fieldDefinitions: contentfulFieldDefinitions,
       },

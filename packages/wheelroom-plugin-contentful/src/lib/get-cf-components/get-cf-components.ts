@@ -2,7 +2,7 @@ import {
   FieldType,
   WheelroomComponent,
   WheelroomComponents,
-} from '@jacco-meijer/wheelroom'
+} from '@wheelroom/wheelroom'
 import {
   ContentfulContent,
   ContentfulContentSet,

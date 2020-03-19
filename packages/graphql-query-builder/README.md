@@ -36,7 +36,7 @@ See [jest test script](src/graphql-query-builder.int.test.ts) for a larger examp
 import {
   graphqlQueryBuilder as qb,
   Question,
-} from '@jacco-meijer/graphql-query-builder'
+} from '@wheelroom/graphql-query-builder'
 
 const question: Question = {
   fields: {

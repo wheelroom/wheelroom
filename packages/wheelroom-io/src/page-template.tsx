@@ -9,7 +9,7 @@ import { Sections } from './sections/sections'
 import {
   PreviewUpdateButton,
   useFetchPreviewPage,
-} from '@jacco-meijer/admin-page-preview'
+} from '@wheelroom/admin-page-preview'
 import { GlobalStyles } from './global/styles/global-styles'
 import { GlobalReset } from './global/styles/global-reset'
 

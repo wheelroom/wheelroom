@@ -9,7 +9,7 @@
  *
  */
 
-import { ContentfulFieldDefinitions } from '@jacco-meijer/wheelroom-plugin-contentful'
+import { ContentfulFieldDefinitions } from '@wheelroom/wheelroom-plugin-contentful'
 
 export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
   /** Wheelroom field types, these are different from Contentful types */

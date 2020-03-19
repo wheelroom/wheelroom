@@ -1,4 +1,4 @@
-import { TemplateSets } from '@jacco-meijer/wheelroom-plugin-graphql'
+import { TemplateSets } from '@wheelroom/wheelroom-plugin-graphql'
 import { fragment } from './fragment'
 import { query } from './query'
 

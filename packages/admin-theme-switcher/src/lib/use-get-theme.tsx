@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { getThemeSwitcherStore } from './getters'
-import { AdminCoreContext } from '@jacco-meijer/admin-core'
+import { AdminCoreContext } from '@wheelroom/admin-core'
 import { useContext } from 'react'
 
 export const useGetCurrentThemeId = () => {

@@ -1,4 +1,4 @@
-import { AsQuery } from '@jacco-meijer/wheelroom'
+import { AsQuery } from '@wheelroom/wheelroom'
 
 export interface Query {
   modelName: string

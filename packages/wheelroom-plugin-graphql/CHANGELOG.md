@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.2.0...@jacco-meijer/wheelroom-plugin-graphql@2.3.0) (2020-03-12)
+# [2.3.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.2.0...@wheelroom/wheelroom-plugin-graphql@2.3.0) (2020-03-12)
 
 
 ### Features
@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [2.2.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.21...@jacco-meijer/wheelroom-plugin-graphql@2.2.0) (2020-03-02)
+# [2.2.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.21...@wheelroom/wheelroom-plugin-graphql@2.2.0) (2020-03-02)
 
 
 ### Features
@@ -26,15 +26,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.1.21](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.20...@jacco-meijer/wheelroom-plugin-graphql@2.1.21) (2020-02-13)
+## [2.1.21](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.20...@wheelroom/wheelroom-plugin-graphql@2.1.21) (2020-02-13)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
-## [2.1.20](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.19...@jacco-meijer/wheelroom-plugin-graphql@2.1.20) (2020-02-13)
+
+
+## [2.1.20](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.19...@wheelroom/wheelroom-plugin-graphql@2.1.20) (2020-02-13)
 
 
 ### Bug Fixes
@@ -45,47 +45,47 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.1.19](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.18...@jacco-meijer/wheelroom-plugin-graphql@2.1.19) (2020-02-12)
+## [2.1.19](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.18...@wheelroom/wheelroom-plugin-graphql@2.1.19) (2020-02-12)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
-
-
-
-
-
-## [2.1.18](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.17...@jacco-meijer/wheelroom-plugin-graphql@2.1.18) (2020-02-06)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.17](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.16...@jacco-meijer/wheelroom-plugin-graphql@2.1.17) (2020-02-04)
+## [2.1.18](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.17...@wheelroom/wheelroom-plugin-graphql@2.1.18) (2020-02-06)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
-
-
-
-
-
-## [2.1.16](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.15...@jacco-meijer/wheelroom-plugin-graphql@2.1.16) (2020-02-01)
-
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.15](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.14...@jacco-meijer/wheelroom-plugin-graphql@2.1.15) (2020-01-30)
+## [2.1.17](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.16...@wheelroom/wheelroom-plugin-graphql@2.1.17) (2020-02-04)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
-
-
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
-## [2.1.14](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.13...@jacco-meijer/wheelroom-plugin-graphql@2.1.14) (2020-01-28)
+
+
+## [2.1.16](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.15...@wheelroom/wheelroom-plugin-graphql@2.1.16) (2020-02-01)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
+
+
+
+
+
+## [2.1.15](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.14...@wheelroom/wheelroom-plugin-graphql@2.1.15) (2020-01-30)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
+
+
+
+
+
+## [2.1.14](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.13...@wheelroom/wheelroom-plugin-graphql@2.1.14) (2020-01-28)
 
 
 ### Bug Fixes
@@ -96,111 +96,111 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.1.13](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.12...@jacco-meijer/wheelroom-plugin-graphql@2.1.13) (2020-01-27)
+## [2.1.13](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.12...@wheelroom/wheelroom-plugin-graphql@2.1.13) (2020-01-27)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.12](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.11...@jacco-meijer/wheelroom-plugin-graphql@2.1.12) (2020-01-27)
+## [2.1.12](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.11...@wheelroom/wheelroom-plugin-graphql@2.1.12) (2020-01-27)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.11](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.10...@jacco-meijer/wheelroom-plugin-graphql@2.1.11) (2020-01-26)
+## [2.1.11](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.10...@wheelroom/wheelroom-plugin-graphql@2.1.11) (2020-01-26)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.10](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.9...@jacco-meijer/wheelroom-plugin-graphql@2.1.10) (2020-01-22)
+## [2.1.10](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.9...@wheelroom/wheelroom-plugin-graphql@2.1.10) (2020-01-22)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.9](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.8...@jacco-meijer/wheelroom-plugin-graphql@2.1.9) (2020-01-20)
+## [2.1.9](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.8...@wheelroom/wheelroom-plugin-graphql@2.1.9) (2020-01-20)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.8](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.7...@jacco-meijer/wheelroom-plugin-graphql@2.1.8) (2020-01-13)
+## [2.1.8](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.7...@wheelroom/wheelroom-plugin-graphql@2.1.8) (2020-01-13)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.7](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.6...@jacco-meijer/wheelroom-plugin-graphql@2.1.7) (2020-01-13)
+## [2.1.7](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.6...@wheelroom/wheelroom-plugin-graphql@2.1.7) (2020-01-13)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.6](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.5...@jacco-meijer/wheelroom-plugin-graphql@2.1.6) (2020-01-09)
+## [2.1.6](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.5...@wheelroom/wheelroom-plugin-graphql@2.1.6) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.5](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.4...@jacco-meijer/wheelroom-plugin-graphql@2.1.5) (2020-01-09)
+## [2.1.5](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.4...@wheelroom/wheelroom-plugin-graphql@2.1.5) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.4](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.3...@jacco-meijer/wheelroom-plugin-graphql@2.1.4) (2020-01-09)
+## [2.1.4](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.3...@wheelroom/wheelroom-plugin-graphql@2.1.4) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.2...@jacco-meijer/wheelroom-plugin-graphql@2.1.3) (2020-01-09)
+## [2.1.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.2...@wheelroom/wheelroom-plugin-graphql@2.1.3) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.1...@jacco-meijer/wheelroom-plugin-graphql@2.1.2) (2020-01-09)
+## [2.1.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.1...@wheelroom/wheelroom-plugin-graphql@2.1.2) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-## [2.1.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.1.0...@jacco-meijer/wheelroom-plugin-graphql@2.1.1) (2020-01-09)
+## [2.1.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.1.0...@wheelroom/wheelroom-plugin-graphql@2.1.1) (2020-01-09)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 
 
 
-# [2.1.0](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.0.1...@jacco-meijer/wheelroom-plugin-graphql@2.1.0) (2020-01-09)
+# [2.1.0](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.0.1...@wheelroom/wheelroom-plugin-graphql@2.1.0) (2020-01-09)
 
 
 ### Features
@@ -213,9 +213,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [2.0.1](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/wheelroom-plugin-graphql@2.0.0...@jacco-meijer/wheelroom-plugin-graphql@2.0.1) (2020-01-06)
+## [2.0.1](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.0.0...@wheelroom/wheelroom-plugin-graphql@2.0.1) (2020-01-06)
 
-**Note:** Version bump only for package @jacco-meijer/wheelroom-plugin-graphql
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
 
 
 

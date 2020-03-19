@@ -3,15 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.0.3](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-theme-switcher@1.0.2...@jacco-meijer/admin-theme-switcher@1.0.3) (2020-03-06)
+## [1.0.3](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-theme-switcher@1.0.2...@wheelroom/admin-theme-switcher@1.0.3) (2020-03-06)
 
-**Note:** Version bump only for package @jacco-meijer/admin-theme-switcher
-
-
+**Note:** Version bump only for package @wheelroom/admin-theme-switcher
 
 
 
-## [1.0.2](https://github.com/jaccomeijer/wheelroom/compare/@jacco-meijer/admin-theme-switcher@1.0.1...@jacco-meijer/admin-theme-switcher@1.0.2) (2020-03-04)
+
+
+## [1.0.2](https://github.com/jaccomeijer/wheelroom/compare/@wheelroom/admin-theme-switcher@1.0.1...@wheelroom/admin-theme-switcher@1.0.2) (2020-03-04)
 
 
 ### Bug Fixes
