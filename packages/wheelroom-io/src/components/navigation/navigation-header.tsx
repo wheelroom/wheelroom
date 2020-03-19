@@ -6,7 +6,7 @@
  *
  */
 
-import React, { Fragment, useContext, useReducer } from 'react'
+import React, { Fragment, useContext, useReducer, useState } from 'react'
 import { Action, ActionProps } from '../action'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { ALink } from '../../core/elements/a-link'
@@ -58,15 +58,12 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
 
   /** Modal – https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html */
   const initMenu = { visible: false }
+
   /** Restore :focus after user close the Modal */
-  const setFocus = () => {
-    const setLastFocusElement = document.activeElement.id
-    console.log(setLastFocusElement)
-    return setLastFocusElement
+  const [focus, setFocus] = useState('')
+  const setLastFocus = (focus: string) => {
+    setFocus(focus)
   }
-  // const getFocus = () => {
-  //   document.getElementById(setLastFocusElement).focus()
-  // }
 
   function reducer(state: any, action: any) {
     switch (action.type) {
@@ -74,11 +71,13 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
         document.body.classList.add('modal-open')
         document.body.style.overflow = 'hidden'
         // set last element ID for restoring the focus
-        console.log(setFocus())
+        setLastFocus(document.activeElement.id)
         return { visible: true }
       case 'hide':
         document.body.classList.remove('modal-open')
         document.body.style.overflow = ''
+        // restore focus on previous element
+        document.getElementById(focus).focus()
         return { visible: false }
       default:
         throw new Error()
