@@ -18,6 +18,7 @@ import {
 } from '../../core/styles/button'
 import { getThemeSwitcherStore } from '@jacco-meijer/admin-theme-switcher'
 import { IconMap } from '../../svg/feather/iconMap'
+//TODO: Move this down
 const Icon = IconMap.x
 import { GLink } from '../../core/elements/g-link'
 import { List } from '../../core/elements/list'
