@@ -6,6 +6,7 @@ import { useContext } from 'react'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { getPreviewQueryString } from '@jacco-meijer/admin-page-preview'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { commonGLinkStyle } from '../styles/g-link'
 
 export interface GLinkProps {
   /** React children */
@@ -36,6 +37,7 @@ export const GLink = (props: GLinkProps) => {
       css={systemCss(
         {
           ncss: {
+            ...commonGLinkStyle,
             ...props.ncss,
           },
         },

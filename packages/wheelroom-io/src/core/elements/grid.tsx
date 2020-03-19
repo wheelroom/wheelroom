@@ -3,7 +3,11 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { InlineElementName, BlockLevelElementName } from './types'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
-import { boxStyle, flexStyle, containerStyle } from '../styles/grid'
+import {
+  commonFlexStyle,
+  commonContainerStyle,
+  commonBoxStyle,
+} from '../styles/grid'
 
 export interface GridProps {
   /** Render as another HTML element */
@@ -39,7 +43,7 @@ export const Box = (props: BoxProps) => {
   const label = `Box-${props.is || 'div'}`
   const css = systemCss(
     {
-      ncss: { label, ...boxStyle, ...props.ncss },
+      ncss: { label, ...commonBoxStyle, ...props.ncss },
     },
     currentThemeId
   )
@@ -69,7 +73,7 @@ export const Flex = (props: FlexProps) => {
     {
       ncss: {
         label,
-        ...flexStyle,
+        ...commonFlexStyle,
         ...props.ncss,
       },
     },
@@ -101,7 +105,7 @@ export const Container = (props: ContainerProps) => {
     {
       ncss: {
         label,
-        ...containerStyle,
+        ...commonContainerStyle,
         ...props.ncss,
       },
     },

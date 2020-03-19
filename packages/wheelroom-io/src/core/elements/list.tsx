@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { ListElementName } from './types'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { commonListStyle } from '../styles/list'
 
 export interface ListProps {
   /** Render as another HTML element */
@@ -18,7 +19,7 @@ export const List = (props: ListProps) => {
   const label = `List-${props.is}`
   const css = systemCss(
     {
-      ncss: { label, ...props.ncss },
+      ncss: { label, ...commonListStyle, ...props.ncss },
     },
     currentThemeId
   )

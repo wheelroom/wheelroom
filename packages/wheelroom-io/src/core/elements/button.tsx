@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { AdminCoreContext } from '@jacco-meijer/admin-core'
 import { getPreviewQueryString } from '@jacco-meijer/admin-page-preview'
 import { useGetCurrentThemeId } from '@jacco-meijer/admin-theme-switcher'
+import { commonButtonStyle } from '../styles/button'
 
 export interface ButtonProps {
   /** React children */
@@ -53,7 +54,7 @@ export const Button = (props: ButtonProps) => {
       aria-pressed={props.ariaPressed}
       css={systemCss(
         {
-          ncss: { ...props.ncss },
+          ncss: { ...commonButtonStyle, ...props.ncss },
         },
         currentThemeId
       )}

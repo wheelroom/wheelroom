@@ -1,3 +1,5 @@
+export const commonButtonStyle = {}
+
 export const buttonPrimaryStyle = {
   fontFamily: 'text',
   color: 'button',
