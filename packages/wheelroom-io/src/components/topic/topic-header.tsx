@@ -12,6 +12,7 @@ import {
 } from '../../core/styles/heading'
 import { Paragraph } from '../../core/elements/paragraph'
 import { TopicOptions } from '../page-section/get-topic-options'
+import { IconMap } from '../../svg/feather/iconMap'
 
 const headingStyleMap = {
   h1: heading1Style,
@@ -56,6 +57,13 @@ export interface TopicHeaderProps {
   options: TopicOptions
 }
 
+const Icon = (props: { name: string }) => {
+  if (props.name && props.name in IconMap) {
+    return IconMap[props.name]
+  }
+  return null
+}
+
 export const TopicHeader = (props: TopicHeaderProps) => {
   const headerWrapperStyle = props.headerWrapperStyle || {}
   const paragraphStyle = props.paragraphStyle || {}
@@ -67,9 +75,9 @@ export const TopicHeader = (props: TopicHeaderProps) => {
   if (props.options.hideHeading && props.options.hideAbstract) {
     return null
   }
-
   return (
     <Box is="header" ncss={{ ...defaultWrapperStyle, ...headerWrapperStyle }}>
+      {!props.options.hideIcon && <Icon name={props.topic.icon} />}
       {!props.options.hideHeading && (
         <Heading ncss={{ ...defaultHeadingStyle, ...headingStyle }}>
           {props.topic.heading}
