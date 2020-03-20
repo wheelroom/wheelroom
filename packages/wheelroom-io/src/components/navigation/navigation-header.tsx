@@ -93,7 +93,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
             <List is="ul" ncss={listStyle}>
               <NavLinks pages={navSegment.pages} />
             </List>
-            <Flex is="div" ncss={{ label: 'NavSettings' }}>
+            <Flex is="div" ncss={{ label: 'nav-settings' }}>
               <Action ncss={{ ...buttonPrimaryStyle }} {...props.action} />
               <Button
                 type="button"
@@ -115,7 +115,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
           <Flex
             is="div"
             ncss={{
-              label: 'ModalDialog',
+              label: 'modal-dialog',
               ...menuStyle,
             }}
           >
@@ -140,7 +140,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               role="dialog"
               tabIndex={-1}
               ncss={{
-                label: 'Modal',
+                label: 'modal',
                 ...(menuVisible ? modalOpenStyle : modalStyle),
               }}
               ariaHidden={menuVisible ? false : undefined}
@@ -152,7 +152,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                 role="document"
                 id="header-navigation"
                 ncss={{
-                  label: 'ModalContent',
+                  label: 'modal-content',
                   ...(menuVisible ? modalContentOpenStyle : modalContentStyle),
                 }}
                 ariaLabel="Header navigation"
@@ -175,10 +175,10 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                     <XIcon />
                   </Box>
                 </Button>
-                <List is="ul" ncss={{ label: 'NavList', ...listMobileStyle }}>
+                <List is="ul" ncss={{ label: 'nav-list', ...listMobileStyle }}>
                   <NavLinks pages={navSegment.pages} />
                 </List>
-                <Flex is="div" ncss={{ label: 'NavSettings', w: 1, p: 3 }}>
+                <Flex is="div" ncss={{ label: 'nav-settings', w: 1, p: 3 }}>
                   <Action
                     ncss={{ ...buttonPrimaryStyle, w: 1 }}
                     {...props.action}

@@ -31,7 +31,7 @@ export const Hero = (props: HeroProps) => {
       >
         <Container
           ncss={{
-            label: 'Container',
+            label: 'container',
             m: 'auto',
             px: 0,
             w: 1,

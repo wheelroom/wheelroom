@@ -9,7 +9,7 @@ const NavLink = (props: PageProps) => {
     <GLink
       to={props.path}
       ncss={{
-        label: 'NavLink',
+        label: 'nav-link',
         ...navigationHeaderStyle,
       }}
     >
@@ -24,7 +24,7 @@ export interface NavLinksProps {
 
 export const NavLinks = (props: NavLinksProps) => {
   const links = props.pages.map((page: PageProps) => (
-    <Any is={'li'} ncss={{ label: 'NavItem' }} key={page.navigationHeading}>
+    <Any is={'li'} ncss={{ label: 'nav-item' }} key={page.navigationHeading}>
       <NavLink {...page} />
     </Any>
   ))

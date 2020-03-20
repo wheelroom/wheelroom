@@ -22,13 +22,13 @@ export const wrapperStyle = {
 }
 
 export const containerStyle = {
-  label: 'Container',
+  label: 'container',
   height: '100%',
   justifyContent: 'space-between',
 }
 
 export const skipToContent = {
-  label: 'Skip',
+  label: 'skip',
   position: 'absolute',
   left: '-100%',
   ':focus': {
@@ -48,7 +48,7 @@ export const skipToContent = {
 }
 
 export const logoStyle = {
-  label: 'Logo',
+  label: 'logo',
   alignItems: 'center',
 }
 
@@ -66,14 +66,14 @@ export const logoLinkStyle = {
 }
 
 export const navStyle = {
-  label: 'Nav',
+  label: 'nav',
   display: ['none', 'none', 'flex'],
   flex: '1',
   alignItems: 'center',
 }
 
 export const listStyle = {
-  label: 'NavList',
+  label: 'nav-list',
   display: 'flex',
   flex: '1',
   flexDirection: 'row',

@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from '../../core/elements/grid'
 
 const defaultWrapperStyle = {
-  label: 'Topic',
+  label: 'topic',
   display: 'flex',
   flexDirection: 'column',
 }

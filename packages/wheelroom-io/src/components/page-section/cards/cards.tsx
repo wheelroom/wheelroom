@@ -61,7 +61,7 @@ const CardWrapper = (props: { children: any }) => (
         flexDirection: ['column', 'row'],
         flexWrap: 'wrap',
         justifyContent: 'center',
-        label: 'Container',
+        label: 'container',
         m: 'auto',
         px: [2, 5, 7],
         w: 1,

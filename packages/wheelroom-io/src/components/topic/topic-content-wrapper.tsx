@@ -4,7 +4,7 @@ import { TopicOptions } from '../page-section/get-topic-options'
 
 /** This style needs cleaning up, only default values here */
 const defaultWrapperStyle = {
-  label: 'TopicContent',
+  label: 'topic-content',
   p: 3,
 }
 

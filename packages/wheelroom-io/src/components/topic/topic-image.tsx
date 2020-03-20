@@ -3,7 +3,7 @@ import { Image, ImageProps } from '../../core/elements/image'
 import { Box } from '../../core/elements/grid'
 
 const defaultWrapperStyle = {
-  label: 'TopicImage',
+  label: 'topic-image',
 }
 
 const defaultImageProps = {}

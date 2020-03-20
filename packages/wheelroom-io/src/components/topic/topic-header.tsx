@@ -41,7 +41,7 @@ const HeadingMap = {
 }
 
 const defaultWrapperStyle = {
-  label: 'TopicHeader',
+  label: 'topic-header',
 }
 
 const defaultParagraphStyle = {

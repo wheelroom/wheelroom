@@ -2,22 +2,21 @@ export const commonBoxStyle = {
   boxSizing: 'border-box',
 }
 export const commonFlexStyle = {
+  ...commonBoxStyle,
   display: 'flex',
 }
 
 export const commonContainerStyle = {
-  boxSizing: 'border-box',
+  ...commonFlexStyle,
   label: 'Container',
-  display: 'flex',
   mx: 'auto',
   my: '0',
   px: 3,
 }
 
 export const commonContainerMaxWidthStyle = {
-  boxSizing: 'border-box',
-  label: 'ContainerMaxWidth',
-  display: 'flex',
+  ...commonFlexStyle,
+  label: 'container-max-width',
   maxWidth: '1280px',
   mx: 'auto',
   my: '0',
