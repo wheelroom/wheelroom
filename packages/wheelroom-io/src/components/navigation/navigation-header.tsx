@@ -35,7 +35,7 @@ import {
   modalStyle,
   modalOpenStyle,
   modalContentStyle,
-  modalContentOpenStyle,
+  modalContentOpenStyle, navigationHeaderStyle,
 } from './navigation-styles'
 import { IconMap } from '../../svg/feather/iconMap'
 import { SiteMetadata } from '../../page-template'
@@ -97,7 +97,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
           </Flex>
           <Flex is={'nav'} ncss={navStyle}>
             <List is="ul" ncss={listStyle}>
-              <NavLinks pages={navSegment.pages} />
+              <NavLinks linkStyle={{ ...navigationHeaderStyle }} pages={navSegment.pages} />
             </List>
             <Flex is="div" ncss={{ label: 'nav-settings' }}>
               <Action ncss={{ ...buttonPrimaryStyle }} {...props.action} />
