@@ -2,7 +2,7 @@ import { StyledSystemTheme } from '@wheelroom/styled-system'
 import { scales } from '../scales'
 import { maps } from '../maps'
 import { breakpoints } from '../breakpoints'
-import { colors, svgColors } from '../colors'
+import { colors } from '../colors'
 
 export const lightTheme: StyledSystemTheme = {
   ...breakpoints,
@@ -21,9 +21,5 @@ export const lightTheme: StyledSystemTheme = {
     modalBorder: colors.bullet,
     modalShadow: colors.bullet,
     svgStroke: colors.metal,
-
-    // Svg colors
-    jarPrimary: svgColors.deepSea,
-    jarSecondary: svgColors.carib,
   },
 }
