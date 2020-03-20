@@ -1,4 +1,5 @@
 export const commonHeadingStyle = {
+  label: 'heading',
   boxSizing: 'border-box',
   color: 'heading',
   fontFamily: 'display',
