@@ -22,7 +22,6 @@ export interface HeadlineProps {
  *
  */
 
-// TODO: Pass text to topic once topic has this implemented
 export const Headline = (props: HeadlineProps) => {
   // Headline needs topic or text, return null (render nothing) otherwise
   if (!(props.info.hasTopic || props.info.hasText)) {
