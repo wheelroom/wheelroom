@@ -92,7 +92,16 @@ export const TopicHeader = (props: TopicHeaderProps) => {
       )}
       {!props.options.hideAbstract && (
         <Paragraph ncss={{ ...defaultParagraphStyle, ...paragraphStyle }}>
-          {props.topic.abstract && props.topic.abstract.abstract}
+          {props.topic.abstract &&
+            props.topic.abstract.abstract
+              .split('\n')
+              .reduce((children: any, textSegment, index) => {
+                return [
+                  ...children,
+                  index > 0 && <br key={index} />,
+                  textSegment,
+                ]
+              }, [])}
         </Paragraph>
       )}
     </Box>
