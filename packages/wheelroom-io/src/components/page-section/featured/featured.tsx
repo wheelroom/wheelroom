@@ -22,7 +22,6 @@ export interface FeaturedProps {
  *
  */
 
-// TODO: Pass text to topic once topic has this implemented
 export const Featured = (props: FeaturedProps) => {
   // Featured needs topics or text, return null (render nothing) otherwise
   if (!(props.info.hasTopic || props.info.hasText)) {
