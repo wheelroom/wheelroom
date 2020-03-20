@@ -33,7 +33,14 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     info.index === info.sectionCount - 1
   ) {
     const segments = props.navigation.segments
-    return <NavigationFooter segments={segments} topics={props.topics} />
+    return (
+      <NavigationFooter
+        segments={segments}
+        topics={props.topics}
+        siteMetadata={props.siteMetadata}
+        globals={props.globals}
+      />
+    )
   }
 
   /**
