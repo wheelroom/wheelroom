@@ -13,6 +13,8 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
+    tsconfigRootDir: __dirname,
   },
   rules: {
     '@typescript-eslint/no-explicit-any': 0,
