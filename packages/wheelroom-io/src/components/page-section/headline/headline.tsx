@@ -46,15 +46,10 @@ export const Headline = (props: HeadlineProps) => {
               topicWrapperStyle={{
                 w: 1,
               }}
-              // TODO: @jacco – imageProps doesn't work and isn't applied on the image
-              imageProps={{
-                mb: '32px',
-              }}
               contentWrapperStyle={{
                 display: 'flex',
                 textAlign: 'center',
                 flexDirection: 'column',
-                justifyContent: 'column',
               }}
               useHeading="h1"
               paragraphStyle={{

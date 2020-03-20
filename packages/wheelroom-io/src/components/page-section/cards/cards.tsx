@@ -20,9 +20,21 @@ export const Cards = (props: CardsProps) => {
       key={index}
       topicOptions={props.topicOptions}
       {...topic}
-      imageProps={{
-        height: '184px',
-        margin: '16px',
+      imageWrapperStyle={{
+        p: 3,
+      }}
+      imageProps={{ imgNcss: { h: 1, objectFit: 'cover' } }}
+      contentWrapperStyle={{
+        display: 'flex',
+        flexDirection: 'column',
+        flex: '1 1 auto',
+      }}
+      headerWrapperStyle={{
+        display: 'block',
+        flex: '1 1 auto',
+      }}
+      actionWrapperStyle={{
+        flex: '0',
       }}
       topicWrapperStyle={{
         bg: 'bg',
@@ -61,7 +73,6 @@ const CardWrapper = (props: { children: any }) => (
         flexDirection: ['column', 'row'],
         flexWrap: 'wrap',
         justifyContent: 'center',
-        label: 'container',
         m: 'auto',
         px: [2, 5, 7],
         w: 1,

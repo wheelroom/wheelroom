@@ -8,7 +8,7 @@ export const commonFlexStyle = {
 
 export const commonContainerStyle = {
   ...commonFlexStyle,
-  label: 'Container',
+  label: 'container',
   mx: 'auto',
   my: '0',
   px: 3,

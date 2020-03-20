@@ -5,7 +5,9 @@ export const commonImageImgStyle = {
   width: '100%',
 }
 
-export const commonImagePictureStyle = {}
+export const commonImagePictureStyle = {
+  label: 'picture',
+}
 
 export const commonImageFigcaptionStyle = {
   fontFamily: 'text',

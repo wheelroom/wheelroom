@@ -6,7 +6,7 @@ import { Box } from '../../core/elements/grid'
 const defaultWrapperStyle = {
   display: 'flex',
   flexDirection: 'row',
-  label: 'TopicAction',
+  label: 'topic-action',
 }
 
 export interface TopicActionProps {

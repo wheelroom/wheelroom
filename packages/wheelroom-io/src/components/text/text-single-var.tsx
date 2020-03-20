@@ -64,7 +64,6 @@ export const TextSingleVar = (props: TextProps) => {
   }
 
   const containerStyle = {
-    label: 'Container',
     height: '100%',
     justifyContent: 'space-between',
   }

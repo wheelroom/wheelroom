@@ -47,7 +47,10 @@ export const Hero = (props: HeroProps) => {
               py: 9,
               w: 1,
             }}
-            imageProps={{ imgNcss: { h: 1, objectFit: 'cover' } }}
+            imageProps={{
+              pictureNcss: { h: '170px', w: 1 },
+              imgNcss: { h: 1, objectFit: 'cover' },
+            }}
             imageWrapperStyle={{
               position: 'absolute',
               top: 0,
