@@ -15,6 +15,7 @@ export interface TopicWrapperProps {
 
 export const TopicWrapper = (props: TopicWrapperProps) => {
   const topicWrapperStyle = props.topicWrapperStyle || {}
+  // TODO: add conditional styling if Rich Text, Navigation or Action is applied OR Topic Options are set
   return (
     <Box ncss={{ ...defaultWrapperStyle, ...topicWrapperStyle }}>
       {props.children}
