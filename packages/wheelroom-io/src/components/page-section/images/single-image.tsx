@@ -19,7 +19,7 @@ export const SingleImage = (props: SingleImageProps) => {
           p: 2,
         }}
       >
-        <Image image={props.topic?.image} objectFit="cover" />
+        <Image image={props.topic?.image} />
       </Box>
     </Fragment>
   )

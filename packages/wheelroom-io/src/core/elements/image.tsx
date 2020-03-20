@@ -30,7 +30,6 @@ const defaultFluidImage = {
 } as FluidImage
 
 export const Image = (props: ImageProps) => {
-  console.log('image', props.pictureNcss)
   const currentThemeId = useGetCurrentThemeId() as ThemeId
 
   const fluidImage = props.image || defaultFluidImage
@@ -46,7 +45,7 @@ export const Image = (props: ImageProps) => {
   const figcaptionNcss = props.figcaptionNcss || {}
   const imgNcss = props.imgNcss || {}
   const pictureNcss = props.pictureNcss || {}
-  console.log('pictureNcss', pictureNcss)
+
   return (
     <picture
       css={systemCss(
