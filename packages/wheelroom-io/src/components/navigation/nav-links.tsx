@@ -18,12 +18,16 @@ const NavLink = (props: PageProps) => {
 
 export interface NavLinksProps {
   pages: PageProps[]
-    //TODO: please add ncss props
+  ncss: any
 }
 
 export const NavLinks = (props: NavLinksProps) => {
   const links = props.pages.map((page: PageProps) => (
-    <Any is={'li'} ncss={{ label: 'nav-item' }} key={page.navigationHeading}>
+    <Any
+      is={'li'}
+      ncss={{ label: 'nav-item', ...props.ncss }}
+      key={page.navigationHeading}
+    >
       <NavLink {...page} />
     </Any>
   ))
