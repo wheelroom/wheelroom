@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# This script prepares the packages in the repo so that the boilerplate package
+# This script prepares the packages in the repo so that the wheelroom-io package
 # can be started with:
 #
 # npm run develop
@@ -38,7 +38,7 @@ remove_module_folder() {
 
 link_module_folder() {
 
-    if [ -d "packages/boilerplate/node_modules/$1" ]; then
+    if [ -d "packages/wheelroom-io/node_modules/$1" ]; then
 
         echo "Linking folder: $1"
         if [ -z "$1" ]; then
@@ -52,7 +52,7 @@ link_module_folder() {
         ln -s $2 packages/admin-theme-switcher/node_modules/$1
 
     else
-        echo "Warning: could not find packages/boilerplate/node_modules/$1"
+        echo "Warning: could not find packages/wheelroom-io/node_modules/$1"
     fi
 
 }
@@ -75,14 +75,14 @@ remove_all_module_folders() {
 }
 
 link_all_module_folders() {
-    link_module_folder @types/react ../../../boilerplate/node_modules/@types/react
-    link_module_folder @emotion/core ../../../boilerplate/node_modules/@emotion/core
-    link_module_folder @wheelroom/admin-core ../../../boilerplate/node_modules/@wheelroom/admin-core
-    link_module_folder @reach/router ../../../boilerplate/node_modules/@reach/router
+    link_module_folder @types/react ../../../wheelroom-io/node_modules/@types/react
+    link_module_folder @emotion/core ../../../wheelroom-io/node_modules/@emotion/core
+    link_module_folder @wheelroom/admin-core ../../../wheelroom-io/node_modules/@wheelroom/admin-core
+    link_module_folder @reach/router ../../../wheelroom-io/node_modules/@reach/router
 
-    link_module_folder react ../../boilerplate/node_modules/react
-    link_module_folder react-dom ../../boilerplate/node_modules/react-dom
-    link_module_folder query-string ../../boilerplate/node_modules/query-string
+    link_module_folder react ../../wheelroom-io/node_modules/react
+    link_module_folder react-dom ../../wheelroom-io/node_modules/react-dom
+    link_module_folder query-string ../../wheelroom-io/node_modules/query-string
 }
 
 echo "Preparing packages"
