@@ -34,7 +34,7 @@ export const FeaturedList = (props: FeaturedListProps) => {
       imageWrapperStyle={{
         display: 'flex',
         flexDirection: 'column',
-        w: [1 / 3, 1 / 3, 1 / 4],
+        w: [1 / 3, 1 / 4, 1 / 4],
         p: 3,
       }}
       contentWrapperStyle={{
@@ -60,12 +60,7 @@ export const FeaturedList = (props: FeaturedListProps) => {
       >
         <ContainerMaxWidth
           ncss={{
-            m: 'auto',
-            justifyContent: 'center',
-            px: [2, 5, 7],
-            w: 1,
             flexDirection: ['column'],
-            alignItems: ['center', 'initial'],
           }}
         >
           {featuredList}
