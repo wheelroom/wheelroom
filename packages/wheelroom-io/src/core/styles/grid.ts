@@ -1,4 +1,6 @@
-export const commonBoxStyle = {}
+export const commonBoxStyle = {
+  boxSizing: 'border-box',
+}
 export const commonFlexStyle = {
   display: 'flex',
 }
