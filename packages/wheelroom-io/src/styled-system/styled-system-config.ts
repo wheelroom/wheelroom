@@ -55,6 +55,7 @@ export const styledSystemConfig: StyledSystemConfig = {
     'textAlign',
     'visibility',
     'width',
+    'maxWidth',
   ],
   scales: {
     fontSizeScale: ['fontSize'],
