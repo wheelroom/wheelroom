@@ -38,11 +38,17 @@ import {
   modalContentOpenStyle,
 } from './navigation-styles'
 import { IconMap } from '../../svg/feather/iconMap'
+import { SiteMetadata } from '../../page-template'
+import { GlobalsProps } from '../globals'
 const XIcon = IconMap.x
 
 interface NavigationHeaderProps extends NavigationProps {
   /** Action is displayed as a button at the right side of the navigation */
   action: ActionProps
+  /** Site metadata defined in gatsby-config */
+  siteMetadata: SiteMetadata
+  /** Site globals from CMS */
+  globals: GlobalsProps
 }
 
 export const NavigationHeader = (props: NavigationHeaderProps) => {
@@ -83,9 +89,9 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               to="/"
               aria-label="Wheelroom, Back to homepage"
             >
-              Wheelroom{' '}
+              {props.globals.siteHeading}
               <sup>
-                <small>1.0.0</small>
+                <small>{props.siteMetadata.siteVersion}</small>
               </sup>
             </GLink>
           </Flex>

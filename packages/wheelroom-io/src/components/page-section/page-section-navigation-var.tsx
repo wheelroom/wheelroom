@@ -17,7 +17,14 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasAction && info.hasNavigation) {
     const segments = props.navigation.segments
-    return <NavigationHeader segments={segments} action={props.actions[0]} />
+    return (
+      <NavigationHeader
+        segments={segments}
+        action={props.actions[0]}
+        siteMetadata={props.siteMetadata}
+        globals={props.globals}
+      />
+    )
   }
 
   if (

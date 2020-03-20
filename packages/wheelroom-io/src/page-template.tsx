@@ -32,7 +32,8 @@ const PageTemplate = (props: any) => {
   const keywords = globals.siteKeywords
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
-  const siteVersion = props.data.site.siteMetadata.siteVersion
+  const siteMetadata: SiteMetadata = props.data.site.siteMetadata
+  const siteVersion = siteMetadata.siteVersion
   const sections = page.sections
 
   const sectionProps = {
@@ -41,6 +42,7 @@ const PageTemplate = (props: any) => {
 
     globals,
     page,
+    siteMetadata,
 
     sections,
   }
@@ -91,3 +93,13 @@ export const query = graphql`
     }
   }
 `
+
+export interface SiteMetadata {
+  siteInfo: string
+  siteVersion: string
+  secrets: {
+    spaceId: string
+    previewToken: string
+    environment: string
+  }
+}

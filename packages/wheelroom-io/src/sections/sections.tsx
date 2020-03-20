@@ -23,6 +23,7 @@ export const Sections = (props: any) => {
 
       globals: props.globals,
       page: props.page,
+      siteMetadata: props.siteMetadata,
 
       ...section,
     } as SectionProps
