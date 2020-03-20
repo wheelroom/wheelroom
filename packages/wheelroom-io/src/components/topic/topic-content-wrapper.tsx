@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box } from '../../core/elements/grid'
+import { TopicOptions } from '../page-section/get-topic-options'
 
 /** This style needs cleaning up, only default values here */
 const defaultWrapperStyle = {
@@ -12,6 +13,8 @@ export interface TopicContentWrapperProps {
   contentWrapperStyle?: any
   /** The css order property applied to the container */
   order: number
+  /** Topic options */
+  options: TopicOptions
 }
 
 export const TopicContentWrapper = (props: TopicContentWrapperProps) => {
@@ -21,8 +24,10 @@ export const TopicContentWrapper = (props: TopicContentWrapperProps) => {
       ncss={{
         order: props.order,
         ...defaultWrapperStyle,
-        ...contentWrapperStyle,
-        // TODO: If image is hidden apply another TopicContentWrapperStyle
+        // TODO: Thijs, implement this
+        ...(props.options.hideImage
+          ? { otherStyles: 'here' }
+          : contentWrapperStyle),
       }}
     >
       {props.children}

@@ -31,6 +31,7 @@ export const TopicSingleVar = (props: TopicProps) => {
       <TopicContentWrapper
         order={options.reverseOrder ? 1 : 2}
         contentWrapperStyle={props.contentWrapperStyle}
+        options={options}
       >
         {hasText && <Text {...props.text!} />}
         {!hasText && (
