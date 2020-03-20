@@ -18,6 +18,7 @@ import { Any } from '../../core/elements/any'
 import { NavLinks } from './nav-links'
 import { List } from '../../core/elements/list'
 import { IconMap } from '../../svg/feather/iconMap'
+import { Action } from '../action/action'
 
 export const metaStyle = {
   label: 'meta',
@@ -64,9 +65,9 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
   const navSegment = props.segments[0] as NavigationSegmentProps
   const social = props.topics.map((topic: TopicProps) => (
     <List is={'li'} key={topic.heading}>
-      <ALink href={topic.actions.url}>
+      <Action {...topic.actions[0]}>
         <Icon name={topic.icon} />
-      </ALink>
+      </Action>
     </List>
   ))
   return (
