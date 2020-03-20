@@ -14,7 +14,6 @@ import { FeaturedList } from './featured-list/featured-list'
 
 export const PageSectionFeaturedListVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
-  // TODO: Overrides like, Rich Text, Navigation and Actions are not optional or optional
   if (info.hasTopic) {
     return (
       <FeaturedList
