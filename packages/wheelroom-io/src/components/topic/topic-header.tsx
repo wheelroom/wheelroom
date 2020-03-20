@@ -42,7 +42,6 @@ const HeadingMap = {
 
 const defaultWrapperStyle = {
   label: 'TopicHeader',
-  flex: '1 1 auto',
   mx: 3,
 }
 

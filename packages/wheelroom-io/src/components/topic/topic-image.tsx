@@ -6,9 +6,7 @@ const defaultWrapperStyle = {
   label: 'TopicImage',
 }
 
-const defaultImageProps = {
-  objectFit: 'cover',
-}
+const defaultImageProps = {}
 
 export interface TopicImageProps {
   /** The image to show */
