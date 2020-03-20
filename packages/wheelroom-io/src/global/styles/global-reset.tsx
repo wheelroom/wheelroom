@@ -1,4 +1,4 @@
-export const GlobalReset = `
+export const globalReset = `
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
