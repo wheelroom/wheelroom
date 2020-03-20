@@ -158,7 +158,6 @@ export const TextSingleVar = (props: TextProps) => {
     },
   } as Options
 
-  // TODO: Style all Contentful Rich Text options
   return (
     <Flex
       is="div"

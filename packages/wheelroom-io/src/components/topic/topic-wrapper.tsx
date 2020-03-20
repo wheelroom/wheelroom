@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box } from '../../core/elements/grid'
+import { TopicOptions } from '../page-section/get-topic-options'
 
 const defaultWrapperStyle = {
   label: 'topic',
@@ -11,13 +12,23 @@ export interface TopicWrapperProps {
   children: any
   /** Override default wrapper styling */
   topicWrapperStyle?: any
+  /** Topic has rich text */
+  hasText: boolean
+  /** Topic has rich text */
+  hasAction: boolean
+  /** Topic options */
+  options: TopicOptions
 }
 
 export const TopicWrapper = (props: TopicWrapperProps) => {
   const topicWrapperStyle = props.topicWrapperStyle || {}
-  // TODO: add conditional styling if Rich Text, Navigation or Action is applied OR Topic Options are set
   return (
-    <Box ncss={{ ...defaultWrapperStyle, ...topicWrapperStyle }}>
+    <Box
+      ncss={{
+        ...defaultWrapperStyle,
+        ...topicWrapperStyle,
+      }}
+    >
       {props.children}
     </Box>
   )
