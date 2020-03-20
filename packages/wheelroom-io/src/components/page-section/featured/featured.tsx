@@ -52,9 +52,9 @@ export const Featured = (props: FeaturedProps) => {
             justifyContent: 'space-evenly',
           }}
           imageProps={{
-              pictureNcss: {
-                  p: 3,
-              }
+            pictureNcss: {
+              p: 3,
+            },
           }}
           imageWrapperStyle={{
             display: 'flex',

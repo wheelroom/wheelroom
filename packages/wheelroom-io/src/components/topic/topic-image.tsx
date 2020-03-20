@@ -8,7 +8,7 @@ const defaultWrapperStyle = {
 }
 
 const overrideImageWrapperStyle = {
-  label: 'override',
+  label: 'topic-image-override',
   justifyContent: 'normal',
 }
 

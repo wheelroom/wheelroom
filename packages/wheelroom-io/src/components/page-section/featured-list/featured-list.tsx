@@ -34,6 +34,7 @@ export const FeaturedList = (props: FeaturedListProps) => {
       imageWrapperStyle={{
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'normal',
         w: [1 / 3, 1 / 4, 1 / 4],
         p: 3,
       }}
