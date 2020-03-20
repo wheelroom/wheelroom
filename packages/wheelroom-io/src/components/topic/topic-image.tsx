@@ -19,7 +19,6 @@ export interface TopicImageProps {
 
 export const TopicImage = (props: TopicImageProps) => {
   const imageWrapperStyle = props.imageWrapperStyle || {}
-  console.log(props.imageProps)
   return (
     <Box
       ncss={{
