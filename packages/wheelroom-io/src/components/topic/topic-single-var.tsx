@@ -20,6 +20,7 @@ export const TopicSingleVar = (props: TopicProps) => {
   const options = getTopicOptions(props.topicOptions)
   const hasText = !!(props.text && props.text.text && props.text.locale)
   const hasAction = !!(Array.isArray(props.actions) && props.actions.length)
+  const hasImage = !!props.image
   return (
     <TopicWrapper
       topicWrapperStyle={props.topicWrapperStyle}
@@ -27,7 +28,7 @@ export const TopicSingleVar = (props: TopicProps) => {
       hasAction={hasAction}
       options={options}
     >
-      {!options.hideImage && (
+      {!options.hideImage && hasImage && (
         <TopicImage
           imageProps={{ ...props.imageProps, image: props.image }}
           imageWrapperStyle={props.imageWrapperStyle}
