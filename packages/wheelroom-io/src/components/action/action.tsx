@@ -22,6 +22,7 @@ export interface ActionProps {
   url?: string
 
   /** Local data */
+  children?: any
   ncss?: any
 }
 
