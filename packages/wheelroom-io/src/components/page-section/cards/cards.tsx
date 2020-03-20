@@ -23,7 +23,6 @@ export const Cards = (props: CardsProps) => {
       imageWrapperStyle={{
         p: 3,
       }}
-      // TODO: pictureNcss is not working
       imageProps={{
         pictureNcss: { h: '170px' },
         imgNcss: { h: 1, objectFit: 'cover' },
