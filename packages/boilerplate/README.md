@@ -1,5 +1,13 @@
 # boilerplate
 
+## Deprecated
+
+This boilerplate is no longer maintained as we work on a brand new version here:
+
+- [/packages/wheelroom-io](https://github.com/wheelroom/wheelroom/tree/master/packages/wheelroom-io)
+
+## Boilerplate
+
 Example repo on how to use
 [@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom)
 and
