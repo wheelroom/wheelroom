@@ -18,7 +18,7 @@ import { getTopicOptions } from '../page-section/get-topic-options'
 
 export const TopicSingleVar = (props: TopicProps) => {
   const options = getTopicOptions(props.topicOptions)
-  const hasText = props.text && props.text.text && props.text.locale
+  const hasText = !!(props.text && props.text.text && props.text.locale)
   return (
     <TopicWrapper topicWrapperStyle={props.topicWrapperStyle}>
       {!options.hideImage && (
@@ -26,6 +26,7 @@ export const TopicSingleVar = (props: TopicProps) => {
           imageProps={{ ...props.imageProps, image: props.image }}
           imageWrapperStyle={props.imageWrapperStyle}
           order={options.reverseOrder ? 2 : 1}
+          hasText={hasText}
         />
       )}
       <TopicContentWrapper
