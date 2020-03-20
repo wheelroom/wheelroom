@@ -3,12 +3,17 @@ import { GLink } from '../../core/elements/g-link'
 import { Any } from '../../core/elements/any'
 import { PageProps } from '../page'
 
-const NavLink = (props: PageProps) => {
+interface NavLinkProps extends PageProps {
+  linkStyle: any
+}
+
+const NavLink = (props: NavLinkProps) => {
   return (
     <GLink
       to={props.path}
       ncss={{
         label: 'nav-link',
+        ...props.linkStyle,
       }}
     >
       {props.navigationHeading}
@@ -18,17 +23,18 @@ const NavLink = (props: PageProps) => {
 
 export interface NavLinksProps {
   pages: PageProps[]
-  ncss: any
+  itemStyle: any
+  linkStyle: any
 }
 
 export const NavLinks = (props: NavLinksProps) => {
   const links = props.pages.map((page: PageProps) => (
     <Any
       is={'li'}
-      ncss={{ label: 'nav-item', ...props.ncss }}
+      ncss={{ label: 'nav-item', ...props.itemStyle }}
       key={page.navigationHeading}
     >
-      <NavLink {...page} />
+      <NavLink {...page} linkStyle={props.linkStyle} />
     </Any>
   ))
   return <Fragment>{links}</Fragment>
