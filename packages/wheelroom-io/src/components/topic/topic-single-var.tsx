@@ -51,7 +51,7 @@ export const TopicSingleVar = (props: TopicProps) => {
               paragraphStyle={props.paragraphStyle}
               useHeading={props.useHeading}
             />
-            {!options.hideAction && (
+            {!options.hideAction && hasAction && (
               <TopicAction
                 action={props.actions[0]}
                 actionWrapperStyle={props.actionWrapperStyle}
