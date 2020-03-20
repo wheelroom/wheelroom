@@ -3,12 +3,14 @@ export const commonFlexStyle = {
   display: 'flex',
 }
 export const commonContainerStyle = {
+  boxSizing: 'border-box',
   display: 'flex',
   mx: 'auto',
   my: 0,
   px: 3,
 }
 export const commonContainerMaxWidthStyle = {
+  boxSizing: 'border-box',
   display: 'flex',
   maxWidth: '1280px',
   mx: 'auto',

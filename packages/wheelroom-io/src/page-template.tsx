@@ -10,8 +10,7 @@ import {
   PreviewUpdateButton,
   useFetchPreviewPage,
 } from '@wheelroom/admin-page-preview'
-import { GlobalStyles } from './global/styles/global-styles'
-import { GlobalReset } from './global/styles/global-reset'
+import { globalStyles } from './global/styles/global-styles'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -61,7 +60,7 @@ const PageTemplate = (props: any) => {
 
   return (
     <Fragment>
-      <Global styles={[GlobalStyles, GlobalReset]} />
+      <Global styles={globalStyles} />
       <Seo {...seoProps} />
       <Sections {...sectionProps} />
       <PreviewUpdateButton />

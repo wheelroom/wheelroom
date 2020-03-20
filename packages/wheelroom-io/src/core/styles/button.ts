@@ -14,7 +14,11 @@ export const commonButtonStyle = {
   userSelect: 'none',
   '&:hover': {},
   '&:visited': {},
-  '&:focus': {},
+  '&:focus': {
+    outline: '2px dotted',
+    outlineColor: 'amber',
+    outlineOffset: '5px',
+  },
 }
 
 export const buttonPrimaryStyle = {

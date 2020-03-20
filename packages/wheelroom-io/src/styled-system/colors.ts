@@ -10,10 +10,3 @@ export const colors = {
   caviar: '#222222',
   ghost: '#111111',
 }
-
-export const svgColors = {
-  deepSea: '#001640',
-  carib: '#00B4DB',
-  straw: '#A32700',
-  sinas: '#EA8C00',
-}
