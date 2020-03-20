@@ -50,7 +50,11 @@ export const Featured = (props: FeaturedProps) => {
           topicWrapperStyle={{
             flexDirection: ['column', 'column', 'row'],
             justifyContent: 'space-evenly',
-            alignItems: 'center',
+          }}
+          imageProps={{
+            pictureNcss: {
+              p: 3,
+            },
           }}
           imageWrapperStyle={{
             display: 'flex',

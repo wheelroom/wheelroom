@@ -5,9 +5,9 @@
  *
  */
 
-import { ActionProps } from '../action/action'
+import { ActionProps } from '../action'
 import { getVariation } from '../../lib/get-variation'
-import { NavigationProps } from '../navigation/navigation'
+import { NavigationProps } from '../navigation'
 import { PageSectionCardsVar } from './page-section-cards-var'
 import { PageSectionFeaturedListVar } from './page-section-featured-list-var'
 import { PageSectionFeaturedVar } from './page-section-featured-var'
@@ -16,8 +16,8 @@ import { PageSectionHeroVar } from './page-section-hero-var'
 import { PageSectionImagesVar } from './page-section-images-var'
 import { PageSectionNavigationVar } from './page-section-navigation-var'
 import { SectionProps } from '../../sections/section-props'
-import { TextProps } from '../text/text'
-import { TopicProps } from '../topic/topic'
+import { TextProps } from '../text'
+import { TopicProps } from '../topic'
 import React from 'react'
 
 const componentList = {

@@ -4,9 +4,13 @@ import { Box } from '../../core/elements/grid'
 
 const defaultWrapperStyle = {
   label: 'topic-image',
+  justifyContent: 'center',
 }
 
-const overrideImageWrapperStyle = {}
+const overrideImageWrapperStyle = {
+  label: 'topic-image-override',
+  justifyContent: 'normal',
+}
 
 const defaultImageProps = {}
 
@@ -29,7 +33,7 @@ export const TopicImage = (props: TopicImageProps) => {
         order: props.order,
         ...defaultWrapperStyle,
         ...imageWrapperStyle,
-        ...(props.hasText ? { overrideImageWrapperStyle } : imageWrapperStyle),
+        ...(props.hasText ? { ...overrideImageWrapperStyle } : imageWrapperStyle),
       }}
     >
       <Image {...defaultImageProps} {...props.imageProps} />
