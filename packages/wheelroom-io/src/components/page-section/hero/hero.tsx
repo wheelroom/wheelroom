@@ -31,10 +31,7 @@ export const Hero = (props: HeroProps) => {
       >
         <Container
           ncss={{
-            label: 'container',
-            m: 'auto',
             px: 0,
-            w: 1,
           }}
         >
           <Topic
@@ -66,7 +63,7 @@ export const Hero = (props: HeroProps) => {
               w: 1,
             }}
             headerWrapperStyle={{
-              maxWidth: '480px',
+              maxWidth: ['480px', '640px'],
               w: 1,
             }}
             headingStyle={{ ...heading1Style, mb: 0, color: 'caviar' }}

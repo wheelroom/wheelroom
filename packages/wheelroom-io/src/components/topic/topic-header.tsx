@@ -44,10 +44,6 @@ const defaultWrapperStyle = {
   label: 'topic-header',
 }
 
-const defaultParagraphStyle = {
-  color: 'text',
-}
-
 export interface TopicHeaderProps {
   /** The action to show */
   topic: TopicProps
@@ -91,7 +87,7 @@ export const TopicHeader = (props: TopicHeaderProps) => {
         </Heading>
       )}
       {!props.options.hideAbstract && (
-        <Paragraph ncss={{ ...defaultParagraphStyle, ...paragraphStyle }}>
+        <Paragraph ncss={{ ...paragraphStyle }}>
           {props.topic.abstract &&
             props.topic.abstract.abstract
               .split('\n')

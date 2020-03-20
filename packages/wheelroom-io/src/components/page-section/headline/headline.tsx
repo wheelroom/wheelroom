@@ -4,6 +4,8 @@ import { TopicProps, Topic } from '../../topic'
 import { TextProps } from '../../text'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicOption } from '../page-section'
+import {paragraphHeroStyle} from "../../../core/styles/paragraph";
+import {heading1Style} from "../../../core/styles/heading";
 
 export interface HeadlineProps {
   info: PageSectionInfo
@@ -51,11 +53,9 @@ export const Headline = (props: HeadlineProps) => {
                 textAlign: 'center',
                 flexDirection: 'column',
               }}
-              useHeading="h1"
-              paragraphStyle={{
-                fontSize: [5, 6],
-                lineHeight: [3, 4],
-              }}
+              useHeading="h2"
+              headingStyle={{ ...heading1Style }}
+              paragraphStyle={{ ...paragraphHeroStyle, color: 'text' }}
               actionWrapperStyle={{
                 mx: 'auto',
               }}

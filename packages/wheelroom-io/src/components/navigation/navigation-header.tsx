@@ -89,7 +89,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               to="/"
               aria-label="Wheelroom, Back to homepage"
             >
-              {props.globals.siteHeading}
+              {props.globals.siteHeading + ` `}
               <sup>
                 <small>{props.siteMetadata.siteVersion}</small>
               </sup>
