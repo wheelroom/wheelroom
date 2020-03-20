@@ -55,7 +55,7 @@ const ImageBox = (props: { image: FluidImage }) => (
 export const TextSingleVar = (props: TextProps) => {
   const textProps = props
   const wrapperStyle = {
-    label: 'Wrapper',
+    label: 'wrapper',
     bg: 'bg',
   }
 
@@ -155,6 +155,7 @@ export const TextSingleVar = (props: TextProps) => {
     },
   } as Options
 
+  // TODO: Can't style all Elements. Please enable all Contentful Rich Text options.
   return (
     <Box is="div" ncss={wrapperStyle}>
       <Container is="div" ncss={containerStyle}>
@@ -166,6 +167,7 @@ export const TextSingleVar = (props: TextProps) => {
             my: 7,
             maxWidth: '640px',
             flexDirection: 'column',
+            textAlign: 'left',
           }}
         >
           {documentToReactComponents(

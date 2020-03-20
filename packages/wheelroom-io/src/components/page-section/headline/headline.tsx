@@ -32,33 +32,29 @@ export const Headline = (props: HeadlineProps) => {
       <Box
         is="div"
         ncss={{
-          label: 'Wrapper',
+          label: 'wrapper',
+          bg: 'bg',
+          py: 8,
         }}
       >
-        <ContainerMaxWidth
-          ncss={{
-            m: 'auto',
-            px: [2, 5, 7],
-            w: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
+        <ContainerMaxWidth>
           {props.topic && (
             <Topic
               {...props.topic}
               topicOptions={props.topicOptions}
               text={props.text}
               topicWrapperStyle={{
-                flex: '1',
                 w: 1,
-                textAlign: 'center',
               }}
+              // TODO: @jacco – imageProps doesn't work and isn't applied on the image
               imageProps={{
                 mb: '32px',
               }}
               contentWrapperStyle={{
-                flex: '1 1 auto',
+                display: 'flex',
+                textAlign: 'center',
+                flexDirection: 'column',
+                justifyContent: 'column',
               }}
               useHeading="h1"
               paragraphStyle={{
@@ -67,7 +63,6 @@ export const Headline = (props: HeadlineProps) => {
               }}
               actionWrapperStyle={{
                 mx: 'auto',
-                flex: '0 1 auto',
               }}
               actionStyle={{
                 mx: 2,

@@ -53,7 +53,7 @@ export const FeaturedList = (props: FeaturedListProps) => {
       <Box
         is="div"
         ncss={{
-          label: 'Wrapper',
+          label: 'wrapper',
           bg: 'bg',
           py: 8,
         }}

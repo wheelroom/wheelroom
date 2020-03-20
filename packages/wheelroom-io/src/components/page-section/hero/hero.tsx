@@ -26,7 +26,7 @@ export const Hero = (props: HeroProps) => {
       <Box
         is="div"
         ncss={{
-          label: 'Wrapper',
+          label: 'wrapper',
         }}
       >
         <Container

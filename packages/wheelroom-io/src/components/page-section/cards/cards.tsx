@@ -50,7 +50,7 @@ const CardWrapper = (props: { children: any }) => (
   <Box
     is="div"
     ncss={{
-      label: 'Wrapper',
+      label: 'wrapper',
       bg: 'bg',
       py: 8,
     }}

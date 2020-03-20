@@ -31,19 +31,16 @@ export const Featured = (props: FeaturedProps) => {
     <Box
       is="div"
       ncss={{
-        label: 'Wrapper',
+        label: 'wrapper',
         bg: 'bg',
         py: 8,
       }}
     >
       <ContainerMaxWidth
         ncss={{
-          m: 'auto',
           justifyContent: 'center',
-          px: [2, 5, 7],
-          w: 1,
           flexDirection: ['column', 'row'],
-          alignItems: ['center', 'initial'],
+          alignItems: ['center', 'baseline'],
         }}
       >
         <Topic

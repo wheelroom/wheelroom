@@ -13,7 +13,7 @@ export const navigationHeaderStyle = {
 }
 
 export const wrapperStyle = {
-  label: 'Wrapper',
+  label: 'wrapper',
   bg: 'bg',
   width: '100%',
   height: '70px',
