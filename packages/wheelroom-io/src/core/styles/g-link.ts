@@ -1,6 +1,7 @@
 export const commonGLinkStyle = {
   boxSizing: 'border-box',
-  '&:focus': {
+  color: 'azure',
+  ':focus': {
     outline: '2px dotted',
     outlineColor: 'amber',
     outlineOffset: '5px',

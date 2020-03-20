@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
-import { navigationHeaderStyle } from './navigation-styles'
 import { GLink } from '../../core/elements/g-link'
 import { Any } from '../../core/elements/any'
-import { PageProps } from '../page/page'
+import { PageProps } from '../page'
 
 const NavLink = (props: PageProps) => {
   return (
@@ -10,7 +9,6 @@ const NavLink = (props: PageProps) => {
       to={props.path}
       ncss={{
         label: 'nav-link',
-        ...navigationHeaderStyle,
       }}
     >
       {props.navigationHeading}
@@ -20,6 +18,7 @@ const NavLink = (props: PageProps) => {
 
 export interface NavLinksProps {
   pages: PageProps[]
+    //TODO: please add ncss props
 }
 
 export const NavLinks = (props: NavLinksProps) => {

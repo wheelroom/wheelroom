@@ -79,7 +79,7 @@ module.exports = {
   ],
   siteMetadata: {
     siteVersion: packageJson.version,
-    siteInfo: 'Made with love by Wheelroom inc San Fransico',
+    siteInfo: 'Made with ❤ by Wheelroom',
     secrets: {
       environment: cfConfig.environment,
       previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
