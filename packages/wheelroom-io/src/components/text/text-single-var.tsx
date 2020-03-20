@@ -158,7 +158,7 @@ export const TextSingleVar = (props: TextProps) => {
     },
   } as Options
 
-  // TODO: Can't style all Elements. Please enable all Contentful Rich Text options.
+  // TODO: Style all Contentful Rich Text options
   return (
     <Box is="div" ncss={wrapperStyle}>
       <Container is="div" ncss={containerStyle}>
