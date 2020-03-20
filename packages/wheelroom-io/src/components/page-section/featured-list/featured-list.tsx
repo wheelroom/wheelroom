@@ -3,6 +3,7 @@ import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicOption } from '../page-section'
+import { getTopicOptions } from '../get-topic-options'
 
 export interface FeaturedListProps {
   info: PageSectionInfo
@@ -23,6 +24,7 @@ export const FeaturedList = (props: FeaturedListProps) => {
   if (!(props.info.hasTopic || props.info.hasText)) {
     return null
   }
+  const options = getTopicOptions(props.topicOptions)
   const featuredList = props.topics.map((topic, index) => (
     <Topic
       key={index}
@@ -30,6 +32,8 @@ export const FeaturedList = (props: FeaturedListProps) => {
       topicOptions={props.topicOptions}
       topicWrapperStyle={{
         flexDirection: ['column', 'row'],
+        //TODO: Thijs, please check this
+        w: options.hideImage ? [1, 1 / 3, 1 / 4] : 'inherit',
       }}
       imageWrapperStyle={{
         display: 'flex',
@@ -60,9 +64,15 @@ export const FeaturedList = (props: FeaturedListProps) => {
         }}
       >
         <ContainerMaxWidth
-          ncss={{
-            flexDirection: ['column'],
-          }}
+          ncss={
+            options.hideImage
+              ? {
+                  flexDirection: ['column', 'row', 'row'],
+                }
+              : {
+                  flexDirection: ['column'],
+                }
+          }
         >
           {featuredList}
         </ContainerMaxWidth>
