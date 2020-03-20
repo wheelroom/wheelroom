@@ -45,7 +45,7 @@ export const Image = (props: ImageProps) => {
   const figcaptionNcss = props.figcaptionNcss || {}
   const imgNcss = props.imgNcss || {}
   const pictureNcss = props.pictureNcss || {}
-
+  // TODO: applying pictureNcss does not pass through styling
   return (
     <picture
       css={systemCss(
