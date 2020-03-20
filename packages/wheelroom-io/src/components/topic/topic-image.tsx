@@ -6,6 +6,8 @@ const defaultWrapperStyle = {
   label: 'topic-image',
 }
 
+const overrideImageWrapperStyle = {}
+
 const defaultImageProps = {}
 
 export interface TopicImageProps {
@@ -15,6 +17,8 @@ export interface TopicImageProps {
   imageWrapperStyle?: any
   /** The css order property applied to the container */
   order: number
+  /** Topic has rich text */
+  hasText: boolean
 }
 
 export const TopicImage = (props: TopicImageProps) => {
@@ -25,8 +29,7 @@ export const TopicImage = (props: TopicImageProps) => {
         order: props.order,
         ...defaultWrapperStyle,
         ...imageWrapperStyle,
-        //TODO: add conditional option if rich text is activated set other styling
-        //...(props.options ? {overrideImageWrapperStyle} : imageWrapperStyle),
+        ...(props.hasText ? { overrideImageWrapperStyle } : imageWrapperStyle),
       }}
     >
       <Image {...defaultImageProps} {...props.imageProps} />
