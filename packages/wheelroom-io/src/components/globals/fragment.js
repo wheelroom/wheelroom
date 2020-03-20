@@ -15,11 +15,6 @@ export const fragment = graphql`
 fragment Globals on ContentfulGlobals {
   __typename
   title
-  addressLine1
-  addressLine2
-  emailAddress
-  linkedinUrl
-  phoneNumber
   siteAuthor
   siteDescription
   siteHeading

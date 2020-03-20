@@ -482,21 +482,6 @@ export const configComponents: WheelroomComponents = {
   },
   globals: {
     fields: {
-      addressLine1: {
-        type: 'shortText',
-      } as ShortTextField,
-      addressLine2: {
-        type: 'shortText',
-      } as ShortTextField,
-      emailAddress: {
-        type: 'shortText',
-      } as ShortTextField,
-      linkedinUrl: {
-        type: 'shortText',
-      } as ShortTextField,
-      phoneNumber: {
-        type: 'shortText',
-      } as ShortTextField,
       siteAuthor: {
         type: 'shortText',
       } as ShortTextField,
