@@ -56,7 +56,7 @@ export interface TopicProps extends TopicLocalProps {
   abstract: {
     abstract: string
   }
-  image: FluidImage
+  image: FluidImage | undefined
   icon: string
   actions: any
 }

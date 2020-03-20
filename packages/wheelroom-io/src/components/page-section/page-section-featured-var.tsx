@@ -26,7 +26,13 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     )
   }
   if (info.topicCount <= 4) {
-    return <FeaturedMultipleTopics info={info} topics={props.topics} />
+    return (
+      <FeaturedMultipleTopics
+        info={info}
+        topics={props.topics}
+        topicOptions={props.topicOptions}
+      />
+    )
   }
 
   /** If you did not return a view above, Wheelroom will display this notification */

@@ -33,7 +33,9 @@ export const TopicImage = (props: TopicImageProps) => {
         order: props.order,
         ...defaultWrapperStyle,
         ...imageWrapperStyle,
-        ...(props.hasText ? { ...overrideImageWrapperStyle } : imageWrapperStyle),
+        ...(props.hasText
+          ? { ...overrideImageWrapperStyle }
+          : imageWrapperStyle),
       }}
     >
       <Image {...defaultImageProps} {...props.imageProps} />
