@@ -9,8 +9,8 @@ import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
 import { FluidImage } from '../../core/elements/types'
-import { TextProps } from '../text/text'
-import { TopicOption } from '../page-section/page-section'
+import { TextProps } from '../text'
+import { TopicOption } from '../page-section'
 
 const componentList = {
   ['single']: TopicSingleVar,

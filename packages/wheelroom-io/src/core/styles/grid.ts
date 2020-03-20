@@ -13,5 +13,4 @@ export const commonContainerMaxWidthStyle = {
   maxWidth: '1280px',
   mx: 'auto',
   my: 0,
-  px: 3,
 }

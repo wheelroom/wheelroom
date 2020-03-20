@@ -15,7 +15,7 @@ export const heading2Style = {
 }
 
 export const heading3Style = {
-  fontSize: [6, 7, 8, 9],
+  fontSize: [5, 6, 7, 8],
 }
 
 export const heading4Style = {

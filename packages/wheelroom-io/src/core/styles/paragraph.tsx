@@ -13,7 +13,7 @@ export const paragraphStyle = {
 
 export const paragraphHeroStyle = {
   color: 'caviar',
-  fontSize: [7, 8],
-  lineHeight: [5, 6],
+  fontSize: [6, 7],
+  lineHeight: [7],
   my: 4,
 }

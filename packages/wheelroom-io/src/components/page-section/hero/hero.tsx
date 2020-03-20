@@ -58,7 +58,7 @@ export const Hero = (props: HeroProps) => {
             contentWrapperStyle={{
               maxWidth: '1280px',
               m: 'auto',
-              px: [2, 5, 7],
+              p: 3,
               w: 1,
             }}
             headerWrapperStyle={{
@@ -68,7 +68,7 @@ export const Hero = (props: HeroProps) => {
             headingStyle={{ ...heading1Style, mb: 0, color: 'caviar' }}
             useHeading="h1"
             paragraphStyle={{ ...paragraphHeroStyle }}
-            actionWrapperStyle={{ mb: 0, maxWidth: '480px', }}
+            actionWrapperStyle={{ mb: 0, maxWidth: '480px' }}
             actionStyle={heroActionStyle}
           />
         </Container>
