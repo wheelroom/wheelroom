@@ -49,7 +49,11 @@ type Node = any
 type Children = any
 
 const ImageBox = (props: { image: FluidImage }) => (
-  <Image caption image={props.image} my={[4, 5]} />
+  <Image
+    includeFigcaption={true}
+    image={props.image}
+    imgNcss={{ my: [4, 5] }}
+  />
 )
 
 export const TextSingleVar = (props: TextProps) => {
