@@ -25,6 +25,8 @@ export const TopicImage = (props: TopicImageProps) => {
         order: props.order,
         ...defaultWrapperStyle,
         ...imageWrapperStyle,
+        //TODO: add conditional option if rich text is activated set other styling
+        //...(props.options ? {overrideImageWrapperStyle} : imageWrapperStyle),
       }}
     >
       <Image {...defaultImageProps} {...props.imageProps} />
