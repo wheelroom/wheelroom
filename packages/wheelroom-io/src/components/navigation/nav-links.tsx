@@ -8,12 +8,13 @@ interface NavLinkProps extends PageProps {
 }
 
 const NavLink = (props: NavLinkProps) => {
+  const linkStyle = props.linkStyle || {}
   return (
     <GLink
       to={props.path}
       ncss={{
         label: 'nav-link',
-        ...props.linkStyle,
+        ...linkStyle,
       }}
     >
       {props.navigationHeading}
@@ -23,15 +24,16 @@ const NavLink = (props: NavLinkProps) => {
 
 export interface NavLinksProps {
   pages: PageProps[]
-  itemStyle: any
-  linkStyle: any
+  itemStyle?: any
+  linkStyle?: any
 }
 
 export const NavLinks = (props: NavLinksProps) => {
+  const itemStyle = props.itemStyle || {}
   const links = props.pages.map((page: PageProps) => (
     <Any
       is={'li'}
-      ncss={{ label: 'nav-item', ...props.itemStyle }}
+      ncss={{ label: 'nav-item', ...itemStyle }}
       key={page.navigationHeading}
     >
       <NavLink {...page} linkStyle={props.linkStyle} />
