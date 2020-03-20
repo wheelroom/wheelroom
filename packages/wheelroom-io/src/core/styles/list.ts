@@ -1,1 +1,3 @@
-export const commonListStyle = {}
+export const commonListStyle = {
+  boxSizing: 'border-box',
+}

@@ -1,4 +1,5 @@
 export const commonImageImgStyle = {
+  boxSizing: 'border-box',
   display: 'block',
   height: 'auto',
   width: '100%',

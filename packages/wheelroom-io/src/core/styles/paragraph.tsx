@@ -1,4 +1,5 @@
 export const commonParagraphStyle = {
+  boxSizing: 'border-box',
   color: 'text',
   fontFamily: 'text',
 }

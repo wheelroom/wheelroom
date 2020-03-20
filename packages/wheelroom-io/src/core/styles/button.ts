@@ -1,4 +1,5 @@
 export const commonButtonStyle = {
+  boxSizing: 'border-box',
   display: 'inline-flex',
   justifyContent: 'center',
   bg: 'azure',
