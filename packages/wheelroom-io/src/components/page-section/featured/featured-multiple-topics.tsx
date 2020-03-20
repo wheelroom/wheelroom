@@ -17,7 +17,7 @@ export interface FeaturedProps {
  * - Two topics: the image of the first topic is displayed, the two topics ared
  *   shown next to the image
  * - Four topics: the image of the first topic is displayed, the four topics
- *   ared shown next to the image
+ *   are shown next to the image
  *
  */
 

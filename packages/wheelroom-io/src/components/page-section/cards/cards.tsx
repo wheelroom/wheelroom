@@ -24,7 +24,7 @@ export const Cards = (props: CardsProps) => {
         p: 3,
       }}
       imageProps={{
-        pictureNcss: { h: '170px' },
+        pictureNcss: { display: 'block', h: '178px' },
         imgNcss: { h: 1, objectFit: 'cover' },
       }}
       contentWrapperStyle={{

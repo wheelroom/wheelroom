@@ -44,7 +44,7 @@ interface TopicLocalProps {
   /** Override default button style */
   actionStyle?: any
 
-  /** Replace content box (header, abstract, action) with ricth text */
+  /** Replace content box (header, abstract, action) with rich text */
   text?: TextProps
 }
 

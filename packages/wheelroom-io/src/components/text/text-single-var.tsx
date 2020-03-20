@@ -160,25 +160,20 @@ export const TextSingleVar = (props: TextProps) => {
 
   // TODO: Style all Contentful Rich Text options
   return (
-    <Box is="div" ncss={wrapperStyle}>
-      <Container is="div" ncss={containerStyle}>
-        <Flex
-          is="div"
-          ncss={{
-            label: 'text',
-            mx: 'auto',
-            my: 7,
-            maxWidth: '640px',
-            flexDirection: 'column',
-            textAlign: 'left',
-          }}
-        >
-          {documentToReactComponents(
-            (props.text.json as unknown) as Document,
-            options
-          )}
-        </Flex>
-      </Container>
-    </Box>
+    <Flex
+      is="div"
+      ncss={{
+        label: 'text',
+        mx: 'auto',
+        maxWidth: '640px',
+        flexDirection: 'column',
+        textAlign: 'left',
+      }}
+    >
+      {documentToReactComponents(
+        (props.text.json as unknown) as Document,
+        options
+      )}
+    </Flex>
   )
 }

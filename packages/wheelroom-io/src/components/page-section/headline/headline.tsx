@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
-import { TextProps } from '../../text/text'
+import { TextProps } from '../../text'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicOption } from '../page-section'
 
