@@ -36,7 +36,6 @@ const PageTemplate = (props: any) => {
   const siteVersion = props.data.site.siteMetadata.siteVersion
   const sections = page.sections
 
-  // TODO: Needs fix, new models broke this
   const sectionProps = {
     locale,
     namedPaths,
