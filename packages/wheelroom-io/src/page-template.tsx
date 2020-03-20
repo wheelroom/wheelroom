@@ -74,6 +74,7 @@ export const query = graphql`
   query($pageId: String, $globalsId: String) {
     site {
       siteMetadata {
+        siteInfo
         siteVersion
         secrets {
           spaceId
