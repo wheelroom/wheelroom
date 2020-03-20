@@ -14,7 +14,6 @@ import { FeaturedList } from './featured-list/featured-list'
 
 export const PageSectionFeaturedListVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
-  // TODO: This page section featured-list is not replacing the label "Landmark" <section class="Landmark">
   if (info.hasTopic) {
     return (
       <FeaturedList
