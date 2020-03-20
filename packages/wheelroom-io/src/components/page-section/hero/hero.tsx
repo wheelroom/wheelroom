@@ -10,8 +10,8 @@ import { TopicOption } from '../page-section'
 const heroActionStyle = {
   ...buttonPrimaryStyle,
   fontSize: [5, 6],
-  py: 3,
-  px: 4,
+  py: [2, 3],
+  px: [3, 4],
 }
 
 export interface HeroProps {
@@ -31,7 +31,7 @@ export const Hero = (props: HeroProps) => {
       >
         <Container
           ncss={{
-            label: 'ContainerFluid',
+            label: 'Container',
             m: 'auto',
             px: 0,
             w: 1,
@@ -43,6 +43,7 @@ export const Hero = (props: HeroProps) => {
             text={props.text}
             topicWrapperStyle={{
               position: 'relative',
+              px: [2, 5, 7],
               py: 9,
               w: 1,
             }}
@@ -56,7 +57,7 @@ export const Hero = (props: HeroProps) => {
               zIndex: -1,
             }}
             contentWrapperStyle={{
-              maxWidth: '1280px',
+              maxWidth: '1440px',
               m: 'auto',
               p: 3,
               w: 1,
