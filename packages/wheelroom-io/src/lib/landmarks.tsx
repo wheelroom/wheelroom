@@ -29,8 +29,9 @@ export const Landmark = (props: {
   key: number
 }) => {
   const label = 'variation-' + props.variation || 'single'
+  const dashedLabel = label.replace(' ', '-')
   const css = systemCss({
-    ncss: { label },
+    ncss: { label: dashedLabel },
   })
   const attrs = {
     css,
