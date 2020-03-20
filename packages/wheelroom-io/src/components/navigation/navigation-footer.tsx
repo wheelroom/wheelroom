@@ -7,20 +7,17 @@
 
 import React, { Fragment } from 'react'
 import { NavigationProps } from './navigation'
-import { TopicProps } from '../topic/topic'
-import { GlobalsProps } from '../globals/globals'
+import { TopicProps } from '../topic'
+import { GlobalsProps } from '../globals'
 import { SiteMetadata } from '../../page-template'
-import {
-  Box,
-  Container,
-  ContainerMaxWidth,
-  Flex,
-} from '../../core/elements/grid'
+import { NavigationSegmentProps } from '../navigation-segment'
+import { Box, Container, Flex } from '../../core/elements/grid'
 import { commonParagraphStyle } from '../../core/styles/paragraph'
 import { ALink } from '../../core/elements/a-link'
 import { Any } from '../../core/elements/any'
 import { NavLinks } from './nav-links'
 import { List } from '../../core/elements/list'
+import { IconMap } from '../../svg/feather/iconMap'
 
 export const metaStyle = {
   label: 'meta',
@@ -38,6 +35,22 @@ export const listStyle = {
   pl: 0,
 }
 
+const defaultIconStyle = {
+  width: '40px',
+  height: '40px',
+  color: 'svgStroke',
+  strokeWidth: '1px',
+  mb: 2,
+}
+
+const Icon = (props: { name: string }) => {
+  if (props.name && props.name in IconMap) {
+    const RenderIcon = IconMap[props.name]
+    return <RenderIcon ncss={{ ...defaultIconStyle }} />
+  }
+  return null
+}
+
 interface NavigationFooterProps extends NavigationProps {
   /** Topics contain social icons and actions */
   topics: TopicProps[]
@@ -49,6 +62,13 @@ interface NavigationFooterProps extends NavigationProps {
 
 export const NavigationFooter = (props: NavigationFooterProps) => {
   const navSegment = props.segments[0] as NavigationSegmentProps
+  const social = props.topics.map((topic: TopicProps) => (
+    <List is={'li'} key={topic.heading}>
+      <ALink href={topic.actions.url}>
+        <Icon name={topic.icon} />
+      </ALink>
+    </List>
+  ))
   return (
     <Fragment>
       <Box
@@ -58,9 +78,6 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
           bg: 'bg',
         }}
       >
-        <Container>
-            <Flex ncss={{ ...metaStyle }}>{props.topics[0].heading}</Flex>
-        </Container>
         <Container
           ncss={{
             borderTop: '1px solid transparent',
@@ -70,6 +87,7 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
           <List is="ul" ncss={{ ...listStyle }}>
             <NavLinks pages={navSegment.pages} />
           </List>
+          <Flex ncss={{ ...metaStyle }}>{social}</Flex>
         </Container>
         <Container
           ncss={{
