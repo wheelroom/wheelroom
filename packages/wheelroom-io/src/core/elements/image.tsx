@@ -10,13 +10,13 @@ import {
 } from '../styles/image'
 
 export interface ImageProps {
-  alt: string
-  figcaptionNcss: any
+  alt?: string
+  figcaptionNcss?: any
   image?: FluidImage
-  imgNcss: any
-  includeFigcaption: boolean
-  pictureNcss: any
-  title: string
+  imgNcss?: any
+  includeFigcaption?: boolean
+  pictureNcss?: any
+  title?: string
 }
 
 const defaultFluidImage = {
