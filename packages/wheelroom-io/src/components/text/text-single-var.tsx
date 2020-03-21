@@ -143,22 +143,40 @@ export const TextSingleVar = (props: TextProps) => {
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         if (!fields) {
+          console.log(
+            'Warning: embedded asset fields not found, try npx gatsby clean'
+          )
           return null
         }
         const localizedFile = getLocalizedValue(textProps.locale, fields.file)
+        const localizedTitle = getLocalizedValue(textProps.locale, fields.title)
+        const localizedDescription = getLocalizedValue(
+          textProps.locale,
+          fields.description
+        )
         const contentType = localizedFile.contentType
-        if (!contentType) {
+        if (!contentType || !contentType.includes('/')) {
           return null
         }
-        // const contentTypeSplit = contentType.split('\\')
-        const image = {
-          title: getLocalizedValue(textProps.locale, fields.title),
-          description: getLocalizedValue(textProps.locale, fields.description),
-          fluid: {
-            src: localizedFile.url + '?w=2560&q=50',
-          },
-        } as FluidImage
-        return <ImageBox image={image} key={node.data.target.id} />
+        const contentTypeSplit = contentType.split('/')
+        if (contentTypeSplit[0] === 'image') {
+          const image = {
+            title: localizedTitle,
+            description: localizedDescription,
+            fluid: {
+              src: localizedFile.url + '?w=2560&q=50',
+            },
+          } as FluidImage
+          return <ImageBox image={image} key={node.data.target.id} />
+        }
+        if (contentTypeSplit[0] === 'video') {
+          console.log('localizedTitle', localizedTitle)
+          console.log('localizedDescription', localizedDescription)
+          console.log('localizedFile.url', localizedFile.url)
+          return <div>VIDEO KILLED THE RADIO STAR</div>
+        }
+
+        return null
       },
     },
   } as Options
