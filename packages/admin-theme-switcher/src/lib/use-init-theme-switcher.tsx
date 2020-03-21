@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useReducer, useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
-import { pagePreviewRegister } from './theme-switcher-register'
+import { themeSwitcherRegister } from './theme-switcher-register'
 import { themeSwitcherReducer } from './theme-switcher-reducer'
 import { initialState } from './initial-state'
 import { actionCreator } from './action-creator'
@@ -31,13 +31,13 @@ export const useInitThemeSwitcher = (themeNames: ThemeNames) => {
 
   useEffect(() => {
     // Register module only once
-    adminCoreDispatch(pagePreviewRegister)
+    adminCoreDispatch(themeSwitcherRegister)
   }, [])
 
   useEffect(() => {
     adminCoreDispatch({
       type: 'SET_ADMIN_MODULE_STORE',
-      moduleId: pagePreviewRegister.moduleId,
+      moduleId: themeSwitcherRegister.moduleId,
       store: {
         actions,
         state: themeSwitcherState,
@@ -46,7 +46,7 @@ export const useInitThemeSwitcher = (themeNames: ThemeNames) => {
     })
     adminCoreDispatch({
       type: 'SET_LAST_MODULE_ID',
-      moduleId: pagePreviewRegister.moduleId,
+      moduleId: themeSwitcherRegister.moduleId,
     })
   }, [themeSwitcherState])
 }

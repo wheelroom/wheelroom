@@ -5,7 +5,7 @@ import { RegisterModule } from '@wheelroom/admin-core'
  * registering, the module.store value is provide with a React reducer.
  *
  */
-export const pagePreviewRegister: RegisterModule = {
+export const themeSwitcherRegister: RegisterModule = {
   type: 'REGISTER_MODULE',
   moduleId: 'themeSwitcher',
   module: {
