@@ -38,12 +38,12 @@ export const TopicSingleVar = (props: TopicProps) => {
         <TopicImage
           imageProps={{ ...props.imageProps, image: props.image }}
           imageWrapperStyle={props.imageWrapperStyle}
-          order={options.reverseOrder ? 2 : 1}
+          order={props.reverse || options.reverseOrder ? 2 : 1}
           hasText={hasText}
         />
       )}
       <TopicContentWrapper
-        order={options.reverseOrder ? 1 : 2}
+        order={props.reverse || options.reverseOrder ? 1 : 2}
         contentWrapperStyle={props.contentWrapperStyle}
         options={options}
       >

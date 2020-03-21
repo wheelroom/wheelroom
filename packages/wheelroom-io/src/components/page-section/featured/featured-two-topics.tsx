@@ -47,6 +47,7 @@ export const FeaturedTwoTopics = (props: FeaturedTwoTopicsProps) => {
           {props.topics.map((topic: TopicProps, index: number) => (
             <Topic
               key={index}
+              reverse={index % 2 === 0}
               {...topic}
               topicOptions={props.topicOptions}
               topicWrapperStyle={{
@@ -55,7 +56,7 @@ export const FeaturedTwoTopics = (props: FeaturedTwoTopicsProps) => {
               }}
               imageWrapperStyle={{
                 display: 'flex',
-                  alignItems: 'center',
+                alignItems: 'center',
                 p: 3,
                 w: 1,
               }}

@@ -49,6 +49,9 @@ interface TopicLocalProps {
 
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
+
+  /** Reverse image and content */
+  reverse?: boolean
 }
 
 export interface TopicProps extends TopicLocalProps {
