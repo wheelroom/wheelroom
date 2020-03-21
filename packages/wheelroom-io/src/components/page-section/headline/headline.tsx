@@ -4,8 +4,8 @@ import { TopicProps, Topic } from '../../topic'
 import { TextProps } from '../../text'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicOption } from '../page-section'
-import {paragraphHeroStyle} from "../../../core/styles/paragraph";
-import {heading1Style} from "../../../core/styles/heading";
+import { heading1Style } from '../../../core/styles/heading'
+import { paragraphHeroStyle } from '../../../core/styles/paragraph'
 
 export interface HeadlineProps {
   info: PageSectionInfo
