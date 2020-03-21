@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/wheelroom/wheelroom-io/compare/wheelroom-io@1.2.0...wheelroom-io@1.3.0) (2020-03-21)
+
+
+### Bug Fixes
+
+* allow footer on any index ([5e00670](https://github.com/wheelroom/wheelroom-io/commit/5e00670f2e41520e96c07da456662cd4be247957))
+* check for valid fields ([4f02aa3](https://github.com/wheelroom/wheelroom-io/commit/4f02aa30009957473b070d7cd7c380363cf66810))
+* index ([ecda50d](https://github.com/wheelroom/wheelroom-io/commit/ecda50d6d9a3502329a1af7cd2769796e4bbb7c1))
+* key ([bc47959](https://github.com/wheelroom/wheelroom-io/commit/bc47959d6afa172146cc900a9ca7b21a632241ae))
+* remove setting page theme ([7297437](https://github.com/wheelroom/wheelroom-io/commit/729743771fdcaec9721be0b5414eb58b89d16f24))
+* remove unused ([17abb34](https://github.com/wheelroom/wheelroom-io/commit/17abb3424c56f45509dfa68de4d8d97148d83d76))
+
+
+### Features
+
+* add more rich text featured ([62ce9e1](https://github.com/wheelroom/wheelroom-io/commit/62ce9e1b279d4d601deed035deaff724ee127327))
+* add redux cache ([6b3f9ca](https://github.com/wheelroom/wheelroom-io/commit/6b3f9caecf9a44b79fd7ad635c3dceb792e7f6c3))
+* enable page theme ([a6357f3](https://github.com/wheelroom/wheelroom-io/commit/a6357f3dfe0a81a16095c97f7f5c6ef246725182))
+* listen to page theme ([5f69bc9](https://github.com/wheelroom/wheelroom-io/commit/5f69bc9a38cc7406d49d8de5ce9273624f78e134))
+* setup video box ([ec44efb](https://github.com/wheelroom/wheelroom-io/commit/ec44efb715019cccb47a172d7e1f0a344f8e3d6d))
+
+
+
+
+
 # [1.2.0](https://github.com/wheelroom/wheelroom-io/compare/wheelroom-io@1.1.0...wheelroom-io@1.2.0) (2020-03-21)
 
 

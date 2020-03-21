@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.27](https://github.com/wheelroom/wheelroom/compare/boilerplate@5.2.26...boilerplate@5.2.27) (2020-03-21)
+
+**Note:** Version bump only for package boilerplate
+
+
+
+
+
 ## [5.2.26](https://github.com/wheelroom/wheelroom/compare/boilerplate@5.2.25...boilerplate@5.2.26) (2020-03-21)
 
 

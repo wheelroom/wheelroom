@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-theme-switcher@1.0.5...@wheelroom/admin-theme-switcher@1.1.0) (2020-03-21)
+
+
+### Features
+
+* enable page theme ([a6357f3](https://github.com/wheelroom/wheelroom/commit/a6357f3dfe0a81a16095c97f7f5c6ef246725182))
+
+
+
+
+
 ## [1.0.5](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-theme-switcher@1.0.4...@wheelroom/admin-theme-switcher@1.0.5) (2020-03-21)
 
 **Note:** Version bump only for package @wheelroom/admin-theme-switcher

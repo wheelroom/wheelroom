@@ -11,7 +11,7 @@
     "@wheelroom/admin-core": "1.1.7",
     "@wheelroom/admin-page-preview": "1.4.16",
     "@wheelroom/admin-panel": "1.1.7",
-    "@wheelroom/admin-theme-switcher": "1.0.5",
+    "@wheelroom/admin-theme-switcher": "1.1.0",
     "@wheelroom/styled-system": "4.0.1",
     "@wheelroom/wheelroom": "3.8.2",
     "@wheelroom/wheelroom-plugin-boilerplate": "2.8.2",
@@ -98,5 +98,5 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "5.2.26"
+  "version": "5.2.27"
 }
