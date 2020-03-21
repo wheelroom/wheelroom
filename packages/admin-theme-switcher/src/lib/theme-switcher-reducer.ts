@@ -15,7 +15,26 @@ export const themeSwitcherReducer = (
       }
 
     case 'SET_ACTIVE_THEME':
-      return { ...state, activeThemeId: action.themeId }
+      return {
+        ...state,
+        lastThemeId: undefined,
+        activeThemeId: action.themeId,
+      }
+
+    case 'SET_TEMPORARY_ACTIVE_THEME':
+      return {
+        ...state,
+        lastThemeId: state.activeThemeId,
+        activeThemeId: action.themeId,
+      }
+
+    case 'SET_LAST_THEME':
+      return {
+        ...state,
+        activeThemeId: state.lastThemeId
+          ? state.lastThemeId
+          : state.activeThemeId,
+      }
 
     default:
       throw new Error()

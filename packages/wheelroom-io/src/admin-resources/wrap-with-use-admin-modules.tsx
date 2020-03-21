@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { useInitPagePreview } from '@wheelroom/admin-page-preview'
 import { useInitThemeSwitcher } from '@wheelroom/admin-theme-switcher'
-import { themeNames } from './theme-names'
+import { themeInfo } from './theme-info'
 
 const UseAdminModules = (props: any) => {
-  useInitThemeSwitcher(themeNames())
+  useInitThemeSwitcher(themeInfo(props))
   useInitPagePreview(props)
   return <Fragment>{props.children}</Fragment>
 }
