@@ -34,7 +34,7 @@ import {
   Options,
 } from '@contentful/rich-text-react-renderer'
 import { commonALinkStyle } from '../../core/styles/a-link'
-import {Video} from "../../core/elements/video";
+import { Video } from '../../core/elements/video'
 
 const richTextLinkStyle = {
   wordBreak: 'break-all',
@@ -53,6 +53,19 @@ const blockquoteStyle = {
 const boldTextStyle = {
   label: 'strong',
   fontWeight: 7,
+}
+
+const preTextStyle = {
+  label: 'pre',
+  fontSize: 3,
+  bg: 'skyblue',
+  py: 2,
+  px: 3,
+  wordBreak: 'break-all',
+  wordWrap: 'break-word',
+}
+const codeTextStyle = {
+  label: 'code',
 }
 
 const hrStyle = {
@@ -90,6 +103,13 @@ export const TextSingleVar = (props: TextProps) => {
       [MARKS.BOLD]: text => (
         <Any is="b" ncss={{ ...boldTextStyle }}>
           {text}
+        </Any>
+      ),
+      [MARKS.CODE]: code => (
+        <Any is="pre" ncss={{ ...preTextStyle }}>
+          <Any is="code" ncss={{ ...codeTextStyle }}>
+            {code}
+          </Any>
         </Any>
       ),
     },
