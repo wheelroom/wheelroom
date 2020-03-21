@@ -28,7 +28,7 @@ import {
   heading6Style,
 } from '../../core/styles/heading'
 import { getLocalizedValue } from './get-localized-value'
-import { Box, Container, Flex } from '../../core/elements/grid'
+import { Flex } from '../../core/elements/grid'
 import {
   documentToReactComponents,
   Options,
@@ -95,6 +95,13 @@ export const TextSingleVar = (props: TextProps) => {
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
         return (
           <List is="ul" ncss={{ ...paragraphStyle }}>
+            {children}
+          </List>
+        )
+      },
+      [BLOCKS.OL_LIST]: (_node: Node, children: Children) => {
+        return (
+          <List is="ol" ncss={{ ...paragraphStyle }}>
             {children}
           </List>
         )
