@@ -92,6 +92,11 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
               'embedded-asset-block',
               'hyperlink',
               'entry-hyperlink',
+              'heading-5',
+              'heading-6',
+              'ordered-list',
+              'blockquote',
+              'hr',
             ],
             message:
               'Only heading 1, heading 2, heading 3, heading 4, unordered list, asset, link to Url, and link to entry nodes are allowed',
