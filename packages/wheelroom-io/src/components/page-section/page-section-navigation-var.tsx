@@ -27,11 +27,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     )
   }
 
-  if (
-    info.hasNavigation &&
-    info.hasTopic &&
-    info.index === info.sectionCount - 1
-  ) {
+  if (info.hasNavigation && info.hasTopic && !info.hasAction) {
     const segments = props.navigation.segments
     return (
       <NavigationFooter
