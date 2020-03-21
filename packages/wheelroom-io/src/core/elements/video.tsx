@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
@@ -30,32 +31,36 @@ export const Video = (props: VideoProps) => {
     title: props.title || video.title,
     url: props.url || video.url,
     type: props.type || video.type,
+    description: props.description || video.description,
   }
 
   const videoFigcaptionNcss = props.figcaptionNcss || {}
   const videoNcss = props.videoNcss || {}
 
   return (
-    <video controls>
-      <source
-        src={videoAttrs.url}
-        type={videoAttrs.type}
+    <Fragment>
+      <video
         css={systemCss(
           { ncss: { ...commonVideoStyle, ...videoNcss } },
           currentThemeId
         )}
-      />
-      Your browser does not support the video tag.
-      {/*{props.includeFigcaption && (*/}
-      {/*  <figcaption*/}
-      {/*    css={systemCss(*/}
-      {/*      { ncss: { ...commonVideoFigcaptionStyle, ...videoFigcaptionNcss } },*/}
-      {/*      currentThemeId*/}
-      {/*    )}*/}
-      {/*  >*/}
-      {/*    {videoAttrs.alt}*/}
-      {/*  </figcaption>*/}
-      {/*)}*/}
-    </video>
+        controls
+      >
+        <source src={videoAttrs.url} type={videoAttrs.type} />
+        Your browser does not support the video tag.
+      </video>
+      {(props.title || videoAttrs.description) && (
+        <p
+          css={systemCss(
+            { ncss: { ...commonVideoFigcaptionStyle, ...videoFigcaptionNcss } },
+            currentThemeId
+          )}
+        >
+          <b>{videoAttrs.title}</b>
+          {props.title && videoAttrs.description && ` – `}
+          {videoAttrs.description}
+        </p>
+      )}
+    </Fragment>
   )
 }

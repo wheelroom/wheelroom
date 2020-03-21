@@ -198,11 +198,14 @@ export const TextSingleVar = (props: TextProps) => {
           return <ImageBox image={image} key={node.data.target.id} />
         }
         if (contentTypeSplit[0] === 'video') {
-          console.log('localizedTitle', localizedTitle)
-          console.log('localizedDescription', localizedDescription)
-          console.log('localizedFile.url', localizedFile.url)
-          console.log(node)
-          return <Video url={localizedFile.url} type={localizedFile.contentType} />
+          return (
+            <Video
+              url={localizedFile.url}
+              type={localizedFile.contentType}
+              title={localizedTitle}
+              description={localizedDescription}
+            />
+          )
         }
 
         return null
