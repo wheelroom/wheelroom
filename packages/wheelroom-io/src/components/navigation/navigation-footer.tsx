@@ -19,15 +19,11 @@ import { NavLinks } from './nav-links'
 import { List } from '../../core/elements/list'
 import { IconMap } from '../../svg/feather/iconMap'
 import { Action } from '../action/action'
-
-export const metaStyle = {
-  label: 'meta',
-}
+import { navigationFooterStyle, navStyle } from './navigation-styles'
 
 export const listStyle = {
   label: 'nav-list',
   display: 'flex',
-  flex: '1',
   flexDirection: 'row',
   listStyle: 'none',
   flexWrap: 'wrap',
@@ -37,11 +33,12 @@ export const listStyle = {
 }
 
 const defaultIconStyle = {
-  width: '40px',
-  height: '40px',
-  color: 'svgStroke',
-  strokeWidth: '1px',
-  mb: 2,
+  label: 'icon',
+  width: '20px',
+  height: '20px',
+  color: 'text',
+  strokeWidth: '0',
+  fill: 'text',
 }
 
 const Icon = (props: { name: string }) => {
@@ -65,7 +62,10 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
   const navSegment = props.segments[0] as NavigationSegmentProps
   const social = props.topics.map((topic: TopicProps) => (
     <List is={'li'} key={topic.heading}>
-      <Action {...topic.actions[0]}>
+      <Action
+        {...topic.actions[0]}
+        ncss={{ display: 'inline-flex', p: 1, ml: 1 }}
+      >
         <Icon name={topic.icon} />
       </Action>
     </List>
@@ -85,10 +85,20 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
             borderColor: 'border',
           }}
         >
-          <List is="ul" ncss={{ ...listStyle }}>
-            <NavLinks pages={navSegment.pages} />
-          </List>
-          <Flex ncss={{ ...metaStyle }}>{social}</Flex>
+          <Flex
+            is={'nav'}
+            ncss={{ ...navStyle, h: '84px', justifyContent: 'space-between' }}
+          >
+            <List is="ul" ncss={listStyle}>
+              <NavLinks
+                linkStyle={navigationFooterStyle}
+                pages={navSegment.pages}
+              />
+            </List>
+            <List is="ul" ncss={{ ...listStyle }}>
+              {social}
+            </List>
+          </Flex>
         </Container>
         <Container
           ncss={{

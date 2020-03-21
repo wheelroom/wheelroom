@@ -95,7 +95,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               </sup>
             </GLink>
           </Flex>
-          <Flex is={'nav'} ncss={navStyle}>
+          <Flex is={'nav'} ncss={{ ...navStyle, display: ['none', 'none', 'flex'] }}>
             <List is="ul" ncss={listStyle}>
               <NavLinks linkStyle={{ ...navigationHeaderStyle }} pages={navSegment.pages} />
             </List>

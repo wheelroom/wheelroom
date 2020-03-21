@@ -87,6 +87,7 @@ export const styledSystemConfig: StyledSystemConfig = {
       'borderTopColor',
       'caretColor',
       'color',
+      'fill',
       'columnRuleColor',
       'outlineColor',
       'textDecorationColor',

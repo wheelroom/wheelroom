@@ -81,7 +81,6 @@ export const logoLinkStyle = {
 
 export const navStyle = {
   label: 'nav',
-  display: ['none', 'none', 'flex'],
   flex: '1',
   alignItems: 'center',
 }
