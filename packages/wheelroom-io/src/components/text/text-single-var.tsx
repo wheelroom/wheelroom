@@ -58,15 +58,6 @@ const ImageBox = (props: { image: FluidImage }) => (
 
 export const TextSingleVar = (props: TextProps) => {
   const textProps = props
-  const wrapperStyle = {
-    label: 'wrapper',
-    bg: 'bg',
-  }
-
-  const containerStyle = {
-    height: '100%',
-    justifyContent: 'space-between',
-  }
 
   const options = {
     renderText: text => {
