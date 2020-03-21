@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box } from '../../core/elements/grid'
 import { TopicOptions } from '../page-section/get-topic-options'
+import { Action, ActionProps } from '../action/action'
 
 const defaultWrapperStyle = {
   label: 'topic',
@@ -18,11 +19,23 @@ export interface TopicWrapperProps {
   hasAction: boolean
   /** Topic options */
   options: TopicOptions
+  /** If an action is present, the full topic is clickable */
+  action: ActionProps
 }
 
 export const TopicWrapper = (props: TopicWrapperProps) => {
   const topicWrapperStyle = props.topicWrapperStyle || {}
-  return (
+  return props.hasAction ? (
+    <Action
+      {...props.action}
+      ncss={{
+        ...defaultWrapperStyle,
+        ...topicWrapperStyle,
+      }}
+    >
+      {props.children}
+    </Action>
+  ) : (
     <Box
       ncss={{
         ...defaultWrapperStyle,

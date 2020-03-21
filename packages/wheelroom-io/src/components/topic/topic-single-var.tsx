@@ -19,7 +19,11 @@ import { getTopicOptions } from '../page-section/get-topic-options'
 export const TopicSingleVar = (props: TopicProps) => {
   const options = getTopicOptions(props.topicOptions)
   const hasText = !!(props.text && props.text.text && props.text.locale)
-  const hasAction = !!(Array.isArray(props.actions) && props.actions.length)
+  const hasAction = !!(
+    !options.hideAction &&
+    Array.isArray(props.actions) &&
+    props.actions.length
+  )
   const hasImage = !!props.image
   return (
     <TopicWrapper
@@ -27,6 +31,7 @@ export const TopicSingleVar = (props: TopicProps) => {
       hasText={hasText}
       hasAction={hasAction}
       options={options}
+      action={props.actions[0]}
     >
       {!options.hideImage && hasImage && (
         <TopicImage
@@ -52,7 +57,7 @@ export const TopicSingleVar = (props: TopicProps) => {
               paragraphStyle={props.paragraphStyle}
               useHeading={props.useHeading}
             />
-            {!options.hideAction && hasAction && (
+            {hasAction && (
               <TopicAction
                 action={props.actions[0]}
                 actionWrapperStyle={props.actionWrapperStyle}

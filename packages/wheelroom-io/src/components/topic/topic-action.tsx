@@ -24,9 +24,7 @@ export const TopicAction = (props: TopicActionProps) => {
   return (
     <Box ncss={{ ...defaultWrapperStyle, ...actionWrapperStyle }}>
       <Action
-        url={props.action.url}
-        heading={props.action.heading}
-        title={props.action.title}
+        {...props.action}
         ncss={{
           ...buttonPrimaryStyle,
           ...actionStyle,
