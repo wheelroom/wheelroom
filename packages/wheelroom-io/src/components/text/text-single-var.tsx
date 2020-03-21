@@ -14,7 +14,7 @@ import { Image } from '../../core/elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
 import { Any } from '../../core/elements/any'
 import { Paragraph } from '../../core/elements/paragraph'
-import { paragraphStyle } from '../../core/styles/paragraph'
+import { defaultParagraphStyle } from '../../core/styles/paragraph'
 import { List } from '../../core/elements/list'
 import { ALink } from '../../core/elements/a-link'
 import { GLink } from '../../core/elements/g-link'
@@ -115,7 +115,7 @@ export const TextSingleVar = (props: TextProps) => {
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
-        return <Paragraph ncss={{ ...paragraphStyle }}>{children}</Paragraph>
+        return <Paragraph>{children}</Paragraph>
       },
       [BLOCKS.QUOTE]: (_node: Node, children: Children) => {
         return (
@@ -126,21 +126,21 @@ export const TextSingleVar = (props: TextProps) => {
       },
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List is="ul" ncss={{ ...paragraphStyle }}>
+          <List is="ul" ncss={{ ...defaultParagraphStyle }}>
             {children}
           </List>
         )
       },
       [BLOCKS.OL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List is="ol" ncss={{ ...paragraphStyle }}>
+          <List is="ol" ncss={{ ...defaultParagraphStyle }}>
             {children}
           </List>
         )
       },
       [BLOCKS.LIST_ITEM]: (_node: Node, children: Children) => {
         return (
-          <List is="li" ncss={{ ...paragraphStyle }}>
+          <List is="li" ncss={{ ...defaultParagraphStyle }}>
             {children}
           </List>
         )
