@@ -12,6 +12,7 @@ import { NotImplemented } from '../../lib/not-implemented'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { Featured } from './featured/featured'
 import { FeaturedMultipleTopics } from './featured/featured-multiple-topics'
+import { FeaturedTwoTopics } from './featured/featured-two-topics'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
@@ -21,6 +22,15 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
         info={info}
         topic={props.topics[0]}
         text={{ ...props.text, locale: props.locale }}
+        topicOptions={props.topicOptions}
+      />
+    )
+  }
+  if (info.topicCount <= 2) {
+    return (
+      <FeaturedTwoTopics
+        info={info}
+        topics={props.topics}
         topicOptions={props.topicOptions}
       />
     )
