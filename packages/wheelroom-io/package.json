@@ -4,7 +4,9 @@
   },
   "contributors": [
     {
-      "name": "Jacco Meijer"
+      "name": "Jacco Meijer",
+      "email": "jacco@jaccomeijer.nl",
+      "url": "https://www.jaccomeijer.nl"
     },
     {
       "name": "Thijs Krooswijk"
@@ -90,7 +92,7 @@
   "homepage": "https://github.com/wheelroom/wheelroom-io#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "wheelroom-io",
+  "name": "@wheelroom/boilerplate",
   "private": true,
   "repository": {
     "type": "git",
