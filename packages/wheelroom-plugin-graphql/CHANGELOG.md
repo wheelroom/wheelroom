@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.3.1...@wheelroom/wheelroom-plugin-graphql@2.3.2) (2020-03-21)
+
+
+### Bug Fixes
+
+* set exact semver ([e8e5ab6](https://github.com/wheelroom/wheelroom/commit/e8e5ab6a108adf60d9a247dd53e8f7b2bb6ae3f7))
+
+
+
+
+
 ## 2.3.1 (2020-03-19)
 
 

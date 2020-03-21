@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/wheelroom/wheelroom-io/compare/wheelroom-io@1.1.0...wheelroom-io@1.2.0) (2020-03-21)
+
+
+### Bug Fixes
+
+* abstract new lines ([af2feb1](https://github.com/wheelroom/wheelroom-io/commit/af2feb1d3f899e3f458ada10e56259c444eeba5b))
+* adapt to new image ([627ca47](https://github.com/wheelroom/wheelroom-io/commit/627ca47788cbaeddf842988228d6d96fe1bdc7b9))
+* add boxSizing to all core elements ([28b2671](https://github.com/wheelroom/wheelroom-io/commit/28b2671687ddac3817b7fa505f7965cf6db98b10))
+* add boxSizing to Box ([4879316](https://github.com/wheelroom/wheelroom-io/commit/4879316b0f80235b1707826a073f458d580ce882))
+* check for hasAction ([cb9399a](https://github.com/wheelroom/wheelroom-io/commit/cb9399a0bd3b7ba965496d804740a176e61eb613))
+* cleanup global styling ([fbb76c3](https://github.com/wheelroom/wheelroom-io/commit/fbb76c3bb66f558033994b361b9e1da99ae69d67))
+* cleanup globals ([74dfaa7](https://github.com/wheelroom/wheelroom-io/commit/74dfaa7d65ff1d3d815bc8a79fe365ad8fd6c7a7))
+* cleanup svgColors ([c354487](https://github.com/wheelroom/wheelroom-io/commit/c3544876eb1bcde5fc5a844c3ca215a613da9b22))
+* cleanup todo ([feda1b6](https://github.com/wheelroom/wheelroom-io/commit/feda1b63cbbe8a7edfa4b5eacfe2965cd00036cc))
+* dashedLabel ([8928333](https://github.com/wheelroom/wheelroom-io/commit/89283332c0f2931d669d78d2e130e15371f9ac06))
+* exlcude linter ([5419f17](https://github.com/wheelroom/wheelroom-io/commit/5419f178f26c3b0eb68a88145857b3b7e40a8943))
+* global reset ([6c8dfc2](https://github.com/wheelroom/wheelroom-io/commit/6c8dfc2b7d5170bdfa291a8da59b0d0ebc17e601))
+* image optional props ([7b0b0a6](https://github.com/wheelroom/wheelroom-io/commit/7b0b0a6d1ae2294fdfdba1efc2bd9d6971d33194))
+* img theme ([d9c6c27](https://github.com/wheelroom/wheelroom-io/commit/d9c6c2710e845ba3cdcf800028cb94b8c6f12bbc))
+* move eslintrc.js file in the root ([0f57a09](https://github.com/wheelroom/wheelroom-io/commit/0f57a0916c1a23cc87c4d67f11dda8e40e325e65))
+* optional styles ([18d0390](https://github.com/wheelroom/wheelroom-io/commit/18d039065f66e15f2edc0b5e67dfa66786b224d6))
+* remove rich text todo ([3e48a80](https://github.com/wheelroom/wheelroom-io/commit/3e48a8057c025f54934d091a5ff860bbff242199))
+* remove todo ([cf082bb](https://github.com/wheelroom/wheelroom-io/commit/cf082bb38cf33fdc2f2cd386a46169269d82776f))
+* remove todo ([e531521](https://github.com/wheelroom/wheelroom-io/commit/e53152176f0fb214853c0dabf6cc7f2d6c0d7a12))
+* remove todo ([fb8a21f](https://github.com/wheelroom/wheelroom-io/commit/fb8a21faf56882945fb9ecf4f05453bdcfc9ed37))
+* remove todo ([956dafe](https://github.com/wheelroom/wheelroom-io/commit/956dafe0cb57bcfcc5055e7d8bd6765b8347abcf))
+* reverse mono repo – effects the bootstrap-package shell script ([1ba3d4e](https://github.com/wheelroom/wheelroom-io/commit/1ba3d4e3a0fec80c7f2d43f3e99635e9ae7ce275))
+* set exact semver ([e8e5ab6](https://github.com/wheelroom/wheelroom-io/commit/e8e5ab6a108adf60d9a247dd53e8f7b2bb6ae3f7))
+* todo another TopicContentWrapperStyle ([345c7e2](https://github.com/wheelroom/wheelroom-io/commit/345c7e25698ed3ea70a5cb089817ce151be56872))
+* todo text ([ff09f5c](https://github.com/wheelroom/wheelroom-io/commit/ff09f5c409e1d2dc825ae41c273da03eb13c9991))
+* topic hasImage ([dfc6a26](https://github.com/wheelroom/wheelroom-io/commit/dfc6a260ec68485d17b627d5ac13a47cd43accd1))
+* use action instead of another link ([fd7913a](https://github.com/wheelroom/wheelroom-io/commit/fd7913a2601dbfc4b4ec784273a46725c590cab5))
+
+
+### Features
+
+* add globals and siteInfo to footer ([8386391](https://github.com/wheelroom/wheelroom-io/commit/83863918c973fbb78852aac678dab2952549a8cf))
+* add siteInfo line ([d5b8931](https://github.com/wheelroom/wheelroom-io/commit/d5b89311814b1e4d3a3003c4b21693dcae08fc26))
+* hideAction is static card ([f69ae3d](https://github.com/wheelroom/wheelroom-io/commit/f69ae3d99761e1c1b98520b4686ab76e6cbee2d5))
+* overrideImageWrapperStyle ([89af7ab](https://github.com/wheelroom/wheelroom-io/commit/89af7ab24a64175e510b58462a5311334e61810e))
+* use children when present ([617d34d](https://github.com/wheelroom/wheelroom-io/commit/617d34da551be37e75843114154b8964b520fec9))
+* use siteHeading and package json version ([5287623](https://github.com/wheelroom/wheelroom-io/commit/5287623e36d2d50a15b2a1ddf26c635954d206e5))
+
+
+
+
+
 # 1.1.0 (2020-03-19)
 
 

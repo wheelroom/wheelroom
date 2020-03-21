@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.16](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-page-preview@1.4.15...@wheelroom/admin-page-preview@1.4.16) (2020-03-21)
+
+
+### Bug Fixes
+
+* set exact semver ([e8e5ab6](https://github.com/wheelroom/wheelroom/commit/e8e5ab6a108adf60d9a247dd53e8f7b2bb6ae3f7))
+* typo ([2b698b3](https://github.com/wheelroom/wheelroom/commit/2b698b38a4062c60c74fa2918123b7acd6d6bb1c))
+
+
+
+
+
 ## 1.4.15 (2020-03-19)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.26](https://github.com/wheelroom/wheelroom/compare/boilerplate@5.2.25...boilerplate@5.2.26) (2020-03-21)
+
+
+### Bug Fixes
+
+* exlcude linter ([5419f17](https://github.com/wheelroom/wheelroom/commit/5419f178f26c3b0eb68a88145857b3b7e40a8943))
+* set exact semver ([e8e5ab6](https://github.com/wheelroom/wheelroom/commit/e8e5ab6a108adf60d9a247dd53e8f7b2bb6ae3f7))
+
+
+
+
+
 ## [5.2.25](https://github.com/wheelroom/wheelroom/compare/boilerplate@5.2.24...boilerplate@5.2.25) (2020-03-19)
 
 

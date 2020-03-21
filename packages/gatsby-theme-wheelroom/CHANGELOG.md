@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.4](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@4.0.3...gatsby-theme-wheelroom@4.0.4) (2020-03-21)
+
+
+### Bug Fixes
+
+* set exact semver ([e8e5ab6](https://github.com/wheelroom/wheelroom/commit/e8e5ab6a108adf60d9a247dd53e8f7b2bb6ae3f7))
+
+
+
+
+
 ## [4.0.3](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@4.0.2...gatsby-theme-wheelroom@4.0.3) (2020-03-19)
 
 

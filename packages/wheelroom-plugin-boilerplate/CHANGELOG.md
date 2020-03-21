@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-boilerplate@2.8.1...@wheelroom/wheelroom-plugin-boilerplate@2.8.2) (2020-03-21)
+
+
+### Bug Fixes
+
+* linter ([27a8fd8](https://github.com/wheelroom/wheelroom/commit/27a8fd84212f5000acadb362cb11d87cca6c1979))
+* set exact semver ([e8e5ab6](https://github.com/wheelroom/wheelroom/commit/e8e5ab6a108adf60d9a247dd53e8f7b2bb6ae3f7))
+
+
+
+
+
 ## 2.8.1 (2020-03-19)
 
 
