@@ -79,7 +79,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
             nodes: {},
           },
           {
-            enabledMarks: ['bold', 'italic', 'underline'],
+            enabledMarks: ['bold', 'italic', 'underline', 'code'],
             message: 'Only bold, italic, and underline marks are allowed',
           },
           {
@@ -97,10 +97,9 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
               'entry-hyperlink',
               'blockquote',
               'hr',
-              'code',
             ],
             message:
-              'Only heading 1, heading 2, heading 3, heading 4, unordered list, asset, link to Url, and link to entry nodes are allowed',
+              'Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, asset, link to Url, and link to entry nodes are allowed',
           },
         ],
       },
