@@ -151,13 +151,20 @@ export const TextSingleVar = (props: TextProps) => {
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
+        if (!fields) {
+          return null
+        }
+        const localizedFile = getLocalizedValue(textProps.locale, fields.file)
+        const contentType = localizedFile.contentType
+        if (!contentType) {
+          return null
+        }
+        // const contentTypeSplit = contentType.split('\\')
         const image = {
           title: getLocalizedValue(textProps.locale, fields.title),
           description: getLocalizedValue(textProps.locale, fields.description),
           fluid: {
-            src:
-              getLocalizedValue(textProps.locale, fields.file).url +
-              '?w=2560&q=50',
+            src: localizedFile.url + '?w=2560&q=50',
           },
         } as FluidImage
         return <ImageBox image={image} key={node.data.target.id} />
