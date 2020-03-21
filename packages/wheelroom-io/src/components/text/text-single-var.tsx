@@ -33,16 +33,35 @@ import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
+import { commonALinkStyle } from '../../core/styles/a-link'
+import {Video} from "../../core/elements/video";
 
-const simpleLinkStyle = {
-  color: 'azure',
+const richTextLinkStyle = {
   wordBreak: 'break-all',
-  '&:hover': {
-    textDecoration: 'underline',
+}
+
+const blockquoteStyle = {
+  textAlign: 'center',
+  ':before': {
+    fontFamily: 'text',
+    color: 'metal',
+    fontSize: 8,
+    content: 'open-quote',
   },
-  '&:visited': {},
-  cursor: 'pointer',
-  textDecoration: 'none',
+}
+
+const boldTextStyle = {
+  label: 'strong',
+  fontWeight: 7,
+}
+
+const hrStyle = {
+  label: 'hr',
+  overflow: 'hidden',
+  borderTop: '1px solid transparent',
+  borderColor: 'text',
+  w: 1,
+  my: 3,
 }
 
 type Node = any
@@ -69,12 +88,7 @@ export const TextSingleVar = (props: TextProps) => {
     },
     renderMark: {
       [MARKS.BOLD]: text => (
-        <Any
-          is="b"
-          ncss={{
-            fontWeight: 5,
-          }}
-        >
+        <Any is="b" ncss={{ ...boldTextStyle }}>
           {text}
         </Any>
       ),
@@ -82,6 +96,13 @@ export const TextSingleVar = (props: TextProps) => {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
         return <Paragraph ncss={{ ...paragraphStyle }}>{children}</Paragraph>
+      },
+      [BLOCKS.QUOTE]: (_node: Node, children: Children) => {
+        return (
+          <Any is="blockquote" ncss={{ ...blockquoteStyle }}>
+            {children}
+          </Any>
+        )
       },
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
         return (
@@ -107,7 +128,10 @@ export const TextSingleVar = (props: TextProps) => {
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {
         const uri = node.data.uri
         return (
-          <ALink href={uri} ncss={{ ...simpleLinkStyle }}>
+          <ALink
+            href={uri}
+            ncss={{ ...commonALinkStyle, ...richTextLinkStyle }}
+          >
             {children}
           </ALink>
         )
@@ -117,7 +141,10 @@ export const TextSingleVar = (props: TextProps) => {
           node.data.target.fields &&
           node.data.target.fields.path[textProps.locale]
         return (
-          <GLink ncss={{ ...simpleLinkStyle }} to={internalPath}>
+          <GLink
+            ncss={{ ...commonALinkStyle, ...richTextLinkStyle }}
+            to={internalPath}
+          >
             {children}
           </GLink>
         )
@@ -140,6 +167,7 @@ export const TextSingleVar = (props: TextProps) => {
       [BLOCKS.HEADING_6]: (_node: Node, children: Children) => (
         <H6 ncss={{ ...heading6Style, mt: 3 }}>{children}</H6>
       ),
+      [BLOCKS.HR]: () => <Any is="hr" ncss={{ ...hrStyle }} />,
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         if (!fields) {
@@ -173,7 +201,8 @@ export const TextSingleVar = (props: TextProps) => {
           console.log('localizedTitle', localizedTitle)
           console.log('localizedDescription', localizedDescription)
           console.log('localizedFile.url', localizedFile.url)
-          return <div>VIDEO KILLED THE RADIO STAR</div>
+          console.log(node)
+          return <Video url={localizedFile.url} type={localizedFile.contentType} />
         }
 
         return null
