@@ -76,8 +76,13 @@ export const query = graphql`
   query($pageId: String, $globalsId: String) {
     site {
       siteMetadata {
-        siteInfo
         siteVersion
+        siteUrl
+        legal {
+          version
+          description
+          url
+        }
         secrets {
           spaceId
           previewToken
@@ -95,9 +100,13 @@ export const query = graphql`
 `
 
 export interface SiteMetadata {
-  siteInfo: string
   siteVersion: string
   siteUrl: string
+  legal: {
+    version: string
+    description: string
+    url: string
+  }
   secrets: {
     spaceId: string
     previewToken: string

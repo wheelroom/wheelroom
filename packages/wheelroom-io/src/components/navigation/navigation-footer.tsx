@@ -141,12 +141,12 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
                   display: 'inline-flex',
                   color: 'metal',
                 }}
-                href={props.siteMetadata.siteUrl}
+                href={props.siteMetadata.legal.url}
               >
-                {props.siteMetadata.siteInfo}
+                {props.siteMetadata.legal.description}
               </ALink>
               <sup>
-                <small>{` ` + props.siteMetadata.siteVersion}</small>
+                <small>{` ` + props.siteMetadata.legal.version}</small>
               </sup>
             </Any>
           </Flex>

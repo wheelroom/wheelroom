@@ -87,11 +87,11 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
             <GLink
               ncss={logoLinkStyle}
               to="/"
-              aria-label="Wheelroom, Back to homepage"
+              aria-label={props.globals.siteHeading + `, Back to homepage`}
             >
               {props.globals.siteHeading + ` `}
               <sup>
-                <small>{props.siteMetadata.siteVersion}</small>
+                <small>{props.siteMetadata.legal.version}</small>
               </sup>
             </GLink>
           </Flex>

@@ -113,5 +113,6 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "1.1.0"
+  "version": "1.1.0",
+  "wheelroomVersion": "1.0.0"
 }
