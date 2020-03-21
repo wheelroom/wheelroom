@@ -24,6 +24,7 @@ export interface ActionProps {
   /** Local data */
   children?: any
   ncss?: any
+  key?: any
 }
 
 export const Action = (props: ActionProps) => {

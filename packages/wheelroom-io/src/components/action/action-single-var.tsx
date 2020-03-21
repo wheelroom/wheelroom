@@ -30,11 +30,7 @@ const ActionAlink = (props: ActionProps) => {
 export const ActionSingleVar = (props: ActionProps) => {
   return (
     <Fragment>
-      {props.page ? (
-        <ActionGlink key={props.heading} {...props} />
-      ) : (
-        <ActionAlink key={props.heading} {...props} />
-      )}
+      {props.page ? <ActionGlink {...props} /> : <ActionAlink {...props} />}
     </Fragment>
   )
 }
