@@ -1,22 +1,26 @@
 import React from 'react'
 import { TopicProps, Topic } from '../../topic'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
-import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
+import { Box, ContainerMaxWidth, Flex } from '../../../core/elements/grid'
 import { Image } from '../../../core/elements/image'
 import { TopicOption } from '../page-section'
 
 const topicWrapperStyle = {
+  label: 'topic-wrapper',
   flexDirection: ['column', 'column', 'row'],
   justifyContent: 'space-evenly',
+  alignItems: ['center'],
 }
+
 const imageWrapperStyle = {
-  display: 'flex',
+  label: 'topic-image-wrapper',
   flexDirection: 'column',
   w: [1, 1, 1 / 2.5],
   mb: [3, 3, 0],
 }
+
 const contentWrapperStyle = {
-  display: 'flex',
+  label: 'topic-content-wrapper',
   flexDirection: 'column',
   w: [1, 1, 1 / 2.5],
 }
@@ -55,16 +59,14 @@ export const FeaturedMultipleTopics = (props: FeaturedMultipleTopicsProps) => {
     >
       <ContainerMaxWidth
         ncss={{
-          justifyContent: 'center',
           flexDirection: ['column', 'row'],
-          alignItems: ['center', 'baseline'],
         }}
       >
-        <Box ncss={topicWrapperStyle}>
-          <Box ncss={imageWrapperStyle}>
+        <Flex ncss={topicWrapperStyle}>
+          <Flex ncss={imageWrapperStyle}>
             <Image image={image} pictureNcss={{ p: 3 }} />
-          </Box>
-          <Box ncss={contentWrapperStyle}>
+          </Flex>
+          <Flex ncss={contentWrapperStyle}>
             {props.topics.map((topic: TopicProps, index: number) => (
               <Topic
                 key={index}
@@ -75,21 +77,16 @@ export const FeaturedMultipleTopics = (props: FeaturedMultipleTopicsProps) => {
                   flexDirection: ['column', 'column', 'row'],
                   justifyContent: 'space-evenly',
                 }}
-                imageProps={{
-                  pictureNcss: {
-                    p: 3,
-                  },
-                }}
                 imageWrapperStyle={{
                   display: 'flex',
                   flexDirection: 'column',
-                  w: [1, 1, 1 / 2.5],
+                  w: 1,
                   mb: [3, 3, 0],
                 }}
                 contentWrapperStyle={{
                   display: 'flex',
                   flexDirection: 'column',
-                  w: [1, 1, 1 / 2.5],
+                  w: 1,
                 }}
                 headerWrapperStyle={{
                   mx: 3,
@@ -101,8 +98,8 @@ export const FeaturedMultipleTopics = (props: FeaturedMultipleTopicsProps) => {
                 }}
               />
             ))}
-          </Box>
-        </Box>
+          </Flex>
+        </Flex>
       </ContainerMaxWidth>
     </Box>
   )
