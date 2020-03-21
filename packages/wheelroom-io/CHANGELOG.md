@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/wheelroom/wheelroom-io/compare/wheelroom-io@1.3.0...wheelroom-io@1.4.0) (2020-03-21)
+
+
+### Bug Fixes
+
+* put wheelroomVersion into wheelroom namespace ([367ca25](https://github.com/wheelroom/wheelroom-io/commit/367ca25d5f09f10b791be9b59f4e9e53c5fc4222))
+* remove non interactive cards border ([6b4fe3b](https://github.com/wheelroom/wheelroom-io/commit/6b4fe3b49d74c377d5ba5f6d182b13f2da2fb51c))
+
+
+### Features
+
+* add sync-wheelroom-version ([b4a920e](https://github.com/wheelroom/wheelroom-io/commit/b4a920e9fcdd23739904ed14b1d1f2c150d29b58))
+
+
+
+
+
 # [1.3.0](https://github.com/wheelroom/wheelroom-io/compare/wheelroom-io@1.2.0...wheelroom-io@1.3.0) (2020-03-21)
 
 
