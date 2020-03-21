@@ -16,8 +16,8 @@
     "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
-    "@wheelroom/graphql-query-builder": "^1.3.0",
-    "@wheelroom/wheelroom": "^3.8.1",
+    "@wheelroom/graphql-query-builder": "1.3.0",
+    "@wheelroom/wheelroom": "3.8.1",
     "inquirer": "7.1.0",
     "yargs": "15.3.1"
   },
