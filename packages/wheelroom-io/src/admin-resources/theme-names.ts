@@ -1,20 +1,12 @@
 import { ThemeNames } from '@wheelroom/admin-theme-switcher'
-import { PageProps } from '../components/page'
 
-export const themeNames = (props: any): ThemeNames => {
+export const themeNames = (): ThemeNames => {
   const isServer = typeof window === 'undefined'
   const supportsDarkMode =
     !isServer &&
     window.matchMedia('(prefers-color-scheme: dark)').matches === true
 
-  let defaultTheme = supportsDarkMode ? 'dark' : 'light'
-
-  const page: PageProps = props && props.data && props.data.page
-
-  // If the page theme is set, make that the default
-  if (page.theme) {
-    defaultTheme = page.theme
-  }
+  const defaultTheme = supportsDarkMode ? 'dark' : 'light'
 
   return {
     light: {
