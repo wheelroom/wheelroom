@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/wheelroom/wheelroom-io/compare/wheelroom-io@1.4.1...wheelroom-io@1.4.2) (2020-03-21)
+
+
+### Bug Fixes
+
+* sync version ([c2e786b](https://github.com/wheelroom/wheelroom-io/commit/c2e786b1a8556512b92ed8a171d66285dbf49dec))
+
+
+
+
+
 ## [1.4.1](https://github.com/wheelroom/wheelroom-io/compare/wheelroom-io@1.4.0...wheelroom-io@1.4.1) (2020-03-21)
 
 
