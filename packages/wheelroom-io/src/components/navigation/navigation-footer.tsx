@@ -66,12 +66,8 @@ interface NavigationFooterProps extends NavigationProps {
 
 export const NavigationFooter = (props: NavigationFooterProps) => {
   const navSegment = props.segments[0] as NavigationSegmentProps
-  const social = props.topics.map((topic: TopicProps) => (
-    <List
-      is={'li'}
-      ncss={{ ml: 1, ':first-child': { ml: 0 } }}
-      key={topic.heading}
-    >
+  const social = props.topics.map((topic: TopicProps, index: number) => (
+    <List is={'li'} ncss={{ ml: 1, ':first-child': { ml: 0 } }} key={index}>
       <Action
         {...topic.actions[0]}
         ncss={{
