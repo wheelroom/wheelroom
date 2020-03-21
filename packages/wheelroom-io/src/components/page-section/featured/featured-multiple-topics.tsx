@@ -47,7 +47,6 @@ export const FeaturedMultipleTopics = (props: FeaturedMultipleTopicsProps) => {
           {props.topics.map((topic: TopicProps, index: number) => (
             <Topic
               key={index}
-              reverse={index % 2 === 0}
               {...topic}
               topicOptions={props.topicOptions}
               topicWrapperStyle={{
