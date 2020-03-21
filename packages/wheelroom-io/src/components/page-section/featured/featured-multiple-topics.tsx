@@ -8,21 +8,21 @@ import { TopicOption } from '../page-section'
 const topicWrapperStyle = {
   label: 'topic-wrapper',
   flexDirection: ['column', 'column', 'row'],
-  justifyContent: 'space-evenly',
   alignItems: ['center'],
 }
 
 const imageWrapperStyle = {
   label: 'topic-image-wrapper',
   flexDirection: 'column',
-  w: [1, 1, 1 / 2.5],
+  w: [1, 1, 1 / 3],
   mb: [3, 3, 0],
 }
 
 const contentWrapperStyle = {
   label: 'topic-content-wrapper',
-  flexDirection: 'column',
-  w: [1, 1, 1 / 2.5],
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  w: [1, 1, 2 / 3],
 }
 
 /**
@@ -75,7 +75,8 @@ export const FeaturedMultipleTopics = (props: FeaturedMultipleTopicsProps) => {
                 topicOptions={props.topicOptions}
                 topicWrapperStyle={{
                   flexDirection: ['column', 'column', 'row'],
-                  justifyContent: 'space-evenly',
+                  alignItems: 'baseline',
+                  w: props.topics.length === 4 ? [1, 1, 1 / 2] : 1,
                 }}
                 imageWrapperStyle={{
                   display: 'flex',
@@ -91,7 +92,7 @@ export const FeaturedMultipleTopics = (props: FeaturedMultipleTopicsProps) => {
                 headerWrapperStyle={{
                   mx: 3,
                 }}
-                useHeading="h2"
+                useHeading="h3"
                 actionWrapperStyle={{
                   display: 'flex',
                   mx: 3,

@@ -4,6 +4,7 @@ import { TopicProps, Topic } from '../../topic'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { TextProps } from '../../text'
 import { TopicOption } from '../page-section'
+import { heading2Style } from '../../../core/styles/heading'
 
 export interface FeaturedProps {
   info: PageSectionInfo
@@ -70,7 +71,8 @@ export const Featured = (props: FeaturedProps) => {
           headerWrapperStyle={{
             mx: 3,
           }}
-          useHeading="h2"
+          headingStyle={{ ...heading2Style }}
+          useHeading="h3"
           actionWrapperStyle={{
             display: 'flex',
             mx: 3,
