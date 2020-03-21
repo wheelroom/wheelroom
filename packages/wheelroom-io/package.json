@@ -114,5 +114,7 @@
   },
   "type": "commonjs",
   "version": "1.3.0",
-  "wheelroomVersion": "1.0.0"
+  "wheelroom": {
+    "version": "1.3.0"
+  }
 }
