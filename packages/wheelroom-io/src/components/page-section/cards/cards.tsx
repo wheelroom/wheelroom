@@ -44,9 +44,6 @@ export const Cards = (props: CardsProps) => {
       topicWrapperStyle={{
         ...{
           bg: 'bg',
-          border: '1px solid',
-          borderColor: 'cardsBorder',
-          borderRadius: 3,
           color: 'cardsShadow',
           flex: '1',
           maxWidth: '280px',
@@ -56,6 +53,9 @@ export const Cards = (props: CardsProps) => {
         ...(options.hideAction
           ? {}
           : {
+              border: '1px solid',
+              borderColor: 'cardsBorder',
+              borderRadius: 3,
               boxShadow: '0 0 16px',
               transition: 'transform .25s ease',
               ':hover': {
