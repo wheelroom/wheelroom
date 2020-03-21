@@ -31,9 +31,10 @@ export const FeaturedList = (props: FeaturedListProps) => {
       {...topic}
       topicOptions={props.topicOptions}
       topicWrapperStyle={{
-        flexDirection: ['column', 'row'],
-        //TODO: Thijs, please check this
-        // w: options.hideImage ? [1, 1 / 3, 1 / 4] : [1, 1 / 3, 1 / 4],
+        flexDirection: options.hideImage
+          ? ['column', 'row']
+          : ['column', 'row'],
+        w: options.hideImage ? [1, 1 / 2, 1 / 3] : 1,
       }}
       imageWrapperStyle={{
         display: 'flex',
@@ -65,9 +66,7 @@ export const FeaturedList = (props: FeaturedListProps) => {
       >
         <ContainerMaxWidth
           ncss={{
-            flexDirection: options.hideImage
-              ? ['row']
-              : ['column'],
+            flexDirection: options.hideImage ? ['column', 'row'] : ['column'],
           }}
         >
           {featuredList}
