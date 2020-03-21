@@ -21,11 +21,14 @@ export interface TopicWrapperProps {
   options: TopicOptions
   /** If an action is present, the full topic is clickable */
   action: ActionProps
+  /** Full Topic is wrapped in a link and the inside link becomes a span */
+  fullTopicAsLink?: boolean
 }
 
 export const TopicWrapper = (props: TopicWrapperProps) => {
   const topicWrapperStyle = props.topicWrapperStyle || {}
-  return props.hasAction ? (
+  const fullTopicAsLink = props.hasAction && props.fullTopicAsLink
+  return fullTopicAsLink ? (
     <Action
       {...props.action}
       ncss={{

@@ -21,6 +21,7 @@ export const Cards = (props: CardsProps) => {
     <Topic
       key={index}
       topicOptions={props.topicOptions}
+      fullTopicAsLink={true}
       {...topic}
       imageWrapperStyle={{
         p: 3,

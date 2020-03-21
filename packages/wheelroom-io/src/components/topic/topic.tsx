@@ -46,6 +46,9 @@ interface TopicLocalProps {
 
   /** Replace content box (header, abstract, action) with rich text */
   text?: TextProps
+
+  /** Full Topic is wrapped in a link and the inside link becomes a span */
+  fullTopicAsLink?: boolean
 }
 
 export interface TopicProps extends TopicLocalProps {

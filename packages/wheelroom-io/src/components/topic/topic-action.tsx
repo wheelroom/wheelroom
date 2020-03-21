@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionProps } from '../action'
+import { ActionProps, Action } from '../action'
 import { buttonPrimaryStyle } from '../../core/styles/button'
 import { Box } from '../../core/elements/grid'
 import { Any } from '../../core/elements/any'
@@ -17,6 +17,8 @@ export interface TopicActionProps {
   actionWrapperStyle?: any
   /** Override default button style */
   actionStyle?: any
+  /** Full Topic is wrapped in a link and the inside link becomes a span */
+  fullTopicAsLink?: boolean
 }
 
 export const TopicAction = (props: TopicActionProps) => {
@@ -24,15 +26,27 @@ export const TopicAction = (props: TopicActionProps) => {
   const actionStyle = props.actionStyle || {}
   return (
     <Box ncss={{ ...defaultWrapperStyle, ...actionWrapperStyle }}>
-      <Any
-        is="span"
-        ncss={{
-          ...buttonPrimaryStyle,
-          ...actionStyle,
-        }}
-      >
-        {props.action.heading}
-      </Any>
+      {props.fullTopicAsLink ? (
+        <Any
+          is="span"
+          ncss={{
+            ...buttonPrimaryStyle,
+            ...actionStyle,
+          }}
+        >
+          {props.action.heading}
+        </Any>
+      ) : (
+        <Action
+          {...props.action}
+          ncss={{
+            ...buttonPrimaryStyle,
+            ...actionStyle,
+          }}
+        >
+          {props.action.heading}
+        </Action>
+      )}
     </Box>
   )
 }

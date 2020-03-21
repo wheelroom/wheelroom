@@ -28,6 +28,7 @@ export const FeaturedList = (props: FeaturedListProps) => {
   const featuredList = props.topics.map((topic, index) => (
     <Topic
       key={index}
+      fullTopicAsLink={true}
       {...topic}
       topicOptions={props.topicOptions}
       topicWrapperStyle={{

@@ -32,6 +32,7 @@ export const TopicSingleVar = (props: TopicProps) => {
       hasAction={hasAction}
       options={options}
       action={props.actions[0]}
+      fullTopicAsLink={props.fullTopicAsLink}
     >
       {!options.hideImage && hasImage && (
         <TopicImage
@@ -62,6 +63,7 @@ export const TopicSingleVar = (props: TopicProps) => {
                 action={props.actions[0]}
                 actionWrapperStyle={props.actionWrapperStyle}
                 actionStyle={props.actionStyle}
+                fullTopicAsLink={props.fullTopicAsLink}
               />
             )}
           </Fragment>
