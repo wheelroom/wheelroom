@@ -1,6 +1,7 @@
 export const commonALinkStyle = {
   boxSizing: 'border-box',
   color: 'azure',
+  cursor: 'pointer',
   ':focus': {
     outline: '2px dotted',
     outlineColor: 'amber',
