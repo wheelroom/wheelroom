@@ -26,7 +26,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
       />
     )
   }
-  if (info.topicCount <= 2) {
+  if (info.topicCount <= 3) {
     return (
       <FeaturedTwoTopics
         info={info}
