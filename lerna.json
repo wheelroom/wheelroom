@@ -6,10 +6,12 @@
       "exact": true
     },
     "publish": {
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "exact": true
     },
     "version": {
-      "message": "chore(release): release"
+      "message": "chore(release): release",
+      "exact": true
     },
     "bootstrap": {
       "hoist": false,
