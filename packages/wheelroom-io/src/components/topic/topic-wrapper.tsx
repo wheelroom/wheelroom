@@ -31,6 +31,7 @@ export const TopicWrapper = (props: TopicWrapperProps) => {
       ncss={{
         ...defaultWrapperStyle,
         ...topicWrapperStyle,
+        textDecoration: 'none',
       }}
     >
       {props.children}

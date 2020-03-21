@@ -1,7 +1,8 @@
 import React from 'react'
-import { Action, ActionProps } from '../action'
+import { ActionProps } from '../action'
 import { buttonPrimaryStyle } from '../../core/styles/button'
 import { Box } from '../../core/elements/grid'
+import { Any } from '../../core/elements/any'
 
 const defaultWrapperStyle = {
   display: 'flex',
@@ -23,13 +24,15 @@ export const TopicAction = (props: TopicActionProps) => {
   const actionStyle = props.actionStyle || {}
   return (
     <Box ncss={{ ...defaultWrapperStyle, ...actionWrapperStyle }}>
-      <Action
-        {...props.action}
+      <Any
+        is="span"
         ncss={{
           ...buttonPrimaryStyle,
           ...actionStyle,
         }}
-      />
+      >
+        {props.action.heading}
+      </Any>
     </Box>
   )
 }
