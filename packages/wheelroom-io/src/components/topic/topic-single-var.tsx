@@ -22,7 +22,7 @@ export const TopicSingleVar = (props: TopicProps) => {
   const hasAction = !!(
     !options.hideAction &&
     Array.isArray(props.actions) &&
-    props.actions.length
+    props.actions.length > 0
   )
   const hasImage = !!props.image
   return (
@@ -31,7 +31,7 @@ export const TopicSingleVar = (props: TopicProps) => {
       hasText={hasText}
       hasAction={hasAction}
       options={options}
-      action={props.actions[0]}
+      action={hasAction && props.actions[0]}
       fullTopicAsLink={props.fullTopicAsLink}
     >
       {!options.hideImage && hasImage && (
