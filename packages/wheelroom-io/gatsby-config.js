@@ -81,7 +81,7 @@ module.exports = {
     siteVersion: packageJson.version,
     siteUrl: 'https://www.wheelroom.io',
     legal: {
-      version: packageJson.wheelroomVersion,
+      version: packageJson.wheelroom.version,
       description: 'Made with ❤ by Wheelroom',
       url: 'https://www.wheelroom.io',
     },
