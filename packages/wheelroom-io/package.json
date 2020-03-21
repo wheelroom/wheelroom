@@ -112,7 +112,7 @@
     "demo-load-env": "export $(grep -v '^#' .env | xargs)",
     "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "demo-postversion": "git push && git push --tags",
-    "postversion": "node sync-wheelroom-version.js && git add package.json && git push",
+    "version": "node sync-wheelroom-version.js",
     "wr": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom",
     "wr:cm": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-models",
     "wr:cc": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-content boilerplate",
@@ -124,6 +124,6 @@
   "type": "commonjs",
   "version": "1.4.1",
   "wheelroom": {
-    "version": "1.4.0"
+    "version": "1.4.1"
   }
 }

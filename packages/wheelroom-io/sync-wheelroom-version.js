@@ -8,7 +8,7 @@ const scriptName = 'sync-wheelroom-version'
 
 async function syncVersion() {
   try {
-    const packageJson = await readPkg()
+    const packageJson = await readPkg({ normalize: false })
     packageJson.wheelroom.version = packageJson.version
     await writePkg(packageJson)
   } catch (err) {
