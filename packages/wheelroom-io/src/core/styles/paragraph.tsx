@@ -8,7 +8,7 @@ export const commonParagraphStyle = {
 }
 
 /** This style is added to the Paragraph element as the default */
-export const paragraphStyle = {
+export const defaultParagraphStyle = {
   ...commonParagraphStyle,
   fontSize: [4, 5],
   lineHeight: 4,

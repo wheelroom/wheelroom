@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { commonParagraphStyle } from '../styles/paragraph'
+import { defaultParagraphStyle } from '../styles/paragraph'
 
 export interface ParagraphProps {
   /** React children */
@@ -17,7 +17,7 @@ export const Paragraph = (props: ParagraphProps) => {
   return (
     <p
       css={systemCss(
-        { ncss: { ...commonParagraphStyle, ...props.ncss } },
+        { ncss: { ...defaultParagraphStyle, ...props.ncss } },
         currentThemeId
       )}
     >
