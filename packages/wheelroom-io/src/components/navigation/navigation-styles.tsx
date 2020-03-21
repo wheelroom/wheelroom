@@ -3,6 +3,11 @@ export const commonNavigationStyle = {
   fontFamily: 'text',
   fontSize: [3, 4],
   display: 'block',
+  textDecoration: 'none',
+  cursor: 'pointer',
+  '&:hover': { textDecoration: 'underline' },
+  '&:active': {},
+  '&:focus': {},
 }
 
 export const navigationHeaderStyle = {
@@ -10,20 +15,13 @@ export const navigationHeaderStyle = {
   m: 0,
   px: 2,
   py: 3,
-  textDecoration: 'none',
-  '&:hover': { textDecoration: 'underline' },
-  '&:active': {},
-  '&:focus': {},
 }
 
 export const navigationFooterStyle = {
   ...commonNavigationStyle,
   m: 0,
-  mr: 3,
-  textDecoration: 'none',
-  '&:hover': { textDecoration: 'underline' },
-  '&:active': {},
-  '&:focus': {},
+  ml: [2, 0],
+  mr: [2, 3],
 }
 
 export const wrapperStyle = {

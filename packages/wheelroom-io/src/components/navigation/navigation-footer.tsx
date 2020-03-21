@@ -12,14 +12,17 @@ import { GlobalsProps } from '../globals'
 import { SiteMetadata } from '../../page-template'
 import { NavigationSegmentProps } from '../navigation-segment'
 import { Box, Container, Flex } from '../../core/elements/grid'
-import { commonParagraphStyle } from '../../core/styles/paragraph'
 import { ALink } from '../../core/elements/a-link'
 import { Any } from '../../core/elements/any'
 import { NavLinks } from './nav-links'
 import { List } from '../../core/elements/list'
 import { IconMap } from '../../svg/feather/iconMap'
-import { Action } from '../action/action'
-import { navigationFooterStyle, navStyle } from './navigation-styles'
+import { Action } from '../action'
+import {
+  commonNavigationStyle,
+  navigationFooterStyle,
+  navStyle,
+} from './navigation-styles'
 
 export const listStyle = {
   label: 'nav-list',
@@ -38,7 +41,10 @@ const defaultIconStyle = {
   height: '20px',
   color: 'text',
   strokeWidth: '0',
-  fill: 'text',
+  fill: 'metal',
+  ':hover': {
+    fill: 'text',
+  },
 }
 
 const Icon = (props: { name: string }) => {
@@ -61,10 +67,17 @@ interface NavigationFooterProps extends NavigationProps {
 export const NavigationFooter = (props: NavigationFooterProps) => {
   const navSegment = props.segments[0] as NavigationSegmentProps
   const social = props.topics.map((topic: TopicProps) => (
-    <List is={'li'} key={topic.heading}>
+    <List
+      is={'li'}
+      ncss={{ ml: 1, ':first-child': { ml: 0 } }}
+      key={topic.heading}
+    >
       <Action
         {...topic.actions[0]}
-        ncss={{ display: 'inline-flex', p: 1, ml: 1 }}
+        ncss={{
+          display: 'inline-flex',
+          p: 1,
+        }}
       >
         <Icon name={topic.icon} />
       </Action>
@@ -87,7 +100,13 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
         >
           <Flex
             is={'nav'}
-            ncss={{ ...navStyle, h: '84px', justifyContent: 'space-between' }}
+            ncss={{
+              ...navStyle,
+              h: '84px',
+              justifyContent: ['space-evenly', 'space-between'],
+              flexDirection: ['column', 'row'],
+              alignItems: 'center',
+            }}
           >
             <List is="ul" ncss={listStyle}>
               <NavLinks
@@ -111,26 +130,24 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
               label: 'legal',
               h: '48px',
               w: 1,
-              justifyContent: 'space-between',
               alignItems: 'center',
+              justifyContent: ['center', 'normal'],
             }}
           >
-            <Any
-              is="span"
-              ncss={{ ...commonParagraphStyle, m: 0, color: 'metal' }}
-            >
-              {props.siteMetadata.siteInfo}
-            </Any>
-            <Any is="span" ncss={{ ...commonParagraphStyle, m: 0 }}>
+            <Any is="span" ncss={{ fontFamily: 'text', color: 'metal' }}>
               <ALink
-                ncss={{ fontWeight: 5, textDecoration: 'none' }}
-                href="https://github.com/wheelroom/wheelroom-io"
+                ncss={{
+                  ...commonNavigationStyle,
+                  display: 'inline-flex',
+                  color: 'metal',
+                }}
+                href={props.siteMetadata.siteUrl}
               >
-                {props.globals.siteHeading + ` `}
-                <sup>
-                  <small>{props.siteMetadata.siteVersion}</small>
-                </sup>
+                {props.siteMetadata.siteInfo}
               </ALink>
+              <sup>
+                <small>{` ` + props.siteMetadata.siteVersion}</small>
+              </sup>
             </Any>
           </Flex>
         </Container>

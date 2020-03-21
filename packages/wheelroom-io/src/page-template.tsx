@@ -97,6 +97,7 @@ export const query = graphql`
 export interface SiteMetadata {
   siteInfo: string
   siteVersion: string
+  siteUrl: string
   secrets: {
     spaceId: string
     previewToken: string

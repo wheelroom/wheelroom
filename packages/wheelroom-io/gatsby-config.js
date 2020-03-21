@@ -80,6 +80,7 @@ module.exports = {
   siteMetadata: {
     siteVersion: packageJson.version,
     siteInfo: 'Made with ❤ by Wheelroom',
+    siteUrl: 'https://github.com/wheelroom/wheelroom-io',
     secrets: {
       environment: cfConfig.environment,
       previewToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
