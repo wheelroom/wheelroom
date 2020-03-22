@@ -68,14 +68,11 @@ export const Featured = (props: FeaturedProps) => {
             flexDirection: 'column',
             w: [1, 1, 1 / 2.5],
           }}
-          headerWrapperStyle={{
-            mx: 3,
-          }}
+          headerWrapperStyle={{}}
           headingStyle={{ ...heading2Style }}
           useHeading="h3"
           actionWrapperStyle={{
             display: 'flex',
-            mx: 3,
           }}
         />
       </ContainerMaxWidth>
