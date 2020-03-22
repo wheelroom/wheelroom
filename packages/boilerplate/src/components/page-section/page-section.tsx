@@ -9,7 +9,6 @@ import { ActionProps } from '../action'
 import { getVariation } from '../../lib/get-variation'
 import { NavigationProps } from '../navigation'
 import { PageSectionCardsVar } from './page-section-cards-var'
-import { PageSectionFeaturedListVar } from './page-section-featured-list-var'
 import { PageSectionFeaturedVar } from './page-section-featured-var'
 import { PageSectionHeadlineVar } from './page-section-headline-var'
 import { PageSectionHeroVar } from './page-section-hero-var'
@@ -22,7 +21,6 @@ import React from 'react'
 
 const componentList = {
   ['cards']: PageSectionCardsVar,
-  ['featured list']: PageSectionFeaturedListVar,
   ['featured']: PageSectionFeaturedVar,
   ['headline']: PageSectionHeadlineVar,
   ['hero']: PageSectionHeroVar,
