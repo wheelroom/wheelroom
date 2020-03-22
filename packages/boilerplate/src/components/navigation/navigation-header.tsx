@@ -198,10 +198,12 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                   <NavLinks pages={navSegment.pages} />
                 </List>
                 <Flex is="div" ncss={{ label: 'nav-settings', w: 1, p: 3 }}>
-                  <Action
-                    ncss={{ ...buttonPrimaryStyle, w: 1 }}
-                    {...props.action}
-                  />
+                  {hasActions && (
+                    <Action
+                      ncss={{ ...buttonPrimaryStyle, w: 1 }}
+                      {...props.actions[0]}
+                    />
+                  )}
                   <Button
                     type="button"
                     title={`Current theme is ` + activeThemeId}
