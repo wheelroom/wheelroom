@@ -195,7 +195,10 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                   </Box>
                 </Button>
                 <List is="ul" ncss={{ label: 'nav-list', ...listMobileStyle }}>
-                  <NavLinks pages={navSegment.pages} />
+                  <NavLinks
+                    linkStyle={{ ...navigationHeaderStyle }}
+                    pages={navSegment.pages}
+                  />
                 </List>
                 <Flex is="div" ncss={{ label: 'nav-settings', w: 1, p: 3 }}>
                   {hasActions && (
