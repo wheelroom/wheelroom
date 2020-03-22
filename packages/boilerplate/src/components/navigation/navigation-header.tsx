@@ -35,7 +35,8 @@ import {
   modalStyle,
   modalOpenStyle,
   modalContentStyle,
-  modalContentOpenStyle, navigationHeaderStyle,
+  modalContentOpenStyle,
+  navigationHeaderStyle,
 } from './navigation-styles'
 import { IconMap } from '../../svg/feather/iconMap'
 import { SiteMetadata } from '../../page-template'
@@ -44,7 +45,7 @@ const XIcon = IconMap.x
 
 interface NavigationHeaderProps extends NavigationProps {
   /** Action is displayed as a button at the right side of the navigation */
-  action: ActionProps
+  actions: ActionProps[]
   /** Site metadata defined in gatsby-config */
   siteMetadata: SiteMetadata
   /** Site globals from CMS */
@@ -59,6 +60,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
   const activeThemeId = themeSwitcherStore?.state.activeThemeId
   const [menuVisible, setMenuVisible] = useState(false)
   const buttonRef = useRef(null)
+  const hasActions = Array.isArray(props.actions) && props.actions.length > 0
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
@@ -95,12 +97,23 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               </sup>
             </GLink>
           </Flex>
-          <Flex is={'nav'} ncss={{ ...navStyle, display: ['none', 'none', 'flex'] }}>
+          <Flex
+            is={'nav'}
+            ncss={{ ...navStyle, display: ['none', 'none', 'flex'] }}
+          >
             <List is="ul" ncss={listStyle}>
-              <NavLinks linkStyle={{ ...navigationHeaderStyle }} pages={navSegment.pages} />
+              <NavLinks
+                linkStyle={{ ...navigationHeaderStyle }}
+                pages={navSegment.pages}
+              />
             </List>
             <Flex is="div" ncss={{ label: 'nav-settings' }}>
-              <Action ncss={{ ...buttonPrimaryStyle }} {...props.action} />
+              {hasActions && (
+                <Action
+                  ncss={{ ...buttonPrimaryStyle }}
+                  {...props.actions[0]}
+                />
+              )}
               <Button
                 type="button"
                 title={`Current theme is ` + activeThemeId}
