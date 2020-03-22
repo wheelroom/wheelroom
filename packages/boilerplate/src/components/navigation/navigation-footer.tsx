@@ -66,19 +66,7 @@ interface NavigationFooterProps extends NavigationProps {
 
 export const NavigationFooter = (props: NavigationFooterProps) => {
   const navSegment = props.segments[0] as NavigationSegmentProps
-  const social = props.topics.map((topic: TopicProps, index: number) => (
-    <List is={'li'} key={index}>
-      <Action
-        {...topic.actions[0]}
-        ncss={{
-          display: 'inline-flex',
-          p: 1,
-        }}
-      >
-        <Icon name={topic.icon} />
-      </Action>
-    </List>
-  ))
+  const hasTopics = Array.isArray(props.topics) && props.topics.length > 0
   return (
     <Fragment>
       <Box
@@ -110,9 +98,23 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
                 pages={navSegment.pages}
               />
             </List>
-            <List is="ul" ncss={{ ...listStyle }}>
-              {social}
-            </List>
+            {hasTopics && (
+              <List is="ul" ncss={{ ...listStyle }}>
+                {props.topics.map((topic: TopicProps, index: number) => (
+                  <List is={'li'} key={index}>
+                    <Action
+                      {...topic.actions[0]}
+                      ncss={{
+                        display: 'inline-flex',
+                        p: 1,
+                      }}
+                    >
+                      <Icon name={topic.icon} />
+                    </Action>
+                  </List>
+                ))}
+              </List>
+            )}
           </Flex>
         </Container>
         <Container
