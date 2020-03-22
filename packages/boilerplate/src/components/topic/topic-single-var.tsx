@@ -47,27 +47,25 @@ export const TopicSingleVar = (props: TopicProps) => {
         contentWrapperStyle={props.contentWrapperStyle}
         options={options}
       >
-        {hasText && <Text {...props.text!} />}
-        {!hasText && (
-          <Fragment>
-            <TopicHeader
-              topic={props}
-              options={options}
-              headerWrapperStyle={props.headerWrapperStyle}
-              headingStyle={props.headingStyle}
-              paragraphStyle={props.paragraphStyle}
-              useHeading={props.useHeading}
+        <Fragment>
+          <TopicHeader
+            topic={props}
+            options={options}
+            headerWrapperStyle={props.headerWrapperStyle}
+            headingStyle={props.headingStyle}
+            paragraphStyle={props.paragraphStyle}
+            useHeading={props.useHeading}
+          />
+          {hasText && <Text {...props.text!} />}
+          {hasAction && (
+            <TopicAction
+              action={props.actions[0]}
+              actionWrapperStyle={props.actionWrapperStyle}
+              actionStyle={props.actionStyle}
+              fullTopicAsLink={props.fullTopicAsLink}
             />
-            {hasAction && (
-              <TopicAction
-                action={props.actions[0]}
-                actionWrapperStyle={props.actionWrapperStyle}
-                actionStyle={props.actionStyle}
-                fullTopicAsLink={props.fullTopicAsLink}
-              />
-            )}
-          </Fragment>
-        )}
+          )}
+        </Fragment>
       </TopicContentWrapper>
     </TopicWrapper>
   )
