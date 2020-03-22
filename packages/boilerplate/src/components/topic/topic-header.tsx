@@ -1,15 +1,8 @@
 import React from 'react'
 import { TopicProps } from './topic'
 import { Box } from '../../core/elements/grid'
-import { H3, H1, H2, H4, H5, H6 } from '../../core/elements/heading'
-import {
-  heading3Style,
-  heading1Style,
-  heading2Style,
-  heading4Style,
-  heading5Style,
-  heading6Style,
-} from '../../core/styles/heading'
+import { HeadingName, HeadingMap } from '../../core/elements/heading'
+import { headingStyleMap } from '../../core/styles/heading'
 import { Paragraph } from '../../core/elements/paragraph'
 import { TopicOptions } from '../page-section/get-topic-options'
 import { IconMap } from '../../svg/feather/iconMap'
@@ -22,24 +15,6 @@ const defaultIconStyle = {
   mb: 2,
 }
 
-const headingStyleMap = {
-  h1: heading1Style,
-  h2: heading2Style,
-  h3: heading3Style,
-  h4: heading4Style,
-  h5: heading5Style,
-  h6: heading6Style,
-}
-
-const HeadingMap = {
-  h1: H1,
-  h2: H2,
-  h3: H3,
-  h4: H4,
-  h5: H5,
-  h6: H6,
-}
-
 const defaultWrapperStyle = {
   label: 'topic-header',
 }
@@ -50,7 +25,7 @@ export interface TopicHeaderProps {
   /** Override default styling of the wrapper */
   headerWrapperStyle?: any
   /** Defaults to h3 */
-  useHeading?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  useHeading?: HeadingName
   /** Override default paragraph style */
   paragraphStyle?: any
   /** Override default heading style */

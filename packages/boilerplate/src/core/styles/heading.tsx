@@ -31,3 +31,12 @@ export const heading5Style = {
 export const heading6Style = {
   fontSize: [3, 4, 5, 6],
 }
+
+export const headingStyleMap = {
+  h1: heading1Style,
+  h2: heading2Style,
+  h3: heading3Style,
+  h4: heading4Style,
+  h5: heading5Style,
+  h6: heading6Style,
+}
