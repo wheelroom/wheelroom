@@ -393,7 +393,6 @@ export const configComponents: WheelroomComponents = {
       variation: {
         items: [
           'cards',
-          'featured list',
           'featured',
           'headline',
           'hero',

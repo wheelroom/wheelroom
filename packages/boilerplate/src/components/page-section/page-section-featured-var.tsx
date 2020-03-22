@@ -11,8 +11,7 @@ import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../lib/not-implemented'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { Featured } from './featured/featured'
-import { FeaturedMultipleTopics } from './featured/featured-multiple-topics'
-import { FeaturedTwoTopics } from './featured/featured-two-topics'
+import { FeaturedList } from './featured-list/featured-list'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
@@ -26,18 +25,9 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
       />
     )
   }
-  if (info.topicCount <= 3) {
+  if (info.topicCount > 1) {
     return (
-      <FeaturedTwoTopics
-        info={info}
-        topics={props.topics}
-        topicOptions={props.topicOptions}
-      />
-    )
-  }
-  if (info.topicCount <= 4) {
-    return (
-      <FeaturedMultipleTopics
+      <FeaturedList
         info={info}
         topics={props.topics}
         topicOptions={props.topicOptions}
