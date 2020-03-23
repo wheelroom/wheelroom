@@ -32,6 +32,8 @@ if (!cfConfig.spaceId || !cfConfig.accessToken) {
 
 module.exports = {
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       options: cfConfig,
       resolve: 'gatsby-source-contentful',
