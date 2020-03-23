@@ -22,10 +22,8 @@ fragment Topic on ContentfulTopic {
   image {
     title
     description
-    fluid(maxWidth: 1024) {
-      sizes
-      src
-      srcSet
+    fluid {
+      ...GatsbyContentfulFluid
     }
   }
   icon
