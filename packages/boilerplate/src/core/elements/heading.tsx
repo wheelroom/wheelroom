@@ -17,6 +17,8 @@ interface HeadingProps {
   children: any
 }
 
+export type HeadingName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+
 export const H1 = (props: HeadingProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
   const ncss = props.ncss || {}
@@ -100,4 +102,13 @@ export const H6 = (props: HeadingProps) => {
       {props.children}
     </h6>
   )
+}
+
+export const HeadingMap = {
+  h1: H1,
+  h2: H2,
+  h3: H3,
+  h4: H4,
+  h5: H5,
+  h6: H6,
 }
