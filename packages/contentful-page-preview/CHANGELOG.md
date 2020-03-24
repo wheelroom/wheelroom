@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/contentful-page-preview@1.3.6...@wheelroom/contentful-page-preview@1.3.7) (2020-03-24)
+
+
+### Bug Fixes
+
+* cfField.fields is undefined ([1d67251](https://github.com/wheelroom/wheelroom/commit/1d67251ab1f6dcb026bd1a2b6654148e1456ca9b))
+
+
+
+
+
 ## [1.3.6](https://github.com/wheelroom/wheelroom/compare/@wheelroom/contentful-page-preview@1.3.5...@wheelroom/contentful-page-preview@1.3.6) (2020-03-21)
 
 **Note:** Version bump only for package @wheelroom/contentful-page-preview

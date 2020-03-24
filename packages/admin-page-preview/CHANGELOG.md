@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.17](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-page-preview@1.4.16...@wheelroom/admin-page-preview@1.4.17) (2020-03-24)
+
+**Note:** Version bump only for package @wheelroom/admin-page-preview
+
+
+
+
+
 ## [1.4.16](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-page-preview@1.4.15...@wheelroom/admin-page-preview@1.4.16) (2020-03-21)
 
 

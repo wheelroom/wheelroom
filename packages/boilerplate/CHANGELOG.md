@@ -3,6 +3,113 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2020-03-24)
+
+
+### Bug Fixes
+
+* add gatsby-source-contentful since it was removed from gatsby-theme-wheelroom ([b8ccbbe](https://github.com/wheelroom/wheelroom-io/commit/b8ccbbef1f7c08fe7edd533be53d39fd15fccd6e))
+* add gatsby-ssr and gatsby-browser to package ([8fd724f](https://github.com/wheelroom/wheelroom-io/commit/8fd724fc60aee9f7de342d729b0639e5309221b0))
+* add index to section props ([cb0a683](https://github.com/wheelroom/wheelroom-io/commit/cb0a6839d6819a0b8582711f43e586e9c681c4bd))
+* add ncss object for styling ([401589e](https://github.com/wheelroom/wheelroom-io/commit/401589ef512ec5922ccfe5da7693a32685b4d1c8))
+* append text instead over overweriting content ([be9b295](https://github.com/wheelroom/wheelroom-io/commit/be9b29565a9c3e2eef87805ae5db36753b454049))
+* auto lint ([c18b144](https://github.com/wheelroom/wheelroom-io/commit/c18b144d3595ee1c45984f020172bb15787464aa))
+* bootstrapping packages ([ae92f12](https://github.com/wheelroom/wheelroom-io/commit/ae92f12b4586df52e3f088976f784fff51ceff96))
+* button width ([407f784](https://github.com/wheelroom/wheelroom-io/commit/407f784b1603e9e6ce01f2c42a92fd7d81899b9e))
+* change boilerplate script names ([60973c9](https://github.com/wheelroom/wheelroom-io/commit/60973c94f828375f9f1a2ad6522df976b5f354cb))
+* color scheme ([6fcda0d](https://github.com/wheelroom/wheelroom-io/commit/6fcda0d93b30c3357e0bf4ade07d900d8705b05e))
+* delete command content-set parameter ([4ce34c8](https://github.com/wheelroom/wheelroom-io/commit/4ce34c88286e98242ec942e702e5b6d03eb7fc1b))
+* don't break without actions ([d103cdd](https://github.com/wheelroom/wheelroom-io/commit/d103cddca5b4e3df96a1117159bedb61ecdd5271))
+* don't break without topics ([9ead68f](https://github.com/wheelroom/wheelroom-io/commit/9ead68fb688c05b8af235b26c37f72116e2e4a6a))
+* empty sections for draft content ([fbf5f0d](https://github.com/wheelroom/wheelroom-io/commit/fbf5f0d64b5ae919864a720c6cfb2a4cdf6892da))
+* exact versions ([4a8e0fe](https://github.com/wheelroom/wheelroom-io/commit/4a8e0fe6f841c9e6ab4fc2335b5ab0c4446da890))
+* exceeding stack by downgrade to gatsby-source-contentful@2.1.72 ([de0bf6e](https://github.com/wheelroom/wheelroom-io/commit/de0bf6e9db45b5abdb4f5d44bd6ba7c77e87891a))
+* exlcude linter ([5419f17](https://github.com/wheelroom/wheelroom-io/commit/5419f178f26c3b0eb68a88145857b3b7e40a8943))
+* gatsby-plugin-react-helmet ([e4ed77c](https://github.com/wheelroom/wheelroom-io/commit/e4ed77c1186d31ca831d244c910a4804aac55e60))
+* global replace [@jacco-meijer](https://github.com/jacco-meijer) with [@wheelroom](https://github.com/wheelroom) ([eac3c94](https://github.com/wheelroom/wheelroom-io/commit/eac3c949381a2a5ce2a7aa656f458681b680dc6c))
+* globales rename to siteGlobals ([3f22c08](https://github.com/wheelroom/wheelroom-io/commit/3f22c0828cacc3310bbd535bdeb26607fb56515d))
+* handle pages without image ([be45a1a](https://github.com/wheelroom/wheelroom-io/commit/be45a1a98e49e4e503eb73f151b69c6422f540c4))
+* homepage ([54f37c3](https://github.com/wheelroom/wheelroom-io/commit/54f37c32233d4cab3faf4d9311ec56faf2837ef4))
+* ignore __typename ([37cd3a1](https://github.com/wheelroom/wheelroom-io/commit/37cd3a176b38c5abc86f9b7f1b4b4bf204763759))
+* issue url ([ed6af86](https://github.com/wheelroom/wheelroom-io/commit/ed6af864c251bcba2731ce3890c6c3a498d97cad))
+* item.link could be undefined in a preview ([bccab76](https://github.com/wheelroom/wheelroom-io/commit/bccab768b3d7d75e6d7dfab62d98af6189ac881d))
+* link to plugin config ([8f1843a](https://github.com/wheelroom/wheelroom-io/commit/8f1843aa4c03a95b748763d43655af2918f0e685))
+* linkContentType array ([6f3f05d](https://github.com/wheelroom/wheelroom-io/commit/6f3f05d16f9cd9e47a2c4b0317f2280d4150a38c))
+* make page heading a required field ([6ddb00b](https://github.com/wheelroom/wheelroom-io/commit/6ddb00ba2910e80d412be957640a3138c1406f44))
+* menu without action ([781e3cf](https://github.com/wheelroom/wheelroom-io/commit/781e3cf988341f1848116f663c3de551ec28e9de))
+* new admin module method names ([e1dfee5](https://github.com/wheelroom/wheelroom-io/commit/e1dfee58fe681336cd3cf67f23a7739db8922cad))
+* npm refs ([e6ab718](https://github.com/wheelroom/wheelroom-io/commit/e6ab718a873361116950353de328502405a771cd))
+* padding ([54c52b8](https://github.com/wheelroom/wheelroom-io/commit/54c52b8bc047a11ba3d906502e51030550319cd3))
+* pagina-afbeelding ([a5cd50a](https://github.com/wheelroom/wheelroom-io/commit/a5cd50a6da4010ac9732a408eb3b498813fadd9d))
+* parser bug ([21d88da](https://github.com/wheelroom/wheelroom-io/commit/21d88da192bd1d5c7b64f8e4a3120159adf749d9))
+* path bug ([6f1724a](https://github.com/wheelroom/wheelroom-io/commit/6f1724a28302002942931fc5f1efa56c554f78ee))
+* remove featured list references ([30df045](https://github.com/wheelroom/wheelroom-io/commit/30df045de16df2902a59fcf3984cb88b50fd0e2e))
+* remove gatsby-image ([2b82ad6](https://github.com/wheelroom/wheelroom-io/commit/2b82ad68979de260d48d7ad53f43b13522379c90))
+* remove margins featured header and action ([83f58c6](https://github.com/wheelroom/wheelroom-io/commit/83f58c6b94dbe3d48830f878f822f522e38fb594))
+* remove sharp npm packages ([f553688](https://github.com/wheelroom/wheelroom-io/commit/f5536886d03ee544a590546e94bf6d392662327f))
+* remove siteTitle ([36a11a4](https://github.com/wheelroom/wheelroom-io/commit/36a11a4be57c3ebe2303944a10012c7d61839c30))
+* repo url ([ddad3cc](https://github.com/wheelroom/wheelroom-io/commit/ddad3cc6c861fb6ae9afce676e49e24c5a32d781))
+* set exact semver ([e8e5ab6](https://github.com/wheelroom/wheelroom-io/commit/e8e5ab6a108adf60d9a247dd53e8f7b2bb6ae3f7))
+* sort order components ([e47783b](https://github.com/wheelroom/wheelroom-io/commit/e47783bafce90dd8bb35e83e8c6a2eb78c836b4e))
+* source set fixes ([51d4a7a](https://github.com/wheelroom/wheelroom-io/commit/51d4a7a6b81c99d37be44aea83920b903e34b0c2))
+* square favicon ([5b8824a](https://github.com/wheelroom/wheelroom-io/commit/5b8824a33549fb29eea6bc0a171672f9cc62513e))
+* styling ([ff159c5](https://github.com/wheelroom/wheelroom-io/commit/ff159c5070a6ff9b9851a7821be0ec4ca0ba2ca4))
+* sync package versions ([860d0ff](https://github.com/wheelroom/wheelroom-io/commit/860d0ffe09d318c42d71351cd7f4ba7951e6b882))
+* unquoted quotes ([76a0ed8](https://github.com/wheelroom/wheelroom-io/commit/76a0ed880443fb28fd7ac8794dc369012aa48d37))
+* update schema to match site secrets ([43cd133](https://github.com/wheelroom/wheelroom-io/commit/43cd133ce37644e26ec9c5c980c60a69c0bcdc61))
+* update to fixed contentful-page-preview ([1551bd2](https://github.com/wheelroom/wheelroom-io/commit/1551bd2ac17802dae099e1ca2424498341c3c759))
+* use page heading when navigationHeading is empty ([972218c](https://github.com/wheelroom/wheelroom-io/commit/972218cf8fde85a64fa14f90653c2525214be272))
+* use typePostfix ([83a1478](https://github.com/wheelroom/wheelroom-io/commit/83a147808329ae63e0ce9e471b09912c4d5f377f))
+
+
+### Features
+
+* add block wheelroom type ([be34d6d](https://github.com/wheelroom/wheelroom-io/commit/be34d6d027fa98fdf133e12eb7cfe06b81516903))
+* add bootstrap-packages.sh script ([b3d13a9](https://github.com/wheelroom/wheelroom-io/commit/b3d13a92d5c5c7ce8b6fa4169232a756cd2089f6))
+* add eslint react-hooks plugin ([a3ccbb7](https://github.com/wheelroom/wheelroom-io/commit/a3ccbb7f87ba49acb13f22082af552e7d4af74ba))
+* add gatsby-plugin-manifest ([af02fbe](https://github.com/wheelroom/wheelroom-io/commit/af02fbeae25728de380b8f1bd9aad57b7e0bfd4a))
+* add gatsby-plugin-schema-snapshot ([3f94057](https://github.com/wheelroom/wheelroom-io/commit/3f94057136b3d81dc2229d0a4ab314fd0aad4fec))
+* add localComponentsMap config option ([865b191](https://github.com/wheelroom/wheelroom-io/commit/865b191a242ddc3f877aceea3204b805686fb0b1))
+* Add page contentful_id ([9627f9f](https://github.com/wheelroom/wheelroom-io/commit/9627f9ff22d9610b14f4e9f63aefa7a7254ca079))
+* add preview update button ([9eb5870](https://github.com/wheelroom/wheelroom-io/commit/9eb5870e03cc8aeffc6b45b31f9dd288d42b7302))
+* add react-hooks/exhaustive-deps ([d89e289](https://github.com/wheelroom/wheelroom-io/commit/d89e28901b158d1ef191958a18280d926c08fd7a))
+* add redux ([516288a](https://github.com/wheelroom/wheelroom-io/commit/516288aa2a6043a650f39e7c03768864937db5db))
+* add support for expandFragmentRef ([d8bf1b1](https://github.com/wheelroom/wheelroom-io/commit/d8bf1b17f786de3b5a64bc201d861d1dd46fbcd4))
+* Added selective interactive  overwrite ([9bbcf56](https://github.com/wheelroom/wheelroom-io/commit/9bbcf560c85dd7e3d61e270814e277edc7fbaf63))
+* added skipFields component option ([9274afa](https://github.com/wheelroom/wheelroom-io/commit/9274afa3edbdda527b7e3a9d8878367b3332c607))
+* admin modules ([5a4a091](https://github.com/wheelroom/wheelroom-io/commit/5a4a0912e403aa05dac6d28784e6335e187fc220))
+* change default locale from 'nl' to 'en-US' ([69b6682](https://github.com/wheelroom/wheelroom-io/commit/69b6682face16611c77563cb247fec8dd4bdc9f5))
+* check for valid locale ([51a6844](https://github.com/wheelroom/wheelroom-io/commit/51a684460fcccd8d56bfc35098ec816e92343655))
+* convert contentful to gatsby props ([8026f3c](https://github.com/wheelroom/wheelroom-io/commit/8026f3cb418d7bfd127188c721676fac83919f2d))
+* custom wheelroom fields ([1465253](https://github.com/wheelroom/wheelroom-io/commit/1465253b78b84ca692519fe859e9db5675de591b))
+* flex box props component template ([500d69e](https://github.com/wheelroom/wheelroom-io/commit/500d69e2a28f1131ab3052a1714b446e35d548d9))
+* gitignore with JetBrains support ([d0f24da](https://github.com/wheelroom/wheelroom-io/commit/d0f24dab77a4234c387f4cf349a9d19960e0aee8))
+* global padding ([484201b](https://github.com/wheelroom/wheelroom-io/commit/484201bc6dc6d89701db5fdba049abdfd79b33c3))
+* implement auto fill of page.sections ([5731a99](https://github.com/wheelroom/wheelroom-io/commit/5731a991a920ce748493f01adc1939bc5908eed1))
+* move image element to boilerplate ([f4997aa](https://github.com/wheelroom/wheelroom-io/commit/f4997aa9d9e93521348bee758c4e5f4dee7e50a1))
+* read config from wheelroom-config.js ([c68b645](https://github.com/wheelroom/wheelroom-io/commit/c68b6451ffd68e17aceae13faf52fe339043ba66))
+* remain in preview mode when following links ([3c921ff](https://github.com/wheelroom/wheelroom-io/commit/3c921ffb35937e93f8f21d5ef696e1792527e2fb))
+* require ncss object for all styling ([877ae64](https://github.com/wheelroom/wheelroom-io/commit/877ae64ab5f0ca4c90588830c8156eee90659141))
+* setup svg conversions ([f07c090](https://github.com/wheelroom/wheelroom-io/commit/f07c0906d51370da0a120f90f1b8ac6080e14cf8))
+* split component view and config ([5dc3296](https://github.com/wheelroom/wheelroom-io/commit/5dc329658e1b2e7158dca8c5b7f72c08f6c3af87))
+* variable %componentNameArray(filter:settings.asPageSection)% ([a060432](https://github.com/wheelroom/wheelroom-io/commit/a060432e82161bb1f2d7c0fe79138b4ed086e435))
+* **create-files:** implement create-files new-model ([01af4b9](https://github.com/wheelroom/wheelroom-io/commit/01af4b928a7aabc33a933d2b9461be192315647a))
+* **list:** implemented command wheelroom list ([8a1649b](https://github.com/wheelroom/wheelroom-io/commit/8a1649b60683498b91c912f31d754432fd3ae38c))
+
+
+### BREAKING CHANGES
+
+* Image element can no longer be imported from @jaccomeijer/content-models because of the styled system config and theme changes.
+* root level styling not allowed anymore
+
+Before: <Box m=2>...</Box>
+
+After: <Box ncss={{m:2}}>...</Box>
+
+
+
+
+
 ## [1.4.2](https://github.com/wheelroom/wheelroom-io/compare/wheelroom-io@1.4.1...wheelroom-io@1.4.2) (2020-03-21)
 
 
