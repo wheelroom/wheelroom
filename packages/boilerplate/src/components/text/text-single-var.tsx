@@ -9,7 +9,7 @@
 
 import React from 'react'
 import { TextProps } from './text'
-import { FluidImage } from '../../core/elements/types'
+import { FluidImageObject } from '../../core/elements/types'
 import { Image } from '../../core/elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
 import { Any } from '../../core/elements/any'
@@ -80,10 +80,10 @@ const hrStyle = {
 type Node = any
 type Children = any
 
-const ImageBox = (props: { image: FluidImage }) => (
+const ImageBox = (props: { fluidImageObject: FluidImageObject }) => (
   <Image
     includeFigcaption={true}
-    image={props.image}
+    fluidImageObject={props.fluidImageObject}
     imgNcss={{ my: [4, 5] }}
   />
 )
@@ -208,14 +208,19 @@ export const TextSingleVar = (props: TextProps) => {
         }
         const contentTypeSplit = contentType.split('/')
         if (contentTypeSplit[0] === 'image') {
-          const image = {
+          const fluidImageObject = {
             title: localizedTitle,
             description: localizedDescription,
             fluid: {
               src: localizedFile.url + '?w=2560&q=50',
             },
-          } as FluidImage
-          return <ImageBox image={image} key={node.data.target.id} />
+          } as FluidImageObject
+          return (
+            <ImageBox
+              fluidImageObject={fluidImageObject}
+              key={node.data.target.id}
+            />
+          )
         }
         if (contentTypeSplit[0] === 'video') {
           return (

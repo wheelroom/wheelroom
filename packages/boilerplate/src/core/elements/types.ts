@@ -85,7 +85,7 @@ export type LinkRelationshipAttribute =
   | 'search'
   | 'tag'
 
-export interface FluidImage {
+export interface FluidImageObject {
   description: string
   fluid: {
     sizes: string

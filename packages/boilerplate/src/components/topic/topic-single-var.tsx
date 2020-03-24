@@ -36,7 +36,7 @@ export const TopicSingleVar = (props: TopicProps) => {
     >
       {!options.hideImage && hasImage && (
         <TopicImage
-          imageProps={{ ...props.imageProps, image: props.image }}
+          imageProps={{ ...props.imageProps, fluidImageObject: props.image }}
           imageWrapperStyle={props.imageWrapperStyle}
           order={props.reverse || options.reverseOrder ? 2 : 1}
           hasText={hasText}

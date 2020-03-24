@@ -8,7 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
-import { FluidImage } from '../../core/elements/types'
+import { FluidImageObject } from '../../core/elements/types'
 import { TextProps } from '../text'
 import { TopicOption } from '../page-section'
 
@@ -62,7 +62,7 @@ export interface TopicProps extends TopicLocalProps {
   abstract: {
     abstract: string
   }
-  image: FluidImage | undefined
+  image: FluidImageObject | undefined
   icon: string
   actions: any
 }

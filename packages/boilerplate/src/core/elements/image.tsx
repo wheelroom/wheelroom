@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { FluidImage } from './types'
+import { FluidImageObject } from './types'
 import {
   commonImagePictureStyle,
   commonImageImgStyle,
@@ -12,14 +12,14 @@ import {
 export interface ImageProps {
   alt?: string
   figcaptionNcss?: any
-  image?: FluidImage
+  fluidImageObject?: FluidImageObject
   imgNcss?: any
   includeFigcaption?: boolean
   pictureNcss?: any
   title?: string
 }
 
-const defaultFluidImage = {
+const defaultFluidImageObject = {
   description: 'no description',
   fluid: {
     sizes: '',
@@ -27,19 +27,22 @@ const defaultFluidImage = {
     srcSet: '',
   },
   title: 'No alternate text available',
-} as FluidImage
+} as FluidImageObject
 
 export const Image = (props: ImageProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
 
-  const fluidImage = props.image || defaultFluidImage
+  const fluidImageObject = props.fluidImageObject || defaultFluidImageObject
 
-  const imgAttrs = {
-    alt: fluidImage.description || props.alt || 'No alternate text available',
-    title: fluidImage.title || props.title || 'No title',
-    sizes: fluidImage.fluid.sizes,
-    src: fluidImage.fluid.src,
-    srcSet: fluidImage.fluid.srcSet,
+  const imgElementAttrs = {
+    alt:
+      fluidImageObject.description ||
+      props.alt ||
+      'No alternate text available',
+    title: fluidImageObject.title || props.title || 'No title',
+    sizes: fluidImageObject.fluid.sizes,
+    src: fluidImageObject.fluid.src,
+    srcSet: fluidImageObject.fluid.srcSet,
   }
 
   const figcaptionNcss = props.figcaptionNcss || {}
@@ -54,7 +57,7 @@ export const Image = (props: ImageProps) => {
       )}
     >
       <img
-        {...imgAttrs}
+        {...imgElementAttrs}
         css={systemCss(
           { ncss: { ...commonImageImgStyle, ...imgNcss } },
           currentThemeId
@@ -67,7 +70,7 @@ export const Image = (props: ImageProps) => {
             currentThemeId
           )}
         >
-          {imgAttrs.alt}
+          {imgElementAttrs.alt}
         </figcaption>
       )}
     </picture>

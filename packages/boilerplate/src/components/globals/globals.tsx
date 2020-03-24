@@ -5,8 +5,6 @@
  *
  */
 
-import { FluidImage } from '../../core/elements/types'
-
 export interface GlobalsProps {
   /** Gatsby fetched data */
   __typename: string

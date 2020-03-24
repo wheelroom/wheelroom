@@ -9,7 +9,7 @@ export const baseComponentAsPageSection = `/**
 
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
-import { FluidImage } from '../../core/elements/types'
+import { FluidImageObject } from '../../core/elements/types'
 import { SectionProps } from '../../sections/section-props'
 %variationImportList%
 
