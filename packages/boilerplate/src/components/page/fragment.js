@@ -28,10 +28,8 @@ fragment Page on ContentfulPage {
   seoImage {
     title
     description
-    fluid(maxWidth: 1024) {
-      sizes
-      src
-      srcSet
+    fluid {
+      ...GatsbyContentfulFluid
     }
   }
 }
