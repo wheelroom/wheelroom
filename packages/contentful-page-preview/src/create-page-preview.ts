@@ -202,11 +202,13 @@ export const createPagePreview = (context: CreatePagePreviewContext) => {
               break
             case 'Asset':
               const fileUrl =
-                (cfField.fields.file && cfField.fields.file.url) ||
+                (cfField.fields &&
+                  cfField.fields.file &&
+                  cfField.fields.file.url) ||
                 '//placehold.it/512'
               return {
-                description: cfField.fields.description,
-                title: cfField.fields.title,
+                description: cfField.fields && cfField.fields.description,
+                title: cfField.fields && cfField.fields.title,
                 fluid: {
                   sizes: '(max-width: 1024px) 100vw, 1024px',
                   src: fileUrl + '?w=1024&q=50',
