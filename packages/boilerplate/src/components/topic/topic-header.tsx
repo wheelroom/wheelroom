@@ -4,8 +4,10 @@ import { Box } from '../../core/elements/grid'
 import { HeadingName, HeadingMap } from '../../core/elements/heading'
 import { headingStyleMap } from '../../core/styles/heading'
 import { Paragraph } from '../../core/elements/paragraph'
-import { TopicOptions } from '../page-section/get-topic-options'
 import { IconMap } from '../../svg/feather/iconMap'
+import { NcssProps } from '../../core/elements/types'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
 
 const defaultIconStyle = {
   width: '40px',
@@ -20,18 +22,21 @@ const defaultWrapperStyle = {
 }
 
 export interface TopicHeaderProps {
-  /** The action to show */
-  topic: TopicProps
   /** Override default styling of the wrapper */
-  headerWrapperStyle?: any
+  headerWrapperStyle?: NcssProps
   /** Defaults to h3 */
   useHeading?: HeadingName
   /** Override default paragraph style */
-  paragraphStyle?: any
+  paragraphStyle?: NcssProps
   /** Override default heading style */
-  headingStyle?: any
-  /** Topic options */
-  options: TopicOptions
+  headingStyle?: NcssProps
+
+  /** All topic props */
+  topic: TopicProps
+  /** Topic info object */
+  topicInfo: TopicInfo
+  /** Page section info */
+  pageSectionInfo: PageSectionInfo
 }
 
 const Icon = (props: { name: string }) => {
@@ -43,25 +48,25 @@ const Icon = (props: { name: string }) => {
 }
 
 export const TopicHeader = (props: TopicHeaderProps) => {
+  const useHeading = props.useHeading || 'h3'
+
   const headerWrapperStyle = props.headerWrapperStyle || {}
   const paragraphStyle = props.paragraphStyle || {}
-  const useHeading = props.useHeading || 'h3'
-  const Heading = HeadingMap[useHeading]
   const defaultHeadingStyle = headingStyleMap[useHeading]
   const headingStyle = props.headingStyle || {}
 
-  if (props.options.hideHeading && props.options.hideAbstract) {
-    return null
-  }
+  const Heading = HeadingMap[useHeading]
+  const topicOptions = props.pageSectionInfo.topicOptions
+
   return (
     <Box is="header" ncss={{ ...defaultWrapperStyle, ...headerWrapperStyle }}>
-      {!props.options.hideIcon && <Icon name={props.topic.icon} />}
-      {!props.options.hideHeading && (
+      {!topicOptions.hideIcon && <Icon name={props.topic.icon} />}
+      {!topicOptions.hideHeading && (
         <Heading ncss={{ ...defaultHeadingStyle, ...headingStyle }}>
           {props.topic.heading}
         </Heading>
       )}
-      {!props.options.hideAbstract && (
+      {!topicOptions.hideAbstract && (
         <Paragraph ncss={{ ...paragraphStyle }}>
           {props.topic.abstract &&
             props.topic.abstract.abstract

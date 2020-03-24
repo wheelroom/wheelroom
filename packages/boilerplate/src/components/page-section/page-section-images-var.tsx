@@ -15,7 +15,7 @@ import { Images } from './images/images'
 export const PageSectionImagesVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasTopic) {
-    return <Images topics={props.topics} />
+    return <Images pageSection={props} />
   }
 
   /**

@@ -6,10 +6,7 @@
  */
 
 import React, { Fragment } from 'react'
-import { NavigationProps } from './navigation'
 import { TopicProps } from '../topic'
-import { GlobalsProps } from '../globals'
-import { SiteMetadata } from '../../page-template'
 import { NavigationSegmentProps } from '../navigation-segment'
 import { Box, Container, Flex } from '../../core/elements/grid'
 import { ALink } from '../../core/elements/a-link'
@@ -23,6 +20,8 @@ import {
   navigationFooterStyle,
   navStyle,
 } from './navigation-styles'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { PageSectionProps } from '../page-section/page-section'
 
 export const listStyle = {
   label: 'nav-list',
@@ -55,18 +54,19 @@ const Icon = (props: { name: string }) => {
   return null
 }
 
-interface NavigationFooterProps extends NavigationProps {
-  /** Topics contain social icons and actions */
-  topics: TopicProps[]
-  /** Site metadata defined in gatsby-config */
-  siteMetadata: SiteMetadata
-  /** Site globals from CMS */
-  globals: GlobalsProps
-}
+export const NavigationFooter = (props: { pageSection: PageSectionProps }) => {
+  const pageSectionInfo = getPageSectionInfo(props.pageSection)
+  if (!pageSectionInfo.hasNavigation) {
+    return null
+  }
 
-export const NavigationFooter = (props: NavigationFooterProps) => {
-  const navSegment = props.segments[0] as NavigationSegmentProps
-  const hasTopics = Array.isArray(props.topics) && props.topics.length > 0
+  if (!pageSectionInfo.hasNavigation) {
+    return null
+  }
+  const navSegment = props.pageSection.navigation
+    .segments[0] as NavigationSegmentProps
+  const siteMetadata = props.pageSection.siteMetadata
+
   return (
     <Fragment>
       <Box
@@ -98,21 +98,23 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
                 pages={navSegment.pages}
               />
             </List>
-            {hasTopics && (
+            {pageSectionInfo.hasTopic && (
               <List is="ul" ncss={{ ...listStyle }}>
-                {props.topics.map((topic: TopicProps, index: number) => (
-                  <List is={'li'} key={index}>
-                    <Action
-                      {...topic.actions[0]}
-                      ncss={{
-                        display: 'inline-flex',
-                        p: 1,
-                      }}
-                    >
-                      <Icon name={topic.icon} />
-                    </Action>
-                  </List>
-                ))}
+                {props.pageSection.topics.map(
+                  (topic: TopicProps, index: number) => (
+                    <List is={'li'} key={index}>
+                      <Action
+                        {...topic.actions[0]}
+                        ncss={{
+                          display: 'inline-flex',
+                          p: 1,
+                        }}
+                      >
+                        <Icon name={topic.icon} />
+                      </Action>
+                    </List>
+                  )
+                )}
               </List>
             )}
           </Flex>
@@ -139,12 +141,12 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
                   display: 'inline-flex',
                   color: 'metal',
                 }}
-                href={props.siteMetadata.legal.url}
+                href={siteMetadata.legal.url}
               >
-                {props.siteMetadata.legal.description}
+                {siteMetadata.legal.description}
               </ALink>
               <sup>
-                <small>{` ` + props.siteMetadata.legal.version}</small>
+                <small>{` ` + siteMetadata.legal.version}</small>
               </sup>
             </Any>
           </Flex>

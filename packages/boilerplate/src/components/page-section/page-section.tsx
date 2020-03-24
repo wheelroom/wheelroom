@@ -18,6 +18,7 @@ import { SectionProps } from '../../sections/section-props'
 import { TextProps } from '../text'
 import { TopicProps } from '../topic'
 import React from 'react'
+import { TopicOptionString } from '../../lib/get-topic-options'
 
 const componentList = {
   ['cards']: PageSectionCardsVar,
@@ -28,14 +29,6 @@ const componentList = {
   ['navigation']: PageSectionNavigationVar,
 }
 
-export type TopicOption =
-  | 'Hide icon'
-  | 'Hide image'
-  | 'Hide heading'
-  | 'Hide abstract'
-  | 'Hide action'
-  | 'Reversed order'
-
 export interface PageSectionProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
@@ -43,7 +36,7 @@ export interface PageSectionProps extends SectionProps {
   navigation: NavigationProps
   text: TextProps
   title: string
-  topicOptions: TopicOption[]
+  topicOptions: TopicOptionString[]
   topics: TopicProps[]
   variation: string
 }

@@ -1,6 +1,9 @@
 import React from 'react'
 import { Box } from '../../core/elements/grid'
-import { TopicOptions } from '../page-section/get-topic-options'
+import { NcssProps } from '../../core/elements/types'
+import { TopicProps } from '.'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
 
 /** This style needs cleaning up, only default values here */
 const defaultWrapperStyle = {
@@ -16,21 +19,30 @@ const overrideContentStyle = {
 export interface TopicContentWrapperProps {
   children: any
   /** Override default wrapper styling */
-  contentWrapperStyle?: any
-  /** The css order property applied to the container */
-  order: number
-  /** Topic options */
-  options: TopicOptions
+  contentWrapperStyle?: NcssProps
+  /** All topic props */
+  topic: TopicProps
+  /** Topic info object */
+  topicInfo: TopicInfo
+  /** Page section info */
+  pageSectionInfo: PageSectionInfo
+  /** Reverse image and content */
+  forceReverse?: boolean
 }
 
 export const TopicContentWrapper = (props: TopicContentWrapperProps) => {
+  const order =
+    props.forceReverse || props.pageSectionInfo.topicOptions.reverseOrder
+      ? 1
+      : 2
+  const topicOptions = props.pageSectionInfo.topicOptions
   const contentWrapperStyle = props.contentWrapperStyle || {}
   return (
     <Box
       ncss={{
-        order: props.order,
+        order,
         ...defaultWrapperStyle,
-        ...(props.options.hideImage
+        ...(topicOptions.hideImage
           ? { ...overrideContentStyle }
           : contentWrapperStyle),
       }}

@@ -15,15 +15,7 @@ import { Headline } from './headline/headline'
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasTopic || info.hasText) {
-    const topic = info.hasTopic ? props.topics[0] : undefined
-    return (
-      <Headline
-        info={info}
-        topic={topic}
-        text={{ ...props.text, locale: props.locale }}
-        topicOptions={props.topicOptions}
-      />
-    )
+    return <Headline pageSection={props} />
   }
 
   /** If you did not return a view above, Wheelroom will display this notification */

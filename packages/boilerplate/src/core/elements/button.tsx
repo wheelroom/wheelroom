@@ -7,12 +7,13 @@ import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { commonButtonStyle } from '../styles/button'
 import React from 'react'
+import { NcssProps } from './types'
 
 export interface ButtonProps {
   /** React children */
   children?: any
   /** Nested emotion css styling */
-  ncss?: any
+  ncss?: NcssProps
   /** Button value attribute */
   value?: string | number | string[] | undefined
   /** Button type attribute */

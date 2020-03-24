@@ -3,13 +3,13 @@ import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { VideoAttributes } from './types'
+import { VideoAttributes, NcssProps } from './types'
 import { commonVideoStyle, commonVideoFigcaptionStyle } from '../styles/video'
 
 export interface VideoProps {
-  figcaptionNcss?: any
+  figcaptionNcss?: NcssProps
   url?: string
-  videoNcss?: any
+  videoNcss?: NcssProps
   type?: string
   title?: string
   description?: string

@@ -7,12 +7,13 @@ import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { commonGLinkStyle } from '../styles/g-link'
+import { NcssProps } from './types'
 
 export interface GLinkProps {
   /** React children */
   children?: any
   /** Nested emotion css styling */
-  ncss?: any
+  ncss?: NcssProps
   /** Gatsby Link URL attribute */
   to?: any
   /** Gatsby Link ID attribute */

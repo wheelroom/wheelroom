@@ -11,9 +11,10 @@ import {
   commonHeadingStyle,
 } from '../styles/heading'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
+import { NcssProps } from './types'
 
 interface HeadingProps {
-  ncss?: any
+  ncss?: NcssProps
   children: any
 }
 

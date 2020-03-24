@@ -3,12 +3,13 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { defaultParagraphStyle } from '../styles/paragraph'
+import { NcssProps } from './types'
 
 export interface ParagraphProps {
   /** React children */
   children?: any
   /** Nested emotion css styling */
-  ncss?: any
+  ncss?: NcssProps
 }
 
 export const Paragraph = (props: ParagraphProps) => {

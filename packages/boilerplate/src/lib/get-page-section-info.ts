@@ -1,4 +1,5 @@
 import { PageSectionProps } from '../components/page-section/page-section'
+import { getTopicOptions, TopicOptions } from './get-topic-options'
 
 export interface PageSectionInfo {
   actionCount: number
@@ -6,6 +7,7 @@ export interface PageSectionInfo {
   hasNavigation: boolean
   hasText: boolean
   hasTopic: boolean
+  topicOptions: TopicOptions
   index: number
   navigationSegmentCount: number
   path: string
@@ -29,7 +31,8 @@ export const getPageSectionInfo = (
     sectionCount: pageSection.page.sections.length,
     topicCount: 0,
     variation: pageSection.variation,
-  }
+  } as PageSectionInfo
+
   if (
     pageSection.actions &&
     Array.isArray(pageSection.actions) &&
@@ -43,10 +46,12 @@ export const getPageSectionInfo = (
     Array.isArray(pageSection.topics) &&
     pageSection.topics.length > 0
   ) {
+    info.topicOptions = getTopicOptions(pageSection.topicOptions)
+
     info.hasTopic = true
     info.topicCount = pageSection.topics.length
   }
-  if (pageSection.text) {
+  if (pageSection.text && pageSection.text.text && pageSection.text.locale) {
     info.hasText = true
   }
   if (

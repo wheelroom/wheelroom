@@ -1,13 +1,8 @@
 import React from 'react'
 import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
-import { TopicProps, Topic } from '../../topic'
-import { TopicOption } from '../../page-section/page-section'
-import { getTopicOptions } from '../get-topic-options'
-
-export interface CardsProps {
-  topics: TopicProps[]
-  topicOptions: TopicOption[]
-}
+import { PageSectionProps } from '../page-section'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { Topic } from '../../topic/topic'
 
 /**
  *
@@ -15,12 +10,15 @@ export interface CardsProps {
  *
  */
 
-export const Cards = (props: CardsProps) => {
-  const options = getTopicOptions(props.topicOptions)
-  const cards = props.topics.map((topic, index) => (
+export const Cards = (props: { pageSection: PageSectionProps }) => {
+  const pageSectionInfo = getPageSectionInfo(props.pageSection)
+  if (!pageSectionInfo.hasTopic) {
+    return null
+  }
+  const cards = props.pageSection.topics.map((topic, index) => (
     <Topic
       key={index}
-      topicOptions={props.topicOptions}
+      pageSectionInfo={pageSectionInfo}
       fullTopicAsLink={true}
       {...topic}
       imageWrapperStyle={{
@@ -51,7 +49,7 @@ export const Cards = (props: CardsProps) => {
           minWidth: '280px',
           m: 2,
         },
-        ...(options.hideAction
+        ...(pageSectionInfo.topicOptions.hideAction
           ? {}
           : {
               border: '1px solid',

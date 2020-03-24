@@ -1,6 +1,10 @@
 import React from 'react'
 import { Image, ImageProps } from '../../core/elements/image'
 import { Box } from '../../core/elements/grid'
+import { NcssProps } from '../../core/elements/types'
+import { TopicProps } from '.'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
 
 const defaultWrapperStyle = {
   label: 'topic-image',
@@ -18,22 +22,32 @@ export interface TopicImageProps {
   /** The image to show */
   imageProps: ImageProps
   /** Override default styling of the wrapper */
-  imageWrapperStyle?: any
-  /** The css order property applied to the container */
-  order: number
-  /** Topic has rich text */
-  hasText: boolean
+  imageWrapperStyle?: NcssProps
+
+  /** All topic props */
+  topic: TopicProps
+  /** Topic info object */
+  topicInfo: TopicInfo
+  /** Page section info */
+  pageSectionInfo: PageSectionInfo
+  /** Reverse image and content */
+  forceReverse?: boolean
 }
 
 export const TopicImage = (props: TopicImageProps) => {
+  const order =
+    props.forceReverse || props.pageSectionInfo.topicOptions.reverseOrder
+      ? 2
+      : 1
+
   const imageWrapperStyle = props.imageWrapperStyle || {}
   return (
     <Box
       ncss={{
-        order: props.order,
+        order,
         ...defaultWrapperStyle,
         ...imageWrapperStyle,
-        ...(props.hasText
+        ...(props.pageSectionInfo.hasText
           ? { ...overrideImageWrapperStyle }
           : imageWrapperStyle),
       }}

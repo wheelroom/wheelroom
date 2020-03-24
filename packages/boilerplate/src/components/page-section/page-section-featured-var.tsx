@@ -16,23 +16,10 @@ import { FeaturedList } from './featured-list/featured-list'
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.topicCount === 1) {
-    return (
-      <Featured
-        info={info}
-        topic={props.topics[0]}
-        text={{ ...props.text, locale: props.locale }}
-        topicOptions={props.topicOptions}
-      />
-    )
+    return <Featured pageSection={props} />
   }
   if (info.topicCount > 1) {
-    return (
-      <FeaturedList
-        info={info}
-        topics={props.topics}
-        topicOptions={props.topicOptions}
-      />
-    )
+    return <FeaturedList pageSection={props} />
   }
 
   /** If you did not return a view above, Wheelroom will display this notification */

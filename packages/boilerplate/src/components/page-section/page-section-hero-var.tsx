@@ -15,13 +15,7 @@ import { Hero } from './hero/hero'
 export const PageSectionHeroVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasTopic) {
-    return (
-      <Hero
-        topic={props.topics[0]}
-        text={{ ...props.text, locale: props.locale }}
-        topicOptions={props.topicOptions}
-      />
-    )
+    return <Hero pageSection={props} />
   }
 
   /**

@@ -2,9 +2,10 @@ import React, { Fragment } from 'react'
 import { GLink } from '../../core/elements/g-link'
 import { Any } from '../../core/elements/any'
 import { PageProps } from '../page'
+import { NcssProps } from '../../core/elements/types'
 
 interface NavLinkProps extends PageProps {
-  linkStyle: any
+  linkStyle: NcssProps
 }
 
 const NavLink = (props: NavLinkProps) => {
@@ -24,8 +25,8 @@ const NavLink = (props: NavLinkProps) => {
 
 export interface NavLinksProps {
   pages: PageProps[]
-  itemStyle?: any
-  linkStyle?: any
+  itemStyle?: NcssProps
+  linkStyle?: NcssProps
 }
 
 export const NavLinks = (props: NavLinksProps) => {

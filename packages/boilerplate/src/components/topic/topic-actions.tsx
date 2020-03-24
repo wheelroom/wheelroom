@@ -1,8 +1,12 @@
 import React from 'react'
-import { ActionProps, Action } from '../action'
+import { Action } from '../action'
 import { buttonPrimaryStyle } from '../../core/styles/button'
 import { Box } from '../../core/elements/grid'
 import { Any } from '../../core/elements/any'
+import { NcssProps } from '../../core/elements/types'
+import { TopicProps } from '.'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
 
 const defaultWrapperStyle = {
   display: 'flex',
@@ -11,17 +15,28 @@ const defaultWrapperStyle = {
 }
 
 export interface TopicActionProps {
-  /** The action to show */
-  action: ActionProps
   /** Override default styling of the wrapper */
-  actionWrapperStyle?: any
+  actionWrapperStyle?: NcssProps
   /** Override default button style */
-  actionStyle?: any
+  actionStyle?: NcssProps
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
+
+  /** All topic props */
+  topic: TopicProps
+  /** Topic info object */
+  topicInfo: TopicInfo
+  /** Page section info */
+  pageSectionInfo: PageSectionInfo
 }
 
-export const TopicAction = (props: TopicActionProps) => {
+export const TopicActions = (props: TopicActionProps) => {
+  if (!props.topicInfo.hasAction) {
+    return null
+  }
+  // Support only one action for now
+  const action = props.topic.actions[0]
+
   const actionWrapperStyle = props.actionWrapperStyle || {}
   const actionStyle = props.actionStyle || {}
   return (
@@ -34,17 +49,17 @@ export const TopicAction = (props: TopicActionProps) => {
             ...actionStyle,
           }}
         >
-          {props.action.heading}
+          {action.heading}
         </Any>
       ) : (
         <Action
-          {...props.action}
+          {...action}
           ncss={{
             ...buttonPrimaryStyle,
             ...actionStyle,
           }}
         >
-          {props.action.heading}
+          {action.heading}
         </Action>
       )}
     </Box>

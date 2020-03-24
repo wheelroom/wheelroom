@@ -1,8 +1,8 @@
 import React from 'react'
 import { TopicProps, Topic } from '../../topic'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Box, ContainerMaxWidth, Flex } from '../../../core/elements/grid'
-import { TopicOption } from '../page-section'
+import { PageSectionProps } from '../page-section'
 
 const topicWrapperStyle = {
   label: 'topic-wrapper',
@@ -18,15 +18,10 @@ const topicWrapperStyle = {
  *
  */
 
-export interface FeaturedTwoTopicsProps {
-  info: PageSectionInfo
-  topics: TopicProps[]
-  topicOptions: TopicOption[]
-}
-
-export const FeaturedTwoTopics = (props: FeaturedTwoTopicsProps) => {
+export const FeaturedTwoTopics = (props: { pageSection: PageSectionProps }) => {
+  const pageSectionInfo = getPageSectionInfo(props.pageSection)
   // Featured needs topics or text, return null (render nothing) otherwise
-  if (!(props.info.hasTopic || props.info.hasText)) {
+  if (!pageSectionInfo.hasTopic) {
     return null
   }
   return (
@@ -44,12 +39,12 @@ export const FeaturedTwoTopics = (props: FeaturedTwoTopicsProps) => {
         }}
       >
         <Flex ncss={topicWrapperStyle}>
-          {props.topics.map((topic: TopicProps, index: number) => (
+          {props.pageSection.topics.map((topic: TopicProps, index: number) => (
             <Topic
               key={index}
-              reverse={index % 2 === 0}
+              forceReverse={index % 2 === 0}
               {...topic}
-              topicOptions={props.topicOptions}
+              pageSectionInfo={pageSectionInfo}
               topicWrapperStyle={{
                 flexDirection: ['column', 'row'],
                 w: 1,

@@ -2,10 +2,10 @@ import React, { Fragment } from 'react'
 import { heading1Style } from '../../../core/styles/heading'
 import { paragraphHeroStyle } from '../../../core/styles/paragraph'
 import { Box, Container } from '../../../core/elements/grid'
-import { TopicProps, Topic } from '../../topic'
+import { Topic } from '../../topic'
 import { buttonPrimaryStyle } from '../../../core/styles/button'
-import { TextProps } from '../../text'
-import { TopicOption } from '../page-section'
+import { PageSectionProps } from '../page-section'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 
 const heroActionStyle = {
   ...buttonPrimaryStyle,
@@ -14,13 +14,12 @@ const heroActionStyle = {
   px: [3, 4],
 }
 
-export interface HeroProps {
-  topic: TopicProps
-  text?: TextProps
-  topicOptions: TopicOption[]
-}
-
-export const Hero = (props: HeroProps) => {
+export const Hero = (props: { pageSection: PageSectionProps }) => {
+  const pageSectionInfo = getPageSectionInfo(props.pageSection)
+  if (!pageSectionInfo.hasTopic) {
+    return null
+  }
+  const topic = props.pageSection.topics[0]
   return (
     <Fragment>
       <Box
@@ -35,9 +34,8 @@ export const Hero = (props: HeroProps) => {
           }}
         >
           <Topic
-            {...props.topic}
-            topicOptions={props.topicOptions}
-            text={props.text}
+            {...topic}
+            pageSectionInfo={pageSectionInfo}
             topicWrapperStyle={{
               position: 'relative',
               px: [2, 5, 7],

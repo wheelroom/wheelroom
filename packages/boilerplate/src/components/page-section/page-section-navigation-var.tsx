@@ -16,27 +16,11 @@ import { NavigationFooter } from '../navigation/navigation-footer'
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasNavigation && info.index === 0) {
-    const segments = props.navigation.segments
-    return (
-      <NavigationHeader
-        segments={segments}
-        actions={props.actions}
-        siteMetadata={props.siteMetadata}
-        globals={props.globals}
-      />
-    )
+    return <NavigationHeader pageSection={props} />
   }
 
   if (info.hasNavigation && info.index === info.sectionCount - 1) {
-    const segments = props.navigation.segments
-    return (
-      <NavigationFooter
-        segments={segments}
-        topics={props.topics}
-        siteMetadata={props.siteMetadata}
-        globals={props.globals}
-      />
-    )
+    return <NavigationFooter pageSection={props} />
   }
 
   /**

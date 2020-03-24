@@ -1,17 +1,9 @@
 import React from 'react'
 import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
-import { TopicProps, Topic } from '../../topic'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
-import { TextProps } from '../../text'
-import { TopicOption } from '../page-section'
+import { Topic } from '../../topic'
 import { heading2Style } from '../../../core/styles/heading'
-
-export interface FeaturedProps {
-  info: PageSectionInfo
-  text?: TextProps
-  topic: TopicProps
-  topicOptions: TopicOption[]
-}
+import { PageSectionProps } from '../page-section'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 
 /**
  *
@@ -23,11 +15,12 @@ export interface FeaturedProps {
  *
  */
 
-export const Featured = (props: FeaturedProps) => {
-  // Featured needs topics or text, return null (render nothing) otherwise
-  if (!(props.info.hasTopic || props.info.hasText)) {
+export const Featured = (props: { pageSection: PageSectionProps }) => {
+  const pageSectionInfo = getPageSectionInfo(props.pageSection)
+  if (!pageSectionInfo.hasTopic) {
     return null
   }
+  const topic = props.pageSection.topics[0]
   return (
     <Box
       is="div"
@@ -45,9 +38,8 @@ export const Featured = (props: FeaturedProps) => {
         }}
       >
         <Topic
-          {...props.topic}
-          topicOptions={props.topicOptions}
-          text={props.text}
+          {...topic}
+          pageSectionInfo={pageSectionInfo}
           topicWrapperStyle={{
             flexDirection: ['column', 'column', 'row'],
             justifyContent: 'space-evenly',

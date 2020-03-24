@@ -8,9 +8,10 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
-import { FluidImageObject } from '../../core/elements/types'
+import { FluidImageObject, NcssProps } from '../../core/elements/types'
 import { TextProps } from '../text'
-import { TopicOption } from '../page-section'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { ImageProps } from '../../core/elements/image'
 
 const componentList = {
   ['single']: TopicSingleVar,
@@ -18,31 +19,31 @@ const componentList = {
 
 interface TopicLocalProps {
   /** Options that change topic display behaviour */
-  topicOptions: TopicOption[]
+  pageSectionInfo: PageSectionInfo
   /** Override default wrapper styling */
-  topicWrapperStyle?: any
+  topicWrapperStyle?: NcssProps
 
   /** Override default content wrapper styling */
-  contentWrapperStyle?: any
+  contentWrapperStyle?: NcssProps
 
   /** Override default image props */
-  imageProps?: any
+  imageProps?: ImageProps
   /** Override default styling of the image wrapper */
-  imageWrapperStyle?: any
+  imageWrapperStyle?: NcssProps
 
   /** Override default styling of the headerwrapper */
-  headerWrapperStyle?: any
+  headerWrapperStyle?: NcssProps
   /** Override default heading style */
-  headingStyle?: any
+  headingStyle?: NcssProps
   /** Defaults to h3 */
   useHeading?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   /** Override default paragraph style */
-  paragraphStyle?: any
+  paragraphStyle?: NcssProps
 
   /** Override default styling of the action wrapper */
-  actionWrapperStyle?: any
+  actionWrapperStyle?: NcssProps
   /** Override default button style */
-  actionStyle?: any
+  actionStyle?: NcssProps
 
   /** Replace content box (header, abstract, action) with rich text */
   text?: TextProps
@@ -51,7 +52,7 @@ interface TopicLocalProps {
   fullTopicAsLink?: boolean
 
   /** Reverse image and content */
-  reverse?: boolean
+  forceReverse?: boolean
 }
 
 export interface TopicProps extends TopicLocalProps {

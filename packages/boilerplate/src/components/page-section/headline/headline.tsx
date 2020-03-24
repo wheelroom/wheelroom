@@ -1,18 +1,10 @@
 import React, { Fragment } from 'react'
 import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
-import { TopicProps, Topic } from '../../topic'
-import { TextProps } from '../../text'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
-import { TopicOption } from '../page-section'
+import { Topic } from '../../topic'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { PageSectionProps } from '../page-section'
 import { heading1Style } from '../../../core/styles/heading'
 import { paragraphHeroStyle } from '../../../core/styles/paragraph'
-
-export interface HeadlineProps {
-  info: PageSectionInfo
-  text?: TextProps
-  topic?: TopicProps
-  topicOptions: TopicOption[]
-}
 
 /**
  *
@@ -24,11 +16,12 @@ export interface HeadlineProps {
  *
  */
 
-export const Headline = (props: HeadlineProps) => {
-  // Headline needs topic or text, return null (render nothing) otherwise
-  if (!(props.info.hasTopic || props.info.hasText)) {
+export const Headline = (props: { pageSection: PageSectionProps }) => {
+  const pageSectionInfo = getPageSectionInfo(props.pageSection)
+  if (!pageSectionInfo.hasTopic) {
     return null
   }
+  const topic = props.pageSection.topics[0]
   return (
     <Fragment>
       <Box
@@ -40,32 +33,29 @@ export const Headline = (props: HeadlineProps) => {
         }}
       >
         <ContainerMaxWidth>
-          {props.topic && (
-            <Topic
-              {...props.topic}
-              topicOptions={props.topicOptions}
-              text={props.text}
-              topicWrapperStyle={{
-                w: 1,
-              }}
-              contentWrapperStyle={{
-                display: 'flex',
-                textAlign: 'center',
-                flexDirection: 'column',
-              }}
-              useHeading="h2"
-              headingStyle={{ ...heading1Style }}
-              paragraphStyle={{ ...paragraphHeroStyle, color: 'text' }}
-              actionWrapperStyle={{
-                mx: 'auto',
-              }}
-              actionStyle={{
-                mx: 2,
-                fontSize: [5, 6],
-                lineHeight: [3, 4],
-              }}
-            />
-          )}
+          <Topic
+            {...topic}
+            pageSectionInfo={pageSectionInfo}
+            topicWrapperStyle={{
+              w: 1,
+            }}
+            contentWrapperStyle={{
+              display: 'flex',
+              textAlign: 'center',
+              flexDirection: 'column',
+            }}
+            useHeading="h2"
+            headingStyle={{ ...heading1Style }}
+            paragraphStyle={{ ...paragraphHeroStyle, color: 'text' }}
+            actionWrapperStyle={{
+              mx: 'auto',
+            }}
+            actionStyle={{
+              mx: 2,
+              fontSize: [5, 6],
+              lineHeight: [3, 4],
+            }}
+          />
         </ContainerMaxWidth>
       </Box>
     </Fragment>

@@ -7,7 +7,7 @@
  */
 
 import React, { Fragment, useContext, useState, useRef } from 'react'
-import { Action, ActionProps } from '../action'
+import { Action } from '../action'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../../core/elements/a-link'
 import { Box, Container, Flex } from '../../core/elements/grid'
@@ -19,7 +19,6 @@ import {
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { GLink } from '../../core/elements/g-link'
 import { List } from '../../core/elements/list'
-import { NavigationProps } from './navigation'
 import { NavigationSegmentProps } from '../navigation-segment'
 import { NavLinks } from './nav-links'
 import {
@@ -39,20 +38,11 @@ import {
   navigationHeaderStyle,
 } from './navigation-styles'
 import { IconMap } from '../../svg/feather/iconMap'
-import { SiteMetadata } from '../../page-template'
-import { GlobalsProps } from '../globals'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { PageSectionProps } from '../page-section/page-section'
 const XIcon = IconMap.x
 
-interface NavigationHeaderProps extends NavigationProps {
-  /** Action is displayed as a button at the right side of the navigation */
-  actions: ActionProps[]
-  /** Site metadata defined in gatsby-config */
-  siteMetadata: SiteMetadata
-  /** Site globals from CMS */
-  globals: GlobalsProps
-}
-
-export const NavigationHeader = (props: NavigationHeaderProps) => {
+export const NavigationHeader = (props: { pageSection: PageSectionProps }) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
@@ -60,7 +50,15 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
   const activeThemeId = themeSwitcherStore?.state.activeThemeId
   const [menuVisible, setMenuVisible] = useState(false)
   const buttonRef = useRef(null)
-  const hasActions = Array.isArray(props.actions) && props.actions.length > 0
+
+  const globals = props.pageSection.globals
+  const siteMetadata = props.pageSection.siteMetadata
+  const pageSectionInfo = getPageSectionInfo(props.pageSection)
+  if (!pageSectionInfo.hasNavigation) {
+    return null
+  }
+  const navSegment = props.pageSection.navigation
+    .segments[0] as NavigationSegmentProps
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
@@ -76,8 +74,6 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
     element.focus()
   }
 
-  const navSegment = props.segments[0] as NavigationSegmentProps
-
   return (
     <Fragment>
       <ALink href="#content" ncss={skipToContent}>
@@ -89,11 +85,11 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
             <GLink
               ncss={logoLinkStyle}
               to="/"
-              aria-label={props.globals.siteHeading + `, Back to homepage`}
+              aria-label={globals.siteHeading + `, Back to homepage`}
             >
-              {props.globals.siteHeading + ` `}
+              {globals.siteHeading + ` `}
               <sup>
-                <small>{props.siteMetadata.legal.version}</small>
+                <small>{siteMetadata.legal.version}</small>
               </sup>
             </GLink>
           </Flex>
@@ -108,10 +104,10 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               />
             </List>
             <Flex is="div" ncss={{ label: 'nav-settings' }}>
-              {hasActions && (
+              {pageSectionInfo.hasAction && (
                 <Action
                   ncss={{ ...buttonPrimaryStyle }}
-                  {...props.actions[0]}
+                  {...props.pageSection.actions[0]}
                 />
               )}
               <Button
@@ -201,10 +197,10 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                   />
                 </List>
                 <Flex is="div" ncss={{ label: 'nav-settings', w: 1, p: 3 }}>
-                  {hasActions && (
+                  {pageSectionInfo.hasAction && (
                     <Action
                       ncss={{ ...buttonPrimaryStyle, w: 1 }}
-                      {...props.actions[0]}
+                      {...props.pageSection.actions[0]}
                     />
                   )}
                   <Button

@@ -2,14 +2,14 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { LinkRelationshipAttribute } from './types'
+import { LinkRelationshipAttribute, NcssProps } from './types'
 import { commonALinkStyle } from '../styles/a-link'
 
 export interface ALinkProps {
   /** React children */
   children?: any
   /** Nested emotion css styling */
-  ncss?: any
+  ncss?: NcssProps
   /** Link URL attribute */
   href?: any
   /** Link aria-label attribute */

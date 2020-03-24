@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
+import { NcssProps } from './types'
 
 export interface AnyProps {
   /** Render as another HTML element */
@@ -9,7 +10,7 @@ export interface AnyProps {
   /** React children */
   children?: any
   /** Nested emotion css styling */
-  ncss?: any
+  ncss?: NcssProps
 }
 
 export const Any = (props: AnyProps) => {

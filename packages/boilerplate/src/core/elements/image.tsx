@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { FluidImageObject } from './types'
+import { FluidImageObject, NcssProps } from './types'
 import {
   commonImagePictureStyle,
   commonImageImgStyle,
@@ -11,11 +11,11 @@ import {
 
 export interface ImageProps {
   alt?: string
-  figcaptionNcss?: any
+  figcaptionNcss?: NcssProps
   fluidImageObject?: FluidImageObject
-  imgNcss?: any
+  imgNcss?: NcssProps
   includeFigcaption?: boolean
-  pictureNcss?: any
+  pictureNcss?: NcssProps
   title?: string
 }
 

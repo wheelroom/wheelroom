@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { InlineElementName, BlockLevelElementName } from './types'
+import { InlineElementName, BlockLevelElementName, NcssProps } from './types'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import {
   commonFlexStyle,
@@ -31,7 +31,7 @@ export interface GridProps {
   /** React children */
   children?: any
   /** Nested emotion css styling */
-  ncss?: any
+  ncss?: NcssProps
   /** Grid id attribute */
   id?: string | undefined
   /** Grid role attribute */
