@@ -20,7 +20,6 @@ const topicWrapperStyle = {
 
 export const FeaturedTwoTopics = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
-  // Featured needs topics or text, return null (render nothing) otherwise
   if (!pageSectionInfo.hasTopic) {
     return null
   }
