@@ -12,6 +12,7 @@ import { FluidImageObject, NcssProps } from '../../core/elements/types'
 import { TextProps } from '../text/text'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { ImageProps } from '../../core/elements/image'
+import { ActionProps } from '../action/action'
 
 const componentList = {
   ['single']: TopicSingleVar,
@@ -22,6 +23,9 @@ interface TopicLocalProps {
   pageSectionInfo: PageSectionInfo
   /** Override default wrapper styling */
   topicWrapperStyle?: NcssProps
+
+  /** Page section actions will override all topic actions */
+  pageSectionActions?: ActionProps[]
 
   /** Override default content wrapper styling */
   contentWrapperStyle?: NcssProps

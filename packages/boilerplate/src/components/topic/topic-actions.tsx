@@ -1,5 +1,5 @@
 import React from 'react'
-import { Action } from '../action'
+import { Action, ActionProps } from '../action'
 import { buttonPrimaryStyle } from '../../core/styles/button'
 import { Box } from '../../core/elements/grid'
 import { Any } from '../../core/elements/any'
@@ -21,6 +21,8 @@ export interface TopicActionProps {
   actionStyle?: NcssProps
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
+  /** Page section actions will override all topic actions */
+  pageSectionActions?: ActionProps[]
 
   /** All topic props */
   topic: TopicProps
@@ -31,11 +33,12 @@ export interface TopicActionProps {
 }
 
 export const TopicActions = (props: TopicActionProps) => {
-  if (!props.topicInfo.hasAction) {
+  if (!props.topicInfo.hasAction && !props.pageSectionActions) {
     return null
   }
+  const actions = props.pageSectionActions || props.topic.actions
   // Support only one action for now
-  const action = props.topic.actions[0]
+  const action = actions[0]
 
   const actionWrapperStyle = props.actionWrapperStyle || {}
   const actionStyle = props.actionStyle || {}

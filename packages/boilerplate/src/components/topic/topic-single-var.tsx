@@ -68,6 +68,7 @@ export const TopicSingleVar = (props: TopicProps) => {
               topic={props}
               topicInfo={topicInfo}
               pageSectionInfo={pageSectionInfo}
+              pageSectionActions={props.pageSectionActions}
               actionWrapperStyle={props.actionWrapperStyle}
               actionStyle={props.actionStyle}
               fullTopicAsLink={props.fullTopicAsLink}

@@ -35,6 +35,7 @@ export const HeroDisplay = (props: { pageSection: PageSectionProps }) => {
         >
           <Topic
             {...topic}
+            pageSectionActions={props.pageSection.actions}
             text={{
               ...props.pageSection.text,
               locale: props.pageSection.locale,

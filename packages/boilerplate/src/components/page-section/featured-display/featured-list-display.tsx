@@ -17,6 +17,7 @@ export const FeaturedListDisplay = (props: {
       <Topic
         key={index}
         {...topic}
+        pageSectionActions={props.pageSection.actions}
         text={{
           ...props.pageSection.text,
           locale: props.pageSection.locale,

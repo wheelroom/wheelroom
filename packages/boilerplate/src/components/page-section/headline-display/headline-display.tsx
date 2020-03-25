@@ -25,6 +25,7 @@ export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
         <ContainerMaxWidth>
           <Topic
             {...topic}
+            pageSectionActions={props.pageSection.actions}
             text={{
               ...props.pageSection.text,
               locale: props.pageSection.locale,

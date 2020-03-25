@@ -13,6 +13,7 @@ export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
     <Topic
       key={index}
       {...topic}
+      pageSectionActions={props.pageSection.actions}
       text={{
         ...props.pageSection.text,
         locale: props.pageSection.locale,
