@@ -2,7 +2,13 @@ path = require('path')
 svgrCliUtil = require('@svgr/cli/lib/util')
 module.exports = {
   expandProps: false,
-  svgProps: { width: '100%', id: '{componentId}' },
+  svgProps: {
+    css: '{css}',
+    id: '{componentId}',
+    stroke: 'currentColor',
+    strokeWidth: '{strokeWidth}',
+    width: '100%',
+  },
   template(
     { template },
     opts,
@@ -10,20 +16,23 @@ module.exports = {
   ) {
     const typeScriptTpl = template.smart({ plugins: ['typescript'] })
     return typeScriptTpl.ast`
-    import React, { SVGProps } from 'react';
-    import { getColorMap } from '../../styled-system/system-css'
+    import React, { SVGProps } from 'react'
+    import { systemCss } from '../../styled-system/system-css'
     import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
+
+    export interface IconProps extends SVGProps<SVGSVGElement> {
+      ncss: any
+    }
     
     const componentId = '${svgrCliUtil.transformFilename(
       opts.state.componentName,
       'kebab'
     )}';
-    export const ${componentName} = (props: SVGProps<SVGSVGElement>) => {
-      const currentThemeId: any = useGetCurrentThemeId();
-      const colorMap: any = getColorMap(currentThemeId);
-      const primary = colorMap.primary;
-      const secondary = colorMap.secondary;
-    
+    export const ${componentName} = (props: IconProps) => {
+      const currentThemeId: any = useGetCurrentThemeId()
+      const strokeWidth = props.strokeWidth || 2
+      const css = systemCss({ ncss: props.ncss }, currentThemeId)
+        
       return ${jsx};
     }
   `
