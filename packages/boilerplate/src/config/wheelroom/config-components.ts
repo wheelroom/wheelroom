@@ -392,12 +392,17 @@ export const configComponents: WheelroomComponents = {
     fields: {
       variation: {
         items: [
-          'cards',
+          'block',
+          'card',
           'featured',
+          'gallery',
           'headline',
           'hero',
-          'images',
+          'image',
           'navigation',
+          'quote',
+          'text',
+          'video',
         ],
         type: 'dropdown',
       } as DropdownField,
