@@ -24,6 +24,8 @@ export const TopicSingleVar = (props: TopicProps) => {
   const showImage = topicInfo.hasFluidImageObject && !topicOptions.hideImage
   const showText = pageSectionInfo.hasText && props.text
   const showAction = topicInfo.hasAction
+  const reverse =
+    props.forceReverse || props.pageSectionInfo.topicOptions.reverseOrder
 
   return (
     <TopicWrapper
@@ -40,7 +42,7 @@ export const TopicSingleVar = (props: TopicProps) => {
           pageSectionInfo={pageSectionInfo}
           imageProps={{ ...props.imageProps, fluidImageObject: props.image }}
           imageWrapperStyle={props.imageWrapperStyle}
-          forceReverse={props.forceReverse}
+          reverse={reverse}
         />
       )}
       <TopicContentWrapper
@@ -48,7 +50,7 @@ export const TopicSingleVar = (props: TopicProps) => {
         topicInfo={topicInfo}
         pageSectionInfo={pageSectionInfo}
         contentWrapperStyle={props.contentWrapperStyle}
-        forceReverse={props.forceReverse}
+        reverse={reverse}
       >
         <Fragment>
           <TopicHeader
@@ -60,7 +62,7 @@ export const TopicSingleVar = (props: TopicProps) => {
             paragraphStyle={props.paragraphStyle}
             useHeading={props.useHeading}
           />
-          {showText && <Text {...props.text!} />}
+          {showText && !reverse && <Text {...props.text!} />}
           {showAction && (
             <TopicActions
               topic={props}
@@ -71,6 +73,7 @@ export const TopicSingleVar = (props: TopicProps) => {
               fullTopicAsLink={props.fullTopicAsLink}
             />
           )}
+          {showText && reverse && <Text {...props.text!} />}
         </Fragment>
       </TopicContentWrapper>
     </TopicWrapper>

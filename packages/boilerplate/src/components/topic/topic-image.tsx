@@ -31,14 +31,11 @@ export interface TopicImageProps {
   /** Page section info */
   pageSectionInfo: PageSectionInfo
   /** Reverse image and content */
-  forceReverse?: boolean
+  reverse?: boolean
 }
 
 export const TopicImage = (props: TopicImageProps) => {
-  const order =
-    props.forceReverse || props.pageSectionInfo.topicOptions.reverseOrder
-      ? 2
-      : 1
+  const order = props.reverse ? 2 : 1
 
   const imageWrapperStyle = props.imageWrapperStyle || {}
   return (
