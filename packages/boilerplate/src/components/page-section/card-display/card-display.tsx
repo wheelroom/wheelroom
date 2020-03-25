@@ -12,9 +12,13 @@ export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
   const cards = props.pageSection.topics.map((topic, index) => (
     <Topic
       key={index}
+      {...topic}
+      text={{
+        ...props.pageSection.text,
+        locale: props.pageSection.locale,
+      }}
       pageSectionInfo={pageSectionInfo}
       fullTopicAsLink={true}
-      {...topic}
       imageWrapperStyle={{
         p: 3,
       }}

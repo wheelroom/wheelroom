@@ -41,9 +41,13 @@ export const FeaturedTwoTopics = (props: { pageSection: PageSectionProps }) => {
           {props.pageSection.topics.map((topic: TopicProps, index: number) => (
             <Topic
               key={index}
-              forceReverse={index % 2 === 0}
               {...topic}
+              text={{
+                ...props.pageSection.text,
+                locale: props.pageSection.locale,
+              }}
               pageSectionInfo={pageSectionInfo}
+              forceReverse={index % 2 === 0}
               topicWrapperStyle={{
                 flexDirection: ['column', 'row'],
                 w: 1,

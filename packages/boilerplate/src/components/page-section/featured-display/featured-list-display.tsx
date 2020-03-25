@@ -16,9 +16,13 @@ export const FeaturedListDisplay = (props: {
     (topic: TopicProps, index: number) => (
       <Topic
         key={index}
-        fullTopicAsLink={true}
         {...topic}
+        text={{
+          ...props.pageSection.text,
+          locale: props.pageSection.locale,
+        }}
         pageSectionInfo={pageSectionInfo}
+        fullTopicAsLink={true}
         topicWrapperStyle={{
           flexDirection: topicOptions.hideImage
             ? ['column', 'row']

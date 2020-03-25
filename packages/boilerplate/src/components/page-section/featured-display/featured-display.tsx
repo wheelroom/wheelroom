@@ -29,6 +29,10 @@ export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
       >
         <Topic
           {...topic}
+          text={{
+            ...props.pageSection.text,
+            locale: props.pageSection.locale,
+          }}
           pageSectionInfo={pageSectionInfo}
           topicWrapperStyle={{
             flexDirection: ['column', 'column', 'row'],

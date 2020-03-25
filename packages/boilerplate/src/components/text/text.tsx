@@ -20,7 +20,7 @@ export interface TextProps {
   text: {
     json: string
   }
-  /** Local props */
+  /** Locale needed for rendering rich text */
   locale: string
 }
 

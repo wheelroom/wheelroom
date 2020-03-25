@@ -13,7 +13,7 @@ import { TopicImage } from './topic-image'
 import { TopicHeader } from './topic-header'
 import { TopicActions } from './topic-actions'
 import { TopicContentWrapper } from './topic-content-wrapper'
-import { Text } from '../text'
+import { Text } from '../text/text'
 import { getTopicInfo } from '../../lib/get-topic-info'
 
 export const TopicSingleVar = (props: TopicProps) => {
@@ -22,7 +22,7 @@ export const TopicSingleVar = (props: TopicProps) => {
   const topicOptions = pageSectionInfo.topicOptions
 
   const showImage = topicInfo.hasFluidImageObject && !topicOptions.hideImage
-  const showText = pageSectionInfo.hasText
+  const showText = pageSectionInfo.hasText && props.text
   const showAction = topicInfo.hasAction
 
   return (

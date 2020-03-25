@@ -44,6 +44,10 @@ export const FeaturedMultipleTopics = (props: {
             <Topic
               key={index}
               {...topic}
+              text={{
+                ...props.pageSection.text,
+                locale: props.pageSection.locale,
+              }}
               pageSectionInfo={pageSectionInfo}
               topicWrapperStyle={{
                 flexDirection: 'column',

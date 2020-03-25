@@ -9,7 +9,7 @@ import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
 import { FluidImageObject, NcssProps } from '../../core/elements/types'
-import { TextProps } from '../text'
+import { TextProps } from '../text/text'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { ImageProps } from '../../core/elements/image'
 
@@ -45,7 +45,7 @@ interface TopicLocalProps {
   /** Override default button style */
   actionStyle?: NcssProps
 
-  /** Replace content box (header, abstract, action) with rich text */
+  /** Rich text */
   text?: TextProps
 
   /** Full Topic is wrapped in a link and the inside link becomes a span */

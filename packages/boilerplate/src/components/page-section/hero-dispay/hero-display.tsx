@@ -35,6 +35,10 @@ export const HeroDisplay = (props: { pageSection: PageSectionProps }) => {
         >
           <Topic
             {...topic}
+            text={{
+              ...props.pageSection.text,
+              locale: props.pageSection.locale,
+            }}
             pageSectionInfo={pageSectionInfo}
             topicWrapperStyle={{
               position: 'relative',

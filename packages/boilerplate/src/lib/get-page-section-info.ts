@@ -51,7 +51,7 @@ export const getPageSectionInfo = (
     info.hasTopic = true
     info.topicCount = pageSection.topics.length
   }
-  if (pageSection.text && pageSection.text.text && pageSection.text.locale) {
+  if (pageSection.text && pageSection.text.text && pageSection.locale) {
     info.hasText = true
   }
   if (
