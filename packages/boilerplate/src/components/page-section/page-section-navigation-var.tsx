@@ -10,17 +10,17 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../lib/not-implemented'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { NavigationHeader } from '../navigation/navigation-header'
-import { NavigationFooter } from '../navigation/navigation-footer'
+import { NavigationFooterDisplay } from './navigation-display/navigation-footer-display'
+import { NavigationHeaderDisplay } from './navigation-display/navigation-header-display'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasNavigation && info.index === 0) {
-    return <NavigationHeader pageSection={props} />
+    return <NavigationHeaderDisplay pageSection={props} />
   }
 
   if (info.hasNavigation && info.index === info.sectionCount - 1) {
-    return <NavigationFooter pageSection={props} />
+    return <NavigationFooterDisplay pageSection={props} />
   }
 
   /**

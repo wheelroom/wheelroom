@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: pageSection
- * Variation: Images
+ * Variation: Text
  *
  */
 
@@ -10,12 +10,12 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../lib/not-implemented'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { Images } from './images/images'
+import { TextDisplay } from './text-display/text-display'
 
-export const PageSectionImagesVar = (props: PageSectionProps) => {
-  const info = getPageSectionInfo(props)
-  if (info.hasTopic) {
-    return <Images pageSection={props} />
+export const PageSectionTextVar = (props: PageSectionProps) => {
+  const pageSectionInfo = getPageSectionInfo(props)
+  if (pageSectionInfo.hasTopic) {
+    return <TextDisplay pageSection={props} />
   }
 
   /**

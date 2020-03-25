@@ -10,12 +10,12 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../lib/not-implemented'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { Hero } from './hero/hero'
+import { HeroDisplay } from './hero-dispay/hero-display'
 
 export const PageSectionHeroVar = (props: PageSectionProps) => {
-  const info = getPageSectionInfo(props)
-  if (info.hasTopic) {
-    return <Hero pageSection={props} />
+  const pageSectionInfo = getPageSectionInfo(props)
+  if (pageSectionInfo.hasTopic) {
+    return <HeroDisplay pageSection={props} />
   }
 
   /**

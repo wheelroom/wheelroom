@@ -5,17 +5,7 @@ import { heading2Style } from '../../../core/styles/heading'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 
-/**
- *
- * Requires one topics, optional a text.
- *
- * - One topic: the topic is displayed
- * - Topic and text: The image of the first topic is displayed, the text shows
- *   next to the image
- *
- */
-
-export const Featured = (props: { pageSection: PageSectionProps }) => {
+export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null

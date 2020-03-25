@@ -14,7 +14,7 @@ const heroActionStyle = {
   px: [3, 4],
 }
 
-export const Hero = (props: { pageSection: PageSectionProps }) => {
+export const HeroDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null

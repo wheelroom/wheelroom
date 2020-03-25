@@ -6,17 +6,7 @@ import { PageSectionProps } from '../page-section'
 import { heading1Style } from '../../../core/styles/heading'
 import { paragraphHeroStyle } from '../../../core/styles/paragraph'
 
-/**
- *
- * Requires one topic or a text.
- *
- * - Only a topic: the topic is displayed
- * - Only a text: the text is displayed
- * - Topic and text: the topic image is displayed with the text
- *
- */
-
-export const Headline = (props: { pageSection: PageSectionProps }) => {
+export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null

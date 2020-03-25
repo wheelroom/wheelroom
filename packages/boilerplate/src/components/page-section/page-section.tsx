@@ -5,28 +5,38 @@
  *
  */
 
+import React from 'react'
 import { ActionProps } from '../action'
 import { getVariation } from '../../lib/get-variation'
 import { NavigationProps } from '../navigation'
-import { PageSectionCardsVar } from './page-section-cards-var'
+import { PageSectionBlockVar } from './page-section-block-var'
+import { PageSectionCardVar } from './page-section-card-var'
 import { PageSectionFeaturedVar } from './page-section-featured-var'
+import { PageSectionGalleryVar } from './page-section-gallery-var'
 import { PageSectionHeadlineVar } from './page-section-headline-var'
 import { PageSectionHeroVar } from './page-section-hero-var'
-import { PageSectionImagesVar } from './page-section-images-var'
+import { PageSectionImageVar } from './page-section-image-var'
 import { PageSectionNavigationVar } from './page-section-navigation-var'
+import { PageSectionQuoteVar } from './page-section-quote-var'
+import { PageSectionTextVar } from './page-section-text-var'
+import { PageSectionVideoVar } from './page-section-video-var'
 import { SectionProps } from '../../sections/section-props'
 import { TextProps } from '../text'
-import { TopicProps } from '../topic'
-import React from 'react'
 import { TopicOptionString } from '../../lib/get-topic-options'
+import { TopicProps } from '../topic'
 
 const componentList = {
-  ['cards']: PageSectionCardsVar,
+  ['block']: PageSectionBlockVar,
+  ['card']: PageSectionCardVar,
   ['featured']: PageSectionFeaturedVar,
+  ['gallery']: PageSectionGalleryVar,
   ['headline']: PageSectionHeadlineVar,
   ['hero']: PageSectionHeroVar,
-  ['images']: PageSectionImagesVar,
+  ['image']: PageSectionImageVar,
   ['navigation']: PageSectionNavigationVar,
+  ['quote']: PageSectionQuoteVar,
+  ['text']: PageSectionTextVar,
+  ['video']: PageSectionVideoVar,
 }
 
 export interface PageSectionProps extends SectionProps {

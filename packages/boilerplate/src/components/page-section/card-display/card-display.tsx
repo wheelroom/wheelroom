@@ -4,13 +4,7 @@ import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Topic } from '../../topic/topic'
 
-/**
- *
- * Accepts one or more cards
- *
- */
-
-export const Cards = (props: { pageSection: PageSectionProps }) => {
+export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null

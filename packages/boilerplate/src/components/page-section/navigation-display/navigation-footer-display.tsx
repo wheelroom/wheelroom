@@ -6,22 +6,22 @@
  */
 
 import React, { Fragment } from 'react'
-import { TopicProps } from '../topic'
-import { NavigationSegmentProps } from '../navigation-segment'
-import { Box, Container, Flex } from '../../core/elements/grid'
-import { ALink } from '../../core/elements/a-link'
-import { Any } from '../../core/elements/any'
-import { NavLinks } from './nav-links'
-import { List } from '../../core/elements/list'
-import { IconMap } from '../../svg/feather/iconMap'
-import { Action } from '../action'
+import { TopicProps } from '../../topic'
+import { NavigationSegmentProps } from '../../navigation-segment'
+import { Box, Container, Flex } from '../../../core/elements/grid'
+import { ALink } from '../../../core/elements/a-link'
+import { Any } from '../../../core/elements/any'
+import { NavLinks } from '../../navigation/nav-links'
+import { List } from '../../../core/elements/list'
+import { IconMap } from '../../../svg/feather/iconMap'
+import { Action } from '../../action'
 import {
   commonNavigationStyle,
   navigationFooterStyle,
   navStyle,
 } from './navigation-styles'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { PageSectionProps } from '../page-section/page-section'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { PageSectionProps } from '../page-section'
 
 export const listStyle = {
   label: 'nav-list',
@@ -54,7 +54,9 @@ const Icon = (props: { name: string }) => {
   return null
 }
 
-export const NavigationFooter = (props: { pageSection: PageSectionProps }) => {
+export const NavigationFooterDisplay = (props: {
+  pageSection: PageSectionProps
+}) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasNavigation) {
     return null

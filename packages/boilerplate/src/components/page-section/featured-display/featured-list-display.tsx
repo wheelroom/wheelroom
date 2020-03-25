@@ -4,15 +4,9 @@ import { TopicProps, Topic } from '../../topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../page-section'
 
-/**
- *
- * Requires one or more topics.
- *
- * The topics are displayed as featured items below each other.
- *
- */
-
-export const FeaturedList = (props: { pageSection: PageSectionProps }) => {
+export const FeaturedListDisplay = (props: {
+  pageSection: PageSectionProps
+}) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   const topicOptions = pageSectionInfo.topicOptions
   if (!pageSectionInfo.hasTopic) {

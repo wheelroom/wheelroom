@@ -1,15 +1,10 @@
 import React, { Fragment } from 'react'
 import { SingleImage } from './single-image'
 import { Box, Container } from '../../../core/elements/grid'
-import { TopicProps } from '../../topic'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 
-export interface ImagesProps {
-  topics: TopicProps[]
-}
-
-export const Images = (props: { pageSection: PageSectionProps }) => {
+export const GalleryDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null

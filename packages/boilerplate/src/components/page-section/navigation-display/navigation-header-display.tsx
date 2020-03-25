@@ -7,20 +7,20 @@
  */
 
 import React, { Fragment, useContext, useState, useRef } from 'react'
-import { Action } from '../action'
+import { Action } from '../../action'
 import { AdminCoreContext } from '@wheelroom/admin-core'
-import { ALink } from '../../core/elements/a-link'
-import { Box, Container, Flex } from '../../core/elements/grid'
-import { Button } from '../../core/elements/button'
+import { ALink } from '../../../core/elements/a-link'
+import { Box, Container, Flex } from '../../../core/elements/grid'
+import { Button } from '../../../core/elements/button'
 import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
-} from '../../core/styles/button'
+} from '../../../core/styles/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { GLink } from '../../core/elements/g-link'
-import { List } from '../../core/elements/list'
-import { NavigationSegmentProps } from '../navigation-segment'
-import { NavLinks } from './nav-links'
+import { GLink } from '../../../core/elements/g-link'
+import { List } from '../../../core/elements/list'
+import { NavigationSegmentProps } from '../../navigation-segment'
+import { NavLinks } from '../../navigation/nav-links'
 import {
   skipToContent,
   wrapperStyle,
@@ -37,12 +37,14 @@ import {
   modalContentOpenStyle,
   navigationHeaderStyle,
 } from './navigation-styles'
-import { IconMap } from '../../svg/feather/iconMap'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { PageSectionProps } from '../page-section/page-section'
+import { IconMap } from '../../../svg/feather/iconMap'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { PageSectionProps } from '../page-section'
 const XIcon = IconMap.x
 
-export const NavigationHeader = (props: { pageSection: PageSectionProps }) => {
+export const NavigationHeaderDisplay = (props: {
+  pageSection: PageSectionProps
+}) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
