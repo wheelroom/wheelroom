@@ -31,7 +31,7 @@ export interface TopicContentWrapperProps {
 }
 
 export const TopicContentWrapper = (props: TopicContentWrapperProps) => {
-  const order = props.reverse ? 1 : 2
+  const order = props.reverse ? -2 : -1
   const topicOptions = props.pageSectionInfo.topicOptions
   const contentWrapperStyle = props.contentWrapperStyle || {}
   return (

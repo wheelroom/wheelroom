@@ -62,7 +62,6 @@ export const TopicSingleVar = (props: TopicProps) => {
             paragraphStyle={props.paragraphStyle}
             useHeading={props.useHeading}
           />
-          {showText && !reverse && <Text {...props.text!} />}
           {showAction && (
             <TopicActions
               topic={props}
@@ -74,9 +73,9 @@ export const TopicSingleVar = (props: TopicProps) => {
               fullTopicAsLink={props.fullTopicAsLink}
             />
           )}
-          {showText && reverse && <Text {...props.text!} />}
         </Fragment>
       </TopicContentWrapper>
+      {showText && <Text {...props.text!} />}
     </TopicWrapper>
   )
 }
