@@ -8,16 +8,11 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
-import {
-  FluidImageObject,
-  VideoAttributes,
-  NcssProps,
-} from '../../core/elements/types'
-import { TextProps } from '../text'
+import { FluidImageObject, NcssProps } from '../../core/elements/types'
+import { TextProps } from '../text/text'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { ImageProps } from '../../core/elements/image'
-import { VideoProps } from '../../core/elements/video'
-import { ActionProps } from '../action'
+import { ActionProps } from '../action/action'
 
 const componentList = {
   ['single']: TopicSingleVar,
@@ -39,11 +34,6 @@ interface TopicLocalProps {
   imageProps?: ImageProps
   /** Override default styling of the image wrapper */
   imageWrapperStyle?: NcssProps
-
-  /** Override default video props */
-  videoProps?: VideoProps
-  /** Override default styling of the video wrapper */
-  videoWrapperStyle?: NcssProps
 
   /** Override default styling of the headerwrapper */
   headerWrapperStyle?: NcssProps
@@ -78,7 +68,6 @@ export interface TopicProps extends TopicLocalProps {
     abstract: string
   }
   image: FluidImageObject | undefined
-  video: VideoAttributes | undefined
   icon: string
   actions: any
 }
