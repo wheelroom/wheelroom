@@ -41,7 +41,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
         type: 'Link',
         validations: [
           {
-            linkMimetypeGroup: ['image'],
+            linkMimetypeGroup: ['image', 'video'],
           },
         ],
       },
