@@ -35,7 +35,8 @@ export const Image = (props: ImageProps) => {
   const media = props.media || defaultMediaObject
 
   const imgElementAttrs = {
-    alt: media.description || props.alt || 'No alternate text available',
+    alt:
+      media.description || props.description || 'No alternate text available',
     title: media.title || props.title || 'No title',
     sizes: media.fluid.sizes,
     src: media.fluid.src,

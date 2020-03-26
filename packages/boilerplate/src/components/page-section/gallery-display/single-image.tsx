@@ -19,7 +19,7 @@ export const SingleImage = (props: SingleImageProps) => {
           p: 2,
         }}
       >
-        <Image media={props.topic?.image} />
+        <Image media={props.topic?.media} />
       </Box>
     </Fragment>
   )
