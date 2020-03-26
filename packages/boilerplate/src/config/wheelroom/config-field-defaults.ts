@@ -9,7 +9,7 @@ import {
   DateField,
   DropdownField,
   FieldDefaults,
-  ImageField,
+  MediaField,
   LongTextField,
   MultipleComponentsField,
   NumberField,
@@ -39,9 +39,9 @@ const dropdown: DropdownField = {
   items: ['drop', 'down'],
   type: 'dropdown',
 }
-const image: ImageField = {
+const media: MediaField = {
   initialContent: true,
-  type: 'image',
+  type: 'media',
 }
 const longText: LongTextField = {
   initialContent: 'Initial content for long text field',
@@ -80,7 +80,7 @@ export const configFieldDefaults: FieldDefaults = {
     checkbox,
     date,
     dropdown,
-    image,
+    media,
     longText,
     multipleComponents,
     number,

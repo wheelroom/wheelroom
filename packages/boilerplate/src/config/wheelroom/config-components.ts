@@ -1,6 +1,6 @@
 import {
   DropdownField,
-  ImageField,
+  MediaField,
   LongTextField,
   MultipleComponentsField,
   RichTextField,
@@ -20,9 +20,9 @@ export const configComponents: WheelroomComponents = {
       abstract: {
         type: 'longText',
       } as LongTextField,
-      image: {
-        type: 'image',
-      } as ImageField,
+      media: {
+        type: 'media',
+      } as MediaField,
       icon: {
         items: [
           'activity',
@@ -475,8 +475,8 @@ export const configComponents: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
       seoImage: {
-        type: 'image',
-      } as ImageField,
+        type: 'media',
+      } as MediaField,
     },
     modelVersion: '1.0.0',
     settings: {
