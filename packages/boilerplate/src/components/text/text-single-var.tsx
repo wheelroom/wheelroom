@@ -85,6 +85,7 @@ const ImageBox = (props: { media: MediaObject }) => (
     includeFigcaption={true}
     media={props.media}
     imgNcss={{ my: [4, 5] }}
+    figcaptionNcss={{ mt: 0, mb: [4, 5] }}
   />
 )
 
@@ -212,7 +213,7 @@ export const TextSingleVar = (props: TextProps) => {
             title: localizedTitle,
             description: localizedDescription,
             fluid: {
-              src: localizedFile.url + '?w=2560&q=50',
+              src: localizedFile.url + '?w=2560&q=75',
             },
           } as MediaObject
           return <ImageBox media={media} key={node.data.target.id} />
@@ -232,6 +233,7 @@ export const TextSingleVar = (props: TextProps) => {
               media={media}
               title={localizedTitle}
               description={localizedDescription}
+              videoNcss={{ my: [4, 5] }}
             />
           )
         }
