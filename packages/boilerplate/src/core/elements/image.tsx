@@ -33,6 +33,10 @@ export const Image = (props: ImageProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
 
   const media = props.media || defaultMediaObject
+  // Video uses media.file, images use media.fluid
+  if (!media.fluid) {
+    return null
+  }
 
   const imgElementAttrs = {
     alt:

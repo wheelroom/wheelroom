@@ -31,6 +31,7 @@ export interface TopicMediaProps {
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
+
   const mediaWrapperStyle = props.mediaWrapperStyle || {}
   return (
     <Box
