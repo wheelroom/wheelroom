@@ -35,7 +35,7 @@ export interface TopicImageProps {
 }
 
 export const TopicImage = (props: TopicImageProps) => {
-  const order = props.reverse ? 1 : 0
+  const order = props.reverse ? -1 : 0
 
   const imageWrapperStyle = props.imageWrapperStyle || {}
   return (
