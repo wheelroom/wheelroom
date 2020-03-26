@@ -3,15 +3,13 @@ import { SingleImage } from './single-image'
 import { Box, Container } from '../../../core/elements/grid'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { TopicProps } from '../../topic'
 
 export const GalleryDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const images = props.pageSection.topics.map((topic, index) => (
-    <SingleImage key={index} topic={topic} />
-  ))
   return (
     <Fragment>
       <Box
@@ -35,7 +33,11 @@ export const GalleryDisplay = (props: { pageSection: PageSectionProps }) => {
             flexWrap: 'wrap',
           }}
         >
-          {images}
+          {props.pageSection.topics
+            .filter((topic: TopicProps, index: number) => index <= 4)
+            .map((topic: TopicProps, index: number) => (
+              <SingleImage key={index} topic={topic} />
+            ))}
         </Container>
       </Box>
     </Fragment>
