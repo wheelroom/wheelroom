@@ -35,7 +35,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       },
       widgetId: 'dropdown',
     },
-    image: {
+    media: {
       specs: {
         linkType: 'Asset',
         type: 'Link',
