@@ -1,18 +1,20 @@
 import { TopicProps } from '../components/topic'
 
 export interface TopicInfo {
-  hasHeading: boolean
   hasAbstract: boolean
   hasAction: boolean
+  hasHeading: boolean
   hasImage: boolean
+  hasVideo: boolean
 }
 
 export const getTopicInfo = (topic: TopicProps): TopicInfo => {
   const info = {
-    hasHeading: false,
     hasAbstract: false,
     hasAction: false,
+    hasHeading: false,
     hasImage: false,
+    hasVideo: false,
   } as TopicInfo
 
   if (topic.heading) {
@@ -29,7 +31,16 @@ export const getTopicInfo = (topic: TopicProps): TopicInfo => {
     info.hasAction = true
   }
   if (topic.media) {
-    info.hasImage = true
+    const contentType = topic.media.file && topic.media.file.contentType
+    if (contentType && contentType.includes('/')) {
+      const contentTypeSplit = contentType.split('/')
+      if (contentTypeSplit[0] === 'image') {
+        info.hasImage = true
+      }
+      if (contentTypeSplit[0] === 'video') {
+        info.hasVideo = true
+      }
+    }
   }
 
   return info

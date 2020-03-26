@@ -30,6 +30,10 @@ export const Video = (props: VideoProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
 
   const media = props.media || defaultMediaObject
+  // Video uses media.file, images use media.fluid
+  if (!media.file) {
+    return null
+  }
 
   const videoAttrs = {
     title: media.title || props.title || defaultMediaObject.title,
