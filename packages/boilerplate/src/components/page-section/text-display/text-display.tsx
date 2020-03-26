@@ -1,7 +1,7 @@
 import React from 'react'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { Text, TextProps } from '../../text'
+import { Text } from '../../text'
 import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 
 export const TextDisplay = (props: { pageSection: PageSectionProps }) => {
@@ -9,7 +9,6 @@ export const TextDisplay = (props: { pageSection: PageSectionProps }) => {
   if (!pageSectionInfo.hasText) {
     return null
   }
-  const text = (props: TextProps) => <Text {...props.text!} />
   return (
     <Box
       is="div"
@@ -19,7 +18,9 @@ export const TextDisplay = (props: { pageSection: PageSectionProps }) => {
         py: 3,
       }}
     >
-      <ContainerMaxWidth>{text}</ContainerMaxWidth>
+      <ContainerMaxWidth>
+        <Text {...props.pageSection.text} />
+      </ContainerMaxWidth>
     </Box>
   )
 }
