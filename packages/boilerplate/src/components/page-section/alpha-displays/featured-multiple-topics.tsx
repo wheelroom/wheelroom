@@ -31,7 +31,7 @@ export const FeaturedMultipleTopics = (props: {
       ncss={{
         label: 'wrapper',
         bg: 'bg',
-        py: 8,
+        py: [3, 6, 8],
       }}
     >
       <ContainerMaxWidth

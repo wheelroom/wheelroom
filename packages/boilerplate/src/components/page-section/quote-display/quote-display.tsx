@@ -64,7 +64,7 @@ const Quotes = (props: { children: any }) => (
     ncss={{
       label: 'wrapper',
       bg: 'bg',
-      py: 8,
+      py: [3, 6, 8],
     }}
   >
     <ContainerMaxWidth

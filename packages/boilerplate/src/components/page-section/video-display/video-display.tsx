@@ -12,7 +12,6 @@ export const VideoDisplay = (props: { pageSection: PageSectionProps }) => {
     return null
   }
   const topic = props.pageSection.topics[0]
-  console.log(topic.media)
   return (
     <Fragment>
       <Box
@@ -20,7 +19,7 @@ export const VideoDisplay = (props: { pageSection: PageSectionProps }) => {
         ncss={{
           label: 'wrapper',
           bg: 'bg',
-          py: 8,
+          py: [3, 6, 8],
         }}
       >
         <ContainerMaxWidth>

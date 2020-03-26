@@ -10,7 +10,7 @@ const NotFoundPage = () => (
     is="div"
     ncss={{
       label: 'wrapper',
-      py: 8,
+      py: [3, 6, 8],
     }}
   >
     <ContainerMaxWidth>
