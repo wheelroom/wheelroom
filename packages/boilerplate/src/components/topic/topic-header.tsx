@@ -5,7 +5,7 @@ import { HeadingName, HeadingMap } from '../../core/elements/heading'
 import { headingStyleMap } from '../../core/styles/heading'
 import { Paragraph } from '../../core/elements/paragraph'
 import { IconMap } from '../../svg/feather/iconMap'
-import { NcssProps } from '../../core/elements/types'
+import { BlockLevelElementName, NcssProps } from '../../core/elements/types'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 
@@ -26,11 +26,12 @@ export interface TopicHeaderProps {
   headerWrapperStyle?: NcssProps
   /** Defaults to h3 */
   useHeading?: HeadingName
+  /** Defaults to p */
+  useParagraph?: BlockLevelElementName
   /** Override default paragraph style */
   paragraphStyle?: NcssProps
   /** Override default heading style */
   headingStyle?: NcssProps
-
   /** All topic props */
   topic: TopicProps
   /** Topic info object */
@@ -49,6 +50,7 @@ const Icon = (props: { name: string }) => {
 
 export const TopicHeader = (props: TopicHeaderProps) => {
   const useHeading = props.useHeading || 'h3'
+  const useParagraph = props.useParagraph || 'p'
 
   const headerWrapperStyle = props.headerWrapperStyle || {}
   const paragraphStyle = props.paragraphStyle || {}
@@ -67,7 +69,7 @@ export const TopicHeader = (props: TopicHeaderProps) => {
         </Heading>
       )}
       {!topicOptions.hideAbstract && (
-        <Paragraph ncss={{ ...paragraphStyle }}>
+        <Paragraph is={useParagraph} ncss={{ ...paragraphStyle }}>
           {props.topic.abstract &&
             props.topic.abstract.abstract
               .split('\n')

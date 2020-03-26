@@ -8,18 +8,15 @@ export const commonFlexStyle = {
 
 export const commonContainerStyle = {
   ...commonFlexStyle,
-  label: 'container',
+  label: 'container-fluid',
   mx: 'auto',
   my: '0',
   px: 3,
+  w: 1,
 }
 
 export const commonContainerMaxWidthStyle = {
   ...commonFlexStyle,
   label: 'container-max-width',
   maxWidth: '1280px',
-  mx: 'auto',
-  my: '0',
-  px: [2, 5, 7],
-  w: 1,
 }
