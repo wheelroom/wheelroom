@@ -20,7 +20,9 @@ export const TopicSingleVar = (props: TopicProps) => {
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
 
-  const showImage = topicInfo.hasImage && !topicOptions.hideMedia
+  const showMedia =
+    (topicInfo.hasImage && !topicOptions.hideMedia) ||
+    (topicInfo.hasVideo && !topicOptions.hideMedia)
   const showAction = topicInfo.hasAction
   const reverse =
     props.forceReverse || props.pageSectionInfo.topicOptions.reverseOrder
@@ -33,7 +35,7 @@ export const TopicSingleVar = (props: TopicProps) => {
       topicWrapperStyle={props.topicWrapperStyle}
       fullTopicAsLink={props.fullTopicAsLink}
     >
-      {showImage && (
+      {showMedia && (
         <TopicMedia
           topic={props}
           topicInfo={topicInfo}
