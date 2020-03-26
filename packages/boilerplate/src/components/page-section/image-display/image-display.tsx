@@ -57,8 +57,8 @@ export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
                 }}
                 actionStyle={{
                   mx: 2,
-                  fontSize: [5, 6],
-                  lineHeight: [3, 4],
+                  fontSize: [3, 4],
+                  lineHeight: [3],
                 }}
               />
             ))}
