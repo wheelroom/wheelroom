@@ -22,7 +22,7 @@ export const TextDisplay = (props: { pageSection: PageSectionProps }) => {
           px: 3,
         }}
       >
-        <Text {...props.pageSection.text} />
+        <Text {...props.pageSection.text} locale={props.pageSection.locale} />
       </ContainerMaxWidth>
     </Box>
   )

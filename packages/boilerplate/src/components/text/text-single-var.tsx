@@ -93,7 +93,7 @@ export const TextSingleVar = (props: TextProps) => {
   const textProps = props
 
   const options = {
-    renderText: text => {
+    renderText: (text) => {
       return text
         .split('\n')
         .reduce((children: Children, textSegment, index) => {
@@ -101,12 +101,12 @@ export const TextSingleVar = (props: TextProps) => {
         }, [])
     },
     renderMark: {
-      [MARKS.BOLD]: text => (
+      [MARKS.BOLD]: (text) => (
         <Any is="b" ncss={{ ...boldTextStyle }}>
           {text}
         </Any>
       ),
-      [MARKS.CODE]: code => (
+      [MARKS.CODE]: (code) => (
         <Any is="pre" ncss={{ ...preTextStyle }}>
           <Any is="code" ncss={{ ...codeTextStyle }}>
             {code}
@@ -227,7 +227,7 @@ export const TextSingleVar = (props: TextProps) => {
               fileName: localizedFile.name,
               contentType: localizedFile.contentType,
             },
-          }
+          } as MediaObject
           return (
             <Video
               media={media}
