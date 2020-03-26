@@ -5,7 +5,7 @@
  *
  */
 
-import { FluidImageObject } from '../../core/elements/types'
+import { MediaObject } from '../../core/elements/types'
 
 export interface PageProps {
   /** Gatsby fetched data */
@@ -17,5 +17,5 @@ export interface PageProps {
   theme: string
   seoTitle: string
   seoDescription: string
-  seoImage: FluidImageObject
+  seoImage: MediaObject
 }

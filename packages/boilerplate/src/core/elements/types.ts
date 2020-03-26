@@ -86,14 +86,21 @@ export type LinkRelationshipAttribute =
   | 'search'
   | 'tag'
 
-export interface FluidImageObject {
+export interface MediaObject {
+  title: string
   description: string
   fluid: {
-    sizes: string
+    base64: any
+    aspectRatio: any
     src: string
-    srcSet: string
+    srcSet: any
+    sizes: any
   }
-  title: string
+  file: {
+    url: string
+    fileName: string
+    contentType: string
+  }
 }
 
 export interface VideoAttributes {

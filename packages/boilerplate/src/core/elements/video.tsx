@@ -7,13 +7,23 @@ import { VideoAttributes, NcssProps } from './types'
 import { commonVideoStyle, commonVideoFigcaptionStyle } from '../styles/video'
 
 export interface VideoProps {
+  description?: string
   figcaptionNcss?: NcssProps
+  title?: string
+  type?: string
   url?: string
   videoNcss?: NcssProps
-  type?: string
-  title?: string
-  description?: string
 }
+export interface VideoProps {
+    description?: string
+    descriptionNcss?: NcssProps
+    includeDescription?: boolean
+    includeTitle?: boolean
+    media?: MediaObject
+    title?: string
+    videoNcss?: NcssProps
+  }
+
 
 const defaultVideo = {
   description: 'No description available',

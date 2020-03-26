@@ -4,7 +4,7 @@ export interface TopicInfo {
   hasHeading: boolean
   hasAbstract: boolean
   hasAction: boolean
-  hasFluidImageObject: boolean
+  hasMediaObject: boolean
 }
 
 export const getTopicInfo = (topic: TopicProps): TopicInfo => {
@@ -12,7 +12,7 @@ export const getTopicInfo = (topic: TopicProps): TopicInfo => {
     hasHeading: false,
     hasAbstract: false,
     hasAction: false,
-    hasFluidImageObject: false,
+    hasMediaObject: false,
   } as TopicInfo
 
   if (topic.heading) {
@@ -29,7 +29,7 @@ export const getTopicInfo = (topic: TopicProps): TopicInfo => {
     info.hasAction = true
   }
   if (topic.image && topic.image.fluid) {
-    info.hasFluidImageObject = true
+    info.hasMediaObject = true
   }
 
   return info

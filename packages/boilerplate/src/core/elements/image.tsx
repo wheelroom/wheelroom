@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { FluidImageObject, NcssProps } from './types'
+import { MediaObject, NcssProps } from './types'
 import {
   commonImagePictureStyle,
   commonImageImgStyle,
@@ -10,16 +10,16 @@ import {
 } from '../styles/image'
 
 export interface ImageProps {
-  alt?: string
+  description?: string
   figcaptionNcss?: NcssProps
-  fluidImageObject?: FluidImageObject
+  media?: MediaObject
   imgNcss?: NcssProps
   includeFigcaption?: boolean
   pictureNcss?: NcssProps
   title?: string
 }
 
-const defaultFluidImageObject = {
+const defaultMediaObject = {
   description: 'no description',
   fluid: {
     sizes: '',
@@ -27,22 +27,19 @@ const defaultFluidImageObject = {
     srcSet: '',
   },
   title: 'No alternate text available',
-} as FluidImageObject
+} as MediaObject
 
 export const Image = (props: ImageProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
 
-  const fluidImageObject = props.fluidImageObject || defaultFluidImageObject
+  const media = props.media || defaultMediaObject
 
   const imgElementAttrs = {
-    alt:
-      fluidImageObject.description ||
-      props.alt ||
-      'No alternate text available',
-    title: fluidImageObject.title || props.title || 'No title',
-    sizes: fluidImageObject.fluid.sizes,
-    src: fluidImageObject.fluid.src,
-    srcSet: fluidImageObject.fluid.srcSet,
+    alt: media.description || props.alt || 'No alternate text available',
+    title: media.title || props.title || 'No title',
+    sizes: media.fluid.sizes,
+    src: media.fluid.src,
+    srcSet: media.fluid.srcSet,
   }
 
   const figcaptionNcss = props.figcaptionNcss || {}

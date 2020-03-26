@@ -10,7 +10,7 @@ import { getVariation } from '../../lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
 import {
   BlockLevelElementName,
-  FluidImageObject,
+  MediaObject,
   NcssProps,
 } from '../../core/elements/types'
 import { TextProps } from '../text/text'
@@ -73,7 +73,7 @@ export interface TopicProps extends TopicLocalProps {
   abstract: {
     abstract: string
   }
-  image: FluidImageObject | undefined
+  media: MediaObject | undefined
   icon: string
   actions: any
 }
