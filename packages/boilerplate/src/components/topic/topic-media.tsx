@@ -8,7 +8,7 @@ import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { VideoProps, Video } from '../../core/elements/video'
 
 const defaultWrapperStyle = {
-  label: 'topic-image',
+  label: 'topic-media',
   justifyContent: 'center',
 }
 

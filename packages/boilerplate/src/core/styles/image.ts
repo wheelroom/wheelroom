@@ -7,6 +7,7 @@ export const commonImageImgStyle = {
 
 export const commonImagePictureStyle = {
   label: 'picture',
+  boxSizing: 'border-box',
 }
 
 export const commonImageFigcaptionStyle = {
