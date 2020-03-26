@@ -11,7 +11,6 @@ export const commonContainerStyle = {
   label: 'container-fluid',
   mx: 'auto',
   my: '0',
-  px: 3,
   w: 1,
 }
 

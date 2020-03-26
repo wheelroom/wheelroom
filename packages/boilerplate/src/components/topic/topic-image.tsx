@@ -11,8 +11,8 @@ const defaultWrapperStyle = {
   justifyContent: 'center',
 }
 
-const overrideImageWrapperStyle = {
-  label: 'topic-image-override',
+const hasTextImageWrapperStyle = {
+  label: 'topic-image-has-text',
   justifyContent: 'normal',
 }
 
@@ -42,7 +42,7 @@ export const TopicImage = (props: TopicImageProps) => {
         ...defaultWrapperStyle,
         ...imageWrapperStyle,
         ...(props.pageSectionInfo.hasText
-          ? { ...overrideImageWrapperStyle }
+          ? { ...hasTextImageWrapperStyle }
           : imageWrapperStyle),
       }}
     >

@@ -7,7 +7,7 @@ import { BlockLevelElementName, NcssProps } from './types'
 
 export interface ParagraphProps {
   /** Render as another HTML element */
-  is: BlockLevelElementName
+  is?: BlockLevelElementName
   /** React children */
   children?: any
   /** Nested emotion css styling */

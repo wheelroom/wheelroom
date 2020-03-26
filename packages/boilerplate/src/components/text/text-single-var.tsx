@@ -244,6 +244,7 @@ export const TextSingleVar = (props: TextProps) => {
       ncss={{
         label: 'text',
         mx: 'auto',
+        p: 3,
         maxWidth: '640px',
         flexDirection: 'column',
         textAlign: 'left',

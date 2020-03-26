@@ -69,11 +69,8 @@ const Quotes = (props: { children: any }) => (
   >
     <ContainerMaxWidth
       ncss={{
-        alignItems: ['center'],
+        alignItems: 'center',
         justifyContent: 'center',
-        m: 'auto',
-        p: 0,
-        w: 1,
       }}
     >
       {props.children}
