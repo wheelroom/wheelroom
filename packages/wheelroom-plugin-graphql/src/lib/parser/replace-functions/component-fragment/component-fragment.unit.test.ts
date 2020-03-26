@@ -21,13 +21,16 @@ describe('Graphql parser should parse', () => {
           json
         }
         createdAt
-        image {
+        media {
           title
           description
-          fluid(maxWidth: 1024) {
-            sizes
-            src
-            srcSet
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+          file {
+            url
+            fileName
+            contentType
           }
         }
         title
@@ -73,13 +76,16 @@ describe('Graphql parser should parse', () => {
       fragment FeaturedPageSection on ContentfulFeaturedPageSection {
         __typename
         featuredPage {
-          image {
+          media {
             title
             description
-            fluid(maxWidth: 1024) {
-              sizes
-              src
-              srcSet
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+            file {
+              url
+              fileName
+              contentType
             }
           }
           pageHeading
@@ -88,13 +94,16 @@ describe('Graphql parser should parse', () => {
           }
         }
         heading
-        image {
+        media {
           title
           description
-          fluid(maxWidth: 1024) {
-            sizes
-            src
-            srcSet
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+          file {
+            url
+            fileName
+            contentType
           }
         }
         text {

@@ -25,12 +25,12 @@ export const argvComponents: WheelroomComponents = {
         required: false,
         type: 'dropdown',
       },
-      imageField: {
+      mediaField: {
         initialContent: true,
         localized: false,
         name: 'Image field',
         required: false,
-        type: 'image',
+        type: 'media',
       },
       longTextField: {
         initialContent: 'This is a long text field',

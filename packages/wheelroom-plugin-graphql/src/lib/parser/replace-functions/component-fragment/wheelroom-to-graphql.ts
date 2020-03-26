@@ -69,16 +69,22 @@ export const wheelroomToGraphql = (context: WheelroomToGraphql): QbFields => {
     checkbox: {},
     date: {},
     dropdown: {},
-    image: {
+    media: {
       fields: {
         title: {},
         description: {},
         fluid: {
-          arguments: { maxWidth: '1024' },
           fields: {
-            sizes: {},
-            src: {},
-            srcSet: {},
+            GatsbyContentfulFluid: {
+              fragment: true,
+            },
+          },
+        },
+        file: {
+          fields: {
+            url: {},
+            fileName: {},
+            contentType: {},
           },
         },
       } as QbFields,

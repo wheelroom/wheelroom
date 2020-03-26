@@ -4,8 +4,8 @@ import { ReplaceVars } from '@wheelroom/wheelroom'
 const components: WheelroomComponents = {
   page: {
     fields: {
-      image: {
-        type: 'image',
+      media: {
+        type: 'media',
       },
       pageHeading: {
         type: 'shortText',
@@ -40,8 +40,8 @@ const article: ReplaceVars = {
         system: true,
         type: 'date',
       },
-      image: {
-        type: 'image',
+      media: {
+        type: 'media',
       },
       title: {
         required: true,
@@ -109,8 +109,8 @@ const featuredPageSection: ReplaceVars = {
       heading: {
         type: 'shortText',
       },
-      image: {
-        type: 'image',
+      media: {
+        type: 'media',
       },
       text: {
         type: 'richText',
