@@ -20,13 +20,13 @@ export interface ImageProps {
 }
 
 const defaultMediaObject = {
-  description: 'no description',
+  description: 'no description available',
   fluid: {
     sizes: '',
     src: '//placehold.it/1024',
     srcSet: '',
   },
-  title: 'No alternate text available',
+  title: 'No title available',
 } as MediaObject
 
 export const Image = (props: ImageProps) => {
@@ -36,8 +36,8 @@ export const Image = (props: ImageProps) => {
 
   const imgElementAttrs = {
     alt:
-      media.description || props.description || 'No alternate text available',
-    title: media.title || props.title || 'No title',
+      media.description || props.description || defaultMediaObject.description,
+    title: media.title || props.title || defaultMediaObject.title,
     sizes: media.fluid.sizes,
     src: media.fluid.src,
     srcSet: media.fluid.srcSet,

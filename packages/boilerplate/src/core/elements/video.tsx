@@ -3,48 +3,43 @@ import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { VideoAttributes, NcssProps } from './types'
-import { commonVideoStyle, commonVideoFigcaptionStyle } from '../styles/video'
+import { NcssProps, MediaObject } from './types'
+import { commonVideoStyle, commonVideoDescriptionStyle } from '../styles/video'
 
 export interface VideoProps {
   description?: string
-  figcaptionNcss?: NcssProps
+  descriptionNcss?: NcssProps
+  includeDescription?: boolean
+  includeTitle?: boolean
+  media?: MediaObject
   title?: string
-  type?: string
-  url?: string
   videoNcss?: NcssProps
 }
-export interface VideoProps {
-    description?: string
-    descriptionNcss?: NcssProps
-    includeDescription?: boolean
-    includeTitle?: boolean
-    media?: MediaObject
-    title?: string
-    videoNcss?: NcssProps
-  }
 
-
-const defaultVideo = {
-  description: 'No description available',
-  url: 'https://www.example.com',
+const defaultMediaObject = {
+  description: 'no description',
+  file: {
+    url: 'https://www.example.com',
+    fileName: 'none',
+    contentType: 'video/mp4',
+  },
   title: 'No alternate text available',
-  type: 'video/mp4',
-} as VideoAttributes
+} as MediaObject
 
 export const Video = (props: VideoProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
 
-  const video = defaultVideo
+  const media = props.media || defaultMediaObject
 
   const videoAttrs = {
-    title: props.title || video.title,
-    url: props.url || video.url,
-    type: props.type || video.type,
-    description: props.description || video.description,
+    title: media.title || props.title || defaultMediaObject.title,
+    url: media.file.url || defaultMediaObject.file.url,
+    type: media.file.contentType || defaultMediaObject.file.contentType,
+    description:
+      media.description || props.description || defaultMediaObject.description,
   }
 
-  const videoFigcaptionNcss = props.figcaptionNcss || {}
+  const descriptionNcss = props.descriptionNcss || {}
   const videoNcss = props.videoNcss || {}
 
   return (
@@ -62,7 +57,7 @@ export const Video = (props: VideoProps) => {
       {(props.title || videoAttrs.description) && (
         <p
           css={systemCss(
-            { ncss: { ...commonVideoFigcaptionStyle, ...videoFigcaptionNcss } },
+            { ncss: { ...commonVideoDescriptionStyle, ...descriptionNcss } },
             currentThemeId
           )}
         >

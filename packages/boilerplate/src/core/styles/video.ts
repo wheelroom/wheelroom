@@ -5,7 +5,7 @@ export const commonVideoStyle = {
   my: [4, 5],
 }
 
-export const commonVideoFigcaptionStyle = {
+export const commonVideoDescriptionStyle = {
   label: 'video-caption',
   fontFamily: 'text',
   color: 'text',

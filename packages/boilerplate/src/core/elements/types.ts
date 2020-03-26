@@ -103,11 +103,4 @@ export interface MediaObject {
   }
 }
 
-export interface VideoAttributes {
-  description: string
-  url: string
-  title: string
-  type: string
-}
-
 export type styleProp = string | string[] | number | number[]
