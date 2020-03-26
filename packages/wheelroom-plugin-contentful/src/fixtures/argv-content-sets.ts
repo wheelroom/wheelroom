@@ -16,7 +16,7 @@ export const argvContentSets: ArgvContentSets = {
       fields: {
         dateField: '2019-06-03T00:00+01:00',
         dropdownField: 'item A',
-        imageField: true,
+        mediaField: true,
         longTextField: 'Content for testing this field',
         multipleComponentsField: ['firstSectionA', 'secondSection'],
         numberField: 25,
@@ -33,7 +33,7 @@ export const argvContentSets: ArgvContentSets = {
       fields: {
         dateField: '2020-06-03T00:00+01:00',
         dropdownField: 'item B',
-        imageField: true,
+        mediaField: true,
         longTextField: 'Content for testing this field',
         multipleComponentsField: ['firstSectionB', 'secondSection'],
         numberField: 25,

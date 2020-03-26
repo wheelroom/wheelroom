@@ -322,7 +322,20 @@ Array [
         },
         "widgetId": "dropdown",
       },
-      "imageField": Object {
+      "longTextField": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Long text field",
+          "required": false,
+          "type": "Text",
+        },
+        "widgetId": "multipleLine",
+      },
+      "mediaField": Object {
         "createContentData": "demoAsset",
         "settings": Object {
           "helpText": "",
@@ -337,24 +350,12 @@ Array [
             Object {
               "linkMimetypeGroup": Array [
                 "image",
+                "video",
               ],
             },
           ],
         },
         "widgetId": "assetLinkEditor",
-      },
-      "longTextField": Object {
-        "createContentData": "Content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Long text field",
-          "required": false,
-          "type": "Text",
-        },
-        "widgetId": "multipleLine",
       },
       "multipleComponentsField": Object {
         "createContentData": Array [
@@ -556,7 +557,20 @@ Array [
         },
         "widgetId": "dropdown",
       },
-      "imageField": Object {
+      "longTextField": Object {
+        "createContentData": "Content for testing this field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Long text field",
+          "required": false,
+          "type": "Text",
+        },
+        "widgetId": "multipleLine",
+      },
+      "mediaField": Object {
         "createContentData": "demoAsset",
         "settings": Object {
           "helpText": "",
@@ -571,24 +585,12 @@ Array [
             Object {
               "linkMimetypeGroup": Array [
                 "image",
+                "video",
               ],
             },
           ],
         },
         "widgetId": "assetLinkEditor",
-      },
-      "longTextField": Object {
-        "createContentData": "Content for testing this field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Long text field",
-          "required": false,
-          "type": "Text",
-        },
-        "widgetId": "multipleLine",
       },
       "multipleComponentsField": Object {
         "createContentData": Array [
@@ -1005,7 +1007,20 @@ Array [
         },
         "widgetId": "dropdown",
       },
-      "imageField": Object {
+      "longTextField": Object {
+        "createContentData": "This is a long text field",
+        "settings": Object {
+          "helpText": "",
+        },
+        "specs": Object {
+          "localized": false,
+          "name": "Long text field",
+          "required": false,
+          "type": "Text",
+        },
+        "widgetId": "multipleLine",
+      },
+      "mediaField": Object {
         "createContentData": "demoAsset",
         "settings": Object {
           "helpText": "",
@@ -1020,24 +1035,12 @@ Array [
             Object {
               "linkMimetypeGroup": Array [
                 "image",
+                "video",
               ],
             },
           ],
         },
         "widgetId": "assetLinkEditor",
-      },
-      "longTextField": Object {
-        "createContentData": "This is a long text field",
-        "settings": Object {
-          "helpText": "",
-        },
-        "specs": Object {
-          "localized": false,
-          "name": "Long text field",
-          "required": false,
-          "type": "Text",
-        },
-        "widgetId": "multipleLine",
       },
       "multipleComponentsField": Object {
         "createContentData": Array [

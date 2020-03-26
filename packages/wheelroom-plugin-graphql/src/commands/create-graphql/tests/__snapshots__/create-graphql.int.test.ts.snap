@@ -25,13 +25,16 @@ fragment AllFieldTypes on ContentfulAllFieldTypes {
   __typename
   dateField
   dropdownField
-  imageField {
+  mediaField {
     title
     description
-    fluid(maxWidth: 1024) {
-      sizes
-      src
-      srcSet
+    fluid {
+      ...GatsbyContentfulFluid
+    }
+    file {
+      url
+      fileName
+      contentType
     }
   }
   longTextField {
@@ -332,13 +335,16 @@ fragment AllFieldTypes on ContentfulAllFieldTypes {
   __typename
   dateField
   dropdownField
-  imageField {
+  mediaField {
     title
     description
-    fluid(maxWidth: 1024) {
-      sizes
-      src
-      srcSet
+    fluid {
+      ...GatsbyContentfulFluid
+    }
+    file {
+      url
+      fileName
+      contentType
     }
   }
   longTextField {

@@ -2,7 +2,7 @@ interface AllFieldTypesModel {
   fields: {
     dateField?: any
     dropdownField?: any
-    imageField?: any
+    mediaField?: any
     longTextField?: any
     multipleComponentsField?: any
     numberField?: any

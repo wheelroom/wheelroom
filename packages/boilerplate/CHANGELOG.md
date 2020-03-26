@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/wheelroom/wheelroom-io/compare/@wheelroom/boilerplate@2.0.0...@wheelroom/boilerplate@2.1.0) (2020-03-26)
+
+
+### Bug Fixes
+
+* [#27](https://github.com/wheelroom/wheelroom-io/issues/27) ([c4c7b2d](https://github.com/wheelroom/wheelroom-io/commit/c4c7b2d1504f4f12755c8f34b2b9608213bd4c73))
+* [#28](https://github.com/wheelroom/wheelroom-io/issues/28) ([b15d90c](https://github.com/wheelroom/wheelroom-io/commit/b15d90c65a50d5381c3aba45024c99d267ea4e6a))
+* alwiays place rich text to bottom of topic ([15e7a96](https://github.com/wheelroom/wheelroom-io/commit/15e7a9646f49a5abaea1b7d365e667e39012760f))
+* reverse rich text position ([e60001d](https://github.com/wheelroom/wheelroom-io/commit/e60001de3c88c14edaec602c172eec2a1f137340))
+* use same svgr config for all folders ([59f8ee7](https://github.com/wheelroom/wheelroom-io/commit/59f8ee7eddfc6d67f7cd275df9ac45a9a00e2ce0))
+
+
+### Features
+
+* page section actions override topic actions ([ec990db](https://github.com/wheelroom/wheelroom-io/commit/ec990dbec215061416e9282fdc1d3aa28e48d6ec))
+* update variation names ([c4c6c3b](https://github.com/wheelroom/wheelroom-io/commit/c4c6c3b7c9fe57d961ec985d42ef542b444b94e5))
+
+
+### Reverts
+
+* Revert "chore: add video core element in Topic" ([3e43c8f](https://github.com/wheelroom/wheelroom-io/commit/3e43c8f649779cd8b0e3f5679f8b5ea50365a391))
+
+
+
+
+
 # 2.0.0 (2020-03-24)
 
 

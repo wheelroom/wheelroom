@@ -77,8 +77,8 @@ export const mergeFields = (context: MergeFields): ContentfulField => {
     // No initial content configured, lookup field definition
     createContentData = context.cfFieldDefinition.createContentData
   }
-  // Set demo asset if initial content of image type is true
-  if (context.wrField.type === 'image' && context.wrField.initialContent) {
+  // Set demo asset if initial content of media type is true
+  if (context.wrField.type === 'media' && context.wrField.initialContent) {
     createContentData = 'demoAsset'
   }
   Object.assign(workingField, { createContentData })

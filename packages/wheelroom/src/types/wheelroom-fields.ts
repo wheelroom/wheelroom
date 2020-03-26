@@ -1,7 +1,7 @@
 export type FieldTypeName =
   | 'date'
   | 'dropdown'
-  | 'image'
+  | 'media'
   | 'longText'
   | 'multipleComponents'
   | 'number'
@@ -14,7 +14,7 @@ export type FieldTypeName =
 export type FieldType =
   | DateField
   | DropdownField
-  | ImageField
+  | MediaField
   | LongTextField
   | MultipleComponentsField
   | NumberField
@@ -57,10 +57,10 @@ export interface DropdownField extends CommonField {
   initialContent?: string
   type: 'dropdown'
 }
-export interface ImageField extends CommonField {
+export interface MediaField extends CommonField {
   /** Sets a default image for the field */
   initialContent?: boolean
-  type: 'image'
+  type: 'media'
 }
 export interface LongTextField extends CommonField {
   /** Initial text */

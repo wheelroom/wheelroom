@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.3.2...@wheelroom/wheelroom-plugin-graphql@3.0.0) (2020-03-26)
+
+
+### Features
+
+* rename ImageField into MediaField ([d0d9900](https://github.com/wheelroom/wheelroom/commit/d0d99000a95199f107786cf674ce78d5b0b4d431))
+
+
+### BREAKING CHANGES
+
+* removed ImageField
+
+
+
+
+
 ## [2.3.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@2.3.1...@wheelroom/wheelroom-plugin-graphql@2.3.2) (2020-03-21)
 
 

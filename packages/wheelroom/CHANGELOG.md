@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@3.8.2...@wheelroom/wheelroom@4.0.0) (2020-03-26)
+
+
+### Features
+
+* rename ImageField into MediaField ([b439e32](https://github.com/wheelroom/wheelroom/commit/b439e32c683255e3dac01efb0ad3cd19f8f12a14))
+
+
+### BREAKING CHANGES
+
+* ImageField is removed
+
+
+
+
+
 ## [3.8.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@3.8.1...@wheelroom/wheelroom@3.8.2) (2020-03-21)
 
 **Note:** Version bump only for package @wheelroom/wheelroom

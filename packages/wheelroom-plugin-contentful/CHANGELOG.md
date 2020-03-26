@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.14.2...@wheelroom/wheelroom-plugin-contentful@3.0.0) (2020-03-26)
+
+
+### Features
+
+* rename ImageField into MediaField ([776b194](https://github.com/wheelroom/wheelroom/commit/776b1941e111eac7ad58c269a4814e5f98a8c877))
+
+
+### BREAKING CHANGES
+
+* ImageField removed
+
+
+
+
+
 ## [2.14.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@2.14.1...@wheelroom/wheelroom-plugin-contentful@2.14.2) (2020-03-21)
 
 

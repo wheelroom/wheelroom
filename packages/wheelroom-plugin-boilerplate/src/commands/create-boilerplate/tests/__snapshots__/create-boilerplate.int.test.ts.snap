@@ -318,7 +318,7 @@ export interface AllFieldTypesProps {
   __typename: string
   dateField: string
   dropdownField: string
-  imageField: FluidImage
+  mediaField: any
   longTextField: {
     longTextField: string
   }
@@ -748,7 +748,7 @@ export interface AllFieldTypesProps {
   __typename: string
   dateField: string
   dropdownField: string
-  imageField: FluidImage
+  mediaField: any
   longTextField: {
     longTextField: string
   }

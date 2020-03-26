@@ -12,7 +12,7 @@ const wheelroomTypeToTsType: TypeTable = {
   checkbox: 'string[]',
   date: 'string',
   dropdown: 'string',
-  image: 'FluidImage',
+  media: 'any',
   longText: `{\n    %fieldName%: string\n  }`,
   multipleComponents: 'any',
   number: 'number',
