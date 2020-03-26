@@ -70,7 +70,9 @@ export const Landmarks = (props: any) => {
   return (
     <Fragment>
       <header role="banner">{landMarkedChildren.header}</header>
-      <main role="main">{landMarkedChildren.main}</main>
+      <main role="main" id="content">
+        {landMarkedChildren.main}
+      </main>
       <aside>{landMarkedChildren.aside}</aside>
       <footer role="contentinfo">{landMarkedChildren.footer}</footer>
     </Fragment>
