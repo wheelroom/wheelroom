@@ -37,6 +37,7 @@ export const containerStyle = {
   label: 'container',
   height: '100%',
   justifyContent: 'space-between',
+  px: 3,
 }
 
 export const skipToContent = {

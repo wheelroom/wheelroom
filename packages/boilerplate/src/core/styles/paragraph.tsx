@@ -21,3 +21,9 @@ export const paragraphHeroStyle = {
   lineHeight: 3,
   my: 4,
 }
+
+export const smallParagraphStyle = {
+  ...commonParagraphStyle,
+  fontSize: [2, 3],
+  lineHeight: 3,
+}

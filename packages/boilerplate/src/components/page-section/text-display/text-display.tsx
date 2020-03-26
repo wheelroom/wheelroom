@@ -15,10 +15,13 @@ export const TextDisplay = (props: { pageSection: PageSectionProps }) => {
       ncss={{
         label: 'wrapper',
         bg: 'bg',
-        py: 3,
       }}
     >
-      <ContainerMaxWidth>
+      <ContainerMaxWidth
+        ncss={{
+          px: 3,
+        }}
+      >
         <Text {...props.pageSection.text} />
       </ContainerMaxWidth>
     </Box>
