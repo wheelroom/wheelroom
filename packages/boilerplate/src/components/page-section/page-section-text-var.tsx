@@ -14,7 +14,7 @@ import { TextDisplay } from './text-display/text-display'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-  if (pageSectionInfo.hasTopic) {
+  if (pageSectionInfo.hasText) {
     return <TextDisplay pageSection={props} />
   }
 
