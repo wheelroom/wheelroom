@@ -25,12 +25,12 @@ export const FeaturedListDisplay = (props: {
         pageSectionInfo={pageSectionInfo}
         fullTopicAsLink={true}
         topicWrapperStyle={{
-          flexDirection: topicOptions.hideImage
+          flexDirection: topicOptions.hideMedia
             ? ['column', 'row']
             : ['column', 'row'],
-          w: topicOptions.hideImage ? [1, 1 / 2, 1 / 3] : 1,
+          w: topicOptions.hideMedia ? [1, 1 / 2, 1 / 3] : 1,
         }}
-        imageWrapperStyle={{
+        mediaWrapperStyle={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'normal',
@@ -61,7 +61,7 @@ export const FeaturedListDisplay = (props: {
       >
         <ContainerMaxWidth
           ncss={{
-            flexDirection: topicOptions.hideImage
+            flexDirection: topicOptions.hideMedia
               ? ['column', 'row']
               : ['column'],
           }}

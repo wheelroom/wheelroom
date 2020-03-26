@@ -52,7 +52,7 @@ export const FeaturedTwoTopics = (props: { pageSection: PageSectionProps }) => {
                 flexDirection: ['column', 'row'],
                 w: 1,
               }}
-              imageWrapperStyle={{
+              mediaWrapperStyle={{
                 display: 'flex',
                 alignItems: 'center',
                 p: 3,

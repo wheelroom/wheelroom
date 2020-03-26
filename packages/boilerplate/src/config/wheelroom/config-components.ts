@@ -414,7 +414,7 @@ export const configComponents: WheelroomComponents = {
         initialContent: ['Hide icon'],
         items: [
           'Hide icon',
-          'Hide image',
+          'Hide media',
           'Hide heading',
           'Hide abstract',
           'Hide action',

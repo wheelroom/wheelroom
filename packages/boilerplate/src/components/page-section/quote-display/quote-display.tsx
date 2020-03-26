@@ -20,10 +20,10 @@ export const QuoteDisplay = (props: { pageSection: PageSectionProps }) => {
       }}
       pageSectionInfo={pageSectionInfo}
       fullTopicAsLink={false}
-      imageWrapperStyle={{
+      mediaWrapperStyle={{
         p: 3,
       }}
-      imageProps={{
+      mediaProps={{
         pictureNcss: {
           display: 'block',
           overflow: 'hidden',

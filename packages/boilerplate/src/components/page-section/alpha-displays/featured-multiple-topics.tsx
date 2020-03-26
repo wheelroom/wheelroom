@@ -53,7 +53,7 @@ export const FeaturedMultipleTopics = (props: {
                 flexDirection: 'column',
                 w: [1, 1, 1 / 2],
               }}
-              imageWrapperStyle={{
+              mediaWrapperStyle={{
                 display: 'flex',
                 p: 3,
                 w: 1,

@@ -47,11 +47,11 @@ export const HeroDisplay = (props: { pageSection: PageSectionProps }) => {
               py: 9,
               w: 1,
             }}
-            imageProps={{
+            mediaProps={{
               pictureNcss: { h: '170px', w: 1 },
               imgNcss: { h: 1, objectFit: 'cover' },
             }}
-            imageWrapperStyle={{
+            mediaWrapperStyle={{
               position: 'absolute',
               top: 0,
               left: 0,

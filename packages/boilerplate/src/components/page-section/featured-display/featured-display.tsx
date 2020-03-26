@@ -39,12 +39,12 @@ export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
             flexDirection: ['column', 'column', 'row'],
             justifyContent: 'space-evenly',
           }}
-          imageProps={{
+          mediaProps={{
             pictureNcss: {
               p: 3,
             },
           }}
-          imageWrapperStyle={{
+          mediaWrapperStyle={{
             display: 'flex',
             flexDirection: 'column',
             w: [1, 1, 1 / 2.5],

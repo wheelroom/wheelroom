@@ -20,8 +20,8 @@ export const BlockDisplay = (props: { pageSection: PageSectionProps }) => {
       }}
       pageSectionInfo={pageSectionInfo}
       fullTopicAsLink={false}
-      imageWrapperStyle={{}}
-      imageProps={{
+      mediaWrapperStyle={{}}
+      mediaProps={{
         pictureNcss: {
           display: 'block',
           h: '0px',

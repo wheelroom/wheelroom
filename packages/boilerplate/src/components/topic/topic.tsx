@@ -17,6 +17,7 @@ import { TextProps } from '../text/text'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { ImageProps } from '../../core/elements/image'
 import { ActionProps } from '../action/action'
+import { VideoProps } from '../../core/elements/video'
 
 const componentList = {
   ['single']: TopicSingleVar,
@@ -34,10 +35,10 @@ interface TopicLocalProps {
   /** Override default content wrapper styling */
   contentWrapperStyle?: NcssProps
 
-  /** Override default image props */
-  imageProps?: ImageProps
+  /** Override default media props */
+  mediaProps?: ImageProps | VideoProps
   /** Override default styling of the image wrapper */
-  imageWrapperStyle?: NcssProps
+  mediaWrapperStyle?: NcssProps
 
   /** Override default styling of the headerwrapper */
   headerWrapperStyle?: NcssProps
@@ -61,7 +62,7 @@ interface TopicLocalProps {
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
 
-  /** Reverse image and content */
+  /** Reverse media and content */
   forceReverse?: boolean
 }
 

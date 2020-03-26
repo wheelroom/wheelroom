@@ -1,6 +1,6 @@
 export type TopicOptionString =
   | 'Hide icon'
-  | 'Hide image'
+  | 'Hide media'
   | 'Hide heading'
   | 'Hide abstract'
   | 'Hide action'
@@ -9,7 +9,7 @@ export type TopicOptionString =
 export interface TopicOptions {
   reverseOrder: boolean
   hideIcon: boolean
-  hideImage: boolean
+  hideMedia: boolean
   hideHeading: boolean
   hideAbstract: boolean
   hideAction: boolean
@@ -24,7 +24,7 @@ export const getTopicOptions = (
   const defaultResult = {
     reverseOrder: optionsStringList.includes('Reversed order'),
     hideIcon: optionsStringList.includes('Hide icon'),
-    hideImage: optionsStringList.includes('Hide image'),
+    hideMedia: optionsStringList.includes('Hide media'),
     hideHeading: optionsStringList.includes('Hide heading'),
     hideAbstract: optionsStringList.includes('Hide abstract'),
     hideAction: optionsStringList.includes('Hide action'),

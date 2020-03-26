@@ -9,18 +9,18 @@
 import React, { Fragment } from 'react'
 import { TopicProps } from './topic'
 import { TopicWrapper } from './topic-wrapper'
-import { TopicImage } from './topic-image'
 import { TopicHeader } from './topic-header'
 import { TopicActions } from './topic-actions'
 import { TopicContentWrapper } from './topic-content-wrapper'
 import { getTopicInfo } from '../../lib/get-topic-info'
+import { TopicMedia } from './topic-media'
 
 export const TopicSingleVar = (props: TopicProps) => {
   const topicInfo = getTopicInfo(props)
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
 
-  const showImage = topicInfo.hasMediaObject && !topicOptions.hideImage
+  const showImage = topicInfo.hasMediaObject && !topicOptions.hideMedia
   const showAction = topicInfo.hasAction
   const reverse =
     props.forceReverse || props.pageSectionInfo.topicOptions.reverseOrder
@@ -34,12 +34,12 @@ export const TopicSingleVar = (props: TopicProps) => {
       fullTopicAsLink={props.fullTopicAsLink}
     >
       {showImage && (
-        <TopicImage
+        <TopicMedia
           topic={props}
           topicInfo={topicInfo}
           pageSectionInfo={pageSectionInfo}
-          imageProps={{ ...props.imageProps, media: props.image }}
-          imageWrapperStyle={props.imageWrapperStyle}
+          mediaProps={{ ...props.mediaProps, media: props.media }}
+          mediaWrapperStyle={props.mediaWrapperStyle}
           reverse={reverse}
         />
       )}

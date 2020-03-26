@@ -39,7 +39,7 @@ export const TopicContentWrapper = (props: TopicContentWrapperProps) => {
       ncss={{
         order,
         ...defaultWrapperStyle,
-        ...(topicOptions.hideImage
+        ...(topicOptions.hideMedia
           ? { ...overrideContentStyle }
           : contentWrapperStyle),
       }}

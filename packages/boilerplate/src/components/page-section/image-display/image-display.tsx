@@ -4,7 +4,10 @@ import { Topic } from '../../topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../page-section'
 import { heading3Style } from '../../../core/styles/heading'
-import {defaultParagraphStyle, paragraphHeroStyle} from '../../../core/styles/paragraph'
+import {
+  defaultParagraphStyle,
+  paragraphHeroStyle,
+} from '../../../core/styles/paragraph'
 
 export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -34,7 +37,7 @@ export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
             topicWrapperStyle={{
               w: 1,
             }}
-            imageProps={{
+            mediaProps={{
               pictureNcss: {
                 display: 'block',
                 px: 0,

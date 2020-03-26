@@ -20,10 +20,10 @@ export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
       }}
       pageSectionInfo={pageSectionInfo}
       fullTopicAsLink={true}
-      imageWrapperStyle={{
+      mediaWrapperStyle={{
         p: 3,
       }}
-      imageProps={{
+      mediaProps={{
         pictureNcss: { display: 'block', h: '178px' },
         imgNcss: { h: 1, objectFit: 'cover' },
       }}
