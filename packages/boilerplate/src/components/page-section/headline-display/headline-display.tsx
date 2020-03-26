@@ -34,6 +34,13 @@ export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
             topicWrapperStyle={{
               w: 1,
             }}
+            imageProps={{
+              pictureNcss: {
+                display: 'block',
+                px: 0,
+                py: 3,
+              },
+            }}
             contentWrapperStyle={{
               display: 'flex',
               textAlign: 'center',
