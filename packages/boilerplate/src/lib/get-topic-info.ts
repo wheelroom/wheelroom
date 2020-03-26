@@ -28,7 +28,7 @@ export const getTopicInfo = (topic: TopicProps): TopicInfo => {
   ) {
     info.hasAction = true
   }
-  if (topic.image && topic.image.fluid) {
+  if (topic.media) {
     info.hasMediaObject = true
   }
 
