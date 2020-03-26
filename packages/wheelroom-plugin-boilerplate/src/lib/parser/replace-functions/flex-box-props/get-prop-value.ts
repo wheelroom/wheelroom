@@ -12,7 +12,7 @@ export const getPropValue = (fieldName: string, field: FieldType) => {
     checkbox: `{props.${fieldName}}`,
     date: `{props.${fieldName}}`,
     dropdown: `{props.${fieldName}}`,
-    image: `<Image image={props.${fieldName}} {...imageProps} />`,
+    media: `<Media media={props.${fieldName}} {...mediaProps} />`,
     longText: `{props.${fieldName} ? props.${fieldName}.${fieldName} : 'null'}`,
     multipleComponents: (field as MultipleComponentsField).allowedComponents
       ? (field as MultipleComponentsField).allowedComponents.join(', ')
