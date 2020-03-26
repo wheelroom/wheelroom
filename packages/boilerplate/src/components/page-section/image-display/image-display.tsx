@@ -3,10 +3,9 @@ import { Box, Container } from '../../../core/elements/grid'
 import { Topic } from '../../topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../page-section'
-import { heading3Style } from '../../../core/styles/heading'
+import { heading4Style } from '../../../core/styles/heading'
 import {
-  defaultParagraphStyle,
-  paragraphHeroStyle,
+  smallParagraphStyle,
 } from '../../../core/styles/paragraph'
 
 export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
@@ -44,14 +43,10 @@ export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
                 py: 3,
               },
             }}
-            contentWrapperStyle={{
-              display: 'flex',
-              textAlign: 'center',
-              flexDirection: 'column',
-            }}
-            useHeading="h3"
-            headingStyle={{ ...heading3Style }}
-            paragraphStyle={{ ...defaultParagraphStyle, color: 'text' }}
+            contentWrapperStyle={{}}
+            useHeading="h4"
+            headingStyle={{ ...heading4Style }}
+            paragraphStyle={{ ...smallParagraphStyle, color: 'text' }}
             actionWrapperStyle={{
               mx: 'auto',
             }}

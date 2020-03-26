@@ -82,6 +82,7 @@ export const NavigationFooterDisplay = (props: {
           ncss={{
             borderTop: '1px solid transparent',
             borderColor: 'border',
+            px: 3,
           }}
         >
           <Flex
@@ -125,6 +126,7 @@ export const NavigationFooterDisplay = (props: {
           ncss={{
             borderTop: '1px solid transparent',
             borderColor: 'border',
+            px: 3,
           }}
         >
           <Flex
