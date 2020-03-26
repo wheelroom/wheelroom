@@ -5,14 +5,12 @@ import { NcssProps } from '../../core/elements/types'
 import { TopicProps } from '.'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import { VideoProps } from '../../core/elements/video'
+import { VideoProps, Video } from '../../core/elements/video'
 
 const defaultWrapperStyle = {
   label: 'topic-image',
   justifyContent: 'center',
 }
-
-const defaultImageProps = {}
 
 export interface TopicMediaProps {
   /** The image to show */
@@ -31,7 +29,6 @@ export interface TopicMediaProps {
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
-
   const mediaWrapperStyle = props.mediaWrapperStyle || {}
   return (
     <Box
@@ -40,7 +37,8 @@ export const TopicMedia = (props: TopicMediaProps) => {
         ...mediaWrapperStyle,
       }}
     >
-      <Image {...defaultImageProps} {...props.mediaProps} />
+      {props.topicInfo.hasImage && <Image {...props.mediaProps} />}
+      {props.topicInfo.hasVideo && <Video {...props.mediaProps} />}
     </Box>
   )
 }
