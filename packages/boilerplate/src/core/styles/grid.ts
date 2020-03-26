@@ -16,7 +16,7 @@ export const commonContainerStyle = {
 }
 
 export const commonContainerMaxWidthStyle = {
-  ...commonFlexStyle,
+  ...commonContainerStyle,
   label: 'container-max-width',
   maxWidth: '1280px',
 }

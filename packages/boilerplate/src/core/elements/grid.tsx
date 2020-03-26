@@ -54,7 +54,7 @@ export interface GridProps {
 
 export const Box = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const label = `Box-${props.is || 'div'}`
+  const label = `box-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
   attrs.css = systemCss(
     {
@@ -67,7 +67,7 @@ export const Box = (props: GridProps) => {
 
 export const Flex = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const label = `Flex-${props.is || 'div'}`
+  const label = `flex-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
   attrs.css = systemCss(
     {
@@ -84,7 +84,7 @@ export const Flex = (props: GridProps) => {
 
 export const Container = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const label = `Container-${props.is || 'div'}`
+  const label = `container-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
   attrs.css = systemCss(
     {
@@ -101,7 +101,7 @@ export const Container = (props: GridProps) => {
 
 export const ContainerMaxWidth = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const label = `ContainerMaxWidth-${props.is || 'div'}`
+  const label = `container-max-width-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
   attrs.css = systemCss(
     {
