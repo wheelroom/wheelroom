@@ -33,8 +33,10 @@ export const Video = (props: VideoProps) => {
 
   const videoAttrs = {
     title: media.title || props.title || defaultMediaObject.title,
-    url: media.file.url || defaultMediaObject.file.url,
-    type: media.file.contentType || defaultMediaObject.file.contentType,
+    url: (media.file && media.file.url) || defaultMediaObject.file!.url,
+    type:
+      (media.file && media.file.contentType) ||
+      defaultMediaObject.file!.contentType,
     description:
       media.description || props.description || defaultMediaObject.description,
   }

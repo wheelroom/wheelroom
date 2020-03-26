@@ -38,9 +38,9 @@ export const Image = (props: ImageProps) => {
     alt:
       media.description || props.description || defaultMediaObject.description,
     title: media.title || props.title || defaultMediaObject.title,
-    sizes: media.fluid.sizes,
-    src: media.fluid.src,
-    srcSet: media.fluid.srcSet,
+    sizes: media.fluid && media.fluid.sizes,
+    src: media.fluid && media.fluid.src,
+    srcSet: media.fluid && media.fluid.srcSet,
   }
 
   const figcaptionNcss = props.figcaptionNcss || {}

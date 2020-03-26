@@ -215,18 +215,21 @@ export const TextSingleVar = (props: TextProps) => {
               src: localizedFile.url + '?w=2560&q=50',
             },
           } as MediaObject
-          return (
-            <ImageBox
-              media={media}
-              key={node.data.target.id}
-            />
-          )
+          return <ImageBox media={media} key={node.data.target.id} />
         }
         if (contentTypeSplit[0] === 'video') {
+          const media = {
+            title: localizedTitle,
+            description: localizedDescription,
+            file: {
+              url: localizedFile.url,
+              fileName: localizedFile.name,
+              contentType: localizedFile.contentType,
+            },
+          }
           return (
             <Video
-              url={localizedFile.url}
-              type={localizedFile.contentType}
+              media={media}
               title={localizedTitle}
               description={localizedDescription}
             />

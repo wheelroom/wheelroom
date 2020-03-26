@@ -20,7 +20,7 @@ export const TopicSingleVar = (props: TopicProps) => {
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
 
-  const showImage = topicInfo.hasMediaObject && !topicOptions.hideMedia
+  const showImage = topicInfo.hasImage && !topicOptions.hideMedia
   const showAction = topicInfo.hasAction
   const reverse =
     props.forceReverse || props.pageSectionInfo.topicOptions.reverseOrder
