@@ -13,17 +13,20 @@ import { graphql } from 'gatsby'
 
 export const fragment = graphql`
 fragment Topic on ContentfulTopic {
-  __typename
-  title
   heading
   abstract {
     abstract
   }
-  image {
+  media {
     title
     description
     fluid {
       ...GatsbyContentfulFluid
+    }
+    file {
+      url
+      fileName
+      contentType
     }
   }
   icon
@@ -32,5 +35,7 @@ fragment Topic on ContentfulTopic {
       ...Action
     }
   }
+  __typename
+  title
 }
 `
