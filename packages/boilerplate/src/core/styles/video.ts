@@ -2,7 +2,6 @@ export const commonVideoStyle = {
   label: 'video',
   height: 'auto',
   width: '100%',
-  my: [4, 5],
 }
 
 export const commonVideoDescriptionStyle = {

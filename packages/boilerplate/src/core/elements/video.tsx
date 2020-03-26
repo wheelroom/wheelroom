@@ -60,7 +60,7 @@ export const Video = (props: VideoProps) => {
         <source src={videoAttrs.url} type={videoAttrs.type} />
         Your browser does not support the video tag.
       </video>
-      {(props.title || videoAttrs.description) && (
+      {props.title && (
         <p
           css={systemCss(
             { ncss: { ...commonVideoDescriptionStyle, ...descriptionNcss } },
