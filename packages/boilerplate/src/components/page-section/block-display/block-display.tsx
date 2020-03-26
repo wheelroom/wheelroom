@@ -24,11 +24,11 @@ export const BlockDisplay = (props: { pageSection: PageSectionProps }) => {
       imageProps={{
         pictureNcss: {
           display: 'block',
-          h: '1px',
+          h: '0px',
           position: 'relative',
           pb: '65.25%',
         },
-        imgNcss: { h: 1, objectFit: 'cover', position: 'absolute' },
+        imgNcss: { w: 1, h: 1, objectFit: 'cover', position: 'absolute' },
       }}
       contentWrapperStyle={{}}
       headerWrapperStyle={{}}

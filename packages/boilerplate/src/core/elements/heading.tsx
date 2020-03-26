@@ -12,13 +12,14 @@ import {
 } from '../styles/heading'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps } from './types'
+import { commonParagraphStyle } from '../styles/paragraph'
 
 interface HeadingProps {
   ncss?: NcssProps
   children: any
 }
 
-export type HeadingName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+export type HeadingName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
 
 export const H1 = (props: HeadingProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
@@ -105,6 +106,21 @@ export const H6 = (props: HeadingProps) => {
   )
 }
 
+export const P = (props: HeadingProps) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
+  const ncss = props.ncss || {}
+  return (
+    <p
+      css={systemCss(
+        { ncss: { ...commonParagraphStyle, ...ncss } },
+        currentThemeId
+      )}
+    >
+      {props.children}
+    </p>
+  )
+}
+
 export const HeadingMap = {
   h1: H1,
   h2: H2,
@@ -112,4 +128,5 @@ export const HeadingMap = {
   h4: H4,
   h5: H5,
   h6: H6,
+  p: P,
 }

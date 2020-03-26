@@ -1,3 +1,5 @@
+import { commonParagraphStyle } from './paragraph'
+
 export const commonHeadingStyle = {
   label: 'heading',
   boxSizing: 'border-box',
@@ -39,4 +41,5 @@ export const headingStyleMap = {
   h4: heading4Style,
   h5: heading5Style,
   h6: heading6Style,
+  p: commonParagraphStyle,
 }
