@@ -2,7 +2,7 @@ import { WheelroomComponents } from '../../../types/wheelroom-components'
 import {
   DateField,
   DropdownField,
-  ImageField,
+  MediaField,
   LongTextField,
   MultipleComponentsField,
   NumberField,
@@ -25,8 +25,8 @@ export const configComponents: WheelroomComponents = {
       } as DropdownField,
       imageField: {
         initialContent: true,
-        type: 'image',
-      } as ImageField,
+        type: 'media',
+      } as MediaField,
       longTextField: {
         initialContent: 'This is a long text field',
         type: 'longText',

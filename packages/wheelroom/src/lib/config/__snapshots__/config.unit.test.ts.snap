@@ -33,7 +33,7 @@ Object {
         "localized": false,
         "name": "Image field",
         "required": false,
-        "type": "image",
+        "type": "media",
       },
       "longTextField": Object {
         "initialContent": "This is a long text field",

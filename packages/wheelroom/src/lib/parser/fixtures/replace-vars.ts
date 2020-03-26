@@ -1,7 +1,7 @@
 import { WheelroomComponent } from '../../../types/wheelroom-components'
 import {
   DropdownField,
-  ImageField,
+  MediaField,
   MultipleComponentsField,
   NumberField,
   RichTextField,
@@ -25,10 +25,10 @@ const component: WheelroomComponent = {
       items: ['first item', 'second item'],
       type: 'dropdown',
     } as DropdownField,
-    imageField: {
+    mediaField: {
       initialContent: true,
-      type: 'image',
-    } as ImageField,
+      type: 'media',
+    } as MediaField,
     multipleComponentsField: {
       allowedComponents: ['page'],
       initialContent: ['CD'],
