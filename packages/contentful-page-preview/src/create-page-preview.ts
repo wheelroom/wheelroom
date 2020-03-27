@@ -201,25 +201,26 @@ export const createPagePreview = (context: CreatePagePreviewContext) => {
               return this._processCfEntry(cfField, level + 1)
               break
             case 'Asset':
-              const fileUrl =
-                (cfField.fields &&
-                  cfField.fields.file &&
-                  cfField.fields.file.url) ||
-                '//placehold.it/512'
+              const file = (cfField.fields && cfField.fields.file) || {
+                url: '//placehold.it/512',
+                fileName: 'no-name',
+                contentType: 'image/jpeg',
+              }
               return {
                 description: cfField.fields && cfField.fields.description,
                 title: cfField.fields && cfField.fields.title,
+                file,
                 fluid: {
                   sizes: '(max-width: 1024px) 100vw, 1024px',
-                  src: fileUrl + '?w=1024&q=50',
+                  src: file.url + '?w=1024&q=50',
                   srcSet:
-                    fileUrl +
+                    file.url +
                     '?w=256&h=256&q=50 256w,\n' +
-                    fileUrl +
+                    file.url +
                     '?w=512&h=512&q=50 512w,\n' +
-                    fileUrl +
+                    file.url +
                     '?w=1024&h=1023&q=50 1024w,\n' +
-                    fileUrl +
+                    file.url +
                     '?w=1026&h=1025&q=50 1026w',
                 },
               }

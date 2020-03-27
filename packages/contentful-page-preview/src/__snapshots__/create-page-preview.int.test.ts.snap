@@ -602,6 +602,18 @@ Object {
   "heading": "Deze merknaam is heel goed...",
   "image": Object {
     "description": "Demo asset with fixed id",
+    "file": Object {
+      "contentType": "image/png",
+      "details": Object {
+        "image": Object {
+          "height": 1025,
+          "width": 1026,
+        },
+        "size": 13154,
+      },
+      "fileName": "wheelroom",
+      "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+    },
     "fluid": Object {
       "sizes": "(max-width: 1024px) 100vw, 1024px",
       "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -629,6 +641,18 @@ Object {
             "heading": "Een product in economische zin is een tastbare zaak met een bepaalde waarde.",
             "image": Object {
               "description": "Demo asset with fixed id",
+              "file": Object {
+                "contentType": "image/png",
+                "details": Object {
+                  "image": Object {
+                    "height": 1025,
+                    "width": 1026,
+                  },
+                  "size": 13154,
+                },
+                "fileName": "wheelroom",
+                "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+              },
               "fluid": Object {
                 "sizes": "(max-width: 1024px) 100vw, 1024px",
                 "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -663,6 +687,18 @@ Object {
             "heading": "Op dit moment is er maar één gemeente in Nederland zonder achtergrond.",
             "image": Object {
               "description": "Demo asset with fixed id",
+              "file": Object {
+                "contentType": "image/png",
+                "details": Object {
+                  "image": Object {
+                    "height": 1025,
+                    "width": 1026,
+                  },
+                  "size": 13154,
+                },
+                "fileName": "wheelroom",
+                "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+              },
               "fluid": Object {
                 "sizes": "(max-width: 1024px) 100vw, 1024px",
                 "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -697,6 +733,18 @@ Object {
             "heading": "Contact",
             "image": Object {
               "description": "Demo asset with fixed id",
+              "file": Object {
+                "contentType": "image/png",
+                "details": Object {
+                  "image": Object {
+                    "height": 1025,
+                    "width": 1026,
+                  },
+                  "size": 13154,
+                },
+                "fileName": "wheelroom",
+                "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+              },
               "fluid": Object {
                 "sizes": "(max-width: 1024px) 100vw, 1024px",
                 "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -718,6 +766,18 @@ Object {
                 "heading": "Michael Hyatt",
                 "image": Object {
                   "description": "Demo asset with fixed id",
+                  "file": Object {
+                    "contentType": "image/png",
+                    "details": Object {
+                      "image": Object {
+                        "height": 1025,
+                        "width": 1026,
+                      },
+                      "size": 13154,
+                    },
+                    "fileName": "wheelroom",
+                    "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+                  },
                   "fluid": Object {
                     "sizes": "(max-width: 1024px) 100vw, 1024px",
                     "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -805,6 +865,18 @@ Nestlé (Nescafé, Nesquik, Nespresso).",
       "heading": "Michael Hyatt",
       "image": Object {
         "description": "Demo asset with fixed id",
+        "file": Object {
+          "contentType": "image/png",
+          "details": Object {
+            "image": Object {
+              "height": 1025,
+              "width": 1026,
+            },
+            "size": 13154,
+          },
+          "fileName": "wheelroom",
+          "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+        },
         "fluid": Object {
           "sizes": "(max-width: 1024px) 100vw, 1024px",
           "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -836,6 +908,18 @@ Nestlé (Nescafé, Nesquik, Nespresso).",
             "heading": "Een product in economische zin is een tastbare zaak met een bepaalde waarde.",
             "image": Object {
               "description": "Demo asset with fixed id",
+              "file": Object {
+                "contentType": "image/png",
+                "details": Object {
+                  "image": Object {
+                    "height": 1025,
+                    "width": 1026,
+                  },
+                  "size": 13154,
+                },
+                "fileName": "wheelroom",
+                "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+              },
               "fluid": Object {
                 "sizes": "(max-width: 1024px) 100vw, 1024px",
                 "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -879,6 +963,18 @@ Nestlé (Nescafé, Nesquik, Nespresso).",
             "heading": "Op dit moment is er maar één gemeente in Nederland zonder achtergrond.",
             "image": Object {
               "description": "Demo asset with fixed id",
+              "file": Object {
+                "contentType": "image/png",
+                "details": Object {
+                  "image": Object {
+                    "height": 1025,
+                    "width": 1026,
+                  },
+                  "size": 13154,
+                },
+                "fileName": "wheelroom",
+                "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+              },
               "fluid": Object {
                 "sizes": "(max-width: 1024px) 100vw, 1024px",
                 "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -921,6 +1017,18 @@ Nestlé (Nescafé, Nesquik, Nespresso).",
             "heading": "Contact",
             "image": Object {
               "description": "Demo asset with fixed id",
+              "file": Object {
+                "contentType": "image/png",
+                "details": Object {
+                  "image": Object {
+                    "height": 1025,
+                    "width": 1026,
+                  },
+                  "size": 13154,
+                },
+                "fileName": "wheelroom",
+                "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+              },
               "fluid": Object {
                 "sizes": "(max-width: 1024px) 100vw, 1024px",
                 "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -942,6 +1050,18 @@ Nestlé (Nescafé, Nesquik, Nespresso).",
                 "heading": "Michael Hyatt",
                 "image": Object {
                   "description": "Demo asset with fixed id",
+                  "file": Object {
+                    "contentType": "image/png",
+                    "details": Object {
+                      "image": Object {
+                        "height": 1025,
+                        "width": 1026,
+                      },
+                      "size": 13154,
+                    },
+                    "fileName": "wheelroom",
+                    "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+                  },
                   "fluid": Object {
                     "sizes": "(max-width: 1024px) 100vw, 1024px",
                     "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -989,6 +1109,18 @@ Nestlé (Nescafé, Nesquik, Nespresso).",
             "heading": "Een product in economische zin is een tastbare zaak met een bepaalde waarde.",
             "image": Object {
               "description": "Demo asset with fixed id",
+              "file": Object {
+                "contentType": "image/png",
+                "details": Object {
+                  "image": Object {
+                    "height": 1025,
+                    "width": 1026,
+                  },
+                  "size": 13154,
+                },
+                "fileName": "wheelroom",
+                "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+              },
               "fluid": Object {
                 "sizes": "(max-width: 1024px) 100vw, 1024px",
                 "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -1012,6 +1144,18 @@ Nestlé (Nescafé, Nesquik, Nespresso).",
             "heading": "Op dit moment is er maar één gemeente in Nederland zonder achtergrond.",
             "image": Object {
               "description": "Demo asset with fixed id",
+              "file": Object {
+                "contentType": "image/png",
+                "details": Object {
+                  "image": Object {
+                    "height": 1025,
+                    "width": 1026,
+                  },
+                  "size": 13154,
+                },
+                "fileName": "wheelroom",
+                "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+              },
               "fluid": Object {
                 "sizes": "(max-width: 1024px) 100vw, 1024px",
                 "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -1035,6 +1179,18 @@ Nestlé (Nescafé, Nesquik, Nespresso).",
             "heading": "Contact",
             "image": Object {
               "description": "Demo asset with fixed id",
+              "file": Object {
+                "contentType": "image/png",
+                "details": Object {
+                  "image": Object {
+                    "height": 1025,
+                    "width": 1026,
+                  },
+                  "size": 13154,
+                },
+                "fileName": "wheelroom",
+                "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+              },
               "fluid": Object {
                 "sizes": "(max-width: 1024px) 100vw, 1024px",
                 "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",
@@ -1056,6 +1212,18 @@ Nestlé (Nescafé, Nesquik, Nespresso).",
                 "heading": "Michael Hyatt",
                 "image": Object {
                   "description": "Demo asset with fixed id",
+                  "file": Object {
+                    "contentType": "image/png",
+                    "details": Object {
+                      "image": Object {
+                        "height": 1025,
+                        "width": 1026,
+                      },
+                      "size": 13154,
+                    },
+                    "fileName": "wheelroom",
+                    "url": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom",
+                  },
                   "fluid": Object {
                     "sizes": "(max-width: 1024px) 100vw, 1024px",
                     "src": "//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom?w=1024&q=50",

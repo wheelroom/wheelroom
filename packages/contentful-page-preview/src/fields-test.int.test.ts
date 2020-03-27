@@ -56,6 +56,19 @@ describe('Get gatsby field should', () => {
     )
     expect(gatsbyField).toStrictEqual({
       description: 'Demo asset with fixed id',
+      file: {
+        contentType: 'image/png',
+        details: {
+          image: {
+            height: 1025,
+            width: 1026,
+          },
+          size: 13154,
+        },
+        fileName: 'wheelroom',
+        url:
+          '//images.ctfassets.net/jeb9ft1t2asv/demoAsset/95162fee3f8da29ed8c15182e62f2c98/wheelroom',
+      },
       fluid: {
         sizes: '(max-width: 1024px) 100vw, 1024px',
         src:
