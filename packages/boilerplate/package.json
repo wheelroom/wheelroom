@@ -21,7 +21,7 @@
     "@emotion/core": "10.0.28",
     "@reach/router": "1.3.3",
     "@wheelroom/admin-core": "1.1.7",
-    "@wheelroom/admin-page-preview": "1.4.17",
+    "@wheelroom/admin-page-preview": "1.4.18",
     "@wheelroom/admin-panel": "1.1.7",
     "@wheelroom/admin-theme-switcher": "1.1.0",
     "@wheelroom/styled-system": "4.0.1",
@@ -124,8 +124,8 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "wheelroom": {
-    "version": "2.1.0"
+    "version": "2.1.1"
   }
 }

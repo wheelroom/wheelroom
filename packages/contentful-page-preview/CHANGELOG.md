@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.8](https://github.com/wheelroom/wheelroom/compare/@wheelroom/contentful-page-preview@1.3.7...@wheelroom/contentful-page-preview@1.3.8) (2020-03-27)
+
+
+### Bug Fixes
+
+* image preview ([a4ffb83](https://github.com/wheelroom/wheelroom/commit/a4ffb83cc0cd9caa76f49a7b2b5ebd8968456263))
+
+
+
+
+
 ## [1.3.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/contentful-page-preview@1.3.6...@wheelroom/contentful-page-preview@1.3.7) (2020-03-24)
 
 
