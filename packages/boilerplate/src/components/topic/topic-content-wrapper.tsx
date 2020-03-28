@@ -12,10 +12,6 @@ const defaultWrapperStyle = {
   p: 3,
 }
 
-const overrideContentStyle = {
-  w: 1,
-}
-
 export interface TopicContentWrapperProps {
   children: any
   /** Override default wrapper styling */
@@ -32,16 +28,13 @@ export interface TopicContentWrapperProps {
 
 export const TopicContentWrapper = (props: TopicContentWrapperProps) => {
   const order = props.reverse ? -1 : null
-  const topicOptions = props.pageSectionInfo.topicOptions
   const contentWrapperStyle = props.contentWrapperStyle || {}
   return (
     <Box
       ncss={{
         order,
         ...defaultWrapperStyle,
-        ...(topicOptions.hideMedia
-          ? { ...overrideContentStyle }
-          : contentWrapperStyle),
+        ...contentWrapperStyle,
       }}
     >
       {props.children}
