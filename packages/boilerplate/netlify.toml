@@ -3,3 +3,5 @@
   [headers.values]
     cache-control = "max-age=0,no-cache,no-store,must-revalidate"
     
+[build.environment]
+  NODE_OPTIONS = "--max_old_space_size=4096"
