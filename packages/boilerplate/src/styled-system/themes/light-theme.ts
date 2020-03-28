@@ -20,6 +20,6 @@ export const lightTheme: StyledSystemTheme = {
     cardsShadow: colors.silver,
     modalBorder: colors.bullet,
     modalShadow: colors.bullet,
-    svgStroke: colors.metal,
+    iconColor: colors.metal,
   },
 }

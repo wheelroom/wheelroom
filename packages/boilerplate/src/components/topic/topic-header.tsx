@@ -2,19 +2,11 @@ import React from 'react'
 import { TopicProps } from './topic'
 import { Box } from '../../core/elements/grid'
 import { Paragraph } from '../../core/elements/paragraph'
-import { IconMap } from '../../svg/feather/iconMap'
 import { BlockLevelElementName, NcssProps } from '../../core/elements/types'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Heading } from '../../core/elements/heading'
-
-const defaultIconStyle = {
-  width: '40px',
-  height: '40px',
-  color: 'svgStroke',
-  strokeWidth: '1px',
-  mb: 2,
-}
+import { TopicIcon } from './topic-icon'
 
 const defaultWrapperStyle = {
   label: 'topic-header',
@@ -39,14 +31,6 @@ export interface TopicHeaderProps {
   pageSectionInfo: PageSectionInfo
 }
 
-const Icon = (props: { name: string }) => {
-  if (props.name && props.name in IconMap) {
-    const RenderIcon = IconMap[props.name]
-    return <RenderIcon ncss={{ ...defaultIconStyle }} />
-  }
-  return null
-}
-
 export const TopicHeader = (props: TopicHeaderProps) => {
   const useHeadingElement = props.useHeadingElement || 'h3'
   const useAbstractElement = props.useAbstractElement || 'p'
@@ -59,7 +43,7 @@ export const TopicHeader = (props: TopicHeaderProps) => {
 
   return (
     <Box is="header" ncss={{ ...defaultWrapperStyle, ...headerWrapperStyle }}>
-      {!topicOptions.hideIcon && <Icon name={props.topic.icon} />}
+      {!topicOptions.hideIcon && <TopicIcon icon={props.topic.icon} />}
       {!topicOptions.hideHeading && (
         <Heading is={useHeadingElement} ncss={{ ...headingStyle }}>
           {props.topic.heading}

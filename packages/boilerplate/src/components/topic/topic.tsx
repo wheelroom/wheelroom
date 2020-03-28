@@ -75,7 +75,7 @@ export interface TopicProps extends TopicLocalProps {
     abstract: string
   }
   media: MediaObject | undefined
-  icon: string
+  icon: string | JSX.Element
   actions: any
 }
 
