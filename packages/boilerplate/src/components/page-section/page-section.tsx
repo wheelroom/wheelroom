@@ -20,6 +20,7 @@ import { PageSectionNavigationVar } from './page-section-navigation-var'
 import { PageSectionQuoteVar } from './page-section-quote-var'
 import { PageSectionTextVar } from './page-section-text-var'
 import { PageSectionVideoVar } from './page-section-video-var'
+import { PageSectionDividerVar } from './page-section-divider-var'
 import { SectionProps } from '../../sections/section-props'
 import { TextProps } from '../text'
 import { TopicOptionString } from '../../lib/get-topic-options'
@@ -37,6 +38,7 @@ const componentList = {
   ['quote']: PageSectionQuoteVar,
   ['text']: PageSectionTextVar,
   ['video']: PageSectionVideoVar,
+  ['divider']: PageSectionDividerVar,
 }
 
 export interface PageSectionProps extends SectionProps {
