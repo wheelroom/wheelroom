@@ -104,3 +104,5 @@ export interface MediaObject {
 }
 
 export type styleProp = string | string[] | number | number[]
+
+export type HeadingName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'

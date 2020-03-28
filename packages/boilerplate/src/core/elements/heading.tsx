@@ -1,125 +1,71 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
-import {
-  heading1Style,
-  heading2Style,
-  heading3Style,
-  heading4Style,
-  heading5Style,
-  heading6Style,
-  commonHeadingStyle,
-} from '../styles/heading'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { NcssProps } from './types'
-import { commonParagraphStyle } from '../styles/paragraph'
+import { NcssProps, BlockLevelElementName, HeadingName } from './types'
+import { headingStyleMap } from '../styles/heading'
 
 interface HeadingProps {
+  /** Render as another HTML element */
+  is?: BlockLevelElementName
+  /** React children */
+  children?: any
+  /** Nested emotion css styling */
   ncss?: NcssProps
-  children: any
 }
 
-export type HeadingName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
+export const Heading = (props: HeadingProps) => {
+  const currentThemeId = useGetCurrentThemeId() as ThemeId
+  const is = props.is || 'h1'
+  const label = `${is}`
+  const headingStyle = { label, ...props.ncss }
+  // If we have a heading element, apply default style
 
-export const H1 = (props: HeadingProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const ncss = props.ncss || {}
-  return (
-    <h1
-      css={systemCss(
-        { ncss: { ...commonHeadingStyle, ...heading1Style, ...ncss } },
-        currentThemeId
-      )}
-    >
-      {props.children}
-    </h1>
-  )
-}
-export const H2 = (props: HeadingProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const ncss = props.ncss || {}
-  return (
-    <h2
-      css={systemCss(
-        { ncss: { ...commonHeadingStyle, ...heading2Style, ...ncss } },
-        currentThemeId
-      )}
-    >
-      {props.children}
-    </h2>
-  )
-}
-export const H3 = (props: HeadingProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const ncss = props.ncss || {}
-  return (
-    <h3
-      css={systemCss(
-        { ncss: { ...commonHeadingStyle, ...heading3Style, ...ncss } },
-        currentThemeId
-      )}
-    >
-      {props.children}
-    </h3>
-  )
-}
-export const H4 = (props: HeadingProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const ncss = props.ncss || {}
-  return (
-    <h4
-      css={systemCss(
-        { ncss: { ...commonHeadingStyle, ...heading4Style, ...ncss } },
-        currentThemeId
-      )}
-    >
-      {props.children}
-    </h4>
-  )
-}
-export const H5 = (props: HeadingProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const ncss = props.ncss || {}
-  return (
-    <h5
-      css={systemCss(
-        { ncss: { ...commonHeadingStyle, ...heading5Style, ...ncss } },
-        currentThemeId
-      )}
-    >
-      {props.children}
-    </h5>
-  )
-}
-export const H6 = (props: HeadingProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const ncss = props.ncss || {}
-  return (
-    <h6
-      css={systemCss(
-        { ncss: { ...commonHeadingStyle, ...heading6Style, ...ncss } },
-        currentThemeId
-      )}
-    >
-      {props.children}
-    </h6>
-  )
+  if (is in Object.keys(headingStyleMap)) {
+    Object.assign(headingStyle, headingStyleMap[is as HeadingName])
+  }
+  const css = systemCss({ ncss: headingStyle }, currentThemeId)
+  const attrs = {
+    css,
+  }
+  return jsx(props.is || 'p', attrs, props.children)
 }
 
-export const P = (props: HeadingProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const ncss = props.ncss || {}
-  return (
-    <p
-      css={systemCss(
-        { ncss: { ...commonParagraphStyle, ...ncss } },
-        currentThemeId
-      )}
-    >
-      {props.children}
-    </p>
-  )
-}
+export const H1 = (props: HeadingProps) => (
+  <Heading is="h1" ncss={props.ncss}>
+    {props.children}
+  </Heading>
+)
+
+export const H2 = (props: HeadingProps) => (
+  <Heading is="h1" ncss={props.ncss}>
+    {props.children}
+  </Heading>
+)
+
+export const H3 = (props: HeadingProps) => (
+  <Heading is="h1" ncss={props.ncss}>
+    {props.children}
+  </Heading>
+)
+
+export const H4 = (props: HeadingProps) => (
+  <Heading is="h1" ncss={props.ncss}>
+    {props.children}
+  </Heading>
+)
+
+export const H5 = (props: HeadingProps) => (
+  <Heading is="h1" ncss={props.ncss}>
+    {props.children}
+  </Heading>
+)
+
+export const H6 = (props: HeadingProps) => (
+  <Heading is="h1" ncss={props.ncss}>
+    {props.children}
+  </Heading>
+)
 
 export const HeadingMap = {
   h1: H1,
@@ -128,5 +74,4 @@ export const HeadingMap = {
   h4: H4,
   h5: H5,
   h6: H6,
-  p: P,
 }

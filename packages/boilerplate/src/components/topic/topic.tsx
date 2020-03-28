@@ -45,7 +45,7 @@ interface TopicLocalProps {
   /** Override default heading style */
   headingStyle?: NcssProps
   /** Defaults to h3 */
-  useHeading?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
+  useHeading?: BlockLevelElementName
   /** Override default paragraph style */
   paragraphStyle?: NcssProps
   /** Defaults to h3 */
