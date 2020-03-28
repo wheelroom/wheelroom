@@ -41,11 +41,11 @@ export const QuoteDisplay = (props: { pageSection: PageSectionProps }) => {
         textAlign: 'center',
         flexDirection: 'column',
       }}
-      useHeading={'p'}
+      useHeadingElement={'p'}
       headingStyle={{ order: 1, my: 3, ':before': { content: '"— "' } }}
       headerWrapperStyle={{ textAlign: 'center' }}
       actionWrapperStyle={{ mx: 'auto' }}
-      useParagraph={'blockquote'}
+      useAbstractElement={'blockquote'}
       paragraphStyle={{
         label: 'blockquote',
         mx: [0, 5],

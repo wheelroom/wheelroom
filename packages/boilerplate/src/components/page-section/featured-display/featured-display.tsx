@@ -57,7 +57,7 @@ export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
           }}
           headerWrapperStyle={{}}
           headingStyle={{ ...defaultHeading2Style }}
-          useHeading="h3"
+          useHeadingElement="h3"
           actionWrapperStyle={{
             display: 'flex',
           }}

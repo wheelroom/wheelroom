@@ -24,9 +24,9 @@ export interface TopicHeaderProps {
   /** Override default styling of the wrapper */
   headerWrapperStyle?: NcssProps
   /** Defaults to h3 */
-  useHeading?: BlockLevelElementName
+  useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
-  useParagraph?: BlockLevelElementName
+  useAbstractElement?: BlockLevelElementName
   /** Override default paragraph style */
   paragraphStyle?: NcssProps
   /** Override default heading style */
@@ -48,8 +48,8 @@ const Icon = (props: { name: string }) => {
 }
 
 export const TopicHeader = (props: TopicHeaderProps) => {
-  const useHeading = props.useHeading || 'h3'
-  const useParagraph = props.useParagraph || 'p'
+  const useHeadingElement = props.useHeadingElement || 'h3'
+  const useAbstractElement = props.useAbstractElement || 'p'
 
   const headerWrapperStyle = props.headerWrapperStyle || {}
   const paragraphStyle = props.paragraphStyle || {}
@@ -61,12 +61,12 @@ export const TopicHeader = (props: TopicHeaderProps) => {
     <Box is="header" ncss={{ ...defaultWrapperStyle, ...headerWrapperStyle }}>
       {!topicOptions.hideIcon && <Icon name={props.topic.icon} />}
       {!topicOptions.hideHeading && (
-        <Heading is={useHeading} ncss={{ ...headingStyle }}>
+        <Heading is={useHeadingElement} ncss={{ ...headingStyle }}>
           {props.topic.heading}
         </Heading>
       )}
       {!topicOptions.hideAbstract && (
-        <Paragraph is={useParagraph} ncss={{ ...paragraphStyle }}>
+        <Paragraph is={useAbstractElement} ncss={{ ...paragraphStyle }}>
           {props.topic.abstract &&
             props.topic.abstract.abstract
               .split('\n')

@@ -45,11 +45,11 @@ interface TopicLocalProps {
   /** Override default heading style */
   headingStyle?: NcssProps
   /** Defaults to h3 */
-  useHeading?: BlockLevelElementName
+  useHeadingElement?: BlockLevelElementName
   /** Override default paragraph style */
   paragraphStyle?: NcssProps
   /** Defaults to h3 */
-  useParagraph?: BlockLevelElementName
+  useAbstractElement?: BlockLevelElementName
 
   /** Override default styling of the action wrapper */
   actionWrapperStyle?: NcssProps

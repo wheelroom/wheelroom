@@ -69,7 +69,7 @@ export const HeroDisplay = (props: { pageSection: PageSectionProps }) => {
               w: 1,
             }}
             headingStyle={{ mb: 0, color: 'caviar' }}
-            useHeading="h1"
+            useHeadingElement="h1"
             paragraphStyle={{ ...paragraphHeroStyle }}
             actionWrapperStyle={{ mb: 0, maxWidth: '480px' }}
             actionStyle={heroActionStyle}

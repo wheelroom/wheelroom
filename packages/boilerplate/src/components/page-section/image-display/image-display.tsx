@@ -48,7 +48,7 @@ export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
                   },
                 }}
                 contentWrapperStyle={{}}
-                useHeading="h4"
+                useHeadingElement="h4"
                 paragraphStyle={{ ...smallParagraphStyle, color: 'text' }}
                 actionWrapperStyle={{
                   mx: 'auto',

@@ -60,8 +60,8 @@ export const TopicSingleVar = (props: TopicProps) => {
             headerWrapperStyle={props.headerWrapperStyle}
             headingStyle={props.headingStyle}
             paragraphStyle={props.paragraphStyle}
-            useParagraph={props.useParagraph}
-            useHeading={props.useHeading}
+            useAbstractElement={props.useAbstractElement}
+            useHeadingElement={props.useHeadingElement}
           />
           {showAction && (
             <TopicActions

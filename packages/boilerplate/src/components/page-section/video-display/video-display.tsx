@@ -34,7 +34,7 @@ export const VideoDisplay = (props: { pageSection: PageSectionProps }) => {
               w: 1,
             }}
             contentWrapperStyle={{}}
-            useHeading="h4"
+            useHeadingElement="h4"
             paragraphStyle={{ ...smallParagraphStyle, color: 'text' }}
             actionWrapperStyle={{
               mx: 'auto',

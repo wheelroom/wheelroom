@@ -30,8 +30,15 @@ export const BlockDisplay = (props: { pageSection: PageSectionProps }) => {
         },
         imgNcss: { w: 1, h: 1, objectFit: 'cover', position: 'absolute' },
       }}
-      contentWrapperStyle={{}}
-      headerWrapperStyle={{}}
+      contentWrapperStyle={{
+        display: 'flex',
+        flexDirection: 'column',
+        flex: '1 1 auto',
+      }}
+      headerWrapperStyle={{
+        display: 'block',
+        flex: '1 1 auto',
+      }}
       actionWrapperStyle={{}}
       topicWrapperStyle={{ px: [0, 3], py: [3, 3], w: [1, 1 / 2, 1 / 3] }}
     />
