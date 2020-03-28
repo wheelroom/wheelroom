@@ -15,15 +15,23 @@ export const configComponents: WheelroomComponents = {
   topic: {
     fields: {
       heading: {
+        helpText: 'Titel van het onderwerp, zonder punt aan eind',
+        name: 'Onderwerp titel',
         type: 'shortText',
       } as ShortTextField,
       abstract: {
+        helpText: 'Korte omschrijving van het onderwerp, sluit af met een punt',
+        name: 'Onderwerp tekst',
         type: 'longText',
       } as LongTextField,
       media: {
+        helpText: 'Afbeelding bij het onderwerp',
+        name: 'Onderwerp afbeelding',
         type: 'media',
       } as MediaField,
       icon: {
+        helpText: 'Icoon bij het onderwerp',
+        name: 'Onderwerp icoon',
         items: [
           'activity',
           'airplay',
@@ -312,6 +320,9 @@ export const configComponents: WheelroomComponents = {
       } as DropdownField,
       actions: {
         allowedComponents: ['action'],
+        helpText:
+          'Eén of meerdere acties bij het onderwerp. Een actie heeft een eigen naam en kan ook linken naar een extern bron.',
+        name: 'Onderwerp acties',
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -324,16 +335,22 @@ export const configComponents: WheelroomComponents = {
   action: {
     fields: {
       heading: {
+        helpText: 'Naam van de actie, zonder punt aan eind',
+        name: 'Actie naam',
         type: 'shortText',
       } as ShortTextField,
       page: {
         allowedComponents: ['page'],
         // Limit expanding pages, prevent circ refs
         expandFragmentRef: true,
+        helpText: 'De pagina waar de actie naar linkt (of gebruik de URL)',
+        name: 'Actie paginalink',
         type: 'singleComponent',
       } as SingleComponentField,
       url: {
+        helpText: 'De URL waar de actie naar linkt (of gebruik de paginalink)',
         initialContent: 'https://localhost:8000',
+        name: 'Actie URL',
         type: 'shortText',
         typePostfix: 'Url',
       } as ShortTextField,
@@ -347,10 +364,15 @@ export const configComponents: WheelroomComponents = {
   navigationSegment: {
     fields: {
       heading: {
+        helpText:
+          'De naam van dit navigatiesegment. Alleen nodig bij meerdere segmenten.',
+        name: 'Navigatiesegment titel',
         type: 'shortText',
       } as ShortTextField,
       pages: {
         allowedComponents: ['page'],
+        helpText: "De pagina's in dit navigatie segment.",
+        name: "Naviagtie segment Pagina's",
         // Limit expanding pages, prevent circ refs
         expandFragmentRef: true,
         type: 'multipleComponents',
@@ -366,6 +388,9 @@ export const configComponents: WheelroomComponents = {
     fields: {
       segments: {
         allowedComponents: ['navigationSegment'],
+        helpText:
+          "Een navigatie segment bevat verwijzingen naar pagina's. Navigatie kan worden opgebouwd uit meerdere segmenten.",
+        name: 'Navigatie segmenten',
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -378,6 +403,8 @@ export const configComponents: WheelroomComponents = {
   text: {
     fields: {
       text: {
+        helpText: 'Eenvoudig opgemaakte tekstveld met kopjes en afbeeldingen',
+        name: 'Tekst',
         required: true,
         type: 'richText',
       } as RichTextField,
@@ -391,6 +418,8 @@ export const configComponents: WheelroomComponents = {
   pageSection: {
     fields: {
       variation: {
+        helpText: 'Hoe de sectie wordt weergegeven',
+        name: 'Sectie weergave',
         items: [
           'block',
           'card',
@@ -408,30 +437,43 @@ export const configComponents: WheelroomComponents = {
       } as DropdownField,
       topics: {
         allowedComponents: ['topic'],
+        helpText:
+          'Eén of meerder onderwerpen die worden weergegeven in de sectie',
+        name: 'Sectie onderwerpen',
         type: 'multipleComponents',
       } as MultipleComponentsField,
       topicOptions: {
-        initialContent: ['Hide icon'],
+        helpText:
+          'Deze opties passen de weergave van de onderwerpen in de sectie aan.',
+        initialContent: ['Verberg icoon'],
         items: [
-          'Hide icon',
-          'Hide media',
-          'Hide heading',
-          'Hide abstract',
-          'Hide action',
-          'Reversed order',
+          'Verberg actie',
+          'Verberg icoon',
+          'Verberg media',
+          'Verberg tekst',
+          'Verberg titel',
+          'Draai volgorde om',
         ],
+        name: 'Onderwerp opties',
         type: 'checkbox',
       } as CheckboxField,
       text: {
         allowedComponents: ['text'],
+        helpText: 'Tekst die wordt weergegeven in de sectie',
+        name: 'Sectie tekst',
         type: 'singleComponent',
       } as SingleComponentField,
       navigation: {
         allowedComponents: ['navigation'],
+        helpText: 'De navigatie die gebruikt wordt in de sectie',
+        name: 'Sectie navigatie',
         type: 'singleComponent',
       } as SingleComponentField,
       actions: {
         allowedComponents: ['action'],
+        helpText:
+          'Eén of meerdere acties in de sectie. Een actie heeft een eigen naam en kan ook linken naar een extern bron.',
+        name: 'Sectie acties',
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -446,35 +488,54 @@ export const configComponents: WheelroomComponents = {
   page: {
     fields: {
       path: {
+        helpText:
+          'Laatste deel van de URL naar deze pagina. Bijvoorbeeld: www.mijnsite.nl/stel-dit-deel-hier-in',
         initialContent: '/boilerplate',
+        name: 'Pagina URL',
         required: true,
         type: 'shortText',
         typePostfix: 'Path',
         unique: true,
       } as ShortTextField,
       navigationHeading: {
+        helpText:
+          'De titel die wordt gebruikt wanneer de pagina in een menu staat',
+        name: 'Menu titel',
         type: 'shortText',
       } as ShortTextField,
       sections: {
         allowedComponents: [
           '%componentNameArray(filter:settings.asPageSection)%',
         ],
+        helpText: 'Kies de secties die met elkaar deze pagina vormen',
         initialContent: ['%componentNameArray(filter:settings.asPageSection)%'],
+        name: 'Paginasecties',
         required: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,
       theme: {
+        helpText: 'Kies het thema voor deze pagina',
         items: ['light', 'dark'],
+        name: 'Paginathema',
         type: 'dropdown',
       } as DropdownField,
       seoTitle: {
+        helpText:
+          'Titel van de pagina, gebruikt door zoek machines zoals Google',
+        name: 'SEO titel',
         type: 'shortText',
       } as ShortTextField,
       seoDescription: {
+        helpText:
+          'Omschrijving van de pagina, gebruikt door zoek machines zoals Google',
         maxLength: 155,
+        name: 'SEO omschrijving',
         type: 'shortText',
       } as ShortTextField,
       seoImage: {
+        helpText:
+          'Afbeelding bij de pagina, wordt meegegeven aan een link en weergegeven door social media',
+        name: 'SEO afbeelding',
         type: 'media',
       } as MediaField,
     },
@@ -487,15 +548,25 @@ export const configComponents: WheelroomComponents = {
   globals: {
     fields: {
       siteAuthor: {
+        helpText: 'Beschiknaar in alle secties',
+        name: 'Site auteur',
         type: 'shortText',
       } as ShortTextField,
       siteDescription: {
+        helpText:
+          'Omschrijving van de site, gebruikt door zoek machines zoals Google',
+        name: 'Site omschrijving',
         type: 'shortText',
       } as ShortTextField,
       siteHeading: {
+        helpText: 'Titel van de site, gebruikt door zoek machines zoals Google',
+        name: 'Site titel',
         type: 'shortText',
       } as ShortTextField,
       siteKeywords: {
+        helpText:
+          'Sleutelwoorden voor de site, gebruikt door zoek machines zoals Google',
+        name: 'Site sleutelwoorden',
         type: 'tags',
       } as TagsField,
     },
