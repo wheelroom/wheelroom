@@ -3,7 +3,7 @@ import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { Topic } from '../../topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../page-section'
-import { heading1Style } from '../../../core/styles/heading'
+import { defaultHeading1Style } from '../../../core/styles/heading'
 import { paragraphHeroStyle } from '../../../core/styles/paragraph'
 
 export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
@@ -47,7 +47,7 @@ export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
               flexDirection: 'column',
             }}
             useHeading="h2"
-            headingStyle={{ ...heading1Style }}
+            headingStyle={{ ...defaultHeading1Style }}
             paragraphStyle={{ ...paragraphHeroStyle, color: 'text' }}
             actionWrapperStyle={{
               mx: 'auto',

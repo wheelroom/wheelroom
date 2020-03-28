@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { heading1Style } from '../../../core/styles/heading'
 import { paragraphHeroStyle } from '../../../core/styles/paragraph'
 import { Box, Container } from '../../../core/elements/grid'
 import { Topic } from '../../topic'
@@ -69,7 +68,7 @@ export const HeroDisplay = (props: { pageSection: PageSectionProps }) => {
               maxWidth: ['480px', '640px'],
               w: 1,
             }}
-            headingStyle={{ ...heading1Style, mb: 0, color: 'caviar' }}
+            headingStyle={{ mb: 0, color: 'caviar' }}
             useHeading="h1"
             paragraphStyle={{ ...paragraphHeroStyle }}
             actionWrapperStyle={{ mb: 0, maxWidth: '480px' }}

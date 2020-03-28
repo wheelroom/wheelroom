@@ -19,14 +19,6 @@ import { List } from '../../core/elements/list'
 import { ALink } from '../../core/elements/a-link'
 import { GLink } from '../../core/elements/g-link'
 import { H1, H2, H3, H4, H5, H6 } from '../../core/elements/heading'
-import {
-  heading1Style,
-  heading2Style,
-  heading3Style,
-  heading4Style,
-  heading5Style,
-  heading6Style,
-} from '../../core/styles/heading'
 import { getLocalizedValue } from './get-localized-value'
 import { Flex } from '../../core/elements/grid'
 import {
@@ -171,22 +163,22 @@ export const TextSingleVar = (props: TextProps) => {
         )
       },
       [BLOCKS.HEADING_1]: (_node: Node, children: Children) => (
-        <H1 ncss={{ ...heading1Style }}>{children}</H1>
+        <H1>{children}</H1>
       ),
       [BLOCKS.HEADING_2]: (_node: Node, children: Children) => (
-        <H2 ncss={{ ...heading2Style, mt: 3 }}>{children}</H2>
+        <H2 ncss={{ mt: 3 }}>{children}</H2>
       ),
       [BLOCKS.HEADING_3]: (_node: Node, children: Children) => (
-        <H3 ncss={{ ...heading3Style, mt: 3 }}>{children}</H3>
+        <H3 ncss={{ mt: 3 }}>{children}</H3>
       ),
       [BLOCKS.HEADING_4]: (_node: Node, children: Children) => (
-        <H4 ncss={{ ...heading4Style, mt: 3 }}>{children}</H4>
+        <H4 ncss={{ mt: 3 }}>{children}</H4>
       ),
       [BLOCKS.HEADING_5]: (_node: Node, children: Children) => (
-        <H5 ncss={{ ...heading5Style, mt: 3 }}>{children}</H5>
+        <H5 ncss={{ mt: 3 }}>{children}</H5>
       ),
       [BLOCKS.HEADING_6]: (_node: Node, children: Children) => (
-        <H6 ncss={{ ...heading6Style, mt: 3 }}>{children}</H6>
+        <H6 ncss={{ mt: 3 }}>{children}</H6>
       ),
       [BLOCKS.HR]: () => <Any is="hr" ncss={{ ...hrStyle }} />,
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
