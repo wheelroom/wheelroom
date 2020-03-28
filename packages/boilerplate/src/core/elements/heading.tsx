@@ -20,8 +20,9 @@ export const Heading = (props: HeadingProps) => {
   const label = `${is}`
 
   // If we have a heading element, apply default style
-  const defaultHeadingStyle =
-    is in Object.keys(headingStyleMap) ? headingStyleMap[is as HeadingName] : {}
+  const defaultHeadingStyle = Object.keys(headingStyleMap).includes(is)
+    ? headingStyleMap[is as HeadingName]
+    : {}
 
   const headingStyle = Object.assign(
     {},
