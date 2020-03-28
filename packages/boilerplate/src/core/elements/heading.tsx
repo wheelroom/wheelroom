@@ -18,12 +18,18 @@ export const Heading = (props: HeadingProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
   const is = props.is || 'h1'
   const label = `${is}`
-  const headingStyle = { label, ...props.ncss }
-  // If we have a heading element, apply default style
 
-  if (is in Object.keys(headingStyleMap)) {
-    Object.assign(headingStyle, headingStyleMap[is as HeadingName])
-  }
+  // If we have a heading element, apply default style
+  const defaultHeadingStyle =
+    is in Object.keys(headingStyleMap) ? headingStyleMap[is as HeadingName] : {}
+
+  const headingStyle = Object.assign(
+    {},
+    defaultHeadingStyle,
+    { label },
+    props.ncss
+  )
+
   const css = systemCss({ ncss: headingStyle }, currentThemeId)
   const attrs = {
     css,
