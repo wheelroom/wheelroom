@@ -46,7 +46,7 @@ export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
               textAlign: 'center',
               flexDirection: 'column',
             }}
-            useHeadingElement="h2"
+            useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
             headingStyle={{ ...defaultHeading1Style }}
             paragraphStyle={{ ...paragraphHeroStyle, color: 'text' }}
             actionWrapperStyle={{

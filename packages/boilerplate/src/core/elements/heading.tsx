@@ -5,13 +5,16 @@ import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, BlockLevelElementName, HeadingName } from './types'
 import { headingStyleMap } from '../styles/heading'
 
-interface HeadingProps {
-  /** Render as another HTML element */
-  is?: BlockLevelElementName
+interface HeadingElementProps {
   /** React children */
   children?: any
   /** Nested emotion css styling */
   ncss?: NcssProps
+}
+
+interface HeadingProps extends HeadingElementProps {
+  /** Render as another HTML element */
+  is?: BlockLevelElementName
 }
 
 export const Heading = (props: HeadingProps) => {
@@ -38,37 +41,37 @@ export const Heading = (props: HeadingProps) => {
   return jsx(props.is || 'p', attrs, props.children)
 }
 
-export const H1 = (props: HeadingProps) => (
+export const H1 = (props: HeadingElementProps) => (
   <Heading is="h1" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
 
-export const H2 = (props: HeadingProps) => (
+export const H2 = (props: HeadingElementProps) => (
   <Heading is="h2" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
 
-export const H3 = (props: HeadingProps) => (
+export const H3 = (props: HeadingElementProps) => (
   <Heading is="h3" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
 
-export const H4 = (props: HeadingProps) => (
+export const H4 = (props: HeadingElementProps) => (
   <Heading is="h4" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
 
-export const H5 = (props: HeadingProps) => (
+export const H5 = (props: HeadingElementProps) => (
   <Heading is="h5" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
 
-export const H6 = (props: HeadingProps) => (
+export const H6 = (props: HeadingElementProps) => (
   <Heading is="h6" ncss={props.ncss}>
     {props.children}
   </Heading>
