@@ -38,31 +38,31 @@ export const H1 = (props: HeadingProps) => (
 )
 
 export const H2 = (props: HeadingProps) => (
-  <Heading is="h1" ncss={props.ncss}>
+  <Heading is="h2" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
 
 export const H3 = (props: HeadingProps) => (
-  <Heading is="h1" ncss={props.ncss}>
+  <Heading is="h3" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
 
 export const H4 = (props: HeadingProps) => (
-  <Heading is="h1" ncss={props.ncss}>
+  <Heading is="h4" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
 
 export const H5 = (props: HeadingProps) => (
-  <Heading is="h1" ncss={props.ncss}>
+  <Heading is="h5" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
 
 export const H6 = (props: HeadingProps) => (
-  <Heading is="h1" ncss={props.ncss}>
+  <Heading is="h6" ncss={props.ncss}>
     {props.children}
   </Heading>
 )
