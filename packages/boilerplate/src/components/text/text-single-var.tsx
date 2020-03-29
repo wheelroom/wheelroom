@@ -38,7 +38,7 @@ const blockquoteStyle = {
     fontFamily: 'text',
     color: 'metal',
     fontSize: 8,
-    content: 'open-quote',
+    content: '"”"',
   },
 }
 
