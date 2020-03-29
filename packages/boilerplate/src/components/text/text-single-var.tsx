@@ -40,12 +40,6 @@ const blockquoteStyle = {
     fontSize: 8,
     content: '"”"',
   },
-  ':after': {
-    fontFamily: 'text',
-    color: 'metal',
-    fontSize: 8,
-    content: 'no-close-quote',
-  },
 }
 
 const boldTextStyle = {
