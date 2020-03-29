@@ -38,13 +38,7 @@ const blockquoteStyle = {
     fontFamily: 'text',
     color: 'metal',
     fontSize: 8,
-    content: 'open-quote',
-  },
-  ':after': {
-    fontFamily: 'text',
-    color: 'metal',
-    fontSize: 8,
-    content: 'no-close-quote',
+    content: '"”"',
   },
 }
 
