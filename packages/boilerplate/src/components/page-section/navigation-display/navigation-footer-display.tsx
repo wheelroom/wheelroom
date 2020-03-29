@@ -38,11 +38,10 @@ const defaultIconStyle = {
   label: 'icon',
   width: '20px',
   height: '20px',
-  color: 'text',
-  strokeWidth: '0',
-  fill: 'metal',
+  color: 'metal',
+  strokeWidth: '1px',
   ':hover': {
-    fill: 'text',
+    color: 'text',
   },
 }
 

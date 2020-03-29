@@ -8,7 +8,7 @@ You can use the commands below. Create an empty repository at Github and replace
 `YOUR_GIT_URL_HERE` below with the url of this empty repository.
 
 ```bash
-git clone --depth 1 git@github.com:jaccomeijer/wheelroom.git your-site
+git clone --depth 1 git@github.com:wheelroom/wheelroom.git your-site
 cd your-site
 git filter-branch --prune-empty --subdirectory-filter packages/boilerplate master
 git remote set-url origin YOUR_GIT_URL_HERE
