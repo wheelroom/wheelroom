@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { ActionProps } from '../action'
-import { getVariation } from '../../lib/get-variation'
+import { getVariation } from '../../core/lib/get-variation'
 import { NavigationProps } from '../navigation'
 import { PageSectionBlockVar } from './page-section-block-var'
 import { PageSectionCardVar } from './page-section-card-var'
@@ -23,7 +23,7 @@ import { PageSectionVideoVar } from './page-section-video-var'
 import { PageSectionDividerVar } from './page-section-divider-var'
 import { SectionProps } from '../../sections/section-props'
 import { TextProps } from '../text'
-import { TopicOptionString } from '../../lib/get-topic-options'
+import { TopicOptionString } from '../../core/lib/get-topic-options'
 import { TopicProps } from '../topic'
 
 const componentList = {

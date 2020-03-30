@@ -8,8 +8,8 @@
 
 import React from 'react'
 import { PageSectionProps } from './page-section'
-import { NotImplemented } from '../../lib/not-implemented'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { NotImplemented } from '../../core/lib/not-implemented'
+import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
 import { QuoteDisplay } from '../../core/displays/quote-display/quote-display'
 
 export const PageSectionQuoteVar = (props: PageSectionProps) => {

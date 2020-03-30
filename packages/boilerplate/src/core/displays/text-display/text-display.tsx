@@ -1,6 +1,6 @@
 import React from 'react'
 import { PageSectionProps } from '../../../components/page-section/page-section'
-import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { Text } from '../../../components/text'
 import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { styleTree } from '../../../style-tree/text-style-tree'

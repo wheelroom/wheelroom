@@ -5,8 +5,8 @@ import { Box } from '../../core/elements/grid'
 import { Any } from '../../core/elements/any'
 import { NcssProps } from '../../core/elements/types'
 import { TopicProps } from '.'
-import { TopicInfo } from '../../lib/get-topic-info'
-import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { TopicInfo } from '../../core/lib/get-topic-info'
+import { PageSectionInfo } from '../../core/lib/get-page-section-info'
 
 const defaultWrapperStyle = {
   display: 'flex',

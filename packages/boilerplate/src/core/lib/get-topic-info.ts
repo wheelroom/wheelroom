@@ -1,4 +1,4 @@
-import { TopicProps } from '../components/topic'
+import { TopicProps } from '../../components/topic'
 
 export interface TopicInfo {
   hasAbstract: boolean

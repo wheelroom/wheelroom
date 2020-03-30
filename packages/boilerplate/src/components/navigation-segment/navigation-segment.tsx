@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
+import { getVariation } from '../../core/lib/get-variation'
 import { NavigationSegmentSingleVar } from './navigation-segment-single-var'
 import { PageProps } from '../page/page'
 

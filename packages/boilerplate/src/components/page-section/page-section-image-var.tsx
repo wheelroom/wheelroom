@@ -8,8 +8,8 @@
 
 import React from 'react'
 import { PageSectionProps } from './page-section'
-import { NotImplemented } from '../../lib/not-implemented'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { NotImplemented } from '../../core/lib/not-implemented'
+import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
 import { ImageDisplay } from '../../core/displays/image-display/image-display'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {

@@ -1,4 +1,4 @@
-import { PageSectionProps } from '../components/page-section/page-section'
+import { PageSectionProps } from '../../components/page-section/page-section'
 import { getTopicOptions, TopicOptions } from './get-topic-options'
 
 export interface PageSectionInfo {

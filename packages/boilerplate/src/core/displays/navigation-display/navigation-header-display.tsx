@@ -35,7 +35,7 @@ import {
   navigationHeaderStyle,
 } from './navigation-styles'
 import { IconMap } from '../../../svg/feather/iconMap'
-import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../components/page-section/page-section'
 const XIcon = IconMap.x
 

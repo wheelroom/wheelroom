@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box } from '../../core/elements/grid'
 import { Action } from '../action/action'
-import { TopicInfo } from '../../lib/get-topic-info'
-import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { TopicInfo } from '../../core/lib/get-topic-info'
+import { PageSectionInfo } from '../../core/lib/get-page-section-info'
 import { TopicProps } from './topic'
 import { NcssProps } from '../../core/elements/types'
 

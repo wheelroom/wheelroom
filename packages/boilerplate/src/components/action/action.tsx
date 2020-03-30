@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
+import { getVariation } from '../../core/lib/get-variation'
 import { ActionSingleVar } from './action-single-var'
 import { StyleTree } from '../../core/style-tree/types'
 

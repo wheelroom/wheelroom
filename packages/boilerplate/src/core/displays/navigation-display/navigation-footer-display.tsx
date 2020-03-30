@@ -19,7 +19,7 @@ import {
   navigationFooterStyle,
   navStyle,
 } from './navigation-styles'
-import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../components/page-section/page-section'
 import { FeatherIcon } from '../../elements/icon'
 

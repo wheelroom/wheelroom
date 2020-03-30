@@ -3,8 +3,8 @@ import { graphql } from 'gatsby'
 import React, { useState, Fragment } from 'react'
 import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
-import { pageDebug } from './lib/debug'
-import { Seo } from './lib/seo'
+import { pageDebug } from './core/lib/debug'
+import { Seo } from './core/lib/seo'
 import { Sections } from './sections/sections'
 import {
   PreviewUpdateButton,

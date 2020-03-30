@@ -1,4 +1,4 @@
-import { scales } from '../styled-system/scales'
+import { scales } from '../../styled-system/scales'
 
 export interface Padding {
   bottom: number

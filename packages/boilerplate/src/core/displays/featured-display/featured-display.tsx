@@ -3,7 +3,7 @@ import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { Topic } from '../../../components/topic'
 import { defaultHeading2Style } from '../../styles/heading'
 import { PageSectionProps } from '../../../components/page-section/page-section'
-import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import {
   commonImagePictureStyle,
   commonImageImgStyle,

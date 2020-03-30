@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
+import { getVariation } from '../../core/lib/get-variation'
 import { TextSingleVar } from './text-single-var'
 import { StyleTree } from '../../core/style-tree/types'
 

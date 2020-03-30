@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { TopicProps, Topic } from '../../../components/topic'
-import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../components/page-section/page-section'
 import {
   commonImageImgStyle,

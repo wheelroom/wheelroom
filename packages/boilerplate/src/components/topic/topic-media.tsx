@@ -3,8 +3,8 @@ import { Image, ImageProps } from '../../core/elements/image'
 import { Box } from '../../core/elements/grid'
 import { NcssProps } from '../../core/elements/types'
 import { TopicProps } from '.'
-import { TopicInfo } from '../../lib/get-topic-info'
-import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { TopicInfo } from '../../core/lib/get-topic-info'
+import { PageSectionInfo } from '../../core/lib/get-page-section-info'
 import { VideoProps, Video } from '../../core/elements/video'
 
 const defaultWrapperStyle = {

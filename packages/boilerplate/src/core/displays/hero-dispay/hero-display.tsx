@@ -4,7 +4,7 @@ import { Box, Container } from '../../elements/grid'
 import { Topic } from '../../../components/topic'
 import { buttonPrimaryStyle } from '../../styles/button'
 import { PageSectionProps } from '../../../components/page-section/page-section'
-import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import {
   commonImageImgStyle,
   commonImagePictureStyle,

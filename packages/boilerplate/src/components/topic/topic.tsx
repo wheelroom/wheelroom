@@ -6,14 +6,14 @@
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
+import { getVariation } from '../../core/lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
 import {
   BlockLevelElementName,
   MediaObject,
   NcssProps,
 } from '../../core/elements/types'
-import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { PageSectionInfo } from '../../core/lib/get-page-section-info'
 import { ImageProps } from '../../core/elements/image'
 import { ActionProps } from '../action/action'
 import { VideoProps } from '../../core/elements/video'

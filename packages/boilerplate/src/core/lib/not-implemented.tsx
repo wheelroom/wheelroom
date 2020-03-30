@@ -1,8 +1,8 @@
 import React from 'react'
-import { Box, Flex } from '../core/elements/grid'
-import { PageSectionProps } from '../components/page-section/page-section'
+import { Box, Flex } from '../elements/grid'
+import { PageSectionProps } from '../../components/page-section/page-section'
 import { getPageSectionInfo } from './get-page-section-info'
-import { SvgBell } from '../svg/feather'
+import { SvgBell } from '../../svg/feather'
 
 const yesNo = (value: boolean) => {
   return value ? 'yes' : 'no'

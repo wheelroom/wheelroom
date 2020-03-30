@@ -12,7 +12,7 @@ import { TopicWrapper } from './topic-wrapper'
 import { TopicHeader } from './topic-header'
 import { TopicActions } from './topic-actions'
 import { TopicContentWrapper } from './topic-content-wrapper'
-import { getTopicInfo } from '../../lib/get-topic-info'
+import { getTopicInfo } from '../../core/lib/get-topic-info'
 import { TopicMedia } from './topic-media'
 
 export const TopicSingleVar = (props: TopicProps) => {
