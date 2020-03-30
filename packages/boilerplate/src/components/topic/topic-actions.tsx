@@ -57,7 +57,7 @@ export const TopicActions = (props: TopicActionProps) => {
       ) : (
         <Action
           {...action}
-          ncss={{
+          styleTree={{
             ...buttonPrimaryStyle,
             ...actionStyle,
           }}

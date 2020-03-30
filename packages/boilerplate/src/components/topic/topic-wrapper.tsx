@@ -33,7 +33,7 @@ export const TopicWrapper = (props: TopicWrapperProps) => {
   return fullTopicAsLink ? (
     <Action
       {...props.topic.actions[0]}
-      ncss={{
+      styleTree={{
         ...defaultWrapperStyle,
         ...topicWrapperStyle,
         textDecoration: 'none',

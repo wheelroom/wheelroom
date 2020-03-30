@@ -108,7 +108,7 @@ export const NavigationHeaderDisplay = (props: {
             <Flex is="div" ncss={{ label: 'nav-settings' }}>
               {pageSectionInfo.hasAction && (
                 <Action
-                  ncss={{ ...buttonPrimaryStyle }}
+                  styleTree={buttonPrimaryStyle}
                   {...props.pageSection.actions[0]}
                 />
               )}
@@ -201,7 +201,7 @@ export const NavigationHeaderDisplay = (props: {
                 <Flex is="div" ncss={{ label: 'nav-settings', w: 1, p: 3 }}>
                   {pageSectionInfo.hasAction && (
                     <Action
-                      ncss={{ ...buttonPrimaryStyle, w: 1 }}
+                      styleTree={{ ...buttonPrimaryStyle, w: 1 }}
                       {...props.pageSection.actions[0]}
                     />
                   )}

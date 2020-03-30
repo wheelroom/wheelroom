@@ -8,24 +8,26 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { ActionSingleVar } from './action-single-var'
-import { NcssProps } from '../../core/elements/types'
+import { StyleTree } from '../../core/style-tree/types'
 
 const componentList = {
   ['single']: ActionSingleVar,
 }
 
-export interface ActionProps {
+export interface ActionLocalProps {
+  /** Local data */
+  children?: any
+  styleTree?: StyleTree
+  key?: any
+}
+
+export interface ActionProps extends ActionLocalProps {
   /** Gatsby fetched data */
   __typename?: string
   title?: string
   heading?: string
   page?: any
   url?: string
-
-  /** Local data */
-  children?: any
-  ncss?: NcssProps
-  key?: any
 }
 
 export const Action = (props: ActionProps) => {

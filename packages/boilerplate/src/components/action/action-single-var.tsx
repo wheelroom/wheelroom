@@ -13,7 +13,7 @@ import { ALink } from '../../core/elements/a-link'
 
 const ActionGlink = (props: ActionProps) => {
   return (
-    <GLink to={props.page.path} ncss={props.ncss}>
+    <GLink to={props.page.path} ncss={props.styleTree}>
       {props.children ? props.children : props.heading}
     </GLink>
   )
@@ -21,7 +21,7 @@ const ActionGlink = (props: ActionProps) => {
 
 const ActionAlink = (props: ActionProps) => {
   return (
-    <ALink href={props.url} ncss={props.ncss}>
+    <ALink href={props.url} ncss={props.styleTree}>
       {props.children ? props.children : props.heading}
     </ALink>
   )

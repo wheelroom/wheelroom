@@ -13,7 +13,6 @@ import { ALink } from '../../../core/elements/a-link'
 import { Any } from '../../../core/elements/any'
 import { NavLinks } from '../../navigation/nav-links'
 import { List } from '../../../core/elements/list'
-import { IconMap } from '../../../svg/feather/iconMap'
 import { Action } from '../../action'
 import {
   commonNavigationStyle,
@@ -22,6 +21,7 @@ import {
 } from './navigation-styles'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../page-section'
+import { FeatherIcon } from '../../../core/elements/icon'
 
 export const listStyle = {
   label: 'nav-list',
@@ -43,14 +43,6 @@ const defaultIconStyle = {
   ':hover': {
     color: 'text',
   },
-}
-
-const Icon = (props: { name: string }) => {
-  if (props.name && props.name in IconMap) {
-    const RenderIcon = IconMap[props.name]
-    return <RenderIcon ncss={{ ...defaultIconStyle }} />
-  }
-  return null
 }
 
 export const NavigationFooterDisplay = (props: {
@@ -107,12 +99,15 @@ export const NavigationFooterDisplay = (props: {
                     <List is={'li'} key={index}>
                       <Action
                         {...topic.actions[0]}
-                        ncss={{
+                        styleTree={{
                           display: 'inline-flex',
                           p: 1,
                         }}
                       >
-                        <Icon name={topic.icon} />
+                        <FeatherIcon
+                          ncss={defaultIconStyle}
+                          icon={topic.icon as string}
+                        />
                       </Action>
                     </List>
                   )
