@@ -12,7 +12,7 @@ interface TopicModel {
 interface ActionModel {
   fields: {
     heading?: string
-    page?: 'homePage'
+    page?: 'somePage'
     url?: string
     title: string
   }
@@ -21,7 +21,7 @@ interface ActionModel {
 interface NavigationSegmentModel {
   fields: {
     heading?: string
-    pages?: Array<'homePage'>
+    pages?: Array<'somePage'>
     title: string
   }
   model: 'navigationSegment'

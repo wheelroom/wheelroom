@@ -23,12 +23,12 @@ export const contentSets: ContentSets = {
       },
       model: 'globals',
     },
-    homePage: {
+    somePage: {
       fields: {
-        path: '/home',
-        navigationHeading: 'Home',
+        path: '/some-page',
+        navigationHeading: 'Some page',
         sections: ['siteHeader', 'homeHeadline', 'homeHText', 'siteFooter'],
-        title: 'Home',
+        title: 'Some page',
       },
       model: 'page',
     },
@@ -92,14 +92,14 @@ Like this one`,
     demoAction: {
       fields: {
         heading: 'Go home',
-        page: 'homePage',
+        page: 'somePage',
         title: 'Go home',
       },
       model: 'action',
     },
     mainNavigationSegment: {
       fields: {
-        pages: ['homePage'],
+        pages: ['somePage'],
         title: 'Main navigation segment',
       },
       model: 'navigationSegment',
