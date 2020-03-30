@@ -88,7 +88,9 @@ export const NavigationFooterDisplay = (props: {
           >
             <List is="ul" ncss={listStyle}>
               <NavLinks
-                linkStyle={navigationFooterStyle}
+                styleTree={{
+                  linkStyle: navigationFooterStyle,
+                }}
                 pages={navSegment.pages}
               />
             </List>

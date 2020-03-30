@@ -101,7 +101,9 @@ export const NavigationHeaderDisplay = (props: {
           >
             <List is="ul" ncss={listStyle}>
               <NavLinks
-                linkStyle={{ ...navigationHeaderStyle }}
+                styleTree={{
+                  linkStyle: navigationHeaderStyle,
+                }}
                 pages={navSegment.pages}
               />
             </List>
@@ -194,7 +196,9 @@ export const NavigationHeaderDisplay = (props: {
                 </Button>
                 <List is="ul" ncss={{ label: 'nav-list', ...listMobileStyle }}>
                   <NavLinks
-                    linkStyle={{ ...navigationHeaderStyle }}
+                    styleTree={{
+                      linkStyle: navigationHeaderStyle,
+                    }}
                     pages={navSegment.pages}
                   />
                 </List>

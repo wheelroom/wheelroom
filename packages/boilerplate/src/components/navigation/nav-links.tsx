@@ -5,17 +5,17 @@ import { PageProps } from '../page'
 import { NcssProps } from '../../core/elements/types'
 
 interface NavLinkProps extends PageProps {
-  linkStyle: NcssProps
+  styleTree: NcssProps
 }
 
 const NavLink = (props: NavLinkProps) => {
-  const linkStyle = props.linkStyle || {}
+  const styleTree = props.styleTree || {}
   return (
     <GLink
       to={props.path}
       ncss={{
         label: 'nav-link',
-        ...linkStyle,
+        ...styleTree,
       }}
     >
       {props.navigationHeading}
@@ -25,19 +25,21 @@ const NavLink = (props: NavLinkProps) => {
 
 export interface NavLinksProps {
   pages: PageProps[]
-  itemStyle?: NcssProps
-  linkStyle?: NcssProps
+  styleTree: {
+    itemStyle?: NcssProps
+    linkStyle?: NcssProps
+  }
 }
 
 export const NavLinks = (props: NavLinksProps) => {
-  const itemStyle = props.itemStyle || {}
+  const itemStyle = props.styleTree.itemStyle || {}
   const links = props.pages.map((page: PageProps) => (
     <Any
       is={'li'}
       ncss={{ label: 'nav-item', ...itemStyle }}
       key={page.navigationHeading}
     >
-      <NavLink {...page} linkStyle={props.linkStyle} />
+      <NavLink {...page} styleTree={props.styleTree.linkStyle} />
     </Any>
   ))
   return <Fragment>{links}</Fragment>
