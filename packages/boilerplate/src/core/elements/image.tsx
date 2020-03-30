@@ -55,7 +55,7 @@ export const Image = (props: ImageProps) => {
     ...styles
   )
   const [baseFigcaptionStyle, baseImgStyle, basePictureStyle] = getStyles(
-    props.styleTree,
+    props.styleTreeBase,
     ...styles
   )
 
