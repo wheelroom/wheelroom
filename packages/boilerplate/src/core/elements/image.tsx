@@ -4,7 +4,7 @@ import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { MediaObject, NcssProps } from './types'
 import { getStyles } from '../style-tree/get-styles'
-import { StyleTree, StyleTreeBase } from '../style-tree/types'
+import { StyleTree } from '../style-tree/types'
 
 export interface ImageStyleTree extends StyleTree {
   img?: NcssProps
@@ -17,7 +17,6 @@ export interface ImageProps {
   media?: MediaObject
   includeFigcaption?: boolean
   styleTree?: ImageStyleTree
-  styleTreeBase: StyleTreeBase
   title?: string
 }
 
@@ -54,32 +53,15 @@ export const Image = (props: ImageProps) => {
     props.styleTree,
     ...styles
   )
-  const [baseFigcaptionStyle, baseImgStyle, basePictureStyle] = getStyles(
-    props.styleTreeBase,
-    ...styles
-  )
 
   return (
-    <picture
-      css={systemCss(
-        { ncss: { ...basePictureStyle, ...pictureStyle } },
-        currentThemeId
-      )}
-    >
+    <picture css={systemCss({ ncss: pictureStyle }, currentThemeId)}>
       <img
         {...imgElementAttrs}
-        css={systemCss(
-          { ncss: { ...baseImgStyle, ...imgStyle } },
-          currentThemeId
-        )}
+        css={systemCss({ ncss: imgStyle }, currentThemeId)}
       />
       {props.includeFigcaption && (
-        <figcaption
-          css={systemCss(
-            { ncss: { ...baseFigcaptionStyle, ...figcaptionStyle } },
-            currentThemeId
-          )}
-        >
+        <figcaption css={systemCss({ ncss: figcaptionStyle }, currentThemeId)}>
           {imgElementAttrs.alt}
         </figcaption>
       )}

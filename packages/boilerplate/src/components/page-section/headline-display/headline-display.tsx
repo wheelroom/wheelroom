@@ -10,6 +10,10 @@ import {
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
 } from '../../../core/styles/image'
+import {
+  commonVideoDescriptionStyle,
+  commonVideoStyle,
+} from '../../../core/styles/video'
 
 export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -41,16 +45,16 @@ export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
             }}
             mediaProps={{
               styleTree: {
+                img: commonImageImgStyle,
                 picture: {
+                  ...commonImagePictureStyle,
                   display: 'block',
                   px: 0,
                   py: 3,
                 },
-              },
-              styleTreeBase: {
-                img: commonImageImgStyle,
-                picture: commonImagePictureStyle,
                 figcaption: commonImageFigcaptionStyle,
+                description: commonVideoDescriptionStyle,
+                video: commonVideoStyle,
               },
             }}
             contentWrapperStyle={{

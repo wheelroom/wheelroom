@@ -8,20 +8,25 @@
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { TextSingleVar } from './text-single-var'
+import { StyleTree } from '../../core/style-tree/types'
 
 const componentList = {
   ['single']: TextSingleVar,
 }
 
-export interface TextProps {
+export interface TextLocalProps {
+  /** Locale needed for rendering rich text */
+  locale: string
+  styleTree?: StyleTree
+}
+
+export interface TextProps extends TextLocalProps {
   /** Gatsby fetched data */
   __typename: string
   title: string
   text: {
     json: string
   }
-  /** Locale needed for rendering rich text */
-  locale: string
 }
 
 export const Text = (props: TextProps) => {

@@ -14,7 +14,6 @@ import { Image } from '../../core/elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
 import { Any } from '../../core/elements/any'
 import { Paragraph } from '../../core/elements/paragraph'
-import { defaultParagraphStyle } from '../../core/styles/paragraph'
 import { List } from '../../core/elements/list'
 import { ALink } from '../../core/elements/a-link'
 import { GLink } from '../../core/elements/g-link'
@@ -25,76 +24,14 @@ import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
-import { commonALinkStyle } from '../../core/styles/a-link'
 import { Video } from '../../core/elements/video'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
-
-const richTextLinkStyle = {
-  wordBreak: 'break-all',
-}
-
-const blockquoteStyle = {
-  textAlign: 'center',
-  ':before': {
-    fontFamily: 'text',
-    color: 'metal',
-    fontSize: 8,
-    content: '"”"',
-  },
-}
-
-const boldTextStyle = {
-  label: 'strong',
-  fontWeight: 7,
-}
-
-const preTextStyle = {
-  label: 'pre',
-  fontSize: 3,
-  bg: 'skyblue',
-  py: 2,
-  px: 3,
-  wordBreak: 'break-all',
-  wordWrap: 'break-word',
-}
-const codeTextStyle = {
-  label: 'code',
-}
-
-const hrStyle = {
-  label: 'hr',
-  overflow: 'hidden',
-  borderTop: '1px solid transparent',
-  borderColor: 'text',
-  w: 1,
-  my: 3,
-}
 
 type Node = any
 type Children = any
 
-const ImageBox = (props: { media: MediaObject }) => (
-  <Image
-    includeFigcaption={true}
-    media={props.media}
-    styleTree={{
-      img: { my: [4, 5] },
-      figcaption: { mt: 0, mb: [4, 5] },
-    }}
-    styleTreeBase={{
-      img: commonImageImgStyle,
-      picture: commonImagePictureStyle,
-      figcaption: commonImageFigcaptionStyle,
-    }}
-  />
-)
-
 export const TextSingleVar = (props: TextProps) => {
   const textProps = props
+  const styleTree = props.styleTree || {}
 
   const options = {
     renderText: (text) => {
@@ -106,13 +43,13 @@ export const TextSingleVar = (props: TextProps) => {
     },
     renderMark: {
       [MARKS.BOLD]: (text) => (
-        <Any is="b" ncss={{ ...boldTextStyle }}>
+        <Any is="b" ncss={styleTree.marksBold}>
           {text}
         </Any>
       ),
       [MARKS.CODE]: (code) => (
-        <Any is="pre" ncss={{ ...preTextStyle }}>
-          <Any is="code" ncss={{ ...codeTextStyle }}>
+        <Any is="pre" ncss={styleTree.marksCode.pre}>
+          <Any is="code" ncss={styleTree.marksCode.code}>
             {code}
           </Any>
         </Any>
@@ -124,28 +61,28 @@ export const TextSingleVar = (props: TextProps) => {
       },
       [BLOCKS.QUOTE]: (_node: Node, children: Children) => {
         return (
-          <Any is="blockquote" ncss={{ ...blockquoteStyle }}>
+          <Any is="blockquote" ncss={styleTree.blocksQuote}>
             {children}
           </Any>
         )
       },
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List is="ul" ncss={{ ...defaultParagraphStyle }}>
+          <List is="ul" ncss={styleTree.blocksUlList}>
             {children}
           </List>
         )
       },
       [BLOCKS.OL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List is="ol" ncss={{ ...defaultParagraphStyle }}>
+          <List is="ol" ncss={styleTree.blocksOlList}>
             {children}
           </List>
         )
       },
       [BLOCKS.LIST_ITEM]: (_node: Node, children: Children) => {
         return (
-          <List is="li" ncss={{ ...defaultParagraphStyle }}>
+          <List is="li" ncss={styleTree.blocksLiList}>
             {children}
           </List>
         )
@@ -153,10 +90,7 @@ export const TextSingleVar = (props: TextProps) => {
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {
         const uri = node.data.uri
         return (
-          <ALink
-            href={uri}
-            ncss={{ ...commonALinkStyle, ...richTextLinkStyle }}
-          >
+          <ALink href={uri} ncss={styleTree.inlinesHyperlink}>
             {children}
           </ALink>
         )
@@ -166,33 +100,30 @@ export const TextSingleVar = (props: TextProps) => {
           node.data.target.fields &&
           node.data.target.fields.path[textProps.locale]
         return (
-          <GLink
-            ncss={{ ...commonALinkStyle, ...richTextLinkStyle }}
-            to={internalPath}
-          >
+          <GLink ncss={styleTree.entryHyperlink} to={internalPath}>
             {children}
           </GLink>
         )
       },
       [BLOCKS.HEADING_1]: (_node: Node, children: Children) => (
-        <H1>{children}</H1>
+        <H1 ncss={styleTree.blocksHeading1}>{children}</H1>
       ),
       [BLOCKS.HEADING_2]: (_node: Node, children: Children) => (
-        <H2 ncss={{ mt: 3 }}>{children}</H2>
+        <H2 ncss={styleTree.blocksHeading2}>{children}</H2>
       ),
       [BLOCKS.HEADING_3]: (_node: Node, children: Children) => (
-        <H3 ncss={{ mt: 3 }}>{children}</H3>
+        <H3 ncss={styleTree.blocksHeading3}>{children}</H3>
       ),
       [BLOCKS.HEADING_4]: (_node: Node, children: Children) => (
-        <H4 ncss={{ mt: 3 }}>{children}</H4>
+        <H4 ncss={styleTree.blocksHeading4}>{children}</H4>
       ),
       [BLOCKS.HEADING_5]: (_node: Node, children: Children) => (
-        <H5 ncss={{ mt: 3 }}>{children}</H5>
+        <H5 ncss={styleTree.blocksHeading5}>{children}</H5>
       ),
       [BLOCKS.HEADING_6]: (_node: Node, children: Children) => (
-        <H6 ncss={{ mt: 3 }}>{children}</H6>
+        <H6 ncss={styleTree.blocksHeading6}>{children}</H6>
       ),
-      [BLOCKS.HR]: () => <Any is="hr" ncss={{ ...hrStyle }} />,
+      [BLOCKS.HR]: () => <Any is="hr" ncss={styleTree.blocksHr} />,
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         if (!fields) {
@@ -220,7 +151,14 @@ export const TextSingleVar = (props: TextProps) => {
               src: localizedFile.url + '?w=2560&q=75',
             },
           } as MediaObject
-          return <ImageBox media={media} key={node.data.target.id} />
+          return (
+            <Image
+              key={node.data.target.id}
+              includeFigcaption={true}
+              media={media}
+              styleTree={styleTree.image}
+            />
+          )
         }
         if (contentTypeSplit[0] === 'video') {
           const media = {
@@ -237,7 +175,7 @@ export const TextSingleVar = (props: TextProps) => {
               media={media}
               title={localizedTitle}
               description={localizedDescription}
-              videoNcss={{ my: [4, 5] }}
+              styleTree={styleTree.video}
             />
           )
         }
@@ -248,16 +186,7 @@ export const TextSingleVar = (props: TextProps) => {
   } as Options
 
   return (
-    <Flex
-      is="div"
-      ncss={{
-        label: 'text',
-        mx: 'auto',
-        maxWidth: '640px',
-        flexDirection: 'column',
-        textAlign: 'left',
-      }}
-    >
+    <Flex is="div" ncss={styleTree.wrapper}>
       {documentToReactComponents(
         (props.text.json as unknown) as Document,
         options

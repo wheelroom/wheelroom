@@ -4,16 +4,21 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, MediaObject } from './types'
-import { commonVideoStyle, commonVideoDescriptionStyle } from '../styles/video'
+import { StyleTree } from '../style-tree/types'
+import { getStyles } from '../style-tree/get-styles'
+
+export interface VideoStyleTree extends StyleTree {
+  video?: NcssProps
+  description?: NcssProps
+}
 
 export interface VideoProps {
   description?: string
-  descriptionNcss?: NcssProps
   includeDescription?: boolean
   includeTitle?: boolean
   media?: MediaObject
+  styleTree?: VideoStyleTree
   title?: string
-  videoNcss?: NcssProps
 }
 
 const defaultMediaObject = {
@@ -44,29 +49,18 @@ export const Video = (props: VideoProps) => {
     description:
       media.description || props.description || defaultMediaObject.description,
   }
-
-  const descriptionNcss = props.descriptionNcss || {}
-  const videoNcss = props.videoNcss || {}
+  const styles = ['video', 'desciption']
+  const [videoStyle, desciptionStyle] = getStyles(props.styleTree, ...styles)
+  console.log(videoStyle)
 
   return (
     <Fragment>
-      <video
-        css={systemCss(
-          { ncss: { ...commonVideoStyle, ...videoNcss } },
-          currentThemeId
-        )}
-        controls
-      >
+      <video css={systemCss({ ncss: videoStyle }, currentThemeId)} controls>
         <source src={videoAttrs.url} type={videoAttrs.type} />
         Your browser does not support the video tag.
       </video>
       {props.title && (
-        <p
-          css={systemCss(
-            { ncss: { ...commonVideoDescriptionStyle, ...descriptionNcss } },
-            currentThemeId
-          )}
-        >
+        <p css={systemCss({ ncss: desciptionStyle }, currentThemeId)}>
           <b>{videoAttrs.title}</b>
           {props.title && videoAttrs.description && ` – `}
           {videoAttrs.description}

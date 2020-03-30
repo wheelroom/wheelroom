@@ -3,6 +3,7 @@ import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Text } from '../../text'
 import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
+import { styleTree } from './text-style-tree'
 
 export const TextDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -22,7 +23,11 @@ export const TextDisplay = (props: { pageSection: PageSectionProps }) => {
           px: 3,
         }}
       >
-        <Text {...props.pageSection.text} locale={props.pageSection.locale} />
+        <Text
+          {...props.pageSection.text}
+          locale={props.pageSection.locale}
+          styleTree={styleTree}
+        />
       </ContainerMaxWidth>
     </Box>
   )

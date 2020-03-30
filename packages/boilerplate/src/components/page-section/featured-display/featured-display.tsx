@@ -9,6 +9,10 @@ import {
   commonImageImgStyle,
   commonImageFigcaptionStyle,
 } from '../../../core/styles/image'
+import {
+  commonVideoDescriptionStyle,
+  commonVideoStyle,
+} from '../../../core/styles/video'
 
 export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -46,15 +50,14 @@ export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
           }}
           mediaProps={{
             styleTree: {
-              img: {},
+              img: commonImageImgStyle,
               picture: {
+                ...commonImagePictureStyle,
                 p: 3,
               },
-            },
-            styleTreeBase: {
-              img: commonImageImgStyle,
-              picture: commonImagePictureStyle,
               figcaption: commonImageFigcaptionStyle,
+              description: commonVideoDescriptionStyle,
+              video: commonVideoStyle,
             },
           }}
           mediaWrapperStyle={{

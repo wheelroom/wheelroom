@@ -8,6 +8,10 @@ import {
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
 } from '../../../core/styles/image'
+import {
+  commonVideoDescriptionStyle,
+  commonVideoStyle,
+} from '../../../core/styles/video'
 
 export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -30,13 +34,11 @@ export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
       }}
       mediaProps={{
         styleTree: {
-          img: { h: 1, objectFit: 'cover' },
-          picture: { display: 'block', h: '178px' },
-        },
-        styleTreeBase: {
-          img: commonImageImgStyle,
-          picture: commonImagePictureStyle,
+          img: { ...commonImageImgStyle, h: 1, objectFit: 'cover' },
+          picture: { ...commonImagePictureStyle, display: 'block', h: '178px' },
           figcaption: commonImageFigcaptionStyle,
+          description: commonVideoDescriptionStyle,
+          video: commonVideoStyle,
         },
       }}
       contentWrapperStyle={{

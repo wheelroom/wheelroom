@@ -38,11 +38,8 @@ export const GalleryDisplay = (props: { pageSection: PageSectionProps }) => {
             .map((topic: TopicProps, index: number) => (
               <Image
                 styleTree={{
-                  picture: { w: [1, 1 / 2], p: 3 },
-                }}
-                styleTreeBase={{
                   img: commonImageImgStyle,
-                  picture: commonImagePictureStyle,
+                  picture: { ...commonImagePictureStyle, w: [1, 1 / 2], p: 3 },
                   figcaption: commonImageFigcaptionStyle,
                 }}
                 key={index}

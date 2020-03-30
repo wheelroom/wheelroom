@@ -10,6 +10,10 @@ import {
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
 } from '../../../core/styles/image'
+import {
+  commonVideoDescriptionStyle,
+  commonVideoStyle,
+} from '../../../core/styles/video'
 
 const heroActionStyle = {
   ...buttonPrimaryStyle,
@@ -53,13 +57,11 @@ export const HeroDisplay = (props: { pageSection: PageSectionProps }) => {
             }}
             mediaProps={{
               styleTree: {
-                img: { h: 1, objectFit: 'cover' },
-                picture: { h: '170px', w: 1 },
-              },
-              styleTreeBase: {
-                img: commonImageImgStyle,
-                picture: commonImagePictureStyle,
+                img: { ...commonImageImgStyle, h: 1, objectFit: 'cover' },
+                picture: { ...commonImagePictureStyle, h: '170px', w: 1 },
                 figcaption: commonImageFigcaptionStyle,
+                description: commonVideoDescriptionStyle,
+                video: commonVideoStyle,
               },
             }}
             mediaWrapperStyle={{

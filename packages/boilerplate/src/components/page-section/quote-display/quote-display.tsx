@@ -8,6 +8,10 @@ import {
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
 } from '../../../core/styles/image'
+import {
+  commonVideoDescriptionStyle,
+  commonVideoStyle,
+} from '../../../core/styles/video'
 
 export const QuoteDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -30,8 +34,15 @@ export const QuoteDisplay = (props: { pageSection: PageSectionProps }) => {
       }}
       mediaProps={{
         styleTree: {
-          img: { w: 1, h: 1, objectFit: 'cover', position: 'absolute' },
+          img: {
+            ...commonImageImgStyle,
+            w: 1,
+            h: 1,
+            objectFit: 'cover',
+            position: 'absolute',
+          },
           picture: {
+            ...commonImagePictureStyle,
             display: 'block',
             overflow: 'hidden',
             position: 'relative',
@@ -40,11 +51,9 @@ export const QuoteDisplay = (props: { pageSection: PageSectionProps }) => {
             mx: 'auto',
             borderRadius: '50%',
           },
-        },
-        styleTreeBase: {
-          img: commonImageImgStyle,
-          picture: commonImagePictureStyle,
           figcaption: commonImageFigcaptionStyle,
+          description: commonVideoDescriptionStyle,
+          video: commonVideoStyle,
         },
       }}
       topicWrapperStyle={{ alignItems: 'center' }}

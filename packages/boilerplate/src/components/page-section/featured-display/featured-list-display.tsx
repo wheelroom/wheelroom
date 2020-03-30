@@ -3,6 +3,15 @@ import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { TopicProps, Topic } from '../../topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../page-section'
+import {
+  commonImageImgStyle,
+  commonImagePictureStyle,
+  commonImageFigcaptionStyle,
+} from '../../../core/styles/image'
+import {
+  commonVideoDescriptionStyle,
+  commonVideoStyle,
+} from '../../../core/styles/video'
 
 export const FeaturedListDisplay = (props: {
   pageSection: PageSectionProps
@@ -36,6 +45,15 @@ export const FeaturedListDisplay = (props: {
           justifyContent: 'normal',
           w: [1 / 3, 1 / 4, 1 / 4],
           p: 3,
+        }}
+        mediaProps={{
+          styleTree: {
+            img: commonImageImgStyle,
+            picture: commonImagePictureStyle,
+            figcaption: commonImageFigcaptionStyle,
+            description: commonVideoDescriptionStyle,
+            video: commonVideoStyle,
+          },
         }}
         contentWrapperStyle={{
           display: 'flex',

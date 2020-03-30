@@ -4,6 +4,15 @@ import { Topic } from '../../topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../page-section'
 import { smallParagraphStyle } from '../../../core/styles/paragraph'
+import {
+  commonImageImgStyle,
+  commonImagePictureStyle,
+  commonImageFigcaptionStyle,
+} from '../../../core/styles/image'
+import {
+  commonVideoDescriptionStyle,
+  commonVideoStyle,
+} from '../../../core/styles/video'
 
 export const VideoDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -43,6 +52,15 @@ export const VideoDisplay = (props: { pageSection: PageSectionProps }) => {
               mx: 2,
               fontSize: [5, 6],
               lineHeight: [3, 4],
+            }}
+            mediaProps={{
+              styleTree: {
+                img: commonImageImgStyle,
+                picture: commonImagePictureStyle,
+                figcaption: commonImageFigcaptionStyle,
+                description: commonVideoDescriptionStyle,
+                video: commonVideoStyle,
+              },
             }}
           />
         </ContainerMaxWidth>
