@@ -1,17 +1,6 @@
 /**
  * Defines the boilerplate content set. In English.
  *
- * The set is build up out of 5 pages: home, documentation, showcase, plugins and about.
- * The pages demonstrate the use of the models:
- *
- * - footerSection
- * - globals
- * - listSection
- * - navigation
- * - openerSection
- * - page
- * - quoteSection
- * - textSection
  *
  */
 
@@ -22,289 +11,103 @@ export interface ContentSets {
 }
 
 export const contentSets: ContentSets = {
+  // export const contentSets: any = {
   boilerplate: {
     siteGlobals: {
       fields: {
-        addressLine1: 'AddressLine 1',
-        addressLine2: '1234 AB  Utrecht',
-        emailAddress: 'info@wheelroom.io',
-        linkedinUrl: 'n/a',
-        phoneNumber: '030-1234567',
         siteAuthor: 'John Doe',
         siteDescription: 'Site description.',
         siteHeading: 'Site heading',
         siteKeywords: ['Wheelroom', 'io', 'TypeScript', 'Contentful'],
-        title: 'Wheelroom',
+        title: 'Global settings for this site',
       },
       model: 'globals',
     },
     homePage: {
       fields: {
-        navigationHeading: 'home',
-        heading: 'Build amazing things with Wheelroom',
-        image: true,
-        abstract:
-          'Wheelroom is an open source command line tool that helps developers build blazing fast websites and apps',
-        path: '/',
-        sections: [
-          'homeOpener',
-          'wheelroomIntroductionText',
-          'passionQuote',
-          'endOfPageLinksLarge',
-          'defaultFooter',
-        ],
+        path: '/home',
+        navigationHeading: 'Home',
+        sections: ['siteHeader', 'homeHeadline', 'homeHText', 'siteFooter'],
         title: 'Home',
       },
       model: 'page',
     },
-    homeOpener: {
+    siteHeader: {
       fields: {
-        boxBackgroundColor: 'white',
-        navigation: 'openerNavigation',
-        title: 'Home opener',
-        variation: 'home page',
+        topicOptions: ['Hide icon'],
+        variation: 'navigation',
+        navigation: 'mainNavigation',
+        title: 'Site header (navigation)',
       },
-      model: 'openerSection',
+      model: 'pageSection',
     },
-    openerNavigation: {
+    siteFooter: {
       fields: {
-        pages: [
-          'homePage',
-          'documentationPage',
-          'pluginsPage',
-          'showcasePage',
-          'aboutPage',
-        ],
-        title: 'Opener navigation',
+        variation: 'navigation',
+        navigation: 'mainNavigation',
+        title: 'Site footer (navigation)',
       },
-      model: 'navigation',
+      model: 'pageSection',
     },
-    documentationPage: {
+    homeHeadline: {
       fields: {
-        navigationHeading: 'documentation',
-        heading: 'Heading',
-        image: true,
-        abstract: 'Abstract',
-        path: '/documentation',
-        sections: [
-          'navigationOpener',
-          'documentationText',
-          'defaultFooter',
-        ],
-        title: 'Documentation',
+        topics: ['demoTopic'],
+        topicOptions: ['Reversed order'],
+        variation: 'headline',
+        title: 'Demo headline (headline)',
       },
-      model: 'page',
+      model: 'pageSection',
     },
-    navigationOpener: {
+    homeHText: {
       fields: {
-        boxBackgroundColor: 'transparent',
-        navigation: 'openerNavigation',
-        title: 'Navigation only opener',
-        variation: 'navigation only',
+        topicOptions: ['Reversed order'],
+        variation: 'text',
+        text: 'demotext',
+        title: 'Demo text (text)',
       },
-      model: 'openerSection',
+      model: 'pageSection',
     },
-    pluginsPage: {
+    demotext: {
       fields: {
-        navigationHeading: 'plugins',
-        heading: 'Heading.',
-        image: true,
-        abstract: 'Abstract.',
-        path: '/plugins',
-        sections: [
-          'navigationOpener',
-          'pluginsText',
-          'careQuote',
-          'endOfPageLinks',
-          'defaultFooter',
-        ],
-        title: 'Plugins',
+        text: `## Heading
+        
+En een regel.
+Deze line-break moet er niet zijn.`,
+        title: 'Demo text',
       },
-      model: 'page',
+      model: 'text',
     },
-    showcasePage: {
+    demoTopic: {
       fields: {
-        navigationHeading: 'showcase',
-        heading: 'Heading',
-        image: true,
-        abstract: 'Abstract',
-        path: '/showcase',
-        sections: [
-          'navigationOpener',
-          'showcaseText',
-          'buildLoveQuote',
-          'aboutText',
-          'endOfPageLinks',
-          'defaultFooter',
-        ],
-        title: 'Showcase',
+        heading: 'Demo topic',
+        abstract: `What happens with new-lines?
+Like this one`,
+        icon: 'activity',
+        media: true,
+        actions: ['demoAction'],
+        title: 'Demo topic',
       },
-      model: 'page',
+      model: 'topic',
     },
-    aboutPage: {
+    demoAction: {
       fields: {
-        navigationHeading: 'about',
-        heading: 'About',
-        image: true,
-        abstract: 'Abstract.',
-        path: '/about',
-        sections: [
-          'navigationOpener',
-          'aboutText',
-          'passionQuote',
-          'showcaseText',
-          'endOfPageLinks',
-          'defaultFooter',
-        ],
-        title: 'About',
+        heading: 'Go home',
+        page: 'homePage',
+        title: 'Go home',
       },
-      model: 'page',
+      model: 'action',
     },
-    aboutText: {
+    mainNavigationSegment: {
       fields: {
-        text: `## About text
-
-Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.
-
-### Heading 3
-
-Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.`,
-        title: 'About text',
+        pages: ['homePage'],
+        title: 'Main navigation segment',
       },
-      model: 'textSection',
+      model: 'navigationSegment',
     },
-    showcaseText: {
+    mainNavigation: {
       fields: {
-        text: `## Showcase text
-
-Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.`,
-        title: 'Showcase text',
-      },
-      model: 'textSection',
-    },
-    documentationText: {
-      fields: {
-        text: `## Documentation text
-
-Lorem ipsum.`,
-        title: 'Documentation text',
-      },
-      model: 'textSection',
-    },
-    wheelroomIntroductionText: {
-      fields: {
-        text: `## Wheelroom introduction text
-
-Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.`,
-        title: 'Wheelroom introduction text',
-      },
-      model: 'textSection',
-    },
-    pluginsText: {
-      fields: {
-        text: `## Plugins text
-
-Qui ut porro quo. Illo et in sunt cumque officia sed. Vel eos voluptatem tempore harum culpa quam. Veniam ipsa beatae saepe consequatur voluptate debitis. Fugiat nihil consectetur quod. Voluptatibus culpa tenetur soluta ducimus eaque.`,
-        title: 'Plugins text',
-      },
-      model: 'textSection',
-    },
-    careQuote: {
-      fields: {
-        image: true,
-        heading: 'Gary Vaynerchuk',
-        subHeading: 'Ondernemer, spreker & marketing expert',
-        abstract: 'Abstract.',
-        title: 'Quote Gary Vaynerchuk',
-      },
-      model: 'quoteSection',
-    },
-    buildLoveQuote: {
-      fields: {
-        image: true,
-        heading: 'Brian Chesky',
-        subHeading: 'Cofounder van Airbnb',
-        abstract: 'Abstract.',
-        title: 'Quote Brian Chesky',
-      },
-      model: 'quoteSection',
-    },
-    passionQuote: {
-      fields: {
-        image: true,
-        heading: 'Michael Hyatt',
-        subHeading: 'Virtual business mentor',
-        abstract: 'Abstract.',
-        title: 'Quote Michael Hyatt',
-      },
-      model: 'quoteSection',
-    },
-    showcasePageItem: {
-      fields: {
-        abstract: 'Abstract.',
-        heading: 'Heading',
-        link: 'showcasePage',
-        view: 'full width image',
-        title: 'Item showcase page',
-      },
-      model: 'listItem',
-    },
-    documentationPageItem: {
-      fields: {
-        abstract: 'Abstract.',
-        heading: 'Heading',
-        link: 'showcasePage',
-        view: 'bottom black',
-        title: 'Item documentation page',
-      },
-      model: 'listItem',
-    },
-    aboutPageItem: {
-      fields: {
-        abstract: 'Abstract',
-        heading: 'Heading',
-        link: 'aboutPage',
-        view: 'bottom white',
-        title: 'Item about page',
-      },
-      model: 'listItem',
-    },
-    endOfPageLinks: {
-      fields: {
-        heading: 'Check',
-        items: ['showcasePageItem', 'documentationPageItem', 'aboutPageItem'],
-        title: 'References small',
-        variation: 'small items',
-      },
-      model: 'listSection',
-    },
-    endOfPageLinksLarge: {
-      fields: {
-        heading: 'Check',
-        items: ['showcasePageItem', 'documentationPageItem', 'aboutPageItem'],
-        title: 'References large',
-        variation: 'large items',
-      },
-      model: 'listSection',
-    },
-    defaultFooter: {
-      fields: {
-        backgroundColor: 'white',
-        navigation: 'footerNavigation',
-        title: 'Default footer',
-      },
-      model: 'footerSection',
-    },
-    footerNavigation: {
-      fields: {
-        pages: [
-          'homePage',
-          'documentationPage',
-          'pluginsPage',
-          'showcasePage',
-          'aboutPage',
-        ],
-        title: 'Footer navigation',
+        segments: ['mainNavigationSegment'],
+        title: 'Main navigation',
       },
       model: 'navigation',
     },

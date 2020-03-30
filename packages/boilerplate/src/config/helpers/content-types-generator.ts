@@ -96,6 +96,10 @@ const getFieldValue = (field: FieldType) => {
     } else {
       return 'string[]'
     }
+  } else if (field.type === 'checkbox') {
+    // Limit values to checkbox items
+    limitResults.push(...field.items.map((item: string) => `'${item}'`))
+    return `Array<${limitResults.join(' | ')}>`
   }
   return wheelroomTypeToTsType[field.type]
 }
