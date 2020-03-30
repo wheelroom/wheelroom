@@ -39,7 +39,7 @@ module.exports = {
     {
       options: {
         defaultLocale: 'en-US',
-        pageTemplate: path.resolve('./src/page-template.tsx'),
+        pageTemplate: path.resolve('./src/core/page-template.tsx'),
         queries: [globalsQuery, pageQuery],
       },
       resolve: `gatsby-theme-wheelroom`,
