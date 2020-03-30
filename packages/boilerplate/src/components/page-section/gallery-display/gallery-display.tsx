@@ -4,6 +4,11 @@ import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicProps } from '../../topic'
 import { Image } from '../../../core/elements/image'
+import {
+  commonImageImgStyle,
+  commonImageFigcaptionStyle,
+  commonImagePictureStyle,
+} from '../../../core/styles/image'
 
 export const GalleryDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -32,7 +37,14 @@ export const GalleryDisplay = (props: { pageSection: PageSectionProps }) => {
             .slice(0, 4)
             .map((topic: TopicProps, index: number) => (
               <Image
-                pictureNcss={{ w: [1, 1 / 2], p: 3 }}
+                styleTree={{
+                  picture: { w: [1, 1 / 2], p: 3 },
+                }}
+                styleTreeBase={{
+                  img: commonImageImgStyle,
+                  picture: commonImagePictureStyle,
+                  figcaption: commonImageFigcaptionStyle,
+                }}
                 key={index}
                 media={topic?.media}
               />

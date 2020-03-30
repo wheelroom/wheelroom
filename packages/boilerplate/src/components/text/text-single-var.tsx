@@ -27,6 +27,11 @@ import {
 } from '@contentful/rich-text-react-renderer'
 import { commonALinkStyle } from '../../core/styles/a-link'
 import { Video } from '../../core/elements/video'
+import {
+  commonImageImgStyle,
+  commonImagePictureStyle,
+  commonImageFigcaptionStyle,
+} from '../../core/styles/image'
 
 const richTextLinkStyle = {
   wordBreak: 'break-all',
@@ -76,8 +81,15 @@ const ImageBox = (props: { media: MediaObject }) => (
   <Image
     includeFigcaption={true}
     media={props.media}
-    imgNcss={{ my: [4, 5] }}
-    figcaptionNcss={{ mt: 0, mb: [4, 5] }}
+    styleTree={{
+      img: { my: [4, 5] },
+      figcaption: { mt: 0, mb: [4, 5] },
+    }}
+    styleTreeBase={{
+      img: commonImageImgStyle,
+      picture: commonImagePictureStyle,
+      figcaption: commonImageFigcaptionStyle,
+    }}
   />
 )
 

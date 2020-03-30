@@ -3,6 +3,11 @@ import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Topic } from '../../topic/topic'
+import {
+  commonImageImgStyle,
+  commonImagePictureStyle,
+  commonImageFigcaptionStyle,
+} from '../../../core/styles/image'
 
 export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -24,8 +29,15 @@ export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
         p: 3,
       }}
       mediaProps={{
-        pictureNcss: { display: 'block', h: '178px' },
-        imgNcss: { h: 1, objectFit: 'cover' },
+        styleTree: {
+          img: { h: 1, objectFit: 'cover' },
+          picture: { display: 'block', h: '178px' },
+        },
+        styleTreeBase: {
+          img: commonImageImgStyle,
+          picture: commonImagePictureStyle,
+          figcaption: commonImageFigcaptionStyle,
+        },
       }}
       contentWrapperStyle={{
         display: 'flex',

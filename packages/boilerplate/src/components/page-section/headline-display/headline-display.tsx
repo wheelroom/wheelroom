@@ -5,6 +5,11 @@ import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../page-section'
 import { defaultHeading1Style } from '../../../core/styles/heading'
 import { paragraphHeroStyle } from '../../../core/styles/paragraph'
+import {
+  commonImageImgStyle,
+  commonImagePictureStyle,
+  commonImageFigcaptionStyle,
+} from '../../../core/styles/image'
 
 export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -35,10 +40,17 @@ export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
               w: 1,
             }}
             mediaProps={{
-              pictureNcss: {
-                display: 'block',
-                px: 0,
-                py: 3,
+              styleTree: {
+                picture: {
+                  display: 'block',
+                  px: 0,
+                  py: 3,
+                },
+              },
+              styleTreeBase: {
+                img: commonImageImgStyle,
+                picture: commonImagePictureStyle,
+                figcaption: commonImageFigcaptionStyle,
               },
             }}
             contentWrapperStyle={{

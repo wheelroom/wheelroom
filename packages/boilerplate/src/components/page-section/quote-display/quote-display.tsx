@@ -3,6 +3,11 @@ import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Topic } from '../../topic'
+import {
+  commonImageImgStyle,
+  commonImagePictureStyle,
+  commonImageFigcaptionStyle,
+} from '../../../core/styles/image'
 
 export const QuoteDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -24,16 +29,23 @@ export const QuoteDisplay = (props: { pageSection: PageSectionProps }) => {
         p: 3,
       }}
       mediaProps={{
-        pictureNcss: {
-          display: 'block',
-          overflow: 'hidden',
-          position: 'relative',
-          h: '178px',
-          w: '178px',
-          mx: 'auto',
-          borderRadius: '50%',
+        styleTree: {
+          img: { w: 1, h: 1, objectFit: 'cover', position: 'absolute' },
+          picture: {
+            display: 'block',
+            overflow: 'hidden',
+            position: 'relative',
+            h: '178px',
+            w: '178px',
+            mx: 'auto',
+            borderRadius: '50%',
+          },
         },
-        imgNcss: { w: 1, h: 1, objectFit: 'cover', position: 'absolute' },
+        styleTreeBase: {
+          img: commonImageImgStyle,
+          picture: commonImagePictureStyle,
+          figcaption: commonImageFigcaptionStyle,
+        },
       }}
       topicWrapperStyle={{ alignItems: 'center' }}
       contentWrapperStyle={{

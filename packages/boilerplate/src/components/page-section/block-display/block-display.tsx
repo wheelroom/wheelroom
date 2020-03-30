@@ -3,6 +3,11 @@ import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Topic } from '../../topic'
+import {
+  commonImageImgStyle,
+  commonImagePictureStyle,
+  commonImageFigcaptionStyle,
+} from '../../../core/styles/image'
 
 export const BlockDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -22,13 +27,20 @@ export const BlockDisplay = (props: { pageSection: PageSectionProps }) => {
       fullTopicAsLink={false}
       mediaWrapperStyle={{}}
       mediaProps={{
-        pictureNcss: {
-          display: 'block',
-          h: '0px',
-          position: 'relative',
-          pb: '65.25%',
+        styleTree: {
+          img: { w: 1, h: 1, objectFit: 'cover', position: 'absolute' },
+          picture: {
+            display: 'block',
+            h: '0px',
+            position: 'relative',
+            pb: '65.25%',
+          },
         },
-        imgNcss: { w: 1, h: 1, objectFit: 'cover', position: 'absolute' },
+        styleTreeBase: {
+          img: commonImageImgStyle,
+          picture: commonImagePictureStyle,
+          figcaption: commonImageFigcaptionStyle,
+        },
       }}
       contentWrapperStyle={{
         display: 'flex',

@@ -4,6 +4,11 @@ import { Topic } from '../../topic'
 import { defaultHeading2Style } from '../../../core/styles/heading'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import {
+  commonImagePictureStyle,
+  commonImageImgStyle,
+  commonImageFigcaptionStyle,
+} from '../../../core/styles/image'
 
 export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -40,8 +45,16 @@ export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
             justifyContent: 'space-evenly',
           }}
           mediaProps={{
-            pictureNcss: {
-              p: 3,
+            styleTree: {
+              img: {},
+              picture: {
+                p: 3,
+              },
+            },
+            styleTreeBase: {
+              img: commonImageImgStyle,
+              picture: commonImagePictureStyle,
+              figcaption: commonImageFigcaptionStyle,
             },
           }}
           mediaWrapperStyle={{

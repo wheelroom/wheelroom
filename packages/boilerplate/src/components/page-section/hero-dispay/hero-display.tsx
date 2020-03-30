@@ -5,6 +5,7 @@ import { Topic } from '../../topic'
 import { buttonPrimaryStyle } from '../../../core/styles/button'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { commonImageImgStyle, commonImagePictureStyle, commonImageFigcaptionStyle } from '../../../core/styles/image'
 
 const heroActionStyle = {
   ...buttonPrimaryStyle,
@@ -47,8 +48,15 @@ export const HeroDisplay = (props: { pageSection: PageSectionProps }) => {
               w: 1,
             }}
             mediaProps={{
-              pictureNcss: { h: '170px', w: 1 },
-              imgNcss: { h: 1, objectFit: 'cover' },
+              styleTree: {
+                img: { h: 1, objectFit: 'cover' },
+                picture: { h: '170px', w: 1 },
+              },
+              styleTreeBase: {
+                img: commonImageImgStyle,
+                picture: commonImagePictureStyle,
+                figcaption: commonImageFigcaptionStyle,
+              },
             }}
             mediaWrapperStyle={{
               position: 'absolute',

@@ -4,6 +4,11 @@ import { Topic, TopicProps } from '../../topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../page-section'
 import { smallParagraphStyle } from '../../../core/styles/paragraph'
+import {
+  commonImageFigcaptionStyle,
+  commonImageImgStyle,
+  commonImagePictureStyle,
+} from '../../../core/styles/image'
 
 export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -41,10 +46,17 @@ export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
                   w: 1,
                 }}
                 mediaProps={{
-                  pictureNcss: {
-                    display: 'block',
-                    px: 0,
-                    py: 3,
+                  styleTree: {
+                    picture: {
+                      display: 'block',
+                      px: 0,
+                      py: 3,
+                    },
+                  },
+                  styleTreeBase: {
+                    img: commonImageImgStyle,
+                    picture: commonImagePictureStyle,
+                    figcaption: commonImageFigcaptionStyle,
                   },
                 }}
                 contentWrapperStyle={{}}

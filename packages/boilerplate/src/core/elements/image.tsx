@@ -3,19 +3,21 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { MediaObject, NcssProps } from './types'
-import {
-  commonImagePictureStyle,
-  commonImageImgStyle,
-  commonImageFigcaptionStyle,
-} from '../styles/image'
+import { getStyles } from '../style-tree/get-styles'
+import { StyleTree, StyleTreeBase } from '../style-tree/types'
+
+export interface ImageStyleTree extends StyleTree {
+  img?: NcssProps
+  picture?: NcssProps
+  figcaption?: NcssProps
+}
 
 export interface ImageProps {
   description?: string
-  figcaptionNcss?: NcssProps
   media?: MediaObject
-  imgNcss?: NcssProps
   includeFigcaption?: boolean
-  pictureNcss?: NcssProps
+  styleTree?: ImageStyleTree
+  styleTreeBase: StyleTreeBase
   title?: string
 }
 
@@ -47,28 +49,34 @@ export const Image = (props: ImageProps) => {
     srcSet: media.fluid && media.fluid.srcSet,
   }
 
-  const figcaptionNcss = props.figcaptionNcss || {}
-  const imgNcss = props.imgNcss || {}
-  const pictureNcss = props.pictureNcss || {}
+  const styles = ['figcaption', 'img', 'picture']
+  const [figcaptionStyle, imgStyle, pictureStyle] = getStyles(
+    props.styleTree,
+    ...styles
+  )
+  const [baseFigcaptionStyle, baseImgStyle, basePictureStyle] = getStyles(
+    props.styleTree,
+    ...styles
+  )
 
   return (
     <picture
       css={systemCss(
-        { ncss: { ...commonImagePictureStyle, ...pictureNcss } },
+        { ncss: { ...basePictureStyle, ...pictureStyle } },
         currentThemeId
       )}
     >
       <img
         {...imgElementAttrs}
         css={systemCss(
-          { ncss: { ...commonImageImgStyle, ...imgNcss } },
+          { ncss: { ...baseImgStyle, ...imgStyle } },
           currentThemeId
         )}
       />
       {props.includeFigcaption && (
         <figcaption
           css={systemCss(
-            { ncss: { ...commonImageFigcaptionStyle, ...figcaptionNcss } },
+            { ncss: { ...baseFigcaptionStyle, ...figcaptionStyle } },
             currentThemeId
           )}
         >
