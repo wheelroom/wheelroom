@@ -5,7 +5,11 @@ import { Topic } from '../../topic'
 import { buttonPrimaryStyle } from '../../../core/styles/button'
 import { PageSectionProps } from '../page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { commonImageImgStyle, commonImagePictureStyle, commonImageFigcaptionStyle } from '../../../core/styles/image'
+import {
+  commonImageImgStyle,
+  commonImagePictureStyle,
+  commonImageFigcaptionStyle,
+} from '../../../core/styles/image'
 
 const heroActionStyle = {
   ...buttonPrimaryStyle,
