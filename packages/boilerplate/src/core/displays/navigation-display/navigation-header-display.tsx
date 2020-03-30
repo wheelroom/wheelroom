@@ -7,20 +7,17 @@
  */
 
 import React, { Fragment, useContext, useState, useRef } from 'react'
-import { Action } from '../../action'
+import { Action } from '../../../components/action'
 import { AdminCoreContext } from '@wheelroom/admin-core'
-import { ALink } from '../../../core/elements/a-link'
-import { Box, Container, Flex } from '../../../core/elements/grid'
-import { Button } from '../../../core/elements/button'
-import {
-  buttonPrimaryStyle,
-  buttonSecondaryStyle,
-} from '../../../core/styles/button'
+import { ALink } from '../../elements/a-link'
+import { Box, Container, Flex } from '../../elements/grid'
+import { Button } from '../../elements/button'
+import { buttonPrimaryStyle, buttonSecondaryStyle } from '../../styles/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { GLink } from '../../../core/elements/g-link'
-import { List } from '../../../core/elements/list'
-import { NavigationSegmentProps } from '../../navigation-segment'
-import { NavLinks } from '../../navigation/nav-links'
+import { GLink } from '../../elements/g-link'
+import { List } from '../../elements/list'
+import { NavigationSegmentProps } from '../../../components/navigation-segment'
+import { NavLinks } from '../../../components/navigation/nav-links'
 import {
   skipToContent,
   wrapperStyle,
@@ -39,7 +36,7 @@ import {
 } from './navigation-styles'
 import { IconMap } from '../../../svg/feather/iconMap'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageSectionProps } from '../page-section'
+import { PageSectionProps } from '../../../components/page-section/page-section'
 const XIcon = IconMap.x
 
 export const NavigationHeaderDisplay = (props: {

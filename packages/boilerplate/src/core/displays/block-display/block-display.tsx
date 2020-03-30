@@ -1,17 +1,17 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
-import { PageSectionProps } from '../page-section'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { PageSectionProps } from '../../../components/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { Topic } from '../../topic'
+import { Topic } from '../../../components/topic'
 import {
   commonImageImgStyle,
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
-} from '../../../core/styles/image'
+} from '../../styles/image'
 import {
   commonVideoDescriptionStyle,
   commonVideoStyle,
-} from '../../../core/styles/video'
+} from '../../styles/video'
 
 export const BlockDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)

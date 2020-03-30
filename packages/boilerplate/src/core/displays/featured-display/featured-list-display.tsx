@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react'
-import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
-import { TopicProps, Topic } from '../../topic'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { TopicProps, Topic } from '../../../components/topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageSectionProps } from '../page-section'
+import { PageSectionProps } from '../../../components/page-section/page-section'
 import {
   commonImageImgStyle,
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
-} from '../../../core/styles/image'
+} from '../../styles/image'
 import {
   commonVideoDescriptionStyle,
   commonVideoStyle,
-} from '../../../core/styles/video'
+} from '../../styles/video'
 
 export const FeaturedListDisplay = (props: {
   pageSection: PageSectionProps

@@ -1,9 +1,9 @@
 import React from 'react'
-import { PageSectionProps } from '../page-section'
+import { PageSectionProps } from '../../../components/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { Text } from '../../text'
-import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
-import { styleTree } from './text-style-tree'
+import { Text } from '../../../components/text'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { styleTree } from '../../../style-tree/text-style-tree'
 
 export const TextDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)

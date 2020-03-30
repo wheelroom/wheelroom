@@ -1,19 +1,19 @@
 import React, { Fragment } from 'react'
-import { Box, ContainerMaxWidth } from '../../../core/elements/grid'
-import { Topic } from '../../topic'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { Topic } from '../../../components/topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageSectionProps } from '../page-section'
-import { defaultHeading1Style } from '../../../core/styles/heading'
-import { paragraphHeroStyle } from '../../../core/styles/paragraph'
+import { PageSectionProps } from '../../../components/page-section/page-section'
+import { defaultHeading1Style } from '../../styles/heading'
+import { paragraphHeroStyle } from '../../styles/paragraph'
 import {
   commonImageImgStyle,
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
-} from '../../../core/styles/image'
+} from '../../styles/image'
 import {
   commonVideoDescriptionStyle,
   commonVideoStyle,
-} from '../../../core/styles/video'
+} from '../../styles/video'
 
 export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)

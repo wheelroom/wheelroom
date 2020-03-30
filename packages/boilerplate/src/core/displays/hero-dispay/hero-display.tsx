@@ -1,19 +1,19 @@
 import React, { Fragment } from 'react'
-import { paragraphHeroStyle } from '../../../core/styles/paragraph'
-import { Box, Container } from '../../../core/elements/grid'
-import { Topic } from '../../topic'
-import { buttonPrimaryStyle } from '../../../core/styles/button'
-import { PageSectionProps } from '../page-section'
+import { paragraphHeroStyle } from '../../styles/paragraph'
+import { Box, Container } from '../../elements/grid'
+import { Topic } from '../../../components/topic'
+import { buttonPrimaryStyle } from '../../styles/button'
+import { PageSectionProps } from '../../../components/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import {
   commonImageImgStyle,
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
-} from '../../../core/styles/image'
+} from '../../styles/image'
 import {
   commonVideoDescriptionStyle,
   commonVideoStyle,
-} from '../../../core/styles/video'
+} from '../../styles/video'
 
 const heroActionStyle = {
   ...buttonPrimaryStyle,

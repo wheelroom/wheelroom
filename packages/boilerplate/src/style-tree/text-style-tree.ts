@@ -1,16 +1,16 @@
-import { StyleTree } from '../../../core/style-tree/types'
-import { defaultParagraphStyle } from '../../../core/styles/paragraph'
-import { commonALinkStyle } from '../../../core/styles/a-link'
-import { commonHeadingStyle } from '../../../core/styles/heading'
+import { StyleTree } from '../core/style-tree/types'
+import { defaultParagraphStyle } from '../core/styles/paragraph'
+import { commonALinkStyle } from '../core/styles/a-link'
+import { commonHeadingStyle } from '../core/styles/heading'
 import {
   commonVideoStyle,
   commonVideoDescriptionStyle,
-} from '../../../core/styles/video'
+} from '../core/styles/video'
 import {
   commonImageImgStyle,
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
-} from '../../../core/styles/image'
+} from '../core/styles/image'
 
 export const styleTree: StyleTree = {
   wrapper: {
