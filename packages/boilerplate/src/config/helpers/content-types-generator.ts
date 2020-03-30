@@ -19,8 +19,19 @@
  * Note: the script needs a valid content set to generate content types for the
  * same content set. This means you can easily get stuck. When by accident
  * invalid types are generated, the content set is invalid and the generator
- * cannot be used to fix the invalid types. Use git to revert in that case or
- * fix the content set manually.
+ * cannot be used to fix the invalid types.
+ *
+ * In that case, edit content-sets.ts and replace this line:
+ *
+ * export const contentSets: ContentSets = {
+ *
+ * with this lien:
+ *
+ * export const contentSets: any = {
+ *
+ *
+ * This turns off type checking so that you can compile a new content-types.ts.
+ * Once done put back the original line.
  *
  */
 
