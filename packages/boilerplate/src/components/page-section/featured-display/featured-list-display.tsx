@@ -27,10 +27,6 @@ export const FeaturedListDisplay = (props: {
         key={index}
         {...topic}
         pageSectionActions={props.pageSection.actions}
-        text={{
-          ...props.pageSection.text,
-          locale: props.pageSection.locale,
-        }}
         pageSectionInfo={pageSectionInfo}
         fullTopicAsLink={true}
         topicWrapperStyle={{

@@ -35,10 +35,6 @@ export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
           <Topic
             {...topic}
             pageSectionActions={props.pageSection.actions}
-            text={{
-              ...props.pageSection.text,
-              locale: props.pageSection.locale,
-            }}
             pageSectionInfo={pageSectionInfo}
             topicWrapperStyle={{
               w: 1,

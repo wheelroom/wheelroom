@@ -23,10 +23,6 @@ export const BlockDisplay = (props: { pageSection: PageSectionProps }) => {
       key={index}
       {...topic}
       pageSectionActions={props.pageSection.actions}
-      text={{
-        ...props.pageSection.text,
-        locale: props.pageSection.locale,
-      }}
       pageSectionInfo={pageSectionInfo}
       fullTopicAsLink={false}
       mediaWrapperStyle={{}}
