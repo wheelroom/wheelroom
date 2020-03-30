@@ -5,7 +5,7 @@ import { GlobalsProps } from './components/globals'
 import { PageProps } from './components/page'
 import { pageDebug } from './core/lib/debug'
 import { Seo } from './core/lib/seo'
-import { Sections } from './sections/sections'
+import { Sections } from './core/sections/sections'
 import {
   PreviewUpdateButton,
   useFetchPreviewPage,

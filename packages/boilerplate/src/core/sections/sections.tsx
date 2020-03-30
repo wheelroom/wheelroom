@@ -1,7 +1,7 @@
 import React from 'react'
-import { Landmarks } from '../core/lib/landmarks'
+import { Landmarks } from '../lib/landmarks'
 import { SectionProps } from './section-props'
-import { PageSection } from '../components/page-section'
+import { PageSection } from '../../components/page-section'
 
 export interface SectionMap {
   [contentfulSectionName: string]: any
