@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../primary-elements/grid'
+import { Box, ContainerMaxWidth } from '../elements/grid'
 import { Topic } from '../../components/topic'
 import { defaultHeading2Style } from '../styles/heading'
 import { PageSectionProps } from '../../components/page-section/page-section'

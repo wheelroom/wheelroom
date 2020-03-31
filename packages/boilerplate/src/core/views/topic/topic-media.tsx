@@ -1,10 +1,10 @@
 import React from 'react'
-import { Image } from '../../primary-elements/image'
-import { Box } from '../../primary-elements/grid'
+import { Image } from '../../elements/image'
+import { Box } from '../../elements/grid'
 import { TopicProps } from '../../../components/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import { Video } from '../../primary-elements/video'
+import { Video } from '../../elements/video'
 import { TopicMediaStyleTree } from './core-topic'
 
 const defaultWrapperStyle = {

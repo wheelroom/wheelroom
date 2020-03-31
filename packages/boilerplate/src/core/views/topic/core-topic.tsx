@@ -1,13 +1,13 @@
 import React from 'react'
 import { Action, ActionProps } from '../../../components/action/action'
-import { Box } from '../../primary-elements/grid'
+import { Box } from '../../elements/grid'
 import { getTopicInfo } from '../../lib/get-topic-info'
-import { ImageStyleTree } from '../../primary-elements/image'
-import { NcssProps, BlockLevelElementName } from '../../primary-elements/types'
+import { ImageStyleTree } from '../../elements/image'
+import { NcssProps, BlockLevelElementName } from '../../elements/types'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { TopicBody } from './topic-body'
 import { TopicProps } from '../../../components/topic/topic'
-import { VideoStyleTree } from '../../primary-elements/video'
+import { VideoStyleTree } from '../../elements/video'
 
 const defaultWrapperStyle = {
   label: 'topic',

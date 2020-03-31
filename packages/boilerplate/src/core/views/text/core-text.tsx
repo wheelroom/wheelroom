@@ -9,22 +9,22 @@
 
 import React from 'react'
 import { TextProps } from '../../../components/text/text'
-import { MediaObject, NcssProps } from '../../primary-elements/types'
-import { Image, ImageStyleTree } from '../../primary-elements/image'
+import { MediaObject, NcssProps } from '../../elements/types'
+import { Image, ImageStyleTree } from '../../elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
-import { Any } from '../../primary-elements/any'
-import { Paragraph } from '../../primary-elements/paragraph'
-import { List } from '../../primary-elements/list'
-import { ALink } from '../../primary-elements/a-link'
-import { GLink } from '../../primary-elements/g-link'
-import { H1, H2, H3, H4, H5, H6 } from '../../primary-elements/heading'
+import { Any } from '../../elements/any'
+import { Paragraph } from '../../elements/paragraph'
+import { List } from '../../elements/list'
+import { ALink } from '../../elements/a-link'
+import { GLink } from '../../elements/g-link'
+import { H1, H2, H3, H4, H5, H6 } from '../../elements/heading'
 import { getLocalizedValue } from '../../../components/text/get-localized-value'
-import { Flex } from '../../primary-elements/grid'
+import { Flex } from '../../elements/grid'
 import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
-import { Video, VideoStyleTree } from '../../primary-elements/video'
+import { Video, VideoStyleTree } from '../../elements/video'
 
 export interface TextStyleTree {
   wrapper?: NcssProps

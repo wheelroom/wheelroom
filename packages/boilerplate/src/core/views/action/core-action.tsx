@@ -8,8 +8,8 @@
 
 import React, { Fragment } from 'react'
 import { ActionProps } from '../../../components/action'
-import { GLink } from '../../primary-elements/g-link'
-import { ALink } from '../../primary-elements/a-link'
+import { GLink } from '../../elements/g-link'
+import { ALink } from '../../elements/a-link'
 import { StyleTree } from '../../lib/style-tree'
 
 export interface ActionCoreProps {

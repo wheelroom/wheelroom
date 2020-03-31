@@ -8,7 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
-import { MediaObject } from '../../core/primary-elements/types'
+import { MediaObject } from '../../core/elements/types'
 import { TopicCoreProps } from '../../core/views/topic/core-topic'
 
 const componentList = {

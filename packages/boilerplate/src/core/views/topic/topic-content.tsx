@@ -1,12 +1,12 @@
 import React from 'react'
-import { Box } from '../../primary-elements/grid'
+import { Box } from '../../elements/grid'
 import { TopicProps } from '../../../components/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { TopicContentStyleTree } from './core-topic'
 import { TopicContentText } from './topic-content-text'
 import { TopicContentActions } from './topic-content-actions'
-import { BlockLevelElementName } from '../../primary-elements/types'
+import { BlockLevelElementName } from '../../elements/types'
 import { ActionProps } from '../../../components/action/action'
 
 /** This style needs cleaning up, only default values here */
