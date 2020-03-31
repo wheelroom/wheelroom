@@ -1,4 +1,3 @@
-import { StyleTree } from '../../core/lib/style-tree'
 import { defaultParagraphStyle } from '../../core/styles/paragraph'
 import { commonALinkStyle } from '../../core/styles/a-link'
 import { commonHeadingStyle } from '../../core/styles/heading'
@@ -11,8 +10,9 @@ import {
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
 } from '../../core/styles/image'
+import { TextStyleTree } from '../../core/views/text/core-text'
 
-export const textStyleTree: StyleTree = {
+export const textStyleTree: TextStyleTree = {
   wrapper: {
     label: 'text',
     mx: 'auto',
