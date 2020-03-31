@@ -37,8 +37,22 @@ export const TopicMedia = (props: TopicMediaProps) => {
         ...mediaWrapperStyle,
       }}
     >
-      {props.topicInfo.hasImage && <Image styleTree={mediaImageStyle} />}
-      {props.topicInfo.hasVideo && <Video styleTree={mediaVideoStyle} />}
+      {props.topicInfo.hasImage && (
+        <Image
+          description={props.topic.media?.description}
+          media={props.topic.media}
+          styleTree={mediaImageStyle}
+          title={props.topic.media?.title}
+        />
+      )}
+      {props.topicInfo.hasVideo && (
+        <Video
+          description={props.topic.media?.description}
+          media={props.topic.media}
+          styleTree={mediaVideoStyle}
+          title={props.topic.media?.title}
+        />
+      )}
     </Box>
   )
 }
