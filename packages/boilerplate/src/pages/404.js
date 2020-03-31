@@ -1,6 +1,6 @@
-import { Box, ContainerMaxWidth } from '../core/elements/primary/grid'
-import { Paragraph } from '../core/elements/primary/paragraph'
-import { H1 } from '../core/elements/primary/heading'
+import { Box, ContainerMaxWidth } from '../core/primary-elements//grid'
+import { Paragraph } from '../core/primary-elements/paragraph'
+import { H1 } from '../core/primary-elements/heading'
 import { commonParagraphStyle } from '../core/styles/paragraph'
 
 import React from 'react'

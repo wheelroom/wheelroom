@@ -8,8 +8,8 @@
 import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
-import { MediaObject } from '../../core/elements/primary/types'
-import { TopicLocalProps } from '../../core/elements/topic/topic'
+import { MediaObject } from '../../core/primary-elements/types'
+import { TopicLocalProps } from '../../core/views/topic/topic'
 
 const componentList = {
   ['single']: TopicSingleVar,

@@ -5,7 +5,7 @@
  *
  */
 
-import { MediaObject } from '../../core/elements/primary/types'
+import { MediaObject } from '../../core/primary-elements/types'
 
 export interface PageProps {
   /** Gatsby fetched data */

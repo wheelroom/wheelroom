@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { HeroDisplay } from '../../core/elements/displays/hero-display'
+import { HeroDisplay } from '../../core/displays/hero-display'
 
 export const PageSectionHeroVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)

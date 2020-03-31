@@ -10,8 +10,8 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { FeaturedDisplay } from '../../core/elements/displays/featured-display'
-import { FeaturedListDisplay } from '../../core/elements/displays/featured-list-display'
+import { FeaturedDisplay } from '../../core/displays/featured-display'
+import { FeaturedListDisplay } from '../../core/displays/featured-list-display'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)

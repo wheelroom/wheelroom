@@ -8,7 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { ActionSingleVar } from './action-single-var'
-import { ActionLocalProps } from '../../core/elements/action/action'
+import { ActionLocalProps } from '../../core/views/action/action'
 
 const componentList = {
   ['single']: ActionSingleVar,
