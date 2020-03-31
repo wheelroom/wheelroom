@@ -11,11 +11,14 @@ import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
 import { QuoteDisplay } from '../../core/displays/quote-display'
+import { quoteDisplayStyleTree } from '../../styles/style-trees/quote-display-style-tree'
 
 export const PageSectionQuoteVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
-    return <QuoteDisplay pageSection={props} />
+    return (
+      <QuoteDisplay pageSection={props} styleTree={quoteDisplayStyleTree} />
+    )
   }
 
   /**

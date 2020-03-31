@@ -10,12 +10,12 @@ import React, { Fragment } from 'react'
 import { ActionProps } from '../../../components/action'
 import { GLink } from '../../elements/g-link'
 import { ALink } from '../../elements/a-link'
-import { StyleTree } from '../../lib/style-tree'
+import { NcssProps } from '../../elements/types'
 
 export interface ActionCoreProps {
   /** Local data */
   children?: any
-  styleTree?: StyleTree
+  styleTree?: NcssProps
   key?: any
 }
 

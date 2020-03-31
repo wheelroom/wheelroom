@@ -3,45 +3,33 @@ import { Box, Container } from '../elements/grid'
 import { PageSectionProps } from '../../components/page-section/page-section'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { TopicProps } from '../../components/topic'
-import { Image } from '../elements/image'
-import {
-  commonImageImgStyle,
-  commonImageFigcaptionStyle,
-  commonImagePictureStyle,
-} from '../styles/image'
+import { Image, ImageStyleTree } from '../elements/image'
+import { NcssProps } from '../elements/types'
 
-export const GalleryDisplay = (props: { pageSection: PageSectionProps }) => {
+export interface GalleryDisplayStyleTree {
+  image: ImageStyleTree
+  wrapper: NcssProps
+  container: NcssProps
+}
+
+export const GalleryDisplay = (props: {
+  pageSection: PageSectionProps
+  styleTree: GalleryDisplayStyleTree
+}) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
+  const styleTree = props.styleTree || {}
   return (
     <Fragment>
-      <Box
-        is="div"
-        ncss={{
-          label: 'Wrapper',
-          bg: 'bg',
-          py: [3, 6, 8],
-        }}
-      >
-        <Container
-          ncss={{
-            flexDirection: ['column', 'row'],
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-          }}
-        >
+      <Box is="div" ncss={styleTree.wrapper}>
+        <Container ncss={styleTree.container}>
           {props.pageSection.topics
             .slice(0, 4)
             .map((topic: TopicProps, index: number) => (
               <Image
-                styleTree={{
-                  img: commonImageImgStyle,
-                  picture: { ...commonImagePictureStyle, w: [1, 1 / 2], p: 3 },
-                  figcaption: commonImageFigcaptionStyle,
-                }}
+                styleTree={styleTree.image}
                 key={index}
                 media={topic?.media}
               />

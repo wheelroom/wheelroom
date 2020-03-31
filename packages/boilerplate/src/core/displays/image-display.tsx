@@ -3,34 +3,28 @@ import { Box, Container } from '../elements/grid'
 import { Topic, TopicProps } from '../../components/topic'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { PageSectionProps } from '../../components/page-section/page-section'
-import { smallParagraphStyle } from '../styles/paragraph'
-import {
-  commonImageFigcaptionStyle,
-  commonImageImgStyle,
-  commonImagePictureStyle,
-} from '../styles/image'
-import { commonVideoDescriptionStyle, commonVideoStyle } from '../styles/video'
+import { TopicStyleTree } from '../views/topic/core-topic'
+import { NcssProps } from '../elements/types'
 
-export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
+export interface ImageDisplayStyleTree {
+  topic: TopicStyleTree
+  wrapper: NcssProps
+  container: NcssProps
+}
+
+export const ImageDisplay = (props: {
+  pageSection: PageSectionProps
+  styleTree: ImageDisplayStyleTree
+}) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
+  const styleTree = props.styleTree || {}
   return (
     <Fragment>
-      <Box
-        is="div"
-        ncss={{
-          label: 'wrapper',
-          bg: 'bg',
-          py: [3, 6, 8],
-        }}
-      >
-        <Container
-          ncss={{
-            flexDirection: ['column', 'row'],
-          }}
-        >
+      <Box is="div" ncss={styleTree.wrapper}>
+        <Container ncss={styleTree.container}>
           {props.pageSection.topics
             .slice(0, 2)
             .map((topic: TopicProps, index: number) => (
@@ -40,42 +34,7 @@ export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
                 pageSectionActions={props.pageSection.actions}
                 pageSectionInfo={pageSectionInfo}
                 useHeadingElement="h4"
-                styleTree={{
-                  wrapper: {
-                    w: 1,
-                  },
-                  media: {
-                    image: {
-                      img: commonImageImgStyle,
-                      picture: {
-                        ...commonImagePictureStyle,
-                        display: 'block',
-                        px: 0,
-                        py: 3,
-                      },
-                      figcaption: commonImageFigcaptionStyle,
-                    },
-                    video: {
-                      description: commonVideoDescriptionStyle,
-                      video: commonVideoStyle,
-                    },
-                  },
-                  content: {
-                    contentText: {
-                      abstract: { ...smallParagraphStyle, color: 'text' },
-                    },
-                    contentActions: {
-                      wrapper: {
-                        mx: 'auto',
-                      },
-                      link: {
-                        mx: 2,
-                        fontSize: [3, 4],
-                        lineHeight: [3],
-                      },
-                    },
-                  },
-                }}
+                styleTree={styleTree.topic}
               />
             ))}
         </Container>

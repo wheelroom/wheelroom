@@ -4,12 +4,24 @@ import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { Text } from '../../components/text'
 import { Box, ContainerMaxWidth } from '../elements/grid'
 import { textStyleTree } from '../../styles/style-trees/text-style-tree'
+import { TopicStyleTree } from '../views/topic/core-topic'
+import { NcssProps } from '../elements/types'
 
-export const TextDisplay = (props: { pageSection: PageSectionProps }) => {
+export interface TextDisplayStyleTree {
+  topic: TopicStyleTree
+  wrapper: NcssProps
+  container: NcssProps
+}
+
+export const TextDisplay = (props: {
+  pageSection: PageSectionProps
+  styleTree: TextDisplayStyleTree
+}) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasText) {
     return null
   }
+  const styleTree = props.styleTree || {}
   return (
     <Box
       is="div"

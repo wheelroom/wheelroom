@@ -1,4 +1,4 @@
-import { BlockStyleTree } from '../../core/displays/block-display'
+import { CardDisplayStyleTree } from '../../core/displays/card-display'
 import {
   commonImageImgStyle,
   commonImagePictureStyle,
@@ -9,7 +9,7 @@ import {
   commonVideoStyle,
 } from '../../core/styles/video'
 
-export const blockStyleTree: BlockStyleTree = {
+export const cardDisplayStyleTree: CardDisplayStyleTree = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',
@@ -21,32 +21,49 @@ export const blockStyleTree: BlockStyleTree = {
     flexWrap: 'wrap',
     justifyContent: 'center',
     m: 'auto',
-    p: 0,
+    px: [2, 5, 7],
     w: 1,
   },
   topic: {
-    wrapper: { px: [0, 3], py: [3, 3], w: [1, 1 / 2, 1 / 3] },
+    wrapper: {
+      ...{
+        bg: 'bg',
+        color: 'cardsShadow',
+        flex: '1',
+        maxWidth: '280px',
+        minWidth: '280px',
+        m: 2,
+      },
+      ...(pageSectionInfo.topicOptions.hideAction
+        ? {}
+        : {
+            border: '1px solid',
+            borderColor: 'cardsBorder',
+            borderRadius: 3,
+            boxShadow: '0 0 16px',
+            transition: 'transform .25s ease',
+            ':hover': {
+              cursor: 'pointer',
+              transform: 'scale(1.05)',
+            },
+          }),
+    },
     media: {
+      wrapper: {
+        p: 3,
+      },
       image: {
-        img: {
-          ...commonImageImgStyle,
-          w: 1,
-          h: 1,
-          objectFit: 'cover',
-          position: 'absolute',
-        },
+        img: { ...commonImageImgStyle, h: 1, objectFit: 'cover' },
         picture: {
           ...commonImagePictureStyle,
           display: 'block',
-          h: '0px',
-          position: 'relative',
-          pb: '65.25%',
+          h: '178px',
         },
         figcaption: commonImageFigcaptionStyle,
       },
       video: {
         description: commonVideoDescriptionStyle,
-        video: { ...commonVideoStyle },
+        video: commonVideoStyle,
       },
     },
     content: {
@@ -59,6 +76,11 @@ export const blockStyleTree: BlockStyleTree = {
         wrapper: {
           display: 'block',
           flex: '1 1 auto',
+        },
+      },
+      contentActions: {
+        wrapper: {
+          flex: '0',
         },
       },
     },

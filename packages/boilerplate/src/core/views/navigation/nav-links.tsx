@@ -23,12 +23,14 @@ const NavLink = (props: NavLinkProps) => {
   )
 }
 
+export interface NavLinksStyleTree {
+  itemStyle?: NcssProps
+  linkStyle?: NcssProps
+}
+
 export interface NavLinksProps {
   pages: PageProps[]
-  styleTree: {
-    itemStyle?: NcssProps
-    linkStyle?: NcssProps
-  }
+  styleTree: NavLinksStyleTree
 }
 
 export const NavLinks = (props: NavLinksProps) => {

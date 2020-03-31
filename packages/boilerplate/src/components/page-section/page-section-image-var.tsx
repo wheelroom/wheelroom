@@ -11,11 +11,14 @@ import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
 import { ImageDisplay } from '../../core/displays/image-display'
+import { imageDisplayStyleTree } from '../../styles/style-trees/image-display-style-tree'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
-    return <ImageDisplay pageSection={props} />
+    return (
+      <ImageDisplay pageSection={props} styleTree={imageDisplayStyleTree} />
+    )
   }
 
   /**

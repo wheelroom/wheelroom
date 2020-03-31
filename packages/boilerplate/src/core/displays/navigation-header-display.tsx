@@ -12,35 +12,60 @@ import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../elements/a-link'
 import { Box, Container, Flex } from '../elements/grid'
 import { Button } from '../elements/button'
-import { buttonPrimaryStyle, buttonSecondaryStyle } from '../styles/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { GLink } from '../elements/g-link'
 import { List } from '../elements/list'
 import { NavigationSegmentProps } from '../../components/navigation-segment'
-import { NavLinks } from '../views/navigation/nav-links'
-import {
-  skipToContent,
-  wrapperStyle,
-  containerStyle,
-  logoStyle,
-  logoLinkStyle,
-  navStyle,
-  listStyle,
-  listMobileStyle,
-  menuStyle,
-  modalStyle,
-  modalOpenStyle,
-  modalContentStyle,
-  modalContentOpenStyle,
-  navigationHeaderStyle,
-} from './navigation-styles'
+import { NavLinks, NavLinksStyleTree } from '../views/navigation/nav-links'
 import { IconMap } from '../../svg/feather/iconMap'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { PageSectionProps } from '../../components/page-section/page-section'
+import { NcssProps } from '../elements/types'
 const XIcon = IconMap.x
+
+export interface NavigationHeaderDisplayStyleTree {
+  skipToContent: NcssProps
+  wrapper: NcssProps
+  container: NcssProps
+  logo: {
+    container: NcssProps
+    link: NcssProps
+  }
+  menu: {
+    nav: NcssProps
+    pages: {
+      list: NcssProps
+      listItem: NavLinksStyleTree
+    }
+    actions: {
+      container: NcssProps
+      action: NcssProps
+      themeButton: NcssProps
+    }
+    modalDialog: {
+      container: NcssProps
+      openMenuButton: NcssProps
+      dialog: {
+        container: NcssProps
+        document: NcssProps
+        closeMenuButton: NcssProps
+        pages: {
+          list: NcssProps
+          listItem: NavLinksStyleTree
+        }
+        actions: {
+          container: NcssProps
+          action: NcssProps
+          themeButton: NcssProps
+        }
+      }
+    }
+  }
+}
 
 export const NavigationHeaderDisplay = (props: {
   pageSection: PageSectionProps
+  styleTree: NavigationHeaderDisplayStyleTree
 }) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)
@@ -56,6 +81,7 @@ export const NavigationHeaderDisplay = (props: {
   if (!pageSectionInfo.hasNavigation) {
     return null
   }
+  const styleTree = props.styleTree || {}
   const navSegment = props.pageSection.navigation
     .segments[0] as NavigationSegmentProps
 
@@ -75,14 +101,14 @@ export const NavigationHeaderDisplay = (props: {
 
   return (
     <Fragment>
-      <ALink href="#content" ncss={skipToContent}>
+      <ALink href="#content" ncss={styleTree.skipToContent}>
         Skip to Wheelroom Content
       </ALink>
-      <Box is="div" ncss={wrapperStyle}>
-        <Container ncss={containerStyle}>
-          <Flex is="div" ncss={logoStyle}>
+      <Box is="div" ncss={styleTree.wrapper}>
+        <Container ncss={styleTree.container}>
+          <Flex is="div" ncss={styleTree.logo.container}>
             <GLink
-              ncss={logoLinkStyle}
+              ncss={styleTree.logo.link}
               to="/"
               aria-label={globals.siteHeading + `, Back to homepage`}
             >
@@ -92,22 +118,17 @@ export const NavigationHeaderDisplay = (props: {
               </sup>
             </GLink>
           </Flex>
-          <Flex
-            is={'nav'}
-            ncss={{ ...navStyle, display: ['none', 'none', 'flex'] }}
-          >
-            <List is="ul" ncss={listStyle}>
+          <Flex is={'nav'} ncss={styleTree.menu.nav}>
+            <List is="ul" ncss={styleTree.menu.pages.list}>
               <NavLinks
-                styleTree={{
-                  linkStyle: navigationHeaderStyle,
-                }}
+                styleTree={styleTree.menu.pages.listItem}
                 pages={navSegment.pages}
               />
             </List>
-            <Flex is="div" ncss={{ label: 'nav-settings' }}>
+            <Flex is="div" ncss={styleTree.menu.actions.container}>
               {pageSectionInfo.hasAction && (
                 <Action
-                  styleTree={buttonPrimaryStyle}
+                  styleTree={styleTree.menu.actions.action}
                   {...props.pageSection.actions[0]}
                 />
               )}
@@ -115,12 +136,7 @@ export const NavigationHeaderDisplay = (props: {
                 type="button"
                 title={`Current theme is ` + activeThemeId}
                 ariaLabel={`Current theme is ` + activeThemeId}
-                ncss={{
-                  ...buttonSecondaryStyle,
-                  ml: 2,
-                  textTransform: 'capitalize',
-                  minWidth: '70px',
-                }}
+                ncss={styleTree.menu.actions.themeButton}
                 value=""
                 onClick={() => toggleTheme()}
               >
@@ -128,13 +144,7 @@ export const NavigationHeaderDisplay = (props: {
               </Button>
             </Flex>
           </Flex>
-          <Flex
-            is="div"
-            ncss={{
-              label: 'modal-dialog',
-              ...menuStyle,
-            }}
-          >
+          <Flex is="div" ncss={styleTree.menu.modalDialog.container}>
             <Button
               id="modal-dialog"
               ariaExpanded={menuVisible}
@@ -143,9 +153,7 @@ export const NavigationHeaderDisplay = (props: {
               ariaLabel="Open header navigation"
               value=""
               role="button"
-              ncss={{
-                ...buttonPrimaryStyle,
-              }}
+              ncss={styleTree.menu.modalDialog.openMenuButton}
               ref={buttonRef}
               onClick={() => openMenu()}
             >
@@ -155,10 +163,7 @@ export const NavigationHeaderDisplay = (props: {
               is="div"
               role="dialog"
               tabIndex={-1}
-              ncss={{
-                label: 'modal',
-                ...(menuVisible ? modalOpenStyle : modalStyle),
-              }}
+              ncss={styleTree.menu.modalDialog.dialog.container}
               ariaHidden={menuVisible ? false : undefined}
               ariaModal={menuVisible ? true : undefined}
               hidden={true}
@@ -167,10 +172,7 @@ export const NavigationHeaderDisplay = (props: {
                 is="section"
                 role="document"
                 id="header-navigation"
-                ncss={{
-                  label: 'modal-content',
-                  ...(menuVisible ? modalContentOpenStyle : modalContentStyle),
-                }}
+                ncss={styleTree.menu.modalDialog.dialog.document}
                 ariaLabel="Header navigation"
               >
                 <Button
@@ -178,31 +180,30 @@ export const NavigationHeaderDisplay = (props: {
                   value=""
                   role="button"
                   onClick={() => closeMenu()}
-                  ncss={{
-                    ...buttonPrimaryStyle,
-                    mt: 3,
-                    mr: 3,
-                    p: 1,
-                    w: '36px',
-                    h: '36px',
-                  }}
+                  ncss={styleTree.menu.modalDialog.dialog.closeMenuButton}
                 >
                   <Box ariaHidden={true}>
                     <XIcon />
                   </Box>
                 </Button>
-                <List is="ul" ncss={{ label: 'nav-list', ...listMobileStyle }}>
+                <List
+                  is="ul"
+                  ncss={styleTree.menu.modalDialog.dialog.pages.list}
+                >
                   <NavLinks
-                    styleTree={{
-                      linkStyle: navigationHeaderStyle,
-                    }}
+                    styleTree={styleTree.menu.modalDialog.dialog.pages.listItem}
                     pages={navSegment.pages}
                   />
                 </List>
-                <Flex is="div" ncss={{ label: 'nav-settings', w: 1, p: 3 }}>
+                <Flex
+                  is="div"
+                  ncss={styleTree.menu.modalDialog.dialog.actions.container}
+                >
                   {pageSectionInfo.hasAction && (
                     <Action
-                      styleTree={{ ...buttonPrimaryStyle, w: 1 }}
+                      styleTree={
+                        styleTree.menu.modalDialog.dialog.actions.action
+                      }
                       {...props.pageSection.actions[0]}
                     />
                   )}
@@ -210,12 +211,7 @@ export const NavigationHeaderDisplay = (props: {
                     type="button"
                     title={`Current theme is ` + activeThemeId}
                     ariaLabel={`Current theme is ` + activeThemeId}
-                    ncss={{
-                      ...buttonSecondaryStyle,
-                      ml: 2,
-                      w: 1,
-                      textTransform: 'capitalize',
-                    }}
+                    ncss={styleTree.menu.modalDialog.dialog.actions.themeButton}
                     value=""
                     onClick={() => toggleTheme()}
                   >

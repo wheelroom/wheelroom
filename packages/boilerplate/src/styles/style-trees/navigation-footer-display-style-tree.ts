@@ -1,4 +1,6 @@
-export const commonNavigationStyle = {
+import { NavigationFooterDisplayStyleTree } from '../../core/displays/navigation-footer-display'
+
+const commonNavigationStyle = {
   color: 'link',
   fontFamily: 'text',
   fontSize: [3, 4],
@@ -10,21 +12,21 @@ export const commonNavigationStyle = {
   '&:focus': {},
 }
 
-export const navigationHeaderStyle = {
+const navigationHeaderStyle = {
   ...commonNavigationStyle,
   m: 0,
   px: 2,
   py: 3,
 }
 
-export const navigationFooterStyle = {
+const navigationFooterStyle = {
   ...commonNavigationStyle,
   m: 0,
   ml: [2, 0],
   mr: [2, 3],
 }
 
-export const wrapperStyle = {
+const wrapperStyle = {
   label: 'wrapper',
   bg: 'bg',
   width: '100%',
@@ -33,14 +35,14 @@ export const wrapperStyle = {
   borderColor: 'border',
 }
 
-export const containerStyle = {
+const containerStyle = {
   label: 'container',
   height: '100%',
   justifyContent: 'space-between',
   px: 3,
 }
 
-export const skipToContent = {
+const skipToContent = {
   label: 'skip',
   position: 'absolute',
   left: '-100%',
@@ -60,12 +62,12 @@ export const skipToContent = {
   },
 }
 
-export const logoStyle = {
+const logoStyle = {
   label: 'logo',
   alignItems: 'center',
 }
 
-export const logoLinkStyle = {
+const logoLinkStyle = {
   fontFamily: 'display',
   textDecoration: 'none',
   fontSize: [4, 5],
@@ -78,13 +80,13 @@ export const logoLinkStyle = {
   },
 }
 
-export const navStyle = {
+const navStyle = {
   label: 'nav',
   flex: '1',
   alignItems: 'center',
 }
 
-export const listStyle = {
+const listStyle2 = {
   label: 'nav-list',
   display: 'flex',
   flex: '1',
@@ -96,8 +98,8 @@ export const listStyle = {
   pl: 0,
 }
 
-export const listMobileStyle = {
-  ...listStyle,
+const listMobileStyle = {
+  ...listStyle2,
   w: 1,
   flexDirection: 'column',
   li: {
@@ -109,14 +111,14 @@ export const listMobileStyle = {
   },
 }
 
-export const menuStyle = {
+const menuStyle = {
   display: ['flex', 'flex', 'none'],
   flex: '1',
   alignItems: 'center',
   justifyContent: 'flex-end',
 }
 
-export const modalStyle = {
+const modalStyle = {
   position: 'fixed',
   display: 'flex',
   top: 0,
@@ -144,7 +146,7 @@ export const modalStyle = {
   },
 }
 
-export const modalOpenStyle = {
+const modalOpenStyle = {
   ...modalStyle,
   visibility: 'visible',
   overflowY: 'auto',
@@ -164,7 +166,7 @@ export const modalOpenStyle = {
   },
 }
 
-export const modalContentStyle = {
+const modalContentStyle = {
   w: [1, '360px'],
   m: 3,
   h: 'fit-content',
@@ -182,10 +184,86 @@ export const modalContentStyle = {
   transition: 'transform .1s ease 0s, opacity .1s ease 0s',
 }
 
-export const modalContentOpenStyle = {
+const modalContentOpenStyle = {
   ...modalContentStyle,
   transform: 'scale(1)',
   opacity: 1,
   transition:
     'transform .35s cubic-bezier(.8,-.4,.2,1.44) 0s, opacity .35s cubic-bezier(.8,-.4,.2,1.44) 0s',
+}
+
+const listStyle = {
+  label: 'nav-list',
+  display: 'flex',
+  flexDirection: 'row',
+  listStyle: 'none',
+  flexWrap: 'wrap',
+  mb: 0,
+  mt: 0,
+  pl: 0,
+}
+
+const defaultIconStyle = {
+  label: 'icon',
+  width: '20px',
+  height: '20px',
+  color: 'metal',
+  strokeWidth: '1px',
+  ':hover': {
+    color: 'text',
+  },
+}
+
+export const navigationFooterDisplayStyleTree: NavigationFooterDisplayStyleTree = {
+  wrapper: {
+    label: 'wrapper',
+    bg: 'bg',
+  },
+  container: {
+    borderTop: '1px solid transparent',
+    borderColor: 'border',
+    px: 3,
+  },
+
+  menus: {
+    nav: {
+      ...navStyle,
+      h: '84px',
+      justifyContent: ['space-evenly', 'space-between'],
+      flexDirection: ['column', 'row'],
+      alignItems: 'center',
+    },
+    pages: {
+      list: listStyle,
+      listItem: { linkStyle: navigationFooterStyle },
+    },
+    social: {
+      list: listStyle,
+      action: {
+        display: 'inline-flex',
+        p: 1,
+      },
+      icon: defaultIconStyle,
+    },
+  },
+  legal: {
+    container: {
+      borderTop: '1px solid transparent',
+      borderColor: 'border',
+      px: 3,
+    },
+    innerContainer: {
+      label: 'legal',
+      h: '48px',
+      w: 1,
+      alignItems: 'center',
+      justifyContent: ['center', 'normal'],
+    },
+    text: { fontFamily: 'text', color: 'metal' },
+    link: {
+      ...commonNavigationStyle,
+      display: 'inline-flex',
+      color: 'metal',
+    },
+  },
 }
