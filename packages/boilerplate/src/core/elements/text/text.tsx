@@ -25,6 +25,13 @@ import {
   Options,
 } from '@contentful/rich-text-react-renderer'
 import { Video } from '../primary/video'
+import { StyleTree } from '../../lib/style-tree'
+
+export interface TextLocalProps {
+  /** Locale needed for rendering rich text */
+  locale: string
+  styleTree?: StyleTree
+}
 
 type Node = any
 type Children = any

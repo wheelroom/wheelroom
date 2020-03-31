@@ -7,17 +7,11 @@
 
 import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
-import { StyleTree } from '../../core/lib/style-tree'
 import { TextSingleVar } from './text-single-var'
+import { TextLocalProps } from '../../core/elements/text/text'
 
 const componentList = {
   ['single']: TextSingleVar,
-}
-
-export interface TextLocalProps {
-  /** Locale needed for rendering rich text */
-  locale: string
-  styleTree?: StyleTree
 }
 
 export interface TextProps extends TextLocalProps {

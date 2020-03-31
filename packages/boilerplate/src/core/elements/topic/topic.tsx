@@ -6,6 +6,46 @@ import { TopicMedia } from './topic-media'
 import { TopicContentWrapper } from './topic-content-wrapper'
 import { TopicHeader } from './topic-header'
 import { TopicActions } from './topic-actions'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { ActionProps } from '../../../components/action'
+import { ImageProps } from '../primary/image'
+import { VideoProps } from '../primary/video'
+import { BlockLevelElementName, NcssProps } from '../primary/types'
+
+export interface TopicLocalProps {
+  /** Options that change topic display behaviour */
+  pageSectionInfo: PageSectionInfo
+  /** Page section actions will override all topic actions */
+  pageSectionActions?: ActionProps[]
+  /** Override default media props */
+  mediaProps?: ImageProps | VideoProps
+
+  /** Defaults to h3 */
+  useHeadingElement?: BlockLevelElementName
+  /** Defaults to p */
+  useAbstractElement?: BlockLevelElementName
+  /** Full Topic is wrapped in a link and the inside link becomes a span */
+  fullTopicAsLink?: boolean
+  /** Reverse media and content */
+  forceReverse?: boolean
+
+  /** Override default wrapper styling */
+  topicWrapperStyle?: NcssProps
+  /** Override default content wrapper styling */
+  contentWrapperStyle?: NcssProps
+  /** Override default styling of the image wrapper */
+  mediaWrapperStyle?: NcssProps
+  /** Override default styling of the headerwrapper */
+  headerWrapperStyle?: NcssProps
+  /** Override default heading style */
+  headingStyle?: NcssProps
+  /** Override default paragraph style */
+  paragraphStyle?: NcssProps
+  /** Override default styling of the action wrapper */
+  actionWrapperStyle?: NcssProps
+  /** Override default button style */
+  actionStyle?: NcssProps
+}
 
 export const Topic = (props: TopicProps) => {
   const topicInfo = getTopicInfo(props)

@@ -10,6 +10,14 @@ import React, { Fragment } from 'react'
 import { ActionProps } from '../../../components/action'
 import { GLink } from '../primary/g-link'
 import { ALink } from '../primary/a-link'
+import { StyleTree } from '../../lib/style-tree'
+
+export interface ActionLocalProps {
+  /** Local data */
+  children?: any
+  styleTree?: StyleTree
+  key?: any
+}
 
 const ActionGlink = (props: ActionProps) => {
   return (
