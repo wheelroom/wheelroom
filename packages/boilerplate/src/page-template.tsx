@@ -1,16 +1,16 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
 import React, { useState, Fragment } from 'react'
-import { GlobalsProps } from '../components/globals'
-import { PageProps } from '../components/page'
-import { pageDebug } from './lib/debug'
-import { Seo } from './lib/seo'
-import { Sections } from './sections/sections'
+import { GlobalsProps } from './components/globals'
+import { PageProps } from './components/page'
+import { pageDebug } from './core/lib/debug'
+import { Seo } from './core/lib/seo'
+import { Sections } from './core/sections/sections'
 import {
   PreviewUpdateButton,
   useFetchPreviewPage,
 } from '@wheelroom/admin-page-preview'
-import { globalReset } from '../global/styles/global-reset'
+import { globalReset } from './global/styles/global-reset'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
