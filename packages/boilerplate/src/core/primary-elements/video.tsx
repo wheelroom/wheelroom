@@ -4,9 +4,9 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, MediaObject } from './types'
-import { getStyles, StyleTree } from '../lib/style-tree'
+import { getStyles } from '../lib/style-tree'
 
-export interface VideoStyleTree extends StyleTree {
+export interface VideoStyleTree {
   video?: NcssProps
   description?: NcssProps
 }

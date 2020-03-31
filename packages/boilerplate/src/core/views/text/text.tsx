@@ -9,8 +9,8 @@
 
 import React from 'react'
 import { TextProps } from '../../../components/text/text'
-import { MediaObject } from '../../primary-elements/types'
-import { Image } from '../../primary-elements/image'
+import { MediaObject, NcssProps } from '../../primary-elements/types'
+import { Image, ImageStyleTree } from '../../primary-elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
 import { Any } from '../../primary-elements/any'
 import { Paragraph } from '../../primary-elements/paragraph'
@@ -24,13 +24,36 @@ import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
-import { Video } from '../../primary-elements/video'
-import { StyleTree } from '../../lib/style-tree'
+import { Video, VideoStyleTree } from '../../primary-elements/video'
+
+export interface TextStyleTree {
+  wrapper?: NcssProps
+  marksBold?: NcssProps
+  marksCode?: {
+    pre?: NcssProps
+    code?: NcssProps
+  }
+  blocksQuote?: NcssProps
+  blocksUlList?: NcssProps
+  blocksOlList?: NcssProps
+  blocksLiList?: NcssProps
+  inlinesHyperlink?: NcssProps
+  entryHyperlink?: NcssProps
+  blocksHeading1?: NcssProps
+  blocksHeading2?: NcssProps
+  blocksHeading3?: NcssProps
+  blocksHeading4?: NcssProps
+  blocksHeading5?: NcssProps
+  blocksHeading6?: NcssProps
+  blocksHr?: NcssProps
+  image?: ImageStyleTree
+  video?: VideoStyleTree
+}
 
 export interface TextLocalProps {
   /** Locale needed for rendering rich text */
   locale: string
-  styleTree?: StyleTree
+  styleTree?: TextStyleTree
 }
 
 type Node = any
@@ -55,8 +78,8 @@ export const Text = (props: TextProps) => {
         </Any>
       ),
       [MARKS.CODE]: (code) => (
-        <Any is="pre" ncss={styleTree.marksCode.pre}>
-          <Any is="code" ncss={styleTree.marksCode.code}>
+        <Any is="pre" ncss={styleTree.marksCode && styleTree.marksCode.pre}>
+          <Any is="code" ncss={styleTree.marksCode && styleTree.marksCode.code}>
             {code}
           </Any>
         </Any>
