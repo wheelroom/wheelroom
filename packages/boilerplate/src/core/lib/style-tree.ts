@@ -1,5 +1,8 @@
 import { NcssProps } from '../elements/types'
-import { StyleTree } from './types'
+
+export interface StyleTree {
+  [objectName: string]: NcssProps | StyleTree
+}
 
 export const getStyles = (base: StyleTree = {}, ...objectNames: string[]) => {
   const styles: NcssProps[] = []

@@ -8,7 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { ActionSingleVar } from './action-single-var'
-import { StyleTree } from '../../core/style-tree/types'
+import { StyleTree } from '../../core/lib/style-tree'
 
 const componentList = {
   ['single']: ActionSingleVar,

@@ -1,4 +1,4 @@
-import { StyleTree } from '../core/style-tree/types'
+import { StyleTree } from '../core/lib/style-tree'
 import { defaultParagraphStyle } from '../core/styles/paragraph'
 import { commonALinkStyle } from '../core/styles/a-link'
 import { commonHeadingStyle } from '../core/styles/heading'
