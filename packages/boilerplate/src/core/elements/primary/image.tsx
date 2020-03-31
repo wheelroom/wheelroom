@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { MediaObject, NcssProps } from './types'
-import { getStyles, StyleTree } from '../lib/style-tree'
+import { getStyles, StyleTree } from '../../lib/style-tree'
 
 export interface ImageStyleTree extends StyleTree {
   img?: NcssProps

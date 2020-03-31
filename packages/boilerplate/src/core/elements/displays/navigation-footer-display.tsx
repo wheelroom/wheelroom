@@ -8,11 +8,11 @@
 import React, { Fragment } from 'react'
 import { TopicProps } from '../../../components/topic'
 import { NavigationSegmentProps } from '../../../components/navigation-segment'
-import { Box, Container, Flex } from '../../elements/grid'
-import { ALink } from '../../elements/a-link'
-import { Any } from '../../elements/any'
+import { Box, Container, Flex } from '../primary/grid'
+import { ALink } from '../primary/a-link'
+import { Any } from '../primary/any'
 import { NavLinks } from '../../../components/navigation/nav-links'
-import { List } from '../../elements/list'
+import { List } from '../primary/list'
 import { Action } from '../../../components/action'
 import {
   commonNavigationStyle,
@@ -21,7 +21,7 @@ import {
 } from './navigation-styles'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../components/page-section/page-section'
-import { FeatherIcon } from '../../elements/icon'
+import { FeatherIcon } from '../primary/icon'
 
 export const listStyle = {
   label: 'nav-list',

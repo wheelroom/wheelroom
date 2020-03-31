@@ -1,4 +1,4 @@
-import { NcssProps } from '../elements/types'
+import { NcssProps } from '../elements/primary/types'
 
 export interface StyleTree {
   [objectName: string]: NcssProps | StyleTree

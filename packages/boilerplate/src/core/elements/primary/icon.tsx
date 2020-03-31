@@ -1,11 +1,11 @@
 import React from 'react'
-import { Box } from '../../core/elements/grid'
-import { IconMap } from '../../svg/feather/iconMap'
+import { Box } from './grid'
+import { IconMap } from '../../../svg/feather/iconMap'
 import {
   commonIconStyle,
   defaultFeatherIconStyle,
   defaultTextIconStyle,
-} from '../styles/icon.'
+} from '../../styles/icon.'
 import { NcssProps } from './types'
 
 export const FeatherIcon = (props: { icon: string; ncss?: NcssProps }) => {

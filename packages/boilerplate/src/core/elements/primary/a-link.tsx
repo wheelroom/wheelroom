@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { LinkRelationshipAttribute, NcssProps } from './types'
-import { commonALinkStyle } from '../styles/a-link'
+import { commonALinkStyle } from '../../styles/a-link'
 
 export interface ALinkProps {
   /** React children */

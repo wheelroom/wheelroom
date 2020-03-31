@@ -1,6 +1,6 @@
 import React from 'react'
-import { Box } from '../../core/elements/grid'
-import { NcssProps } from '../../core/elements/types'
+import { Box } from '../../core/elements/primary/grid'
+import { NcssProps } from '../../core/elements/primary/types'
 import { TopicProps } from '.'
 import { TopicInfo } from '../../core/lib/get-topic-info'
 import { PageSectionInfo } from '../../core/lib/get-page-section-info'

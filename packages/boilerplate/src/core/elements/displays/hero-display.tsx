@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { paragraphHeroStyle } from '../../styles/paragraph'
-import { Box, Container } from '../../elements/grid'
+import { Box, Container } from '../primary/grid'
 import { Topic } from '../../../components/topic'
 import { buttonPrimaryStyle } from '../../styles/button'
 import { PageSectionProps } from '../../../components/page-section/page-section'
@@ -10,10 +10,7 @@ import {
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
 } from '../../styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../styles/video'
+import { commonVideoDescriptionStyle, commonVideoStyle } from '../../styles/video'
 
 const heroActionStyle = {
   ...buttonPrimaryStyle,

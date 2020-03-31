@@ -9,22 +9,22 @@
 
 import React from 'react'
 import { TextProps } from './text'
-import { MediaObject } from '../../core/elements/types'
-import { Image } from '../../core/elements/image'
+import { MediaObject } from '../../core/elements/primary/types'
+import { Image } from '../../core/elements/primary/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
-import { Any } from '../../core/elements/any'
-import { Paragraph } from '../../core/elements/paragraph'
-import { List } from '../../core/elements/list'
-import { ALink } from '../../core/elements/a-link'
-import { GLink } from '../../core/elements/g-link'
-import { H1, H2, H3, H4, H5, H6 } from '../../core/elements/heading'
+import { Any } from '../../core/elements/primary/any'
+import { Paragraph } from '../../core/elements/primary/paragraph'
+import { List } from '../../core/elements/primary/list'
+import { ALink } from '../../core/elements/primary/a-link'
+import { GLink } from '../../core/elements/primary/g-link'
+import { H1, H2, H3, H4, H5, H6 } from '../../core/elements/primary/heading'
 import { getLocalizedValue } from './get-localized-value'
-import { Flex } from '../../core/elements/grid'
+import { Flex } from '../../core/elements/primary/grid'
 import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
-import { Video } from '../../core/elements/video'
+import { Video } from '../../core/elements/primary/video'
 
 type Node = any
 type Children = any

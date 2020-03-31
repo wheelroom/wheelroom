@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import {
   defaultParagraphStyle,
   commonParagraphStyle,
-} from '../styles/paragraph'
+} from '../../styles/paragraph'
 import { BlockLevelElementName, NcssProps } from './types'
 
 export interface ParagraphProps {

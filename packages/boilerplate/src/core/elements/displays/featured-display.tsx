@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { Box, ContainerMaxWidth } from '../primary/grid'
 import { Topic } from '../../../components/topic'
 import { defaultHeading2Style } from '../../styles/heading'
 import { PageSectionProps } from '../../../components/page-section/page-section'
@@ -9,10 +9,7 @@ import {
   commonImageImgStyle,
   commonImageFigcaptionStyle,
 } from '../../styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../styles/video'
+import { commonVideoDescriptionStyle, commonVideoStyle } from '../../styles/video'
 
 export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)

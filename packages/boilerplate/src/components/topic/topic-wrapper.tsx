@@ -1,10 +1,10 @@
 import React from 'react'
-import { Box } from '../../core/elements/grid'
+import { Box } from '../../core/elements/primary/grid'
 import { Action } from '../action/action'
 import { TopicInfo } from '../../core/lib/get-topic-info'
 import { PageSectionInfo } from '../../core/lib/get-page-section-info'
 import { TopicProps } from './topic'
-import { NcssProps } from '../../core/elements/types'
+import { NcssProps } from '../../core/elements/primary/types'
 
 const defaultWrapperStyle = {
   label: 'topic',

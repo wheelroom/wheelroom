@@ -8,8 +8,8 @@
 
 import React, { Fragment } from 'react'
 import { ActionProps } from './action'
-import { GLink } from '../../core/elements/g-link'
-import { ALink } from '../../core/elements/a-link'
+import { GLink } from '../../core/elements/primary/g-link'
+import { ALink } from '../../core/elements/primary/a-link'
 
 const ActionGlink = (props: ActionProps) => {
   return (

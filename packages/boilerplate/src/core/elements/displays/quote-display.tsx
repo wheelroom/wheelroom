@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { Box, ContainerMaxWidth } from '../primary/grid'
 import { PageSectionProps } from '../../../components/page-section/page-section'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { Topic } from '../../../components/topic'
@@ -8,10 +8,7 @@ import {
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
 } from '../../styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../styles/video'
+import { commonVideoDescriptionStyle, commonVideoStyle } from '../../styles/video'
 
 export const QuoteDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)

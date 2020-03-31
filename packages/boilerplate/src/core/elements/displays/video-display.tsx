@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { Box, ContainerMaxWidth } from '../primary/grid'
 import { Topic } from '../../../components/topic'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../components/page-section/page-section'
@@ -9,10 +9,7 @@ import {
   commonImagePictureStyle,
   commonImageFigcaptionStyle,
 } from '../../styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../styles/video'
+import { commonVideoDescriptionStyle, commonVideoStyle } from '../../styles/video'
 
 export const VideoDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)

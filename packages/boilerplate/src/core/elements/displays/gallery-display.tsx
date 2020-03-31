@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
-import { Box, Container } from '../../elements/grid'
+import { Box, Container } from '../primary/grid'
 import { PageSectionProps } from '../../../components/page-section/page-section'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { TopicProps } from '../../../components/topic'
-import { Image } from '../../elements/image'
+import { Image } from '../primary/image'
 import {
   commonImageImgStyle,
   commonImageFigcaptionStyle,

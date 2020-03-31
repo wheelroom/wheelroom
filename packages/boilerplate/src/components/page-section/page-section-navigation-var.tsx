@@ -10,8 +10,8 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { NavigationFooterDisplay } from '../../core/displays/navigation-display/navigation-footer-display'
-import { NavigationHeaderDisplay } from '../../core/displays/navigation-display/navigation-header-display'
+import { NavigationFooterDisplay } from '../../core/elements/displays/navigation-footer-display'
+import { NavigationHeaderDisplay } from '../../core/elements/displays/navigation-header-display'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)

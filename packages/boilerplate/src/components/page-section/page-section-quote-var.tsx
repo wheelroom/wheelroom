@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { QuoteDisplay } from '../../core/displays/quote-display/quote-display'
+import { QuoteDisplay } from '../../core/elements/displays/quote-display'
 
 export const PageSectionQuoteVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)

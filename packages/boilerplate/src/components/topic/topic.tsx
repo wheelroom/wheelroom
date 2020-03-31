@@ -12,11 +12,11 @@ import {
   BlockLevelElementName,
   MediaObject,
   NcssProps,
-} from '../../core/elements/types'
+} from '../../core/elements/primary/types'
 import { PageSectionInfo } from '../../core/lib/get-page-section-info'
-import { ImageProps } from '../../core/elements/image'
+import { ImageProps } from '../../core/elements/primary/image'
 import { ActionProps } from '../action/action'
-import { VideoProps } from '../../core/elements/video'
+import { VideoProps } from '../../core/elements/primary/video'
 
 const componentList = {
   ['single']: TopicSingleVar,

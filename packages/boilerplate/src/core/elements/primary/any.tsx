@@ -1,30 +1,29 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { ListElementName, NcssProps } from './types'
+import { systemCss, ThemeId } from '../../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { commonListStyle } from '../styles/list'
+import { NcssProps } from './types'
 
-export interface ListProps {
+export interface AnyProps {
   /** Render as another HTML element */
-  is?: ListElementName
+  is: any
   /** React children */
   children?: any
   /** Nested emotion css styling */
   ncss?: NcssProps
 }
 
-export const List = (props: ListProps) => {
+export const Any = (props: AnyProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const label = `List-${props.is}`
+  const label = `Any-${props.is}`
   const css = systemCss(
     {
-      ncss: { label, ...commonListStyle, ...props.ncss },
+      ncss: { label, ...props.ncss },
     },
     currentThemeId
   )
   const attrs = {
     css,
   }
-  return jsx(props.is || 'ul', attrs, props.children)
+  return jsx(props.is || 'div', attrs, props.children)
 }
