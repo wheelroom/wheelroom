@@ -1,9 +1,9 @@
 import React from 'react'
-import { Box } from '../../core/elements/primary/grid'
-import { NcssProps } from '../../core/elements/primary/types'
-import { TopicProps } from '.'
-import { TopicInfo } from '../../core/lib/get-topic-info'
-import { PageSectionInfo } from '../../core/lib/get-page-section-info'
+import { Box } from '../primary/grid'
+import { NcssProps } from '../primary/types'
+import { TopicProps } from '../../../components/topic'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
 
 /** This style needs cleaning up, only default values here */
 const defaultWrapperStyle = {

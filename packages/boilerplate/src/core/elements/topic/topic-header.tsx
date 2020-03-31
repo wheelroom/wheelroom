@@ -1,11 +1,11 @@
 import React from 'react'
-import { TopicProps } from './topic'
-import { Box } from '../../core/elements/primary/grid'
-import { Paragraph } from '../../core/elements/primary/paragraph'
-import { BlockLevelElementName, NcssProps } from '../../core/elements/primary/types'
-import { TopicInfo } from '../../core/lib/get-topic-info'
-import { PageSectionInfo } from '../../core/lib/get-page-section-info'
-import { Heading } from '../../core/elements/primary/heading'
+import { TopicProps } from '../../../components/topic/topic'
+import { Box } from '../primary/grid'
+import { Paragraph } from '../primary/paragraph'
+import { BlockLevelElementName, NcssProps } from '../primary/types'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { Heading } from '../primary/heading'
 import { TopicIcon } from './topic-icon'
 
 const defaultWrapperStyle = {

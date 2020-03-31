@@ -1,11 +1,11 @@
 import React from 'react'
-import { Image, ImageProps } from '../../core/elements/primary/image'
-import { Box } from '../../core/elements/primary/grid'
-import { NcssProps } from '../../core/elements/primary/types'
-import { TopicProps } from '.'
-import { TopicInfo } from '../../core/lib/get-topic-info'
-import { PageSectionInfo } from '../../core/lib/get-page-section-info'
-import { VideoProps, Video } from '../../core/elements/primary/video'
+import { Image, ImageProps } from '../primary/image'
+import { Box } from '../primary/grid'
+import { NcssProps } from '../primary/types'
+import { TopicProps } from '../../../components/topic'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { VideoProps, Video } from '../primary/video'
 
 const defaultWrapperStyle = {
   label: 'topic-media',

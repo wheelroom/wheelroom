@@ -1,12 +1,12 @@
 import React from 'react'
-import { Action, ActionProps } from '../action'
-import { buttonPrimaryStyle } from '../../core/styles/button'
-import { Box } from '../../core/elements/primary/grid'
-import { Any } from '../../core/elements/primary/any'
-import { NcssProps } from '../../core/elements/primary/types'
-import { TopicProps } from '.'
-import { TopicInfo } from '../../core/lib/get-topic-info'
-import { PageSectionInfo } from '../../core/lib/get-page-section-info'
+import { Action, ActionProps } from '../../../components/action'
+import { buttonPrimaryStyle } from '../../styles/button'
+import { Box } from '../primary/grid'
+import { Any } from '../primary/any'
+import { NcssProps } from '../primary/types'
+import { TopicProps } from '../../../components/topic'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
 
 const defaultWrapperStyle = {
   display: 'flex',

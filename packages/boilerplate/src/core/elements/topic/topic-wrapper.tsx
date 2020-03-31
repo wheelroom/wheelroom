@@ -1,10 +1,10 @@
 import React from 'react'
-import { Box } from '../../core/elements/primary/grid'
-import { Action } from '../action/action'
-import { TopicInfo } from '../../core/lib/get-topic-info'
-import { PageSectionInfo } from '../../core/lib/get-page-section-info'
-import { TopicProps } from './topic'
-import { NcssProps } from '../../core/elements/primary/types'
+import { Box } from '../primary/grid'
+import { Action } from '../../../components/action/action'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { TopicProps } from '../../../components/topic/topic'
+import { NcssProps } from '../primary/types'
 
 const defaultWrapperStyle = {
   label: 'topic',

@@ -1,6 +1,6 @@
 import React from 'react'
-import { IconMap } from '../../svg/feather/iconMap'
-import { FeatherIcon, TextIcon } from '../../core/elements/primary/icon'
+import { IconMap } from '../../../svg/feather/iconMap'
+import { FeatherIcon, TextIcon } from '../primary/icon'
 
 export const TopicIcon = (props: { icon: string | JSX.Element }) => {
   // When a React element is passed, return that
