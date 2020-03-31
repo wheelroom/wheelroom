@@ -7,6 +7,16 @@ import { TopicStyleTree } from '../views/topic/core-topic'
 import { NcssProps } from '../elements/types'
 
 export interface FeaturedListDisplayStyleTree {
+  conditional: {
+    containerHideMedia: {
+      no: NcssProps
+      yes: NcssProps
+    }
+    topicWrapperHideMedia: {
+      no: NcssProps
+      yes: NcssProps
+    }
+  }
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
@@ -22,6 +32,25 @@ export const FeaturedListDisplay = (props: {
     return null
   }
   const styleTree = props.styleTree || {}
+  if (topicOptions.hideMedia) {
+    Object.assign(
+      styleTree.container,
+      styleTree.conditional.containerHideMedia.yes
+    )
+    Object.assign(
+      styleTree.topic.wrapper,
+      styleTree.conditional.topicWrapperHideMedia.yes
+    )
+  } else {
+    Object.assign(
+      styleTree.container,
+      styleTree.conditional.containerHideMedia.no
+    )
+    Object.assign(
+      styleTree.topic.wrapper,
+      styleTree.conditional.topicWrapperHideMedia.no
+    )
+  }
   return (
     <Fragment>
       <Box is="div" ncss={styleTree.wrapper}>

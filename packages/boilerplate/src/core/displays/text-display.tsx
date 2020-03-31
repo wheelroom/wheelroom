@@ -3,12 +3,11 @@ import { PageSectionProps } from '../../components/page-section/page-section'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { Text } from '../../components/text'
 import { Box, ContainerMaxWidth } from '../elements/grid'
-import { textStyleTree } from '../../styles/style-trees/text-style-tree'
-import { TopicStyleTree } from '../views/topic/core-topic'
 import { NcssProps } from '../elements/types'
+import { TextStyleTree } from '../views/text/core-text'
 
 export interface TextDisplayStyleTree {
-  topic: TopicStyleTree
+  text: TextStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
@@ -23,22 +22,12 @@ export const TextDisplay = (props: {
   }
   const styleTree = props.styleTree || {}
   return (
-    <Box
-      is="div"
-      ncss={{
-        label: 'wrapper',
-        bg: 'bg',
-      }}
-    >
-      <ContainerMaxWidth
-        ncss={{
-          px: 3,
-        }}
-      >
+    <Box is="div" ncss={styleTree.wrapper}>
+      <ContainerMaxWidth ncss={styleTree.container}>
         <Text
           {...props.pageSection.text}
           locale={props.pageSection.locale}
-          styleTree={textStyleTree}
+          styleTree={styleTree.text}
         />
       </ContainerMaxWidth>
     </Box>

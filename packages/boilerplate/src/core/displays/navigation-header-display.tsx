@@ -46,8 +46,18 @@ export interface NavigationHeaderDisplayStyleTree {
       container: NcssProps
       openMenuButton: NcssProps
       dialog: {
-        container: NcssProps
-        document: NcssProps
+        container: {
+          menuVisible: {
+            yes: NcssProps
+            no: NcssProps
+          }
+        }
+        document: {
+          menuVisible: {
+            yes: NcssProps
+            no: NcssProps
+          }
+        }
         closeMenuButton: NcssProps
         pages: {
           list: NcssProps
@@ -163,7 +173,11 @@ export const NavigationHeaderDisplay = (props: {
               is="div"
               role="dialog"
               tabIndex={-1}
-              ncss={styleTree.menu.modalDialog.dialog.container}
+              ncss={
+                menuVisible
+                  ? styleTree.menu.modalDialog.dialog.container.menuVisible.yes
+                  : styleTree.menu.modalDialog.dialog.container.menuVisible.no
+              }
               ariaHidden={menuVisible ? false : undefined}
               ariaModal={menuVisible ? true : undefined}
               hidden={true}
@@ -172,7 +186,11 @@ export const NavigationHeaderDisplay = (props: {
                 is="section"
                 role="document"
                 id="header-navigation"
-                ncss={styleTree.menu.modalDialog.dialog.document}
+                ncss={
+                  menuVisible
+                    ? styleTree.menu.modalDialog.dialog.document.menuVisible.yes
+                    : styleTree.menu.modalDialog.dialog.document.menuVisible.no
+                }
                 ariaLabel="Header navigation"
               >
                 <Button

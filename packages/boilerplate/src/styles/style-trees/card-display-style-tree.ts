@@ -10,6 +10,19 @@ import {
 } from '../../core/styles/video'
 
 export const cardDisplayStyleTree: CardDisplayStyleTree = {
+  conditional: {
+    topicWrapperShadow: {
+      border: '1px solid',
+      borderColor: 'cardsBorder',
+      borderRadius: 3,
+      boxShadow: '0 0 16px',
+      transition: 'transform .25s ease',
+      ':hover': {
+        cursor: 'pointer',
+        transform: 'scale(1.05)',
+      },
+    },
+  },
   wrapper: {
     label: 'wrapper',
     bg: 'bg',
@@ -26,27 +39,12 @@ export const cardDisplayStyleTree: CardDisplayStyleTree = {
   },
   topic: {
     wrapper: {
-      ...{
-        bg: 'bg',
-        color: 'cardsShadow',
-        flex: '1',
-        maxWidth: '280px',
-        minWidth: '280px',
-        m: 2,
-      },
-      ...(pageSectionInfo.topicOptions.hideAction
-        ? {}
-        : {
-            border: '1px solid',
-            borderColor: 'cardsBorder',
-            borderRadius: 3,
-            boxShadow: '0 0 16px',
-            transition: 'transform .25s ease',
-            ':hover': {
-              cursor: 'pointer',
-              transform: 'scale(1.05)',
-            },
-          }),
+      bg: 'bg',
+      color: 'cardsShadow',
+      flex: '1',
+      maxWidth: '280px',
+      minWidth: '280px',
+      m: 2,
     },
     media: {
       wrapper: {

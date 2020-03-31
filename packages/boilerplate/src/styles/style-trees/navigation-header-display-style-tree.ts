@@ -3,126 +3,14 @@ import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
 } from '../../core/styles/button'
-
-const commonNavigationStyle = {
-  color: 'link',
-  fontFamily: 'text',
-  fontSize: [3, 4],
-  display: 'block',
-  textDecoration: 'none',
-  cursor: 'pointer',
-  '&:hover': { textDecoration: 'underline' },
-  '&:active': {},
-  '&:focus': {},
-}
-
-const navigationHeaderStyle = {
-  ...commonNavigationStyle,
-  m: 0,
-  px: 2,
-  py: 3,
-}
-
-const navigationFooterStyle = {
-  ...commonNavigationStyle,
-  m: 0,
-  ml: [2, 0],
-  mr: [2, 3],
-}
-
-const wrapperStyle = {
-  label: 'wrapper',
-  bg: 'bg',
-  width: '100%',
-  height: '70px',
-  borderBottom: '1px solid',
-  borderColor: 'border',
-}
-
-const containerStyle = {
-  label: 'container',
-  height: '100%',
-  justifyContent: 'space-between',
-  px: 3,
-}
-
-const skipToContent = {
-  label: 'skip',
-  position: 'absolute',
-  left: '-100%',
-  ':focus': {
-    w: 1,
-    left: 0,
-    top: 0,
-    right: 0,
-    color: 'black',
-    fontFamily: 'text',
-    fontWeight: 5,
-    backgroundColor: 'amber',
-    textAlign: 'center',
-    lineHeight: '70px',
-    justifyContent: 'center',
-    zIndex: 1002,
-  },
-}
-
-const logoStyle = {
-  label: 'logo',
-  alignItems: 'center',
-}
-
-const logoLinkStyle = {
-  fontFamily: 'display',
-  textDecoration: 'none',
-  fontSize: [4, 5],
-  fontWeight: 5,
-  color: 'text',
-  mr: 5,
-  sup: {
-    color: 'metal',
-    fontWeight: 3,
-  },
-}
-
-const navStyle = {
-  label: 'nav',
-  flex: '1',
-  alignItems: 'center',
-}
-
-const listStyle2 = {
-  label: 'nav-list',
-  display: 'flex',
-  flex: '1',
-  flexDirection: 'row',
-  listStyle: 'none',
-  flexWrap: 'wrap',
-  mb: 0,
-  mt: 0,
-  pl: 0,
-}
-
-const listMobileStyle = {
-  ...listStyle2,
-  w: 1,
-  flexDirection: 'column',
-  li: {
-    borderBottom: '1px solid transparent',
-    borderColor: 'border',
-    a: {
-      p: 3,
-    },
-  },
-}
-
-const menuStyle = {
-  display: ['flex', 'flex', 'none'],
-  flex: '1',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-}
+import {
+  commonNavigationStyle,
+  listStyle,
+  navStyle,
+} from './navigation-common-style'
 
 const modalStyle = {
+  label: 'modal',
   position: 'fixed',
   display: 'flex',
   top: 0,
@@ -171,6 +59,7 @@ const modalOpenStyle = {
 }
 
 const modalContentStyle = {
+  label: 'modal-content',
   w: [1, '360px'],
   m: 3,
   h: 'fit-content',
@@ -196,42 +85,69 @@ const modalContentOpenStyle = {
     'transform .35s cubic-bezier(.8,-.4,.2,1.44) 0s, opacity .35s cubic-bezier(.8,-.4,.2,1.44) 0s',
 }
 
-const listStyle = {
-  label: 'nav-list',
-  display: 'flex',
-  flexDirection: 'row',
-  listStyle: 'none',
-  flexWrap: 'wrap',
-  mb: 0,
-  mt: 0,
-  pl: 0,
-}
-
-const defaultIconStyle = {
-  label: 'icon',
-  width: '20px',
-  height: '20px',
-  color: 'metal',
-  strokeWidth: '1px',
-  ':hover': {
-    color: 'text',
-  },
-}
-
 export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree = {
-  skipToContent: skipToContent,
-  wrapper: wrapperStyle,
-  container: containerStyle,
+  skipToContent: {
+    label: 'skip',
+    position: 'absolute',
+    left: '-100%',
+    ':focus': {
+      w: 1,
+      left: 0,
+      top: 0,
+      right: 0,
+      color: 'black',
+      fontFamily: 'text',
+      fontWeight: 5,
+      backgroundColor: 'amber',
+      textAlign: 'center',
+      lineHeight: '70px',
+      justifyContent: 'center',
+      zIndex: 1002,
+    },
+  },
+  wrapper: {
+    label: 'wrapper',
+    bg: 'bg',
+    width: '100%',
+    height: '70px',
+    borderBottom: '1px solid',
+    borderColor: 'border',
+  },
+  container: {
+    label: 'container',
+    height: '100%',
+    justifyContent: 'space-between',
+    px: 3,
+  },
   logo: {
-    container: logoStyle,
-    link: logoLinkStyle,
+    container: {
+      label: 'logo',
+      alignItems: 'center',
+    },
+    link: {
+      fontFamily: 'display',
+      textDecoration: 'none',
+      fontSize: [4, 5],
+      fontWeight: 5,
+      color: 'text',
+      mr: 5,
+      sup: {
+        color: 'metal',
+        fontWeight: 3,
+      },
+    },
   },
   menu: {
     nav: { ...navStyle, display: ['none', 'none', 'flex'] },
     pages: {
       list: listStyle,
       listItem: {
-        linkStyle: navigationHeaderStyle,
+        linkStyle: {
+          ...commonNavigationStyle,
+          m: 0,
+          px: 2,
+          py: 3,
+        },
       },
     },
     actions: {
@@ -247,19 +163,18 @@ export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree 
     modalDialog: {
       container: {
         label: 'modal-dialog',
-        ...menuStyle,
+        display: ['flex', 'flex', 'none'],
+        flex: '1',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
       },
       openMenuButton: {
         ...buttonPrimaryStyle,
       },
       dialog: {
-        container: {
-          label: 'modal',
-          ...(menuVisible ? modalOpenStyle : modalStyle),
-        },
+        container: { menuVisible: { yes: modalOpenStyle, no: modalStyle } },
         document: {
-          label: 'modal-content',
-          ...(menuVisible ? modalContentOpenStyle : modalContentStyle),
+          menuVisible: { yes: modalContentOpenStyle, no: modalContentStyle },
         },
         closeMenuButton: {
           ...buttonPrimaryStyle,
@@ -270,9 +185,33 @@ export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree 
           h: '36px',
         },
         pages: {
-          list: { label: 'nav-list', ...listMobileStyle },
+          list: {
+            display: 'flex',
+            flex: '1',
+            flexDirection: 'column',
+            flexWrap: 'wrap',
+            label: 'nav-list',
+            listStyle: 'none',
+            mb: 0,
+            mt: 0,
+            pl: 0,
+            w: 1,
+            li: {
+              borderBottom: '1px solid transparent',
+              borderColor: 'border',
+              a: {
+                p: 3,
+              },
+            },
+          },
+
           listItem: {
-            linkStyle: navigationHeaderStyle,
+            linkStyle: {
+              ...commonNavigationStyle,
+              m: 0,
+              px: 2,
+              py: 3,
+            },
           },
         },
         actions: {

@@ -7,6 +7,9 @@ import { TopicStyleTree } from '../views/topic/core-topic'
 import { NcssProps } from '../elements/types'
 
 export interface CardDisplayStyleTree {
+  conditional: {
+    topicWrapperShadow: NcssProps
+  }
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
@@ -21,6 +24,12 @@ export const CardDisplay = (props: {
     return null
   }
   const styleTree = props.styleTree || {}
+  if (!pageSectionInfo.topicOptions.hideAction) {
+    Object.assign(
+      styleTree.topic.wrapper,
+      styleTree.conditional.topicWrapperShadow
+    )
+  }
 
   return (
     <Box is="div" ncss={styleTree.wrapper}>

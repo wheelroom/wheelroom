@@ -10,21 +10,30 @@ import {
 } from '../../core/styles/video'
 
 export const featuredListDisplayStyleTree: FeaturedListDisplayStyleTree = {
+  conditional: {
+    containerHideMedia: {
+      yes: ['column', 'row'],
+      no: ['column'],
+    },
+    topicWrapperHideMedia: {
+      yes: {
+        flexDirection: ['column', 'row'],
+        w: [1, 1 / 2, 1 / 3],
+      },
+      no: {
+        flexDirection: ['column', 'row'],
+        w: 1,
+      },
+    },
+  },
   wrapper: {
     label: 'wrapper',
     bg: 'bg',
     py: [3, 6, 8],
   },
-  container: {
-    flexDirection: topicOptions.hideMedia ? ['column', 'row'] : ['column'],
-  },
+  container: {},
   topic: {
-    wrapper: {
-      flexDirection: topicOptions.hideMedia
-        ? ['column', 'row']
-        : ['column', 'row'],
-      w: topicOptions.hideMedia ? [1, 1 / 2, 1 / 3] : 1,
-    },
+    wrapper: {},
     media: {
       wrapper: {
         display: 'flex',
