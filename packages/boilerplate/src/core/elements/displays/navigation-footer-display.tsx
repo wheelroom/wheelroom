@@ -11,7 +11,7 @@ import { NavigationSegmentProps } from '../../../components/navigation-segment'
 import { Box, Container, Flex } from '../primary/grid'
 import { ALink } from '../primary/a-link'
 import { Any } from '../primary/any'
-import { NavLinks } from '../../../components/navigation/nav-links'
+import { NavLinks } from '../navigation/nav-links'
 import { List } from '../primary/list'
 import { Action } from '../../../components/action'
 import {

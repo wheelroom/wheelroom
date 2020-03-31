@@ -17,7 +17,7 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { GLink } from '../primary/g-link'
 import { List } from '../primary/list'
 import { NavigationSegmentProps } from '../../../components/navigation-segment'
-import { NavLinks } from '../../../components/navigation/nav-links'
+import { NavLinks } from '../navigation/nav-links'
 import {
   skipToContent,
   wrapperStyle,

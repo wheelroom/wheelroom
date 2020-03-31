@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import { GLink } from '../../core/elements/primary/g-link'
-import { Any } from '../../core/elements/primary/any'
-import { PageProps } from '../page'
-import { NcssProps } from '../../core/elements/primary/types'
+import { GLink } from '../primary/g-link'
+import { Any } from '../primary/any'
+import { PageProps } from '../../../components/page'
+import { NcssProps } from '../primary/types'
 
 interface NavLinkProps extends PageProps {
   styleTree: NcssProps
