@@ -4,7 +4,7 @@ import { Topic } from '../../components/topic'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { PageSectionProps } from '../../components/page-section/page-section'
 import { defaultHeading1Style } from '../styles/heading'
-import { paragraphHeroStyle } from '../styles/paragraph'
+import { paragraphHeroStyle, defaultParagraphStyle } from '../styles/paragraph'
 import {
   commonImageImgStyle,
   commonImagePictureStyle,
@@ -33,38 +33,48 @@ export const HeadlineDisplay = (props: { pageSection: PageSectionProps }) => {
             {...topic}
             pageSectionActions={props.pageSection.actions}
             pageSectionInfo={pageSectionInfo}
-            topicWrapperStyle={{
-              w: 1,
-            }}
-            mediaProps={{
-              styleTree: {
-                img: commonImageImgStyle,
-                picture: {
-                  ...commonImagePictureStyle,
-                  display: 'block',
-                  px: 0,
-                  py: 3,
-                },
-                figcaption: commonImageFigcaptionStyle,
-                description: commonVideoDescriptionStyle,
-                video: commonVideoStyle,
-              },
-            }}
-            contentWrapperStyle={{
-              display: 'flex',
-              textAlign: 'center',
-              flexDirection: 'column',
-            }}
             useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
-            headingStyle={{ ...defaultHeading1Style }}
-            paragraphStyle={{ ...paragraphHeroStyle, color: 'text' }}
-            actionWrapperStyle={{
-              mx: 'auto',
-            }}
-            actionStyle={{
-              mx: 2,
-              fontSize: [5, 6],
-              lineHeight: [3, 4],
+            styleTree={{
+              wrapper: {
+                w: 1,
+              },
+              media: {
+                image: {
+                  img: commonImageImgStyle,
+                  picture: {
+                    ...commonImagePictureStyle,
+                    display: 'block',
+                    px: 0,
+                    py: 3,
+                  },
+                  figcaption: commonImageFigcaptionStyle,
+                },
+                video: {
+                  description: commonVideoDescriptionStyle,
+                  video: commonVideoStyle,
+                },
+              },
+              content: {
+                wrapper: {
+                  display: 'flex',
+                  textAlign: 'center',
+                  flexDirection: 'column',
+                },
+                contentText: {
+                  heading: defaultHeading1Style,
+                  abstract: { ...paragraphHeroStyle, color: 'text' },
+                },
+                contentActions: {
+                  wrapper: {
+                    mx: 'auto',
+                  },
+                  link: {
+                    mx: 2,
+                    fontSize: [5, 6],
+                    lineHeight: [3, 4],
+                  },
+                },
+              },
             }}
           />
         </ContainerMaxWidth>

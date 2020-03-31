@@ -15,6 +15,7 @@ export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
   if (!pageSectionInfo.hasTopic) {
     return null
   }
+
   const cards = props.pageSection.topics.map((topic, index) => (
     <Topic
       key={index}
@@ -22,52 +23,66 @@ export const CardDisplay = (props: { pageSection: PageSectionProps }) => {
       pageSectionActions={props.pageSection.actions}
       pageSectionInfo={pageSectionInfo}
       fullTopicAsLink={true}
-      mediaWrapperStyle={{
-        p: 3,
-      }}
-      mediaProps={{
-        styleTree: {
-          img: { ...commonImageImgStyle, h: 1, objectFit: 'cover' },
-          picture: { ...commonImagePictureStyle, display: 'block', h: '178px' },
-          figcaption: commonImageFigcaptionStyle,
-          description: commonVideoDescriptionStyle,
-          video: commonVideoStyle,
+      styleTree={{
+        wrapper: {
+          ...{
+            bg: 'bg',
+            color: 'cardsShadow',
+            flex: '1',
+            maxWidth: '280px',
+            minWidth: '280px',
+            m: 2,
+          },
+          ...(pageSectionInfo.topicOptions.hideAction
+            ? {}
+            : {
+                border: '1px solid',
+                borderColor: 'cardsBorder',
+                borderRadius: 3,
+                boxShadow: '0 0 16px',
+                transition: 'transform .25s ease',
+                ':hover': {
+                  cursor: 'pointer',
+                  transform: 'scale(1.05)',
+                },
+              }),
         },
-      }}
-      contentWrapperStyle={{
-        display: 'flex',
-        flexDirection: 'column',
-        flex: '1 1 auto',
-      }}
-      headerWrapperStyle={{
-        display: 'block',
-        flex: '1 1 auto',
-      }}
-      actionWrapperStyle={{
-        flex: '0',
-      }}
-      topicWrapperStyle={{
-        ...{
-          bg: 'bg',
-          color: 'cardsShadow',
-          flex: '1',
-          maxWidth: '280px',
-          minWidth: '280px',
-          m: 2,
+        media: {
+          wrapper: {
+            p: 3,
+          },
+          image: {
+            img: { ...commonImageImgStyle, h: 1, objectFit: 'cover' },
+            picture: {
+              ...commonImagePictureStyle,
+              display: 'block',
+              h: '178px',
+            },
+            figcaption: commonImageFigcaptionStyle,
+          },
+          video: {
+            description: commonVideoDescriptionStyle,
+            video: commonVideoStyle,
+          },
         },
-        ...(pageSectionInfo.topicOptions.hideAction
-          ? {}
-          : {
-              border: '1px solid',
-              borderColor: 'cardsBorder',
-              borderRadius: 3,
-              boxShadow: '0 0 16px',
-              transition: 'transform .25s ease',
-              ':hover': {
-                cursor: 'pointer',
-                transform: 'scale(1.05)',
-              },
-            }),
+        content: {
+          wrapper: {
+            display: 'flex',
+            flexDirection: 'column',
+            flex: '1 1 auto',
+          },
+          contentText: {
+            wrapper: {
+              display: 'block',
+              flex: '1 1 auto',
+            },
+          },
+          contentActions: {
+            wrapper: {
+              flex: '0',
+            },
+          },
+        },
       }}
     />
   ))

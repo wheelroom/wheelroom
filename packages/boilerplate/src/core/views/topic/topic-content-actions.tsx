@@ -3,10 +3,10 @@ import { Action, ActionProps } from '../../../components/action'
 import { buttonPrimaryStyle } from '../../styles/button'
 import { Box } from '../../primary-elements/grid'
 import { Any } from '../../primary-elements/any'
-import { NcssProps } from '../../primary-elements/types'
 import { TopicProps } from '../../../components/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { TopicActionsStyleTree } from './core-topic'
 
 const defaultWrapperStyle = {
   display: 'flex',
@@ -14,11 +14,7 @@ const defaultWrapperStyle = {
   label: 'topic-action',
 }
 
-export interface TopicActionProps {
-  /** Override default styling of the wrapper */
-  actionWrapperStyle?: NcssProps
-  /** Override default button style */
-  actionStyle?: NcssProps
+export interface TopicContentActionsProps {
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
   /** Page section actions will override all topic actions */
@@ -30,9 +26,11 @@ export interface TopicActionProps {
   topicInfo: TopicInfo
   /** Page section info */
   pageSectionInfo: PageSectionInfo
+
+  styleTree?: TopicActionsStyleTree
 }
 
-export const TopicActions = (props: TopicActionProps) => {
+export const TopicContentActions = (props: TopicContentActionsProps) => {
   if (!props.topicInfo.hasAction && !props.pageSectionActions) {
     return null
   }
@@ -40,16 +38,18 @@ export const TopicActions = (props: TopicActionProps) => {
   // Support only one action for now
   const action = actions[0]
 
-  const actionWrapperStyle = props.actionWrapperStyle || {}
-  const actionStyle = props.actionStyle || {}
+  const styleTree = props.styleTree || {}
+  const wrapperStyle = styleTree.wrapper || {}
+  const linkStyle = styleTree.link || {}
+
   return (
-    <Box ncss={{ ...defaultWrapperStyle, ...actionWrapperStyle }}>
+    <Box ncss={{ ...defaultWrapperStyle, ...wrapperStyle }}>
       {props.fullTopicAsLink ? (
         <Any
           is="span"
           ncss={{
             ...buttonPrimaryStyle,
-            ...actionStyle,
+            ...linkStyle,
           }}
         >
           {action.heading}
@@ -59,7 +59,7 @@ export const TopicActions = (props: TopicActionProps) => {
           {...action}
           styleTree={{
             ...buttonPrimaryStyle,
-            ...actionStyle,
+            ...linkStyle,
           }}
         >
           {action.heading}

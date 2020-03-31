@@ -26,36 +26,44 @@ export const FeaturedListDisplay = (props: {
         pageSectionActions={props.pageSection.actions}
         pageSectionInfo={pageSectionInfo}
         fullTopicAsLink={true}
-        topicWrapperStyle={{
-          flexDirection: topicOptions.hideMedia
-            ? ['column', 'row']
-            : ['column', 'row'],
-          w: topicOptions.hideMedia ? [1, 1 / 2, 1 / 3] : 1,
-        }}
-        mediaWrapperStyle={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'normal',
-          w: [1 / 3, 1 / 4, 1 / 4],
-          p: 3,
-        }}
-        mediaProps={{
-          styleTree: {
-            img: commonImageImgStyle,
-            picture: commonImagePictureStyle,
-            figcaption: commonImageFigcaptionStyle,
-            description: commonVideoDescriptionStyle,
-            video: commonVideoStyle,
+        styleTree={{
+          wrapper: {
+            flexDirection: topicOptions.hideMedia
+              ? ['column', 'row']
+              : ['column', 'row'],
+            w: topicOptions.hideMedia ? [1, 1 / 2, 1 / 3] : 1,
           },
-        }}
-        contentWrapperStyle={{
-          display: 'flex',
-          flexDirection: 'column',
-          w: [1, 2 / 3, 3 / 4],
-          p: 3,
-        }}
-        actionWrapperStyle={{
-          display: 'flex',
+          media: {
+            wrapper: {
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'normal',
+              w: [1 / 3, 1 / 4, 1 / 4],
+              p: 3,
+            },
+            image: {
+              img: commonImageImgStyle,
+              picture: commonImagePictureStyle,
+              figcaption: commonImageFigcaptionStyle,
+            },
+            video: {
+              description: commonVideoDescriptionStyle,
+              video: commonVideoStyle,
+            },
+          },
+          content: {
+            wrapper: {
+              display: 'flex',
+              flexDirection: 'column',
+              w: [1, 2 / 3, 3 / 4],
+              p: 3,
+            },
+            contentActions: {
+              wrapper: {
+                display: 'flex',
+              },
+            },
+          },
         }}
       />
     )

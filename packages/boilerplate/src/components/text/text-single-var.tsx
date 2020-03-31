@@ -7,7 +7,7 @@
  */
 
 import { TextProps } from './text'
-import { Text } from '../../core/views/text/text'
+import { CoreText } from '../../core/views/text/core-text'
 import React from 'react'
 
-export const TextSingleVar = (props: TextProps) => <Text {...props} />
+export const TextSingleVar = (props: TextProps) => <CoreText {...props} />

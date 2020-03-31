@@ -2,47 +2,45 @@ import React from 'react'
 import { TopicProps } from '../../../components/topic/topic'
 import { Box } from '../../primary-elements/grid'
 import { Paragraph } from '../../primary-elements/paragraph'
-import { BlockLevelElementName, NcssProps } from '../../primary-elements/types'
+import { BlockLevelElementName } from '../../primary-elements/types'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Heading } from '../../primary-elements/heading'
 import { TopicIcon } from './topic-icon'
+import { TopicContentTextStyleTree } from './core-topic'
 
 const defaultWrapperStyle = {
   label: 'topic-header',
 }
 
-export interface TopicHeaderProps {
-  /** Override default styling of the wrapper */
-  headerWrapperStyle?: NcssProps
+export interface TopicContentTextProps {
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
   useAbstractElement?: BlockLevelElementName
-  /** Override default paragraph style */
-  paragraphStyle?: NcssProps
-  /** Override default heading style */
-  headingStyle?: NcssProps
   /** All topic props */
   topic: TopicProps
   /** Topic info object */
   topicInfo: TopicInfo
   /** Page section info */
   pageSectionInfo: PageSectionInfo
+
+  styleTree?: TopicContentTextStyleTree
 }
 
-export const TopicHeader = (props: TopicHeaderProps) => {
+export const TopicContentText = (props: TopicContentTextProps) => {
   const useHeadingElement = props.useHeadingElement || 'h3'
   const useAbstractElement = props.useAbstractElement || 'p'
 
-  const headerWrapperStyle = props.headerWrapperStyle || {}
-  const paragraphStyle = props.paragraphStyle || {}
-  const headingStyle = props.headingStyle || {}
+  const styleTree = props.styleTree || {}
+  const wrapperStyle = styleTree.wrapper || {}
+  const abstractStyle = styleTree.abstract || {}
+  const headingStyle = styleTree.heading || {}
 
   const topicOptions = props.pageSectionInfo.topicOptions
 
   return (
-    <Box is="header" ncss={{ ...defaultWrapperStyle, ...headerWrapperStyle }}>
+    <Box is="header" ncss={{ ...defaultWrapperStyle, ...wrapperStyle }}>
       {!topicOptions.hideIcon && <TopicIcon icon={props.topic.icon} />}
       {!topicOptions.hideHeading && (
         <Heading is={useHeadingElement} ncss={{ ...headingStyle }}>
@@ -50,7 +48,7 @@ export const TopicHeader = (props: TopicHeaderProps) => {
         </Heading>
       )}
       {!topicOptions.hideAbstract && (
-        <Paragraph is={useAbstractElement} ncss={{ ...paragraphStyle }}>
+        <Paragraph is={useAbstractElement} ncss={{ ...abstractStyle }}>
           {props.topic.abstract &&
             props.topic.abstract.abstract
               .split('\n')

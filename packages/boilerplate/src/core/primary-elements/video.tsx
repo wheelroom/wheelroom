@@ -48,8 +48,11 @@ export const Video = (props: VideoProps) => {
     description:
       media.description || props.description || defaultMediaObject.description,
   }
-  const styles = ['video', 'desciption']
-  const [videoStyle, desciptionStyle] = getStyles(props.styleTree, ...styles)
+  const [videoStyle, desciptionStyle] = getStyles(
+    props.styleTree,
+    'video',
+    'desciption'
+  )
   console.log(videoStyle)
 
   return (

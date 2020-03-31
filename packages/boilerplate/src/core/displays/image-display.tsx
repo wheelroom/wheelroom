@@ -9,10 +9,7 @@ import {
   commonImageImgStyle,
   commonImagePictureStyle,
 } from '../styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../styles/video'
+import { commonVideoDescriptionStyle, commonVideoStyle } from '../styles/video'
 
 export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
@@ -42,33 +39,42 @@ export const ImageDisplay = (props: { pageSection: PageSectionProps }) => {
                 key={index}
                 pageSectionActions={props.pageSection.actions}
                 pageSectionInfo={pageSectionInfo}
-                topicWrapperStyle={{
-                  w: 1,
-                }}
-                mediaProps={{
-                  styleTree: {
-                    img: commonImageImgStyle,
-                    picture: {
-                      ...commonImagePictureStyle,
-                      display: 'block',
-                      px: 0,
-                      py: 3,
-                    },
-                    figcaption: commonImageFigcaptionStyle,
-                    description: commonVideoDescriptionStyle,
-                    video: commonVideoStyle,
-                  },
-                }}
-                contentWrapperStyle={{}}
                 useHeadingElement="h4"
-                paragraphStyle={{ ...smallParagraphStyle, color: 'text' }}
-                actionWrapperStyle={{
-                  mx: 'auto',
-                }}
-                actionStyle={{
-                  mx: 2,
-                  fontSize: [3, 4],
-                  lineHeight: [3],
+                styleTree={{
+                  wrapper: {
+                    w: 1,
+                  },
+                  media: {
+                    image: {
+                      img: commonImageImgStyle,
+                      picture: {
+                        ...commonImagePictureStyle,
+                        display: 'block',
+                        px: 0,
+                        py: 3,
+                      },
+                      figcaption: commonImageFigcaptionStyle,
+                    },
+                    video: {
+                      description: commonVideoDescriptionStyle,
+                      video: commonVideoStyle,
+                    },
+                  },
+                  content: {
+                    contentText: {
+                      abstract: { ...smallParagraphStyle, color: 'text' },
+                    },
+                    contentActions: {
+                      wrapper: {
+                        mx: 'auto',
+                      },
+                      link: {
+                        mx: 2,
+                        fontSize: [3, 4],
+                        lineHeight: [3],
+                      },
+                    },
+                  },
                 }}
               />
             ))}

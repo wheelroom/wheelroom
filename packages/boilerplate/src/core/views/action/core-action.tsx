@@ -12,7 +12,7 @@ import { GLink } from '../../primary-elements/g-link'
 import { ALink } from '../../primary-elements/a-link'
 import { StyleTree } from '../../lib/style-tree'
 
-export interface ActionLocalProps {
+export interface ActionCoreProps {
   /** Local data */
   children?: any
   styleTree?: StyleTree
@@ -35,7 +35,7 @@ const ActionAlink = (props: ActionProps) => {
   )
 }
 
-export const Action = (props: ActionProps) => {
+export const CoreAction = (props: ActionProps) => {
   return (
     <Fragment>
       {props.page ? <ActionGlink {...props} /> : <ActionAlink {...props} />}

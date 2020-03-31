@@ -9,13 +9,13 @@ import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
 import { MediaObject } from '../../core/primary-elements/types'
-import { TopicLocalProps } from '../../core/views/topic/topic'
+import { TopicCoreProps } from '../../core/views/topic/core-topic'
 
 const componentList = {
   ['single']: TopicSingleVar,
 }
 
-export interface TopicProps extends TopicLocalProps {
+export interface TopicProps extends TopicCoreProps {
   /** Gatsby fetched data */
   __typename: string
   title: string

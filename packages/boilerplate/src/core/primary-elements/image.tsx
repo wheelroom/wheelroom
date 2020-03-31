@@ -47,10 +47,11 @@ export const Image = (props: ImageProps) => {
     srcSet: media.fluid && media.fluid.srcSet,
   }
 
-  const styles = ['figcaption', 'img', 'picture']
   const [figcaptionStyle, imgStyle, pictureStyle] = getStyles(
     props.styleTree,
-    ...styles
+    'figcaption',
+    'img',
+    'picture'
   )
 
   return (

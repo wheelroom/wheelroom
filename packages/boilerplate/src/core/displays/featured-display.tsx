@@ -37,38 +37,47 @@ export const FeaturedDisplay = (props: { pageSection: PageSectionProps }) => {
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
-          topicWrapperStyle={{
-            flexDirection: ['column', 'column', 'row'],
-            justifyContent: 'space-evenly',
-          }}
-          mediaProps={{
-            styleTree: {
-              img: commonImageImgStyle,
-              picture: {
-                ...commonImagePictureStyle,
-                p: 3,
-              },
-              figcaption: commonImageFigcaptionStyle,
-              description: commonVideoDescriptionStyle,
-              video: commonVideoStyle,
-            },
-          }}
-          mediaWrapperStyle={{
-            display: 'flex',
-            flexDirection: 'column',
-            w: [1, 1, 1 / 2.5],
-            mb: [3, 3, 0],
-          }}
-          contentWrapperStyle={{
-            display: 'flex',
-            flexDirection: 'column',
-            w: [1, 1, 1 / 2.5],
-          }}
-          headerWrapperStyle={{}}
-          headingStyle={{ ...defaultHeading2Style }}
           useHeadingElement="h3"
-          actionWrapperStyle={{
-            display: 'flex',
+          styleTree={{
+            wrapper: {
+              flexDirection: ['column', 'column', 'row'],
+              justifyContent: 'space-evenly',
+            },
+            media: {
+              wrapper: {
+                display: 'flex',
+                flexDirection: 'column',
+                w: [1, 1, 1 / 2.5],
+                mb: [3, 3, 0],
+              },
+              image: {
+                img: commonImageImgStyle,
+                picture: {
+                  ...commonImagePictureStyle,
+                  p: 3,
+                },
+                figcaption: commonImageFigcaptionStyle,
+              },
+              video: {
+                description: commonVideoDescriptionStyle,
+                video: commonVideoStyle,
+              },
+            },
+            content: {
+              wrapper: {
+                display: 'flex',
+                flexDirection: 'column',
+                w: [1, 1, 1 / 2.5],
+              },
+              contentText: {
+                heading: defaultHeading2Style,
+              },
+              contentActions: {
+                wrapper: {
+                  display: 'flex',
+                },
+              },
+            },
           }}
         />
       </ContainerMaxWidth>

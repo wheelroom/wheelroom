@@ -32,27 +32,36 @@ export const VideoDisplay = (props: { pageSection: PageSectionProps }) => {
             {...topic}
             pageSectionActions={props.pageSection.actions}
             pageSectionInfo={pageSectionInfo}
-            topicWrapperStyle={{
-              w: 1,
-            }}
-            contentWrapperStyle={{}}
             useHeadingElement="h4"
-            paragraphStyle={{ ...smallParagraphStyle, color: 'text' }}
-            actionWrapperStyle={{
-              mx: 'auto',
-            }}
-            actionStyle={{
-              mx: 2,
-              fontSize: [5, 6],
-              lineHeight: [3, 4],
-            }}
-            mediaProps={{
-              styleTree: {
-                img: commonImageImgStyle,
-                picture: commonImagePictureStyle,
-                figcaption: commonImageFigcaptionStyle,
-                description: commonVideoDescriptionStyle,
-                video: commonVideoStyle,
+            styleTree={{
+              wrapper: {
+                w: 1,
+              },
+              media: {
+                image: {
+                  img: commonImageImgStyle,
+                  picture: commonImagePictureStyle,
+                  figcaption: commonImageFigcaptionStyle,
+                },
+                video: {
+                  description: commonVideoDescriptionStyle,
+                  video: commonVideoStyle,
+                },
+              },
+              content: {
+                contentText: {
+                  abstract: { ...smallParagraphStyle, color: 'text' },
+                },
+                contentActions: {
+                  wrapper: {
+                    mx: 'auto',
+                  },
+                  link: {
+                    mx: 2,
+                    fontSize: [5, 6],
+                    lineHeight: [3, 4],
+                  },
+                },
               },
             }}
           />

@@ -1,11 +1,11 @@
 import React from 'react'
-import { Image, ImageProps } from '../../primary-elements/image'
+import { Image } from '../../primary-elements/image'
 import { Box } from '../../primary-elements/grid'
-import { NcssProps } from '../../primary-elements/types'
 import { TopicProps } from '../../../components/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import { VideoProps, Video } from '../../primary-elements/video'
+import { Video } from '../../primary-elements/video'
+import { TopicMediaStyleTree } from './core-topic'
 
 const defaultWrapperStyle = {
   label: 'topic-media',
@@ -13,11 +13,6 @@ const defaultWrapperStyle = {
 }
 
 export interface TopicMediaProps {
-  /** The image to show */
-  mediaProps: ImageProps | VideoProps
-  /** Override default styling of the wrapper */
-  mediaWrapperStyle?: NcssProps
-
   /** All topic props */
   topic: TopicProps
   /** Topic info object */
@@ -26,10 +21,15 @@ export interface TopicMediaProps {
   pageSectionInfo: PageSectionInfo
   /** Reverse image and content */
   reverse?: boolean
+
+  styleTree?: TopicMediaStyleTree
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
-  const mediaWrapperStyle = props.mediaWrapperStyle || {}
+  const mediaStyle = props.styleTree
+  const mediaWrapperStyle = (mediaStyle && mediaStyle.wrapper) || {}
+  const mediaImageStyle = mediaStyle && mediaStyle.image
+  const mediaVideoStyle = mediaStyle && mediaStyle.video
   return (
     <Box
       ncss={{
@@ -37,8 +37,8 @@ export const TopicMedia = (props: TopicMediaProps) => {
         ...mediaWrapperStyle,
       }}
     >
-      {props.topicInfo.hasImage && <Image {...props.mediaProps} />}
-      {props.topicInfo.hasVideo && <Video {...props.mediaProps} />}
+      {props.topicInfo.hasImage && <Image styleTree={mediaImageStyle} />}
+      {props.topicInfo.hasVideo && <Video styleTree={mediaVideoStyle} />}
     </Box>
   )
 }

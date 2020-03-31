@@ -50,7 +50,7 @@ export interface TextStyleTree {
   video?: VideoStyleTree
 }
 
-export interface TextLocalProps {
+export interface TextCoreProps {
   /** Locale needed for rendering rich text */
   locale: string
   styleTree?: TextStyleTree
@@ -59,7 +59,7 @@ export interface TextLocalProps {
 type Node = any
 type Children = any
 
-export const Text = (props: TextProps) => {
+export const CoreText = (props: TextProps) => {
   const textProps = props
   const styleTree = props.styleTree || {}
 

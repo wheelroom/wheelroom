@@ -22,50 +22,62 @@ export const QuoteDisplay = (props: { pageSection: PageSectionProps }) => {
       pageSectionActions={props.pageSection.actions}
       pageSectionInfo={pageSectionInfo}
       fullTopicAsLink={false}
-      mediaWrapperStyle={{
-        p: 3,
-      }}
-      mediaProps={{
-        styleTree: {
-          img: {
-            ...commonImageImgStyle,
-            w: 1,
-            h: 1,
-            objectFit: 'cover',
-            position: 'absolute',
-          },
-          picture: {
-            ...commonImagePictureStyle,
-            display: 'block',
-            overflow: 'hidden',
-            position: 'relative',
-            h: '178px',
-            w: '178px',
-            mx: 'auto',
-            borderRadius: '50%',
-          },
-          figcaption: commonImageFigcaptionStyle,
-          description: commonVideoDescriptionStyle,
-          video: commonVideoStyle,
-        },
-      }}
-      topicWrapperStyle={{ alignItems: 'center' }}
-      contentWrapperStyle={{
-        display: 'flex',
-        textAlign: 'center',
-        flexDirection: 'column',
-      }}
       useHeadingElement={'p'}
-      headingStyle={{ order: 1, my: 3, ':before': { content: '"— "' } }}
-      headerWrapperStyle={{ textAlign: 'center' }}
-      actionWrapperStyle={{ mx: 'auto' }}
       useAbstractElement={'blockquote'}
-      paragraphStyle={{
-        label: 'blockquote',
-        mx: [0, 5],
-        my: [5],
-        fontSize: [7, 8, 9],
-        fontStyle: 'italic',
+      styleTree={{
+        wrapper: { alignItems: 'center' },
+        media: {
+          wrapper: {
+            p: 3,
+          },
+          image: {
+            img: {
+              ...commonImageImgStyle,
+              w: 1,
+              h: 1,
+              objectFit: 'cover',
+              position: 'absolute',
+            },
+            picture: {
+              ...commonImagePictureStyle,
+              display: 'block',
+              overflow: 'hidden',
+              position: 'relative',
+              h: '178px',
+              w: '178px',
+              mx: 'auto',
+              borderRadius: '50%',
+            },
+            figcaption: commonImageFigcaptionStyle,
+          },
+          video: {
+            description: commonVideoDescriptionStyle,
+            video: commonVideoStyle,
+          },
+        },
+        content: {
+          wrapper: {
+            display: 'flex',
+            textAlign: 'center',
+            flexDirection: 'column',
+          },
+          contentText: {
+            wrapper: { textAlign: 'center' },
+            heading: { order: 1, my: 3, ':before': { content: '"— "' } },
+            abstract: {
+              label: 'blockquote',
+              mx: [0, 5],
+              my: [5],
+              fontSize: [7, 8, 9],
+              fontStyle: 'italic',
+            },
+          },
+          contentActions: {
+            wrapper: {
+              mx: 'auto',
+            },
+          },
+        },
       }}
     />
   ))

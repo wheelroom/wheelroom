@@ -15,6 +15,7 @@ export const BlockDisplay = (props: { pageSection: PageSectionProps }) => {
   if (!pageSectionInfo.hasTopic) {
     return null
   }
+
   const block = props.pageSection.topics.map((topic, index) => (
     <Topic
       key={index}
@@ -22,39 +23,45 @@ export const BlockDisplay = (props: { pageSection: PageSectionProps }) => {
       pageSectionActions={props.pageSection.actions}
       pageSectionInfo={pageSectionInfo}
       fullTopicAsLink={false}
-      mediaWrapperStyle={{}}
-      mediaProps={{
-        styleTree: {
-          img: {
-            ...commonImageImgStyle,
-            w: 1,
-            h: 1,
-            objectFit: 'cover',
-            position: 'absolute',
+      styleTree={{
+        wrapper: { px: [0, 3], py: [3, 3], w: [1, 1 / 2, 1 / 3] },
+        media: {
+          image: {
+            img: {
+              ...commonImageImgStyle,
+              w: 1,
+              h: 1,
+              objectFit: 'cover',
+              position: 'absolute',
+            },
+            picture: {
+              ...commonImagePictureStyle,
+              display: 'block',
+              h: '0px',
+              position: 'relative',
+              pb: '65.25%',
+            },
+            figcaption: commonImageFigcaptionStyle,
           },
-          picture: {
-            ...commonImagePictureStyle,
-            display: 'block',
-            h: '0px',
-            position: 'relative',
-            pb: '65.25%',
+          video: {
+            description: commonVideoDescriptionStyle,
+            video: { ...commonVideoStyle },
           },
-          figcaption: commonImageFigcaptionStyle,
-          description: commonVideoDescriptionStyle,
-          video: { ...commonVideoStyle },
+        },
+        content: {
+          wrapper: {
+            display: 'flex',
+            flexDirection: 'column',
+            flex: '1 1 auto',
+          },
+          contentText: {
+            wrapper: {
+              display: 'block',
+              flex: '1 1 auto',
+            },
+          },
         },
       }}
-      contentWrapperStyle={{
-        display: 'flex',
-        flexDirection: 'column',
-        flex: '1 1 auto',
-      }}
-      headerWrapperStyle={{
-        display: 'block',
-        flex: '1 1 auto',
-      }}
-      actionWrapperStyle={{}}
-      topicWrapperStyle={{ px: [0, 3], py: [3, 3], w: [1, 1 / 2, 1 / 3] }}
     />
   ))
   return <Blocks>{block}</Blocks>
