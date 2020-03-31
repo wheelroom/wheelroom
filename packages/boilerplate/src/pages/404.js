@@ -1,8 +1,9 @@
-import React from 'react'
-import { Box, ContainerMaxWidth } from '../core/elements/grid'
-import { H1 } from '../core/elements/heading'
-import { Paragraph } from '../core/elements/paragraph'
+import { Box, ContainerMaxWidth } from '../core/elements/primary/grid'
+import { Paragraph } from '../core/elements/primary/paragraph'
+import { H1 } from '../core/elements/primary/heading'
 import { commonParagraphStyle } from '../core/styles/paragraph'
+
+import React from 'react'
 
 const NotFoundPage = () => (
   <Box
