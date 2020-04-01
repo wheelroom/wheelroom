@@ -7,68 +7,36 @@
  */
 
 import React, { Fragment, useContext, useState, useRef } from 'react'
-import { Action } from '../../components/action'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../elements/a-link'
 import { Box, Container, Flex } from '../elements/grid'
 import { Button } from '../elements/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { GLink } from '../elements/g-link'
-import { List } from '../elements/list'
 import { NavigationSegmentProps } from '../../components/navigation-segment'
-import { NavLinks, NavLinksStyleTree } from '../views/navigation/nav-links'
-import { IconMap } from '../../svg/feather/iconMap'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { PageSectionProps } from '../../components/page-section/page-section'
 import { NcssProps } from '../elements/types'
-const XIcon = IconMap.x
+import { NavListStyleTree, NavList } from '../views/navigation/nav-list'
+import { NavLogoStyleTree } from '../views/navigation/nav-logo'
+import {
+  NavActionsStyleTree,
+  NavActions,
+} from '../views/navigation/nav-actions'
+import { NavDialogStyleTree, NavDialog } from '../views/navigation/nav-dialog'
 
 export interface NavigationHeaderDisplayStyleTree {
   skipToContent: NcssProps
   wrapper: NcssProps
   container: NcssProps
-  logo: {
-    container: NcssProps
-    link: NcssProps
-  }
+  navLogo: NavLogoStyleTree
   menu: {
     nav: NcssProps
-    pages: {
-      list: NcssProps
-      listItem: NavLinksStyleTree
-    }
-    actions: {
-      container: NcssProps
-      action: NcssProps
-      themeButton: NcssProps
-    }
+    navList: NavListStyleTree
+    navActions: NavActionsStyleTree
     modalDialog: {
       container: NcssProps
       openMenuButton: NcssProps
-      dialog: {
-        container: {
-          menuVisible: {
-            yes: NcssProps
-            no: NcssProps
-          }
-        }
-        document: {
-          menuVisible: {
-            yes: NcssProps
-            no: NcssProps
-          }
-        }
-        closeMenuButton: NcssProps
-        pages: {
-          list: NcssProps
-          listItem: NavLinksStyleTree
-        }
-        actions: {
-          container: NcssProps
-          action: NcssProps
-          themeButton: NcssProps
-        }
-      }
+      navDialog: NavDialogStyleTree
     }
   }
 }
@@ -85,8 +53,6 @@ export const NavigationHeaderDisplay = (props: {
   const [menuVisible, setMenuVisible] = useState(false)
   const buttonRef = useRef(null)
 
-  const globals = props.pageSection.globals
-  const siteMetadata = props.pageSection.siteMetadata
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasNavigation) {
     return null
@@ -116,43 +82,18 @@ export const NavigationHeaderDisplay = (props: {
       </ALink>
       <Box is="div" ncss={styleTree.wrapper}>
         <Container ncss={styleTree.container}>
-          <Flex is="div" ncss={styleTree.logo.container}>
-            <GLink
-              ncss={styleTree.logo.link}
-              to="/"
-              aria-label={globals.siteHeading + `, Back to homepage`}
-            >
-              {globals.siteHeading + ` `}
-              <sup>
-                <small>{siteMetadata.legal.version}</small>
-              </sup>
-            </GLink>
-          </Flex>
           <Flex is={'nav'} ncss={styleTree.menu.nav}>
-            <List is="ul" ncss={styleTree.menu.pages.list}>
-              <NavLinks
-                styleTree={styleTree.menu.pages.listItem}
-                pages={navSegment.pages}
-              />
-            </List>
-            <Flex is="div" ncss={styleTree.menu.actions.container}>
-              {pageSectionInfo.hasAction && (
-                <Action
-                  styleTree={styleTree.menu.actions.action}
-                  {...props.pageSection.actions[0]}
-                />
-              )}
-              <Button
-                type="button"
-                title={`Current theme is ` + activeThemeId}
-                ariaLabel={`Current theme is ` + activeThemeId}
-                ncss={styleTree.menu.actions.themeButton}
-                value=""
-                onClick={() => toggleTheme()}
-              >
-                {activeThemeId}
-              </Button>
-            </Flex>
+            <NavList
+              styleTree={styleTree.menu.navList}
+              pages={navSegment.pages}
+            />
+            <NavActions
+              action={props.pageSection.actions[0]}
+              activeThemeId={activeThemeId}
+              pageSectionInfo={pageSectionInfo}
+              styleTree={styleTree.menu.navActions}
+              toggleTheme={toggleTheme}
+            />
           </Flex>
           <Flex is="div" ncss={styleTree.menu.modalDialog.container}>
             <Button
@@ -169,75 +110,16 @@ export const NavigationHeaderDisplay = (props: {
             >
               Menu
             </Button>
-            <Box
-              is="div"
-              role="dialog"
-              tabIndex={-1}
-              ncss={
-                menuVisible
-                  ? styleTree.menu.modalDialog.dialog.container.menuVisible.yes
-                  : styleTree.menu.modalDialog.dialog.container.menuVisible.no
-              }
-              ariaHidden={menuVisible ? false : undefined}
-              ariaModal={menuVisible ? true : undefined}
-              hidden={true}
-            >
-              <Flex
-                is="section"
-                role="document"
-                id="header-navigation"
-                ncss={
-                  menuVisible
-                    ? styleTree.menu.modalDialog.dialog.document.menuVisible.yes
-                    : styleTree.menu.modalDialog.dialog.document.menuVisible.no
-                }
-                ariaLabel="Header navigation"
-              >
-                <Button
-                  ariaLabel="Close header navigation"
-                  value=""
-                  role="button"
-                  onClick={() => closeMenu()}
-                  ncss={styleTree.menu.modalDialog.dialog.closeMenuButton}
-                >
-                  <Box ariaHidden={true}>
-                    <XIcon />
-                  </Box>
-                </Button>
-                <List
-                  is="ul"
-                  ncss={styleTree.menu.modalDialog.dialog.pages.list}
-                >
-                  <NavLinks
-                    styleTree={styleTree.menu.modalDialog.dialog.pages.listItem}
-                    pages={navSegment.pages}
-                  />
-                </List>
-                <Flex
-                  is="div"
-                  ncss={styleTree.menu.modalDialog.dialog.actions.container}
-                >
-                  {pageSectionInfo.hasAction && (
-                    <Action
-                      styleTree={
-                        styleTree.menu.modalDialog.dialog.actions.action
-                      }
-                      {...props.pageSection.actions[0]}
-                    />
-                  )}
-                  <Button
-                    type="button"
-                    title={`Current theme is ` + activeThemeId}
-                    ariaLabel={`Current theme is ` + activeThemeId}
-                    ncss={styleTree.menu.modalDialog.dialog.actions.themeButton}
-                    value=""
-                    onClick={() => toggleTheme()}
-                  >
-                    {activeThemeId}
-                  </Button>
-                </Flex>
-              </Flex>
-            </Box>
+            <NavDialog
+              action={props.pageSection.actions[0]}
+              activeThemeId={activeThemeId}
+              closeMenu={closeMenu}
+              menuVisible={menuVisible}
+              pages={navSegment.pages}
+              pageSectionInfo={pageSectionInfo}
+              styleTree={styleTree.menu.modalDialog.navDialog}
+              toggleTheme={toggleTheme}
+            />
           </Flex>
         </Container>
       </Box>

@@ -49,7 +49,7 @@ export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree 
     justifyContent: 'space-between',
     px: 3,
   },
-  logo: {
+  navLogo: {
     container: {
       label: 'logo',
       alignItems: 'center',
@@ -69,7 +69,7 @@ export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree 
   },
   menu: {
     nav: { ...navStyle, display: ['none', 'none', 'flex'] },
-    pages: {
+    navList: {
       list: listStyle,
       listItem: {
         linkStyle: {
@@ -80,7 +80,7 @@ export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree 
         },
       },
     },
-    actions: {
+    navActions: {
       container: { label: 'nav-settings' },
       action: buttonPrimaryStyle,
       themeButton: {
@@ -101,7 +101,7 @@ export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree 
       openMenuButton: {
         ...buttonPrimaryStyle,
       },
-      dialog: {
+      navDialog: {
         container: { menuVisible: { yes: modalOpenStyle, no: modalStyle } },
         document: {
           menuVisible: { yes: modalContentOpenStyle, no: modalContentStyle },
@@ -114,7 +114,7 @@ export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree 
           w: '36px',
           h: '36px',
         },
-        pages: {
+        navList: {
           list: {
             display: 'flex',
             flex: '1',
