@@ -1,13 +1,4 @@
 import { FeaturedListDisplayStyleTree } from '../../core/displays/featured-list-display'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../core/styles/video'
 
 export const featuredListDisplayStyleTree: FeaturedListDisplayStyleTree = {
   conditional: {
@@ -41,15 +32,6 @@ export const featuredListDisplayStyleTree: FeaturedListDisplayStyleTree = {
         justifyContent: 'normal',
         w: [1 / 3, 1 / 4, 1 / 4],
         p: 3,
-      },
-      image: {
-        img: commonImageImgStyle,
-        picture: commonImagePictureStyle,
-        figcaption: commonImageFigcaptionStyle,
-      },
-      video: {
-        description: commonVideoDescriptionStyle,
-        video: commonVideoStyle,
       },
     },
     content: {

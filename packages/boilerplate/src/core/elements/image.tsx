@@ -4,6 +4,11 @@ import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { MediaObject, NcssProps } from './types'
 import { getStyles } from '../lib/style-tree'
+import {
+  defaultImageImgStyle,
+  defaultImagePictureStyle,
+  defaultImageFigcaptionStyle,
+} from '../../styles/core-elements/image'
 
 export interface ImageStyleTree {
   img?: NcssProps
@@ -55,13 +60,26 @@ export const Image = (props: ImageProps) => {
   )
 
   return (
-    <picture css={systemCss({ ncss: pictureStyle }, currentThemeId)}>
+    <picture
+      css={systemCss(
+        { ncss: { ...defaultImagePictureStyle, ...pictureStyle } },
+        currentThemeId
+      )}
+    >
       <img
         {...imgElementAttrs}
-        css={systemCss({ ncss: imgStyle }, currentThemeId)}
+        css={systemCss(
+          { ncss: { ...defaultImageImgStyle, ...imgStyle } },
+          currentThemeId
+        )}
       />
       {props.includeFigcaption && (
-        <figcaption css={systemCss({ ncss: figcaptionStyle }, currentThemeId)}>
+        <figcaption
+          css={systemCss(
+            { ncss: { ...defaultImageFigcaptionStyle, ...figcaptionStyle } },
+            currentThemeId
+          )}
+        >
           {imgElementAttrs.alt}
         </figcaption>
       )}

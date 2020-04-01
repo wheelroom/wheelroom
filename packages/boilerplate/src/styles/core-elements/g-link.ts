@@ -1,4 +1,4 @@
-export const commonGLinkStyle = {
+export const defaultGLinkStyle = {
   boxSizing: 'border-box',
   color: 'azure',
   ':focus': {

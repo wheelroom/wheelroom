@@ -1,14 +1,5 @@
 import { FeaturedDisplayStyleTree } from '../../core/displays/featured-display'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../core/styles/video'
-import { defaultHeading2Style } from '../../core/styles/heading'
+import { defaultHeading2Style } from '../core-elements/heading'
 
 export const featuredDisplayStyleTree: FeaturedDisplayStyleTree = {
   wrapper: {
@@ -34,16 +25,9 @@ export const featuredDisplayStyleTree: FeaturedDisplayStyleTree = {
         mb: [3, 3, 0],
       },
       image: {
-        img: commonImageImgStyle,
         picture: {
-          ...commonImagePictureStyle,
           p: 3,
         },
-        figcaption: commonImageFigcaptionStyle,
-      },
-      video: {
-        description: commonVideoDescriptionStyle,
-        video: commonVideoStyle,
       },
     },
     content: {

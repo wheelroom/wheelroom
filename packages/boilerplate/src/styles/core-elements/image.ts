@@ -1,16 +1,16 @@
-export const commonImageImgStyle = {
+export const defaultImageImgStyle = {
   boxSizing: 'border-box',
   display: 'block',
   height: 'auto',
   width: '100%',
 }
 
-export const commonImagePictureStyle = {
+export const defaultImagePictureStyle = {
   label: 'picture',
   boxSizing: 'border-box',
 }
 
-export const commonImageFigcaptionStyle = {
+export const defaultImageFigcaptionStyle = {
   fontFamily: 'text',
   color: 'text',
   fontSize: [1, 2],

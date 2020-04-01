@@ -1,6 +1,6 @@
 import React from 'react'
 import { Action, ActionProps } from '../../../components/action'
-import { buttonPrimaryStyle } from '../../styles/button'
+import { buttonPrimaryStyle } from '../../../styles/core-elements/button'
 import { Box } from '../../elements/grid'
 import { Any } from '../../elements/any'
 import { TopicProps } from '../../../components/topic'

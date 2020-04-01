@@ -1,10 +1,10 @@
-export const commonVideoStyle = {
+export const defaultVideoStyle = {
   label: 'video',
   height: 'auto',
   width: '100%',
 }
 
-export const commonVideoDescriptionStyle = {
+export const defaultVideoDescriptionStyle = {
   label: 'video-caption',
   fontFamily: 'text',
   color: 'text',

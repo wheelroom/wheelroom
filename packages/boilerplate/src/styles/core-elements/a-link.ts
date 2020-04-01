@@ -1,4 +1,4 @@
-export const commonALinkStyle = {
+export const defaultALinkStyle = {
   boxSizing: 'border-box',
   color: 'azure',
   cursor: 'pointer',

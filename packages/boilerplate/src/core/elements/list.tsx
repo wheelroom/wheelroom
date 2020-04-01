@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { ListElementName, NcssProps } from './types'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { commonListStyle } from '../styles/list'
+import { defaultListStyle } from '../../styles/core-elements/list'
 
 export interface ListProps {
   /** Render as another HTML element */
@@ -19,7 +19,7 @@ export const List = (props: ListProps) => {
   const label = `List-${props.is}`
   const css = systemCss(
     {
-      ncss: { label, ...commonListStyle, ...props.ncss },
+      ncss: { label, ...defaultListStyle, ...props.ncss },
     },
     currentThemeId
   )

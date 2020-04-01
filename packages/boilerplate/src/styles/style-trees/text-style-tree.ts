@@ -1,15 +1,7 @@
-import { defaultParagraphStyle } from '../../core/styles/paragraph'
-import { commonALinkStyle } from '../../core/styles/a-link'
-import { commonHeadingStyle } from '../../core/styles/heading'
-import {
-  commonVideoStyle,
-  commonVideoDescriptionStyle,
-} from '../../core/styles/video'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
+import { defaultParagraphStyle } from '../core-elements/paragraph'
+import { defaultALinkStyle } from '../core-elements/a-link'
+import { commonHeadingStyle } from '../core-elements/heading'
+import { defaultVideoStyle } from '../core-elements/video'
 import { TextStyleTree } from '../../core/views/text/core-text'
 
 export const textStyleTree: TextStyleTree = {
@@ -50,8 +42,8 @@ export const textStyleTree: TextStyleTree = {
   blocksUlList: defaultParagraphStyle,
   blocksOlList: defaultParagraphStyle,
   blocksLiList: defaultParagraphStyle,
-  inlinesHyperlink: { ...commonALinkStyle, wordBreak: 'break-all' },
-  entryHyperlink: { ...commonALinkStyle, wordBreak: 'break-all' },
+  inlinesHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
+  entryHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
   blocksHeading1: { ...commonHeadingStyle, fontSize: [8, 9, 10, 11] },
   blocksHeading2: { ...commonHeadingStyle, fontSize: [7, 8, 9, 10], mt: 3 },
   blocksHeading3: { ...commonHeadingStyle, fontSize: [5, 6, 7, 8], mt: 3 },
@@ -67,12 +59,10 @@ export const textStyleTree: TextStyleTree = {
     my: 3,
   },
   video: {
-    description: commonVideoDescriptionStyle,
-    video: { ...commonVideoStyle, my: [4, 5] },
+    video: { ...defaultVideoStyle, my: [4, 5] },
   },
   image: {
-    img: { ...commonImageImgStyle, my: [4, 5] },
-    picture: commonImagePictureStyle,
-    figcaption: { ...commonImageFigcaptionStyle, mt: 0, mb: [4, 5] },
+    img: { my: [4, 5] },
+    figcaption: { mt: 0, mb: [4, 5] },
   },
 }

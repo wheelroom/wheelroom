@@ -2,7 +2,7 @@ import { NavigationHeaderDisplayStyleTree } from '../../core/displays/navigation
 import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
-} from '../../core/styles/button'
+} from '../core-elements/button'
 import {
   commonNavigationStyle,
   listStyle,

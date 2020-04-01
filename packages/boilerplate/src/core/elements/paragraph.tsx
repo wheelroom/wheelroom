@@ -5,7 +5,7 @@ import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import {
   defaultParagraphStyle,
   commonParagraphStyle,
-} from '../styles/paragraph'
+} from '../../styles/core-elements/paragraph'
 import { BlockLevelElementName, NcssProps } from './types'
 
 export interface ParagraphProps {

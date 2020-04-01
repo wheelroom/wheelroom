@@ -1,13 +1,4 @@
 import { CardDisplayStyleTree } from '../../core/displays/card-display'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../core/styles/video'
 
 export const cardDisplayStyleTree: CardDisplayStyleTree = {
   conditional: {
@@ -51,17 +42,11 @@ export const cardDisplayStyleTree: CardDisplayStyleTree = {
         p: 3,
       },
       image: {
-        img: { ...commonImageImgStyle, h: 1, objectFit: 'cover' },
+        img: { h: 1, objectFit: 'cover' },
         picture: {
-          ...commonImagePictureStyle,
           display: 'block',
           h: '178px',
         },
-        figcaption: commonImageFigcaptionStyle,
-      },
-      video: {
-        description: commonVideoDescriptionStyle,
-        video: commonVideoStyle,
       },
     },
     content: {

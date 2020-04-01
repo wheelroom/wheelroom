@@ -1,13 +1,4 @@
 import { QuoteDisplayStyleTree } from '../../core/displays/quote-display'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../core/styles/video'
 
 export const quoteDisplayStyleTree: QuoteDisplayStyleTree = {
   wrapper: {
@@ -27,14 +18,12 @@ export const quoteDisplayStyleTree: QuoteDisplayStyleTree = {
       },
       image: {
         img: {
-          ...commonImageImgStyle,
           w: 1,
           h: 1,
           objectFit: 'cover',
           position: 'absolute',
         },
         picture: {
-          ...commonImagePictureStyle,
           display: 'block',
           overflow: 'hidden',
           position: 'relative',
@@ -43,11 +32,6 @@ export const quoteDisplayStyleTree: QuoteDisplayStyleTree = {
           mx: 'auto',
           borderRadius: '50%',
         },
-        figcaption: commonImageFigcaptionStyle,
-      },
-      video: {
-        description: commonVideoDescriptionStyle,
-        video: commonVideoStyle,
       },
     },
     content: {

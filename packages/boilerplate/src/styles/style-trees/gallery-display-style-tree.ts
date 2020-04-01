@@ -1,9 +1,9 @@
 import { GalleryDisplayStyleTree } from '../../core/displays/gallery-display'
 import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
+  defaultImageImgStyle,
+  defaultImagePictureStyle,
+  defaultImageFigcaptionStyle,
+} from '../core-elements/image'
 
 export const galleryDisplayStyleTree: GalleryDisplayStyleTree = {
   wrapper: {
@@ -18,8 +18,8 @@ export const galleryDisplayStyleTree: GalleryDisplayStyleTree = {
     flexWrap: 'wrap',
   },
   image: {
-    img: commonImageImgStyle,
-    picture: { ...commonImagePictureStyle, w: [1, 1 / 2], p: 3 },
-    figcaption: commonImageFigcaptionStyle,
+    img: defaultImageImgStyle,
+    picture: { ...defaultImagePictureStyle, w: [1, 1 / 2], p: 3 },
+    figcaption: defaultImageFigcaptionStyle,
   },
 }

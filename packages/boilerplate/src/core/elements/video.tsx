@@ -5,6 +5,10 @@ import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, MediaObject } from './types'
 import { getStyles } from '../lib/style-tree'
+import {
+  defaultVideoStyle,
+  defaultVideoDescriptionStyle,
+} from '../../styles/core-elements/video'
 
 export interface VideoStyleTree {
   video?: NcssProps
@@ -57,12 +61,23 @@ export const Video = (props: VideoProps) => {
 
   return (
     <Fragment>
-      <video css={systemCss({ ncss: videoStyle }, currentThemeId)} controls>
+      <video
+        css={systemCss(
+          { ncss: { ...defaultVideoStyle, ...videoStyle } },
+          currentThemeId
+        )}
+        controls
+      >
         <source src={videoAttrs.url} type={videoAttrs.type} />
         Your browser does not support the video tag.
       </video>
       {props.title && (
-        <p css={systemCss({ ncss: desciptionStyle }, currentThemeId)}>
+        <p
+          css={systemCss(
+            { ncss: { ...defaultVideoDescriptionStyle, ...desciptionStyle } },
+            currentThemeId
+          )}
+        >
           <b>{videoAttrs.title}</b>
           {props.title && videoAttrs.description && ` – `}
           {videoAttrs.description}

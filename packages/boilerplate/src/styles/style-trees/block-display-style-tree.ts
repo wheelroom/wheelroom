@@ -1,13 +1,4 @@
 import { BlockDisplayStyleTree } from '../../core/displays/block-display'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../core/styles/video'
 
 export const blockDisplayStyleTree: BlockDisplayStyleTree = {
   wrapper: {
@@ -29,24 +20,17 @@ export const blockDisplayStyleTree: BlockDisplayStyleTree = {
     media: {
       image: {
         img: {
-          ...commonImageImgStyle,
           w: 1,
           h: 1,
           objectFit: 'cover',
           position: 'absolute',
         },
         picture: {
-          ...commonImagePictureStyle,
           display: 'block',
           h: '0px',
           position: 'relative',
           pb: '65.25%',
         },
-        figcaption: commonImageFigcaptionStyle,
-      },
-      video: {
-        description: commonVideoDescriptionStyle,
-        video: { ...commonVideoStyle },
       },
     },
     content: {

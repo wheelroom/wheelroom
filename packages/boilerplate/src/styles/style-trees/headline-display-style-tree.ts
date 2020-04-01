@@ -1,15 +1,6 @@
 import { HeadlineDisplayStyleTree } from '../../core/displays/headline-display'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../core/styles/video'
-import { defaultHeading1Style } from '../../core/styles/heading'
-import { paragraphHeroStyle } from '../../core/styles/paragraph'
+import { defaultHeading1Style } from '../core-elements/heading'
+import { paragraphHeroStyle } from '../core-elements/paragraph'
 
 export const headlineDisplayStyleTree: HeadlineDisplayStyleTree = {
   wrapper: {
@@ -23,18 +14,11 @@ export const headlineDisplayStyleTree: HeadlineDisplayStyleTree = {
     },
     media: {
       image: {
-        img: commonImageImgStyle,
         picture: {
-          ...commonImagePictureStyle,
           display: 'block',
           px: 0,
           py: 3,
         },
-        figcaption: commonImageFigcaptionStyle,
-      },
-      video: {
-        description: commonVideoDescriptionStyle,
-        video: commonVideoStyle,
       },
     },
     content: {

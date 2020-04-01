@@ -6,8 +6,8 @@ import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { commonGLinkStyle } from '../styles/g-link'
 import { NcssProps } from './types'
+import { defaultGLinkStyle } from '../../styles/core-elements/g-link'
 
 export interface GLinkProps {
   /** React children */
@@ -37,10 +37,7 @@ export const GLink = (props: GLinkProps) => {
       aria-label={props.ariaLabel}
       css={systemCss(
         {
-          ncss: {
-            ...commonGLinkStyle,
-            ...props.ncss,
-          },
+          ncss: { ...defaultGLinkStyle, ...props.ncss },
         },
         currentThemeId
       )}

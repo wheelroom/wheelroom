@@ -1,15 +1,6 @@
 import { HeroDisplayStyleTree } from '../../core/displays/hero-display'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../core/styles/video'
-import { paragraphHeroStyle } from '../../core/styles/paragraph'
-import { buttonPrimaryStyle } from '../../core/styles/button'
+import { paragraphHeroStyle } from '../core-elements/paragraph'
+import { buttonPrimaryStyle } from '../core-elements/button'
 
 export const heroDisplayStyleTree: HeroDisplayStyleTree = {
   wrapper: {
@@ -35,13 +26,8 @@ export const heroDisplayStyleTree: HeroDisplayStyleTree = {
         zIndex: -1,
       },
       image: {
-        img: { ...commonImageImgStyle, h: 1, objectFit: 'cover' },
-        picture: { ...commonImagePictureStyle, h: '170px', w: 1 },
-        figcaption: commonImageFigcaptionStyle,
-      },
-      video: {
-        description: commonVideoDescriptionStyle,
-        video: commonVideoStyle,
+        img: { h: 1, objectFit: 'cover' },
+        picture: { h: '170px', w: 1 },
       },
     },
     content: {

@@ -1,4 +1,4 @@
-export const commonButtonStyle = {
+export const baseButtonStyle = {
   boxSizing: 'border-box',
   display: 'inline-flex',
   justifyContent: 'center',
@@ -23,11 +23,11 @@ export const commonButtonStyle = {
 }
 
 export const buttonPrimaryStyle = {
-  ...commonButtonStyle,
+  ...baseButtonStyle,
 }
 
 export const buttonSecondaryStyle = {
-  ...commonButtonStyle,
+  ...baseButtonStyle,
   bg: 'transparent',
   borderColor: 'metal',
   color: 'text',

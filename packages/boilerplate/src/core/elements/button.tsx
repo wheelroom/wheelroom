@@ -5,7 +5,6 @@ import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { commonButtonStyle } from '../styles/button'
 import React from 'react'
 import { NcssProps } from './types'
 
@@ -59,7 +58,7 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
       aria-pressed={props.ariaPressed}
       css={systemCss(
         {
-          ncss: { ...commonButtonStyle, ...props.ncss },
+          ncss: props.ncss,
         },
         currentThemeId
       )}

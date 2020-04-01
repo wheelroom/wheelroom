@@ -1,14 +1,5 @@
 import { ImageDisplayStyleTree } from '../../core/displays/image-display'
-import {
-  commonImageImgStyle,
-  commonImagePictureStyle,
-  commonImageFigcaptionStyle,
-} from '../../core/styles/image'
-import {
-  commonVideoDescriptionStyle,
-  commonVideoStyle,
-} from '../../core/styles/video'
-import { smallParagraphStyle } from '../../core/styles/paragraph'
+import { smallParagraphStyle } from '../core-elements/paragraph'
 
 export const imageDisplayStyleTree: ImageDisplayStyleTree = {
   wrapper: {
@@ -25,18 +16,11 @@ export const imageDisplayStyleTree: ImageDisplayStyleTree = {
     },
     media: {
       image: {
-        img: commonImageImgStyle,
         picture: {
-          ...commonImagePictureStyle,
           display: 'block',
           px: 0,
           py: 3,
         },
-        figcaption: commonImageFigcaptionStyle,
-      },
-      video: {
-        description: commonVideoDescriptionStyle,
-        video: commonVideoStyle,
       },
     },
     content: {

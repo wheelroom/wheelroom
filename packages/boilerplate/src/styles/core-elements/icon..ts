@@ -1,7 +1,4 @@
-export const commonIconStyle = {}
-
 export const defaultFeatherIconStyle = {
-  ...commonIconStyle,
   color: 'iconColor',
   height: '40px',
   mb: 2,
@@ -10,7 +7,6 @@ export const defaultFeatherIconStyle = {
 }
 
 export const defaultTextIconStyle = {
-  ...commonIconStyle,
   color: 'iconColor',
   fontFamily: 'text',
   fontSize: 8,
