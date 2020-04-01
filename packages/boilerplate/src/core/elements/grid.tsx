@@ -4,10 +4,10 @@ import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { InlineElementName, BlockLevelElementName, NcssProps } from './types'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import {
-  commonFlexStyle,
-  commonContainerStyle,
-  commonBoxStyle,
-  commonContainerMaxWidthStyle,
+  defaultFlexStyle,
+  defaultContainerStyle,
+  defaultBoxStyle,
+  defaultContainerMaxWidthStyle,
 } from '../../styles/core-elements/grid'
 
 const getAttrs = (props: GridProps) => {
@@ -58,7 +58,7 @@ export const Box = (props: GridProps) => {
   const attrs: any = getAttrs(props)
   attrs.css = systemCss(
     {
-      ncss: { label, ...commonBoxStyle, ...props.ncss },
+      ncss: { label, ...defaultBoxStyle, ...props.ncss },
     },
     currentThemeId
   )
@@ -73,7 +73,7 @@ export const Flex = (props: GridProps) => {
     {
       ncss: {
         label,
-        ...commonFlexStyle,
+        ...defaultFlexStyle,
         ...props.ncss,
       },
     },
@@ -90,7 +90,7 @@ export const Container = (props: GridProps) => {
     {
       ncss: {
         label,
-        ...commonContainerStyle,
+        ...defaultContainerStyle,
         ...props.ncss,
       },
     },
@@ -107,7 +107,7 @@ export const ContainerMaxWidth = (props: GridProps) => {
     {
       ncss: {
         label,
-        ...commonContainerMaxWidthStyle,
+        ...defaultContainerMaxWidthStyle,
         ...props.ncss,
       },
     },
