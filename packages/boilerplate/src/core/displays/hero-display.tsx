@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Box, Container } from '../elements/grid'
 import { Topic } from '../../components/topic'
 import { PageSectionProps } from '../../components/page-section/page-section'
@@ -23,18 +23,16 @@ export const HeroDisplay = (props: {
   const styleTree = props.styleTree || {}
   const topic = props.pageSection.topics[0]
   return (
-    <Fragment>
-      <Box is="div" ncss={styleTree.wrapper}>
-        <Container ncss={styleTree.container}>
-          <Topic
-            {...topic}
-            pageSectionActions={props.pageSection.actions}
-            pageSectionInfo={pageSectionInfo}
-            useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
-            styleTree={styleTree.topic}
-          />
-        </Container>
-      </Box>
-    </Fragment>
+    <Box is="div" ncss={styleTree.wrapper}>
+      <Container ncss={styleTree.container}>
+        <Topic
+          {...topic}
+          pageSectionActions={props.pageSection.actions}
+          pageSectionInfo={pageSectionInfo}
+          useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
+          styleTree={styleTree.topic}
+        />
+      </Container>
+    </Box>
   )
 }

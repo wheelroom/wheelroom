@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Box, ContainerMaxWidth } from '../elements/grid'
 import { TopicProps, Topic } from '../../components/topic'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
@@ -52,21 +52,19 @@ export const FeaturedListDisplay = (props: {
     )
   }
   return (
-    <Fragment>
-      <Box is="div" ncss={styleTree.wrapper}>
-        <ContainerMaxWidth ncss={styleTree.container}>
-          {props.pageSection.topics.map((topic: TopicProps, index: number) => (
-            <Topic
-              key={index}
-              {...topic}
-              pageSectionActions={props.pageSection.actions}
-              pageSectionInfo={pageSectionInfo}
-              fullTopicAsLink={true}
-              styleTree={styleTree.topic}
-            />
-          ))}
-        </ContainerMaxWidth>
-      </Box>
-    </Fragment>
+    <Box is="div" ncss={styleTree.wrapper}>
+      <ContainerMaxWidth ncss={styleTree.container}>
+        {props.pageSection.topics.map((topic: TopicProps, index: number) => (
+          <Topic
+            key={index}
+            {...topic}
+            pageSectionActions={props.pageSection.actions}
+            pageSectionInfo={pageSectionInfo}
+            fullTopicAsLink={true}
+            styleTree={styleTree.topic}
+          />
+        ))}
+      </ContainerMaxWidth>
+    </Box>
   )
 }

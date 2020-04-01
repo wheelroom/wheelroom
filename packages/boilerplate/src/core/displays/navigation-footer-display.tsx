@@ -6,41 +6,27 @@
  */
 
 import React, { Fragment } from 'react'
-import { TopicProps } from '../../components/topic'
 import { NavigationSegmentProps } from '../../components/navigation-segment'
 import { Box, Container, Flex } from '../elements/grid'
-import { ALink } from '../elements/a-link'
-import { Any } from '../elements/any'
-import { NavLinks, NavLinksStyleTree } from '../views/navigation/nav-links'
-import { List } from '../elements/list'
-import { Action } from '../../components/action'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { PageSectionProps } from '../../components/page-section/page-section'
-import { FeatherIcon } from '../elements/icon'
 import { NcssProps } from '../elements/types'
+import {
+  NavSocialLinks,
+  NavSocialLinksStyleTree,
+} from '../views/navigation/nav-social-links'
+import { NavListStyleTree, NavList } from '../views/navigation/nav-list'
+import { NavLegalStyleTree, NavLegal } from '../views/navigation/nav-legal'
 
 export interface NavigationFooterDisplayStyleTree {
   wrapper: NcssProps
   container: NcssProps
-
   menus: {
     nav: NcssProps
-    pages: {
-      list: NcssProps
-      listItem: NavLinksStyleTree
-    }
-    social: {
-      list: NcssProps
-      action: NcssProps
-      icon: NcssProps
-    }
+    navList: NavListStyleTree
+    socialNavLinks: NavSocialLinksStyleTree
   }
-  legal: {
-    container: NcssProps
-    innerContainer: NcssProps
-    text: NcssProps
-    link: NcssProps
-  }
+  navLegal: NavLegalStyleTree
 }
 
 export const NavigationFooterDisplay = (props: {
@@ -65,45 +51,19 @@ export const NavigationFooterDisplay = (props: {
       <Box is="div" ncss={styleTree.wrapper}>
         <Container ncss={styleTree.container}>
           <Flex is={'nav'} ncss={styleTree.menus.nav}>
-            <List is="ul" ncss={styleTree.menus.pages.list}>
-              <NavLinks
-                styleTree={styleTree.menus.pages.listItem}
-                pages={navSegment.pages}
-              />
-            </List>
+            <NavList
+              styleTree={styleTree.menus.navList}
+              pages={navSegment.pages}
+            />
             {pageSectionInfo.hasTopic && (
-              <List is="ul" ncss={styleTree.menus.social.list}>
-                {props.pageSection.topics.map(
-                  (topic: TopicProps, index: number) => (
-                    <List is={'li'} key={index}>
-                      <Action
-                        {...topic.actions[0]}
-                        styleTree={styleTree.menus.social.action}
-                      >
-                        <FeatherIcon
-                          ncss={styleTree.menus.social.icon}
-                          icon={topic.icon as string}
-                        />
-                      </Action>
-                    </List>
-                  )
-                )}
-              </List>
+              <NavSocialLinks
+                styleTree={styleTree.menus.socialNavLinks}
+                topics={props.pageSection.topics}
+              />
             )}
           </Flex>
         </Container>
-        <Container ncss={styleTree.legal.container}>
-          <Flex ncss={styleTree.legal.innerContainer}>
-            <Any is="span" ncss={styleTree.legal.text}>
-              <ALink ncss={styleTree.legal.link} href={siteMetadata.legal.url}>
-                {siteMetadata.legal.description}
-              </ALink>
-              <sup>
-                <small>{` ` + siteMetadata.legal.version}</small>
-              </sup>
-            </Any>
-          </Flex>
-        </Container>
+        <NavLegal siteMetadata={siteMetadata} styleTree={styleTree.navLegal} />
       </Box>
     </Fragment>
   )

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Box, ContainerMaxWidth } from '../elements/grid'
 import { Topic } from '../../components/topic'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
@@ -22,18 +22,16 @@ export const HeadlineDisplay = (props: {
   const styleTree = props.styleTree || {}
   const topic = props.pageSection.topics[0]
   return (
-    <Fragment>
-      <Box is="div" ncss={styleTree.wrapper}>
-        <ContainerMaxWidth>
-          <Topic
-            {...topic}
-            pageSectionActions={props.pageSection.actions}
-            pageSectionInfo={pageSectionInfo}
-            useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
-            styleTree={styleTree.topic}
-          />
-        </ContainerMaxWidth>
-      </Box>
-    </Fragment>
+    <Box is="div" ncss={styleTree.wrapper}>
+      <ContainerMaxWidth>
+        <Topic
+          {...topic}
+          pageSectionActions={props.pageSection.actions}
+          pageSectionInfo={pageSectionInfo}
+          useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
+          styleTree={styleTree.topic}
+        />
+      </ContainerMaxWidth>
+    </Box>
   )
 }

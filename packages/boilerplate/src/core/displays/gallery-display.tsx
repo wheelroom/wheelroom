@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Box, Container } from '../elements/grid'
 import { PageSectionProps } from '../../components/page-section/page-section'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
@@ -22,20 +22,18 @@ export const GalleryDisplay = (props: {
   }
   const styleTree = props.styleTree || {}
   return (
-    <Fragment>
-      <Box is="div" ncss={styleTree.wrapper}>
-        <Container ncss={styleTree.container}>
-          {props.pageSection.topics
-            .slice(0, 4)
-            .map((topic: TopicProps, index: number) => (
-              <Image
-                styleTree={styleTree.image}
-                key={index}
-                media={topic?.media}
-              />
-            ))}
-        </Container>
-      </Box>
-    </Fragment>
+    <Box is="div" ncss={styleTree.wrapper}>
+      <Container ncss={styleTree.container}>
+        {props.pageSection.topics
+          .slice(0, 4)
+          .map((topic: TopicProps, index: number) => (
+            <Image
+              styleTree={styleTree.image}
+              key={index}
+              media={topic?.media}
+            />
+          ))}
+      </Container>
+    </Box>
   )
 }

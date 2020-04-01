@@ -24,7 +24,7 @@ export const navigationFooterDisplayStyleTree: NavigationFooterDisplayStyleTree 
       flexDirection: ['column', 'row'],
       alignItems: 'center',
     },
-    pages: {
+    navList: {
       list: listStyle,
       listItem: {
         linkStyle: {
@@ -35,7 +35,7 @@ export const navigationFooterDisplayStyleTree: NavigationFooterDisplayStyleTree 
         },
       },
     },
-    social: {
+    socialNavLinks: {
       list: listStyle,
       action: {
         display: 'inline-flex',
@@ -53,7 +53,7 @@ export const navigationFooterDisplayStyleTree: NavigationFooterDisplayStyleTree 
       },
     },
   },
-  legal: {
+  navLegal: {
     container: {
       borderTop: '1px solid transparent',
       borderColor: 'border',
