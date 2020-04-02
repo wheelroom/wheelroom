@@ -28,7 +28,7 @@ The React components used to render a variation are called displays.
 ## Elements
 
 Elements are the most fundamental parts of the boilerplate. Each element returns
-a html element like <image>, <div>, <p> or <h1>
+a html element like `<image>`, `<div>`, `<p>` or `<h1>`.
 
 ## Lib
 
