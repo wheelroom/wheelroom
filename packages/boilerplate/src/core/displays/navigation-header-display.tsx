@@ -1,11 +1,3 @@
-/**
- * Component variation
- *
- * Component type: navigation
- * Variation: Single
- *
- */
-
 import React, { Fragment, useContext, useState, useRef } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../elements/a-link'

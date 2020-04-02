@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: pageSection
- * Variation: Text
+ * Variation: Divider
  *
  */
 

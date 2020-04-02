@@ -1,10 +1,3 @@
-/**
- * Component
- *
- * Component type: navigation
- *
- */
-
 import React, { Fragment } from 'react'
 import { NavigationSegmentProps } from '../../components/navigation-segment'
 import { Box, Container, Flex } from '../elements/grid'
