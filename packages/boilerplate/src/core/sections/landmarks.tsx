@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import React from 'react'
 import { PageSectionProps } from '../../components/page-section/page-section'
-import { getPageSectionInfo } from './get-page-section-info'
+import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { systemCss } from '../../styled-system/system-css'
 import { jsx } from '@emotion/core'
 
@@ -57,7 +57,7 @@ export const Landmarks = (props: any) => {
     main: [],
   } as any
 
-  React.Children.forEach(props.children, child => {
+  React.Children.forEach(props.children, (child) => {
     landMarkedChildren[
       getLandmark(child.props, React.Children.count(props.children))
     ].push(

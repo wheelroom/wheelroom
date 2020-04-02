@@ -1,5 +1,5 @@
 import React from 'react'
-import { Landmarks } from '../lib/landmarks'
+import { Landmarks } from './landmarks'
 import { SectionProps } from './section-props'
 import { PageSection } from '../../components/page-section'
 
