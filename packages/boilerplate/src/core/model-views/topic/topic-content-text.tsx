@@ -2,15 +2,24 @@ import React from 'react'
 import { TopicProps } from '../../../models/topic/topic'
 import { Box } from '../../elements/grid'
 import { Paragraph } from '../../elements/paragraph'
-import { BlockLevelElementName } from '../../elements/types'
+import { BlockLevelElementName, NcssProps } from '../../elements/types'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Heading } from '../../elements/heading'
 import { TopicIcon } from './topic-icon'
-import { TopicContentTextStyleTree } from './core-topic'
+import { ParseTable } from '../../parser-views/parse-table'
 
 const defaultWrapperStyle = {
   label: 'topic-header',
+}
+
+export interface TopicContentTextStyleTree {
+  /** Wrapper around heading and abstract */
+  wrapper?: NcssProps
+  /** Heading style */
+  heading?: NcssProps
+  /** Abstrat style */
+  abstract?: NcssProps
 }
 
 export interface TopicContentTextProps {
@@ -49,16 +58,18 @@ export const TopicContentText = (props: TopicContentTextProps) => {
       )}
       {!topicOptions.hideAbstract && (
         <Paragraph is={useAbstractElement} ncss={{ ...abstractStyle }}>
-          {props.topic.abstract &&
-            props.topic.abstract.abstract
-              .split('\n')
-              .reduce((children: any, textSegment, index) => {
-                return [
-                  ...children,
-                  index > 0 && <br key={index} />,
-                  textSegment,
-                ]
-              }, [])}
+          <ParseTable>
+            {props.topic.abstract &&
+              props.topic.abstract.abstract
+                .split('\n')
+                .reduce((children: any, textSegment, index) => {
+                  return [
+                    ...children,
+                    index > 0 && <br key={index} />,
+                    textSegment,
+                  ]
+                }, [])}
+          </ParseTable>
         </Paragraph>
       )}
     </Box>

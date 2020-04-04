@@ -6,12 +6,19 @@ import { Any } from '../../elements/any'
 import { TopicProps } from '../../../models/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import { TopicActionsStyleTree } from './core-topic'
+import { NcssProps } from '../../elements/types'
 
 const defaultWrapperStyle = {
   display: 'flex',
   flexDirection: 'row',
   label: 'topic-action',
+}
+
+export interface TopicActionsStyleTree {
+  /** Wrapper around action */
+  wrapper?: NcssProps
+  /** Action link or button style */
+  link?: NcssProps
 }
 
 export interface TopicContentActionsProps {

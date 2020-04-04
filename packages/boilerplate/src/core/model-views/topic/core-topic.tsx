@@ -2,46 +2,17 @@ import React from 'react'
 import { Action, ActionProps } from '../../../models/action/action'
 import { Box } from '../../elements/grid'
 import { getTopicInfo } from '../../lib/get-topic-info'
-import { ImageStyleTree } from '../../elements/image'
 import { NcssProps, BlockLevelElementName } from '../../elements/types'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { TopicBody } from './topic-body'
 import { TopicProps } from '../../../models/topic/topic'
-import { VideoStyleTree } from '../../elements/video'
+import { TopicMediaStyleTree } from './topic-media'
+import { TopicContentStyleTree } from './topic-content'
 
 const defaultWrapperStyle = {
   label: 'topic',
   display: 'flex',
   flexDirection: 'column',
-}
-
-export interface TopicMediaStyleTree {
-  wrapper?: NcssProps
-  image?: ImageStyleTree
-  video?: VideoStyleTree
-}
-
-export interface TopicContentTextStyleTree {
-  /** Wrapper around heading and abstract */
-  wrapper?: NcssProps
-  /** Heading style */
-  heading?: NcssProps
-  /** Abstrat style */
-  abstract?: NcssProps
-}
-
-export interface TopicContentStyleTree {
-  /** Wrapper around all content including action */
-  wrapper?: NcssProps
-  contentText?: TopicContentTextStyleTree
-  contentActions?: TopicActionsStyleTree
-}
-
-export interface TopicActionsStyleTree {
-  /** Wrapper around action */
-  wrapper?: NcssProps
-  /** Action link or button style */
-  link?: NcssProps
 }
 
 export interface TopicStyleTree {

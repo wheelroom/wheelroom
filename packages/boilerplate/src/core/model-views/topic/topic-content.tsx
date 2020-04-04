@@ -3,10 +3,15 @@ import { Box } from '../../elements/grid'
 import { TopicProps } from '../../../models/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import { TopicContentStyleTree } from './core-topic'
-import { TopicContentText } from './topic-content-text'
-import { TopicContentActions } from './topic-content-actions'
-import { BlockLevelElementName } from '../../elements/types'
+import {
+  TopicContentText,
+  TopicContentTextStyleTree,
+} from './topic-content-text'
+import {
+  TopicContentActions,
+  TopicActionsStyleTree,
+} from './topic-content-actions'
+import { BlockLevelElementName, NcssProps } from '../../elements/types'
 import { ActionProps } from '../../../models/action/action'
 
 /** This style needs cleaning up, only default values here */
@@ -14,6 +19,13 @@ const defaultWrapperStyle = {
   label: 'topic-content',
   justifyContent: 'center',
   p: 3,
+}
+
+export interface TopicContentStyleTree {
+  /** Wrapper around all content including action */
+  wrapper?: NcssProps
+  contentText?: TopicContentTextStyleTree
+  contentActions?: TopicActionsStyleTree
 }
 
 export interface TopicContentWrapperProps {
