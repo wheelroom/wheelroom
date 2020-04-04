@@ -83,7 +83,7 @@ export const NavigationHeaderDisplay = (props: {
               pages={navSegment.pages}
             />
             <NavActions
-              action={props.pageSection.actions[0]}
+              action={props.pageSection.actions && props.pageSection.actions[0]}
               activeThemeId={activeThemeId}
               pageSectionInfo={pageSectionInfo}
               styleTree={styleTree.menu.navActions}
