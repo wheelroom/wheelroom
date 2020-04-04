@@ -1,3 +1,8 @@
+# OUTDATED
+
+See: https://github.com/wheelroom/wheelroom/issues/26
+
+
 # Getting started
 
 ## Clone boilerplate

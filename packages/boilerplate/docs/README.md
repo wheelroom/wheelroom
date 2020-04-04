@@ -1,3 +1,8 @@
+# OUTDATED
+
+See: https://github.com/wheelroom/wheelroom/issues/26
+
+
 # Docs
 
 Example repo on how to use
