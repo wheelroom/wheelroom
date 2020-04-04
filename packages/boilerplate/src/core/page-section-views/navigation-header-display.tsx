@@ -48,6 +48,8 @@ export const NavigationHeaderDisplay = (props: {
   const [menuVisible, setMenuVisible] = useState(false)
   const buttonRef = useRef(null)
 
+  const action = props.pageSection.actions && props.pageSection.actions[0]
+
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasNavigation) {
     return null
@@ -83,7 +85,7 @@ export const NavigationHeaderDisplay = (props: {
               pages={navSegment.pages}
             />
             <NavActions
-              action={props.pageSection.actions && props.pageSection.actions[0]}
+              action={action}
               activeThemeId={activeThemeId}
               pageSectionInfo={pageSectionInfo}
               styleTree={styleTree.menu.navActions}
@@ -106,7 +108,7 @@ export const NavigationHeaderDisplay = (props: {
               Menu
             </Button>
             <NavDialog
-              action={props.pageSection.actions[0]}
+              action={action}
               activeThemeId={activeThemeId}
               closeMenu={closeMenu}
               menuVisible={menuVisible}
