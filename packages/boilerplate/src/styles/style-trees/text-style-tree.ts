@@ -2,7 +2,7 @@ import { defaultParagraphStyle } from '../core-elements/paragraph'
 import { defaultALinkStyle } from '../core-elements/a-link'
 import { commonHeadingStyle } from '../core-elements/heading'
 import { defaultVideoStyle } from '../core-elements/video'
-import { TextStyleTree } from '../../core/views/text/core-text'
+import { TextStyleTree } from '../../core/model-views/text/core-text'
 
 export const textStyleTree: TextStyleTree = {
   wrapper: {

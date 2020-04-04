@@ -4,7 +4,7 @@ import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { Text } from '../../models/text'
 import { Box, ContainerMaxWidth } from '../elements/grid'
 import { NcssProps } from '../elements/types'
-import { TextStyleTree } from '../views/text/core-text'
+import { TextStyleTree } from '../model-views/text/core-text'
 
 export interface TextDisplayStyleTree {
   text: TextStyleTree

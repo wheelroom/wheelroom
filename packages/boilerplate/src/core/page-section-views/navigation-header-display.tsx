@@ -8,13 +8,13 @@ import { NavigationSegmentProps } from '../../models/navigation-segment'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { PageSectionProps } from '../../models/page-section/page-section'
 import { NcssProps } from '../elements/types'
-import { NavListStyleTree, NavList } from '../views/navigation/nav-list'
-import { NavLogoStyleTree } from '../views/navigation/nav-logo'
+import { NavListStyleTree, NavList } from '../model-views/navigation/nav-list'
+import { NavLogoStyleTree } from '../model-views/navigation/nav-logo'
 import {
   NavActionsStyleTree,
   NavActions,
-} from '../views/navigation/nav-actions'
-import { NavDialogStyleTree, NavDialog } from '../views/navigation/nav-dialog'
+} from '../model-views/navigation/nav-actions'
+import { NavDialogStyleTree, NavDialog } from '../model-views/navigation/nav-dialog'
 
 export interface NavigationHeaderDisplayStyleTree {
   skipToContent: NcssProps

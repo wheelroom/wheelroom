@@ -7,9 +7,9 @@ import { NcssProps } from '../elements/types'
 import {
   NavSocialLinks,
   NavSocialLinksStyleTree,
-} from '../views/navigation/nav-social-links'
-import { NavListStyleTree, NavList } from '../views/navigation/nav-list'
-import { NavLegalStyleTree, NavLegal } from '../views/navigation/nav-legal'
+} from '../model-views/navigation/nav-social-links'
+import { NavListStyleTree, NavList } from '../model-views/navigation/nav-list'
+import { NavLegalStyleTree, NavLegal } from '../model-views/navigation/nav-legal'
 
 export interface NavigationFooterDisplayStyleTree {
   wrapper: NcssProps

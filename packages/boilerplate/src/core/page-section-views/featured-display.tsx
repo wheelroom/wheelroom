@@ -3,7 +3,7 @@ import { Box, ContainerMaxWidth } from '../elements/grid'
 import { Topic } from '../../models/topic'
 import { PageSectionProps } from '../../models/page-section/page-section'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { TopicStyleTree } from '../views/topic/core-topic'
+import { TopicStyleTree } from '../model-views/topic/core-topic'
 import { NcssProps } from '../elements/types'
 
 export interface FeaturedDisplayStyleTree {

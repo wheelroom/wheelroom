@@ -3,7 +3,7 @@ import { Box, Container } from '../elements/grid'
 import { Topic, TopicProps } from '../../models/topic'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { PageSectionProps } from '../../models/page-section/page-section'
-import { TopicStyleTree } from '../views/topic/core-topic'
+import { TopicStyleTree } from '../model-views/topic/core-topic'
 import { NcssProps } from '../elements/types'
 
 export interface ImageDisplayStyleTree {
