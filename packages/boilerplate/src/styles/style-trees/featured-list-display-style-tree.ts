@@ -1,4 +1,4 @@
-import { FeaturedListDisplayStyleTree } from '../../core/displays/featured-list-display'
+import { FeaturedListDisplayStyleTree } from '../../core/page-section-views/featured-list-display'
 
 export const featuredListDisplayStyleTree: FeaturedListDisplayStyleTree = {
   conditional: {

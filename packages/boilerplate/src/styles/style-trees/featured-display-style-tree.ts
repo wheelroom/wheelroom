@@ -1,4 +1,4 @@
-import { FeaturedDisplayStyleTree } from '../../core/displays/featured-display'
+import { FeaturedDisplayStyleTree } from '../../core/page-section-views/featured-display'
 import { defaultHeading2Style } from '../core-elements/heading'
 
 export const featuredDisplayStyleTree: FeaturedDisplayStyleTree = {

@@ -1,4 +1,4 @@
-import { GalleryDisplayStyleTree } from '../../core/displays/gallery-display'
+import { GalleryDisplayStyleTree } from '../../core/page-section-views/gallery-display'
 import {
   defaultImageImgStyle,
   defaultImagePictureStyle,

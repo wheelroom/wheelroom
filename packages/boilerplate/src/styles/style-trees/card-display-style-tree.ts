@@ -1,4 +1,4 @@
-import { CardDisplayStyleTree } from '../../core/displays/card-display'
+import { CardDisplayStyleTree } from '../../core/page-section-views/card-display'
 
 export const cardDisplayStyleTree: CardDisplayStyleTree = {
   conditional: {

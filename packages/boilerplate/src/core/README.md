@@ -2,7 +2,7 @@
 
 Files in this folder are overwritten with each boilerplate update.
 
-## Displays and pageSection variants
+## Page section views
 
 One of the models in `src/models` is the pageSection component. This
 models has a variation field. This field is used by the editor to set how

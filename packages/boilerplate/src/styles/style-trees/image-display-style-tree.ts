@@ -1,4 +1,4 @@
-import { ImageDisplayStyleTree } from '../../core/displays/image-display'
+import { ImageDisplayStyleTree } from '../../core/page-section-views/image-display'
 import { smallParagraphStyle } from '../core-elements/paragraph'
 
 export const imageDisplayStyleTree: ImageDisplayStyleTree = {

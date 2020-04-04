@@ -1,4 +1,4 @@
-import { NavigationFooterDisplayStyleTree } from '../../core/displays/navigation-footer-display'
+import { NavigationFooterDisplayStyleTree } from '../../core/page-section-views/navigation-footer-display'
 import {
   commonNavigationStyle,
   listStyle,

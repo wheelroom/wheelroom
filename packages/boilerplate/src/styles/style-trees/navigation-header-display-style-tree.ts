@@ -1,4 +1,4 @@
-import { NavigationHeaderDisplayStyleTree } from '../../core/displays/navigation-header-display'
+import { NavigationHeaderDisplayStyleTree } from '../../core/page-section-views/navigation-header-display'
 import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,

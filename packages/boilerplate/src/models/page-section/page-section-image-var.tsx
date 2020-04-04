@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { ImageDisplay } from '../../core/displays/image-display'
+import { ImageDisplay } from '../../core/page-section-views/image-display'
 import { imageDisplayStyleTree } from '../../styles/style-trees/image-display-style-tree'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {

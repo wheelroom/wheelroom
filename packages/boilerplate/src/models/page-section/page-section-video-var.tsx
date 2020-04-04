@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { VideoDisplay } from '../../core/displays/video-display'
+import { VideoDisplay } from '../../core/page-section-views/video-display'
 import { videoDisplayStyleTree } from '../../styles/style-trees/video-display-style-tree'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {

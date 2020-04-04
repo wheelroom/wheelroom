@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { BlockDisplay } from '../../core/displays/block-display'
+import { BlockDisplay } from '../../core/page-section-views/block-display'
 import { blockDisplayStyleTree } from '../../styles/style-trees/block-display-style-tree'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {

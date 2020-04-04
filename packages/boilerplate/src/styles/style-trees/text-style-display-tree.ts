@@ -1,4 +1,4 @@
-import { TextDisplayStyleTree } from '../../core/displays/text-display'
+import { TextDisplayStyleTree } from '../../core/page-section-views/text-display'
 import { textStyleTree } from './text-style-tree'
 
 export const textDisplayStyleTree: TextDisplayStyleTree = {
