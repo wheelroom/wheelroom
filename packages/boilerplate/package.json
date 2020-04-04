@@ -13,7 +13,7 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom-io/issues"
+    "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "13.4.0",
@@ -89,14 +89,14 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "homepage": "https://github.com/wheelroom/wheelroom-io#readme",
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
   "license": "MIT",
   "main": "index.js",
   "name": "@wheelroom/boilerplate",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom-io.git"
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
   "scripts": {
     "lint-fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
