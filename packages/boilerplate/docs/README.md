@@ -1,9 +1,8 @@
-# OUTDATED
+# Docs
+
+***THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP***
 
 See: https://github.com/wheelroom/wheelroom/issues/26
-
-
-# Docs
 
 Example repo on how to use
 [@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom)

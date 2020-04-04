@@ -1,9 +1,8 @@
-# OUTDATED
+# Roadmap
+
+***THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP***
 
 See: https://github.com/wheelroom/wheelroom/issues/26
-
-
-# Roadmap
 
 ## Todo
 
