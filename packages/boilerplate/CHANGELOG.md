@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.2.0...@wheelroom/boilerplate@2.2.1) (2020-04-04)
+
+
+### Bug Fixes
+
+* changelog urls ([ae41241](https://github.com/wheelroom/wheelroom/commit/ae41241c014bdc83193f92437401500c952d6a15))
+
+
+
+
+
 # [2.2.0](https://github.com/wheelroom/boilerplate/compare/@wheelroom/boilerplate@2.1.1...@wheelroom/boilerplate@2.2.0) (2020-04-04)
 
 
