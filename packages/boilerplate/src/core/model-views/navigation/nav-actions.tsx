@@ -18,6 +18,9 @@ export const NavActions = (props: {
   styleTree: NavActionsStyleTree
   toggleTheme: () => void
 }) => {
+  if (!props.pageSectionInfo.hasAction) {
+    return null
+  }
   const styleTree = props.styleTree || {}
   return (
     <Flex is="div" ncss={styleTree.container}>

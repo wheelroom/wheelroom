@@ -14,7 +14,10 @@ import {
   NavActionsStyleTree,
   NavActions,
 } from '../model-views/navigation/nav-actions'
-import { NavDialogStyleTree, NavDialog } from '../model-views/navigation/nav-dialog'
+import {
+  NavDialogStyleTree,
+  NavDialog,
+} from '../model-views/navigation/nav-dialog'
 
 export interface NavigationHeaderDisplayStyleTree {
   skipToContent: NcssProps
