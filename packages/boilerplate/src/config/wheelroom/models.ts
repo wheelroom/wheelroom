@@ -11,7 +11,7 @@ import {
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
 
-export const configComponents: WheelroomComponents = {
+export const models: WheelroomComponents = {
   topic: {
     fields: {
       heading: {

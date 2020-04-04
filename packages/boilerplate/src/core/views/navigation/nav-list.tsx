@@ -2,7 +2,7 @@ import { List } from '../../elements/list'
 import React from 'react'
 import { NcssProps } from '../../elements/types'
 import { NavLinks, NavLinksStyleTree } from './nav-links'
-import { PageProps } from '../../../components/page/page'
+import { PageProps } from '../../../models/page/page'
 
 export interface NavListStyleTree {
   list: NcssProps

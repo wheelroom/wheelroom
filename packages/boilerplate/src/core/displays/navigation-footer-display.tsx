@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import { NavigationSegmentProps } from '../../components/navigation-segment'
+import { NavigationSegmentProps } from '../../models/navigation-segment'
 import { Box, Container, Flex } from '../elements/grid'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { PageSectionProps } from '../../components/page-section/page-section'
+import { PageSectionProps } from '../../models/page-section/page-section'
 import { NcssProps } from '../elements/types'
 import {
   NavSocialLinks,

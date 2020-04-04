@@ -3,10 +3,10 @@ import { NcssProps } from '../../elements/types'
 import { NavListStyleTree, NavList } from './nav-list'
 import { Box, Flex } from '../../elements/grid'
 import { Button } from '../../elements/button'
-import { Action, ActionProps } from '../../../components/action'
+import { Action, ActionProps } from '../../../models/action'
 import { IconMap } from '../../../svg/feather/iconMap'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import { PageProps } from '../../../components/page/page'
+import { PageProps } from '../../../models/page/page'
 
 export interface NavDialogStyleTree {
   container: {

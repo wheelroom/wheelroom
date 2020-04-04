@@ -1,5 +1,5 @@
 import React from 'react'
-import { TopicProps } from '../../../components/topic/topic'
+import { TopicProps } from '../../../models/topic/topic'
 import { Box } from '../../elements/grid'
 import { Paragraph } from '../../elements/paragraph'
 import { BlockLevelElementName } from '../../elements/types'

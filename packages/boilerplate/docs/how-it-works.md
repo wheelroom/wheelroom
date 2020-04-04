@@ -3,7 +3,7 @@
 ## Config
 
 Wheelroom reads the compiled version of
-[wheelroom-config.ts](../src/config/wheelroom-config.ts). The components defined
+[wheelroom-config.ts](../src/config/wheelroom-config.ts). The models defined
 here are used to:
 
 - create content models at Contentful
@@ -22,8 +22,8 @@ When the Gatsby development server starts, this is what happens:
 - Graphql queries defined in [gatsby-config.js](../gatsby-config.js) are fetched by
   `gatsby-theme-wheelroom`:
   ```javascript
-  const globalsQuery = require('./src/components/globals/query')
-  const pageQuery = require('./src/components/page/query')
+  const globalsQuery = require('./src/models/globals/query')
+  const pageQuery = require('./src/models/page/query')
   ```
 - `gatsby-theme-wheelroom` plugin uses the
   [src/page-template.tsx](../src/page-template.tsx) to create page templates for
@@ -33,9 +33,9 @@ When the Gatsby development server starts, this is what happens:
 - Graphql `ids` for page content are added to the page context of each page
   template. Eg `pageId`, `globalsId` or `articleId`.
 - Once all page templates are ready, Gatsby scans the `src` folder to build a
-  Graphql node. It uses the generated Graphql in the `src/components` folder.
+  Graphql node. It uses the generated Graphql in the `src/models` folder.
   Like this file:
-  [src/components/opener-section/fragment.js](../src/components/opener-section/fragment.js)
+  [src/models/opener-section/fragment.js](../src/models/opener-section/fragment.js)
 - The page template builds each page from sections. Sections are taken from the
   section list defined in
   [src/sections/sections.tsx](../src/sections/sections.tsx).

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Flex } from '../elements/grid'
-import { PageSectionProps } from '../../components/page-section/page-section'
+import { PageSectionProps } from '../../models/page-section/page-section'
 import { getPageSectionInfo } from './get-page-section-info'
 import { SvgBell } from '../../svg/feather'
 

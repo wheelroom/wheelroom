@@ -1,5 +1,5 @@
 import { ThemeInfo } from '@wheelroom/admin-theme-switcher'
-import { PageProps } from '../components/page/page'
+import { PageProps } from '../models/page/page'
 
 export const themeInfo = (props: any): ThemeInfo => {
   const isServer = typeof window === 'undefined'

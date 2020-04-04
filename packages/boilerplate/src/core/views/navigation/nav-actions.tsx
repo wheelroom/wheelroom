@@ -1,7 +1,7 @@
 import React from 'react'
 import { NcssProps } from '../../elements/types'
 import { Flex } from '../../elements/grid'
-import { Action, ActionProps } from '../../../components/action'
+import { Action, ActionProps } from '../../../models/action'
 import { Button } from '../../elements/button'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 

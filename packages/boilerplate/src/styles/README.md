@@ -4,7 +4,7 @@ All styles for the full site are here.
 
 ## Core elements
 
-Styles for the React components in `src/core/elements`.
+Styles for the React models in `src/core/elements`.
 
 ## Global
 

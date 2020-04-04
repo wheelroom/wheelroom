@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Container } from '../elements/grid'
-import { PageSectionProps } from '../../components/page-section/page-section'
+import { PageSectionProps } from '../../models/page-section/page-section'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { TopicProps } from '../../components/topic'
+import { TopicProps } from '../../models/topic'
 import { Image, ImageStyleTree } from '../elements/image'
 import { NcssProps } from '../elements/types'
 

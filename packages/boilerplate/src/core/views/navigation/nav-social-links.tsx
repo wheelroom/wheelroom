@@ -1,6 +1,6 @@
 import { List } from '../../elements/list'
-import { TopicProps } from '../../../components/topic'
-import { Action } from '../../../components/action'
+import { TopicProps } from '../../../models/topic'
+import { Action } from '../../../models/action'
 import { FeatherIcon } from '../../elements/icon'
 import React from 'react'
 import { NcssProps } from '../../elements/types'

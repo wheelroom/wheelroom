@@ -55,9 +55,9 @@ Compile the config from typescript to javascript:
 npm run compile-config
 ```
 
-## Test config by listing all components
+## Test config by listing all models
 
-Wheelroom can now list the available models configured in [config-components.ts](../src/config/wheelroom/config-components.ts):
+Wheelroom can now list the available models configured in [config-models.ts](../src/config/wheelroom/config-models.ts):
 
 ```bash
 npm run wr:ls

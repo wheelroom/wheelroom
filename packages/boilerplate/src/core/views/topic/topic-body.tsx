@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { getTopicInfo } from '../../lib/get-topic-info'
 import { TopicMedia } from './topic-media'
-import { TopicProps } from '../../../components/topic'
+import { TopicProps } from '../../../models/topic'
 import { TopicContent } from './topic-content'
 
 export const TopicBody = (props: TopicProps) => {

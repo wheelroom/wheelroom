@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, ContainerMaxWidth } from '../elements/grid'
-import { PageSectionProps } from '../../components/page-section/page-section'
+import { PageSectionProps } from '../../models/page-section/page-section'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { Topic } from '../../components/topic'
+import { Topic } from '../../models/topic'
 import { TopicStyleTree } from '../views/topic/core-topic'
 import { NcssProps } from '../elements/types'
 

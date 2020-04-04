@@ -4,8 +4,8 @@ Files in this folder are overwritten with each boilerplate update.
 
 ## Displays and pageSection variants
 
-One of the components in `src/components` is the pageSection component. This
-components has a variation field. This field is used by the editor to set how
+One of the models in `src/models` is the pageSection component. This
+models has a variation field. This field is used by the editor to set how
 the page section is displayed.
 
 These variations are supported by the boilerplate by default. Other variations
@@ -23,7 +23,7 @@ can be easily added.
 - text
 - video
 
-The React components used to render a variation are called displays.
+The React models used to render a variation are called displays.
 
 ## Elements
 
@@ -40,6 +40,6 @@ Sections contain the logic used to render page sections. Including landmark logi
 
 ## Views
 
-Where displays represent the React components for the pageSection component, the
-React components located here represent all other components in
-`src/components`.
+Where displays represent the React models for the pageSection component, the
+React models located here represent all other models in
+`src/models`.

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 packageJson = require('./package.json')
 path = require('path')
-const globalsQuery = require('./src/components/globals/query')
-const pageQuery = require('./src/components/page/query')
+const globalsQuery = require('./src/models/globals/query')
+const pageQuery = require('./src/models/page/query')
 const dotenv = require('dotenv')
 
 /**

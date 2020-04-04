@@ -1,6 +1,6 @@
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { GlobalsProps } from '../../components/globals'
-import { PageProps } from '../../components/page'
+import { GlobalsProps } from '../../models/globals'
+import { PageProps } from '../../models/page'
 import { SiteMetadata } from '../../page-template'
 
 /** These are suitable defaults, you probably want to add some props specific

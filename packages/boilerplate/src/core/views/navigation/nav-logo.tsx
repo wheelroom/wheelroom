@@ -2,7 +2,7 @@ import React from 'react'
 import { NcssProps } from '../../elements/types'
 import { Flex } from '../../elements/grid'
 import { GLink } from '../../elements/g-link'
-import { GlobalsProps } from '../../../components/globals'
+import { GlobalsProps } from '../../../models/globals'
 import { SiteMetadata } from '../../../page-template'
 
 export interface NavLogoStyleTree {

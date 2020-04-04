@@ -1,12 +1,12 @@
 import React from 'react'
-import { Action, ActionProps } from '../../../components/action/action'
+import { Action, ActionProps } from '../../../models/action/action'
 import { Box } from '../../elements/grid'
 import { getTopicInfo } from '../../lib/get-topic-info'
 import { ImageStyleTree } from '../../elements/image'
 import { NcssProps, BlockLevelElementName } from '../../elements/types'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { TopicBody } from './topic-body'
-import { TopicProps } from '../../../components/topic/topic'
+import { TopicProps } from '../../../models/topic/topic'
 import { VideoStyleTree } from '../../elements/video'
 
 const defaultWrapperStyle = {

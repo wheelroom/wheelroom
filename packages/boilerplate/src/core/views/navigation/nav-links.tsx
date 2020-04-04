@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { GLink } from '../../elements/g-link'
 import { Any } from '../../elements/any'
-import { PageProps } from '../../../components/page'
+import { PageProps } from '../../../models/page'
 import { NcssProps } from '../../elements/types'
 
 interface NavLinkProps extends PageProps {

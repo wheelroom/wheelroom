@@ -4,7 +4,7 @@
  * How it works
  *
  * The script imports the content set from ../plugin-contentful/content-sets
- * Next the script imports the components from ../wheelroom/config-components
+ * Next the script imports the models from ../wheelroom/config-models
  *
  * It then generates interface definitions for each component. The content set
  * is used to find valid component names in references. Like e.g.
@@ -42,7 +42,7 @@ import {
 } from '@wheelroom/wheelroom'
 import * as fse from 'fs-extra'
 import { contentSets } from '../plugin-contentful/content-sets'
-import { configComponents } from '../wheelroom/config-components'
+import { models } from '../wheelroom/models'
 
 const TEMPLATE_SET = 'boilerplate'
 
@@ -63,7 +63,7 @@ const wheelroomTypeToTsType: TypeTable = {
 }
 
 const getAllowedComponentIds = (field: FieldType, limitResults: string[]) => {
-  // Limit values to defined components that fit allowedComponents
+  // Limit values to defined models that fit allowedComponents
   if (field.type === 'singleComponent' || field.type === 'multipleComponents') {
     Object.entries(contentSets[TEMPLATE_SET]).forEach(
       ([componentId, compInstance]: [string, any]) => {
@@ -76,11 +76,11 @@ const getAllowedComponentIds = (field: FieldType, limitResults: string[]) => {
 }
 
 const getPageSections = (field: FieldType, limitResults: string[]) => {
-  // Limit values to defined components that have settings.asPageSection
+  // Limit values to defined models that have settings.asPageSection
   if (field.type === 'multipleComponents') {
     Object.entries(contentSets[TEMPLATE_SET]).forEach(
       ([componentId, compInstance]: [string, any]) => {
-        if (configComponents[compInstance.model].settings.asPageSection) {
+        if (models[compInstance.model].settings.asPageSection) {
           limitResults.push(`'${componentId}'`)
         }
       }
@@ -121,7 +121,7 @@ const firstUpperCase = (str: string): string =>
 let modelString = 'type Model ='
 let content = ''
 
-Object.entries(configComponents).forEach(
+Object.entries(models).forEach(
   ([componentName, wrComponent]: [string, WheelroomComponent]) => {
     modelString += `
   | ${firstUpperCase(componentName)}Model`

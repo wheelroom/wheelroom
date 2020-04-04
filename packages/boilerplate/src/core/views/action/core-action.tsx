@@ -7,7 +7,7 @@
  */
 
 import React, { Fragment } from 'react'
-import { ActionProps } from '../../../components/action'
+import { ActionProps } from '../../../models/action'
 import { GLink } from '../../elements/g-link'
 import { ALink } from '../../elements/a-link'
 import { NcssProps } from '../../elements/types'

@@ -10,7 +10,7 @@ export const baseComponentAsPageSection = `/**
 import React from 'react'
 import { getVariation } from '../../lib/get-variation'
 import { MediaObject } from '../../core/elements/types'
-import { SectionProps } from '../../sections/section-props'
+import { SectionProps } from '../../core/sections/section-props'
 %variationImportList%
 
 const componentList = {
