@@ -38,6 +38,14 @@ export const featuredDisplayStyleTree: FeaturedDisplayStyleTree = {
       },
       contentText: {
         heading: defaultHeading2Style,
+        table: {
+          '&>tbody>tr': {
+            bg: 'skyblue',
+          },
+          '&>tbody>tr>td': {
+            p: [2, 3, 4, 5],
+          },
+        },
       },
       contentActions: {
         wrapper: {

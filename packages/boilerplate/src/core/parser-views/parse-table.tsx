@@ -1,6 +1,9 @@
 import React from 'react'
+import { NcssProps } from '../elements/types'
+import { Any } from '../elements/any'
 
 export interface ParseTableProps {
+  styleTree?: NcssProps
   children: any
 }
 
@@ -34,6 +37,7 @@ const replaceTable = (children: React.ReactNode) => {
 }
 
 export const ParseTable = (props: ParseTableProps) => {
+  const styleTree = props.styleTree || {}
   const children = React.Children.toArray(props.children)
   // Check if we have a table by comparing the first character
   if (
@@ -47,8 +51,8 @@ export const ParseTable = (props: ParseTableProps) => {
   }
 
   return (
-    <table>
+    <Any is="table" ncss={styleTree}>
       <tbody>{replaceTable(props.children)}</tbody>
-    </table>
+    </Any>
   )
 }

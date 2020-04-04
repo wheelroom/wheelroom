@@ -18,8 +18,10 @@ export interface TopicContentTextStyleTree {
   wrapper?: NcssProps
   /** Heading style */
   heading?: NcssProps
-  /** Abstrat style */
+  /** Abstract style */
   abstract?: NcssProps
+  /** Table style */
+  table?: NcssProps
 }
 
 export interface TopicContentTextProps {
@@ -58,7 +60,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
       )}
       {!topicOptions.hideAbstract && (
         <Paragraph is={useAbstractElement} ncss={{ ...abstractStyle }}>
-          <ParseTable>
+          <ParseTable styleTree={styleTree.table}>
             {props.topic.abstract &&
               props.topic.abstract.abstract
                 .split('\n')
