@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.6](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@4.0.5...gatsby-theme-wheelroom@4.0.6) (2020-04-04)
+
+
+### Bug Fixes
+
+* [#34](https://github.com/wheelroom/wheelroom/issues/34) ([b8d05d2](https://github.com/wheelroom/wheelroom/commit/b8d05d26b9be3c18dc6503522fc4e733283211ea))
+
+
+
+
+
 ## [4.0.5](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@4.0.4...gatsby-theme-wheelroom@4.0.5) (2020-03-26)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom
@@ -75,6 +86,3 @@ plugins: [
     resolve: 'gatsby-source-contentful',
   },
 ],
-
-
-

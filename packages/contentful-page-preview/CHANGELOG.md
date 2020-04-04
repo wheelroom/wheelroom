@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.9](https://github.com/wheelroom/wheelroom/compare/@wheelroom/contentful-page-preview@1.3.8...@wheelroom/contentful-page-preview@1.3.9) (2020-04-04)
+
+
+### Bug Fixes
+
+* [#34](https://github.com/wheelroom/wheelroom/issues/34) ([b8d05d2](https://github.com/wheelroom/wheelroom/commit/b8d05d26b9be3c18dc6503522fc4e733283211ea))
+
+
+
+
+
 ## [1.3.8](https://github.com/wheelroom/wheelroom/compare/@wheelroom/contentful-page-preview@1.3.7...@wheelroom/contentful-page-preview@1.3.8) (2020-03-27)
 
 
@@ -56,6 +67,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * missing Array/items.type Symbol ([45affa3](https://github.com/jaccomeijer/contentful-page-preview/commit/45affa3463ded3c8fd85844365ac9ea5a47421d4))
-
-
-

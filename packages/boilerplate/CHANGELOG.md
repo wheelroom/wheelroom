@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/wheelroom/wheelroom-io/compare/@wheelroom/boilerplate@2.1.1...@wheelroom/boilerplate@2.2.0) (2020-04-04)
+
+
+### Bug Fixes
+
+* [#34](https://github.com/wheelroom/wheelroom-io/issues/34) ([b8d05d2](https://github.com/wheelroom/wheelroom-io/commit/b8d05d26b9be3c18dc6503522fc4e733283211ea))
+* /home problem ([5a6ae90](https://github.com/wheelroom/wheelroom-io/commit/5a6ae900351b7dc2046fce33bd9f8b7013af1110))
+* 404 ([83d9075](https://github.com/wheelroom/wheelroom-io/commit/83d9075505cea7e62e11bd17e22981a6cf2b9364))
+* add --max_old_space_size=4096 ([3e04f4e](https://github.com/wheelroom/wheelroom-io/commit/3e04f4e38d940f202abcdf137f38944fba60d557))
+* base bug ([7275511](https://github.com/wheelroom/wheelroom-io/commit/72755114c0640da9b87da8729da880c410125a71))
+* cleanup hack ([d50b135](https://github.com/wheelroom/wheelroom-io/commit/d50b1359d71fd6b8e41c1e25975d5f51ea10ccb5))
+* conditional styling ([98c8156](https://github.com/wheelroom/wheelroom-io/commit/98c815654019e5d491d61817e18b4647be282660))
+* conent set ([1d720ea](https://github.com/wheelroom/wheelroom-io/commit/1d720ea71abb609f1fb38fdb5df3dcf146575feb))
+* element names ([2c44b56](https://github.com/wheelroom/wheelroom-io/commit/2c44b56be50b725fe21142282c0a754496f1bbd9))
+* heading style ([534a27e](https://github.com/wheelroom/wheelroom-io/commit/534a27e5d671cbd1a384e273d4e82d797f49eb0f))
+* heading style order ([0ec1620](https://github.com/wheelroom/wheelroom-io/commit/0ec1620247992a5553a0c8c65d71bc9ebe342867))
+* headings ([b0b142e](https://github.com/wheelroom/wheelroom-io/commit/b0b142e511c8fdccae41e21cd2a0c62398940358))
+* hero styling ([4833824](https://github.com/wheelroom/wheelroom-io/commit/4833824ddf2bcab2fdf0d9080e5631d3caa0e835))
+* images ([57ee110](https://github.com/wheelroom/wheelroom-io/commit/57ee11093c56e74a56859670a948d17411add89f))
+* index smaller than 1 then H1 ([ada842f](https://github.com/wheelroom/wheelroom-io/commit/ada842f1a1bc58bab0fb9ba89081c8d130f139e2))
+* linter ([3f16b6d](https://github.com/wheelroom/wheelroom-io/commit/3f16b6d11632288d49ccfb85b5f4d6cfc2c01270))
+* missing no-close-quote ([ba084d8](https://github.com/wheelroom/wheelroom-io/commit/ba084d83a097a7a6c19ca9c809909ee35e7bda1d))
+* new headings ([8181cc8](https://github.com/wheelroom/wheelroom-io/commit/8181cc88948e4c6d2ae5a648dfbbc3ec74feffeb))
+* quote ([a6c7206](https://github.com/wheelroom/wheelroom-io/commit/a6c720640d3735b63d8cf76e7961e8f3a66283b9))
+* styles ([d0aa17a](https://github.com/wheelroom/wheelroom-io/commit/d0aa17a5312ba1aad1e9b6f576cb776c66712a6c))
+
+
+### Features
+
+* add icon as core element ([a0c1724](https://github.com/wheelroom/wheelroom-io/commit/a0c17246fb9b247edce7374a8fc9f6cde8146d82))
+* add model dutch translation ([b2b3448](https://github.com/wheelroom/wheelroom-io/commit/b2b34485bd0f0ade57e8c3b31fbb0608e6f3ee4e))
+* add table style tree ([bcbc6ce](https://github.com/wheelroom/wheelroom-io/commit/bcbc6cef075cf26b55ee9ff1bf71c66088374a7f))
+* styleTree ([190e26b](https://github.com/wheelroom/wheelroom-io/commit/190e26bfcda30efe9c96cff7c902229724b355f0))
+* table parser ([e7fe4f7](https://github.com/wheelroom/wheelroom-io/commit/e7fe4f73aa424dbdf98b70f3c25e6ac60c5f2d9a))
+* topic-icon can be customized ([2a08103](https://github.com/wheelroom/wheelroom-io/commit/2a08103589fe8f7c60f9caab8c9a9118feaaa3c9))
+
+
+
+
+
 ## [2.1.1](https://github.com/wheelroom/wheelroom-io/compare/@wheelroom/boilerplate@2.1.0...@wheelroom/boilerplate@2.1.1) (2020-03-27)
 
 
@@ -52,4 +92,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 # 2.0.0 (2020-03-24)
-
