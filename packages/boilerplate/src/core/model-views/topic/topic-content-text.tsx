@@ -20,9 +20,14 @@ export interface TopicContentTextStyleTree {
 
 export interface TopicContentTextProps {
   /** Defaults to h3 */
-  useHeadingElement?: BlockLevelElementName | ParserFunction
+  useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
-  useAbstractElement?: BlockLevelElementName | ParserFunction
+  useAbstractElement?: BlockLevelElementName
+  /** Defaults to h3 */
+  useHeadingParser?: ParserFunction
+  /** Defaults to p */
+  useAbstractParser?: ParserFunction
+
   /** All topic props */
   topic: TopicProps
   /** Topic info object */
@@ -41,35 +46,29 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const topicOptions = props.pageSectionInfo.topicOptions
 
   const useHeadingElement = props.useHeadingElement || 'h3'
-  let HeadingElement: any = null
-  if (typeof useHeadingElement === 'string') {
-    HeadingElement = Heading
-  } else {
-    HeadingElement = useHeadingElement
-  }
-
   const useAbstractElement = props.useAbstractElement || 'p'
-  let AbstractElement: any = null
-  if (typeof useAbstractElement === 'string') {
-    AbstractElement = ParseNewLines
-  } else {
-    AbstractElement = useAbstractElement
-  }
+
+  const HeadingParser = props.useHeadingParser || Heading
+  const AbstractParser = props.useAbstractParser || ParseNewLines
 
   return (
     <Box is="header" ncss={{ label: 'topic-header', ...wrapperStyle }}>
       {!topicOptions.hideIcon && <TopicIcon icon={props.topic.icon} />}
       {!topicOptions.hideHeading && (
-        <HeadingElement is={useHeadingElement} ncss={headingStyle}>
+        <HeadingParser is={useHeadingElement} ncss={headingStyle}>
           {props.topic.heading}
-        </HeadingElement>
+        </HeadingParser>
       )}
       {!topicOptions.hideAbstract &&
         props.topic.abstract &&
         props.topic.abstract.abstract && (
-          <AbstractElement is={useAbstractElement} ncss={abstractStyle}>
+          <AbstractParser
+            is={useAbstractElement}
+            ncss={abstractStyle}
+            fallBackParser={ParseNewLines}
+          >
             {props.topic.abstract.abstract}
-          </AbstractElement>
+          </AbstractParser>
         )}
     </Box>
   )

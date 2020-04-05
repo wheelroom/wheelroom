@@ -1,6 +1,6 @@
 import React from 'react'
 import { Paragraph } from '../elements/paragraph'
-import { ParserProps } from './types'
+import { ParserProps, ParserFunction } from './types'
 
 const replaceNewlines = (children: React.ReactNode) => {
   const result: any = []

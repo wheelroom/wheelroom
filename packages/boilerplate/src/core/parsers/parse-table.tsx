@@ -1,7 +1,6 @@
 import React from 'react'
 import { Any } from '../elements/any'
-import { ParseNewLines } from './parse-new-lines'
-import { ParserProps } from './types'
+import { ParserProps, ParserFunction } from './types'
 
 const replaceTable = (children: React.ReactNode) => {
   let rows: any[] = []
@@ -42,7 +41,7 @@ const replaceTable = (children: React.ReactNode) => {
  *
  */
 
-export const ParseTable = (props: ParserProps): JSX.Element => {
+export const ParseTable = (props: ParserProps): JSX.Element | null => {
   const children = React.Children.toArray(props.children)
   // Check if we have a table by comparing the first character
   if (
@@ -52,12 +51,16 @@ export const ParseTable = (props: ParserProps): JSX.Element => {
     typeof children[0] !== 'string' ||
     children[0][0] !== '|'
   ) {
-    return (
-      // Return the default parser if a table cannot be parsed
-      <ParseNewLines is="p" ncss={props.ncss}>
-        {props.children}
-      </ParseNewLines>
-    )
+    if (props.fallBackParser) {
+      const FallBackParser = props.fallBackParser
+      return (
+        <FallBackParser is="table" ncss={props.ncss}>
+          {props.children}
+        </FallBackParser>
+      )
+    } else {
+      return null
+    }
   }
   return (
     <Any is="table" ncss={props.ncss}>

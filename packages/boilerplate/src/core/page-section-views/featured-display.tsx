@@ -30,7 +30,7 @@ export const FeaturedDisplay = (props: {
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
-          useAbstractElement={ParseTable}
+          useAbstractParser={ParseTable}
           useHeadingElement="h3"
           styleTree={styleTree.topic}
         />

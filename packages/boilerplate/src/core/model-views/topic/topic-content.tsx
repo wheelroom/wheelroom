@@ -28,12 +28,18 @@ export interface TopicContentWrapperProps {
   topicInfo: TopicInfo
   /** Page section info */
   pageSectionInfo: PageSectionInfo
+
+  /** Defaults to h3 */
+  useHeadingElement?: BlockLevelElementName
+  /** Defaults to p */
+  useAbstractElement?: BlockLevelElementName
+  /** Defaults to h3 */
+  useHeadingParser?: ParserFunction
+  /** Defaults to p */
+  useAbstractParser?: ParserFunction
+
   /** Reverse image and content */
   reverse?: boolean
-  /** Defaults to h3 */
-  useHeadingElement?: BlockLevelElementName | ParserFunction
-  /** Defaults to p */
-  useAbstractElement?: BlockLevelElementName | ParserFunction
   /** Page section actions will override all topic actions */
   pageSectionActions?: ActionProps[]
   /** Full Topic is wrapped in a link and the inside link becomes a span */
@@ -68,6 +74,8 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
         topicInfo={topicInfo}
         useAbstractElement={props.useAbstractElement}
         useHeadingElement={props.useHeadingElement}
+        useAbstractParser={props.useAbstractParser}
+        useHeadingParser={props.useHeadingParser}
       />
       {showAction && (
         <TopicContentActions

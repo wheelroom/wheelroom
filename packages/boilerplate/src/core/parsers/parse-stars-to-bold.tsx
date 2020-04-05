@@ -1,6 +1,7 @@
 import React from 'react'
 import { Paragraph } from '../elements/paragraph'
-import { ParserProps } from './types'
+import { ParserProps, ParserFunction } from './types'
+import { Heading, HeadingMap } from '../elements/heading'
 
 const replaceStars = (children: React.ReactNode) => {
   const result: any = []
@@ -39,9 +40,13 @@ const replaceStars = (children: React.ReactNode) => {
  */
 
 export const ParseStarsToBold = (props: ParserProps): JSX.Element => {
+  let Element = Paragraph
+  if (Object.keys(HeadingMap).includes(props.is)) {
+    Element = Heading
+  }
   return (
-    <Paragraph is="p" ncss={props.ncss}>
+    <Element is={props.is} ncss={props.ncss}>
       {replaceStars(props.children)}
-    </Paragraph>
+    </Element>
   )
 }

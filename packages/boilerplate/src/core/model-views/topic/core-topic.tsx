@@ -25,9 +25,14 @@ export interface TopicCoreProps {
   pageSectionActions?: ActionProps[]
 
   /** Defaults to h3 */
-  useHeadingElement?: BlockLevelElementName | ParserFunction
+  useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
-  useAbstractElement?: BlockLevelElementName | ParserFunction
+  useAbstractElement?: BlockLevelElementName
+  /** Defaults to h3 */
+  useHeadingParser?: ParserFunction
+  /** Defaults to p */
+  useAbstractParser?: ParserFunction
+
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
   /** Reverse topicMedia and topicContent */
