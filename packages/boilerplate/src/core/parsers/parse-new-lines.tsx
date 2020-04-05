@@ -1,6 +1,7 @@
 /**
  *
- * Replaces newline \n characters with <br /> elements
+ * Loop through child nodes and parse text nodes. Replaces newline \n characters
+ * with <br /> elements
  *
  */
 

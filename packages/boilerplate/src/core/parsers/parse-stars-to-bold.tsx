@@ -1,7 +1,7 @@
 /**
  *
- * Loop through all child nodes and parse all text nodes. When a '*' is found, a
- * <b> is inserted with a closing </b> at the second star.
+ * Loop through child nodes and parse text nodes. When a '*' is found, a <b> is
+ * inserted with a closing </b> for the second star.
  *
  * If a second start cannot be found, the text is added withouth the <b />
  * wrapper.
