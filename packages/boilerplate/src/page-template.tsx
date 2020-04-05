@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useContext } from 'react'
 import { GlobalsProps } from './models/globals'
 import { PageProps } from './models/page'
 import { pageDebug } from './core/lib/debug'
@@ -11,19 +11,27 @@ import {
   useFetchPreviewPage,
 } from '@wheelroom/admin-page-preview'
 import { reset } from './styles/global/reset'
+import { AdminCoreContext } from '@wheelroom/admin-core'
+import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
+import { getColorMap, ThemeId } from './styled-system/system-css'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
 // do so for all pages.
 
 const PageTemplate = (props: any) => {
-  pageDebug('PageTemplate', props)
-
-  // Page preview admin module
+  /** Page preview admin module */
   const [previewPage, setPreviewPage] = useState()
   useFetchPreviewPage(setPreviewPage)
   const page: PageProps = previewPage || props.data.page
 
+  /** Theme switcher admin module */
+  const { adminCoreState } = useContext(AdminCoreContext)
+  const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
+  const activeThemeId = themeSwitcherStore?.state.activeThemeId as ThemeId
+  const colorMap: any = getColorMap(activeThemeId)
+
+  pageDebug('PageTemplate', props)
   if (!page.sections) {
     return 'No sections'
   }
@@ -63,6 +71,13 @@ const PageTemplate = (props: any) => {
   return (
     <Fragment>
       <Global styles={reset} />
+      <Global
+        styles={{
+          body: {
+            backgroundColor: colorMap.bg,
+          },
+        }}
+      />
       <Seo {...seoProps} />
       <Sections {...sectionProps} />
       <PreviewUpdateButton />
