@@ -7,7 +7,7 @@ import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Heading } from '../../elements/heading'
 import { TopicIcon } from './topic-icon'
-import { ParseTable } from '../../parser-views/parse-table'
+import { ParseTable } from '../../parsers/parse-table'
 
 const defaultWrapperStyle = {
   label: 'topic-header',
