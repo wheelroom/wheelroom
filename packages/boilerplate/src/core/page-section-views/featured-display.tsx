@@ -5,7 +5,6 @@ import { PageSectionProps } from '../../models/page-section/page-section'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { TopicStyleTree } from '../model-views/topic/core-topic'
 import { NcssProps } from '../elements/types'
-import { ParseTable } from '../parsers/parse-table'
 
 export interface FeaturedDisplayStyleTree {
   topic: TopicStyleTree
@@ -30,7 +29,6 @@ export const FeaturedDisplay = (props: {
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
-          useAbstractParser={ParseTable}
           useHeadingElement="h3"
           styleTree={styleTree.topic}
         />

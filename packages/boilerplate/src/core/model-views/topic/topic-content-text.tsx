@@ -6,8 +6,8 @@ import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Heading } from '../../elements/heading'
 import { TopicIcon } from './topic-icon'
-import { ParseNewLines } from '../../parsers/parse-new-lines'
 import { ParserFunction } from '../../parsers/types'
+import { Paragraph } from '../../elements/paragraph'
 
 export interface TopicContentTextStyleTree {
   /** Wrapper around heading and abstract */
@@ -49,7 +49,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const useAbstractElement = props.useAbstractElement || 'p'
 
   const HeadingParser = props.useHeadingParser || Heading
-  const AbstractParser = props.useAbstractParser || ParseNewLines
+  const AbstractParser = props.useAbstractParser || Paragraph
 
   return (
     <Box is="header" ncss={{ label: 'topic-header', ...wrapperStyle }}>
@@ -62,11 +62,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
       {!topicOptions.hideAbstract &&
         props.topic.abstract &&
         props.topic.abstract.abstract && (
-          <AbstractParser
-            is={useAbstractElement}
-            ncss={abstractStyle}
-            fallBackParser={ParseNewLines}
-          >
+          <AbstractParser is={useAbstractElement} ncss={abstractStyle}>
             {props.topic.abstract.abstract}
           </AbstractParser>
         )}

@@ -1,12 +1,22 @@
+/**
+ *
+ * Loop through all child nodes and parse all text nodes. When a '*' is found, a
+ * <b> is inserted with a closing </b> at the second star.
+ *
+ * If a second start cannot be found, the text is added withouth the <b />
+ * wrapper.
+ *
+ */
+
 import React from 'react'
 import { Paragraph } from '../elements/paragraph'
-import { ParserProps, ParserFunction } from './types'
+import { ParserProps } from './types'
 import { Heading, HeadingMap } from '../elements/heading'
 
 const replaceStars = (children: React.ReactNode) => {
   const result: any = []
   React.Children.forEach(children, (child) => {
-    if (typeof child === 'string') {
+    if (child && typeof child === 'string') {
       const findStar = child.split(/\*(.*)/)
       const hasStar = findStar.length > 1
       if (!hasStar) {
@@ -22,22 +32,13 @@ const replaceStars = (children: React.ReactNode) => {
       result.push(findStar[0], <b key={findStar[0]}>{findSecondStar[0]}</b>)
       const remaining = replaceStars(findSecondStar[1])
       result.push(...remaining)
-    } else {
+    } else if (child) {
       // This is something else, most likely a <br /> element
       result.push(child)
     }
   })
   return result
 }
-/**
- *
- * Loop through all child nodes and parse all text nodes. When a '*' is found, a
- * <b> is inserted with a closing </b> at the second star.
- *
- * If a second start cannot be found, the text is added withouth the <b />
- * wrapper.
- *
- */
 
 export const ParseStarsToBold = (props: ParserProps): JSX.Element => {
   let Element = Paragraph

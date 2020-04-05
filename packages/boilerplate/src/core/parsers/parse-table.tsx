@@ -1,11 +1,21 @@
+/**
+ *
+ * Loop through all child nodes and parse all text nodes. When a '*' is found, a
+ * <b> is inserted with a closing </b> at the second star.
+ *
+ * If a second start cannot be found, the text is added withouth the <b />
+ * wrapper.
+ *
+ */
+
 import React from 'react'
 import { Any } from '../elements/any'
-import { ParserProps, ParserFunction } from './types'
+import { ParserProps } from './types'
 
 const replaceTable = (children: React.ReactNode) => {
   let rows: any[] = []
   React.Children.forEach(children, (child) => {
-    if (typeof child === 'string') {
+    if (child && typeof child === 'string') {
       // Split into rows
       rows = child
         .split('\n')
@@ -23,7 +33,7 @@ const replaceTable = (children: React.ReactNode) => {
           )
           return result
         }, [])
-    } else {
+    } else if (child) {
       // This is something else, most likely a <br /> element
       rows.push(child)
     }
@@ -31,37 +41,18 @@ const replaceTable = (children: React.ReactNode) => {
   return rows
 }
 
-/**
- *
- * Loop through all child nodes and parse all text nodes. When a '*' is found, a
- * <b> is inserted with a closing </b> at the second star.
- *
- * If a second start cannot be found, the text is added withouth the <b />
- * wrapper.
- *
- */
+export const validTable = (children: React.ReactNode) => {
+  const childArray = React.Children.toArray(children)
+  return (
+    childArray &&
+    Array.isArray(childArray) &&
+    childArray.length > 0 &&
+    typeof childArray[0] === 'string' &&
+    childArray[0][0] === '|'
+  )
+}
 
 export const ParseTable = (props: ParserProps): JSX.Element | null => {
-  const children = React.Children.toArray(props.children)
-  // Check if we have a table by comparing the first character
-  if (
-    !children ||
-    !Array.isArray(children) ||
-    children.length === 0 ||
-    typeof children[0] !== 'string' ||
-    children[0][0] !== '|'
-  ) {
-    if (props.fallBackParser) {
-      const FallBackParser = props.fallBackParser
-      return (
-        <FallBackParser is="table" ncss={props.ncss}>
-          {props.children}
-        </FallBackParser>
-      )
-    } else {
-      return null
-    }
-  }
   return (
     <Any is="table" ncss={props.ncss}>
       <tbody>{replaceTable(props.children)}</tbody>
