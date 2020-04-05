@@ -8,12 +8,6 @@ import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { NcssProps } from '../../elements/types'
 
-const defaultWrapperStyle = {
-  display: 'flex',
-  flexDirection: 'row',
-  label: 'topic-action',
-}
-
 export interface TopicActionsStyleTree {
   /** Wrapper around action */
   wrapper?: NcssProps
@@ -50,7 +44,14 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   const linkStyle = styleTree.link || {}
 
   return (
-    <Box ncss={{ ...defaultWrapperStyle, ...wrapperStyle }}>
+    <Box
+      ncss={{
+        display: 'flex',
+        flexDirection: 'row',
+        label: 'topic-action',
+        ...wrapperStyle,
+      }}
+    >
       {props.fullTopicAsLink ? (
         <Any
           is="span"

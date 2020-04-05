@@ -14,13 +14,6 @@ import {
 import { BlockLevelElementName, NcssProps } from '../../elements/types'
 import { ActionProps } from '../../../models/action/action'
 
-/** This style needs cleaning up, only default values here */
-const defaultWrapperStyle = {
-  label: 'topic-content',
-  justifyContent: 'center',
-  p: 3,
-}
-
 export interface TopicContentStyleTree {
   /** Wrapper around all content including action */
   wrapper?: NcssProps
@@ -37,9 +30,9 @@ export interface TopicContentWrapperProps {
   /** Reverse image and content */
   reverse?: boolean
   /** Defaults to h3 */
-  useHeadingElement?: BlockLevelElementName
+  useHeadingElement?: BlockLevelElementName | JSX.Element
   /** Defaults to p */
-  useAbstractElement?: BlockLevelElementName
+  useAbstractElement?: BlockLevelElementName | JSX.Element
   /** Page section actions will override all topic actions */
   pageSectionActions?: ActionProps[]
 
@@ -58,26 +51,28 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
   return (
     <Box
       ncss={{
+        justifyContent: 'center',
+        label: 'topic-content',
         order,
-        ...defaultWrapperStyle,
+        p: 3,
         ...wrapperStyle,
       }}
     >
       <TopicContentText
+        pageSectionInfo={pageSectionInfo}
+        styleTree={styleTree.contentText}
         topic={props.topic}
         topicInfo={topicInfo}
-        pageSectionInfo={pageSectionInfo}
         useAbstractElement={props.useAbstractElement}
         useHeadingElement={props.useHeadingElement}
-        styleTree={styleTree.contentText}
       />
       {showAction && (
         <TopicContentActions
+          pageSectionActions={props.pageSectionActions}
+          pageSectionInfo={pageSectionInfo}
+          styleTree={styleTree.contentActions}
           topic={props.topic}
           topicInfo={topicInfo}
-          pageSectionInfo={pageSectionInfo}
-          pageSectionActions={props.pageSectionActions}
-          styleTree={styleTree.contentActions}
         />
       )}
     </Box>

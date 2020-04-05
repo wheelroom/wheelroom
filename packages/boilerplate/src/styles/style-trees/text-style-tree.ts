@@ -1,6 +1,5 @@
 import { defaultParagraphStyle } from '../core-elements/paragraph'
 import { defaultALinkStyle } from '../core-elements/a-link'
-import { commonHeadingStyle } from '../core-elements/heading'
 import { defaultVideoStyle } from '../core-elements/video'
 import { TextStyleTree } from '../../core/model-views/text/core-text'
 
@@ -44,12 +43,12 @@ export const textStyleTree: TextStyleTree = {
   blocksLiList: defaultParagraphStyle,
   inlinesHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
   entryHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
-  blocksHeading1: { ...commonHeadingStyle, fontSize: [8, 9, 10, 11] },
-  blocksHeading2: { ...commonHeadingStyle, fontSize: [7, 8, 9, 10], mt: 3 },
-  blocksHeading3: { ...commonHeadingStyle, fontSize: [5, 6, 7, 8], mt: 3 },
-  blocksHeading4: { ...commonHeadingStyle, fontSize: [3, 4, 5, 6], mt: 3 },
-  blocksHeading5: { ...commonHeadingStyle, fontSize: [3, 4, 5, 6], mt: 3 },
-  blocksHeading6: { ...commonHeadingStyle, fontSize: [3, 4, 5, 6], mt: 3 },
+  blocksHeading1: { fontSize: [8, 9, 10, 11] },
+  blocksHeading2: { fontSize: [7, 8, 9, 10], mt: 3 },
+  blocksHeading3: { fontSize: [5, 6, 7, 8], mt: 3 },
+  blocksHeading4: { fontSize: [3, 4, 5, 6], mt: 3 },
+  blocksHeading5: { fontSize: [3, 4, 5, 6], mt: 3 },
+  blocksHeading6: { fontSize: [3, 4, 5, 6], mt: 3 },
   blocksHr: {
     label: 'hr',
     overflow: 'hidden',

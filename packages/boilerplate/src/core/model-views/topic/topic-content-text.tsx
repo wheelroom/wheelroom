@@ -1,17 +1,12 @@
 import React from 'react'
 import { TopicProps } from '../../../models/topic/topic'
 import { Box } from '../../elements/grid'
-import { Paragraph } from '../../elements/paragraph'
 import { BlockLevelElementName, NcssProps } from '../../elements/types'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Heading } from '../../elements/heading'
 import { TopicIcon } from './topic-icon'
-import { ParseTable } from '../../parsers/parse-table'
-
-const defaultWrapperStyle = {
-  label: 'topic-header',
-}
+import { ParseNewLines } from '../../parsers/parse-new-lines'
 
 export interface TopicContentTextStyleTree {
   /** Wrapper around heading and abstract */
@@ -20,15 +15,13 @@ export interface TopicContentTextStyleTree {
   heading?: NcssProps
   /** Abstract style */
   abstract?: NcssProps
-  /** Table style */
-  table?: NcssProps
 }
 
 export interface TopicContentTextProps {
   /** Defaults to h3 */
-  useHeadingElement?: BlockLevelElementName
+  useHeadingElement?: BlockLevelElementName | JSX.Element
   /** Defaults to p */
-  useAbstractElement?: BlockLevelElementName
+  useAbstractElement?: BlockLevelElementName | JSX.Element
   /** All topic props */
   topic: TopicProps
   /** Topic info object */
@@ -40,40 +33,43 @@ export interface TopicContentTextProps {
 }
 
 export const TopicContentText = (props: TopicContentTextProps) => {
-  const useHeadingElement = props.useHeadingElement || 'h3'
-  const useAbstractElement = props.useAbstractElement || 'p'
-
   const styleTree = props.styleTree || {}
   const wrapperStyle = styleTree.wrapper || {}
   const abstractStyle = styleTree.abstract || {}
   const headingStyle = styleTree.heading || {}
-
   const topicOptions = props.pageSectionInfo.topicOptions
 
+  const useHeadingElement = props.useHeadingElement || 'h3'
+  let HeadingElement: any = null
+  if (typeof useHeadingElement === 'string') {
+    HeadingElement = Heading
+  } else {
+    HeadingElement = useHeadingElement
+  }
+
+  const useAbstractElement = props.useAbstractElement || 'p'
+  let AbstractElement: any = null
+  if (typeof useAbstractElement === 'string') {
+    AbstractElement = ParseNewLines
+  } else {
+    AbstractElement = useAbstractElement
+  }
+
   return (
-    <Box is="header" ncss={{ ...defaultWrapperStyle, ...wrapperStyle }}>
+    <Box is="header" ncss={{ label: 'topic-header', ...wrapperStyle }}>
       {!topicOptions.hideIcon && <TopicIcon icon={props.topic.icon} />}
       {!topicOptions.hideHeading && (
-        <Heading is={useHeadingElement} ncss={{ ...headingStyle }}>
+        <HeadingElement is={useHeadingElement} ncss={headingStyle}>
           {props.topic.heading}
-        </Heading>
+        </HeadingElement>
       )}
-      {!topicOptions.hideAbstract && (
-        <Paragraph is={useAbstractElement} ncss={{ ...abstractStyle }}>
-          <ParseTable styleTree={styleTree.table}>
-            {props.topic.abstract &&
-              props.topic.abstract.abstract
-                .split('\n')
-                .reduce((children: any, textSegment, index) => {
-                  return [
-                    ...children,
-                    index > 0 && <br key={index} />,
-                    textSegment,
-                  ]
-                }, [])}
-          </ParseTable>
-        </Paragraph>
-      )}
+      {!topicOptions.hideAbstract &&
+        props.topic.abstract &&
+        props.topic.abstract.abstract && (
+          <AbstractElement is={useAbstractElement} ncss={abstractStyle}>
+            {props.topic.abstract.abstract}
+          </AbstractElement>
+        )}
     </Box>
   )
 }

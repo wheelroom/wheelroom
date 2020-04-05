@@ -1,34 +1,35 @@
 import React from 'react'
-import { NcssProps } from '../elements/types'
 import { Any } from '../elements/any'
+import { ParseNewLines } from './parse-new-lines'
+import { ParserProps } from './types'
 
 const replaceTable = (children: React.ReactNode) => {
-  const result: any = []
-  let row: any = []
-  React.Children.forEach(children, (child: any) => {
-    if (!child) {
-      return
-    }
+  let rows: any[] = []
+  React.Children.forEach(children, (child) => {
     if (typeof child === 'string') {
-      // Split pipes into cells
-      const cells = child.split('|')
-      const tableCells = cells
-        .filter((cell) => typeof cell === 'string' && cell.length > 0)
-        .map((cell, index) => <td key={index}>{cell}</td>)
-      // Push row with cells
-      row.push(tableCells)
+      // Split into rows
+      rows = child
+        .split('\n')
+        .filter((row) => row.length > 0)
+        .reduce((result: any[], currentRow, index) => {
+          result.push(
+            <tr key={index}>
+              {currentRow
+                .split('|')
+                .filter((cell) => cell.length > 0)
+                .map((cell, index) => (
+                  <td key={index}>{cell}</td>
+                ))}
+            </tr>
+          )
+          return result
+        }, [])
     } else {
-      if (child.type === 'br') {
-        result.push(<tr>{row}</tr>)
-        row = []
-      }
+      // This is something else, most likely a <br /> element
+      rows.push(child)
     }
   })
-  if (row.length > 0) {
-    // Push final row
-    result.push(<tr>{row}</tr>)
-  }
-  return result
+  return rows
 }
 
 /**
@@ -41,13 +42,7 @@ const replaceTable = (children: React.ReactNode) => {
  *
  */
 
-export interface ParseTableProps {
-  styleTree?: NcssProps
-  children: any
-}
-
-export const ParseTable = (props: ParseTableProps) => {
-  const styleTree = props.styleTree || {}
+export const ParseTable = (props: ParserProps): JSX.Element => {
   const children = React.Children.toArray(props.children)
   // Check if we have a table by comparing the first character
   if (
@@ -57,11 +52,15 @@ export const ParseTable = (props: ParseTableProps) => {
     typeof children[0] !== 'string' ||
     children[0][0] !== '|'
   ) {
-    return props.children
+    return (
+      // Return the default parser if a table cannot be parsed
+      <ParseNewLines is="p" ncss={props.ncss}>
+        {props.children}
+      </ParseNewLines>
+    )
   }
-
   return (
-    <Any is="table" ncss={styleTree}>
+    <Any is="table" ncss={props.ncss}>
       <tbody>{replaceTable(props.children)}</tbody>
     </Any>
   )

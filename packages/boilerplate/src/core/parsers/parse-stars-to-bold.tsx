@@ -1,4 +1,6 @@
 import React from 'react'
+import { Paragraph } from '../elements/paragraph'
+import { ParserProps } from './types'
 
 const replaceStars = (children: React.ReactNode) => {
   const result: any = []
@@ -36,10 +38,10 @@ const replaceStars = (children: React.ReactNode) => {
  *
  */
 
-export interface ParseStarsToBoldProps {
-  children: any
-}
-
-export const ParseStarsToBold = (props: ParseStarsToBoldProps) => {
-  return replaceStars(props.children)
+export const ParseStarsToBold = (props: ParserProps): JSX.Element => {
+  return (
+    <Paragraph is="p" ncss={props.ncss}>
+      {replaceStars(props.children)}
+    </Paragraph>
+  )
 }

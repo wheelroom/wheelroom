@@ -7,11 +7,6 @@ import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Video, VideoStyleTree } from '../../elements/video'
 import { NcssProps } from '../../elements/types'
 
-const defaultWrapperStyle = {
-  label: 'topic-media',
-  justifyContent: 'center',
-}
-
 export interface TopicMediaStyleTree {
   wrapper?: NcssProps
   image?: ImageStyleTree
@@ -39,7 +34,8 @@ export const TopicMedia = (props: TopicMediaProps) => {
   return (
     <Box
       ncss={{
-        ...defaultWrapperStyle,
+        justifyContent: 'center',
+        label: 'topic-media',
         ...mediaWrapperStyle,
       }}
     >

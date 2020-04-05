@@ -20,20 +20,20 @@ export const TopicBody = (props: TopicProps) => {
     <Fragment>
       {showMedia && (
         <TopicMedia
-          topic={props}
-          topicInfo={topicInfo}
           pageSectionInfo={pageSectionInfo}
           reverse={reverse}
           styleTree={styleTree.media}
+          topic={props}
+          topicInfo={topicInfo}
         />
       )}
       <TopicContent
-        topic={props}
-        topicInfo={topicInfo}
+        pageSectionActions={props.pageSectionActions}
         pageSectionInfo={pageSectionInfo}
         reverse={reverse}
-        pageSectionActions={props.pageSectionActions}
         styleTree={styleTree.content}
+        topic={props}
+        topicInfo={topicInfo}
         useAbstractElement={props.useAbstractElement}
         useHeadingElement={props.useHeadingElement}
       ></TopicContent>

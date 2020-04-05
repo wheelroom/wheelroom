@@ -1,5 +1,6 @@
 import { FeaturedDisplayStyleTree } from '../../core/page-section-views/featured-display'
 import { defaultHeading2Style } from '../core-elements/heading'
+import { defaultParagraphStyle } from '../core-elements/paragraph'
 
 export const featuredDisplayStyleTree: FeaturedDisplayStyleTree = {
   wrapper: {
@@ -38,12 +39,10 @@ export const featuredDisplayStyleTree: FeaturedDisplayStyleTree = {
       },
       contentText: {
         heading: defaultHeading2Style,
-        table: {
-          '&>tbody>tr': {
-            bg: 'skyblue',
-          },
+        abstract: {
+          ...defaultParagraphStyle,
           '&>tbody>tr>td': {
-            p: [2, 3, 4, 5],
+            p: [1, 2],
           },
         },
       },

@@ -8,12 +8,7 @@ import { TopicBody } from './topic-body'
 import { TopicProps } from '../../../models/topic/topic'
 import { TopicMediaStyleTree } from './topic-media'
 import { TopicContentStyleTree } from './topic-content'
-
-const defaultWrapperStyle = {
-  label: 'topic',
-  display: 'flex',
-  flexDirection: 'column',
-}
+import { ParserFunction } from '../../parsers/types'
 
 export interface TopicStyleTree {
   /** Wrapper around the whole topic */
@@ -30,12 +25,12 @@ export interface TopicCoreProps {
   pageSectionActions?: ActionProps[]
 
   /** Defaults to h3 */
-  useHeadingElement?: BlockLevelElementName
+  useHeadingElement?: BlockLevelElementName | ParserFunction
   /** Defaults to p */
-  useAbstractElement?: BlockLevelElementName
+  useAbstractElement?: BlockLevelElementName | ParserFunction
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
-  /** Reverse media and content */
+  /** Reverse topicMedia and topicContent */
   forceReverse?: boolean
 
   styleTree?: TopicStyleTree
@@ -50,9 +45,11 @@ export const CoreTopic = (props: TopicProps) => {
     <Action
       {...props.actions[0]}
       styleTree={{
-        ...defaultWrapperStyle,
-        ...topicWrapperStyle,
+        display: 'flex',
+        flexDirection: 'column',
+        label: 'topic',
         textDecoration: 'none',
+        ...topicWrapperStyle,
       }}
     >
       <TopicBody {...props} />
@@ -60,7 +57,9 @@ export const CoreTopic = (props: TopicProps) => {
   ) : (
     <Box
       ncss={{
-        ...defaultWrapperStyle,
+        display: 'flex',
+        flexDirection: 'column',
+        label: 'topic',
         ...topicWrapperStyle,
       }}
     >
