@@ -1,3 +1,4 @@
-# Components
+# Models
 
-Components have a corresponding content model. Boilerplate code is generated from the content model.
+Model components have a corresponding content model in the CMS. Boilerplate code
+is generated from the content model.
