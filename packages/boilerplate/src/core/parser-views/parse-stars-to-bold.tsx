@@ -1,9 +1,5 @@
 import React from 'react'
 
-export interface ParseStarsToBoldProps {
-  children: any
-}
-
 const replaceStars = (children: React.ReactNode) => {
   const result: any = []
   React.Children.forEach(children, (child) => {
@@ -29,6 +25,19 @@ const replaceStars = (children: React.ReactNode) => {
     }
   })
   return result
+}
+/**
+ *
+ * Loop through all child nodes and parse all text nodes. When a '*' is found, a
+ * <b> is inserted with a closing </b> at the second star.
+ *
+ * If a second start cannot be found, the text is added withouth the <b />
+ * wrapper.
+ *
+ */
+
+export interface ParseStarsToBoldProps {
+  children: any
 }
 
 export const ParseStarsToBold = (props: ParseStarsToBoldProps) => {

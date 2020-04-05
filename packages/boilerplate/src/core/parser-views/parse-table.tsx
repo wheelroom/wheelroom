@@ -2,11 +2,6 @@ import React from 'react'
 import { NcssProps } from '../elements/types'
 import { Any } from '../elements/any'
 
-export interface ParseTableProps {
-  styleTree?: NcssProps
-  children: any
-}
-
 const replaceTable = (children: React.ReactNode) => {
   const result: any = []
   let row: any = []
@@ -34,6 +29,21 @@ const replaceTable = (children: React.ReactNode) => {
     result.push(<tr>{row}</tr>)
   }
   return result
+}
+
+/**
+ *
+ * Loop through all child nodes and parse all text nodes. When a '*' is found, a
+ * <b> is inserted with a closing </b> at the second star.
+ *
+ * If a second start cannot be found, the text is added withouth the <b />
+ * wrapper.
+ *
+ */
+
+export interface ParseTableProps {
+  styleTree?: NcssProps
+  children: any
 }
 
 export const ParseTable = (props: ParseTableProps) => {
