@@ -7,6 +7,7 @@ import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Heading } from '../../elements/heading'
 import { TopicIcon } from './topic-icon'
 import { ParseNewLines } from '../../parsers/parse-new-lines'
+import { ParserFunction } from '../../parsers/types'
 
 export interface TopicContentTextStyleTree {
   /** Wrapper around heading and abstract */
@@ -19,9 +20,9 @@ export interface TopicContentTextStyleTree {
 
 export interface TopicContentTextProps {
   /** Defaults to h3 */
-  useHeadingElement?: BlockLevelElementName | JSX.Element
+  useHeadingElement?: BlockLevelElementName | ParserFunction
   /** Defaults to p */
-  useAbstractElement?: BlockLevelElementName | JSX.Element
+  useAbstractElement?: BlockLevelElementName | ParserFunction
   /** All topic props */
   topic: TopicProps
   /** Topic info object */

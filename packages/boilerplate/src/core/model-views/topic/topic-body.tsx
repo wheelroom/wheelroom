@@ -28,6 +28,7 @@ export const TopicBody = (props: TopicProps) => {
         />
       )}
       <TopicContent
+        fullTopicAsLink={props.fullTopicAsLink}
         pageSectionActions={props.pageSectionActions}
         pageSectionInfo={pageSectionInfo}
         reverse={reverse}

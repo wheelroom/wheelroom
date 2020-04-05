@@ -13,6 +13,7 @@ import {
 } from './topic-content-actions'
 import { BlockLevelElementName, NcssProps } from '../../elements/types'
 import { ActionProps } from '../../../models/action/action'
+import { ParserFunction } from '../../parsers/types'
 
 export interface TopicContentStyleTree {
   /** Wrapper around all content including action */
@@ -30,11 +31,13 @@ export interface TopicContentWrapperProps {
   /** Reverse image and content */
   reverse?: boolean
   /** Defaults to h3 */
-  useHeadingElement?: BlockLevelElementName | JSX.Element
+  useHeadingElement?: BlockLevelElementName | ParserFunction
   /** Defaults to p */
-  useAbstractElement?: BlockLevelElementName | JSX.Element
+  useAbstractElement?: BlockLevelElementName | ParserFunction
   /** Page section actions will override all topic actions */
   pageSectionActions?: ActionProps[]
+  /** Full Topic is wrapped in a link and the inside link becomes a span */
+  fullTopicAsLink?: boolean
 
   styleTree?: TopicContentStyleTree
 }
@@ -68,6 +71,7 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
       />
       {showAction && (
         <TopicContentActions
+          fullTopicAsLink={props.fullTopicAsLink}
           pageSectionActions={props.pageSectionActions}
           pageSectionInfo={pageSectionInfo}
           styleTree={styleTree.contentActions}
