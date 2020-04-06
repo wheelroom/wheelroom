@@ -32,6 +32,11 @@ export const blockDisplayStyleTree: BlockDisplayStyleTree = {
           pb: '65.25%',
         },
       },
+      video: {
+        video: {
+          my: [0, 0],
+        },
+      },
     },
     content: {
       wrapper: {

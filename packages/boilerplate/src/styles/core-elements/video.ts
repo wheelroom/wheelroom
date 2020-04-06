@@ -2,6 +2,7 @@ export const defaultVideoStyle = {
   label: 'video',
   height: 'auto',
   width: '100%',
+  my: [4, 5],
 }
 
 export const defaultVideoDescriptionStyle = {

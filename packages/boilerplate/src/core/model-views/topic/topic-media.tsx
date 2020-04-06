@@ -49,6 +49,8 @@ export const TopicMedia = (props: TopicMediaProps) => {
       )}
       {props.topicInfo.hasVideo && (
         <Video
+          includeTitle={false}
+          includeDescription={false}
           description={props.topic.media?.description}
           media={props.topic.media}
           styleTree={mediaVideoStyle}

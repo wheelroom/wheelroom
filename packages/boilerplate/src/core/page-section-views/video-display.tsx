@@ -30,7 +30,7 @@ export const VideoDisplay = (props: {
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
           useHeadingElement="h4"
-          styleTree={styleTree.container}
+          styleTree={styleTree.topic}
         />
       </ContainerMaxWidth>
     </Box>

@@ -6,8 +6,8 @@
  *
  */
 
+import React from 'react'
 import { TextProps } from './text'
 import { CoreText } from '../../core/model-views/text/core-text'
-import React from 'react'
 
 export const TextSingleVar = (props: TextProps) => <CoreText {...props} />

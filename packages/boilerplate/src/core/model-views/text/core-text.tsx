@@ -202,7 +202,10 @@ export const CoreText = (props: TextProps) => {
           } as MediaObject
           return (
             <Video
+              key={node.data.target.id}
               media={media}
+              includeTitle={true}
+              includeDescription={true}
               title={localizedTitle}
               description={localizedDescription}
               styleTree={styleTree.video}

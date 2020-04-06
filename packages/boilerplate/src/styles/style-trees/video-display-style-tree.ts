@@ -9,6 +9,11 @@ export const videoDisplayStyleTree: VideoDisplayStyleTree = {
   },
   container: {},
   topic: {
+    media: {
+      video: {
+        video: { mb: [0, 0] },
+      },
+    },
     wrapper: {
       w: 1,
     },

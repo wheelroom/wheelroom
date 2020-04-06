@@ -39,7 +39,7 @@ export const TopicBody = (props: TopicProps) => {
         useHeadingElement={props.useHeadingElement}
         useAbstractParser={props.useAbstractParser}
         useHeadingParser={props.useHeadingParser}
-      ></TopicContent>
+      />
     </Fragment>
   )
 }

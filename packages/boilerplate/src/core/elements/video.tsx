@@ -25,6 +25,8 @@ export interface VideoProps {
 }
 
 const defaultMediaObject = {
+  includeTitle: false,
+  includeDescription: false,
   description: 'no description',
   file: {
     url: 'https://www.example.com',
@@ -52,12 +54,12 @@ export const Video = (props: VideoProps) => {
     description:
       media.description || props.description || defaultMediaObject.description,
   }
-  const [videoStyle, desciptionStyle] = getStyles(
+
+  const [videoStyle, descriptionStyle] = getStyles(
     props.styleTree,
     'video',
-    'desciption'
+    'description'
   )
-  console.log(videoStyle)
 
   return (
     <Fragment>
@@ -67,20 +69,20 @@ export const Video = (props: VideoProps) => {
           currentThemeId
         )}
         controls
+        playsinline
       >
         <source src={videoAttrs.url} type={videoAttrs.type} />
         Your browser does not support the video tag.
       </video>
-      {props.title && (
+      {props.includeTitle && (
         <p
           css={systemCss(
-            { ncss: { ...defaultVideoDescriptionStyle, ...desciptionStyle } },
+            { ncss: { ...defaultVideoDescriptionStyle, ...descriptionStyle } },
             currentThemeId
           )}
         >
           <b>{videoAttrs.title}</b>
-          {props.title && videoAttrs.description && ` – `}
-          {videoAttrs.description}
+          {props.includeDescription && ` – ` + videoAttrs.description}
         </p>
       )}
     </Fragment>
