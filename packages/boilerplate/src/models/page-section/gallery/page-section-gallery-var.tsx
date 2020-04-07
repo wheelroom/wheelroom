@@ -16,9 +16,7 @@ import { galleryTreeStyle } from './gallery-tree-style'
 export const PageSectionGalleryVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
-    return (
-      <GalleryTree pageSection={props} treeStyle={galleryTreeStyle} />
-    )
+    return <GalleryTree pageSection={props} treeStyle={galleryTreeStyle} />
   }
 
   /**

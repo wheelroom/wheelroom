@@ -18,19 +18,11 @@ import { featuredListTreeStyle } from './featured-list-tree-style'
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.topicCount === 1) {
-    return (
-      <FeaturedTree
-        pageSection={props}
-        treeStyle={featuredTreeStyle}
-      />
-    )
+    return <FeaturedTree pageSection={props} treeStyle={featuredTreeStyle} />
   }
   if (pageSectionInfo.topicCount > 1) {
     return (
-      <FeaturedListTree
-        pageSection={props}
-        treeStyle={featuredListTreeStyle}
-      />
+      <FeaturedListTree pageSection={props} treeStyle={featuredListTreeStyle} />
     )
   }
 

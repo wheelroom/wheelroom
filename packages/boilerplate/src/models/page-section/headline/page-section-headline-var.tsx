@@ -16,9 +16,7 @@ import { headlineTreeStyle } from './headline-tree-style'
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
-    return (
-      <HeadlineTree pageSection={props} treeStyle={headlineTreeStyle} />
-    )
+    return <HeadlineTree pageSection={props} treeStyle={headlineTreeStyle} />
   }
 
   /** If you did not return a view above, Wheelroom will display this notification */
