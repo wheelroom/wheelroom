@@ -41,8 +41,6 @@ export interface NavigationHeaderDisplayStyleTree {
 
 export const NavigationHeaderDisplay = (props: {
   pageSection: PageSectionProps
-  globals: GlobalsProps
-  siteMetadata: SiteMetadata
   styleTree: NavigationHeaderDisplayStyleTree
 }) => {
   /** Theme switcher admin module */
@@ -59,8 +57,8 @@ export const NavigationHeaderDisplay = (props: {
   if (!pageSectionInfo.hasNavigation) {
     return null
   }
-  const globals = props.globals
-  const siteMetadata = props.siteMetadata
+  const globals = props.pageSection.globals
+  const siteMetadata = props.pageSection.siteMetadata
   const styleTree = props.styleTree || {}
   const navSegment = props.pageSection.navigation
     .segments[0] as NavigationSegmentProps
@@ -87,8 +85,8 @@ export const NavigationHeaderDisplay = (props: {
       <Box is="div" ncss={styleTree.wrapper}>
         <Container ncss={styleTree.container}>
           <NavLogo
-            globals={globals.siteHeading}
-            siteMetadata={siteMetadata.legal.version}
+            globals={globals}
+            siteMetadata={siteMetadata}
             styleTree={styleTree.menu.navLogo}
           />
           <Flex is={'nav'} ncss={styleTree.menu.nav}>
