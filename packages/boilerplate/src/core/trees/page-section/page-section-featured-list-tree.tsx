@@ -3,10 +3,10 @@ import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { TopicProps, Topic } from '../../../models/topic'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../models/page-section/page-section'
-import { TopicStyleTree } from '../topic/topic-tree'
+import { TopicTreeStyle } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
-export interface FeaturedListTreeStyle {
+export interface PageSectionFeaturedListTreeStyle {
   conditional: {
     containerHideMedia: {
       no: NcssProps
@@ -17,14 +17,14 @@ export interface FeaturedListTreeStyle {
       yes: NcssProps
     }
   }
-  topic: TopicStyleTree
+  topic: TopicTreeStyle
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const FeaturedListTree = (props: {
+export const PageSectionFeaturedListTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: FeaturedListTreeStyle
+  treeStyle: PageSectionFeaturedListTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   const topicOptions = pageSectionInfo.topicOptions

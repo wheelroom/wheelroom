@@ -3,18 +3,18 @@ import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { Topic } from '../../../models/topic'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../models/page-section/page-section'
-import { TopicStyleTree } from '../topic/topic-tree'
+import { TopicTreeStyle } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
-export interface VideoTreeStyle {
-  topic: TopicStyleTree
+export interface PageSectionVideoTreeStyle {
+  topic: TopicTreeStyle
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const VideoTree = (props: {
+export const PageSectionVideoTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: VideoTreeStyle
+  treeStyle: PageSectionVideoTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {

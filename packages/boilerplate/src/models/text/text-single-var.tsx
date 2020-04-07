@@ -8,6 +8,6 @@
 
 import React from 'react'
 import { TextProps } from './text'
-import { CoreText } from '../../core/trees/text/core-text'
+import { TextTree } from '../../core/trees/text/text-tree'
 
-export const TextSingleVar = (props: TextProps) => <CoreText {...props} />
+export const TextSingleVar = (props: TextProps) => <TextTree {...props} />

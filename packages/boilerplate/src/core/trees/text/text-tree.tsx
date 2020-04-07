@@ -8,7 +8,6 @@
  */
 
 import React from 'react'
-import { TextProps } from '../../../models/text/text'
 import { MediaObject, NcssProps } from '../../elements/types'
 import { Image, ImageStyleTree } from '../../elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
@@ -18,7 +17,7 @@ import { List } from '../../elements/list'
 import { ALink } from '../../elements/a-link'
 import { GLink } from '../../elements/g-link'
 import { H1, H2, H3, H4, H5, H6 } from '../../elements/heading'
-import { getLocalizedValue } from '../../../models/text/get-localized-value'
+import { getLocalizedValue } from './get-localized-value'
 import { Flex } from '../../elements/grid'
 import {
   documentToReactComponents,
@@ -26,7 +25,7 @@ import {
 } from '@contentful/rich-text-react-renderer'
 import { Video, VideoStyleTree } from '../../elements/video'
 
-export interface TextStyleTree {
+export interface TextTreeStyle {
   wrapper?: NcssProps
   marksBold?: NcssProps
   marksCode?: {
@@ -50,16 +49,16 @@ export interface TextStyleTree {
   video?: VideoStyleTree
 }
 
-export interface TextCoreProps {
+export interface TextTreeProps {
   /** Locale needed for rendering rich text */
   locale: string
-  treeStyle?: TextStyleTree
+  treeStyle?: TextTreeStyle
 }
 
 type Node = any
 type Children = any
 
-export const CoreText = (props: TextProps) => {
+export const TextTree = (props: TextTreeProps) => {
   const textProps = props
   const treeStyle = props.treeStyle || {}
 

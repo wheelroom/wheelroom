@@ -1,6 +1,6 @@
-import { BlockTreeStyle } from '../../../core/trees/page-section/block-tree'
+import { PageSectionBlockTreeStyle } from '../../../core/trees/page-section/page-section-block-tree'
 
-export const blockTreeStyle: BlockTreeStyle = {
+export const blockTreeStyle: PageSectionBlockTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

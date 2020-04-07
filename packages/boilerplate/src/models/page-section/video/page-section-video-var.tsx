@@ -10,13 +10,15 @@ import React from 'react'
 import { PageSectionProps } from '../page-section'
 import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
-import { VideoTree } from '../../../core/trees/page-section/video-tree'
+import { PageSectionVideoTree } from '../../../core/trees/page-section/page-section-video-tree'
 import { videoTreeStyle } from './video-tree-style'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
-    return <VideoTree pageSection={props} treeStyle={videoTreeStyle} />
+    return (
+      <PageSectionVideoTree pageSection={props} treeStyle={videoTreeStyle} />
+    )
   }
 
   /**

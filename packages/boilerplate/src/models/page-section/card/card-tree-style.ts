@@ -1,6 +1,6 @@
-import { CardTreeStyle } from '../../../core/trees/page-section/card-tree'
+import { PageSectionCardTreeStyle } from '../../../core/trees/page-section/page-section-card-tree'
 
-export const cardTreeStyle: CardTreeStyle = {
+export const cardTreeStyle: PageSectionCardTreeStyle = {
   conditional: {
     topicWrapperShadow: {
       border: '1px solid',

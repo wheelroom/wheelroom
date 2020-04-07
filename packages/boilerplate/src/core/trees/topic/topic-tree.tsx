@@ -10,7 +10,7 @@ import { TopicMediaStyleTree } from './topic-media'
 import { TopicContentStyleTree } from './topic-content'
 import { ParserFunction } from '../../parsers/types'
 
-export interface TopicStyleTree {
+export interface TopicTreeStyle {
   /** Wrapper around the whole topic */
   wrapper?: NcssProps
   /** Wrapper around media */
@@ -18,7 +18,7 @@ export interface TopicStyleTree {
   content?: TopicContentStyleTree
 }
 
-export interface TopicCoreProps {
+export interface TopicTreeProps {
   /** Options that change topic display behaviour */
   pageSectionInfo: PageSectionInfo
   /** Page section actions will override all topic actions */
@@ -38,7 +38,7 @@ export interface TopicCoreProps {
   /** Reverse topicMedia and topicContent */
   forceReverse?: boolean
 
-  treeStyle?: TopicStyleTree
+  treeStyle?: TopicTreeStyle
 }
 
 export const TopicTree = (props: TopicProps) => {

@@ -1,20 +1,20 @@
 import React from 'react'
 import { Box, Container } from '../../elements/grid'
-import { Topic, TopicProps } from '../../../models/topic'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../models/page-section/page-section'
-import { TopicStyleTree } from '../topic/topic-tree'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { TopicProps } from '../../../models/topic'
+import { Image, ImageStyleTree } from '../../elements/image'
 import { NcssProps } from '../../elements/types'
 
-export interface ImageTreeStyle {
-  topic: TopicStyleTree
+export interface PageSectionGalleryTreeStyle {
+  image: ImageStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const ImageTree = (props: {
+export const PageSectionGalleryTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: ImageTreeStyle
+  treeStyle: PageSectionGalleryTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
@@ -25,15 +25,12 @@ export const ImageTree = (props: {
     <Box is="div" ncss={treeStyle.wrapper}>
       <Container ncss={treeStyle.container}>
         {props.pageSection.topics
-          .slice(0, 2)
+          .slice(0, 4)
           .map((topic: TopicProps, index: number) => (
-            <Topic
-              {...topic}
+            <Image
+              treeStyle={treeStyle.image}
               key={index}
-              pageSectionActions={props.pageSection.actions}
-              pageSectionInfo={pageSectionInfo}
-              useHeadingElement="h4"
-              treeStyle={treeStyle.topic}
+              media={topic?.media}
             />
           ))}
       </Container>

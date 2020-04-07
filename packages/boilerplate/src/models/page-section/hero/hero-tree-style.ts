@@ -1,8 +1,8 @@
-import { HeroTreeStyle } from '../../../core/trees/page-section/hero-tree'
+import { PageSectionHeroTreeStyle } from '../../../core/trees/page-section/page-section-hero-tree'
 import { paragraphHeroStyle } from '../../../element-styles/paragraph'
 import { buttonPrimaryStyle } from '../../../element-styles/button'
 
-export const heroTreeStyle: HeroTreeStyle = {
+export const heroTreeStyle: PageSectionHeroTreeStyle = {
   wrapper: {
     label: 'wrapper',
   },

@@ -1,9 +1,9 @@
 import { defaultParagraphStyle } from '../../../element-styles/paragraph'
 import { defaultALinkStyle } from '../../../element-styles/a-link'
 import { defaultVideoStyle } from '../../../element-styles/video'
-import { TextStyleTree } from '../text/core-text'
+import { TextTreeStyle } from './text-tree'
 
-export const textStyleTree: TextStyleTree = {
+export const textStyleTree: TextTreeStyle = {
   wrapper: {
     label: 'text',
     mx: 'auto',

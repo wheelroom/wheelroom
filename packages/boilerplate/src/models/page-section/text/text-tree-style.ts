@@ -1,7 +1,7 @@
-import { TextTreeStyle } from '../../../core/trees/page-section/text-tree'
-import { textStyleTree } from '../../../core/trees/page-section/text-style-tree'
+import { PageSectionTextTreeStyle } from '../../../core/trees/page-section/page-section-text-tree'
+import { textStyleTree } from '../../../core/trees/text/text-tree-style'
 
-export const textTreeStyle: TextTreeStyle = {
+export const textTreeStyle: PageSectionTextTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

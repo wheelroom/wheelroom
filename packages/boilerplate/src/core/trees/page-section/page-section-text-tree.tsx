@@ -4,17 +4,17 @@ import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { Text } from '../../../models/text'
 import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { NcssProps } from '../../elements/types'
-import { TextStyleTree } from '../text/core-text'
+import { TextTreeStyle } from '../text/text-tree'
 
-export interface TextTreeStyle {
-  text: TextStyleTree
+export interface PageSectionTextTreeStyle {
+  text: TextTreeStyle
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const TextTree = (props: {
+export const PageSectionTextTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: TextTreeStyle
+  treeStyle: PageSectionTextTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasText) {

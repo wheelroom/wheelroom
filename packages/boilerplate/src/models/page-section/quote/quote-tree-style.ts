@@ -1,6 +1,6 @@
-import { QuoteTreeStyle } from '../../../core/trees/page-section/quote-tree'
+import { PageSectionQuoteTreeStyle } from '../../../core/trees/page-section/page-section-quote-tree'
 
-export const quoteTreeStyle: QuoteTreeStyle = {
+export const quoteTreeStyle: PageSectionQuoteTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

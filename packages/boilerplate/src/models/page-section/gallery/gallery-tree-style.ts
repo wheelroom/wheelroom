@@ -1,11 +1,11 @@
-import { GalleryTreeStyle } from '../../../core/trees/page-section/gallery-tree'
+import { PageSectionGalleryTreeStyle } from '../../../core/trees/page-section/page-section-gallery-tree'
 import {
   defaultImageImgStyle,
   defaultImagePictureStyle,
   defaultImageFigcaptionStyle,
 } from '../../../element-styles/image'
 
-export const galleryTreeStyle: GalleryTreeStyle = {
+export const galleryTreeStyle: PageSectionGalleryTreeStyle = {
   wrapper: {
     label: 'Wrapper',
     bg: 'bg',

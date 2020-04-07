@@ -8,13 +8,13 @@
 import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { TextSingleVar } from './text-single-var'
-import { TextCoreProps } from '../../core/trees/text/core-text'
+import { TextTreeProps } from '../../core/trees/text/text-tree'
 
 const componentList = {
   ['single']: TextSingleVar,
 }
 
-export interface TextProps extends TextCoreProps {
+export interface TextProps extends TextTreeProps {
   /** Gatsby fetched data */
   __typename: string
   title: string

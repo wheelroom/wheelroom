@@ -1,20 +1,19 @@
 import React from 'react'
-import { Box, Container } from '../../elements/grid'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { Topic } from '../../../models/topic'
-import { PageSectionProps } from '../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { TopicStyleTree } from '../topic/topic-tree'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { TopicTreeStyle } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
-export interface HeroTreeStyle {
-  topic: TopicStyleTree
+export interface PageSectionHeadlineTreeStyle {
+  topic: TopicTreeStyle
   wrapper: NcssProps
-  container: NcssProps
 }
 
-export const HeroTree = (props: {
+export const PageSectionHeadlineTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: HeroTreeStyle
+  treeStyle: PageSectionHeadlineTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
@@ -24,7 +23,7 @@ export const HeroTree = (props: {
   const topic = props.pageSection.topics[0]
   return (
     <Box is="div" ncss={treeStyle.wrapper}>
-      <Container ncss={treeStyle.container}>
+      <ContainerMaxWidth>
         <Topic
           {...topic}
           pageSectionActions={props.pageSection.actions}
@@ -32,7 +31,7 @@ export const HeroTree = (props: {
           useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
           treeStyle={treeStyle.topic}
         />
-      </Container>
+      </ContainerMaxWidth>
     </Box>
   )
 }

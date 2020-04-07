@@ -10,13 +10,13 @@ import React from 'react'
 import { PageSectionProps } from '../page-section'
 import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
-import { CardTree } from '../../../core/trees/page-section/card-tree'
+import { PageSectionCardTree } from '../../../core/trees/page-section/page-section-card-tree'
 import { cardTreeStyle } from './card-tree-style'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
-    return <CardTree pageSection={props} treeStyle={cardTreeStyle} />
+    return <PageSectionCardTree pageSection={props} treeStyle={cardTreeStyle} />
   }
 
   /**
