@@ -22,7 +22,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         cardTreeStyle.conditional.topicWrapperShadow
       )
     }
-  
+
     return <PageSectionCardTree pageSection={props} treeStyle={cardTreeStyle} />
   }
 
