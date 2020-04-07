@@ -1,9 +1,9 @@
 import React from 'react'
-import { NcssProps } from '../../elements/types'
-import { Flex } from '../../elements/grid'
-import { GLink } from '../../elements/g-link'
-import { SiteMetadata } from '../../../page-template'
-import { GlobalsProps } from '../../../models/globals/globals'
+import { NcssProps } from '../../../elements/types'
+import { Flex } from '../../../elements/grid'
+import { GLink } from '../../../elements/g-link'
+import { SiteMetadata } from '../../../../page-template'
+import { GlobalsProps } from '../../../../models/globals/globals'
 
 export interface NavLogoTreeStyle {
   container: NcssProps

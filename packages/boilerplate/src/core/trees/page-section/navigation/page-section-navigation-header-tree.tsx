@@ -8,10 +8,10 @@ import { NavigationSegmentProps } from '../../../../models/navigation-segment'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { NcssProps } from '../../../elements/types'
-import { NavListTreeStyle, NavList } from '../../navigation/nav-list'
-import { NavLogo, NavLogoTreeStyle } from '../../navigation/nav-logo'
-import { NavActionsTreeStyle, NavActions } from '../../navigation/nav-actions'
-import { NavDialogTreeStyle, NavDialog } from '../../navigation/nav-dialog'
+import { NavListTreeStyle, NavList } from './nav-list'
+import { NavLogo, NavLogoTreeStyle } from './nav-logo'
+import { NavActionsTreeStyle, NavActions } from './nav-actions'
+import { NavDialogTreeStyle, NavDialog } from './nav-dialog'
 
 export interface PageSectionNavigationHeaderTreeStyle {
   skipToContent: NcssProps
