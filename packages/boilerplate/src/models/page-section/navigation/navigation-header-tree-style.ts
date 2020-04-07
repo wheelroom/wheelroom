@@ -7,13 +7,13 @@ import {
   commonNavigationStyle,
   listStyle,
   navStyle,
-} from '../../../core/trees/navigation/navigation-common-style'
+} from './navigation-common-style'
 import {
   modalOpenStyle,
   modalStyle,
   modalContentOpenStyle,
   modalContentStyle,
-} from '../../../core/trees/navigation/navigation-modal-style'
+} from './navigation-modal-style'
 
 export const navigationHeaderTreeStyle: PageSectionNavigationHeaderTreeStyle = {
   skipToContent: {
