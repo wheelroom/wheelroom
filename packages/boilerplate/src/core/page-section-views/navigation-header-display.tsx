@@ -9,7 +9,7 @@ import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { PageSectionProps } from '../../models/page-section/page-section'
 import { NcssProps } from '../elements/types'
 import { NavListStyleTree, NavList } from '../model-views/navigation/nav-list'
-import { NavLogoStyleTree } from '../model-views/navigation/nav-logo'
+import { NavLogo, NavLogoStyleTree } from '../model-views/navigation/nav-logo'
 import {
   NavActionsStyleTree,
   NavActions,
@@ -18,6 +18,8 @@ import {
   NavDialogStyleTree,
   NavDialog,
 } from '../model-views/navigation/nav-dialog'
+import { GlobalsProps } from '../../models/globals'
+import { SiteMetadata } from '../../page-template'
 
 export interface NavigationHeaderDisplayStyleTree {
   skipToContent: NcssProps
@@ -26,6 +28,7 @@ export interface NavigationHeaderDisplayStyleTree {
   navLogo: NavLogoStyleTree
   menu: {
     nav: NcssProps
+    navLogo: NavLogoStyleTree
     navList: NavListStyleTree
     navActions: NavActionsStyleTree
     modalDialog: {
@@ -38,6 +41,8 @@ export interface NavigationHeaderDisplayStyleTree {
 
 export const NavigationHeaderDisplay = (props: {
   pageSection: PageSectionProps
+  globals: GlobalsProps
+  siteMetadata: SiteMetadata
   styleTree: NavigationHeaderDisplayStyleTree
 }) => {
   /** Theme switcher admin module */
@@ -54,6 +59,8 @@ export const NavigationHeaderDisplay = (props: {
   if (!pageSectionInfo.hasNavigation) {
     return null
   }
+  const globals = props.globals
+  const siteMetadata = props.siteMetadata
   const styleTree = props.styleTree || {}
   const navSegment = props.pageSection.navigation
     .segments[0] as NavigationSegmentProps
@@ -75,10 +82,15 @@ export const NavigationHeaderDisplay = (props: {
   return (
     <Fragment>
       <ALink href="#content" ncss={styleTree.skipToContent}>
-        Skip to Wheelroom Content
+        {`Skip to` + globals.siteHeading + `Content`}
       </ALink>
       <Box is="div" ncss={styleTree.wrapper}>
         <Container ncss={styleTree.container}>
+          <NavLogo
+            globals={globals.siteHeading}
+            siteMetadata={siteMetadata.legal.version}
+            styleTree={styleTree.menu.navLogo}
+          />
           <Flex is={'nav'} ncss={styleTree.menu.nav}>
             <NavList
               styleTree={styleTree.menu.navList}

@@ -2,8 +2,6 @@ import React from 'react'
 import { NcssProps } from '../../elements/types'
 import { Flex } from '../../elements/grid'
 import { GLink } from '../../elements/g-link'
-import { GlobalsProps } from '../../../models/globals'
-import { SiteMetadata } from '../../../page-template'
 
 export interface NavLogoStyleTree {
   container: NcssProps
@@ -11,21 +9,23 @@ export interface NavLogoStyleTree {
 }
 
 export const NavLogo = (props: {
-  globals: GlobalsProps
-  siteMetadata: SiteMetadata
+  globals: string
+  siteMetadata: string
   styleTree: NavLogoStyleTree
 }) => {
+  const heading = props.globals
+  const version = props.siteMetadata
   const styleTree = props.styleTree || {}
   return (
     <Flex is="div" ncss={styleTree.container}>
       <GLink
         ncss={styleTree.link}
         to="/"
-        aria-label={props.globals.siteHeading + `, Back to homepage`}
+        aria-label={heading + `, Back to homepage`}
       >
-        {props.globals.siteHeading + ` `}
+        {heading + ` `}
         <sup>
-          <small>{props.siteMetadata.legal.version}</small>
+          <small>{version}</small>
         </sup>
       </GLink>
     </Flex>
