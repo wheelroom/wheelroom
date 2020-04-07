@@ -18,8 +18,6 @@ import {
   NavDialogStyleTree,
   NavDialog,
 } from '../model-views/navigation/nav-dialog'
-import { GlobalsProps } from '../../models/globals'
-import { SiteMetadata } from '../../page-template'
 
 export interface NavigationHeaderDisplayStyleTree {
   skipToContent: NcssProps
@@ -80,7 +78,7 @@ export const NavigationHeaderDisplay = (props: {
   return (
     <Fragment>
       <ALink href="#content" ncss={styleTree.skipToContent}>
-        {`Skip to` + globals.siteHeading + `Content`}
+        {`Skip to ` + globals.siteHeading + ` Content`}
       </ALink>
       <Box is="div" ncss={styleTree.wrapper}>
         <Container ncss={styleTree.container}>

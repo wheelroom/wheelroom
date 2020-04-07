@@ -49,26 +49,26 @@ export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree 
     justifyContent: 'space-between',
     px: 3,
   },
-  navLogo: {
-    container: {
-      label: 'logo',
-      alignItems: 'center',
-    },
-    link: {
-      fontFamily: 'display',
-      textDecoration: 'none',
-      fontSize: [4, 5],
-      fontWeight: 5,
-      color: 'text',
-      mr: 5,
-      sup: {
-        color: 'metal',
-        fontWeight: 3,
-      },
-    },
-  },
   menu: {
     nav: { ...navStyle, display: ['none', 'none', 'flex'] },
+    navLogo: {
+      container: {
+        label: 'logo',
+        alignItems: 'center',
+      },
+      link: {
+        fontFamily: 'display',
+        textDecoration: 'none',
+        fontSize: [4, 5],
+        fontWeight: 5,
+        color: 'text',
+        mr: 5,
+        sup: {
+          color: 'metal',
+          fontWeight: 3,
+        },
+      },
+    },
     navList: {
       list: { ...listStyle, flex: '1 1 auto'},
       listItem: {
