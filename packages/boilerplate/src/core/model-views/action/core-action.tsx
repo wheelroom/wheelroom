@@ -12,7 +12,7 @@ import { GLink } from '../../elements/g-link'
 import { ALink } from '../../elements/a-link'
 import { NcssProps } from '../../elements/types'
 
-export interface ActionCoreProps {
+export interface ActionTreeProps {
   /** Local data */
   children?: any
   styleTree?: NcssProps

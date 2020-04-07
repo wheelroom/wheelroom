@@ -1,20 +1,20 @@
 import React from 'react'
-import { Box, Container } from '../elements/grid'
-import { Topic } from '../../models/topic'
-import { PageSectionProps } from '../../models/page-section/page-section'
-import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { TopicStyleTree } from '../model-views/topic/core-topic'
-import { NcssProps } from '../elements/types'
+import { Box, Container } from '../../elements/grid'
+import { Topic } from '../../../models/topic'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { TopicStyleTree } from '../topic/core-topic'
+import { NcssProps } from '../../elements/types'
 
-export interface HeroDisplayStyleTree {
+export interface HeroTreeStyleTree {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const HeroDisplay = (props: {
+export const HeroTree = (props: {
   pageSection: PageSectionProps
-  styleTree: HeroDisplayStyleTree
+  styleTree: HeroTreeStyleTree
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {

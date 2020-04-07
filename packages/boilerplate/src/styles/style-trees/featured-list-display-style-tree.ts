@@ -1,6 +1,6 @@
-import { FeaturedListDisplayStyleTree } from '../../core/page-section-views/featured-list-display'
+import { FeaturedListTreeStyleTree } from '../../core/model-views/page-section/featured-list-display'
 
-export const featuredListDisplayStyleTree: FeaturedListDisplayStyleTree = {
+export const featuredListDisplayStyleTree: FeaturedListTreeStyleTree = {
   conditional: {
     containerHideMedia: {
       yes: ['column', 'row'],

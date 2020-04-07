@@ -1,20 +1,20 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../elements/grid'
-import { Topic } from '../../models/topic'
-import { PageSectionProps } from '../../models/page-section/page-section'
-import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { TopicStyleTree } from '../model-views/topic/core-topic'
-import { NcssProps } from '../elements/types'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { Topic } from '../../../models/topic'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { TopicStyleTree } from '../topic/core-topic'
+import { NcssProps } from '../../elements/types'
 
-export interface FeaturedDisplayStyleTree {
+export interface FeaturedTreeStyleTree {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const FeaturedDisplay = (props: {
+export const FeaturedTree = (props: {
   pageSection: PageSectionProps
-  styleTree: FeaturedDisplayStyleTree
+  styleTree: FeaturedTreeStyleTree
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {

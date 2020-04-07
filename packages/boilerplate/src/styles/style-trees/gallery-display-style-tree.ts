@@ -1,11 +1,11 @@
-import { GalleryDisplayStyleTree } from '../../core/page-section-views/gallery-display'
+import { GalleryTreeStyleTree } from '../../core/model-views/page-section/gallery-display'
 import {
   defaultImageImgStyle,
   defaultImagePictureStyle,
   defaultImageFigcaptionStyle,
 } from '../core-elements/image'
 
-export const galleryDisplayStyleTree: GalleryDisplayStyleTree = {
+export const galleryDisplayStyleTree: GalleryTreeStyleTree = {
   wrapper: {
     label: 'Wrapper',
     bg: 'bg',

@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react'
-import { NavigationSegmentProps } from '../../models/navigation-segment'
-import { Box, Container, Flex } from '../elements/grid'
-import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { PageSectionProps } from '../../models/page-section/page-section'
-import { NcssProps } from '../elements/types'
+import { NavigationSegmentProps } from '../../../models/navigation-segment'
+import { Box, Container, Flex } from '../../elements/grid'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { NcssProps } from '../../elements/types'
 import {
   NavSocialLinks,
   NavSocialLinksStyleTree,
-} from '../model-views/navigation/nav-social-links'
-import { NavListStyleTree, NavList } from '../model-views/navigation/nav-list'
-import { NavLegalStyleTree, NavLegal } from '../model-views/navigation/nav-legal'
+} from '../navigation/nav-social-links'
+import { NavListStyleTree, NavList } from '../navigation/nav-list'
+import { NavLegalStyleTree, NavLegal } from '../navigation/nav-legal'
 
-export interface NavigationFooterDisplayStyleTree {
+export interface NavigationFooterTreeStyleTree {
   wrapper: NcssProps
   container: NcssProps
   menus: {
@@ -22,9 +22,9 @@ export interface NavigationFooterDisplayStyleTree {
   navLegal: NavLegalStyleTree
 }
 
-export const NavigationFooterDisplay = (props: {
+export const NavigationFooterTree = (props: {
   pageSection: PageSectionProps
-  styleTree: NavigationFooterDisplayStyleTree
+  styleTree: NavigationFooterTreeStyleTree
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasNavigation) {

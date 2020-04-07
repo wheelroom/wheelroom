@@ -1,27 +1,26 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../elements/grid'
-import { PageSectionProps } from '../../models/page-section/page-section'
-import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { Topic } from '../../models/topic'
-import { TopicStyleTree } from '../model-views/topic/core-topic'
-import { NcssProps } from '../elements/types'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { Topic } from '../../../models/topic'
+import { TopicStyleTree } from '../topic/core-topic'
+import { NcssProps } from '../../elements/types'
 
-export interface BlockDisplayStyleTree {
+export interface QuoteTreeStyleTree {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const BlockDisplay = (props: {
+export const QuoteTree = (props: {
   pageSection: PageSectionProps
-  styleTree: BlockDisplayStyleTree
+  styleTree: QuoteTreeStyleTree
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
   const styleTree = props.styleTree || {}
-
   return (
     <Box is="div" ncss={styleTree.wrapper}>
       <ContainerMaxWidth ncss={styleTree.container}>
@@ -32,6 +31,8 @@ export const BlockDisplay = (props: {
             pageSectionActions={props.pageSection.actions}
             pageSectionInfo={pageSectionInfo}
             fullTopicAsLink={false}
+            useHeadingElement={'p'}
+            useAbstractElement={'blockquote'}
             styleTree={styleTree.topic}
           />
         ))}

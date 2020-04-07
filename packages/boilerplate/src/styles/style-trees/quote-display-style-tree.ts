@@ -1,6 +1,6 @@
-import { QuoteDisplayStyleTree } from '../../core/page-section-views/quote-display'
+import { QuoteTreeStyleTree } from '../../core/model-views/page-section/quote-display'
 
-export const quoteDisplayStyleTree: QuoteDisplayStyleTree = {
+export const quoteDisplayStyleTree: QuoteTreeStyleTree = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

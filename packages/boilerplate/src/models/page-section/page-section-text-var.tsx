@@ -10,13 +10,13 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { TextDisplay } from '../../core/page-section-views/text-display'
+import { TextTree } from '../../core/model-views/page-section/text-display'
 import { textDisplayStyleTree } from '../../styles/style-trees/text-style-display-tree'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasText) {
-    return <TextDisplay pageSection={props} styleTree={textDisplayStyleTree} />
+    return <TextTree pageSection={props} styleTree={textDisplayStyleTree} />
   }
 
   /**

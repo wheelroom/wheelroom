@@ -1,7 +1,7 @@
-import { ImageDisplayStyleTree } from '../../core/page-section-views/image-display'
+import { ImageTreeStyleTree } from '../../core/model-views/page-section/image-display'
 import { smallParagraphStyle } from '../core-elements/paragraph'
 
-export const imageDisplayStyleTree: ImageDisplayStyleTree = {
+export const imageDisplayStyleTree: ImageTreeStyleTree = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

@@ -1,20 +1,20 @@
 import React from 'react'
-import { PageSectionProps } from '../../models/page-section/page-section'
-import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { Text } from '../../models/text'
-import { Box, ContainerMaxWidth } from '../elements/grid'
-import { NcssProps } from '../elements/types'
-import { TextStyleTree } from '../model-views/text/core-text'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { Text } from '../../../models/text'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { NcssProps } from '../../elements/types'
+import { TextStyleTree } from '../text/core-text'
 
-export interface TextDisplayStyleTree {
+export interface TextTreeStyleTree {
   text: TextStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const TextDisplay = (props: {
+export const TextTree = (props: {
   pageSection: PageSectionProps
-  styleTree: TextDisplayStyleTree
+  styleTree: TextTreeStyleTree
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasText) {

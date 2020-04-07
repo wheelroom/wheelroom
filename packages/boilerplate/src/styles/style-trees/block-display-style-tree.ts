@@ -1,6 +1,6 @@
-import { BlockDisplayStyleTree } from '../../core/page-section-views/block-display'
+import { BlockTreeStyleTree } from '../../core/model-views/page-section/block-display'
 
-export const blockDisplayStyleTree: BlockDisplayStyleTree = {
+export const blockDisplayStyleTree: BlockTreeStyleTree = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

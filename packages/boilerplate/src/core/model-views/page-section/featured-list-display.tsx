@@ -1,12 +1,12 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../elements/grid'
-import { TopicProps, Topic } from '../../models/topic'
-import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { PageSectionProps } from '../../models/page-section/page-section'
-import { TopicStyleTree } from '../model-views/topic/core-topic'
-import { NcssProps } from '../elements/types'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { TopicProps, Topic } from '../../../models/topic'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { TopicStyleTree } from '../topic/core-topic'
+import { NcssProps } from '../../elements/types'
 
-export interface FeaturedListDisplayStyleTree {
+export interface FeaturedListTreeStyleTree {
   conditional: {
     containerHideMedia: {
       no: NcssProps
@@ -22,9 +22,9 @@ export interface FeaturedListDisplayStyleTree {
   container: NcssProps
 }
 
-export const FeaturedListDisplay = (props: {
+export const FeaturedListTree = (props: {
   pageSection: PageSectionProps
-  styleTree: FeaturedListDisplayStyleTree
+  styleTree: FeaturedListTreeStyleTree
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   const topicOptions = pageSectionInfo.topicOptions

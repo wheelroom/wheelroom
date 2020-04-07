@@ -1,25 +1,19 @@
 import React, { Fragment, useContext, useState, useRef } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
-import { ALink } from '../elements/a-link'
-import { Box, Container, Flex } from '../elements/grid'
-import { Button } from '../elements/button'
+import { ALink } from '../../elements/a-link'
+import { Box, Container, Flex } from '../../elements/grid'
+import { Button } from '../../elements/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { NavigationSegmentProps } from '../../models/navigation-segment'
-import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { PageSectionProps } from '../../models/page-section/page-section'
-import { NcssProps } from '../elements/types'
-import { NavListStyleTree, NavList } from '../model-views/navigation/nav-list'
-import { NavLogo, NavLogoStyleTree } from '../model-views/navigation/nav-logo'
-import {
-  NavActionsStyleTree,
-  NavActions,
-} from '../model-views/navigation/nav-actions'
-import {
-  NavDialogStyleTree,
-  NavDialog,
-} from '../model-views/navigation/nav-dialog'
+import { NavigationSegmentProps } from '../../../models/navigation-segment'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { NcssProps } from '../../elements/types'
+import { NavListStyleTree, NavList } from '../navigation/nav-list'
+import { NavLogo, NavLogoStyleTree } from '../navigation/nav-logo'
+import { NavActionsStyleTree, NavActions } from '../navigation/nav-actions'
+import { NavDialogStyleTree, NavDialog } from '../navigation/nav-dialog'
 
-export interface NavigationHeaderDisplayStyleTree {
+export interface NavigationHeaderTreeStyleTree {
   skipToContent: NcssProps
   wrapper: NcssProps
   container: NcssProps
@@ -37,9 +31,9 @@ export interface NavigationHeaderDisplayStyleTree {
   }
 }
 
-export const NavigationHeaderDisplay = (props: {
+export const NavigationHeaderTree = (props: {
   pageSection: PageSectionProps
-  styleTree: NavigationHeaderDisplayStyleTree
+  styleTree: NavigationHeaderTreeStyleTree
 }) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)

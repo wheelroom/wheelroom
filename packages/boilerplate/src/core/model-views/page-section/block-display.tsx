@@ -1,35 +1,26 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../elements/grid'
-import { PageSectionProps } from '../../models/page-section/page-section'
-import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { Topic } from '../../models/topic/topic'
-import { TopicStyleTree } from '../model-views/topic/core-topic'
-import { NcssProps } from '../elements/types'
+import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { Topic } from '../../../models/topic'
+import { TopicStyleTree } from '../topic/core-topic'
+import { NcssProps } from '../../elements/types'
 
-export interface CardDisplayStyleTree {
-  conditional: {
-    topicWrapperShadow: NcssProps
-  }
+export interface BlockTreeStyleTree {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const CardDisplay = (props: {
+export const BlockTree = (props: {
   pageSection: PageSectionProps
-  styleTree: CardDisplayStyleTree
+  styleTree: BlockTreeStyleTree
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
   const styleTree = props.styleTree || {}
-  if (!pageSectionInfo.topicOptions.hideAction) {
-    Object.assign(
-      styleTree.topic.wrapper,
-      styleTree.conditional.topicWrapperShadow
-    )
-  }
 
   return (
     <Box is="div" ncss={styleTree.wrapper}>
@@ -40,7 +31,7 @@ export const CardDisplay = (props: {
             {...topic}
             pageSectionActions={props.pageSection.actions}
             pageSectionInfo={pageSectionInfo}
-            fullTopicAsLink={true}
+            fullTopicAsLink={false}
             styleTree={styleTree.topic}
           />
         ))}

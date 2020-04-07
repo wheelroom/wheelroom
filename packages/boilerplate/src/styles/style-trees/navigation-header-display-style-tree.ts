@@ -1,4 +1,4 @@
-import { NavigationHeaderDisplayStyleTree } from '../../core/page-section-views/navigation-header-display'
+import { NavigationHeaderTreeStyleTree } from '../../core/model-views/page-section/navigation-header-display'
 import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
@@ -15,7 +15,7 @@ import {
   modalContentStyle,
 } from './navigation-modal-style'
 
-export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree = {
+export const navigationHeaderDisplayStyleTree: NavigationHeaderTreeStyleTree = {
   skipToContent: {
     label: 'skip',
     position: 'absolute',

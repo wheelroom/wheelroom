@@ -10,14 +10,14 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { ImageDisplay } from '../../core/page-section-views/image-display'
+import { ImageTree } from '../../core/model-views/page-section/image-display'
 import { imageDisplayStyleTree } from '../../styles/style-trees/image-display-style-tree'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
     return (
-      <ImageDisplay pageSection={props} styleTree={imageDisplayStyleTree} />
+      <ImageTree pageSection={props} styleTree={imageDisplayStyleTree} />
     )
   }
 

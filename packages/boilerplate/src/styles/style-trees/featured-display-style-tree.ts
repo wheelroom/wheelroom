@@ -1,8 +1,8 @@
-import { FeaturedDisplayStyleTree } from '../../core/page-section-views/featured-display'
+import { FeaturedTreeStyleTree } from '../../core/model-views/page-section/featured-display'
 import { defaultHeading2Style } from '../core-elements/heading'
 import { defaultParagraphStyle } from '../core-elements/paragraph'
 
-export const featuredDisplayStyleTree: FeaturedDisplayStyleTree = {
+export const featuredDisplayStyleTree: FeaturedTreeStyleTree = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

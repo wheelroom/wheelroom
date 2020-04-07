@@ -1,8 +1,8 @@
-import { HeroDisplayStyleTree } from '../../core/page-section-views/hero-display'
+import { HeroTreeStyleTree } from '../../core/model-views/page-section/hero-display'
 import { paragraphHeroStyle } from '../core-elements/paragraph'
 import { buttonPrimaryStyle } from '../core-elements/button'
 
-export const heroDisplayStyleTree: HeroDisplayStyleTree = {
+export const heroDisplayStyleTree: HeroTreeStyleTree = {
   wrapper: {
     label: 'wrapper',
   },

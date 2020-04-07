@@ -8,13 +8,13 @@
 import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { ActionSingleVar } from './action-single-var'
-import { ActionCoreProps } from '../../core/model-views/action/core-action'
+import { ActionTreeProps } from '../../core/model-views/action/core-action'
 
 const componentList = {
   ['single']: ActionSingleVar,
 }
 
-export interface ActionProps extends ActionCoreProps {
+export interface ActionProps extends ActionTreeProps {
   /** Gatsby fetched data */
   __typename?: string
   title?: string

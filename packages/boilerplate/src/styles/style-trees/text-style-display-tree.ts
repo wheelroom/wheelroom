@@ -1,7 +1,7 @@
-import { TextDisplayStyleTree } from '../../core/page-section-views/text-display'
+import { TextTreeStyleTree } from '../../core/model-views/page-section/text-display'
 import { textStyleTree } from './text-style-tree'
 
-export const textDisplayStyleTree: TextDisplayStyleTree = {
+export const textDisplayStyleTree: TextTreeStyleTree = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',
