@@ -1,4 +1,4 @@
-import { TextTreeStyle } from '../../core/model-views/page-section/text-display'
+import { TextTreeStyle } from '../../core/model-views/page-section/text-tree'
 import { textStyleTree } from './text-style-tree'
 
 export const textDisplayStyleTree: TextTreeStyle = {

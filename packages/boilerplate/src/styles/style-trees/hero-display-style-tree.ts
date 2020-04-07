@@ -1,4 +1,4 @@
-import { HeroTreeStyle } from '../../core/model-views/page-section/hero-display'
+import { HeroTreeStyle } from '../../core/model-views/page-section/hero-tree'
 import { paragraphHeroStyle } from '../core-elements/paragraph'
 import { buttonPrimaryStyle } from '../core-elements/button'
 

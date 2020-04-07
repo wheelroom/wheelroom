@@ -1,4 +1,4 @@
-import { NavigationFooterTreeStyle } from '../../core/model-views/page-section/navigation-footer-display'
+import { NavigationFooterTreeStyle } from '../../core/model-views/page-section/navigation-footer-tree'
 import { commonNavigationStyle, listStyle } from './navigation-common-style'
 
 export const navigationFooterDisplayStyleTree: NavigationFooterTreeStyle = {

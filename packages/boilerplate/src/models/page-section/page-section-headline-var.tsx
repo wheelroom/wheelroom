@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { HeadlineTree } from '../../core/model-views/page-section/headline-display'
+import { HeadlineTree } from '../../core/model-views/page-section/headline-tree'
 import { headlineDisplayStyleTree } from '../../styles/style-trees/headline-display-style-tree'
 
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {

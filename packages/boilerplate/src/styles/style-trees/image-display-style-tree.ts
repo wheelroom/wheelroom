@@ -1,4 +1,4 @@
-import { ImageTreeStyle } from '../../core/model-views/page-section/image-display'
+import { ImageTreeStyle } from '../../core/model-views/page-section/image-tree'
 import { smallParagraphStyle } from '../core-elements/paragraph'
 
 export const imageDisplayStyleTree: ImageTreeStyle = {

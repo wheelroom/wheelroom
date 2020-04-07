@@ -1,4 +1,4 @@
-import { VideoTreeStyle } from '../../core/model-views/page-section/video-display'
+import { VideoTreeStyle } from '../../core/model-views/page-section/video-tree'
 import { smallParagraphStyle } from '../core-elements/paragraph'
 
 export const videoDisplayStyleTree: VideoTreeStyle = {
