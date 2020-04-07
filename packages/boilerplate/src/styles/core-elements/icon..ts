@@ -1,7 +1,6 @@
 export const defaultFeatherIconStyle = {
   color: 'iconColor',
   height: '40px',
-  mb: 2,
   strokeWidth: '1px',
   width: '40px',
 }

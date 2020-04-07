@@ -1,9 +1,5 @@
 import { NavigationFooterDisplayStyleTree } from '../../core/page-section-views/navigation-footer-display'
-import {
-  commonNavigationStyle,
-  listStyle,
-  navStyle,
-} from './navigation-common-style'
+import { commonNavigationStyle, listStyle } from './navigation-common-style'
 
 export const navigationFooterDisplayStyleTree: NavigationFooterDisplayStyleTree = {
   wrapper: {
@@ -18,8 +14,8 @@ export const navigationFooterDisplayStyleTree: NavigationFooterDisplayStyleTree 
 
   menus: {
     nav: {
-      ...navStyle,
       h: '84px',
+      flex: 1,
       justifyContent: ['space-evenly', 'space-between'],
       flexDirection: ['column', 'row'],
       alignItems: 'center',

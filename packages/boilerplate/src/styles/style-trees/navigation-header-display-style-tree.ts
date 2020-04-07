@@ -70,7 +70,7 @@ export const navigationHeaderDisplayStyleTree: NavigationHeaderDisplayStyleTree 
   menu: {
     nav: { ...navStyle, display: ['none', 'none', 'flex'] },
     navList: {
-      list: listStyle,
+      list: { ...listStyle, flex: '1 1 auto'},
       listItem: {
         linkStyle: {
           ...commonNavigationStyle,
