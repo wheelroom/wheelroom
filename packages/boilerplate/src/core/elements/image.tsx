@@ -8,7 +8,7 @@ import {
   defaultImageImgStyle,
   defaultImagePictureStyle,
   defaultImageFigcaptionStyle,
-} from '../../styles/core-elements/image'
+} from '../../element-styles/image'
 
 export interface ImageStyleTree {
   img?: NcssProps

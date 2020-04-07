@@ -3,7 +3,7 @@ import {
   defaultImageImgStyle,
   defaultImagePictureStyle,
   defaultImageFigcaptionStyle,
-} from '../../../styles/core-elements/image'
+} from '../../../element-styles/image'
 
 export const galleryTreeStyle: GalleryTreeStyle = {
   wrapper: {

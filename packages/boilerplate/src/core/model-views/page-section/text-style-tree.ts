@@ -1,6 +1,6 @@
-import { defaultParagraphStyle } from '../../../styles/core-elements/paragraph'
-import { defaultALinkStyle } from '../../../styles/core-elements/a-link'
-import { defaultVideoStyle } from '../../../styles/core-elements/video'
+import { defaultParagraphStyle } from '../../../element-styles/paragraph'
+import { defaultALinkStyle } from '../../../element-styles/a-link'
+import { defaultVideoStyle } from '../../../element-styles/video'
 import { TextStyleTree } from '../text/core-text'
 
 export const textStyleTree: TextStyleTree = {

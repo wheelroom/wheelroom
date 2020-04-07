@@ -2,7 +2,7 @@ import { NavigationHeaderTreeStyle } from '../../../core/model-views/page-sectio
 import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
-} from '../../../styles/core-elements/button'
+} from '../../../element-styles/button'
 import {
   commonNavigationStyle,
   listStyle,
@@ -70,7 +70,7 @@ export const navigationHeaderTreeStyle: NavigationHeaderTreeStyle = {
       },
     },
     navList: {
-      list: { ...listStyle, flex: '1 1 auto'},
+      list: { ...listStyle, flex: '1 1 auto' },
       listItem: {
         linkStyle: {
           ...commonNavigationStyle,

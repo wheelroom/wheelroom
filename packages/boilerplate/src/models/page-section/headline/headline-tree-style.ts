@@ -1,6 +1,6 @@
 import { HeadlineTreeStyle } from '../../../core/model-views/page-section/headline-tree'
-import { defaultHeading1Style } from '../../../styles/core-elements/heading'
-import { paragraphHeroStyle } from '../../../styles/core-elements/paragraph'
+import { defaultHeading1Style } from '../../../element-styles/heading'
+import { paragraphHeroStyle } from '../../../element-styles/paragraph'
 
 export const headlineTreeStyle: HeadlineTreeStyle = {
   wrapper: {

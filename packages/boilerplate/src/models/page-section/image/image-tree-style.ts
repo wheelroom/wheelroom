@@ -1,5 +1,5 @@
 import { ImageTreeStyle } from '../../../core/model-views/page-section/image-tree'
-import { smallParagraphStyle } from '../../../styles/core-elements/paragraph'
+import { smallParagraphStyle } from '../../../element-styles/paragraph'
 
 export const imageTreeStyle: ImageTreeStyle = {
   wrapper: {

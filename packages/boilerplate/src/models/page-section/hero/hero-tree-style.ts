@@ -1,6 +1,6 @@
 import { HeroTreeStyle } from '../../../core/model-views/page-section/hero-tree'
-import { paragraphHeroStyle } from '../../../styles/core-elements/paragraph'
-import { buttonPrimaryStyle } from '../../../styles/core-elements/button'
+import { paragraphHeroStyle } from '../../../element-styles/paragraph'
+import { buttonPrimaryStyle } from '../../../element-styles/button'
 
 export const heroTreeStyle: HeroTreeStyle = {
   wrapper: {

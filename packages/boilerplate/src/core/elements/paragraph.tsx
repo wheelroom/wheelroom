@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { defaultParagraphStyle } from '../../styles/core-elements/paragraph'
+import { defaultParagraphStyle } from '../../element-styles/paragraph'
 import { BlockLevelElementName, NcssProps } from './types'
 
 export interface ParagraphProps {

@@ -8,7 +8,7 @@ import {
   defaultContainerStyle,
   defaultBoxStyle,
   defaultContainerMaxWidthStyle,
-} from '../../styles/core-elements/grid'
+} from '../../element-styles/grid'
 
 const getAttrs = (props: GridProps) => {
   const attrs = {

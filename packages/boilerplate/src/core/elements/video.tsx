@@ -8,7 +8,7 @@ import { getStyles } from '../lib/style-tree'
 import {
   defaultVideoStyle,
   defaultVideoDescriptionStyle,
-} from '../../styles/core-elements/video'
+} from '../../element-styles/video'
 
 export interface VideoStyleTree {
   video?: NcssProps

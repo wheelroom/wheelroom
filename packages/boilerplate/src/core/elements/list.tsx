@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { ListElementName, NcssProps } from './types'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { defaultListStyle } from '../../styles/core-elements/list'
+import { defaultListStyle } from '../../element-styles/list'
 
 export interface ListProps {
   /** Render as another HTML element */

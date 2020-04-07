@@ -10,7 +10,7 @@ import {
   PreviewUpdateButton,
   useFetchPreviewPage,
 } from '@wheelroom/admin-page-preview'
-import { reset } from './styles/global/reset'
+import { reset } from './core/global/reset'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { getColorMap, ThemeId } from './styled-system/system-css'

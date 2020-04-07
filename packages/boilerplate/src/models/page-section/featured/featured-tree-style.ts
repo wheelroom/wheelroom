@@ -1,6 +1,6 @@
 import { FeaturedTreeStyle } from '../../../core/model-views/page-section/featured-tree'
-import { defaultHeading2Style } from '../../../styles/core-elements/heading'
-import { defaultParagraphStyle } from '../../../styles/core-elements/paragraph'
+import { defaultHeading2Style } from '../../../element-styles/heading'
+import { defaultParagraphStyle } from '../../../element-styles/paragraph'
 
 export const featuredTreeStyle: FeaturedTreeStyle = {
   wrapper: {

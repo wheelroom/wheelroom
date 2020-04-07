@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { LinkRelationshipAttribute, NcssProps } from './types'
-import { defaultALinkStyle } from '../../styles/core-elements/a-link'
+import { defaultALinkStyle } from '../../element-styles/a-link'
 
 export interface ALinkProps {
   /** React children */
