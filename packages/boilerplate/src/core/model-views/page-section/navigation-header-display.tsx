@@ -17,7 +17,6 @@ export interface NavigationHeaderTreeStyle {
   skipToContent: NcssProps
   wrapper: NcssProps
   container: NcssProps
-  navLogo: NavLogoStyleTree
   menu: {
     nav: NcssProps
     navLogo: NavLogoStyleTree
