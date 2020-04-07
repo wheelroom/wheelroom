@@ -1,20 +1,20 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../../elements/grid'
+import { Box, Container } from '../../elements/grid'
 import { Topic } from '../../../models/topic'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../models/page-section/page-section'
-import { TopicStyleTree } from '../topic/core-topic'
+import { getPageSectionInfo } from '../../lib/get-page-section-info'
+import { TopicStyleTree } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
-export interface VideoTreeStyle {
+export interface HeroTreeStyle {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const VideoTree = (props: {
+export const HeroTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: VideoTreeStyle
+  treeStyle: HeroTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
@@ -24,15 +24,15 @@ export const VideoTree = (props: {
   const topic = props.pageSection.topics[0]
   return (
     <Box is="div" ncss={treeStyle.wrapper}>
-      <ContainerMaxWidth ncss={treeStyle.container}>
+      <Container ncss={treeStyle.container}>
         <Topic
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
-          useHeadingElement="h4"
+          useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
           treeStyle={treeStyle.topic}
         />
-      </ContainerMaxWidth>
+      </Container>
     </Box>
   )
 }

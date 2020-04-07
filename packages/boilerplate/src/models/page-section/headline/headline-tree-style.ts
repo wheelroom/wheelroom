@@ -1,4 +1,4 @@
-import { HeadlineTreeStyle } from '../../../core/model-views/page-section/headline-tree'
+import { HeadlineTreeStyle } from '../../../core/trees/page-section/headline-tree'
 import { defaultHeading1Style } from '../../../element-styles/heading'
 import { paragraphHeroStyle } from '../../../element-styles/paragraph'
 

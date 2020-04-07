@@ -2,25 +2,35 @@ import React from 'react'
 import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { PageSectionProps } from '../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { Topic } from '../../../models/topic'
-import { TopicStyleTree } from '../topic/core-topic'
+import { Topic } from '../../../models/topic/topic'
+import { TopicStyleTree } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
-export interface QuoteTreeStyle {
+export interface CardTreeStyle {
+  conditional: {
+    topicWrapperShadow: NcssProps
+  }
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const QuoteTree = (props: {
+export const CardTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: QuoteTreeStyle
+  treeStyle: CardTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
   const treeStyle = props.treeStyle || {}
+  if (!pageSectionInfo.topicOptions.hideAction) {
+    Object.assign(
+      treeStyle.topic.wrapper,
+      treeStyle.conditional.topicWrapperShadow
+    )
+  }
+
   return (
     <Box is="div" ncss={treeStyle.wrapper}>
       <ContainerMaxWidth ncss={treeStyle.container}>
@@ -30,9 +40,7 @@ export const QuoteTree = (props: {
             {...topic}
             pageSectionActions={props.pageSection.actions}
             pageSectionInfo={pageSectionInfo}
-            fullTopicAsLink={false}
-            useHeadingElement={'p'}
-            useAbstractElement={'blockquote'}
+            fullTopicAsLink={true}
             treeStyle={treeStyle.topic}
           />
         ))}

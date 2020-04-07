@@ -1,20 +1,20 @@
 import React from 'react'
 import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { Topic } from '../../../models/topic'
-import { PageSectionProps } from '../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { TopicStyleTree } from '../topic/core-topic'
+import { PageSectionProps } from '../../../models/page-section/page-section'
+import { TopicStyleTree } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
-export interface FeaturedTreeStyle {
+export interface VideoTreeStyle {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const FeaturedTree = (props: {
+export const VideoTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: FeaturedTreeStyle
+  treeStyle: VideoTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
@@ -29,7 +29,7 @@ export const FeaturedTree = (props: {
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
-          useHeadingElement="h3"
+          useHeadingElement="h4"
           treeStyle={treeStyle.topic}
         />
       </ContainerMaxWidth>

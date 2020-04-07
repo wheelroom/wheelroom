@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from '../page-section'
 import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
-import { VideoTree } from '../../../core/model-views/page-section/video-tree'
+import { VideoTree } from '../../../core/trees/page-section/video-tree'
 import { videoTreeStyle } from './video-tree-style'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {

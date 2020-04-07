@@ -4,12 +4,9 @@ import { Box, Container, Flex } from '../../elements/grid'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../models/page-section/page-section'
 import { NcssProps } from '../../elements/types'
-import {
-  NavSocialLinks,
-  NavSocialLinksStyleTree,
-} from '../navigation/nav-social-links'
-import { NavListStyleTree, NavList } from '../navigation/nav-list'
-import { NavLegalStyleTree, NavLegal } from '../navigation/nav-legal'
+import { NavSocialLinks, NavSocialLinksStyleTree } from './nav-social-links'
+import { NavListStyleTree, NavList } from './nav-list'
+import { NavLegalStyleTree, NavLegal } from './nav-legal'
 
 export interface NavigationFooterTreeStyle {
   wrapper: NcssProps

@@ -41,7 +41,7 @@ export interface TopicCoreProps {
   treeStyle?: TopicStyleTree
 }
 
-export const CoreTopic = (props: TopicProps) => {
+export const TopicTree = (props: TopicProps) => {
   const treeStyle = props.treeStyle || {}
   const topicWrapperStyle = treeStyle.wrapper || {}
   const topicInfo = getTopicInfo(props)

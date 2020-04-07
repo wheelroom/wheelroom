@@ -8,7 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { TextSingleVar } from './text-single-var'
-import { TextCoreProps } from '../../core/model-views/text/core-text'
+import { TextCoreProps } from '../../core/trees/text/core-text'
 
 const componentList = {
   ['single']: TextSingleVar,

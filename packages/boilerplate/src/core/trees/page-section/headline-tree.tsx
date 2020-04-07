@@ -3,7 +3,7 @@ import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { Topic } from '../../../models/topic'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../models/page-section/page-section'
-import { TopicStyleTree } from '../topic/core-topic'
+import { TopicStyleTree } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
 export interface HeadlineTreeStyle {

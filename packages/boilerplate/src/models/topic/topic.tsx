@@ -9,7 +9,7 @@ import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { TopicSingleVar } from './topic-single-var'
 import { MediaObject } from '../../core/elements/types'
-import { TopicCoreProps } from '../../core/model-views/topic/core-topic'
+import { TopicCoreProps } from '../../core/trees/topic/topic-tree'
 
 const componentList = {
   ['single']: TopicSingleVar,

@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from '../page-section'
 import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
-import { HeroTree } from '../../../core/model-views/page-section/hero-tree'
+import { HeroTree } from '../../../core/trees/page-section/hero-tree'
 import { heroTreeStyle } from './hero-tree-style'
 
 export const PageSectionHeroVar = (props: PageSectionProps) => {

@@ -35,7 +35,7 @@ const ActionAlink = (props: ActionProps) => {
   )
 }
 
-export const CoreAction = (props: ActionProps) => {
+export const ActionTree = (props: ActionProps) => {
   return (
     <Fragment>
       {props.page ? <ActionGlink {...props} /> : <ActionAlink {...props} />}

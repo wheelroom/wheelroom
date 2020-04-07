@@ -1,4 +1,4 @@
-import { BlockTreeStyle } from '../../../core/model-views/page-section/block-tree'
+import { BlockTreeStyle } from '../../../core/trees/page-section/block-tree'
 
 export const blockTreeStyle: BlockTreeStyle = {
   wrapper: {

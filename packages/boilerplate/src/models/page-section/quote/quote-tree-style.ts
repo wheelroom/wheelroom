@@ -1,4 +1,4 @@
-import { QuoteTreeStyle } from '../../../core/model-views/page-section/quote-tree'
+import { QuoteTreeStyle } from '../../../core/trees/page-section/quote-tree'
 
 export const quoteTreeStyle: QuoteTreeStyle = {
   wrapper: {

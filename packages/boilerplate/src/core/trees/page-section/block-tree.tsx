@@ -2,34 +2,25 @@ import React from 'react'
 import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { PageSectionProps } from '../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { Topic } from '../../../models/topic/topic'
-import { TopicStyleTree } from '../topic/core-topic'
+import { Topic } from '../../../models/topic'
+import { TopicStyleTree } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
-export interface CardTreeStyle {
-  conditional: {
-    topicWrapperShadow: NcssProps
-  }
+export interface BlockTreeStyle {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const CardTree = (props: {
+export const BlockTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: CardTreeStyle
+  treeStyle: BlockTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
   const treeStyle = props.treeStyle || {}
-  if (!pageSectionInfo.topicOptions.hideAction) {
-    Object.assign(
-      treeStyle.topic.wrapper,
-      treeStyle.conditional.topicWrapperShadow
-    )
-  }
 
   return (
     <Box is="div" ncss={treeStyle.wrapper}>
@@ -40,7 +31,7 @@ export const CardTree = (props: {
             {...topic}
             pageSectionActions={props.pageSection.actions}
             pageSectionInfo={pageSectionInfo}
-            fullTopicAsLink={true}
+            fullTopicAsLink={false}
             treeStyle={treeStyle.topic}
           />
         ))}

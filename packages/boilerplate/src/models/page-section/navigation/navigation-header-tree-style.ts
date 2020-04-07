@@ -1,4 +1,4 @@
-import { NavigationHeaderTreeStyle } from '../../../core/model-views/page-section/navigation-header-tree'
+import { NavigationHeaderTreeStyle } from '../../../core/trees/navigation/navigation-header-tree'
 import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
@@ -7,13 +7,13 @@ import {
   commonNavigationStyle,
   listStyle,
   navStyle,
-} from '../../../core/model-views/page-section/navigation-common-style'
+} from '../../../core/trees/navigation/navigation-common-style'
 import {
   modalOpenStyle,
   modalStyle,
   modalContentOpenStyle,
   modalContentStyle,
-} from '../../../core/model-views/page-section/navigation-modal-style'
+} from '../../../core/trees/navigation/navigation-modal-style'
 
 export const navigationHeaderTreeStyle: NavigationHeaderTreeStyle = {
   skipToContent: {

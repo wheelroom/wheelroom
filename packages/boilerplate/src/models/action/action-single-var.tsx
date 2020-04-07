@@ -8,6 +8,6 @@
 
 import React from 'react'
 import { ActionProps } from './action'
-import { CoreAction } from '../../core/model-views/action/core-action'
+import { ActionTree } from '../../core/trees/action/action-tree'
 
-export const ActionSingleVar = (props: ActionProps) => <CoreAction {...props} />
+export const ActionSingleVar = (props: ActionProps) => <ActionTree {...props} />

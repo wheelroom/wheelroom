@@ -8,9 +8,9 @@
 
 import React from 'react'
 import { TopicProps } from './topic'
-import { CoreTopic } from '../../core/model-views/topic/core-topic'
+import { TopicTree } from '../../core/trees/topic/topic-tree'
 import { MultiParser } from '../../core/parsers/multi-parser'
 
 export const TopicSingleVar = (props: TopicProps) => (
-  <CoreTopic useAbstractParser={MultiParser} {...props} />
+  <TopicTree useAbstractParser={MultiParser} {...props} />
 )

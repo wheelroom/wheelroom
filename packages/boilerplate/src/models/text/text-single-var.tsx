@@ -8,6 +8,6 @@
 
 import React from 'react'
 import { TextProps } from './text'
-import { CoreText } from '../../core/model-views/text/core-text'
+import { CoreText } from '../../core/trees/text/core-text'
 
 export const TextSingleVar = (props: TextProps) => <CoreText {...props} />

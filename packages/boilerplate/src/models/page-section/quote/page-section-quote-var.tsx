@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from '../page-section'
 import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
-import { QuoteTree } from '../../../core/model-views/page-section/quote-tree'
+import { QuoteTree } from '../../../core/trees/page-section/quote-tree'
 import { quoteTreeStyle } from './quote-tree-style'
 
 export const PageSectionQuoteVar = (props: PageSectionProps) => {

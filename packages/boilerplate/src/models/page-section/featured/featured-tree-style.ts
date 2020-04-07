@@ -1,4 +1,4 @@
-import { FeaturedTreeStyle } from '../../../core/model-views/page-section/featured-tree'
+import { FeaturedTreeStyle } from '../../../core/trees/page-section/featured-tree'
 import { defaultHeading2Style } from '../../../element-styles/heading'
 import { defaultParagraphStyle } from '../../../element-styles/paragraph'
 

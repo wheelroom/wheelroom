@@ -8,7 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../core/lib/get-variation'
 import { ActionSingleVar } from './action-single-var'
-import { ActionTreeProps } from '../../core/model-views/action/core-action'
+import { ActionTreeProps } from '../../core/trees/action/action-tree'
 
 const componentList = {
   ['single']: ActionSingleVar,
