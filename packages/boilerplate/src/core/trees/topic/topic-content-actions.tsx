@@ -9,7 +9,7 @@ import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { NcssProps } from '../../elements/types'
 import { ActionTree } from '../action/action-tree'
 
-export interface TopicActionsStyleTree {
+export interface TopicActionsTreeStyle {
   /** Wrapper around action */
   wrapper?: NcssProps
   /** Action link or button style */
@@ -29,7 +29,7 @@ export interface TopicContentActionsProps {
   /** Page section info */
   pageSectionInfo: PageSectionInfo
 
-  treeStyle?: TopicActionsStyleTree
+  treeStyle?: TopicActionsTreeStyle
 }
 
 export const TopicContentActions = (props: TopicContentActionsProps) => {

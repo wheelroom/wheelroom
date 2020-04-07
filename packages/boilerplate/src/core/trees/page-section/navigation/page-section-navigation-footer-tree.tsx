@@ -6,20 +6,20 @@ import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { NcssProps } from '../../../elements/types'
 import {
   NavSocialLinks,
-  NavSocialLinksStyleTree,
+  NavSocialLinksTreeStyle,
 } from '../../navigation/nav-social-links'
-import { NavListStyleTree, NavList } from '../../navigation/nav-list'
-import { NavLegalStyleTree, NavLegal } from '../../navigation/nav-legal'
+import { NavListTreeStyle, NavList } from '../../navigation/nav-list'
+import { NavLegalTreeStyle, NavLegal } from '../../navigation/nav-legal'
 
 export interface PageSectionNavigationFooterTreeStyle {
   wrapper: NcssProps
   container: NcssProps
   menus: {
     nav: NcssProps
-    navList: NavListStyleTree
-    socialNavLinks: NavSocialLinksStyleTree
+    navList: NavListTreeStyle
+    socialNavLinks: NavSocialLinksTreeStyle
   }
-  navLegal: NavLegalStyleTree
+  navLegal: NavLegalTreeStyle
 }
 
 export const PageSectionNavigationFooterTree = (props: {

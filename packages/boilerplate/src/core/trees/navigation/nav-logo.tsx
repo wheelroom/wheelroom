@@ -5,7 +5,7 @@ import { GLink } from '../../elements/g-link'
 import { SiteMetadata } from '../../../page-template'
 import { GlobalsProps } from '../../../models/globals/globals'
 
-export interface NavLogoStyleTree {
+export interface NavLogoTreeStyle {
   container: NcssProps
   link: NcssProps
 }
@@ -13,7 +13,7 @@ export interface NavLogoStyleTree {
 export const NavLogo = (props: {
   globals: GlobalsProps
   siteMetadata: SiteMetadata
-  treeStyle: NavLogoStyleTree
+  treeStyle: NavLogoTreeStyle
 }) => {
   const heading = props.globals.siteHeading
   const version = props.siteMetadata.legal.version

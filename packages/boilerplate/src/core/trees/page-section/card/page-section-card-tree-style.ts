@@ -1,4 +1,14 @@
-import { PageSectionCardTreeStyle } from './page-section-card-tree'
+import { NcssProps } from '../../../elements/types'
+import { TopicTreeStyle } from '../../topic/topic-tree'
+
+export interface PageSectionCardTreeStyle {
+  conditional: {
+    topicWrapperShadow: NcssProps
+  }
+  topic: TopicTreeStyle
+  wrapper: NcssProps
+  container: NcssProps
+}
 
 export const cardTreeStyle: PageSectionCardTreeStyle = {
   conditional: {

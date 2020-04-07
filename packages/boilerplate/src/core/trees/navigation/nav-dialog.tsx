@@ -1,6 +1,6 @@
 import React from 'react'
 import { NcssProps } from '../../elements/types'
-import { NavListStyleTree, NavList } from './nav-list'
+import { NavListTreeStyle, NavList } from './nav-list'
 import { Box, Flex } from '../../elements/grid'
 import { Button } from '../../elements/button'
 import { ActionProps } from '../../../models/action'
@@ -9,7 +9,7 @@ import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { PageProps } from '../../../models/page/page'
 import { ActionTree } from '../action/action-tree'
 
-export interface NavDialogStyleTree {
+export interface NavDialogTreeStyle {
   container: {
     menuVisible: {
       yes: NcssProps
@@ -23,7 +23,7 @@ export interface NavDialogStyleTree {
     }
   }
   closeMenuButton: NcssProps
-  navList: NavListStyleTree
+  navList: NavListTreeStyle
   actions: {
     container: NcssProps
     action: NcssProps
@@ -38,7 +38,7 @@ export const NavDialog = (props: {
   menuVisible: boolean
   pages: PageProps[]
   pageSectionInfo: PageSectionInfo
-  treeStyle: NavDialogStyleTree
+  treeStyle: NavDialogTreeStyle
   toggleTheme: () => void
 }) => {
   const treeStyle = props.treeStyle || {}

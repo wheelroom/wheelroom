@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { getTopicInfo } from '../../lib/get-topic-info'
 import { TopicMedia } from './topic-media'
-import { TopicProps } from '../../../models/topic'
 import { TopicContent } from './topic-content'
+import { TopicTreeProps } from './topic-tree'
 
-export const TopicBody = (props: TopicProps) => {
-  const topicInfo = getTopicInfo(props)
+export const TopicBody = (props: TopicTreeProps) => {
+  const topicInfo = getTopicInfo(props.topic)
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
   const treeStyle = props.treeStyle || {}
@@ -23,7 +23,7 @@ export const TopicBody = (props: TopicProps) => {
           pageSectionInfo={pageSectionInfo}
           reverse={reverse}
           treeStyle={treeStyle.media}
-          topic={props}
+          topic={props.topic}
           topicInfo={topicInfo}
         />
       )}
@@ -33,7 +33,7 @@ export const TopicBody = (props: TopicProps) => {
         pageSectionInfo={pageSectionInfo}
         reverse={reverse}
         treeStyle={treeStyle.content}
-        topic={props}
+        topic={props.topic}
         topicInfo={topicInfo}
         useAbstractElement={props.useAbstractElement}
         useHeadingElement={props.useHeadingElement}

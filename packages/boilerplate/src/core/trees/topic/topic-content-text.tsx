@@ -9,7 +9,7 @@ import { TopicIcon } from './topic-icon'
 import { ParserFunction } from '../../parsers/types'
 import { Paragraph } from '../../elements/paragraph'
 
-export interface TopicContentTextStyleTree {
+export interface TopicContentTextTreeStyle {
   /** Wrapper around heading and abstract */
   wrapper?: NcssProps
   /** Heading style */
@@ -35,7 +35,7 @@ export interface TopicContentTextProps {
   /** Page section info */
   pageSectionInfo: PageSectionInfo
 
-  treeStyle?: TopicContentTextStyleTree
+  treeStyle?: TopicContentTextTreeStyle
 }
 
 export const TopicContentText = (props: TopicContentTextProps) => {

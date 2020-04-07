@@ -5,21 +5,21 @@ import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import {
   TopicContentText,
-  TopicContentTextStyleTree,
+  TopicContentTextTreeStyle,
 } from './topic-content-text'
 import {
   TopicContentActions,
-  TopicActionsStyleTree,
+  TopicActionsTreeStyle,
 } from './topic-content-actions'
 import { BlockLevelElementName, NcssProps } from '../../elements/types'
 import { ActionProps } from '../../../models/action/action'
 import { ParserFunction } from '../../parsers/types'
 
-export interface TopicContentStyleTree {
+export interface TopicContentTreeStyle {
   /** Wrapper around all content including action */
   wrapper?: NcssProps
-  contentText?: TopicContentTextStyleTree
-  contentActions?: TopicActionsStyleTree
+  contentText?: TopicContentTextTreeStyle
+  contentActions?: TopicActionsTreeStyle
 }
 
 export interface TopicContentWrapperProps {
@@ -45,7 +45,7 @@ export interface TopicContentWrapperProps {
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
 
-  treeStyle?: TopicContentStyleTree
+  treeStyle?: TopicContentTreeStyle
 }
 
 export const TopicContent = (props: TopicContentWrapperProps) => {

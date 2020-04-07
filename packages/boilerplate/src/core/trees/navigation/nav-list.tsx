@@ -1,17 +1,17 @@
 import { List } from '../../elements/list'
 import React from 'react'
 import { NcssProps } from '../../elements/types'
-import { NavLinks, NavLinksStyleTree } from './nav-links'
+import { NavLinks, NavLinksTreeStyle } from './nav-links'
 import { PageProps } from '../../../models/page/page'
 
-export interface NavListStyleTree {
+export interface NavListTreeStyle {
   list: NcssProps
-  listItem: NavLinksStyleTree
+  listItem: NavLinksTreeStyle
 }
 
 export const NavList = (props: {
   pages: PageProps[]
-  treeStyle: NavListStyleTree
+  treeStyle: NavListTreeStyle
 }) => {
   const treeStyle = props.treeStyle || {}
   return (

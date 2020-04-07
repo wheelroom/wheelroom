@@ -5,8 +5,8 @@ import { NcssProps, BlockLevelElementName } from '../../elements/types'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { TopicBody } from './topic-body'
 import { TopicProps } from '../../../models/topic/topic'
-import { TopicMediaStyleTree } from './topic-media'
-import { TopicContentStyleTree } from './topic-content'
+import { TopicMediaTreeStyle } from './topic-media'
+import { TopicContentTreeStyle } from './topic-content'
 import { ParserFunction } from '../../parsers/types'
 import { ActionProps } from '../../../models/action/action'
 import { ActionTree } from '../action/action-tree'
@@ -15,11 +15,13 @@ export interface TopicTreeStyle {
   /** Wrapper around the whole topic */
   wrapper?: NcssProps
   /** Wrapper around media */
-  media?: TopicMediaStyleTree
-  content?: TopicContentStyleTree
+  media?: TopicMediaTreeStyle
+  content?: TopicContentTreeStyle
 }
 
-export interface TopicTreeProps extends TopicProps {
+export interface TopicTreeProps {
+  /** The topic to render */
+  topic?: TopicProps
   /** Options that change topic display behaviour */
   pageSectionInfo: PageSectionInfo
   /** Page section actions will override all topic actions */
@@ -43,13 +45,16 @@ export interface TopicTreeProps extends TopicProps {
 }
 
 export const TopicTree = (props: TopicTreeProps) => {
+  if (!props.topic) {
+    return null
+  }
   const treeStyle = props.treeStyle || {}
   const topicWrapperStyle = treeStyle.wrapper || {}
-  const topicInfo = getTopicInfo(props)
+  const topicInfo = getTopicInfo(props.topic)
   const fullTopicAsLink = topicInfo.hasAction && props.fullTopicAsLink
   return fullTopicAsLink ? (
     <ActionTree
-      {...props.actions[0]}
+      {...props.topic.actions[0]}
       treeStyle={{
         display: 'flex',
         flexDirection: 'column',

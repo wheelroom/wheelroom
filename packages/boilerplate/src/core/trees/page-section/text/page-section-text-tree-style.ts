@@ -1,7 +1,14 @@
-import { PageSectionTextTreeStyle } from './page-section-text-tree'
-import { textStyleTree } from '../../text/text-tree-style'
+import { TextTreeStyle } from '../../text/text-tree'
+import { NcssProps } from '../../../elements/types'
+import { textTreeStyle } from '../../text/text-tree-style'
 
-export const textTreeStyle: PageSectionTextTreeStyle = {
+export interface PageSectionTextTreeStyle {
+  text: TextTreeStyle
+  wrapper: NcssProps
+  container: NcssProps
+}
+
+export const pageSectionTextTreeStyle: PageSectionTextTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',
@@ -9,5 +16,5 @@ export const textTreeStyle: PageSectionTextTreeStyle = {
   container: {
     px: 3,
   },
-  text: textStyleTree,
+  text: textTreeStyle,
 }

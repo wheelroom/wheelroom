@@ -4,13 +4,13 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, MediaObject } from './types'
-import { getStyles } from '../lib/style-tree'
+import { getStyles } from '../lib/tree-style'
 import {
   defaultVideoStyle,
   defaultVideoDescriptionStyle,
 } from '../../element-styles/video'
 
-export interface VideoStyleTree {
+export interface VideoTreeStyle {
   video?: NcssProps
   description?: NcssProps
 }
@@ -20,7 +20,7 @@ export interface VideoProps {
   includeDescription?: boolean
   includeTitle?: boolean
   media?: MediaObject
-  treeStyle?: VideoStyleTree
+  treeStyle?: VideoTreeStyle
   title?: string
 }
 

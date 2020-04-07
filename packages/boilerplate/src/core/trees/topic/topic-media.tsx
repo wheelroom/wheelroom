@@ -1,16 +1,16 @@
 import React from 'react'
-import { Image, ImageStyleTree } from '../../elements/image'
+import { Image, ImageTreeStyle } from '../../elements/image'
 import { Box } from '../../elements/grid'
 import { TopicProps } from '../../../models/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import { Video, VideoStyleTree } from '../../elements/video'
+import { Video, VideoTreeStyle } from '../../elements/video'
 import { NcssProps } from '../../elements/types'
 
-export interface TopicMediaStyleTree {
+export interface TopicMediaTreeStyle {
   wrapper?: NcssProps
-  image?: ImageStyleTree
-  video?: VideoStyleTree
+  image?: ImageTreeStyle
+  video?: VideoTreeStyle
 }
 
 export interface TopicMediaProps {
@@ -23,7 +23,7 @@ export interface TopicMediaProps {
   /** Reverse image and content */
   reverse?: boolean
 
-  treeStyle?: TopicMediaStyleTree
+  treeStyle?: TopicMediaTreeStyle
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {

@@ -1,6 +1,12 @@
-import { PageSectionHeadlineTreeStyle } from './page-section-headline-tree'
 import { defaultHeading1Style } from '../../../../element-styles/heading'
 import { paragraphHeroStyle } from '../../../../element-styles/paragraph'
+import { TopicTreeStyle } from '../../topic/topic-tree'
+import { NcssProps } from '../../../elements/types'
+
+export interface PageSectionHeadlineTreeStyle {
+  topic: TopicTreeStyle
+  wrapper: NcssProps
+}
 
 export const headlineTreeStyle: PageSectionHeadlineTreeStyle = {
   wrapper: {

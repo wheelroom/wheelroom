@@ -1,6 +1,13 @@
-import { PageSectionHeroTreeStyle } from './page-section-hero-tree'
 import { paragraphHeroStyle } from '../../../../element-styles/paragraph'
 import { buttonPrimaryStyle } from '../../../../element-styles/button'
+import { TopicTreeStyle } from '../../topic/topic-tree'
+import { NcssProps } from '../../../elements/types'
+
+export interface PageSectionHeroTreeStyle {
+  topic: TopicTreeStyle
+  wrapper: NcssProps
+  container: NcssProps
+}
 
 export const heroTreeStyle: PageSectionHeroTreeStyle = {
   wrapper: {

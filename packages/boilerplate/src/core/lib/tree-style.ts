@@ -1,10 +1,10 @@
 import { NcssProps } from '../elements/types'
 
-export interface StyleTree {
-  [objectName: string]: NcssProps | StyleTree
+export interface TreeStyle {
+  [objectName: string]: NcssProps | TreeStyle
 }
 
-export const getStyles = (base: StyleTree = {}, ...objectNames: string[]) => {
+export const getStyles = (base: TreeStyle = {}, ...objectNames: string[]) => {
   const styles: NcssProps[] = []
   objectNames.forEach((name: string) => {
     const style = (base && base[name]) || {}

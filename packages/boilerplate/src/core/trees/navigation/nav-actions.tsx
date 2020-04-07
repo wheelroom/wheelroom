@@ -6,7 +6,7 @@ import { Button } from '../../elements/button'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { ActionTree } from '../action/action-tree'
 
-export interface NavActionsStyleTree {
+export interface NavActionsTreeStyle {
   container: NcssProps
   action: NcssProps
   themeButton: NcssProps
@@ -16,7 +16,7 @@ export const NavActions = (props: {
   action: ActionProps
   activeThemeId?: string
   pageSectionInfo: PageSectionInfo
-  treeStyle: NavActionsStyleTree
+  treeStyle: NavActionsTreeStyle
   toggleTheme: () => void
 }) => {
   if (!props.pageSectionInfo.hasAction) {

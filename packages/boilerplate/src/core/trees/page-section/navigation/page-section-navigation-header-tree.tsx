@@ -8,10 +8,10 @@ import { NavigationSegmentProps } from '../../../../models/navigation-segment'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { NcssProps } from '../../../elements/types'
-import { NavListStyleTree, NavList } from '../../navigation/nav-list'
-import { NavLogo, NavLogoStyleTree } from '../../navigation/nav-logo'
-import { NavActionsStyleTree, NavActions } from '../../navigation/nav-actions'
-import { NavDialogStyleTree, NavDialog } from '../../navigation/nav-dialog'
+import { NavListTreeStyle, NavList } from '../../navigation/nav-list'
+import { NavLogo, NavLogoTreeStyle } from '../../navigation/nav-logo'
+import { NavActionsTreeStyle, NavActions } from '../../navigation/nav-actions'
+import { NavDialogTreeStyle, NavDialog } from '../../navigation/nav-dialog'
 
 export interface PageSectionNavigationHeaderTreeStyle {
   skipToContent: NcssProps
@@ -19,13 +19,13 @@ export interface PageSectionNavigationHeaderTreeStyle {
   container: NcssProps
   menu: {
     nav: NcssProps
-    navLogo: NavLogoStyleTree
-    navList: NavListStyleTree
-    navActions: NavActionsStyleTree
+    navLogo: NavLogoTreeStyle
+    navList: NavListTreeStyle
+    navActions: NavActionsTreeStyle
     modalDialog: {
       container: NcssProps
       openMenuButton: NcssProps
-      navDialog: NavDialogStyleTree
+      navDialog: NavDialogTreeStyle
     }
   }
 }

@@ -1,4 +1,11 @@
-import { PageSectionQuoteTreeStyle } from './page-section-quote-tree'
+import { TopicTreeStyle } from '../../topic/topic-tree'
+import { NcssProps } from '../../../elements/types'
+
+export interface PageSectionQuoteTreeStyle {
+  topic: TopicTreeStyle
+  wrapper: NcssProps
+  container: NcssProps
+}
 
 export const quoteTreeStyle: PageSectionQuoteTreeStyle = {
   wrapper: {

@@ -5,7 +5,7 @@ import React from 'react'
 import { NcssProps } from '../../elements/types'
 import { ActionTree } from '../action/action-tree'
 
-export interface NavSocialLinksStyleTree {
+export interface NavSocialLinksTreeStyle {
   list: NcssProps
   action: NcssProps
   icon: NcssProps
@@ -13,7 +13,7 @@ export interface NavSocialLinksStyleTree {
 
 export const NavSocialLinks = (props: {
   topics: TopicProps[]
-  treeStyle: NavSocialLinksStyleTree
+  treeStyle: NavSocialLinksTreeStyle
 }) => {
   const treeStyle = props.treeStyle || {}
   return (

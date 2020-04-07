@@ -3,7 +3,7 @@ import { defaultALinkStyle } from '../../../element-styles/a-link'
 import { defaultVideoStyle } from '../../../element-styles/video'
 import { TextTreeStyle } from './text-tree'
 
-export const textStyleTree: TextTreeStyle = {
+export const textTreeStyle: TextTreeStyle = {
   wrapper: {
     label: 'text',
     mx: 'auto',

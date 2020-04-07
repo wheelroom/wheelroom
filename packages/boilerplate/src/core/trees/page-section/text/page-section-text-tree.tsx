@@ -2,14 +2,11 @@ import React from 'react'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Box, ContainerMaxWidth } from '../../../elements/grid'
-import { NcssProps } from '../../../elements/types'
-import { TextTreeStyle, TextTree } from '../../text/text-tree'
-
-export interface PageSectionTextTreeStyle {
-  text: TextTreeStyle
-  wrapper: NcssProps
-  container: NcssProps
-}
+import {
+  PageSectionTextTreeStyle,
+  pageSectionTextTreeStyle,
+} from './page-section-text-tree-style'
+import { TextTree } from '../../text/text-tree'
 
 export const PageSectionTextTree = (props: {
   pageSection: PageSectionProps
@@ -26,7 +23,8 @@ export const PageSectionTextTree = (props: {
         <TextTree
           {...props.pageSection.text}
           locale={props.pageSection.locale}
-          treeStyle={treeStyle.text}
+          treeStyle={pageSectionTextTreeStyle}
+          text={props.pageSection.text}
         />
       </ContainerMaxWidth>
     </Box>

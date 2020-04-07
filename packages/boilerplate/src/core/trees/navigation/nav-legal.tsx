@@ -5,7 +5,7 @@ import { Any } from '../../elements/any'
 import { ALink } from '../../elements/a-link'
 import { SiteMetadata } from '../../../page-template'
 
-export interface NavLegalStyleTree {
+export interface NavLegalTreeStyle {
   container: NcssProps
   innerContainer: NcssProps
   text: NcssProps
@@ -14,7 +14,7 @@ export interface NavLegalStyleTree {
 
 export const NavLegal = (props: {
   siteMetadata: SiteMetadata
-  treeStyle: NavLegalStyleTree
+  treeStyle: NavLegalTreeStyle
 }) => {
   const treeStyle = props.treeStyle || {}
   return (

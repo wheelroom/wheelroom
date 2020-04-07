@@ -1,6 +1,13 @@
-import { PageSectionFeaturedTreeStyle } from './page-section-featured-tree'
 import { defaultHeading2Style } from '../../../../element-styles/heading'
 import { defaultParagraphStyle } from '../../../../element-styles/paragraph'
+import { TopicTreeStyle } from '../../topic/topic-tree'
+import { NcssProps } from '../../../elements/types'
+
+export interface PageSectionFeaturedTreeStyle {
+  topic: TopicTreeStyle
+  wrapper: NcssProps
+  container: NcssProps
+}
 
 export const featuredTreeStyle: PageSectionFeaturedTreeStyle = {
   wrapper: {
