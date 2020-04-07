@@ -1,5 +1,8 @@
 import { PageSectionNavigationFooterTreeStyle } from './page-section-navigation-footer-tree'
-import { commonNavigationStyle, listStyle } from './navigation-common-style'
+import {
+  commonNavigationStyle,
+  listStyle,
+} from '../common/navigation-common-style'
 
 export const navigationFooterTreeStyle: PageSectionNavigationFooterTreeStyle = {
   wrapper: {

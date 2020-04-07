@@ -10,10 +10,10 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { navigationHeaderTreeStyle } from '../../core/trees/page-section/navigation/page-section-navigation-header-tree-style'
-import { navigationFooterTreeStyle } from '../../core/trees/page-section/navigation/page-section-navigation-footer-tree-style'
-import { PageSectionNavigationHeaderTree } from '../../core/trees/page-section/navigation/page-section-navigation-header-tree'
-import { PageSectionNavigationFooterTree } from '../../core/trees/page-section/navigation/page-section-navigation-footer-tree'
+import { navigationHeaderTreeStyle } from '../../core/trees/page-section/navigation/header/page-section-navigation-header-tree-style'
+import { navigationFooterTreeStyle } from '../../core/trees/page-section/navigation/footer/page-section-navigation-footer-tree-style'
+import { PageSectionNavigationHeaderTree } from '../../core/trees/page-section/navigation/header/page-section-navigation-header-tree'
+import { PageSectionNavigationFooterTree } from '../../core/trees/page-section/navigation/footer/page-section-navigation-footer-tree'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)

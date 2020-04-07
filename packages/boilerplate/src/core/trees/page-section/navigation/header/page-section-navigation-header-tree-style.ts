@@ -2,12 +2,12 @@ import { PageSectionNavigationHeaderTreeStyle } from './page-section-navigation-
 import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
-} from '../../../../element-styles/button'
+} from '../../../../../element-styles/button'
 import {
   commonNavigationStyle,
   listStyle,
   navStyle,
-} from './navigation-common-style'
+} from '../common/navigation-common-style'
 import {
   modalOpenStyle,
   modalStyle,

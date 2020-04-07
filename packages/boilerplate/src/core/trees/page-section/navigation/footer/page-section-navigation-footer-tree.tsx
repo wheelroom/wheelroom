@@ -1,14 +1,11 @@
 import React, { Fragment } from 'react'
-import { NavigationSegmentProps } from '../../../../models/navigation-segment'
-import { Box, Container, Flex } from '../../../elements/grid'
-import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageSectionProps } from '../../../../models/page-section/page-section'
-import { NcssProps } from '../../../elements/types'
-import {
-  NavSocialLinks,
-  NavSocialLinksTreeStyle,
-} from './nav-social-links'
-import { NavListTreeStyle, NavList } from './nav-list'
+import { NavigationSegmentProps } from '../../../../../models/navigation-segment'
+import { Box, Container, Flex } from '../../../../elements/grid'
+import { getPageSectionInfo } from '../../../../lib/get-page-section-info'
+import { PageSectionProps } from '../../../../../models/page-section/page-section'
+import { NcssProps } from '../../../../elements/types'
+import { NavSocialLinks, NavSocialLinksTreeStyle } from './nav-social-links'
+import { NavListTreeStyle, NavList } from '../common/nav-list'
 import { NavLegalTreeStyle, NavLegal } from './nav-legal'
 
 export interface PageSectionNavigationFooterTreeStyle {

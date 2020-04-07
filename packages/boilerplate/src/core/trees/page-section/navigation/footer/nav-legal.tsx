@@ -1,9 +1,9 @@
 import React from 'react'
-import { NcssProps } from '../../../elements/types'
-import { Container, Flex } from '../../../elements/grid'
-import { Any } from '../../../elements/any'
-import { ALink } from '../../../elements/a-link'
-import { SiteMetadata } from '../../../../page-template'
+import { NcssProps } from '../../../../elements/types'
+import { Container, Flex } from '../../../../elements/grid'
+import { Any } from '../../../../elements/any'
+import { ALink } from '../../../../elements/a-link'
+import { SiteMetadata } from '../../../../../page-template'
 
 export interface NavLegalTreeStyle {
   container: NcssProps
