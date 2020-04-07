@@ -1,6 +1,6 @@
 import { PageSectionFeaturedTreeStyle } from './page-section-featured-tree'
-import { defaultHeading2Style } from '../../../element-styles/heading'
-import { defaultParagraphStyle } from '../../../element-styles/paragraph'
+import { defaultHeading2Style } from '../../../../element-styles/heading'
+import { defaultParagraphStyle } from '../../../../element-styles/paragraph'
 
 export const featuredTreeStyle: PageSectionFeaturedTreeStyle = {
   wrapper: {

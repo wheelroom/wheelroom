@@ -10,8 +10,8 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { PageSectionCardTree } from '../../core/trees/page-section/page-section-card-tree'
-import { cardTreeStyle } from '../../core/trees/page-section/page-section-card-tree-style'
+import { PageSectionCardTree } from '../../core/trees/page-section/card/page-section-card-tree'
+import { cardTreeStyle } from '../../core/trees/page-section/card/page-section-card-tree-style'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)

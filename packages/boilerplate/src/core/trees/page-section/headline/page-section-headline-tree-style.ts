@@ -1,6 +1,6 @@
 import { PageSectionHeadlineTreeStyle } from './page-section-headline-tree'
-import { defaultHeading1Style } from '../../../element-styles/heading'
-import { paragraphHeroStyle } from '../../../element-styles/paragraph'
+import { defaultHeading1Style } from '../../../../element-styles/heading'
+import { paragraphHeroStyle } from '../../../../element-styles/paragraph'
 
 export const headlineTreeStyle: PageSectionHeadlineTreeStyle = {
   wrapper: {

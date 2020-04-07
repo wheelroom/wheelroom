@@ -1,9 +1,9 @@
 import React from 'react'
-import { PageSectionProps } from '../../../models/page-section/page-section'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { Box, ContainerMaxWidth } from '../../elements/grid'
-import { NcssProps } from '../../elements/types'
-import { TextTreeStyle, TextTree } from '../text/text-tree'
+import { PageSectionProps } from '../../../../models/page-section/page-section'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { Box, ContainerMaxWidth } from '../../../elements/grid'
+import { NcssProps } from '../../../elements/types'
+import { TextTreeStyle, TextTree } from '../../text/text-tree'
 
 export interface PageSectionTextTreeStyle {
   text: TextTreeStyle

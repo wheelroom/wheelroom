@@ -1,5 +1,5 @@
 import { PageSectionVideoTreeStyle } from './page-section-video-tree'
-import { smallParagraphStyle } from '../../../element-styles/paragraph'
+import { smallParagraphStyle } from '../../../../element-styles/paragraph'
 
 export const videoTreeStyle: PageSectionVideoTreeStyle = {
   wrapper: {

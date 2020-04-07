@@ -3,7 +3,7 @@ import {
   defaultImageImgStyle,
   defaultImagePictureStyle,
   defaultImageFigcaptionStyle,
-} from '../../../element-styles/image'
+} from '../../../../element-styles/image'
 
 export const galleryTreeStyle: PageSectionGalleryTreeStyle = {
   wrapper: {

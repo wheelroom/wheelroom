@@ -1,5 +1,5 @@
 import { PageSectionTextTreeStyle } from './page-section-text-tree'
-import { textStyleTree } from '../text/text-tree-style'
+import { textStyleTree } from '../../text/text-tree-style'
 
 export const textTreeStyle: PageSectionTextTreeStyle = {
   wrapper: {

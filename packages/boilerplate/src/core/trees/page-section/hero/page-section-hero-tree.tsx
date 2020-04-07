@@ -1,19 +1,19 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../../elements/grid'
-import { PageSectionProps } from '../../../models/page-section/page-section'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { TopicTreeStyle, TopicTree } from '../topic/topic-tree'
-import { NcssProps } from '../../elements/types'
+import { Box, Container } from '../../../elements/grid'
+import { PageSectionProps } from '../../../../models/page-section/page-section'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { TopicTreeStyle, TopicTree } from '../../topic/topic-tree'
+import { NcssProps } from '../../../elements/types'
 
-export interface PageSectionFeaturedTreeStyle {
+export interface PageSectionHeroTreeStyle {
   topic: TopicTreeStyle
   wrapper: NcssProps
   container: NcssProps
 }
 
-export const PageSectionFeaturedTree = (props: {
+export const PageSectionHeroTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: PageSectionFeaturedTreeStyle
+  treeStyle: PageSectionHeroTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
@@ -23,15 +23,15 @@ export const PageSectionFeaturedTree = (props: {
   const topic = props.pageSection.topics[0]
   return (
     <Box is="div" ncss={treeStyle.wrapper}>
-      <ContainerMaxWidth ncss={treeStyle.container}>
+      <Container ncss={treeStyle.container}>
         <TopicTree
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
-          useHeadingElement="h3"
+          useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
           treeStyle={treeStyle.topic}
         />
-      </ContainerMaxWidth>
+      </Container>
     </Box>
   )
 }

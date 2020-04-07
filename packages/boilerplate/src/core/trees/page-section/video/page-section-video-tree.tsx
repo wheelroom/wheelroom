@@ -1,9 +1,9 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../../elements/grid'
-import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { PageSectionProps } from '../../../models/page-section/page-section'
-import { TopicTreeStyle, TopicTree } from '../topic/topic-tree'
-import { NcssProps } from '../../elements/types'
+import { Box, ContainerMaxWidth } from '../../../elements/grid'
+import { getPageSectionInfo } from '../../../lib/get-page-section-info'
+import { PageSectionProps } from '../../../../models/page-section/page-section'
+import { TopicTreeStyle, TopicTree } from '../../topic/topic-tree'
+import { NcssProps } from '../../../elements/types'
 
 export interface PageSectionVideoTreeStyle {
   topic: TopicTreeStyle
