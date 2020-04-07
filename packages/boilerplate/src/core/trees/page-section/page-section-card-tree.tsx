@@ -23,12 +23,6 @@ export const PageSectionCardTree = (props: {
     return null
   }
   const treeStyle = props.treeStyle || {}
-  if (!pageSectionInfo.topicOptions.hideAction) {
-    Object.assign(
-      treeStyle.topic.wrapper,
-      treeStyle.conditional.topicWrapperShadow
-    )
-  }
 
   return (
     <Box is="div" ncss={treeStyle.wrapper}>

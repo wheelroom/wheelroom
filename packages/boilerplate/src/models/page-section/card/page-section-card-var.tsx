@@ -16,6 +16,13 @@ import { cardTreeStyle } from './card-tree-style'
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
+    if (!pageSectionInfo.topicOptions.hideAction) {
+      Object.assign(
+        cardTreeStyle.topic.wrapper,
+        cardTreeStyle.conditional.topicWrapperShadow
+      )
+    }
+  
     return <PageSectionCardTree pageSection={props} treeStyle={cardTreeStyle} />
   }
 
