@@ -6,7 +6,7 @@ import { PageSectionProps } from '../../../models/page-section/page-section'
 import { TopicStyleTree } from '../topic/core-topic'
 import { NcssProps } from '../../elements/types'
 
-export interface ImageTreeStyleTree {
+export interface ImageTreeStyle {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
@@ -14,7 +14,7 @@ export interface ImageTreeStyleTree {
 
 export const ImageTree = (props: {
   pageSection: PageSectionProps
-  styleTree: ImageTreeStyleTree
+  styleTree: ImageTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {

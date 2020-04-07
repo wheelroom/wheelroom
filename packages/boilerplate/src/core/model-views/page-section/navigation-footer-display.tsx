@@ -11,7 +11,7 @@ import {
 import { NavListStyleTree, NavList } from '../navigation/nav-list'
 import { NavLegalStyleTree, NavLegal } from '../navigation/nav-legal'
 
-export interface NavigationFooterTreeStyleTree {
+export interface NavigationFooterTreeStyle {
   wrapper: NcssProps
   container: NcssProps
   menus: {
@@ -24,7 +24,7 @@ export interface NavigationFooterTreeStyleTree {
 
 export const NavigationFooterTree = (props: {
   pageSection: PageSectionProps
-  styleTree: NavigationFooterTreeStyleTree
+  styleTree: NavigationFooterTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasNavigation) {

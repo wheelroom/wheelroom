@@ -6,7 +6,7 @@ import { PageSectionProps } from '../../../models/page-section/page-section'
 import { TopicStyleTree } from '../topic/core-topic'
 import { NcssProps } from '../../elements/types'
 
-export interface VideoTreeStyleTree {
+export interface VideoTreeStyle {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
@@ -14,7 +14,7 @@ export interface VideoTreeStyleTree {
 
 export const VideoTree = (props: {
   pageSection: PageSectionProps
-  styleTree: VideoTreeStyleTree
+  styleTree: VideoTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {

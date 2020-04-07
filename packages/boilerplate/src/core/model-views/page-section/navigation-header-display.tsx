@@ -13,7 +13,7 @@ import { NavLogo, NavLogoStyleTree } from '../navigation/nav-logo'
 import { NavActionsStyleTree, NavActions } from '../navigation/nav-actions'
 import { NavDialogStyleTree, NavDialog } from '../navigation/nav-dialog'
 
-export interface NavigationHeaderTreeStyleTree {
+export interface NavigationHeaderTreeStyle {
   skipToContent: NcssProps
   wrapper: NcssProps
   container: NcssProps
@@ -33,7 +33,7 @@ export interface NavigationHeaderTreeStyleTree {
 
 export const NavigationHeaderTree = (props: {
   pageSection: PageSectionProps
-  styleTree: NavigationHeaderTreeStyleTree
+  styleTree: NavigationHeaderTreeStyle
 }) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)

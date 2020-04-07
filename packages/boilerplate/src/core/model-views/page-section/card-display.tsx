@@ -6,7 +6,7 @@ import { Topic } from '../../../models/topic/topic'
 import { TopicStyleTree } from '../topic/core-topic'
 import { NcssProps } from '../../elements/types'
 
-export interface CardTreeStyleTree {
+export interface CardTreeStyle {
   conditional: {
     topicWrapperShadow: NcssProps
   }
@@ -17,7 +17,7 @@ export interface CardTreeStyleTree {
 
 export const CardTree = (props: {
   pageSection: PageSectionProps
-  styleTree: CardTreeStyleTree
+  styleTree: CardTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {

@@ -6,7 +6,7 @@ import { Box, ContainerMaxWidth } from '../../elements/grid'
 import { NcssProps } from '../../elements/types'
 import { TextStyleTree } from '../text/core-text'
 
-export interface TextTreeStyleTree {
+export interface TextTreeStyle {
   text: TextStyleTree
   wrapper: NcssProps
   container: NcssProps
@@ -14,7 +14,7 @@ export interface TextTreeStyleTree {
 
 export const TextTree = (props: {
   pageSection: PageSectionProps
-  styleTree: TextTreeStyleTree
+  styleTree: TextTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasText) {

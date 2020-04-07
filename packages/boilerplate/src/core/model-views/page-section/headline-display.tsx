@@ -6,14 +6,14 @@ import { PageSectionProps } from '../../../models/page-section/page-section'
 import { TopicStyleTree } from '../topic/core-topic'
 import { NcssProps } from '../../elements/types'
 
-export interface HeadlineTreeStyleTree {
+export interface HeadlineTreeStyle {
   topic: TopicStyleTree
   wrapper: NcssProps
 }
 
 export const HeadlineTree = (props: {
   pageSection: PageSectionProps
-  styleTree: HeadlineTreeStyleTree
+  styleTree: HeadlineTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {

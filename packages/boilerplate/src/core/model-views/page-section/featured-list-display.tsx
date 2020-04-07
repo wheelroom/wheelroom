@@ -6,7 +6,7 @@ import { PageSectionProps } from '../../../models/page-section/page-section'
 import { TopicStyleTree } from '../topic/core-topic'
 import { NcssProps } from '../../elements/types'
 
-export interface FeaturedListTreeStyleTree {
+export interface FeaturedListTreeStyle {
   conditional: {
     containerHideMedia: {
       no: NcssProps
@@ -24,7 +24,7 @@ export interface FeaturedListTreeStyleTree {
 
 export const FeaturedListTree = (props: {
   pageSection: PageSectionProps
-  styleTree: FeaturedListTreeStyleTree
+  styleTree: FeaturedListTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   const topicOptions = pageSectionInfo.topicOptions

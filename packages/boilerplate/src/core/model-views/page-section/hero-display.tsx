@@ -6,7 +6,7 @@ import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { TopicStyleTree } from '../topic/core-topic'
 import { NcssProps } from '../../elements/types'
 
-export interface HeroTreeStyleTree {
+export interface HeroTreeStyle {
   topic: TopicStyleTree
   wrapper: NcssProps
   container: NcssProps
@@ -14,7 +14,7 @@ export interface HeroTreeStyleTree {
 
 export const HeroTree = (props: {
   pageSection: PageSectionProps
-  styleTree: HeroTreeStyleTree
+  styleTree: HeroTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {

@@ -1,7 +1,7 @@
-import { VideoTreeStyleTree } from '../../core/model-views/page-section/video-display'
+import { VideoTreeStyle } from '../../core/model-views/page-section/video-display'
 import { smallParagraphStyle } from '../core-elements/paragraph'
 
-export const videoDisplayStyleTree: VideoTreeStyleTree = {
+export const videoDisplayStyleTree: VideoTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',
