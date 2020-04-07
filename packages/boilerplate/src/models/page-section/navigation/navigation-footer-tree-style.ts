@@ -1,7 +1,7 @@
 import { NavigationFooterTreeStyle } from '../../../core/model-views/page-section/navigation-footer-tree'
 import { commonNavigationStyle, listStyle } from '../../../core/model-views/page-section/navigation-common-style'
 
-export const navigationFooterDisplayStyleTree: NavigationFooterTreeStyle = {
+export const navigationFooterTreeStyle: NavigationFooterTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

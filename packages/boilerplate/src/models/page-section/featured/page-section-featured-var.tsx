@@ -12,8 +12,8 @@ import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
 import { FeaturedTree } from '../../../core/model-views/page-section/featured-tree'
 import { FeaturedListTree } from '../../../core/model-views/page-section/featured-list-tree'
-import { featuredDisplayStyleTree } from './featured-tree-style'
-import { featuredListDisplayStyleTree } from './featured-list-tree-style'
+import { featuredTreeStyle } from './featured-tree-style'
+import { featuredListTreeStyle } from './featured-list-tree-style'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -21,7 +21,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     return (
       <FeaturedTree
         pageSection={props}
-        treeStyle={featuredDisplayStyleTree}
+        treeStyle={featuredTreeStyle}
       />
     )
   }
@@ -29,7 +29,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     return (
       <FeaturedListTree
         pageSection={props}
-        treeStyle={featuredListDisplayStyleTree}
+        treeStyle={featuredListTreeStyle}
       />
     )
   }

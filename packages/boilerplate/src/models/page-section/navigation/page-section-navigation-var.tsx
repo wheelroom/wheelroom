@@ -12,8 +12,8 @@ import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
 import { NavigationFooterTree } from '../../../core/model-views/page-section/navigation-footer-tree'
 import { NavigationHeaderTree } from '../../../core/model-views/page-section/navigation-header-tree'
-import { navigationHeaderDisplayStyleTree } from './navigation-header-tree-style'
-import { navigationFooterDisplayStyleTree } from './navigation-footer-tree-style'
+import { navigationHeaderTreeStyle } from './navigation-header-tree-style'
+import { navigationFooterTreeStyle } from './navigation-footer-tree-style'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
@@ -21,7 +21,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     return (
       <NavigationHeaderTree
         pageSection={props}
-        treeStyle={navigationHeaderDisplayStyleTree}
+        treeStyle={navigationHeaderTreeStyle}
       />
     )
   }
@@ -30,7 +30,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     return (
       <NavigationFooterTree
         pageSection={props}
-        treeStyle={navigationFooterDisplayStyleTree}
+        treeStyle={navigationFooterTreeStyle}
       />
     )
   }

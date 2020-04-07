@@ -5,7 +5,7 @@ import {
   defaultImageFigcaptionStyle,
 } from '../../../styles/core-elements/image'
 
-export const galleryDisplayStyleTree: GalleryTreeStyle = {
+export const galleryTreeStyle: GalleryTreeStyle = {
   wrapper: {
     label: 'Wrapper',
     bg: 'bg',

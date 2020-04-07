@@ -11,12 +11,12 @@ import { PageSectionProps } from '../page-section'
 import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
 import { BlockTree } from '../../../core/model-views/page-section/block-tree'
-import { blockDisplayStyleTree } from './block-tree-style'
+import { blockTreeStyle } from './block-tree-style'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
-    return <BlockTree pageSection={props} treeStyle={blockDisplayStyleTree} />
+    return <BlockTree pageSection={props} treeStyle={blockTreeStyle} />
   }
 
   /**

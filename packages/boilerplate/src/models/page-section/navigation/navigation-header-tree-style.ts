@@ -15,7 +15,7 @@ import {
   modalContentStyle,
 } from '../../../core/model-views/page-section/navigation-modal-style'
 
-export const navigationHeaderDisplayStyleTree: NavigationHeaderTreeStyle = {
+export const navigationHeaderTreeStyle: NavigationHeaderTreeStyle = {
   skipToContent: {
     label: 'skip',
     position: 'absolute',

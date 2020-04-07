@@ -2,7 +2,7 @@ import { FeaturedTreeStyle } from '../../core/model-views/page-section/featured-
 import { defaultHeading2Style } from '../../styles/core-elements/heading'
 import { defaultParagraphStyle } from '../../styles/core-elements/paragraph'
 
-export const featuredDisplayStyleTree: FeaturedTreeStyle = {
+export const featuredTreeStyle: FeaturedTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

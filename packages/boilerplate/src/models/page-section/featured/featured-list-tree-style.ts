@@ -1,6 +1,6 @@
 import { FeaturedListTreeStyle } from '../../../core/model-views/page-section/featured-list-tree'
 
-export const featuredListDisplayStyleTree: FeaturedListTreeStyle = {
+export const featuredListTreeStyle: FeaturedListTreeStyle = {
   conditional: {
     containerHideMedia: {
       yes: ['column', 'row'],

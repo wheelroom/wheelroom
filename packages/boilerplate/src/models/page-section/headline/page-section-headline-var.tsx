@@ -11,13 +11,13 @@ import { PageSectionProps } from '../page-section'
 import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
 import { HeadlineTree } from '../../../core/model-views/page-section/headline-tree'
-import { headlineDisplayStyleTree } from './headline-tree-style'
+import { headlineTreeStyle } from './headline-tree-style'
 
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
     return (
-      <HeadlineTree pageSection={props} treeStyle={headlineDisplayStyleTree} />
+      <HeadlineTree pageSection={props} treeStyle={headlineTreeStyle} />
     )
   }
 

@@ -1,6 +1,6 @@
 import { CardTreeStyle } from '../../../core/model-views/page-section/card-tree'
 
-export const cardDisplayStyleTree: CardTreeStyle = {
+export const cardTreeStyle: CardTreeStyle = {
   conditional: {
     topicWrapperShadow: {
       border: '1px solid',
