@@ -19,7 +19,7 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
     return (
       <HeadlineTree
         pageSection={props}
-        styleTree={headlineDisplayStyleTree}
+        treeStyle={headlineDisplayStyleTree}
       />
     )
   }

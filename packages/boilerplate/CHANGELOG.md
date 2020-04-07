@@ -46,7 +46,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * add icon as core element ([a0c1724](https://github.com/wheelroom/wheelroom/commit/a0c17246fb9b247edce7374a8fc9f6cde8146d82))
 * add model dutch translation ([b2b3448](https://github.com/wheelroom/wheelroom/commit/b2b34485bd0f0ade57e8c3b31fbb0608e6f3ee4e))
 * add table style tree ([bcbc6ce](https://github.com/wheelroom/wheelroom/commit/bcbc6cef075cf26b55ee9ff1bf71c66088374a7f))
-* styleTree ([190e26b](https://github.com/wheelroom/wheelroom/commit/190e26bfcda30efe9c96cff7c902229724b355f0))
+* treeStyle ([190e26b](https://github.com/wheelroom/wheelroom/commit/190e26bfcda30efe9c96cff7c902229724b355f0))
 * table parser ([e7fe4f7](https://github.com/wheelroom/wheelroom/commit/e7fe4f73aa424dbdf98b70f3c25e6ac60c5f2d9a))
 * topic-icon can be customized ([2a08103](https://github.com/wheelroom/wheelroom/commit/2a08103589fe8f7c60f9caab8c9a9118feaaa3c9))
 

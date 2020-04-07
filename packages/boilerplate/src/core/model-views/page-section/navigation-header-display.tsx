@@ -33,7 +33,7 @@ export interface NavigationHeaderTreeStyle {
 
 export const NavigationHeaderTree = (props: {
   pageSection: PageSectionProps
-  styleTree: NavigationHeaderTreeStyle
+  treeStyle: NavigationHeaderTreeStyle
 }) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)
@@ -51,7 +51,7 @@ export const NavigationHeaderTree = (props: {
   }
   const globals = props.pageSection.globals
   const siteMetadata = props.pageSection.siteMetadata
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   const navSegment = props.pageSection.navigation
     .segments[0] as NavigationSegmentProps
 
@@ -71,30 +71,30 @@ export const NavigationHeaderTree = (props: {
 
   return (
     <Fragment>
-      <ALink href="#content" ncss={styleTree.skipToContent}>
+      <ALink href="#content" ncss={treeStyle.skipToContent}>
         {`Skip to ` + globals.siteHeading + ` Content`}
       </ALink>
-      <Box is="div" ncss={styleTree.wrapper}>
-        <Container ncss={styleTree.container}>
+      <Box is="div" ncss={treeStyle.wrapper}>
+        <Container ncss={treeStyle.container}>
           <NavLogo
             globals={globals}
             siteMetadata={siteMetadata}
-            styleTree={styleTree.menu.navLogo}
+            treeStyle={treeStyle.menu.navLogo}
           />
-          <Flex is={'nav'} ncss={styleTree.menu.nav}>
+          <Flex is={'nav'} ncss={treeStyle.menu.nav}>
             <NavList
-              styleTree={styleTree.menu.navList}
+              treeStyle={treeStyle.menu.navList}
               pages={navSegment.pages}
             />
             <NavActions
               action={action}
               activeThemeId={activeThemeId}
               pageSectionInfo={pageSectionInfo}
-              styleTree={styleTree.menu.navActions}
+              treeStyle={treeStyle.menu.navActions}
               toggleTheme={toggleTheme}
             />
           </Flex>
-          <Flex is="div" ncss={styleTree.menu.modalDialog.container}>
+          <Flex is="div" ncss={treeStyle.menu.modalDialog.container}>
             <Button
               id="modal-dialog"
               ariaExpanded={menuVisible}
@@ -103,7 +103,7 @@ export const NavigationHeaderTree = (props: {
               ariaLabel="Open header navigation"
               value=""
               role="button"
-              ncss={styleTree.menu.modalDialog.openMenuButton}
+              ncss={treeStyle.menu.modalDialog.openMenuButton}
               ref={buttonRef}
               onClick={() => openMenu()}
             >
@@ -116,7 +116,7 @@ export const NavigationHeaderTree = (props: {
               menuVisible={menuVisible}
               pages={navSegment.pages}
               pageSectionInfo={pageSectionInfo}
-              styleTree={styleTree.menu.modalDialog.navDialog}
+              treeStyle={treeStyle.menu.modalDialog.navDialog}
               toggleTheme={toggleTheme}
             />
           </Flex>

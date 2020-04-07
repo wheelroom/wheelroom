@@ -14,16 +14,16 @@ export interface ImageTreeStyle {
 
 export const ImageTree = (props: {
   pageSection: PageSectionProps
-  styleTree: ImageTreeStyle
+  treeStyle: ImageTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
-      <Container ncss={styleTree.container}>
+    <Box is="div" ncss={treeStyle.wrapper}>
+      <Container ncss={treeStyle.container}>
         {props.pageSection.topics
           .slice(0, 2)
           .map((topic: TopicProps, index: number) => (
@@ -33,7 +33,7 @@ export const ImageTree = (props: {
               pageSectionActions={props.pageSection.actions}
               pageSectionInfo={pageSectionInfo}
               useHeadingElement="h4"
-              styleTree={styleTree.topic}
+              treeStyle={treeStyle.topic}
             />
           ))}
       </Container>

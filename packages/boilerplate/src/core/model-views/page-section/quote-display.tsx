@@ -14,16 +14,16 @@ export interface QuoteTreeStyle {
 
 export const QuoteTree = (props: {
   pageSection: PageSectionProps
-  styleTree: QuoteTreeStyle
+  treeStyle: QuoteTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
-      <ContainerMaxWidth ncss={styleTree.container}>
+    <Box is="div" ncss={treeStyle.wrapper}>
+      <ContainerMaxWidth ncss={treeStyle.container}>
         {props.pageSection.topics.map((topic, index) => (
           <Topic
             key={index}
@@ -33,7 +33,7 @@ export const QuoteTree = (props: {
             fullTopicAsLink={false}
             useHeadingElement={'p'}
             useAbstractElement={'blockquote'}
-            styleTree={styleTree.topic}
+            treeStyle={treeStyle.topic}
           />
         ))}
       </ContainerMaxWidth>

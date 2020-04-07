@@ -16,7 +16,7 @@ import { cardDisplayStyleTree } from '../../styles/style-trees/card-display-styl
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
-    return <CardTree pageSection={props} styleTree={cardDisplayStyleTree} />
+    return <CardTree pageSection={props} treeStyle={cardDisplayStyleTree} />
   }
 
   /**

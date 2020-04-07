@@ -13,23 +13,23 @@ export interface HeadlineTreeStyle {
 
 export const HeadlineTree = (props: {
   pageSection: PageSectionProps
-  styleTree: HeadlineTreeStyle
+  treeStyle: HeadlineTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   const topic = props.pageSection.topics[0]
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
+    <Box is="div" ncss={treeStyle.wrapper}>
       <ContainerMaxWidth>
         <Topic
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
           useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
-          styleTree={styleTree.topic}
+          treeStyle={treeStyle.topic}
         />
       </ContainerMaxWidth>
     </Box>

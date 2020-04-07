@@ -21,7 +21,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     return (
       <NavigationHeaderTree
         pageSection={props}
-        styleTree={navigationHeaderDisplayStyleTree}
+        treeStyle={navigationHeaderDisplayStyleTree}
       />
     )
   }
@@ -30,7 +30,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     return (
       <NavigationFooterTree
         pageSection={props}
-        styleTree={navigationFooterDisplayStyleTree}
+        treeStyle={navigationFooterDisplayStyleTree}
       />
     )
   }

@@ -17,7 +17,7 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
     return (
-      <VideoTree pageSection={props} styleTree={videoDisplayStyleTree} />
+      <VideoTree pageSection={props} treeStyle={videoDisplayStyleTree} />
     )
   }
 

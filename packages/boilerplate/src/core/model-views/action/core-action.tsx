@@ -15,13 +15,13 @@ import { NcssProps } from '../../elements/types'
 export interface ActionTreeProps {
   /** Local data */
   children?: any
-  styleTree?: NcssProps
+  treeStyle?: NcssProps
   key?: any
 }
 
 const ActionGlink = (props: ActionProps) => {
   return (
-    <GLink to={props.page.path} ncss={props.styleTree}>
+    <GLink to={props.page.path} ncss={props.treeStyle}>
       {props.children ? props.children : props.heading}
     </GLink>
   )
@@ -29,7 +29,7 @@ const ActionGlink = (props: ActionProps) => {
 
 const ActionAlink = (props: ActionProps) => {
   return (
-    <ALink href={props.url} ncss={props.styleTree}>
+    <ALink href={props.url} ncss={props.treeStyle}>
       {props.children ? props.children : props.heading}
     </ALink>
   )

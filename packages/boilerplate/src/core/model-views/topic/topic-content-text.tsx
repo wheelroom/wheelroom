@@ -35,14 +35,14 @@ export interface TopicContentTextProps {
   /** Page section info */
   pageSectionInfo: PageSectionInfo
 
-  styleTree?: TopicContentTextStyleTree
+  treeStyle?: TopicContentTextStyleTree
 }
 
 export const TopicContentText = (props: TopicContentTextProps) => {
-  const styleTree = props.styleTree || {}
-  const wrapperStyle = styleTree.wrapper || {}
-  const abstractStyle = styleTree.abstract || {}
-  const headingStyle = styleTree.heading || {}
+  const treeStyle = props.treeStyle || {}
+  const wrapperStyle = treeStyle.wrapper || {}
+  const abstractStyle = treeStyle.abstract || {}
+  const headingStyle = treeStyle.heading || {}
   const topicOptions = props.pageSectionInfo.topicOptions
 
   const useHeadingElement = props.useHeadingElement || 'h3'

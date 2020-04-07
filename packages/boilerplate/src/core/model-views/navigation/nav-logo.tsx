@@ -13,15 +13,15 @@ export interface NavLogoStyleTree {
 export const NavLogo = (props: {
   globals: GlobalsProps
   siteMetadata: SiteMetadata
-  styleTree: NavLogoStyleTree
+  treeStyle: NavLogoStyleTree
 }) => {
   const heading = props.globals.siteHeading
   const version = props.siteMetadata.legal.version
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   return (
-    <Flex is="div" ncss={styleTree.container}>
+    <Flex is="div" ncss={treeStyle.container}>
       <GLink
-        ncss={styleTree.link}
+        ncss={treeStyle.link}
         to="/"
         aria-label={heading + `, Back to homepage`}
       >

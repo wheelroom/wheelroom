@@ -17,23 +17,23 @@ export interface CardTreeStyle {
 
 export const CardTree = (props: {
   pageSection: PageSectionProps
-  styleTree: CardTreeStyle
+  treeStyle: CardTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   if (!pageSectionInfo.topicOptions.hideAction) {
     Object.assign(
-      styleTree.topic.wrapper,
-      styleTree.conditional.topicWrapperShadow
+      treeStyle.topic.wrapper,
+      treeStyle.conditional.topicWrapperShadow
     )
   }
 
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
-      <ContainerMaxWidth ncss={styleTree.container}>
+    <Box is="div" ncss={treeStyle.wrapper}>
+      <ContainerMaxWidth ncss={treeStyle.container}>
         {props.pageSection.topics.map((topic, index) => (
           <Topic
             key={index}
@@ -41,7 +41,7 @@ export const CardTree = (props: {
             pageSectionActions={props.pageSection.actions}
             pageSectionInfo={pageSectionInfo}
             fullTopicAsLink={true}
-            styleTree={styleTree.topic}
+            treeStyle={treeStyle.topic}
           />
         ))}
       </ContainerMaxWidth>

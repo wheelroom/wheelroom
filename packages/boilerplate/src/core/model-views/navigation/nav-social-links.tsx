@@ -13,15 +13,15 @@ export interface NavSocialLinksStyleTree {
 
 export const NavSocialLinks = (props: {
   topics: TopicProps[]
-  styleTree: NavSocialLinksStyleTree
+  treeStyle: NavSocialLinksStyleTree
 }) => {
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   return (
-    <List is="ul" ncss={styleTree.list}>
+    <List is="ul" ncss={treeStyle.list}>
       {props.topics.map((topic: TopicProps, index: number) => (
         <List is={'li'} key={index}>
-          <Action {...topic.actions[0]} styleTree={styleTree.action}>
-            <FeatherIcon ncss={styleTree.icon} icon={topic.icon as string} />
+          <Action {...topic.actions[0]} treeStyle={treeStyle.action}>
+            <FeatherIcon ncss={treeStyle.icon} icon={topic.icon as string} />
           </Action>
         </List>
       ))}

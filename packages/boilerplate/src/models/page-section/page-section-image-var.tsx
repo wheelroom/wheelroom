@@ -17,7 +17,7 @@ export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
     return (
-      <ImageTree pageSection={props} styleTree={imageDisplayStyleTree} />
+      <ImageTree pageSection={props} treeStyle={imageDisplayStyleTree} />
     )
   }
 

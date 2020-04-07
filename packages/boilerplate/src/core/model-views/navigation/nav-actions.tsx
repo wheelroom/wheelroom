@@ -15,23 +15,23 @@ export const NavActions = (props: {
   action: ActionProps
   activeThemeId?: string
   pageSectionInfo: PageSectionInfo
-  styleTree: NavActionsStyleTree
+  treeStyle: NavActionsStyleTree
   toggleTheme: () => void
 }) => {
   if (!props.pageSectionInfo.hasAction) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   return (
-    <Flex is="div" ncss={styleTree.container}>
+    <Flex is="div" ncss={treeStyle.container}>
       {props.pageSectionInfo.hasAction && (
-        <Action styleTree={styleTree.action} {...props.action} />
+        <Action treeStyle={treeStyle.action} {...props.action} />
       )}
       <Button
         type="button"
         title={`Current theme is ` + props.activeThemeId}
         ariaLabel={`Current theme is ` + props.activeThemeId}
-        ncss={styleTree.themeButton}
+        ncss={treeStyle.themeButton}
         value=""
         onClick={() => props.toggleTheme()}
       >

@@ -38,18 +38,18 @@ export interface TopicCoreProps {
   /** Reverse topicMedia and topicContent */
   forceReverse?: boolean
 
-  styleTree?: TopicStyleTree
+  treeStyle?: TopicStyleTree
 }
 
 export const CoreTopic = (props: TopicProps) => {
-  const styleTree = props.styleTree || {}
-  const topicWrapperStyle = styleTree.wrapper || {}
+  const treeStyle = props.treeStyle || {}
+  const topicWrapperStyle = treeStyle.wrapper || {}
   const topicInfo = getTopicInfo(props)
   const fullTopicAsLink = topicInfo.hasAction && props.fullTopicAsLink
   return fullTopicAsLink ? (
     <Action
       {...props.actions[0]}
-      styleTree={{
+      treeStyle={{
         display: 'flex',
         flexDirection: 'column',
         label: 'topic',

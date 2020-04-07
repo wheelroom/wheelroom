@@ -37,10 +37,10 @@ export const NavDialog = (props: {
   menuVisible: boolean
   pages: PageProps[]
   pageSectionInfo: PageSectionInfo
-  styleTree: NavDialogStyleTree
+  treeStyle: NavDialogStyleTree
   toggleTheme: () => void
 }) => {
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   const XIcon = IconMap.x
   return (
     <Box
@@ -49,8 +49,8 @@ export const NavDialog = (props: {
       tabIndex={-1}
       ncss={
         props.menuVisible
-          ? props.styleTree.container.menuVisible.yes
-          : props.styleTree.container.menuVisible.no
+          ? props.treeStyle.container.menuVisible.yes
+          : props.treeStyle.container.menuVisible.no
       }
       ariaHidden={props.menuVisible ? false : undefined}
       ariaModal={props.menuVisible ? true : undefined}
@@ -62,8 +62,8 @@ export const NavDialog = (props: {
         id="header-navigation"
         ncss={
           props.menuVisible
-            ? props.styleTree.document.menuVisible.yes
-            : props.styleTree.document.menuVisible.no
+            ? props.treeStyle.document.menuVisible.yes
+            : props.treeStyle.document.menuVisible.no
         }
         ariaLabel="Header navigation"
       >
@@ -72,17 +72,17 @@ export const NavDialog = (props: {
           value=""
           role="button"
           onClick={() => props.closeMenu()}
-          ncss={props.styleTree.closeMenuButton}
+          ncss={props.treeStyle.closeMenuButton}
         >
           <Box ariaHidden={true}>
             <XIcon />
           </Box>
         </Button>
-        <NavList styleTree={styleTree.navList} pages={props.pages} />
-        <Flex is="div" ncss={props.styleTree.actions.container}>
+        <NavList treeStyle={treeStyle.navList} pages={props.pages} />
+        <Flex is="div" ncss={props.treeStyle.actions.container}>
           {props.pageSectionInfo.hasAction && (
             <Action
-              styleTree={props.styleTree.actions.action}
+              treeStyle={props.treeStyle.actions.action}
               {...props.action}
             />
           )}
@@ -90,7 +90,7 @@ export const NavDialog = (props: {
             type="button"
             title={`Current theme is ` + props.activeThemeId}
             ariaLabel={`Current theme is ` + props.activeThemeId}
-            ncss={props.styleTree.actions.themeButton}
+            ncss={props.treeStyle.actions.themeButton}
             value=""
             onClick={() => props.toggleTheme()}
           >

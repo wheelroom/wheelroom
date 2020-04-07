@@ -14,17 +14,17 @@ export interface BlockTreeStyle {
 
 export const BlockTree = (props: {
   pageSection: PageSectionProps
-  styleTree: BlockTreeStyle
+  treeStyle: BlockTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
 
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
-      <ContainerMaxWidth ncss={styleTree.container}>
+    <Box is="div" ncss={treeStyle.wrapper}>
+      <ContainerMaxWidth ncss={treeStyle.container}>
         {props.pageSection.topics.map((topic, index) => (
           <Topic
             key={index}
@@ -32,7 +32,7 @@ export const BlockTree = (props: {
             pageSectionActions={props.pageSection.actions}
             pageSectionInfo={pageSectionInfo}
             fullTopicAsLink={false}
-            styleTree={styleTree.topic}
+            treeStyle={treeStyle.topic}
           />
         ))}
       </ContainerMaxWidth>

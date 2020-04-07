@@ -20,7 +20,7 @@ export interface VideoProps {
   includeDescription?: boolean
   includeTitle?: boolean
   media?: MediaObject
-  styleTree?: VideoStyleTree
+  treeStyle?: VideoStyleTree
   title?: string
 }
 
@@ -56,7 +56,7 @@ export const Video = (props: VideoProps) => {
   }
 
   const [videoStyle, descriptionStyle] = getStyles(
-    props.styleTree,
+    props.treeStyle,
     'video',
     'description'
   )

@@ -17,7 +17,7 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
     return (
-      <BlockTree pageSection={props} styleTree={blockDisplayStyleTree} />
+      <BlockTree pageSection={props} treeStyle={blockDisplayStyleTree} />
     )
   }
 

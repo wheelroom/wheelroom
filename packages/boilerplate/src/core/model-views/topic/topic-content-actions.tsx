@@ -28,7 +28,7 @@ export interface TopicContentActionsProps {
   /** Page section info */
   pageSectionInfo: PageSectionInfo
 
-  styleTree?: TopicActionsStyleTree
+  treeStyle?: TopicActionsStyleTree
 }
 
 export const TopicContentActions = (props: TopicContentActionsProps) => {
@@ -39,9 +39,9 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   // Support only one action for now
   const action = actions[0]
 
-  const styleTree = props.styleTree || {}
-  const wrapperStyle = styleTree.wrapper || {}
-  const linkStyle = styleTree.link || {}
+  const treeStyle = props.treeStyle || {}
+  const wrapperStyle = treeStyle.wrapper || {}
+  const linkStyle = treeStyle.link || {}
 
   return (
     <Box
@@ -65,7 +65,7 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
       ) : (
         <Action
           {...action}
-          styleTree={{
+          treeStyle={{
             ...buttonPrimaryStyle,
             ...linkStyle,
           }}

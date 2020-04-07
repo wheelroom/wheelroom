@@ -14,20 +14,20 @@ export interface TextTreeStyle {
 
 export const TextTree = (props: {
   pageSection: PageSectionProps
-  styleTree: TextTreeStyle
+  treeStyle: TextTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasText) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
-      <ContainerMaxWidth ncss={styleTree.container}>
+    <Box is="div" ncss={treeStyle.wrapper}>
+      <ContainerMaxWidth ncss={treeStyle.container}>
         <Text
           {...props.pageSection.text}
           locale={props.pageSection.locale}
-          styleTree={styleTree.text}
+          treeStyle={treeStyle.text}
         />
       </ContainerMaxWidth>
     </Box>

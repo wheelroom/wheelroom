@@ -14,21 +14,21 @@ export interface GalleryTreeStyle {
 
 export const GalleryTree = (props: {
   pageSection: PageSectionProps
-  styleTree: GalleryTreeStyle
+  treeStyle: GalleryTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
-      <Container ncss={styleTree.container}>
+    <Box is="div" ncss={treeStyle.wrapper}>
+      <Container ncss={treeStyle.container}>
         {props.pageSection.topics
           .slice(0, 4)
           .map((topic: TopicProps, index: number) => (
             <Image
-              styleTree={styleTree.image}
+              treeStyle={treeStyle.image}
               key={index}
               media={topic?.media}
             />

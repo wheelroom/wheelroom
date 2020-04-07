@@ -24,36 +24,36 @@ export interface FeaturedListTreeStyle {
 
 export const FeaturedListTree = (props: {
   pageSection: PageSectionProps
-  styleTree: FeaturedListTreeStyle
+  treeStyle: FeaturedListTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   const topicOptions = pageSectionInfo.topicOptions
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   if (topicOptions.hideMedia) {
     Object.assign(
-      styleTree.container,
-      styleTree.conditional.containerHideMedia.yes
+      treeStyle.container,
+      treeStyle.conditional.containerHideMedia.yes
     )
     Object.assign(
-      styleTree.topic.wrapper,
-      styleTree.conditional.topicWrapperHideMedia.yes
+      treeStyle.topic.wrapper,
+      treeStyle.conditional.topicWrapperHideMedia.yes
     )
   } else {
     Object.assign(
-      styleTree.container,
-      styleTree.conditional.containerHideMedia.no
+      treeStyle.container,
+      treeStyle.conditional.containerHideMedia.no
     )
     Object.assign(
-      styleTree.topic.wrapper,
-      styleTree.conditional.topicWrapperHideMedia.no
+      treeStyle.topic.wrapper,
+      treeStyle.conditional.topicWrapperHideMedia.no
     )
   }
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
-      <ContainerMaxWidth ncss={styleTree.container}>
+    <Box is="div" ncss={treeStyle.wrapper}>
+      <ContainerMaxWidth ncss={treeStyle.container}>
         {props.pageSection.topics.map((topic: TopicProps, index: number) => (
           <Topic
             key={index}
@@ -61,7 +61,7 @@ export const FeaturedListTree = (props: {
             pageSectionActions={props.pageSection.actions}
             pageSectionInfo={pageSectionInfo}
             fullTopicAsLink={true}
-            styleTree={styleTree.topic}
+            treeStyle={treeStyle.topic}
           />
         ))}
       </ContainerMaxWidth>

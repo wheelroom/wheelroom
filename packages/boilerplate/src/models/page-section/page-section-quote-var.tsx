@@ -17,7 +17,7 @@ export const PageSectionQuoteVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
     return (
-      <QuoteTree pageSection={props} styleTree={quoteDisplayStyleTree} />
+      <QuoteTree pageSection={props} treeStyle={quoteDisplayStyleTree} />
     )
   }
 

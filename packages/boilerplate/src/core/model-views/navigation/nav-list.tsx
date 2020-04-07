@@ -11,12 +11,12 @@ export interface NavListStyleTree {
 
 export const NavList = (props: {
   pages: PageProps[]
-  styleTree: NavListStyleTree
+  treeStyle: NavListStyleTree
 }) => {
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   return (
-    <List is="ul" ncss={styleTree.list}>
-      <NavLinks styleTree={styleTree.listItem} pages={props.pages} />
+    <List is="ul" ncss={treeStyle.list}>
+      <NavLinks treeStyle={treeStyle.listItem} pages={props.pages} />
     </List>
   )
 }

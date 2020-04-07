@@ -14,23 +14,23 @@ export interface FeaturedTreeStyle {
 
 export const FeaturedTree = (props: {
   pageSection: PageSectionProps
-  styleTree: FeaturedTreeStyle
+  treeStyle: FeaturedTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   const topic = props.pageSection.topics[0]
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
-      <ContainerMaxWidth ncss={styleTree.container}>
+    <Box is="div" ncss={treeStyle.wrapper}>
+      <ContainerMaxWidth ncss={treeStyle.container}>
         <Topic
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
           useHeadingElement="h3"
-          styleTree={styleTree.topic}
+          treeStyle={treeStyle.topic}
         />
       </ContainerMaxWidth>
     </Box>

@@ -20,7 +20,7 @@ export interface ImageProps {
   description?: string
   media?: MediaObject
   includeFigcaption?: boolean
-  styleTree?: ImageStyleTree
+  treeStyle?: ImageStyleTree
   title?: string
 }
 
@@ -53,7 +53,7 @@ export const Image = (props: ImageProps) => {
   }
 
   const [figcaptionStyle, imgStyle, pictureStyle] = getStyles(
-    props.styleTree,
+    props.treeStyle,
     'figcaption',
     'img',
     'picture'

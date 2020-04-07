@@ -16,7 +16,7 @@ import { heroDisplayStyleTree } from '../../styles/style-trees/hero-display-styl
 export const PageSectionHeroVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
-    return <HeroTree pageSection={props} styleTree={heroDisplayStyleTree} />
+    return <HeroTree pageSection={props} treeStyle={heroDisplayStyleTree} />
   }
 
   /**

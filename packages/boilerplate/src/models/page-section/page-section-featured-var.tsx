@@ -21,7 +21,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     return (
       <FeaturedTree
         pageSection={props}
-        styleTree={featuredDisplayStyleTree}
+        treeStyle={featuredDisplayStyleTree}
       />
     )
   }
@@ -29,7 +29,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     return (
       <FeaturedListTree
         pageSection={props}
-        styleTree={featuredListDisplayStyleTree}
+        treeStyle={featuredListDisplayStyleTree}
       />
     )
   }

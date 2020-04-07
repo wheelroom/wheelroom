@@ -23,11 +23,11 @@ export interface TopicMediaProps {
   /** Reverse image and content */
   reverse?: boolean
 
-  styleTree?: TopicMediaStyleTree
+  treeStyle?: TopicMediaStyleTree
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
-  const mediaStyle = props.styleTree
+  const mediaStyle = props.treeStyle
   const mediaWrapperStyle = (mediaStyle && mediaStyle.wrapper) || {}
   const mediaImageStyle = mediaStyle && mediaStyle.image
   const mediaVideoStyle = mediaStyle && mediaStyle.video
@@ -43,7 +43,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
         <Image
           description={props.topic.media?.description}
           media={props.topic.media}
-          styleTree={mediaImageStyle}
+          treeStyle={mediaImageStyle}
           title={props.topic.media?.title}
         />
       )}
@@ -53,7 +53,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
           includeDescription={false}
           description={props.topic.media?.description}
           media={props.topic.media}
-          styleTree={mediaVideoStyle}
+          treeStyle={mediaVideoStyle}
           title={props.topic.media?.title}
         />
       )}

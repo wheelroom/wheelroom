@@ -53,7 +53,7 @@ export interface TextStyleTree {
 export interface TextCoreProps {
   /** Locale needed for rendering rich text */
   locale: string
-  styleTree?: TextStyleTree
+  treeStyle?: TextStyleTree
 }
 
 type Node = any
@@ -61,7 +61,7 @@ type Children = any
 
 export const CoreText = (props: TextProps) => {
   const textProps = props
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
 
   const options = {
     renderText: (text) => {
@@ -73,13 +73,13 @@ export const CoreText = (props: TextProps) => {
     },
     renderMark: {
       [MARKS.BOLD]: (text) => (
-        <Any is="b" ncss={styleTree.marksBold}>
+        <Any is="b" ncss={treeStyle.marksBold}>
           {text}
         </Any>
       ),
       [MARKS.CODE]: (code) => (
-        <Any is="pre" ncss={styleTree.marksCode && styleTree.marksCode.pre}>
-          <Any is="code" ncss={styleTree.marksCode && styleTree.marksCode.code}>
+        <Any is="pre" ncss={treeStyle.marksCode && treeStyle.marksCode.pre}>
+          <Any is="code" ncss={treeStyle.marksCode && treeStyle.marksCode.code}>
             {code}
           </Any>
         </Any>
@@ -91,28 +91,28 @@ export const CoreText = (props: TextProps) => {
       },
       [BLOCKS.QUOTE]: (_node: Node, children: Children) => {
         return (
-          <Any is="blockquote" ncss={styleTree.blocksQuote}>
+          <Any is="blockquote" ncss={treeStyle.blocksQuote}>
             {children}
           </Any>
         )
       },
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List is="ul" ncss={styleTree.blocksUlList}>
+          <List is="ul" ncss={treeStyle.blocksUlList}>
             {children}
           </List>
         )
       },
       [BLOCKS.OL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List is="ol" ncss={styleTree.blocksOlList}>
+          <List is="ol" ncss={treeStyle.blocksOlList}>
             {children}
           </List>
         )
       },
       [BLOCKS.LIST_ITEM]: (_node: Node, children: Children) => {
         return (
-          <List is="li" ncss={styleTree.blocksLiList}>
+          <List is="li" ncss={treeStyle.blocksLiList}>
             {children}
           </List>
         )
@@ -120,7 +120,7 @@ export const CoreText = (props: TextProps) => {
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {
         const uri = node.data.uri
         return (
-          <ALink href={uri} ncss={styleTree.inlinesHyperlink}>
+          <ALink href={uri} ncss={treeStyle.inlinesHyperlink}>
             {children}
           </ALink>
         )
@@ -130,30 +130,30 @@ export const CoreText = (props: TextProps) => {
           node.data.target.fields &&
           node.data.target.fields.path[textProps.locale]
         return (
-          <GLink ncss={styleTree.entryHyperlink} to={internalPath}>
+          <GLink ncss={treeStyle.entryHyperlink} to={internalPath}>
             {children}
           </GLink>
         )
       },
       [BLOCKS.HEADING_1]: (_node: Node, children: Children) => (
-        <H1 ncss={styleTree.blocksHeading1}>{children}</H1>
+        <H1 ncss={treeStyle.blocksHeading1}>{children}</H1>
       ),
       [BLOCKS.HEADING_2]: (_node: Node, children: Children) => (
-        <H2 ncss={styleTree.blocksHeading2}>{children}</H2>
+        <H2 ncss={treeStyle.blocksHeading2}>{children}</H2>
       ),
       [BLOCKS.HEADING_3]: (_node: Node, children: Children) => (
-        <H3 ncss={styleTree.blocksHeading3}>{children}</H3>
+        <H3 ncss={treeStyle.blocksHeading3}>{children}</H3>
       ),
       [BLOCKS.HEADING_4]: (_node: Node, children: Children) => (
-        <H4 ncss={styleTree.blocksHeading4}>{children}</H4>
+        <H4 ncss={treeStyle.blocksHeading4}>{children}</H4>
       ),
       [BLOCKS.HEADING_5]: (_node: Node, children: Children) => (
-        <H5 ncss={styleTree.blocksHeading5}>{children}</H5>
+        <H5 ncss={treeStyle.blocksHeading5}>{children}</H5>
       ),
       [BLOCKS.HEADING_6]: (_node: Node, children: Children) => (
-        <H6 ncss={styleTree.blocksHeading6}>{children}</H6>
+        <H6 ncss={treeStyle.blocksHeading6}>{children}</H6>
       ),
-      [BLOCKS.HR]: () => <Any is="hr" ncss={styleTree.blocksHr} />,
+      [BLOCKS.HR]: () => <Any is="hr" ncss={treeStyle.blocksHr} />,
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         if (!fields) {
@@ -186,7 +186,7 @@ export const CoreText = (props: TextProps) => {
               key={node.data.target.id}
               includeFigcaption={true}
               media={media}
-              styleTree={styleTree.image}
+              treeStyle={treeStyle.image}
             />
           )
         }
@@ -208,7 +208,7 @@ export const CoreText = (props: TextProps) => {
               includeDescription={true}
               title={localizedTitle}
               description={localizedDescription}
-              styleTree={styleTree.video}
+              treeStyle={treeStyle.video}
             />
           )
         }
@@ -219,7 +219,7 @@ export const CoreText = (props: TextProps) => {
   } as Options
 
   return (
-    <Flex is="div" ncss={styleTree.wrapper}>
+    <Flex is="div" ncss={treeStyle.wrapper}>
       {documentToReactComponents(
         (props.text.json as unknown) as Document,
         options

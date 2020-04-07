@@ -8,7 +8,7 @@ export const TopicBody = (props: TopicProps) => {
   const topicInfo = getTopicInfo(props)
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
 
   const showMedia =
     (topicInfo.hasImage && !topicOptions.hideMedia) ||
@@ -22,7 +22,7 @@ export const TopicBody = (props: TopicProps) => {
         <TopicMedia
           pageSectionInfo={pageSectionInfo}
           reverse={reverse}
-          styleTree={styleTree.media}
+          treeStyle={treeStyle.media}
           topic={props}
           topicInfo={topicInfo}
         />
@@ -32,7 +32,7 @@ export const TopicBody = (props: TopicProps) => {
         pageSectionActions={props.pageSectionActions}
         pageSectionInfo={pageSectionInfo}
         reverse={reverse}
-        styleTree={styleTree.content}
+        treeStyle={treeStyle.content}
         topic={props}
         topicInfo={topicInfo}
         useAbstractElement={props.useAbstractElement}

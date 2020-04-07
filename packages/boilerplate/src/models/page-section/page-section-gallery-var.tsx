@@ -17,7 +17,7 @@ export const PageSectionGalleryVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
     return (
-      <GalleryTree pageSection={props} styleTree={galleryDisplayStyleTree} />
+      <GalleryTree pageSection={props} treeStyle={galleryDisplayStyleTree} />
     )
   }
 

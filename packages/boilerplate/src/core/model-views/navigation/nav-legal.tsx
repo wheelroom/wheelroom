@@ -14,14 +14,14 @@ export interface NavLegalStyleTree {
 
 export const NavLegal = (props: {
   siteMetadata: SiteMetadata
-  styleTree: NavLegalStyleTree
+  treeStyle: NavLegalStyleTree
 }) => {
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   return (
-    <Container ncss={styleTree.container}>
-      <Flex ncss={styleTree.innerContainer}>
-        <Any is="span" ncss={styleTree.text}>
-          <ALink ncss={styleTree.link} href={props.siteMetadata.legal.url}>
+    <Container ncss={treeStyle.container}>
+      <Flex ncss={treeStyle.innerContainer}>
+        <Any is="span" ncss={treeStyle.text}>
+          <ALink ncss={treeStyle.link} href={props.siteMetadata.legal.url}>
             {props.siteMetadata.legal.description}
           </ALink>
           <sup>

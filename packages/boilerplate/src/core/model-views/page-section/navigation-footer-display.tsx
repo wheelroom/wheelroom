@@ -24,7 +24,7 @@ export interface NavigationFooterTreeStyle {
 
 export const NavigationFooterTree = (props: {
   pageSection: PageSectionProps
-  styleTree: NavigationFooterTreeStyle
+  treeStyle: NavigationFooterTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasNavigation) {
@@ -34,29 +34,29 @@ export const NavigationFooterTree = (props: {
   if (!pageSectionInfo.hasNavigation) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   const navSegment = props.pageSection.navigation
     .segments[0] as NavigationSegmentProps
   const siteMetadata = props.pageSection.siteMetadata
 
   return (
     <Fragment>
-      <Box is="div" ncss={styleTree.wrapper}>
-        <Container ncss={styleTree.container}>
-          <Flex is={'nav'} ncss={styleTree.menus.nav}>
+      <Box is="div" ncss={treeStyle.wrapper}>
+        <Container ncss={treeStyle.container}>
+          <Flex is={'nav'} ncss={treeStyle.menus.nav}>
             <NavList
-              styleTree={styleTree.menus.navList}
+              treeStyle={treeStyle.menus.navList}
               pages={navSegment.pages}
             />
             {pageSectionInfo.hasTopic && (
               <NavSocialLinks
-                styleTree={styleTree.menus.socialNavLinks}
+                treeStyle={treeStyle.menus.socialNavLinks}
                 topics={props.pageSection.topics}
               />
             )}
           </Flex>
         </Container>
-        <NavLegal siteMetadata={siteMetadata} styleTree={styleTree.navLegal} />
+        <NavLegal siteMetadata={siteMetadata} treeStyle={treeStyle.navLegal} />
       </Box>
     </Fragment>
   )

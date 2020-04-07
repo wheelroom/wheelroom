@@ -45,7 +45,7 @@ export interface TopicContentWrapperProps {
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
 
-  styleTree?: TopicContentStyleTree
+  treeStyle?: TopicContentStyleTree
 }
 
 export const TopicContent = (props: TopicContentWrapperProps) => {
@@ -54,8 +54,8 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
   const showAction = topicInfo.hasAction && !topicOptions.hideAction
-  const styleTree = props.styleTree || {}
-  const wrapperStyle = (styleTree && styleTree.wrapper) || {}
+  const treeStyle = props.treeStyle || {}
+  const wrapperStyle = (treeStyle && treeStyle.wrapper) || {}
 
   return (
     <Box
@@ -69,7 +69,7 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
     >
       <TopicContentText
         pageSectionInfo={pageSectionInfo}
-        styleTree={styleTree.contentText}
+        treeStyle={treeStyle.contentText}
         topic={props.topic}
         topicInfo={topicInfo}
         useAbstractElement={props.useAbstractElement}
@@ -82,7 +82,7 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
           fullTopicAsLink={props.fullTopicAsLink}
           pageSectionActions={props.pageSectionActions}
           pageSectionInfo={pageSectionInfo}
-          styleTree={styleTree.contentActions}
+          treeStyle={treeStyle.contentActions}
           topic={props.topic}
           topicInfo={topicInfo}
         />

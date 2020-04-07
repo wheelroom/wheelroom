@@ -14,23 +14,23 @@ export interface HeroTreeStyle {
 
 export const HeroTree = (props: {
   pageSection: PageSectionProps
-  styleTree: HeroTreeStyle
+  treeStyle: HeroTreeStyle
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const styleTree = props.styleTree || {}
+  const treeStyle = props.treeStyle || {}
   const topic = props.pageSection.topics[0]
   return (
-    <Box is="div" ncss={styleTree.wrapper}>
-      <Container ncss={styleTree.container}>
+    <Box is="div" ncss={treeStyle.wrapper}>
+      <Container ncss={treeStyle.container}>
         <Topic
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}
           useHeadingElement={pageSectionInfo.index <= 1 ? 'h1' : 'h2'}
-          styleTree={styleTree.topic}
+          treeStyle={treeStyle.topic}
         />
       </Container>
     </Box>

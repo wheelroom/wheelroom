@@ -16,7 +16,7 @@ import { textDisplayStyleTree } from '../../styles/style-trees/text-style-displa
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasText) {
-    return <TextTree pageSection={props} styleTree={textDisplayStyleTree} />
+    return <TextTree pageSection={props} treeStyle={textDisplayStyleTree} />
   }
 
   /**
