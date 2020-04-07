@@ -1,9 +1,10 @@
 import React from 'react'
 import { NcssProps } from '../../elements/types'
 import { Flex } from '../../elements/grid'
-import { Action, ActionProps } from '../../../models/action'
+import { ActionProps } from '../../../models/action'
 import { Button } from '../../elements/button'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
+import { ActionTree } from '../action/action-tree'
 
 export interface NavActionsStyleTree {
   container: NcssProps
@@ -25,7 +26,7 @@ export const NavActions = (props: {
   return (
     <Flex is="div" ncss={treeStyle.container}>
       {props.pageSectionInfo.hasAction && (
-        <Action treeStyle={treeStyle.action} {...props.action} />
+        <ActionTree treeStyle={treeStyle.action} {...props.action} />
       )}
       <Button
         type="button"

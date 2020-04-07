@@ -12,14 +12,14 @@ import { GLink } from '../../elements/g-link'
 import { ALink } from '../../elements/a-link'
 import { NcssProps } from '../../elements/types'
 
-export interface ActionTreeProps {
+export interface ActionTreeProps extends ActionProps {
   /** Local data */
   children?: any
   treeStyle?: NcssProps
   key?: any
 }
 
-const ActionGlink = (props: ActionProps) => {
+const ActionGlink = (props: ActionTreeProps) => {
   return (
     <GLink to={props.page.path} ncss={props.treeStyle}>
       {props.children ? props.children : props.heading}
@@ -27,7 +27,7 @@ const ActionGlink = (props: ActionProps) => {
   )
 }
 
-const ActionAlink = (props: ActionProps) => {
+const ActionAlink = (props: ActionTreeProps) => {
   return (
     <ALink href={props.url} ncss={props.treeStyle}>
       {props.children ? props.children : props.heading}
@@ -35,7 +35,7 @@ const ActionAlink = (props: ActionProps) => {
   )
 }
 
-export const ActionTree = (props: ActionProps) => {
+export const ActionTree = (props: ActionTreeProps) => {
   return (
     <Fragment>
       {props.page ? <ActionGlink {...props} /> : <ActionAlink {...props} />}

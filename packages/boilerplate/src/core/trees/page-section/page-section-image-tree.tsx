@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Container } from '../../elements/grid'
-import { Topic, TopicProps } from '../../../models/topic'
+import { TopicProps } from '../../../models/topic'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../models/page-section/page-section'
-import { TopicTreeStyle } from '../topic/topic-tree'
+import { TopicTreeStyle, TopicTree } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
 export interface PageSectionImageTreeStyle {
@@ -27,7 +27,7 @@ export const PageSectionImageTree = (props: {
         {props.pageSection.topics
           .slice(0, 2)
           .map((topic: TopicProps, index: number) => (
-            <Topic
+            <TopicTree
               {...topic}
               key={index}
               pageSectionActions={props.pageSection.actions}

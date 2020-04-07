@@ -1,5 +1,4 @@
 import React from 'react'
-import { Action, ActionProps } from '../../../models/action/action'
 import { Box } from '../../elements/grid'
 import { getTopicInfo } from '../../lib/get-topic-info'
 import { NcssProps, BlockLevelElementName } from '../../elements/types'
@@ -9,6 +8,8 @@ import { TopicProps } from '../../../models/topic/topic'
 import { TopicMediaStyleTree } from './topic-media'
 import { TopicContentStyleTree } from './topic-content'
 import { ParserFunction } from '../../parsers/types'
+import { ActionProps } from '../../../models/action/action'
+import { ActionTree } from '../action/action-tree'
 
 export interface TopicTreeStyle {
   /** Wrapper around the whole topic */
@@ -18,7 +19,7 @@ export interface TopicTreeStyle {
   content?: TopicContentStyleTree
 }
 
-export interface TopicTreeProps {
+export interface TopicTreeProps extends TopicProps {
   /** Options that change topic display behaviour */
   pageSectionInfo: PageSectionInfo
   /** Page section actions will override all topic actions */
@@ -41,13 +42,13 @@ export interface TopicTreeProps {
   treeStyle?: TopicTreeStyle
 }
 
-export const TopicTree = (props: TopicProps) => {
+export const TopicTree = (props: TopicTreeProps) => {
   const treeStyle = props.treeStyle || {}
   const topicWrapperStyle = treeStyle.wrapper || {}
   const topicInfo = getTopicInfo(props)
   const fullTopicAsLink = topicInfo.hasAction && props.fullTopicAsLink
   return fullTopicAsLink ? (
-    <Action
+    <ActionTree
       {...props.actions[0]}
       treeStyle={{
         display: 'flex',
@@ -58,7 +59,7 @@ export const TopicTree = (props: TopicProps) => {
       }}
     >
       <TopicBody {...props} />
-    </Action>
+    </ActionTree>
   ) : (
     <Box
       ncss={{

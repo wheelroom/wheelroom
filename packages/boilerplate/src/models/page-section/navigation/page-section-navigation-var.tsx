@@ -10,8 +10,8 @@ import React from 'react'
 import { PageSectionProps } from '../page-section'
 import { NotImplemented } from '../../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../../core/lib/get-page-section-info'
-import { NavigationFooterTree } from '../../../core/trees/navigation/navigation-footer-tree'
-import { NavigationHeaderTree } from '../../../core/trees/navigation/navigation-header-tree'
+import { PageSectionNavigationFooterTree } from '../../../core/trees/page-section/page-section-navigation-footer-tree'
+import { PageSectionNavigationHeaderTree } from '../../../core/trees/page-section/page-section-navigation-header-tree'
 import { navigationHeaderTreeStyle } from './navigation-header-tree-style'
 import { navigationFooterTreeStyle } from './navigation-footer-tree-style'
 
@@ -19,7 +19,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasNavigation && info.index === 0) {
     return (
-      <NavigationHeaderTree
+      <PageSectionNavigationHeaderTree
         pageSection={props}
         treeStyle={navigationHeaderTreeStyle}
       />
@@ -28,7 +28,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
 
   if (info.hasNavigation && info.index === info.sectionCount - 1) {
     return (
-      <NavigationFooterTree
+      <PageSectionNavigationFooterTree
         pageSection={props}
         treeStyle={navigationFooterTreeStyle}
       />

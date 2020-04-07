@@ -5,17 +5,9 @@
  *
  */
 
-import React from 'react'
-import { getVariation } from '../../core/lib/get-variation'
-import { TopicSingleVar } from './topic-single-var'
 import { MediaObject } from '../../core/elements/types'
-import { TopicTreeProps } from '../../core/trees/topic/topic-tree'
 
-const componentList = {
-  ['single']: TopicSingleVar,
-}
-
-export interface TopicProps extends TopicTreeProps {
+export interface TopicProps {
   /** Gatsby fetched data */
   __typename: string
   title: string
@@ -26,10 +18,4 @@ export interface TopicProps extends TopicTreeProps {
   media: MediaObject | undefined
   icon: string | JSX.Element
   actions: any
-}
-
-export const Topic = (props: TopicProps) => {
-  const Variation = getVariation(props, componentList)
-
-  return <Variation {...props} />
 }

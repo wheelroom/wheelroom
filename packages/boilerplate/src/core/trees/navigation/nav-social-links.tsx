@@ -1,9 +1,9 @@
 import { List } from '../../elements/list'
 import { TopicProps } from '../../../models/topic'
-import { Action } from '../../../models/action'
 import { FeatherIcon } from '../../elements/icon'
 import React from 'react'
 import { NcssProps } from '../../elements/types'
+import { ActionTree } from '../action/action-tree'
 
 export interface NavSocialLinksStyleTree {
   list: NcssProps
@@ -20,9 +20,9 @@ export const NavSocialLinks = (props: {
     <List is="ul" ncss={treeStyle.list}>
       {props.topics.map((topic: TopicProps, index: number) => (
         <List is={'li'} key={index}>
-          <Action {...topic.actions[0]} treeStyle={treeStyle.action}>
+          <ActionTree {...topic.actions[0]} treeStyle={treeStyle.action}>
             <FeatherIcon ncss={treeStyle.icon} icon={topic.icon as string} />
-          </Action>
+          </ActionTree>
         </List>
       ))}
     </List>

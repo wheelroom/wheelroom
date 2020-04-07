@@ -3,10 +3,11 @@ import { NcssProps } from '../../elements/types'
 import { NavListStyleTree, NavList } from './nav-list'
 import { Box, Flex } from '../../elements/grid'
 import { Button } from '../../elements/button'
-import { Action, ActionProps } from '../../../models/action'
+import { ActionProps } from '../../../models/action'
 import { IconMap } from '../../../svg/feather/iconMap'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { PageProps } from '../../../models/page/page'
+import { ActionTree } from '../action/action-tree'
 
 export interface NavDialogStyleTree {
   container: {
@@ -81,7 +82,7 @@ export const NavDialog = (props: {
         <NavList treeStyle={treeStyle.navList} pages={props.pages} />
         <Flex is="div" ncss={props.treeStyle.actions.container}>
           {props.pageSectionInfo.hasAction && (
-            <Action
+            <ActionTree
               treeStyle={props.treeStyle.actions.action}
               {...props.action}
             />

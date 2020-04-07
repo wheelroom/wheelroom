@@ -1,9 +1,8 @@
 import React from 'react'
 import { Box, ContainerMaxWidth } from '../../elements/grid'
-import { Topic } from '../../../models/topic'
 import { PageSectionProps } from '../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
-import { TopicTreeStyle } from '../topic/topic-tree'
+import { TopicTreeStyle, TopicTree } from '../topic/topic-tree'
 import { NcssProps } from '../../elements/types'
 
 export interface PageSectionFeaturedTreeStyle {
@@ -25,7 +24,7 @@ export const PageSectionFeaturedTree = (props: {
   return (
     <Box is="div" ncss={treeStyle.wrapper}>
       <ContainerMaxWidth ncss={treeStyle.container}>
-        <Topic
+        <TopicTree
           {...topic}
           pageSectionActions={props.pageSection.actions}
           pageSectionInfo={pageSectionInfo}

@@ -1,10 +1,10 @@
-import { NavigationFooterTreeStyle } from '../../../core/trees/navigation/navigation-footer-tree'
+import { PageSectionNavigationFooterTreeStyle } from '../../../core/trees/page-section/page-section-navigation-footer-tree'
 import {
   commonNavigationStyle,
   listStyle,
 } from '../../../core/trees/navigation/navigation-common-style'
 
-export const navigationFooterTreeStyle: NavigationFooterTreeStyle = {
+export const navigationFooterTreeStyle: PageSectionNavigationFooterTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

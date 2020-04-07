@@ -1,5 +1,5 @@
 import React from 'react'
-import { Action, ActionProps } from '../../../models/action'
+import { ActionProps } from '../../../models/action'
 import { buttonPrimaryStyle } from '../../../element-styles/button'
 import { Box } from '../../elements/grid'
 import { Any } from '../../elements/any'
@@ -7,6 +7,7 @@ import { TopicProps } from '../../../models/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { NcssProps } from '../../elements/types'
+import { ActionTree } from '../action/action-tree'
 
 export interface TopicActionsStyleTree {
   /** Wrapper around action */
@@ -63,7 +64,7 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
           {action.heading}
         </Any>
       ) : (
-        <Action
+        <ActionTree
           {...action}
           treeStyle={{
             ...buttonPrimaryStyle,
@@ -71,7 +72,7 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
           }}
         >
           {action.heading}
-        </Action>
+        </ActionTree>
       )}
     </Box>
   )

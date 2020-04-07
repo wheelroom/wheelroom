@@ -8,12 +8,12 @@ import { NavigationSegmentProps } from '../../../models/navigation-segment'
 import { getPageSectionInfo } from '../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../models/page-section/page-section'
 import { NcssProps } from '../../elements/types'
-import { NavListStyleTree, NavList } from './nav-list'
-import { NavLogo, NavLogoStyleTree } from './nav-logo'
-import { NavActionsStyleTree, NavActions } from './nav-actions'
-import { NavDialogStyleTree, NavDialog } from './nav-dialog'
+import { NavListStyleTree, NavList } from '../navigation/nav-list'
+import { NavLogo, NavLogoStyleTree } from '../navigation/nav-logo'
+import { NavActionsStyleTree, NavActions } from '../navigation/nav-actions'
+import { NavDialogStyleTree, NavDialog } from '../navigation/nav-dialog'
 
-export interface NavigationHeaderTreeStyle {
+export interface PageSectionNavigationHeaderTreeStyle {
   skipToContent: NcssProps
   wrapper: NcssProps
   container: NcssProps
@@ -30,9 +30,9 @@ export interface NavigationHeaderTreeStyle {
   }
 }
 
-export const NavigationHeaderTree = (props: {
+export const PageSectionNavigationHeaderTree = (props: {
   pageSection: PageSectionProps
-  treeStyle: NavigationHeaderTreeStyle
+  treeStyle: PageSectionNavigationHeaderTreeStyle
 }) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)
