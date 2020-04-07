@@ -4,6 +4,7 @@ import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicTree, TopicTreeProps } from '../../topic/topic-tree'
 import { TreeStyle } from '../../../lib/tree-style'
+import { MultiParser } from '../../../parsers/multi-parser'
 
 export const PageSectionTopicTree = (props: {
   /** Contains the topic to render */
@@ -29,6 +30,7 @@ export const PageSectionTopicTree = (props: {
           <TopicTree
             key={index}
             topic={topic}
+            useAbstractParser={MultiParser}
             {...props.topicProps}
             treeStyle={props.treeStyle.topic}
           />

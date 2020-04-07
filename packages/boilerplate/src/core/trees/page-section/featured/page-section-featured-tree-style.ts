@@ -9,7 +9,7 @@ export interface PageSectionFeaturedTreeStyle {
   container: NcssProps
 }
 
-export const featuredTreeStyle: PageSectionFeaturedTreeStyle = {
+export const pageSectionFeaturedTreeStyle: PageSectionFeaturedTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

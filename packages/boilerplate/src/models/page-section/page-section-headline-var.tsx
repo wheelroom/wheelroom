@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { headlineTreeStyle } from '../../core/trees/page-section/headline/page-section-headline-tree-style'
+import { pageSectionHeadlineTreeStyle } from '../../core/trees/page-section/headline/page-section-headline-tree-style'
 import { PageSectionTopicTree } from '../../core/trees/page-section/topic/page-section-topic-tree'
 
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {
@@ -25,7 +25,7 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={headlineTreeStyle}
+        treeStyle={pageSectionHeadlineTreeStyle}
       />
     )
   }

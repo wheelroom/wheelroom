@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { cardTreeStyle } from '../../core/trees/page-section/card/page-section-card-tree-style'
+import { pageSectionCardTreeStyle } from '../../core/trees/page-section/card/page-section-card-tree-style'
 import { PageSectionTopicTree } from '../../core/trees/page-section/topic/page-section-topic-tree'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
@@ -18,8 +18,8 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   if (pageSectionInfo.hasTopic) {
     if (!pageSectionInfo.topicOptions.hideAction) {
       Object.assign(
-        cardTreeStyle.topic.wrapper,
-        cardTreeStyle.conditional.topicWrapperShadow
+        pageSectionCardTreeStyle.topic.wrapper,
+        pageSectionCardTreeStyle.conditional.topicWrapperShadow
       )
     }
 
@@ -32,7 +32,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={cardTreeStyle}
+        treeStyle={pageSectionCardTreeStyle}
       />
     )
   }

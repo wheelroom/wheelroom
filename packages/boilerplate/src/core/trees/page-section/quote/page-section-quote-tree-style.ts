@@ -7,7 +7,7 @@ export interface PageSectionQuoteTreeStyle {
   container: NcssProps
 }
 
-export const quoteTreeStyle: PageSectionQuoteTreeStyle = {
+export const pageSectionQuoteTreeStyle: PageSectionQuoteTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

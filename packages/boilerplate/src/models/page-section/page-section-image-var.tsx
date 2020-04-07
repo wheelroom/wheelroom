@@ -11,13 +11,13 @@ import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
 import { PageSectionImageTree } from '../../core/trees/page-section/image/page-section-image-tree'
-import { imageTreeStyle } from '../../core/trees/page-section/image/page-section-image-tree-style'
+import { pageSectionImageTreeStyle } from '../../core/trees/page-section/image/page-section-image-tree-style'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
     return (
-      <PageSectionImageTree pageSection={props} treeStyle={imageTreeStyle} />
+      <PageSectionImageTree pageSection={props} treeStyle={pageSectionImageTreeStyle} />
     )
   }
 

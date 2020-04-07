@@ -5,7 +5,7 @@ import {
   defaultImageFigcaptionStyle,
 } from '../../../../element-styles/image'
 
-export const galleryTreeStyle: PageSectionGalleryTreeStyle = {
+export const pageSectionGalleryTreeStyle: PageSectionGalleryTreeStyle = {
   wrapper: {
     label: 'Wrapper',
     bg: 'bg',

@@ -10,7 +10,7 @@ export interface PageSectionCardTreeStyle {
   container: NcssProps
 }
 
-export const cardTreeStyle: PageSectionCardTreeStyle = {
+export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
   conditional: {
     topicWrapperShadow: {
       border: '1px solid',

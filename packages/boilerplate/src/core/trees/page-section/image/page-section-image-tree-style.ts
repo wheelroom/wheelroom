@@ -1,7 +1,7 @@
 import { PageSectionImageTreeStyle } from './page-section-image-tree'
 import { smallParagraphStyle } from '../../../../element-styles/paragraph'
 
-export const imageTreeStyle: PageSectionImageTreeStyle = {
+export const pageSectionImageTreeStyle: PageSectionImageTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

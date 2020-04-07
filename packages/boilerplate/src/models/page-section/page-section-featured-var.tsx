@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { featuredTreeStyle } from '../../core/trees/page-section/featured/page-section-featured-tree-style'
+import { pageSectionFeaturedTreeStyle } from '../../core/trees/page-section/featured/page-section-featured-tree-style'
 import { PageSectionTopicTree } from '../../core/trees/page-section/topic/page-section-topic-tree'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
@@ -26,7 +26,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={featuredTreeStyle}
+        treeStyle={pageSectionFeaturedTreeStyle}
       />
     )
   }

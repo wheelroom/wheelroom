@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { quoteTreeStyle } from '../../core/trees/page-section/quote/page-section-quote-tree-style'
+import { pageSectionQuoteTreeStyle } from '../../core/trees/page-section/quote/page-section-quote-tree-style'
 import { PageSectionTopicTree } from '../../core/trees/page-section/topic/page-section-topic-tree'
 
 export const PageSectionQuoteVar = (props: PageSectionProps) => {
@@ -26,7 +26,7 @@ export const PageSectionQuoteVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={quoteTreeStyle}
+        treeStyle={pageSectionQuoteTreeStyle}
       />
     )
   }

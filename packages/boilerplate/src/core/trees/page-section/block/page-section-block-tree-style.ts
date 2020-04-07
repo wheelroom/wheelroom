@@ -7,7 +7,7 @@ export interface PageSectionBlockTreeStyle {
   container: NcssProps
 }
 
-export const blockTreeStyle: PageSectionBlockTreeStyle = {
+export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',

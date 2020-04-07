@@ -11,7 +11,7 @@ import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
 import { PageSectionGalleryTree } from '../../core/trees/page-section/gallery/page-section-gallery-tree'
-import { galleryTreeStyle } from '../../core/trees/page-section/gallery/page-section-gallery-tree-style'
+import { pageSectionGalleryTreeStyle } from '../../core/trees/page-section/gallery/page-section-gallery-tree-style'
 
 export const PageSectionGalleryVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -19,7 +19,7 @@ export const PageSectionGalleryVar = (props: PageSectionProps) => {
     return (
       <PageSectionGalleryTree
         pageSection={props}
-        treeStyle={galleryTreeStyle}
+        treeStyle={pageSectionGalleryTreeStyle}
       />
     )
   }

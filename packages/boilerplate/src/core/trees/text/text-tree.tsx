@@ -8,8 +8,8 @@
  */
 
 import React from 'react'
-import { MediaObject, NcssProps } from '../../elements/types'
-import { Image, ImageTreeStyle } from '../../elements/image'
+import { MediaObject } from '../../elements/types'
+import { Image } from '../../elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
 import { Any } from '../../elements/any'
 import { Paragraph } from '../../elements/paragraph'
@@ -23,32 +23,9 @@ import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
-import { Video, VideoTreeStyle } from '../../elements/video'
+import { Video } from '../../elements/video'
 import { TextProps } from '../../../models/text'
-
-export interface TextTreeStyle {
-  wrapper?: NcssProps
-  marksBold?: NcssProps
-  marksCode?: {
-    pre?: NcssProps
-    code?: NcssProps
-  }
-  blocksQuote?: NcssProps
-  blocksUlList?: NcssProps
-  blocksOlList?: NcssProps
-  blocksLiList?: NcssProps
-  inlinesHyperlink?: NcssProps
-  entryHyperlink?: NcssProps
-  blocksHeading1?: NcssProps
-  blocksHeading2?: NcssProps
-  blocksHeading3?: NcssProps
-  blocksHeading4?: NcssProps
-  blocksHeading5?: NcssProps
-  blocksHeading6?: NcssProps
-  blocksHr?: NcssProps
-  image?: ImageTreeStyle
-  video?: VideoTreeStyle
-}
+import { TextTreeStyle } from './text-tree-style'
 
 export interface TextTreeProps {
   /** Locale needed for rendering rich text */

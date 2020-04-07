@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../core/lib/not-implemented'
 import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { blockTreeStyle } from '../../core/trees/page-section/block/page-section-block-tree-style'
+import { pageSectionBlockTreeStyle } from '../../core/trees/page-section/block/page-section-block-tree-style'
 import { PageSectionTopicTree } from '../../core/trees/page-section/topic/page-section-topic-tree'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
@@ -25,7 +25,7 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={blockTreeStyle}
+        treeStyle={pageSectionBlockTreeStyle}
       />
     )
   }

@@ -1,7 +1,33 @@
 import { defaultParagraphStyle } from '../../../element-styles/paragraph'
 import { defaultALinkStyle } from '../../../element-styles/a-link'
 import { defaultVideoStyle } from '../../../element-styles/video'
-import { TextTreeStyle } from './text-tree'
+import { NcssProps } from '../../elements/types'
+import { ImageTreeStyle } from '../../elements/image'
+import { VideoTreeStyle } from '../../elements/video'
+
+export interface TextTreeStyle {
+  wrapper?: NcssProps
+  marksBold?: NcssProps
+  marksCode?: {
+    pre?: NcssProps
+    code?: NcssProps
+  }
+  blocksQuote?: NcssProps
+  blocksUlList?: NcssProps
+  blocksOlList?: NcssProps
+  blocksLiList?: NcssProps
+  inlinesHyperlink?: NcssProps
+  entryHyperlink?: NcssProps
+  blocksHeading1?: NcssProps
+  blocksHeading2?: NcssProps
+  blocksHeading3?: NcssProps
+  blocksHeading4?: NcssProps
+  blocksHeading5?: NcssProps
+  blocksHeading6?: NcssProps
+  blocksHr?: NcssProps
+  image?: ImageTreeStyle
+  video?: VideoTreeStyle
+}
 
 export const textTreeStyle: TextTreeStyle = {
   wrapper: {

@@ -1,6 +1,5 @@
-import { TextTreeStyle } from '../../text/text-tree'
 import { NcssProps } from '../../../elements/types'
-import { textTreeStyle } from '../../text/text-tree-style'
+import { textTreeStyle, TextTreeStyle } from '../../text/text-tree-style'
 
 export interface PageSectionTextTreeStyle {
   text: TextTreeStyle

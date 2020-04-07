@@ -9,7 +9,7 @@ export interface PageSectionHeroTreeStyle {
   container: NcssProps
 }
 
-export const heroTreeStyle: PageSectionHeroTreeStyle = {
+export const pageSectionHeroTreeStyle: PageSectionHeroTreeStyle = {
   wrapper: {
     label: 'wrapper',
   },

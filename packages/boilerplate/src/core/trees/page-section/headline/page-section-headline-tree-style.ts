@@ -8,7 +8,7 @@ export interface PageSectionHeadlineTreeStyle {
   wrapper: NcssProps
 }
 
-export const headlineTreeStyle: PageSectionHeadlineTreeStyle = {
+export const pageSectionHeadlineTreeStyle: PageSectionHeadlineTreeStyle = {
   wrapper: {
     label: 'wrapper',
     bg: 'bg',
