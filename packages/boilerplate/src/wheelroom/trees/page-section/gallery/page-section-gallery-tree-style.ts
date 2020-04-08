@@ -1,8 +1,3 @@
-import {
-  defaultImageImgStyle,
-  defaultImagePictureStyle,
-  defaultImageFigcaptionStyle,
-} from '../../../../element-styles/image'
 import { NcssProps } from '../../../elements/types'
 import { ImageTreeStyle } from '../../../elements/image'
 
@@ -20,9 +15,7 @@ export const pageSectionGalleryTreeStyle: PageSectionGalleryTreeStyle = {
     justifyContent: 'center',
   },
   image: {
-    figcaption: defaultImageFigcaptionStyle,
-    img: defaultImageImgStyle,
-    picture: { ...defaultImagePictureStyle, w: [1, 1 / 2], p: 3 },
+    picture: { w: [1, 1 / 2], p: 3 },
   },
   wrapper: {
     bg: 'bg',

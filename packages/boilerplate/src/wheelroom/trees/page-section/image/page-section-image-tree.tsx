@@ -22,7 +22,7 @@ export const PageSectionImageTree = (props: {
           .slice(0, 2)
           .map((topic: TopicProps, index: number) => (
             <TopicTree
-              {...topic}
+              topic={topic}
               key={index}
               pageSectionActions={props.pageSection.actions}
               pageSectionInfo={pageSectionInfo}

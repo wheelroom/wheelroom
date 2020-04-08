@@ -34,7 +34,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   )
   const treeShadowStyle = deepMerge(
     { topic: topicTreeStyle },
-    pageSectionCardTreeShadowStyle
+    { ...pageSectionCardTreeShadowStyle, wrapper: fixedWidthWrapperStyle }
   )
 
   addCssLabels('psCard', pageSectionCardTreeStyle)
