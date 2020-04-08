@@ -7,5 +7,8 @@ export const addCssLabels = (prefix: string, treeStyle: TreeStyle) => {
     }
   })
 
-  treeStyle.label = prefix.replace(/:|&/g, '')
+  const regexp = /[:&<>]/g
+  if (prefix.search(regexp) === -1) {
+    treeStyle.label = prefix
+  }
 }
