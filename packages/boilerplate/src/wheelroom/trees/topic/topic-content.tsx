@@ -3,24 +3,12 @@ import { Box } from '../../elements/grid'
 import { TopicProps } from '../../../models/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import {
-  TopicContentText,
-  TopicContentTextTreeStyle,
-} from './topic-content-text'
-import {
-  TopicContentActions,
-  TopicActionsTreeStyle,
-} from './topic-content-actions'
-import { BlockLevelElementName, NcssProps } from '../../elements/types'
+import { TopicContentText } from './topic-content-text'
+import { TopicContentActions } from './topic-content-actions'
+import { BlockLevelElementName } from '../../elements/types'
 import { ActionProps } from '../../../models/action/action'
 import { ParserFunction } from '../../parsers/types'
-
-export interface TopicContentTreeStyle {
-  /** Wrapper around all content including action */
-  wrapper?: NcssProps
-  contentText?: TopicContentTextTreeStyle
-  contentActions?: TopicActionsTreeStyle
-}
+import { TopicContentTreeStyle } from './topic-content-style'
 
 export interface TopicContentWrapperProps {
   topic: TopicProps

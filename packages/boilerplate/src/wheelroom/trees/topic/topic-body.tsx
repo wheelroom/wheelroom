@@ -5,7 +5,7 @@ import { TopicContent } from './topic-content'
 import { TopicTreeProps } from './topic-tree'
 
 export const TopicBody = (props: TopicTreeProps) => {
-  const topicInfo = getTopicInfo(props.topic)
+  const topicInfo = getTopicInfo(props.topic!)
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
   const treeStyle = props.treeStyle || {}
@@ -23,7 +23,7 @@ export const TopicBody = (props: TopicTreeProps) => {
           pageSectionInfo={pageSectionInfo}
           reverse={reverse}
           treeStyle={treeStyle.media}
-          topic={props.topic}
+          topic={props.topic!}
           topicInfo={topicInfo}
         />
       )}
@@ -33,7 +33,7 @@ export const TopicBody = (props: TopicTreeProps) => {
         pageSectionInfo={pageSectionInfo}
         reverse={reverse}
         treeStyle={treeStyle.content}
-        topic={props.topic}
+        topic={props.topic!}
         topicInfo={topicInfo}
         useAbstractElement={props.useAbstractElement}
         useHeadingElement={props.useHeadingElement}

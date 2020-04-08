@@ -1,22 +1,14 @@
 import React from 'react'
 import { TopicProps } from '../../../models/topic/topic'
 import { Box } from '../../elements/grid'
-import { BlockLevelElementName, NcssProps } from '../../elements/types'
+import { BlockLevelElementName } from '../../elements/types'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Heading } from '../../elements/heading'
 import { TopicIcon } from './topic-icon'
 import { ParserFunction } from '../../parsers/types'
 import { Paragraph } from '../../elements/paragraph'
-
-export interface TopicContentTextTreeStyle {
-  /** Wrapper around heading and abstract */
-  wrapper?: NcssProps
-  /** Heading style */
-  heading?: NcssProps
-  /** Abstract style */
-  abstract?: NcssProps
-}
+import { TopicContentTextTreeStyle } from './topic-content-text-style'
 
 export interface TopicContentTextProps {
   /** Defaults to h3 */

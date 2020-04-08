@@ -6,15 +6,8 @@ import { Any } from '../../elements/any'
 import { TopicProps } from '../../../models/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import { NcssProps } from '../../elements/types'
 import { ActionTree } from '../action/action-tree'
-
-export interface TopicActionsTreeStyle {
-  /** Wrapper around action */
-  wrapper?: NcssProps
-  /** Action link or button style */
-  link?: NcssProps
-}
+import { TopicActionsTreeStyle } from './topic-content-actions-style'
 
 export interface TopicContentActionsProps {
   /** Full Topic is wrapped in a link and the inside link becomes a span */

@@ -1,23 +1,14 @@
 import React from 'react'
 import { Box } from '../../elements/grid'
 import { getTopicInfo } from '../../lib/get-topic-info'
-import { NcssProps, BlockLevelElementName } from '../../elements/types'
+import { BlockLevelElementName } from '../../elements/types'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { TopicBody } from './topic-body'
 import { TopicProps } from '../../../models/topic/topic'
-import { TopicMediaTreeStyle } from './topic-media'
-import { TopicContentTreeStyle } from './topic-content'
 import { ParserFunction } from '../../parsers/types'
 import { ActionProps } from '../../../models/action/action'
 import { ActionTree } from '../action/action-tree'
-
-export interface TopicTreeStyle {
-  /** Wrapper around the whole topic */
-  wrapper?: NcssProps
-  /** Wrapper around media */
-  media?: TopicMediaTreeStyle
-  content?: TopicContentTreeStyle
-}
+import { TopicTreeStyle } from './topic-tree-style'
 
 export interface TopicTreeProps {
   /** The topic to render */
@@ -51,7 +42,9 @@ export const TopicTree = (props: TopicTreeProps) => {
   const treeStyle = props.treeStyle || {}
   const topicWrapperStyle = treeStyle.wrapper || {}
   const topicInfo = getTopicInfo(props.topic)
-  const fullTopicAsLink = topicInfo.hasAction && props.fullTopicAsLink
+  const topicOptions = props.pageSectionInfo.topicOptions
+  const fullTopicAsLink =
+    !topicOptions.hideAction && topicInfo.hasAction && props.fullTopicAsLink
   return fullTopicAsLink ? (
     <ActionTree
       {...props.topic.actions[0]}
