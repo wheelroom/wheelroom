@@ -2,9 +2,9 @@ import { NcssProps } from '../../../elements/types'
 import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
 export interface PageSectionBlockTreeStyle {
-  topic: TopicTreeStyle
-  wrapper: NcssProps
-  container: NcssProps
+  container?: NcssProps
+  topic?: TopicTreeStyle
+  wrapper?: NcssProps
 }
 
 export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {

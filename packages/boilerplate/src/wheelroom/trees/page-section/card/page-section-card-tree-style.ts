@@ -3,9 +3,9 @@ import { TopicTreeStyle } from '../../topic/topic-tree-style'
 import deepmerge from 'deepmerge'
 
 export interface PageSectionCardTreeStyle {
-  topic: TopicTreeStyle
-  wrapper: NcssProps
-  container: NcssProps
+  container?: NcssProps
+  topic?: TopicTreeStyle
+  wrapper?: NcssProps
 }
 
 const topicWrapperStyle = {
@@ -66,7 +66,7 @@ export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
   },
 }
 
-export const pageSectionCardTreeShadowStyle = deepmerge(
+export const pageSectionCardTreeShadowStyle: PageSectionCardTreeStyle = deepmerge(
   pageSectionCardTreeStyle,
   {
     topic: {

@@ -4,8 +4,8 @@ import { NcssProps } from '../../../elements/types'
 import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
 export interface PageSectionHeadlineTreeStyle {
-  topic: TopicTreeStyle
-  wrapper: NcssProps
+  topic?: TopicTreeStyle
+  wrapper?: NcssProps
 }
 
 export const pageSectionHeadlineTreeStyle: PageSectionHeadlineTreeStyle = {

@@ -1,11 +1,14 @@
-import { PageSectionVideoTreeStyle } from './page-section-video-tree'
 import { smallParagraphStyle } from '../../../../element-styles/paragraph'
+import { TopicTreeStyle } from '../../topic/topic-tree-style'
+import { NcssProps } from '../../../elements/types'
+
+export interface PageSectionVideoTreeStyle {
+  container?: NcssProps
+  topic?: TopicTreeStyle
+  wrapper?: NcssProps
+}
 
 export const videoTreeStyle: PageSectionVideoTreeStyle = {
-  wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
-  },
   container: {},
   topic: {
     media: {
@@ -31,5 +34,9 @@ export const videoTreeStyle: PageSectionVideoTreeStyle = {
         },
       },
     },
+  },
+  wrapper: {
+    bg: 'bg',
+    py: [3, 6, 8],
   },
 }

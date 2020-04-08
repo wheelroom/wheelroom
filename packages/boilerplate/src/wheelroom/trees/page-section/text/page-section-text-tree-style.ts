@@ -2,9 +2,9 @@ import { NcssProps } from '../../../elements/types'
 import { textTreeStyle, TextTreeStyle } from '../../text/text-tree-style'
 
 export interface PageSectionTextTreeStyle {
-  text: TextTreeStyle
-  wrapper: NcssProps
-  container: NcssProps
+  container?: NcssProps
+  text?: TextTreeStyle
+  wrapper?: NcssProps
 }
 
 export const pageSectionTextTreeStyle: PageSectionTextTreeStyle = {

@@ -3,14 +3,8 @@ import { Box, Container } from '../../../elements/grid'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicProps } from '../../../../models/topic'
-import { Image, ImageTreeStyle } from '../../../elements/image'
-import { NcssProps } from '../../../elements/types'
-
-export interface PageSectionGalleryTreeStyle {
-  image: ImageTreeStyle
-  wrapper: NcssProps
-  container: NcssProps
-}
+import { Image } from '../../../elements/image'
+import { PageSectionGalleryTreeStyle } from './page-section-gallery-tree-style'
 
 export const PageSectionGalleryTree = (props: {
   pageSection: PageSectionProps

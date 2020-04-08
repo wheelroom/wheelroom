@@ -1,5 +1,12 @@
-import { PageSectionImageTreeStyle } from './page-section-image-tree'
 import { smallParagraphStyle } from '../../../../element-styles/paragraph'
+import { NcssProps } from '../../../elements/types'
+import { TopicTreeStyle } from '../../topic/topic-tree-style'
+
+export interface PageSectionImageTreeStyle {
+  container?: NcssProps
+  topic?: TopicTreeStyle
+  wrapper?: NcssProps
+}
 
 export const pageSectionImageTreeStyle: PageSectionImageTreeStyle = {
   wrapper: {

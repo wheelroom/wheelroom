@@ -1,9 +1,16 @@
-import { PageSectionGalleryTreeStyle } from './page-section-gallery-tree'
 import {
   defaultImageImgStyle,
   defaultImagePictureStyle,
   defaultImageFigcaptionStyle,
 } from '../../../../element-styles/image'
+import { NcssProps } from '../../../elements/types'
+import { ImageTreeStyle } from '../../../elements/image'
+
+export interface PageSectionGalleryTreeStyle {
+  container: NcssProps
+  image: ImageTreeStyle
+  wrapper: NcssProps
+}
 
 export const pageSectionGalleryTreeStyle: PageSectionGalleryTreeStyle = {
   wrapper: {

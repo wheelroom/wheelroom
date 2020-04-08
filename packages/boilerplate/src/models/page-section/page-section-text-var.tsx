@@ -17,7 +17,12 @@ import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+
+  // Two things happen here:
+  // - Merge in styling for this variant
+  // - Create a deep copy of the styling
   const treeStyle = deepMerge({}, pageSectionTextTreeStyle)
+
   addCssLabels('psText', treeStyle)
 
   if (pageSectionInfo.hasText) {

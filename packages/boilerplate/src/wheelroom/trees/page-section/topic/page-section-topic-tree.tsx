@@ -5,8 +5,6 @@ import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicTree, TopicTreeProps } from '../../topic/topic-tree'
 import { TreeStyle } from '../../../lib/tree-style'
 import { MultiParser } from '../../../parsers/multi-parser'
-import { topicTreeStyle } from '../../topic/topic-tree-style'
-import deepmerge from 'deepmerge'
 
 export const PageSectionTopicTree = (props: {
   /** Contains the topic to render */
@@ -24,7 +22,6 @@ export const PageSectionTopicTree = (props: {
   }
   const ContainerType =
     props.containerStyle === 'maxWidth' ? ContainerMaxWidth : Container
-  const topicStyle = deepmerge(topicTreeStyle, props.treeStyle.topic || {})
   return (
     <Box is="div" ncss={props.treeStyle.wrapper}>
       <ContainerType ncss={props.treeStyle.container}>
@@ -34,7 +31,7 @@ export const PageSectionTopicTree = (props: {
             topic={topic}
             useAbstractParser={MultiParser}
             {...props.topicProps}
-            treeStyle={topicStyle}
+            treeStyle={props.treeStyle.topic}
           />
         ))}
       </ContainerType>

@@ -14,10 +14,20 @@ import { pageSectionQuoteTreeStyle } from '../../wheelroom/trees/page-section/qu
 import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
+import { topicTreeStyle } from '../../wheelroom/trees/topic/topic-tree-style'
 
 export const PageSectionQuoteVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-  const treeStyle = deepMerge({}, pageSectionQuoteTreeStyle)
+
+  // Three things happen here:
+  // - Use default topic styling
+  // - Merge in styling for this variant
+  // - Create a deep copy of the styling
+  const treeStyle = deepMerge(
+    { topic: topicTreeStyle },
+    pageSectionQuoteTreeStyle
+  )
+
   addCssLabels('psQuote', treeStyle)
 
   if (pageSectionInfo.hasTopic) {

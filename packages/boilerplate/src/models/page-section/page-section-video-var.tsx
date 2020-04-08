@@ -17,7 +17,12 @@ import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+
+  // Two things happen here:
+  // - Merge in styling for this variant
+  // - Create a deep copy of the styling
   const treeStyle = deepMerge({}, videoTreeStyle)
+
   addCssLabels('psText', treeStyle)
 
   if (pageSectionInfo.hasTopic) {
