@@ -9,7 +9,6 @@ export interface PageSectionQuoteTreeStyle {
 
 export const pageSectionQuoteTreeStyle: PageSectionQuoteTreeStyle = {
   wrapper: {
-    label: 'wrapper',
     bg: 'bg',
     py: [3, 6, 8],
   },
@@ -51,7 +50,6 @@ export const pageSectionQuoteTreeStyle: PageSectionQuoteTreeStyle = {
         wrapper: { textAlign: 'center' },
         heading: { order: 1, my: 3, ':before': { content: '"— "' } },
         abstract: {
-          label: 'blockquote',
           mx: [0, 5],
           my: [5],
           fontSize: [7, 8, 9],

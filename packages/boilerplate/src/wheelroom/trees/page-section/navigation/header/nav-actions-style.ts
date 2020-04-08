@@ -11,7 +11,7 @@ export interface NavActionsTreeStyle {
 }
 
 export const navActionsStyle: NavActionsTreeStyle = {
-  container: { label: 'nav-settings' },
+  container: {},
   action: buttonPrimaryStyle,
   themeButton: {
     ...buttonSecondaryStyle,

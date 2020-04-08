@@ -9,7 +9,6 @@ export interface PageSectionTextTreeStyle {
 
 export const pageSectionTextTreeStyle: PageSectionTextTreeStyle = {
   wrapper: {
-    label: 'wrapper',
     bg: 'bg',
   },
   container: {

@@ -31,19 +31,16 @@ export interface TextTreeStyle {
 
 export const textTreeStyle: TextTreeStyle = {
   wrapper: {
-    label: 'text',
     mx: 'auto',
     maxWidth: '640px',
     flexDirection: 'column',
     textAlign: 'left',
   },
   marksBold: {
-    label: 'strong',
     fontWeight: 7,
   },
   marksCode: {
     pre: {
-      label: 'pre',
       fontSize: 3,
       bg: 'skyblue',
       py: 2,
@@ -51,9 +48,7 @@ export const textTreeStyle: TextTreeStyle = {
       wordBreak: 'break-all',
       wordWrap: 'break-word',
     },
-    code: {
-      label: 'code',
-    },
+    code: {},
   },
   blocksQuote: {
     textAlign: 'center',
@@ -76,7 +71,6 @@ export const textTreeStyle: TextTreeStyle = {
   blocksHeading5: { fontSize: [3, 4, 5, 6], mt: 3 },
   blocksHeading6: { fontSize: [3, 4, 5, 6], mt: 3 },
   blocksHr: {
-    label: 'hr',
     overflow: 'hidden',
     borderTop: '1px solid transparent',
     borderColor: 'text',

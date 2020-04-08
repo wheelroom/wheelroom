@@ -11,7 +11,6 @@ export const commonNavigationStyle = {
 }
 
 export const listStyle = {
-  label: 'nav-list',
   display: 'flex',
   flexDirection: 'row',
   listStyle: 'none',
@@ -22,7 +21,6 @@ export const listStyle = {
 }
 
 export const navStyle = {
-  label: 'nav',
   flex: '1',
   alignItems: 'center',
 }

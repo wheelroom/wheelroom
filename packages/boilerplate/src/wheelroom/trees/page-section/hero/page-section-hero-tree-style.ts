@@ -10,9 +10,7 @@ export interface PageSectionHeroTreeStyle {
 }
 
 export const pageSectionHeroTreeStyle: PageSectionHeroTreeStyle = {
-  wrapper: {
-    label: 'wrapper',
-  },
+  wrapper: {},
   container: {
     px: 0,
   },

@@ -14,7 +14,6 @@ export const navSocialLinksStyle: NavSocialLinksTreeStyle = {
     p: 1,
   },
   icon: {
-    label: 'icon',
     width: '20px',
     height: '20px',
     color: 'metal',

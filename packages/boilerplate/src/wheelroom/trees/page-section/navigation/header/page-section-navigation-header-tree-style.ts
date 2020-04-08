@@ -29,7 +29,6 @@ export interface PageSectionNavigationHeaderTreeStyle {
 
 export const navigationHeaderTreeStyle: PageSectionNavigationHeaderTreeStyle = {
   skipToContent: {
-    label: 'skip',
     position: 'absolute',
     left: '-100%',
     ':focus': {
@@ -48,7 +47,6 @@ export const navigationHeaderTreeStyle: PageSectionNavigationHeaderTreeStyle = {
     },
   },
   wrapper: {
-    label: 'wrapper',
     bg: 'bg',
     width: '100%',
     height: '70px',
@@ -56,7 +54,6 @@ export const navigationHeaderTreeStyle: PageSectionNavigationHeaderTreeStyle = {
     borderColor: 'border',
   },
   container: {
-    label: 'container',
     height: '100%',
     justifyContent: 'space-between',
     px: 3,
@@ -78,7 +75,6 @@ export const navigationHeaderTreeStyle: PageSectionNavigationHeaderTreeStyle = {
     navActions: navActionsStyle,
     modalDialog: {
       container: {
-        label: 'modal-dialog',
         display: ['flex', 'flex', 'none'],
         flex: '1',
         alignItems: 'center',

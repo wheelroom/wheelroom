@@ -3,7 +3,6 @@ import { smallParagraphStyle } from '../../../../element-styles/paragraph'
 
 export const videoTreeStyle: PageSectionVideoTreeStyle = {
   wrapper: {
-    label: 'wrapper',
     bg: 'bg',
     py: [3, 6, 8],
   },

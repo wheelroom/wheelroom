@@ -1,5 +1,5 @@
-import { TopicTreeStyle } from '../../topic/topic-tree'
 import { NcssProps } from '../../../elements/types'
+import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
 export interface PageSectionBlockTreeStyle {
   topic: TopicTreeStyle
@@ -9,7 +9,6 @@ export interface PageSectionBlockTreeStyle {
 
 export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
   wrapper: {
-    label: 'wrapper',
     bg: 'bg',
     py: [3, 6, 8],
   },

@@ -7,7 +7,6 @@ import {
 
 export const pageSectionGalleryTreeStyle: PageSectionGalleryTreeStyle = {
   wrapper: {
-    label: 'Wrapper',
     bg: 'bg',
     py: [3, 6, 8],
   },

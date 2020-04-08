@@ -23,7 +23,6 @@ export interface PageSectionNavigationFooterTreeStyle {
 
 export const navigationFooterTreeStyle: PageSectionNavigationFooterTreeStyle = {
   wrapper: {
-    label: 'wrapper',
     bg: 'bg',
   },
   container: {

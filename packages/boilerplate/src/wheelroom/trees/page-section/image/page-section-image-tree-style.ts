@@ -3,7 +3,6 @@ import { smallParagraphStyle } from '../../../../element-styles/paragraph'
 
 export const pageSectionImageTreeStyle: PageSectionImageTreeStyle = {
   wrapper: {
-    label: 'wrapper',
     bg: 'bg',
     py: [3, 6, 8],
   },

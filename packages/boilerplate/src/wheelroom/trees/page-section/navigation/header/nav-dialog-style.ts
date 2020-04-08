@@ -53,7 +53,6 @@ export const navDialogStyle: NavDialogTreeStyle = {
       flex: '1',
       flexDirection: 'column',
       flexWrap: 'wrap',
-      label: 'nav-list',
       listStyle: 'none',
       mb: 0,
       mt: 0,
@@ -78,7 +77,7 @@ export const navDialogStyle: NavDialogTreeStyle = {
     },
   },
   actions: {
-    container: { label: 'nav-settings', w: 1, p: 3 },
+    container: { w: 1, p: 3 },
     action: { ...buttonPrimaryStyle, w: 1 },
     themeButton: {
       ...buttonSecondaryStyle,

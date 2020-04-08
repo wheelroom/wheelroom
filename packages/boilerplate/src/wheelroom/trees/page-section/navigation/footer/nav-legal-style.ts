@@ -15,7 +15,6 @@ export const navLegalStyle: NavLegalTreeStyle = {
     px: 3,
   },
   innerContainer: {
-    label: 'legal',
     h: '48px',
     w: 1,
     alignItems: 'center',

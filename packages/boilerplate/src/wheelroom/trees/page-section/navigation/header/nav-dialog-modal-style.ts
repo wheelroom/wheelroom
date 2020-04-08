@@ -1,5 +1,4 @@
 export const modalStyle = {
-  label: 'modal',
   position: 'fixed',
   display: 'flex',
   top: 0,
@@ -48,7 +47,6 @@ export const modalOpenStyle = {
 }
 
 export const modalContentStyle = {
-  label: 'modal-content',
   w: [1, '360px'],
   m: 3,
   h: 'fit-content',

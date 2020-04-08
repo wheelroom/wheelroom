@@ -19,7 +19,6 @@ const topicWrapperStyle = {
 
 export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
   wrapper: {
-    label: 'wrapper',
     bg: 'bg',
     py: [3, 6, 8],
   },

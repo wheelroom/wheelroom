@@ -7,7 +7,6 @@ export interface NavLogoTreeStyle {
 
 export const navLogoStyle: NavLogoTreeStyle = {
   container: {
-    label: 'logo',
     alignItems: 'center',
   },
   link: {

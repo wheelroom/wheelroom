@@ -8,7 +8,6 @@ const NotFoundPage = () => (
   <Box
     is="div"
     ncss={{
-      label: 'wrapper',
       py: [3, 6, 8],
     }}
   >
