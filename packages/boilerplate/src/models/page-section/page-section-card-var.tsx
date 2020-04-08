@@ -13,7 +13,7 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import {
   pageSectionCardTreeStyle,
   pageSectionCardTreeShadowStyle,
-} from '../../wheelroom/trees/page-section/card/page-section-card-tree-style'
+} from '../../wheelroom/trees/page-section/topic/page-section-card-tree-style'
 import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
