@@ -15,6 +15,7 @@ import {
   pageSectionCardTreeShadowStyle,
 } from '../../wheelroom/trees/page-section/card/page-section-card-tree-style'
 import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
+import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -29,11 +30,12 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={
+        treeStyle={addCssLabels(
+          'card',
           pageSectionInfo.topicOptions.hideAction
             ? pageSectionCardTreeStyle
             : pageSectionCardTreeShadowStyle
-        }
+        )}
       />
     )
   }
