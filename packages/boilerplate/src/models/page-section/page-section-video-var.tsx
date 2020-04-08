@@ -23,10 +23,5 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
   if (pageSectionInfo.hasTopic) {
     return <PageSectionVideoTree pageSection={props} treeStyle={treeStyle} />
   }
-
-  /**
-   * If you did not return a view above, Wheelroom will display this
-   * notification
-   */
   return <NotImplemented {...props} />
 }
