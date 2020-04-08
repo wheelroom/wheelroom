@@ -16,11 +16,13 @@ import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+  addCssLabels('psText', pageSectionTextTreeStyle)
+
   if (pageSectionInfo.hasText) {
     return (
       <PageSectionTextTree
         pageSection={props}
-        treeStyle={addCssLabels('psText', pageSectionTextTreeStyle)}
+        treeStyle={pageSectionTextTreeStyle}
       />
     )
   }

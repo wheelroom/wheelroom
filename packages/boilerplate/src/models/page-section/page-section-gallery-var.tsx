@@ -16,11 +16,13 @@ import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionGalleryVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+  addCssLabels('psGallery', pageSectionGalleryTreeStyle)
+
   if (pageSectionInfo.hasTopic) {
     return (
       <PageSectionGalleryTree
         pageSection={props}
-        treeStyle={addCssLabels('psGallery', pageSectionGalleryTreeStyle)}
+        treeStyle={pageSectionGalleryTreeStyle}
       />
     )
   }

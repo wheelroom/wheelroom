@@ -16,6 +16,8 @@ import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+  addCssLabels('psHeadline', pageSectionHeadlineTreeStyle)
+
   if (pageSectionInfo.hasTopic) {
     return (
       <PageSectionTopicTree
@@ -26,7 +28,7 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={addCssLabels('psHeadline', pageSectionHeadlineTreeStyle)}
+        treeStyle={pageSectionHeadlineTreeStyle}
       />
     )
   }

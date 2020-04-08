@@ -16,6 +16,8 @@ import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+  addCssLabels('psFeatured', pageSectionFeaturedTreeStyle)
+
   if (pageSectionInfo.topicCount === 1) {
     return (
       <PageSectionTopicTree
@@ -27,7 +29,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={addCssLabels('psFeatured', pageSectionFeaturedTreeStyle)}
+        treeStyle={pageSectionFeaturedTreeStyle}
       />
     )
   }

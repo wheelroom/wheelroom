@@ -19,6 +19,8 @@ import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+  addCssLabels('psCard', pageSectionCardTreeStyle)
+  addCssLabels('psCard', pageSectionCardTreeShadowStyle)
 
   if (pageSectionInfo.hasTopic) {
     return (

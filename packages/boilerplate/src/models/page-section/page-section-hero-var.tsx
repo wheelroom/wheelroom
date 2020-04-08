@@ -16,6 +16,8 @@ import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionHeroVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+  addCssLabels('psHero', pageSectionHeroTreeStyle)
+
   if (pageSectionInfo.hasTopic) {
     return (
       <PageSectionTopicTree
@@ -26,7 +28,7 @@ export const PageSectionHeroVar = (props: PageSectionProps) => {
         }}
         containerStyle="fluid"
         pageSection={props}
-        treeStyle={addCssLabels('psHero', pageSectionHeroTreeStyle)}
+        treeStyle={pageSectionHeroTreeStyle}
       />
     )
   }
