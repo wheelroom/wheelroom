@@ -7,11 +7,9 @@ const addLabel = <T>(prefix: string, treeStyle: TreeStyle): T => {
     }
   })
   treeStyle.label = prefix.replace(':', '')
-  console.log(treeStyle)
   return treeStyle as T
 }
 
 export const addCssLabels = <T>(prefix: string, treeStyle: TreeStyle): T => {
-  console.log(treeStyle)
   return addLabel(prefix, treeStyle)
 }
