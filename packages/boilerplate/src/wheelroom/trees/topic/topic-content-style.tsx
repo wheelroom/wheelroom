@@ -18,7 +18,6 @@ export interface TopicContentTreeStyle {
 export const topicContentStyle: TopicContentTreeStyle = {
   wrapper: {
     justifyContent: 'center',
-    label: 'topic-content',
     p: 3,
   },
   contentText: topicContentTextStyle,
