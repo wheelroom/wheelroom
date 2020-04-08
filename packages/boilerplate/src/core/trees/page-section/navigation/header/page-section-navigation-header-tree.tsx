@@ -16,6 +16,7 @@ import { PageSectionNavigationHeaderTreeStyle } from './page-section-navigation-
 export const PageSectionNavigationHeaderTree = (props: {
   pageSection: PageSectionProps
   treeStyle: PageSectionNavigationHeaderTreeStyle
+  useLogoElement?: JSX.Element
 }) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)
@@ -54,13 +55,13 @@ export const PageSectionNavigationHeaderTree = (props: {
   return (
     <Fragment>
       <ALink href="#content" ncss={treeStyle.skipToContent}>
-        {`Skip to ` + globals.siteHeading + ` Content`}
+        {`Skip to ${globals.siteHeading} Content`}
       </ALink>
       <Box is="div" ncss={treeStyle.wrapper}>
         <Container ncss={treeStyle.container}>
           <NavLogo
-            globals={globals}
-            siteMetadata={siteMetadata}
+            logo={props.useLogoElement || globals.siteHeading}
+            version={siteMetadata.legal.version}
             treeStyle={treeStyle.menu.navLogo}
           />
           <Flex is={'nav'} ncss={treeStyle.menu.nav}>

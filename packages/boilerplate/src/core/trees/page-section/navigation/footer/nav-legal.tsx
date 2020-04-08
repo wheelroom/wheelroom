@@ -18,7 +18,7 @@ export const NavLegal = (props: {
             {props.siteMetadata.legal.description}
           </ALink>
           <sup>
-            <small>{` ` + props.siteMetadata.legal.version}</small>
+            <small>{' ' + props.siteMetadata.legal.version}</small>
           </sup>
         </Any>
       </Flex>
