@@ -12,6 +12,7 @@ import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { pageSectionHeadlineTreeStyle } from '../../wheelroom/trees/page-section/headline/page-section-headline-tree-style'
 import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
+import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -25,11 +26,9 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={pageSectionHeadlineTreeStyle}
+        treeStyle={addCssLabels('psHeadline', pageSectionHeadlineTreeStyle)}
       />
     )
   }
-
-  /** If you did not return a view above, Wheelroom will display this notification */
   return <NotImplemented {...props} />
 }

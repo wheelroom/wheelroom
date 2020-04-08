@@ -12,6 +12,7 @@ import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { pageSectionBlockTreeStyle } from '../../wheelroom/trees/page-section/block/page-section-block-tree-style'
 import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
+import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -25,14 +26,9 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={pageSectionBlockTreeStyle}
+        treeStyle={addCssLabels('psBlock', pageSectionBlockTreeStyle)}
       />
     )
   }
-
-  /**
-   * If you did not return a view above, Wheelroom will display this
-   * notification
-   */
   return <NotImplemented {...props} />
 }

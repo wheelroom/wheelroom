@@ -31,7 +31,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         containerStyle="maxWidth"
         pageSection={props}
         treeStyle={addCssLabels(
-          'card',
+          'psCard',
           pageSectionInfo.topicOptions.hideAction
             ? pageSectionCardTreeStyle
             : pageSectionCardTreeShadowStyle
@@ -39,10 +39,5 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
       />
     )
   }
-
-  /**
-   * If you did not return a view above, Wheelroom will display this
-   * notification
-   */
   return <NotImplemented {...props} />
 }
