@@ -1,7 +1,7 @@
 import { paragraphHeroStyle } from '../../../../element-styles/paragraph'
 import { buttonPrimaryStyle } from '../../../../element-styles/button'
-import { TopicTreeStyle } from '../../topic/topic-tree'
 import { NcssProps } from '../../../elements/types'
+import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
 export interface PageSectionHeroTreeStyle {
   topic: TopicTreeStyle

@@ -1,7 +1,7 @@
 import { defaultHeading1Style } from '../../../../element-styles/heading'
 import { paragraphHeroStyle } from '../../../../element-styles/paragraph'
-import { TopicTreeStyle } from '../../topic/topic-tree'
 import { NcssProps } from '../../../elements/types'
+import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
 export interface PageSectionHeadlineTreeStyle {
   topic: TopicTreeStyle

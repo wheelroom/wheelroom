@@ -1,5 +1,5 @@
 import { NcssProps } from '../../../elements/types'
-import { TopicTreeStyle } from '../../topic/topic-tree'
+import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
 export interface PageSectionCardTreeStyle {
   conditional: {

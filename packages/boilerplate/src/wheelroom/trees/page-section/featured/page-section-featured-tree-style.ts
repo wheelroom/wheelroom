@@ -1,7 +1,7 @@
 import { defaultHeading2Style } from '../../../../element-styles/heading'
 import { defaultParagraphStyle } from '../../../../element-styles/paragraph'
-import { TopicTreeStyle } from '../../topic/topic-tree'
 import { NcssProps } from '../../../elements/types'
+import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
 export interface PageSectionFeaturedTreeStyle {
   topic: TopicTreeStyle

@@ -1,5 +1,5 @@
-import { TopicTreeStyle } from '../../topic/topic-tree'
 import { NcssProps } from '../../../elements/types'
+import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
 export interface PageSectionQuoteTreeStyle {
   topic: TopicTreeStyle
