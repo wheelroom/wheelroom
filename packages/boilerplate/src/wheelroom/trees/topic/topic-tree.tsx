@@ -8,7 +8,7 @@ import { TopicProps } from '../../../models/topic/topic'
 import { ParserFunction } from '../../parsers/types'
 import { ActionProps } from '../../../models/action/action'
 import { ActionTree } from '../action/action-tree'
-import { TopicTreeStyle } from './topic-tree-style'
+import { TopicTreeStyle, topicTreeStyle } from './topic-tree-style'
 
 export interface TopicTreeProps {
   /** The topic to render */
@@ -49,10 +49,7 @@ export const TopicTree = (props: TopicTreeProps) => {
     <ActionTree
       {...props.topic.actions[0]}
       treeStyle={{
-        display: 'flex',
-        flexDirection: 'column',
-        label: 'topic',
-        textDecoration: 'none',
+        ...topicTreeStyle,
         ...topicWrapperStyle,
       }}
     >
