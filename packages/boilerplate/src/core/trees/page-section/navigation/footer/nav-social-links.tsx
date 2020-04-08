@@ -2,14 +2,8 @@ import { List } from '../../../../elements/list'
 import { TopicProps } from '../../../../../models/topic'
 import { FeatherIcon } from '../../../../elements/icon'
 import React from 'react'
-import { NcssProps } from '../../../../elements/types'
 import { ActionTree } from '../../../action/action-tree'
-
-export interface NavSocialLinksTreeStyle {
-  list: NcssProps
-  action: NcssProps
-  icon: NcssProps
-}
+import { NavSocialLinksTreeStyle } from './nav-social-links-style'
 
 export const NavSocialLinks = (props: {
   topics: TopicProps[]

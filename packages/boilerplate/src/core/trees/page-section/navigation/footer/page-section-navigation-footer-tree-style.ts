@@ -1,8 +1,25 @@
-import { PageSectionNavigationFooterTreeStyle } from './page-section-navigation-footer-tree'
 import {
   commonNavigationStyle,
   listStyle,
 } from '../common/navigation-common-style'
+import { NcssProps } from '../../../../elements/types'
+import { NavListTreeStyle } from '../common/nav-list'
+import {
+  NavSocialLinksTreeStyle,
+  navSocialLinksStyle,
+} from './nav-social-links-style'
+import { NavLegalTreeStyle, navLegalStyle } from './nav-legal-style'
+
+export interface PageSectionNavigationFooterTreeStyle {
+  wrapper: NcssProps
+  container: NcssProps
+  menus: {
+    nav: NcssProps
+    navList: NavListTreeStyle
+    navSocialLinks: NavSocialLinksTreeStyle
+  }
+  navLegal: NavLegalTreeStyle
+}
 
 export const navigationFooterTreeStyle: PageSectionNavigationFooterTreeStyle = {
   wrapper: {
@@ -34,42 +51,7 @@ export const navigationFooterTreeStyle: PageSectionNavigationFooterTreeStyle = {
         },
       },
     },
-    socialNavLinks: {
-      list: listStyle,
-      action: {
-        display: 'inline-flex',
-        p: 1,
-      },
-      icon: {
-        label: 'icon',
-        width: '20px',
-        height: '20px',
-        color: 'metal',
-        strokeWidth: '1px',
-        ':hover': {
-          color: 'text',
-        },
-      },
-    },
+    navSocialLinks: navSocialLinksStyle,
   },
-  navLegal: {
-    container: {
-      borderTop: '1px solid transparent',
-      borderColor: 'border',
-      px: 3,
-    },
-    innerContainer: {
-      label: 'legal',
-      h: '48px',
-      w: 1,
-      alignItems: 'center',
-      justifyContent: ['center', 'normal'],
-    },
-    text: { fontFamily: 'text', color: 'metal' },
-    link: {
-      ...commonNavigationStyle,
-      display: 'inline-flex',
-      color: 'metal',
-    },
-  },
+  navLegal: navLegalStyle,
 }
