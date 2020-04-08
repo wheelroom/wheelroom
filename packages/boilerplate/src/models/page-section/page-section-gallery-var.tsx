@@ -17,17 +17,19 @@ import {
 } from '../../wheelroom/trees/page-section/gallery/page-section-gallery-tree-style'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
+import { fixedWidthWrapperStyle } from './styles/fixed-width-wrapper-style'
 
 export const PageSectionGalleryVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  // Two things happen here:
+  // Three things happen here:
   // - Merge in styling for this variant
   // - Create a deep copy of the styling
-  const treeStyle = deepMerge(
-    {} as PageSectionGalleryTreeStyle,
-    pageSectionGalleryTreeStyle
-  )
+  // - Apply fixedWidthWrapperStyle
+  const treeStyle = deepMerge({} as PageSectionGalleryTreeStyle, {
+    ...pageSectionGalleryTreeStyle,
+    wrapper: fixedWidthWrapperStyle,
+  })
 
   addCssLabels('psGallery', pageSectionGalleryTreeStyle)
 
