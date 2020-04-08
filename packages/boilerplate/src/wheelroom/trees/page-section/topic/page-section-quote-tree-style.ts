@@ -8,69 +8,27 @@ export interface PageSectionQuoteTreeStyle {
 }
 
 export const pageSectionQuoteTreeStyle: PageSectionQuoteTreeStyle = {
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  container: {},
   topic: {
     content: {
       contentActions: {
-        wrapper: {
-          mx: 'auto',
-        },
+        wrapper: {},
       },
       contentText: {
-        abstract: {
-          fontSize: [7, 8, 9],
-          fontStyle: 'italic',
-          mx: [0, 5],
-          my: [5],
-        },
-        heading: {
-          ':before': {
-            content: '"— "',
-          },
-          my: 3,
-          order: 1,
-        },
-        wrapper: {
-          textAlign: 'center',
-        },
+        abstract: {},
+        heading: {},
+        wrapper: {},
       },
-      wrapper: {
-        display: 'flex',
-        flexDirection: 'column',
-        textAlign: 'center',
-      },
+      wrapper: {},
     },
     media: {
       image: {
-        img: {
-          h: 1,
-          objectFit: 'cover',
-          position: 'absolute',
-          w: 1,
-        },
-        picture: {
-          borderRadius: '50%',
-          display: 'block',
-          h: '178px',
-          mx: 'auto',
-          overflow: 'hidden',
-          position: 'relative',
-          w: '178px',
-        },
+        img: {},
+        picture: {},
       },
-      wrapper: {
-        p: 3,
-      },
+      wrapper: {},
     },
-    wrapper: {
-      alignItems: 'center',
-    },
+    wrapper: {},
   },
-  wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
-  },
+  wrapper: {},
 }
