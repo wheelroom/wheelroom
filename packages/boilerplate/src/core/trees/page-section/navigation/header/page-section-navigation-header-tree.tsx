@@ -7,28 +7,11 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { NavigationSegmentProps } from '../../../../../models/navigation-segment'
 import { getPageSectionInfo } from '../../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../../models/page-section/page-section'
-import { NcssProps } from '../../../../elements/types'
-import { NavListTreeStyle, NavList } from '../common/nav-list'
-import { NavLogo, NavLogoTreeStyle } from './nav-logo'
-import { NavActionsTreeStyle, NavActions } from './nav-actions'
-import { NavDialogTreeStyle, NavDialog } from './nav-dialog'
-
-export interface PageSectionNavigationHeaderTreeStyle {
-  skipToContent: NcssProps
-  wrapper: NcssProps
-  container: NcssProps
-  menu: {
-    nav: NcssProps
-    navLogo: NavLogoTreeStyle
-    navList: NavListTreeStyle
-    navActions: NavActionsTreeStyle
-    modalDialog: {
-      container: NcssProps
-      openMenuButton: NcssProps
-      navDialog: NavDialogTreeStyle
-    }
-  }
-}
+import { NavList } from '../common/nav-list'
+import { NavLogo } from './nav-logo'
+import { NavActions } from './nav-actions'
+import { NavDialog } from './nav-dialog'
+import { PageSectionNavigationHeaderTreeStyle } from './page-section-navigation-header-tree-style'
 
 export const PageSectionNavigationHeaderTree = (props: {
   pageSection: PageSectionProps

@@ -1,6 +1,5 @@
 import React from 'react'
-import { NcssProps } from '../../../../elements/types'
-import { NavListTreeStyle, NavList } from '../common/nav-list'
+import { NavList } from '../common/nav-list'
 import { Box, Flex } from '../../../../elements/grid'
 import { Button } from '../../../../elements/button'
 import { ActionProps } from '../../../../../models/action'
@@ -8,28 +7,7 @@ import { IconMap } from '../../../../../svg/feather/iconMap'
 import { PageSectionInfo } from '../../../../lib/get-page-section-info'
 import { PageProps } from '../../../../../models/page/page'
 import { ActionTree } from '../../../action/action-tree'
-
-export interface NavDialogTreeStyle {
-  container: {
-    menuVisible: {
-      yes: NcssProps
-      no: NcssProps
-    }
-  }
-  document: {
-    menuVisible: {
-      yes: NcssProps
-      no: NcssProps
-    }
-  }
-  closeMenuButton: NcssProps
-  navList: NavListTreeStyle
-  actions: {
-    container: NcssProps
-    action: NcssProps
-    themeButton: NcssProps
-  }
-}
+import { NavDialogTreeStyle } from './nav-dialog-style'
 
 export const NavDialog = (props: {
   action: ActionProps

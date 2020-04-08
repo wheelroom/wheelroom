@@ -1,16 +1,10 @@
 import React from 'react'
-import { NcssProps } from '../../../../elements/types'
 import { Flex } from '../../../../elements/grid'
 import { ActionProps } from '../../../../../models/action'
 import { Button } from '../../../../elements/button'
 import { PageSectionInfo } from '../../../../lib/get-page-section-info'
 import { ActionTree } from '../../../action/action-tree'
-
-export interface NavActionsTreeStyle {
-  container: NcssProps
-  action: NcssProps
-  themeButton: NcssProps
-}
+import { NavActionsTreeStyle } from './nav-actions-style'
 
 export const NavActions = (props: {
   action: ActionProps

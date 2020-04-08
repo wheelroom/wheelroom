@@ -1,19 +1,31 @@
-import { PageSectionNavigationHeaderTreeStyle } from './page-section-navigation-header-tree'
-import {
-  buttonPrimaryStyle,
-  buttonSecondaryStyle,
-} from '../../../../../element-styles/button'
+import { buttonPrimaryStyle } from '../../../../../element-styles/button'
 import {
   commonNavigationStyle,
   listStyle,
   navStyle,
 } from '../common/navigation-common-style'
-import {
-  modalOpenStyle,
-  modalStyle,
-  modalContentOpenStyle,
-  modalContentStyle,
-} from './navigation-modal-style'
+import { NcssProps } from '../../../../elements/types'
+import { NavListTreeStyle } from '../common/nav-list'
+import { NavLogoTreeStyle, navLogoStyle } from './nav-logo-style'
+import { NavActionsTreeStyle, navActionsStyle } from './nav-actions-style'
+import { NavDialogTreeStyle, navDialogStyle } from './nav-dialog-style'
+
+export interface PageSectionNavigationHeaderTreeStyle {
+  skipToContent: NcssProps
+  wrapper: NcssProps
+  container: NcssProps
+  menu: {
+    nav: NcssProps
+    navLogo: NavLogoTreeStyle
+    navList: NavListTreeStyle
+    navActions: NavActionsTreeStyle
+    modalDialog: {
+      container: NcssProps
+      openMenuButton: NcssProps
+      navDialog: NavDialogTreeStyle
+    }
+  }
+}
 
 export const navigationHeaderTreeStyle: PageSectionNavigationHeaderTreeStyle = {
   skipToContent: {
@@ -51,24 +63,7 @@ export const navigationHeaderTreeStyle: PageSectionNavigationHeaderTreeStyle = {
   },
   menu: {
     nav: { ...navStyle, display: ['none', 'none', 'flex'] },
-    navLogo: {
-      container: {
-        label: 'logo',
-        alignItems: 'center',
-      },
-      link: {
-        fontFamily: 'display',
-        textDecoration: 'none',
-        fontSize: [4, 5],
-        fontWeight: 5,
-        color: 'text',
-        mr: 5,
-        sup: {
-          color: 'metal',
-          fontWeight: 3,
-        },
-      },
-    },
+    navLogo: navLogoStyle,
     navList: {
       list: { ...listStyle, flex: '1 1 auto' },
       listItem: {
@@ -80,16 +75,7 @@ export const navigationHeaderTreeStyle: PageSectionNavigationHeaderTreeStyle = {
         },
       },
     },
-    navActions: {
-      container: { label: 'nav-settings' },
-      action: buttonPrimaryStyle,
-      themeButton: {
-        ...buttonSecondaryStyle,
-        ml: 2,
-        textTransform: 'capitalize',
-        minWidth: '70px',
-      },
-    },
+    navActions: navActionsStyle,
     modalDialog: {
       container: {
         label: 'modal-dialog',
@@ -101,60 +87,7 @@ export const navigationHeaderTreeStyle: PageSectionNavigationHeaderTreeStyle = {
       openMenuButton: {
         ...buttonPrimaryStyle,
       },
-      navDialog: {
-        container: { menuVisible: { yes: modalOpenStyle, no: modalStyle } },
-        document: {
-          menuVisible: { yes: modalContentOpenStyle, no: modalContentStyle },
-        },
-        closeMenuButton: {
-          ...buttonPrimaryStyle,
-          mt: 3,
-          mr: 3,
-          p: 1,
-          w: '36px',
-          h: '36px',
-        },
-        navList: {
-          list: {
-            display: 'flex',
-            flex: '1',
-            flexDirection: 'column',
-            flexWrap: 'wrap',
-            label: 'nav-list',
-            listStyle: 'none',
-            mb: 0,
-            mt: 0,
-            pl: 0,
-            w: 1,
-            li: {
-              borderBottom: '1px solid transparent',
-              borderColor: 'border',
-              a: {
-                p: 3,
-              },
-            },
-          },
-
-          listItem: {
-            linkStyle: {
-              ...commonNavigationStyle,
-              m: 0,
-              px: 2,
-              py: 3,
-            },
-          },
-        },
-        actions: {
-          container: { label: 'nav-settings', w: 1, p: 3 },
-          action: { ...buttonPrimaryStyle, w: 1 },
-          themeButton: {
-            ...buttonSecondaryStyle,
-            ml: 2,
-            w: 1,
-            textTransform: 'capitalize',
-          },
-        },
-      },
+      navDialog: navDialogStyle,
     },
   },
 }
