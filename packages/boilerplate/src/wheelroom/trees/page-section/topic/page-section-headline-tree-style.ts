@@ -1,5 +1,3 @@
-import { defaultHeading1Style } from '../../../../element-styles/heading'
-import { paragraphHeroStyle } from '../../../../element-styles/paragraph'
 import { NcssProps } from '../../../elements/types'
 import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
@@ -12,40 +10,21 @@ export const pageSectionHeadlineTreeStyle: PageSectionHeadlineTreeStyle = {
   topic: {
     content: {
       contentActions: {
-        link: {
-          fontSize: [5, 6],
-          lineHeight: [3, 4],
-          mx: 2,
-        },
-        wrapper: {
-          mx: 'auto',
-        },
+        link: {},
+        wrapper: {},
       },
       contentText: {
-        abstract: { ...paragraphHeroStyle, color: 'text' },
-        heading: defaultHeading1Style,
+        abstract: {},
+        heading: {},
       },
-      wrapper: {
-        display: 'flex',
-        flexDirection: 'column',
-        textAlign: 'center',
-      },
+      wrapper: {},
     },
     media: {
       image: {
-        picture: {
-          display: 'block',
-          px: 0,
-          py: 3,
-        },
+        picture: {},
       },
     },
-    wrapper: {
-      w: 1,
-    },
+    wrapper: {},
   },
-  wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
-  },
+  wrapper: {},
 }
