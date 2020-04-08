@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.2.1...@wheelroom/boilerplate@2.3.0) (2020-04-08)
+
+
+### Bug Fixes
+
+* [#41](https://github.com/wheelroom/wheelroom/issues/41) ([466855a](https://github.com/wheelroom/wheelroom/commit/466855ad51fb4e6c679597c93ad8e69292fc3158))
+* action buttons [#53](https://github.com/wheelroom/wheelroom/issues/53) ([3bbb161](https://github.com/wheelroom/wheelroom/commit/3bbb161dea6711b016720366cdc210b8375d3c71))
+* addCssLabels skips css objects ([ae7800e](https://github.com/wheelroom/wheelroom/commit/ae7800ef36b00b368f4f234dc8a0931dc5ef2974))
+* better check for nav actions ([92d8193](https://github.com/wheelroom/wheelroom/commit/92d8193ca72f6f4c77b115a37943207e6a358309))
+* cards problem with deepmerge ([ca02b67](https://github.com/wheelroom/wheelroom/commit/ca02b672aa00a05ebc6366351018fdb51f022210))
+* cards shadow ([b1fd9cc](https://github.com/wheelroom/wheelroom/commit/b1fd9cc2b2f49a3e5be9c08c060409f1dfcd948b))
+* crash without navigation action ([54307f3](https://github.com/wheelroom/wheelroom/commit/54307f3392ee8fc951e0c5e081d67f2ae690f7e6))
+* css label problems ([550a80f](https://github.com/wheelroom/wheelroom/commit/550a80fbf479c51c29261e6a1960120e02184d14))
+* css labels ([555d0b2](https://github.com/wheelroom/wheelroom/commit/555d0b250334b7c684e89435d6c07cb5b4b925e9))
+* deep merging issues ([3f2b958](https://github.com/wheelroom/wheelroom/commit/3f2b958fbb8e9f0c34a49448692de7df95ab2927))
+* demo svg ([b6367a1](https://github.com/wheelroom/wheelroom/commit/b6367a172ab348240a3129c2ab25af2fa0abdc7c))
+* disable css labels ([b5d7c00](https://github.com/wheelroom/wheelroom/commit/b5d7c00bcb1be29f85ba0fe54795a7341461a395))
+* fullTopicAsLink ([a7e49cf](https://github.com/wheelroom/wheelroom/commit/a7e49cf9a536ea17fd7c19a0e53d641ab5a63645))
+* github urls ([3bd7bce](https://github.com/wheelroom/wheelroom/commit/3bd7bcecdaa3b0e7680b6b4de9f5de757d4cd2df))
+* imports ([9ed1b8c](https://github.com/wheelroom/wheelroom/commit/9ed1b8c49612e60f067e0ec8027fa905640a6485))
+* labels ([ee34bc0](https://github.com/wheelroom/wheelroom/commit/ee34bc0e5ce18bfbdb616950bbe7e0f7c43dce03))
+* nav logo ([9f22619](https://github.com/wheelroom/wheelroom/commit/9f226193dda35ea6479e3607ac2a0297d6b7f2f3))
+* nav logo styling ([846ad99](https://github.com/wheelroom/wheelroom/commit/846ad995680d77a3033a8581b86e4a0b6cd428b5))
+* playsInline ([11961f5](https://github.com/wheelroom/wheelroom/commit/11961f571e10e9c88e347c094e9fec3a850a60ea))
+* remove label ([7aab91d](https://github.com/wheelroom/wheelroom/commit/7aab91d17fdc5c3f6a652ecea9c8a00cc005ceb3))
+* topic tree style ([85f2012](https://github.com/wheelroom/wheelroom/commit/85f20125375140c32b99130aee316e5dd7797db7))
+* types ([3705d42](https://github.com/wheelroom/wheelroom/commit/3705d42601c92589ac9eea79819edf4c3704196a))
+* video caption on mobile [#54](https://github.com/wheelroom/wheelroom/issues/54) ([06fdc87](https://github.com/wheelroom/wheelroom/commit/06fdc87016b0b9f61a0c6274ec58c18dc9962e6b))
+
+
+### Features
+
+* add multi parser ([14dd777](https://github.com/wheelroom/wheelroom/commit/14dd777dd3f4cb5ea4b7153edcfd0140f377d451))
+* add useHeadingParser and useAbstractParser ([891a384](https://github.com/wheelroom/wheelroom/commit/891a38483b1b71f15cdaf6d350e6576968f22780))
+* add useLogoElement for nav header ([fc8bfc9](https://github.com/wheelroom/wheelroom/commit/fc8bfc90d7a912d9ea2ee4a19743e0526010bc97))
+* addCssLabels ([bbe75af](https://github.com/wheelroom/wheelroom/commit/bbe75afb309e61644708398e7902297f1cf21287))
+* customizable parsers ([80f2f5d](https://github.com/wheelroom/wheelroom/commit/80f2f5de121d64683f10d7da183a8234af0d315a))
+* generic topic tree ([8b64d45](https://github.com/wheelroom/wheelroom/commit/8b64d454a5b2deb18422c6353f64cad70ae50c50))
+
+
+
+
+
 ## [2.2.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.2.0...@wheelroom/boilerplate@2.2.1) (2020-04-04)
 
 
