@@ -32,12 +32,11 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={addCssLabels(
-          'psCard',
+        treeStyle={
           pageSectionInfo.topicOptions.hideAction
             ? pageSectionCardTreeStyle
             : pageSectionCardTreeShadowStyle
-        )}
+        }
       />
     )
   }

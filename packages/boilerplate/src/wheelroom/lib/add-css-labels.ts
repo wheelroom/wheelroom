@@ -1,13 +1,10 @@
-const addLabel = <T>(prefix: string, treeStyle: T): T => {
+import { TreeStyle } from './tree-style'
+
+export const addCssLabels = (prefix: string, treeStyle: TreeStyle) => {
   Object.entries(treeStyle).forEach(([name, value]) => {
     if (value instanceof Object && !Array.isArray(value)) {
-      addLabel(`${prefix}-${name}`, value)
+      addCssLabels(`${prefix}-${name}`, value)
     }
   })
   treeStyle.label = prefix.replace(':', '')
-  return treeStyle as T
-}
-
-export const addCssLabels = <T>(prefix: string, treeStyle: T): T => {
-  return addLabel(prefix, treeStyle)
 }

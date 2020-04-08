@@ -18,13 +18,14 @@ import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
+  addCssLabels('psNavFoot', navigationHeaderTreeStyle)
   addCssLabels('psNavFoot', navigationFooterTreeStyle)
 
   if (info.hasNavigation && info.index === 0) {
     return (
       <PageSectionNavigationHeaderTree
         pageSection={props}
-        treeStyle={addCssLabels('psNavHead', navigationHeaderTreeStyle)}
+        treeStyle={navigationHeaderTreeStyle}
       />
     )
   }
