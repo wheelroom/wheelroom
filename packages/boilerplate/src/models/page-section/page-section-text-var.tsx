@@ -13,18 +13,15 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { PageSectionTextTree } from '../../wheelroom/trees/page-section/text/page-section-text-tree'
 import { pageSectionTextTreeStyle } from '../../wheelroom/trees/page-section/text/page-section-text-tree-style'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-  addCssLabels('psText', pageSectionTextTreeStyle)
+  const treeStyle = deepMerge({}, pageSectionTextTreeStyle)
+  addCssLabels('psText', treeStyle)
 
   if (pageSectionInfo.hasText) {
-    return (
-      <PageSectionTextTree
-        pageSection={props}
-        treeStyle={pageSectionTextTreeStyle}
-      />
-    )
+    return <PageSectionTextTree pageSection={props} treeStyle={treeStyle} />
   }
   return <NotImplemented {...props} />
 }

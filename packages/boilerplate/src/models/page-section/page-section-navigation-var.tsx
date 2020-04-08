@@ -15,17 +15,20 @@ import { navigationFooterTreeStyle } from '../../wheelroom/trees/page-section/na
 import { PageSectionNavigationHeaderTree } from '../../wheelroom/trees/page-section/navigation/header/page-section-navigation-header-tree'
 import { PageSectionNavigationFooterTree } from '../../wheelroom/trees/page-section/navigation/footer/page-section-navigation-footer-tree'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
-  addCssLabels('psNavFoot', navigationHeaderTreeStyle)
-  addCssLabels('psNavFoot', navigationFooterTreeStyle)
+  const treeHeaderStyle = deepMerge({}, navigationHeaderTreeStyle)
+  const treeFooterStyle = deepMerge({}, navigationFooterTreeStyle)
+  addCssLabels('psNavFoot', treeHeaderStyle)
+  addCssLabels('psNavFoot', treeFooterStyle)
 
   if (info.hasNavigation && info.index === 0) {
     return (
       <PageSectionNavigationHeaderTree
         pageSection={props}
-        treeStyle={navigationHeaderTreeStyle}
+        treeStyle={treeHeaderStyle}
       />
     )
   }
@@ -34,7 +37,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     return (
       <PageSectionNavigationFooterTree
         pageSection={props}
-        treeStyle={navigationFooterTreeStyle}
+        treeStyle={treeFooterStyle}
       />
     )
   }

@@ -13,10 +13,12 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { pageSectionQuoteTreeStyle } from '../../wheelroom/trees/page-section/quote/page-section-quote-tree-style'
 import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
 export const PageSectionQuoteVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-  addCssLabels('psQuote', pageSectionQuoteTreeStyle)
+  const treeStyle = deepMerge({}, pageSectionQuoteTreeStyle)
+  addCssLabels('psQuote', treeStyle)
 
   if (pageSectionInfo.hasTopic) {
     return (
@@ -29,7 +31,7 @@ export const PageSectionQuoteVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={pageSectionQuoteTreeStyle}
+        treeStyle={treeStyle}
       />
     )
   }

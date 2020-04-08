@@ -13,10 +13,12 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { PageSectionImageTree } from '../../wheelroom/trees/page-section/image/page-section-image-tree'
 import { pageSectionImageTreeStyle } from '../../wheelroom/trees/page-section/image/page-section-image-tree-style'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-  addCssLabels('psImage', pageSectionImageTreeStyle)
+  const treeStyle = deepMerge({}, pageSectionImageTreeStyle)
+  addCssLabels('psImage', treeStyle)
 
   if (pageSectionInfo.hasTopic) {
     return (

@@ -16,9 +16,12 @@ import {
 } from '../../wheelroom/trees/page-section/card/page-section-card-tree-style'
 import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+  const treeStyle = deepMerge({}, pageSectionCardTreeStyle)
+  const treeShadowStyle = deepMerge({}, pageSectionCardTreeShadowStyle)
   addCssLabels('psCard', pageSectionCardTreeStyle)
   addCssLabels('psCard', pageSectionCardTreeShadowStyle)
 
@@ -33,9 +36,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         containerStyle="maxWidth"
         pageSection={props}
         treeStyle={
-          pageSectionInfo.topicOptions.hideAction
-            ? pageSectionCardTreeStyle
-            : pageSectionCardTreeShadowStyle
+          pageSectionInfo.topicOptions.hideAction ? treeStyle : treeShadowStyle
         }
       />
     )

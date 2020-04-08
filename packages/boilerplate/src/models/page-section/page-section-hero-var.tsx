@@ -13,10 +13,12 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { pageSectionHeroTreeStyle } from '../../wheelroom/trees/page-section/hero/page-section-hero-tree-style'
 import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
 export const PageSectionHeroVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-  addCssLabels('psHero', pageSectionHeroTreeStyle)
+  const treeStyle = deepMerge({}, pageSectionHeroTreeStyle)
+  addCssLabels('psHero', treeStyle)
 
   if (pageSectionInfo.hasTopic) {
     return (
