@@ -14,14 +14,21 @@ import { navigationHeaderTreeStyle } from '../../core/trees/page-section/navigat
 import { navigationFooterTreeStyle } from '../../core/trees/page-section/navigation/footer/page-section-navigation-footer-tree-style'
 import { PageSectionNavigationHeaderTree } from '../../core/trees/page-section/navigation/header/page-section-navigation-header-tree'
 import { PageSectionNavigationFooterTree } from '../../core/trees/page-section/navigation/footer/page-section-navigation-footer-tree'
+import { SvgStack } from '../../svg/figma'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const info = getPageSectionInfo(props)
   if (info.hasNavigation && info.index === 0) {
+    navigationHeaderTreeStyle.menu.navLogo.container = {
+      ...navigationHeaderTreeStyle.menu.navLogo.container,
+      bg: 'azure',
+    }
+
     return (
       <PageSectionNavigationHeaderTree
         pageSection={props}
         treeStyle={navigationHeaderTreeStyle}
+        useLogoElement={<SvgStack ncss={{ w: '33px' }} />}
       />
     )
   }

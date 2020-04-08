@@ -5,8 +5,6 @@ module.exports = {
   svgProps: {
     css: '{css}',
     id: '{componentId}',
-    stroke: 'currentColor',
-    strokeWidth: '{strokeWidth}',
     width: '100%',
   },
   template(
@@ -30,7 +28,6 @@ module.exports = {
     )}';
     export const ${componentName} = (props: IconProps) => {
       const currentThemeId: any = useGetCurrentThemeId()
-      const strokeWidth = props.strokeWidth || 2
       const css = systemCss({ ncss: props.ncss }, currentThemeId)
         
       return ${jsx};

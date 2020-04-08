@@ -7,7 +7,6 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 const componentId = 'svg-stack'
 export const SvgStack = (props: IconProps) => {
   const currentThemeId: any = useGetCurrentThemeId()
-  const strokeWidth = props.strokeWidth || 2
   const css = systemCss(
     {
       ncss: props.ncss,
@@ -20,8 +19,6 @@ export const SvgStack = (props: IconProps) => {
       fill="none"
       css={css}
       id={componentId}
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
       width="100%"
     >
       <path
