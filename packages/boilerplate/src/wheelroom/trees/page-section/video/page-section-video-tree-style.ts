@@ -11,28 +11,30 @@ export interface PageSectionVideoTreeStyle {
 export const videoTreeStyle: PageSectionVideoTreeStyle = {
   container: {},
   topic: {
+    content: {
+      contentActions: {
+        link: {
+          fontSize: [5, 6],
+          lineHeight: [3, 4],
+          mx: 2,
+        },
+        wrapper: {
+          mx: 'auto',
+        },
+      },
+      contentText: {
+        abstract: { ...smallParagraphStyle, color: 'text' },
+      },
+    },
     media: {
       video: {
-        video: { mb: [0, 0] },
+        video: {
+          mb: [0, 0],
+        },
       },
     },
     wrapper: {
       w: 1,
-    },
-    content: {
-      contentText: {
-        abstract: { ...smallParagraphStyle, color: 'text' },
-      },
-      contentActions: {
-        wrapper: {
-          mx: 'auto',
-        },
-        link: {
-          mx: 2,
-          fontSize: [5, 6],
-          lineHeight: [3, 4],
-        },
-      },
     },
   },
   wrapper: {

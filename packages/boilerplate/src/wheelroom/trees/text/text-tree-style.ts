@@ -30,58 +30,80 @@ export interface TextTreeStyle {
 }
 
 export const textTreeStyle: TextTreeStyle = {
-  wrapper: {
-    mx: 'auto',
-    maxWidth: '640px',
-    flexDirection: 'column',
-    textAlign: 'left',
+  blocksHeading1: {
+    fontSize: [8, 9, 10, 11],
   },
+  blocksHeading2: {
+    fontSize: [7, 8, 9, 10],
+    mt: 3,
+  },
+  blocksHeading3: {
+    fontSize: [5, 6, 7, 8],
+    mt: 3,
+  },
+  blocksHeading4: {
+    fontSize: [3, 4, 5, 6],
+    mt: 3,
+  },
+  blocksHeading5: {
+    fontSize: [3, 4, 5, 6],
+    mt: 3,
+  },
+  blocksHeading6: {
+    fontSize: [3, 4, 5, 6],
+    mt: 3,
+  },
+  blocksHr: {
+    borderColor: 'text',
+    borderTop: '1px solid transparent',
+    my: 3,
+    overflow: 'hidden',
+    w: 1,
+  },
+  blocksLiList: defaultParagraphStyle,
+  blocksOlList: defaultParagraphStyle,
+  blocksQuote: {
+    ':before': {
+      color: 'metal',
+      content: '"”"',
+      fontFamily: 'text',
+      fontSize: 8,
+    },
+    textAlign: 'center',
+  },
+  blocksUlList: defaultParagraphStyle,
+  entryHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
+  image: {
+    figcaption: {
+      mb: [4, 5],
+      mt: 0,
+    },
+    img: {
+      my: [4, 5],
+    },
+  },
+  inlinesHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
   marksBold: {
     fontWeight: 7,
   },
   marksCode: {
+    code: {},
     pre: {
-      fontSize: 3,
       bg: 'skyblue',
-      py: 2,
+      fontSize: 3,
       px: 3,
+      py: 2,
       wordBreak: 'break-all',
       wordWrap: 'break-word',
     },
-    code: {},
-  },
-  blocksQuote: {
-    textAlign: 'center',
-    ':before': {
-      fontFamily: 'text',
-      color: 'metal',
-      fontSize: 8,
-      content: '"”"',
-    },
-  },
-  blocksUlList: defaultParagraphStyle,
-  blocksOlList: defaultParagraphStyle,
-  blocksLiList: defaultParagraphStyle,
-  inlinesHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
-  entryHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
-  blocksHeading1: { fontSize: [8, 9, 10, 11] },
-  blocksHeading2: { fontSize: [7, 8, 9, 10], mt: 3 },
-  blocksHeading3: { fontSize: [5, 6, 7, 8], mt: 3 },
-  blocksHeading4: { fontSize: [3, 4, 5, 6], mt: 3 },
-  blocksHeading5: { fontSize: [3, 4, 5, 6], mt: 3 },
-  blocksHeading6: { fontSize: [3, 4, 5, 6], mt: 3 },
-  blocksHr: {
-    overflow: 'hidden',
-    borderTop: '1px solid transparent',
-    borderColor: 'text',
-    w: 1,
-    my: 3,
   },
   video: {
     video: { ...defaultVideoStyle, my: [4, 5] },
   },
-  image: {
-    img: { my: [4, 5] },
-    figcaption: { mt: 0, mb: [4, 5] },
+  wrapper: {
+    flexDirection: 'column',
+    maxWidth: '640px',
+    mx: 'auto',
+    textAlign: 'left',
   },
 }

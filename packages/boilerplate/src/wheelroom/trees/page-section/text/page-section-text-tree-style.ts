@@ -8,11 +8,11 @@ export interface PageSectionTextTreeStyle {
 }
 
 export const pageSectionTextTreeStyle: PageSectionTextTreeStyle = {
-  wrapper: {
-    bg: 'bg',
-  },
   container: {
     px: 3,
   },
   text: textTreeStyle,
+  wrapper: {
+    bg: 'bg',
+  },
 }

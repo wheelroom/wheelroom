@@ -9,16 +9,24 @@ export interface PageSectionImageTreeStyle {
 }
 
 export const pageSectionImageTreeStyle: PageSectionImageTreeStyle = {
-  wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
-  },
   container: {
     flexDirection: ['column', 'row'],
   },
   topic: {
-    wrapper: {
-      w: 1,
+    content: {
+      contentActions: {
+        link: {
+          fontSize: [3, 4],
+          lineHeight: [3],
+          mx: 2,
+        },
+        wrapper: {
+          mx: 'auto',
+        },
+      },
+      contentText: {
+        abstract: { ...smallParagraphStyle, color: 'text' },
+      },
     },
     media: {
       image: {
@@ -29,20 +37,12 @@ export const pageSectionImageTreeStyle: PageSectionImageTreeStyle = {
         },
       },
     },
-    content: {
-      contentText: {
-        abstract: { ...smallParagraphStyle, color: 'text' },
-      },
-      contentActions: {
-        wrapper: {
-          mx: 'auto',
-        },
-        link: {
-          mx: 2,
-          fontSize: [3, 4],
-          lineHeight: [3],
-        },
-      },
+    wrapper: {
+      w: 1,
     },
+  },
+  wrapper: {
+    bg: 'bg',
+    py: [3, 6, 8],
   },
 }
