@@ -3,14 +3,14 @@ import { graphql } from 'gatsby'
 import React, { useState, Fragment, useContext } from 'react'
 import { GlobalsProps } from './models/globals'
 import { PageProps } from './models/page'
-import { pageDebug } from './core/lib/debug'
-import { Seo } from './core/lib/seo'
-import { Sections } from './core/section-views/sections'
+import { pageDebug } from './wheelroom/lib/debug'
+import { Seo } from './wheelroom/lib/seo'
+import { Sections } from './wheelroom/section/sections'
 import {
   PreviewUpdateButton,
   useFetchPreviewPage,
 } from '@wheelroom/admin-page-preview'
-import { reset } from './core/global/reset'
+import { reset } from './wheelroom/global/reset'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { getColorMap, ThemeId } from './styled-system/system-css'

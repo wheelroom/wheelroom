@@ -8,12 +8,12 @@
 
 import React from 'react'
 import { PageSectionProps } from './page-section'
-import { NotImplemented } from '../../core/lib/not-implemented'
-import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { navigationHeaderTreeStyle } from '../../core/trees/page-section/navigation/header/page-section-navigation-header-tree-style'
-import { navigationFooterTreeStyle } from '../../core/trees/page-section/navigation/footer/page-section-navigation-footer-tree-style'
-import { PageSectionNavigationHeaderTree } from '../../core/trees/page-section/navigation/header/page-section-navigation-header-tree'
-import { PageSectionNavigationFooterTree } from '../../core/trees/page-section/navigation/footer/page-section-navigation-footer-tree'
+import { NotImplemented } from '../../wheelroom/lib/not-implemented'
+import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { navigationHeaderTreeStyle } from '../../wheelroom/trees/page-section/navigation/header/page-section-navigation-header-tree-style'
+import { navigationFooterTreeStyle } from '../../wheelroom/trees/page-section/navigation/footer/page-section-navigation-footer-tree-style'
+import { PageSectionNavigationHeaderTree } from '../../wheelroom/trees/page-section/navigation/header/page-section-navigation-header-tree'
+import { PageSectionNavigationFooterTree } from '../../wheelroom/trees/page-section/navigation/footer/page-section-navigation-footer-tree'
 import { SvgStack } from '../../svg/figma'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {

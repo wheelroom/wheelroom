@@ -1,6 +1,6 @@
-import { Box, ContainerMaxWidth } from '../core/elements//grid'
-import { Paragraph } from '../core/elements/paragraph'
-import { H1 } from '../core/elements/heading'
+import { Box, ContainerMaxWidth } from '../wheelroom/elements//grid'
+import { Paragraph } from '../wheelroom/elements/paragraph'
+import { H1 } from '../wheelroom/elements/heading'
 
 import React from 'react'
 

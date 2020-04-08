@@ -8,10 +8,10 @@
 
 import React from 'react'
 import { PageSectionProps } from './page-section'
-import { NotImplemented } from '../../core/lib/not-implemented'
-import { getPageSectionInfo } from '../../core/lib/get-page-section-info'
-import { PageSectionImageTree } from '../../core/trees/page-section/image/page-section-image-tree'
-import { pageSectionImageTreeStyle } from '../../core/trees/page-section/image/page-section-image-tree-style'
+import { NotImplemented } from '../../wheelroom/lib/not-implemented'
+import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { PageSectionImageTree } from '../../wheelroom/trees/page-section/image/page-section-image-tree'
+import { pageSectionImageTreeStyle } from '../../wheelroom/trees/page-section/image/page-section-image-tree-style'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
