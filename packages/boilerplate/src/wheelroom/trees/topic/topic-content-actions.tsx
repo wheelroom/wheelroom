@@ -38,32 +38,13 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   const linkStyle = treeStyle.link || {}
 
   return (
-    <Box
-      ncss={{
-        display: 'flex',
-        flexDirection: 'row',
-        label: 'topic-action',
-        ...wrapperStyle,
-      }}
-    >
+    <Box ncss={wrapperStyle}>
       {props.fullTopicAsLink ? (
-        <Any
-          is="span"
-          ncss={{
-            ...buttonPrimaryStyle,
-            ...linkStyle,
-          }}
-        >
+        <Any is="span" ncss={linkStyle}>
           {action.heading}
         </Any>
       ) : (
-        <ActionTree
-          {...action}
-          treeStyle={{
-            ...buttonPrimaryStyle,
-            ...linkStyle,
-          }}
-        >
+        <ActionTree {...action} treeStyle={linkStyle}>
           {action.heading}
         </ActionTree>
       )}

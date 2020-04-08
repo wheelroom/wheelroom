@@ -44,7 +44,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const AbstractParser = props.useAbstractParser || Paragraph
 
   return (
-    <Box is="header" ncss={{ label: 'topic-header', ...wrapperStyle }}>
+    <Box is="header" ncss={wrapperStyle}>
       {!topicOptions.hideIcon && <TopicIcon icon={props.topic.icon} />}
       {!topicOptions.hideHeading && (
         <HeadingParser is={useHeadingElement} ncss={headingStyle}>

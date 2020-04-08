@@ -37,24 +37,16 @@ export interface TopicContentWrapperProps {
 }
 
 export const TopicContent = (props: TopicContentWrapperProps) => {
-  const order = props.reverse ? -1 : null
   const topicInfo = props.topicInfo
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
   const showAction = topicInfo.hasAction && !topicOptions.hideAction
   const treeStyle = props.treeStyle || {}
   const wrapperStyle = (treeStyle && treeStyle.wrapper) || {}
+  wrapperStyle.order = props.reverse ? -1 : null
 
   return (
-    <Box
-      ncss={{
-        justifyContent: 'center',
-        label: 'topic-content',
-        order,
-        p: 3,
-        ...wrapperStyle,
-      }}
-    >
+    <Box ncss={wrapperStyle}>
       <TopicContentText
         pageSectionInfo={pageSectionInfo}
         treeStyle={treeStyle.contentText}

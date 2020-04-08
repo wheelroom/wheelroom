@@ -8,7 +8,7 @@ import { TopicProps } from '../../../models/topic/topic'
 import { ParserFunction } from '../../parsers/types'
 import { ActionProps } from '../../../models/action/action'
 import { ActionTree } from '../action/action-tree'
-import { TopicTreeStyle, topicTreeStyle } from './topic-tree-style'
+import { TopicTreeStyle } from './topic-tree-style'
 
 export interface TopicTreeProps {
   /** The topic to render */
@@ -40,30 +40,16 @@ export const TopicTree = (props: TopicTreeProps) => {
     return null
   }
   const treeStyle = props.treeStyle || {}
-  const topicWrapperStyle = treeStyle.wrapper || {}
   const topicInfo = getTopicInfo(props.topic)
   const topicOptions = props.pageSectionInfo.topicOptions
   const fullTopicAsLink =
     !topicOptions.hideAction && topicInfo.hasAction && props.fullTopicAsLink
   return fullTopicAsLink ? (
-    <ActionTree
-      {...props.topic.actions[0]}
-      treeStyle={{
-        ...topicTreeStyle,
-        ...topicWrapperStyle,
-      }}
-    >
+    <ActionTree {...props.topic.actions[0]} treeStyle={treeStyle.wrapper}>
       <TopicBody {...props} />
     </ActionTree>
   ) : (
-    <Box
-      ncss={{
-        display: 'flex',
-        flexDirection: 'column',
-        label: 'topic',
-        ...topicWrapperStyle,
-      }}
-    >
+    <Box ncss={treeStyle.wrapper}>
       <TopicBody {...props} />
     </Box>
   )

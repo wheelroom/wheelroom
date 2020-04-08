@@ -30,6 +30,7 @@
     "@wheelroom/wheelroom-plugin-contentful": "3.0.0",
     "@wheelroom/wheelroom-plugin-graphql": "3.0.0",
     "camelcase": "5.3.1",
+    "deepmerge": "4.2.2",
     "dotenv": "8.2.0",
     "emotion-theming": "10.0.27",
     "gatsby": "2.20.9",

@@ -25,14 +25,11 @@ export const TopicMedia = (props: TopicMediaProps) => {
   const mediaWrapperStyle = (mediaStyle && mediaStyle.wrapper) || {}
   const mediaImageStyle = mediaStyle && mediaStyle.image
   const mediaVideoStyle = mediaStyle && mediaStyle.video
+
+  mediaWrapperStyle.order = props.reverse ? 0 : null
+
   return (
-    <Box
-      ncss={{
-        justifyContent: 'center',
-        label: 'topic-media',
-        ...mediaWrapperStyle,
-      }}
-    >
+    <Box ncss={mediaWrapperStyle}>
       {props.topicInfo.hasImage && (
         <Image
           description={props.topic.media?.description}
