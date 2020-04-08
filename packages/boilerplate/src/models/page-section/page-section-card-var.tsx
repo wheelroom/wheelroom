@@ -17,10 +17,10 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
   if (pageSectionInfo.hasTopic) {
     if (!pageSectionInfo.topicOptions.hideAction) {
-      Object.assign(
-        pageSectionCardTreeStyle.topic.wrapper,
-        pageSectionCardTreeStyle.conditional.topicWrapperShadow
-      )
+      pageSectionCardTreeStyle.topic.wrapper = {
+        ...pageSectionCardTreeStyle.topic.wrapper,
+        ...pageSectionCardTreeStyle.conditional.topicWrapperShadow,
+      }
     }
 
     return (

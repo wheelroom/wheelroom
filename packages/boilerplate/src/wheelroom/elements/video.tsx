@@ -69,7 +69,7 @@ export const Video = (props: VideoProps) => {
           currentThemeId
         )}
         controls
-        playsinline
+        playsInline
       >
         <source src={videoAttrs.url} type={videoAttrs.type} />
         Your browser does not support the video tag.
