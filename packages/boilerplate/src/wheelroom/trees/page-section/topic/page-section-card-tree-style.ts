@@ -18,10 +18,6 @@ const topicWrapperStyle = {
 }
 
 export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
-  wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
-  },
   container: {
     alignItems: ['center', 'initial'],
     flexDirection: ['column', 'row'],
@@ -32,24 +28,11 @@ export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
     w: 1,
   },
   topic: {
-    wrapper: topicWrapperStyle,
-    media: {
-      wrapper: {
-        p: 3,
-      },
-      image: {
-        img: { h: 1, objectFit: 'cover' },
-        picture: {
-          display: 'block',
-          h: '178px',
-        },
-      },
-    },
     content: {
-      wrapper: {
-        display: 'flex',
-        flexDirection: 'column',
-        flex: '1 1 auto',
+      contentActions: {
+        wrapper: {
+          flex: '0',
+        },
       },
       contentText: {
         wrapper: {
@@ -57,12 +40,32 @@ export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
           flex: '1 1 auto',
         },
       },
-      contentActions: {
-        wrapper: {
-          flex: '0',
-        },
+      wrapper: {
+        display: 'flex',
+        flex: '1 1 auto',
+        flexDirection: 'column',
       },
     },
+    media: {
+      image: {
+        img: {
+          h: 1,
+          objectFit: 'cover',
+        },
+        picture: {
+          display: 'block',
+          h: '178px',
+        },
+      },
+      wrapper: {
+        p: 3,
+      },
+    },
+    wrapper: topicWrapperStyle,
+  },
+  wrapper: {
+    bg: 'bg',
+    py: [3, 6, 8],
   },
 }
 

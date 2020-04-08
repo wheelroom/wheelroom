@@ -8,10 +8,6 @@ export interface PageSectionBlockTreeStyle {
 }
 
 export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
-  wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
-  },
   container: {
     alignItems: ['center', 'initial'],
     flexDirection: ['column', 'row'],
@@ -22,20 +18,32 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
     w: 1,
   },
   topic: {
-    wrapper: { px: [0, 3], py: [3, 3], w: [1, 1 / 2, 1 / 3] },
+    content: {
+      contentText: {
+        wrapper: {
+          display: 'block',
+          flex: '1 1 auto',
+        },
+      },
+      wrapper: {
+        display: 'flex',
+        flex: '1 1 auto',
+        flexDirection: 'column',
+      },
+    },
     media: {
       image: {
         img: {
-          w: 1,
           h: 1,
           objectFit: 'cover',
           position: 'absolute',
+          w: 1,
         },
         picture: {
           display: 'block',
           h: '0px',
-          position: 'relative',
           pb: '65.25%',
+          position: 'relative',
         },
       },
       video: {
@@ -44,18 +52,14 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
         },
       },
     },
-    content: {
-      wrapper: {
-        display: 'flex',
-        flexDirection: 'column',
-        flex: '1 1 auto',
-      },
-      contentText: {
-        wrapper: {
-          display: 'block',
-          flex: '1 1 auto',
-        },
-      },
+    wrapper: {
+      px: [0, 3],
+      py: [3, 3],
+      w: [1, 1 / 2, 1 / 3],
     },
+  },
+  wrapper: {
+    bg: 'bg',
+    py: [3, 6, 8],
   },
 }

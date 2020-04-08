@@ -9,13 +9,27 @@ export interface PageSectionHeadlineTreeStyle {
 }
 
 export const pageSectionHeadlineTreeStyle: PageSectionHeadlineTreeStyle = {
-  wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
-  },
   topic: {
-    wrapper: {
-      w: 1,
+    content: {
+      contentActions: {
+        link: {
+          fontSize: [5, 6],
+          lineHeight: [3, 4],
+          mx: 2,
+        },
+        wrapper: {
+          mx: 'auto',
+        },
+      },
+      contentText: {
+        abstract: { ...paragraphHeroStyle, color: 'text' },
+        heading: defaultHeading1Style,
+      },
+      wrapper: {
+        display: 'flex',
+        flexDirection: 'column',
+        textAlign: 'center',
+      },
     },
     media: {
       image: {
@@ -26,26 +40,12 @@ export const pageSectionHeadlineTreeStyle: PageSectionHeadlineTreeStyle = {
         },
       },
     },
-    content: {
-      wrapper: {
-        display: 'flex',
-        textAlign: 'center',
-        flexDirection: 'column',
-      },
-      contentText: {
-        heading: defaultHeading1Style,
-        abstract: { ...paragraphHeroStyle, color: 'text' },
-      },
-      contentActions: {
-        wrapper: {
-          mx: 'auto',
-        },
-        link: {
-          mx: 2,
-          fontSize: [5, 6],
-          lineHeight: [3, 4],
-        },
-      },
+    wrapper: {
+      w: 1,
     },
+  },
+  wrapper: {
+    bg: 'bg',
+    py: [3, 6, 8],
   },
 }
