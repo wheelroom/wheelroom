@@ -1,29 +1,23 @@
 import { NcssProps } from '../../../elements/types'
 import { TopicTreeStyle } from '../../topic/topic-tree-style'
+import deepmerge from 'deepmerge'
 
 export interface PageSectionCardTreeStyle {
-  conditional: {
-    topicWrapperShadow: NcssProps
-  }
   topic: TopicTreeStyle
   wrapper: NcssProps
   container: NcssProps
 }
 
+const topicWrapperStyle = {
+  bg: 'bg',
+  color: 'cardsShadow',
+  flex: '1',
+  maxWidth: '280px',
+  minWidth: '280px',
+  m: 2,
+}
+
 export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
-  conditional: {
-    topicWrapperShadow: {
-      border: '1px solid',
-      borderColor: 'cardsBorder',
-      borderRadius: 3,
-      boxShadow: '0 0 16px',
-      transition: 'transform .25s ease',
-      ':hover': {
-        cursor: 'pointer',
-        transform: 'scale(1.05)',
-      },
-    },
-  },
   wrapper: {
     label: 'wrapper',
     bg: 'bg',
@@ -39,14 +33,7 @@ export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
     w: 1,
   },
   topic: {
-    wrapper: {
-      bg: 'bg',
-      color: 'cardsShadow',
-      flex: '1',
-      maxWidth: '280px',
-      minWidth: '280px',
-      m: 2,
-    },
+    wrapper: topicWrapperStyle,
     media: {
       wrapper: {
         p: 3,
@@ -79,3 +66,23 @@ export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
     },
   },
 }
+
+export const pageSectionCardTreeShadowStyle = deepmerge(
+  pageSectionCardTreeStyle,
+  {
+    topic: {
+      wrapper: {
+        ...topicWrapperStyle,
+        border: '1px solid',
+        borderColor: 'cardsBorder',
+        borderRadius: 3,
+        boxShadow: '0 0 16px',
+        transition: 'transform .25s ease',
+        ':hover': {
+          cursor: 'pointer',
+          transform: 'scale(1.05)',
+        },
+      },
+    },
+  }
+)

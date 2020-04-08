@@ -10,16 +10,14 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { pageSectionCardTreeStyle } from '../../wheelroom/trees/page-section/card/page-section-card-tree-style'
+import {
+  pageSectionCardTreeStyle,
+  pageSectionCardTreeShadowStyle,
+} from '../../wheelroom/trees/page-section/card/page-section-card-tree-style'
 import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-
-  const pageSectionCardTreeStyleShadow = {
-    ...pageSectionCardTreeStyle.topic.wrapper,
-    ...pageSectionCardTreeStyle.conditional.topicWrapperShadow,
-  }
 
   if (pageSectionInfo.hasTopic) {
     return (
@@ -34,7 +32,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         treeStyle={
           pageSectionInfo.topicOptions.hideAction
             ? pageSectionCardTreeStyle
-            : pageSectionCardTreeStyleShadow
+            : pageSectionCardTreeShadowStyle
         }
       />
     )
