@@ -15,14 +15,13 @@ import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/p
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-  if (pageSectionInfo.hasTopic) {
-    if (!pageSectionInfo.topicOptions.hideAction) {
-      pageSectionCardTreeStyle.topic.wrapper = {
-        ...pageSectionCardTreeStyle.topic.wrapper,
-        ...pageSectionCardTreeStyle.conditional.topicWrapperShadow,
-      }
-    }
 
+  const pageSectionCardTreeStyleShadow = {
+    ...pageSectionCardTreeStyle.topic.wrapper,
+    ...pageSectionCardTreeStyle.conditional.topicWrapperShadow,
+  }
+
+  if (pageSectionInfo.hasTopic) {
     return (
       <PageSectionTopicTree
         topicProps={{
@@ -32,7 +31,11 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={pageSectionCardTreeStyle}
+        treeStyle={
+          pageSectionInfo.topicOptions.hideAction
+            ? pageSectionCardTreeStyle
+            : pageSectionCardTreeStyleShadow
+        }
       />
     )
   }
