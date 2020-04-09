@@ -42,11 +42,11 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
   const topicOptions = pageSectionInfo.topicOptions
   const showAction = topicInfo.hasAction && !topicOptions.hideAction
   const treeStyle = props.treeStyle || {}
-  const wrapperStyle = (treeStyle && treeStyle.wrapper) || {}
-  wrapperStyle.order = props.reverse ? -1 : null
+  const ncssStyle = (treeStyle && treeStyle.ncss) || {}
+  ncssStyle.order = props.reverse ? -1 : null
 
   return (
-    <Box ncss={wrapperStyle}>
+    <Box ncss={ncssStyle}>
       <TopicContentText
         pageSectionInfo={pageSectionInfo}
         treeStyle={treeStyle.contentText}

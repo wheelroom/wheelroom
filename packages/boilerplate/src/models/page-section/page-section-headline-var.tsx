@@ -30,7 +30,7 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
     { ...pageSectionHeadlineTreeStyle, wrapper: fixedWidthWrapperStyle }
   )
 
-  addCssLabels('psHeadline', treeStyle)
+  addCssLabels('headline', treeStyle)
 
   if (pageSectionInfo.hasTopic) {
     return (

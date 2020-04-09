@@ -1,17 +1,11 @@
 import { NcssProps } from '../../elements/types'
-import { buttonPrimaryStyle } from '../../../element-styles/button'
+import { TreeStyle } from '../../lib/tree-style'
 
-export interface TopicActionsTreeStyle {
-  /** Wrapper around action */
-  wrapper?: NcssProps
+export interface TopicActionsTreeStyle extends TreeStyle {
   /** Action link or button style */
   link?: NcssProps
 }
 
 export const topicContentActionsStyle: TopicActionsTreeStyle = {
-  wrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  link: buttonPrimaryStyle,
+  ncss: {},
 }

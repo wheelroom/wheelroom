@@ -2,7 +2,7 @@ import { NcssProps } from '../../elements/types'
 
 export interface TopicContentTextTreeStyle {
   /** Wrapper around heading and abstract */
-  wrapper?: NcssProps
+  ncss?: NcssProps
   /** Heading style */
   heading?: NcssProps
   /** Abstract style */

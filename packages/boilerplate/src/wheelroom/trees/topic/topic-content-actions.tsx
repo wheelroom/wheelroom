@@ -1,6 +1,5 @@
 import React from 'react'
 import { ActionProps } from '../../../models/action'
-import { buttonPrimaryStyle } from '../../../element-styles/button'
 import { Box } from '../../elements/grid'
 import { Any } from '../../elements/any'
 import { TopicProps } from '../../../models/topic'
@@ -34,11 +33,11 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   const action = actions[0]
 
   const treeStyle = props.treeStyle || {}
-  const wrapperStyle = treeStyle.wrapper || {}
+  const ncssStyle = treeStyle.ncss || {}
   const linkStyle = treeStyle.link || {}
 
   return (
-    <Box ncss={wrapperStyle}>
+    <Box ncss={ncssStyle}>
       {props.fullTopicAsLink ? (
         <Any is="span" ncss={linkStyle}>
           {action.heading}

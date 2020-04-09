@@ -1,7 +1,8 @@
 import { NcssProps } from '../elements/types'
 
 export interface TreeStyle {
-  [objectName: string]: NcssProps | TreeStyle
+  ncss: NcssProps
+  [childName: string]: TreeStyle
 }
 
 export const getStyles = (base: TreeStyle = {}, ...objectNames: string[]) => {

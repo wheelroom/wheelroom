@@ -10,16 +10,13 @@ import {
 
 export interface TopicContentTreeStyle {
   /** Wrapper around all content including action */
-  wrapper?: NcssProps
+  ncss?: NcssProps
   contentText?: TopicContentTextTreeStyle
   contentActions?: TopicActionsTreeStyle
 }
 
 export const topicContentStyle: TopicContentTreeStyle = {
-  wrapper: {
-    justifyContent: 'center',
-    p: 3,
-  },
+  ncss: {},
   contentText: topicContentTextStyle,
   contentActions: topicContentActionsStyle,
 }

@@ -22,7 +22,7 @@ export interface TopicMediaProps {
 
 export const TopicMedia = (props: TopicMediaProps) => {
   const mediaStyle = props.treeStyle
-  const mediaWrapperStyle = (mediaStyle && mediaStyle.wrapper) || {}
+  const mediaWrapperStyle = (mediaStyle && mediaStyle.ncss) || {}
   const mediaImageStyle = mediaStyle && mediaStyle.image
   const mediaVideoStyle = mediaStyle && mediaStyle.video
 

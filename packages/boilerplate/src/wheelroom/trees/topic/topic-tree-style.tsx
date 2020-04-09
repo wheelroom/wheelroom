@@ -4,17 +4,15 @@ import { TopicContentTreeStyle, topicContentStyle } from './topic-content-style'
 
 export interface TopicTreeStyle {
   /** Wrapper around the whole topic */
-  wrapper?: NcssProps
+  node?: NcssProps
   /** Wrapper around media */
   media?: TopicMediaTreeStyle
   content?: TopicContentTreeStyle
 }
 
 export const topicTreeStyle: TopicTreeStyle = {
-  wrapper: {
+  node: {
     display: 'flex',
-    flexDirection: 'column',
-    textDecoration: 'none',
   },
   media: topicMediaStyle,
   content: topicContentStyle,
