@@ -14,10 +14,17 @@ export interface TopicContentTextTreeStyle {
 }
 
 export const topicContentTextStyle: TopicContentTextTreeStyle = {
+  ncss: {
+    label: 'topic-text',
+  },
   heading: {
-    ncss: {},
+    ncss: {
+      label: 'topic-heading',
+    },
   },
   abstract: {
-    ncss: {},
+    ncss: {
+      label: 'topic-abstract',
+    },
   },
 }

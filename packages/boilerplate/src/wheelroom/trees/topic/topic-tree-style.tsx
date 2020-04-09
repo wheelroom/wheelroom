@@ -13,6 +13,7 @@ export interface TopicTreeStyle {
 
 export const topicTreeStyle: TopicTreeStyle = {
   ncss: {
+    label: 'topic',
     display: 'flex',
   },
   media: topicMediaStyle,

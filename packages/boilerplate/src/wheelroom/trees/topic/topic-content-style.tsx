@@ -17,6 +17,7 @@ export interface TopicContentTreeStyle {
 
 export const topicContentStyle: TopicContentTreeStyle = {
   ncss: {
+    label: 'topic-content',
     display: 'flex',
   },
   text: topicContentTextStyle,
