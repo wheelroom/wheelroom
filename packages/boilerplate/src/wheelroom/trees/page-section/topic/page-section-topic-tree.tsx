@@ -7,12 +7,22 @@ import { MultiParser } from '../../../parsers/multi-parser'
 import { PageSectionBlockTreeStyle } from './page-section-block-tree-style'
 import { PageSectionCardTreeStyle } from './page-section-card-tree-style'
 import { TopicProps } from '../../../../models/topic'
+import { PageSectionFeaturedTreeStyle } from './page-section-featured-tree-style'
+import { PageSectionHeadlineTreeStyle } from './page-section-headline-tree-style'
+import { PageSectionHeroTreeStyle } from './page-section-hero-tree-style'
+import { PageSectionQuoteTreeStyle } from './page-section-quote-tree-style'
 
 export const PageSectionTopicTree = (props: {
   /** Contains the topic to render */
   pageSection: PageSectionProps
   /** Styles to use */
-  treeStyle: PageSectionBlockTreeStyle | PageSectionCardTreeStyle
+  treeStyle:
+    | PageSectionBlockTreeStyle
+    | PageSectionCardTreeStyle
+    | PageSectionFeaturedTreeStyle
+    | PageSectionHeadlineTreeStyle
+    | PageSectionHeroTreeStyle
+    | PageSectionQuoteTreeStyle
   /** Properties to configure Topic element */
   topicProps: TopicTreeProps
   /** Use a max width or fluid container */

@@ -29,9 +29,7 @@ export const PageSectionGalleryTree = (props: {
             <TopicTree
               topic={topic}
               key={index}
-              pageSectionActions={props.pageSection.actions}
               pageSectionInfo={pageSectionInfo}
-              useHeadingElement="h4"
               treeStyle={props.treeStyle.topic}
             />
           ))}
