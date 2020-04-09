@@ -1,24 +1,71 @@
 import { NcssProps } from '../../../elements/types'
-import { ImageTreeStyle } from '../../../elements/image'
+import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
 export interface PageSectionGalleryTreeStyle {
   container: NcssProps
-  image: ImageTreeStyle
+  topic?: TopicTreeStyle
   wrapper: NcssProps
 }
 
 export const pageSectionGalleryTreeStyle: PageSectionGalleryTreeStyle = {
   container: {
-    alignItems: 'center',
-    flexDirection: ['column', 'row'],
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    ncss: {
+      alignItems: 'center',
+      flexDirection: ['column', 'row'],
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+    },
   },
-  image: {
-    picture: { w: [1, 1 / 2], p: 3 },
+  topic: {
+    ncss: {},
+    content: {
+      ncss: {},
+      actions: {
+        ncss: {},
+        link: {
+          ncss: {},
+        },
+      },
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
+      },
+    },
+    media: {
+      ncss: {},
+      image: {
+        img: {
+          ncss: {},
+        },
+        picture: {
+          ncss: {
+            w: [1, 1 / 2],
+            p: 3,
+          },
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
+        },
+      },
+    },
   },
   wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
+    ncss: {
+      label: 'wrapper',
+      py: [3, 6, 8],
+    },
   },
 }

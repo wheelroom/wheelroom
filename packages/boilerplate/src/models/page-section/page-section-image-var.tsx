@@ -14,6 +14,7 @@ import { PageSectionImageTree } from '../../wheelroom/trees/page-section/image/p
 import { pageSectionImageTreeStyle } from '../../wheelroom/trees/page-section/image/page-section-image-tree-style'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
+import { topicTreeStyle } from '../../wheelroom/trees/topic/topic-tree-style'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -21,15 +22,19 @@ export const PageSectionImageVar = (props: PageSectionProps) => {
   // Two things happen here:
   // - Merge in styling for this variant
   // - Create a deep copy of the styling
-  const treeStyle = deepMerge({}, pageSectionImageTreeStyle)
+  const treeStyle = deepMerge(
+    { topic: topicTreeStyle },
+    { ...pageSectionImageTreeStyle }
+  )
 
-  addCssLabels('psImage', treeStyle)
+  addCssLabels('image', treeStyle)
 
   if (pageSectionInfo.hasTopic) {
     return (
       <PageSectionImageTree
+        containerStyle="fluid"
         pageSection={props}
-        treeStyle={pageSectionImageTreeStyle}
+        treeStyle={treeStyle}
       />
     )
   }

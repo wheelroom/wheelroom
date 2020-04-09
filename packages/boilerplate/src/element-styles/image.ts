@@ -6,7 +6,6 @@ export const defaultImageImgStyle = {
 }
 
 export const defaultImagePictureStyle = {
-  label: 'picture',
   boxSizing: 'border-box',
 }
 

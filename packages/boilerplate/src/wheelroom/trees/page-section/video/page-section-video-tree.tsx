@@ -1,31 +1,40 @@
 import React from 'react'
-import { Box, ContainerMaxWidth } from '../../../elements/grid'
+import { Box, Container, ContainerMaxWidth } from '../../../elements/grid'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { TopicTree } from '../../topic/topic-tree'
 import { PageSectionVideoTreeStyle } from './page-section-video-tree-style'
+import { TopicProps } from '../../../../models/topic'
 
 export const PageSectionVideoTree = (props: {
+  /** Contains the topic to render */
   pageSection: PageSectionProps
+  /** Styles to use */
   treeStyle: PageSectionVideoTreeStyle
+  /** Use a max width or fluid container */
+  containerStyle: 'maxWidth' | 'fluid'
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasTopic) {
     return null
   }
-  const treeStyle = props.treeStyle || {}
-  const topic = props.pageSection.topics[0]
+  const ContainerType =
+    props.containerStyle === 'maxWidth' ? ContainerMaxWidth : Container
   return (
-    <Box is="div" ncss={treeStyle.wrapper}>
-      <ContainerMaxWidth ncss={treeStyle.container}>
-        <TopicTree
-          {...topic}
-          pageSectionActions={props.pageSection.actions}
-          pageSectionInfo={pageSectionInfo}
-          useHeadingElement="h4"
-          treeStyle={treeStyle.topic}
-        />
-      </ContainerMaxWidth>
+    <Box is="div" ncss={props.treeStyle.wrapper.ncss}>
+      <ContainerType ncss={props.treeStyle.container.ncss}>
+        {props.pageSection.topics
+          .slice(0, 1)
+          .map((topic: TopicProps, index: number) => (
+            <TopicTree
+              topic={topic}
+              key={index}
+              pageSectionActions={props.pageSection.actions}
+              pageSectionInfo={pageSectionInfo}
+              treeStyle={props.treeStyle.topic}
+            />
+          ))}
+      </ContainerType>
     </Box>
   )
 }

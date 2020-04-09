@@ -15,7 +15,6 @@ import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/p
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { topicTreeStyle } from '../../wheelroom/trees/topic/topic-tree-style'
-import { fixedWidthWrapperStyle } from './styles/fixed-width-wrapper-style'
 
 export const PageSectionHeroVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -24,13 +23,12 @@ export const PageSectionHeroVar = (props: PageSectionProps) => {
   // - Use default topic styling
   // - Merge in styling for this variant
   // - Create a deep copy of the styling
-  // - Apply fixedWidthWrapperStyle
   const treeStyle = deepMerge(
     { topic: topicTreeStyle },
-    { ...pageSectionHeroTreeStyle, wrapper: fixedWidthWrapperStyle }
+    { ...pageSectionHeroTreeStyle }
   )
 
-  addCssLabels('psHero', treeStyle)
+  addCssLabels('hero', treeStyle)
 
   if (pageSectionInfo.hasTopic) {
     return (
@@ -42,7 +40,7 @@ export const PageSectionHeroVar = (props: PageSectionProps) => {
         }}
         containerStyle="fluid"
         pageSection={props}
-        treeStyle={pageSectionHeroTreeStyle}
+        treeStyle={treeStyle}
       />
     )
   }

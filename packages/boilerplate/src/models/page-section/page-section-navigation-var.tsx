@@ -38,8 +38,8 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     navigationFooterTreeStyle
   )
 
-  addCssLabels('psNavFoot', treeHeaderStyle)
-  addCssLabels('psNavFoot', treeFooterStyle)
+  addCssLabels('navigation-header', treeHeaderStyle)
+  addCssLabels('navigation-footer', treeFooterStyle)
 
   if (info.hasNavigation && info.index === 0) {
     return (

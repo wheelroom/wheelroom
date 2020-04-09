@@ -36,7 +36,7 @@ export interface TopicTreeProps {
 }
 
 export const TopicTree = (props: TopicTreeProps) => {
-  console.log('topicTree', props.treeStyle)
+  //console.log('topicTree', props.treeStyle)
   if (!props.topic) {
     return null
   }

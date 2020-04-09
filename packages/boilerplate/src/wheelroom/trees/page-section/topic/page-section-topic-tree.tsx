@@ -6,6 +6,7 @@ import { TopicTree, TopicTreeProps } from '../../topic/topic-tree'
 import { MultiParser } from '../../../parsers/multi-parser'
 import { PageSectionBlockTreeStyle } from './page-section-block-tree-style'
 import { PageSectionCardTreeStyle } from './page-section-card-tree-style'
+import { TopicProps } from '../../../../models/topic'
 
 export const PageSectionTopicTree = (props: {
   /** Contains the topic to render */
@@ -24,9 +25,9 @@ export const PageSectionTopicTree = (props: {
   const ContainerType =
     props.containerStyle === 'maxWidth' ? ContainerMaxWidth : Container
   return (
-    <Box is="div" ncss={props.treeStyle.wrapper}>
-      <ContainerType ncss={props.treeStyle.container}>
-        {props.pageSection.topics.map((topic, index) => (
+    <Box is="div" ncss={props.treeStyle.wrapper.ncss}>
+      <ContainerType ncss={props.treeStyle.container.ncss}>
+        {props.pageSection.topics.map((topic: TopicProps, index: number) => (
           <TopicTree
             key={index}
             topic={topic}

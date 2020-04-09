@@ -8,27 +8,55 @@ export interface PageSectionQuoteTreeStyle {
 }
 
 export const pageSectionQuoteTreeStyle: PageSectionQuoteTreeStyle = {
-  container: {},
+  container: {
+    ncss: {},
+  },
   topic: {
+    ncss: {},
     content: {
-      contentActions: {
-        wrapper: {},
+      ncss: {},
+      actions: {
+        ncss: {},
+        link: {
+          ncss: {},
+        },
       },
-      contentText: {
-        abstract: {},
-        heading: {},
-        wrapper: {},
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
       },
-      wrapper: {},
     },
     media: {
+      ncss: {},
       image: {
-        img: {},
-        picture: {},
+        img: {
+          ncss: {},
+        },
+        picture: {
+          ncss: {},
+        },
+        figcaption: {
+          ncss: {},
+        },
       },
-      wrapper: {},
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
+        },
+      },
     },
-    wrapper: {},
   },
-  wrapper: {},
+  wrapper: {
+    ncss: {
+      label: 'wrapper',
+    },
+  },
 }

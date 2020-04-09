@@ -8,32 +8,34 @@ export interface PageSectionHeroTreeStyle {
 }
 
 export const pageSectionHeroTreeStyle: PageSectionHeroTreeStyle = {
-  container: {},
+  container: {
+    ncss: {},
+  },
   topic: {
+    ncss: {
+      position: 'relative',
+      w: 1,
+    },
     content: {
-      contentActions: {
-        link: {},
-        wrapper: {},
+      ncss: {},
+      actions: {
+        ncss: {},
+        link: {
+          ncss: {},
+        },
       },
-      contentText: {
-        abstract: {},
-        heading: {},
-        wrapper: {},
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
       },
-      wrapper: {},
     },
     media: {
-      image: {
-        img: {
-          h: 1,
-          objectFit: 'cover',
-        },
-        picture: {
-          h: 'auto',
-          w: 1,
-        },
-      },
-      wrapper: {
+      ncss: {
         bottom: '0',
         left: '0',
         position: 'absolute',
@@ -41,11 +43,36 @@ export const pageSectionHeroTreeStyle: PageSectionHeroTreeStyle = {
         top: '0',
         zIndex: -1,
       },
-    },
-    wrapper: {
-      position: 'relative',
-      w: 1,
+      image: {
+        img: {
+          ncss: {
+            h: 1,
+            objectFit: 'cover',
+          },
+        },
+        picture: {
+          ncss: {
+            h: 'auto',
+            w: 1,
+          },
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
+        },
+      },
     },
   },
-  wrapper: {},
+  wrapper: {
+    ncss: {
+      label: 'wrapper',
+    },
+  },
 }

@@ -15,7 +15,6 @@ import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/p
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { topicTreeStyle } from '../../wheelroom/trees/topic/topic-tree-style'
-import { fixedWidthWrapperStyle } from './styles/fixed-width-wrapper-style'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -27,17 +26,17 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   // - Apply fixedWidthWrapperStyle
   const treeStyle = deepMerge(
     { topic: topicTreeStyle },
-    { ...pageSectionFeaturedTreeStyle, wrapper: fixedWidthWrapperStyle }
+    { ...pageSectionFeaturedTreeStyle }
   )
 
-  addCssLabels('psFeatured', treeStyle)
+  addCssLabels('featured', treeStyle)
 
-  if (pageSectionInfo.topicCount === 1) {
+  if (pageSectionInfo.hasTopic) {
     return (
       <PageSectionTopicTree
         topicProps={{
           pageSectionActions: props.actions,
-          fullTopicAsLink: true,
+          fullTopicAsLink: false,
           pageSectionInfo,
           useHeadingElement: 'h3',
         }}

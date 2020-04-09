@@ -1,5 +1,3 @@
-import { defaultHeading2Style } from '../../../../element-styles/heading'
-import { defaultParagraphStyle } from '../../../../element-styles/paragraph'
 import { NcssProps } from '../../../elements/types'
 import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
@@ -11,52 +9,70 @@ export interface PageSectionFeaturedTreeStyle {
 
 export const pageSectionFeaturedTreeStyle: PageSectionFeaturedTreeStyle = {
   container: {
-    alignItems: ['center', 'baseline'],
-    flexDirection: ['column', 'row'],
-    justifyContent: 'center',
+    ncss: {
+      alignItems: ['center', 'baseline'],
+      flexDirection: ['column', 'row'],
+      justifyContent: 'center',
+    },
   },
   topic: {
+    ncss: {
+      flexDirection: ['column', 'column', 'row'],
+      justifyContent: 'space-evenly',
+    },
     content: {
-      contentActions: {
-        wrapper: {
-          display: 'flex',
-        },
-      },
-      contentText: {
-        abstract: {
-          ...defaultParagraphStyle,
-          '&>tbody>tr>td': {
-            p: [1, 2],
-          },
-        },
-        heading: defaultHeading2Style,
-      },
-      wrapper: {
-        display: 'flex',
+      ncss: {
         flexDirection: 'column',
-        w: [1, 1, 1 / 2.5],
+        w: [1, 1, 1 / 2],
+      },
+      actions: {
+        ncss: {},
+        link: {
+          ncss: {},
+        },
+      },
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
       },
     },
     media: {
-      image: {
-        picture: {
-          p: 3,
-        },
-      },
-      wrapper: {
-        display: 'flex',
+      ncss: {
         flexDirection: 'column',
         mb: [3, 3, 0],
         w: [1, 1, 1 / 2.5],
       },
-    },
-    wrapper: {
-      flexDirection: ['column', 'column', 'row'],
-      justifyContent: 'space-evenly',
+      image: {
+        img: {
+          ncss: {},
+        },
+        picture: {
+          ncss: {
+            p: 3,
+          },
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
+        },
+      },
     },
   },
   wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
+    ncss: {
+      label: 'wrapper',
+    },
   },
 }

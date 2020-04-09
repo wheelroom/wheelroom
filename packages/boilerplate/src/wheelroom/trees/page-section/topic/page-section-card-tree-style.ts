@@ -19,13 +19,12 @@ const topicWrapperStyle = {
 
 export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
   container: {
-    alignItems: ['center', 'initial'],
-    flexDirection: ['column', 'row'],
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    m: 'auto',
-    px: [2, 5, 7],
-    w: 1,
+    ncss: {
+      alignItems: ['center', 'initial'],
+      flexDirection: ['column', 'row'],
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+    },
   },
   topic: {
     ncss: {},
@@ -76,9 +75,7 @@ export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
       },
       video: {
         video: {
-          ncss: {
-            my: [0, 0],
-          },
+          ncss: {},
         },
         description: {
           ncss: {},
@@ -87,8 +84,9 @@ export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
     },
   },
   wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
+    ncss: {
+      label: 'wrapper',
+    },
   },
 }
 

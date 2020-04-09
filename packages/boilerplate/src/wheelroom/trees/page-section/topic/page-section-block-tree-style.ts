@@ -9,12 +9,12 @@ export interface PageSectionBlockTreeStyle {
 
 export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
   container: {
-    // alignItems: ['center', 'initial'],
-    // flexDirection: ['column', 'row'],
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    // p: 0,
-    // w: 1,
+    ncss: {
+      alignItems: ['center', 'initial'],
+      flexDirection: ['column', 'row'],
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+    },
   },
   topic: {
     ncss: {},
@@ -64,5 +64,9 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
       },
     },
   },
-  wrapper: {},
+  wrapper: {
+    ncss: {
+      label: 'wrapper',
+    },
+  },
 }

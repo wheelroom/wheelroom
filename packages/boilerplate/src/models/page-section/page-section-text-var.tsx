@@ -23,7 +23,7 @@ export const PageSectionTextVar = (props: PageSectionProps) => {
   // - Create a deep copy of the styling
   const treeStyle = deepMerge({}, pageSectionTextTreeStyle)
 
-  addCssLabels('psText', treeStyle)
+  addCssLabels('text', treeStyle)
 
   if (pageSectionInfo.hasText) {
     return <PageSectionTextTree pageSection={props} treeStyle={treeStyle} />

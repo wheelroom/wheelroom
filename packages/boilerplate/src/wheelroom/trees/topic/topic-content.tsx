@@ -45,7 +45,7 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
   const ncssStyle = (treeStyle && treeStyle.ncss) || {}
   ncssStyle.order = props.reverse ? -1 : null
 
-  console.log('ncssStyle', ncssStyle)
+  // console.log('ncssStyle', ncssStyle)
 
   return (
     <Box ncss={ncssStyle}>

@@ -9,10 +9,12 @@ export interface PageSectionTextTreeStyle {
 
 export const pageSectionTextTreeStyle: PageSectionTextTreeStyle = {
   container: {
-    px: 3,
+    ncss: {},
   },
   text: textTreeStyle,
   wrapper: {
-    bg: 'bg',
+    ncss: {
+      label: 'wrapper',
+    },
   },
 }

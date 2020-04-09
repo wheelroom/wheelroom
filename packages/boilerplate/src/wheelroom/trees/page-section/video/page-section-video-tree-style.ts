@@ -1,4 +1,3 @@
-import { smallParagraphStyle } from '../../../../element-styles/paragraph'
 import { TopicTreeStyle } from '../../topic/topic-tree-style'
 import { NcssProps } from '../../../elements/types'
 
@@ -9,36 +8,56 @@ export interface PageSectionVideoTreeStyle {
 }
 
 export const videoTreeStyle: PageSectionVideoTreeStyle = {
-  container: {},
+  container: {
+    ncss: {},
+  },
   topic: {
+    ncss: {},
     content: {
-      contentActions: {
+      ncss: {},
+      actions: {
+        ncss: {},
         link: {
-          fontSize: [5, 6],
-          lineHeight: [3, 4],
-          mx: 2,
-        },
-        wrapper: {
-          mx: 'auto',
+          ncss: {},
         },
       },
-      contentText: {
-        abstract: { ...smallParagraphStyle, color: 'text' },
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
       },
     },
     media: {
+      ncss: {},
+      image: {
+        img: {
+          ncss: {},
+        },
+        picture: {
+          ncss: {},
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
       video: {
         video: {
-          mb: [0, 0],
+          ncss: {},
+        },
+        description: {
+          ncss: {},
         },
       },
     },
-    wrapper: {
-      w: 1,
-    },
   },
   wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
+    ncss: {
+      label: 'wrapper',
+      py: [3, 6, 8],
+    },
   },
 }

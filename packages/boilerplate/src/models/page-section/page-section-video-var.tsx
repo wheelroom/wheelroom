@@ -14,7 +14,7 @@ import { PageSectionVideoTree } from '../../wheelroom/trees/page-section/video/p
 import { videoTreeStyle } from '../../wheelroom/trees/page-section/video/page-section-video-tree-style'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
-import { fixedWidthWrapperStyle } from './styles/fixed-width-wrapper-style'
+import { topicTreeStyle } from '../../wheelroom/trees/topic/topic-tree-style'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -24,17 +24,22 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
   // - Create a deep copy of the styling
   // - Apply fixedWidthWrapperStyle
   const treeStyle = deepMerge(
-    {},
+    { topic: topicTreeStyle },
     {
       ...videoTreeStyle,
-      wrapper: fixedWidthWrapperStyle,
     }
   )
 
-  addCssLabels('psText', treeStyle)
+  addCssLabels('video', treeStyle)
 
   if (pageSectionInfo.hasTopic) {
-    return <PageSectionVideoTree pageSection={props} treeStyle={treeStyle} />
+    return (
+      <PageSectionVideoTree
+        containerStyle="fluid"
+        pageSection={props}
+        treeStyle={treeStyle}
+      />
+    )
   }
   return <NotImplemented {...props} />
 }

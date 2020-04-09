@@ -1,4 +1,3 @@
-import { smallParagraphStyle } from '../../../../element-styles/paragraph'
 import { NcssProps } from '../../../elements/types'
 import { TopicTreeStyle } from '../../topic/topic-tree-style'
 
@@ -10,39 +9,57 @@ export interface PageSectionImageTreeStyle {
 
 export const pageSectionImageTreeStyle: PageSectionImageTreeStyle = {
   container: {
-    flexDirection: ['column', 'row'],
+    ncss: {
+      flexDirection: ['column', 'row'],
+    },
   },
   topic: {
+    ncss: {},
     content: {
-      contentActions: {
+      ncss: {},
+      actions: {
+        ncss: {},
         link: {
-          fontSize: [3, 4],
-          lineHeight: [3],
-          mx: 2,
-        },
-        wrapper: {
-          mx: 'auto',
+          ncss: {},
         },
       },
-      contentText: {
-        abstract: { ...smallParagraphStyle, color: 'text' },
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
       },
     },
     media: {
+      ncss: {},
       image: {
+        img: {
+          ncss: {},
+        },
         picture: {
-          display: 'block',
-          px: 0,
-          py: 3,
+          ncss: {},
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
         },
       },
     },
-    wrapper: {
-      w: 1,
-    },
   },
   wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
+    ncss: {
+      label: 'wrapper',
+      py: [3, 6, 8],
+    },
   },
 }

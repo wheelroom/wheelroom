@@ -75,11 +75,15 @@ export const textTreeStyle: TextTreeStyle = {
   entryHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
   image: {
     figcaption: {
-      mb: [4, 5],
-      mt: 0,
+      ncss: {
+        mb: [4, 5],
+        mt: 0,
+      },
     },
     img: {
-      my: [4, 5],
+      ncss: {
+        my: [4, 5],
+      },
     },
   },
   inlinesHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
@@ -98,12 +102,19 @@ export const textTreeStyle: TextTreeStyle = {
     },
   },
   video: {
-    video: { ...defaultVideoStyle, my: [4, 5] },
+    video: {
+      ncss: {
+        ...defaultVideoStyle,
+        my: [4, 5],
+      },
+    },
   },
   wrapper: {
-    flexDirection: 'column',
-    maxWidth: '640px',
-    mx: 'auto',
-    textAlign: 'left',
+    ncss: {
+      flexDirection: 'column',
+      maxWidth: '640px',
+      mx: 'auto',
+      textAlign: 'left',
+    },
   },
 }

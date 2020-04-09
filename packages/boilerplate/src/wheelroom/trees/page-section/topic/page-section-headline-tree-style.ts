@@ -8,25 +8,55 @@ export interface PageSectionHeadlineTreeStyle {
 }
 
 export const pageSectionHeadlineTreeStyle: PageSectionHeadlineTreeStyle = {
-  container: {},
+  container: {
+    ncss: {},
+  },
   topic: {
+    ncss: {},
     content: {
-      contentActions: {
-        link: {},
-        wrapper: {},
+      ncss: {},
+      actions: {
+        ncss: {},
+        link: {
+          ncss: {},
+        },
       },
-      contentText: {
-        abstract: {},
-        heading: {},
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
       },
-      wrapper: {},
     },
     media: {
+      ncss: {},
       image: {
-        picture: {},
+        img: {
+          ncss: {},
+        },
+        picture: {
+          ncss: {},
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
+        },
       },
     },
-    wrapper: {},
   },
-  wrapper: {},
+  wrapper: {
+    ncss: {
+      label: 'wrapper',
+    },
+  },
 }
