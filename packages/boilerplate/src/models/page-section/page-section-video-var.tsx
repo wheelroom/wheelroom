@@ -22,7 +22,6 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
   // Three things happen here:
   // - Merge in styling for this variant
   // - Create a deep copy of the styling
-  // - Apply fixedWidthWrapperStyle
   const treeStyle = deepMerge(
     { topic: topicTreeStyle },
     {

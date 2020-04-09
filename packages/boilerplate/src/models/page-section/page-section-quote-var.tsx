@@ -23,7 +23,6 @@ export const PageSectionQuoteVar = (props: PageSectionProps) => {
   // - Use default topic styling
   // - Merge in styling for this variant
   // - Create a deep copy of the styling
-  // - Apply fixedWidthWrapperStyle
   const treeStyle = deepMerge(
     { topic: topicTreeStyle },
     { ...pageSectionQuoteTreeStyle }
