@@ -18,48 +18,53 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
     w: 1,
   },
   topic: {
+    ncss: {},
     content: {
-      contentText: {
-        wrapper: {
-          display: 'block',
+      ncss: {
+        ncss: {
+          display: 'flex',
           flex: '1 1 auto',
+          flexDirection: 'column',
         },
-      },
-      wrapper: {
-        display: 'flex',
-        flex: '1 1 auto',
-        flexDirection: 'column',
+        text: {
+          wrapper: {
+            display: 'block',
+            flex: '1 1 auto',
+          },
+        },
       },
     },
     media: {
-      image: {
-        img: {
-          h: 1,
-          objectFit: 'cover',
-          position: 'absolute',
-          w: 1,
+      ncss: {
+        image: {
+          ncss: {
+            img: {
+              ncss: {
+                h: 1,
+                objectFit: 'cover',
+                position: 'absolute',
+                w: 1,
+              },
+            },
+            picture: {
+              ncss: {
+                display: 'block',
+                h: '0px',
+                pb: '65.25%',
+                position: 'relative',
+              },
+            },
+          },
         },
-        picture: {
-          display: 'block',
-          h: '0px',
-          pb: '65.25%',
-          position: 'relative',
-        },
-      },
-      video: {
         video: {
-          my: [0, 0],
+          video: {
+            ncss: {
+              my: [0, 0],
+            },
+          },
         },
       },
     },
-    wrapper: {
-      px: [0, 3],
-      py: [3, 3],
-      w: [1, 1 / 2, 1 / 3],
-    },
   },
-  wrapper: {
-    bg: 'bg',
-    py: [3, 6, 8],
-  },
+  wrapper: {},
 }

@@ -5,20 +5,20 @@ import { topicContentActionsStyle } from './topic-content-actions-style'
 export interface TopicContentTreeStyle {
   /** Wrapper around all content including action */
   ncss?: NcssProps
-  contentText?: {
+  text?: {
     ncss?: NcssProps
   }
-  contentActions?: {
+  actions?: {
     ncss?: NcssProps
   }
 }
 
 export const topicContentStyle: TopicContentTreeStyle = {
   ncss: {},
-  contentText: {
+  text: {
     ...topicContentTextStyle,
   },
-  contentActions: {
+  actions: {
     ...topicContentActionsStyle,
   },
 }
