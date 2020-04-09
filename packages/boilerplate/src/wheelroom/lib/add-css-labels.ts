@@ -1,14 +1,11 @@
-import { TreeStyle } from './tree-style'
-
-export const addCssLabels = (prefix: string, treeStyle: TreeStyle) => {
+export const addCssLabels = (prefix: string, treeStyle: any) => {
   Object.entries(treeStyle).forEach(([name, value]) => {
-    if (value instanceof Object && !Array.isArray(value)) {
+    if (value instanceof Object && !Array.isArray(value) && name !== 'ncss') {
       addCssLabels(`${prefix}-${name}`, value)
     }
   })
 
-  const regexp = /[:&<>]/g
-  if (prefix.search(regexp) === -1) {
+  if (name === 'ncss' && !treeStyle.label) {
     treeStyle.label = prefix
   }
 }
