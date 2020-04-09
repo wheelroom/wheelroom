@@ -1,24 +1,24 @@
 import { NcssProps } from '../../elements/types'
-import { topicContentTextStyle } from './topic-content-text-style'
-import { topicContentActionsStyle } from './topic-content-actions-style'
+import {
+  TopicContentTextTreeStyle,
+  topicContentTextStyle,
+} from './topic-content-text-style'
+import {
+  TopicActionsTreeStyle,
+  topicContentActionsStyle,
+} from './topic-content-actions-style'
 
 export interface TopicContentTreeStyle {
   /** Wrapper around all content including action */
   ncss?: NcssProps
-  text?: {
-    ncss?: NcssProps
-  }
-  actions?: {
-    ncss?: NcssProps
-  }
+  text?: TopicContentTextTreeStyle
+  actions?: TopicActionsTreeStyle
 }
 
 export const topicContentStyle: TopicContentTreeStyle = {
-  ncss: {},
-  text: {
-    ...topicContentTextStyle,
+  ncss: {
+    color: 'purple',
   },
-  actions: {
-    ...topicContentActionsStyle,
-  },
+  text: topicContentTextStyle,
+  actions: topicContentActionsStyle,
 }

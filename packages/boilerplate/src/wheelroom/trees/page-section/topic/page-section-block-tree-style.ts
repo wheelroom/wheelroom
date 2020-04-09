@@ -20,24 +20,25 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
   topic: {
     ncss: {},
     content: {
-      ncss: {
-        ncss: {
-          display: 'flex',
-          flex: '1 1 auto',
-          flexDirection: 'column',
+      /** NCSS here does not work */
+      ncss: { color: 'purple' },
+      text: {
+        heading: {
+          /** NCSS here does not work */
+          ncss: { color: 'silver' },
         },
-        text: {
-          wrapper: {
-            display: 'block',
-            flex: '1 1 auto',
-          },
+        abstract: {
+          /** NCSS here does not work */
+          ncss: { color: 'purple' },
         },
       },
     },
     media: {
+      /** NCSS here does not work */
       ncss: {},
       image: {
         img: {
+          /** NCSS here does not work */
           ncss: {
             h: 1,
             objectFit: 'cover',
@@ -46,6 +47,7 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
           },
         },
         picture: {
+          /** NCSS here does not work */
           ncss: {
             display: 'block',
             h: '0px',
@@ -53,12 +55,19 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
             position: 'relative',
           },
         },
+        figcaption: {
+          /** NCSS here does not work */
+          ncss: {},
+        },
       },
       video: {
         video: {
           ncss: {
             my: [0, 0],
           },
+        },
+        description: {
+          ncss: {},
         },
       },
     },
