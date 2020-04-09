@@ -32,7 +32,7 @@ export interface TopicContentTextProps {
 
 export const TopicContentText = (props: TopicContentTextProps) => {
   const treeStyle = props.treeStyle || {}
-  const ncssStyle = treeStyle.ncss || {}
+  const nodeStyle = treeStyle.ncss || {}
   const abstractStyle = treeStyle.abstract || {}
   const headingStyle = treeStyle.heading || {}
   const topicOptions = props.pageSectionInfo.topicOptions
@@ -44,7 +44,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const AbstractParser = props.useAbstractParser || Paragraph
 
   return (
-    <Box is="header" ncss={ncssStyle}>
+    <Box is="header" ncss={nodeStyle}>
       {!topicOptions.hideIcon && <TopicIcon icon={props.topic.icon} />}
       {!topicOptions.hideHeading && (
         <HeadingParser is={useHeadingElement} ncss={headingStyle}>

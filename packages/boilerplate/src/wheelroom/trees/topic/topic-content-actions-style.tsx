@@ -1,11 +1,17 @@
 import { NcssProps } from '../../elements/types'
-import { TreeStyle } from '../../lib/tree-style'
 
-export interface TopicActionsTreeStyle extends TreeStyle {
+export interface TopicActionsTreeStyle {
+  /** Styling for this node */
+  ncss?: NcssProps
   /** Action link or button style */
-  link?: NcssProps
+  link?: {
+    ncss?: NcssProps
+  }
 }
 
 export const topicContentActionsStyle: TopicActionsTreeStyle = {
   ncss: {},
+  link: {
+    ncss: {},
+  },
 }

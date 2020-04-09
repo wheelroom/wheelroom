@@ -1,12 +1,24 @@
 import { NcssProps } from '../../elements/types'
 
 export interface TopicContentTextTreeStyle {
-  /** Wrapper around heading and abstract */
+  /** Styling for this node */
   ncss?: NcssProps
   /** Heading style */
-  heading?: NcssProps
+  heading?: {
+    ncss?: NcssProps
+  }
   /** Abstract style */
-  abstract?: NcssProps
+  abstract?: {
+    ncss?: NcssProps
+  }
 }
 
-export const topicContentTextStyle: TopicContentTextTreeStyle = {}
+export const topicContentTextStyle: TopicContentTextTreeStyle = {
+  ncss: {},
+  heading: {
+    ncss: {},
+  },
+  abstract: {
+    ncss: {},
+  },
+}

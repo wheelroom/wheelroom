@@ -1,11 +1,24 @@
 import { NcssProps } from '../../elements/types'
-import { ImageTreeStyle } from '../../elements/image'
-import { VideoTreeStyle } from '../../elements/video'
 
 export interface TopicMediaTreeStyle {
+  /** Styling for this node */
   ncss?: NcssProps
-  image?: ImageTreeStyle
-  video?: VideoTreeStyle
+  /** Image style */
+  image?: {
+    ncss?: NcssProps
+  }
+  /** Video style */
+  video?: {
+    ncss?: NcssProps
+  }
 }
 
-export const topicMediaStyle: TopicMediaTreeStyle = {}
+export const topicMediaStyle: TopicMediaTreeStyle = {
+  ncss: {},
+  image: {
+    ncss: {},
+  },
+  video: {
+    ncss: {},
+  },
+}
