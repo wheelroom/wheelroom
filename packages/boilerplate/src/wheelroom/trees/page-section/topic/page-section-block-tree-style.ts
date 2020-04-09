@@ -35,32 +35,29 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
       },
     },
     media: {
-      ncss: {
-        image: {
+      ncss: {},
+      image: {
+        img: {
           ncss: {
-            img: {
-              ncss: {
-                h: 1,
-                objectFit: 'cover',
-                position: 'absolute',
-                w: 1,
-              },
-            },
-            picture: {
-              ncss: {
-                display: 'block',
-                h: '0px',
-                pb: '65.25%',
-                position: 'relative',
-              },
-            },
+            h: 1,
+            objectFit: 'cover',
+            position: 'absolute',
+            w: 1,
           },
         },
+        picture: {
+          ncss: {
+            display: 'block',
+            h: '0px',
+            pb: '65.25%',
+            position: 'relative',
+          },
+        },
+      },
+      video: {
         video: {
-          video: {
-            ncss: {
-              my: [0, 0],
-            },
+          ncss: {
+            my: [0, 0],
           },
         },
       },

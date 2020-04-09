@@ -1,17 +1,14 @@
 import { NcssProps } from '../../elements/types'
-import { topicMediaStyle } from './topic-media-style'
-import { topicContentStyle } from './topic-content-style'
+import { topicMediaStyle, TopicMediaTreeStyle } from './topic-media-style'
+import { topicContentStyle, TopicContentTreeStyle } from './topic-content-style'
 
 export interface TopicTreeStyle {
   /** Styling for this node */
   ncss?: NcssProps
-  /** Wrapper around media */
-  media?: {
-    ncss?: NcssProps
-  }
-  content?: {
-    ncss?: NcssProps
-  }
+  /** Media */
+  media?: TopicMediaTreeStyle
+  /** Content */
+  content?: TopicContentTreeStyle
 }
 
 export const topicTreeStyle: TopicTreeStyle = {
