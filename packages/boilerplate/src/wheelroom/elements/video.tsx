@@ -11,8 +11,12 @@ import {
 } from '../../element-styles/video'
 
 export interface VideoTreeStyle {
-  video?: NcssProps
-  description?: NcssProps
+  video?: {
+    ncss?: NcssProps
+  }
+  description?: {
+    ncss?: NcssProps
+  }
 }
 
 export interface VideoProps {

@@ -11,9 +11,15 @@ import {
 } from '../../element-styles/image'
 
 export interface ImageTreeStyle {
-  img?: NcssProps
-  picture?: NcssProps
-  figcaption?: NcssProps
+  img?: {
+    ncss?: NcssProps
+  }
+  picture?: {
+    ncss?: NcssProps
+  }
+  figcaption?: {
+    ncss?: NcssProps
+  }
 }
 
 export interface ImageProps {
