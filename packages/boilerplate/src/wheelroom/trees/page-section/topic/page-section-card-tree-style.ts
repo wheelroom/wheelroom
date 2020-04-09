@@ -28,40 +28,63 @@ export const pageSectionCardTreeStyle: PageSectionCardTreeStyle = {
     w: 1,
   },
   topic: {
+    ncss: {},
     content: {
-      contentActions: {
-        wrapper: {
-          flex: '0',
-        },
-      },
-      contentText: {
-        wrapper: {
-          display: 'block',
-          flex: '1 1 auto',
-        },
-      },
-      wrapper: {
+      ncss: {
         display: 'flex',
         flex: '1 1 auto',
         flexDirection: 'column',
       },
+      text: {
+        ncss: {
+          display: 'block',
+          flex: '1 1 auto',
+        },
+        heading: {
+          ncss: {},
+        },
+        abstract: {
+          ncss: {},
+        },
+      },
+      actions: {
+        ncss: {
+          flex: '0',
+        },
+      },
     },
     media: {
-      image: {
-        img: {
-          h: 1,
-          objectFit: 'cover',
-        },
-        picture: {
-          display: 'block',
-          h: '178px',
-        },
-      },
-      wrapper: {
+      ncss: {
         p: 3,
       },
+      image: {
+        img: {
+          ncss: {
+            h: 1,
+            objectFit: 'cover',
+          },
+        },
+        picture: {
+          ncss: {
+            display: 'block',
+            h: '178px',
+          },
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {
+            my: [0, 0],
+          },
+        },
+        description: {
+          ncss: {},
+        },
+      },
     },
-    wrapper: topicWrapperStyle,
   },
   wrapper: {
     bg: 'bg',
@@ -73,7 +96,7 @@ export const pageSectionCardTreeShadowStyle: PageSectionCardTreeStyle = deepmerg
   pageSectionCardTreeStyle,
   {
     topic: {
-      wrapper: {
+      ncss: {
         ...topicWrapperStyle,
         border: '1px solid',
         borderColor: 'cardsBorder',

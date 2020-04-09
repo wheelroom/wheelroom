@@ -37,8 +37,8 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
     { ...pageSectionCardTreeShadowStyle, wrapper: fixedWidthWrapperStyle }
   )
 
-  addCssLabels('psCard', pageSectionCardTreeStyle)
-  addCssLabels('psCard', pageSectionCardTreeShadowStyle)
+  addCssLabels('card', pageSectionCardTreeStyle)
+  addCssLabels('card-shadow', pageSectionCardTreeShadowStyle)
 
   if (pageSectionInfo.hasTopic) {
     return (

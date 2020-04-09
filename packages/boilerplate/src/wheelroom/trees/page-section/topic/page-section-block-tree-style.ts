@@ -9,36 +9,30 @@ export interface PageSectionBlockTreeStyle {
 
 export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
   container: {
-    alignItems: ['center', 'initial'],
-    flexDirection: ['column', 'row'],
+    // alignItems: ['center', 'initial'],
+    // flexDirection: ['column', 'row'],
     flexWrap: 'wrap',
     justifyContent: 'center',
-    m: 'auto',
-    p: 0,
-    w: 1,
+    // p: 0,
+    // w: 1,
   },
   topic: {
     ncss: {},
     content: {
-      /** NCSS here does not work */
-      ncss: { color: 'purple' },
+      ncss: {},
       text: {
         heading: {
-          /** NCSS here does not work */
-          ncss: { color: 'silver' },
+          ncss: {},
         },
         abstract: {
-          /** NCSS here does not work */
-          ncss: { color: 'purple' },
+          ncss: {},
         },
       },
     },
     media: {
-      /** NCSS here does not work */
       ncss: {},
       image: {
         img: {
-          /** NCSS here does not work */
           ncss: {
             h: 1,
             objectFit: 'cover',
@@ -47,7 +41,6 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
           },
         },
         picture: {
-          /** NCSS here does not work */
           ncss: {
             display: 'block',
             h: '0px',
@@ -56,7 +49,6 @@ export const pageSectionBlockTreeStyle: PageSectionBlockTreeStyle = {
           },
         },
         figcaption: {
-          /** NCSS here does not work */
           ncss: {},
         },
       },

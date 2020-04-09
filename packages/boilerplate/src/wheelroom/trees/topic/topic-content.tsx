@@ -45,11 +45,13 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
   const ncssStyle = (treeStyle && treeStyle.ncss) || {}
   ncssStyle.order = props.reverse ? -1 : null
 
+  console.log('ncssStyle', ncssStyle)
+
   return (
     <Box ncss={ncssStyle}>
       <TopicContentText
         pageSectionInfo={pageSectionInfo}
-        treeStyle={treeStyle.contentText}
+        treeStyle={treeStyle.text}
         topic={props.topic}
         topicInfo={topicInfo}
         useAbstractElement={props.useAbstractElement}
@@ -62,7 +64,7 @@ export const TopicContent = (props: TopicContentWrapperProps) => {
           fullTopicAsLink={props.fullTopicAsLink}
           pageSectionActions={props.pageSectionActions}
           pageSectionInfo={pageSectionInfo}
-          treeStyle={treeStyle.contentActions}
+          treeStyle={treeStyle.actions}
           topic={props.topic}
           topicInfo={topicInfo}
         />

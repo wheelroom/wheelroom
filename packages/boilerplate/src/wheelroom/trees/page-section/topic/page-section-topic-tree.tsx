@@ -3,14 +3,15 @@ import { Box, Container, ContainerMaxWidth } from '../../../elements/grid'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicTree, TopicTreeProps } from '../../topic/topic-tree'
-import { TreeStyle } from '../../../lib/tree-style'
 import { MultiParser } from '../../../parsers/multi-parser'
+import { PageSectionBlockTreeStyle } from './page-section-block-tree-style'
+import { PageSectionCardTreeStyle } from './page-section-card-tree-style'
 
 export const PageSectionTopicTree = (props: {
   /** Contains the topic to render */
   pageSection: PageSectionProps
   /** Styles to use */
-  treeStyle: TreeStyle
+  treeStyle: PageSectionBlockTreeStyle | PageSectionCardTreeStyle
   /** Properties to configure Topic element */
   topicProps: TopicTreeProps
   /** Use a max width or fluid container */

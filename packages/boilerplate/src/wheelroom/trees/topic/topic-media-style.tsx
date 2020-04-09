@@ -12,7 +12,26 @@ export interface TopicMediaTreeStyle {
 }
 
 export const topicMediaStyle: TopicMediaTreeStyle = {
-  ncss: {},
-  image: {},
-  video: {},
+  ncss: {
+    display: 'flex',
+  },
+  image: {
+    img: {
+      ncss: {},
+    },
+    picture: {
+      ncss: {},
+    },
+    figcaption: {
+      ncss: {},
+    },
+  },
+  video: {
+    video: {
+      ncss: {},
+    },
+    description: {
+      ncss: {},
+    },
+  },
 }

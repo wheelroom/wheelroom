@@ -22,14 +22,14 @@ export interface TopicMediaProps {
 
 export const TopicMedia = (props: TopicMediaProps) => {
   const mediaStyle = props.treeStyle
-  const mediaWrapperStyle = (mediaStyle && mediaStyle.ncss) || {}
+  const ncssStyle = (mediaStyle && mediaStyle.ncss) || {}
   const mediaImageStyle = mediaStyle && mediaStyle.image
   const mediaVideoStyle = mediaStyle && mediaStyle.video
 
-  mediaWrapperStyle.order = props.reverse ? 0 : null
+  ncssStyle.order = props.reverse ? 0 : null
 
   return (
-    <Box ncss={mediaWrapperStyle}>
+    <Box ncss={ncssStyle}>
       {props.topicInfo.hasImage && (
         <Image
           description={props.topic.media?.description}

@@ -19,7 +19,8 @@ import { fixedWidthWrapperStyle } from './styles/fixed-width-wrapper-style'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-  console.log(topicTreeStyle)
+
+  console.log(pageSectionBlockTreeStyle)
 
   // Four things happen here:
   // - Use default topic styling
@@ -31,7 +32,11 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
     { ...pageSectionBlockTreeStyle, wrapper: fixedWidthWrapperStyle }
   )
 
-  addCssLabels('psBlock', treeStyle)
+  console.log('treeStyle A', treeStyle)
+
+  addCssLabels('block', treeStyle)
+
+  console.log('treeStyle B', treeStyle)
 
   if (pageSectionInfo.hasTopic) {
     return (
