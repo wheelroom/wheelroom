@@ -16,9 +16,9 @@ export interface TopicContentTreeStyle {
 export const topicContentStyle: TopicContentTreeStyle = {
   ncss: {},
   contentText: {
-    ncss: topicContentTextStyle,
+    ...topicContentTextStyle,
   },
   contentActions: {
-    ncss: topicContentActionsStyle,
+    ...topicContentActionsStyle,
   },
 }

@@ -19,9 +19,9 @@ export const topicTreeStyle: TopicTreeStyle = {
     display: 'flex',
   },
   media: {
-    ncss: topicMediaStyle,
+    ...topicMediaStyle,
   },
   content: {
-    ncss: topicContentStyle,
+    ...topicContentStyle,
   },
 }

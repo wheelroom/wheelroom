@@ -19,6 +19,7 @@ import { fixedWidthWrapperStyle } from './styles/fixed-width-wrapper-style'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
+  console.log(topicTreeStyle)
 
   // Four things happen here:
   // - Use default topic styling

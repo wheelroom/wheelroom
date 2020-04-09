@@ -45,11 +45,11 @@ export const TopicTree = (props: TopicTreeProps) => {
   const fullTopicAsLink =
     !topicOptions.hideAction && topicInfo.hasAction && props.fullTopicAsLink
   return fullTopicAsLink ? (
-    <ActionTree {...props.topic.actions[0]} treeStyle={treeStyle.node}>
+    <ActionTree {...props.topic.actions[0]} treeStyle={treeStyle.ncss}>
       <TopicBody {...props} />
     </ActionTree>
   ) : (
-    <Box ncss={treeStyle.node}>
+    <Box ncss={treeStyle.ncss}>
       <TopicBody {...props} />
     </Box>
   )
