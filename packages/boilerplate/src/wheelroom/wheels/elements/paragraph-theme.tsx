@@ -7,7 +7,7 @@ export const commonParagraphStyle = {
   mb: 3,
 }
 
-export const themeParagraphStyle = {
+export const paragraphTheme = {
   ...commonParagraphStyle,
   fontSize: [4, 5],
   lineHeight: 4,
