@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { MediaObject, NcssProps } from './types'
 import { getStyles } from '../lib/tree-style'
@@ -8,7 +8,7 @@ import {
   defaultImageImgStyle,
   defaultImagePictureStyle,
   defaultImageFigcaptionStyle,
-} from '../../element-styles/image'
+} from '../../themes/yosemite/elements-styles/image'
 
 export interface ImageTreeStyle {
   img?: {

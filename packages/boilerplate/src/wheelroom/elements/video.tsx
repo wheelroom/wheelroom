@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, MediaObject } from './types'
 import { getStyles } from '../lib/tree-style'
 import {
   defaultVideoStyle,
   defaultVideoDescriptionStyle,
-} from '../../element-styles/video'
+} from '../../themes/yosemite/elements-styles/video'
 
 export interface VideoTreeStyle {
   video?: {

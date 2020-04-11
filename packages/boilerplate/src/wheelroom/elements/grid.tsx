@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../styled-system/system-css'
 import { InlineElementName, BlockLevelElementName, NcssProps } from './types'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import {
@@ -8,7 +8,7 @@ import {
   defaultContainerStyle,
   defaultBoxStyle,
   defaultContainerMaxWidthStyle,
-} from '../../element-styles/grid'
+} from '../../themes/yosemite/elements-styles/grid'
 
 const getAttrs = (props: GridProps) => {
   const attrs = {

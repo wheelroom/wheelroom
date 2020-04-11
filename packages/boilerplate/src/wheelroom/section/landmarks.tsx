@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import React from 'react'
 import { PageSectionProps } from '../../models/page-section/page-section'
 import { getPageSectionInfo } from '../lib/get-page-section-info'
-import { systemCss } from '../../styled-system/system-css'
+import { systemCss } from '../styled-system/system-css'
 import { jsx } from '@emotion/core'
 
 const getLandmark = (

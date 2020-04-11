@@ -10,16 +10,13 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { pageSectionBlockTreeStyle } from '../../wheelroom/trees/page-section/topic/page-section-block-tree-style'
-import { PageSectionTopicTree } from '../../wheelroom/trees/page-section/topic/page-section-topic-tree'
-import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
+import { pageSectionBlockTreeStyle } from '../../wheelroom/presets/page-section/topic/page-section-block-preset-style'
+import { PageSectionTopicPreset } from '../../wheelroom/presets/page-section/topic/page-section-topic-preset'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { topicTreeStyle } from '../../wheelroom/trees/topic/topic-tree-style'
+import { topicTreeStyle } from '../../wheelroom/presets/topic/topic-preset-style'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
-
-  // console.log(pageSectionBlockTreeStyle)
 
   // Four things happen here:
   // - Use default topic styling
@@ -30,15 +27,9 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
     { ...pageSectionBlockTreeStyle }
   )
 
-  // console.log('treeStyle A block', treeStyle)
-
-  addCssLabels('block', treeStyle)
-
-  // console.log('treeStyle B block', treeStyle)
-
   if (pageSectionInfo.hasTopic) {
     return (
-      <PageSectionTopicTree
+      <PageSectionTopicPreset
         topicProps={{
           pageSectionActions: props.actions,
           fullTopicAsLink: false,

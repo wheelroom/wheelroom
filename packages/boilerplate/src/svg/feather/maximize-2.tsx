@@ -1,5 +1,5 @@
 import React, { SVGProps } from 'react'
-import { systemCss } from '../../styled-system/system-css'
+import { systemCss } from '../../wheelroom/styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 export interface IconProps extends SVGProps<SVGSVGElement> {
   ncss: any;

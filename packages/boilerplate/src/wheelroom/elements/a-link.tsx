@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { LinkRelationshipAttribute, NcssProps } from './types'
-import { defaultALinkStyle } from '../../element-styles/a-link'
 
 export interface ALinkProps {
   /** React children */
@@ -41,7 +40,7 @@ export const ALink = (props: ALinkProps) => {
       aria-label={props.ariaLabel}
       css={systemCss(
         {
-          ncss: { ...defaultALinkStyle, ...props.ncss },
+          ncss: { ...props.ncss },
         },
         currentThemeId
       )}

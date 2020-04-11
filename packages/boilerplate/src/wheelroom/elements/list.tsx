@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../styled-system/system-css'
 import { ListElementName, NcssProps } from './types'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { defaultListStyle } from '../../element-styles/list'
+import { defaultListStyle } from '../../themes/yosemite/elements-styles/list'
 
 export interface ListProps {
   /** Render as another HTML element */

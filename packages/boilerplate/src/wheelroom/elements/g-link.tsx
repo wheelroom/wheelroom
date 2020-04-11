@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../styled-system/system-css'
 import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps } from './types'
-import { defaultGLinkStyle } from '../../element-styles/g-link'
 
 export interface GLinkProps {
   /** React children */
@@ -37,7 +36,7 @@ export const GLink = (props: GLinkProps) => {
       aria-label={props.ariaLabel}
       css={systemCss(
         {
-          ncss: { ...defaultGLinkStyle, ...props.ncss },
+          ncss: { ...props.ncss },
         },
         currentThemeId
       )}

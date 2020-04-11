@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
+import { systemCss, ThemeId } from '../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, BlockLevelElementName, HeadingName } from './types'
-import { headingStyleMap } from '../../element-styles/heading'
+import { headingStyleMap } from '../../themes/yosemite/elements-styles/heading'
 
 interface HeadingElementProps {
   /** React children */

@@ -49,7 +49,7 @@ When the Gatsby development server starts, this is what happens:
 
 The templates use a style system: [@wheelroom/styled-system](https://www.npmjs.com/package/@wheelroom/styled-system). It's a simple typescript rewrite of [styled-system.com](https://styled-system.com) and makes it fully configurable. Styled system itself is based on [System UI Theme Specification](https://system-ui.com/theme/).
 
-The config file can be found here: [./src/styled-system/styled-system-config.ts](../src/styled-system/styled-system-config.ts). To configure the theme, look here: [./src/styled-system/styled-system-theme.ts](../src/styled-system/styled-system-theme.ts)
+The config file can be found here: [./src/styled-system/styled-system-config.ts](../src/wheelroom/styled-system/styled-system-config.ts). To configure the theme, look here: [./src/styled-system/styled-system-theme.ts](../src/wheelroom/styled-system/styled-system-theme.ts)
 
 ## More info
 

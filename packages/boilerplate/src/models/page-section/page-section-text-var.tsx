@@ -10,8 +10,8 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { PageSectionTextTree } from '../../wheelroom/trees/page-section/text/page-section-text-tree'
-import { pageSectionTextTreeStyle } from '../../wheelroom/trees/page-section/text/page-section-text-tree-style'
+import { PageSectionTextPreset } from '../../wheelroom/presets/page-section/text/page-section-text-preset'
+import { pageSectionTextTreeStyle } from '../../wheelroom/presets/page-section/text/page-section-text-preset-style'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
@@ -26,7 +26,7 @@ export const PageSectionTextVar = (props: PageSectionProps) => {
   addCssLabels('text', treeStyle)
 
   if (pageSectionInfo.hasText) {
-    return <PageSectionTextTree pageSection={props} treeStyle={treeStyle} />
+    return <PageSectionTextPreset pageSection={props} treeStyle={treeStyle} />
   }
   return <NotImplemented {...props} />
 }

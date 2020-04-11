@@ -4,7 +4,7 @@ import { IconMap } from '../../svg/feather/iconMap'
 import {
   defaultFeatherIconStyle,
   defaultTextIconStyle,
-} from '../../element-styles/icon.'
+} from '../../themes/yosemite/elements-styles/icon.'
 import { NcssProps } from './types'
 
 export const FeatherIcon = (props: { icon: string; ncss?: NcssProps }) => {

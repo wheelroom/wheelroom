@@ -10,11 +10,11 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { PageSectionImageTree } from '../../wheelroom/trees/page-section/image/page-section-image-tree'
-import { pageSectionImageTreeStyle } from '../../wheelroom/trees/page-section/image/page-section-image-tree-style'
+import { PageSectionImagePreset } from '../../wheelroom/presets/page-section/image/page-section-image-preset'
+import { pageSectionImageTreeStyle } from '../../wheelroom/presets/page-section/image/page-section-image-preset-style'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { topicTreeStyle } from '../../wheelroom/trees/topic/topic-tree-style'
+import { topicTreeStyle } from '../../wheelroom/presets/topic/topic-preset-style'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -31,7 +31,7 @@ export const PageSectionImageVar = (props: PageSectionProps) => {
 
   if (pageSectionInfo.hasTopic) {
     return (
-      <PageSectionImageTree
+      <PageSectionImagePreset
         containerStyle="fluid"
         pageSection={props}
         treeStyle={treeStyle}

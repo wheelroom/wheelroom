@@ -13,7 +13,7 @@ import {
 import { reset } from './wheelroom/global/reset'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { getColorMap, ThemeId } from './styled-system/system-css'
+import { getColorMap, ThemeId } from './wheelroom/styled-system/system-css'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
