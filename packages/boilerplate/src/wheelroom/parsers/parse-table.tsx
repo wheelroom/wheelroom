@@ -9,7 +9,7 @@
  */
 
 import React from 'react'
-import { Any } from '../elements/any'
+import { Any } from '../wheels/elements/any'
 import { ParserProps } from './types'
 
 const replaceTable = (children: React.ReactNode) => {

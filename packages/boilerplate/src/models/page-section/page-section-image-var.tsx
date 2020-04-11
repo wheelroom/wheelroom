@@ -10,11 +10,11 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { PageSectionImagePreset } from '../../wheelroom/presets/page-section/image/page-section-image-preset'
-import { pageSectionImageTreeStyle } from '../../wheelroom/presets/page-section/image/page-section-image-preset-style'
+import { PageSectionImagePreset } from '../../wheelroom/wheels/page-section/image/page-section-image-preset'
+import { pageSectionImageTreeStyle } from '../../wheelroom/wheels/page-section/image/page-section-image-preset-style'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { topicTreeStyle } from '../../wheelroom/presets/topic/topic-preset-style'
+import { topicTreeStyle } from '../../wheelroom/wheels/topic/topic-preset'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)

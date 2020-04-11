@@ -1,6 +1,6 @@
-import { Box, ContainerMaxWidth } from '../wheelroom/elements//grid'
-import { Paragraph } from '../wheelroom/elements/paragraph'
-import { H1 } from '../wheelroom/elements/heading'
+import { Box, ContainerMaxWidth } from '../wheelroom/wheels/elements//grid'
+import { Paragraph } from '../wheelroom/wheels/elements/paragraph'
+import { H1 } from '../wheelroom/wheels/elements/heading'
 
 import React from 'react'
 

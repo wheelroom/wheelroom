@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { Box } from '../../wheelroom/elements/grid'
+import { Box } from '../../wheelroom/wheels/elements/grid'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 
 export const PageSectionDividerVar = () => {

@@ -1,7 +1,7 @@
 import { styledSystem } from '@wheelroom/styled-system'
 import { styledSystemConfig } from './styled-system-config'
-import { lightTheme } from './themes/light-theme'
-import { darkTheme } from './themes/dark-theme'
+import { lightTheme } from '../../themes/yosemite/styled-system/themes/light-theme'
+import { darkTheme } from '../../themes/yosemite/styled-system/themes/dark-theme'
 
 export type ThemeId = 'light' | 'dark' | undefined
 const themeMap = {

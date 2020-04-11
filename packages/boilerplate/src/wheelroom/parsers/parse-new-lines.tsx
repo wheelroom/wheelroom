@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { Paragraph } from '../elements/paragraph'
+import { Paragraph } from '../wheels/elements/paragraph'
 import { ParserProps } from './types'
 
 const replaceNewlines = (children: React.ReactNode) => {

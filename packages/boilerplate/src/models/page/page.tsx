@@ -5,7 +5,7 @@
  *
  */
 
-import { MediaObject } from '../../wheelroom/elements/types'
+import { MediaObject } from '../../wheelroom/wheels/elements/types'
 
 export interface PageProps {
   /** Gatsby fetched data */

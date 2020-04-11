@@ -10,10 +10,10 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { pageSectionBlockTreeStyle } from '../../wheelroom/presets/page-section/topic/page-section-block-preset-style'
-import { PageSectionTopicPreset } from '../../wheelroom/presets/page-section/topic/page-section-topic-preset'
+import { pageSectionBlockTreeStyle } from '../../wheelroom/wheels/page-section/topic/page-section-block-preset'
+import { PageSectionTopic } from '../../wheelroom/wheels/page-section/topic/page-section-topic'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { topicTreeStyle } from '../../wheelroom/presets/topic/topic-preset-style'
+import { topicTreeStyle } from '../../wheelroom/wheels/topic/topic-preset'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -29,7 +29,7 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
 
   if (pageSectionInfo.hasTopic) {
     return (
-      <PageSectionTopicPreset
+      <PageSectionTopic
         topicProps={{
           pageSectionActions: props.actions,
           fullTopicAsLink: false,

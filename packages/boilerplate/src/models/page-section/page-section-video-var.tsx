@@ -10,11 +10,11 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { PageSectionVideoPreset } from '../../wheelroom/presets/page-section/video/page-section-video-preset'
-import { videoTreeStyle } from '../../wheelroom/presets/page-section/video/page-section-video-preset-style'
+import { PageSectionVideo } from '../../wheelroom/wheels/page-section/video/page-section-video'
+import { videoTreeStyle } from '../../wheelroom/wheels/page-section/video/page-section-video-preset'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
-import { topicTreeStyle } from '../../wheelroom/presets/topic/topic-preset-style'
+import { topicTreeStyle } from '../../wheelroom/wheels/topic/topic-preset'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -33,7 +33,7 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
 
   if (pageSectionInfo.hasTopic) {
     return (
-      <PageSectionVideoPreset
+      <PageSectionVideo
         containerStyle="fluid"
         pageSection={props}
         treeStyle={treeStyle}

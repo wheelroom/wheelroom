@@ -13,13 +13,13 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import {
   navigationHeaderTreeStyle,
   PageSectionNavigationHeaderPresetStyle,
-} from '../../wheelroom/presets/page-section/navigation/header/page-section-navigation-header-preset-style'
+} from '../../wheelroom/wheels/page-section/navigation/header/page-section-navigation-header-preset-style'
 import {
   navigationFooterTreeStyle,
   PageSectionNavigationFooterPresetStyle,
-} from '../../wheelroom/presets/page-section/navigation/footer/page-section-navigation-footer-preset-style'
-import { PageSectionNavigationHeaderPreset } from '../../wheelroom/presets/page-section/navigation/header/page-section-navigation-header-preset'
-import { PageSectionNavigationFooterPreset } from '../../wheelroom/presets/page-section/navigation/footer/page-section-navigation-footer-preset'
+} from '../../wheelroom/wheels/page-section/navigation/footer/page-section-navigation-footer-preset-style'
+import { PageSectionNavigationHeaderPreset } from '../../wheelroom/wheels/page-section/navigation/header/page-section-navigation-header-preset'
+import { PageSectionNavigationFooterPreset } from '../../wheelroom/wheels/page-section/navigation/footer/page-section-navigation-footer-preset'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
