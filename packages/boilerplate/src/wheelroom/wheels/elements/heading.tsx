@@ -3,7 +3,8 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, BlockLevelElementName, HeadingName } from './types'
-import { headingStyleMap } from './heading-preset'
+import { headingPresetMap } from './heading-preset'
+import { headingStyleMap } from './heading-theme'
 
 interface HeadingElementProps {
   /** React children */
@@ -22,19 +23,25 @@ export const Heading = (props: HeadingProps) => {
   const is = props.is || 'h1'
   const label = `${is}`
 
-  // If we have a heading element, apply default style
-  const defaultHeadingStyle = Object.keys(headingStyleMap).includes(is)
+  // If we have a heading element, apply preset style
+  const setHeadingPreset = Object.keys(headingPresetMap).includes(is)
+    ? headingPresetMap[is as HeadingName]
+    : {}
+
+  // If we have a heading element, apply theme style
+  const setHeadingStyle = Object.keys(headingStyleMap).includes(is)
     ? headingStyleMap[is as HeadingName]
     : {}
 
-  const headingStyle = Object.assign(
+  const headingPreset = Object.assign(
     {},
-    defaultHeadingStyle,
+    setHeadingPreset,
+    setHeadingStyle,
     { label },
     props.ncss
   )
 
-  const css = systemCss({ ncss: headingStyle }, currentThemeId)
+  const css = systemCss({ ncss: headingPreset }, currentThemeId)
   const attrs = {
     css,
   }

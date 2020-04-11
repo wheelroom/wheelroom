@@ -1,7 +1,7 @@
 import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
-} from '../../../elements/button-preset'
+} from '../../../elements/button-theme'
 import { NcssProps } from '../../../elements/types'
 
 export interface NavActionsTreeStyle {

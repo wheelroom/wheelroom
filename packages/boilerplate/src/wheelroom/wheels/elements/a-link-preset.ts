@@ -1,10 +1,12 @@
-export const defaultALinkStyle = {
+export const aLinkPreset = {
+  label: 'a-link',
   boxSizing: 'border-box',
-  color: 'azure',
+  fontFamily: 'systemFont',
   cursor: 'pointer',
+  ':hover': {},
+  ':visited': {},
   ':focus': {
     outline: '2px dotted',
-    outlineColor: 'amber',
-    outlineOffset: '5px',
+    outlineOffset: '4px',
   },
 }

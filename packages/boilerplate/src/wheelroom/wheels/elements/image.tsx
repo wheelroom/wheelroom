@@ -5,10 +5,15 @@ import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { MediaObject, NcssProps } from './types'
 import { getStyles } from '../../lib/tree-style'
 import {
-  defaultImageImgStyle,
-  defaultImagePictureStyle,
-  defaultImageFigcaptionStyle,
+  imageFigcaptionPreset,
+  imageImgPreset,
+  imagePicturePreset,
 } from './image-preset'
+import {
+  imageImgStyle,
+  imagePictureStyle,
+  imageFigcaptionStyle,
+} from './image-theme'
 
 export interface ImageTreeStyle {
   img?: {
@@ -31,20 +36,20 @@ export interface ImageProps {
 }
 
 const defaultMediaObject = {
-  description: 'no description available',
+  description: 'no alt available',
   fluid: {
     sizes: '',
-    src: '//placehold.it/1024',
+    src: '//placehold.it/320',
     srcSet: '',
   },
-  title: 'No title available',
+  title: 'no title available',
 } as MediaObject
 
 export const Image = (props: ImageProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
 
   const media = props.media || defaultMediaObject
-  // Video uses media.file, images use media.fluid
+  /** Video uses media.file, images use media.fluid */
   if (!media.fluid) {
     return null
   }
@@ -58,7 +63,7 @@ export const Image = (props: ImageProps) => {
     srcSet: media.fluid && media.fluid.srcSet,
   }
 
-  const [figcaptionStyle, imgStyle, pictureStyle] = getStyles(
+  const [imagePictureNcss, imageImgNcss, imageFigcaptionNcss] = getStyles(
     props.treeStyle,
     'figcaption',
     'img',
@@ -68,21 +73,39 @@ export const Image = (props: ImageProps) => {
   return (
     <picture
       css={systemCss(
-        { ncss: { ...defaultImagePictureStyle, ...pictureStyle } },
+        {
+          ncss: {
+            ...imagePicturePreset,
+            ...imagePictureStyle,
+            ...imagePictureNcss,
+          },
+        },
         currentThemeId
       )}
     >
       <img
         {...imgElementAttrs}
         css={systemCss(
-          { ncss: { ...defaultImageImgStyle, ...imgStyle } },
+          {
+            ncss: {
+              ...imageImgPreset,
+              ...imageImgStyle,
+              ...imageImgNcss,
+            },
+          },
           currentThemeId
         )}
       />
       {props.includeFigcaption && (
         <figcaption
           css={systemCss(
-            { ncss: { ...defaultImageFigcaptionStyle, ...figcaptionStyle } },
+            {
+              ncss: {
+                ...imageFigcaptionPreset,
+                ...imageFigcaptionStyle,
+                ...imageFigcaptionNcss,
+              },
+            },
             currentThemeId
           )}
         >

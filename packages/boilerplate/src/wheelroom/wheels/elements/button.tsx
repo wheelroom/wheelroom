@@ -1,12 +1,14 @@
 /** @jsx jsx */
+import React from 'react'
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import React from 'react'
 import { NcssProps } from './types'
+import { buttonPreset } from './button-preset'
+import { buttonStyle } from './button-theme'
 
 export interface ButtonProps {
   /** React children */
@@ -58,7 +60,11 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
       aria-pressed={props.ariaPressed}
       css={systemCss(
         {
-          ncss: props.ncss,
+          ncss: {
+            ...buttonPreset,
+            ...buttonStyle,
+            ...props.ncss,
+          },
         },
         currentThemeId
       )}

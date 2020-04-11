@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconMap } from '../../../svg/feather/iconMap'
+import { IconMap } from '../../svg/feather/iconMap'
 import { FeatherIcon, TextIcon } from '../elements/icon'
 
 export const TopicIcon = (props: { icon: string | JSX.Element }) => {

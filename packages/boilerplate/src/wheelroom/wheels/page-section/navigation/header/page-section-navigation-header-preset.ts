@@ -1,4 +1,4 @@
-import { buttonPrimaryStyle } from '../../../elements/button-preset'
+import { buttonPrimaryStyle } from '../../../elements/button-theme'
 import {
   commonNavigationStyle,
   listStyle,

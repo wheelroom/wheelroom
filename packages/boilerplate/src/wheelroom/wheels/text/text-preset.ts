@@ -1,6 +1,6 @@
-import { defaultParagraphStyle } from '../elements/paragraph-preset'
-import { defaultALinkStyle } from '../elements/a-link-preset'
-import { defaultVideoStyle } from '../elements/video-preset'
+import { paragraphPreset } from '../elements/paragraph-preset'
+import { aLinkPreset } from '../elements/a-link-preset'
+import { videoPreset } from '../elements/video-preset'
 import { NcssProps } from '../elements/types'
 import { ImageTreeStyle } from '../elements/image'
 import { VideoTreeStyle } from '../elements/video'
@@ -60,8 +60,8 @@ export const textTreeStyle: TextPreset = {
     overflow: 'hidden',
     w: 1,
   },
-  blocksLiList: defaultParagraphStyle,
-  blocksOlList: defaultParagraphStyle,
+  blocksLiList: paragraphPreset,
+  blocksOlList: paragraphPreset,
   blocksQuote: {
     ':before': {
       color: 'metal',
@@ -71,8 +71,8 @@ export const textTreeStyle: TextPreset = {
     },
     textAlign: 'center',
   },
-  blocksUlList: defaultParagraphStyle,
-  entryHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
+  blocksUlList: paragraphPreset,
+  entryHyperlink: { ...aLinkPreset, wordBreak: 'break-all' },
   image: {
     figcaption: {
       ncss: {
@@ -86,7 +86,7 @@ export const textTreeStyle: TextPreset = {
       },
     },
   },
-  inlinesHyperlink: { ...defaultALinkStyle, wordBreak: 'break-all' },
+  inlinesHyperlink: { ...aLinkPreset, wordBreak: 'break-all' },
   marksBold: {
     fontWeight: 7,
   },
@@ -104,7 +104,7 @@ export const textTreeStyle: TextPreset = {
   video: {
     video: {
       ncss: {
-        ...defaultVideoStyle,
+        ...videoPreset,
         my: [4, 5],
       },
     },

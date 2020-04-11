@@ -1,5 +1,4 @@
-export const defaultListStyle = {
+export const listPreset = {
   boxSizing: 'border-box',
-  fontFamily: 'text',
-  color: 'text',
+  fontFamily: 'fontSystem',
 }

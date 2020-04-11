@@ -1,29 +1,25 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { InlineElementName, BlockLevelElementName, NcssProps } from './types'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import {
-  defaultFlexStyle,
-  defaultContainerStyle,
-  defaultBoxStyle,
-  defaultContainerMaxWidthStyle,
+  InlineElementName,
+  BlockLevelElementName,
+  NcssProps,
+  LinkRelationshipAttribute,
+} from './types'
+import {
+  boxPreset,
+  containerPreset,
+  containerMaxWidthPreset,
+  flexPreset,
 } from './grid-preset'
-
-const getAttrs = (props: GridProps) => {
-  const attrs = {
-    id: props.id,
-    hidden: props.hidden,
-    role: props.role,
-    title: props.title,
-    'aria-modal': props.ariaModal,
-    'aria-label': props.ariaLabel,
-    'aria-hidden': props.ariaHidden,
-    'tab-index': props.tabIndex,
-    onClick: props.onClick,
-  }
-  return attrs
-}
+import {
+  boxStyle,
+  containerMaxWidthStyle,
+  containerStyle,
+  flexStyle,
+} from './grid-theme'
 
 export interface GridProps {
   /** Render as another HTML element */
@@ -32,33 +28,56 @@ export interface GridProps {
   children?: any
   /** Nested emotion css styling */
   ncss?: NcssProps
-  /** Grid id attribute */
+  /** Id attribute */
   id?: string | undefined
-  /** Grid role attribute */
+  /** Role attribute */
   role?: 'modal' | string | undefined
-  /** Grid title attribute */
+  /** Title attribute */
   title?: string | undefined
-  /** Grid aria-label attribute */
+  /** Aria-label attribute */
   ariaLabel?: string | undefined
-  /** Grid aria-modal attribute */
+  /** Aria-modal attribute */
   ariaModal?: boolean
-  /** Grid aria-hidden attribute */
+  /** Aria-hidden attribute */
   ariaHidden?: boolean | undefined
-  /** Grid hidden attribute */
+  /** Hidden attribute */
   hidden?: boolean | undefined
-  /** Grid tabIndex attribute */
+  /** TabIndex attribute */
   tabIndex?: number | undefined
+  /** Relationship attribute */
+  rel?: LinkRelationshipAttribute | undefined
   /** On click handler */
   onClick?: () => any
 }
 
+const getAttrs = (props: GridProps) => {
+  const attrs = {
+    id: props.id,
+    role: props.role,
+    title: props.title,
+    'aria-modal': props.ariaModal,
+    'aria-label': props.ariaLabel,
+    'aria-hidden': props.ariaHidden,
+    hidden: props.hidden,
+    'tab-index': props.tabIndex,
+    rel: props.rel,
+    onClick: props.onClick,
+  }
+  return attrs
+}
+
 export const Box = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const label = `box-${props.is || 'div'}`
+  const label = `box-is-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
   attrs.css = systemCss(
     {
-      ncss: { label, ...defaultBoxStyle, ...props.ncss },
+      ncss: {
+        label,
+        ...boxPreset,
+        ...boxStyle,
+        ...props.ncss,
+      },
     },
     currentThemeId
   )
@@ -67,13 +86,14 @@ export const Box = (props: GridProps) => {
 
 export const Flex = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const label = `flex-${props.is || 'div'}`
+  const label = `flex-is-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
   attrs.css = systemCss(
     {
       ncss: {
         label,
-        ...defaultFlexStyle,
+        ...flexPreset,
+        ...flexStyle,
         ...props.ncss,
       },
     },
@@ -84,13 +104,14 @@ export const Flex = (props: GridProps) => {
 
 export const Container = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const label = `container-${props.is || 'div'}`
+  const label = `container-is-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
   attrs.css = systemCss(
     {
       ncss: {
         label,
-        ...defaultContainerStyle,
+        ...containerPreset,
+        ...containerStyle,
         ...props.ncss,
       },
     },
@@ -101,13 +122,14 @@ export const Container = (props: GridProps) => {
 
 export const ContainerMaxWidth = (props: GridProps) => {
   const currentThemeId = useGetCurrentThemeId() as ThemeId
-  const label = `container-max-width-${props.is || 'div'}`
+  const label = `container-max-width-is-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
   attrs.css = systemCss(
     {
       ncss: {
         label,
-        ...defaultContainerMaxWidthStyle,
+        ...containerMaxWidthPreset,
+        ...containerMaxWidthStyle,
         ...props.ncss,
       },
     },

@@ -1,28 +1,21 @@
-export const commonParagraphStyle = {
-  label: 'paragraph',
-  boxSizing: 'border-box',
+export const paragraphStyle = {
   color: 'text',
-  fontFamily: 'text',
+  fontSize: [4, 5],
+  lineHeight: 4,
   mt: 0,
   mb: 3,
 }
 
-export const paragraphTheme = {
-  ...commonParagraphStyle,
-  fontSize: [4, 5],
-  lineHeight: 4,
-}
-
 export const paragraphHeroStyle = {
-  ...commonParagraphStyle,
+  label: 'paragraph-hero',
   color: 'caviar',
   fontSize: [6, 7],
-  lineHeight: 3,
   my: 4,
 }
 
-export const smallParagraphStyle = {
-  ...commonParagraphStyle,
+export const paragraphSmallStyle = {
+  label: 'paragraph-small',
+  color: 'text',
   fontSize: [2, 3],
-  lineHeight: 3,
+  my: 3,
 }

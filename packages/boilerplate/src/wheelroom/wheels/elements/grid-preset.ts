@@ -1,21 +1,23 @@
-export const defaultBoxStyle = {
-  // boxSizing: 'border-box',
-}
-export const defaultFlexStyle = {
-  // ...defaultBoxStyle,
-  // display: 'flex',
+export const boxPreset = {
+  label: 'box',
+  boxSizing: 'border-box',
 }
 
-export const defaultContainerStyle = {
-  // ...defaultFlexStyle,
-  // label: 'container-fluid',
-  // mx: 'auto',
-  // my: '0',
-  // w: 1,
+export const flexPreset = {
+  ...boxPreset,
+  label: 'flex',
+  display: 'flex',
 }
 
-export const defaultContainerMaxWidthStyle = {
-  // ...defaultContainerStyle,
-  // label: 'container-max-width',
-  // maxWidth: '1280px',
+export const containerPreset = {
+  ...flexPreset,
+  label: 'container-fluid',
+  w: 1,
+}
+
+export const containerMaxWidthPreset = {
+  ...containerPreset,
+  label: 'container-max-width',
+  maxWidth: '1280px',
+  mx: 'auto',
 }

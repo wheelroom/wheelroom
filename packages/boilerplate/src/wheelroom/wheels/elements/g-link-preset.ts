@@ -1,9 +1,13 @@
-export const defaultGLinkStyle = {
+export const gLinkPreset = {
+  label: 'g-link',
   boxSizing: 'border-box',
-  color: 'azure',
+  fontFamily: 'systemFont',
+  cursor: 'pointer',
   ':focus': {
     outline: '2px dotted',
-    outlineColor: 'amber',
-    outlineOffset: '5px',
+    outlineOffset: '4px',
+  },
+  '&.active': {
+    textDecoration: 'underline',
   },
 }

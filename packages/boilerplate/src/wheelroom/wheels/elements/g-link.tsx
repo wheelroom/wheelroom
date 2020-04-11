@@ -7,19 +7,23 @@ import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps } from './types'
+import { gLinkPreset } from './g-link-preset'
+import { gLinkStyle } from './g-link-theme'
 
 export interface GLinkProps {
   /** React children */
   children?: any
   /** Nested emotion css styling */
   ncss?: NcssProps
-  /** Gatsby Link URL attribute */
+  /** URL attribute */
   to?: any
-  /** Gatsby Link ID attribute */
+  /** ID attribute */
   id?: string | undefined
-  /** Gatsby Link aria-label attribute */
+  /** Link aria-label attribute */
   ariaLabel?: string | undefined
-  /** Gatsby Link title attribute */
+  /** Aria-hidden attribute */
+  ariaHidden?: boolean | undefined
+  /** Title attribute */
   title?: string | undefined
 }
 
@@ -31,12 +35,18 @@ export const GLink = (props: GLinkProps) => {
   }
   return (
     <Link
+      activeClassName="active"
       id={props.id}
       title={props.title}
       aria-label={props.ariaLabel}
+      aria-hidden={props.ariaHidden}
       css={systemCss(
         {
-          ncss: { ...props.ncss },
+          ncss: {
+            ...gLinkPreset,
+            ...gLinkStyle,
+            ...props.ncss,
+          },
         },
         currentThemeId
       )}

@@ -1,18 +1,18 @@
-export const defaultImageImgStyle = {
+export const imageImgPreset = {
+  label: 'img',
   boxSizing: 'border-box',
   display: 'block',
   height: 'auto',
   width: '100%',
 }
 
-export const defaultImagePictureStyle = {
+export const imagePicturePreset = {
+  label: 'picture',
   boxSizing: 'border-box',
 }
 
-export const defaultImageFigcaptionStyle = {
-  fontFamily: 'text',
-  color: 'text',
-  fontSize: [1, 2],
-  fontWeight: 3,
-  my: 2,
+export const imageFigcaptionPreset = {
+  label: 'figcaption',
+  boxSizing: 'border-box',
+  fontFamily: 'systemFont',
 }

@@ -5,10 +5,8 @@ import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, MediaObject } from './types'
 import { getStyles } from '../../lib/tree-style'
-import {
-  defaultVideoStyle,
-  defaultVideoDescriptionStyle,
-} from './video-preset'
+import { videoPreset, videoDescriptionPreset } from './video-preset'
+import { videoStyle, videoDescriptionStyle } from './video-theme'
 
 export interface VideoTreeStyle {
   video?: {
@@ -37,7 +35,7 @@ const defaultMediaObject = {
     fileName: 'none',
     contentType: 'video/mp4',
   },
-  title: 'No alternate text available',
+  title: 'no title available',
 } as MediaObject
 
 export const Video = (props: VideoProps) => {
@@ -59,7 +57,7 @@ export const Video = (props: VideoProps) => {
       media.description || props.description || defaultMediaObject.description,
   }
 
-  const [videoStyle, descriptionStyle] = getStyles(
+  const [videoNcss, descriptionNcss] = getStyles(
     props.treeStyle,
     'video',
     'description'
@@ -69,7 +67,13 @@ export const Video = (props: VideoProps) => {
     <Fragment>
       <video
         css={systemCss(
-          { ncss: { ...defaultVideoStyle, ...videoStyle } },
+          {
+            ncss: {
+              ...videoPreset,
+              ...videoStyle,
+              ...videoNcss,
+            },
+          },
           currentThemeId
         )}
         controls
@@ -81,7 +85,13 @@ export const Video = (props: VideoProps) => {
       {props.includeTitle && (
         <p
           css={systemCss(
-            { ncss: { ...defaultVideoDescriptionStyle, ...descriptionStyle } },
+            {
+              ncss: {
+                ...videoDescriptionPreset,
+                ...videoDescriptionStyle,
+                ...descriptionNcss,
+              },
+            },
             currentThemeId
           )}
         >

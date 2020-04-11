@@ -1,7 +1,7 @@
 import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
-} from '../../../elements/button-preset'
+} from '../../../elements/button-theme'
 import { commonNavigationStyle } from '../common/navigation-common-preset'
 import {
   modalOpenStyle,
