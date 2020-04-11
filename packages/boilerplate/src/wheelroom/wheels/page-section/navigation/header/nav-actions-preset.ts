@@ -10,7 +10,7 @@ export interface NavActionsTreeStyle {
   themeButton: NcssProps
 }
 
-export const navActionsStyle: NavActionsTreeStyle = {
+export const navActionsPreset: NavActionsTreeStyle = {
   container: {},
   action: buttonPrimaryStyle,
   themeButton: {

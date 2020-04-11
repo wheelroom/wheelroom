@@ -1,16 +1,16 @@
 import {
   commonNavigationStyle,
   listStyle,
-} from '../common/navigation-common-style'
+} from '../common/navigation-common-preset'
 import { NcssProps } from '../../../elements/types'
 import { NavListTreeStyle } from '../common/nav-list'
 import {
   NavSocialLinksTreeStyle,
-  navSocialLinksStyle,
-} from './nav-social-links-style'
-import { NavLegalTreeStyle, navLegalStyle } from './nav-legal-style'
+  navSocialLinksPreset,
+} from './nav-social-links-preset'
+import { NavLegalTreeStyle, navLegalPreset } from './nav-legal-preset'
 
-export interface PageSectionNavigationFooterPresetStyle {
+export interface PageSectionNavigationFooterPreset {
   wrapper: NcssProps
   container: NcssProps
   menus: {
@@ -21,7 +21,7 @@ export interface PageSectionNavigationFooterPresetStyle {
   navLegal: NavLegalTreeStyle
 }
 
-export const navigationFooterTreeStyle: PageSectionNavigationFooterPresetStyle = {
+export const navigationFooterTreeStyle: PageSectionNavigationFooterPreset = {
   wrapper: {
     bg: 'bg',
   },
@@ -50,7 +50,7 @@ export const navigationFooterTreeStyle: PageSectionNavigationFooterPresetStyle =
         },
       },
     },
-    navSocialLinks: navSocialLinksStyle,
+    navSocialLinks: navSocialLinksPreset,
   },
-  navLegal: navLegalStyle,
+  navLegal: navLegalPreset,
 }

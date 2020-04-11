@@ -3,14 +3,14 @@ import {
   commonNavigationStyle,
   listStyle,
   navStyle,
-} from '../common/navigation-common-style'
+} from '../common/navigation-common-preset'
 import { NcssProps } from '../../../elements/types'
 import { NavListTreeStyle } from '../common/nav-list'
-import { NavLogoTreeStyle, navLogoStyle } from './nav-logo-style'
-import { NavActionsTreeStyle, navActionsStyle } from './nav-actions-style'
-import { NavDialogTreeStyle, navDialogStyle } from './nav-dialog-style'
+import { NavLogoTreeStyle, navLogoPreset } from './nav-logo-preset'
+import { NavActionsTreeStyle, navActionsPreset } from './nav-actions-preset'
+import { NavDialogTreeStyle, navDialogPreset } from './nav-dialog-preset'
 
-export interface PageSectionNavigationHeaderPresetStyle {
+export interface PageSectionNavigationHeaderPreset {
   skipToContent: NcssProps
   wrapper: NcssProps
   container: NcssProps
@@ -27,7 +27,7 @@ export interface PageSectionNavigationHeaderPresetStyle {
   }
 }
 
-export const navigationHeaderTreeStyle: PageSectionNavigationHeaderPresetStyle = {
+export const navigationHeaderTreeStyle: PageSectionNavigationHeaderPreset = {
   skipToContent: {
     position: 'absolute',
     left: '-100%',
@@ -60,7 +60,7 @@ export const navigationHeaderTreeStyle: PageSectionNavigationHeaderPresetStyle =
   },
   menu: {
     nav: { ...navStyle, display: ['none', 'none', 'flex'] },
-    navLogo: navLogoStyle,
+    navLogo: navLogoPreset,
     navList: {
       list: { ...listStyle, flex: '1 1 auto' },
       listItem: {
@@ -72,7 +72,7 @@ export const navigationHeaderTreeStyle: PageSectionNavigationHeaderPresetStyle =
         },
       },
     },
-    navActions: navActionsStyle,
+    navActions: navActionsPreset,
     modalDialog: {
       container: {
         display: ['flex', 'flex', 'none'],
@@ -83,7 +83,7 @@ export const navigationHeaderTreeStyle: PageSectionNavigationHeaderPresetStyle =
       openMenuButton: {
         ...buttonPrimaryStyle,
       },
-      navDialog: navDialogStyle,
+      navDialog: navDialogPreset,
     },
   },
 }

@@ -7,7 +7,7 @@ import { IconMap } from '../../../../../svg/feather/iconMap'
 import { PageSectionInfo } from '../../../../lib/get-page-section-info'
 import { PageProps } from '../../../../../models/page/page'
 import { Action } from '../../../action/action'
-import { NavDialogTreeStyle } from './nav-dialog-style'
+import { NavDialogTreeStyle } from './nav-dialog-preset'
 
 export const NavDialog = (props: {
   action: ActionProps

@@ -6,11 +6,11 @@ import { PageSectionProps } from '../../../../../models/page-section/page-sectio
 import { NavSocialLinks } from './nav-social-links'
 import { NavList } from '../common/nav-list'
 import { NavLegal } from './nav-legal'
-import { PageSectionNavigationFooterPresetStyle } from './page-section-navigation-footer-preset-style'
+import { PageSectionNavigationFooterPreset } from './page-section-navigation-footer-preset'
 
-export const PageSectionNavigationFooterPreset = (props: {
+export const PageSectionNavigationFooter = (props: {
   pageSection: PageSectionProps
-  treeStyle: PageSectionNavigationFooterPresetStyle
+  treeStyle: PageSectionNavigationFooterPreset
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasNavigation) {

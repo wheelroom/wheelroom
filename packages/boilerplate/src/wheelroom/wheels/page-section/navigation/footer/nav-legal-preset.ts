@@ -1,4 +1,4 @@
-import { commonNavigationStyle } from '../common/navigation-common-style'
+import { commonNavigationStyle } from '../common/navigation-common-preset'
 import { NcssProps } from '../../../elements/types'
 
 export interface NavLegalTreeStyle {
@@ -8,7 +8,7 @@ export interface NavLegalTreeStyle {
   link: NcssProps
 }
 
-export const navLegalStyle: NavLegalTreeStyle = {
+export const navLegalPreset: NavLegalTreeStyle = {
   container: {
     borderTop: '1px solid transparent',
     borderColor: 'border',

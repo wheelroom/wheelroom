@@ -11,11 +11,11 @@ import { NavList } from '../common/nav-list'
 import { NavLogo } from './nav-logo'
 import { NavActions } from './nav-actions'
 import { NavDialog } from './nav-dialog'
-import { PageSectionNavigationHeaderPresetStyle } from './page-section-navigation-header-preset-style'
+import { PageSectionNavigationHeaderPreset } from './page-section-navigation-header-preset'
 
-export const PageSectionNavigationHeaderPreset = (props: {
+export const PageSectionNavigationHeader = (props: {
   pageSection: PageSectionProps
-  treeStyle: PageSectionNavigationHeaderPresetStyle
+  treeStyle: PageSectionNavigationHeaderPreset
   useLogoElement?: JSX.Element
 }) => {
   /** Theme switcher admin module */

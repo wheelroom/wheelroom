@@ -1,4 +1,4 @@
-import { listStyle } from '../common/navigation-common-style'
+import { listStyle } from '../common/navigation-common-preset'
 import { NcssProps } from '../../../elements/types'
 
 export interface NavSocialLinksTreeStyle {
@@ -7,7 +7,7 @@ export interface NavSocialLinksTreeStyle {
   icon: NcssProps
 }
 
-export const navSocialLinksStyle: NavSocialLinksTreeStyle = {
+export const navSocialLinksPreset: NavSocialLinksTreeStyle = {
   list: listStyle,
   action: {
     display: 'inline-flex',

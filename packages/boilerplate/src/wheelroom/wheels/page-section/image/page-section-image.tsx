@@ -4,13 +4,13 @@ import { TopicProps } from '../../../../models/topic'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { Topic } from '../../topic/topic'
-import { PageSectionImagePresetStyle } from './page-section-image-preset-style'
+import { PageSectionImagePreset } from './page-section-image-preset'
 
-export const PageSectionImagePreset = (props: {
+export const PageSectionImage = (props: {
   /** Contains the topic to render */
   pageSection: PageSectionProps
   /** Styles to use */
-  treeStyle: PageSectionImagePresetStyle
+  treeStyle: PageSectionImagePreset
   /** Use a max width or fluid container */
   containerStyle: 'maxWidth' | 'fluid'
 }) => {

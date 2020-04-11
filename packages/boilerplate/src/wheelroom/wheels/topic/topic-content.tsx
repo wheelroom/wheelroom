@@ -8,7 +8,7 @@ import { TopicContentActions } from './topic-content-actions'
 import { BlockLevelElementName } from '../elements/types'
 import { ActionProps } from '../../../models/action/action'
 import { ParserFunction } from '../../parsers/types'
-import { TopicContentTreeStyle } from './topic-content-style'
+import { TopicContentTreeStyle } from './topic-content-preset'
 
 export interface TopicContentWrapperProps {
   topic: TopicProps

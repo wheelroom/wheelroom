@@ -12,14 +12,14 @@ import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import {
   navigationHeaderTreeStyle,
-  PageSectionNavigationHeaderPresetStyle,
-} from '../../wheelroom/wheels/page-section/navigation/header/page-section-navigation-header-preset-style'
+  PageSectionNavigationHeaderPreset,
+} from '../../wheelroom/wheels/page-section/navigation/header/page-section-navigation-header-preset'
 import {
   navigationFooterTreeStyle,
-  PageSectionNavigationFooterPresetStyle,
-} from '../../wheelroom/wheels/page-section/navigation/footer/page-section-navigation-footer-preset-style'
-import { PageSectionNavigationHeaderPreset } from '../../wheelroom/wheels/page-section/navigation/header/page-section-navigation-header-preset'
-import { PageSectionNavigationFooterPreset } from '../../wheelroom/wheels/page-section/navigation/footer/page-section-navigation-footer-preset'
+  PageSectionNavigationFooterPreset,
+} from '../../wheelroom/wheels/page-section/navigation/footer/page-section-navigation-footer-preset'
+import { PageSectionNavigationHeader } from '../../wheelroom/wheels/page-section/navigation/header/page-section-navigation-header'
+import { PageSectionNavigationFooter } from '../../wheelroom/wheels/page-section/navigation/footer/page-section-navigation-footer'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
@@ -30,11 +30,11 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
   // - Merge in styling for this variant
   // - Create a deep copy of the styling
   const treeHeaderStyle = deepMerge(
-    {} as PageSectionNavigationHeaderPresetStyle,
+    {} as PageSectionNavigationHeaderPreset,
     navigationHeaderTreeStyle
   )
   const treeFooterStyle = deepMerge(
-    {} as PageSectionNavigationFooterPresetStyle,
+    {} as PageSectionNavigationFooterPreset,
     navigationFooterTreeStyle
   )
 
@@ -43,7 +43,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
 
   if (info.hasNavigation && info.index === 0) {
     return (
-      <PageSectionNavigationHeaderPreset
+      <PageSectionNavigationHeader
         pageSection={props}
         treeStyle={treeHeaderStyle}
       />
@@ -52,7 +52,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
 
   if (info.hasNavigation && info.index === info.sectionCount - 1) {
     return (
-      <PageSectionNavigationFooterPreset
+      <PageSectionNavigationFooter
         pageSection={props}
         treeStyle={treeFooterStyle}
       />

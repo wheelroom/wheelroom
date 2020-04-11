@@ -15,7 +15,7 @@ export interface TopicContentTreeStyle {
   actions?: TopicActionsTreeStyle
 }
 
-export const topicContentStyle: TopicContentTreeStyle = {
+export const topicContentPreset: TopicContentTreeStyle = {
   ncss: {
     label: 'topic-content',
     display: 'flex',

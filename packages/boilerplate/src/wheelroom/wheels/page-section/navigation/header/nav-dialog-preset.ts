@@ -2,13 +2,13 @@ import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
 } from '../../../elements/button-preset'
-import { commonNavigationStyle } from '../common/navigation-common-style'
+import { commonNavigationStyle } from '../common/navigation-common-preset'
 import {
   modalOpenStyle,
   modalStyle,
   modalContentOpenStyle,
   modalContentStyle,
-} from './nav-dialog-modal-style'
+} from './nav-dialog-modal-preset'
 import { NcssProps } from '../../../elements/types'
 import { NavListTreeStyle } from '../common/nav-list'
 
@@ -34,7 +34,7 @@ export interface NavDialogTreeStyle {
   }
 }
 
-export const navDialogStyle: NavDialogTreeStyle = {
+export const navDialogPreset: NavDialogTreeStyle = {
   container: { menuVisible: { yes: modalOpenStyle, no: modalStyle } },
   document: {
     menuVisible: { yes: modalContentOpenStyle, no: modalContentStyle },

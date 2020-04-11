@@ -5,7 +5,7 @@ export interface NavLogoTreeStyle {
   link: NcssProps
 }
 
-export const navLogoStyle: NavLogoTreeStyle = {
+export const navLogoPreset: NavLogoTreeStyle = {
   container: {
     alignItems: 'center',
   },

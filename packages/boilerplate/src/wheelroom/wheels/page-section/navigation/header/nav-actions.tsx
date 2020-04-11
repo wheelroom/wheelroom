@@ -4,7 +4,7 @@ import { ActionProps } from '../../../../../models/action'
 import { Button } from '../../../elements/button'
 import { PageSectionInfo } from '../../../../lib/get-page-section-info'
 import { Action } from '../../../action/action'
-import { NavActionsTreeStyle } from './nav-actions-style'
+import { NavActionsTreeStyle } from './nav-actions-preset'
 
 export const NavActions = (props: {
   action: ActionProps

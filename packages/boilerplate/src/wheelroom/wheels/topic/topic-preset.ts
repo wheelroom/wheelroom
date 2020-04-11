@@ -1,6 +1,6 @@
 import { NcssProps } from '../elements/types'
 import { topicMediaPresent, TopicMediaTreeStyle } from './topic-media-present'
-import { topicContentStyle, TopicContentTreeStyle } from './topic-content-style'
+import { topicContentPreset, TopicContentTreeStyle } from './topic-content-preset'
 
 export interface TopicPreset {
   /** Styling for this node */
@@ -17,5 +17,5 @@ export const topicTreeStyle: TopicPreset = {
     display: 'flex',
   },
   media: topicMediaPresent,
-  content: topicContentStyle,
+  content: topicContentPreset,
 }
