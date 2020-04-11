@@ -73,6 +73,7 @@ export const pageSectionFeaturedTreeStyle: PageSectionFeaturedPreset = {
   wrapper: {
     ncss: {
       label: 'wrapper',
+      py: 3,
     },
   },
 }

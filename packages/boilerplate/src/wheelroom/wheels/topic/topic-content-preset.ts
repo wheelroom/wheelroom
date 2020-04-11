@@ -19,6 +19,8 @@ export const topicContentPreset: TopicContentTreeStyle = {
   ncss: {
     label: 'topic-content',
     display: 'flex',
+    flexDirection: 'column',
+    p: 3,
   },
   text: topicContentTextPreset,
   actions: topicContentActionsPreset,

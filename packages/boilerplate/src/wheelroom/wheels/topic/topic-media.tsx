@@ -32,6 +32,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
     <Box ncss={ncssStyle}>
       {props.topicInfo.hasImage && (
         <Image
+          includeFigcaption={false}
           description={props.topic.media?.description}
           media={props.topic.media}
           treeStyle={mediaImageStyle}

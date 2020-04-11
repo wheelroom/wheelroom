@@ -10,7 +10,7 @@ import { ActionProps } from '../../../models/action/action'
 import { ParserFunction } from '../../parsers/types'
 import { TopicContentTreeStyle } from './topic-content-preset'
 
-export interface TopicContentWrapperProps {
+export interface TopicContentProps {
   topic: TopicProps
   /** Topic info object */
   topicInfo: TopicInfo
@@ -36,7 +36,7 @@ export interface TopicContentWrapperProps {
   treeStyle?: TopicContentTreeStyle
 }
 
-export const TopicContent = (props: TopicContentWrapperProps) => {
+export const TopicContent = (props: TopicContentProps) => {
   const topicInfo = props.topicInfo
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions

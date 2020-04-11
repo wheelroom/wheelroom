@@ -5,8 +5,5 @@ export const aLinkPreset = {
   cursor: 'pointer',
   ':hover': {},
   ':visited': {},
-  ':focus': {
-    outline: '2px dotted',
-    outlineOffset: '4px',
-  },
+  ':focus': {},
 }

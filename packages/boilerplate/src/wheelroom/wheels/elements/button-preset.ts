@@ -7,8 +7,5 @@ export const buttonPreset = {
   cursor: 'pointer',
   ':hover': {},
   ':visited': {},
-  ':focus': {
-    outline: '2px dotted',
-    outlineOffset: '4px',
-  },
+  ':focus': {},
 }

@@ -10,14 +10,15 @@ export interface PageSectionGalleryPreset {
 export const pageSectionGalleryTreeStyle: PageSectionGalleryPreset = {
   container: {
     ncss: {
-      alignItems: 'center',
       flexDirection: ['column', 'row'],
       flexWrap: 'wrap',
-      justifyContent: 'center',
+      alignItems: 'center',
     },
   },
   topic: {
-    ncss: {},
+    ncss: {
+      w: [1, 1 / 2],
+    },
     content: {
       ncss: {},
       actions: {
@@ -44,7 +45,6 @@ export const pageSectionGalleryTreeStyle: PageSectionGalleryPreset = {
         },
         picture: {
           ncss: {
-            w: [1, 1 / 2],
             p: 3,
           },
         },
@@ -65,7 +65,7 @@ export const pageSectionGalleryTreeStyle: PageSectionGalleryPreset = {
   wrapper: {
     ncss: {
       label: 'wrapper',
-      py: [3, 6, 8],
+      py: 3,
     },
   },
 }

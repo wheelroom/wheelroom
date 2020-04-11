@@ -29,7 +29,7 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
     return null
   }
   const actions = props.pageSectionActions || props.topic.actions
-  // Support only one action for now
+  /** Support only one action for now */
   const action = actions[0]
 
   const treeStyle = props.treeStyle || {}
@@ -37,13 +37,13 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   const linkStyle = treeStyle.link || {}
 
   return (
-    <Box ncss={ncssStyle}>
+    <Box is="div" ncss={ncssStyle}>
       {props.fullTopicAsLink ? (
-        <Any is="span" ncss={linkStyle}>
+        <Any is="span" ncss={linkStyle.ncss}>
           {action.heading}
         </Any>
       ) : (
-        <Action {...action} treeStyle={linkStyle}>
+        <Action {...action} treeStyle={linkStyle.ncss}>
           {action.heading}
         </Action>
       )}

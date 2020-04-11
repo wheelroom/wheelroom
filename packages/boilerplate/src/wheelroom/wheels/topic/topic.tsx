@@ -50,7 +50,7 @@ export const Topic = (props: TopicTreeProps) => {
       <TopicBody {...props} />
     </Action>
   ) : (
-    <Box ncss={treeStyle.ncss}>
+    <Box is="div" ncss={treeStyle.ncss}>
       <TopicBody {...props} />
     </Box>
   )

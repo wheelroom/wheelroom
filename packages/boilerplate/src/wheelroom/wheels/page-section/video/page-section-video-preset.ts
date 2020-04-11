@@ -57,7 +57,7 @@ export const videoTreeStyle: PageSectionVideoPreset = {
   wrapper: {
     ncss: {
       label: 'wrapper',
-      py: [3, 6, 8],
+      py: 3,
     },
   },
 }

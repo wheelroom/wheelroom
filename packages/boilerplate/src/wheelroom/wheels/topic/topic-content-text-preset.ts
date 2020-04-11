@@ -3,6 +3,10 @@ import { NcssProps } from '../elements/types'
 export interface TopicContentTextTreeStyle {
   /** Styling for this node */
   ncss?: NcssProps
+  /** Icon style */
+  icon?: {
+    ncss?: NcssProps
+  }
   /** Heading style */
   heading?: {
     ncss?: NcssProps
@@ -16,6 +20,12 @@ export interface TopicContentTextTreeStyle {
 export const topicContentTextPreset: TopicContentTextTreeStyle = {
   ncss: {
     label: 'topic-text',
+  },
+  icon: {
+    ncss: {
+      label: 'topic-icon',
+      mb: 2,
+    },
   },
   heading: {
     ncss: {

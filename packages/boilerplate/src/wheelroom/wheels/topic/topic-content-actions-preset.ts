@@ -10,8 +10,12 @@ export interface TopicActionsTreeStyle {
 }
 
 export const topicContentActionsPreset: TopicActionsTreeStyle = {
-  ncss: {},
+  ncss: {
+    label: 'topic-actions',
+  },
   link: {
-    ncss: {},
+    ncss: {
+      label: 'topic-link',
+    },
   },
 }

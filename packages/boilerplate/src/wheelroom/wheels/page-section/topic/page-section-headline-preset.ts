@@ -14,7 +14,11 @@ export const pageSectionHeadlineTreeStyle: PageSectionHeadlinePreset = {
   topic: {
     ncss: {},
     content: {
-      ncss: {},
+      ncss: {
+        textAlign: 'center',
+        mx: 'auto',
+        maxWidth: [1, '960px'],
+      },
       actions: {
         ncss: {},
         link: {
@@ -57,6 +61,7 @@ export const pageSectionHeadlineTreeStyle: PageSectionHeadlinePreset = {
   wrapper: {
     ncss: {
       label: 'wrapper',
+      py: 3,
     },
   },
 }

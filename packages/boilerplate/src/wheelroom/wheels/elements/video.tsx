@@ -4,7 +4,6 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { NcssProps, MediaObject } from './types'
-import { getStyles } from '../../lib/tree-style'
 import { videoPreset, videoDescriptionPreset } from './video-preset'
 import { videoStyle, videoDescriptionStyle } from './video-theme'
 
@@ -57,11 +56,9 @@ export const Video = (props: VideoProps) => {
       media.description || props.description || defaultMediaObject.description,
   }
 
-  const [videoNcss, descriptionNcss] = getStyles(
-    props.treeStyle,
-    'video',
-    'description'
-  )
+  const treeStyle = props.treeStyle || {}
+  const video = treeStyle.video || {}
+  const description = treeStyle.description || {}
 
   return (
     <Fragment>
@@ -71,7 +68,7 @@ export const Video = (props: VideoProps) => {
             ncss: {
               ...videoPreset,
               ...videoStyle,
-              ...videoNcss,
+              ...video.ncss,
             },
           },
           currentThemeId
@@ -89,7 +86,7 @@ export const Video = (props: VideoProps) => {
               ncss: {
                 ...videoDescriptionPreset,
                 ...videoDescriptionStyle,
-                ...descriptionNcss,
+                ...description.ncss,
               },
             },
             currentThemeId

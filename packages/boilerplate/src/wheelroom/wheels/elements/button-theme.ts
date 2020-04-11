@@ -11,7 +11,9 @@ export const buttonStyle = {
   ':hover': {},
   ':visited': {},
   ':focus': {
+    outline: '2px dotted',
     outlineColor: 'amber',
+    outlineOffset: '4px',
   },
 }
 

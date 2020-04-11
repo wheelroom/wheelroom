@@ -111,10 +111,10 @@ export const textTreeStyle: TextPreset = {
   },
   wrapper: {
     ncss: {
-      flexDirection: 'column',
+      label: 'text',
       maxWidth: '640px',
       mx: 'auto',
-      textAlign: 'left',
+      p: 3,
     },
   },
 }

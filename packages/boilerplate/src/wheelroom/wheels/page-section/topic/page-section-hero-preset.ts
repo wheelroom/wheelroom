@@ -73,6 +73,7 @@ export const pageSectionHeroTreeStyle: PageSectionHeroPreset = {
   wrapper: {
     ncss: {
       label: 'wrapper',
+      py: 3,
     },
   },
 }

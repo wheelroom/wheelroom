@@ -1,6 +1,4 @@
-export const videoStyle = {
-  my: [4, 5],
-}
+export const videoStyle = {}
 
 export const videoDescriptionStyle = {
   color: 'text',

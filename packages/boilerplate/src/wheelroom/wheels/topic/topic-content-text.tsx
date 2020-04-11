@@ -32,9 +32,10 @@ export interface TopicContentTextProps {
 
 export const TopicContentText = (props: TopicContentTextProps) => {
   const treeStyle = props.treeStyle || {}
-  const nodeStyle = treeStyle.ncss || {}
+  const ncssStyle = treeStyle.ncss || {}
   const abstractStyle = treeStyle.abstract || {}
   const headingStyle = treeStyle.heading || {}
+  const iconStyle = treeStyle.icon || {}
   const topicOptions = props.pageSectionInfo.topicOptions
 
   const useHeadingElement = props.useHeadingElement || 'h3'
@@ -44,17 +45,19 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const AbstractParser = props.useAbstractParser || Paragraph
 
   return (
-    <Box is="header" ncss={nodeStyle}>
-      {!topicOptions.hideIcon && <TopicIcon icon={props.topic.icon} />}
+    <Box is="header" ncss={ncssStyle}>
+      {!topicOptions.hideIcon && (
+        <TopicIcon icon={props.topic.icon} ncss={iconStyle.ncss} />
+      )}
       {!topicOptions.hideHeading && (
-        <HeadingParser is={useHeadingElement} ncss={headingStyle}>
+        <HeadingParser is={useHeadingElement} ncss={headingStyle.ncss}>
           {props.topic.heading}
         </HeadingParser>
       )}
       {!topicOptions.hideAbstract &&
         props.topic.abstract &&
         props.topic.abstract.abstract && (
-          <AbstractParser is={useAbstractElement} ncss={abstractStyle}>
+          <AbstractParser is={useAbstractElement} ncss={abstractStyle.ncss}>
             {props.topic.abstract.abstract}
           </AbstractParser>
         )}

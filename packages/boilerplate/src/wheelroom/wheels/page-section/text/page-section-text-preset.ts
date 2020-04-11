@@ -15,6 +15,7 @@ export const pageSectionTextTreeStyle: PageSectionTextPreset = {
   wrapper: {
     ncss: {
       label: 'wrapper',
+      py: 3,
     },
   },
 }

@@ -15,16 +15,17 @@ export const topicMediaPresent: TopicMediaTreeStyle = {
   ncss: {
     label: 'topic-media',
     display: 'flex',
+    flexDirection: 'column',
   },
   image: {
-    img: {
-      ncss: {
-        label: 'topic-img',
-      },
-    },
     picture: {
       ncss: {
         label: 'topic-picture',
+      },
+    },
+    img: {
+      ncss: {
+        label: 'topic-img',
       },
     },
     figcaption: {

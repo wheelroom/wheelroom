@@ -1,6 +1,6 @@
 export const commonNavigationStyle = {
   color: 'link',
-  fontFamily: 'text',
+  fontFamily: 'systemFont',
   fontSize: [3, 4],
   display: 'block',
   textDecoration: 'none',

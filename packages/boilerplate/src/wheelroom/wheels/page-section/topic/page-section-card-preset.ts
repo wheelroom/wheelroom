@@ -86,6 +86,7 @@ export const pageSectionCardTreeStyle: PageSectionCardPreset = {
   wrapper: {
     ncss: {
       label: 'wrapper',
+      py: 3,
     },
   },
 }

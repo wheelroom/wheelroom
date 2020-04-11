@@ -3,7 +3,6 @@ import { jsx } from '@emotion/core'
 import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import { MediaObject, NcssProps } from './types'
-import { getStyles } from '../../lib/tree-style'
 import {
   imageFigcaptionPreset,
   imageImgPreset,
@@ -16,10 +15,10 @@ import {
 } from './image-theme'
 
 export interface ImageTreeStyle {
-  img?: {
+  picture?: {
     ncss?: NcssProps
   }
-  picture?: {
+  img?: {
     ncss?: NcssProps
   }
   figcaption?: {
@@ -63,12 +62,10 @@ export const Image = (props: ImageProps) => {
     srcSet: media.fluid && media.fluid.srcSet,
   }
 
-  const [imagePictureNcss, imageImgNcss, imageFigcaptionNcss] = getStyles(
-    props.treeStyle,
-    'figcaption',
-    'img',
-    'picture'
-  )
+  const treeStyle = props.treeStyle || {}
+  const picture = treeStyle.picture || {}
+  const img = treeStyle.img || {}
+  const figcaption = treeStyle.figcaption || {}
 
   return (
     <picture
@@ -77,7 +74,7 @@ export const Image = (props: ImageProps) => {
           ncss: {
             ...imagePicturePreset,
             ...imagePictureStyle,
-            ...imagePictureNcss,
+            ...picture.ncss,
           },
         },
         currentThemeId
@@ -90,20 +87,20 @@ export const Image = (props: ImageProps) => {
             ncss: {
               ...imageImgPreset,
               ...imageImgStyle,
-              ...imageImgNcss,
+              ...img.ncss,
             },
           },
           currentThemeId
         )}
       />
-      {props.includeFigcaption && (
+      {props.includeFigcaption && imgElementAttrs.alt && (
         <figcaption
           css={systemCss(
             {
               ncss: {
                 ...imageFigcaptionPreset,
                 ...imageFigcaptionStyle,
-                ...imageFigcaptionNcss,
+                ...figcaption.ncss,
               },
             },
             currentThemeId

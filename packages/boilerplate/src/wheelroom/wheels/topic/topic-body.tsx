@@ -9,7 +9,7 @@ export const TopicBody = (props: TopicTreeProps) => {
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
   const treeStyle = props.treeStyle || {}
-  // console.log('treeStyle.content', treeStyle.content)
+  console.log('treeStyle.media', treeStyle.media)
 
   const showMedia =
     (topicInfo.hasImage && !topicOptions.hideMedia) ||

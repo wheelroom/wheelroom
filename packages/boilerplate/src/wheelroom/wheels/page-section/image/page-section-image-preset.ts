@@ -36,10 +36,10 @@ export const pageSectionImageTreeStyle: PageSectionImagePreset = {
     media: {
       ncss: {},
       image: {
-        img: {
+        picture: {
           ncss: {},
         },
-        picture: {
+        img: {
           ncss: {},
         },
         figcaption: {
@@ -59,7 +59,7 @@ export const pageSectionImageTreeStyle: PageSectionImagePreset = {
   wrapper: {
     ncss: {
       label: 'wrapper',
-      py: [3, 6, 8],
+      py: 3,
     },
   },
 }

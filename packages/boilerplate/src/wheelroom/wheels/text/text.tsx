@@ -18,7 +18,7 @@ import { ALink } from '../elements/a-link'
 import { GLink } from '../elements/g-link'
 import { H1, H2, H3, H4, H5, H6 } from '../elements/heading'
 import { getLocalizedValue } from './get-localized-value'
-import { Flex } from '../elements/grid'
+import { Box } from '../elements/grid'
 import {
   documentToReactComponents,
   Options,
@@ -162,7 +162,7 @@ export const Text = (props: TextTreeProps) => {
           return (
             <Image
               key={node.data.target.id}
-              includeFigcaption={true}
+              includeFigcaption={false}
               media={media}
               treeStyle={treeStyle.image}
             />
@@ -182,8 +182,8 @@ export const Text = (props: TextTreeProps) => {
             <Video
               key={node.data.target.id}
               media={media}
-              includeTitle={true}
-              includeDescription={true}
+              includeTitle={false}
+              includeDescription={false}
               title={localizedTitle}
               description={localizedDescription}
               treeStyle={treeStyle.video}
@@ -197,11 +197,11 @@ export const Text = (props: TextTreeProps) => {
   } as Options
 
   return (
-    <Flex is="div" ncss={treeStyle.wrapper}>
+    <Box is="div" ncss={treeStyle.wrapper.ncss}>
       {documentToReactComponents(
         (props.text.text.json as unknown) as Document,
         options
       )}
-    </Flex>
+    </Box>
   )
 }

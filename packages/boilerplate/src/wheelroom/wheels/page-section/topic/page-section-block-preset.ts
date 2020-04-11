@@ -13,11 +13,13 @@ export const pageSectionBlockTreeStyle: PageSectionBlockPreset = {
       alignItems: ['center', 'initial'],
       flexDirection: ['column', 'row'],
       flexWrap: 'wrap',
-      justifyContent: 'center',
     },
   },
   topic: {
-    ncss: {},
+    ncss: {
+      p: 3,
+      w: [1, 1 / 2, 1 / 3],
+    },
     content: {
       ncss: {},
       text: {
@@ -54,9 +56,7 @@ export const pageSectionBlockTreeStyle: PageSectionBlockPreset = {
       },
       video: {
         video: {
-          ncss: {
-            my: [0, 0],
-          },
+          ncss: {},
         },
         description: {
           ncss: {},
@@ -67,6 +67,7 @@ export const pageSectionBlockTreeStyle: PageSectionBlockPreset = {
   wrapper: {
     ncss: {
       label: 'wrapper',
+      py: 3,
     },
   },
 }
