@@ -8,13 +8,9 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 const componentId = 'svg-tool'
 export const SvgTool = (props: IconProps) => {
   const strokeWidth = props.strokeWidth || 2
-  const css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    {
-      ncss: props.ncss,
-    }
-  )
+  const css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+    ncss: props.ncss,
+  })
   return (
     <svg
       viewBox="0 0 24 24"
