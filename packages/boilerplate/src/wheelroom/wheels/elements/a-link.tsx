@@ -43,17 +43,13 @@ export const ALink = (props: ALinkProps) => {
       aria-hidden={props.ariaHidden}
       download={props.download}
       rel={props.rel}
-      css={styledSystem(
-        props.wheel.styledSystemConfig,
-        props.wheel.theme,
-        {
-          ncss: {
-            ...props.wheel.elementPresets.aLink,
-            ...aLinkPreset,
-            ...props.ncss,
-          },
-        }
-      )}
+      css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+        ncss: {
+          ...props.wheel.elementPresets.aLink,
+          ...aLinkPreset,
+          ...props.ncss,
+        },
+      })}
       href={props.href}
     >
       {props.children}

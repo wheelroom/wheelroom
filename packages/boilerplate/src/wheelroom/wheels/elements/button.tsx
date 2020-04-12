@@ -57,17 +57,13 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
       aria-expanded={props.ariaExpanded}
       aria-controls={props.ariaControls}
       aria-pressed={props.ariaPressed}
-      css={styledSystem(
-        props.wheel.styledSystemConfig,
-        props.wheel.theme,
-        {
-          ncss: {
-            ...props.wheel.elementPresets.button,
-            ...buttonPreset,
-            ...props.ncss,
-          },
-        }
-      )}
+      css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+        ncss: {
+          ...props.wheel.elementPresets.button,
+          ...buttonPreset,
+          ...props.ncss,
+        },
+      })}
       onClick={props.onClick}
       value={props.value + getPreviewQueryString(adminCoreState)}
     >

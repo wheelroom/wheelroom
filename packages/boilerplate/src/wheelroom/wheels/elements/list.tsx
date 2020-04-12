@@ -18,18 +18,14 @@ export interface ListProps {
 
 export const List = (props: ListProps) => {
   const label = `List-${props.is}`
-  const css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    {
-      ncss: {
-        label,
-        ...props.wheel.elementPresets.list,
-        ...listPreset,
-        ...props.ncss,
-      },
-    }
-  )
+  const css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+    ncss: {
+      label,
+      ...props.wheel.elementPresets.list,
+      ...listPreset,
+      ...props.ncss,
+    },
+  })
   const attrs = {
     css,
   }

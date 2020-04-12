@@ -63,45 +63,33 @@ export const Image = (props: ImageProps) => {
 
   return (
     <picture
-      css={styledSystem(
-        props.wheel.styledSystemConfig,
-        props.wheel.theme,
-        {
-          ncss: {
-            ...props.wheel.elementPresets.image.picture,
-            ...imagePicturePreset,
-            ...picture.ncss,
-          },
-        }
-      )}
+      css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+        ncss: {
+          ...props.wheel.elementPresets.image.picture,
+          ...imagePicturePreset,
+          ...picture.ncss,
+        },
+      })}
     >
       <img
         {...imgElementAttrs}
-        css={styledSystem(
-          props.wheel.styledSystemConfig,
-          props.wheel.theme,
-          {
-            ncss: {
-              ...props.wheel.elementPresets.image.img,
-              ...imageImgPreset,
-              ...img.ncss,
-            },
-          }
-        )}
+        css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+          ncss: {
+            ...props.wheel.elementPresets.image.img,
+            ...imageImgPreset,
+            ...img.ncss,
+          },
+        })}
       />
       {props.includeFigcaption && imgElementAttrs.alt && (
         <figcaption
-          css={styledSystem(
-            props.wheel.styledSystemConfig,
-            props.wheel.theme,
-            {
-              ncss: {
-                ...props.wheel.elementPresets.image.figcaption,
-                ...imageFigcaptionPreset,
-                ...figcaption.ncss,
-              },
-            }
-          )}
+          css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+            ncss: {
+              ...props.wheel.elementPresets.image.figcaption,
+              ...imageFigcaptionPreset,
+              ...figcaption.ncss,
+            },
+          })}
         >
           {imgElementAttrs.alt}
         </figcaption>

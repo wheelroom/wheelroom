@@ -39,17 +39,13 @@ export const GLink = (props: GLinkProps) => {
       title={props.title}
       aria-label={props.ariaLabel}
       aria-hidden={props.ariaHidden}
-      css={styledSystem(
-        props.wheel.styledSystemConfig,
-        props.wheel.theme,
-        {
-          ncss: {
-            ...props.wheel.elementPresets.gLink,
-            ...gLinkPreset,
-            ...props.ncss,
-          },
-        }
-      )}
+      css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+        ncss: {
+          ...props.wheel.elementPresets.gLink,
+          ...gLinkPreset,
+          ...props.ncss,
+        },
+      })}
       to={props.to + getPreviewQueryString(adminCoreState)}
     >
       {props.children}

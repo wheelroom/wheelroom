@@ -30,17 +30,13 @@ export const Heading = (props: HeadingProps) => {
     Object.assign(presetStyles, headingPresets[is as HeadingName])
   }
 
-  const css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    {
-      ncss: {
-        label,
-        ...presetStyles,
-        ...props.ncss,
-      },
-    }
-  )
+  const css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+    ncss: {
+      label,
+      ...presetStyles,
+      ...props.ncss,
+    },
+  })
 
   const attrs = {
     css,

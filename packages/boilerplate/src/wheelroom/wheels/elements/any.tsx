@@ -51,16 +51,12 @@ const getAttrs = (props: AnyProps) => {
 export const Any = (props: AnyProps) => {
   const label = `any-is-${props.is}`
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    {
-      ncss: {
-        label,
-        ...props.ncss,
-      },
-    }
-  )
+  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+    ncss: {
+      label,
+      ...props.ncss,
+    },
+  })
 
   return jsx(props.is || 'div', attrs, props.children)
 }

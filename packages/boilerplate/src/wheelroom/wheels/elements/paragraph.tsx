@@ -55,17 +55,13 @@ const getAttrs = (props: ParagraphProps) => {
 export const Paragraph = (props: ParagraphProps) => {
   const label = `${props.is}`
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    {
-      ncss: {
-        label,
-        ...props.wheel.elementPresets.paragraph,
-        ...paragraphPreset,
-        ...props.ncss,
-      },
-    }
-  )
+  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+    ncss: {
+      label,
+      ...props.wheel.elementPresets.paragraph,
+      ...paragraphPreset,
+      ...props.ncss,
+    },
+  })
   return jsx(props.is || 'p', attrs, props.children)
 }

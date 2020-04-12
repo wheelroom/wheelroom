@@ -61,17 +61,13 @@ export const Video = (props: VideoProps) => {
   return (
     <Fragment>
       <video
-        css={styledSystem(
-          props.wheel.styledSystemConfig,
-          props.wheel.theme,
-          {
-            ncss: {
-              ...props.wheel.elementPresets.video.video,
-              ...videoVideoPreset,
-              ...video.ncss,
-            },
-          }
-        )}
+        css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+          ncss: {
+            ...props.wheel.elementPresets.video.video,
+            ...videoVideoPreset,
+            ...video.ncss,
+          },
+        })}
         controls
         playsInline
       >
@@ -80,17 +76,13 @@ export const Video = (props: VideoProps) => {
       </video>
       {props.includeTitle && (
         <p
-          css={styledSystem(
-            props.wheel.styledSystemConfig,
-            props.wheel.theme,
-            {
-              ncss: {
-                ...props.wheel.elementPresets.video.description,
-                ...videoDescriptionPreset,
-                ...description.ncss,
-              },
-            }
-          )}
+          css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+            ncss: {
+              ...props.wheel.elementPresets.video.description,
+              ...videoDescriptionPreset,
+              ...description.ncss,
+            },
+          })}
         >
           <b>{videoAttrs.title}</b>
           {props.includeDescription && ` – ` + videoAttrs.description}
