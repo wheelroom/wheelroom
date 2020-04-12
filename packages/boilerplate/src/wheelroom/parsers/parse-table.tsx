@@ -54,7 +54,7 @@ export const validTable = (children: React.ReactNode) => {
 
 export const ParseTable = (props: ParserProps): JSX.Element | null => {
   return (
-    <Any is="table" ncss={props.ncss}>
+    <Any is="table" ncss={props.ncss} wheel={props.wheel}>
       <tbody>{replaceTable(props.children)}</tbody>
     </Any>
   )

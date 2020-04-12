@@ -9,19 +9,10 @@
 import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
-import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import {
-  navigationHeaderTreeStyle,
-  PageSectionNavigationHeaderPreset,
-} from '../../wheelroom/wheels/page-section/navigation/header/page-section-navigation-header-preset'
-import {
-  navigationFooterTreeStyle,
-  PageSectionNavigationFooterPreset,
-} from '../../wheelroom/wheels/page-section/navigation/footer/page-section-navigation-footer-preset'
-import { PageSectionNavigationHeader } from '../../wheelroom/wheels/page-section/navigation/header/page-section-navigation-header'
-import { PageSectionNavigationFooter } from '../../wheelroom/wheels/page-section/navigation/footer/page-section-navigation-footer'
-import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
-import { deepMerge } from '../../wheelroom/lib/deep-merge'
+import { Wheel } from '../../wheelroom/wheels/types'
+import { elementPresets } from '../../themes/yosemite/element-presets'
+import { styledSystemThemeDark } from '../../themes/yosemite/styled-system-theme-dark'
+import { styledSystemConfig } from '../../themes/yosemite/styled-system/config'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   // const info = getPageSectionInfo(props)
@@ -53,5 +44,12 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
   //   )
   // }
 
-  return <NotImplemented {...props} />
+  const wheel: Wheel = {
+    style: {},
+    elementPresets,
+    styledSystemTheme: styledSystemThemeDark,
+    styledSystemConfig,
+  }
+
+  return <NotImplemented pageSection={props} wheel={wheel} />
 }

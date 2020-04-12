@@ -29,7 +29,7 @@ const replaceNewlines = (children: React.ReactNode) => {
 
 export const ParseNewLines = (props: ParserProps): JSX.Element => {
   return (
-    <Paragraph is={props.is} ncss={props.ncss}>
+    <Paragraph is={props.is} ncss={props.ncss} wheel={props.wheel}>
       {replaceNewlines(props.children)}
     </Paragraph>
   )

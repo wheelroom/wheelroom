@@ -49,5 +49,5 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
       />
     )
   }
-  return <NotImplemented {...props} />
+  return <NotImplemented pageSection={props} wheel={wheel} />
 }
