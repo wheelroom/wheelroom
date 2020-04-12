@@ -1,3 +1,1 @@
-export const breakpoints = {
-  breakpoints: ['37.5em', '50em', '75em'],
-}
+export { breakpointsPreset as breakpoints } from '../../wheelroom/theme/breakpoints-preset'
