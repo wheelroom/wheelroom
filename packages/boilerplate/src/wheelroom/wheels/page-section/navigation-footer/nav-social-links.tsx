@@ -1,8 +1,8 @@
-import { List } from '../../../elements/list'
-import { TopicProps } from '../../../../../models/topic'
-import { FeatherIcon } from '../../../elements/icon'
+import { List } from '../../elements/list'
+import { TopicProps } from '../../../../models/topic'
+import { FeatherIcon } from '../../elements/icon'
 import React from 'react'
-import { Action } from '../../../action/action'
+import { Action } from '../../action/action'
 import { NavSocialLinksTreeStyle } from './nav-social-links-preset'
 
 export const NavSocialLinks = (props: {

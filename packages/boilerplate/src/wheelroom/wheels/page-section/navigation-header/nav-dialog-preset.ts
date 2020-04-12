@@ -2,15 +2,15 @@ import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
 } from '../../../elements/button-theme'
-import { commonNavigationStyle } from '../common/navigation-common-preset'
+import { commonNavigationStyle } from './navigation-common-preset'
 import {
   modalOpenStyle,
   modalStyle,
   modalContentOpenStyle,
   modalContentStyle,
 } from './nav-dialog-modal-preset'
-import { NcssProps } from '../../../types'
-import { NavListTreeStyle } from '../common/nav-list'
+import { NcssProps } from '../../types'
+import { NavListTreeStyle } from './nav-list'
 
 export interface NavDialogTreeStyle {
   container: {

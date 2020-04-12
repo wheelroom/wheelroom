@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { Flex } from '../../../elements/grid'
-import { GLink } from '../../../elements/g-link'
+import { Flex } from '../../elements/grid'
+import { GLink } from '../../elements/g-link'
 import { NavLogoTreeStyle } from './nav-logo-preset'
 
 export const NavLogo = (props: {

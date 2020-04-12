@@ -1,8 +1,8 @@
-import { List } from '../../../elements/list'
+import { List } from '../../elements/list'
 import React from 'react'
-import { NcssProps } from '../../../types'
+import { NcssProps } from '../../types'
 import { NavLinks, NavLinksTreeStyle } from './nav-links'
-import { PageProps } from '../../../../../models/page/page'
+import { PageProps } from '../../../../models/page/page'
 
 export interface NavListTreeStyle {
   list: NcssProps

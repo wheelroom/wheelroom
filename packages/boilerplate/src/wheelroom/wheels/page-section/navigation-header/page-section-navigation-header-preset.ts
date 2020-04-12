@@ -3,12 +3,12 @@ import {
   commonNavigationStyle,
   listStyle,
   navStyle,
-} from '../common/navigation-common-preset'
+} from '../navigation-common-preset'
 import { NcssProps } from '../../../types'
-import { NavListTreeStyle } from '../common/nav-list'
-import { NavLogoTreeStyle, navLogoPreset } from './nav-logo-preset'
-import { NavActionsTreeStyle, navActionsPreset } from './nav-actions-preset'
-import { NavDialogTreeStyle, navDialogPreset } from './nav-dialog-preset'
+import { NavListTreeStyle } from '../nav-list'
+import { NavLogoTreeStyle, navLogoPreset } from '../nav-logo-preset'
+import { NavActionsTreeStyle, navActionsPreset } from '../nav-actions-preset'
+import { NavDialogTreeStyle, navDialogPreset } from '../nav-dialog-preset'
 
 export interface PageSectionNavigationHeaderPreset {
   skipToContent: NcssProps

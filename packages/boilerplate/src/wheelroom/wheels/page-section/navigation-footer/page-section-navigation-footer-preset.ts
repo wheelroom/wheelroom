@@ -1,9 +1,9 @@
 import {
   commonNavigationStyle,
   listStyle,
-} from '../common/navigation-common-preset'
-import { NcssProps } from '../../../types'
-import { NavListTreeStyle } from '../common/nav-list'
+} from './navigation-common-preset'
+import { NcssProps } from '../../types'
+import { NavListTreeStyle } from './nav-list'
 import {
   NavSocialLinksTreeStyle,
   navSocialLinksPreset,

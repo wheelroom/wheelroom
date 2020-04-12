@@ -2,7 +2,7 @@ import {
   buttonPrimaryStyle,
   buttonSecondaryStyle,
 } from '../../../elements/button-theme'
-import { NcssProps } from '../../../types'
+import { NcssProps } from '../../types'
 
 export interface NavActionsTreeStyle {
   container: NcssProps
