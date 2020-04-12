@@ -32,18 +32,18 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   /** Support only one action for now */
   const action = actions[0]
 
-  const treeStyle = props.treeStyle || {}
-  const ncssStyle = treeStyle.ncss || {}
-  const linkStyle = treeStyle.link || {}
-
   return (
-    <Box is="div" ncss={ncssStyle}>
+    <Box is="div" ncss={props.wheel.style.ncss} wheel={props.wheel}>
       {props.fullTopicAsLink ? (
-        <Any is="span" ncss={linkStyle.ncss}>
+        <Any is="span" ncss={props.wheel.style.link.ncss} wheel={props.wheel}>
           {action.heading}
         </Any>
       ) : (
-        <Action {...action} treeStyle={linkStyle.ncss}>
+        <Action
+          {...action}
+          treeStyle={props.wheel.style.link.ncss}
+          wheel={props.wheel}
+        >
           {action.heading}
         </Action>
       )}
