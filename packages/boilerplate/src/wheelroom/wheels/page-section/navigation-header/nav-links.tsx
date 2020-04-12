@@ -14,9 +14,12 @@ interface NavLinkProps extends PageProps {
 }
 
 const NavLink = (props: NavLinkProps) => {
-  const treeStyle = props.treeStyle || {}
   return (
-    <GLink to={props.path} ncss={treeStyle}>
+    <GLink
+      to={props.path}
+      ncss={props.wheel.style.item.ncss}
+      wheel={props.wheel}
+    >
       {props.navigationHeading}
     </GLink>
   )
@@ -24,15 +27,18 @@ const NavLink = (props: NavLinkProps) => {
 
 export interface NavLinksProps {
   pages: PageProps[]
-  treeStyle: NavLinksTreeStyle
-  wheel: Wheel
+  wheel: NavLinkWheel
 }
 
 export const NavLinks = (props: NavLinksProps) => {
-  const itemStyle = props.treeStyle.itemStyle || {}
   const links = props.pages.map((page: PageProps) => (
-    <Any is={'li'} ncss={itemStyle} key={page.navigationHeading}>
-      <NavLink {...page} treeStyle={props.treeStyle.linkStyle} />
+    <Any
+      is={'li'}
+      ncss={props.wheel.style.item.ncss}
+      key={page.navigationHeading}
+      wheel={props.wheel}
+    >
+      <NavLink {...page} wheel={props.wheel} />
     </Any>
   ))
   return <Fragment>{links}</Fragment>

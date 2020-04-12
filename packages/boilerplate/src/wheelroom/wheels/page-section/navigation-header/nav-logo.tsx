@@ -13,7 +13,6 @@ export const NavLogo = (props: {
   version?: string
   wheel: NavLogoWheel
 }) => {
-  const treeStyle = props.treeStyle || {}
   // When a React element is passed, use that
   let logo
   let ariaLabel = `Back to ${props.logo} homepage`
@@ -33,8 +32,13 @@ export const NavLogo = (props: {
   }
 
   return (
-    <Flex is="div" ncss={treeStyle.container}>
-      <GLink ncss={treeStyle.link} to="/" aria-label={ariaLabel}>
+    <Flex is="div" ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
+      <GLink
+        ncss={props.wheel.style.link.ncss}
+        to="/"
+        aria-label={ariaLabel}
+        wheel={props.wheel}
+      >
         {logo}
       </GLink>
     </Flex>

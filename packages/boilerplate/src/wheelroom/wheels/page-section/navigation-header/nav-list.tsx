@@ -1,19 +1,21 @@
 import { List } from '../../elements/list'
 import React from 'react'
-import { NcssProps, Wheel } from '../../types'
-import { NavLinks, NavLinksTreeStyle } from './nav-links'
+import { Wheel } from '../../types'
+import { NavLinks } from './nav-links'
 import { PageProps } from '../../../../models/page/page'
+import { NavListPreset } from './presets/nav-list-preset'
 
 interface NavListWheel extends Wheel {
   style: NavListPreset
 }
 
-
 export const NavList = (props: { pages: PageProps[]; wheel: NavListWheel }) => {
-  const treeStyle = props.treeStyle || {}
   return (
-    <List is="ul" ncss={treeStyle.list}>
-      <NavLinks treeStyle={treeStyle.listItem} pages={props.pages} />
+    <List is="ul" ncss={props.wheel.style.list} wheel={props.wheel}>
+      <NavLinks
+        pages={props.pages}
+        wheel={{ ...props.wheel, style: props.wheel.style }}
+      />
     </List>
   )
 }

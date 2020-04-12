@@ -21,19 +21,23 @@ export const NavActions = (props: {
   if (!props.pageSectionInfo.hasAction) {
     return null
   }
-  const treeStyle = props.treeStyle || {}
+
   return (
-    <Flex is="div" ncss={treeStyle.container}>
+    <Flex is="div" ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
       {props.pageSectionInfo.hasAction && (
-        <Action treeStyle={treeStyle.action} {...props.action} />
+        <Action
+          wheel={{ ...props.wheel, style: props.wheel.style.action }}
+          {...props.action}
+        />
       )}
       <Button
         type="button"
         title={`Current theme is ` + props.activeThemeId}
         ariaLabel={`Current theme is ` + props.activeThemeId}
-        ncss={treeStyle.themeButton}
+        ncss={props.wheel.style.themeButton.ncss}
         value=""
         onClick={() => props.toggleTheme()}
+        wheel={props.wheel}
       >
         {props.activeThemeId}
       </Button>

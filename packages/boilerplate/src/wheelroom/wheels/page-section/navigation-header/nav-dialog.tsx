@@ -24,7 +24,6 @@ export const NavDialog = (props: {
   wheel: NavDialogWheel
   toggleTheme: () => void
 }) => {
-  const treeStyle = props.treeStyle || {}
   const XIcon = IconMap.x
   return (
     <Box
@@ -33,12 +32,13 @@ export const NavDialog = (props: {
       tabIndex={-1}
       ncss={
         props.menuVisible
-          ? props.treeStyle.container.menuVisible.yes
-          : props.treeStyle.container.menuVisible.no
+          ? props.wheel.style.container.menuVisible.yes.ncss
+          : props.wheel.style.container.menuVisible.no.ncss
       }
       ariaHidden={props.menuVisible ? false : undefined}
       ariaModal={props.menuVisible ? true : undefined}
       hidden={true}
+      wheel={props.wheel}
     >
       <Flex
         is="section"
@@ -46,27 +46,36 @@ export const NavDialog = (props: {
         id="header-navigation"
         ncss={
           props.menuVisible
-            ? props.treeStyle.document.menuVisible.yes
-            : props.treeStyle.document.menuVisible.no
+            ? props.wheel.style.document.menuVisible.yes.ncss
+            : props.wheel.style.document.menuVisible.no.ncss
         }
         ariaLabel="Header navigation"
+        wheel={props.wheel}
       >
         <Button
           ariaLabel="Close header navigation"
           value=""
           role="button"
           onClick={() => props.closeMenu()}
-          ncss={props.treeStyle.closeMenuButton}
+          ncss={props.wheel.style.closeMenuButton.ncss}
+          wheel={props.wheel}
         >
-          <Box ariaHidden={true}>
+          <Box ariaHidden={true} wheel={props.wheel}>
             <XIcon />
           </Box>
         </Button>
-        <NavList treeStyle={treeStyle.navList} pages={props.pages} />
-        <Flex is="div" ncss={props.treeStyle.actions.container}>
+        <NavList
+          wheel={{ ...props.wheel, style: props.wheel.style.navList }}
+          pages={props.pages}
+        />
+        <Flex
+          is="div"
+          ncss={props.wheel.style.actions.container}
+          wheel={props.wheel}
+        >
           {props.pageSectionInfo.hasAction && (
             <Action
-              treeStyle={props.treeStyle.actions.action}
+              wheel={{ ...props.wheel, style: props.wheel.style.actions }}
               {...props.action}
             />
           )}
@@ -74,9 +83,10 @@ export const NavDialog = (props: {
             type="button"
             title={`Current theme is ` + props.activeThemeId}
             ariaLabel={`Current theme is ` + props.activeThemeId}
-            ncss={props.treeStyle.actions.themeButton}
+            ncss={props.wheel.style.actions.themeButton}
             value=""
             onClick={() => props.toggleTheme()}
+            wheel={props.wheel}
           >
             {props.activeThemeId}
           </Button>
