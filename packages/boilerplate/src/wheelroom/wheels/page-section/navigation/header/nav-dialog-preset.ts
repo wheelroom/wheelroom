@@ -9,7 +9,7 @@ import {
   modalContentOpenStyle,
   modalContentStyle,
 } from './nav-dialog-modal-preset'
-import { NcssProps } from '../../../elements/types'
+import { NcssProps } from '../../../types'
 import { NavListTreeStyle } from '../common/nav-list'
 
 export interface NavDialogTreeStyle {

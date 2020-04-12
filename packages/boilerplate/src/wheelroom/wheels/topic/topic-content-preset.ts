@@ -1,4 +1,4 @@
-import { NcssProps } from '../elements/types'
+import { NcssProps } from '../types'
 import {
   TopicContentTextTreeStyle,
   topicContentTextPreset,

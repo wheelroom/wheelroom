@@ -1,4 +1,4 @@
-import { NcssProps } from '../../elements/types'
+import { NcssProps } from '../../types'
 import { textTreeStyle, TextPreset } from '../../text/text-preset'
 
 export interface PageSectionTextPreset {

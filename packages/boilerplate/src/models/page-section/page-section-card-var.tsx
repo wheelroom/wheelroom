@@ -14,43 +14,50 @@ import {
   pageSectionCardTreeStyle,
   pageSectionCardTreeShadowStyle,
 } from '../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
-import { PageSectionTopic } from '../../wheelroom/wheels/page-section/unicorn/page-section-topic'
-import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
+import { PageSectionUnicorn } from '../../wheelroom/wheels/page-section/unicorn/page-section-unicorn'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { topicTreeStyle } from '../../wheelroom/wheels/topic/topic-preset'
+import { topicPreset } from '../../wheelroom/wheels/topic/topic-preset'
+import { Wheel } from '../../wheelroom/wheels/types'
+import { styledSystemThemeDark } from '../../themes/yosemite/styled-system-theme-dark'
+import { elementPresets } from '../../themes/yosemite/element-presets'
+import { styledSystemConfig } from '../../themes/yosemite/styled-system/config'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  // Four things happen here:
-  // - Use default topic styling
-  // - Merge in styling for this variant
-  // - Create a deep copy of the styling
-  const treeStyle = deepMerge(
-    { topic: topicTreeStyle },
+  const style = deepMerge(
+    { topic: topicPreset },
     { ...pageSectionCardTreeStyle }
   )
-  const treeShadowStyle = deepMerge(
-    { topic: topicTreeStyle },
+  const styleShadow = deepMerge(
+    { topic: topicPreset },
     { ...pageSectionCardTreeShadowStyle }
   )
-
-  addCssLabels('card', treeStyle)
-  addCssLabels('card-shadow', treeShadowStyle)
+  const wheel: Wheel = {
+    style,
+    elementPresets,
+    styledSystemTheme: styledSystemThemeDark,
+    styledSystemConfig,
+  }
+  const wheelShadow: Wheel = {
+    style: styleShadow,
+    elementPresets,
+    styledSystemTheme: styledSystemThemeDark,
+    styledSystemConfig,
+  }
 
   if (pageSectionInfo.hasTopic) {
     return (
-      <PageSectionTopic
+      <PageSectionUnicorn
         topicProps={{
           pageSectionActions: props.actions,
           fullTopicAsLink: true,
           pageSectionInfo,
+          wheel,
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={
-          pageSectionInfo.topicOptions.hideAction ? treeStyle : treeShadowStyle
-        }
+        wheel={pageSectionInfo.topicOptions.hideAction ? wheel : wheelShadow}
       />
     )
   }

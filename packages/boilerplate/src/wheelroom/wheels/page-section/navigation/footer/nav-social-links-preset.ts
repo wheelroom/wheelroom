@@ -1,5 +1,5 @@
 import { listStyle } from '../common/navigation-common-preset'
-import { NcssProps } from '../../../elements/types'
+import { NcssProps } from '../../../types'
 
 export interface NavSocialLinksTreeStyle {
   list: NcssProps

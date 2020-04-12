@@ -1,9 +1,9 @@
 import { paragraphPreset } from '../elements/paragraph-preset'
 import { aLinkPreset } from '../elements/a-link-preset'
 import { videoDescriptionPreset, videoPreset } from '../elements/video-preset'
-import { NcssProps } from '../elements/types'
-import { ImageTreeStyle } from '../elements/image'
-import { VideoTreeStyle } from '../elements/video'
+import { NcssProps } from '../types'
+import { ImagePreset } from '../elements/image'
+import { VideoPreset } from '../elements/video'
 import { imageFigcaptionPreset, imageImgPreset } from '../elements/image-preset'
 
 export interface TextPreset {
@@ -26,8 +26,8 @@ export interface TextPreset {
   blocksHeading5?: NcssProps
   blocksHeading6?: NcssProps
   blocksHr?: NcssProps
-  image?: ImageTreeStyle
-  video?: VideoTreeStyle
+  image?: ImagePreset
+  video?: VideoPreset
 }
 
 export const textTreeStyle: TextPreset = {

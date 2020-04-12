@@ -1,16 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import {
-  BlockLevelElementName,
-  LinkRelationshipAttribute,
-  NcssProps,
-} from './types'
+import { BlockLevelElementName, LinkRelationshipAttribute } from './types'
 import { paragraphPreset } from './paragraph-preset'
-import { paragraphStyle } from './paragraph-theme'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel, NcssProps } from '../types'
 
 export interface ParagraphProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** Render as another HTML element */
   is?: BlockLevelElementName | undefined
   /** React children */
@@ -56,19 +53,19 @@ const getAttrs = (props: ParagraphProps) => {
 }
 
 export const Paragraph = (props: ParagraphProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `${props.is}`
   const attrs: any = getAttrs(props)
-  attrs.css = systemCss(
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.styledSystemTheme,
     {
       ncss: {
         label,
+        ...props.wheel.elementPresets.paragraph,
         ...paragraphPreset,
-        ...paragraphStyle,
         ...props.ncss,
       },
-    },
-    currentThemeId
+    }
   )
   return jsx(props.is || 'p', attrs, props.children)
 }

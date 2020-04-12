@@ -5,9 +5,11 @@ import { TopicProps } from '../../../models/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Video } from '../elements/video'
-import { TopicMediaTreeStyle } from './topic-media-present'
+import { Wheel } from '../types'
 
 export interface TopicMediaProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** All topic props */
   topic: TopicProps
   /** Topic info object */
@@ -16,26 +18,23 @@ export interface TopicMediaProps {
   pageSectionInfo: PageSectionInfo
   /** Reverse image and content */
   reverse?: boolean
-
-  treeStyle?: TopicMediaTreeStyle
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
-  const mediaStyle = props.treeStyle
-  const ncssStyle = (mediaStyle && mediaStyle.ncss) || {}
-  const mediaImageStyle = mediaStyle && mediaStyle.image
-  const mediaVideoStyle = mediaStyle && mediaStyle.video
-
-  ncssStyle.order = props.reverse ? 0 : null
-
   return (
-    <Box ncss={ncssStyle}>
+    <Box
+      ncss={{
+        ...props.wheel.style.ncss,
+        order: props.reverse ? 0 : null,
+      }}
+      wheel={props.wheel}
+    >
       {props.topicInfo.hasImage && (
         <Image
           includeFigcaption={false}
           description={props.topic.media?.description}
           media={props.topic.media}
-          treeStyle={mediaImageStyle}
+          wheel={{ ...props.wheel, style: props.wheel.style.image }}
           title={props.topic.media?.title}
         />
       )}
@@ -45,7 +44,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
           includeDescription={false}
           description={props.topic.media?.description}
           media={props.topic.media}
-          treeStyle={mediaVideoStyle}
+          wheel={{ ...props.wheel, style: props.wheel.style.video }}
           title={props.topic.media?.title}
         />
       )}

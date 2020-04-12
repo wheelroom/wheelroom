@@ -1,4 +1,3 @@
-export type NcssProps = any
 export type ListElementName = 'ul' | 'ol' | 'li'
 export type InlineElementName =
   | 'a'

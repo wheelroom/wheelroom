@@ -1,10 +1,10 @@
 import { StyledSystemTheme } from '@wheelroom/styled-system'
-import { scales } from '../../../../wheelroom/styled-system/scales'
-import { maps } from '../../../../wheelroom/styled-system/maps'
-import { breakpoints } from '../../../../wheelroom/styled-system/breakpoints'
-import { colors } from '../colors'
+import { scales } from './styled-system/scales'
+import { maps } from './styled-system/maps'
+import { breakpoints } from './styled-system/breakpoints'
+import { colors } from './styled-system/colors'
 
-export const darkTheme: StyledSystemTheme = {
+export const styledSystemThemeLight: StyledSystemTheme = {
   ...breakpoints,
   ...maps,
   ...scales,

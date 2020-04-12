@@ -1,16 +1,16 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { NcssProps } from './types'
+import { NcssProps, Wheel } from '../types'
 import { gLinkPreset } from './g-link-preset'
-import { gLinkStyle } from './g-link-theme'
+import { styledSystem } from '@wheelroom/styled-system'
 
 export interface GLinkProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** React children */
   children?: any
   /** Nested emotion css styling */
@@ -28,7 +28,6 @@ export interface GLinkProps {
 }
 
 export const GLink = (props: GLinkProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const { adminCoreState } = useContext(AdminCoreContext)
   if (!props.to) {
     return null
@@ -40,15 +39,16 @@ export const GLink = (props: GLinkProps) => {
       title={props.title}
       aria-label={props.ariaLabel}
       aria-hidden={props.ariaHidden}
-      css={systemCss(
+      css={styledSystem(
+        props.wheel.styledSystemConfig,
+        props.wheel.styledSystemTheme,
         {
           ncss: {
+            ...props.wheel.elementPresets.gLink,
             ...gLinkPreset,
-            ...gLinkStyle,
             ...props.ncss,
           },
-        },
-        currentThemeId
+        }
       )}
       to={props.to + getPreviewQueryString(adminCoreState)}
     >

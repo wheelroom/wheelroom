@@ -1,17 +1,19 @@
 import React, { SVGProps } from 'react'
-import { systemCss } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
+import { Wheel } from '../../wheels/types'
+import { styledSystem } from '@wheelroom/styled-system'
 export interface IconProps extends SVGProps<SVGSVGElement> {
   ncss: any;
+  wheel: Wheel;
 }
 const componentId = 'svg-stack'
 export const SvgStack = (props: IconProps) => {
-  const currentThemeId: any = useGetCurrentThemeId()
-  const css = systemCss(
+  const strokeWidth = props.strokeWidth || 2
+  const css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.styledSystemTheme,
     {
       ncss: props.ncss,
-    },
-    currentThemeId
+    }
   )
   return (
     <svg
@@ -19,6 +21,8 @@ export const SvgStack = (props: IconProps) => {
       fill="none"
       css={css}
       id={componentId}
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
       width="100%"
     >
       <path

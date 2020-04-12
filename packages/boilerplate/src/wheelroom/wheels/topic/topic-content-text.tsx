@@ -8,9 +8,11 @@ import { Heading } from '../elements/heading'
 import { TopicIcon } from './topic-icon'
 import { ParserFunction } from '../../parsers/types'
 import { Paragraph } from '../elements/paragraph'
-import { TopicContentTextTreeStyle } from './topic-content-text-preset'
+import { Wheel } from '../types'
 
 export interface TopicContentTextProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
@@ -26,16 +28,9 @@ export interface TopicContentTextProps {
   topicInfo: TopicInfo
   /** Page section info */
   pageSectionInfo: PageSectionInfo
-
-  treeStyle?: TopicContentTextTreeStyle
 }
 
 export const TopicContentText = (props: TopicContentTextProps) => {
-  const treeStyle = props.treeStyle || {}
-  const ncssStyle = treeStyle.ncss || {}
-  const abstractStyle = treeStyle.abstract || {}
-  const headingStyle = treeStyle.heading || {}
-  const iconStyle = treeStyle.icon || {}
   const topicOptions = props.pageSectionInfo.topicOptions
 
   const useHeadingElement = props.useHeadingElement || 'h3'
@@ -45,19 +40,31 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const AbstractParser = props.useAbstractParser || Paragraph
 
   return (
-    <Box is="header" ncss={ncssStyle}>
+    <Box is="header" ncss={props.wheel.style.ncss} wheel={props.wheel}>
       {!topicOptions.hideIcon && (
-        <TopicIcon icon={props.topic.icon} ncss={iconStyle.ncss} />
+        <TopicIcon
+          icon={props.topic.icon}
+          ncss={props.wheel.style.icon.ncss}
+          wheel={props.wheel}
+        />
       )}
       {!topicOptions.hideHeading && (
-        <HeadingParser is={useHeadingElement} ncss={headingStyle.ncss}>
+        <HeadingParser
+          is={useHeadingElement}
+          ncss={props.wheel.style.heading.ncss}
+          wheel={props.wheel}
+        >
           {props.topic.heading}
         </HeadingParser>
       )}
       {!topicOptions.hideAbstract &&
         props.topic.abstract &&
         props.topic.abstract.abstract && (
-          <AbstractParser is={useAbstractElement} ncss={abstractStyle.ncss}>
+          <AbstractParser
+            is={useAbstractElement}
+            ncss={props.wheel.style.abstract.ncss}
+            wheel={props.wheel}
+          >
             {props.topic.abstract.abstract}
           </AbstractParser>
         )}

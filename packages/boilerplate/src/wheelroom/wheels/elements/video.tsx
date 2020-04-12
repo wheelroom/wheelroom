@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { NcssProps, MediaObject } from './types'
-import { videoPreset, videoDescriptionPreset } from './video-preset'
-import { videoStyle, videoDescriptionStyle } from './video-theme'
+import { MediaObject } from './types'
+import { videoVideoPreset, videoDescriptionPreset } from './video-preset'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel, NcssProps } from '../types'
 
-export interface VideoTreeStyle {
+export interface VideoPreset {
   video?: {
     ncss?: NcssProps
   }
@@ -17,11 +16,12 @@ export interface VideoTreeStyle {
 }
 
 export interface VideoProps {
+  /** Styling wheel */
+  wheel: Wheel
   description?: string
   includeDescription?: boolean
   includeTitle?: boolean
   media?: MediaObject
-  treeStyle?: VideoTreeStyle
   title?: string
 }
 
@@ -38,8 +38,6 @@ const defaultMediaObject = {
 } as MediaObject
 
 export const Video = (props: VideoProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
-
   const media = props.media || defaultMediaObject
   // Video uses media.file, images use media.fluid
   if (!media.file) {
@@ -56,22 +54,23 @@ export const Video = (props: VideoProps) => {
       media.description || props.description || defaultMediaObject.description,
   }
 
-  const treeStyle = props.treeStyle || {}
-  const video = treeStyle.video || {}
-  const description = treeStyle.description || {}
+  const style = props.wheel.style || {}
+  const video = style.video || {}
+  const description = style.description || {}
 
   return (
     <Fragment>
       <video
-        css={systemCss(
+        css={styledSystem(
+          props.wheel.styledSystemConfig,
+          props.wheel.styledSystemTheme,
           {
             ncss: {
-              ...videoPreset,
-              ...videoStyle,
+              ...props.wheel.elementPresets.video.video,
+              ...videoVideoPreset,
               ...video.ncss,
             },
-          },
-          currentThemeId
+          }
         )}
         controls
         playsInline
@@ -81,15 +80,16 @@ export const Video = (props: VideoProps) => {
       </video>
       {props.includeTitle && (
         <p
-          css={systemCss(
+          css={styledSystem(
+            props.wheel.styledSystemConfig,
+            props.wheel.styledSystemTheme,
             {
               ncss: {
+                ...props.wheel.elementPresets.video.description,
                 ...videoDescriptionPreset,
-                ...videoDescriptionStyle,
                 ...description.ncss,
               },
-            },
-            currentThemeId
+            }
           )}
         >
           <b>{videoAttrs.title}</b>

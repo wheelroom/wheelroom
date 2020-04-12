@@ -1,18 +1,19 @@
 import React, { SVGProps } from 'react'
-import { systemCss } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
+import { Wheel } from '../../wheels/types'
+import { styledSystem } from '@wheelroom/styled-system'
 export interface IconProps extends SVGProps<SVGSVGElement> {
   ncss: any;
+  wheel: Wheel;
 }
 const componentId = 'svg-message-square'
 export const SvgMessageSquare = (props: IconProps) => {
-  const currentThemeId: any = useGetCurrentThemeId()
   const strokeWidth = props.strokeWidth || 2
-  const css = systemCss(
+  const css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.styledSystemTheme,
     {
       ncss: props.ncss,
-    },
-    currentThemeId
+    }
   )
   return (
     <svg

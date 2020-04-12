@@ -24,40 +24,34 @@ import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
-  const info = getPageSectionInfo(props)
+  // const info = getPageSectionInfo(props)
 
-  // Two things happen here:
-  // - Merge in styling for this variant
-  // - Create a deep copy of the styling
-  const treeHeaderStyle = deepMerge(
-    {} as PageSectionNavigationHeaderPreset,
-    navigationHeaderTreeStyle
-  )
-  const treeFooterStyle = deepMerge(
-    {} as PageSectionNavigationFooterPreset,
-    navigationFooterTreeStyle
-  )
+  // const treeHeaderStyle = deepMerge(
+  //   {} as PageSectionNavigationHeaderPreset,
+  //   navigationHeaderTreeStyle
+  // )
+  // const treeFooterStyle = deepMerge(
+  //   {} as PageSectionNavigationFooterPreset,
+  //   navigationFooterTreeStyle
+  // )
 
-  addCssLabels('navigation-header', treeHeaderStyle)
-  addCssLabels('navigation-footer', treeFooterStyle)
+  // if (info.hasNavigation && info.index === 0) {
+  //   return (
+  //     <PageSectionNavigationHeader
+  //       pageSection={props}
+  //       treeStyle={treeHeaderStyle}
+  //     />
+  //   )
+  // }
 
-  if (info.hasNavigation && info.index === 0) {
-    return (
-      <PageSectionNavigationHeader
-        pageSection={props}
-        treeStyle={treeHeaderStyle}
-      />
-    )
-  }
-
-  if (info.hasNavigation && info.index === info.sectionCount - 1) {
-    return (
-      <PageSectionNavigationFooter
-        pageSection={props}
-        treeStyle={treeFooterStyle}
-      />
-    )
-  }
+  // if (info.hasNavigation && info.index === info.sectionCount - 1) {
+  //   return (
+  //     <PageSectionNavigationFooter
+  //       pageSection={props}
+  //       treeStyle={treeFooterStyle}
+  //     />
+  //   )
+  // }
 
   return <NotImplemented {...props} />
 }

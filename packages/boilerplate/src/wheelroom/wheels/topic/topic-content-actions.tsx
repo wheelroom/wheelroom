@@ -6,9 +6,11 @@ import { TopicProps } from '../../../models/topic'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Action } from '../action/action'
-import { TopicActionsTreeStyle } from './topic-content-actions-preset'
+import { Wheel } from '../types'
 
 export interface TopicContentActionsProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
   /** Page section actions will override all topic actions */
@@ -20,8 +22,6 @@ export interface TopicContentActionsProps {
   topicInfo: TopicInfo
   /** Page section info */
   pageSectionInfo: PageSectionInfo
-
-  treeStyle?: TopicActionsTreeStyle
 }
 
 export const TopicContentActions = (props: TopicContentActionsProps) => {

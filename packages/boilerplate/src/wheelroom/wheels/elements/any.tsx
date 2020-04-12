@@ -1,14 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import {
-  BlockLevelElementName,
-  InlineElementName,
-  NcssProps,
-} from './types'
+import { BlockLevelElementName, InlineElementName } from './types'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel, NcssProps } from '../types'
 
 export interface AnyProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** Render as another HTML element */
   is?: InlineElementName | BlockLevelElementName | undefined
   /** React children */
@@ -51,14 +49,18 @@ const getAttrs = (props: AnyProps) => {
 }
 
 export const Any = (props: AnyProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `any-is-${props.is}`
   const attrs: any = getAttrs(props)
-  attrs.css = systemCss(
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.styledSystemTheme,
     {
-      ncss: { label, ...props.ncss },
-    },
-    currentThemeId
+      ncss: {
+        label,
+        ...props.ncss,
+      },
+    }
   )
+
   return jsx(props.is || 'div', attrs, props.children)
 }

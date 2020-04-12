@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { ListElementName, NcssProps } from './types'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
+import { ListElementName } from './types'
 import { listPreset } from './list-preset'
-import { listStyle } from './list-theme'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel, NcssProps } from '../types'
 
 export interface ListProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** Render as another HTML element */
   is?: ListElementName
   /** React children */
@@ -16,18 +17,18 @@ export interface ListProps {
 }
 
 export const List = (props: ListProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `List-${props.is}`
-  const css = systemCss(
+  const css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.styledSystemTheme,
     {
       ncss: {
         label,
+        ...props.wheel.elementPresets.list,
         ...listPreset,
-        ...listStyle,
         ...props.ncss,
       },
-    },
-    currentThemeId
+    }
   )
   const attrs = {
     css,

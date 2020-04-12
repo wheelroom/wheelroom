@@ -1,4 +1,4 @@
-import { NcssProps } from '../wheels/elements/types'
+import { NcssProps } from '../wheels/types'
 
 export const getStyles = (base: any = {}, ...objectNames: string[]) => {
   const styles: NcssProps[] = []

@@ -1,10 +1,12 @@
 import React from 'react'
 import { IconMap } from '../../svg/feather/iconMap'
 import { FeatherIcon, TextIcon } from '../elements/icon'
+import { Wheel } from '../types'
 
 export const TopicIcon = (props: {
   icon: string | JSX.Element
   ncss?: any
+  wheel: Wheel
 }) => {
   // When a React element is passed, return that
   if (React.isValidElement(props.icon)) {
@@ -13,10 +15,14 @@ export const TopicIcon = (props: {
   if (typeof props.icon === 'string') {
     if (Object.keys(IconMap).includes(props.icon)) {
       // When a valid feather icon string is passed, return the svg icon
-      return <FeatherIcon icon={props.icon} ncss={props.ncss} />
+      return (
+        <FeatherIcon icon={props.icon} ncss={props.ncss} wheel={props.wheel} />
+      )
     } else {
       // When a non feather icon string is passed, return the string
-      return <TextIcon text={props.icon} ncss={props.ncss} />
+      return (
+        <TextIcon text={props.icon} ncss={props.ncss} wheel={props.wheel} />
+      )
     }
   }
   return null

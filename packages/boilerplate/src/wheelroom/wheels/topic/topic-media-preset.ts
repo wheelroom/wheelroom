@@ -1,17 +1,17 @@
-import { NcssProps } from '../elements/types'
-import { ImageTreeStyle } from '../elements/image'
-import { VideoTreeStyle } from '../elements/video'
+import { NcssProps } from '../types'
+import { ImagePreset } from '../elements/image'
+import { VideoPreset } from '../elements/video'
 
 export interface TopicMediaTreeStyle {
   /** Styling for this node */
   ncss?: NcssProps
   /** Image style */
-  image?: ImageTreeStyle
+  image?: ImagePreset
   /** Video style */
-  video?: VideoTreeStyle
+  video?: VideoPreset
 }
 
-export const topicMediaPresent: TopicMediaTreeStyle = {
+export const topicMediaPreset: TopicMediaTreeStyle = {
   ncss: {
     label: 'topic-media',
     display: 'flex',

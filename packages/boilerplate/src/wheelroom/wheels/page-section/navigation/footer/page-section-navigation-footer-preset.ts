@@ -2,7 +2,7 @@ import {
   commonNavigationStyle,
   listStyle,
 } from '../common/navigation-common-preset'
-import { NcssProps } from '../../../elements/types'
+import { NcssProps } from '../../../types'
 import { NavListTreeStyle } from '../common/nav-list'
 import {
   NavSocialLinksTreeStyle,

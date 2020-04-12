@@ -1,11 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
 import {
   InlineElementName,
   BlockLevelElementName,
-  NcssProps,
   LinkRelationshipAttribute,
 } from './types'
 import {
@@ -14,14 +11,12 @@ import {
   containerMaxWidthPreset,
   flexPreset,
 } from './grid-preset'
-import {
-  boxStyle,
-  containerMaxWidthStyle,
-  containerStyle,
-  flexStyle,
-} from './grid-theme'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel, NcssProps } from '../types'
 
 export interface GridProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** Render as another HTML element */
   is?: InlineElementName | BlockLevelElementName | undefined
   /** React children */
@@ -67,73 +62,73 @@ const getAttrs = (props: GridProps) => {
 }
 
 export const Box = (props: GridProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `box-is-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
-  attrs.css = systemCss(
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.styledSystemTheme,
     {
       ncss: {
         label,
+        ...props.wheel.elementPresets.box,
         ...boxPreset,
-        ...boxStyle,
         ...props.ncss,
       },
-    },
-    currentThemeId
+    }
   )
   return jsx(props.is || 'div', attrs, props.children)
 }
 
 export const Flex = (props: GridProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `flex-is-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
-  attrs.css = systemCss(
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.styledSystemTheme,
     {
       ncss: {
         label,
+        ...props.wheel.elementPresets.flex,
         ...flexPreset,
-        ...flexStyle,
         ...props.ncss,
       },
-    },
-    currentThemeId
+    }
   )
   return jsx(props.is || 'div', attrs, props.children)
 }
 
 export const Container = (props: GridProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `container-is-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
-  attrs.css = systemCss(
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.styledSystemTheme,
     {
       ncss: {
         label,
+        ...props.wheel.elementPresets.container,
         ...containerPreset,
-        ...containerStyle,
         ...props.ncss,
       },
-    },
-    currentThemeId
+    }
   )
   return jsx(props.is || 'div', attrs, props.children)
 }
 
 export const ContainerMaxWidth = (props: GridProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const label = `container-max-width-is-${props.is || 'div'}`
   const attrs: any = getAttrs(props)
-  attrs.css = systemCss(
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.styledSystemTheme,
     {
       ncss: {
         label,
+        ...props.wheel.elementPresets.containerMaxWidth,
         ...containerMaxWidthPreset,
-        ...containerMaxWidthStyle,
         ...props.ncss,
       },
-    },
-    currentThemeId
+    }
   )
   return jsx(props.is || 'div', attrs, props.children)
 }

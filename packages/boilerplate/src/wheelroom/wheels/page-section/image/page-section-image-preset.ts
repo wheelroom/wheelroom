@@ -1,4 +1,4 @@
-import { NcssProps } from '../../elements/types'
+import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/topic-preset'
 
 export interface PageSectionImagePreset {
@@ -7,7 +7,7 @@ export interface PageSectionImagePreset {
   wrapper?: NcssProps
 }
 
-export const pageSectionImageTreeStyle: PageSectionImagePreset = {
+export const pageSectionImagePreset: PageSectionImagePreset = {
   container: {
     ncss: {
       flexDirection: ['column', 'row'],

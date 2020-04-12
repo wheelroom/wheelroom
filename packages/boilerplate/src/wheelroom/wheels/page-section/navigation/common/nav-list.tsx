@@ -1,6 +1,6 @@
 import { List } from '../../../elements/list'
 import React from 'react'
-import { NcssProps } from '../../../elements/types'
+import { NcssProps } from '../../../types'
 import { NavLinks, NavLinksTreeStyle } from './nav-links'
 import { PageProps } from '../../../../../models/page/page'
 

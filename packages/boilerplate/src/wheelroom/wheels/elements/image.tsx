@@ -1,20 +1,15 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { MediaObject, NcssProps } from './types'
+import { MediaObject } from './types'
 import {
   imageFigcaptionPreset,
   imageImgPreset,
   imagePicturePreset,
 } from './image-preset'
-import {
-  imageImgStyle,
-  imagePictureStyle,
-  imageFigcaptionStyle,
-} from './image-theme'
+import { NcssProps, Wheel } from '../types'
+import { styledSystem } from '@wheelroom/styled-system'
 
-export interface ImageTreeStyle {
+export interface ImagePreset {
   picture?: {
     ncss?: NcssProps
   }
@@ -27,10 +22,11 @@ export interface ImageTreeStyle {
 }
 
 export interface ImageProps {
+  /** Styling wheel */
+  wheel: Wheel
   description?: string
   media?: MediaObject
   includeFigcaption?: boolean
-  treeStyle?: ImageTreeStyle
   title?: string
 }
 
@@ -45,8 +41,6 @@ const defaultMediaObject = {
 } as MediaObject
 
 export const Image = (props: ImageProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
-
   const media = props.media || defaultMediaObject
   /** Video uses media.file, images use media.fluid */
   if (!media.fluid) {
@@ -62,48 +56,51 @@ export const Image = (props: ImageProps) => {
     srcSet: media.fluid && media.fluid.srcSet,
   }
 
-  const treeStyle = props.treeStyle || {}
-  const picture = treeStyle.picture || {}
-  const img = treeStyle.img || {}
-  const figcaption = treeStyle.figcaption || {}
+  const style = props.wheel.style || {}
+  const picture = style.picture || {}
+  const img = style.img || {}
+  const figcaption = style.figcaption || {}
 
   return (
     <picture
-      css={systemCss(
+      css={styledSystem(
+        props.wheel.styledSystemConfig,
+        props.wheel.styledSystemTheme,
         {
           ncss: {
+            ...props.wheel.elementPresets.image.picture,
             ...imagePicturePreset,
-            ...imagePictureStyle,
             ...picture.ncss,
           },
-        },
-        currentThemeId
+        }
       )}
     >
       <img
         {...imgElementAttrs}
-        css={systemCss(
+        css={styledSystem(
+          props.wheel.styledSystemConfig,
+          props.wheel.styledSystemTheme,
           {
             ncss: {
+              ...props.wheel.elementPresets.image.img,
               ...imageImgPreset,
-              ...imageImgStyle,
               ...img.ncss,
             },
-          },
-          currentThemeId
+          }
         )}
       />
       {props.includeFigcaption && imgElementAttrs.alt && (
         <figcaption
-          css={systemCss(
+          css={styledSystem(
+            props.wheel.styledSystemConfig,
+            props.wheel.styledSystemTheme,
             {
               ncss: {
+                ...props.wheel.elementPresets.image.figcaption,
                 ...imageFigcaptionPreset,
-                ...imageFigcaptionStyle,
                 ...figcaption.ncss,
               },
-            },
-            currentThemeId
+            }
           )}
         >
           {imgElementAttrs.alt}

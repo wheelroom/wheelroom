@@ -11,33 +11,40 @@ import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { pageSectionBlockTreeStyle } from '../../wheelroom/wheels/page-section/unicorn/page-section-block-preset'
-import { PageSectionTopic } from '../../wheelroom/wheels/page-section/unicorn/page-section-topic'
+import { PageSectionUnicorn } from '../../wheelroom/wheels/page-section/unicorn/page-section-unicorn'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { topicTreeStyle } from '../../wheelroom/wheels/topic/topic-preset'
+import { topicPreset } from '../../wheelroom/wheels/topic/topic-preset'
+import { Wheel } from '../../wheelroom/wheels/types'
+import { elementPresets } from '../../themes/yosemite/element-presets'
+import { styledSystemThemeDark } from '../../themes/yosemite/styled-system-theme-dark'
+import { styledSystemConfig } from '../../themes/yosemite/styled-system/config'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  // Four things happen here:
-  // - Use default topic styling
-  // - Merge in styling for this variant
-  // - Create a deep copy of the styling
-  const treeStyle = deepMerge(
-    { topic: topicTreeStyle },
+  const style = deepMerge(
+    { topic: topicPreset },
     { ...pageSectionBlockTreeStyle }
   )
+  const wheel: Wheel = {
+    style,
+    elementPresets,
+    styledSystemTheme: styledSystemThemeDark,
+    styledSystemConfig,
+  }
 
   if (pageSectionInfo.hasTopic) {
     return (
-      <PageSectionTopic
+      <PageSectionUnicorn
         topicProps={{
-          pageSectionActions: props.actions,
           fullTopicAsLink: false,
+          pageSectionActions: props.actions,
           pageSectionInfo,
+          wheel,
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        treeStyle={treeStyle}
+        wheel={wheel}
       />
     )
   }

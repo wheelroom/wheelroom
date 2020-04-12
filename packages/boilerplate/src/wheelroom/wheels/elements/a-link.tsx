@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { LinkRelationshipAttribute, NcssProps } from './types'
+import { LinkRelationshipAttribute } from './types'
 import { aLinkPreset } from './a-link-preset'
-import { aLinkStyle } from './a-link-theme'
+import { NcssProps, Wheel } from '../types'
+import { styledSystem } from '@wheelroom/styled-system'
 
 export interface ALinkProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** React children */
   children?: any
   /** Nested emotion css styling */
@@ -32,7 +33,6 @@ export interface ALinkProps {
 }
 
 export const ALink = (props: ALinkProps) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   return (
     <a
       id={props.id}
@@ -43,15 +43,16 @@ export const ALink = (props: ALinkProps) => {
       aria-hidden={props.ariaHidden}
       download={props.download}
       rel={props.rel}
-      css={systemCss(
+      css={styledSystem(
+        props.wheel.styledSystemConfig,
+        props.wheel.styledSystemTheme,
         {
           ncss: {
+            ...props.wheel.elementPresets.aLink,
             ...aLinkPreset,
-            ...aLinkStyle,
             ...props.ncss,
           },
-        },
-        currentThemeId
+        }
       )}
       href={props.href}
     >

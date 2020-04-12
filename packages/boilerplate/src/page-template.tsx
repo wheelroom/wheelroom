@@ -13,7 +13,6 @@ import {
 import { reset } from './wheelroom/global/reset'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { getColorMap, ThemeId } from './wheelroom/styled-system/system-css'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -29,7 +28,6 @@ const PageTemplate = (props: any) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
   const activeThemeId = themeSwitcherStore?.state.activeThemeId as ThemeId
-  const colorMap: any = getColorMap(activeThemeId)
 
   pageDebug('PageTemplate', props)
   if (!page.sections) {
@@ -74,7 +72,8 @@ const PageTemplate = (props: any) => {
       <Global
         styles={{
           body: {
-            backgroundColor: colorMap.bg,
+            // TODO: Fix background color based on theme
+            backgroundColor: 'white',
           },
         }}
       />

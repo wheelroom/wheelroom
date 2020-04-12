@@ -10,32 +10,36 @@ import React, { Fragment } from 'react'
 import { ActionProps } from '../../../models/action'
 import { GLink } from '../elements/g-link'
 import { ALink } from '../elements/a-link'
-import { NcssProps } from '../elements/types'
+import { Wheel } from '../types'
 
-export interface ActionTreeProps extends ActionProps {
-  /** Local data */
+export interface ActionWheelProps extends ActionProps {
+  /** Styling wheel */
+  wheel: Wheel
   children?: any
-  treeStyle?: NcssProps
   key?: any
 }
 
-const ActionGlink = (props: ActionTreeProps) => {
+const ActionGlink = (props: ActionWheelProps) => {
   return (
-    <GLink to={props.page.path} ncss={props.treeStyle}>
+    <GLink
+      to={props.page.path}
+      ncss={props.wheel.style.ncss}
+      wheel={props.wheel}
+    >
       {props.children ? props.children : props.heading}
     </GLink>
   )
 }
 
-const ActionAlink = (props: ActionTreeProps) => {
+const ActionAlink = (props: ActionWheelProps) => {
   return (
-    <ALink href={props.url} ncss={props.treeStyle}>
+    <ALink href={props.url} ncss={props.wheel.style.ncss} wheel={props.wheel}>
       {props.children ? props.children : props.heading}
     </ALink>
   )
 }
 
-export const Action = (props: ActionTreeProps) => {
+export const Action = (props: ActionWheelProps) => {
   return (
     <Fragment>
       {props.page ? <ActionGlink {...props} /> : <ActionAlink {...props} />}

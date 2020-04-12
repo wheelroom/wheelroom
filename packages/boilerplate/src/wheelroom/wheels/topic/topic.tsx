@@ -8,9 +8,11 @@ import { TopicProps } from '../../../models/topic/topic'
 import { ParserFunction } from '../../parsers/types'
 import { ActionProps } from '../../../models/action/action'
 import { Action } from '../action/action'
-import { TopicPreset } from './topic-preset'
+import { Wheel } from '../types'
 
-export interface TopicTreeProps {
+export interface TopicWheelProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** The topic to render */
   topic?: TopicProps
   /** Options that change topic display behaviour */
@@ -31,26 +33,22 @@ export interface TopicTreeProps {
   fullTopicAsLink?: boolean
   /** Reverse topicMedia and topicContent */
   forceReverse?: boolean
-
-  treeStyle?: TopicPreset
 }
 
-export const Topic = (props: TopicTreeProps) => {
-  //console.log('topicTree', props.treeStyle)
+export const Topic = (props: TopicWheelProps) => {
   if (!props.topic) {
     return null
   }
-  const treeStyle = props.treeStyle || {}
   const topicInfo = getTopicInfo(props.topic)
   const topicOptions = props.pageSectionInfo.topicOptions
   const fullTopicAsLink =
     !topicOptions.hideAction && topicInfo.hasAction && props.fullTopicAsLink
   return fullTopicAsLink ? (
-    <Action {...props.topic.actions[0]} treeStyle={treeStyle.ncss}>
+    <Action {...props.topic.actions[0]} wheel={props.wheel}>
       <TopicBody {...props} />
     </Action>
   ) : (
-    <Box is="div" ncss={treeStyle.ncss}>
+    <Box is="div" ncss={props.wheel.style.ncss} wheel={props.wheel}>
       <TopicBody {...props} />
     </Box>
   )

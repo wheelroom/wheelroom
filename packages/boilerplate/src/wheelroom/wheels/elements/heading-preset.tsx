@@ -29,7 +29,7 @@ export const heading6Preset = {
   ...headingPreset,
 }
 
-export const headingPresetMap = {
+export const headingPresets = {
   h1: heading1Preset,
   h2: heading2Preset,
   h3: heading3Preset,

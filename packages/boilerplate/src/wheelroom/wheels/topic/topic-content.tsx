@@ -8,9 +8,11 @@ import { TopicContentActions } from './topic-content-actions'
 import { BlockLevelElementName } from '../elements/types'
 import { ActionProps } from '../../../models/action/action'
 import { ParserFunction } from '../../parsers/types'
-import { TopicContentTreeStyle } from './topic-content-preset'
+import { Wheel } from '../types'
 
 export interface TopicContentProps {
+  /** Styling wheel */
+  wheel: Wheel
   topic: TopicProps
   /** Topic info object */
   topicInfo: TopicInfo
@@ -32,8 +34,6 @@ export interface TopicContentProps {
   pageSectionActions?: ActionProps[]
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
-
-  treeStyle?: TopicContentTreeStyle
 }
 
 export const TopicContent = (props: TopicContentProps) => {
@@ -41,17 +41,20 @@ export const TopicContent = (props: TopicContentProps) => {
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
   const showAction = topicInfo.hasAction && !topicOptions.hideAction
-  const treeStyle = props.treeStyle || {}
-  const ncssStyle = (treeStyle && treeStyle.ncss) || {}
-  ncssStyle.order = props.reverse ? -1 : null
 
   // console.log('ncssStyle', ncssStyle)
 
   return (
-    <Box ncss={ncssStyle}>
+    <Box
+      ncss={{
+        ...props.wheel.style.ncss,
+        order: props.reverse ? 0 : null,
+      }}
+      wheel={props.wheel}
+    >
       <TopicContentText
         pageSectionInfo={pageSectionInfo}
-        treeStyle={treeStyle.text}
+        wheel={{ ...props.wheel, style: props.wheel.style.text }}
         topic={props.topic}
         topicInfo={topicInfo}
         useAbstractElement={props.useAbstractElement}
@@ -64,7 +67,7 @@ export const TopicContent = (props: TopicContentProps) => {
           fullTopicAsLink={props.fullTopicAsLink}
           pageSectionActions={props.pageSectionActions}
           pageSectionInfo={pageSectionInfo}
-          treeStyle={treeStyle.actions}
+          wheel={{ ...props.wheel, style: props.wheel.style.actions }}
           topic={props.topic}
           topicInfo={topicInfo}
         />

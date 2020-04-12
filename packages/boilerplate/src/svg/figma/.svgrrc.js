@@ -5,6 +5,8 @@ module.exports = {
   svgProps: {
     css: '{css}',
     id: '{componentId}',
+    stroke: 'currentColor',
+    strokeWidth: '{strokeWidth}',
     width: '100%',
   },
   template(
@@ -15,11 +17,11 @@ module.exports = {
     const typeScriptTpl = template.smart({ plugins: ['typescript'] })
     return typeScriptTpl.ast`
     import React, { SVGProps } from 'react'
-    import { systemCss } from '../../styled-system/system-css'
-    import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-
+    import { Wheel } from '../../wheels/types'
+    import { styledSystem } from '@wheelroom/styled-system'
     export interface IconProps extends SVGProps<SVGSVGElement> {
       ncss: any
+      wheel: Wheel
     }
     
     const componentId = '${svgrCliUtil.transformFilename(
@@ -27,9 +29,14 @@ module.exports = {
       'kebab'
     )}';
     export const ${componentName} = (props: IconProps) => {
-      const currentThemeId: any = useGetCurrentThemeId()
-      const css = systemCss({ ncss: props.ncss }, currentThemeId)
-        
+      const strokeWidth = props.strokeWidth || 2
+      const css = styledSystem(
+        props.wheel.styledSystemConfig,
+        props.wheel.styledSystemTheme,
+        {
+          ncss: props.ncss,
+        }
+      )
       return ${jsx};
     }
   `

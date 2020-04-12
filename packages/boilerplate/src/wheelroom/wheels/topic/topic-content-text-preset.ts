@@ -1,4 +1,4 @@
-import { NcssProps } from '../elements/types'
+import { NcssProps } from '../types'
 
 export interface TopicContentTextTreeStyle {
   /** Styling for this node */

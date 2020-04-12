@@ -2,14 +2,12 @@ import React, { Fragment } from 'react'
 import { getTopicInfo } from '../../lib/get-topic-info'
 import { TopicMedia } from './topic-media'
 import { TopicContent } from './topic-content'
-import { TopicTreeProps } from './topic'
+import { TopicWheelProps } from './topic'
 
-export const TopicBody = (props: TopicTreeProps) => {
+export const TopicBody = (props: TopicWheelProps) => {
   const topicInfo = getTopicInfo(props.topic!)
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
-  const treeStyle = props.treeStyle || {}
-  console.log('treeStyle.media', treeStyle.media)
 
   const showMedia =
     (topicInfo.hasImage && !topicOptions.hideMedia) ||
@@ -23,7 +21,7 @@ export const TopicBody = (props: TopicTreeProps) => {
         <TopicMedia
           pageSectionInfo={pageSectionInfo}
           reverse={reverse}
-          treeStyle={treeStyle.media}
+          wheel={{ ...props.wheel, style: props.wheel.style.media }}
           topic={props.topic!}
           topicInfo={topicInfo}
         />
@@ -33,7 +31,7 @@ export const TopicBody = (props: TopicTreeProps) => {
         pageSectionActions={props.pageSectionActions}
         pageSectionInfo={pageSectionInfo}
         reverse={reverse}
-        treeStyle={treeStyle.content}
+        wheel={{ ...props.wheel, style: props.wheel.style.content }}
         topic={props.topic!}
         topicInfo={topicInfo}
         useAbstractElement={props.useAbstractElement}

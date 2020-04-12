@@ -1,16 +1,16 @@
 /** @jsx jsx */
 import React from 'react'
 import { jsx } from '@emotion/core'
-import { systemCss, ThemeId } from '../../styled-system/system-css'
 import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
-import { useGetCurrentThemeId } from '@wheelroom/admin-theme-switcher'
-import { NcssProps } from './types'
+import { NcssProps, Wheel } from '../types'
 import { buttonPreset } from './button-preset'
-import { buttonStyle } from './button-theme'
+import { styledSystem } from '@wheelroom/styled-system'
 
 export interface ButtonProps {
+  /** Styling wheel */
+  wheel: Wheel
   /** React children */
   children?: any
   /** Nested emotion css styling */
@@ -44,7 +44,6 @@ export interface ButtonProps {
 }
 
 export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
-  const currentThemeId = useGetCurrentThemeId() as ThemeId
   const { adminCoreState } = useContext(AdminCoreContext)
   return (
     <button
@@ -58,15 +57,16 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
       aria-expanded={props.ariaExpanded}
       aria-controls={props.ariaControls}
       aria-pressed={props.ariaPressed}
-      css={systemCss(
+      css={styledSystem(
+        props.wheel.styledSystemConfig,
+        props.wheel.styledSystemTheme,
         {
           ncss: {
+            ...props.wheel.elementPresets.button,
             ...buttonPreset,
-            ...buttonStyle,
             ...props.ncss,
           },
-        },
-        currentThemeId
+        }
       )}
       onClick={props.onClick}
       value={props.value + getPreviewQueryString(adminCoreState)}

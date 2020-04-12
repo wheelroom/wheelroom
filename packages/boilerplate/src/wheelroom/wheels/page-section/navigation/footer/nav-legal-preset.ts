@@ -1,5 +1,5 @@
 import { commonNavigationStyle } from '../common/navigation-common-preset'
-import { NcssProps } from '../../../elements/types'
+import { NcssProps } from '../../../types'
 
 export interface NavLegalTreeStyle {
   container: NcssProps
