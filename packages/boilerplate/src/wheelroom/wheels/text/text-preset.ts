@@ -1,9 +1,10 @@
 import { paragraphPreset } from '../elements/paragraph-preset'
 import { aLinkPreset } from '../elements/a-link-preset'
-import { videoPreset } from '../elements/video-preset'
+import { videoDescriptionPreset, videoPreset } from '../elements/video-preset'
 import { NcssProps } from '../elements/types'
 import { ImageTreeStyle } from '../elements/image'
 import { VideoTreeStyle } from '../elements/video'
+import { imageFigcaptionPreset, imageImgPreset } from '../elements/image-preset'
 
 export interface TextPreset {
   wrapper?: NcssProps
@@ -31,61 +32,43 @@ export interface TextPreset {
 
 export const textTreeStyle: TextPreset = {
   blocksHeading1: {
-    fontSize: [8, 9, 10, 11],
+    pt: 3,
   },
   blocksHeading2: {
-    fontSize: [7, 8, 9, 10],
-    mt: 3,
+    pt: 3,
   },
   blocksHeading3: {
-    fontSize: [5, 6, 7, 8],
-    mt: 3,
+    pt: 3,
   },
   blocksHeading4: {
-    fontSize: [3, 4, 5, 6],
-    mt: 3,
+    pt: 3,
   },
   blocksHeading5: {
-    fontSize: [3, 4, 5, 6],
-    mt: 3,
+    pt: 3,
   },
   blocksHeading6: {
-    fontSize: [3, 4, 5, 6],
-    mt: 3,
+    pt: 3,
   },
   blocksHr: {
-    borderColor: 'text',
+    borderColor: 'silver',
     borderTop: '1px solid transparent',
     my: 3,
     overflow: 'hidden',
     w: 1,
   },
-  blocksLiList: paragraphPreset,
+  blocksUlList: paragraphPreset,
   blocksOlList: paragraphPreset,
+  blocksLiList: { ...paragraphPreset, p: { mb: 0 } },
   blocksQuote: {
     ':before': {
-      color: 'metal',
+      color: 'silver',
       content: '"”"',
-      fontFamily: 'text',
+      fontFamily: 'systemFont',
       fontSize: 8,
     },
     textAlign: 'center',
   },
-  blocksUlList: paragraphPreset,
   entryHyperlink: { ...aLinkPreset, wordBreak: 'break-all' },
-  image: {
-    figcaption: {
-      ncss: {
-        mb: [4, 5],
-        mt: 0,
-      },
-    },
-    img: {
-      ncss: {
-        my: [4, 5],
-      },
-    },
-  },
   inlinesHyperlink: { ...aLinkPreset, wordBreak: 'break-all' },
   marksBold: {
     fontWeight: 7,
@@ -93,7 +76,7 @@ export const textTreeStyle: TextPreset = {
   marksCode: {
     code: {},
     pre: {
-      bg: 'skyblue',
+      bg: 'rgba(35, 122, 252, .1)',
       fontSize: 3,
       px: 3,
       py: 2,
@@ -101,11 +84,31 @@ export const textTreeStyle: TextPreset = {
       wordWrap: 'break-word',
     },
   },
+  image: {
+    img: {
+      ncss: {
+        ...imageImgPreset,
+        my: [4, 5],
+      },
+    },
+    figcaption: {
+      ncss: {
+        ...imageFigcaptionPreset,
+        mb: [4, 5],
+      },
+    },
+  },
   video: {
     video: {
       ncss: {
         ...videoPreset,
         my: [4, 5],
+      },
+    },
+    description: {
+      ncss: {
+        ...videoDescriptionPreset,
+        mb: [4, 5],
       },
     },
   },

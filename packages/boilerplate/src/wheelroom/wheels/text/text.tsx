@@ -29,6 +29,7 @@ import { TextPreset } from './text-preset'
 
 export interface TextTreeProps {
   /** Locale needed for rendering rich text */
+  // TODO: @Thijs – Create presets for <hr> <blockquote> <code> in the folder elements
   locale: string
   treeStyle?: TextPreset
   text: TextProps
@@ -134,6 +135,7 @@ export const Text = (props: TextTreeProps) => {
       [BLOCKS.HR]: () => <Any is="hr" ncss={treeStyle.blocksHr} />,
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
+        console.log(fields)
         if (!fields) {
           console.log(
             'Warning: embedded asset fields not found, try npx gatsby clean'
