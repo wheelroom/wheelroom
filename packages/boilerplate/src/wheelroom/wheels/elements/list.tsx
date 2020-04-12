@@ -20,7 +20,7 @@ export const List = (props: ListProps) => {
   const label = `List-${props.is}`
   const css = styledSystem(
     props.wheel.styledSystemConfig,
-    props.wheel.styledSystemTheme,
+    props.wheel.theme,
     {
       ncss: {
         label,

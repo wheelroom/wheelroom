@@ -15,8 +15,8 @@ import { PageSectionUnicorn } from '../../wheelroom/wheels/page-section/unicorn/
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { topicPreset } from '../../wheelroom/wheels/topic/topic-preset'
 import { elementPresets } from '../../themes/yosemite/element-presets'
-import { styledSystemThemeDark } from '../../themes/yosemite/styled-system-theme-dark'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system/config'
+import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
+import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
 
 export const PageSectionHeroVar = (props: PageSectionProps) => {
@@ -29,7 +29,7 @@ export const PageSectionHeroVar = (props: PageSectionProps) => {
   const wheel: Wheel = {
     style,
     elementPresets,
-    styledSystemTheme: styledSystemThemeDark,
+    theme: yosemiteDark,
     styledSystemConfig,
   }
 

@@ -57,7 +57,7 @@ export const Paragraph = (props: ParagraphProps) => {
   const attrs: any = getAttrs(props)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
-    props.wheel.styledSystemTheme,
+    props.wheel.theme,
     {
       ncss: {
         label,

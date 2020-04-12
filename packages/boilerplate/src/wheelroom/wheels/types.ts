@@ -5,6 +5,6 @@ export type NcssProps = any
 export interface Wheel {
   style: any
   elementPresets: any
-  styledSystemTheme: StyledSystemTheme
+  theme: StyledSystemTheme
   styledSystemConfig: StyledSystemConfig
 }

@@ -65,7 +65,7 @@ export const Image = (props: ImageProps) => {
     <picture
       css={styledSystem(
         props.wheel.styledSystemConfig,
-        props.wheel.styledSystemTheme,
+        props.wheel.theme,
         {
           ncss: {
             ...props.wheel.elementPresets.image.picture,
@@ -79,7 +79,7 @@ export const Image = (props: ImageProps) => {
         {...imgElementAttrs}
         css={styledSystem(
           props.wheel.styledSystemConfig,
-          props.wheel.styledSystemTheme,
+          props.wheel.theme,
           {
             ncss: {
               ...props.wheel.elementPresets.image.img,
@@ -93,7 +93,7 @@ export const Image = (props: ImageProps) => {
         <figcaption
           css={styledSystem(
             props.wheel.styledSystemConfig,
-            props.wheel.styledSystemTheme,
+            props.wheel.theme,
             {
               ncss: {
                 ...props.wheel.elementPresets.image.figcaption,

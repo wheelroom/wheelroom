@@ -53,7 +53,7 @@ export const Any = (props: AnyProps) => {
   const attrs: any = getAttrs(props)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
-    props.wheel.styledSystemTheme,
+    props.wheel.theme,
     {
       ncss: {
         label,

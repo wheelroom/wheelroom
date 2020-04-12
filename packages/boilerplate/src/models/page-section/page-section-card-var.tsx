@@ -18,9 +18,9 @@ import { PageSectionUnicorn } from '../../wheelroom/wheels/page-section/unicorn/
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { topicPreset } from '../../wheelroom/wheels/topic/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
-import { styledSystemThemeDark } from '../../themes/yosemite/styled-system-theme-dark'
+import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { elementPresets } from '../../themes/yosemite/element-presets'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system/config'
+import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -36,13 +36,13 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   const wheel: Wheel = {
     style,
     elementPresets,
-    styledSystemTheme: styledSystemThemeDark,
+    theme: yosemiteDark,
     styledSystemConfig,
   }
   const wheelShadow: Wheel = {
     style: styleShadow,
     elementPresets,
-    styledSystemTheme: styledSystemThemeDark,
+    theme: yosemiteDark,
     styledSystemConfig,
   }
 

@@ -10,7 +10,7 @@ export const SvgCornerDownLeft = (props: IconProps) => {
   const strokeWidth = props.strokeWidth || 2
   const css = styledSystem(
     props.wheel.styledSystemConfig,
-    props.wheel.styledSystemTheme,
+    props.wheel.theme,
     {
       ncss: props.ncss,
     }

@@ -32,7 +32,7 @@ export const Heading = (props: HeadingProps) => {
 
   const css = styledSystem(
     props.wheel.styledSystemConfig,
-    props.wheel.styledSystemTheme,
+    props.wheel.theme,
     {
       ncss: {
         label,
