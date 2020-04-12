@@ -12,10 +12,10 @@ import { NavLogo } from './nav-logo'
 import { NavActions } from './nav-actions'
 import { NavDialog } from './nav-dialog'
 import { Wheel } from '../../types'
-import { PageSectionNavigationHeaderPreset } from './presets/page-section-navigation-header-preset'
+import { NavHeaderPreset } from './presets/nav-header-preset'
 
 interface PageSectionNavigationHeaderWheel extends Wheel {
-  style: PageSectionNavigationHeaderPreset
+  style: NavHeaderPreset
 }
 
 export const PageSectionNavigationHeader = (props: {

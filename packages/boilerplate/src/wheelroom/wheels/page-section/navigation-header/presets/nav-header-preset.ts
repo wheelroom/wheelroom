@@ -4,7 +4,7 @@ import { NavDialogPreset, navDialogPreset } from './nav-dialog-preset'
 import { NcssProps } from '../../../types'
 import { NavListPreset, navListPreset } from './nav-list-preset'
 
-export interface PageSectionNavigationHeaderPreset {
+export interface NavHeaderPreset {
   skipToContent: { ncss: NcssProps }
   wrapper: { ncss: NcssProps }
   container: { ncss: NcssProps }
@@ -21,7 +21,7 @@ export interface PageSectionNavigationHeaderPreset {
   }
 }
 
-export const navigationHeaderPreset: PageSectionNavigationHeaderPreset = {
+export const navHeaderPreset: NavHeaderPreset = {
   skipToContent: {
     ncss: {
       position: 'absolute',

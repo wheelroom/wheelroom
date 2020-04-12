@@ -61,7 +61,7 @@ export const NavDialog = (props: {
           wheel={props.wheel}
         >
           <Box ariaHidden={true} wheel={props.wheel}>
-            <XIcon />
+            <XIcon wheel={props.wheel} />
           </Box>
         </Button>
         <NavList

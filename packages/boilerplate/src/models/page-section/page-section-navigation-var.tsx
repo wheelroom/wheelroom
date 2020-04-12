@@ -13,43 +13,22 @@ import { Wheel } from '../../wheelroom/wheels/types'
 import { elementPresets } from '../../themes/yosemite/element-presets'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
+import { PageSectionNavigationHeader } from '../../wheelroom/wheels/page-section/navigation-header/nav-header'
+import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { navHeaderPreset } from '../../wheelroom/wheels/page-section/navigation-header/presets/nav-header-preset'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
-  // const info = getPageSectionInfo(props)
-
-  // const treeHeaderStyle = deepMerge(
-  //   {} as PageSectionNavigationHeaderPreset,
-  //   navigationHeaderPreset
-  // )
-  // const treeFooterStyle = deepMerge(
-  //   {} as PageSectionNavigationFooterPreset,
-  //   navigationFooterPreset
-  // )
-
-  // if (info.hasNavigation && info.index === 0) {
-  //   return (
-  //     <PageSectionNavigationHeader
-  //       pageSection={props}
-  //       treeStyle={treeHeaderStyle}
-  //     />
-  //   )
-  // }
-
-  // if (info.hasNavigation && info.index === info.sectionCount - 1) {
-  //   return (
-  //     <PageSectionNavigationFooter
-  //       pageSection={props}
-  //       treeStyle={treeFooterStyle}
-  //     />
-  //   )
-  // }
+  const pageSectionInfo = getPageSectionInfo(props)
 
   const wheel: Wheel = {
-    style: {},
+    style: navHeaderPreset,
     elementPresets,
     theme: yosemiteDark,
     styledSystemConfig,
   }
 
+  if (pageSectionInfo.hasNavigation && pageSectionInfo.index === 0) {
+    return <PageSectionNavigationHeader pageSection={props} wheel={wheel} />
+  }
   return <NotImplemented pageSection={props} wheel={wheel} />
 }
