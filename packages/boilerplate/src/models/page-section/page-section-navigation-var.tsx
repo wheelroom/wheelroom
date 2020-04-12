@@ -19,11 +19,11 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
 
   // const treeHeaderStyle = deepMerge(
   //   {} as PageSectionNavigationHeaderPreset,
-  //   navigationHeaderTreeStyle
+  //   navigationHeaderPreset
   // )
   // const treeFooterStyle = deepMerge(
   //   {} as PageSectionNavigationFooterPreset,
-  //   navigationFooterTreeStyle
+  //   navigationFooterPreset
   // )
 
   // if (info.hasNavigation && info.index === 0) {

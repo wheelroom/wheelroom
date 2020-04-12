@@ -1,5 +1,5 @@
 import { NcssProps } from '../../types'
-import { TopicPreset } from '../../topic/topic-preset'
+import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionBlockPreset {
   container?: NcssProps

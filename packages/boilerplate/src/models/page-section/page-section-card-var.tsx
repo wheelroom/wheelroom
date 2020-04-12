@@ -16,7 +16,7 @@ import {
 } from '../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/page-section/unicorn/page-section-unicorn'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { topicPreset } from '../../wheelroom/wheels/topic/topic-preset'
+import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { elementPresets } from '../../themes/yosemite/element-presets'

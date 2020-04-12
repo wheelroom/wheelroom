@@ -1,4 +1,4 @@
-import { TopicPreset } from '../../topic/topic-preset'
+import { TopicPreset } from '../../topic/presets/topic-preset'
 import { NcssProps } from '../../types'
 
 export interface PageSectionVideoPreset {

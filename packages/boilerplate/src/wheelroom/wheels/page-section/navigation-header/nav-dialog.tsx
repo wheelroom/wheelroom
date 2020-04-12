@@ -1,22 +1,27 @@
 import React from 'react'
-import { NavList } from '../nav-list'
-import { Box, Flex } from '../../../elements/grid'
-import { Button } from '../../../elements/button'
-import { ActionProps } from '../../../../../models/action'
-import { IconMap } from '../../../../svg/feather/iconMap'
-import { PageSectionInfo } from '../../../../lib/get-page-section-info'
-import { PageProps } from '../../../../../models/page/page'
-import { Action } from '../../../action/action'
-import { NavDialogTreeStyle } from '../nav-dialog-preset'
+import { NavList } from './nav-list'
+import { Box, Flex } from '../../elements/grid'
+import { Button } from '../../elements/button'
+import { ActionProps } from '../../../../models/action'
+import { IconMap } from '../../../svg/feather/iconMap'
+import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { PageProps } from '../../../../models/page/page'
+import { Action } from '../../action/action'
+import { Wheel } from '../../types'
+import { NavDialogPreset } from './presets/nav-dialog-preset'
+
+interface NavDialogWheel extends Wheel {
+  style: NavDialogPreset
+}
 
 export const NavDialog = (props: {
   action: ActionProps
   activeThemeId?: string
-  closeMenu: () => voidw
+  closeMenu: () => void
   menuVisible: boolean
   pages: PageProps[]
   pageSectionInfo: PageSectionInfo
-  treeStyle: NavDialogTreeStyle
+  wheel: NavDialogWheel
   toggleTheme: () => void
 }) => {
   const treeStyle = props.treeStyle || {}

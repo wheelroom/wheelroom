@@ -4,14 +4,19 @@ import { ActionProps } from '../../../../models/action'
 import { Button } from '../../elements/button'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Action } from '../../action/action'
-import { NavActionsTreeStyle } from './nav-actions-preset'
+import { NavActionsPreset } from './presets/nav-actions-preset'
+import { Wheel } from '../../types'
+
+interface NavActionsWheel extends Wheel {
+  style: NavActionsPreset
+}
 
 export const NavActions = (props: {
   action: ActionProps
   activeThemeId?: string
   pageSectionInfo: PageSectionInfo
-  treeStyle: NavActionsTreeStyle
   toggleTheme: () => void
+  wheel: NavActionsWheel
 }) => {
   if (!props.pageSectionInfo.hasAction) {
     return null

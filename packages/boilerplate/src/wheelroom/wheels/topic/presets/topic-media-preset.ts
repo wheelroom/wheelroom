@@ -1,6 +1,6 @@
-import { NcssProps } from '../types'
-import { ImagePreset } from '../elements/image'
-import { VideoPreset } from '../elements/video'
+import { NcssProps } from '../../types'
+import { ImagePreset } from '../../elements/image'
+import { VideoPreset } from '../../elements/video'
 
 export interface TopicMediaTreeStyle {
   /** Styling for this node */

@@ -1,12 +1,17 @@
 import React, { Fragment } from 'react'
 import { Flex } from '../../elements/grid'
 import { GLink } from '../../elements/g-link'
-import { NavLogoTreeStyle } from './nav-logo-preset'
+import { NavLogoPreset } from './presets/nav-logo-preset'
+import { Wheel } from '../../types'
+
+interface NavLogoWheel extends Wheel {
+  style: NavLogoPreset
+}
 
 export const NavLogo = (props: {
-  treeStyle: NavLogoTreeStyle
   logo: string | JSX.Element
   version?: string
+  wheel: NavLogoWheel
 }) => {
   const treeStyle = props.treeStyle || {}
   // When a React element is passed, use that

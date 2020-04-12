@@ -3,11 +3,11 @@ import { TopicProps } from '../../../../models/topic'
 import { FeatherIcon } from '../../elements/icon'
 import React from 'react'
 import { Action } from '../../action/action'
-import { NavSocialLinksTreeStyle } from './nav-social-links-preset'
+import { NavSocialLinksPreset } from './nav-social-links-preset'
 
 export const NavSocialLinks = (props: {
   topics: TopicProps[]
-  treeStyle: NavSocialLinksTreeStyle
+  treeStyle: NavSocialLinksPreset
 }) => {
   const treeStyle = props.treeStyle || {}
   return (

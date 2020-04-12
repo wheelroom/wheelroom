@@ -2,10 +2,15 @@ import React, { Fragment } from 'react'
 import { GLink } from '../../elements/g-link'
 import { Any } from '../../elements/any'
 import { PageProps } from '../../../../models/page'
-import { NcssProps } from '../../types'
+import { Wheel } from '../../types'
+import { NavListPreset } from '../navigation-footer/presets/nav-list-preset'
+
+interface NavLinkWheel extends Wheel {
+  style: NavListPreset
+}
 
 interface NavLinkProps extends PageProps {
-  treeStyle: NcssProps
+  wheel: NavLinkWheel
 }
 
 const NavLink = (props: NavLinkProps) => {
@@ -17,14 +22,10 @@ const NavLink = (props: NavLinkProps) => {
   )
 }
 
-export interface NavLinksTreeStyle {
-  itemStyle?: NcssProps
-  linkStyle?: NcssProps
-}
-
 export interface NavLinksProps {
   pages: PageProps[]
   treeStyle: NavLinksTreeStyle
+  wheel: Wheel
 }
 
 export const NavLinks = (props: NavLinksProps) => {

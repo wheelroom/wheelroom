@@ -11,12 +11,17 @@ import { NavList } from './nav-list'
 import { NavLogo } from './nav-logo'
 import { NavActions } from './nav-actions'
 import { NavDialog } from './nav-dialog'
-import { PageSectionNavigationHeaderPreset } from './page-section-navigation-header-preset'
+import { Wheel } from '../../types'
+import { PageSectionNavigationHeaderPreset } from './presets/page-section-navigation-header-preset'
+
+interface PageSectionNavigationHeaderWheel extends Wheel {
+  style: PageSectionNavigationHeaderPreset
+}
 
 export const PageSectionNavigationHeader = (props: {
   pageSection: PageSectionProps
-  treeStyle: PageSectionNavigationHeaderPreset
   useLogoElement?: JSX.Element
+  wheel: PageSectionNavigationHeaderWheel
 }) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)
@@ -34,7 +39,6 @@ export const PageSectionNavigationHeader = (props: {
   }
   const globals = props.pageSection.globals
   const siteMetadata = props.pageSection.siteMetadata
-  const treeStyle = props.treeStyle || {}
   const navSegment = props.pageSection.navigation
     .segments[0] as NavigationSegmentProps
 
@@ -54,30 +58,45 @@ export const PageSectionNavigationHeader = (props: {
 
   return (
     <Fragment>
-      <ALink href="#content" ncss={treeStyle.skipToContent}>
+      <ALink
+        href="#content"
+        ncss={props.wheel.style.skipToContent}
+        wheel={props.wheel}
+      >
         {`Skip to ${globals.siteHeading} Content`}
       </ALink>
-      <Box is="div" ncss={treeStyle.wrapper}>
-        <Container ncss={treeStyle.container}>
+      <Box is="div" ncss={props.wheel.style.wrapper.ncss} wheel={props.wheel}>
+        <Container ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
           <NavLogo
             logo={props.useLogoElement || globals.siteHeading}
             version={siteMetadata.legal.version}
-            treeStyle={treeStyle.menu.navLogo}
+            wheel={{ ...props.wheel, style: props.wheel.style.menu.navLogo }}
           />
-          <Flex is={'nav'} ncss={treeStyle.menu.nav}>
+          <Flex
+            is={'nav'}
+            ncss={props.wheel.style.menu.nav.ncss}
+            wheel={props.wheel}
+          >
             <NavList
-              treeStyle={treeStyle.menu.navList}
+              wheel={{ ...props.wheel, style: props.wheel.style.menu.navList }}
               pages={navSegment.pages}
             />
             <NavActions
               action={action}
               activeThemeId={activeThemeId}
               pageSectionInfo={pageSectionInfo}
-              treeStyle={treeStyle.menu.navActions}
               toggleTheme={toggleTheme}
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.menu.navActions,
+              }}
             />
           </Flex>
-          <Flex is="div" ncss={treeStyle.menu.modalDialog.container}>
+          <Flex
+            is="div"
+            ncss={props.wheel.style.menu.modalDialog.container.ncss}
+            wheel={props.wheel}
+          >
             <Button
               id="modal-dialog"
               ariaExpanded={menuVisible}
@@ -86,9 +105,10 @@ export const PageSectionNavigationHeader = (props: {
               ariaLabel="Open header navigation"
               value=""
               role="button"
-              ncss={treeStyle.menu.modalDialog.openMenuButton}
+              ncss={props.wheel.style.menu.modalDialog.openMenuButton.ncss}
               ref={buttonRef}
               onClick={() => openMenu()}
+              wheel={props.wheel}
             >
               Menu
             </Button>
@@ -99,7 +119,10 @@ export const PageSectionNavigationHeader = (props: {
               menuVisible={menuVisible}
               pages={navSegment.pages}
               pageSectionInfo={pageSectionInfo}
-              treeStyle={treeStyle.menu.modalDialog.navDialog}
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.menu.modalDialog.navDialog,
+              }}
               toggleTheme={toggleTheme}
             />
           </Flex>
