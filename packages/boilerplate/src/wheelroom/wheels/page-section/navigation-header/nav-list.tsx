@@ -11,7 +11,7 @@ interface NavListWheel extends Wheel {
 
 export const NavList = (props: { pages: PageProps[]; wheel: NavListWheel }) => {
   return (
-    <List is="ul" ncss={props.wheel.style.list} wheel={props.wheel}>
+    <List is="ul" ncss={props.wheel.style.list.ncss} wheel={props.wheel}>
       <NavLinks
         pages={props.pages}
         wheel={{ ...props.wheel, style: props.wheel.style }}

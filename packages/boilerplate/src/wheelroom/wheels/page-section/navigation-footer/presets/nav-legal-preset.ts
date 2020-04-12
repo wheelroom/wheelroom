@@ -1,14 +1,14 @@
 import { NcssProps } from '../../../types'
 import { navListPreset } from './nav-list-preset'
 
-export interface NavLegalTreeStyle {
+export interface NavLegalPreset {
   container: { ncss: NcssProps }
   innerContainer: { ncss: NcssProps }
   text: { ncss: NcssProps }
   link: { ncss: NcssProps }
 }
 
-export const navLegalPreset: NavLegalTreeStyle = {
+export const navLegalPreset: NavLegalPreset = {
   container: {
     ncss: {
       borderTop: '1px solid transparent',

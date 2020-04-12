@@ -6,11 +6,16 @@ import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { NavSocialLinks } from './nav-social-links'
 import { NavList } from './nav-list'
 import { NavLegal } from './nav-legal'
-import { PageSectionNavigationFooterPreset } from './page-section-navigation-footer-preset'
+import { NavFooterPreset } from './presets/nav-footer-preset'
+import { Wheel } from '../../types'
+
+interface PageSectionNavigationFooterWheel extends Wheel {
+  style: NavFooterPreset
+}
 
 export const PageSectionNavigationFooter = (props: {
   pageSection: PageSectionProps
-  treeStyle: PageSectionNavigationFooterPreset
+  wheel: PageSectionNavigationFooterWheel
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasNavigation) {
@@ -20,29 +25,38 @@ export const PageSectionNavigationFooter = (props: {
   if (!pageSectionInfo.hasNavigation) {
     return null
   }
-  const treeStyle = props.treeStyle || {}
   const navSegment = props.pageSection.navigation
     .segments[0] as NavigationSegmentProps
   const siteMetadata = props.pageSection.siteMetadata
 
   return (
     <Fragment>
-      <Box is="div" ncss={treeStyle.wrapper}>
-        <Container ncss={treeStyle.container}>
-          <Flex is={'nav'} ncss={treeStyle.menus.nav}>
+      <Box is="div" ncss={props.wheel.style.wrapper.ncss} wheel={props.wheel}>
+        <Container ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
+          <Flex
+            is={'nav'}
+            ncss={props.wheel.style.menus.nav.ncss}
+            wheel={props.wheel}
+          >
             <NavList
-              treeStyle={treeStyle.menus.navList}
+              wheel={{ ...props.wheel, style: props.wheel.style.menus.navList }}
               pages={navSegment.pages}
             />
             {pageSectionInfo.hasTopic && (
               <NavSocialLinks
-                treeStyle={treeStyle.menus.navSocialLinks}
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.menus.navSocialLinks,
+                }}
                 topics={props.pageSection.topics}
               />
             )}
           </Flex>
         </Container>
-        <NavLegal siteMetadata={siteMetadata} treeStyle={treeStyle.navLegal} />
+        <NavLegal
+          siteMetadata={siteMetadata}
+          wheel={{ ...props.wheel, style: props.wheel.style.navLegal }}
+        />
       </Box>
     </Fragment>
   )

@@ -2,36 +2,43 @@ import React, { Fragment } from 'react'
 import { GLink } from '../../elements/g-link'
 import { Any } from '../../elements/any'
 import { PageProps } from '../../../../models/page'
-import { NcssProps } from '../../types'
+import { NavListPreset } from './presets/nav-list-preset'
+import { Wheel } from '../../types'
+
+interface NavLinksWheel extends Wheel {
+  style: NavListPreset
+}
 
 interface NavLinkProps extends PageProps {
-  treeStyle: NcssProps
+  wheel: NavLinksWheel
 }
 
 const NavLink = (props: NavLinkProps) => {
-  const treeStyle = props.treeStyle || {}
   return (
-    <GLink to={props.path} ncss={treeStyle}>
+    <GLink
+      to={props.path}
+      ncss={props.wheel.style.item.ncss}
+      wheel={props.wheel}
+    >
       {props.navigationHeading}
     </GLink>
   )
 }
 
-export interface NavLinksTreeStyle {
-  itemStyle?: NcssProps
-  linkStyle?: NcssProps
-}
-
 export interface NavLinksProps {
   pages: PageProps[]
-  treeStyle: NavLinksTreeStyle
+  wheel: NavLinksWheel
 }
 
 export const NavLinks = (props: NavLinksProps) => {
-  const itemStyle = props.treeStyle.itemStyle || {}
   const links = props.pages.map((page: PageProps) => (
-    <Any is={'li'} ncss={itemStyle} key={page.navigationHeading}>
-      <NavLink {...page} treeStyle={props.treeStyle.linkStyle} />
+    <Any
+      is={'li'}
+      ncss={props.wheel.style.item.ncss}
+      key={page.navigationHeading}
+      wheel={props.wheel}
+    >
+      <NavLink {...page} wheel={props.wheel} />
     </Any>
   ))
   return <Fragment>{links}</Fragment>

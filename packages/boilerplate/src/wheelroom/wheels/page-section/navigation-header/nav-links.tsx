@@ -5,12 +5,12 @@ import { PageProps } from '../../../../models/page'
 import { Wheel } from '../../types'
 import { NavListPreset } from '../navigation-footer/presets/nav-list-preset'
 
-interface NavLinkWheel extends Wheel {
+interface NavLinksWheel extends Wheel {
   style: NavListPreset
 }
 
 interface NavLinkProps extends PageProps {
-  wheel: NavLinkWheel
+  wheel: NavLinksWheel
 }
 
 const NavLink = (props: NavLinkProps) => {
@@ -27,7 +27,7 @@ const NavLink = (props: NavLinkProps) => {
 
 export interface NavLinksProps {
   pages: PageProps[]
-  wheel: NavLinkWheel
+  wheel: NavLinksWheel
 }
 
 export const NavLinks = (props: NavLinksProps) => {

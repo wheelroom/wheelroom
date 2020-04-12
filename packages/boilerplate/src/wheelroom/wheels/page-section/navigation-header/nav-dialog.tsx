@@ -70,7 +70,7 @@ export const NavDialog = (props: {
         />
         <Flex
           is="div"
-          ncss={props.wheel.style.actions.container}
+          ncss={props.wheel.style.actions.container.ncss}
           wheel={props.wheel}
         >
           {props.pageSectionInfo.hasAction && (
@@ -83,7 +83,7 @@ export const NavDialog = (props: {
             type="button"
             title={`Current theme is ` + props.activeThemeId}
             ariaLabel={`Current theme is ` + props.activeThemeId}
-            ncss={props.wheel.style.actions.themeButton}
+            ncss={props.wheel.style.actions.themeButton.ncss}
             value=""
             onClick={() => props.toggleTheme()}
             wheel={props.wheel}

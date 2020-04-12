@@ -2,11 +2,11 @@ import {
   NavSocialLinksPreset,
   navSocialLinksPreset,
 } from './nav-social-links-preset'
-import { NavLegalTreeStyle, navLegalPreset } from './nav-legal-preset'
+import { NavLegalPreset, navLegalPreset } from './nav-legal-preset'
 import { NcssProps } from '../../../types'
 import { NavListPreset, navListPreset } from './nav-list-preset'
 
-export interface PageSectionNavigationFooterPreset {
+export interface NavFooterPreset {
   wrapper: { ncss: NcssProps }
   container: { ncss: NcssProps }
   menus: {
@@ -14,10 +14,10 @@ export interface PageSectionNavigationFooterPreset {
     navList: NavListPreset
     navSocialLinks: NavSocialLinksPreset
   }
-  navLegal: NavLegalTreeStyle
+  navLegal: NavLegalPreset
 }
 
-export const navigationFooterPreset: PageSectionNavigationFooterPreset = {
+export const navFooterPreset: NavFooterPreset = {
   wrapper: {
     ncss: {
       bg: 'bg',

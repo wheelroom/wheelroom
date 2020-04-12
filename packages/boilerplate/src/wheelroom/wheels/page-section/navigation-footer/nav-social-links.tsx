@@ -3,19 +3,30 @@ import { TopicProps } from '../../../../models/topic'
 import { FeatherIcon } from '../../elements/icon'
 import React from 'react'
 import { Action } from '../../action/action'
-import { NavSocialLinksPreset } from './nav-social-links-preset'
+import { NavSocialLinksPreset } from './presets/nav-social-links-preset'
+import { Wheel } from '../../types'
+
+interface NavSocialLinksWheel extends Wheel {
+  style: NavSocialLinksPreset
+}
 
 export const NavSocialLinks = (props: {
   topics: TopicProps[]
-  treeStyle: NavSocialLinksPreset
+  wheel: NavSocialLinksWheel
 }) => {
-  const treeStyle = props.treeStyle || {}
   return (
-    <List is="ul" ncss={treeStyle.list}>
+    <List is="ul" ncss={props.wheel.style.list.ncss} wheel={props.wheel}>
       {props.topics.map((topic: TopicProps, index: number) => (
-        <List is={'li'} key={index}>
-          <Action {...topic.actions[0]} treeStyle={treeStyle.action}>
-            <FeatherIcon ncss={treeStyle.icon} icon={topic.icon as string} />
+        <List is={'li'} key={index} wheel={props.wheel}>
+          <Action
+            {...topic.actions[0]}
+            wheel={{ ...props.wheel, style: props.wheel.style.action }}
+          >
+            <FeatherIcon
+              ncss={props.wheel.style.icon.ncss}
+              icon={topic.icon as string}
+              wheel={props.wheel}
+            />
           </Action>
         </List>
       ))}
