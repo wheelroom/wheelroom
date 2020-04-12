@@ -13,8 +13,8 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import {
   pageSectionCardTreeStyle,
   pageSectionCardTreeShadowStyle,
-} from '../../wheelroom/wheels/page-section/topic/page-section-card-preset'
-import { PageSectionTopic } from '../../wheelroom/wheels/page-section/topic/page-section-topic'
+} from '../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
+import { PageSectionTopic } from '../../wheelroom/wheels/page-section/unicorn/page-section-topic'
 import { addCssLabels } from '../../wheelroom/lib/add-css-labels'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { topicTreeStyle } from '../../wheelroom/wheels/topic/topic-preset'
