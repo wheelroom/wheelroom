@@ -7,7 +7,7 @@ export interface PageSectionQuotePreset {
   wrapper: NcssProps
 }
 
-export const pageSectionQuoteTreeStyle: PageSectionQuotePreset = {
+export const pageSectionQuotePreset: PageSectionQuotePreset = {
   container: {
     ncss: {},
   },

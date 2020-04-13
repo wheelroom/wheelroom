@@ -7,7 +7,7 @@ export interface PageSectionFeaturedPreset {
   wrapper: NcssProps
 }
 
-export const pageSectionFeaturedTreeStyle: PageSectionFeaturedPreset = {
+export const pageSectionFeaturedPreset: PageSectionFeaturedPreset = {
   container: {
     ncss: {
       alignItems: ['center', 'baseline'],

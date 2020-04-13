@@ -7,7 +7,7 @@ export interface PageSectionHeadlinePreset {
   wrapper: NcssProps
 }
 
-export const pageSectionHeadlineTreeStyle: PageSectionHeadlinePreset = {
+export const pageSectionHeadlinePreset: PageSectionHeadlinePreset = {
   container: {
     ncss: {},
   },

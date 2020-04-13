@@ -7,7 +7,7 @@ export interface PageSectionHeroPreset {
   wrapper: NcssProps
 }
 
-export const pageSectionHeroTreeStyle: PageSectionHeroPreset = {
+export const pageSectionHeroPreset: PageSectionHeroPreset = {
   container: {
     ncss: {},
   },

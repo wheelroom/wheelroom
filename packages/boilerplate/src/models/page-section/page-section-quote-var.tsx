@@ -10,7 +10,7 @@ import React from 'react'
 import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { pageSectionQuoteTreeStyle } from '../../wheelroom/wheels/page-section/unicorn/page-section-quote-preset'
+import { pageSectionQuotePreset } from '../../wheelroom/wheels/page-section/unicorn/page-section-quote-preset'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/page-section/unicorn/page-section-unicorn'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
@@ -22,10 +22,7 @@ import { Wheel } from '../../wheelroom/wheels/types'
 export const PageSectionQuoteVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge(
-    { topic: topicPreset },
-    { ...pageSectionQuoteTreeStyle }
-  )
+  const style = deepMerge({ topic: topicPreset }, { ...pageSectionQuotePreset })
   const wheel: Wheel = {
     style,
     elementPresets,
