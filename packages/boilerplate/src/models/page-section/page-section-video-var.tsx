@@ -20,7 +20,7 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
   // const treeStyle = deepMerge(
   //   { topic: topicPreset },
   //   {
-  //     ...videoTreeStyle,
+  //     ...pageSectionVideoPreset,
   //   }
   // )
 

@@ -19,7 +19,7 @@ export const PageSectionGalleryVar = (props: PageSectionProps) => {
 
   // const treeStyle = deepMerge(
   //   { topic: topicPreset },
-  //   { ...pageSectionGalleryTreeStyle }
+  //   { ...pageSectionGalleryPreset }
   // )
 
   // if (pageSectionInfo.hasTopic) {

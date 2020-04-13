@@ -7,7 +7,7 @@ export interface PageSectionGalleryPreset {
   wrapper: NcssProps
 }
 
-export const pageSectionGalleryTreeStyle: PageSectionGalleryPreset = {
+export const pageSectionGalleryPreset: PageSectionGalleryPreset = {
   container: {
     ncss: {
       flexDirection: ['column', 'row'],

@@ -7,7 +7,7 @@ export interface PageSectionVideoPreset {
   wrapper?: NcssProps
 }
 
-export const videoTreeStyle: PageSectionVideoPreset = {
+export const pageSectionVideoPreset: PageSectionVideoPreset = {
   container: {
     ncss: {},
   },
