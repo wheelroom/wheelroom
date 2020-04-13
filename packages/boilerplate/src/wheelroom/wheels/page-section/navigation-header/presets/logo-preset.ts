@@ -1,11 +1,11 @@
 import { NcssProps } from '../../../types'
 
-export interface NavLogoPreset {
+export interface LogoPreset {
   container: { ncss: NcssProps }
   link: { ncss: NcssProps }
 }
 
-export const navLogoPreset: NavLogoPreset = {
+export const logoPreset: LogoPreset = {
   container: {
     ncss: {
       alignItems: 'center',

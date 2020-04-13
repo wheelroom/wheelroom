@@ -7,10 +7,10 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
-import { NavList } from './nav-list'
-import { NavLogo } from './nav-logo'
-import { NavActions } from './nav-actions'
-import { NavDialog } from './nav-dialog'
+import { NavHeaderList } from './nav-header-list'
+import { Logo } from './logo'
+import { NavHeaderActions } from './nav-header-actions'
+import { Modal } from './modal'
 import { Wheel } from '../../types'
 import { NavHeaderPreset } from './presets/nav-header-preset'
 
@@ -67,34 +67,37 @@ export const PageSectionNavigationHeader = (props: {
       </ALink>
       <Box is="div" ncss={props.wheel.style.wrapper.ncss} wheel={props.wheel}>
         <Container ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
-          <NavLogo
+          <Logo
             logo={props.useLogoElement || globals.siteHeading}
             version={siteMetadata.legal.version}
-            wheel={{ ...props.wheel, style: props.wheel.style.menu.navLogo }}
+            wheel={{ ...props.wheel, style: props.wheel.style.logo }}
           />
           <Flex
             is={'nav'}
-            ncss={props.wheel.style.menu.nav.ncss}
+            ncss={props.wheel.style.navHeader.ncss}
             wheel={props.wheel}
           >
-            <NavList
-              wheel={{ ...props.wheel, style: props.wheel.style.menu.navList }}
+            <NavHeaderList
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.navHeader.list,
+              }}
               pages={navSegment.pages}
             />
-            <NavActions
+            <NavHeaderActions
               action={action}
               activeThemeId={activeThemeId}
               pageSectionInfo={pageSectionInfo}
               toggleTheme={toggleTheme}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.menu.navActions,
+                style: props.wheel.style.navHeader.actions,
               }}
             />
           </Flex>
           <Flex
             is="div"
-            ncss={props.wheel.style.menu.modalDialog.container.ncss}
+            ncss={props.wheel.style.modal.ncss}
             wheel={props.wheel}
           >
             <Button
@@ -105,14 +108,14 @@ export const PageSectionNavigationHeader = (props: {
               ariaLabel="Open header navigation"
               value=""
               role="button"
-              ncss={props.wheel.style.menu.modalDialog.openMenuButton.ncss}
+              ncss={props.wheel.style.modal.button.ncss}
               ref={buttonRef}
               onClick={() => openMenu()}
               wheel={props.wheel}
             >
               Menu
             </Button>
-            <NavDialog
+            <Modal
               action={action}
               activeThemeId={activeThemeId}
               closeMenu={closeMenu}
@@ -121,7 +124,7 @@ export const PageSectionNavigationHeader = (props: {
               pageSectionInfo={pageSectionInfo}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.menu.modalDialog.navDialog,
+                style: props.wheel.style.modal.dialog,
               }}
               toggleTheme={toggleTheme}
             />

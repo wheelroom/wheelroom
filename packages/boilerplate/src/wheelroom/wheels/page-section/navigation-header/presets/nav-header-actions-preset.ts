@@ -1,12 +1,12 @@
 import { NcssProps } from '../../../types'
 
-export interface NavActionsPreset {
+export interface NavHeaderActionsPreset {
   container: { ncss: NcssProps }
   action: { ncss: NcssProps }
   themeButton: { ncss: NcssProps }
 }
 
-export const navActionsPreset: NavActionsPreset = {
+export const navHeaderActionsPreset: NavHeaderActionsPreset = {
   container: { ncss: {} },
   action: { ncss: {} },
   themeButton: {

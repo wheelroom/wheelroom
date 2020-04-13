@@ -1,23 +1,30 @@
-import { NavLogoPreset, navLogoPreset } from './nav-logo-preset'
-import { NavActionsPreset, navActionsPreset } from './nav-actions-preset'
-import { NavDialogPreset, navDialogPreset } from './nav-dialog-preset'
+import { LogoPreset, logoPreset } from './logo-preset'
+import {
+  NavHeaderActionsPreset,
+  navHeaderActionsPreset,
+} from './nav-header-actions-preset'
+import { ModalPreset, modalPreset } from './modal-preset'
 import { NcssProps } from '../../../types'
-import { NavListPreset, navListPreset } from './nav-list-preset'
+import {
+  NavHeaderListPreset,
+  navHeaderListPreset,
+} from './nav-header-list-preset'
+import { buttonPreset } from '../../../elements/button-preset'
 
 export interface NavHeaderPreset {
   skipToContent: { ncss: NcssProps }
   wrapper: { ncss: NcssProps }
   container: { ncss: NcssProps }
-  menu: {
-    nav: { ncss: NcssProps }
-    navLogo: NavLogoPreset
-    navList: NavListPreset
-    navActions: NavActionsPreset
-    modalDialog: {
-      container: { ncss: NcssProps }
-      openMenuButton: { ncss: NcssProps }
-      navDialog: NavDialogPreset
-    }
+  logo: LogoPreset
+  navHeader: {
+    ncss: NcssProps
+    list: NavHeaderListPreset
+    actions: NavHeaderActionsPreset
+  }
+  modal: {
+    ncss: NcssProps
+    button: NcssProps
+    dialog: ModalPreset
   }
 }
 
@@ -58,38 +65,19 @@ export const navHeaderPreset: NavHeaderPreset = {
       px: 3,
     },
   },
-  menu: {
-    nav: {
-      ncss: {
-        flex: '1',
-        alignItems: 'center',
-        display: ['none', 'none', 'flex'],
-      },
+  logo: logoPreset,
+  navHeader: {
+    ncss: {
+      flex: '1',
+      alignItems: 'center',
+      display: ['none', 'none', 'flex'],
     },
-    navLogo: navLogoPreset,
-    navList: {
-      list: { ncss: { ...navListPreset.list.ncss, flex: '1 1 auto' } },
-      item: {
-        ncss: {
-          ...navListPreset.item.ncss,
-          m: 0,
-          px: 2,
-          py: 3,
-        },
-      },
-    },
-    navActions: navActionsPreset,
-    modalDialog: {
-      container: {
-        ncss: {
-          display: ['flex', 'flex', 'none'],
-          flex: '1',
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-        },
-      },
-      openMenuButton: { ncss: {} },
-      navDialog: navDialogPreset,
-    },
+    list: navHeaderListPreset,
+    actions: navHeaderActionsPreset,
+  },
+  modal: {
+    ncss: {},
+    button: buttonPreset,
+    dialog: modalPreset,
   },
 }

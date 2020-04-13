@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavList } from './nav-list'
+import { NavHeaderList } from './nav-header-list'
 import { Box, Flex } from '../../elements/grid'
 import { Button } from '../../elements/button'
 import { ActionProps } from '../../../../models/action'
@@ -8,20 +8,20 @@ import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageProps } from '../../../../models/page/page'
 import { Action } from '../../action/action'
 import { Wheel } from '../../types'
-import { NavDialogPreset } from './presets/nav-dialog-preset'
+import { ModalPreset } from './presets/modal-preset'
 
-interface NavDialogWheel extends Wheel {
-  style: NavDialogPreset
+interface ModalWheel extends Wheel {
+  style: ModalPreset
 }
 
-export const NavDialog = (props: {
+export const Modal = (props: {
   action: ActionProps
   activeThemeId?: string
   closeMenu: () => void
   menuVisible: boolean
   pages: PageProps[]
   pageSectionInfo: PageSectionInfo
-  wheel: NavDialogWheel
+  wheel: ModalWheel
   toggleTheme: () => void
 }) => {
   const XIcon = IconMap.x
@@ -64,8 +64,8 @@ export const NavDialog = (props: {
             <XIcon wheel={props.wheel} />
           </Box>
         </Button>
-        <NavList
-          wheel={{ ...props.wheel, style: props.wheel.style.navList }}
+        <NavHeaderList
+          wheel={{ ...props.wheel, style: props.wheel.style.list.ncss }}
           pages={props.pages}
         />
         <Flex
@@ -75,7 +75,10 @@ export const NavDialog = (props: {
         >
           {props.pageSectionInfo.hasAction && (
             <Action
-              wheel={{ ...props.wheel, style: props.wheel.style.actions }}
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.actions.action,
+              }}
               {...props.action}
             />
           )}

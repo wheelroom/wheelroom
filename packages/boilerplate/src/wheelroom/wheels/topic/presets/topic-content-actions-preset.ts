@@ -5,7 +5,7 @@ export interface TopicContentActionsPreset {
   ncss: NcssProps
   /** Action link or button style */
   link: {
-    ncss?: NcssProps
+    ncss: NcssProps
   }
 }
 

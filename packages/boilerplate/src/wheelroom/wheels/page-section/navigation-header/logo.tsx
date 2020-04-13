@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react'
 import { Flex } from '../../elements/grid'
 import { GLink } from '../../elements/g-link'
-import { NavLogoPreset } from './presets/nav-logo-preset'
+import { LogoPreset } from './presets/logo-preset'
 import { Wheel } from '../../types'
 
-interface NavLogoWheel extends Wheel {
-  style: NavLogoPreset
+interface LogoWheel extends Wheel {
+  style: LogoPreset
 }
 
-export const NavLogo = (props: {
+export const Logo = (props: {
   logo: string | JSX.Element
   version?: string
-  wheel: NavLogoWheel
+  wheel: LogoWheel
 }) => {
   // When a React element is passed, use that
   let logo
