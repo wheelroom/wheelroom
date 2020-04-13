@@ -46,7 +46,7 @@ export const PageSectionNavigationFooter = (props: {
               <NavFooterSocialLinks
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.navFooterSocialLinks,
+                  style: props.wheel.style.navSocialLinks,
                 }}
                 topics={props.pageSection.topics}
               />
