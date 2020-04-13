@@ -2,9 +2,9 @@ import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionQuotePreset {
-  container?: NcssProps
-  topic?: TopicPreset
-  wrapper?: NcssProps
+  container: NcssProps
+  topic: TopicPreset
+  wrapper: NcssProps
 }
 
 export const pageSectionQuoteTreeStyle: PageSectionQuotePreset = {
@@ -27,6 +27,9 @@ export const pageSectionQuoteTreeStyle: PageSectionQuotePreset = {
           ncss: {},
         },
         heading: {
+          ncss: {},
+        },
+        icon: {
           ncss: {},
         },
       },

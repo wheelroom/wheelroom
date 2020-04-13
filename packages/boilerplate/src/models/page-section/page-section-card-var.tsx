@@ -11,8 +11,8 @@ import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import {
-  pageSectionCardTreeStyle,
-  pageSectionCardTreeShadowStyle,
+  pageSectionCardPreset,
+  pageSectionCardShadowPreset,
 } from '../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/page-section/unicorn/page-section-unicorn'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
@@ -28,13 +28,10 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
     reverseOrder: true,
   })
 
-  const style = deepMerge(
-    { topic: topicPreset },
-    { ...pageSectionCardTreeStyle }
-  )
+  const style = deepMerge({ topic: topicPreset }, { ...pageSectionCardPreset })
   const styleShadow = deepMerge(
     { topic: topicPreset },
-    { ...pageSectionCardTreeShadowStyle }
+    { ...pageSectionCardShadowPreset }
   )
   const wheel: Wheel = {
     style,

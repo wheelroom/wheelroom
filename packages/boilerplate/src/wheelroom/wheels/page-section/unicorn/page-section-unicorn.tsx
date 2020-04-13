@@ -6,10 +6,26 @@ import { Topic, TopicWheelProps } from '../../topic/topic'
 import { MultiParser } from '../../../parsers/multi-parser'
 import { TopicProps } from '../../../../models/topic'
 import { Wheel } from '../../types'
+import { PageSectionBlockPreset } from './page-section-block-preset'
+import { PageSectionCardPreset } from './page-section-card-preset'
+import { PageSectionFeaturedPreset } from './page-section-featured-preset'
+import { PageSectionHeadlinePreset } from './page-section-headline-preset'
+import { PageSectionHeroPreset } from './page-section-hero-preset'
+import { PageSectionQuotePreset } from './page-section-quote-preset'
+
+export interface PageSectionUnicornWheel extends Wheel {
+  style:
+    | PageSectionBlockPreset
+    | PageSectionCardPreset
+    | PageSectionFeaturedPreset
+    | PageSectionHeadlinePreset
+    | PageSectionHeroPreset
+    | PageSectionQuotePreset
+}
 
 export const PageSectionUnicorn = (props: {
   /** Styling wheel */
-  wheel: Wheel
+  wheel: PageSectionUnicornWheel
   /** Contains the topic to render */
   pageSection: PageSectionProps
   /** Properties to configure Topic element */
@@ -26,10 +42,9 @@ export const PageSectionUnicorn = (props: {
   const ContainerType =
     props.containerStyle === 'maxWidth' ? ContainerMaxWidth : Container
   return (
-    <Box is="div" ncss={props.wheel.style.wrapper.ncss} wheel={props.wheel}>
+    <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
       <ContainerType
-        ncss={props.wheel.style.container.ncss}
-        wheel={props.wheel}
+        wheel={{ ...props.wheel, style: props.wheel.style.container }}
       >
         {props.pageSection.topics
           .slice(0, props.maxTopics)

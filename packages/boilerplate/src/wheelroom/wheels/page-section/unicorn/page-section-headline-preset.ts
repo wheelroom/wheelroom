@@ -2,9 +2,9 @@ import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionHeadlinePreset {
-  container?: NcssProps
-  topic?: TopicPreset
-  wrapper?: NcssProps
+  container: NcssProps
+  topic: TopicPreset
+  wrapper: NcssProps
 }
 
 export const pageSectionHeadlineTreeStyle: PageSectionHeadlinePreset = {
@@ -31,6 +31,9 @@ export const pageSectionHeadlineTreeStyle: PageSectionHeadlinePreset = {
           ncss: {},
         },
         heading: {
+          ncss: {},
+        },
+        icon: {
           ncss: {},
         },
       },

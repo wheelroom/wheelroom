@@ -2,12 +2,12 @@ import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionBlockPreset {
-  container?: NcssProps
-  topic?: TopicPreset
-  wrapper?: NcssProps
+  container: NcssProps
+  topic: TopicPreset
+  wrapper: NcssProps
 }
 
-export const pageSectionBlockTreeStyle: PageSectionBlockPreset = {
+export const pageSectionBlockPreset: PageSectionBlockPreset = {
   container: {
     ncss: {
       alignItems: ['center', 'initial'],
@@ -23,10 +23,22 @@ export const pageSectionBlockTreeStyle: PageSectionBlockPreset = {
     content: {
       ncss: {},
       text: {
+        ncss: {},
         heading: {
           ncss: {},
         },
         abstract: {
+          ncss: {},
+        },
+        icon: {
+          ncss: {},
+        },
+      },
+      actions: {
+        ncss: {
+          flex: '0',
+        },
+        link: {
           ncss: {},
         },
       },

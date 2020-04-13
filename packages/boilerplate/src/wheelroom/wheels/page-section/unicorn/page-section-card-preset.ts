@@ -3,9 +3,9 @@ import { TopicPreset } from '../../topic/presets/topic-preset'
 import deepmerge from 'deepmerge'
 
 export interface PageSectionCardPreset {
-  container?: NcssProps
-  topic?: TopicPreset
-  wrapper?: NcssProps
+  container: NcssProps
+  topic: TopicPreset
+  wrapper: NcssProps
 }
 
 const topicWrapperStyle = {
@@ -17,7 +17,7 @@ const topicWrapperStyle = {
   m: 2,
 }
 
-export const pageSectionCardTreeStyle: PageSectionCardPreset = {
+export const pageSectionCardPreset: PageSectionCardPreset = {
   container: {
     ncss: {
       alignItems: ['center', 'initial'],
@@ -45,10 +45,16 @@ export const pageSectionCardTreeStyle: PageSectionCardPreset = {
         abstract: {
           ncss: {},
         },
+        icon: {
+          ncss: {},
+        },
       },
       actions: {
         ncss: {
           flex: '0',
+        },
+        link: {
+          ncss: {},
         },
       },
     },
@@ -91,8 +97,8 @@ export const pageSectionCardTreeStyle: PageSectionCardPreset = {
   },
 }
 
-export const pageSectionCardTreeShadowStyle: PageSectionCardPreset = deepmerge(
-  pageSectionCardTreeStyle,
+export const pageSectionCardShadowPreset: PageSectionCardPreset = deepmerge(
+  pageSectionCardPreset,
   {
     topic: {
       ncss: {

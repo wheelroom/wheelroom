@@ -1,87 +1,104 @@
-import { paragraphPreset } from '../elements/paragraph-preset'
-import { aLinkPreset } from '../elements/a-link-preset'
-import { videoDescriptionPreset, videoPreset } from '../elements/video-preset'
 import { NcssProps } from '../types'
 import { ImagePreset } from '../elements/image'
 import { VideoPreset } from '../elements/video'
 import { imageFigcaptionPreset, imageImgPreset } from '../elements/image-preset'
 
 export interface TextPreset {
-  wrapper?: NcssProps
-  marksBold?: NcssProps
-  marksCode?: {
-    pre?: NcssProps
-    code?: NcssProps
+  wrapper: { ncss: NcssProps }
+  marksBold: { ncss: NcssProps }
+  marksCode: {
+    pre: { ncss: NcssProps }
+    code: { ncss: NcssProps }
   }
-  blocksQuote?: NcssProps
-  blocksUlList?: NcssProps
-  blocksOlList?: NcssProps
-  blocksLiList?: NcssProps
-  inlinesHyperlink?: NcssProps
-  entryHyperlink?: NcssProps
-  blocksHeading1?: NcssProps
-  blocksHeading2?: NcssProps
-  blocksHeading3?: NcssProps
-  blocksHeading4?: NcssProps
-  blocksHeading5?: NcssProps
-  blocksHeading6?: NcssProps
-  blocksHr?: NcssProps
-  image?: ImagePreset
-  video?: VideoPreset
+  blocksQuote: { ncss: NcssProps }
+  blocksUlList: { ncss: NcssProps }
+  blocksOlList: { ncss: NcssProps }
+  blocksLiList: { ncss: NcssProps }
+  inlinesHyperlink: { ncss: NcssProps }
+  entryHyperlink: { ncss: NcssProps }
+  blocksHeading1: { ncss: NcssProps }
+  blocksHeading2: { ncss: NcssProps }
+  blocksHeading3: { ncss: NcssProps }
+  blocksHeading4: { ncss: NcssProps }
+  blocksHeading5: { ncss: NcssProps }
+  blocksHeading6: { ncss: NcssProps }
+  blocksHr: { ncss: NcssProps }
+  image: ImagePreset
+  video: VideoPreset
 }
 
-export const textTreeStyle: TextPreset = {
+export const textPreset: TextPreset = {
   blocksHeading1: {
-    pt: 3,
+    ncss: {
+      pt: 3,
+    },
   },
   blocksHeading2: {
-    pt: 3,
+    ncss: {
+      pt: 3,
+    },
   },
   blocksHeading3: {
-    pt: 3,
+    ncss: {
+      pt: 3,
+    },
   },
   blocksHeading4: {
-    pt: 3,
+    ncss: {
+      pt: 3,
+    },
   },
   blocksHeading5: {
-    pt: 3,
+    ncss: {
+      pt: 3,
+    },
   },
   blocksHeading6: {
-    pt: 3,
+    ncss: {
+      pt: 3,
+    },
   },
   blocksHr: {
-    borderColor: 'silver',
-    borderTop: '1px solid transparent',
-    my: 3,
-    overflow: 'hidden',
-    w: 1,
-  },
-  blocksUlList: paragraphPreset,
-  blocksOlList: paragraphPreset,
-  blocksLiList: { ...paragraphPreset, p: { mb: 0 } },
-  blocksQuote: {
-    ':before': {
-      color: 'silver',
-      content: '"”"',
-      fontFamily: 'systemFont',
-      fontSize: 8,
+    ncss: {
+      borderColor: 'silver',
+      borderTop: '1px solid transparent',
+      my: 3,
+      overflow: 'hidden',
+      w: 1,
     },
-    textAlign: 'center',
   },
-  entryHyperlink: { ...aLinkPreset, wordBreak: 'break-all' },
-  inlinesHyperlink: { ...aLinkPreset, wordBreak: 'break-all' },
+  blocksUlList: { ncss: {} },
+  blocksOlList: { ncss: {} },
+  blocksLiList: { ncss: { p: { mb: 0 } } },
+  blocksQuote: {
+    ncss: {
+      ':before': {
+        color: 'silver',
+        content: '"”"',
+        fontFamily: 'systemFont',
+        fontSize: 8,
+      },
+      textAlign: 'center',
+    },
+  },
+  entryHyperlink: { ncss: { wordBreak: 'break-all' } },
+  inlinesHyperlink: { ncss: { wordBreak: 'break-all' } },
   marksBold: {
-    fontWeight: 7,
+    ncss: {
+      fontWeight: 7,
+    },
   },
   marksCode: {
-    code: {},
+    code: { ncss: {} },
     pre: {
-      bg: 'rgba(35, 122, 252, .1)',
-      fontSize: 3,
-      px: 3,
-      py: 2,
-      wordBreak: 'break-all',
-      wordWrap: 'break-word',
+      ncss: {
+        bg: 'rgba(35, 122, 252, .1)',
+        fontSize: 3,
+        px: 3,
+        py: 2,
+        wordBreak: 'break-all',
+        wordWrap: 'break-word',
+      },
     },
   },
   image: {
@@ -91,6 +108,7 @@ export const textTreeStyle: TextPreset = {
         my: [4, 5],
       },
     },
+    picture: { ncss: {} },
     figcaption: {
       ncss: {
         ...imageFigcaptionPreset,
@@ -101,13 +119,11 @@ export const textTreeStyle: TextPreset = {
   video: {
     video: {
       ncss: {
-        ...videoPreset,
         my: [4, 5],
       },
     },
     description: {
       ncss: {
-        ...videoDescriptionPreset,
         mb: [4, 5],
       },
     },

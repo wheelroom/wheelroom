@@ -23,24 +23,29 @@ import {
   Options,
 } from '@contentful/rich-text-react-renderer'
 import { Video } from '../elements/video'
-import { TextProps } from '../../../models/text'
 import { TextPreset } from './text-preset'
 import { MediaObject } from '../elements/types/media'
+import { Wheel } from '../types'
+import { TextProps } from '../../../models/text'
 
-export interface TextTreeProps {
+// TODO: @Thijs – Create presets for <hr> <blockquote> <code> in the folder elements
+
+export interface TextWheel extends Wheel {
+  style: TextPreset
+}
+
+export interface TextWheelProps {
   /** Locale needed for rendering rich text */
-  // TODO: @Thijs – Create presets for <hr> <blockquote> <code> in the folder elements
   locale: string
-  treeStyle?: TextPreset
+  wheel: TextWheel
   text: TextProps
 }
 
 type Node = any
 type Children = any
 
-export const Text = (props: TextTreeProps) => {
+export const Text = (props: TextWheelProps) => {
   const textProps = props
-  const treeStyle = props.treeStyle || {}
 
   const options = {
     renderText: (text) => {
@@ -52,13 +57,28 @@ export const Text = (props: TextTreeProps) => {
     },
     renderMark: {
       [MARKS.BOLD]: (text) => (
-        <Any is="b" ncss={treeStyle.marksBold}>
+        <Any
+          is="b"
+          wheel={{ ...textProps.wheel, style: textProps.wheel.style.marksBold }}
+        >
           {text}
         </Any>
       ),
       [MARKS.CODE]: (code) => (
-        <Any is="pre" ncss={treeStyle.marksCode && treeStyle.marksCode.pre}>
-          <Any is="code" ncss={treeStyle.marksCode && treeStyle.marksCode.code}>
+        <Any
+          is="pre"
+          wheel={{
+            ...textProps.wheel,
+            style: textProps.wheel.style.marksCode.pre,
+          }}
+        >
+          <Any
+            is="code"
+            wheel={{
+              ...textProps.wheel,
+              style: textProps.wheel.style.marksCode.code,
+            }}
+          >
             {code}
           </Any>
         </Any>
@@ -66,32 +86,60 @@ export const Text = (props: TextTreeProps) => {
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
-        return <Paragraph>{children}</Paragraph>
+        return (
+          <Paragraph wheel={{ ...textProps.wheel, style: { ncss: {} } }}>
+            {children}
+          </Paragraph>
+        )
       },
       [BLOCKS.QUOTE]: (_node: Node, children: Children) => {
         return (
-          <Any is="blockquote" ncss={treeStyle.blocksQuote}>
+          <Any
+            is="blockquote"
+            wheel={{
+              ...textProps.wheel,
+              style: textProps.wheel.style.blocksQuote,
+            }}
+          >
             {children}
           </Any>
         )
       },
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List is="ul" ncss={treeStyle.blocksUlList}>
+          <List
+            is="ul"
+            wheel={{
+              ...textProps.wheel,
+              style: textProps.wheel.style.blocksUlList,
+            }}
+          >
             {children}
           </List>
         )
       },
       [BLOCKS.OL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List is="ol" ncss={treeStyle.blocksOlList}>
+          <List
+            is="ol"
+            wheel={{
+              ...textProps.wheel,
+              style: textProps.wheel.style.blocksOlList,
+            }}
+          >
             {children}
           </List>
         )
       },
       [BLOCKS.LIST_ITEM]: (_node: Node, children: Children) => {
         return (
-          <List is="li" ncss={treeStyle.blocksLiList}>
+          <List
+            is="li"
+            wheel={{
+              ...textProps.wheel,
+              style: textProps.wheel.style.blocksLiList,
+            }}
+          >
             {children}
           </List>
         )
@@ -99,7 +147,13 @@ export const Text = (props: TextTreeProps) => {
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {
         const uri = node.data.uri
         return (
-          <ALink href={uri} ncss={treeStyle.inlinesHyperlink}>
+          <ALink
+            href={uri}
+            wheel={{
+              ...textProps.wheel,
+              style: textProps.wheel.style.inlinesHyperlink,
+            }}
+          >
             {children}
           </ALink>
         )
@@ -109,33 +163,88 @@ export const Text = (props: TextTreeProps) => {
           node.data.target.fields &&
           node.data.target.fields.path[textProps.locale]
         return (
-          <GLink ncss={treeStyle.entryHyperlink} to={internalPath}>
+          <GLink
+            wheel={{
+              ...textProps.wheel,
+              style: textProps.wheel.style.entryHyperlink,
+            }}
+            to={internalPath}
+          >
             {children}
           </GLink>
         )
       },
       [BLOCKS.HEADING_1]: (_node: Node, children: Children) => (
-        <H1 ncss={treeStyle.blocksHeading1}>{children}</H1>
+        <H1
+          wheel={{
+            ...textProps.wheel,
+            style: textProps.wheel.style.blocksHeading1,
+          }}
+        >
+          {children}
+        </H1>
       ),
       [BLOCKS.HEADING_2]: (_node: Node, children: Children) => (
-        <H2 ncss={treeStyle.blocksHeading2}>{children}</H2>
+        <H2
+          wheel={{
+            ...textProps.wheel,
+            style: textProps.wheel.style.blocksHeading2,
+          }}
+        >
+          {children}
+        </H2>
       ),
       [BLOCKS.HEADING_3]: (_node: Node, children: Children) => (
-        <H3 ncss={treeStyle.blocksHeading3}>{children}</H3>
+        <H3
+          wheel={{
+            ...textProps.wheel,
+            style: textProps.wheel.style.blocksHeading3,
+          }}
+        >
+          {children}
+        </H3>
       ),
       [BLOCKS.HEADING_4]: (_node: Node, children: Children) => (
-        <H4 ncss={treeStyle.blocksHeading4}>{children}</H4>
+        <H4
+          wheel={{
+            ...textProps.wheel,
+            style: textProps.wheel.style.blocksHeading4,
+          }}
+        >
+          {children}
+        </H4>
       ),
       [BLOCKS.HEADING_5]: (_node: Node, children: Children) => (
-        <H5 ncss={treeStyle.blocksHeading5}>{children}</H5>
+        <H5
+          wheel={{
+            ...textProps.wheel,
+            style: textProps.wheel.style.blocksHeading5,
+          }}
+        >
+          {children}
+        </H5>
       ),
       [BLOCKS.HEADING_6]: (_node: Node, children: Children) => (
-        <H6 ncss={treeStyle.blocksHeading6}>{children}</H6>
+        <H6
+          wheel={{
+            ...textProps.wheel,
+            style: textProps.wheel.style.blocksHeading6,
+          }}
+        >
+          {children}
+        </H6>
       ),
-      [BLOCKS.HR]: () => <Any is="hr" ncss={treeStyle.blocksHr} />,
+      [BLOCKS.HR]: () => (
+        <Any
+          is="hr"
+          wheel={{
+            ...textProps.wheel,
+            style: textProps.wheel.style.blocksHr,
+          }}
+        />
+      ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
-        console.log(fields)
         if (!fields) {
           console.log(
             'Warning: embedded asset fields not found, try npx gatsby clean'
@@ -166,7 +275,10 @@ export const Text = (props: TextTreeProps) => {
               key={node.data.target.id}
               includeFigcaption={false}
               media={media}
-              treeStyle={treeStyle.image}
+              wheel={{
+                ...textProps.wheel,
+                style: textProps.wheel.style.image,
+              }}
             />
           )
         }
@@ -188,7 +300,10 @@ export const Text = (props: TextTreeProps) => {
               includeDescription={false}
               title={localizedTitle}
               description={localizedDescription}
-              treeStyle={treeStyle.video}
+              wheel={{
+                ...textProps.wheel,
+                style: textProps.wheel.style.video,
+              }}
             />
           )
         }
@@ -199,7 +314,13 @@ export const Text = (props: TextTreeProps) => {
   } as Options
 
   return (
-    <Box is="div" ncss={treeStyle.wrapper.ncss}>
+    <Box
+      is="div"
+      wheel={{
+        ...textProps.wheel,
+        style: textProps.wheel.style.wrapper,
+      }}
+    >
       {documentToReactComponents(
         (props.text.text.json as unknown) as Document,
         options
