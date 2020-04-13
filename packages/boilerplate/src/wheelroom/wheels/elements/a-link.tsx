@@ -33,6 +33,7 @@ export interface ALinkProps {
 }
 
 export const ALink = (props: ALinkProps) => {
+  const label = 'a-link'
   return (
     <a
       id={props.id}
@@ -45,6 +46,7 @@ export const ALink = (props: ALinkProps) => {
       rel={props.rel}
       css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
         ncss: {
+          label,
           ...props.wheel.elementPresets.aLink.ncss,
           ...aLinkPreset.ncss,
           ...props.wheel.style.ncss,
