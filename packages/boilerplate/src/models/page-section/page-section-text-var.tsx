@@ -11,7 +11,7 @@ import { PageSectionProps } from './page-section'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { elementPresets } from '../../themes/yosemite/element-presets'
-import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
+import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
@@ -28,7 +28,7 @@ export const PageSectionTextVar = (props: PageSectionProps) => {
   const wheel: Wheel = {
     style: {},
     elementPresets,
-    theme: yosemiteDark,
+    theme: yosemiteLight,
     styledSystemConfig,
   }
 
