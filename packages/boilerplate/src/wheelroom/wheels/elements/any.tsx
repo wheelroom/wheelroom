@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core'
 import { BlockLevelElementName, InlineElementName } from './types/element-names'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
+import { anyPreset } from './any-preset'
 
 export interface AnyProps {
   /** Styling wheel */
@@ -55,6 +56,7 @@ export const Any = (props: AnyProps) => {
     ncss: {
       label,
       ...props.wheel.elementPresets.any.ncss,
+      ...anyPreset.ncss,
       ...props.ncss,
     },
   })
