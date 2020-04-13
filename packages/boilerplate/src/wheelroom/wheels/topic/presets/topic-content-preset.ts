@@ -1,21 +1,21 @@
 import { NcssProps } from '../../types'
 import {
-  TopicContentTextTreeStyle,
+  TopicContentTextPreset,
   topicContentTextPreset,
 } from './topic-content-text-preset'
 import {
-  TopicActionsTreeStyle,
+  TopicContentActionsPreset,
   topicContentActionsPreset,
 } from './topic-content-actions-preset'
 
-export interface TopicContentTreeStyle {
+export interface TopicContentPreset {
   /** Wrapper around all content including action */
   ncss: NcssProps
-  text: TopicContentTextTreeStyle
-  actions: TopicActionsTreeStyle
+  text: TopicContentTextPreset
+  actions: TopicContentActionsPreset
 }
 
-export const topicContentPreset: TopicContentTreeStyle = {
+export const topicContentPreset: TopicContentPreset = {
   ncss: {
     label: 'topic-content',
     display: 'flex',

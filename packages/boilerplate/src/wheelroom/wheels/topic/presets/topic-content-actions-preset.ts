@@ -1,6 +1,6 @@
 import { NcssProps } from '../../types'
 
-export interface TopicActionsTreeStyle {
+export interface TopicContentActionsPreset {
   /** Styling for this node */
   ncss: NcssProps
   /** Action link or button style */
@@ -9,7 +9,7 @@ export interface TopicActionsTreeStyle {
   }
 }
 
-export const topicContentActionsPreset: TopicActionsTreeStyle = {
+export const topicContentActionsPreset: TopicContentActionsPreset = {
   ncss: {
     label: 'topic-actions',
   },

@@ -1,17 +1,14 @@
 import { NcssProps } from '../../types'
-import { TopicMediaTreeStyle, topicMediaPreset } from './topic-media-preset'
-import {
-  TopicContentTreeStyle,
-  topicContentPreset,
-} from './topic-content-preset'
+import { TopicMediaPreset, topicMediaPreset } from './topic-media-preset'
+import { TopicContentPreset, topicContentPreset } from './topic-content-preset'
 
 export interface TopicPreset {
   /** Styling for this node */
   ncss: NcssProps
   /** Media */
-  media: TopicMediaTreeStyle
+  media: TopicMediaPreset
   /** Content */
-  content: TopicContentTreeStyle
+  content: TopicContentPreset
 }
 
 export const topicPreset: TopicPreset = {

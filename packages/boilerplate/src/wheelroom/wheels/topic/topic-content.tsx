@@ -9,10 +9,15 @@ import { BlockLevelElementName } from '../elements/types'
 import { ActionProps } from '../../../models/action/action'
 import { ParserFunction } from '../../parsers/types'
 import { Wheel } from '../types'
+import { TopicContentPreset } from './presets/topic-content-preset'
+
+export interface TopicContentWheel extends Wheel {
+  style: TopicContentPreset
+}
 
 export interface TopicContentProps {
   /** Styling wheel */
-  wheel: Wheel
+  wheel: TopicContentWheel
   topic: TopicProps
   /** Topic info object */
   topicInfo: TopicInfo

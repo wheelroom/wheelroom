@@ -7,10 +7,15 @@ import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Action } from '../action/action'
 import { Wheel } from '../types'
+import { TopicContentActionsPreset } from './presets/topic-content-actions-preset'
+
+export interface TopicContentActionsWheel extends Wheel {
+  style: TopicContentActionsPreset
+}
 
 export interface TopicContentActionsProps {
   /** Styling wheel */
-  wheel: Wheel
+  wheel: TopicContentActionsWheel
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
   /** Page section actions will override all topic actions */

@@ -1,6 +1,6 @@
 import { NcssProps } from '../../types'
 
-export interface TopicContentTextTreeStyle {
+export interface TopicContentTextPreset {
   /** Styling for this node */
   ncss: NcssProps
   /** Icon style */
@@ -17,7 +17,7 @@ export interface TopicContentTextTreeStyle {
   }
 }
 
-export const topicContentTextPreset: TopicContentTextTreeStyle = {
+export const topicContentTextPreset: TopicContentTextPreset = {
   ncss: {
     label: 'topic-text',
   },

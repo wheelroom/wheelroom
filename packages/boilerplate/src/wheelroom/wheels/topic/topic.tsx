@@ -9,10 +9,15 @@ import { ParserFunction } from '../../parsers/types'
 import { ActionProps } from '../../../models/action/action'
 import { Action } from '../action/action'
 import { Wheel } from '../types'
+import { TopicPreset } from './presets/topic-preset'
+
+export interface TopicWheel extends Wheel {
+  style: TopicPreset
+}
 
 export interface TopicWheelProps {
   /** Styling wheel */
-  wheel: Wheel
+  wheel: TopicWheel
   /** The topic to render */
   topic?: TopicProps
   /** Options that change topic display behaviour */

@@ -9,10 +9,15 @@ import { TopicIcon } from './topic-icon'
 import { ParserFunction } from '../../parsers/types'
 import { Paragraph } from '../elements/paragraph'
 import { Wheel } from '../types'
+import { TopicContentTextPreset } from './presets/topic-content-text-preset'
+
+export interface TopicContentTextWheel extends Wheel {
+  style: TopicContentTextPreset
+}
 
 export interface TopicContentTextProps {
   /** Styling wheel */
-  wheel: Wheel
+  wheel: TopicContentTextWheel
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
