@@ -4,15 +4,15 @@ import { Any } from '../../elements/any'
 import { ALink } from '../../elements/a-link'
 import { SiteMetadata } from '../../../../page-template'
 import { Wheel } from '../../types'
-import { NavFooterLegalPreset } from './presets/nav-footer-legal-preset'
+import { LegalPreset } from './presets/legal-preset'
 
-interface NavLegalWheel extends Wheel {
-  style: NavFooterLegalPreset
+interface LegalWheel extends Wheel {
+  style: LegalPreset
 }
 
-export const NavFooterLegal = (props: {
+export const Legal = (props: {
   siteMetadata: SiteMetadata
-  wheel: NavLegalWheel
+  wheel: LegalWheel
 }) => {
   return (
     <Container

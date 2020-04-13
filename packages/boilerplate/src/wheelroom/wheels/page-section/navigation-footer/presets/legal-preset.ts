@@ -1,13 +1,13 @@
 import { NcssProps } from '../../../types'
 
-export interface NavFooterLegalPreset {
+export interface LegalPreset {
   container: { ncss: NcssProps }
   innerContainer: { ncss: NcssProps }
   text: { ncss: NcssProps }
   link: { ncss: NcssProps }
 }
 
-export const navLegalPreset: NavFooterLegalPreset = {
+export const legalPreset: LegalPreset = {
   container: {
     ncss: {
       borderTop: '1px solid transparent',
