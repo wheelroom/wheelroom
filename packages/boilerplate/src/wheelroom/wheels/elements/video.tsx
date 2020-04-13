@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { MediaObject } from './types'
 import { videoVideoPreset, videoDescriptionPreset } from './video-preset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
+import { MediaObject } from './types/media'
 
 export interface VideoPreset {
   video?: {

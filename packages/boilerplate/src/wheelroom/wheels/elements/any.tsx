@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { BlockLevelElementName, InlineElementName } from './types'
+import { BlockLevelElementName, InlineElementName } from './types/element-names'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
 

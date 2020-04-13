@@ -1,7 +1,7 @@
 import React from 'react'
 import { TopicProps } from '../../../models/topic/topic'
 import { Box } from '../elements/grid'
-import { BlockLevelElementName } from '../elements/types'
+import { BlockLevelElementName } from '../elements/types/element-names'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Heading } from '../elements/heading'

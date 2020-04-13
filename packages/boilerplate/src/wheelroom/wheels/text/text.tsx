@@ -8,7 +8,6 @@
  */
 
 import React from 'react'
-import { MediaObject } from '../elements/types'
 import { Image } from '../elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
 import { Any } from '../elements/any'
@@ -26,6 +25,7 @@ import {
 import { Video } from '../elements/video'
 import { TextProps } from '../../../models/text'
 import { TextPreset } from './text-preset'
+import { MediaObject } from '../elements/types/media'
 
 export interface TextTreeProps {
   /** Locale needed for rendering rich text */

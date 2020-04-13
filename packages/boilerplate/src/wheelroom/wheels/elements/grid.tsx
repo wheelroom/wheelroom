@@ -1,10 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import {
-  InlineElementName,
-  BlockLevelElementName,
-  LinkRelationshipAttribute,
-} from './types'
+import { InlineElementName, BlockLevelElementName } from './types/element-names'
 import {
   boxPreset,
   containerPreset,
@@ -13,6 +9,7 @@ import {
 } from './grid-preset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
+import { LinkRelationshipAttribute } from './types/attribute-names'
 
 export interface GridProps {
   /** Styling wheel */

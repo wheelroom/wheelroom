@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { LinkRelationshipAttribute } from './types'
 import { aLinkPreset } from './a-link-preset'
 import { NcssProps, Wheel } from '../types'
 import { styledSystem } from '@wheelroom/styled-system'
+import { LinkRelationshipAttribute } from './types/attribute-names'
 
 export interface ALinkProps {
   /** Styling wheel */

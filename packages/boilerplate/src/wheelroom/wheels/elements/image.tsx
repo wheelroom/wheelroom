@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { MediaObject } from './types'
 import {
   imageFigcaptionPreset,
   imageImgPreset,
@@ -8,6 +7,7 @@ import {
 } from './image-preset'
 import { NcssProps, Wheel } from '../types'
 import { styledSystem } from '@wheelroom/styled-system'
+import { MediaObject } from './types/media'
 
 export interface ImagePreset {
   picture: {

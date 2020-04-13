@@ -1,3 +1,4 @@
+export type HeadingName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 export type ListElementName = 'ul' | 'ol' | 'li'
 export type InlineElementName =
   | 'a'
@@ -69,39 +70,3 @@ export type BlockLevelElementName =
   | 'tfoot'
   | 'ul'
   | 'video'
-
-export type LinkRelationshipAttribute =
-  | 'alternate'
-  | 'author'
-  | 'bookmark'
-  | 'external'
-  | 'help'
-  | 'license'
-  | 'next'
-  | 'nofollow'
-  | 'noreferrer'
-  | 'noopener'
-  | 'prev'
-  | 'search'
-  | 'tag'
-
-export interface MediaObject {
-  title: string
-  description: string
-  fluid?: {
-    base64: any
-    aspectRatio: any
-    src: string
-    srcSet: any
-    sizes: any
-  }
-  file?: {
-    url: string
-    fileName: string
-    contentType: string
-  }
-}
-
-export type styleProp = string | string[] | number | number[]
-
-export type HeadingName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'

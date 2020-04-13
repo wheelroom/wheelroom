@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { BlockLevelElementName, LinkRelationshipAttribute } from './types'
+import { BlockLevelElementName } from './types/element-names'
 import { paragraphPreset } from './paragraph-preset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
+import { LinkRelationshipAttribute } from './types/attribute-names'
 
 export interface ParagraphProps {
   /** Styling wheel */
