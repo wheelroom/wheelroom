@@ -7,11 +7,11 @@ import {
 
 export interface TopicPreset {
   /** Styling for this node */
-  ncss?: NcssProps
+  ncss: NcssProps
   /** Media */
-  media?: TopicMediaTreeStyle
+  media: TopicMediaTreeStyle
   /** Content */
-  content?: TopicContentTreeStyle
+  content: TopicContentTreeStyle
 }
 
 export const topicPreset: TopicPreset = {

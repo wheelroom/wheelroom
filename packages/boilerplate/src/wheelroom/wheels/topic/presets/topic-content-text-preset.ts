@@ -2,18 +2,18 @@ import { NcssProps } from '../../types'
 
 export interface TopicContentTextTreeStyle {
   /** Styling for this node */
-  ncss?: NcssProps
+  ncss: NcssProps
   /** Icon style */
-  icon?: {
+  icon: {
     ncss?: NcssProps
   }
   /** Heading style */
-  heading?: {
+  heading: {
     ncss?: NcssProps
   }
   /** Abstract style */
-  abstract?: {
-    ncss?: NcssProps
+  abstract: {
+    ncss: NcssProps
   }
 }
 

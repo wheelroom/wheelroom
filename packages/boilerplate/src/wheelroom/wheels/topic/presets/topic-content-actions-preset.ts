@@ -2,9 +2,9 @@ import { NcssProps } from '../../types'
 
 export interface TopicActionsTreeStyle {
   /** Styling for this node */
-  ncss?: NcssProps
+  ncss: NcssProps
   /** Action link or button style */
-  link?: {
+  link: {
     ncss?: NcssProps
   }
 }

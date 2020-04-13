@@ -10,9 +10,9 @@ import {
 
 export interface TopicContentTreeStyle {
   /** Wrapper around all content including action */
-  ncss?: NcssProps
-  text?: TopicContentTextTreeStyle
-  actions?: TopicActionsTreeStyle
+  ncss: NcssProps
+  text: TopicContentTextTreeStyle
+  actions: TopicActionsTreeStyle
 }
 
 export const topicContentPreset: TopicContentTreeStyle = {

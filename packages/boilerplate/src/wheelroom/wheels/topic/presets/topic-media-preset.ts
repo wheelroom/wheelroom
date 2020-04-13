@@ -4,11 +4,11 @@ import { VideoPreset } from '../../elements/video'
 
 export interface TopicMediaTreeStyle {
   /** Styling for this node */
-  ncss?: NcssProps
+  ncss: NcssProps
   /** Image style */
-  image?: ImagePreset
+  image: ImagePreset
   /** Video style */
-  video?: VideoPreset
+  video: VideoPreset
 }
 
 export const topicMediaPreset: TopicMediaTreeStyle = {
