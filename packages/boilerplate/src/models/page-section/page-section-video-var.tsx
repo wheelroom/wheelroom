@@ -17,7 +17,7 @@ import { Wheel } from '../../wheelroom/wheels/types'
 import { elementPresets } from '../../themes/yosemite/element-presets'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
-import { pageSectionVideoPreset } from '../../wheelroom/wheels/page-section/video/page-section-video-preset'
+import { pageSectionVideoPreset } from '../../wheelroom/wheels/page-section/unicorn/page-section-video-preset'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -39,6 +39,7 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
           wheel,
         }}
         containerStyle="fluid"
+        maxTopics={1}
         pageSection={props}
         wheel={wheel}
       />

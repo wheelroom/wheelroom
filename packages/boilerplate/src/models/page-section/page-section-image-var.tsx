@@ -17,7 +17,7 @@ import { Wheel } from '../../wheelroom/wheels/types'
 import { elementPresets } from '../../themes/yosemite/element-presets'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
-import { pageSectionImagePreset } from '../../wheelroom/wheels/page-section/image/page-section-image-preset'
+import { pageSectionImagePreset } from '../../wheelroom/wheels/page-section/unicorn/page-section-image-preset'
 
 export const PageSectionImageVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
