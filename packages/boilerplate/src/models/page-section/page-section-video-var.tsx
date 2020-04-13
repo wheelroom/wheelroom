@@ -19,7 +19,7 @@ import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 import { pageSectionVideoPreset } from '../../wheelroom/wheels/page-section/video/page-section-video-preset'
 
-export const PageSectionImageVar = (props: PageSectionProps) => {
+export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
   const style = deepMerge({ topic: topicPreset }, { ...pageSectionVideoPreset })
