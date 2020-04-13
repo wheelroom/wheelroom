@@ -43,6 +43,7 @@ export const GLink = (props: GLinkProps) => {
         ncss: {
           ...props.wheel.elementPresets.gLink.ncss,
           ...gLinkPreset.ncss,
+          ...props.wheel.style.ncss,
           ...props.ncss,
         },
       })}

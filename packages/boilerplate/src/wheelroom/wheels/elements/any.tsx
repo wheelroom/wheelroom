@@ -57,6 +57,7 @@ export const Any = (props: AnyProps) => {
       label,
       ...props.wheel.elementPresets.any.ncss,
       ...anyPreset.ncss,
+      ...props.wheel.style.ncss,
       ...props.ncss,
     },
   })

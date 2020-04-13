@@ -61,6 +61,7 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
         ncss: {
           ...props.wheel.elementPresets.button.ncss,
           ...buttonPreset.ncss,
+          ...props.wheel.style.ncss,
           ...props.ncss,
         },
       })}

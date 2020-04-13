@@ -7,11 +7,11 @@ import { Wheel, NcssProps } from '../types'
 import { MediaObject } from './types/media'
 
 export interface VideoPreset {
-  video?: {
-    ncss?: NcssProps
+  video: {
+    ncss: NcssProps
   }
-  description?: {
-    ncss?: NcssProps
+  description: {
+    ncss: NcssProps
   }
 }
 

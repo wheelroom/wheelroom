@@ -66,6 +66,7 @@ export const Box = (props: GridProps) => {
       label,
       ...props.wheel.elementPresets.box.ncss,
       ...boxPreset.ncss,
+      ...props.wheel.style.ncss,
       ...props.ncss,
     },
   })

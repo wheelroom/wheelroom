@@ -10,7 +10,6 @@ export const FeatherIcon = (props: {
   wheel: Wheel
 }) => {
   if (Object.keys(IconMap).includes(props.icon)) {
-    const ncss = props.ncss || {}
     /** When a valid feather icon string is passed, return the svg icon */
     const RenderIcon = IconMap[props.icon]
     return (
@@ -18,7 +17,8 @@ export const FeatherIcon = (props: {
         ncss={{
           ...props.wheel.elementPresets.featherIcon.ncss,
           ...featherIconPreset.ncss,
-          ...ncss,
+          ...props.wheel.style.ncss,
+          ...props.ncss,
         }}
         wheel={props.wheel}
       />
@@ -33,13 +33,12 @@ export const TextIcon = (props: {
   ncss?: NcssProps
   wheel: Wheel
 }) => {
-  const ncss = props.ncss || {}
   return (
     <Box
       ncss={{
         ...props.wheel.elementPresets.textIcon.ncss,
         ...textIconPreset.ncss,
-        ...ncss,
+        ...props.ncss,
       }}
       wheel={props.wheel}
     >

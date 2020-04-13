@@ -28,15 +28,16 @@ export const Heading = (props: HeadingProps) => {
   if (Object.keys(headingPresets).includes(is)) {
     Object.assign(
       presetNcss,
-      props.wheel.elementPresets[is as HeadingName].ncss
+      props.wheel.elementPresets[is as HeadingName].ncss,
+      headingPresets[is as HeadingName].ncss
     )
-    Object.assign(presetNcss, headingPresets[is as HeadingName].ncss)
   }
 
   const css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
       label,
       ...presetNcss,
+      ...props.wheel.style.ncss,
       ...props.ncss,
     },
   })

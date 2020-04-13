@@ -11,13 +11,13 @@ import { MediaObject } from './types/media'
 
 export interface ImagePreset {
   picture: {
-    ncss?: NcssProps
+    ncss: NcssProps
   }
   img: {
-    ncss?: NcssProps
+    ncss: NcssProps
   }
   figcaption: {
-    ncss?: NcssProps
+    ncss: NcssProps
   }
 }
 

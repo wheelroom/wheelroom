@@ -47,6 +47,7 @@ export const ALink = (props: ALinkProps) => {
         ncss: {
           ...props.wheel.elementPresets.aLink.ncss,
           ...aLinkPreset.ncss,
+          ...props.wheel.style.ncss,
           ...props.ncss,
         },
       })}

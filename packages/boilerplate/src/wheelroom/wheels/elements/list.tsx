@@ -23,6 +23,7 @@ export const List = (props: ListProps) => {
       label,
       ...props.wheel.elementPresets.list.ncss,
       ...listPreset.ncss,
+      ...props.wheel.style.ncss,
       ...props.ncss,
     },
   })
