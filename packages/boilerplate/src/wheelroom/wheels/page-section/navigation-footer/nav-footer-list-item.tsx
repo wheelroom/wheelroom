@@ -19,7 +19,7 @@ export const NavFooterListItem = (props: NavFooterListItemProps) => {
     <Any
       is={'li'}
       key={index}
-      wheel={{ ...props.wheel, style: props.wheel.style.ncss }}
+      wheel={{ ...props.wheel, style: props.wheel.style }}
     >
       <NavFooterListItemLink
         {...pages}

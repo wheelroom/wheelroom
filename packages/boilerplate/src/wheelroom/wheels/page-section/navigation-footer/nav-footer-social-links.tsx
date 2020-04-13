@@ -15,7 +15,7 @@ export const NavFooterSocialLinks = (props: {
   wheel: NavSocialLinksWheel
 }) => {
   return (
-    <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style.ncss }}>
+    <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style }}>
       {props.topics.map((topic: TopicProps, index: number) => (
         <List is={'li'} key={index} wheel={props.wheel}>
           <Action
@@ -23,7 +23,7 @@ export const NavFooterSocialLinks = (props: {
             wheel={{ ...props.wheel, style: props.wheel.style.action }}
           >
             <FeatherIcon
-              ncss={props.wheel.style.icon.ncss}
+              ncss={props.wheel.style.icon}
               icon={topic.icon as string}
               wheel={props.wheel}
             />
