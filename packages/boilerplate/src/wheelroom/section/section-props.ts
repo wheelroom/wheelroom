@@ -13,6 +13,8 @@ export interface SectionProps {
   locale: string
   /** an object with path names and there actual (localized) paths */
   namedPaths: NamedPaths
+  /** Active theme id from theme switcher admin module */
+  activeThemeId: string
 
   globals: GlobalsProps
   page: PageProps

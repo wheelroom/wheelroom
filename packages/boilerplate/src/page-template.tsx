@@ -27,7 +27,7 @@ const PageTemplate = (props: any) => {
   /** Theme switcher admin module */
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
-  const activeThemeId = themeSwitcherStore?.state.activeThemeId as ThemeId
+  const activeThemeId = themeSwitcherStore?.state.activeThemeId
 
   pageDebug('PageTemplate', props)
   if (!page.sections) {
@@ -45,6 +45,7 @@ const PageTemplate = (props: any) => {
   const sectionProps = {
     locale,
     namedPaths,
+    activeThemeId,
 
     globals,
     page,

@@ -20,6 +20,7 @@ export const Sections = (props: any) => {
       key: index,
       locale: props.locale,
       namedPaths: props.namedPaths,
+      activeThemeId: props.activeThemeId,
 
       globals: props.globals,
       page: props.page,

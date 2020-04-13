@@ -7,15 +7,16 @@
  */
 
 import React from 'react'
-import { PageSectionProps } from './page-section'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
-import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { Wheel } from '../../wheelroom/wheels/types'
 import { elementPresets } from '../../themes/yosemite/element-presets'
-import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
-import { pageSectionFreestylePreset } from '../../wheelroom/wheels/page-section/freestyle/page-section-freestyle-preset'
+import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionFreestyle } from '../../wheelroom/wheels/page-section/freestyle/page-section-freestyle'
+import { pageSectionFreestylePreset } from '../../wheelroom/wheels/page-section/freestyle/page-section-freestyle-preset'
+import { PageSectionProps } from './page-section'
+import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
+import { Wheel } from '../../wheelroom/wheels/types'
+import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
+import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -23,7 +24,7 @@ export const PageSectionTextVar = (props: PageSectionProps) => {
   const wheel: Wheel = {
     style: pageSectionFreestylePreset,
     elementPresets,
-    theme: yosemiteLight,
+    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }
 
