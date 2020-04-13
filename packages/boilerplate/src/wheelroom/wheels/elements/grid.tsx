@@ -67,8 +67,8 @@ export const Box = (props: GridProps) => {
   attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
       label,
-      ...props.wheel.elementPresets.box,
-      ...boxPreset,
+      ...props.wheel.elementPresets.box.ncss,
+      ...boxPreset.ncss,
       ...props.ncss,
     },
   })
@@ -81,8 +81,8 @@ export const Flex = (props: GridProps) => {
   attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
       label,
-      ...props.wheel.elementPresets.flex,
-      ...flexPreset,
+      ...props.wheel.elementPresets.flex.ncss,
+      ...flexPreset.ncss,
       ...props.ncss,
     },
   })
@@ -95,8 +95,8 @@ export const Container = (props: GridProps) => {
   attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
       label,
-      ...props.wheel.elementPresets.container,
-      ...containerPreset,
+      ...props.wheel.elementPresets.container.ncss,
+      ...containerPreset.ncss,
       ...props.ncss,
     },
   })
@@ -109,8 +109,8 @@ export const ContainerMaxWidth = (props: GridProps) => {
   attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
       label,
-      ...props.wheel.elementPresets.containerMaxWidth,
-      ...containerMaxWidthPreset,
+      ...props.wheel.elementPresets.containerMaxWidth.ncss,
+      ...containerMaxWidthPreset.ncss,
       ...props.ncss,
     },
   })

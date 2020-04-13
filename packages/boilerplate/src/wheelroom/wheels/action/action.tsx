@@ -10,11 +10,19 @@ import React, { Fragment } from 'react'
 import { ActionProps } from '../../../models/action'
 import { GLink } from '../elements/g-link'
 import { ALink } from '../elements/a-link'
-import { Wheel } from '../types'
+import { Wheel, NcssProps } from '../types'
+
+export interface ActionPreset {
+  ncss: NcssProps
+}
+
+export interface ActionWheel extends Wheel {
+  style: ActionPreset
+}
 
 export interface ActionWheelProps extends ActionProps {
   /** Styling wheel */
-  wheel: Wheel
+  wheel: ActionWheel
   children?: any
   key?: any
 }

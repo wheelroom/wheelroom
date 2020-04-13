@@ -59,8 +59,8 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
       aria-pressed={props.ariaPressed}
       css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
         ncss: {
-          ...props.wheel.elementPresets.button,
-          ...buttonPreset,
+          ...props.wheel.elementPresets.button.ncss,
+          ...buttonPreset.ncss,
           ...props.ncss,
         },
       })}

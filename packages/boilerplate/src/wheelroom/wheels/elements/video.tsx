@@ -63,8 +63,8 @@ export const Video = (props: VideoProps) => {
       <video
         css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
           ncss: {
-            ...props.wheel.elementPresets.video.video,
-            ...videoVideoPreset,
+            ...props.wheel.elementPresets.video.video.ncss,
+            ...videoVideoPreset.ncss,
             ...video.ncss,
           },
         })}
@@ -78,8 +78,8 @@ export const Video = (props: VideoProps) => {
         <p
           css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
             ncss: {
-              ...props.wheel.elementPresets.video.description,
-              ...videoDescriptionPreset,
+              ...props.wheel.elementPresets.video.description.ncss,
+              ...videoDescriptionPreset.ncss,
               ...description.ncss,
             },
           })}

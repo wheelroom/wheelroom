@@ -10,13 +10,13 @@ import { NcssProps, Wheel } from '../types'
 import { styledSystem } from '@wheelroom/styled-system'
 
 export interface ImagePreset {
-  picture?: {
+  picture: {
     ncss?: NcssProps
   }
-  img?: {
+  img: {
     ncss?: NcssProps
   }
-  figcaption?: {
+  figcaption: {
     ncss?: NcssProps
   }
 }
@@ -56,18 +56,13 @@ export const Image = (props: ImageProps) => {
     srcSet: media.fluid && media.fluid.srcSet,
   }
 
-  const style = props.wheel.style || {}
-  const picture = style.picture || {}
-  const img = style.img || {}
-  const figcaption = style.figcaption || {}
-
   return (
     <picture
       css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
         ncss: {
-          ...props.wheel.elementPresets.image.picture,
-          ...imagePicturePreset,
-          ...picture.ncss,
+          ...props.wheel.elementPresets.image.picture.ncss,
+          ...imagePicturePreset.ncss,
+          ...props.wheel.style.picture.ncss,
         },
       })}
     >
@@ -75,9 +70,9 @@ export const Image = (props: ImageProps) => {
         {...imgElementAttrs}
         css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
           ncss: {
-            ...props.wheel.elementPresets.image.img,
-            ...imageImgPreset,
-            ...img.ncss,
+            ...props.wheel.elementPresets.image.img.ncss,
+            ...imageImgPreset.ncss,
+            ...props.wheel.style.img.ncss,
           },
         })}
       />
@@ -85,9 +80,9 @@ export const Image = (props: ImageProps) => {
         <figcaption
           css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
             ncss: {
-              ...props.wheel.elementPresets.image.figcaption,
-              ...imageFigcaptionPreset,
-              ...figcaption.ncss,
+              ...props.wheel.elementPresets.image.figcaption.ncss,
+              ...imageFigcaptionPreset.ncss,
+              ...props.wheel.style.figcaption.ncss,
             },
           })}
         >

@@ -5,6 +5,7 @@ const headingStyle = {
 }
 
 export const elementPresets = {
+  any: { ncss: {} },
   aLink: {
     ':focus': {
       outline: '2px dotted',

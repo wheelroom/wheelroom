@@ -24,16 +24,19 @@ export const Heading = (props: HeadingProps) => {
   const label = `${is}`
 
   // If we have a heading element, apply preset styles
-  const presetStyles = {}
+  const presetNcss = {}
   if (Object.keys(headingPresets).includes(is)) {
-    Object.assign(presetStyles, props.wheel.elementPresets[is as HeadingName])
-    Object.assign(presetStyles, headingPresets[is as HeadingName])
+    Object.assign(
+      presetNcss,
+      props.wheel.elementPresets[is as HeadingName].ncss
+    )
+    Object.assign(presetNcss, headingPresets[is as HeadingName].ncss)
   }
 
   const css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
       label,
-      ...presetStyles,
+      ...presetNcss,
       ...props.ncss,
     },
   })

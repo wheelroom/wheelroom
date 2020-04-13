@@ -1,23 +1,37 @@
-export const boxPreset = {
-  label: 'box',
-  boxSizing: 'border-box',
+import { NcssProps } from '../types'
+
+export interface GridPreset {
+  ncss: NcssProps
 }
 
-export const flexPreset = {
-  ...boxPreset,
-  label: 'flex',
-  display: 'flex',
+export const boxPreset: GridPreset = {
+  ncss: {
+    label: 'box',
+    boxSizing: 'border-box',
+  },
 }
 
-export const containerPreset = {
-  ...flexPreset,
-  label: 'container-fluid',
-  w: 1,
+export const flexPreset: GridPreset = {
+  ncss: {
+    ...boxPreset,
+    label: 'flex',
+    display: 'flex',
+  },
 }
 
-export const containerMaxWidthPreset = {
-  ...containerPreset,
-  label: 'container-max-width',
-  maxWidth: '1280px',
-  mx: 'auto',
+export const containerPreset: GridPreset = {
+  ncss: {
+    ...flexPreset,
+    label: 'container-fluid',
+    w: 1,
+  },
+}
+
+export const containerMaxWidthPreset: GridPreset = {
+  ncss: {
+    ...containerPreset,
+    label: 'container-max-width',
+    maxWidth: '1280px',
+    mx: 'auto',
+  },
 }

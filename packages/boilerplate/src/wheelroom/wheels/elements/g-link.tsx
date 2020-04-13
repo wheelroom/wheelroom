@@ -41,8 +41,8 @@ export const GLink = (props: GLinkProps) => {
       aria-hidden={props.ariaHidden}
       css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
         ncss: {
-          ...props.wheel.elementPresets.gLink,
-          ...gLinkPreset,
+          ...props.wheel.elementPresets.gLink.ncss,
+          ...gLinkPreset.ncss,
           ...props.ncss,
         },
       })}

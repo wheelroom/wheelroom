@@ -1,8 +1,18 @@
-export const featherIconPreset = {
-  label: 'feather-icon',
+import { NcssProps } from '../types'
+
+export interface IconPreset {
+  ncss: NcssProps
 }
 
-export const textIconPreset = {
-  label: 'text-icon',
-  fontFamily: 'fontSystem',
+export const featherIconPreset: IconPreset = {
+  ncss: {
+    label: 'feather-icon',
+  },
+}
+
+export const textIconPreset: IconPreset = {
+  ncss: {
+    label: 'text-icon',
+    fontFamily: 'fontSystem',
+  },
 }
