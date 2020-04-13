@@ -10,6 +10,7 @@ import { ActionProps } from '../../../models/action/action'
 import { Action } from '../action/action'
 import { Wheel } from '../types'
 import { TopicPreset } from './presets/topic-preset'
+import { TopicOptions } from '../../lib/get-topic-options'
 
 export interface TopicWheel extends Wheel {
   style: TopicPreset
@@ -24,6 +25,8 @@ export interface TopicWheelProps {
   pageSectionInfo: PageSectionInfo
   /** Page section actions will override all topic actions */
   pageSectionActions?: ActionProps[]
+  /** Force these topic options */
+  overrideTopicOptions?: TopicOptions
 
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName
@@ -36,8 +39,6 @@ export interface TopicWheelProps {
 
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
-  /** Reverse topicMedia and topicContent */
-  forceReverse?: boolean
 }
 
 export const Topic = (props: TopicWheelProps) => {

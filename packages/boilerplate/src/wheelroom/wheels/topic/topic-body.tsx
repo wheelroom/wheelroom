@@ -12,15 +12,12 @@ export const TopicBody = (props: TopicWheelProps) => {
   const showMedia =
     (topicInfo.hasImage && !topicOptions.hideMedia) ||
     (topicInfo.hasVideo && !topicOptions.hideMedia)
-  const reverse =
-    props.forceReverse || props.pageSectionInfo.topicOptions.reverseOrder
 
   return (
     <Fragment>
       {showMedia && (
         <TopicMedia
           pageSectionInfo={pageSectionInfo}
-          reverse={reverse}
           wheel={{ ...props.wheel, style: props.wheel.style.media }}
           topic={props.topic!}
           topicInfo={topicInfo}
@@ -30,7 +27,6 @@ export const TopicBody = (props: TopicWheelProps) => {
         fullTopicAsLink={props.fullTopicAsLink}
         pageSectionActions={props.pageSectionActions}
         pageSectionInfo={pageSectionInfo}
-        reverse={reverse}
         wheel={{ ...props.wheel, style: props.wheel.style.content }}
         topic={props.topic!}
         topicInfo={topicInfo}

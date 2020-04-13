@@ -33,8 +33,6 @@ export interface TopicContentProps {
   /** Defaults to p */
   useAbstractParser?: ParserFunction
 
-  /** Reverse image and content */
-  reverse?: boolean
   /** Page section actions will override all topic actions */
   pageSectionActions?: ActionProps[]
   /** Full Topic is wrapped in a link and the inside link becomes a span */
@@ -47,13 +45,11 @@ export const TopicContent = (props: TopicContentProps) => {
   const topicOptions = pageSectionInfo.topicOptions
   const showAction = topicInfo.hasAction && !topicOptions.hideAction
 
-  // console.log('ncssStyle', ncssStyle)
-
   return (
     <Box
       ncss={{
         ...props.wheel.style.ncss,
-        order: props.reverse ? 0 : null,
+        order: topicOptions.reverseOrder ? -1 : null,
       }}
       wheel={props.wheel}
     >

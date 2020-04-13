@@ -21,16 +21,16 @@ export interface TopicMediaProps {
   topicInfo: TopicInfo
   /** Page section info */
   pageSectionInfo: PageSectionInfo
-  /** Reverse image and content */
-  reverse?: boolean
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
+  const pageSectionInfo = props.pageSectionInfo
+  const topicOptions = pageSectionInfo.topicOptions
   return (
     <Box
       ncss={{
         ...props.wheel.style.ncss,
-        order: props.reverse ? 0 : null,
+        order: topicOptions.reverseOrder ? 0 : null,
       }}
       wheel={props.wheel}
     >

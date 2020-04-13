@@ -17,7 +17,8 @@ export interface PageSectionInfo {
 }
 
 export const getPageSectionInfo = (
-  pageSection: PageSectionProps
+  pageSection: PageSectionProps,
+  overrideTopicOptions: TopicOptions = {}
 ): PageSectionInfo => {
   const info = {
     actionCount: 0,
@@ -46,7 +47,10 @@ export const getPageSectionInfo = (
     Array.isArray(pageSection.topics) &&
     pageSection.topics.length > 0
   ) {
-    info.topicOptions = getTopicOptions(pageSection.topicOptions)
+    info.topicOptions = getTopicOptions(
+      pageSection.topicOptions,
+      overrideTopicOptions
+    )
 
     info.hasTopic = true
     info.topicCount = pageSection.topics.length

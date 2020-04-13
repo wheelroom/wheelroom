@@ -14,44 +14,61 @@ export type TopicOptionStringNl =
   | 'Verberg actie'
   | 'Draai volgorde om'
 
-export interface TopicOptions {
-  reverseOrder: boolean
-  hideIcon: boolean
-  hideMedia: boolean
-  hideHeading: boolean
-  hideAbstract: boolean
-  hideAction: boolean
-}
+export type TopicOptionsKeys =
+  | 'reverseOrder'
+  | 'hideIcon'
+  | 'hideMedia'
+  | 'hideHeading'
+  | 'hideAbstract'
+  | 'hideAction'
+
+export type TopicOptions = Partial<Record<TopicOptionsKeys, boolean>>
+type TopicOptionsTranslation = Record<TopicOptionsKeys, string>
 
 export const getTopicOptions = (
   optionStrings: (TopicOptionString | TopicOptionStringNl)[],
-  language = 'en'
+  overrideTopicOptions: TopicOptions = {},
+  locale = 'en'
 ): TopicOptions => {
   const optionsStringList = optionStrings || []
 
-  const enResult = {
-    reverseOrder: optionsStringList.includes('Reversed order'),
-    hideIcon: optionsStringList.includes('Hide icon'),
-    hideMedia: optionsStringList.includes('Hide media'),
-    hideHeading: optionsStringList.includes('Hide heading'),
-    hideAbstract: optionsStringList.includes('Hide abstract'),
-    hideAction: optionsStringList.includes('Hide action'),
+  const english: TopicOptionsTranslation = {
+    reverseOrder: 'Reversed order',
+    hideIcon: 'Hide icon',
+    hideMedia: 'Hide media',
+    hideHeading: 'Hide heading',
+    hideAbstract: 'Hide abstract',
+    hideAction: 'Hide action',
   }
-  const nlResult = {
-    reverseOrder: optionsStringList.includes('Draai volgorde om'),
-    hideIcon: optionsStringList.includes('Verberg icoon'),
-    hideMedia: optionsStringList.includes('Verberg media'),
-    hideHeading: optionsStringList.includes('Verberg titel'),
-    hideAbstract: optionsStringList.includes('Verberg tekst'),
-    hideAction: optionsStringList.includes('Verberg actie'),
-  }
-
-  if (language === 'en') {
-    return enResult
-  }
-  if (language === 'nl') {
-    return nlResult
+  const dutch: TopicOptionsTranslation = {
+    reverseOrder: 'Draai volgorde om',
+    hideIcon: 'Verberg icoon',
+    hideMedia: 'Verberg media',
+    hideHeading: 'Verberg titel',
+    hideAbstract: 'Verberg tekst',
+    hideAction: 'Verberg actie',
   }
 
-  return enResult
+  const language = locale.split('-')[0]
+  let translation: TopicOptionsTranslation
+
+  switch (language) {
+    case 'en':
+      translation = english
+      break
+    case 'nl':
+      translation = dutch
+      break
+    default:
+      translation = english
+      break
+  }
+  const result: TopicOptions = {}
+  Object.keys(translation).forEach((key) => {
+    const optionSet =
+      optionsStringList.includes(translation[key as TopicOptionsKeys] as any) ||
+      overrideTopicOptions[key as TopicOptionsKeys]
+    result[key as TopicOptionsKeys] = optionSet
+  })
+  return result
 }

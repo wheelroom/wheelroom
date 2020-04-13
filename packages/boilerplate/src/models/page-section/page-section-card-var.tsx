@@ -23,7 +23,10 @@ import { elementPresets } from '../../themes/yosemite/element-presets'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
-  const pageSectionInfo = getPageSectionInfo(props)
+  // TODO: Remove demo force reverse
+  const pageSectionInfo = getPageSectionInfo(props, {
+    reverseOrder: true,
+  })
 
   const style = deepMerge(
     { topic: topicPreset },
