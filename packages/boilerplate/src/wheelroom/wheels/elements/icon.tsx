@@ -17,8 +17,8 @@ export const FeatherIcon = (props: {
       <RenderIcon
         ncss={{
           label,
-          ...props.wheel.elementPresets.featherIcon.ncss,
           ...featherIconPreset.ncss,
+          ...props.wheel.elementPresets.featherIcon.ncss,
           ...props.wheel.style.ncss,
           ...props.ncss,
         }}
@@ -40,8 +40,8 @@ export const TextIcon = (props: {
     <Box
       ncss={{
         label,
-        ...props.wheel.elementPresets.textIcon.ncss,
         ...textIconPreset.ncss,
+        ...props.wheel.elementPresets.textIcon.ncss,
         ...props.ncss,
       }}
       wheel={props.wheel}

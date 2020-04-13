@@ -43,8 +43,8 @@ export const GLink = (props: GLinkProps) => {
       css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
         ncss: {
           label,
-          ...props.wheel.elementPresets.gLink.ncss,
           ...gLinkPreset.ncss,
+          ...props.wheel.elementPresets.gLink.ncss,
           ...props.wheel.style.ncss,
           ...props.ncss,
         },

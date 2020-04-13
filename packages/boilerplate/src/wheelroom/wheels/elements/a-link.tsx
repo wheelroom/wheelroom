@@ -47,8 +47,8 @@ export const ALink = (props: ALinkProps) => {
       css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
         ncss: {
           label,
-          ...props.wheel.elementPresets.aLink.ncss,
           ...aLinkPreset.ncss,
+          ...props.wheel.elementPresets.aLink.ncss,
           ...props.wheel.style.ncss,
           ...props.ncss,
         },

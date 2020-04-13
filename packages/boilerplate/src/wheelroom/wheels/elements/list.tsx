@@ -21,8 +21,8 @@ export const List = (props: ListProps) => {
   const css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
       label,
-      ...props.wheel.elementPresets.list.ncss,
       ...listPreset.ncss,
+      ...props.wheel.elementPresets.list.ncss,
       ...props.wheel.style.ncss,
       ...props.ncss,
     },

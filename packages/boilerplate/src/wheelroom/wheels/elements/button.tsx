@@ -61,8 +61,8 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
       css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
         ncss: {
           label,
-          ...props.wheel.elementPresets.button.ncss,
           ...buttonPreset.ncss,
+          ...props.wheel.elementPresets.button.ncss,
           ...props.wheel.style.ncss,
           ...props.ncss,
         },
