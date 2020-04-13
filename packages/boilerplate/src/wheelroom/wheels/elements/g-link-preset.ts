@@ -6,7 +6,6 @@ export interface GLinkPreset {
 
 export const gLinkPreset: GLinkPreset = {
   ncss: {
-    label: 'g-link',
     boxSizing: 'border-box',
     fontFamily: 'systemFont',
     cursor: 'pointer',

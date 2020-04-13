@@ -6,7 +6,6 @@ export interface VideoPreset {
 
 export const videoVideoPreset: VideoPreset = {
   ncss: {
-    label: 'video',
     height: 'auto',
     width: '100%',
   },
@@ -14,7 +13,6 @@ export const videoVideoPreset: VideoPreset = {
 
 export const videoDescriptionPreset: VideoPreset = {
   ncss: {
-    label: 'video-description',
     fontFamily: 'systemFont',
   },
 }

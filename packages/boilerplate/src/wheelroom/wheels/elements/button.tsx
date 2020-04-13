@@ -44,6 +44,7 @@ export interface ButtonProps {
 }
 
 export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
+  const label = 'button'
   const { adminCoreState } = useContext(AdminCoreContext)
   return (
     <button
@@ -59,6 +60,7 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
       aria-pressed={props.ariaPressed}
       css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
         ncss: {
+          label,
           ...props.wheel.elementPresets.button.ncss,
           ...buttonPreset.ncss,
           ...props.wheel.style.ncss,

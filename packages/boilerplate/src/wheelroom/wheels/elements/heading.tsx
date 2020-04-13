@@ -21,7 +21,7 @@ interface HeadingProps extends HeadingElementProps {
 
 export const Heading = (props: HeadingProps) => {
   const is = props.is || 'h1'
-  const label = `${is}`
+  const label = 'heading'
 
   // If we have a heading element, apply preset styles
   const presetNcss = {}

@@ -6,7 +6,6 @@ export interface HeadingPreset {
 
 export const headingPreset: HeadingPreset = {
   ncss: {
-    label: 'heading',
     boxSizing: 'border-box',
     fontFamily: 'systemFont',
   },

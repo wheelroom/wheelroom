@@ -63,6 +63,7 @@ export const Video = (props: VideoProps) => {
       <video
         css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
           ncss: {
+            label: 'video-video',
             ...props.wheel.elementPresets.video.video.ncss,
             ...videoVideoPreset.ncss,
             ...video.ncss,
@@ -78,6 +79,7 @@ export const Video = (props: VideoProps) => {
         <p
           css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
             ncss: {
+              label: 'video-description',
               ...props.wheel.elementPresets.video.description.ncss,
               ...videoDescriptionPreset.ncss,
               ...description.ncss,

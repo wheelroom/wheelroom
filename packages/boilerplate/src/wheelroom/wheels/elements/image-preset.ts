@@ -6,7 +6,6 @@ export interface ImagePreset {
 
 export const imageImgPreset: ImagePreset = {
   ncss: {
-    label: 'img',
     boxSizing: 'border-box',
     display: 'block',
     height: 'auto',
@@ -16,14 +15,12 @@ export const imageImgPreset: ImagePreset = {
 
 export const imagePicturePreset: ImagePreset = {
   ncss: {
-    label: 'picture',
     boxSizing: 'border-box',
   },
 }
 
 export const imageFigcaptionPreset: ImagePreset = {
   ncss: {
-    label: 'figcaption',
     boxSizing: 'border-box',
     fontFamily: 'systemFont',
   },

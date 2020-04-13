@@ -28,6 +28,7 @@ export interface GLinkProps {
 }
 
 export const GLink = (props: GLinkProps) => {
+  const label = 'g-link'
   const { adminCoreState } = useContext(AdminCoreContext)
   if (!props.to) {
     return null
@@ -41,6 +42,7 @@ export const GLink = (props: GLinkProps) => {
       aria-hidden={props.ariaHidden}
       css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
         ncss: {
+          label,
           ...props.wheel.elementPresets.gLink.ncss,
           ...gLinkPreset.ncss,
           ...props.wheel.style.ncss,

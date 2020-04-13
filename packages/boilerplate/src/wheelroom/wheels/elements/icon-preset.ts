@@ -5,14 +5,11 @@ export interface IconPreset {
 }
 
 export const featherIconPreset: IconPreset = {
-  ncss: {
-    label: 'feather-icon',
-  },
+  ncss: {},
 }
 
 export const textIconPreset: IconPreset = {
   ncss: {
-    label: 'text-icon',
     fontFamily: 'fontSystem',
   },
 }

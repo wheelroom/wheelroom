@@ -59,7 +59,7 @@ const getAttrs = (props: GridProps) => {
 }
 
 export const Box = (props: GridProps) => {
-  const label = `box-is-${props.is || 'div'}`
+  const label = 'box'
   const attrs: any = getAttrs(props)
   attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
@@ -74,7 +74,7 @@ export const Box = (props: GridProps) => {
 }
 
 export const Flex = (props: GridProps) => {
-  const label = `flex-is-${props.is || 'div'}`
+  const label = 'flex'
   const attrs: any = getAttrs(props)
   attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
@@ -88,7 +88,7 @@ export const Flex = (props: GridProps) => {
 }
 
 export const Container = (props: GridProps) => {
-  const label = `container-is-${props.is || 'div'}`
+  const label = 'container'
   const attrs: any = getAttrs(props)
   attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
@@ -102,7 +102,7 @@ export const Container = (props: GridProps) => {
 }
 
 export const ContainerMaxWidth = (props: GridProps) => {
-  const label = `container-max-width-is-${props.is || 'div'}`
+  const label = 'container-max-width'
   const attrs: any = getAttrs(props)
   attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
     ncss: {
