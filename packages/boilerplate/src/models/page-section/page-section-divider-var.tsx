@@ -15,11 +15,11 @@ import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 
 export const PageSectionDividerVar = () => {
   const wheel: Wheel = {
-    style: {},
+    style: { ncss: { py: 6, w: 1, h: '0px' } },
     elementPresets,
     theme: yosemiteLight,
     styledSystemConfig,
   }
 
-  return <Box is="div" ncss={{ py: 6, w: 1, h: '0px' }} wheel={wheel} />
+  return <Box is="div" wheel={wheel} />
 }
