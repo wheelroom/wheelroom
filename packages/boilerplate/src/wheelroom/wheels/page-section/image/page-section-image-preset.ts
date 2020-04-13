@@ -2,9 +2,9 @@ import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionImagePreset {
-  container?: NcssProps
-  topic?: TopicPreset
-  wrapper?: NcssProps
+  container: NcssProps
+  topic: TopicPreset
+  wrapper: NcssProps
 }
 
 export const pageSectionImagePreset: PageSectionImagePreset = {
@@ -29,6 +29,9 @@ export const pageSectionImagePreset: PageSectionImagePreset = {
           ncss: {},
         },
         heading: {
+          ncss: {},
+        },
+        icon: {
           ncss: {},
         },
       },

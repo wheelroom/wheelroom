@@ -29,6 +29,9 @@ export const pageSectionVideoPreset: PageSectionVideoPreset = {
         heading: {
           ncss: {},
         },
+        icon: {
+          ncss: {},
+        },
       },
     },
     media: {
