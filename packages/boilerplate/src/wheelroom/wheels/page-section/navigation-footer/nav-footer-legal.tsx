@@ -4,24 +4,33 @@ import { Any } from '../../elements/any'
 import { ALink } from '../../elements/a-link'
 import { SiteMetadata } from '../../../../page-template'
 import { Wheel } from '../../types'
-import { NavLegalPreset } from './presets/nav-legal-preset'
+import { NavFooterLegalPreset } from './presets/nav-footer-legal-preset'
 
 interface NavLegalWheel extends Wheel {
-  style: NavLegalPreset
+  style: NavFooterLegalPreset
 }
 
-export const NavLegal = (props: {
+export const NavFooterLegal = (props: {
   siteMetadata: SiteMetadata
   wheel: NavLegalWheel
 }) => {
   return (
-    <Container ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
-      <Flex ncss={props.wheel.style.innerContainer.ncss} wheel={props.wheel}>
-        <Any is="span" ncss={props.wheel.style.text.ncss} wheel={props.wheel}>
+    <Container
+      wheel={{ ...props.wheel, style: props.wheel.style.container.ncss }}
+    >
+      <Flex
+        wheel={{ ...props.wheel, style: props.wheel.style.innerContainer.ncss }}
+      >
+        <Any
+          is="span"
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.innerContainer.ncss,
+          }}
+        >
           <ALink
-            ncss={props.wheel.style.link.ncss}
             href={props.siteMetadata.legal.url}
-            wheel={props.wheel}
+            wheel={{ ...props.wheel, style: props.wheel.style.link.ncss }}
           >
             {props.siteMetadata.legal.description}
           </ALink>

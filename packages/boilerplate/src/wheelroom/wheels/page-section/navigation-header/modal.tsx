@@ -46,8 +46,8 @@ export const Modal = (props: {
         id="header-navigation"
         ncss={
           props.menuVisible
-            ? props.wheel.style.document.menuVisible.yes.ncss
-            : props.wheel.style.document.menuVisible.no.ncss
+            ? props.wheel.style.document.menuVisible.yes
+            : props.wheel.style.document.menuVisible.no
         }
         ariaLabel="Header navigation"
         wheel={props.wheel}

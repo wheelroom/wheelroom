@@ -15,11 +15,11 @@ export interface NavHeaderListItemProps {
 }
 
 export const NavHeaderListItem = (props: NavHeaderListItemProps) => {
-  const listItemlink = props.pages.map((pages: PageProps, index: number ) => (
+  const listItemlink = props.pages.map((pages: PageProps, index: number) => (
     <Any
       is={'li'}
       key={index}
-      wheel={{ ...props.wheel, style: props.wheel.style.listItem.ncss }}
+      wheel={{ ...props.wheel, style: props.wheel.style.ncss }}
     >
       <NavHeaderListItemLink
         {...pages}

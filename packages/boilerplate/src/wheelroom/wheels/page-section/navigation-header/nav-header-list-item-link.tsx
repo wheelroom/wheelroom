@@ -14,7 +14,7 @@ export const NavHeaderListItemLink = (props: {
 }) => {
   return (
     <GLink
-      wheel={{ ...props.wheel, style: props.wheel.style.link.ncss }}
+      wheel={{ ...props.wheel, style: props.wheel.style.ncss }}
       to={props.pages[0].path}
     >
       {props.pages[0].navigationHeading}

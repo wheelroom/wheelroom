@@ -3,9 +3,9 @@ import { NavigationSegmentProps } from '../../../../models/navigation-segment'
 import { Box, Container, Flex } from '../../elements/grid'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
-import { NavSocialLinks } from './nav-social-links'
-import { NavList } from './nav-list'
-import { NavLegal } from './nav-legal'
+import { NavFooterSocialLinks } from './nav-footer-social-links'
+import { NavFooterList } from './nav-footer-list'
+import { NavFooterLegal } from './nav-footer-legal'
 import { NavFooterPreset } from './presets/nav-footer-preset'
 import { Wheel } from '../../types'
 
@@ -35,25 +35,25 @@ export const PageSectionNavigationFooter = (props: {
         <Container ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
           <Flex
             is={'nav'}
-            ncss={props.wheel.style.menus.nav.ncss}
+            ncss={props.wheel.style.nav.ncss}
             wheel={props.wheel}
           >
-            <NavList
-              wheel={{ ...props.wheel, style: props.wheel.style.menus.navList }}
+            <NavFooterList
+              wheel={{ ...props.wheel, style: props.wheel.style.navList }}
               pages={navSegment.pages}
             />
             {pageSectionInfo.hasTopic && (
-              <NavSocialLinks
+              <NavFooterSocialLinks
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.menus.navSocialLinks,
+                  style: props.wheel.style.navFooterSocialLinks,
                 }}
                 topics={props.pageSection.topics}
               />
             )}
           </Flex>
         </Container>
-        <NavLegal
+        <NavFooterLegal
           siteMetadata={siteMetadata}
           wheel={{ ...props.wheel, style: props.wheel.style.navLegal }}
         />

@@ -1,10 +1,10 @@
 import { NcssProps } from '../../../types'
 
-export interface NavHeaderListItemLinkPreset {
+export interface NavFooterListItemLinkPreset {
   ncss: NcssProps
 }
 
-export const navHeaderListItemLinkPreset: NavHeaderListItemLinkPreset = {
+export const navFooterListItemLinkPreset: NavFooterListItemLinkPreset = {
   ncss: {
     label: 'link',
     fontFamily: 'systemFont',

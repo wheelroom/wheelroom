@@ -1,6 +1,6 @@
-import { List } from '../../elements/list'
 import React from 'react'
 import { Wheel } from '../../types'
+import { List } from '../../elements/list'
 import { NavHeaderListItem } from './nav-header-list-item'
 import { PageProps } from '../../../../models/page'
 import { NavHeaderListPreset } from './presets/nav-header-list-preset'
@@ -14,7 +14,7 @@ export const NavHeaderList = (props: {
   wheel: NavHeaderListWheel
 }) => {
   return (
-    <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style.list }}>
+    <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style.ncss }}>
       <NavHeaderListItem
         pages={props.pages}
         wheel={{ ...props.wheel, style: props.wheel.style.listItem }}

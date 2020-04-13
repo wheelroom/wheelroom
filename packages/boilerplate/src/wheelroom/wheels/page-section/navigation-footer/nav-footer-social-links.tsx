@@ -3,14 +3,14 @@ import { TopicProps } from '../../../../models/topic'
 import { FeatherIcon } from '../../elements/icon'
 import React from 'react'
 import { Action } from '../../action/action'
-import { NavSocialLinksPreset } from './presets/nav-social-links-preset'
+import { NavFooterSocialLinksPreset } from './presets/nav-footer-social-links-preset'
 import { Wheel } from '../../types'
 
 interface NavSocialLinksWheel extends Wheel {
-  style: NavSocialLinksPreset
+  style: NavFooterSocialLinksPreset
 }
 
-export const NavSocialLinks = (props: {
+export const NavFooterSocialLinks = (props: {
   topics: TopicProps[]
   wheel: NavSocialLinksWheel
 }) => {

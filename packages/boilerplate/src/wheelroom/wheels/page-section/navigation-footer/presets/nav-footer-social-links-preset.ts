@@ -1,14 +1,13 @@
 import { NcssProps } from '../../../types'
-import { navListPreset } from './nav-list-preset'
 
-export interface NavSocialLinksPreset {
-  list: { ncss: NcssProps }
+export interface NavFooterSocialLinksPreset {
+  ncss: NcssProps
   action: { ncss: NcssProps }
   icon: { ncss: NcssProps }
 }
 
-export const navSocialLinksPreset: NavSocialLinksPreset = {
-  list: navListPreset.list,
+export const navFooterSocialLinksPreset: NavFooterSocialLinksPreset = {
+  ncss: {},
   action: {
     ncss: {
       display: 'inline-flex',
