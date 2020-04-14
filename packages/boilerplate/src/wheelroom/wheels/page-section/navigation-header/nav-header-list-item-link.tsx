@@ -9,15 +9,15 @@ interface NavHeaderListItemLinkWheel extends Wheel {
 }
 
 export const NavHeaderListItemLink = (props: {
-  pages: PageProps[]
+  page: PageProps
   wheel: NavHeaderListItemLinkWheel
 }) => {
   return (
     <GLink
       wheel={{ ...props.wheel, style: props.wheel.style }}
-      to={props.pages[0].path}
+      to={props.page.path}
     >
-      {props.pages[0].navigationHeading}
+      {props.page.navigationHeading}
     </GLink>
   )
 }

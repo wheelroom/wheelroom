@@ -9,7 +9,7 @@ import {
   NavHeaderListPreset,
   navHeaderListPreset,
 } from './nav-header-list-preset'
-import { buttonPreset } from '../../../elements/button-preset'
+import { ButtonPreset, buttonPreset } from '../../../elements/button-preset'
 
 export interface NavHeaderPreset {
   skipToContent: { ncss: NcssProps }
@@ -23,7 +23,7 @@ export interface NavHeaderPreset {
   }
   modal: {
     ncss: NcssProps
-    button: NcssProps
+    button: ButtonPreset
     dialog: ModalPreset
   }
 }

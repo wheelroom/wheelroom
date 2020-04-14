@@ -80,7 +80,7 @@ export const PageSectionNavigationHeader = (props: {
             <NavHeaderList
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navHeader.list,
+                style: props.wheel.style.navHeader.list.ncss,
               }}
               pages={navSegment.pages}
             />
@@ -108,10 +108,12 @@ export const PageSectionNavigationHeader = (props: {
               ariaLabel="Open header navigation"
               value=""
               role="button"
-              ncss={props.wheel.style.modal.button.ncss}
               ref={buttonRef}
               onClick={() => openMenu()}
-              wheel={props.wheel}
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.modal.button,
+              }}
             >
               Menu
             </Button>

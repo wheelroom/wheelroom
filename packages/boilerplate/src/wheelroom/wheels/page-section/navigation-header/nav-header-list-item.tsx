@@ -15,19 +15,16 @@ export interface NavHeaderListItemProps {
 }
 
 export const NavHeaderListItem = (props: NavHeaderListItemProps) => {
-  // TODO: @jacco – within the loop the "style" link (style: props.wheel.style.link) isn't passed on to the second and third object.
-  console.log(props.pages)
-  console.log(props.wheel.style)
   return (
     <Fragment>
-      {props.pages.map((pages: PageProps, index: number) => (
+      {props.pages.map((page: PageProps, index: number) => (
         <Any
           is={'li'}
           key={index}
           wheel={{ ...props.wheel, style: props.wheel.style }}
         >
           <NavHeaderListItemLink
-            pages={props.pages}
+            page={page}
             wheel={{ ...props.wheel, style: props.wheel.style.link }}
           />
         </Any>
