@@ -30,48 +30,46 @@ export const Modal = (props: {
       is="div"
       role="dialog"
       tabIndex={-1}
-      ncss={
-        props.menuVisible
-          ? props.wheel.style.container.menuVisible.yes.ncss
-          : props.wheel.style.container.menuVisible.no.ncss
-      }
       ariaHidden={props.menuVisible ? false : undefined}
       ariaModal={props.menuVisible ? true : undefined}
       hidden={true}
-      wheel={props.wheel}
+      wheel={{
+        ...props.wheel,
+        style: props.menuVisible
+          ? props.wheel.style.container.menuVisible.yes
+          : props.wheel.style.container.menuVisible.no,
+      }}
     >
       <Flex
         is="section"
         role="document"
         id="header-navigation"
-        ncss={
-          props.menuVisible
-            ? props.wheel.style.document.menuVisible.yes
-            : props.wheel.style.document.menuVisible.no
-        }
         ariaLabel="Header navigation"
-        wheel={props.wheel}
+        wheel={{
+          ...props.wheel,
+          style: props.menuVisible
+            ? props.wheel.style.container.menuVisible.yes
+            : props.wheel.style.container.menuVisible.no,
+        }}
       >
         <Button
           ariaLabel="Close header navigation"
           value=""
           role="button"
           onClick={() => props.closeMenu()}
-          ncss={props.wheel.style.closeMenuButton.ncss}
-          wheel={props.wheel}
+          wheel={{ ...props.wheel, style: props.wheel.style.closeMenuButton }}
         >
           <Box ariaHidden={true} wheel={props.wheel}>
             <XIcon wheel={props.wheel} />
           </Box>
         </Button>
         <NavHeaderList
-          wheel={{ ...props.wheel, style: props.wheel.style.list.ncss }}
+          wheel={{ ...props.wheel, style: props.wheel.style.list }}
           pages={props.pages}
         />
         <Flex
           is="div"
-          ncss={props.wheel.style.actions.container.ncss}
-          wheel={props.wheel}
+          wheel={{ ...props.wheel, style: props.wheel.style.actions.container }}
         >
           {props.pageSectionInfo.hasAction && (
             <Action
@@ -86,10 +84,12 @@ export const Modal = (props: {
             type="button"
             title={`Current theme is ` + props.activeThemeId}
             ariaLabel={`Current theme is ` + props.activeThemeId}
-            ncss={props.wheel.style.actions.themeButton.ncss}
             value=""
             onClick={() => props.toggleTheme()}
-            wheel={props.wheel}
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.actions.themeButton,
+            }}
           >
             {props.activeThemeId}
           </Button>

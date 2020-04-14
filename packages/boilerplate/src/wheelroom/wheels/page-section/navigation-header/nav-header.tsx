@@ -60,13 +60,17 @@ export const PageSectionNavigationHeader = (props: {
     <Fragment>
       <ALink
         href="#content"
-        ncss={props.wheel.style.skipToContent}
-        wheel={props.wheel}
+        wheel={{ ...props.wheel, style: props.wheel.style.skipToContent }}
       >
         {`Skip to ${globals.siteHeading} Content`}
       </ALink>
-      <Box is="div" ncss={props.wheel.style.wrapper.ncss} wheel={props.wheel}>
-        <Container ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
+      <Box
+        is="div"
+        wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}
+      >
+        <Container
+          wheel={{ ...props.wheel, style: props.wheel.style.container }}
+        >
           <Logo
             logo={props.useLogoElement || globals.siteHeading}
             version={siteMetadata.legal.version}
@@ -74,13 +78,12 @@ export const PageSectionNavigationHeader = (props: {
           />
           <Flex
             is={'nav'}
-            ncss={props.wheel.style.navHeader.ncss}
-            wheel={props.wheel}
+            wheel={{ ...props.wheel, style: props.wheel.style.navHeader }}
           >
             <NavHeaderList
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navHeader.list.ncss,
+                style: props.wheel.style.navHeader.list,
               }}
               pages={navSegment.pages}
             />
@@ -97,8 +100,7 @@ export const PageSectionNavigationHeader = (props: {
           </Flex>
           <Flex
             is="div"
-            ncss={props.wheel.style.modal.ncss}
-            wheel={props.wheel}
+            wheel={{ ...props.wheel, style: props.wheel.style.modal }}
           >
             <Button
               id="modal-dialog"

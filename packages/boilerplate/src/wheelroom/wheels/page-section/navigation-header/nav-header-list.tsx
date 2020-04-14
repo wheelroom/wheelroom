@@ -14,7 +14,7 @@ export const NavHeaderList = (props: {
   wheel: NavHeaderListWheel
 }) => {
   return (
-    <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <List is="ul" wheel={props.wheel}>
       <NavHeaderListItem
         pages={props.pages}
         wheel={{ ...props.wheel, style: props.wheel.style.listItem }}

@@ -5,6 +5,7 @@ import {
   modalDialogContentPreset,
 } from './modal-dialog-preset'
 import { NcssProps } from '../../../types'
+import { NavHeaderListPreset } from './nav-header-list-preset'
 
 export interface ModalPreset {
   container: {
@@ -20,8 +21,7 @@ export interface ModalPreset {
     }
   }
   closeMenuButton: { ncss: NcssProps }
-  list: { ncss: NcssProps }
-  listItem: { ncss: NcssProps }
+  list: NavHeaderListPreset
   actions: {
     container: { ncss: NcssProps }
     action: { ncss: NcssProps }
@@ -67,12 +67,13 @@ export const modalPreset: ModalPreset = {
         },
       },
     },
-  },
-  listItem: {
-    ncss: {
-      m: 0,
-      px: 2,
-      py: 3,
+    listItem: {
+      link: { ncss: {} },
+      ncss: {
+        m: 0,
+        px: 2,
+        py: 3,
+      },
     },
   },
   actions: {

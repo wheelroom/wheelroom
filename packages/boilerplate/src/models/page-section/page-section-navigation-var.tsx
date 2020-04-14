@@ -36,9 +36,6 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     styledSystemConfig,
   }
 
-  console.log(JSON.stringify(wheelHeader.style, null, 2))
-  // console.log(JSON.stringify(wheelFooter.style, null, 2))
-
   if (pageSectionInfo.hasNavigation && pageSectionInfo.index < 2) {
     return (
       <PageSectionNavigationHeader pageSection={props} wheel={wheelHeader} />

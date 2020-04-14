@@ -23,7 +23,10 @@ export const NavHeaderActions = (props: {
   }
 
   return (
-    <Flex is="div" ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
+    <Flex
+      is="div"
+      wheel={{ ...props.wheel, style: props.wheel.style.container }}
+    >
       {props.pageSectionInfo.hasAction && (
         <Action
           wheel={{ ...props.wheel, style: props.wheel.style.action }}
@@ -34,10 +37,9 @@ export const NavHeaderActions = (props: {
         type="button"
         title={`Current theme is ` + props.activeThemeId}
         ariaLabel={`Current theme is ` + props.activeThemeId}
-        ncss={props.wheel.style.themeButton.ncss}
         value=""
         onClick={() => props.toggleTheme()}
-        wheel={props.wheel}
+        wheel={{ ...props.wheel, style: props.wheel.style.themeButton }}
       >
         {props.activeThemeId}
       </Button>
