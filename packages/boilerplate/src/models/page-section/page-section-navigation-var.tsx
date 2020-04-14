@@ -26,7 +26,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const wheelHeader: Wheel = {
     style: navHeaderPreset,
     elementPresets,
-    theme: yosemiteLight,
+    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }
   const wheelFooter: Wheel = {
@@ -37,6 +37,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
   }
 
   console.log(JSON.stringify(wheelHeader.style, null, 2))
+  // console.log(JSON.stringify(wheelFooter.style, null, 2))
 
   if (pageSectionInfo.hasNavigation && pageSectionInfo.index < 2) {
     return (

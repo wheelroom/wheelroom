@@ -31,11 +31,16 @@ export const PageSectionNavigationFooter = (props: {
 
   return (
     <Fragment>
-      <Box is="div" ncss={props.wheel.style.wrapper.ncss} wheel={props.wheel}>
-        <Container ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
+      <Box
+        is="div"
+        wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}
+      >
+        <Container
+          wheel={{ ...props.wheel, style: props.wheel.style.container }}
+        >
           <Flex
             is={'nav'}
-            ncss={props.wheel.style.navFooter.ncss}
+            ncss={props.wheel.style.navFooter}
             wheel={props.wheel}
           >
             <NavFooterList
