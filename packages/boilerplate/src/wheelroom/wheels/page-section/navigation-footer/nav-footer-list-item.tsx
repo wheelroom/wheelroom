@@ -15,15 +15,14 @@ export interface NavFooterListItemProps {
 }
 
 export const NavFooterListItem = (props: NavFooterListItemProps) => {
-  const listItemlink = props.pages.map((pages: PageProps, index: number) => (
+  const listItemlink = props.pages.map((page: PageProps, index: number) => (
     <Any
       is={'li'}
       key={index}
       wheel={{ ...props.wheel, style: props.wheel.style }}
     >
       <NavFooterListItemLink
-        {...pages}
-        pages={props.pages}
+        page={page}
         wheel={{ ...props.wheel, style: props.wheel.style.link }}
       />
     </Any>
