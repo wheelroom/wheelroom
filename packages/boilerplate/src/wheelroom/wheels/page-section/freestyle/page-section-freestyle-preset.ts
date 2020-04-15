@@ -1,10 +1,10 @@
-import { NcssProps } from '../../types'
+import { GridPreset } from '../../elements/grid-preset'
 import { TextPreset, textPreset } from '../../text/text-preset'
 
 export interface PageSectionFreestylePreset {
-  container: NcssProps
+  container: GridPreset
   text: TextPreset
-  wrapper: { ncss: NcssProps }
+  wrapper: GridPreset
 }
 
 export const pageSectionFreestylePreset: PageSectionFreestylePreset = {

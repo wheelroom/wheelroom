@@ -20,7 +20,6 @@ export const topicContentPreset: TopicContentPreset = {
     label: 'topic-content',
     display: 'flex',
     flexDirection: 'column',
-    p: 3,
   },
   text: topicContentTextPreset,
   actions: topicContentActionsPreset,

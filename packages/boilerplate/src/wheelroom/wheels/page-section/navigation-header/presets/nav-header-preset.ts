@@ -1,10 +1,12 @@
+import { NcssProps } from '../../../types'
+import { GridPreset } from '../../../elements/grid-preset'
 import { LogoPreset, logoPreset } from './logo-preset'
 import {
   NavHeaderActionsPreset,
   navHeaderActionsPreset,
 } from './nav-header-actions-preset'
 import { ModalPreset, modalPreset } from './modal-preset'
-import { NcssProps } from '../../../types'
+
 import {
   NavHeaderListPreset,
   navHeaderListPreset,
@@ -13,8 +15,8 @@ import { ButtonPreset, buttonPreset } from '../../../elements/button-preset'
 
 export interface NavHeaderPreset {
   skipToContent: { ncss: NcssProps }
-  wrapper: { ncss: NcssProps }
-  container: { ncss: NcssProps }
+  wrapper: GridPreset
+  container: GridPreset
   logo: LogoPreset
   navHeader: {
     ncss: NcssProps
@@ -35,17 +37,19 @@ export const navHeaderPreset: NavHeaderPreset = {
       left: '-100%',
       ':focus': {
         w: 1,
+        py: 4,
+        px: 3,
         left: 0,
         top: 0,
         right: 0,
         color: 'black',
         fontFamily: 'text',
-        fontWeight: 5,
-        backgroundColor: 'yellow',
+        fontWeight: 7,
+        backgroundColor: '#FCA623',
         textAlign: 'center',
-        lineHeight: '70px',
-        justifyContent: 'center',
         zIndex: 1002,
+        border: '2px dotted black',
+        outline: 'none',
       },
     },
   },

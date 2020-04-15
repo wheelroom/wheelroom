@@ -1,9 +1,8 @@
 import { TopicPreset } from '../../topic/presets/topic-preset'
 import { GridPreset } from '../../elements/grid-preset'
-import {NcssProps} from "../../types";
 
 export interface PageSectionHeadlinePreset {
-  container: { ncss: NcssProps }
+  container: GridPreset
   topic: TopicPreset
   wrapper: GridPreset
 }
@@ -20,6 +19,7 @@ export const pageSectionHeadlinePreset: PageSectionHeadlinePreset = {
       ncss: {
         textAlign: 'center',
         mx: 'auto',
+        p: 3,
         maxWidth: [1, '960px'],
       },
       actions: {

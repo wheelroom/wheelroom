@@ -1,10 +1,10 @@
-import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/presets/topic-preset'
+import { GridPreset } from '../../elements/grid-preset'
 
 export interface PageSectionQuotePreset {
-  container: NcssProps
+  container: GridPreset
   topic: TopicPreset
-  wrapper: { ncss: NcssProps }
+  wrapper: GridPreset
 }
 
 export const pageSectionQuotePreset: PageSectionQuotePreset = {
@@ -14,7 +14,9 @@ export const pageSectionQuotePreset: PageSectionQuotePreset = {
   topic: {
     ncss: {},
     content: {
-      ncss: {},
+      ncss: {
+        p: 3,
+      },
       actions: {
         ncss: {},
         link: {

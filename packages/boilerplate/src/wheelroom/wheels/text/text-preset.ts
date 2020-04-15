@@ -130,10 +130,9 @@ export const textPreset: TextPreset = {
   },
   wrapper: {
     ncss: {
-      label: 'text',
+      label: 'wrapper-text',
       maxWidth: '640px',
       mx: 'auto',
-      p: 3,
     },
   },
 }

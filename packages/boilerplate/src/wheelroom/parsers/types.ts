@@ -4,7 +4,7 @@ import { NcssProps, Wheel } from '../wheels/types'
 export interface ParserProps {
   children: any
   is: BlockLevelElementName
-  ncss: NcssProps
+  ncss?: NcssProps
   wheel: Wheel
 }
 

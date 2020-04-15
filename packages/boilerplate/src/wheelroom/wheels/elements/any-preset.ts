@@ -5,5 +5,7 @@ export interface AnyPreset {
 }
 
 export const anyPreset: AnyPreset = {
-  ncss: {},
+  ncss: {
+    boxSizing: 'border-box',
+  },
 }

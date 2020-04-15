@@ -56,8 +56,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
       {!topicOptions.hideHeading && (
         <HeadingParser
           is={useHeadingElement}
-          ncss={props.wheel.style.heading.ncss}
-          wheel={props.wheel}
+          wheel={{ ...props.wheel, style: props.wheel.style.heading }}
         >
           {props.topic.heading}
         </HeadingParser>
@@ -67,8 +66,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
         props.topic.abstract.abstract && (
           <AbstractParser
             is={useAbstractElement}
-            ncss={props.wheel.style.abstract.ncss}
-            wheel={props.wheel}
+            wheel={{ ...props.wheel, style: props.wheel.style.abstract }}
           >
             {props.topic.abstract.abstract}
           </AbstractParser>

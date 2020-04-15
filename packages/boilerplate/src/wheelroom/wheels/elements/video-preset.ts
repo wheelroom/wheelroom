@@ -13,6 +13,7 @@ export const videoVideoPreset: VideoPreset = {
 
 export const videoDescriptionPreset: VideoPreset = {
   ncss: {
+    boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }

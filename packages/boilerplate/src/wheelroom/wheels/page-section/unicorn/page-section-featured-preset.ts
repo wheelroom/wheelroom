@@ -1,10 +1,10 @@
-import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/presets/topic-preset'
+import { GridPreset } from '../../elements/grid-preset'
 
 export interface PageSectionFeaturedPreset {
-  container: NcssProps
+  container: GridPreset
   topic: TopicPreset
-  wrapper: { ncss: NcssProps }
+  wrapper: GridPreset
 }
 
 export const pageSectionFeaturedPreset: PageSectionFeaturedPreset = {
@@ -24,6 +24,7 @@ export const pageSectionFeaturedPreset: PageSectionFeaturedPreset = {
       ncss: {
         flexDirection: 'column',
         w: [1, 1, 1 / 2],
+        p: 3,
       },
       actions: {
         ncss: {},
@@ -48,16 +49,15 @@ export const pageSectionFeaturedPreset: PageSectionFeaturedPreset = {
       ncss: {
         flexDirection: 'column',
         mb: [3, 3, 0],
-        w: [1, 1, 1 / 2.5],
+        w: [1, 1, 1 / 2],
+        p: 3,
       },
       image: {
         img: {
           ncss: {},
         },
         picture: {
-          ncss: {
-            p: 3,
-          },
+          ncss: {},
         },
         figcaption: {
           ncss: {},

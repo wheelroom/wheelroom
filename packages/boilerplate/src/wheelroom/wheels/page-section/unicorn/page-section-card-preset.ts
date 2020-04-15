@@ -1,11 +1,11 @@
-import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/presets/topic-preset'
 import deepmerge from 'deepmerge'
+import { GridPreset } from '../../elements/grid-preset'
 
 export interface PageSectionCardPreset {
-  container: NcssProps
+  container: GridPreset
   topic: TopicPreset
-  wrapper: { ncss: NcssProps }
+  wrapper: GridPreset
 }
 
 const topicWrapperStyle = {
@@ -33,6 +33,7 @@ export const pageSectionCardPreset: PageSectionCardPreset = {
         display: 'flex',
         flex: '1 1 auto',
         flexDirection: 'column',
+        px: 3,
       },
       text: {
         ncss: {
