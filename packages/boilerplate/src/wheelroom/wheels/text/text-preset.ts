@@ -2,9 +2,10 @@ import { NcssProps } from '../types'
 import { ImagePreset } from '../elements/image'
 import { VideoPreset } from '../elements/video'
 import { imageFigcaptionPreset, imageImgPreset } from '../elements/image-preset'
+import { GridPreset } from '../elements/grid-preset'
 
 export interface TextPreset {
-  wrapper: { ncss: NcssProps }
+  wrapper: GridPreset
   marksBold: { ncss: NcssProps }
   marksCode: {
     pre: { ncss: NcssProps }
@@ -133,6 +134,7 @@ export const textPreset: TextPreset = {
       label: 'wrapper-text',
       maxWidth: '640px',
       mx: 'auto',
+      py: 0,
     },
   },
 }
