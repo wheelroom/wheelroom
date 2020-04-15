@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core'
 import { InlineElementName, BlockLevelElementName } from './types/element-names'
 import {
   boxPreset,
+  wrapperPreset,
   containerPreset,
   containerMaxWidthPreset,
   flexPreset,
@@ -81,6 +82,22 @@ export const Flex = (props: GridProps) => {
       label,
       ...flexPreset.ncss,
       ...props.wheel.elementPresets.flex.ncss,
+      ...props.wheel.style.ncss,
+      ...props.ncss,
+    },
+  })
+  return jsx(props.is || 'div', attrs, props.children)
+}
+
+export const Wrapper = (props: GridProps) => {
+  const label = 'wrapper'
+  const attrs: any = getAttrs(props)
+  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+    ncss: {
+      label,
+      ...wrapperPreset.ncss,
+      ...props.wheel.elementPresets.wrapper.ncss,
+      ...props.wheel.style.ncss,
       ...props.ncss,
     },
   })
@@ -95,6 +112,7 @@ export const Container = (props: GridProps) => {
       label,
       ...containerPreset.ncss,
       ...props.wheel.elementPresets.container.ncss,
+      ...props.wheel.style.ncss,
       ...props.ncss,
     },
   })
@@ -109,6 +127,7 @@ export const ContainerMaxWidth = (props: GridProps) => {
       label,
       ...containerMaxWidthPreset.ncss,
       ...props.wheel.elementPresets.containerMaxWidth.ncss,
+      ...props.wheel.style.ncss,
       ...props.ncss,
     },
   })

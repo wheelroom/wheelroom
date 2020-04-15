@@ -7,6 +7,6 @@ export interface ParagraphPreset {
 export const paragraphPreset: ParagraphPreset = {
   ncss: {
     boxSizing: 'border-box',
-    fontFamily: 'systemFont',
+    fontFamily: 'text',
   },
 }

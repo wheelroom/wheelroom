@@ -1,3 +1,3 @@
 export const breakpointsPreset = {
-  breakpoints: ['37.5em', '50em', '75em'],
+  breakpoints: ['48em', '64em', '80em', '90.0625em'],
 }

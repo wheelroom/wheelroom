@@ -18,7 +18,7 @@ export const navFooterSocialLinksPreset: NavFooterSocialLinksPreset = {
     ncss: {
       width: '20px',
       height: '20px',
-      color: 'metal',
+      color: 'silver',
       strokeWidth: '1px',
       ':hover': {
         color: 'text',

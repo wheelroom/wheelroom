@@ -5,12 +5,12 @@ import deepmerge from 'deepmerge'
 export interface PageSectionCardPreset {
   container: NcssProps
   topic: TopicPreset
-  wrapper: NcssProps
+  wrapper: { ncss: NcssProps }
 }
 
 const topicWrapperStyle = {
   bg: 'bg',
-  color: 'cardsShadow',
+  color: 'silver',
   flex: '1',
   maxWidth: '280px',
   minWidth: '280px',
@@ -90,10 +90,7 @@ export const pageSectionCardPreset: PageSectionCardPreset = {
     },
   },
   wrapper: {
-    ncss: {
-      label: 'wrapper',
-      py: 3,
-    },
+    ncss: {},
   },
 }
 

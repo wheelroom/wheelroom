@@ -12,21 +12,28 @@ export const boxPreset: GridPreset = {
 
 export const flexPreset: GridPreset = {
   ncss: {
-    ...boxPreset,
+    ...boxPreset.ncss,
     display: 'flex',
+  },
+}
+
+export const wrapperPreset: GridPreset = {
+  ncss: {
+    ...boxPreset.ncss,
+    py: [3, 4, 5],
   },
 }
 
 export const containerPreset: GridPreset = {
   ncss: {
-    ...flexPreset,
+    ...flexPreset.ncss,
     w: 1,
   },
 }
 
 export const containerMaxWidthPreset: GridPreset = {
   ncss: {
-    ...containerPreset,
+    ...containerPreset.ncss,
     maxWidth: '1280px',
     mx: 'auto',
   },

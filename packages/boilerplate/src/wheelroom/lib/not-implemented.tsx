@@ -22,7 +22,7 @@ export const NotImplemented = (props: {
       >
         <SvgBell
           strokeWidth={2}
-          ncss={{ color: 'text', mr: 2, w: [1 / 30] }}
+          ncss={{ color: 'black', mr: 2, w: [1 / 30] }}
           wheel={props.wheel}
         />
         Variation not implemented: {props.pageSection.variation}

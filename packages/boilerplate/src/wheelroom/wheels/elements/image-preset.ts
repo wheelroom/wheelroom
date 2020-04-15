@@ -22,6 +22,6 @@ export const imagePicturePreset: ImagePreset = {
 export const imageFigcaptionPreset: ImagePreset = {
   ncss: {
     boxSizing: 'border-box',
-    fontFamily: 'systemFont',
+    fontFamily: 'text',
   },
 }

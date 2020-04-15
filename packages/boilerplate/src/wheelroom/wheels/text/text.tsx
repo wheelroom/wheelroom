@@ -17,7 +17,7 @@ import { ALink } from '../elements/a-link'
 import { GLink } from '../elements/g-link'
 import { H1, H2, H3, H4, H5, H6 } from '../elements/heading'
 import { getLocalizedValue } from './get-localized-value'
-import { Box } from '../elements/grid'
+import { Wrapper } from '../elements/grid'
 import {
   documentToReactComponents,
   Options,
@@ -314,8 +314,7 @@ export const Text = (props: TextWheelProps) => {
   } as Options
 
   return (
-    <Box
-      is="div"
+    <Wrapper
       wheel={{
         ...textProps.wheel,
         style: textProps.wheel.style.wrapper,
@@ -325,6 +324,6 @@ export const Text = (props: TextWheelProps) => {
         (props.text.text.json as unknown) as Document,
         options
       )}
-    </Box>
+    </Wrapper>
   )
 }

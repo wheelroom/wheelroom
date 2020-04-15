@@ -2,7 +2,7 @@ import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionGalleryPreset {
-  container: { ncss: NcssProps }
+  container: NcssProps
   topic: TopicPreset
   wrapper: { ncss: NcssProps }
 }
@@ -66,9 +66,6 @@ export const pageSectionGalleryPreset: PageSectionGalleryPreset = {
     },
   },
   wrapper: {
-    ncss: {
-      label: 'wrapper',
-      py: 3,
-    },
+    ncss: {},
   },
 }

@@ -15,6 +15,7 @@ export interface ElementPresets {
   aLink: ALinkPreset
   box: GridPreset
   button: ButtonPreset
+  wrapper: GridPreset
   container: GridPreset
   containerMaxWidth: GridPreset
   featherIcon: IconPreset

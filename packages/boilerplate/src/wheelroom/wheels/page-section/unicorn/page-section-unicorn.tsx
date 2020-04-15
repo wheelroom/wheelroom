@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, ContainerMaxWidth } from '../../elements/grid'
+import { Wrapper, Container, ContainerMaxWidth } from '../../elements/grid'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Topic, TopicWheelProps } from '../../topic/topic'
@@ -42,7 +42,7 @@ export const PageSectionUnicorn = (props: {
   const ContainerType =
     props.containerStyle === 'maxWidth' ? ContainerMaxWidth : Container
   return (
-    <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
+    <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
       <ContainerType
         wheel={{ ...props.wheel, style: props.wheel.style.container }}
       >
@@ -58,6 +58,6 @@ export const PageSectionUnicorn = (props: {
             />
           ))}
       </ContainerType>
-    </Box>
+    </Wrapper>
   )
 }

@@ -7,6 +7,6 @@ export interface ListPreset {
 export const listPreset: ListPreset = {
   ncss: {
     boxSizing: 'border-box',
-    fontFamily: 'fontSystem',
+    fontFamily: 'text',
   },
 }

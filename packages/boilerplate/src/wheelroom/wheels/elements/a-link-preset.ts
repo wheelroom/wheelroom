@@ -7,7 +7,7 @@ export interface ALinkPreset {
 export const aLinkPreset: ALinkPreset = {
   ncss: {
     boxSizing: 'border-box',
-    fontFamily: 'systemFont',
+    fontFamily: 'text',
     cursor: 'pointer',
     ':hover': {},
     ':visited': {},

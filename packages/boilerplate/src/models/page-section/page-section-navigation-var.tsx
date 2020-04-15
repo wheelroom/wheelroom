@@ -17,7 +17,7 @@ import { PageSectionNavigationHeader } from '../../wheelroom/wheels/page-section
 import { PageSectionProps } from './page-section'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
-import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
+// import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
@@ -26,13 +26,15 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const wheelHeader: Wheel = {
     style: navHeaderPreset,
     elementPresets,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
+    theme: yosemiteLight,
+    // theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteLight,
     styledSystemConfig,
   }
   const wheelFooter: Wheel = {
     style: navFooterPreset,
     elementPresets,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
+    theme: yosemiteLight,
+    // theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }
 

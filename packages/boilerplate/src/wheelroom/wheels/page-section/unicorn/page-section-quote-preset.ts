@@ -4,7 +4,7 @@ import { TopicPreset } from '../../topic/presets/topic-preset'
 export interface PageSectionQuotePreset {
   container: NcssProps
   topic: TopicPreset
-  wrapper: NcssProps
+  wrapper: { ncss: NcssProps }
 }
 
 export const pageSectionQuotePreset: PageSectionQuotePreset = {
@@ -58,9 +58,6 @@ export const pageSectionQuotePreset: PageSectionQuotePreset = {
     },
   },
   wrapper: {
-    ncss: {
-      label: 'wrapper',
-      py: 3,
-    },
+    ncss: {},
   },
 }

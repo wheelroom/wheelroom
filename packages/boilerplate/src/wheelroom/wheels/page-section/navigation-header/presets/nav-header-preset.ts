@@ -41,7 +41,7 @@ export const navHeaderPreset: NavHeaderPreset = {
         color: 'black',
         fontFamily: 'text',
         fontWeight: 5,
-        backgroundColor: 'amber',
+        backgroundColor: 'yellow',
         textAlign: 'center',
         lineHeight: '70px',
         justifyContent: 'center',
@@ -51,11 +51,11 @@ export const navHeaderPreset: NavHeaderPreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'bg',
       width: '100%',
       height: '70px',
+      py: 0,
       borderBottom: '1px solid',
-      borderColor: 'border',
+      borderColor: 'silver',
     },
   },
   container: {

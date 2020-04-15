@@ -40,6 +40,7 @@ export const elementPresets: ElementPresets = {
       py: '8px',
     },
   },
+  wrapper: { ncss: {} },
   container: { ncss: {} },
   containerMaxWidth: { ncss: {} },
   featherIcon: {

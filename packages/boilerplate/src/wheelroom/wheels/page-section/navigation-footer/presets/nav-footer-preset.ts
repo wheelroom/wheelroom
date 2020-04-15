@@ -11,7 +11,7 @@ import {
 
 export interface NavFooterPreset {
   wrapper: { ncss: NcssProps }
-  container: { ncss: NcssProps }
+  container: NcssProps
   navFooter: {
     ncss: NcssProps
     list: NavFooterListPreset
@@ -22,9 +22,7 @@ export interface NavFooterPreset {
 
 export const navFooterPreset: NavFooterPreset = {
   wrapper: {
-    ncss: {
-      bg: 'bg',
-    },
+    ncss: {},
   },
   container: {
     ncss: {

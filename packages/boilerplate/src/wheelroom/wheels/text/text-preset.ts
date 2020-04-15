@@ -75,7 +75,7 @@ export const textPreset: TextPreset = {
       ':before': {
         color: 'silver',
         content: '"”"',
-        fontFamily: 'systemFont',
+        fontFamily: 'text',
         fontSize: 8,
       },
       textAlign: 'center',

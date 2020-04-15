@@ -2,9 +2,9 @@ import { TopicPreset } from '../../topic/presets/topic-preset'
 import { NcssProps } from '../../types'
 
 export interface PageSectionVideoPreset {
-  container?: NcssProps
-  topic?: TopicPreset
-  wrapper?: NcssProps
+  container: NcssProps
+  topic: TopicPreset
+  wrapper: { ncss: NcssProps }
 }
 
 export const pageSectionVideoPreset: PageSectionVideoPreset = {
@@ -58,9 +58,6 @@ export const pageSectionVideoPreset: PageSectionVideoPreset = {
     },
   },
   wrapper: {
-    ncss: {
-      label: 'wrapper',
-      py: 3,
-    },
+    ncss: {},
   },
 }

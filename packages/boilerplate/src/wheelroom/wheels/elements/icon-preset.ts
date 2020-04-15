@@ -10,6 +10,6 @@ export const featherIconPreset: IconPreset = {
 
 export const textIconPreset: IconPreset = {
   ncss: {
-    fontFamily: 'fontSystem',
+    fontFamily: 'text',
   },
 }

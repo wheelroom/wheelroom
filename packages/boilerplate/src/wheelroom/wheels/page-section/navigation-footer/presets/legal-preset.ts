@@ -1,7 +1,7 @@
 import { NcssProps } from '../../../types'
 
 export interface LegalPreset {
-  container: { ncss: NcssProps }
+  container: NcssProps
   innerContainer: { ncss: NcssProps }
   text: { ncss: NcssProps }
   link: { ncss: NcssProps }
@@ -23,11 +23,11 @@ export const legalPreset: LegalPreset = {
       justifyContent: ['center', 'normal'],
     },
   },
-  text: { ncss: { fontFamily: 'text', color: 'metal' } },
+  text: { ncss: { fontFamily: 'text', color: 'silver' } },
   link: {
     ncss: {
       display: 'inline-flex',
-      color: 'metal',
+      color: 'silver',
     },
   },
 }

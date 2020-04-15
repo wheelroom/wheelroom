@@ -23,7 +23,7 @@ export interface ModalPreset {
   closeMenuButton: { ncss: NcssProps }
   list: NavHeaderListPreset
   actions: {
-    container: { ncss: NcssProps }
+    container: NcssProps
     action: { ncss: NcssProps }
     themeButton: { ncss: NcssProps }
   }

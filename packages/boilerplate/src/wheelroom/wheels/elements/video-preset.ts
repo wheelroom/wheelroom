@@ -13,6 +13,6 @@ export const videoVideoPreset: VideoPreset = {
 
 export const videoDescriptionPreset: VideoPreset = {
   ncss: {
-    fontFamily: 'systemFont',
+    fontFamily: 'text',
   },
 }

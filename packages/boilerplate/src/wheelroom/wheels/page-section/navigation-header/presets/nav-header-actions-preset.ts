@@ -1,7 +1,7 @@
 import { NcssProps } from '../../../types'
 
 export interface NavHeaderActionsPreset {
-  container: { ncss: NcssProps }
+  container: NcssProps
   action: { ncss: NcssProps }
   themeButton: { ncss: NcssProps }
 }

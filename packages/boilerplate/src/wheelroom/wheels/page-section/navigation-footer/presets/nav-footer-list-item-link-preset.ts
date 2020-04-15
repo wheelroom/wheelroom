@@ -7,7 +7,7 @@ export interface NavFooterListItemLinkPreset {
 export const navFooterListItemLinkPreset: NavFooterListItemLinkPreset = {
   ncss: {
     label: 'link',
-    fontFamily: 'systemFont',
+    fontFamily: 'text',
     fontSize: [3, 4],
     cursor: 'pointer',
     '.active': { textDecoration: 'underline' },

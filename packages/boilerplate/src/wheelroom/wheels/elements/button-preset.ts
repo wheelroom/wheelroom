@@ -7,7 +7,7 @@ export interface ButtonPreset {
 export const buttonPreset: ButtonPreset = {
   ncss: {
     boxSizing: 'border-box',
-    fontFamily: 'systemFont',
+    fontFamily: 'text',
     textDecoration: 'none',
     userSelect: 'none',
     cursor: 'pointer',

@@ -32,7 +32,7 @@ export const Logo = (props: {
   }
 
   return (
-    <Flex is="div" ncss={props.wheel.style.container.ncss} wheel={props.wheel}>
+    <Flex is="div" ncss={props.wheel.style.container} wheel={props.wheel}>
       <GLink
         ncss={props.wheel.style.link.ncss}
         to="/"

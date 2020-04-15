@@ -1,15 +1,18 @@
-import { NcssProps } from '../../types'
 import { TopicPreset } from '../../topic/presets/topic-preset'
+import { GridPreset } from '../../elements/grid-preset'
+import {NcssProps} from "../../types";
 
 export interface PageSectionHeadlinePreset {
-  container: NcssProps
+  container: { ncss: NcssProps }
   topic: TopicPreset
-  wrapper: NcssProps
+  wrapper: GridPreset
 }
 
 export const pageSectionHeadlinePreset: PageSectionHeadlinePreset = {
   container: {
-    ncss: {},
+    ncss: {
+      color: 'red',
+    },
   },
   topic: {
     ncss: {},
@@ -62,9 +65,6 @@ export const pageSectionHeadlinePreset: PageSectionHeadlinePreset = {
     },
   },
   wrapper: {
-    ncss: {
-      label: 'wrapper',
-      py: 3,
-    },
+    ncss: {},
   },
 }

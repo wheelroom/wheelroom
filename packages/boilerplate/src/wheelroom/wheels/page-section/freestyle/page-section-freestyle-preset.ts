@@ -4,7 +4,7 @@ import { TextPreset, textPreset } from '../../text/text-preset'
 export interface PageSectionFreestylePreset {
   container: NcssProps
   text: TextPreset
-  wrapper: NcssProps
+  wrapper: { ncss: NcssProps }
 }
 
 export const pageSectionFreestylePreset: PageSectionFreestylePreset = {
@@ -13,9 +13,6 @@ export const pageSectionFreestylePreset: PageSectionFreestylePreset = {
   },
   text: textPreset,
   wrapper: {
-    ncss: {
-      label: 'wrapper',
-      py: 3,
-    },
+    ncss: {},
   },
 }
