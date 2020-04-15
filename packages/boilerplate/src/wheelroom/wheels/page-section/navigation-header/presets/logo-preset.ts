@@ -1,26 +1,25 @@
 import { NcssProps } from '../../../types'
 
 export interface LogoPreset {
-  container: NcssProps
+  ncss: NcssProps
   link: { ncss: NcssProps }
 }
 
 export const logoPreset: LogoPreset = {
-  container: {
-    ncss: {
-      alignItems: 'center',
-    },
+  ncss: {
+    label: 'logo',
+    alignItems: 'center',
   },
   link: {
     ncss: {
       fontFamily: 'logo',
       textDecoration: 'none',
-      fontSize: [4, 5],
-      fontWeight: 5,
+      fontSize: [5, 6],
+      fontWeight: 6,
       color: 'text',
       mr: 5,
       sup: {
-        color: 'silver',
+        color: 'gray',
         fontWeight: 3,
       },
     },

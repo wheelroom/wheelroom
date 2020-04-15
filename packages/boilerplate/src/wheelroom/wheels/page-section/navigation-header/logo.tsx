@@ -32,12 +32,11 @@ export const Logo = (props: {
   }
 
   return (
-    <Flex is="div" ncss={props.wheel.style.container} wheel={props.wheel}>
+    <Flex is="div" ncss={props.wheel.style} wheel={props.wheel}>
       <GLink
-        ncss={props.wheel.style.link.ncss}
         to="/"
         aria-label={ariaLabel}
-        wheel={props.wheel}
+        wheel={{ ...props.wheel, style: props.wheel.style.link }}
       >
         {logo}
       </GLink>
