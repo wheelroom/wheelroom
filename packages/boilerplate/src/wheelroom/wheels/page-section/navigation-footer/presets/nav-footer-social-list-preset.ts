@@ -21,6 +21,7 @@ export const navFooterSocialListPreset: NavFooterSocialListPreset = {
     ncss: {
       label: 'nav-footer-social-list-item',
       listStyle: 'none',
+      display: 'inline-flex',
       my: 0,
       pl: 0,
     },
@@ -28,7 +29,6 @@ export const navFooterSocialListPreset: NavFooterSocialListPreset = {
   link: {
     ncss: {
       label: 'nav-footer-social-link',
-      display: 'inline-flex',
       px: 2,
       py: 3,
     },

@@ -13,7 +13,6 @@ export const navHeaderListItemPreset: NavHeaderListItemPreset = {
   ncss: {
     label: 'nav-header-list-item',
     listStyle: 'none',
-    display: 'inline-flex',
   },
   link: navHeaderListItemLinkPreset,
 }

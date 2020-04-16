@@ -9,21 +9,17 @@ import { NavHeaderListPreset } from './nav-header-list-preset'
 
 export interface ModalPreset {
   container: {
-    menuVisible: {
-      yes: NcssProps
-      no: NcssProps
-    }
+    visible: NcssProps
+    hidden: NcssProps
   }
   document: {
-    menuVisible: {
-      yes: NcssProps
-      no: NcssProps
-    }
+    visible: NcssProps
+    hidden: NcssProps
   }
   closeMenuButton: NcssProps
   list: NavHeaderListPreset
   actions: {
-    container: NcssProps
+    ncss: NcssProps
     action: NcssProps
     themeButton: NcssProps
   }
@@ -31,25 +27,31 @@ export interface ModalPreset {
 
 export const modalPreset: ModalPreset = {
   container: {
-    menuVisible: {
-      yes: {
-        ncss: {
-          ...modalDialogOpenPreset,
-          label: 'modal-is-visible',
-        },
+    visible: {
+      ncss: {
+        ...modalDialogOpenPreset.ncss,
+        label: 'modal-is-visible',
       },
-      no: {
-        ncss: {
-          ...modalDialogPreset,
-          label: 'modal-is-hidden',
-        },
+    },
+    hidden: {
+      ncss: {
+        ...modalDialogPreset.ncss,
+        label: 'modal-is-hidden',
       },
     },
   },
   document: {
-    menuVisible: {
-      yes: modalDialogContentOpenPreset,
-      no: modalDialogContentPreset,
+    visible: {
+      ncss: {
+        ...modalDialogContentOpenPreset.ncss,
+        label: 'document-is-visible',
+      },
+    },
+    hidden: {
+      ncss: {
+        ...modalDialogContentPreset.ncss,
+        label: 'document-is-hidden',
+      },
     },
   },
   closeMenuButton: {
@@ -63,6 +65,7 @@ export const modalPreset: ModalPreset = {
   },
   list: {
     ncss: {
+      label: 'modal-list',
       display: 'flex',
       flex: '1',
       flexDirection: 'column',
@@ -80,22 +83,33 @@ export const modalPreset: ModalPreset = {
       },
     },
     listItem: {
-      link: { ncss: {} },
       ncss: {
+        label: 'modal-list-item',
         m: 0,
-        px: 2,
-        py: 3,
+      },
+      link: {
+        ncss: {
+          label: 'modal-list-item-link',
+          display: 'block',
+        },
       },
     },
   },
   actions: {
-    container: { ncss: { w: 1, p: 3 } },
-    action: { ncss: { w: 1 } },
+    ncss: {
+      w: 1,
+      p: 3,
+    },
+    action: {
+      ncss: {
+        display: 'block',
+        w: 1,
+        mb: 2,
+      },
+    },
     themeButton: {
       ncss: {
-        ml: 2,
         w: 1,
-        textTransform: 'capitalize',
       },
     },
   },

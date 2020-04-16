@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useState, useRef } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../../elements/a-link'
-import { Wrapper, Container, Flex } from '../../elements/grid'
+import { Wrapper, Container, Flex, Box } from '../../elements/grid'
 import { Button } from '../../elements/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment'
@@ -95,7 +95,7 @@ export const PageSectionNavigationHeader = (props: {
               }}
             />
           </Flex>
-          <Flex
+          <Box
             is="div"
             wheel={{ ...props.wheel, style: props.wheel.style.modal }}
           >
@@ -129,7 +129,7 @@ export const PageSectionNavigationHeader = (props: {
               }}
               toggleTheme={toggleTheme}
             />
-          </Flex>
+          </Box>
         </Container>
       </Wrapper>
     </Fragment>

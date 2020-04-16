@@ -30,16 +30,7 @@ export const modalDialogPreset = {
 
 export const modalDialogOpenPreset = {
   ncss: {
-    position: 'fixed',
-    display: 'flex',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    w: 1,
-    height: 1,
-    zIndex: 1050,
-    justifyContent: 'flex-end',
+    ...modalDialogPreset.ncss,
     visibility: 'visible',
     overflowY: 'auto',
     ':before': {
@@ -64,11 +55,9 @@ export const modalDialogContentPreset = {
     w: [1, '360px'],
     m: 3,
     h: 'fit-content',
-    bg: 'bg',
-    borderRadius: 4,
+    bg: 'white',
     border: '1px solid black',
     overflow: 'hidden',
-    boxShadow: '0 0 16px',
     flexDirection: 'column',
     alignItems: 'flex-end',
     opacity: 0,
@@ -79,17 +68,7 @@ export const modalDialogContentPreset = {
 
 export const modalDialogContentOpenPreset = {
   ncss: {
-    w: [1, '360px'],
-    m: 3,
-    h: 'fit-content',
-    bg: 'bg',
-    borderRadius: 4,
-    border: '1px solid black',
-    borderColor: 'modalBorder',
-    overflow: 'hidden',
-    boxShadow: '0 0 16px',
-    flexDirection: 'column',
-    alignItems: 'flex-end',
+    ...modalDialogContentPreset.ncss,
     transform: 'scale(1)',
     opacity: 1,
     transition:

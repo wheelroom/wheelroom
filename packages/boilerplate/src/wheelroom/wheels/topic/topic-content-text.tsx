@@ -45,12 +45,11 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const AbstractParser = props.useAbstractParser || Paragraph
 
   return (
-    <Box is="header" ncss={props.wheel.style.ncss} wheel={props.wheel}>
+    <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
       {!topicOptions.hideIcon && (
         <TopicIcon
           icon={props.topic.icon}
-          ncss={props.wheel.style.icon.ncss}
-          wheel={props.wheel}
+          wheel={{ ...props.wheel, style: props.wheel.style.icon }}
         />
       )}
       {!topicOptions.hideHeading && (

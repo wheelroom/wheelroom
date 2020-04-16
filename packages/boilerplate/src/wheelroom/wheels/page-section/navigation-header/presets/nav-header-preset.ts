@@ -43,9 +43,7 @@ export const navHeaderPreset: NavHeaderPreset = {
         left: 0,
         top: 0,
         right: 0,
-        fontFamily: 'text',
-        fontWeight: 7,
-        backgroundColor: '#FCA623',
+        backgroundColor: 'white',
         textAlign: 'center',
         zIndex: 1002,
         border: '2px dotted black',
@@ -83,6 +81,7 @@ export const navHeaderPreset: NavHeaderPreset = {
     ncss: {
       label: 'modal',
       display: ['flex', 'flex', 'none'],
+      alignItems: 'center',
     },
     button: {
       ncss: {},

@@ -29,10 +29,9 @@ export const TopicMedia = (props: TopicMediaProps) => {
   return (
     <Box
       ncss={{
-        ...props.wheel.style.ncss,
         order: topicOptions.reverseOrder ? 0 : null,
       }}
-      wheel={props.wheel}
+      wheel={{ ...props.wheel, style: props.wheel.style }}
     >
       {props.topicInfo.hasImage && (
         <Image

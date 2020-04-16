@@ -36,8 +36,8 @@ export const Modal = (props: {
       wheel={{
         ...props.wheel,
         style: props.menuVisible
-          ? props.wheel.style.container.menuVisible.yes
-          : props.wheel.style.container.menuVisible.no,
+          ? props.wheel.style.container.visible
+          : props.wheel.style.container.hidden,
       }}
     >
       <Flex
@@ -48,8 +48,8 @@ export const Modal = (props: {
         wheel={{
           ...props.wheel,
           style: props.menuVisible
-            ? props.wheel.style.container.menuVisible.yes
-            : props.wheel.style.container.menuVisible.no,
+            ? props.wheel.style.document.visible
+            : props.wheel.style.document.hidden,
         }}
       >
         <Button
@@ -59,17 +59,17 @@ export const Modal = (props: {
           onClick={() => props.closeMenu()}
           wheel={{ ...props.wheel, style: props.wheel.style.closeMenuButton }}
         >
-          <Box ariaHidden={true} wheel={props.wheel}>
+          <Flex ariaHidden={true} wheel={props.wheel}>
             <XIcon wheel={props.wheel} />
-          </Box>
+          </Flex>
         </Button>
         <NavHeaderList
           wheel={{ ...props.wheel, style: props.wheel.style.list }}
           pages={props.pages}
         />
-        <Flex
+        <Box
           is="div"
-          wheel={{ ...props.wheel, style: props.wheel.style.actions.container }}
+          wheel={{ ...props.wheel, style: props.wheel.style.actions }}
         >
           {props.pageSectionInfo.hasAction && (
             <Action
@@ -93,7 +93,7 @@ export const Modal = (props: {
           >
             {props.activeThemeId}
           </Button>
-        </Flex>
+        </Box>
       </Flex>
     </Box>
   )

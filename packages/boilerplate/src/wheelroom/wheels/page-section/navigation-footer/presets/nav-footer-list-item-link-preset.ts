@@ -7,6 +7,7 @@ export interface NavFooterListItemLinkPreset {
 export const navFooterListItemLinkPreset: NavFooterListItemLinkPreset = {
   ncss: {
     label: 'nav-footer-list-item-link',
+    display: 'inline-flex',
     px: 2,
     py: 3,
     textDecoration: 'none',
