@@ -78,7 +78,7 @@ const PageTemplate = (props: any) => {
            */
           html: {
             lineHeight: '1.15' /* 1 */,
-            '-webkit-text-size-adjust': '100%' /* 2 */,
+            WebkitTextSizeAdjust: '100%' /* 2 */,
           },
           /**
            * Remove the margin in all browsers.
