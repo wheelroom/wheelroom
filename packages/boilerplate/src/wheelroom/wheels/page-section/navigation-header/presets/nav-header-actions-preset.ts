@@ -15,13 +15,12 @@ export const navHeaderActionsPreset: NavHeaderActionsPreset = {
     ncss: {
       label: 'nav-header-action',
       ...buttonPreset,
+      mr: 2,
     },
   },
   themeButton: {
     ncss: {
       label: 'nav-header-theme-button',
-      ml: 2,
-      textTransform: 'capitalize',
     },
   },
 }
