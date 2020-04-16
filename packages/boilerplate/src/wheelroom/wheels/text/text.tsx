@@ -10,7 +10,6 @@
 import React from 'react'
 import { Image } from '../elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
-import { Any } from '../elements/any'
 import { Paragraph } from '../elements/paragraph'
 import { List } from '../elements/list'
 import { ALink } from '../elements/a-link'
@@ -31,6 +30,7 @@ import { Strong } from '../elements/strong'
 import { Pre } from '../elements/pre'
 import { Code } from '../elements/code'
 import { Hr } from '../elements/hr'
+import { Blockquote } from '../elements/blockquote'
 
 export interface TextWheel extends Wheel {
   style: TextPreset
@@ -104,7 +104,7 @@ export const Text = (props: TextWheelProps) => {
       },
       [BLOCKS.QUOTE]: (_node: Node, children: Children) => {
         return (
-          <Any
+          <Blockquote
             is="blockquote"
             wheel={{
               ...textProps.wheel,
@@ -112,7 +112,7 @@ export const Text = (props: TextWheelProps) => {
             }}
           >
             {children}
-          </Any>
+          </Blockquote>
         )
       },
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
