@@ -122,6 +122,7 @@ export const textPreset: TextPreset = {
       maxWidth: '640px',
       mx: 'auto',
       py: 0,
+      px: 3,
     },
   },
 }

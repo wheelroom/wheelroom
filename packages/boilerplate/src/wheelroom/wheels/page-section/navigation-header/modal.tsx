@@ -3,12 +3,12 @@ import { NavHeaderList } from './nav-header-list'
 import { Box, Flex } from '../../elements/grid'
 import { Button } from '../../elements/button'
 import { ActionProps } from '../../../../models/action'
-import { IconMap } from '../../../svg/feather/iconMap'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageProps } from '../../../../models/page/page'
 import { Action } from '../../action/action'
 import { Wheel } from '../../types'
 import { ModalPreset } from './presets/modal-preset'
+import { FeatherIcon } from '../../elements/icon'
 
 interface ModalWheel extends Wheel {
   style: ModalPreset
@@ -24,7 +24,6 @@ export const Modal = (props: {
   wheel: ModalWheel
   toggleTheme: () => void
 }) => {
-  const XIcon = IconMap.x
   return (
     <Box
       is="div"
@@ -32,7 +31,7 @@ export const Modal = (props: {
       tabIndex={-1}
       ariaHidden={props.menuVisible ? false : undefined}
       ariaModal={props.menuVisible ? true : undefined}
-      hidden={true}
+      hidden={!props.menuVisible ? true : undefined}
       wheel={{
         ...props.wheel,
         style: props.menuVisible
@@ -40,6 +39,17 @@ export const Modal = (props: {
           : props.wheel.style.container.hidden,
       }}
     >
+      <Box
+        is="div"
+        ariaHidden={true}
+        wheel={{
+          ...props.wheel,
+          style: props.menuVisible
+            ? props.wheel.style.before.visible
+            : props.wheel.style.before.hidden,
+        }}
+        onClick={() => props.closeMenu()}
+      />
       <Flex
         is="section"
         role="document"
@@ -53,14 +63,18 @@ export const Modal = (props: {
         }}
       >
         <Button
-          ariaLabel="Close header navigation"
+          ariaLabel="Close navigation"
           value=""
           role="button"
+          type="button"
           onClick={() => props.closeMenu()}
           wheel={{ ...props.wheel, style: props.wheel.style.closeMenuButton }}
         >
-          <Flex ariaHidden={true} wheel={{ ...props.wheel }}>
-            <XIcon wheel={{ ...props.wheel }} />
+          <Flex ariaHidden={true} wheel={props.wheel}>
+            <FeatherIcon
+              icon="x"
+              wheel={{ ...props.wheel, style: props.wheel.style.icon }}
+            />
           </Flex>
         </Button>
         <NavHeaderList

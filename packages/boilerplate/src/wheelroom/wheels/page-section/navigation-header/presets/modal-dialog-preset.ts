@@ -1,3 +1,28 @@
+export const modalDialogBeforePreset = {
+  ncss: {
+    content: '""',
+    height: 1,
+    width: 1,
+    bg: 'rgba(0, 0, 0, .5)',
+    position: 'fixed',
+    zIndex: -1,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    opacity: 0,
+    transition: 'opacity 0s ease',
+  },
+}
+
+export const modalDialogBeforeOpenPreset = {
+  ncss: {
+    ...modalDialogBeforePreset.ncss,
+    opacity: 1,
+    transition: 'opacity 2s ease',
+  },
+}
+
 export const modalDialogPreset = {
   ncss: {
     position: 'fixed',
@@ -11,20 +36,6 @@ export const modalDialogPreset = {
     zIndex: 1050,
     justifyContent: 'flex-end',
     visibility: 'hidden',
-    ':before': {
-      content: '""',
-      height: 1,
-      width: 1,
-      bg: 'rgba(0, 0, 0, .5)',
-      position: 'fixed',
-      zIndex: -1,
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      opacity: 0,
-      transition: 'opacity 0s ease',
-    },
   },
 }
 
@@ -33,20 +44,6 @@ export const modalDialogOpenPreset = {
     ...modalDialogPreset.ncss,
     visibility: 'visible',
     overflowY: 'auto',
-    ':before': {
-      content: '""',
-      height: 1,
-      width: 1,
-      bg: 'rgba(0, 0, 0, .5)',
-      position: 'fixed',
-      zIndex: -1,
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      opacity: 1,
-      transition: 'opacity 2s ease',
-    },
   },
 }
 

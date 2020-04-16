@@ -18,7 +18,7 @@ export const legalPreset: LegalPreset = {
       /**
        * On iPhone this link will not be visible without the extra margin-bottom
        * */
-      mb: [5, 0],
+      mb: [4, 0],
       alignItems: 'center',
       justifyContent: ['center', 'flex-end'],
     },

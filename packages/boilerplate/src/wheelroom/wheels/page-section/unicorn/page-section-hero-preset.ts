@@ -58,7 +58,7 @@ export const pageSectionHeroPreset: PageSectionHeroPreset = {
         },
         picture: {
           ncss: {
-            h: 'auto',
+            h: 1,
             w: 1,
           },
         },

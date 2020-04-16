@@ -3,6 +3,8 @@ import {
   modalDialogPreset,
   modalDialogContentOpenPreset,
   modalDialogContentPreset,
+  modalDialogBeforeOpenPreset,
+  modalDialogBeforePreset,
 } from './modal-dialog-preset'
 import { NcssProps } from '../../../types'
 import { NavHeaderListPreset } from './nav-header-list-preset'
@@ -12,11 +14,16 @@ export interface ModalPreset {
     visible: NcssProps
     hidden: NcssProps
   }
+  before: {
+    visible: NcssProps
+    hidden: NcssProps
+  }
   document: {
     visible: NcssProps
     hidden: NcssProps
   }
   closeMenuButton: NcssProps
+  icon: NcssProps
   list: NavHeaderListPreset
   actions: {
     ncss: NcssProps
@@ -37,6 +44,20 @@ export const modalPreset: ModalPreset = {
       ncss: {
         ...modalDialogPreset.ncss,
         label: 'modal-is-hidden',
+      },
+    },
+  },
+  before: {
+    visible: {
+      ncss: {
+        ...modalDialogBeforeOpenPreset.ncss,
+        label: 'before-is-visible',
+      },
+    },
+    hidden: {
+      ncss: {
+        ...modalDialogBeforePreset.ncss,
+        label: 'before-is-hidden',
       },
     },
   },
@@ -61,6 +82,12 @@ export const modalPreset: ModalPreset = {
       p: 1,
       w: '36px',
       h: '36px',
+    },
+  },
+  icon: {
+    ncss: {
+      w: '26px',
+      h: '26px',
     },
   },
   list: {
