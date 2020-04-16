@@ -1,6 +1,6 @@
 import React from 'react'
 import { Wheel } from '../../types'
-import { List } from '../../elements/list'
+import { Ul } from '../../elements/list'
 import { NavHeaderListItem } from './nav-header-list-item'
 import { PageProps } from '../../../../models/page'
 import { NavHeaderListPreset } from './presets/nav-header-list-preset'
@@ -14,11 +14,11 @@ export const NavHeaderList = (props: {
   wheel: NavHeaderListWheel
 }) => {
   return (
-    <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Ul wheel={{ ...props.wheel, style: props.wheel.style }}>
       <NavHeaderListItem
         pages={props.pages}
         wheel={{ ...props.wheel, style: props.wheel.style.listItem }}
       />
-    </List>
+    </Ul>
   )
 }

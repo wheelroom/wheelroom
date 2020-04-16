@@ -11,7 +11,7 @@ import React from 'react'
 import { Image } from '../elements/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
 import { Paragraph } from '../elements/paragraph'
-import { List } from '../elements/list'
+import { Ul, Ol, Li } from '../elements/list'
 import { ALink } from '../elements/a-link'
 import { GLink } from '../elements/g-link'
 import { H1, H2, H3, H4, H5, H6 } from '../elements/heading'
@@ -117,41 +117,38 @@ export const Text = (props: TextWheelProps) => {
       },
       [BLOCKS.UL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List
-            is="ul"
+          <Ul
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.ul,
             }}
           >
             {children}
-          </List>
+          </Ul>
         )
       },
       [BLOCKS.OL_LIST]: (_node: Node, children: Children) => {
         return (
-          <List
-            is="ol"
+          <Ol
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.ol,
             }}
           >
             {children}
-          </List>
+          </Ol>
         )
       },
       [BLOCKS.LIST_ITEM]: (_node: Node, children: Children) => {
         return (
-          <List
-            is="li"
+          <Li
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.li,
             }}
           >
             {children}
-          </List>
+          </Li>
         )
       },
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {

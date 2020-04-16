@@ -1,5 +1,5 @@
 import React from 'react'
-import { List } from '../../elements/list'
+import { Ul } from '../../elements/list'
 import { NavFooterListItem } from './nav-footer-list-item'
 import { PageProps } from '../../../../models/page'
 import { NavFooterListPreset } from './presets/nav-footer-list-preset'
@@ -14,11 +14,11 @@ export const NavFooterList = (props: {
   wheel: NavFooterListWheel
 }) => {
   return (
-    <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Ul wheel={{ ...props.wheel, style: props.wheel.style }}>
       <NavFooterListItem
         pages={props.pages}
         wheel={{ ...props.wheel, style: props.wheel.style.listItem }}
       />
-    </List>
+    </Ul>
   )
 }

@@ -1,11 +1,10 @@
-import { List } from '../../elements/list'
+import { Li, Ul } from '../../elements/list'
 import { TopicProps } from '../../../../models/topic'
 import { FeatherIcon } from '../../elements/icon'
 import React from 'react'
 import { Action } from '../../action/action'
 import { NavFooterSocialListPreset } from './presets/nav-footer-social-list-preset'
 import { Wheel } from '../../types'
-import { Any } from '../../elements/any'
 
 interface NavFooterSocialListWheel extends Wheel {
   style: NavFooterSocialListPreset
@@ -16,10 +15,9 @@ export const NavFooterSocialList = (props: {
   wheel: NavFooterSocialListWheel
 }) => {
   return (
-    <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Ul is="ul" wheel={{ ...props.wheel, style: props.wheel.style }}>
       {props.topics.map((topic: TopicProps, index: number) => (
-        <Any
-          is={'li'}
+        <Li
           key={index}
           wheel={{ ...props.wheel, style: props.wheel.style.item }}
         >
@@ -32,8 +30,8 @@ export const NavFooterSocialList = (props: {
               wheel={{ ...props.wheel, style: props.wheel.style.icon }}
             />
           </Action>
-        </Any>
+        </Li>
       ))}
-    </List>
+    </Ul>
   )
 }
