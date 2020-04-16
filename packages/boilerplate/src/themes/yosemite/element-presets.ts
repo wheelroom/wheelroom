@@ -7,42 +7,110 @@ import { ElementPresets } from '../../wheelroom/wheels/elements/types/element-pr
 // }
 
 export const elementPresets: ElementPresets = {
-  a: { ncss: {} },
-  table: { ncss: {} },
-  blockquote: { ncss: {} },
-  container: { ncss: {} },
-  code: { ncss: {} },
-  kbd: { ncss: {} },
-  samp: { ncss: {} },
+  a: {
+    ncss: {},
+  },
+  any: {
+    ncss: {},
+  },
+  blockquote: {
+    ncss: {},
+  },
+  box: {
+    ncss: {},
+  },
+  button: {
+    ncss: {},
+  },
+  code: {
+    ncss: {},
+  },
+  container: {
+    ncss: {},
+  },
+  containerMaxWidth: {
+    ncss: {},
+  },
+  featherIcon: {
+    ncss: {},
+  },
+  flex: {
+    ncss: {},
+  },
+  gLink: {
+    ncss: {},
+  },
+  h1: {
+    ncss: {},
+  },
+  h2: {
+    ncss: {},
+  },
+  h3: {
+    ncss: {},
+  },
+  h4: {
+    ncss: {},
+  },
+  h5: {
+    ncss: {},
+  },
+  h6: {
+    ncss: {},
+  },
+  hr: {
+    ncss: {},
+  },
   image: {
-    img: { ncss: {} },
-    picture: { ncss: {} },
-    figcaption: { ncss: {} },
+    figcaption: {
+      ncss: {},
+    },
+    img: {
+      ncss: {},
+    },
+    picture: {
+      ncss: {},
+    },
   },
-  p: { ncss: {} },
-  strong: { ncss: {} },
-  pre: { ncss: {} },
-  featherIcon: { ncss: {} },
-  h1: { ncss: {} },
-  box: { ncss: {} },
-  wrapper: { ncss: {} },
-  hr: { ncss: {} },
-  h2: { ncss: {} },
-  containerMaxWidth: { ncss: {} },
-  h3: { ncss: {} },
+  kbd: {
+    ncss: {},
+  },
+  li: {
+    ncss: {},
+  },
+  ol: {
+    ncss: {},
+  },
+  p: {
+    ncss: {},
+  },
+  pre: {
+    ncss: {},
+  },
+  samp: {
+    ncss: {},
+  },
+  strong: {
+    ncss: {},
+  },
+  table: {
+    ncss: {},
+  },
+  textIcon: {
+    ncss: {},
+  },
+  ul: {
+    ncss: {},
+  },
   video: {
-    description: { ncss: {} },
-    video: { ncss: {} },
+    description: {
+      ncss: {},
+    },
+    video: {
+      ncss: {},
+    },
   },
-  h4: { ncss: {} },
-  any: { ncss: {} },
-  h5: { ncss: {} },
-  gLink: { ncss: {} },
-  h6: { ncss: {} },
-  textIcon: { ncss: {} },
-  button: { ncss: {} },
-  flex: { ncss: {} },
-  ol: { ncss: {} },
-  li: { ncss: {} },
-  ul: { ncss: {} },
+  wrapper: {
+    ncss: {},
+  },
 }
