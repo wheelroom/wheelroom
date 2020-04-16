@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { ParserProps } from './types'
-import { Paragraph } from '../wheels/elements/paragraph'
+import { Any } from '../wheels/elements/any'
 
 const replaceNewlines = (children: React.ReactNode) => {
   const result: any = []
@@ -29,11 +29,12 @@ const replaceNewlines = (children: React.ReactNode) => {
 
 export const ParseNewLines = (props: ParserProps): JSX.Element => {
   return (
-    <Paragraph
+    <Any
       is={props.is}
+      polyPreset={true}
       wheel={{ ...props.wheel, style: props.wheel.style }}
     >
       {replaceNewlines(props.children)}
-    </Paragraph>
+    </Any>
   )
 }
