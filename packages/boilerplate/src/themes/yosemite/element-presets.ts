@@ -8,6 +8,7 @@ import { ElementPresets } from '../../wheelroom/wheels/elements/types/element-pr
 
 export const elementPresets: ElementPresets = {
   aLink: { ncss: {} },
+  table: { ncss: {} },
   blockquote: { ncss: {} },
   container: { ncss: {} },
   code: { ncss: {} },

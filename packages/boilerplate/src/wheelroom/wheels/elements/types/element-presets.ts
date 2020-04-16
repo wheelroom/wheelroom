@@ -14,9 +14,11 @@ import { HrPreset } from '../hr-preset'
 import { StrongPreset } from '../strong-preset'
 import { CodePreset } from '../code-preset'
 import { BlockquotePreset } from '../blockquote-preset'
+import { TablePreset } from '../table-preset'
 
 export interface ElementPresets {
   any: AnyPreset
+  table: TablePreset
   list: ListPreset
   ol: ListPreset
   ul: ListPreset

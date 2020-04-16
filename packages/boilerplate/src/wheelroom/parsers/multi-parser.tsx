@@ -12,13 +12,19 @@ import { ParseNewLines } from './parse-new-lines'
 export const MultiParser = (props: ParserProps): JSX.Element => {
   if (validTable(props.children)) {
     return (
-      <ParseTable is={props.is} ncss={props.ncss} wheel={props.wheel}>
+      <ParseTable
+        is={props.is}
+        wheel={{ ...props.wheel, style: props.wheel.style }}
+      >
         {props.children}
       </ParseTable>
     )
   }
   return (
-    <ParseNewLines is={props.is} ncss={props.ncss} wheel={props.wheel}>
+    <ParseNewLines
+      is={props.is}
+      wheel={{ ...props.wheel, style: props.wheel.style }}
+    >
       {props.children}
     </ParseNewLines>
   )

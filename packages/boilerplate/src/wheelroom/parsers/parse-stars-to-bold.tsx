@@ -46,7 +46,7 @@ export const ParseStarsToBold = (props: ParserProps): JSX.Element => {
     Element = Heading
   }
   return (
-    <Element is={props.is} ncss={props.ncss} wheel={props.wheel}>
+    <Element is={props.is} wheel={{ ...props.wheel, style: props.wheel.style }}>
       {replaceStars(props.children)}
     </Element>
   )

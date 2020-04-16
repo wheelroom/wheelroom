@@ -38,16 +38,15 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   const action = actions[0]
 
   return (
-    <Box is="div" ncss={props.wheel.style.ncss} wheel={props.wheel}>
+    <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
       {props.fullTopicAsLink ? (
-        <Any is="span" ncss={props.wheel.style.link.ncss} wheel={props.wheel}>
+        <Any is="span" wheel={{ ...props.wheel, style: props.wheel.style }}>
           {action.heading}
         </Any>
       ) : (
         <Action
           {...action}
-          treeStyle={props.wheel.style.link.ncss}
-          wheel={props.wheel}
+          wheel={{ ...props.wheel, style: props.wheel.style }}
         >
           {action.heading}
         </Action>

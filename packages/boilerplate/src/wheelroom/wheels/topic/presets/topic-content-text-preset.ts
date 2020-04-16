@@ -3,18 +3,9 @@ import { NcssProps } from '../../types'
 export interface TopicContentTextPreset {
   /** Styling for this node */
   ncss: NcssProps
-  /** Icon style */
-  icon: {
-    ncss?: NcssProps
-  }
-  /** Heading style */
-  heading: {
-    ncss?: NcssProps
-  }
-  /** Abstract style */
-  abstract: {
-    ncss: NcssProps
-  }
+  icon: NcssProps
+  heading: NcssProps
+  abstract: NcssProps
 }
 
 export const topicContentTextPreset: TopicContentTextPreset = {
@@ -24,7 +15,6 @@ export const topicContentTextPreset: TopicContentTextPreset = {
   icon: {
     ncss: {
       label: 'topic-icon',
-      mb: 2,
     },
   },
   heading: {

@@ -59,8 +59,8 @@ export const Modal = (props: {
           onClick={() => props.closeMenu()}
           wheel={{ ...props.wheel, style: props.wheel.style.closeMenuButton }}
         >
-          <Flex ariaHidden={true} wheel={props.wheel}>
-            <XIcon wheel={props.wheel} />
+          <Flex ariaHidden={true} wheel={{ ...props.wheel }}>
+            <XIcon wheel={{ ...props.wheel }} />
           </Flex>
         </Button>
         <NavHeaderList

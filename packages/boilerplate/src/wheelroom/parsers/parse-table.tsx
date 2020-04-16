@@ -9,8 +9,8 @@
  */
 
 import React from 'react'
-import { Any } from '../wheels/elements/any'
 import { ParserProps } from './types'
+import { Table } from '../wheels/elements/table'
 
 const replaceTable = (children: React.ReactNode) => {
   let rows: any[] = []
@@ -54,8 +54,8 @@ export const validTable = (children: React.ReactNode) => {
 
 export const ParseTable = (props: ParserProps): JSX.Element | null => {
   return (
-    <Any is="table" ncss={props.ncss} wheel={props.wheel}>
+    <Table is="table" wheel={{ ...props.wheel, style: props.wheel.style }}>
       <tbody>{replaceTable(props.children)}</tbody>
-    </Any>
+    </Table>
   )
 }

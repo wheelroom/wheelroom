@@ -18,7 +18,11 @@ export const NavHeaderListItem = (props: NavHeaderListItemProps) => {
   return (
     <Fragment>
       {props.pages.map((page: PageProps, index: number) => (
-        <Any is={'li'} key={index} wheel={props.wheel}>
+        <Any
+          is={'li'}
+          key={index}
+          wheel={{ ...props.wheel, style: props.wheel.style }}
+        >
           <NavHeaderListItemLink
             page={page}
             wheel={{ ...props.wheel, style: props.wheel.style.link }}

@@ -6,7 +6,7 @@ import { NcssProps, Wheel } from '../types'
 
 export const FeatherIcon = (props: {
   icon: string
-  ncss?: NcssProps
+  ncss: NcssProps
   wheel: Wheel
 }) => {
   if (Object.keys(IconMap).includes(props.icon)) {
@@ -42,6 +42,7 @@ export const TextIcon = (props: {
         label,
         ...textIconPreset.ncss,
         ...props.wheel.elementPresets.textIcon.ncss,
+        ...props.wheel.style.ncss,
         ...props.ncss,
       }}
       wheel={props.wheel}
