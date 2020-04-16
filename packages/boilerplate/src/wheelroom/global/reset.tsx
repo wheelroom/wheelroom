@@ -2,24 +2,6 @@ export const reset = `
 /** normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-
-html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-}
-
-/**
- * Remove the margin in all browsers.
- */
- 
-body {
-  margin: 0;
-}
-
-/**
  * 1. Remove the bottom border in Chrome 57-
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */

@@ -72,9 +72,19 @@ const PageTemplate = (props: any) => {
       <Global styles={reset} />
       <Global
         styles={{
+          /**
+           * 1. Correct the line height in all browsers.
+           * 2. Prevent adjustments of font size after orientation changes in iOS.
+           */
+          html: {
+            lineHeight: '1.15' /* 1 */,
+            '-webkit-text-size-adjust': '100%' /* 2 */,
+          },
+          /**
+           * Remove the margin in all browsers.
+           */
           body: {
-            // TODO: Fix background color based on theme
-            backgroundColor: 'white',
+            margin: 0,
           },
         }}
       />
