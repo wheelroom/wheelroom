@@ -3,7 +3,7 @@ import { NavigationSegmentProps } from '../../../../models/navigation-segment'
 import { Wrapper, Container, Flex } from '../../elements/grid'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
-import { NavFooterSocialLinks } from './nav-footer-social-links'
+import { NavFooterSocialList } from './nav-footer-social-list'
 import { NavFooterList } from './nav-footer-list'
 import { Legal } from './legal'
 import { NavFooterPreset } from './presets/nav-footer-preset'
@@ -37,8 +37,7 @@ export const PageSectionNavigationFooter = (props: {
         >
           <Flex
             is={'nav'}
-            ncss={props.wheel.style.navFooter}
-            wheel={props.wheel}
+            wheel={{ ...props.wheel, style: props.wheel.style.navFooter }}
           >
             <NavFooterList
               wheel={{
@@ -48,10 +47,10 @@ export const PageSectionNavigationFooter = (props: {
               pages={navSegment.pages}
             />
             {pageSectionInfo.hasTopic && (
-              <NavFooterSocialLinks
+              <NavFooterSocialList
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.navFooter.navSocialLinks,
+                  style: props.wheel.style.navFooter.socialList,
                 }}
                 topics={props.pageSection.topics}
               />

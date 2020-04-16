@@ -11,10 +11,10 @@ export interface NavHeaderListPreset {
 
 export const navHeaderListPreset: NavHeaderListPreset = {
   ncss: {
+    label: 'nav-header-list',
     display: 'flex',
     flexDirection: 'row',
-    listPreset: 'none',
-    flexWrap: 'wrap',
+    flex: 1,
     my: 0,
     pl: 0,
   },

@@ -11,6 +11,7 @@ export interface NavFooterListPreset {
 
 export const navFooterListPreset: NavFooterListPreset = {
   ncss: {
+    label: 'nav-footer-list',
     display: 'flex',
     flexDirection: 'row',
     listPreset: 'none',

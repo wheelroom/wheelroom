@@ -6,11 +6,15 @@ export interface NavHeaderListItemLinkPreset {
 
 export const navHeaderListItemLinkPreset: NavHeaderListItemLinkPreset = {
   ncss: {
-    label: 'link',
+    label: 'nav-header-list-item-link',
+    px: 2,
+    py: 3,
+    textDecoration: 'none',
     cursor: 'pointer',
-    '.active': { textDecoration: 'underline' },
+    '&.active': { textDecoration: 'underline' },
     ':hover': { textDecoration: 'underline' },
     ':active': {},
     ':focus': {},
+    ':visited': {},
   },
 }

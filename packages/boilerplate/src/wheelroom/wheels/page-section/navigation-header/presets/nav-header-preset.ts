@@ -1,6 +1,6 @@
 import { NcssProps } from '../../../types'
 import { GridPreset } from '../../../elements/grid-preset'
-import { LogoPreset, logoPreset } from './logo-preset'
+import { BrandingPreset, brandingPreset } from './branding-preset'
 import {
   NavHeaderActionsPreset,
   navHeaderActionsPreset,
@@ -11,13 +11,13 @@ import {
   NavHeaderListPreset,
   navHeaderListPreset,
 } from './nav-header-list-preset'
-import { ButtonPreset, buttonPreset } from '../../../elements/button-preset'
+import { ButtonPreset } from '../../../elements/button-preset'
 
 export interface NavHeaderPreset {
   skipToContent: { ncss: NcssProps }
   wrapper: GridPreset
   container: GridPreset
-  logo: LogoPreset
+  branding: BrandingPreset
   navHeader: {
     ncss: NcssProps
     list: NavHeaderListPreset
@@ -33,6 +33,7 @@ export interface NavHeaderPreset {
 export const navHeaderPreset: NavHeaderPreset = {
   skipToContent: {
     ncss: {
+      label: 'skip-to-content',
       position: 'absolute',
       left: '-100%',
       ':focus': {
@@ -54,11 +55,10 @@ export const navHeaderPreset: NavHeaderPreset = {
   },
   wrapper: {
     ncss: {
-      width: '100%',
+      width: 1,
       height: '70px',
       py: 0,
-      borderBottom: '1px solid',
-      borderColor: 'silver',
+      borderBottom: '1px solid black',
     },
   },
   container: {
@@ -68,9 +68,10 @@ export const navHeaderPreset: NavHeaderPreset = {
       px: 3,
     },
   },
-  logo: logoPreset,
+  branding: brandingPreset,
   navHeader: {
     ncss: {
+      label: 'nav-header',
       flex: '1',
       alignItems: 'center',
       display: ['none', 'none', 'flex'],
@@ -79,8 +80,13 @@ export const navHeaderPreset: NavHeaderPreset = {
     actions: navHeaderActionsPreset,
   },
   modal: {
-    ncss: {},
-    button: buttonPreset,
+    ncss: {
+      label: 'modal',
+      display: ['flex', 'flex', 'none'],
+    },
+    button: {
+      ncss: {},
+    },
     dialog: modalPreset,
   },
 }

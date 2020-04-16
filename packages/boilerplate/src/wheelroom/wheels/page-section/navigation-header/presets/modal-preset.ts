@@ -10,28 +10,41 @@ import { NavHeaderListPreset } from './nav-header-list-preset'
 export interface ModalPreset {
   container: {
     menuVisible: {
-      yes: { ncss: NcssProps }
-      no: { ncss: NcssProps }
+      yes: NcssProps
+      no: NcssProps
     }
   }
   document: {
     menuVisible: {
-      yes: { ncss: NcssProps }
-      no: { ncss: NcssProps }
+      yes: NcssProps
+      no: NcssProps
     }
   }
-  closeMenuButton: { ncss: NcssProps }
+  closeMenuButton: NcssProps
   list: NavHeaderListPreset
   actions: {
     container: NcssProps
-    action: { ncss: NcssProps }
-    themeButton: { ncss: NcssProps }
+    action: NcssProps
+    themeButton: NcssProps
   }
 }
 
 export const modalPreset: ModalPreset = {
   container: {
-    menuVisible: { yes: modalDialogOpenPreset, no: modalDialogPreset },
+    menuVisible: {
+      yes: {
+        ncss: {
+          ...modalDialogOpenPreset,
+          label: 'modal-is-visible',
+        },
+      },
+      no: {
+        ncss: {
+          ...modalDialogPreset,
+          label: 'modal-is-hidden',
+        },
+      },
+    },
   },
   document: {
     menuVisible: {
@@ -60,8 +73,7 @@ export const modalPreset: ModalPreset = {
       pl: 0,
       w: 1,
       li: {
-        borderBottom: '1px solid transparent',
-        borderColor: 'border',
+        borderBottom: '1px solid black',
         a: {
           p: 3,
         },

@@ -3,30 +3,33 @@ import { TopicProps } from '../../../../models/topic'
 import { FeatherIcon } from '../../elements/icon'
 import React from 'react'
 import { Action } from '../../action/action'
-import { NavFooterSocialLinksPreset } from './presets/nav-footer-social-links-preset'
+import { NavFooterSocialListPreset } from './presets/nav-footer-social-list-preset'
 import { Wheel } from '../../types'
 import { Any } from '../../elements/any'
 
-interface NavSocialLinksWheel extends Wheel {
-  style: NavFooterSocialLinksPreset
+interface NavFooterSocialListWheel extends Wheel {
+  style: NavFooterSocialListPreset
 }
 
-export const NavFooterSocialLinks = (props: {
+export const NavFooterSocialList = (props: {
   topics: TopicProps[]
-  wheel: NavSocialLinksWheel
+  wheel: NavFooterSocialListWheel
 }) => {
   return (
     <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style }}>
       {props.topics.map((topic: TopicProps, index: number) => (
-        <Any is={'li'} key={index} wheel={{ ...props.wheel, style: props.wheel.style.item }}>
+        <Any
+          is={'li'}
+          key={index}
+          wheel={{ ...props.wheel, style: props.wheel.style.item }}
+        >
           <Action
             {...topic.actions[0]}
-            wheel={{ ...props.wheel, style: props.wheel.style.action }}
+            wheel={{ ...props.wheel, style: props.wheel.style.link }}
           >
             <FeatherIcon
-              ncss={props.wheel.style.icon}
               icon={topic.icon as string}
-              wheel={props.wheel}
+              wheel={{ ...props.wheel, style: props.wheel.style.icon }}
             />
           </Action>
         </Any>

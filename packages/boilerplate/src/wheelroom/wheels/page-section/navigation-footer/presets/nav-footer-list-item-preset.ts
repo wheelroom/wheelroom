@@ -11,7 +11,7 @@ export interface NavFooterListItemPreset {
 
 export const navFooterListItemPreset: NavFooterListItemPreset = {
   ncss: {
-    label: 'list-item',
+    label: 'nav-footer-list-item',
     listStyle: 'none',
   },
   link: navFooterListItemLinkPreset,

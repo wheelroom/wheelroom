@@ -8,7 +8,7 @@ import { NavigationSegmentProps } from '../../../../models/navigation-segment'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { NavHeaderList } from './nav-header-list'
-import { Logo } from './logo'
+import { Branding } from './branding'
 import { NavHeaderActions } from './nav-header-actions'
 import { Modal } from './modal'
 import { Wheel } from '../../types'
@@ -68,10 +68,10 @@ export const PageSectionNavigationHeader = (props: {
         <Container
           wheel={{ ...props.wheel, style: props.wheel.style.container }}
         >
-          <Logo
+          <Branding
             logo={props.useLogoElement || globals.siteHeading}
             version={siteMetadata.legal.version}
-            wheel={{ ...props.wheel, style: props.wheel.style.logo }}
+            wheel={{ ...props.wheel, style: props.wheel.style.branding }}
           />
           <Flex
             is={'nav'}

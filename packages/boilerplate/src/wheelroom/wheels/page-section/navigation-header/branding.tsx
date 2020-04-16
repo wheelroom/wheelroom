@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react'
 import { Flex } from '../../elements/grid'
 import { GLink } from '../../elements/g-link'
-import { LogoPreset } from './presets/logo-preset'
+import { Strong } from '../../elements/strong'
+import { BrandingPreset } from './presets/branding-preset'
 import { Wheel } from '../../types'
 
 interface LogoWheel extends Wheel {
-  style: LogoPreset
+  style: BrandingPreset
 }
 
-export const Logo = (props: {
+export const Branding = (props: {
   logo: string | JSX.Element
   version?: string
   wheel: LogoWheel
@@ -23,7 +24,9 @@ export const Logo = (props: {
   if (typeof props.logo === 'string') {
     logo = (
       <Fragment>
-        {props.logo}
+        <Strong wheel={{ ...props.wheel, style: props.wheel.style.logo }}>
+          {props.logo}
+        </Strong>
         <sup>
           <small>{' ' + props.version}</small>
         </sup>
@@ -32,10 +35,10 @@ export const Logo = (props: {
   }
 
   return (
-    <Flex is="div" ncss={props.wheel.style} wheel={props.wheel}>
+    <Flex is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
       <GLink
         to="/"
-        aria-label={ariaLabel}
+        ariaLabel={ariaLabel}
         wheel={{ ...props.wheel, style: props.wheel.style.link }}
       >
         {logo}

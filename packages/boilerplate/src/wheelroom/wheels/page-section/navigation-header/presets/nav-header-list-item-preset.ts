@@ -11,8 +11,9 @@ export interface NavHeaderListItemPreset {
 
 export const navHeaderListItemPreset: NavHeaderListItemPreset = {
   ncss: {
-    label: 'list-item',
+    label: 'nav-header-list-item',
     listStyle: 'none',
+    display: 'inline-flex',
   },
   link: navHeaderListItemLinkPreset,
 }

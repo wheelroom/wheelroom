@@ -2,9 +2,9 @@ import { NcssProps } from '../../../types'
 import { GridPreset } from '../../../elements/grid-preset'
 import { LegalPreset, legalPreset } from './legal-preset'
 import {
-  NavFooterSocialLinksPreset,
-  navFooterSocialLinksPreset,
-} from './nav-footer-social-links-preset'
+  NavFooterSocialListPreset,
+  navFooterSocialListPreset,
+} from './nav-footer-social-list-preset'
 import {
   NavFooterListPreset,
   navFooterListPreset,
@@ -16,32 +16,34 @@ export interface NavFooterPreset {
   navFooter: {
     ncss: NcssProps
     list: NavFooterListPreset
-    navSocialLinks: NavFooterSocialLinksPreset
+    socialList: NavFooterSocialListPreset
   }
   legal: LegalPreset
 }
 
 export const navFooterPreset: NavFooterPreset = {
   wrapper: {
-    ncss: {},
+    ncss: {
+      borderTop: '1px solid black',
+      py: 0,
+    },
   },
   container: {
     ncss: {
-      borderTop: '1px solid transparent',
-      borderColor: 'border',
-      px: 3,
+      minHeight: '84px',
+      px: 2,
     },
   },
   navFooter: {
     ncss: {
-      h: '84px',
+      label: 'nav-footer',
       flex: 1,
       justifyContent: ['space-evenly', 'space-between'],
       flexDirection: ['column', 'row'],
       alignItems: 'center',
     },
     list: navFooterListPreset,
-    navSocialLinks: navFooterSocialLinksPreset,
+    socialList: navFooterSocialListPreset,
   },
   legal: legalPreset,
 }
