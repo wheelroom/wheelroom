@@ -29,11 +29,7 @@ const replaceNewlines = (children: React.ReactNode) => {
 
 export const ParseNewLines = (props: ParserProps): JSX.Element => {
   return (
-    <Any
-      is={props.is}
-      polyPreset={true}
-      wheel={{ ...props.wheel, style: props.wheel.style }}
-    >
+    <Any is={props.is} polyPreset={true} wheel={props.wheel}>
       {replaceNewlines(props.children)}
     </Any>
   )

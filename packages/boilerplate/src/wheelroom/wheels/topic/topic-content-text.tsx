@@ -4,10 +4,9 @@ import { Box } from '../elements/grid'
 import { BlockLevelElementName } from '../elements/types/element-names'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
-import { Heading } from '../elements/heading'
+import { Any } from '../elements/any'
 import { TopicIcon } from './topic-icon'
 import { ParserFunction } from '../../parsers/types'
-import { Paragraph } from '../elements/paragraph'
 import { Wheel } from '../types'
 import { TopicContentTextPreset } from './presets/topic-content-text-preset'
 
@@ -41,8 +40,8 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const useHeadingElement = props.useHeadingElement || 'h3'
   const useAbstractElement = props.useAbstractElement || 'p'
 
-  const HeadingParser = props.useHeadingParser || Heading
-  const AbstractParser = props.useAbstractParser || Paragraph
+  const HeadingParser = props.useHeadingParser || Any
+  const AbstractParser = props.useAbstractParser || Any
 
   return (
     <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
@@ -54,6 +53,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
       )}
       {!topicOptions.hideHeading && (
         <HeadingParser
+          polyPreset={true}
           is={useHeadingElement}
           wheel={{ ...props.wheel, style: props.wheel.style.heading }}
         >
@@ -64,6 +64,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
         props.topic.abstract &&
         props.topic.abstract.abstract && (
           <AbstractParser
+            polyPreset={true}
             is={useAbstractElement}
             wheel={{ ...props.wheel, style: props.wheel.style.abstract }}
           >

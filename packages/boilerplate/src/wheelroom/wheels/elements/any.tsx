@@ -62,7 +62,7 @@ export const Any = (props: AnyProps) => {
     Object.assign(
       polyPresetNcss,
       props.wheel.elementPresets[props.is].ncss,
-      presetMap[props.is]
+      presetMap[props.is].ncss
     )
   }
 
