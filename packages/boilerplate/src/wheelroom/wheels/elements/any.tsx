@@ -59,6 +59,7 @@ export const Any = (props: AnyProps) => {
     props.is &&
     Object.keys(presetMap).includes(props.is)
   ) {
+    console.log('props.is', props.is)
     Object.assign(
       polyPresetNcss,
       props.wheel.elementPresets[props.is].ncss,

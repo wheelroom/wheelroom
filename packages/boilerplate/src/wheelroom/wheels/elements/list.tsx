@@ -16,19 +16,44 @@ export interface ListProps {
   ncss?: NcssProps
 }
 
-export const List = (props: ListProps) => {
+const getNcss = (props: ListProps, is: string) => {
   const label = 'list'
-  const css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
-      label,
-      ...listPreset.ncss,
-      ...props.wheel.elementPresets.list.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+  const ncss = {
+    label,
+    ...listPreset.ncss,
+    ...props.wheel.elementPresets[is].ncss,
+    ...props.wheel.style.ncss,
+    ...props.ncss,
+  }
+  return ncss
+}
+
+export const Li = (props: ListProps) => {
+  const ncss = getNcss(props, 'li')
   const attrs = {
-    css,
+    css: styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+      ncss,
+    }),
+  }
+  return jsx(props.is || 'li', attrs, props.children)
+}
+
+export const Ol = (props: ListProps) => {
+  const ncss = getNcss(props, 'ol')
+  const attrs = {
+    css: styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+      ncss,
+    }),
+  }
+  return jsx(props.is || 'ol', attrs, props.children)
+}
+
+export const Ul = (props: ListProps) => {
+  const ncss = getNcss(props, 'ul')
+  const attrs = {
+    css: styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+      ncss,
+    }),
   }
   return jsx(props.is || 'ul', attrs, props.children)
 }

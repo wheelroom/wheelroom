@@ -3,7 +3,6 @@ import { aLinkPreset } from './a-link-preset'
 import { blockquotePreset } from './blockquote-preset'
 import { buttonPreset } from './button-preset'
 import { codePreset } from './code-preset'
-import { gLinkPreset } from './g-link-preset'
 import {
   heading1Preset,
   heading2Preset,
@@ -31,7 +30,7 @@ export const anyPreset: AnyPreset = {
 
 export const anyPresetMap = {
   a: aLinkPreset,
-  bq: blockquotePreset,
+  blockquote: blockquotePreset,
   button: buttonPreset,
   code: codePreset,
   h1: heading1Preset,

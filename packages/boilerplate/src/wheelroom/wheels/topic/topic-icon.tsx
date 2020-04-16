@@ -1,11 +1,10 @@
 import React from 'react'
 import { IconMap } from '../../svg/feather/iconMap'
 import { FeatherIcon, TextIcon } from '../elements/icon'
-import { NcssProps, Wheel } from '../types'
+import { Wheel } from '../types'
 
 export const TopicIcon = (props: {
   icon: string | JSX.Element
-  ncss: NcssProps
   wheel: Wheel
 }) => {
   // When a React element is passed, return that

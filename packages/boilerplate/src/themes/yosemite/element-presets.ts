@@ -7,7 +7,7 @@ import { ElementPresets } from '../../wheelroom/wheels/elements/types/element-pr
 // }
 
 export const elementPresets: ElementPresets = {
-  aLink: { ncss: {} },
+  a: { ncss: {} },
   table: { ncss: {} },
   blockquote: { ncss: {} },
   container: { ncss: {} },
@@ -19,7 +19,7 @@ export const elementPresets: ElementPresets = {
     picture: { ncss: {} },
     figcaption: { ncss: {} },
   },
-  paragraph: { ncss: {} },
+  p: { ncss: {} },
   strong: { ncss: {} },
   pre: { ncss: {} },
   featherIcon: { ncss: {} },
@@ -35,7 +35,6 @@ export const elementPresets: ElementPresets = {
     video: { ncss: {} },
   },
   h4: { ncss: {} },
-  list: { ncss: {} },
   any: { ncss: {} },
   h5: { ncss: {} },
   gLink: { ncss: {} },

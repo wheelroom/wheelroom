@@ -6,7 +6,7 @@ import { NcssProps, Wheel } from '../types'
 
 export const FeatherIcon = (props: {
   icon: string
-  ncss: NcssProps
+  ncss?: NcssProps
   wheel: Wheel
 }) => {
   if (Object.keys(IconMap).includes(props.icon)) {

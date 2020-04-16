@@ -19,7 +19,6 @@ import { TablePreset } from '../table-preset'
 export interface ElementPresets {
   any: AnyPreset
   table: TablePreset
-  list: ListPreset
   ol: ListPreset
   ul: ListPreset
   li: ListPreset
@@ -30,7 +29,7 @@ export interface ElementPresets {
   hr: HrPreset
   strong: StrongPreset
   blockquote: BlockquotePreset
-  aLink: ALinkPreset
+  a: ALinkPreset
   box: GridPreset
   button: ButtonPreset
   wrapper: GridPreset
@@ -44,7 +43,7 @@ export interface ElementPresets {
   h4: HeadingPreset
   h5: HeadingPreset
   h6: HeadingPreset
-  paragraph: ParagraphPreset
+  p: ParagraphPreset
   featherIcon: IconPreset
   textIcon: IconPreset
   image: {
