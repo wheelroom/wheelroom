@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import { BlockLevelElementName, InlineElementName } from './types/element-names'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
-import { anyPreset } from './any-preset'
+import { anyPreset, anyPresetMap } from './any-preset'
 
 export interface AnyProps {
   /** Styling wheel */
@@ -32,6 +32,8 @@ export interface AnyProps {
   tabIndex?: number | undefined
   /** On click handler */
   onClick?: () => any
+  /** Apply preset styling for the 'is-element' */
+  polyPreset: boolean
 }
 
 const getAttrs = (props: AnyProps) => {
@@ -50,6 +52,20 @@ const getAttrs = (props: AnyProps) => {
 }
 
 export const Any = (props: AnyProps) => {
+  const polyPresetNcss = {}
+  const presetMap = anyPresetMap as any
+  if (
+    props.polyPreset &&
+    props.is &&
+    Object.keys(presetMap).includes(props.is)
+  ) {
+    Object.assign(
+      polyPresetNcss,
+      props.wheel.elementPresets[props.is].ncss,
+      presetMap[props.is]
+    )
+  }
+
   const label = `any-is-${props.is}`
   const attrs: any = getAttrs(props)
   attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
@@ -57,6 +73,7 @@ export const Any = (props: AnyProps) => {
       label,
       ...anyPreset.ncss,
       ...props.wheel.elementPresets.any.ncss,
+      ...polyPresetNcss,
       ...props.wheel.style.ncss,
       ...props.ncss,
     },
