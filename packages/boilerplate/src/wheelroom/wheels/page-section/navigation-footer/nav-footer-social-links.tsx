@@ -5,6 +5,7 @@ import React from 'react'
 import { Action } from '../../action/action'
 import { NavFooterSocialLinksPreset } from './presets/nav-footer-social-links-preset'
 import { Wheel } from '../../types'
+import { Any } from '../../elements/any'
 
 interface NavSocialLinksWheel extends Wheel {
   style: NavFooterSocialLinksPreset
@@ -17,7 +18,7 @@ export const NavFooterSocialLinks = (props: {
   return (
     <List is="ul" wheel={{ ...props.wheel, style: props.wheel.style }}>
       {props.topics.map((topic: TopicProps, index: number) => (
-        <List is={'li'} key={index} wheel={props.wheel}>
+        <Any is={'li'} key={index} wheel={{ ...props.wheel, style: props.wheel.style.item }}>
           <Action
             {...topic.actions[0]}
             wheel={{ ...props.wheel, style: props.wheel.style.action }}
@@ -28,7 +29,7 @@ export const NavFooterSocialLinks = (props: {
               wheel={props.wheel}
             />
           </Action>
-        </List>
+        </Any>
       ))}
     </List>
   )

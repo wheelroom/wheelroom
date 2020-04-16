@@ -1,132 +1,119 @@
-import { NcssProps } from '../types'
 import { ImagePreset } from '../elements/image'
 import { VideoPreset } from '../elements/video'
-import { imageFigcaptionPreset, imageImgPreset } from '../elements/image-preset'
 import { GridPreset } from '../elements/grid-preset'
+import { StrongPreset } from '../elements/strong-preset'
+import { CodePreset } from '../elements/code-preset'
+import { PrePreset } from '../elements/pre-preset'
+import { ParagraphPreset } from '../elements/paragraph-preset'
+import { HrPreset } from '../elements/hr-preset'
+import { HeadingPreset } from '../elements/heading-preset'
+import { BlockquotePreset } from '../elements/blockquote-preset'
+import { ListPreset } from '../elements/list-preset'
+import { ALinkPreset } from '../elements/a-link-preset'
+import { imageFigcaptionPreset, imageImgPreset } from '../elements/image-preset'
 
 export interface TextPreset {
   wrapper: GridPreset
-  marksBold: { ncss: NcssProps }
-  marksCode: {
-    pre: { ncss: NcssProps }
-    code: { ncss: NcssProps }
-  }
-  blocksQuote: { ncss: NcssProps }
-  blocksUlList: { ncss: NcssProps }
-  blocksOlList: { ncss: NcssProps }
-  blocksLiList: { ncss: NcssProps }
-  inlinesHyperlink: { ncss: NcssProps }
-  entryHyperlink: { ncss: NcssProps }
-  blocksHeading1: { ncss: NcssProps }
-  blocksHeading2: { ncss: NcssProps }
-  blocksHeading3: { ncss: NcssProps }
-  blocksHeading4: { ncss: NcssProps }
-  blocksHeading5: { ncss: NcssProps }
-  blocksHeading6: { ncss: NcssProps }
-  blocksHr: { ncss: NcssProps }
+  strong: StrongPreset
+  code: CodePreset
+  pre: PrePreset
+  hr: HrPreset
+  paragraph: ParagraphPreset
+  blockquote: BlockquotePreset
+  ul: ListPreset
+  ol: ListPreset
+  li: ListPreset
+  inlinesHyperlink: ALinkPreset
+  entryHyperlink: ALinkPreset
+  h1: HeadingPreset
+  h2: HeadingPreset
+  h3: HeadingPreset
+  h4: HeadingPreset
+  h5: HeadingPreset
+  h6: HeadingPreset
   image: ImagePreset
   video: VideoPreset
 }
 
 export const textPreset: TextPreset = {
-  blocksHeading1: {
+  h1: {
+    ncss: {},
+  },
+  h2: {
+    ncss: {},
+  },
+  h3: {
+    ncss: {},
+  },
+  h4: {
+    ncss: {},
+  },
+  h5: {
+    ncss: {},
+  },
+  h6: {
+    ncss: {},
+  },
+  ul: {
+    ncss: {},
+  },
+  ol: {
+    ncss: {},
+  },
+  li: {
+    ncss: {},
+  },
+  entryHyperlink: {
     ncss: {
-      pt: 3,
+      wordBreak: 'break-all',
+      hyphens: 'auto',
     },
   },
-  blocksHeading2: {
+  inlinesHyperlink: {
     ncss: {
-      pt: 3,
+      wordBreak: 'break-all',
+      hyphens: 'auto',
     },
   },
-  blocksHeading3: {
-    ncss: {
-      pt: 3,
-    },
+  hr: {
+    ncss: {},
   },
-  blocksHeading4: {
-    ncss: {
-      pt: 3,
-    },
+  blockquote: {
+    ncss: {},
   },
-  blocksHeading5: {
-    ncss: {
-      pt: 3,
-    },
+  paragraph: {
+    ncss: {},
   },
-  blocksHeading6: {
-    ncss: {
-      pt: 3,
-    },
+  strong: {
+    ncss: {},
   },
-  blocksHr: {
-    ncss: {
-      borderColor: 'silver',
-      borderTop: '1px solid transparent',
-      my: 3,
-      overflow: 'hidden',
-      w: 1,
-    },
+  code: {
+    ncss: {},
   },
-  blocksUlList: { ncss: {} },
-  blocksOlList: { ncss: {} },
-  blocksLiList: { ncss: { p: { mb: 0 } } },
-  blocksQuote: {
-    ncss: {
-      ':before': {
-        color: 'silver',
-        content: '"”"',
-        fontFamily: 'text',
-        fontSize: 8,
-      },
-      textAlign: 'center',
-    },
-  },
-  entryHyperlink: { ncss: { wordBreak: 'break-all' } },
-  inlinesHyperlink: { ncss: { wordBreak: 'break-all' } },
-  marksBold: {
-    ncss: {
-      fontWeight: 7,
-    },
-  },
-  marksCode: {
-    code: { ncss: {} },
-    pre: {
-      ncss: {
-        bg: 'rgba(35, 122, 252, .1)',
-        fontSize: 3,
-        px: 3,
-        py: 2,
-        wordBreak: 'break-all',
-        wordWrap: 'break-word',
-      },
-    },
+  pre: {
+    ncss: {},
   },
   image: {
     img: {
       ncss: {
         ...imageImgPreset,
-        my: [4, 5],
       },
     },
-    picture: { ncss: {} },
+    picture: {
+      ncss: {},
+    },
     figcaption: {
       ncss: {
         ...imageFigcaptionPreset,
-        mb: [4, 5],
       },
     },
   },
   video: {
     video: {
-      ncss: {
-        my: [4, 5],
-      },
+      ncss: {},
     },
     description: {
-      ncss: {
-        mb: [4, 5],
-      },
+      ncss: {},
     },
   },
   wrapper: {

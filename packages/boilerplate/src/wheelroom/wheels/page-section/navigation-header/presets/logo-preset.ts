@@ -14,14 +14,7 @@ export const logoPreset: LogoPreset = {
     ncss: {
       fontFamily: 'logo',
       textDecoration: 'none',
-      fontSize: [5, 6],
-      fontWeight: 6,
-      color: 'text',
-      mr: 5,
-      sup: {
-        color: 'gray',
-        fontWeight: 3,
-      },
+      sup: {},
     },
   },
 }

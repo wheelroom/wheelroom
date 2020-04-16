@@ -1,5 +1,5 @@
-import { TopicPreset } from '../../topic/presets/topic-preset'
 import { GridPreset } from '../../elements/grid-preset'
+import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionFeaturedPreset {
   container: GridPreset
@@ -18,7 +18,7 @@ export const pageSectionFeaturedPreset: PageSectionFeaturedPreset = {
   topic: {
     ncss: {
       flexDirection: ['column', 'column', 'row'],
-      justifyContent: 'space-evenly',
+      alignItems: 'center',
     },
     content: {
       ncss: {

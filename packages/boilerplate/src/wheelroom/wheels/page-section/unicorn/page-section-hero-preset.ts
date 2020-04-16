@@ -1,5 +1,5 @@
-import { TopicPreset } from '../../topic/presets/topic-preset'
 import { GridPreset } from '../../elements/grid-preset'
+import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionHeroPreset {
   container: GridPreset
@@ -47,6 +47,7 @@ export const pageSectionHeroPreset: PageSectionHeroPreset = {
         right: '0',
         top: '0',
         zIndex: -1,
+        overflow: 'hidden',
       },
       image: {
         img: {
@@ -76,6 +77,8 @@ export const pageSectionHeroPreset: PageSectionHeroPreset = {
     },
   },
   wrapper: {
-    ncss: {},
+    ncss: {
+      py: 0,
+    },
   },
 }

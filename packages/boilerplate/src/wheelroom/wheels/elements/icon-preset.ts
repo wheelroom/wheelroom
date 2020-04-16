@@ -7,6 +7,9 @@ export interface IconPreset {
 export const featherIconPreset: IconPreset = {
   ncss: {
     boxSizing: 'border-box',
+    w: '48px',
+    h: '48px',
+    strokeWidth: '1px',
   },
 }
 

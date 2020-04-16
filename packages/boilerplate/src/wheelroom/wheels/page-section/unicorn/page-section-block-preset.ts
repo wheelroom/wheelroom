@@ -1,5 +1,5 @@
-import { TopicPreset } from '../../topic/presets/topic-preset'
 import { GridPreset } from '../../elements/grid-preset'
+import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionBlockPreset {
   container: GridPreset
@@ -25,7 +25,9 @@ export const pageSectionBlockPreset: PageSectionBlockPreset = {
         p: 3,
       },
       text: {
-        ncss: {},
+        ncss: {
+          flex: '1 1 auto',
+        },
         heading: {
           ncss: {},
         },

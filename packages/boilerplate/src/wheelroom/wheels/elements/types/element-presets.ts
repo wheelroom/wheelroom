@@ -1,5 +1,6 @@
 import { ImagePreset } from '../image-preset'
 import { AnyPreset } from '../any-preset'
+import { PrePreset } from '../pre-preset'
 import { ALinkPreset } from '../a-link-preset'
 import { GridPreset } from '../grid-preset'
 import { ButtonPreset } from '../button-preset'
@@ -9,16 +10,30 @@ import { HeadingPreset } from '../heading-preset'
 import { ListPreset } from '../list-preset'
 import { ParagraphPreset } from '../paragraph-preset'
 import { VideoPreset } from '../video-preset'
+import { HrPreset } from '../hr-preset'
+import { StrongPreset } from '../strong-preset'
+import { CodePreset } from '../code-preset'
+import { BlockquotePreset } from '../blockquote-preset'
 
 export interface ElementPresets {
   any: AnyPreset
+  list: ListPreset
+  ol: ListPreset
+  ul: ListPreset
+  li: ListPreset
+  pre: PrePreset
+  code: CodePreset
+  kbd: CodePreset
+  samp: CodePreset
+  hr: HrPreset
+  strong: StrongPreset
+  blockquote: BlockquotePreset
   aLink: ALinkPreset
   box: GridPreset
   button: ButtonPreset
   wrapper: GridPreset
   container: GridPreset
   containerMaxWidth: GridPreset
-  featherIcon: IconPreset
   flex: GridPreset
   gLink: GLinkPreset
   h1: HeadingPreset
@@ -27,14 +42,14 @@ export interface ElementPresets {
   h4: HeadingPreset
   h5: HeadingPreset
   h6: HeadingPreset
+  paragraph: ParagraphPreset
+  featherIcon: IconPreset
+  textIcon: IconPreset
   image: {
-    figcaption: ImagePreset
     img: ImagePreset
     picture: ImagePreset
+    figcaption: ImagePreset
   }
-  list: ListPreset
-  paragraph: ParagraphPreset
-  textIcon: IconPreset
   video: {
     description: VideoPreset
     video: VideoPreset

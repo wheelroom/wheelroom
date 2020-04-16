@@ -29,8 +29,8 @@ export const NavHeaderActions = (props: {
     >
       {props.pageSectionInfo.hasAction && (
         <Action
-          wheel={{ ...props.wheel, style: props.wheel.style.action }}
           {...props.action}
+          wheel={{ ...props.wheel, style: props.wheel.style.action }}
         />
       )}
       <Button

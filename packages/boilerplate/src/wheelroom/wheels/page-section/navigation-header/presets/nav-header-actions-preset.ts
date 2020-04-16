@@ -1,19 +1,22 @@
 import { NcssProps } from '../../../types'
+import { ButtonPreset, buttonPreset } from '../../../elements/button-preset'
+import { GridPreset } from '../../../elements/grid-preset'
 
 export interface NavHeaderActionsPreset {
-  container: NcssProps
-  action: { ncss: NcssProps }
-  themeButton: { ncss: NcssProps }
+  container: GridPreset
+  action: ButtonPreset
+  themeButton: NcssProps
 }
 
 export const navHeaderActionsPreset: NavHeaderActionsPreset = {
-  container: { ncss: {} },
-  action: { ncss: {} },
+  container: {
+    ncss: {},
+  },
+  action: buttonPreset,
   themeButton: {
     ncss: {
       ml: 2,
       textTransform: 'capitalize',
-      minWidth: '70px',
     },
   },
 }

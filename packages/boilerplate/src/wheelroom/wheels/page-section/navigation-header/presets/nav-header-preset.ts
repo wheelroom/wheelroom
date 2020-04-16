@@ -42,7 +42,6 @@ export const navHeaderPreset: NavHeaderPreset = {
         left: 0,
         top: 0,
         right: 0,
-        color: 'black',
         fontFamily: 'text',
         fontWeight: 7,
         backgroundColor: '#FCA623',

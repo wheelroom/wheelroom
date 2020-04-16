@@ -10,8 +10,7 @@ export interface LegalPreset {
 export const legalPreset: LegalPreset = {
   container: {
     ncss: {
-      borderTop: '1px solid transparent',
-      borderColor: 'border',
+      borderTop: '1px solid black',
       px: 3,
     },
   },
@@ -23,11 +22,14 @@ export const legalPreset: LegalPreset = {
       justifyContent: ['center', 'normal'],
     },
   },
-  text: { ncss: { fontFamily: 'text', color: 'silver' } },
+  text: {
+    ncss: {
+      fontFamily: 'text',
+    },
+  },
   link: {
     ncss: {
       display: 'inline-flex',
-      color: 'silver',
     },
   },
 }

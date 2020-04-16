@@ -12,6 +12,7 @@ export const gLinkPreset: GLinkPreset = {
     ':hover': {},
     ':visited': {},
     ':focus': {},
+    ':active': {},
     '&.active': {},
   },
 }

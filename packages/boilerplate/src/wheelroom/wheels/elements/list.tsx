@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { ListElementName } from './types/element-names'
 import { listPreset } from './list-preset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
@@ -9,7 +8,7 @@ export interface ListProps {
   /** Styling wheel */
   wheel: Wheel
   /** Render as another HTML element */
-  is?: ListElementName
+  is?: 'ol' | 'li' | 'ul'
   /** React children */
   children?: any
   /** Nested emotion css styling */

@@ -31,6 +31,10 @@ export const Landmark = (props: {
   const dashedLabel = label.replace(' ', '-')
   const css = {
     label: dashedLabel,
+    /**
+     * Render the `main` element consistently in IE.
+     */
+    display: 'block',
   }
   const attrs = {
     css,

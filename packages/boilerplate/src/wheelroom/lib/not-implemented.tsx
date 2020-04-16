@@ -16,10 +16,7 @@ export const NotImplemented = (props: {
   const info = getPageSectionInfo(props.pageSection)
   return (
     <Flex ncss={{ fontFamily: 'text', p: 3 }} wheel={props.wheel}>
-      <Flex
-        ncss={{ bg: '#ccc', p: 3, w: 1, alignItems: 'center' }}
-        wheel={props.wheel}
-      >
+      <Flex ncss={{ bg: '#ccc', p: 3, w: 1 }} wheel={props.wheel}>
         <SvgBell
           strokeWidth={2}
           ncss={{ color: 'black', mr: 2, w: [1 / 30] }}

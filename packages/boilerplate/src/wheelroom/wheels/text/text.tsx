@@ -27,8 +27,10 @@ import { TextPreset } from './text-preset'
 import { MediaObject } from '../elements/types/media'
 import { Wheel } from '../types'
 import { TextProps } from '../../../models/text'
-
-// TODO: @Thijs – Create presets for <hr> <blockquote> <code> in the folder elements
+import { Strong } from '../elements/strong'
+import { Pre } from '../elements/pre'
+import { Code } from '../elements/code'
+import { Hr } from '../elements/hr'
 
 export interface TextWheel extends Wheel {
   style: TextPreset
@@ -57,37 +59,45 @@ export const Text = (props: TextWheelProps) => {
     },
     renderMark: {
       [MARKS.BOLD]: (text) => (
-        <Any
+        <Strong
           is="b"
-          wheel={{ ...textProps.wheel, style: textProps.wheel.style.marksBold }}
+          wheel={{
+            ...textProps.wheel,
+            style: textProps.wheel.style.strong,
+          }}
         >
           {text}
-        </Any>
+        </Strong>
       ),
       [MARKS.CODE]: (code) => (
-        <Any
+        <Pre
           is="pre"
           wheel={{
             ...textProps.wheel,
-            style: textProps.wheel.style.marksCode.pre,
+            style: textProps.wheel.style.pre,
           }}
         >
-          <Any
+          <Code
             is="code"
             wheel={{
               ...textProps.wheel,
-              style: textProps.wheel.style.marksCode.code,
+              style: textProps.wheel.style.code,
             }}
           >
             {code}
-          </Any>
-        </Any>
+          </Code>
+        </Pre>
       ),
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
         return (
-          <Paragraph wheel={{ ...textProps.wheel, style: { ncss: {} } }}>
+          <Paragraph
+            wheel={{
+              ...textProps.wheel,
+              style: textProps.wheel.style.paragraph,
+            }}
+          >
             {children}
           </Paragraph>
         )
@@ -98,7 +108,7 @@ export const Text = (props: TextWheelProps) => {
             is="blockquote"
             wheel={{
               ...textProps.wheel,
-              style: textProps.wheel.style.blocksQuote,
+              style: textProps.wheel.style.blockquote,
             }}
           >
             {children}
@@ -111,7 +121,7 @@ export const Text = (props: TextWheelProps) => {
             is="ul"
             wheel={{
               ...textProps.wheel,
-              style: textProps.wheel.style.blocksUlList,
+              style: textProps.wheel.style.ul,
             }}
           >
             {children}
@@ -124,7 +134,7 @@ export const Text = (props: TextWheelProps) => {
             is="ol"
             wheel={{
               ...textProps.wheel,
-              style: textProps.wheel.style.blocksOlList,
+              style: textProps.wheel.style.ol,
             }}
           >
             {children}
@@ -137,7 +147,7 @@ export const Text = (props: TextWheelProps) => {
             is="li"
             wheel={{
               ...textProps.wheel,
-              style: textProps.wheel.style.blocksLiList,
+              style: textProps.wheel.style.li,
             }}
           >
             {children}
@@ -178,7 +188,7 @@ export const Text = (props: TextWheelProps) => {
         <H1
           wheel={{
             ...textProps.wheel,
-            style: textProps.wheel.style.blocksHeading1,
+            style: textProps.wheel.style.h1,
           }}
         >
           {children}
@@ -188,7 +198,7 @@ export const Text = (props: TextWheelProps) => {
         <H2
           wheel={{
             ...textProps.wheel,
-            style: textProps.wheel.style.blocksHeading2,
+            style: textProps.wheel.style.h2,
           }}
         >
           {children}
@@ -198,7 +208,7 @@ export const Text = (props: TextWheelProps) => {
         <H3
           wheel={{
             ...textProps.wheel,
-            style: textProps.wheel.style.blocksHeading3,
+            style: textProps.wheel.style.h3,
           }}
         >
           {children}
@@ -208,7 +218,7 @@ export const Text = (props: TextWheelProps) => {
         <H4
           wheel={{
             ...textProps.wheel,
-            style: textProps.wheel.style.blocksHeading4,
+            style: textProps.wheel.style.h4,
           }}
         >
           {children}
@@ -218,7 +228,7 @@ export const Text = (props: TextWheelProps) => {
         <H5
           wheel={{
             ...textProps.wheel,
-            style: textProps.wheel.style.blocksHeading5,
+            style: textProps.wheel.style.h5,
           }}
         >
           {children}
@@ -228,18 +238,18 @@ export const Text = (props: TextWheelProps) => {
         <H6
           wheel={{
             ...textProps.wheel,
-            style: textProps.wheel.style.blocksHeading6,
+            style: textProps.wheel.style.h6,
           }}
         >
           {children}
         </H6>
       ),
       [BLOCKS.HR]: () => (
-        <Any
+        <Hr
           is="hr"
           wheel={{
             ...textProps.wheel,
-            style: textProps.wheel.style.blocksHr,
+            style: textProps.wheel.style.hr,
           }}
         />
       ),

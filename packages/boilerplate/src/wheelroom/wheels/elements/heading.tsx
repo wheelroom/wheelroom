@@ -49,37 +49,37 @@ export const Heading = (props: HeadingProps) => {
 }
 
 export const H1 = (props: HeadingElementProps) => (
-  <Heading is="h1" ncss={props.ncss} wheel={props.wheel}>
+  <Heading is="h1" wheel={{ ...props.wheel, style: props.wheel.style }}>
     {props.children}
   </Heading>
 )
 
 export const H2 = (props: HeadingElementProps) => (
-  <Heading is="h2" ncss={props.ncss} wheel={props.wheel}>
+  <Heading is="h2" wheel={{ ...props.wheel, style: props.wheel.style }}>
     {props.children}
   </Heading>
 )
 
 export const H3 = (props: HeadingElementProps) => (
-  <Heading is="h3" ncss={props.ncss} wheel={props.wheel}>
+  <Heading is="h3" wheel={{ ...props.wheel, style: props.wheel.style }}>
     {props.children}
   </Heading>
 )
 
 export const H4 = (props: HeadingElementProps) => (
-  <Heading is="h4" ncss={props.ncss} wheel={props.wheel}>
+  <Heading is="h4" wheel={{ ...props.wheel, style: props.wheel.style }}>
     {props.children}
   </Heading>
 )
 
 export const H5 = (props: HeadingElementProps) => (
-  <Heading is="h5" ncss={props.ncss} wheel={props.wheel}>
+  <Heading is="h5" wheel={{ ...props.wheel, style: props.wheel.style }}>
     {props.children}
   </Heading>
 )
 
 export const H6 = (props: HeadingElementProps) => (
-  <Heading is="h6" ncss={props.ncss} wheel={props.wheel}>
+  <Heading is="h6" wheel={{ ...props.wheel, style: props.wheel.style }}>
     {props.children}
   </Heading>
 )

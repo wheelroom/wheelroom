@@ -14,6 +14,12 @@ export const headingPreset: HeadingPreset = {
 /** These styles are added to H1, H2, H3, H4, H5 and H6 as presets */
 export const heading1Preset: HeadingPreset = {
   ncss: {
+    /**
+     * Correct the font size and margin on `h1` elements within `section` and
+     * `article` contexts in Chrome, Firefox, and Safari.
+     */
+    fontSize: '2em',
+    margin: '0.67em 0',
     ...headingPreset.ncss,
   },
 }

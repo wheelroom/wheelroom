@@ -20,7 +20,7 @@ export const flexPreset: GridPreset = {
 export const wrapperPreset: GridPreset = {
   ncss: {
     ...boxPreset.ncss,
-    py: [3, 4, 5],
+    py: 3,
   },
 }
 

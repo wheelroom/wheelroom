@@ -9,7 +9,7 @@
 import React from 'react'
 import {
   pageSectionCardPreset,
-  pageSectionCardShadowPreset,
+  // pageSectionCardShadowPreset,
 } from '../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { elementPresets } from '../../themes/yosemite/element-presets'
@@ -29,7 +29,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   const style = deepMerge({ topic: topicPreset }, { ...pageSectionCardPreset })
   const styleShadow = deepMerge(
     { topic: topicPreset },
-    { ...pageSectionCardShadowPreset }
+    { ...pageSectionCardPreset }
   )
   const wheel: Wheel = {
     style,
