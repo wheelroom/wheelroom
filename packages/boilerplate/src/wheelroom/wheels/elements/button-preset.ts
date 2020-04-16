@@ -9,7 +9,7 @@ export const buttonPreset: ButtonPreset = {
     /**
      * Correct the inability to style clickable types in iOS and Safari.
      */
-    '-webkit-appearance': 'button',
+    WebkitAppearance: 'button',
     /**
      * Remove the inheritance of text transform in Edge, Firefox, and IE.
      * 1. Remove the inheritance of text transform in Firefox.
