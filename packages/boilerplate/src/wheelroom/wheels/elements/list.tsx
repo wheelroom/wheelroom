@@ -3,13 +3,10 @@ import { jsx } from '@emotion/core'
 import { listPreset } from './list-preset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
-import { ListElementName } from './types/element-names'
 
 export interface ListProps {
   /** Styling wheel */
   wheel: Wheel
-  /** Render as another HTML element */
-  is?: ListElementName
   /** React children */
   children?: any
   /** Nested emotion css styling */
@@ -35,7 +32,7 @@ export const Li = (props: ListProps) => {
       ncss,
     }),
   }
-  return jsx(props.is || 'li', attrs, props.children)
+  return jsx('li', attrs, props.children)
 }
 
 export const Ol = (props: ListProps) => {
@@ -45,7 +42,7 @@ export const Ol = (props: ListProps) => {
       ncss,
     }),
   }
-  return jsx(props.is || 'ol', attrs, props.children)
+  return jsx('ol', attrs, props.children)
 }
 
 export const Ul = (props: ListProps) => {
@@ -55,5 +52,5 @@ export const Ul = (props: ListProps) => {
       ncss,
     }),
   }
-  return jsx(props.is || 'ul', attrs, props.children)
+  return jsx('ul', attrs, props.children)
 }
