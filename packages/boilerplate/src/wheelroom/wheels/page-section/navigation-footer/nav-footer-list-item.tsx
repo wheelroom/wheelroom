@@ -16,7 +16,7 @@ export interface NavFooterListItemProps {
 
 export const NavFooterListItem = (props: NavFooterListItemProps) => {
   const listItemlink = props.pages.map((page: PageProps, index: number) => (
-    <Li key={index} wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Li key={index} wheel={props.wheel}>
       <NavFooterListItemLink
         page={page}
         wheel={{ ...props.wheel, style: props.wheel.style.link }}

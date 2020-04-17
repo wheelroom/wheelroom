@@ -1,10 +1,9 @@
-import { Li, Ul } from '../../elements/list'
-import { TopicProps } from '../../../../models/topic'
-import { FeatherIcon } from '../../elements/icon'
 import React from 'react'
-import { Action } from '../../action/action'
+import { Ul } from '../../elements/list'
+import { TopicProps } from '../../../../models/topic'
 import { NavFooterSocialListPreset } from './presets/nav-footer-social-list-preset'
 import { Wheel } from '../../types'
+import { NavFooterSocialListItem } from './nav-footer-social-list-item'
 
 interface NavFooterSocialListWheel extends Wheel {
   style: NavFooterSocialListPreset
@@ -15,23 +14,11 @@ export const NavFooterSocialList = (props: {
   wheel: NavFooterSocialListWheel
 }) => {
   return (
-    <Ul is="ul" wheel={{ ...props.wheel, style: props.wheel.style }}>
-      {props.topics.map((topic: TopicProps, index: number) => (
-        <Li
-          key={index}
-          wheel={{ ...props.wheel, style: props.wheel.style.item }}
-        >
-          <Action
-            {...topic.actions[0]}
-            wheel={{ ...props.wheel, style: props.wheel.style.link }}
-          >
-            <FeatherIcon
-              icon={topic.icon as string}
-              wheel={{ ...props.wheel, style: props.wheel.style.icon }}
-            />
-          </Action>
-        </Li>
-      ))}
+    <Ul wheel={{ ...props.wheel, style: props.wheel.style }}>
+      <NavFooterSocialListItem
+        topics={props.topics}
+        wheel={{ ...props.wheel, style: props.wheel.style.item }}
+      />
     </Ul>
   )
 }

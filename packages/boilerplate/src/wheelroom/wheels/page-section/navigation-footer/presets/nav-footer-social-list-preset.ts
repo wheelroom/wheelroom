@@ -1,10 +1,9 @@
 import { NcssProps } from '../../../types'
+import { navFooterSocialListItemPreset } from './nav-footer-social-list-item-preset'
 
 export interface NavFooterSocialListPreset {
   ncss: NcssProps
   item: NcssProps
-  link: NcssProps
-  icon: NcssProps
 }
 
 export const navFooterSocialListPreset: NavFooterSocialListPreset = {
@@ -17,28 +16,5 @@ export const navFooterSocialListPreset: NavFooterSocialListPreset = {
     my: 0,
     pl: 0,
   },
-  item: {
-    ncss: {
-      label: 'nav-footer-social-list-item',
-      listStyle: 'none',
-      display: 'inline-flex',
-      my: 0,
-      pl: 0,
-    },
-  },
-  link: {
-    ncss: {
-      label: 'nav-footer-social-link',
-      px: 2,
-      py: 3,
-    },
-  },
-  icon: {
-    ncss: {
-      label: 'nav-footer-social-icon',
-      width: '20px',
-      height: '20px',
-      strokeWidth: '1px',
-    },
-  },
+  item: navFooterSocialListItemPreset,
 }
