@@ -16,14 +16,13 @@ export interface ListProps {
 
 const getNcss = (props: ListProps, is: string) => {
   const label = { ncss: { label: 'list' } }
-  const ncss = mergeNcss([
+  return mergeNcss([
     label,
     listReset,
     props.wheel.elementPresets[is],
     props.wheel.style,
     props,
   ])
-  return { ncss }
 }
 
 export const Li = (props: ListProps) => {
