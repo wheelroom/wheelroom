@@ -1,6 +1,6 @@
 import { ElementPresets } from '../../wheelroom/wheels/elements/types/element-presets'
 
-export const headingStyle = {
+const headingStyle = {
   mt: 0,
   mb: 3,
 }
