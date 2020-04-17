@@ -61,7 +61,10 @@ export const pageSectionFreestyleStyle: PageSectionFreestylePreset = {
         ncss: {},
       },
       picture: {
-        ncss: {},
+        ncss: {
+          mt: 3,
+          mb: 5,
+        },
       },
       figcaption: {
         ncss: {},
@@ -69,7 +72,10 @@ export const pageSectionFreestyleStyle: PageSectionFreestylePreset = {
     },
     video: {
       video: {
-        ncss: {},
+        ncss: {
+          mt: 3,
+          mb: 5,
+        },
       },
       description: {
         ncss: {},
@@ -83,7 +89,6 @@ export const pageSectionFreestyleStyle: PageSectionFreestylePreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
-      borderColor: 'sectionBorder',
     },
   },
 }

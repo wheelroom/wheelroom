@@ -20,6 +20,7 @@ export const imageImgReset: ImageReset = {
 export const imagePictureReset: ImageReset = {
   ncss: {
     boxSizing: 'border-box',
+    display: 'inline-block',
   },
 }
 

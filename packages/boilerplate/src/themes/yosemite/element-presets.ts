@@ -5,6 +5,14 @@ const headingStyle = {
   mb: 3,
 }
 
+const paragraphStyle = {
+  fontSize: 6,
+  lineHeight: 4,
+  fontWeight: 4,
+  mt: 0,
+  mb: 3,
+}
+
 export const elementPresets: ElementsPresets = {
   a: {
     ncss: {
@@ -107,7 +115,9 @@ export const elementPresets: ElementsPresets = {
     ncss: {},
   },
   p: {
-    ncss: {},
+    ncss: {
+      ...paragraphStyle,
+    },
   },
   pre: {
     ncss: {},
