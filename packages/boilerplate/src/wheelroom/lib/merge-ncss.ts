@@ -21,7 +21,6 @@ export const mergeNcss = (ncssObjects: NcssObject[]): NcssObject => {
   const result = {}
   ncssObjects.forEach((ncssObject: NcssProps) => {
     if (!ncssObject.ncss) {
-      console.log('Warning: could not find ncss property in:', ncssObject)
       return
     }
     Object.keys(ncssObject.ncss).forEach((key: string) => {
