@@ -12,35 +12,6 @@ abbr[title] {
   text-decoration: underline dotted; /* 2 */
 }
 
-/**
- * Add the correct font size in all browsers.
- */
-
-small {
-  font-size: 80%;
-}
-
-/**
- * Prevent \`sub\` and \`sup\` elements from affecting the line height in
- * all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
 /* Forms
    ========================================================================== */
 

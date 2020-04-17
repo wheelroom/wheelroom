@@ -2,7 +2,7 @@ export const colors = {
   black: '#000000',
   white: '#FFFFFF',
   skyblue: 'rgba(35, 122, 252, .1)',
-  azure: '#237AFC',
+  azure: '#065fd4',
   amber: '#FCA623',
   silver: '#EEEEEE',
   metal: '#AAAAAA',

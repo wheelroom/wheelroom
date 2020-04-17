@@ -5,6 +5,7 @@ import { ALink } from '../../elements/a-link'
 import { SiteMetadata } from '../../../../page-template'
 import { Wheel } from '../../types'
 import { LegalPreset } from './presets/legal-preset'
+import { Sup } from '../../elements/paragraph'
 
 interface LegalWheel extends Wheel {
   style: LegalPreset
@@ -18,6 +19,7 @@ export const Legal = (props: {
     <Container wheel={{ ...props.wheel, style: props.wheel.style.container }}>
       <Any
         is="span"
+        polyPreset={false}
         wheel={{
           ...props.wheel,
           style: props.wheel.style.any,
@@ -29,9 +31,9 @@ export const Legal = (props: {
         >
           {props.siteMetadata.legal.description}
         </ALink>
-        <sup>
-          <small>{' ' + props.siteMetadata.legal.version}</small>
-        </sup>
+        <Sup wheel={{ ...props.wheel, style: props.wheel.style.sup }}>
+          {' ' + props.siteMetadata.legal.version}
+        </Sup>
       </Any>
     </Container>
   )

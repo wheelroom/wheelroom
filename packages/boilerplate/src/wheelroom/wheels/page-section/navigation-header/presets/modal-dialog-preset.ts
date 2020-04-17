@@ -1,4 +1,4 @@
-export const modalDialogBeforePreset = {
+export const modalDialogOverlayPreset = {
   ncss: {
     content: '""',
     height: 1,
@@ -15,9 +15,9 @@ export const modalDialogBeforePreset = {
   },
 }
 
-export const modalDialogBeforeOpenPreset = {
+export const modalDialogOverlayOpenPreset = {
   ncss: {
-    ...modalDialogBeforePreset.ncss,
+    ...modalDialogOverlayPreset.ncss,
     opacity: 1,
     transition: 'opacity 2s ease',
   },

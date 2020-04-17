@@ -3,8 +3,8 @@ import {
   modalDialogPreset,
   modalDialogContentOpenPreset,
   modalDialogContentPreset,
-  modalDialogBeforeOpenPreset,
-  modalDialogBeforePreset,
+  modalDialogOverlayOpenPreset,
+  modalDialogOverlayPreset,
 } from './modal-dialog-preset'
 import { NcssProps } from '../../../types'
 import { NavHeaderListPreset } from './nav-header-list-preset'
@@ -14,21 +14,24 @@ export interface ModalPreset {
     visible: NcssProps
     hidden: NcssProps
   }
-  before: {
+  overlay: {
     visible: NcssProps
     hidden: NcssProps
   }
-  document: {
-    visible: NcssProps
-    hidden: NcssProps
-  }
-  closeMenuButton: NcssProps
-  icon: NcssProps
-  list: NavHeaderListPreset
-  actions: {
+  dialog: {
     ncss: NcssProps
-    action: NcssProps
-    themeButton: NcssProps
+    visible: NcssProps
+    hidden: NcssProps
+    closeNavigationButton: {
+      ncss: NcssProps
+      icon: NcssProps
+    }
+    list: NavHeaderListPreset
+    actions: {
+      ncss: NcssProps
+      action: NcssProps
+      themeButton: NcssProps
+    }
   }
 }
 
@@ -47,21 +50,22 @@ export const modalPreset: ModalPreset = {
       },
     },
   },
-  before: {
+  overlay: {
     visible: {
       ncss: {
-        ...modalDialogBeforeOpenPreset.ncss,
+        ...modalDialogOverlayOpenPreset.ncss,
         label: 'before-is-visible',
       },
     },
     hidden: {
       ncss: {
-        ...modalDialogBeforePreset.ncss,
+        ...modalDialogOverlayPreset.ncss,
         label: 'before-is-hidden',
       },
     },
   },
-  document: {
+  dialog: {
+    ncss: {},
     visible: {
       ncss: {
         ...modalDialogContentOpenPreset.ncss,
@@ -74,69 +78,73 @@ export const modalPreset: ModalPreset = {
         label: 'document-is-hidden',
       },
     },
-  },
-  closeMenuButton: {
-    ncss: {
-      mt: 3,
-      mr: 3,
-      p: 1,
-      w: '36px',
-      h: '36px',
-    },
-  },
-  icon: {
-    ncss: {
-      w: '26px',
-      h: '26px',
-    },
-  },
-  list: {
-    ncss: {
-      label: 'modal-list',
-      display: 'flex',
-      flex: '1',
-      flexDirection: 'column',
-      flexWrap: 'wrap',
-      listPreset: 'none',
-      mb: 0,
-      mt: 0,
-      pl: 0,
-      w: 1,
-      li: {
-        borderBottom: '1px solid black',
-        a: {
-          p: 3,
-        },
-      },
-    },
-    listItem: {
+    closeNavigationButton: {
       ncss: {
-        label: 'modal-list-item',
-        m: 0,
+        mt: 3,
+        mr: 3,
+        p: 1,
+        w: '36px',
+        h: '36px',
       },
-      link: {
+      icon: {
         ncss: {
-          label: 'modal-list-item-link',
-          display: 'block',
+          w: '26px',
+          h: '26px',
         },
       },
     },
-  },
-  actions: {
-    ncss: {
-      w: 1,
-      p: 3,
-    },
-    action: {
+    list: {
       ncss: {
-        display: 'block',
+        label: 'modal-list',
+        display: 'flex',
+        flex: '1',
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+        listPreset: 'none',
+        mb: 0,
+        mt: 0,
+        pl: 0,
         w: 1,
-        mb: 2,
+        li: {
+          borderBottom: '1px solid black',
+          a: {
+            p: 3,
+          },
+        },
+      },
+      listItem: {
+        ncss: {
+          label: 'modal-list-item',
+          m: 0,
+        },
+        link: {
+          ncss: {
+            label: 'modal-list-item-link',
+            display: 'block',
+          },
+        },
       },
     },
-    themeButton: {
+    actions: {
       ncss: {
+        label: 'modal-actions',
+        flexDirection: 'column',
         w: 1,
+        p: 3,
+      },
+      action: {
+        ncss: {
+          label: 'modal-actions-action',
+          display: 'block',
+          w: 1,
+          mb: 2,
+        },
+      },
+      themeButton: {
+        ncss: {
+          label: 'modal-actions-theme-button',
+          w: 1,
+        },
       },
     },
   },

@@ -5,10 +5,10 @@ import { Button } from '../../elements/button'
 import { ActionProps } from '../../../../models/action'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageProps } from '../../../../models/page/page'
-import { Action } from '../../action/action'
 import { Wheel } from '../../types'
 import { ModalPreset } from './presets/modal-preset'
 import { FeatherIcon } from '../../elements/icon'
+import { NavHeaderActions } from './nav-header-actions'
 
 interface ModalWheel extends Wheel {
   style: ModalPreset
@@ -45,8 +45,8 @@ export const Modal = (props: {
         wheel={{
           ...props.wheel,
           style: props.menuVisible
-            ? props.wheel.style.before.visible
-            : props.wheel.style.before.hidden,
+            ? props.wheel.style.overlay.visible
+            : props.wheel.style.overlay.hidden,
         }}
         onClick={() => props.closeMenu()}
       />
@@ -58,8 +58,8 @@ export const Modal = (props: {
         wheel={{
           ...props.wheel,
           style: props.menuVisible
-            ? props.wheel.style.document.visible
-            : props.wheel.style.document.hidden,
+            ? props.wheel.style.dialog.visible
+            : props.wheel.style.dialog.hidden,
         }}
       >
         <Button
@@ -68,46 +68,32 @@ export const Modal = (props: {
           role="button"
           type="button"
           onClick={() => props.closeMenu()}
-          wheel={{ ...props.wheel, style: props.wheel.style.closeMenuButton }}
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.dialog.closeNavigationButton,
+          }}
         >
           <Flex ariaHidden={true} wheel={props.wheel}>
             <FeatherIcon
               icon="x"
-              wheel={{ ...props.wheel, style: props.wheel.style.icon }}
+              wheel={{ ...props.wheel, style: props.wheel.style.dialog.closeNavigationButton.icon }}
             />
           </Flex>
         </Button>
         <NavHeaderList
-          wheel={{ ...props.wheel, style: props.wheel.style.list }}
+          wheel={{ ...props.wheel, style: props.wheel.style.dialog.list }}
           pages={props.pages}
         />
-        <Box
-          is="div"
-          wheel={{ ...props.wheel, style: props.wheel.style.actions }}
-        >
-          {props.pageSectionInfo.hasAction && (
-            <Action
-              wheel={{
-                ...props.wheel,
-                style: props.wheel.style.actions.action,
-              }}
-              {...props.action}
-            />
-          )}
-          <Button
-            type="button"
-            title={`Current theme is ` + props.activeThemeId}
-            ariaLabel={`Current theme is ` + props.activeThemeId}
-            value=""
-            onClick={() => props.toggleTheme()}
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.actions.themeButton,
-            }}
-          >
-            {props.activeThemeId}
-          </Button>
-        </Box>
+        <NavHeaderActions
+          action={props.action}
+          activeThemeId={props.activeThemeId}
+          pageSectionInfo={props.pageSectionInfo}
+          toggleTheme={props.toggleTheme}
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.dialog.actions,
+          }}
+        />
       </Flex>
     </Box>
   )

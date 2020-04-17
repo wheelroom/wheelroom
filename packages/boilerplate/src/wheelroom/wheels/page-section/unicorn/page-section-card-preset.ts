@@ -11,14 +11,13 @@ export const pageSectionCardPreset: PageSectionCardPreset = {
   container: {
     ncss: {
       alignItems: ['center', 'initial'],
-      flexDirection: ['column', 'row'],
+      flexDirection: 'row',
       flexWrap: 'wrap',
       justifyContent: 'center',
     },
   },
   topic: {
     ncss: {
-      flex: '1',
       maxWidth: '288px',
       minWidth: '288px',
       m: 3,
@@ -34,6 +33,7 @@ export const pageSectionCardPreset: PageSectionCardPreset = {
       },
       text: {
         ncss: {
+          display: 'block',
           flex: '1 1 auto',
         },
         heading: {

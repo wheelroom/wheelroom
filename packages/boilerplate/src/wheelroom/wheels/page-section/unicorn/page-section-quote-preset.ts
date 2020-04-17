@@ -15,7 +15,10 @@ export const pageSectionQuotePreset: PageSectionQuotePreset = {
     ncss: {},
     content: {
       ncss: {
+        textAlign: 'center',
+        mx: 'auto',
         p: 3,
+        maxWidth: [1, '960px', '1024px'],
       },
       actions: {
         ncss: {},

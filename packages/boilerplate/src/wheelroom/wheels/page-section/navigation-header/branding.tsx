@@ -4,6 +4,7 @@ import { GLink } from '../../elements/g-link'
 import { Strong } from '../../elements/strong'
 import { BrandingPreset } from './presets/branding-preset'
 import { Wheel } from '../../types'
+import { Sup } from '../../elements/paragraph'
 
 interface LogoWheel extends Wheel {
   style: BrandingPreset
@@ -14,7 +15,9 @@ export const Branding = (props: {
   version?: string
   wheel: LogoWheel
 }) => {
-  // When a React element is passed, use that
+  /**
+   * When a React element is passed, use that
+   */
   let logo
   let ariaLabel = `Back to ${props.logo} homepage`
   if (React.isValidElement(props.logo)) {
@@ -27,19 +30,15 @@ export const Branding = (props: {
         <Strong wheel={{ ...props.wheel, style: props.wheel.style.logo }}>
           {props.logo}
         </Strong>
-        <sup>
-          <small>{' ' + props.version}</small>
-        </sup>
+        <Sup wheel={{ ...props.wheel, style: props.wheel.style.sup }}>
+          {' ' + props.version}
+        </Sup>
       </Fragment>
     )
   }
 
   return (
-    <Flex
-      is="div"
-      role="banner"
-      wheel={{ ...props.wheel, style: props.wheel.style }}
-    >
+    <Flex is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
       <GLink
         to="/"
         ariaLabel={ariaLabel}

@@ -1,10 +1,12 @@
 import { NcssProps } from '../../../types'
 import { ALinkPreset } from '../../../elements/a-link-preset'
+import { ParagraphPreset } from '../../../elements/paragraph-preset'
 
 export interface BrandingPreset {
   ncss: NcssProps
   logo: NcssProps
   link: ALinkPreset
+  sup: ParagraphPreset
 }
 
 export const brandingPreset: BrandingPreset = {
@@ -25,5 +27,8 @@ export const brandingPreset: BrandingPreset = {
       textDecoration: 'none',
       sup: {},
     },
+  },
+  sup: {
+    ncss: {},
   },
 }

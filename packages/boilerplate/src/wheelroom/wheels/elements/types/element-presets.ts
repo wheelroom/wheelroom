@@ -22,6 +22,9 @@ export interface ElementPresets {
   ol: ListPreset
   ul: ListPreset
   li: ListPreset
+  small: ParagraphPreset
+  sub: ParagraphPreset
+  sup: ParagraphPreset
   pre: PrePreset
   code: CodePreset
   kbd: CodePreset

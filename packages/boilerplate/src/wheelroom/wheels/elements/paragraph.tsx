@@ -1,7 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { BlockLevelElementName } from './types/element-names'
-import { paragraphPreset } from './paragraph-preset'
+import {
+  paragraphPreset,
+  smallPreset,
+  subPreset, subResetPreset,
+  supPreset,
+} from './paragraph-preset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
 import { LinkRelationshipAttribute } from './types/attribute-names'
@@ -60,10 +65,60 @@ export const Paragraph = (props: ParagraphProps) => {
     ncss: {
       label,
       ...paragraphPreset.ncss,
-      ...props.wheel.elementPresets.p.ncss,
+      ...props.wheel.elementPresets.paragraph.ncss,
       ...props.wheel.style.ncss,
       ...props.ncss,
     },
   })
   return jsx(props.is || 'p', attrs, props.children)
+}
+
+export const Small = (props: ParagraphProps) => {
+  const label = 'small'
+  const attrs: any = getAttrs(props)
+  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+    ncss: {
+      label,
+      ...paragraphPreset.ncss,
+      ...smallPreset.ncss,
+      ...props.wheel.elementPresets.small.ncss,
+      ...props.wheel.style.ncss,
+      ...props.ncss,
+    },
+  })
+  return jsx(props.is || 'small', attrs, props.children)
+}
+
+export const Sub = (props: ParagraphProps) => {
+  const label = 'sub'
+  const attrs: any = getAttrs(props)
+  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+    ncss: {
+      label,
+      ...paragraphPreset.ncss,
+      ...subResetPreset.ncss,
+      ...subPreset.ncss,
+      ...props.wheel.elementPresets.sub.ncss,
+      ...props.wheel.style.ncss,
+      ...props.ncss,
+    },
+  })
+  return jsx(props.is || 'sub', attrs, props.children)
+}
+
+export const Sup = (props: ParagraphProps) => {
+  const label = 'sup'
+  const attrs: any = getAttrs(props)
+  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
+    ncss: {
+      label,
+      ...paragraphPreset.ncss,
+      ...subResetPreset.ncss,
+      ...supPreset.ncss,
+      ...props.wheel.elementPresets.sup.ncss,
+      ...props.wheel.style.ncss,
+      ...props.ncss,
+    },
+  })
+  return jsx(props.is || 'sup', attrs, props.children)
 }

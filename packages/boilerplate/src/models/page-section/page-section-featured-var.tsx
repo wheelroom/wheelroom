@@ -41,7 +41,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
           pageSectionActions: props.actions,
           fullTopicAsLink: false,
           pageSectionInfo,
-          useHeadingElement: 'h3',
+          useHeadingElement: pageSectionInfo.index <= 1 ? 'h1' : 'h3',
           wheel,
         }}
         containerStyle="maxWidth"

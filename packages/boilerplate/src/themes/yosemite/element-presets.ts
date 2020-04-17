@@ -75,6 +75,15 @@ export const elementPresets: ElementPresets = {
   kbd: {
     ncss: {},
   },
+  small: {
+    ncss: {},
+  },
+  sub: {
+    ncss: {},
+  },
+  sup: {
+    ncss: {},
+  },
   li: {
     ncss: {},
   },

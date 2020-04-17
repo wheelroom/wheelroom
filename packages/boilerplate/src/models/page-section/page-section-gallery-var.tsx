@@ -21,11 +21,7 @@ import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 
 export const PageSectionGalleryVar = (props: PageSectionProps) => {
-  const pageSectionInfo = getPageSectionInfo(props, {
-    hideAbstract: true,
-    hideHeading: true,
-    hideIcon: true,
-  })
+  const pageSectionInfo = getPageSectionInfo(props)
 
   const style = deepMerge(
     { topic: topicPreset },

@@ -1,12 +1,14 @@
 import { NcssProps } from '../../../types'
 import { GridPreset } from '../../../elements/grid-preset'
 import { ALinkPreset } from '../../../elements/a-link-preset'
+import { ParagraphPreset } from '../../../elements/paragraph-preset'
 
 export interface LegalPreset {
   container: GridPreset
   any: NcssProps
   text: NcssProps
   link: ALinkPreset
+  sup: ParagraphPreset
 }
 
 export const legalPreset: LegalPreset = {
@@ -35,5 +37,8 @@ export const legalPreset: LegalPreset = {
     ncss: {
       display: 'inline-flex',
     },
+  },
+  sup: {
+    ncss: {},
   },
 }
