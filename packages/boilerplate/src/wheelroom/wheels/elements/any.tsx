@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import { BlockLevelElementName, InlineElementName } from './types/element-names'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
-import { anyPreset, anyPresetMap } from './any-reset'
+import { anyPreset, anyResetMap } from './any-reset'
 import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface AnyProps {
@@ -54,15 +54,15 @@ const getAttrs = (props: AnyProps) => {
 
 export const Any = (props: AnyProps) => {
   let polyPreset = { ncss: {} }
-  const presetMap = anyPresetMap as any
+  const resetMap = anyResetMap as any
   if (
     props.polyPreset &&
     props.is &&
-    Object.keys(presetMap).includes(props.is)
+    Object.keys(resetMap).includes(props.is)
   ) {
     polyPreset = mergeNcss([
+      resetMap[props.is],
       props.wheel.elementPresets[props.is],
-      presetMap[props.is],
     ])
   }
   const label = { ncss: { label: `any-is-${props.is}` } }
