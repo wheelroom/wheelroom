@@ -9,8 +9,6 @@ export interface TopicPreset {
   media: TopicMediaPreset
   /** Content */
   content: TopicContentPreset
-  /** Topic as Link */
-  topicAsLink: NcssProps
 }
 
 export const topicPreset: TopicPreset = {
@@ -22,7 +20,4 @@ export const topicPreset: TopicPreset = {
   },
   media: topicMediaPreset,
   content: topicContentPreset,
-  topicAsLink: {
-    ncss: {},
-  },
 }

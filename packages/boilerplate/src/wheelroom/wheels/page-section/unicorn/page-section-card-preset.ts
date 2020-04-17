@@ -10,7 +10,7 @@ export interface PageSectionCardPreset {
 export const pageSectionCardPreset: PageSectionCardPreset = {
   container: {
     ncss: {
-      alignItems: ['center', 'initial'],
+      alignItems: 'stretch',
       flexDirection: 'row',
       flexWrap: 'wrap',
       justifyContent: 'center',
