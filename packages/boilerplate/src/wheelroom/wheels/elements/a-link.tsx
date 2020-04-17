@@ -50,6 +50,7 @@ export const ALink = (props: ALinkProps) => {
         props.wheel.theme,
         mergeNcss([
           label,
+          aLinkReset,
           props.wheel.elementPresets.a,
           props.wheel.style,
           props,
