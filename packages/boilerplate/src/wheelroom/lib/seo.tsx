@@ -53,7 +53,7 @@ export const Seo = (context: SeoProps) => {
     },
   ]
   if (context.contentTypeInfo && context.contentTypeInfo.type === 'article') {
-    Object.keys(context.contentTypeInfo.tags as object).forEach(tag => {
+    Object.keys(context.contentTypeInfo.tags as object).forEach((tag) => {
       typeTags.push({
         content: context.contentTypeInfo!.tags[tag],
         property: context.contentTypeInfo!.type + ':' + tag,

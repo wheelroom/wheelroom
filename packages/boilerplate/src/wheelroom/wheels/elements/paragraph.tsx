@@ -4,7 +4,8 @@ import { BlockLevelElementName } from './types/element-names'
 import {
   paragraphPreset,
   smallPreset,
-  subPreset, subResetPreset,
+  subPreset,
+  subResetPreset,
   supPreset,
 } from './paragraph-preset'
 import { styledSystem } from '@wheelroom/styled-system'

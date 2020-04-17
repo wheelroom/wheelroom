@@ -76,7 +76,10 @@ export const Modal = (props: {
           <Flex ariaHidden={true} wheel={props.wheel}>
             <FeatherIcon
               icon="x"
-              wheel={{ ...props.wheel, style: props.wheel.style.dialog.closeNavigationButton.icon }}
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.dialog.closeNavigationButton.icon,
+              }}
             />
           </Flex>
         </Button>

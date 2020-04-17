@@ -2,8 +2,8 @@ import React, { SVGProps } from 'react'
 import { Wheel } from '../../wheels/types'
 import { styledSystem } from '@wheelroom/styled-system'
 export interface IconProps extends SVGProps<SVGSVGElement> {
-  ncss: any;
-  wheel: Wheel;
+  ncss: any
+  wheel: Wheel
 }
 const componentId = 'svg-italic'
 export const SvgItalic = (props: IconProps) => {
