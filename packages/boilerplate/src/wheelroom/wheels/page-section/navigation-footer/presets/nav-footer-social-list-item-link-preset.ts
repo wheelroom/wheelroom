@@ -1,9 +1,9 @@
 import { NcssProps } from '../../../types'
-import { IconPreset } from '../../../elements/icon-preset'
+import { IconReset } from '../../../elements/icon-reset'
 
 export interface NavFooterSocialListItemLinkPreset {
   ncss: NcssProps
-  icon: IconPreset
+  icon: IconReset
 }
 
 export const navFooterSocialListItemLinkPreset: NavFooterSocialListItemLinkPreset = {

@@ -1,17 +1,17 @@
 import { NcssProps } from '../types'
 
-export interface ParagraphPreset {
+export interface ParagraphReset {
   ncss: NcssProps
 }
 
-export const paragraphPreset: ParagraphPreset = {
+export const paragraphReset: ParagraphReset = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const smallPreset: ParagraphPreset = {
+export const smallReset: ParagraphReset = {
   ncss: {
     /**
      * Add the correct font size in all browsers.
@@ -20,7 +20,7 @@ export const smallPreset: ParagraphPreset = {
   },
 }
 
-export const subResetPreset = {
+export const subResetReset = {
   ncss: {
     /**
      * Prevent `sub` and `sup` elements from affecting the line height in
@@ -33,13 +33,13 @@ export const subResetPreset = {
   },
 }
 
-export const subPreset: ParagraphPreset = {
+export const subReset: ParagraphReset = {
   ncss: {
     bottom: '-0.25em',
   },
 }
 
-export const supPreset: ParagraphPreset = {
+export const supReset: ParagraphReset = {
   ncss: {
     top: '-0.5em',
   },

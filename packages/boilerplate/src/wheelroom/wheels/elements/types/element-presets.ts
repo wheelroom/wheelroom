@@ -1,61 +1,61 @@
-import { ImagePreset } from '../image-preset'
-import { AnyPreset } from '../any-preset'
-import { PrePreset } from '../pre-preset'
-import { ALinkPreset } from '../a-link-preset'
-import { GridPreset } from '../grid-preset'
-import { ButtonPreset } from '../button-preset'
-import { IconPreset } from '../icon-preset'
-import { GLinkPreset } from '../g-link-preset'
-import { HeadingPreset } from '../heading-preset'
-import { ListPreset } from '../list-preset'
-import { ParagraphPreset } from '../paragraph-preset'
-import { VideoPreset } from '../video-preset'
-import { HrPreset } from '../hr-preset'
-import { StrongPreset } from '../strong-preset'
-import { CodePreset } from '../code-preset'
-import { BlockquotePreset } from '../blockquote-preset'
-import { TablePreset } from '../table-preset'
+import { ImageReset } from '../image-reset'
+import { AnyReset } from '../any-reset'
+import { PreReset } from '../pre-reset'
+import { ALinkReset } from '../a-link-reset'
+import { GridReset } from '../grid-reset'
+import { ButtonReset } from '../button-reset'
+import { IconReset } from '../icon-reset'
+import { GLinkReset } from '../g-link-reset'
+import { HeadingReset } from '../heading-reset'
+import { ListReset } from '../list-reset'
+import { ParagraphReset } from '../paragraph-reset'
+import { VideoReset } from '../video-reset'
+import { HrReset } from '../hr-reset'
+import { StrongReset } from '../strong-reset'
+import { CodeRreset } from '../code-reset'
+import { BlockquoteReset } from '../blockquote-reset'
+import { TableReset } from '../table-reset'
 
 export interface ElementPresets {
-  any: AnyPreset
-  table: TablePreset
-  ol: ListPreset
-  ul: ListPreset
-  li: ListPreset
-  small: ParagraphPreset
-  sub: ParagraphPreset
-  sup: ParagraphPreset
-  pre: PrePreset
-  code: CodePreset
-  kbd: CodePreset
-  samp: CodePreset
-  hr: HrPreset
-  strong: StrongPreset
-  blockquote: BlockquotePreset
-  a: ALinkPreset
-  box: GridPreset
-  button: ButtonPreset
-  wrapper: GridPreset
-  container: GridPreset
-  containerMaxWidth: GridPreset
-  flex: GridPreset
-  gLink: GLinkPreset
-  h1: HeadingPreset
-  h2: HeadingPreset
-  h3: HeadingPreset
-  h4: HeadingPreset
-  h5: HeadingPreset
-  h6: HeadingPreset
-  p: ParagraphPreset
-  featherIcon: IconPreset
-  textIcon: IconPreset
+  any: AnyReset
+  table: TableReset
+  ol: ListReset
+  ul: ListReset
+  li: ListReset
+  small: ParagraphReset
+  sub: ParagraphReset
+  sup: ParagraphReset
+  pre: PreReset
+  code: CodeRreset
+  kbd: CodeRreset
+  samp: CodeRreset
+  hr: HrReset
+  strong: StrongReset
+  blockquote: BlockquoteReset
+  a: ALinkReset
+  box: GridReset
+  button: ButtonReset
+  wrapper: GridReset
+  container: GridReset
+  containerMaxWidth: GridReset
+  flex: GridReset
+  gLink: GLinkReset
+  h1: HeadingReset
+  h2: HeadingReset
+  h3: HeadingReset
+  h4: HeadingReset
+  h5: HeadingReset
+  h6: HeadingReset
+  p: ParagraphReset
+  featherIcon: IconReset
+  textIcon: IconReset
   image: {
-    img: ImagePreset
-    picture: ImagePreset
-    figcaption: ImagePreset
+    img: ImageReset
+    picture: ImageReset
+    figcaption: ImageReset
   }
   video: {
-    description: VideoPreset
-    video: VideoPreset
+    description: VideoReset
+    video: VideoReset
   }
 }

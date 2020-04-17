@@ -1,9 +1,9 @@
 import { NcssProps } from '../../../types'
-import { ButtonPreset, buttonPreset } from '../../../elements/button-preset'
+import { ButtonReset, buttonReset } from '../../../elements/button-reset'
 
 export interface NavHeaderActionsPreset {
   ncss: NcssProps
-  action: ButtonPreset
+  action: ButtonReset
   themeButton: NcssProps
 }
 
@@ -14,7 +14,7 @@ export const navHeaderActionsPreset: NavHeaderActionsPreset = {
   action: {
     ncss: {
       label: 'nav-header-action',
-      ...buttonPreset,
+      ...buttonReset,
       mr: 2,
     },
   },

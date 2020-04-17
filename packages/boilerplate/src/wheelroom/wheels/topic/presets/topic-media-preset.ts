@@ -1,14 +1,14 @@
 import { NcssProps } from '../../types'
-import { ImagePreset } from '../../elements/image'
-import { VideoPreset } from '../../elements/video'
+import { ImageReset } from '../../elements/image'
+import { VideoReset } from '../../elements/video'
 
 export interface TopicMediaPreset {
   /** Styling for this node */
   ncss: NcssProps
   /** Image style */
-  image: ImagePreset
+  image: ImageReset
   /** Video style */
-  video: VideoPreset
+  video: VideoReset
 }
 
 export const topicMediaPreset: TopicMediaPreset = {

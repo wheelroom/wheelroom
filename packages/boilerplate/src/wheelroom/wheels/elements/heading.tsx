@@ -3,7 +3,8 @@ import { jsx } from '@emotion/core'
 import { BlockLevelElementName, HeadingName } from './types/element-names'
 import { Wheel, NcssProps } from '../types'
 import { styledSystem } from '@wheelroom/styled-system'
-import { headingPresets } from './heading-preset'
+import { headingPresets } from './heading-reset'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 interface HeadingElementProps {
   /** Styling wheel */
@@ -21,26 +22,22 @@ interface HeadingProps extends HeadingElementProps {
 
 export const Heading = (props: HeadingProps) => {
   const is = props.is || 'h1'
-  const label = 'heading'
+  const label = { ncss: { label: 'heading' } }
 
   // If we have a heading element, apply preset styles
-  const presetNcss = {}
+  let preset = { ncss: {} }
   if (Object.keys(headingPresets).includes(is)) {
-    Object.assign(
-      presetNcss,
-      headingPresets[is as HeadingName].ncss,
-      props.wheel.elementPresets[is as HeadingName].ncss
-    )
+    preset = mergeNcss([
+      headingPresets[is as HeadingName],
+      props.wheel.elementPresets[is as HeadingName],
+    ])
   }
 
-  const css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
-      label,
-      ...presetNcss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+  const css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([label, preset, props.wheel.style, props])
+  )
 
   const attrs = {
     css,

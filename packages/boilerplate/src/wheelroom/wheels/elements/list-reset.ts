@@ -1,10 +1,10 @@
 import { NcssProps } from '../types'
 
-export interface ListPreset {
+export interface ListReset {
   ncss: NcssProps
 }
 
-export const listPreset: ListPreset = {
+export const listReset: ListReset = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

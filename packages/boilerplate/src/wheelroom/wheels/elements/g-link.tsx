@@ -5,8 +5,9 @@ import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { NcssProps, Wheel } from '../types'
-import { gLinkPreset } from './g-link-preset'
+import { gLinkReset } from './g-link-reset'
 import { styledSystem } from '@wheelroom/styled-system'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface GLinkProps {
   /** Styling wheel */
@@ -28,7 +29,7 @@ export interface GLinkProps {
 }
 
 export const GLink = (props: GLinkProps) => {
-  const label = 'g-link'
+  const label = { ncss: { label: 'g-link' } }
   const { adminCoreState } = useContext(AdminCoreContext)
   if (!props.to) {
     return null
@@ -40,15 +41,17 @@ export const GLink = (props: GLinkProps) => {
       title={props.title}
       aria-label={props.ariaLabel}
       aria-hidden={props.ariaHidden}
-      css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-        ncss: {
+      css={styledSystem(
+        props.wheel.styledSystemConfig,
+        props.wheel.theme,
+        mergeNcss([
           label,
-          ...gLinkPreset.ncss,
-          ...props.wheel.elementPresets.gLink.ncss,
-          ...props.wheel.style.ncss,
-          ...props.ncss,
-        },
-      })}
+          gLinkReset,
+          props.wheel.elementPresets.gLink,
+          props.wheel.style,
+          props,
+        ])
+      )}
       to={props.to + getPreviewQueryString(adminCoreState)}
     >
       {props.children}

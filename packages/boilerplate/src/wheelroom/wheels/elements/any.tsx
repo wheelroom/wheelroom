@@ -3,7 +3,8 @@ import { jsx } from '@emotion/core'
 import { BlockLevelElementName, InlineElementName } from './types/element-names'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
-import { anyPreset, anyPresetMap } from './any-preset'
+import { anyPreset, anyPresetMap } from './any-reset'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface AnyProps {
   /** Styling wheel */
@@ -52,32 +53,33 @@ const getAttrs = (props: AnyProps) => {
 }
 
 export const Any = (props: AnyProps) => {
-  const polyPresetNcss = {}
+  let polyPreset = { ncss: {} }
   const presetMap = anyPresetMap as any
   if (
     props.polyPreset &&
     props.is &&
     Object.keys(presetMap).includes(props.is)
   ) {
-    Object.assign(
-      polyPresetNcss,
-      props.wheel.elementPresets[props.is].ncss,
-      presetMap[props.is].ncss
-    )
+    polyPreset = mergeNcss([
+      props.wheel.elementPresets[props.is],
+      presetMap[props.is],
+    ])
   }
+  const label = { ncss: { label: `any-is-${props.is}` } }
 
-  const label = `any-is-${props.is}`
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...anyPreset.ncss,
-      ...props.wheel.elementPresets.any.ncss,
-      ...polyPresetNcss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      anyPreset,
+      props.wheel.elementPresets.any,
+      polyPreset,
+      props.wheel.style,
+      props,
+    ])
+  )
 
   return jsx(props.is || 'div', attrs, props.children)
 }

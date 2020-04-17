@@ -5,8 +5,9 @@ import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { NcssProps, Wheel } from '../types'
-import { buttonPreset } from './button-preset'
+import { buttonReset } from './button-reset'
 import { styledSystem } from '@wheelroom/styled-system'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface ButtonProps {
   /** Styling wheel */
@@ -44,7 +45,7 @@ export interface ButtonProps {
 }
 
 export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
-  const label = 'button'
+  const label = { ncss: { label: 'button' } }
   const { adminCoreState } = useContext(AdminCoreContext)
   return (
     <button
@@ -58,15 +59,17 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
       aria-expanded={props.ariaExpanded}
       aria-controls={props.ariaControls}
       aria-pressed={props.ariaPressed}
-      css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-        ncss: {
+      css={styledSystem(
+        props.wheel.styledSystemConfig,
+        props.wheel.theme,
+        mergeNcss([
           label,
-          ...buttonPreset.ncss,
-          ...props.wheel.elementPresets.button.ncss,
-          ...props.wheel.style.ncss,
-          ...props.ncss,
-        },
-      })}
+          buttonReset,
+          props.wheel.elementPresets.button,
+          props.wheel.style,
+          props,
+        ])
+      )}
       onClick={props.onClick}
       value={props.value + getPreviewQueryString(adminCoreState)}
     >

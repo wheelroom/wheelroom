@@ -2,7 +2,8 @@
 import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
-import { strongPreset } from './strong-preset'
+import { strongReset } from './strong-reset'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface StrongProps {
   /** Styling wheel */
@@ -31,17 +32,19 @@ const getAttrs = (props: StrongProps) => {
 }
 
 export const Strong = (props: StrongProps) => {
-  const label = `strong`
+  const label = { ncss: { label: 'strong' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...strongPreset.ncss,
-      ...props.wheel.elementPresets.strong.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      strongReset,
+      props.wheel.elementPresets.strong,
+      props.wheel.style,
+      props,
+    ])
+  )
 
   return jsx(props.is || 'strong', attrs, props.children)
 }

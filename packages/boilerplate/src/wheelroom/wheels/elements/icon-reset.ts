@@ -1,10 +1,10 @@
 import { NcssProps } from '../types'
 
-export interface IconPreset {
+export interface IconReset {
   ncss: NcssProps
 }
 
-export const featherIconPreset: IconPreset = {
+export const featherIconReset: IconReset = {
   ncss: {
     boxSizing: 'border-box',
     display: 'inline-flex',
@@ -14,7 +14,7 @@ export const featherIconPreset: IconPreset = {
   },
 }
 
-export const textIconPreset: IconPreset = {
+export const textIconReset: IconReset = {
   ncss: {
     boxSizing: 'border-box',
     display: 'inline-flex',

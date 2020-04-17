@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { BlockLevelElementName } from './types/element-names'
-import { hrPreset } from './hr-preset'
+import { hrReset } from './hr-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface HrProps {
   /** Styling wheel */
@@ -32,16 +33,19 @@ const getAttrs = (props: HrProps) => {
 }
 
 export const Hr = (props: HrProps) => {
-  const label = 'paragraph'
+  const label = { ncss: { label: 'hr' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...hrPreset.ncss,
-      ...props.wheel.elementPresets.hr.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      hrReset,
+      props.wheel.elementPresets.hr,
+      props.wheel.style,
+      props,
+    ])
+  )
+
   return jsx(props.is || 'hr', attrs, props.children)
 }

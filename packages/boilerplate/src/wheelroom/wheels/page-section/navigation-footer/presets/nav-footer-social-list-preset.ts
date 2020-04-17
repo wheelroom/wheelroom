@@ -11,7 +11,7 @@ export const navFooterSocialListPreset: NavFooterSocialListPreset = {
     label: 'nav-footer-social-list',
     display: 'flex',
     flexDirection: 'row',
-    listPreset: 'none',
+    listReset: 'none',
     flexWrap: 'wrap',
     my: 0,
     pl: 0,

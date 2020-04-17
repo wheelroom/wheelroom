@@ -1,10 +1,10 @@
 import { NcssProps } from '../types'
 
-export interface TablePreset {
+export interface TableReset {
   ncss: NcssProps
 }
 
-export const tablePreset: TablePreset = {
+export const tableReset: TableReset = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

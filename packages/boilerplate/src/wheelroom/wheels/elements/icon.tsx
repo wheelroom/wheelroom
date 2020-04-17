@@ -1,8 +1,9 @@
 import React from 'react'
 import { Box } from './grid'
 import { IconMap } from '../../svg/feather/iconMap'
-import { featherIconPreset, textIconPreset } from './icon-preset'
+import { featherIconReset, textIconReset } from './icon-reset'
 import { NcssProps, Wheel } from '../types'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export const FeatherIcon = (props: {
   icon: string
@@ -10,21 +11,19 @@ export const FeatherIcon = (props: {
   wheel: Wheel
 }) => {
   if (Object.keys(IconMap).includes(props.icon)) {
-    const label = 'feather-icon'
+    const label = { ncss: { label: 'feather-icon' } }
     /** When a valid feather icon string is passed, return the svg icon */
     const RenderIcon = IconMap[props.icon]
-    return (
-      <RenderIcon
-        ncss={{
-          label,
-          ...featherIconPreset.ncss,
-          ...props.wheel.elementPresets.featherIcon.ncss,
-          ...props.wheel.style.ncss,
-          ...props.ncss,
-        }}
-        wheel={props.wheel}
-      />
-    )
+
+    const ncss = mergeNcss([
+      label,
+      featherIconReset,
+      props.wheel.elementPresets.featherIcon,
+      props.wheel.style,
+      props,
+    ])
+
+    return <RenderIcon ncss={ncss.ncss} wheel={props.wheel} />
   } else {
     return <div>Feather icon {props.icon} not found</div>
   }
@@ -35,18 +34,18 @@ export const TextIcon = (props: {
   ncss?: NcssProps
   wheel: Wheel
 }) => {
-  const label = 'text-icon'
+  const label = { ncss: { label: 'text-icon' } }
+
+  const ncss = mergeNcss([
+    label,
+    textIconReset,
+    props.wheel.elementPresets.textIcon,
+    props.wheel.style,
+    props,
+  ])
+
   return (
-    <Box
-      ncss={{
-        label,
-        ...textIconPreset.ncss,
-        ...props.wheel.elementPresets.textIcon.ncss,
-        ...props.wheel.style.ncss,
-        ...props.ncss,
-      }}
-      wheel={props.wheel}
-    >
+    <Box ncss={ncss.ncss} wheel={props.wheel}>
       {props.text}
     </Box>
   )

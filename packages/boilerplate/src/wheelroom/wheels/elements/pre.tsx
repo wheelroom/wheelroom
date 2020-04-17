@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { prePreset } from './pre-preset'
+import { preReset } from './pre-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface PreProps {
   /** Styling wheel */
@@ -31,16 +32,18 @@ const getAttrs = (props: PreProps) => {
 }
 
 export const Pre = (props: PreProps) => {
-  const label = 'pre'
+  const label = { ncss: { label: 'pre' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...prePreset.ncss,
-      ...props.wheel.elementPresets.pre.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      preReset,
+      props.wheel.elementPresets.pre,
+      props.wheel.style,
+      props,
+    ])
+  )
   return jsx(props.is || 'pre', attrs, props.children)
 }

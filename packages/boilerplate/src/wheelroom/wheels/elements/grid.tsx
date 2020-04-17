@@ -2,15 +2,16 @@
 import { jsx } from '@emotion/core'
 import { InlineElementName, BlockLevelElementName } from './types/element-names'
 import {
-  boxPreset,
-  wrapperPreset,
-  containerPreset,
-  containerMaxWidthPreset,
-  flexPreset,
-} from './grid-preset'
+  boxReset,
+  wrapperReset,
+  containerReset,
+  containerMaxWidthReset,
+  flexReset,
+} from './grid-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
 import { LinkRelationshipAttribute } from './types/attribute-names'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface GridProps {
   /** Styling wheel */
@@ -60,76 +61,91 @@ const getAttrs = (props: GridProps) => {
 }
 
 export const Box = (props: GridProps) => {
-  const label = 'box'
+  const label = { ncss: { label: 'box' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...boxPreset.ncss,
-      ...props.wheel.elementPresets.box.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      boxReset,
+      props.wheel.elementPresets.box,
+      props.wheel.style,
+      props,
+    ])
+  )
+
   return jsx(props.is || 'div', attrs, props.children)
 }
 
 export const Flex = (props: GridProps) => {
-  const label = 'flex'
+  const label = { ncss: { label: 'flex' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...flexPreset.ncss,
-      ...props.wheel.elementPresets.flex.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      flexReset,
+      props.wheel.elementPresets.flex,
+      props.wheel.style,
+      props,
+    ])
+  )
+
   return jsx(props.is || 'div', attrs, props.children)
 }
 
 export const Wrapper = (props: GridProps) => {
-  const label = 'wrapper'
+  const label = { ncss: { label: 'wrapper' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...wrapperPreset.ncss,
-      ...props.wheel.elementPresets.wrapper.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      wrapperReset,
+      props.wheel.elementPresets.wrapper,
+      props.wheel.style,
+      props,
+    ])
+  )
+
   return jsx(props.is || 'div', attrs, props.children)
 }
 
 export const Container = (props: GridProps) => {
-  const label = 'container'
+  const label = { ncss: { label: 'container' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...containerPreset.ncss,
-      ...props.wheel.elementPresets.container.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      containerReset,
+      props.wheel.elementPresets.container,
+      props.wheel.style,
+      props,
+    ])
+  )
+
   return jsx(props.is || 'div', attrs, props.children)
 }
 
 export const ContainerMaxWidth = (props: GridProps) => {
-  const label = 'container-max-width'
+  const label = { ncss: { label: 'container-max-width' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...containerMaxWidthPreset.ncss,
-      ...props.wheel.elementPresets.containerMaxWidth.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      containerMaxWidthReset,
+      props.wheel.elementPresets.containerMaxWidth,
+      props.wheel.style,
+      props,
+    ])
+  )
+
   return jsx(props.is || 'div', attrs, props.children)
 }

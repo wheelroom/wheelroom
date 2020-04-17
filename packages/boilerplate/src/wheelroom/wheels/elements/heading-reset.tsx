@@ -1,10 +1,10 @@
 import { NcssProps } from '../types'
 
-export interface HeadingPreset {
+export interface HeadingReset {
   ncss: NcssProps
 }
 
-export const headingPreset: HeadingPreset = {
+export const headingPreset: HeadingReset = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
@@ -12,7 +12,7 @@ export const headingPreset: HeadingPreset = {
 }
 
 /** These styles are added to H1, H2, H3, H4, H5 and H6 as presets */
-export const heading1Preset: HeadingPreset = {
+export const heading1Reset: HeadingReset = {
   ncss: {
     /**
      * Correct the font size and margin on `h1` elements within `section` and
@@ -25,39 +25,39 @@ export const heading1Preset: HeadingPreset = {
   },
 }
 
-export const heading2Preset: HeadingPreset = {
+export const heading2Reset: HeadingReset = {
   ncss: {
     ...headingPreset.ncss,
   },
 }
 
-export const heading3Preset: HeadingPreset = {
+export const heading3Reset: HeadingReset = {
   ncss: {
     ...headingPreset.ncss,
   },
 }
 
-export const heading4Preset: HeadingPreset = {
+export const heading4Reset: HeadingReset = {
   ncss: {
     ...headingPreset.ncss,
   },
 }
 
-export const heading5Preset: HeadingPreset = {
+export const heading5Reset: HeadingReset = {
   ncss: {
     ...headingPreset.ncss,
   },
 }
 
-export const heading6Preset: HeadingPreset = {
+export const heading6Reset: HeadingReset = {
   ...headingPreset.ncss,
 }
 
 export const headingPresets = {
-  h1: heading1Preset,
-  h2: heading2Preset,
-  h3: heading3Preset,
-  h4: heading4Preset,
-  h5: heading5Preset,
-  h6: heading6Preset,
+  h1: heading1Reset,
+  h2: heading2Reset,
+  h3: heading3Reset,
+  h4: heading4Reset,
+  h5: heading5Reset,
+  h6: heading6Reset,
 }

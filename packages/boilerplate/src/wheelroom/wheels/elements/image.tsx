@@ -1,15 +1,16 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import {
-  imageFigcaptionPreset,
-  imageImgPreset,
-  imagePicturePreset,
-} from './image-preset'
+  imageFigcaptionReset,
+  imageImgReset,
+  imagePictureReset,
+} from './image-reset'
 import { NcssProps, Wheel } from '../types'
 import { styledSystem } from '@wheelroom/styled-system'
 import { MediaObject } from './types/media'
+import { mergeNcss } from '../../lib/merge-ncss'
 
-export interface ImagePreset {
+export interface ImageReset {
   picture: {
     ncss: NcssProps
   }
@@ -55,39 +56,48 @@ export const Image = (props: ImageProps) => {
     src: media.fluid && media.fluid.src,
     srcSet: media.fluid && media.fluid.srcSet,
   }
+  const imgLabel = { ncss: { label: 'image-img' } }
+  const pictureLabel = { ncss: { label: 'image-picture' } }
+  const figcaptionLabel = { ncss: { label: 'image-figcaption' } }
 
   return (
     <picture
-      css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-        ncss: {
-          label: 'image-picture',
-          ...imagePicturePreset.ncss,
-          ...props.wheel.elementPresets.image.picture.ncss,
-          ...props.wheel.style.picture.ncss,
-        },
-      })}
+      css={styledSystem(
+        props.wheel.styledSystemConfig,
+        props.wheel.theme,
+        mergeNcss([
+          pictureLabel,
+          imagePictureReset,
+          props.wheel.elementPresets.image.picture,
+          props.wheel.style.picture,
+        ])
+      )}
     >
       <img
         {...imgElementAttrs}
-        css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-          ncss: {
-            label: 'image-img',
-            ...imageImgPreset.ncss,
-            ...props.wheel.elementPresets.image.img.ncss,
-            ...props.wheel.style.img.ncss,
-          },
-        })}
+        css={styledSystem(
+          props.wheel.styledSystemConfig,
+          props.wheel.theme,
+          mergeNcss([
+            imgLabel,
+            imageImgReset,
+            props.wheel.elementPresets.image.img,
+            props.wheel.style.img,
+          ])
+        )}
       />
       {props.includeFigcaption && imgElementAttrs.alt && (
         <figcaption
-          css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-            ncss: {
-              label: 'image-figcaption',
-              ...imageFigcaptionPreset.ncss,
-              ...props.wheel.elementPresets.image.figcaption.ncss,
-              ...props.wheel.style.figcaption.ncss,
-            },
-          })}
+          css={styledSystem(
+            props.wheel.styledSystemConfig,
+            props.wheel.theme,
+            mergeNcss([
+              figcaptionLabel,
+              imageFigcaptionReset,
+              props.wheel.elementPresets.image.figcaption,
+              props.wheel.style.figcaption,
+            ])
+          )}
         >
           {imgElementAttrs.alt}
         </figcaption>

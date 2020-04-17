@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { blockquotePreset } from './blockquote-preset'
+import { blockquoteReset } from './blockquote-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface BlockquoteProps {
   /** Styling wheel */
@@ -31,16 +32,19 @@ const getAttrs = (props: BlockquoteProps) => {
 }
 
 export const Blockquote = (props: BlockquoteProps) => {
-  const label = 'blockquote'
+  const label = { ncss: { label: 'blockquote' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...blockquotePreset.ncss,
-      ...props.wheel.elementPresets.blockquote.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      blockquoteReset,
+      props.wheel.elementPresets.blockquote,
+      props.wheel.style,
+      props,
+    ])
+  )
+
   return jsx(props.is || 'blockquote', attrs, props.children)
 }

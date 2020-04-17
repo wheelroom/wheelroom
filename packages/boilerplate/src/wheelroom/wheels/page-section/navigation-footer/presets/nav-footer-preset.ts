@@ -1,5 +1,5 @@
 import { NcssProps } from '../../../types'
-import { GridPreset } from '../../../elements/grid-preset'
+import { GridReset } from '../../../elements/grid-reset'
 import { LegalPreset, legalPreset } from './legal-preset'
 import {
   NavFooterSocialListPreset,
@@ -11,8 +11,8 @@ import {
 } from './nav-footer-list-preset'
 
 export interface NavFooterPreset {
-  wrapper: GridPreset
-  container: GridPreset
+  wrapper: GridReset
+  container: GridReset
   navFooter: {
     ncss: NcssProps
     list: NavFooterListPreset

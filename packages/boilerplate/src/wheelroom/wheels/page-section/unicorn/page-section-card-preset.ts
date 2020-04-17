@@ -1,10 +1,10 @@
-import { GridPreset } from '../../elements/grid-preset'
+import { GridReset } from '../../elements/grid-reset'
 import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionCardPreset {
-  container: GridPreset
+  container: GridReset
   topic: TopicPreset
-  wrapper: GridPreset
+  wrapper: GridReset
 }
 
 export const pageSectionCardPreset: PageSectionCardPreset = {

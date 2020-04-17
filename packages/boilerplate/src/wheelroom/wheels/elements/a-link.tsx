@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { aLinkPreset } from './a-link-preset'
+import { aLinkReset } from './a-link-reset'
 import { NcssProps, Wheel } from '../types'
 import { styledSystem } from '@wheelroom/styled-system'
 import { LinkRelationshipAttribute } from './types/attribute-names'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface ALinkProps {
   /** Styling wheel */
@@ -33,7 +34,7 @@ export interface ALinkProps {
 }
 
 export const ALink = (props: ALinkProps) => {
-  const label = 'a-link'
+  const label = { ncss: { label: 'a-link' } }
   return (
     <a
       id={props.id}
@@ -44,15 +45,16 @@ export const ALink = (props: ALinkProps) => {
       aria-hidden={props.ariaHidden}
       download={props.download}
       rel={props.rel}
-      css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-        ncss: {
+      css={styledSystem(
+        props.wheel.styledSystemConfig,
+        props.wheel.theme,
+        mergeNcss([
           label,
-          ...aLinkPreset.ncss,
-          ...props.wheel.elementPresets.a.ncss,
-          ...props.wheel.style.ncss,
-          ...props.ncss,
-        },
-      })}
+          props.wheel.elementPresets.a,
+          props.wheel.style,
+          props,
+        ])
+      )}
       href={props.href}
     >
       {props.children}

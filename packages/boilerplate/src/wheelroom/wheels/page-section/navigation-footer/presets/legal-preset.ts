@@ -1,14 +1,14 @@
 import { NcssProps } from '../../../types'
-import { GridPreset } from '../../../elements/grid-preset'
-import { ALinkPreset } from '../../../elements/a-link-preset'
-import { ParagraphPreset } from '../../../elements/paragraph-preset'
+import { GridReset } from '../../../elements/grid-reset'
+import { ALinkReset } from '../../../elements/a-link-reset'
+import { ParagraphReset } from '../../../elements/paragraph-reset'
 
 export interface LegalPreset {
-  container: GridPreset
+  container: GridReset
   any: NcssProps
   text: NcssProps
-  link: ALinkPreset
-  sup: ParagraphPreset
+  link: ALinkReset
+  sup: ParagraphReset
 }
 
 export const legalPreset: LegalPreset = {

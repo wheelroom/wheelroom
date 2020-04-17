@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { codePreset } from './code-preset'
+import { codeReset } from './code-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
+import { mergeNcss } from '../../lib/merge-ncss'
 
 export interface CodeProps {
   /** Styling wheel */
@@ -31,16 +32,18 @@ const getAttrs = (props: CodeProps) => {
 }
 
 export const Code = (props: CodeProps) => {
-  const label = 'code'
+  const label = { ncss: { label: 'code' } }
   const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: {
+  attrs.css = styledSystem(
+    props.wheel.styledSystemConfig,
+    props.wheel.theme,
+    mergeNcss([
       label,
-      ...codePreset.ncss,
-      ...props.wheel.elementPresets.code.ncss,
-      ...props.wheel.style.ncss,
-      ...props.ncss,
-    },
-  })
+      codeReset,
+      props.wheel.elementPresets.code,
+      props.wheel.style,
+      props,
+    ])
+  )
   return jsx(props.is || 'code', attrs, props.children)
 }

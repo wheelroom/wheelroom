@@ -1,15 +1,11 @@
 import { NcssProps } from '../types'
 
-export interface ALinkPreset {
+export interface GLinkReset {
   ncss: NcssProps
 }
 
-export const aLinkPreset: ALinkPreset = {
+export const gLinkReset: GLinkReset = {
   ncss: {
-    /**
-     * Remove the gray background on active links in IE 10.
-     */
-    bg: 'transparent',
     boxSizing: 'border-box',
     fontFamily: 'text',
     cursor: 'pointer',
@@ -17,5 +13,6 @@ export const aLinkPreset: ALinkPreset = {
     ':visited': {},
     ':focus': {},
     ':active': {},
+    '&.active': {},
   },
 }

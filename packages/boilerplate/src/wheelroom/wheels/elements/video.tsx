@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { videoVideoPreset, videoDescriptionPreset } from './video-preset'
+import { videoVideoReset, videoDescriptionReset } from './video-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
 import { MediaObject } from './types/media'
+import { mergeNcss } from '../../lib/merge-ncss'
 
-export interface VideoPreset {
+export interface VideoReset {
   video: {
     ncss: NcssProps
   }
@@ -58,17 +59,22 @@ export const Video = (props: VideoProps) => {
   const video = style.video || {}
   const description = style.description || {}
 
+  const videoLabel = { ncss: { label: 'video-video' } }
+  const descritpionLabel = { ncss: { label: 'video-description' } }
+
   return (
     <Fragment>
       <video
-        css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-          ncss: {
-            label: 'video-video',
-            ...videoVideoPreset.ncss,
-            ...props.wheel.elementPresets.video.video.ncss,
-            ...video.ncss,
-          },
-        })}
+        css={styledSystem(
+          props.wheel.styledSystemConfig,
+          props.wheel.theme,
+          mergeNcss([
+            videoLabel,
+            videoVideoReset,
+            props.wheel.elementPresets.video.video,
+            video,
+          ])
+        )}
         controls
         playsInline
       >
@@ -77,14 +83,16 @@ export const Video = (props: VideoProps) => {
       </video>
       {props.includeTitle && (
         <p
-          css={styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-            ncss: {
-              label: 'video-description',
-              ...videoDescriptionPreset.ncss,
-              ...props.wheel.elementPresets.video.description.ncss,
-              ...description.ncss,
-            },
-          })}
+          css={styledSystem(
+            props.wheel.styledSystemConfig,
+            props.wheel.theme,
+            mergeNcss([
+              descritpionLabel,
+              videoDescriptionReset,
+              props.wheel.elementPresets.video.description,
+              description,
+            ])
+          )}
         >
           <b>{videoAttrs.title}</b>
           {props.includeDescription && ` – ` + videoAttrs.description}

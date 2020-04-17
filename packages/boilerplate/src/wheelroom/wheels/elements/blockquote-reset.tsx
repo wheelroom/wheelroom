@@ -1,10 +1,10 @@
 import { NcssProps } from '../types'
 
-export interface BlockquotePreset {
+export interface BlockquoteReset {
   ncss: NcssProps
 }
 
-export const blockquotePreset: BlockquotePreset = {
+export const blockquoteReset: BlockquoteReset = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
