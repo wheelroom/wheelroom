@@ -49,20 +49,16 @@ export const Topic = (props: TopicWheelProps) => {
   const topicOptions = props.pageSectionInfo.topicOptions
   const fullTopicAsLink =
     !topicOptions.hideAction && topicInfo.hasAction && props.fullTopicAsLink
-
-  let Element
-  let elementProps = {}
-  if (fullTopicAsLink) {
-    Element = Action
-    elementProps = props.topic.actions[0]
-  } else {
-    Element = Box
-    elementProps = { is: 'div' }
-  }
-
-  return (
-    <Element {...elementProps} wheel={props.wheel}>
+  return fullTopicAsLink ? (
+    <Action
+      {...props.topic.actions[0]}
+      wheel={{ ...props.wheel, style: props.wheel.style }}
+    >
       <TopicBody {...props} />
-    </Element>
+    </Action>
+  ) : (
+    <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
+      <TopicBody {...props} />
+    </Box>
   )
 }
