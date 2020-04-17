@@ -16,7 +16,7 @@ import { CodeRreset } from '../code-reset'
 import { BlockquoteReset } from '../blockquote-reset'
 import { TableReset } from '../table-reset'
 
-export interface ElementPresets {
+export interface ElementResets {
   any: AnyReset
   table: TableReset
   ol: ListReset

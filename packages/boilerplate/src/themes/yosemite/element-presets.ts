@@ -1,11 +1,11 @@
-import { ElementPresets } from '../../wheelroom/wheels/elements/types/element-presets'
+import { ElementResets } from '../../wheelroom/wheels/elements/types/element-resets'
 
 const headingStyle = {
   mt: 0,
   mb: 3,
 }
 
-export const elementPresets: ElementPresets = {
+export const elementPresets: ElementResets = {
   a: {
     ncss: {},
   },
