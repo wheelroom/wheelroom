@@ -50,14 +50,16 @@ export const Topic = (props: TopicWheelProps) => {
   const fullTopicAsLink =
     !topicOptions.hideAction && topicInfo.hasAction && props.fullTopicAsLink
   return fullTopicAsLink ? (
-    <Action
-      {...props.topic.actions[0]}
-      wheel={{ ...props.wheel, style: props.wheel.style }}
-    >
-      <TopicBody {...props} />
-    </Action>
+    <Box is="div" wheel={props.wheel}>
+      <Action
+        {...props.topic.actions[0]}
+        wheel={{ ...props.wheel, style: props.wheel.style.topicAsLink }}
+      >
+        <TopicBody {...props} />
+      </Action>
+    </Box>
   ) : (
-    <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Box is="div" wheel={props.wheel}>
       <TopicBody {...props} />
     </Box>
   )
