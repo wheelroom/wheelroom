@@ -5,7 +5,11 @@ export const navHeaderStyle: NavHeaderPreset = {
     ncss: {},
   },
   wrapper: {
-    ncss: {},
+    ncss: {
+      bg: 'sectionBg',
+      color: 'sectionText',
+      borderColor: 'sectionBorder',
+    },
   },
   container: {
     ncss: {},
@@ -65,10 +69,14 @@ export const navHeaderStyle: NavHeaderPreset = {
           ncss: {},
         },
       },
-      dialog: {
+      document: {
         ncss: {},
         visible: {
-          ncss: {},
+          ncss: {
+            bg: 'sectionBg',
+            color: 'sectionText',
+            borderColor: 'sectionBorder',
+          },
         },
         hidden: {
           ncss: {},
@@ -82,7 +90,9 @@ export const navHeaderStyle: NavHeaderPreset = {
         list: {
           ncss: {},
           listItem: {
-            ncss: {},
+            ncss: {
+              borderColor: 'sectionBorder',
+            },
             link: {
               ncss: {},
             },

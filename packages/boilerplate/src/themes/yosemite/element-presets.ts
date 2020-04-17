@@ -1,13 +1,15 @@
-import { ElementResets } from '../../wheelroom/wheels/elements/types/element-resets'
+import { ElementResets as ElementsPresets } from '../../wheelroom/wheels/elements/types/element-resets'
 
 const headingStyle = {
   mt: 0,
   mb: 3,
 }
 
-export const elementPresets: ElementResets = {
+export const elementPresets: ElementsPresets = {
   a: {
-    ncss: {},
+    ncss: {
+      color: 'link',
+    },
   },
   any: {
     ncss: {},
@@ -37,7 +39,9 @@ export const elementPresets: ElementResets = {
     ncss: {},
   },
   gLink: {
-    ncss: {},
+    ncss: {
+      color: 'link',
+    },
   },
   h1: {
     ncss: {

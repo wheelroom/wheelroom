@@ -18,7 +18,7 @@ export interface ModalPreset {
     visible: NcssProps
     hidden: NcssProps
   }
-  dialog: {
+  document: {
     ncss: NcssProps
     visible: NcssProps
     hidden: NcssProps
@@ -64,7 +64,7 @@ export const modalPreset: ModalPreset = {
       },
     },
   },
-  dialog: {
+  document: {
     ncss: {},
     visible: {
       ncss: {
@@ -105,22 +105,18 @@ export const modalPreset: ModalPreset = {
         mt: 0,
         pl: 0,
         w: 1,
-        li: {
-          borderBottom: '1px solid black',
-          a: {
-            p: 3,
-          },
-        },
       },
       listItem: {
         ncss: {
           label: 'modal-list-item',
+          borderBottom: '1px solid black',
           m: 0,
         },
         link: {
           ncss: {
             label: 'modal-list-item-link',
             display: 'block',
+            p: 3,
           },
         },
       },

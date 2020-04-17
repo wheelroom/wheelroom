@@ -45,7 +45,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   const wheelShadow: Wheel = {
     style: styleShadow,
     elementPresets,
-    theme: yosemiteLight,
+    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }
 

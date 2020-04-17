@@ -19,11 +19,16 @@ import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
+import { pageSectionFreestyleStyle } from '../../themes/yosemite/page-section/text/page-section-text-style'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge([{ topic: topicPreset }, pageSectionFreestylePreset])
+  const style = deepMerge([
+    { topic: topicPreset },
+    pageSectionFreestylePreset,
+    pageSectionFreestyleStyle,
+  ])
 
   const wheel: Wheel = {
     style,

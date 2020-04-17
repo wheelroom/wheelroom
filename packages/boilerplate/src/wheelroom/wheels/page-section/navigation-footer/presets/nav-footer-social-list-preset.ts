@@ -3,7 +3,7 @@ import { navFooterSocialListItemPreset } from './nav-footer-social-list-item-pre
 
 export interface NavFooterSocialListPreset {
   ncss: NcssProps
-  item: NcssProps
+  listItem: NcssProps
 }
 
 export const navFooterSocialListPreset: NavFooterSocialListPreset = {
@@ -16,5 +16,5 @@ export const navFooterSocialListPreset: NavFooterSocialListPreset = {
     my: 0,
     pl: 0,
   },
-  item: navFooterSocialListItemPreset,
+  listItem: navFooterSocialListItemPreset,
 }

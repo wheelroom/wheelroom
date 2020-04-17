@@ -54,6 +54,7 @@ export const pageSectionQuoteStyle: PageSectionQuotePreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
+      borderColor: 'sectionBorder',
     },
   },
 }

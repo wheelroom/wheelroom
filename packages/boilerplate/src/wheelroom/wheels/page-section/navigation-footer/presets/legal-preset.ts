@@ -1,44 +1,43 @@
 import { NcssProps } from '../../../types'
-import { GridReset } from '../../../elements/grid-reset'
 import { ALinkReset } from '../../../elements/a-link-reset'
 import { ParagraphReset } from '../../../elements/paragraph-reset'
 
 export interface LegalPreset {
-  container: GridReset
-  any: NcssProps
-  text: NcssProps
-  link: ALinkReset
-  sup: ParagraphReset
+  ncss: NcssProps
+  promise: {
+    ncss: NcssProps
+    link: ALinkReset
+    sup: ParagraphReset
+  }
 }
 
 export const legalPreset: LegalPreset = {
-  container: {
+  ncss: {
+    label: 'legal',
+    borderTop: '1px solid black',
+    minHeight: '48px',
+    px: 3,
+    /**
+     * On iPhone this link will not be visible without the extra margin-bottom
+     * */
+    mb: [4, 0],
+    alignItems: 'center',
+    justifyContent: ['center', 'flex-end'],
+  },
+  promise: {
     ncss: {
-      borderTop: '1px solid black',
-      minHeight: '48px',
-      px: 3,
-      /**
-       * On iPhone this link will not be visible without the extra margin-bottom
-       * */
-      mb: [4, 0],
-      alignItems: 'center',
-      justifyContent: ['center', 'flex-end'],
+      label: 'promise',
     },
-  },
-  any: {
-    ncss: {},
-  },
-  text: {
-    ncss: {
-      fontFamily: 'text',
+    link: {
+      ncss: {
+        label: 'legal-link',
+        display: 'inline-flex',
+      },
     },
-  },
-  link: {
-    ncss: {
-      display: 'inline-flex',
+    sup: {
+      ncss: {
+        label: 'legal-sup',
+      },
     },
-  },
-  sup: {
-    ncss: {},
   },
 }

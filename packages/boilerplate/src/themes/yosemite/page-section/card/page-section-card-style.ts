@@ -54,6 +54,7 @@ export const pageSectionCardStyle: PageSectionCardPreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
+      borderColor: 'sectionBorder',
     },
   },
 }

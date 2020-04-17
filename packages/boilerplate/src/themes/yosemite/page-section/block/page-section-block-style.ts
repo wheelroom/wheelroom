@@ -54,6 +54,7 @@ export const pageSectionBlockStyle: PageSectionBlockPreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
+      borderColor: 'sectionBorder',
     },
   },
 }

@@ -13,9 +13,12 @@ export const yosemiteLight: StyledSystemTheme = {
     heading: colors.black,
     text: colors.black,
     link: colors.azure,
-    button: colors.white,
-    bg: colors.white,
-    border: colors.silver,
+    border: colors.bullet,
+
+    sectionBg: colors.white,
+    sectionText: colors.ghost,
+    sectionBorder: colors.metal,
+
     cardsBorder: colors.silver,
     cardsShadow: colors.silver,
     modalBorder: colors.bullet,

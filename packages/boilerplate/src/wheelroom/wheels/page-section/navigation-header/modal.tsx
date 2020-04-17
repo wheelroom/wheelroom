@@ -58,8 +58,8 @@ export const Modal = (props: {
         wheel={{
           ...props.wheel,
           style: props.menuVisible
-            ? props.wheel.style.dialog.visible
-            : props.wheel.style.dialog.hidden,
+            ? props.wheel.style.document.visible
+            : props.wheel.style.document.hidden,
         }}
       >
         <Button
@@ -70,7 +70,7 @@ export const Modal = (props: {
           onClick={() => props.closeMenu()}
           wheel={{
             ...props.wheel,
-            style: props.wheel.style.dialog.closeNavigationButton,
+            style: props.wheel.style.document.closeNavigationButton,
           }}
         >
           <Flex ariaHidden={true} wheel={props.wheel}>
@@ -78,13 +78,13 @@ export const Modal = (props: {
               icon="x"
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.dialog.closeNavigationButton.icon,
+                style: props.wheel.style.document.closeNavigationButton.icon,
               }}
             />
           </Flex>
         </Button>
         <NavHeaderList
-          wheel={{ ...props.wheel, style: props.wheel.style.dialog.list }}
+          wheel={{ ...props.wheel, style: props.wheel.style.document.list }}
           pages={props.pages}
         />
         <NavHeaderActions
@@ -94,7 +94,7 @@ export const Modal = (props: {
           toggleTheme={props.toggleTheme}
           wheel={{
             ...props.wheel,
-            style: props.wheel.style.dialog.actions,
+            style: props.wheel.style.document.actions,
           }}
         />
       </Flex>

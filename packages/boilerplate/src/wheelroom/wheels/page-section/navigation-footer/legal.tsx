@@ -16,22 +16,22 @@ export const Legal = (props: {
   wheel: LegalWheel
 }) => {
   return (
-    <Container wheel={{ ...props.wheel, style: props.wheel.style.container }}>
+    <Container wheel={{ ...props.wheel, style: props.wheel.style }}>
       <Any
         is="span"
         polyPreset={false}
         wheel={{
           ...props.wheel,
-          style: props.wheel.style.any,
+          style: props.wheel.style.promise,
         }}
       >
         <ALink
           href={props.siteMetadata.legal.url}
-          wheel={{ ...props.wheel, style: props.wheel.style.link }}
+          wheel={{ ...props.wheel, style: props.wheel.style.promise.link }}
         >
           {props.siteMetadata.legal.description}
         </ALink>
-        <Sup wheel={{ ...props.wheel, style: props.wheel.style.sup }}>
+        <Sup wheel={{ ...props.wheel, style: props.wheel.style.promise.sup }}>
           {' ' + props.siteMetadata.legal.version}
         </Sup>
       </Any>
