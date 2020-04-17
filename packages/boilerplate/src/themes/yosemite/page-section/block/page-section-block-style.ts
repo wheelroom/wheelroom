@@ -23,7 +23,9 @@ export const pageSectionBlockStyle: PageSectionBlockPreset = {
           ncss: {},
         },
         icon: {
-          ncss: {},
+          ncss: {
+            mb: 3,
+          },
         },
       },
     },
@@ -54,7 +56,6 @@ export const pageSectionBlockStyle: PageSectionBlockPreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
-      borderColor: 'sectionBorder',
     },
   },
 }

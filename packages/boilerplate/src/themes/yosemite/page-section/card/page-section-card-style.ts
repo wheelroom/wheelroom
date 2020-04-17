@@ -5,9 +5,23 @@ export const pageSectionCardStyle: PageSectionCardPreset = {
     ncss: {},
   },
   topic: {
-    ncss: {},
+    ncss: {
+      borderRadius: 4,
+      borderColor: 'cardBorder',
+      boxShadow: '0 0 16px',
+      textDecoration: 'none',
+      color: 'cardShadow',
+      transition: 'transform .25s ease 0s',
+      transform: 'scale(1)',
+      ':hover': {
+        cursor: 'pointer',
+        transform: 'scale(1.05)',
+      },
+    },
     content: {
-      ncss: {},
+      ncss: {
+        color: 'sectionText',
+      },
       actions: {
         ncss: {},
         link: {
@@ -23,7 +37,9 @@ export const pageSectionCardStyle: PageSectionCardPreset = {
           ncss: {},
         },
         icon: {
-          ncss: {},
+          ncss: {
+            mb: 3,
+          },
         },
       },
     },
@@ -54,7 +70,6 @@ export const pageSectionCardStyle: PageSectionCardPreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
-      borderColor: 'sectionBorder',
     },
   },
 }

@@ -41,7 +41,9 @@ export const elementPresets: ElementsPresets = {
     ncss: {},
   },
   featherIcon: {
-    ncss: {},
+    ncss: {
+      color: 'iconColor',
+    },
   },
   flex: {
     ncss: {},

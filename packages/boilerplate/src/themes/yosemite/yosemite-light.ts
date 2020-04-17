@@ -17,10 +17,11 @@ export const yosemiteLight: StyledSystemTheme = {
 
     sectionBg: colors.white,
     sectionText: colors.ghost,
-    sectionBorder: colors.metal,
+    sectionBorder: colors.silver,
 
-    cardsBorder: colors.silver,
-    cardsShadow: colors.silver,
+    cardBorder: colors.silver,
+    cardShadow: colors.silver,
+
     modalBorder: colors.bullet,
     modalShadow: colors.bullet,
     iconColor: colors.metal,

@@ -19,8 +19,9 @@ export const yosemiteDark: StyledSystemTheme = {
     sectionText: colors.white,
     sectionBorder: colors.bullet,
 
-    cardsBorder: colors.ghost,
-    cardsShadow: colors.ghost,
+    cardBorder: colors.ghost,
+    cardShadow: colors.ghost,
+
     modalBorder: colors.ghost,
     modalShadow: colors.ghost,
     iconColor: colors.bullet,

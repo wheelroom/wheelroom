@@ -54,7 +54,6 @@ export const pageSectionGalleryStyle: PageSectionGalleryPreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
-      borderColor: 'sectionBorder',
     },
   },
 }

@@ -54,7 +54,6 @@ export const pageSectionFeaturedStyle: PageSectionFeaturedPreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
-      borderColor: 'sectionBorder',
     },
   },
 }

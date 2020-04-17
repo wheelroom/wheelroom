@@ -31,10 +31,19 @@ export const pageSectionQuoteStyle: PageSectionQuotePreset = {
       ncss: {},
       image: {
         img: {
-          ncss: {},
+          ncss: {
+            h: 1,
+            objectFit: 'cover',
+          },
         },
         picture: {
-          ncss: {},
+          ncss: {
+            overflow: 'hidden',
+            h: '200px',
+            w: '200px',
+            borderRadius: '100px',
+            mx: 'auto',
+          },
         },
         figcaption: {
           ncss: {},
@@ -54,7 +63,6 @@ export const pageSectionQuoteStyle: PageSectionQuotePreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
-      borderColor: 'sectionBorder',
     },
   },
 }

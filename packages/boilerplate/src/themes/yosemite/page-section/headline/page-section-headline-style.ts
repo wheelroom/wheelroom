@@ -54,7 +54,6 @@ export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
-      borderColor: 'sectionBorder',
     },
   },
 }

@@ -54,7 +54,6 @@ export const pageSectionVideoStyle: PageSectionVideoPreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
-      borderColor: 'sectionBorder',
     },
   },
 }

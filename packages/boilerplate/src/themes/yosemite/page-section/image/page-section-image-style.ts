@@ -54,7 +54,6 @@ export const pageSectionImageStyle: PageSectionImagePreset = {
     ncss: {
       bg: 'sectionBg',
       color: 'sectionText',
-      borderColor: 'sectionBorder',
     },
   },
 }
