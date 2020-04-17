@@ -65,7 +65,7 @@ export const Paragraph = (props: ParagraphProps) => {
     ncss: {
       label,
       ...paragraphPreset.ncss,
-      ...props.wheel.elementPresets.paragraph.ncss,
+      ...props.wheel.elementPresets.p.ncss,
       ...props.wheel.style.ncss,
       ...props.ncss,
     },

@@ -93,9 +93,10 @@ export const Text = (props: TextWheelProps) => {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
         return (
           <Paragraph
+            is="p"
             wheel={{
               ...textProps.wheel,
-              style: textProps.wheel.style.paragraph,
+              style: textProps.wheel.style.p,
             }}
           >
             {children}

@@ -18,7 +18,7 @@ export interface TextPreset {
   code: CodePreset
   pre: PrePreset
   hr: HrPreset
-  paragraph: ParagraphPreset
+  p: ParagraphPreset
   blockquote: BlockquotePreset
   ul: ListPreset
   ol: ListPreset
@@ -81,7 +81,7 @@ export const textPreset: TextPreset = {
   blockquote: {
     ncss: {},
   },
-  paragraph: {
+  p: {
     ncss: {},
   },
   strong: {
