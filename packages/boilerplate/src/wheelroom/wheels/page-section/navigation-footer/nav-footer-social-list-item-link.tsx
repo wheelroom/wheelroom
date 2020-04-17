@@ -13,7 +13,6 @@ export const NavFooterSocialListItemLink = (props: {
   topic: TopicProps
   wheel: NavFooterSocialListItemLinkWheel
 }) => {
-  console.log(props.topic.actions)
   return (
     <Action
       {...props.topic.actions[0]}
