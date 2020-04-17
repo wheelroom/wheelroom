@@ -31,7 +31,7 @@ const ActionGlink = (props: ActionWheelProps) => {
   return (
     <GLink
       to={props.page.path}
-      wheel={{ ...props.wheel, style: props.wheel.style }}
+      wheel={props.wheel}
     >
       {props.children ? props.children : props.heading}
     </GLink>
@@ -42,7 +42,7 @@ const ActionAlink = (props: ActionWheelProps) => {
   return (
     <ALink
       href={props.url}
-      wheel={{ ...props.wheel, style: props.wheel.style }}
+      wheel={props.wheel}
     >
       {props.children ? props.children : props.heading}
     </ALink>

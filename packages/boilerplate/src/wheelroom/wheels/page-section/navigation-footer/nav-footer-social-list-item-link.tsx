@@ -16,7 +16,7 @@ export const NavFooterSocialListItemLink = (props: {
   return (
     <Action
       {...props.topic.actions[0]}
-      wheel={{ ...props.wheel, style: props.wheel.style }}
+      wheel={props.wheel}
     >
       <FeatherIcon
         icon={props.topic.icon as string}

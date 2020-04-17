@@ -50,7 +50,7 @@ export const TopicContent = (props: TopicContentProps) => {
       ncss={{
         order: topicOptions.reverseOrder ? -1 : null,
       }}
-      wheel={{ ...props.wheel, style: props.wheel.style }}
+      wheel={props.wheel}
     >
       <TopicContentText
         pageSectionInfo={pageSectionInfo}

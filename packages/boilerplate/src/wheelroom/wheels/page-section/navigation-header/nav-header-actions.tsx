@@ -23,7 +23,7 @@ export const NavHeaderActions = (props: {
   }
 
   return (
-    <Flex is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Flex is="div" wheel={props.wheel}>
       {props.pageSectionInfo.hasAction && (
         <Action
           {...props.action}

@@ -17,7 +17,7 @@ export const TopicIcon = (props: {
       return (
         <FeatherIcon
           icon={props.icon}
-          wheel={{ ...props.wheel, style: props.wheel.style }}
+          wheel={props.wheel}
         />
       )
     } else {
@@ -25,7 +25,7 @@ export const TopicIcon = (props: {
       return (
         <TextIcon
           text={props.icon}
-          wheel={{ ...props.wheel, style: props.wheel.style }}
+          wheel={props.wheel}
         />
       )
     }

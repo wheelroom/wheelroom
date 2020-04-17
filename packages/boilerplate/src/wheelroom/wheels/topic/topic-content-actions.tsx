@@ -38,15 +38,15 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   const action = actions[0]
 
   return (
-    <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Box is="div" wheel={props.wheel}>
       {props.fullTopicAsLink ? (
-        <Any is="span" wheel={{ ...props.wheel, style: props.wheel.style }}>
+        <Any is="span" wheel={props.wheel}>
           {action.heading}
         </Any>
       ) : (
         <Action
           {...action}
-          wheel={{ ...props.wheel, style: props.wheel.style }}
+          wheel={props.wheel}
         >
           {action.heading}
         </Action>

@@ -31,7 +31,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
       ncss={{
         order: topicOptions.reverseOrder ? 0 : null,
       }}
-      wheel={{ ...props.wheel, style: props.wheel.style }}
+      wheel={props.wheel}
     >
       {props.topicInfo.hasImage && (
         <Image

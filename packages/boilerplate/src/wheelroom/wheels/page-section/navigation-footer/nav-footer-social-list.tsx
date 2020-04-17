@@ -14,7 +14,7 @@ export const NavFooterSocialList = (props: {
   wheel: NavFooterSocialListWheel
 }) => {
   return (
-    <Ul wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Ul wheel={props.wheel}>
       <NavFooterSocialListItem
         topics={props.topics}
         wheel={{ ...props.wheel, style: props.wheel.style.item }}

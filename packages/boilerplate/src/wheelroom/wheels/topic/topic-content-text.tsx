@@ -44,7 +44,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const AbstractParser = props.useAbstractParser || Any
 
   return (
-    <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Box is="div" wheel={props.wheel}>
       {!topicOptions.hideIcon && (
         <TopicIcon
           icon={props.topic.icon}

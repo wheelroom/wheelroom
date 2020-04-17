@@ -38,7 +38,7 @@ export const Branding = (props: {
   }
 
   return (
-    <Flex is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Flex is="div" wheel={props.wheel}>
       <GLink
         to="/"
         ariaLabel={ariaLabel}
