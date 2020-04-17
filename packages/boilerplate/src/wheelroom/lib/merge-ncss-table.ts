@@ -9,6 +9,8 @@ export const mergeNcssTable: MergeNcssTable = {
   ml: ['marginLeft'],
   mr: ['marginRight'],
   mt: ['marginTop'],
+  mx: ['marginLeft', 'marginRight'],
+  my: ['marginTop', 'marginBottom'],
 
   p: ['paddingLeft', 'paddingRight', 'paddingTop', 'paddingBottom'],
   padding: ['paddingLeft', 'paddingRight', 'paddingTop', 'paddingBottom'],
@@ -16,4 +18,6 @@ export const mergeNcssTable: MergeNcssTable = {
   pl: ['paddingLeft'],
   pr: ['paddingRight'],
   pt: ['paddingTop'],
+  px: ['paddingLeft', 'paddingRight'],
+  py: ['paddingTop', 'paddingBottom'],
 }

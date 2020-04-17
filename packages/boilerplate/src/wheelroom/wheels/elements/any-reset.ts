@@ -28,7 +28,7 @@ export const anyPreset: AnyReset = {
   },
 }
 
-export const anyPresetMap = {
+export const anyResetMap = {
   a: aLinkReset,
   blockquote: blockquoteReset,
   button: buttonReset,
