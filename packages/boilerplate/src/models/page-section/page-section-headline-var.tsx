@@ -24,13 +24,14 @@ import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge(
+  const style = deepMerge([
     { topic: topicPreset },
-    { ...pageSectionHeadlinePreset, ...pageSectionHeadlineStyle }
-  )
+    pageSectionHeadlinePreset,
+    pageSectionHeadlineStyle,
+  ])
 
   const wheel: Wheel = {
-    style: style,
+    style,
     elementPresets,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,

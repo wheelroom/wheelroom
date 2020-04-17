@@ -9,10 +9,8 @@ const overwriteMerge = (destinationArray: any, sourceArray: any) => sourceArray
  *
  * Note that arrays are replaced, while objects are merged.
  *
- * Example overwriteWith: { topic: { wrapper: { p: 3 } } }
- *
  */
 
-export const deepMerge = <T>(base: T, overwriteWith: T): T => {
-  return deepmerge(base, overwriteWith, { arrayMerge: overwriteMerge })
+export const deepMerge = <T>(arrayOfObjects: T[]): T => {
+  return deepmerge.all(arrayOfObjects, { arrayMerge: overwriteMerge })
 }

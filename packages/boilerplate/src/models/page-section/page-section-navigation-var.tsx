@@ -21,11 +21,16 @@ import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { navHeaderStyle } from '../../themes/yosemite/page-section/navigation-header/nav-header-style'
+import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const headerStyle = deepMerge(navHeaderPreset, navHeaderStyle)
+  const headerStyle = deepMerge([
+    { topic: topicPreset },
+    navHeaderPreset,
+    navHeaderStyle,
+  ])
 
   const wheelHeader: Wheel = {
     style: headerStyle,

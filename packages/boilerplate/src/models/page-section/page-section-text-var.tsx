@@ -17,12 +17,16 @@ import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
+import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
+  const style = deepMerge([{ topic: topicPreset }, pageSectionFreestylePreset])
+
   const wheel: Wheel = {
-    style: pageSectionFreestylePreset,
+    style,
     elementPresets,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,

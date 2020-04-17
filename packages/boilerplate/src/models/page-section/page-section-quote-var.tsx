@@ -23,7 +23,8 @@ import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 export const PageSectionQuoteVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge({ topic: topicPreset }, { ...pageSectionQuotePreset })
+  const style = deepMerge([{ topic: topicPreset }, pageSectionQuotePreset])
+
   const wheel: Wheel = {
     style,
     elementPresets,

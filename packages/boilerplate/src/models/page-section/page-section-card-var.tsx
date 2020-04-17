@@ -7,10 +7,7 @@
  */
 
 import React from 'react'
-import {
-  pageSectionCardPreset,
-  // pageSectionCardShadowPreset,
-} from '../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
+import { pageSectionCardPreset } from '../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { elementPresets } from '../../themes/yosemite/element-presets'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
@@ -26,11 +23,9 @@ import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge({ topic: topicPreset }, { ...pageSectionCardPreset })
-  const styleShadow = deepMerge(
-    { topic: topicPreset },
-    { ...pageSectionCardPreset }
-  )
+  const style = deepMerge([{ topic: topicPreset }, pageSectionCardPreset])
+  const styleShadow = deepMerge([{ topic: topicPreset }, pageSectionCardPreset])
+
   const wheel: Wheel = {
     style,
     elementPresets,

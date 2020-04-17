@@ -23,7 +23,8 @@ import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge({ topic: topicPreset }, { ...pageSectionVideoPreset })
+  const style = deepMerge([{ topic: topicPreset }, pageSectionVideoPreset])
+
   const wheel: Wheel = {
     style,
     elementPresets,
