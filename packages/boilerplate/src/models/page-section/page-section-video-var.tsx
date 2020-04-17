@@ -19,11 +19,16 @@ import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
+import { pageSectionVideoStyle } from '../../themes/yosemite/page-section/video/page-section-video-style'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge([{ topic: topicPreset }, pageSectionVideoPreset])
+  const style = deepMerge([
+    { topic: topicPreset },
+    pageSectionVideoPreset,
+    pageSectionVideoStyle,
+  ])
 
   const wheel: Wheel = {
     style,

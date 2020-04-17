@@ -1,6 +1,6 @@
-import { PageSectionHeroPreset } from '../../../../wheelroom/wheels/page-section/unicorn/page-section-hero-preset'
+import { PageSectionQuotePreset } from '../../../../wheelroom/wheels/page-section/unicorn/page-section-quote-preset'
 
-export const pageSectionHeroStyle: PageSectionHeroPreset = {
+export const pageSectionQuoteStyle: PageSectionQuotePreset = {
   container: {
     ncss: {},
   },
@@ -51,6 +51,9 @@ export const pageSectionHeroStyle: PageSectionHeroPreset = {
     },
   },
   wrapper: {
-    ncss: {},
+    ncss: {
+      bg: 'sectionBg',
+      color: 'sectionText',
+    },
   },
 }
