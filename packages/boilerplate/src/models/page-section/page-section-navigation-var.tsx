@@ -19,16 +19,21 @@ import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
+import { navHeaderStyle } from '../../themes/yosemite/page-section/navigation-header/nav-header-style'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
+  const headerStyle = deepMerge(navHeaderPreset, navHeaderStyle)
+
   const wheelHeader: Wheel = {
-    style: navHeaderPreset,
+    style: headerStyle,
     elementPresets,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }
+
   const wheelFooter: Wheel = {
     style: navFooterPreset,
     elementPresets,

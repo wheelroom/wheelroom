@@ -19,7 +19,8 @@ export const heading1Preset: HeadingPreset = {
      * `article` contexts in Chrome, Firefox, and Safari.
      */
     fontSize: '2em',
-    margin: '0.67em 0',
+    my: '0.67em',
+    mx: '0',
     ...headingPreset.ncss,
   },
 }

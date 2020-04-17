@@ -1,7 +1,6 @@
 import { ElementPresets } from '../../wheelroom/wheels/elements/types/element-presets'
 
 export const headingStyle = {
-  // color: 'text',
   mt: 0,
   mb: 3,
 }
@@ -42,25 +41,34 @@ export const elementPresets: ElementPresets = {
   },
   h1: {
     ncss: {
-      // headingStyle,
+      ...headingStyle,
+      fontSize: [8, 9, 10, 11],
     },
   },
   h2: {
     ncss: {
-      // headingStyle,
+      ...headingStyle,
     },
   },
   h3: {
-    ncss: {},
+    ncss: {
+      ...headingStyle,
+    },
   },
   h4: {
-    ncss: {},
+    ncss: {
+      ...headingStyle,
+    },
   },
   h5: {
-    ncss: {},
+    ncss: {
+      ...headingStyle,
+    },
   },
   h6: {
-    ncss: {},
+    ncss: {
+      ...headingStyle,
+    },
   },
   hr: {
     ncss: {},

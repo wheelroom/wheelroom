@@ -11,24 +11,26 @@ import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { elementPresets } from '../../themes/yosemite/element-presets'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
+import { pageSectionHeadlineStyle } from '../../themes/yosemite/page-section/headline/page-section-headline-style'
 import { pageSectionHeadlinePreset } from '../../wheelroom/wheels/page-section/unicorn/page-section-headline-preset'
 import { PageSectionProps } from './page-section'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/page-section/unicorn/page-section-unicorn'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
-import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
+import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
   const style = deepMerge(
     { topic: topicPreset },
-    { ...pageSectionHeadlinePreset }
+    { ...pageSectionHeadlinePreset, ...pageSectionHeadlineStyle }
   )
+
   const wheel: Wheel = {
-    style,
+    style: style,
     elementPresets,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
