@@ -5,7 +5,7 @@ import {
   paragraphReset,
   smallReset,
   subReset,
-  subResetReset,
+  subSupReset,
   supReset,
 } from './paragraph-reset'
 import { styledSystem } from '@wheelroom/styled-system'
@@ -104,7 +104,7 @@ export const Sub = (props: ParagraphProps) => {
     mergeNcss([
       label,
       paragraphReset,
-      subResetReset,
+      subSupReset,
       subReset,
       props.wheel.elementPresets.sub,
       props.wheel.style,
@@ -123,7 +123,7 @@ export const Sup = (props: ParagraphProps) => {
     mergeNcss([
       label,
       paragraphReset,
-      subResetReset,
+      subSupReset,
       supReset,
       props.wheel.elementPresets.sup,
       props.wheel.style,

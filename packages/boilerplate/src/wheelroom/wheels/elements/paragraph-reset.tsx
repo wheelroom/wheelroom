@@ -20,7 +20,7 @@ export const smallReset: ParagraphReset = {
   },
 }
 
-export const subResetReset = {
+export const subSupReset = {
   ncss: {
     /**
      * Prevent `sub` and `sup` elements from affecting the line height in
