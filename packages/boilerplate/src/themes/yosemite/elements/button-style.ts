@@ -1,4 +1,7 @@
-import { buttonReset } from '../../../wheelroom/wheels/elements/resets/button-reset'
+import {
+  buttonReset,
+  ButtonElementStyle,
+} from '../../../wheelroom/wheels/elements/resets/button-reset'
 
 export const buttonStyle = {
   display: 'inline-flex',
@@ -13,17 +16,19 @@ export const buttonStyle = {
   textDecoration: 'none',
 }
 
-export const primaryButtonStyle = {
-  ...buttonStyle,
-  color: 'white',
-  bg: 'azure',
-  borderColor: 'azure',
+export const primaryButtonStyle: ButtonElementStyle = {
+  ncss: {
+    ...buttonStyle,
+    color: 'white',
+    bg: 'azure',
+    borderColor: 'azure',
+  },
 }
 
 export const elementAsPrimaryButtonStyle = {
   // First set a ButtonElementStyle on a element that isn't a <Button />
   ...buttonReset,
-  ...primaryButtonStyle,
+  ...primaryButtonStyle.ncss,
 }
 
 export const secondaryButtonStyle = {

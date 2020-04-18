@@ -18,11 +18,7 @@ export const elementStyles: ElementStyles = {
   box: {
     ncss: {},
   },
-  button: {
-    ncss: {
-      ...primaryButtonStyle,
-    },
-  },
+  button: primaryButtonStyle,
   code: {
     ncss: {},
   },
