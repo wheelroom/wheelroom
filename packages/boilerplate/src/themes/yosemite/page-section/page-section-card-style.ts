@@ -1,6 +1,6 @@
 import { PageSectionCardPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
-import { elementAsPrimaryButtonStyle } from '../styles/button-style'
-import { wrapperStyle } from '../styles/grid-style'
+import { elementAsPrimaryButtonStyle } from '../elements/button-style'
+import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionCardStyle: PageSectionCardPreset = {
   container: {

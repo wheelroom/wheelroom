@@ -1,5 +1,5 @@
 import { PageSectionGalleryPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-gallery-preset'
-import { wrapperStyle } from '../styles/grid-style'
+import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionGalleryStyle: PageSectionGalleryPreset = {
   container: {

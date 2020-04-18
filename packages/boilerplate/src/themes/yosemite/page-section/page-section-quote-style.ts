@@ -1,6 +1,6 @@
 import { PageSectionQuotePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-quote-preset'
-import { elementAsPrimaryButtonStyle } from '../styles/button-style'
-import { wrapperStyle } from '../styles/grid-style'
+import { elementAsPrimaryButtonStyle } from '../elements/button-style'
+import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionQuoteStyle: PageSectionQuotePreset = {
   container: {

@@ -1,5 +1,5 @@
 import { NavFooterPreset } from '../../../wheelroom/wheels/page-section/navigation-footer/presets/nav-footer-preset'
-import { wrapperStyle } from '../styles/grid-style'
+import { wrapperStyle } from '../elements/grid-style'
 
 export const navFooterStyle: NavFooterPreset = {
   wrapper: {

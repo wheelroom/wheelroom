@@ -1,5 +1,5 @@
 import { PageSectionVideoPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-video-preset'
-import { wrapperStyle } from '../styles/grid-style'
+import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionVideoStyle: PageSectionVideoPreset = {
   container: {

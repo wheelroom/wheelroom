@@ -1,7 +1,7 @@
 import { ElementResets as ElementsPresets } from '../../wheelroom/wheels/elements/types/element-resets'
-import { headingStyle } from './styles/heading-style'
-import { paragraphStyle } from './styles/paragraph-style'
-import { primaryButtonStyle } from './styles/button-style'
+import { headingStyle } from './elements/heading-style'
+import { paragraphStyle } from './elements/paragraph-style'
+import { primaryButtonStyle } from './elements/button-style'
 
 export const elementPresets: ElementsPresets = {
   a: {

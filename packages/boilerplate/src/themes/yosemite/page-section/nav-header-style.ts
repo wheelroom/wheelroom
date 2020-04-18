@@ -1,9 +1,9 @@
 import { NavHeaderPreset } from '../../../wheelroom/wheels/page-section/navigation-header/presets/nav-header-preset'
-import { wrapperStyle } from '../styles/grid-style'
+import { wrapperStyle } from '../elements/grid-style'
 import {
   elementAsPrimaryButtonStyle,
   secondaryButtonStyle,
-} from '../styles/button-style'
+} from '../elements/button-style'
 
 export const navHeaderStyle: NavHeaderPreset = {
   skipToContent: {
@@ -97,7 +97,9 @@ export const navHeaderStyle: NavHeaderPreset = {
         closeNavigationButton: {
           ncss: {},
           icon: {
-            ncss: {},
+            ncss: {
+              color: 'white',
+            },
           },
         },
         list: {
@@ -114,10 +116,15 @@ export const navHeaderStyle: NavHeaderPreset = {
         actions: {
           ncss: {},
           action: {
-            ncss: {},
+            ncss: {
+              ...elementAsPrimaryButtonStyle,
+              mb: 2,
+            },
           },
           themeButton: {
-            ncss: {},
+            ncss: {
+              ...secondaryButtonStyle,
+            },
           },
         },
       },

@@ -1,6 +1,6 @@
 import { PageSectionHeadlinePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-headline-preset'
-import { elementAsPrimaryButtonStyle } from '../styles/button-style'
-import { wrapperStyle } from '../styles/grid-style'
+import { elementAsPrimaryButtonStyle } from '../elements/button-style'
+import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
   container: {
