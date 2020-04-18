@@ -13,6 +13,8 @@ import {
 import { reset } from './wheelroom/global/reset'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
+import { yosemiteDark } from './themes/yosemite/yosemite-dark'
+import { yosemiteLight } from './themes/yosemite/yosemite-light'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -66,6 +68,10 @@ const PageTemplate = (props: any) => {
     siteVersion,
     title: page.seoTitle,
   }
+  const backgroundColor =
+    activeThemeId === 'light'
+      ? (yosemiteDark as any).colorMap.sectionBg
+      : (yosemiteLight as any).colorMap.sectionBg
 
   return (
     <Fragment>
@@ -81,6 +87,7 @@ const PageTemplate = (props: any) => {
           // Remove the margin in all browsers.
           body: {
             margin: 0,
+            backgroundColor,
           },
         }}
       />
