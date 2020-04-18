@@ -6,13 +6,11 @@ export interface ALinkReset {
 
 export const aLinkReset: ALinkReset = {
   ncss: {
-    /**
-     * Remove the gray background on active links in IE 10.
-     */
+    // Remove the gray background on active links in IE 10.
     bg: 'transparent',
     boxSizing: 'border-box',
-    fontFamily: 'text',
     cursor: 'pointer',
+    fontFamily: 'text',
     ':hover': {},
     ':visited': {},
     ':focus': {},

@@ -6,9 +6,7 @@ export interface ImageReset {
 
 export const imageImgReset: ImageReset = {
   ncss: {
-    /**
-     * Remove the border on images inside links in IE 10.
-     */
+    // Remove the border on images inside links in IE 10.
     borderStyle: 'none',
     boxSizing: 'border-box',
     display: 'block',
