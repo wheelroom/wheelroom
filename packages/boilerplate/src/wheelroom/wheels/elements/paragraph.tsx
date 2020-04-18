@@ -9,33 +9,17 @@ import {
   supReset,
 } from './paragraph-reset'
 import { styledSystem } from '@wheelroom/styled-system'
-import { Wheel, NcssProps } from '../types'
 import { LinkRelationshipAttribute } from './types/attribute-names'
 import { mergeNcss } from '../../lib/merge-ncss'
+import { ElementProps, getElementAttrs } from './element'
 
-export interface ParagraphProps {
-  /** Styling wheel */
-  wheel: Wheel
+export interface ParagraphProps extends ElementProps {
   /** Render as another HTML element */
   is?: BlockLevelElementName | undefined
-  /** React children */
-  children?: any
-  /** Nested emotion css styling */
-  ncss?: NcssProps
-  /** Grid id attribute */
-  id?: string | undefined
   /** Grid role attribute */
   role?: 'modal' | string | undefined
-  /** Title attribute */
-  title?: string | undefined
-  /** Aria-label attribute */
-  ariaLabel?: string | undefined
   /** Aria-modal attribute */
   ariaModal?: boolean
-  /** Sria-hidden attribute */
-  ariaHidden?: boolean | undefined
-  /** Hidden attribute */
-  hidden?: boolean | undefined
   /** TtabIndex attribute */
   tabIndex?: number | undefined
   /** Relationship attribute */
@@ -46,15 +30,10 @@ export interface ParagraphProps {
 
 const getAttrs = (props: ParagraphProps) => {
   const attrs = {
-    id: props.id,
-    hidden: props.hidden,
-    role: props.role,
-    title: props.title,
+    ...getElementAttrs(props),
     'aria-modal': props.ariaModal,
-    'aria-label': props.ariaLabel,
-    'aria-hidden': props.ariaHidden,
-    'tab-index': props.tabIndex,
     rel: props.rel,
+    role: props.role,
     onClick: props.onClick,
   }
   return attrs

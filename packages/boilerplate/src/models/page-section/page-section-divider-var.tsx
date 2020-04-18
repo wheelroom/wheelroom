@@ -24,5 +24,5 @@ export const PageSectionDividerVar = (props: PageSectionProps) => {
     styledSystemConfig,
   }
 
-  return <Hr is="hr" wheel={wheel} />
+  return <Hr wheel={wheel} />
 }

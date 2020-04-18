@@ -44,10 +44,7 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
           {action.heading}
         </Any>
       ) : (
-        <Action
-          {...action}
-          wheel={props.wheel}
-        >
+        <Action {...action} wheel={props.wheel}>
           {action.heading}
         </Action>
       )}

@@ -60,7 +60,6 @@ export const Text = (props: TextWheelProps) => {
     renderMark: {
       [MARKS.BOLD]: (text) => (
         <Strong
-          is="b"
           wheel={{
             ...textProps.wheel,
             style: textProps.wheel.style.strong,
@@ -71,14 +70,12 @@ export const Text = (props: TextWheelProps) => {
       ),
       [MARKS.CODE]: (code) => (
         <Pre
-          is="pre"
           wheel={{
             ...textProps.wheel,
             style: textProps.wheel.style.pre,
           }}
         >
           <Code
-            is="code"
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.code,
@@ -93,7 +90,6 @@ export const Text = (props: TextWheelProps) => {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
         return (
           <Paragraph
-            is="p"
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.p,
@@ -106,7 +102,6 @@ export const Text = (props: TextWheelProps) => {
       [BLOCKS.QUOTE]: (_node: Node, children: Children) => {
         return (
           <Blockquote
-            is="blockquote"
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.blockquote,
@@ -244,7 +239,6 @@ export const Text = (props: TextWheelProps) => {
       ),
       [BLOCKS.HR]: () => (
         <Hr
-          is="hr"
           wheel={{
             ...textProps.wheel,
             style: textProps.wheel.style.hr,

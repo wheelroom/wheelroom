@@ -2,59 +2,36 @@
 import { jsx } from '@emotion/core'
 import { BlockLevelElementName, InlineElementName } from './types/element-names'
 import { styledSystem } from '@wheelroom/styled-system'
-import { Wheel, NcssProps } from '../types'
 import { anyPreset, anyResetMap } from './any-reset'
 import { mergeNcss } from '../../lib/merge-ncss'
+import { ElementProps, getElementAttrs } from './element'
 
-export interface AnyProps {
-  /** Styling wheel */
-  wheel: Wheel
-  /** Render as another HTML element */
-  is?: InlineElementName | BlockLevelElementName | undefined
-  /** React children */
-  children?: any
-  /** Nested emotion css styling */
-  ncss?: NcssProps
-  /** Id attribute */
-  id?: string | undefined
-  /** Role attribute */
-  role?: string | undefined
-  /** Title attribute */
-  title?: string | undefined
-  /** Aria-label attribute */
-  ariaLabel?: string | undefined
+export interface AnyProps extends ElementProps {
   /** Aria-modal attribute */
   ariaModal?: boolean
-  /** Aria-hidden attribute */
-  ariaHidden?: boolean | undefined
-  /** Hidden attribute */
-  hidden?: boolean | undefined
-  /** TabIndex attribute */
-  tabIndex?: number | undefined
+  /** Render as another HTML element */
+  is?: InlineElementName | BlockLevelElementName | undefined
+  /** Apply preset styling for the 'is-element' */
+  polyPreset?: boolean
+  /** Role attribute */
+  role?: string | undefined
   /** On click handler */
   onClick?: () => any
-  /** Apply preset styling for the 'is-element' */
-  polyPreset: boolean
 }
 
 const getAttrs = (props: AnyProps) => {
   const attrs = {
-    id: props.id,
-    role: props.role,
-    title: props.title,
+    ...getElementAttrs(props),
     'aria-modal': props.ariaModal,
-    'aria-label': props.ariaLabel,
-    'aria-hidden': props.ariaHidden,
-    hidden: props.hidden,
-    'tab-index': props.tabIndex,
+    role: props.role,
     onClick: props.onClick,
   }
   return attrs
 }
 
-export const Any = (props: AnyProps) => {
-  let polyPreset = { ncss: {} }
+const getPolyPreset = (props: AnyProps) => {
   const resetMap = anyResetMap as any
+  let polyPreset = { ncss: {} }
   if (
     props.polyPreset &&
     props.is &&
@@ -65,9 +42,13 @@ export const Any = (props: AnyProps) => {
       props.wheel.elementPresets[props.is],
     ])
   }
-  const label = { ncss: { label: `any-is-${props.is}` } }
+  return polyPreset
+}
 
+export const Any = (props: AnyProps) => {
+  const label = { ncss: { label: `any-is-${props.is}` } }
   const attrs: any = getAttrs(props)
+  const polyPreset = getPolyPreset(props)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
     props.wheel.theme,
@@ -80,6 +61,5 @@ export const Any = (props: AnyProps) => {
       props,
     ])
   )
-
   return jsx(props.is || 'div', attrs, props.children)
 }

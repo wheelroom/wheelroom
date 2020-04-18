@@ -9,52 +9,31 @@ import {
   flexReset,
 } from './grid-reset'
 import { styledSystem } from '@wheelroom/styled-system'
-import { Wheel, NcssProps } from '../types'
 import { LinkRelationshipAttribute } from './types/attribute-names'
 import { mergeNcss } from '../../lib/merge-ncss'
+import { ElementProps, getElementAttrs } from './element'
 
-export interface GridProps {
-  /** Styling wheel */
-  wheel: Wheel
-  /** Render as another HTML element */
-  is?: InlineElementName | BlockLevelElementName | undefined
-  /** React children */
-  children?: any
-  /** Nested emotion css styling */
-  ncss?: NcssProps
-  /** Id attribute */
-  id?: string | undefined
-  /** Role attribute */
-  role?: 'modal' | string | undefined
-  /** Title attribute */
-  title?: string | undefined
-  /** Aria-label attribute */
-  ariaLabel?: string | undefined
+export interface GridProps extends ElementProps {
   /** Aria-modal attribute */
   ariaModal?: boolean
-  /** Aria-hidden attribute */
-  ariaHidden?: boolean | undefined
-  /** Hidden attribute */
-  hidden?: boolean | undefined
-  /** TabIndex attribute */
-  tabIndex?: number | undefined
+  /** Render as another HTML element */
+  is?: InlineElementName | BlockLevelElementName | undefined
   /** Relationship attribute */
   rel?: LinkRelationshipAttribute | undefined
+  /** Role attribute */
+  role?: 'modal' | string | undefined
+  /** TabIndex attribute */
+  tabIndex?: number | undefined
   /** On click handler */
   onClick?: () => any
 }
 
 const getAttrs = (props: GridProps) => {
   const attrs = {
-    id: props.id,
-    role: props.role,
-    title: props.title,
+    ...getElementAttrs(props),
     'aria-modal': props.ariaModal,
-    'aria-label': props.ariaLabel,
-    'aria-hidden': props.ariaHidden,
-    hidden: props.hidden,
-    'tab-index': props.tabIndex,
     rel: props.rel,
+    role: props.role,
     onClick: props.onClick,
   }
   return attrs
@@ -74,7 +53,6 @@ export const Box = (props: GridProps) => {
       props,
     ])
   )
-
   return jsx(props.is || 'div', attrs, props.children)
 }
 
@@ -92,7 +70,6 @@ export const Flex = (props: GridProps) => {
       props,
     ])
   )
-
   return jsx(props.is || 'div', attrs, props.children)
 }
 
@@ -110,7 +87,6 @@ export const Wrapper = (props: GridProps) => {
       props,
     ])
   )
-
   return jsx(props.is || 'div', attrs, props.children)
 }
 
@@ -128,7 +104,6 @@ export const Container = (props: GridProps) => {
       props,
     ])
   )
-
   return jsx(props.is || 'div', attrs, props.children)
 }
 
@@ -146,6 +121,5 @@ export const ContainerMaxWidth = (props: GridProps) => {
       props,
     ])
   )
-
   return jsx(props.is || 'div', attrs, props.children)
 }
