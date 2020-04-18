@@ -4,7 +4,7 @@ import {
   imageFigcaptionReset,
   imageImgReset,
   imagePictureReset,
-} from './image-reset'
+} from './resets/image-reset'
 import { NcssProps, Wheel } from '../types'
 import { styledSystem } from '@wheelroom/styled-system'
 import { MediaObject } from './types/media'

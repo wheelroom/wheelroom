@@ -1,6 +1,6 @@
 import { NcssProps } from '../../../types'
-import { ALinkReset } from '../../../elements/a-link-reset'
-import { ParagraphReset } from '../../../elements/paragraph-reset'
+import { ALinkReset } from '../../../elements/resets/a-link-reset'
+import { ParagraphReset } from '../../../elements/resets/paragraph-reset'
 
 export interface BrandingPreset {
   ncss: NcssProps

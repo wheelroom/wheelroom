@@ -3,7 +3,7 @@ import React from 'react'
 import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
-import { buttonReset } from './button-reset'
+import { buttonReset } from './resets/button-reset'
 import { ElementProps } from './element'
 import { getSelf } from './self'
 

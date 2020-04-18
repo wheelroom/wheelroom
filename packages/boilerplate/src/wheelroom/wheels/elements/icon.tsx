@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from './grid'
 import { IconMap } from '../../svg/feather/iconMap'
-import { featherIconReset, textIconReset } from './icon-reset'
+import { featherIconReset, textIconReset } from './resets/icon-reset'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
 

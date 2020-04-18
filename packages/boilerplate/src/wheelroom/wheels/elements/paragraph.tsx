@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { BlockLevelElementName } from './types/element-names'
-import { paragraphReset } from './paragraph-reset'
+import { paragraphReset } from './resets/paragraph-reset'
 import { LinkRelationshipAttribute } from './types/attribute-names'
 import { ElementProps } from './element'
 import { getSelf } from './self'

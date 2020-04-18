@@ -1,4 +1,4 @@
-import { GridReset } from '../../elements/grid-reset'
+import { GridReset } from '../../elements/resets/grid-reset'
 import { TextPreset, textPreset } from '../../text/text-preset'
 
 export interface PageSectionFreestylePreset {

@@ -1,4 +1,4 @@
-import { NcssProps } from '../types'
+import { NcssProps } from '../../types'
 
 export interface SelfStrongReset {
   ncss: NcssProps

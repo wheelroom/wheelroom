@@ -1,5 +1,5 @@
 import { NcssProps } from '../../../types'
-import { IconReset } from '../../../elements/icon-reset'
+import { IconReset } from '../../../elements/resets/icon-reset'
 
 export interface NavFooterSocialListItemLinkPreset {
   ncss: NcssProps

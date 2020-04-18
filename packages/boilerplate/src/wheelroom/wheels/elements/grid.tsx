@@ -6,7 +6,7 @@ import {
   wrapperReset,
   containerReset,
   containerMaxWidthReset,
-} from './grid-reset'
+} from './resets/grid-reset'
 import { LinkRelationshipAttribute } from './types/attribute-names'
 import { ElementProps } from './element'
 import { getSelf } from './self'
