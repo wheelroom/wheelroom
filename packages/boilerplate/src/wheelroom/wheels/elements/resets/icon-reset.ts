@@ -1,4 +1,4 @@
-import { NcssProps } from '../types'
+import { NcssProps } from '../../types'
 
 export interface IconReset {
   ncss: NcssProps

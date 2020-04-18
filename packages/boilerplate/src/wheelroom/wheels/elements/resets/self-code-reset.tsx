@@ -1,10 +1,10 @@
-import { NcssProps } from '../types'
+import { NcssProps } from '../../types'
 
-export interface SelfPreReset {
+export interface SelfCodeReset {
   ncss: NcssProps
 }
 
-export const selfPreReset: SelfPreReset = {
+export const selfCodeReset: SelfCodeReset = {
   ncss: {
     /**
      * 1. Correct the inheritance and scaling of font size in all browsers.

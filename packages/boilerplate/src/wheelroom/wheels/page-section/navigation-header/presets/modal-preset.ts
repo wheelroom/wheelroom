@@ -100,7 +100,7 @@ export const modalPreset: ModalPreset = {
         flex: '1',
         flexDirection: 'column',
         flexWrap: 'wrap',
-        SelfListRreset: 'none',
+        SelfListReset: 'none',
         mb: 0,
         mt: 0,
         pl: 0,

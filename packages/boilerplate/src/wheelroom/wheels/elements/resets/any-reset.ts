@@ -1,4 +1,4 @@
-import { NcssProps } from '../types'
+import { NcssProps } from '../../types'
 import { aLinkReset } from './a-link-reset'
 import { selfBlockquoteReset } from './self-blockquote-reset'
 import { buttonReset } from './button-reset'

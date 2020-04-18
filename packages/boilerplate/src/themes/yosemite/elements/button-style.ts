@@ -1,4 +1,4 @@
-import { buttonReset } from '../../../wheelroom/wheels/elements/button-reset'
+import { buttonReset } from '../../../wheelroom/wheels/elements/resets/button-reset'
 
 export const buttonStyle = {
   display: 'inline-flex',

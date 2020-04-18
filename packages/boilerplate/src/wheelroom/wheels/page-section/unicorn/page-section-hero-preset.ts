@@ -1,4 +1,4 @@
-import { GridReset } from '../../elements/grid-reset'
+import { GridReset } from '../../elements/resets/grid-reset'
 import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionHeroPreset {

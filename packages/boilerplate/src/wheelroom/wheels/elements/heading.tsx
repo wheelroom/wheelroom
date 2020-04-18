@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { BlockLevelElementName, HeadingName } from './types/element-names'
 import { styledSystem } from '@wheelroom/styled-system'
-import { headingPresets } from './heading-reset'
+import { headingPresets } from './resets/heading-reset'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
 

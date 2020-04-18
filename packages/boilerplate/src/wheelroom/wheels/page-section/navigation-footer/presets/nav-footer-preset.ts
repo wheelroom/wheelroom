@@ -1,5 +1,5 @@
 import { NcssProps } from '../../../types'
-import { GridReset } from '../../../elements/grid-reset'
+import { GridReset } from '../../../elements/resets/grid-reset'
 import { LegalPreset, legalPreset } from './legal-preset'
 import {
   NavFooterSocialListPreset,

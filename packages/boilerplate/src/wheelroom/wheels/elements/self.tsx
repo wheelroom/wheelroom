@@ -1,24 +1,24 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { SelfListRreset, selfListReset } from './self-list-reset'
+import { SelfListReset, selfListReset } from './resets/self-list-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
 import {
   SelfBlockquoteReset,
   selfBlockquoteReset,
-} from './self-blockquote-reset'
-import { SelfCodeRreset, selfCodeReset } from './self-code-reset'
-import { SelfHrRreset, selfHrReset } from './self-hr-reset'
-import { SelfPreReset, selfPreReset } from './self-pre-reset'
-import { SelfStrongReset, selfStrongReset } from './self-strong-reset'
-import { SelfTableReset, selfTableReset } from './self-table-reset'
+} from './resets/self-blockquote-reset'
+import { SelfCodeReset, selfCodeReset } from './resets/self-code-reset'
+import { SelfHrReset, selfHrReset } from './resets/self-hr-reset'
+import { SelfPreReset, selfPreReset } from './resets/self-pre-reset'
+import { SelfStrongReset, selfStrongReset } from './resets/self-strong-reset'
+import { SelfTableReset, selfTableReset } from './resets/self-table-reset'
 
 export type SelfReset =
-  | SelfListRreset
+  | SelfListReset
   | SelfBlockquoteReset
-  | SelfCodeRreset
-  | SelfHrRreset
+  | SelfCodeReset
+  | SelfHrReset
   | SelfPreReset
   | SelfStrongReset
   | SelfTableReset

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { aLinkReset } from './a-link-reset'
+import { aLinkReset } from './resets/a-link-reset'
 import { LinkRelationshipAttribute } from './types/attribute-names'
 import { ElementProps } from './element'
 import { getSelf } from './self'

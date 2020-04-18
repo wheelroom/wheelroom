@@ -1,28 +1,31 @@
 import { ImageReset } from '../elements/image'
 import { VideoReset } from '../elements/video'
-import { GridReset } from '../elements/grid-reset'
-import { SelfStrongReset } from '../elements/self-strong-reset'
-import { SelfCodeRreset } from '../elements/self-code-reset'
-import { SelfPreReset } from '../elements/self-pre-reset'
-import { ParagraphReset } from '../elements/paragraph-reset'
-import { SelfHrRreset } from '../elements/self-hr-reset'
-import { HeadingReset } from '../elements/heading-reset'
-import { SelfBlockquoteReset } from '../elements/self-blockquote-reset'
-import { SelfListRreset } from '../elements/self-list-reset'
-import { ALinkReset } from '../elements/a-link-reset'
-import { imageFigcaptionReset, imageImgReset } from '../elements/image-reset'
+import { GridReset } from '../elements/resets/grid-reset'
+import { SelfStrongReset } from '../elements/resets/self-strong-reset'
+import { SelfCodeReset } from '../elements/resets/self-code-reset'
+import { SelfPreReset } from '../elements/resets/self-pre-reset'
+import { ParagraphReset } from '../elements/resets/paragraph-reset'
+import { SelfHrReset } from '../elements/resets/self-hr-reset'
+import { HeadingReset } from '../elements/resets/heading-reset'
+import { SelfBlockquoteReset } from '../elements/resets/self-blockquote-reset'
+import { SelfListReset } from '../elements/resets/self-list-reset'
+import { ALinkReset } from '../elements/resets/a-link-reset'
+import {
+  imageFigcaptionReset,
+  imageImgReset,
+} from '../elements/resets/image-reset'
 
 export interface TextPreset {
   wrapper: GridReset
-  strong: selfStrongReset
-  code: selfCodeRreset
-  pre: selfPreReset
-  hr: selfHrReset
+  strong: SelfStrongReset
+  code: SelfCodeReset
+  pre: SelfPreReset
+  hr: SelfHrReset
   p: ParagraphReset
-  blockquote: selfBlockquoteReset
-  ul: selfListReset
-  ol: selfListReset
-  li: selfListReset
+  blockquote: SelfBlockquoteReset
+  ul: SelfListReset
+  ol: SelfListReset
+  li: SelfListReset
   inlinesHyperlink: ALinkReset
   entryHyperlink: ALinkReset
   h1: HeadingReset
