@@ -1,8 +1,8 @@
 import { NcssProps } from '../types'
 import { aLinkReset } from './a-link-reset'
-import { blockquoteReset } from './blockquote-reset'
+import { selfBlockquoteReset } from './self-blockquote-reset'
 import { buttonReset } from './button-reset'
-import { codeReset } from './code-reset'
+import { selfCodeReset } from './self-code-reset'
 import {
   heading1Reset,
   heading2Reset,
@@ -11,12 +11,12 @@ import {
   heading5Reset,
   heading6Reset,
 } from './heading-reset'
-import { hrReset } from './hr-reset'
-import { listReset } from './list-reset'
+import { selfHrReset } from './self-hr-reset'
+import { selfListReset } from './self-list-reset'
 import { paragraphReset } from './paragraph-reset'
-import { preReset } from './pre-reset'
-import { strongReset } from './strong-reset'
-import { tableReset } from './table-reset'
+import { selfPreReset } from './self-pre-reset'
+import { selfStrongReset } from './self-strong-reset'
+import { selfTableReset } from './self-table-reset'
 
 export interface AnyReset {
   ncss: NcssProps
@@ -30,21 +30,21 @@ export const anyPreset: AnyReset = {
 
 export const anyResetMap = {
   a: aLinkReset,
-  blockquote: blockquoteReset,
+  blockquote: selfBlockquoteReset,
   button: buttonReset,
-  code: codeReset,
+  code: selfCodeReset,
   h1: heading1Reset,
   h2: heading2Reset,
   h3: heading3Reset,
   h4: heading4Reset,
   h5: heading5Reset,
   h6: heading6Reset,
-  hr: hrReset,
-  ul: listReset,
-  ol: listReset,
-  li: listReset,
+  hr: selfHrReset,
+  ul: selfListReset,
+  ol: selfListReset,
+  li: selfListReset,
   p: paragraphReset,
-  pre: preReset,
-  strong: strongReset,
-  table: tableReset,
+  pre: selfPreReset,
+  strong: selfStrongReset,
+  table: selfTableReset,
 }

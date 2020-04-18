@@ -1,37 +1,37 @@
 import { ImageReset } from '../image-reset'
 import { AnyReset } from '../any-reset'
-import { PreReset } from '../pre-reset'
+import { SelfPreReset } from '../self-pre-reset'
 import { ALinkReset } from '../a-link-reset'
 import { GridReset } from '../grid-reset'
 import { ButtonReset } from '../button-reset'
 import { IconReset } from '../icon-reset'
 import { GLinkReset } from '../g-link-reset'
 import { HeadingReset } from '../heading-reset'
-import { ListReset } from '../list-reset'
+import { SelfListRreset } from '../self-list-reset'
 import { ParagraphReset } from '../paragraph-reset'
 import { VideoReset } from '../video-reset'
-import { HrReset } from '../hr-reset'
-import { StrongReset } from '../strong-reset'
-import { CodeRreset } from '../code-reset'
-import { BlockquoteReset } from '../blockquote-reset'
-import { TableReset } from '../table-reset'
+import { SelfHrRreset } from '../self-hr-reset'
+import { SelfStrongReset } from '../self-strong-reset'
+import { SelfCodeRreset } from '../self-code-reset'
+import { SelfBlockquoteReset } from '../self-blockquote-reset'
+import { SelfTableReset } from '../self-table-reset'
 
 export interface ElementResets {
   any: AnyReset
-  table: TableReset
-  ol: ListReset
-  ul: ListReset
-  li: ListReset
+  table: SelfTableReset
+  ol: SelfListRreset
+  ul: SelfListRreset
+  li: SelfListRreset
   small: ParagraphReset
   sub: ParagraphReset
   sup: ParagraphReset
-  pre: PreReset
-  code: CodeRreset
-  kbd: CodeRreset
-  samp: CodeRreset
-  hr: HrReset
-  strong: StrongReset
-  blockquote: BlockquoteReset
+  pre: SelfPreReset
+  code: SelfCodeRreset
+  kbd: SelfCodeRreset
+  samp: SelfCodeRreset
+  hr: SelfHrRreset
+  strong: SelfStrongReset
+  blockquote: SelfBlockquoteReset
   a: ALinkReset
   box: GridReset
   button: ButtonReset

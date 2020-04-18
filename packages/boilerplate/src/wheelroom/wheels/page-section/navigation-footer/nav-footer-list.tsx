@@ -1,5 +1,5 @@
 import React from 'react'
-import { Ul } from '../../elements/list'
+import { Ul } from '../../elements/self'
 import { NavFooterListItem } from './nav-footer-list-item'
 import { PageProps } from '../../../../models/page'
 import { NavFooterListPreset } from './presets/nav-footer-list-preset'

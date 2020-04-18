@@ -1,10 +1,10 @@
 import { NcssProps } from '../types'
 
-export interface HrReset {
+export interface SelfHrRreset {
   ncss: NcssProps
 }
 
-export const hrReset: HrReset = {
+export const selfHrReset: SelfHrRreset = {
   ncss: {
     /**
      * 1. Add the correct box sizing in Firefox.

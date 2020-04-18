@@ -1,28 +1,28 @@
 import { ImageReset } from '../elements/image'
 import { VideoReset } from '../elements/video'
 import { GridReset } from '../elements/grid-reset'
-import { StrongReset } from '../elements/strong-reset'
-import { CodeRreset } from '../elements/code-reset'
-import { PreReset } from '../elements/pre-reset'
+import { SelfStrongReset } from '../elements/self-strong-reset'
+import { SelfCodeRreset } from '../elements/self-code-reset'
+import { SelfPreReset } from '../elements/self-pre-reset'
 import { ParagraphReset } from '../elements/paragraph-reset'
-import { HrReset } from '../elements/hr-reset'
+import { SelfHrRreset } from '../elements/self-hr-reset'
 import { HeadingReset } from '../elements/heading-reset'
-import { BlockquoteReset } from '../elements/blockquote-reset'
-import { ListReset } from '../elements/list-reset'
+import { SelfBlockquoteReset } from '../elements/self-blockquote-reset'
+import { SelfListRreset } from '../elements/self-list-reset'
 import { ALinkReset } from '../elements/a-link-reset'
 import { imageFigcaptionReset, imageImgReset } from '../elements/image-reset'
 
 export interface TextPreset {
   wrapper: GridReset
-  strong: StrongReset
-  code: CodeRreset
-  pre: PreReset
-  hr: HrReset
+  strong: selfStrongReset
+  code: selfCodeRreset
+  pre: selfPreReset
+  hr: selfHrReset
   p: ParagraphReset
-  blockquote: BlockquoteReset
-  ul: ListReset
-  ol: ListReset
-  li: ListReset
+  blockquote: selfBlockquoteReset
+  ul: selfListReset
+  ol: selfListReset
+  li: selfListReset
   inlinesHyperlink: ALinkReset
   entryHyperlink: ALinkReset
   h1: HeadingReset

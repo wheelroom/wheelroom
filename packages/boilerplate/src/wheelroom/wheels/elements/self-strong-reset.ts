@@ -1,10 +1,10 @@
 import { NcssProps } from '../types'
 
-export interface StrongReset {
+export interface SelfStrongReset {
   ncss: NcssProps
 }
 
-export const strongReset: StrongReset = {
+export const selfStrongReset: SelfStrongReset = {
   ncss: {
     /**
      * Add the correct font weight in Chrome, Edge, and Safari.

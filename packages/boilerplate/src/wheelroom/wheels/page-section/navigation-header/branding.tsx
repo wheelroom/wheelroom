@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Flex } from '../../elements/grid'
 import { GLink } from '../../elements/g-link'
-import { Strong } from '../../elements/strong'
+import { Strong } from '../../elements/self'
 import { BrandingPreset } from './presets/branding-preset'
 import { Wheel } from '../../types'
 import { Sup } from '../../elements/paragraph'

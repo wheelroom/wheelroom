@@ -1,10 +1,10 @@
 import { NcssProps } from '../types'
 
-export interface BlockquoteReset {
+export interface SelfListRreset {
   ncss: NcssProps
 }
 
-export const blockquoteReset: BlockquoteReset = {
+export const selfListReset: SelfListRreset = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

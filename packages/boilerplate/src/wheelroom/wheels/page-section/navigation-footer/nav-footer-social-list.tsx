@@ -1,5 +1,5 @@
 import React from 'react'
-import { Ul } from '../../elements/list'
+import { Ul } from '../../elements/self'
 import { TopicProps } from '../../../../models/topic'
 import { NavFooterSocialListPreset } from './presets/nav-footer-social-list-preset'
 import { Wheel } from '../../types'

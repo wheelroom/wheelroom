@@ -14,7 +14,7 @@ export const navFooterListPreset: NavFooterListPreset = {
     label: 'nav-footer-list',
     display: 'flex',
     flexDirection: 'row',
-    listReset: 'none',
+    SelfListRreset: 'none',
     flexWrap: 'wrap',
     my: 0,
     pl: 0,
