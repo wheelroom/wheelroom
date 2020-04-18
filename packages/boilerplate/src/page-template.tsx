@@ -19,12 +19,12 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 // do so for all pages.
 
 const PageTemplate = (props: any) => {
-  /** Page preview admin module */
+  // Page preview admin module
   const [previewPage, setPreviewPage] = useState()
   useFetchPreviewPage(setPreviewPage)
   const page: PageProps = previewPage || props.data.page
 
-  /** Theme switcher admin module */
+  // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
   const activeThemeId = themeSwitcherStore?.state.activeThemeId
@@ -72,17 +72,13 @@ const PageTemplate = (props: any) => {
       <Global styles={reset} />
       <Global
         styles={{
-          /**
-           * 1. Correct the line height in all browsers.
-           * 2. Prevent adjustments of font size after orientation changes in iOS.
-           */
+          //  1. Correct the line height in all browsers.
+          //  2. Prevent adjustments of font size after orientation changes in iOS.
           html: {
-            lineHeight: '1.15' /* 1 */,
-            WebkitTextSizeAdjust: '100%' /* 2 */,
+            lineHeight: '1.15', // 1
+            WebkitTextSizeAdjust: '100%', // 2
           },
-          /**
-           * Remove the margin in all browsers.
-           */
+          // Remove the margin in all browsers.
           body: {
             margin: 0,
           },

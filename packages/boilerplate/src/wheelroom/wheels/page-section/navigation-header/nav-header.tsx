@@ -23,7 +23,7 @@ export const PageSectionNavigationHeader = (props: {
   useLogoElement?: JSX.Element
   wheel: PageSectionNavigationHeaderWheel
 }) => {
-  /** Theme switcher admin module */
+  // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
   const setActiveTheme = themeSwitcherStore?.actions.setActiveTheme
