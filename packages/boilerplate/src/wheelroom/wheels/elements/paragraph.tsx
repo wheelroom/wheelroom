@@ -20,8 +20,6 @@ export interface ParagraphProps extends ElementProps {
   role?: 'modal' | string | undefined
   /** Aria-modal attribute */
   ariaModal?: boolean
-  /** TtabIndex attribute */
-  tabIndex?: number | undefined
   /** Relationship attribute */
   rel?: LinkRelationshipAttribute | undefined
   /** On click handler */

@@ -22,8 +22,6 @@ export interface GridProps extends ElementProps {
   rel?: LinkRelationshipAttribute | undefined
   /** Role attribute */
   role?: 'modal' | string | undefined
-  /** TabIndex attribute */
-  tabIndex?: number | undefined
   /** On click handler */
   onClick?: () => any
 }
