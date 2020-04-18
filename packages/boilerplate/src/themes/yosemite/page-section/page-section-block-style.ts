@@ -1,5 +1,6 @@
 import { PageSectionBlockPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-block-preset'
-import { elementPresets } from '../element-presets'
+import { elementAsPrimaryButtonStyle } from '../styles/button-style'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const pageSectionBlockStyle: PageSectionBlockPreset = {
   container: {
@@ -13,7 +14,7 @@ export const pageSectionBlockStyle: PageSectionBlockPreset = {
         ncss: {},
         link: {
           ncss: {
-            ...elementPresets.button.ncss,
+            ...elementAsPrimaryButtonStyle,
           },
         },
       },
@@ -57,8 +58,7 @@ export const pageSectionBlockStyle: PageSectionBlockPreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
     },
   },
 }

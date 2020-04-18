@@ -1,4 +1,5 @@
 import { PageSectionVideoPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-video-preset'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const pageSectionVideoStyle: PageSectionVideoPreset = {
   container: {
@@ -52,8 +53,7 @@ export const pageSectionVideoStyle: PageSectionVideoPreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
     },
   },
 }

@@ -1,4 +1,5 @@
 import { PageSectionImagePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-image-preset'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const pageSectionImageStyle: PageSectionImagePreset = {
   container: {
@@ -52,8 +53,7 @@ export const pageSectionImageStyle: PageSectionImagePreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
     },
   },
 }

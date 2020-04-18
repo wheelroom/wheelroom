@@ -1,10 +1,10 @@
 import { NavFooterPreset } from '../../../wheelroom/wheels/page-section/navigation-footer/presets/nav-footer-preset'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const navFooterStyle: NavFooterPreset = {
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
       borderColor: 'sectionBorder',
     },
   },
