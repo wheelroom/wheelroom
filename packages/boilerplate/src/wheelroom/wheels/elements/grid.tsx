@@ -1,17 +1,15 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
 import { InlineElementName, BlockLevelElementName } from './types/element-names'
 import {
   boxReset,
+  flexReset,
   wrapperReset,
   containerReset,
   containerMaxWidthReset,
-  flexReset,
 } from './grid-reset'
-import { styledSystem } from '@wheelroom/styled-system'
 import { LinkRelationshipAttribute } from './types/attribute-names'
-import { mergeNcss } from '../../lib/merge-ncss'
-import { ElementProps, getElementAttrs } from './element'
+import { ElementProps } from './element'
+import { getSelf } from './self'
 
 export interface GridProps extends ElementProps {
   /** Aria-modal attribute */
@@ -26,98 +24,48 @@ export interface GridProps extends ElementProps {
   onClick?: () => any
 }
 
-const getAttrs = (props: GridProps) => {
-  const attrs = {
-    ...getElementAttrs(props),
+const getExtraAttrs = (props: GridProps) => {
+  return {
     'aria-modal': props.ariaModal,
     rel: props.rel,
     role: props.role,
     onClick: props.onClick,
   }
-  return attrs
 }
 
 export const Box = (props: GridProps) => {
-  const label = { ncss: { label: 'box' } }
-  const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    mergeNcss([
-      label,
-      boxReset,
-      props.wheel.elementPresets.box,
-      props.wheel.style,
-      props,
-    ])
-  )
-  return jsx(props.is || 'div', attrs, props.children)
+  const extraAttrs = getExtraAttrs(props)
+  return getSelf(props, boxReset, 'box', extraAttrs, props.is || 'div')
 }
 
 export const Flex = (props: GridProps) => {
-  const label = { ncss: { label: 'flex' } }
-  const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    mergeNcss([
-      label,
-      flexReset,
-      props.wheel.elementPresets.flex,
-      props.wheel.style,
-      props,
-    ])
-  )
-  return jsx(props.is || 'div', attrs, props.children)
+  const extraAttrs = getExtraAttrs(props)
+  return getSelf(props, flexReset, 'flex', extraAttrs, props.is || 'div')
 }
 
 export const Wrapper = (props: GridProps) => {
-  const label = { ncss: { label: 'wrapper' } }
-  const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    mergeNcss([
-      label,
-      wrapperReset,
-      props.wheel.elementPresets.wrapper,
-      props.wheel.style,
-      props,
-    ])
-  )
-  return jsx(props.is || 'div', attrs, props.children)
+  const extraAttrs = getExtraAttrs(props)
+  return getSelf(props, wrapperReset, 'wrapper', extraAttrs, props.is || 'div')
 }
 
 export const Container = (props: GridProps) => {
-  const label = { ncss: { label: 'container' } }
-  const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    mergeNcss([
-      label,
-      containerReset,
-      props.wheel.elementPresets.container,
-      props.wheel.style,
-      props,
-    ])
+  const extraAttrs = getExtraAttrs(props)
+  return getSelf(
+    props,
+    containerReset,
+    'container',
+    extraAttrs,
+    props.is || 'div'
   )
-  return jsx(props.is || 'div', attrs, props.children)
 }
 
 export const ContainerMaxWidth = (props: GridProps) => {
-  const label = { ncss: { label: 'container-max-width' } }
-  const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    mergeNcss([
-      label,
-      containerMaxWidthReset,
-      props.wheel.elementPresets.containerMaxWidth,
-      props.wheel.style,
-      props,
-    ])
+  const extraAttrs = getExtraAttrs(props)
+  return getSelf(
+    props,
+    containerMaxWidthReset,
+    'containerMaxWidth',
+    extraAttrs,
+    props.is || 'div'
   )
-  return jsx(props.is || 'div', attrs, props.children)
 }

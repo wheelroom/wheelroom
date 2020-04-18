@@ -33,6 +33,7 @@ type GetElementAttrsProps =
   | ALinkProps
   | AnyProps
   | ButtonProps
+  | ElementProps
   | FeatherIconProps
   | GLinkProps
   | GridProps
@@ -40,11 +41,15 @@ type GetElementAttrsProps =
   | ParagraphProps
   | TextIconProps
 
-export const getElementAttrs = (props: GetElementAttrsProps) => ({
+export const getElementAttrs = (
+  props: GetElementAttrsProps,
+  extraAttrs: any = {}
+) => ({
   'aria-hidden': props.ariaHidden,
   'aria-label': props.ariaLabel,
   hidden: props.hidden,
   id: props.id,
   'tab-index': props.tabIndex,
   title: props.title,
+  ...extraAttrs,
 })

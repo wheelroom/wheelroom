@@ -23,10 +23,12 @@ export type SelfReset =
   | SelfStrongReset
   | SelfTableReset
 
-const getSelf = (
+export const getSelf = (
   props: ElementProps,
   reset: SelfReset,
-  elementName: string
+  elementName: string,
+  extraAttrs: any = {},
+  htmlName = ''
 ) => {
   const label = { ncss: { label: elementName } }
   const ncss = mergeNcss([
@@ -36,13 +38,13 @@ const getSelf = (
     props.wheel.style,
     props,
   ])
-  const attrs: any = getElementAttrs(props)
+  const attrs: any = getElementAttrs(props, extraAttrs)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
     props.wheel.theme,
     ncss
   )
-  return jsx(elementName, attrs, props.children)
+  return jsx(htmlName || elementName, attrs, props.children)
 }
 
 export const Blockquote = (props: ElementProps) => {

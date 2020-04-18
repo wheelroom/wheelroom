@@ -1,13 +1,11 @@
 /** @jsx jsx */
 import React from 'react'
-import { jsx } from '@emotion/core'
 import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { buttonReset } from './button-reset'
-import { styledSystem } from '@wheelroom/styled-system'
-import { mergeNcss } from '../../lib/merge-ncss'
-import { ElementProps, getElementAttrs } from './element'
+import { ElementProps } from './element'
+import { getSelf } from './self'
 
 export interface ButtonProps extends ElementProps {
   /** Button aria-controls attribute */
@@ -30,9 +28,9 @@ export interface ButtonProps extends ElementProps {
   onClick?: () => any
 }
 
-const getAttrs = (props: ButtonProps) => {
-  const attrs = {
-    ...getElementAttrs(props),
+export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
+  const { adminCoreState } = useContext(AdminCoreContext)
+  const extraAttrs: any = {
     'aria-controls': props.ariaControls,
     'aria-expanded': props.ariaExpanded,
     'aria-label': props.ariaLabel,
@@ -42,25 +40,7 @@ const getAttrs = (props: ButtonProps) => {
     role: props.role,
     type: props.type,
   }
-  return attrs
-}
-
-export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
-  const { adminCoreState } = useContext(AdminCoreContext)
-  const label = { ncss: { label: 'button' } }
-  const attrs: any = getAttrs(props)
-  attrs.ref = ref
-  attrs.value = props.value + getPreviewQueryString(adminCoreState)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    mergeNcss([
-      label,
-      buttonReset,
-      props.wheel.elementPresets.button,
-      props.wheel.style,
-      props,
-    ])
-  )
-  return jsx('button', attrs, props.children)
+  extraAttrs.ref = ref
+  extraAttrs.value = props.value + getPreviewQueryString(adminCoreState)
+  return getSelf(props, buttonReset, 'button', extraAttrs)
 })
