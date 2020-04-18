@@ -1,7 +1,10 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { videoVideoElementStyle, videoDescriptionReset } from './resets/video-reset'
+import {
+  videoVideoElementStyle,
+  videoDescriptionReset,
+} from './resets/video-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
 import { MediaObject } from './types/media'
