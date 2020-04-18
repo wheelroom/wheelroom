@@ -14,10 +14,7 @@ export const NavFooterSocialListItemLink = (props: {
   wheel: NavFooterSocialListItemLinkWheel
 }) => {
   return (
-    <Action
-      {...props.topic.actions[0]}
-      wheel={props.wheel}
-    >
+    <Action {...props.topic.actions[0]} wheel={props.wheel}>
       <FeatherIcon
         icon={props.topic.icon as string}
         wheel={{ ...props.wheel, style: props.wheel.style.icon }}

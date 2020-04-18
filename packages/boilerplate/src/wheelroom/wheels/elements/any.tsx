@@ -5,6 +5,7 @@ import { styledSystem } from '@wheelroom/styled-system'
 import { anyPreset, anyResetMap } from './resets/any-reset'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
+import { ElementStyles } from './types/element-styles'
 
 export interface AnyProps extends ElementProps {
   /** Aria-modal attribute */
@@ -29,6 +30,8 @@ const getAttrs = (props: AnyProps) => {
   return attrs
 }
 
+type ElementStylesKey = keyof ElementStyles
+
 const getPolyPreset = (props: AnyProps) => {
   const resetMap = anyResetMap as any
   let polyPreset = { ncss: {} }
@@ -39,7 +42,7 @@ const getPolyPreset = (props: AnyProps) => {
   ) {
     polyPreset = mergeNcss([
       resetMap[props.is],
-      props.wheel.elementStyles[props.is],
+      props.wheel.elementStyles[props.is as ElementStylesKey],
     ])
   }
   return polyPreset
