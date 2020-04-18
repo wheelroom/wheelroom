@@ -1,6 +1,6 @@
-import { PageSectionGalleryPreset } from '../../../../wheelroom/wheels/page-section/unicorn/page-section-gallery-preset'
+import { PageSectionVideoPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-video-preset'
 
-export const pageSectionGalleryStyle: PageSectionGalleryPreset = {
+export const pageSectionVideoStyle: PageSectionVideoPreset = {
   container: {
     ncss: {},
   },

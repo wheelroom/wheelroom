@@ -1,4 +1,4 @@
-import { NavFooterPreset } from '../../../../wheelroom/wheels/page-section/navigation-footer/presets/nav-footer-preset'
+import { NavFooterPreset } from '../../../wheelroom/wheels/page-section/navigation-footer/presets/nav-footer-preset'
 
 export const navFooterStyle: NavFooterPreset = {
   wrapper: {

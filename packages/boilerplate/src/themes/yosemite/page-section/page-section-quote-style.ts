@@ -1,6 +1,6 @@
-import { PageSectionBlockPreset } from '../../../../wheelroom/wheels/page-section/unicorn/page-section-block-preset'
+import { PageSectionQuotePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-quote-preset'
 
-export const pageSectionBlockStyle: PageSectionBlockPreset = {
+export const pageSectionQuoteStyle: PageSectionQuotePreset = {
   container: {
     ncss: {},
   },
@@ -23,9 +23,7 @@ export const pageSectionBlockStyle: PageSectionBlockPreset = {
           ncss: {},
         },
         icon: {
-          ncss: {
-            mb: 3,
-          },
+          ncss: {},
         },
       },
     },
@@ -33,10 +31,19 @@ export const pageSectionBlockStyle: PageSectionBlockPreset = {
       ncss: {},
       image: {
         img: {
-          ncss: {},
+          ncss: {
+            h: 1,
+            objectFit: 'cover',
+          },
         },
         picture: {
-          ncss: {},
+          ncss: {
+            overflow: 'hidden',
+            h: '200px',
+            w: '200px',
+            borderRadius: '100px',
+            mx: 'auto',
+          },
         },
         figcaption: {
           ncss: {},

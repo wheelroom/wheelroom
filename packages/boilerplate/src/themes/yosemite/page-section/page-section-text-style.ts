@@ -1,4 +1,4 @@
-import { PageSectionFreestylePreset } from '../../../../wheelroom/wheels/page-section/freestyle/page-section-freestyle-preset'
+import { PageSectionFreestylePreset } from '../../../wheelroom/wheels/page-section/freestyle/page-section-freestyle-preset'
 
 export const pageSectionFreestyleStyle: PageSectionFreestylePreset = {
   container: {

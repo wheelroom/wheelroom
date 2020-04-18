@@ -13,7 +13,7 @@ import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { pageSectionDividerStyle } from '../../themes/yosemite/page-section/divider/page-section-divider-style'
+import { pageSectionDividerStyle } from '../../themes/yosemite/page-section/page-section-divider-style'
 import { Hr } from '../../wheelroom/wheels/elements/hr'
 
 export const PageSectionDividerVar = (props: PageSectionProps) => {
