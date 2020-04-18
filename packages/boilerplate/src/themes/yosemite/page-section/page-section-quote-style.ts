@@ -1,4 +1,5 @@
 import { PageSectionQuotePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-quote-preset'
+import { elementPresets } from '../element-presets'
 
 export const pageSectionQuoteStyle: PageSectionQuotePreset = {
   container: {
@@ -11,7 +12,9 @@ export const pageSectionQuoteStyle: PageSectionQuotePreset = {
       actions: {
         ncss: {},
         link: {
-          ncss: {},
+          ncss: {
+            ...elementPresets.button.ncss,
+          },
         },
       },
       text: {

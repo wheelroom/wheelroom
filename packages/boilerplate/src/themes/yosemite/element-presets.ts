@@ -30,7 +30,6 @@ export const elementPresets: ElementsPresets = {
   },
   button: {
     ncss: {
-      cursor: 'pointer',
       display: 'inline-flex',
       justifyContent: 'center',
       px: 3,
@@ -41,7 +40,7 @@ export const elementPresets: ElementsPresets = {
       borderWidth: '1px',
       borderStyle: 'solid',
       borderColor: 'azure',
-      borderRadius: '4px',
+      borderRadius: 4,
       textDecoration: 'none',
     },
   },
@@ -70,22 +69,25 @@ export const elementPresets: ElementsPresets = {
   h1: {
     ncss: {
       ...headingStyle,
-      fontSize: [8, 9, 10, 11],
+      fontSize: [10, 11, 12, 13],
     },
   },
   h2: {
     ncss: {
       ...headingStyle,
+      fontSize: [9, 10, 11, 12],
     },
   },
   h3: {
     ncss: {
       ...headingStyle,
+      fontSize: [5, 6, 7, 8],
     },
   },
   h4: {
     ncss: {
       ...headingStyle,
+      fontSize: [5, 6, 7, 8],
     },
   },
   h5: {

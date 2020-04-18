@@ -1,4 +1,5 @@
 import { PageSectionCardPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
+import { elementPresets } from '../element-presets'
 
 export const pageSectionCardStyle: PageSectionCardPreset = {
   container: {
@@ -25,7 +26,9 @@ export const pageSectionCardStyle: PageSectionCardPreset = {
       actions: {
         ncss: {},
         link: {
-          ncss: {},
+          ncss: {
+            ...elementPresets.button.ncss,
+          },
         },
       },
       text: {

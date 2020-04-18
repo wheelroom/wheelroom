@@ -1,4 +1,5 @@
 import { PageSectionBlockPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-block-preset'
+import { elementPresets } from '../element-presets'
 
 export const pageSectionBlockStyle: PageSectionBlockPreset = {
   container: {
@@ -11,7 +12,9 @@ export const pageSectionBlockStyle: PageSectionBlockPreset = {
       actions: {
         ncss: {},
         link: {
-          ncss: {},
+          ncss: {
+            ...elementPresets.button.ncss,
+          },
         },
       },
       text: {

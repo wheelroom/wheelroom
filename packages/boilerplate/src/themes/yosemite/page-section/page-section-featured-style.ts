@@ -1,4 +1,5 @@
 import { PageSectionFeaturedPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-featured-preset'
+import { elementPresets } from '../element-presets'
 
 export const pageSectionFeaturedStyle: PageSectionFeaturedPreset = {
   container: {
@@ -11,7 +12,9 @@ export const pageSectionFeaturedStyle: PageSectionFeaturedPreset = {
       actions: {
         ncss: {},
         link: {
-          ncss: {},
+          ncss: {
+            ...elementPresets.button.ncss,
+          },
         },
       },
       text: {
