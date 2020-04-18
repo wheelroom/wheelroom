@@ -5,6 +5,7 @@ export const colors = {
   azure: '#06c',
   amber: '#FCA623',
   silver: '#EEE',
+  grey: '#CCC',
   metal: '#AAA',
   bullet: '#666',
   caviar: '#222',

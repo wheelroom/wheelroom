@@ -9,19 +9,25 @@ export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
   topic: {
     ncss: {},
     content: {
-      ncss: {},
+      ncss: {
+        py: 5,
+      },
       actions: {
         ncss: {},
         link: {
           ncss: {
             ...elementAsPrimaryButtonStyle,
+            fontSize: [6, 6, 7, 7],
           },
         },
       },
       text: {
         ncss: {},
         abstract: {
-          ncss: {},
+          ncss: {
+            fontSize: [7, 7, 8, 8],
+            mb: 5,
+          },
         },
         heading: {
           ncss: {},

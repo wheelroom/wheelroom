@@ -10,19 +10,29 @@ export const pageSectionFreestyleStyle: PageSectionFreestylePreset = {
       ncss: {},
     },
     h2: {
-      ncss: {},
+      ncss: {
+        pt: 3,
+      },
     },
     h3: {
-      ncss: {},
+      ncss: {
+        pt: 3,
+      },
     },
     h4: {
-      ncss: {},
+      ncss: {
+        pt: 3,
+      },
     },
     h5: {
-      ncss: {},
+      ncss: {
+        pt: 3,
+      },
     },
     h6: {
-      ncss: {},
+      ncss: {
+        pt: 3,
+      },
     },
     ul: {
       ncss: {},

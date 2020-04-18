@@ -17,7 +17,7 @@ export const yosemiteLight: StyledSystemTheme = {
 
     sectionBg: colors.white,
     sectionText: colors.ghost,
-    sectionBorder: colors.silver,
+    sectionBorder: colors.grey,
 
     cardBorder: colors.silver,
     cardShadow: colors.silver,

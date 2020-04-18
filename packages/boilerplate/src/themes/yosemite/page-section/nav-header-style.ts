@@ -91,8 +91,10 @@ export const navHeaderStyle: NavHeaderPreset = {
         visible: {
           ncss: {
             bg: 'sectionBg',
-            color: 'sectionText',
-            borderColor: 'sectionBorder',
+            borderColor: 'modalBorder',
+            borderRadius: 4,
+            boxShadow: '0 0 16px',
+            color: 'modalShadow',
           },
         },
         hidden: {
@@ -118,16 +120,21 @@ export const navHeaderStyle: NavHeaderPreset = {
           },
         },
         actions: {
-          ncss: {},
+          ncss: {
+            flexDirection: 'row',
+          },
           action: {
             ncss: {
               ...elementAsPrimaryButtonStyle,
-              mb: 2,
+              mb: 0,
+              w: [1 / 2],
             },
           },
           themeButton: {
             ncss: {
               ...secondaryButtonStyle,
+              ml: 2,
+              w: [1 / 2],
             },
           },
         },

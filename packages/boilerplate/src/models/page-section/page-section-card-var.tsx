@@ -19,7 +19,10 @@ import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { pageSectionCardStyle } from '../../themes/yosemite/page-section/page-section-card-style'
+import {
+  pageSectionCardShadowStyle,
+  pageSectionCardStyle,
+} from '../../themes/yosemite/page-section/page-section-card-style'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -33,7 +36,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   const styleShadow = deepMerge([
     { topic: topicPreset },
     pageSectionCardPreset,
-    pageSectionCardStyle,
+    pageSectionCardShadowStyle,
   ])
 
   const wheel: Wheel = {
@@ -42,6 +45,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }
+
   const wheelShadow: Wheel = {
     style: styleShadow,
     elementPresets,
@@ -60,7 +64,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        wheel={pageSectionInfo.topicOptions.hideAction ? wheel : wheelShadow}
+        wheel={wheel}
       />
     )
   }

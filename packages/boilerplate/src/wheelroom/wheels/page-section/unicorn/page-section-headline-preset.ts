@@ -18,7 +18,7 @@ export const pageSectionHeadlinePreset: PageSectionHeadlinePreset = {
         textAlign: 'center',
         mx: 'auto',
         p: 3,
-        maxWidth: [1, '960px', '1024px'],
+        maxWidth: [1, '768px'],
       },
       actions: {
         ncss: {},

@@ -13,12 +13,6 @@ export const pageSectionCardStyle: PageSectionCardPreset = {
       boxShadow: '0 0 16px',
       textDecoration: 'none',
       color: 'cardShadow',
-      transition: 'transform .25s ease 0s',
-      transform: 'scale(1)',
-      ':hover': {
-        cursor: 'pointer',
-        transform: 'scale(1.05)',
-      },
     },
     content: {
       ncss: {
@@ -73,6 +67,20 @@ export const pageSectionCardStyle: PageSectionCardPreset = {
   wrapper: {
     ncss: {
       ...wrapperStyle,
+    },
+  },
+}
+
+export const pageSectionCardShadowStyle = {
+  ...pageSectionCardStyle,
+  topic: {
+    ncss: {
+      transition: 'transform .25s ease 0s',
+      transform: 'scale(1)',
+      ':hover': {
+        cursor: 'pointer',
+        transform: 'scale(1.05)',
+      },
     },
   },
 }

@@ -70,8 +70,8 @@ const PageTemplate = (props: any) => {
   }
   const backgroundColor =
     activeThemeId === 'light'
-      ? (yosemiteDark as any).colorMap.sectionBg
-      : (yosemiteLight as any).colorMap.sectionBg
+      ? (yosemiteLight as any).colorMap.sectionBg
+      : (yosemiteDark as any).colorMap.sectionBg
 
   return (
     <Fragment>
