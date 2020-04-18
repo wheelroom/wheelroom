@@ -1,27 +1,27 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { SelfListReset, selfListReset } from './resets/self-list-reset'
+import { ListElementStyle, selfListReset } from './resets/self-list-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
 import {
-  SelfBlockquoteReset,
+  BlockquoteElementStyle,
   selfBlockquoteReset,
 } from './resets/self-blockquote-reset'
-import { SelfCodeReset, selfCodeReset } from './resets/self-code-reset'
-import { SelfHrReset, selfHrReset } from './resets/self-hr-reset'
-import { SelfPreReset, selfPreReset } from './resets/self-pre-reset'
-import { SelfStrongReset, selfStrongReset } from './resets/self-strong-reset'
-import { SelfTableReset, selfTableReset } from './resets/self-table-reset'
+import { CodeElementStyle, selfCodeReset } from './resets/self-code-reset'
+import { HrElementStyle, selfHrReset } from './resets/self-hr-reset'
+import { PreElementStyle, selfPreReset } from './resets/self-pre-reset'
+import { StrongElementStyle, selfStrongReset } from './resets/self-strong-reset'
+import { TableElementStyle, selfTableReset } from './resets/self-table-reset'
 
 export type SelfReset =
-  | SelfListReset
-  | SelfBlockquoteReset
-  | SelfCodeReset
-  | SelfHrReset
-  | SelfPreReset
-  | SelfStrongReset
-  | SelfTableReset
+  | ListElementStyle
+  | BlockquoteElementStyle
+  | CodeElementStyle
+  | HrElementStyle
+  | PreElementStyle
+  | StrongElementStyle
+  | TableElementStyle
 
 export const getSelf = (
   props: ElementProps,

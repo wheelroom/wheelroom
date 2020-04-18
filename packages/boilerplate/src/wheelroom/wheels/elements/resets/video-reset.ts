@@ -1,17 +1,17 @@
 import { NcssProps } from '../../types'
 
-export interface VideoReset {
+export interface VideoElementStyle {
   ncss: NcssProps
 }
 
-export const videoVideoReset: VideoReset = {
+export const videoVideoElementStyle: VideoElementStyle = {
   ncss: {
     height: 'auto',
     width: '100%',
   },
 }
 
-export const videoDescriptionReset: VideoReset = {
+export const videoDescriptionReset: VideoElementStyle = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

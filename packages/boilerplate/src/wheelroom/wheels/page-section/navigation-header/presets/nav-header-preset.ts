@@ -1,5 +1,5 @@
 import { NcssProps } from '../../../types'
-import { GridReset } from '../../../elements/resets/grid-reset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
 import { BrandingPreset, brandingPreset } from './branding-preset'
 import {
   NavHeaderActionsPreset,
@@ -11,12 +11,12 @@ import {
   NavHeaderListPreset,
   navHeaderListPreset,
 } from './nav-header-list-preset'
-import { ButtonReset } from '../../../elements/resets/button-reset'
+import { ButtonElementStyle } from '../../../elements/resets/button-reset'
 
 export interface NavHeaderPreset {
   skipToContent: NcssProps
-  wrapper: GridReset
-  container: GridReset
+  wrapper: GridElementStyle
+  container: GridElementStyle
   branding: BrandingPreset
   navHeader: {
     ncss: NcssProps
@@ -25,7 +25,7 @@ export interface NavHeaderPreset {
   }
   modal: {
     ncss: NcssProps
-    button: ButtonReset
+    button: ButtonElementStyle
     dialog: ModalPreset
   }
 }

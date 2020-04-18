@@ -21,7 +21,7 @@ export const primaryButtonStyle = {
 }
 
 export const elementAsPrimaryButtonStyle = {
-  // First set a ButtonReset on a element that isn't a <Button />
+  // First set a ButtonElementStyle on a element that isn't a <Button />
   ...buttonReset,
   ...primaryButtonStyle,
 }

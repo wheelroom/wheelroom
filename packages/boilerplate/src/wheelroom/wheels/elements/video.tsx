@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { videoVideoReset, videoDescriptionReset } from './resets/video-reset'
+import { videoVideoElementStyle, videoDescriptionReset } from './resets/video-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel, NcssProps } from '../types'
 import { MediaObject } from './types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
 
-export interface VideoReset {
+export interface VideoElementStyle {
   video: {
     ncss: NcssProps
   }
@@ -70,7 +70,7 @@ export const Video = (props: VideoProps) => {
           props.wheel.theme,
           mergeNcss([
             videoLabel,
-            videoVideoReset,
+            videoVideoElementStyle,
             props.wheel.elementPresets.video.video,
             video,
           ])

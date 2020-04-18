@@ -10,7 +10,7 @@ import { styledSystem } from '@wheelroom/styled-system'
 import { MediaObject } from './types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
 
-export interface ImageReset {
+export interface ImageElementStyle {
   picture: {
     ncss: NcssProps
   }

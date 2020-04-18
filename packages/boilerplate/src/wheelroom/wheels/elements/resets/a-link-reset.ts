@@ -1,10 +1,10 @@
 import { NcssProps } from '../../types'
 
-export interface ALinkReset {
+export interface ALinkElementStyle {
   ncss: NcssProps
 }
 
-export const aLinkReset: ALinkReset = {
+export const aLinkReset: ALinkElementStyle = {
   ncss: {
     // Remove the gray background on active links in IE 10.
     bg: 'transparent',

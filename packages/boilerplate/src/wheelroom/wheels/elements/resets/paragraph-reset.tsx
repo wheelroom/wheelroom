@@ -1,17 +1,17 @@
 import { NcssProps } from '../../types'
 
-export interface ParagraphReset {
+export interface ParagraphElementStyle {
   ncss: NcssProps
 }
 
-export const paragraphReset: ParagraphReset = {
+export const paragraphReset: ParagraphElementStyle = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const smallReset: ParagraphReset = {
+export const smallReset: ParagraphElementStyle = {
   ncss: {
     // Add the correct font size in all browsers.
     ...paragraphReset.ncss,
@@ -31,14 +31,14 @@ export const subSupReset = {
   },
 }
 
-export const subReset: ParagraphReset = {
+export const subReset: ParagraphElementStyle = {
   ncss: {
     ...subSupReset.ncss,
     bottom: '-0.25em',
   },
 }
 
-export const supReset: ParagraphReset = {
+export const supReset: ParagraphElementStyle = {
   ncss: {
     ...subSupReset.ncss,
     top: '-0.5em',

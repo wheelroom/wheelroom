@@ -1,37 +1,37 @@
 import { NcssProps } from '../../types'
 
-export interface GridReset {
+export interface GridElementStyle {
   ncss: NcssProps
 }
 
-export const boxReset: GridReset = {
+export const boxReset: GridElementStyle = {
   ncss: {
     boxSizing: 'border-box',
   },
 }
 
-export const flexReset: GridReset = {
+export const flexReset: GridElementStyle = {
   ncss: {
     ...boxReset.ncss,
     display: 'flex',
   },
 }
 
-export const wrapperReset: GridReset = {
+export const wrapperReset: GridElementStyle = {
   ncss: {
     ...boxReset.ncss,
     py: 3,
   },
 }
 
-export const containerReset: GridReset = {
+export const containerReset: GridElementStyle = {
   ncss: {
     ...flexReset.ncss,
     w: 1,
   },
 }
 
-export const containerMaxWidthReset: GridReset = {
+export const containerMaxWidthReset: GridElementStyle = {
   ncss: {
     ...containerReset.ncss,
     maxWidth: '1280px',

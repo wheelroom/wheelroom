@@ -1,12 +1,12 @@
 import { NcssProps } from '../../../types'
-import { ALinkReset } from '../../../elements/resets/a-link-reset'
-import { ParagraphReset } from '../../../elements/resets/paragraph-reset'
+import { ALinkElementStyle } from '../../../elements/resets/a-link-reset'
+import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
 
 export interface BrandingPreset {
   ncss: NcssProps
   logo: NcssProps
-  link: ALinkReset
-  sup: ParagraphReset
+  link: ALinkElementStyle
+  sup: ParagraphElementStyle
 }
 
 export const brandingPreset: BrandingPreset = {

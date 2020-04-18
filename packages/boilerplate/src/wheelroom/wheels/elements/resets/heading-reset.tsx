@@ -1,10 +1,10 @@
 import { NcssProps } from '../../types'
 
-export interface HeadingReset {
+export interface HeadingElementStyle {
   ncss: NcssProps
 }
 
-export const headingPreset: HeadingReset = {
+export const headingPreset: HeadingElementStyle = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
@@ -12,7 +12,7 @@ export const headingPreset: HeadingReset = {
 }
 
 // These styles are added to H1, H2, H3, H4, H5 and H6 as presets
-export const heading1Reset: HeadingReset = {
+export const heading1Reset: HeadingElementStyle = {
   ncss: {
     // Correct the font size and margin on `h1` elements within `section` and
     // `article` contexts in Chrome, Firefox, and Safari.
@@ -23,31 +23,31 @@ export const heading1Reset: HeadingReset = {
   },
 }
 
-export const heading2Reset: HeadingReset = {
+export const heading2Reset: HeadingElementStyle = {
   ncss: {
     ...headingPreset.ncss,
   },
 }
 
-export const heading3Reset: HeadingReset = {
+export const heading3Reset: HeadingElementStyle = {
   ncss: {
     ...headingPreset.ncss,
   },
 }
 
-export const heading4Reset: HeadingReset = {
+export const heading4Reset: HeadingElementStyle = {
   ncss: {
     ...headingPreset.ncss,
   },
 }
 
-export const heading5Reset: HeadingReset = {
+export const heading5Reset: HeadingElementStyle = {
   ncss: {
     ...headingPreset.ncss,
   },
 }
 
-export const heading6Reset: HeadingReset = {
+export const heading6Reset: HeadingElementStyle = {
   ...headingPreset.ncss,
 }
 

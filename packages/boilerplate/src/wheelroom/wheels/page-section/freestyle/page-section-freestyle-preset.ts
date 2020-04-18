@@ -1,10 +1,10 @@
-import { GridReset } from '../../elements/resets/grid-reset'
+import { GridElementStyle } from '../../elements/resets/grid-reset'
 import { TextPreset, textPreset } from '../../text/text-preset'
 
 export interface PageSectionFreestylePreset {
-  container: GridReset
+  container: GridElementStyle
   text: TextPreset
-  wrapper: GridReset
+  wrapper: GridElementStyle
 }
 
 export const pageSectionFreestylePreset: PageSectionFreestylePreset = {

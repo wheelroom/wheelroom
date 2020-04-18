@@ -1,10 +1,10 @@
 import { NcssProps } from '../../types'
 
-export interface SelfListReset {
+export interface ListElementStyle {
   ncss: NcssProps
 }
 
-export const selfListReset: SelfListReset = {
+export const selfListReset: ListElementStyle = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

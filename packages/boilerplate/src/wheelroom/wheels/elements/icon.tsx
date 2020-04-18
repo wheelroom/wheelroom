@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from './grid'
 import { IconMap } from '../../svg/feather/iconMap'
-import { featherIconReset, textIconReset } from './resets/icon-reset'
+import { featherIconElementStyle, textIconElementStyle } from './resets/icon-reset'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
 
@@ -17,7 +17,7 @@ export const FeatherIcon = (props: FeatherIconProps) => {
 
     const ncss = mergeNcss([
       label,
-      featherIconReset,
+      featherIconElementStyle,
       props.wheel.elementPresets.featherIcon,
       props.wheel.style,
       props,
@@ -39,7 +39,7 @@ export const TextIcon = (props: TextIconProps) => {
   const attrs: any = getElementAttrs(props)
   const ncss = mergeNcss([
     label,
-    textIconReset,
+    textIconElementStyle,
     props.wheel.elementPresets.textIcon,
     props.wheel.style,
     props,

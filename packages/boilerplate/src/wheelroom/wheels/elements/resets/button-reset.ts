@@ -1,10 +1,10 @@
 import { NcssProps } from '../../types'
 
-export interface ButtonReset {
+export interface ButtonElementStyle {
   ncss: NcssProps
 }
 
-export const buttonReset: ButtonReset = {
+export const buttonReset: ButtonElementStyle = {
   ncss: {
     // Correct the inability to style clickable types in iOS and Safari.
     WebkitAppearance: 'button',

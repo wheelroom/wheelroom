@@ -1,10 +1,10 @@
-import { GridReset } from '../../elements/resets/grid-reset'
+import { GridElementStyle } from '../../elements/resets/grid-reset'
 import { TopicPreset } from '../../topic/presets/topic-preset'
 
 export interface PageSectionHeroPreset {
-  container: GridReset
+  container: GridElementStyle
   topic: TopicPreset
-  wrapper: GridReset
+  wrapper: GridElementStyle
 }
 
 export const pageSectionHeroPreset: PageSectionHeroPreset = {

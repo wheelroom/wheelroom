@@ -1,9 +1,9 @@
 import { NcssProps } from '../../../types'
-import { ButtonReset, buttonReset } from '../../../elements/resets/button-reset'
+import { ButtonElementStyle, buttonReset } from '../../../elements/resets/button-reset'
 
 export interface NavHeaderActionsPreset {
   ncss: NcssProps
-  action: ButtonReset
+  action: ButtonElementStyle
   themeButton: NcssProps
 }
 

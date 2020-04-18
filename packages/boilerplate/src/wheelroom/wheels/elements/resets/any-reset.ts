@@ -18,11 +18,11 @@ import { selfPreReset } from './self-pre-reset'
 import { selfStrongReset } from './self-strong-reset'
 import { selfTableReset } from './self-table-reset'
 
-export interface AnyReset {
+export interface AnyElementStyle {
   ncss: NcssProps
 }
 
-export const anyPreset: AnyReset = {
+export const anyPreset: AnyElementStyle = {
   ncss: {
     boxSizing: 'border-box',
   },
