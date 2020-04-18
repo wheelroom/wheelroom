@@ -29,10 +29,14 @@ export const navHeaderStyle: NavHeaderPreset = {
       ncss: {},
     },
     link: {
-      ncss: {},
+      ncss: {
+        color: 'sectionText',
+      },
     },
     sup: {
-      ncss: {},
+      ncss: {
+        color: 'bullet',
+      },
     },
   },
   navHeader: {

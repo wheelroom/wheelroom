@@ -42,10 +42,18 @@ export const navFooterStyle: NavFooterPreset = {
     promise: {
       ncss: {},
       link: {
-        ncss: {},
+        ncss: {
+          color: 'sectionText',
+          textDecoration: 'none',
+          ':hover': {
+            textDecoration: 'underline',
+          },
+        },
       },
       sup: {
-        ncss: {},
+        ncss: {
+          color: 'bullet',
+        },
       },
     },
   },

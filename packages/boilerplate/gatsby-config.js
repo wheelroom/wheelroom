@@ -82,7 +82,7 @@ module.exports = {
     siteUrl: 'https://www.wheelroom.io',
     legal: {
       version: packageJson.wheelroom.version,
-      description: 'Made with ❤ by Wheelroom',
+      description: 'Made with Wheelroom',
       url: 'https://www.wheelroom.io',
     },
     secrets: {
