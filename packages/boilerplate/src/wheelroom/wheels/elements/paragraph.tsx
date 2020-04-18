@@ -5,8 +5,8 @@ import {
   paragraphReset,
   smallReset,
   subReset,
-  subSupReset,
   supReset,
+  ParagraphReset,
 } from './paragraph-reset'
 import { styledSystem } from '@wheelroom/styled-system'
 import { LinkRelationshipAttribute } from './types/attribute-names'
@@ -37,75 +37,40 @@ const getAttrs = (props: ParagraphProps) => {
   return attrs
 }
 
-export const Paragraph = (props: ParagraphProps) => {
-  const label = { ncss: { label: 'paragraph' } }
+const getParagraph = (
+  props: ParagraphProps,
+  reset: ParagraphReset,
+  elementName: string
+) => {
+  const label = { ncss: { label: elementName } }
+  const ncss = mergeNcss([
+    label,
+    reset,
+    props.wheel.elementPresets[elementName],
+    props.wheel.style,
+    props,
+  ])
   const attrs: any = getAttrs(props)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
     props.wheel.theme,
-    mergeNcss([
-      label,
-      paragraphReset,
-      props.wheel.elementPresets.p,
-      props.wheel.style,
-      props,
-    ])
+    ncss
   )
-  return jsx(props.is || 'p', attrs, props.children)
+  return jsx(elementName, attrs, props.children)
+}
+
+export const Paragraph = (props: ParagraphProps) => {
+  return getParagraph(props, paragraphReset, 'p')
 }
 
 export const Small = (props: ParagraphProps) => {
-  const label = { ncss: { label: 'small' } }
-  const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    mergeNcss([
-      label,
-      paragraphReset,
-      smallReset,
-      props.wheel.elementPresets.small,
-      props.wheel.style,
-      props,
-    ])
-  )
-  return jsx(props.is || 'small', attrs, props.children)
+  return getParagraph(props, smallReset, 'small')
 }
 
 export const Sub = (props: ParagraphProps) => {
-  const label = { ncss: { label: 'sub' } }
-  const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    mergeNcss([
-      label,
-      paragraphReset,
-      subSupReset,
-      subReset,
-      props.wheel.elementPresets.sub,
-      props.wheel.style,
-      props,
-    ])
-  )
-  return jsx(props.is || 'sub', attrs, props.children)
+  return getParagraph(props, subReset, 'sub')
 }
 
 export const Sup = (props: ParagraphProps) => {
-  const label = { ncss: { label: 'sup' } }
-  const attrs: any = getAttrs(props)
-  attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
-    props.wheel.theme,
-    mergeNcss([
-      label,
-      paragraphReset,
-      subSupReset,
-      supReset,
-      props.wheel.elementPresets.sup,
-      props.wheel.style,
-      props,
-    ])
-  )
-  return jsx(props.is || 'sup', attrs, props.children)
+  return getParagraph(props, supReset, 'sup')
 }
