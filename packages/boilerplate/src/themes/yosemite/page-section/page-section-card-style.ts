@@ -1,5 +1,6 @@
 import { PageSectionCardPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
-import { elementPresets } from '../element-presets'
+import { elementAsPrimaryButtonStyle } from '../styles/button-style'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const pageSectionCardStyle: PageSectionCardPreset = {
   container: {
@@ -27,7 +28,7 @@ export const pageSectionCardStyle: PageSectionCardPreset = {
         ncss: {},
         link: {
           ncss: {
-            ...elementPresets.button.ncss,
+            ...elementAsPrimaryButtonStyle,
           },
         },
       },
@@ -71,8 +72,7 @@ export const pageSectionCardStyle: PageSectionCardPreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
     },
   },
 }

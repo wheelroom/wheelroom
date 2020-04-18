@@ -1,13 +1,22 @@
 import { NavHeaderPreset } from '../../../wheelroom/wheels/page-section/navigation-header/presets/nav-header-preset'
+import { wrapperStyle } from '../styles/grid-style'
+import {
+  elementAsPrimaryButtonStyle,
+  secondaryButtonStyle,
+} from '../styles/button-style'
 
 export const navHeaderStyle: NavHeaderPreset = {
   skipToContent: {
-    ncss: {},
+    ncss: {
+      ':focus': {
+        bg: 'amber',
+        color: 'caviar',
+      },
+    },
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
       borderColor: 'sectionBorder',
     },
   },
@@ -40,10 +49,14 @@ export const navHeaderStyle: NavHeaderPreset = {
     actions: {
       ncss: {},
       action: {
-        ncss: {},
+        ncss: {
+          ...elementAsPrimaryButtonStyle,
+        },
       },
       themeButton: {
-        ncss: {},
+        ncss: {
+          ...secondaryButtonStyle,
+        },
       },
     },
   },

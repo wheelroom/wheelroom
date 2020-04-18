@@ -1,17 +1,7 @@
 import { ElementResets as ElementsPresets } from '../../wheelroom/wheels/elements/types/element-resets'
-
-const headingStyle = {
-  mt: 0,
-  mb: 3,
-}
-
-const paragraphStyle = {
-  fontSize: 6,
-  lineHeight: 4,
-  fontWeight: 4,
-  mt: 0,
-  mb: 3,
-}
+import { headingStyle } from './styles/heading-style'
+import { paragraphStyle } from './styles/paragraph-style'
+import { primaryButtonStyle } from './styles/button-style'
 
 export const elementPresets: ElementsPresets = {
   a: {
@@ -30,18 +20,7 @@ export const elementPresets: ElementsPresets = {
   },
   button: {
     ncss: {
-      display: 'inline-flex',
-      justifyContent: 'center',
-      px: 3,
-      py: 2,
-      color: 'white',
-      bg: 'azure',
-      userSelect: 'none',
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      borderColor: 'azure',
-      borderRadius: 4,
-      textDecoration: 'none',
+      ...primaryButtonStyle,
     },
   },
   code: {
@@ -69,35 +48,37 @@ export const elementPresets: ElementsPresets = {
   h1: {
     ncss: {
       ...headingStyle,
-      fontSize: [10, 11, 12, 13],
+      fontSize: [10, 10, 11, 11],
     },
   },
   h2: {
     ncss: {
       ...headingStyle,
-      fontSize: [9, 10, 11, 12],
+      fontSize: [9, 9, 10, 10],
     },
   },
   h3: {
     ncss: {
       ...headingStyle,
-      fontSize: [5, 6, 7, 8],
+      fontSize: [7, 7, 8, 8],
     },
   },
   h4: {
     ncss: {
       ...headingStyle,
-      fontSize: [5, 6, 7, 8],
+      fontSize: [6, 6, 7, 7],
     },
   },
   h5: {
     ncss: {
       ...headingStyle,
+      fontSize: [6, 6, 7, 7],
     },
   },
   h6: {
     ncss: {
       ...headingStyle,
+      fontSize: [6, 6, 7, 7],
     },
   },
   hr: {

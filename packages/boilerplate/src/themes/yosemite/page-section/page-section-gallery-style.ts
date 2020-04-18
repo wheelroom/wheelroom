@@ -1,4 +1,5 @@
 import { PageSectionGalleryPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-gallery-preset'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const pageSectionGalleryStyle: PageSectionGalleryPreset = {
   container: {
@@ -52,8 +53,7 @@ export const pageSectionGalleryStyle: PageSectionGalleryPreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
     },
   },
 }

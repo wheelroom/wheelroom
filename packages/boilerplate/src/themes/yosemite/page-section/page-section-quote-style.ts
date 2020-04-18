@@ -1,5 +1,6 @@
 import { PageSectionQuotePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-quote-preset'
-import { elementPresets } from '../element-presets'
+import { elementAsPrimaryButtonStyle } from '../styles/button-style'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const pageSectionQuoteStyle: PageSectionQuotePreset = {
   container: {
@@ -13,7 +14,7 @@ export const pageSectionQuoteStyle: PageSectionQuotePreset = {
         ncss: {},
         link: {
           ncss: {
-            ...elementPresets.button.ncss,
+            ...elementAsPrimaryButtonStyle,
           },
         },
       },
@@ -64,8 +65,7 @@ export const pageSectionQuoteStyle: PageSectionQuotePreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
     },
   },
 }

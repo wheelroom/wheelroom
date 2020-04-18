@@ -14,7 +14,7 @@ import {
 import { ButtonReset } from '../../../elements/button-reset'
 
 export interface NavHeaderPreset {
-  skipToContent: { ncss: NcssProps }
+  skipToContent: NcssProps
   wrapper: GridReset
   container: GridReset
   branding: BrandingPreset
@@ -43,7 +43,7 @@ export const navHeaderPreset: NavHeaderPreset = {
         left: 0,
         top: 0,
         right: 0,
-        backgroundColor: 'white',
+        bg: 'white',
         textAlign: 'center',
         zIndex: 1002,
         border: '2px dotted black',

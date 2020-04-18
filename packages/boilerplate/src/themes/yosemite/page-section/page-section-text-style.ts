@@ -1,4 +1,5 @@
 import { PageSectionFreestylePreset } from '../../../wheelroom/wheels/page-section/freestyle/page-section-freestyle-preset'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const pageSectionFreestyleStyle: PageSectionFreestylePreset = {
   container: {
@@ -87,8 +88,7 @@ export const pageSectionFreestyleStyle: PageSectionFreestylePreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
     },
   },
 }

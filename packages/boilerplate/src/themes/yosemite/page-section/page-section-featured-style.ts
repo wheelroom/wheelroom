@@ -1,5 +1,6 @@
 import { PageSectionFeaturedPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-featured-preset'
-import { elementPresets } from '../element-presets'
+import { elementAsPrimaryButtonStyle } from '../styles/button-style'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const pageSectionFeaturedStyle: PageSectionFeaturedPreset = {
   container: {
@@ -13,7 +14,7 @@ export const pageSectionFeaturedStyle: PageSectionFeaturedPreset = {
         ncss: {},
         link: {
           ncss: {
-            ...elementPresets.button.ncss,
+            ...elementAsPrimaryButtonStyle,
           },
         },
       },
@@ -55,8 +56,7 @@ export const pageSectionFeaturedStyle: PageSectionFeaturedPreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
     },
   },
 }

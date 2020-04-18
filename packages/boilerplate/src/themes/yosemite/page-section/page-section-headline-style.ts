@@ -1,5 +1,6 @@
 import { PageSectionHeadlinePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-headline-preset'
-import { elementPresets } from '../element-presets'
+import { elementAsPrimaryButtonStyle } from '../styles/button-style'
+import { wrapperStyle } from '../styles/grid-style'
 
 export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
   container: {
@@ -13,7 +14,7 @@ export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
         ncss: {},
         link: {
           ncss: {
-            ...elementPresets.button.ncss,
+            ...elementAsPrimaryButtonStyle,
           },
         },
       },
@@ -55,8 +56,7 @@ export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
   },
   wrapper: {
     ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
+      ...wrapperStyle,
     },
   },
 }
