@@ -40,11 +40,18 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   return (
     <Box is="div" wheel={props.wheel}>
       {props.fullTopicAsLink ? (
-        <Any is="span" wheel={props.wheel}>
+        <Any
+          polyPreset={true}
+          is="span"
+          wheel={{ ...props.wheel, style: props.wheel.style.link }}
+        >
           {action.heading}
         </Any>
       ) : (
-        <Action {...action} wheel={props.wheel}>
+        <Action
+          {...action}
+          wheel={{ ...props.wheel, style: props.wheel.style.link }}
+        >
           {action.heading}
         </Action>
       )}

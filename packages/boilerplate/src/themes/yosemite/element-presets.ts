@@ -29,7 +29,21 @@ export const elementPresets: ElementsPresets = {
     ncss: {},
   },
   button: {
-    ncss: {},
+    ncss: {
+      cursor: 'pointer',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      px: 3,
+      py: 2,
+      color: 'white',
+      bg: 'azure',
+      userSelect: 'none',
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderColor: 'azure',
+      borderRadius: '4px',
+      textDecoration: 'none',
+    },
   },
   code: {
     ncss: {},

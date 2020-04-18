@@ -1,4 +1,5 @@
 import { PageSectionHeadlinePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-headline-preset'
+import { elementPresets } from '../element-presets'
 
 export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
   container: {
@@ -11,7 +12,9 @@ export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
       actions: {
         ncss: {},
         link: {
-          ncss: {},
+          ncss: {
+            ...elementPresets.button.ncss,
+          },
         },
       },
       text: {
