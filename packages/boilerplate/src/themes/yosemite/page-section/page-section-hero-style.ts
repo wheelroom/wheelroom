@@ -1,6 +1,6 @@
-import { PageSectionVideoPreset } from '../../../../wheelroom/wheels/page-section/unicorn/page-section-video-preset'
+import { PageSectionHeroPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-hero-preset'
 
-export const pageSectionVideoStyle: PageSectionVideoPreset = {
+export const pageSectionHeroStyle: PageSectionHeroPreset = {
   container: {
     ncss: {},
   },
@@ -51,9 +51,6 @@ export const pageSectionVideoStyle: PageSectionVideoPreset = {
     },
   },
   wrapper: {
-    ncss: {
-      bg: 'sectionBg',
-      color: 'sectionText',
-    },
+    ncss: {},
   },
 }

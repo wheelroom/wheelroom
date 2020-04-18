@@ -19,7 +19,7 @@ import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { pageSectionFeaturedStyle } from '../../themes/yosemite/page-section/featured/page-section-featured-style'
+import { pageSectionFeaturedStyle } from '../../themes/yosemite/page-section/page-section-featured-style'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)

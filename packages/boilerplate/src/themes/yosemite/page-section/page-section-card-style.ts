@@ -1,13 +1,27 @@
-import { PageSectionHeadlinePreset } from '../../../../wheelroom/wheels/page-section/unicorn/page-section-headline-preset'
+import { PageSectionCardPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
 
-export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
+export const pageSectionCardStyle: PageSectionCardPreset = {
   container: {
     ncss: {},
   },
   topic: {
-    ncss: {},
+    ncss: {
+      borderRadius: 4,
+      borderColor: 'cardBorder',
+      boxShadow: '0 0 16px',
+      textDecoration: 'none',
+      color: 'cardShadow',
+      transition: 'transform .25s ease 0s',
+      transform: 'scale(1)',
+      ':hover': {
+        cursor: 'pointer',
+        transform: 'scale(1.05)',
+      },
+    },
     content: {
-      ncss: {},
+      ncss: {
+        color: 'sectionText',
+      },
       actions: {
         ncss: {},
         link: {
@@ -23,7 +37,9 @@ export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
           ncss: {},
         },
         icon: {
-          ncss: {},
+          ncss: {
+            mb: 3,
+          },
         },
       },
     },

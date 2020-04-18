@@ -19,7 +19,7 @@ import { topicPreset } from '../../wheelroom/wheels/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { pageSectionCardStyle } from '../../themes/yosemite/page-section/card/page-section-card-style'
+import { pageSectionCardStyle } from '../../themes/yosemite/page-section/page-section-card-style'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)

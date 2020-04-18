@@ -1,4 +1,4 @@
-import { NavHeaderPreset } from '../../../../wheelroom/wheels/page-section/navigation-header/presets/nav-header-preset'
+import { NavHeaderPreset } from '../../../wheelroom/wheels/page-section/navigation-header/presets/nav-header-preset'
 
 export const navHeaderStyle: NavHeaderPreset = {
   skipToContent: {
