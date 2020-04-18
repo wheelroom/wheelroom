@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import { PageProps } from '../../../../models/page'
 import { Wheel } from '../../types'
-import { NavHeaderListItemPreset } from './presets/nav-header-list-item-preset'
+import { NavHeaderListItemWheelStyle } from './presets/nav-header-list-item-preset'
 import { NavHeaderListItemLink } from './nav-header-list-item-link'
 import { Li } from '../../elements/self'
 
 interface NavHeaderListItemWheel extends Wheel {
-  style: NavHeaderListItemPreset
+  style: NavHeaderListItemWheelStyle
 }
 
 export interface NavHeaderListItemProps {

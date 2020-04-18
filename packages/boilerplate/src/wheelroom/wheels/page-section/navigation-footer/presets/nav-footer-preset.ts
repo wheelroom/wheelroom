@@ -1,27 +1,27 @@
 import { NcssProps } from '../../../types'
 import { GridElementStyle } from '../../../elements/resets/grid-reset'
-import { LegalPreset, legalPreset } from './legal-preset'
+import { LegalWheelStyle, legalPreset } from './legal-preset'
 import {
-  NavFooterSocialListPreset,
+  NavFooterSocialListWheelStyle,
   navFooterSocialListPreset,
 } from './nav-footer-social-list-preset'
 import {
-  NavFooterListPreset,
+  NavFooterListPresetWheelStyle,
   navFooterListPreset,
 } from './nav-footer-list-preset'
 
-export interface NavFooterPreset {
+export interface NavFooterWheelStyle {
   wrapper: GridElementStyle
   container: GridElementStyle
   navFooter: {
     ncss: NcssProps
-    list: NavFooterListPreset
-    socialList: NavFooterSocialListPreset
+    list: NavFooterListPresetWheelStyle
+    socialList: NavFooterSocialListWheelStyle
   }
-  legal: LegalPreset
+  legal: LegalWheelStyle
 }
 
-export const navFooterPreset: NavFooterPreset = {
+export const navFooterPreset: NavFooterWheelStyle = {
   wrapper: {
     ncss: {
       borderTop: '1px solid black',

@@ -2,7 +2,7 @@ import { NcssProps } from '../../types'
 import { ImageElementStyle } from '../../elements/image'
 import { VideoElementStyle } from '../../elements/video'
 
-export interface TopicMediaPreset {
+export interface TopicMediaWheelStyle {
   /** Styling for this node */
   ncss: NcssProps
   /** Image style */
@@ -11,7 +11,7 @@ export interface TopicMediaPreset {
   video: VideoElementStyle
 }
 
-export const topicMediaPreset: TopicMediaPreset = {
+export const topicMediaPreset: TopicMediaWheelStyle = {
   ncss: {
     label: 'topic-media',
     display: 'flex',

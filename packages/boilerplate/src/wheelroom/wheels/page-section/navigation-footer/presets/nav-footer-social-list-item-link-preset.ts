@@ -1,12 +1,12 @@
 import { NcssProps } from '../../../types'
 import { IconElementStyle } from '../../../elements/resets/icon-reset'
 
-export interface NavFooterSocialListItemLinkPreset {
+export interface NavFooterSocialListItemLinkWheelStyle {
   ncss: NcssProps
   icon: IconElementStyle
 }
 
-export const navFooterSocialListItemLinkPreset: NavFooterSocialListItemLinkPreset = {
+export const navFooterSocialListItemLinkPreset: NavFooterSocialListItemLinkWheelStyle = {
   ncss: {
     label: 'nav-footer-social-link',
     display: 'inline-flex',

@@ -1,13 +1,13 @@
-import { GridElementStyle } from '../../elements/resets/grid-reset'
-import { TopicPreset } from '../../topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../topic/presets/topic-preset'
 
-export interface PageSectionCardPreset {
+export interface PageSectionCardWheelStyle {
   container: GridElementStyle
-  topic: TopicPreset
+  topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionCardPreset: PageSectionCardPreset = {
+export const pageSectionCardPreset: PageSectionCardWheelStyle = {
   container: {
     ncss: {
       alignItems: 'stretch',

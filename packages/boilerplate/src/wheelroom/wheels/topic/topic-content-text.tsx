@@ -8,10 +8,10 @@ import { Any } from '../elements/any'
 import { TopicIcon } from './topic-icon'
 import { ParserFunction } from '../../parsers/types'
 import { Wheel } from '../types'
-import { TopicContentTextPreset } from './presets/topic-content-text-preset'
+import { TopicContentTextWheelStyle } from './presets/topic-content-text-preset'
 
 export interface TopicContentTextWheel extends Wheel {
-  style: TopicContentTextPreset
+  style: TopicContentTextWheelStyle
 }
 
 export interface TopicContentTextProps {

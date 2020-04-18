@@ -2,12 +2,12 @@ import React, { Fragment } from 'react'
 import { Flex } from '../../elements/grid'
 import { GLink } from '../../elements/g-link'
 import { Strong } from '../../elements/self'
-import { BrandingPreset } from './presets/branding-preset'
+import { BrandingWheelStyle } from './presets/branding-preset'
 import { Wheel } from '../../types'
 import { Sup } from '../../elements/paragraph'
 
 interface LogoWheel extends Wheel {
-  style: BrandingPreset
+  style: BrandingWheelStyle
 }
 
 export const Branding = (props: {

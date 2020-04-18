@@ -1,7 +1,7 @@
-import { PageSectionGalleryPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-gallery-preset'
+import { PageSectionGalleryWheelStyle } from '../../../wheelroom/wheels/page-section/unicorn/presets/page-section-gallery-preset'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionGalleryStyle: PageSectionGalleryPreset = {
+export const pageSectionGalleryStyle: PageSectionGalleryWheelStyle = {
   container: {
     ncss: {},
   },

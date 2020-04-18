@@ -1,12 +1,12 @@
 import React from 'react'
 import { Ul } from '../../elements/self'
 import { TopicProps } from '../../../../models/topic'
-import { NavFooterSocialListPreset } from './presets/nav-footer-social-list-preset'
+import { NavFooterSocialListWheelStyle } from './presets/nav-footer-social-list-preset'
 import { Wheel } from '../../types'
 import { NavFooterSocialListItem } from './nav-footer-social-list-item'
 
 interface NavFooterSocialListWheel extends Wheel {
-  style: NavFooterSocialListPreset
+  style: NavFooterSocialListWheelStyle
 }
 
 export const NavFooterSocialList = (props: {

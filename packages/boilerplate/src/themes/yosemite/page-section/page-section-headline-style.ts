@@ -1,8 +1,8 @@
-import { PageSectionHeadlinePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-headline-preset'
+import { PageSectionHeadlineWheelStyle } from '../../../wheelroom/wheels/page-section/unicorn/presets/page-section-headline-preset'
 import { elementAsPrimaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionHeadlineStyle: PageSectionHeadlinePreset = {
+export const pageSectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
   container: {
     ncss: {},
   },

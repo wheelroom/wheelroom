@@ -7,9 +7,9 @@ import {
   modalDialogOverlayPreset,
 } from './modal-dialog-preset'
 import { NcssProps } from '../../../types'
-import { NavHeaderListPreset } from './nav-header-list-preset'
+import { NavHeaderListWheelStyle } from './nav-header-list-preset'
 
-export interface ModalPreset {
+export interface ModalWheelStyle {
   container: {
     visible: NcssProps
     hidden: NcssProps
@@ -26,7 +26,7 @@ export interface ModalPreset {
       ncss: NcssProps
       icon: NcssProps
     }
-    list: NavHeaderListPreset
+    list: NavHeaderListWheelStyle
     actions: {
       ncss: NcssProps
       action: NcssProps
@@ -35,7 +35,7 @@ export interface ModalPreset {
   }
 }
 
-export const modalPreset: ModalPreset = {
+export const modalPreset: ModalWheelStyle = {
   container: {
     visible: {
       ncss: {

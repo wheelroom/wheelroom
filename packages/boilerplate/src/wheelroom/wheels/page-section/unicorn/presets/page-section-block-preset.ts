@@ -1,13 +1,13 @@
-import { GridElementStyle } from '../../elements/resets/grid-reset'
-import { TopicPreset } from '../../topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../topic/presets/topic-preset'
 
-export interface PageSectionBlockPreset {
+export interface PageSectionBlockWheelStyle {
   container: GridElementStyle
-  topic: TopicPreset
+  topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionBlockPreset: PageSectionBlockPreset = {
+export const pageSectionBlockPreset: PageSectionBlockWheelStyle = {
   container: {
     ncss: {
       alignItems: ['center', 'initial'],

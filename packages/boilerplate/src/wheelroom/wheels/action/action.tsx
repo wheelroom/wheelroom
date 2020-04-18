@@ -12,12 +12,12 @@ import { GLink } from '../elements/g-link'
 import { ALink } from '../elements/a-link'
 import { Wheel, NcssProps } from '../types'
 
-export interface ActionPreset {
+export interface ActionWheelStyle {
   ncss: NcssProps
 }
 
 export interface ActionWheel extends Wheel {
-  style: ActionPreset
+  style: ActionWheelStyle
 }
 
 export interface ActionWheelProps extends ActionProps {

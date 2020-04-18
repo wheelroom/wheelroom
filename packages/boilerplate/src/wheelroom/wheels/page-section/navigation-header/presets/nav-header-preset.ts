@@ -1,36 +1,36 @@
 import { NcssProps } from '../../../types'
 import { GridElementStyle } from '../../../elements/resets/grid-reset'
-import { BrandingPreset, brandingPreset } from './branding-preset'
+import { BrandingWheelStyle, brandingPreset } from './branding-preset'
 import {
-  NavHeaderActionsPreset,
+  NavHeaderActionsWheelStyle,
   navHeaderActionsPreset,
 } from './nav-header-actions-preset'
-import { ModalPreset, modalPreset } from './modal-preset'
+import { ModalWheelStyle, modalPreset } from './modal-preset'
 
 import {
-  NavHeaderListPreset,
+  NavHeaderListWheelStyle,
   navHeaderListPreset,
 } from './nav-header-list-preset'
 import { ButtonElementStyle } from '../../../elements/resets/button-reset'
 
-export interface NavHeaderPreset {
+export interface NavHeaderWheelStyle {
   skipToContent: NcssProps
   wrapper: GridElementStyle
   container: GridElementStyle
-  branding: BrandingPreset
+  branding: BrandingWheelStyle
   navHeader: {
     ncss: NcssProps
-    list: NavHeaderListPreset
-    actions: NavHeaderActionsPreset
+    list: NavHeaderListWheelStyle
+    actions: NavHeaderActionsWheelStyle
   }
   modal: {
     ncss: NcssProps
     button: ButtonElementStyle
-    dialog: ModalPreset
+    dialog: ModalWheelStyle
   }
 }
 
-export const navHeaderPreset: NavHeaderPreset = {
+export const navHeaderPreset: NavHeaderWheelStyle = {
   skipToContent: {
     ncss: {
       label: 'skip-to-content',

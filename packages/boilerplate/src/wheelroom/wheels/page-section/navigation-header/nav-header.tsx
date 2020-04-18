@@ -12,10 +12,10 @@ import { Branding } from './branding'
 import { NavHeaderActions } from './nav-header-actions'
 import { Modal } from './modal'
 import { Wheel } from '../../types'
-import { NavHeaderPreset } from './presets/nav-header-preset'
+import { NavHeaderWheelStyle } from './presets/nav-header-preset'
 
 interface PageSectionNavigationHeaderWheel extends Wheel {
-  style: NavHeaderPreset
+  style: NavHeaderWheelStyle
 }
 
 export const PageSectionNavigationHeader = (props: {

@@ -6,10 +6,10 @@ import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Video } from '../elements/video'
 import { Wheel } from '../types'
-import { TopicMediaPreset } from './presets/topic-media-preset'
+import { TopicMediaWheelStyle } from './presets/topic-media-preset'
 
 export interface TopicMediaWheel extends Wheel {
-  style: TopicMediaPreset
+  style: TopicMediaWheelStyle
 }
 
 export interface TopicMediaProps {

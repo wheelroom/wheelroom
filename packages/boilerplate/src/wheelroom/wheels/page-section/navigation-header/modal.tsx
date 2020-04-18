@@ -6,12 +6,12 @@ import { ActionProps } from '../../../../models/action'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageProps } from '../../../../models/page/page'
 import { Wheel } from '../../types'
-import { ModalPreset } from './presets/modal-preset'
+import { ModalWheelStyle } from './presets/modal-preset'
 import { FeatherIcon } from '../../elements/icon'
 import { NavHeaderActions } from './nav-header-actions'
 
 interface ModalWheel extends Wheel {
-  style: ModalPreset
+  style: ModalWheelStyle
 }
 
 export const Modal = (props: {

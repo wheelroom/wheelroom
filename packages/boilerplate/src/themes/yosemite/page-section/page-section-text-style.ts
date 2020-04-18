@@ -1,7 +1,7 @@
-import { PageSectionFreestylePreset } from '../../../wheelroom/wheels/page-section/freestyle/page-section-freestyle-preset'
+import { FreestyleWheelStyle } from '../../../wheelroom/wheels/page-section/freestyle/page-section-freestyle-preset'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionFreestyleStyle: PageSectionFreestylePreset = {
+export const pageSectionFreestyleStyle: FreestyleWheelStyle = {
   container: {
     ncss: {},
   },

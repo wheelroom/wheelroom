@@ -1,6 +1,6 @@
-import { PageSectionHeroPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-hero-preset'
+import { PageSectionHeroWheelStyle } from '../../../wheelroom/wheels/page-section/unicorn/presets/page-section-hero-preset'
 
-export const pageSectionHeroStyle: PageSectionHeroPreset = {
+export const pageSectionHeroStyle: PageSectionHeroWheelStyle = {
   container: {
     ncss: {},
   },

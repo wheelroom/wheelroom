@@ -6,11 +6,11 @@ import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { NavFooterSocialList } from './nav-footer-social-list'
 import { NavFooterList } from './nav-footer-list'
 import { Legal } from './legal'
-import { NavFooterPreset } from './presets/nav-footer-preset'
+import { NavFooterWheelStyle } from './presets/nav-footer-preset'
 import { Wheel } from '../../types'
 
 interface PageSectionNavigationFooterWheel extends Wheel {
-  style: NavFooterPreset
+  style: NavFooterWheelStyle
 }
 
 export const PageSectionNavigationFooter = (props: {

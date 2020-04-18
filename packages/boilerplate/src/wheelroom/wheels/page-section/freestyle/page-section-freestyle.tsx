@@ -4,17 +4,17 @@ import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Wrapper, Container, ContainerMaxWidth } from '../../elements/grid'
 import { Text } from '../../text/text'
 import { Wheel } from '../../types'
-import { PageSectionFreestylePreset } from './page-section-freestyle-preset'
+import { FreestyleWheelStyle } from './page-section-freestyle-preset'
 
-export interface PageSectionFreestyleWheel extends Wheel {
-  style: PageSectionFreestylePreset
+export interface FreestyleWheel extends Wheel {
+  style: FreestyleWheelStyle
 }
 
 export const PageSectionFreestyle = (props: {
   /** Contains the topic to render */
   pageSection: PageSectionProps
   /** Styling wheel */
-  wheel: PageSectionFreestyleWheel
+  wheel: FreestyleWheel
   /** Use a max width or fluid container */
   containerStyle: 'maxWidth' | 'fluid'
 }) => {

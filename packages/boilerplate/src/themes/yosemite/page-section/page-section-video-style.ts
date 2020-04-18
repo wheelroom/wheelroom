@@ -1,7 +1,7 @@
-import { PageSectionVideoPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-video-preset'
+import { PageSectionVideoWheelStyle } from '../../../wheelroom/wheels/page-section/unicorn/presets/page-section-video-preset'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionVideoStyle: PageSectionVideoPreset = {
+export const pageSectionVideoStyle: PageSectionVideoWheelStyle = {
   container: {
     ncss: {},
   },

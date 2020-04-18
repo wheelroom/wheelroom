@@ -1,13 +1,13 @@
 import { GridElementStyle } from '../../elements/resets/grid-reset'
-import { TextPreset, textPreset } from '../../text/text-preset'
+import { TextWheelStyle, textPreset } from '../../text/text-preset'
 
-export interface PageSectionFreestylePreset {
+export interface FreestyleWheelStyle {
   container: GridElementStyle
-  text: TextPreset
+  text: TextWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionFreestylePreset: PageSectionFreestylePreset = {
+export const pageSectionFreestylePreset: FreestyleWheelStyle = {
   container: {
     ncss: {},
   },

@@ -1,11 +1,11 @@
-import { NavHeaderPreset } from '../../../wheelroom/wheels/page-section/navigation-header/presets/nav-header-preset'
+import { NavHeaderWheelStyle } from '../../../wheelroom/wheels/page-section/navigation-header/presets/nav-header-preset'
 import { wrapperStyle } from '../elements/grid-style'
 import {
   elementAsPrimaryButtonStyle,
   secondaryButtonStyle,
 } from '../elements/button-style'
 
-export const navHeaderStyle: NavHeaderPreset = {
+export const navHeaderStyle: NavHeaderWheelStyle = {
   skipToContent: {
     ncss: {
       ':focus': {

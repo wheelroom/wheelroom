@@ -1,8 +1,8 @@
-import { PageSectionQuotePreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-quote-preset'
+import { PageSectionQuoteWheelStyle } from '../../../wheelroom/wheels/page-section/unicorn/presets/page-section-quote-preset'
 import { elementAsPrimaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionQuoteStyle: PageSectionQuotePreset = {
+export const pageSectionQuoteStyle: PageSectionQuoteWheelStyle = {
   container: {
     ncss: {},
   },

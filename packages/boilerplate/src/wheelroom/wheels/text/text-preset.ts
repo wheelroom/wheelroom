@@ -15,7 +15,7 @@ import {
   imageImgReset,
 } from '../elements/resets/image-reset'
 
-export interface TextPreset {
+export interface TextWheelStyle {
   wrapper: GridElementStyle
   strong: StrongElementStyle
   code: CodeElementStyle
@@ -38,7 +38,7 @@ export interface TextPreset {
   video: VideoElementStyle
 }
 
-export const textPreset: TextPreset = {
+export const textPreset: TextWheelStyle = {
   h1: {
     ncss: {},
   },

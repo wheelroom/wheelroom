@@ -2,11 +2,11 @@ import React from 'react'
 import { Ul } from '../../elements/self'
 import { NavFooterListItem } from './nav-footer-list-item'
 import { PageProps } from '../../../../models/page'
-import { NavFooterListPreset } from './presets/nav-footer-list-preset'
+import { NavFooterListPresetWheelStyle } from './presets/nav-footer-list-preset'
 import { Wheel } from '../../types'
 
 interface NavFooterListWheel extends Wheel {
-  style: NavFooterListPreset
+  style: NavFooterListPresetWheelStyle
 }
 
 export const NavFooterList = (props: {

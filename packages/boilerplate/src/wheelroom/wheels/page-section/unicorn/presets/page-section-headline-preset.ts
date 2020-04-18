@@ -1,23 +1,24 @@
-import { GridElementStyle } from '../../elements/resets/grid-reset'
-import { TopicPreset } from '../../topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../topic/presets/topic-preset'
 
-export interface PageSectionImagePreset {
+export interface PageSectionHeadlineWheelStyle {
   container: GridElementStyle
-  topic: TopicPreset
+  topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionImagePreset: PageSectionImagePreset = {
+export const pageSectionHeadlinePreset: PageSectionHeadlineWheelStyle = {
   container: {
-    ncss: {
-      flexDirection: ['column', 'row'],
-    },
+    ncss: {},
   },
   topic: {
     ncss: {},
     content: {
       ncss: {
+        textAlign: 'center',
+        mx: 'auto',
         p: 3,
+        maxWidth: [1, '768px'],
       },
       actions: {
         ncss: {},
@@ -41,10 +42,10 @@ export const pageSectionImagePreset: PageSectionImagePreset = {
     media: {
       ncss: {},
       image: {
-        picture: {
+        img: {
           ncss: {},
         },
-        img: {
+        picture: {
           ncss: {},
         },
         figcaption: {

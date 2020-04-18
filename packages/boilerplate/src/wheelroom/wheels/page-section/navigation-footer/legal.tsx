@@ -4,11 +4,11 @@ import { Any } from '../../elements/any'
 import { ALink } from '../../elements/a-link'
 import { SiteMetadata } from '../../../../page-template'
 import { Wheel } from '../../types'
-import { LegalPreset } from './presets/legal-preset'
+import { LegalWheelStyle } from './presets/legal-preset'
 import { Sup } from '../../elements/paragraph'
 
 interface LegalWheel extends Wheel {
-  style: LegalPreset
+  style: LegalWheelStyle
 }
 
 export const Legal = (props: {

@@ -1,13 +1,13 @@
-import { GridElementStyle } from '../../elements/resets/grid-reset'
-import { TopicPreset } from '../../topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../topic/presets/topic-preset'
 
-export interface PageSectionHeroPreset {
+export interface PageSectionHeroWheelStyle {
   container: GridElementStyle
-  topic: TopicPreset
+  topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionHeroPreset: PageSectionHeroPreset = {
+export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
   container: {
     ncss: {},
   },

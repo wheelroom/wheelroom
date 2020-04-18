@@ -1,27 +1,27 @@
 import { NcssProps } from '../../types'
 import {
-  TopicContentTextPreset,
-  topicContentTextPreset,
+  TopicContentTextWheelStyle,
+  topicContentTextWheelStyle,
 } from './topic-content-text-preset'
 import {
-  TopicContentActionsPreset,
+  TopicContentActionsWheelStyle,
   topicContentActionsPreset,
 } from './topic-content-actions-preset'
 
-export interface TopicContentPreset {
+export interface TopicContentWheelStyle {
   /** Wrapper around all content including action */
   ncss: NcssProps
-  text: TopicContentTextPreset
-  actions: TopicContentActionsPreset
+  text: TopicContentTextWheelStyle
+  actions: TopicContentActionsWheelStyle
 }
 
-export const topicContentPreset: TopicContentPreset = {
+export const topicContentPreset: TopicContentWheelStyle = {
   ncss: {
     label: 'topic-content',
     display: 'flex',
     flexDirection: 'column',
     flex: 1,
   },
-  text: topicContentTextPreset,
+  text: topicContentTextWheelStyle,
   actions: topicContentActionsPreset,
 }

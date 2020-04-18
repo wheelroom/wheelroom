@@ -7,10 +7,10 @@ import { TopicInfo } from '../../lib/get-topic-info'
 import { PageSectionInfo } from '../../lib/get-page-section-info'
 import { Action } from '../action/action'
 import { Wheel } from '../types'
-import { TopicContentActionsPreset } from './presets/topic-content-actions-preset'
+import { TopicContentActionsWheelStyle } from './presets/topic-content-actions-preset'
 
 export interface TopicContentActionsWheel extends Wheel {
-  style: TopicContentActionsPreset
+  style: TopicContentActionsWheelStyle
 }
 
 export interface TopicContentActionsProps {

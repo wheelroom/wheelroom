@@ -1,27 +1,24 @@
-import { GridElementStyle } from '../../elements/resets/grid-reset'
-import { TopicPreset } from '../../topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../topic/presets/topic-preset'
 
-export interface PageSectionGalleryPreset {
+export interface PageSectionQuoteWheelStyle {
   container: GridElementStyle
-  topic: TopicPreset
+  topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionGalleryPreset: PageSectionGalleryPreset = {
+export const pageSectionQuotePreset: PageSectionQuoteWheelStyle = {
   container: {
-    ncss: {
-      flexDirection: ['column', 'row'],
-      flexWrap: 'wrap',
-      alignItems: 'center',
-    },
+    ncss: {},
   },
   topic: {
-    ncss: {
-      w: [1, 1 / 2],
-    },
+    ncss: {},
     content: {
       ncss: {
+        textAlign: 'center',
+        mx: 'auto',
         p: 3,
+        maxWidth: [1, '960px', '1024px'],
       },
       actions: {
         ncss: {},
@@ -49,9 +46,7 @@ export const pageSectionGalleryPreset: PageSectionGalleryPreset = {
           ncss: {},
         },
         picture: {
-          ncss: {
-            p: 3,
-          },
+          ncss: {},
         },
         figcaption: {
           ncss: {},

@@ -4,11 +4,11 @@ import { ActionProps } from '../../../../models/action'
 import { Button } from '../../elements/button'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Action } from '../../action/action'
-import { NavHeaderActionsPreset } from './presets/nav-header-actions-preset'
+import { NavHeaderActionsWheelStyle } from './presets/nav-header-actions-preset'
 import { Wheel } from '../../types'
 
 interface NavActionsWheel extends Wheel {
-  style: NavHeaderActionsPreset
+  style: NavHeaderActionsWheelStyle
 }
 
 export const NavHeaderActions = (props: {

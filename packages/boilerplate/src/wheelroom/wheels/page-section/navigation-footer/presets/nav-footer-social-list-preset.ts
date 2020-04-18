@@ -1,12 +1,12 @@
 import { NcssProps } from '../../../types'
 import { navFooterSocialListItemPreset } from './nav-footer-social-list-item-preset'
 
-export interface NavFooterSocialListPreset {
+export interface NavFooterSocialListWheelStyle {
   ncss: NcssProps
   listItem: NcssProps
 }
 
-export const navFooterSocialListPreset: NavFooterSocialListPreset = {
+export const navFooterSocialListPreset: NavFooterSocialListWheelStyle = {
   ncss: {
     label: 'nav-footer-social-list',
     display: 'flex',

@@ -1,11 +1,11 @@
 import React from 'react'
 import { GLink } from '../../elements/g-link'
 import { PageProps } from '../../../../models/page'
-import { NavHeaderListItemLinkPreset } from './presets/nav-header-list-item-link-preset'
+import { NavHeaderListItemLinkWheelStyle } from './presets/nav-header-list-item-link-preset'
 import { Wheel } from '../../types'
 
 interface NavHeaderListItemLinkWheel extends Wheel {
-  style: NavHeaderListItemLinkPreset
+  style: NavHeaderListItemLinkWheelStyle
 }
 
 export const NavHeaderListItemLink = (props: {

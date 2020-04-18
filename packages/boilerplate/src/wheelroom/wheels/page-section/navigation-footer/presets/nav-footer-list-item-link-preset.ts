@@ -1,10 +1,10 @@
 import { NcssProps } from '../../../types'
 
-export interface NavFooterListItemLinkPreset {
+export interface NavFooterListItemLinkWheelStyle {
   ncss: NcssProps
 }
 
-export const navFooterListItemLinkPreset: NavFooterListItemLinkPreset = {
+export const navFooterListItemLinkPreset: NavFooterListItemLinkWheelStyle = {
   ncss: {
     label: 'nav-footer-list-item-link',
     display: 'inline-flex',

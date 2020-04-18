@@ -22,7 +22,7 @@ import {
   Options,
 } from '@contentful/rich-text-react-renderer'
 import { Video } from '../elements/video'
-import { TextPreset } from './text-preset'
+import { TextWheelStyle } from './text-preset'
 import { MediaObject } from '../elements/types/media'
 import { Wheel } from '../types'
 import { TextProps } from '../../../models/text'
@@ -33,7 +33,7 @@ import { Hr } from '../elements/self'
 import { Blockquote } from '../elements/self'
 
 export interface TextWheel extends Wheel {
-  style: TextPreset
+  style: TextWheelStyle
 }
 
 export interface TextWheelProps {

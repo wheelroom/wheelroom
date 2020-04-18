@@ -6,21 +6,21 @@ import { Topic, TopicWheelProps } from '../../topic/topic'
 import { MultiParser } from '../../../parsers/multi-parser'
 import { TopicProps } from '../../../../models/topic'
 import { Wheel } from '../../types'
-import { PageSectionBlockPreset } from './page-section-block-preset'
-import { PageSectionCardPreset } from './page-section-card-preset'
-import { PageSectionFeaturedPreset } from './page-section-featured-preset'
-import { PageSectionHeadlinePreset } from './page-section-headline-preset'
-import { PageSectionHeroPreset } from './page-section-hero-preset'
-import { PageSectionQuotePreset } from './page-section-quote-preset'
+import { PageSectionBlockWheelStyle } from './presets/page-section-block-preset'
+import { PageSectionCardWheelStyle } from './presets/page-section-card-preset'
+import { PageSectionFeaturedWheelStyle } from './presets/page-section-featured-preset'
+import { PageSectionHeadlineWheelStyle } from './presets/page-section-headline-preset'
+import { PageSectionHeroWheelStyle } from './presets/page-section-hero-preset'
+import { PageSectionQuoteWheelStyle } from './presets/page-section-quote-preset'
 
 export interface PageSectionUnicornWheel extends Wheel {
   style:
-    | PageSectionBlockPreset
-    | PageSectionCardPreset
-    | PageSectionFeaturedPreset
-    | PageSectionHeadlinePreset
-    | PageSectionHeroPreset
-    | PageSectionQuotePreset
+    | PageSectionBlockWheelStyle
+    | PageSectionCardWheelStyle
+    | PageSectionFeaturedWheelStyle
+    | PageSectionHeadlineWheelStyle
+    | PageSectionHeroWheelStyle
+    | PageSectionQuoteWheelStyle
 }
 
 export const PageSectionUnicorn = (props: {

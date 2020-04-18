@@ -1,17 +1,20 @@
 import { NcssProps } from '../../types'
-import { TopicMediaPreset, topicMediaPreset } from './topic-media-preset'
-import { TopicContentPreset, topicContentPreset } from './topic-content-preset'
+import { TopicMediaWheelStyle, topicMediaPreset } from './topic-media-preset'
+import {
+  TopicContentWheelStyle,
+  topicContentPreset,
+} from './topic-content-preset'
 
-export interface TopicPreset {
+export interface TopicWheelStyle {
   /** Styling for this node */
   ncss: NcssProps
   /** Media */
-  media: TopicMediaPreset
+  media: TopicMediaWheelStyle
   /** Content */
-  content: TopicContentPreset
+  content: TopicContentWheelStyle
 }
 
-export const topicPreset: TopicPreset = {
+export const topicPreset: TopicWheelStyle = {
   ncss: {
     label: 'topic',
     display: 'flex',

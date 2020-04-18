@@ -2,7 +2,7 @@ import { NcssProps } from '../../../types'
 import { ALinkElementStyle } from '../../../elements/resets/a-link-reset'
 import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
 
-export interface LegalPreset {
+export interface LegalWheelStyle {
   ncss: NcssProps
   promise: {
     ncss: NcssProps
@@ -11,7 +11,7 @@ export interface LegalPreset {
   }
 }
 
-export const legalPreset: LegalPreset = {
+export const legalPreset: LegalWheelStyle = {
   ncss: {
     label: 'legal',
     borderTop: '1px solid black',

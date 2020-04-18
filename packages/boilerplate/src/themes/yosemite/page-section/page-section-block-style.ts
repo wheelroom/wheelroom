@@ -1,8 +1,8 @@
-import { PageSectionBlockPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-block-preset'
+import { PageSectionBlockWheelStyle } from '../../../wheelroom/wheels/page-section/unicorn/presets/page-section-block-preset'
 import { elementAsPrimaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionBlockStyle: PageSectionBlockPreset = {
+export const pageSectionBlockStyle: PageSectionBlockWheelStyle = {
   container: {
     ncss: {},
   },

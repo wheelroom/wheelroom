@@ -1,8 +1,8 @@
-import { PageSectionFeaturedPreset } from '../../../wheelroom/wheels/page-section/unicorn/page-section-featured-preset'
+import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/page-section/unicorn/presets/page-section-featured-preset'
 import { elementAsPrimaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionFeaturedStyle: PageSectionFeaturedPreset = {
+export const pageSectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
   container: {
     ncss: {},
   },

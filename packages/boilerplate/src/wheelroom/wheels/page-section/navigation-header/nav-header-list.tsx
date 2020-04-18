@@ -3,10 +3,10 @@ import { Wheel } from '../../types'
 import { Ul } from '../../elements/self'
 import { NavHeaderListItem } from './nav-header-list-item'
 import { PageProps } from '../../../../models/page'
-import { NavHeaderListPreset } from './presets/nav-header-list-preset'
+import { NavHeaderListWheelStyle } from './presets/nav-header-list-preset'
 
 interface NavHeaderListWheel extends Wheel {
-  style: NavHeaderListPreset
+  style: NavHeaderListWheelStyle
 }
 
 export const NavHeaderList = (props: {

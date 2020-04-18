@@ -4,13 +4,13 @@ import {
   buttonReset,
 } from '../../../elements/resets/button-reset'
 
-export interface NavHeaderActionsPreset {
+export interface NavHeaderActionsWheelStyle {
   ncss: NcssProps
   action: ButtonElementStyle
   themeButton: NcssProps
 }
 
-export const navHeaderActionsPreset: NavHeaderActionsPreset = {
+export const navHeaderActionsPreset: NavHeaderActionsWheelStyle = {
   ncss: {
     label: 'nav-header-actions',
   },

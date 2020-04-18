@@ -1,6 +1,6 @@
 import { NcssProps } from '../../types'
 
-export interface TopicContentTextPreset {
+export interface TopicContentTextWheelStyle {
   /** Styling for this node */
   ncss: NcssProps
   icon: NcssProps
@@ -8,7 +8,7 @@ export interface TopicContentTextPreset {
   abstract: NcssProps
 }
 
-export const topicContentTextPreset: TopicContentTextPreset = {
+export const topicContentTextWheelStyle: TopicContentTextWheelStyle = {
   ncss: {
     label: 'topic-text',
   },

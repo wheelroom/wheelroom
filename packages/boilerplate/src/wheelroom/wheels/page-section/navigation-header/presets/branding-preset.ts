@@ -2,14 +2,14 @@ import { NcssProps } from '../../../types'
 import { ALinkElementStyle } from '../../../elements/resets/a-link-reset'
 import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
 
-export interface BrandingPreset {
+export interface BrandingWheelStyle {
   ncss: NcssProps
   logo: NcssProps
   link: ALinkElementStyle
   sup: ParagraphElementStyle
 }
 
-export const brandingPreset: BrandingPreset = {
+export const brandingPreset: BrandingWheelStyle = {
   ncss: {
     label: 'branding',
     alignItems: 'center',

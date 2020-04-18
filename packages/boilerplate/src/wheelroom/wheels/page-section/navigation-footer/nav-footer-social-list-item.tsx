@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import { Wheel } from '../../types'
-import { NavFooterSocialListItemPreset } from './presets/nav-footer-social-list-item-preset'
+import { NavFooterSocialListItemWheelStyle } from './presets/nav-footer-social-list-item-preset'
 import { NavFooterSocialListItemLink } from './nav-footer-social-list-item-link'
 import { Li } from '../../elements/self'
 import { TopicProps } from '../../../../models/topic'
 
 interface NavFooterSocialListItemWheel extends Wheel {
-  style: NavFooterSocialListItemPreset
+  style: NavFooterSocialListItemWheelStyle
 }
 
 export interface NavFooterSocialListItemProps {

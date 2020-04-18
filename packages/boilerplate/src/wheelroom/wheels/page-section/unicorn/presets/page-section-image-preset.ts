@@ -1,29 +1,22 @@
-import { GridElementStyle } from '../../elements/resets/grid-reset'
-import { TopicPreset } from '../../topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../topic/presets/topic-preset'
 
-export interface PageSectionFeaturedPreset {
+export interface PageSectionImageWheelStyle {
   container: GridElementStyle
-  topic: TopicPreset
+  topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionFeaturedPreset: PageSectionFeaturedPreset = {
+export const pageSectionImagePreset: PageSectionImageWheelStyle = {
   container: {
     ncss: {
-      alignItems: ['center', 'baseline'],
       flexDirection: ['column', 'row'],
-      justifyContent: 'center',
     },
   },
   topic: {
-    ncss: {
-      flexDirection: ['column', 'column', 'row'],
-      alignItems: 'center',
-    },
+    ncss: {},
     content: {
       ncss: {
-        flexDirection: 'column',
-        w: [1, 1, 1 / 2],
         p: 3,
       },
       actions: {
@@ -46,17 +39,12 @@ export const pageSectionFeaturedPreset: PageSectionFeaturedPreset = {
       },
     },
     media: {
-      ncss: {
-        flexDirection: 'column',
-        mb: [3, 3, 0],
-        w: [1, 1, 1 / 2],
-        p: 3,
-      },
+      ncss: {},
       image: {
-        img: {
+        picture: {
           ncss: {},
         },
-        picture: {
+        img: {
           ncss: {},
         },
         figcaption: {
