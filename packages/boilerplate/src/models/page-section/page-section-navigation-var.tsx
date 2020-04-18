@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { elementStyles } from '../../themes/yosemite/element-presets'
+import { elementStyles } from '../../themes/yosemite/element-styles'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { navFooterPreset } from '../../wheelroom/wheels/page-section/navigation-footer/presets/nav-footer-preset'
 import { navHeaderPreset } from '../../wheelroom/wheels/page-section/navigation-header/presets/nav-header-preset'

@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { elementStyles } from '../../themes/yosemite/element-presets'
+import { elementStyles } from '../../themes/yosemite/element-styles'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionFreestyle } from '../../wheelroom/wheels/page-section/freestyle/page-section-freestyle'

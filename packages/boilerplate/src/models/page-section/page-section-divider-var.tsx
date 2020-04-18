@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { elementStyles } from '../../themes/yosemite/element-presets'
+import { elementStyles } from '../../themes/yosemite/element-styles'
 import { PageSectionProps } from '.'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'

@@ -9,7 +9,7 @@
 import React from 'react'
 import { pageSectionCardPreset } from '../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { elementStyles } from '../../themes/yosemite/element-presets'
+import { elementStyles } from '../../themes/yosemite/element-styles'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionProps } from './page-section'
