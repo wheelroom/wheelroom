@@ -68,7 +68,7 @@ export const Image = (props: ImageProps) => {
         mergeNcss([
           pictureLabel,
           imagePictureReset,
-          props.wheel.elementPresets.image.picture,
+          props.wheel.elementStyles.image.picture,
           props.wheel.style.picture,
         ])
       )}
@@ -81,7 +81,7 @@ export const Image = (props: ImageProps) => {
           mergeNcss([
             imgLabel,
             imageImgReset,
-            props.wheel.elementPresets.image.img,
+            props.wheel.elementStyles.image.img,
             props.wheel.style.img,
           ])
         )}
@@ -94,7 +94,7 @@ export const Image = (props: ImageProps) => {
             mergeNcss([
               figcaptionLabel,
               imageFigcaptionReset,
-              props.wheel.elementPresets.image.figcaption,
+              props.wheel.elementStyles.image.figcaption,
               props.wheel.style.figcaption,
             ])
           )}

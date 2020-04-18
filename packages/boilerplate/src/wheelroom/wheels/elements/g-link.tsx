@@ -25,7 +25,7 @@ export const GLink = (props: GLinkProps) => {
     mergeNcss([
       label,
       gLinkReset,
-      props.wheel.elementPresets.gLink,
+      props.wheel.elementStyles.gLink,
       props.wheel.style,
       props,
     ])

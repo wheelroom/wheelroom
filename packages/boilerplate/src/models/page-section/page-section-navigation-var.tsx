@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { elementPresets } from '../../themes/yosemite/element-presets'
+import { elementStyles } from '../../themes/yosemite/element-presets'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { navFooterPreset } from '../../wheelroom/wheels/page-section/navigation-footer/presets/nav-footer-preset'
 import { navHeaderPreset } from '../../wheelroom/wheels/page-section/navigation-header/presets/nav-header-preset'
@@ -35,7 +35,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
 
   const wheelHeader: Wheel = {
     style: headerStyle,
-    elementPresets,
+    elementStyles,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }
@@ -48,7 +48,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
 
   const wheelFooter: Wheel = {
     style: footerStyle,
-    elementPresets,
+    elementStyles,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }

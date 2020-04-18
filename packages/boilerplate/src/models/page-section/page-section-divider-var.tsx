@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { elementPresets } from '../../themes/yosemite/element-presets'
+import { elementStyles } from '../../themes/yosemite/element-presets'
 import { PageSectionProps } from '.'
 import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
@@ -19,7 +19,7 @@ import { Hr } from '../../wheelroom/wheels/elements/self'
 export const PageSectionDividerVar = (props: PageSectionProps) => {
   const wheel: Wheel = {
     style: pageSectionDividerStyle,
-    elementPresets,
+    elementStyles,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }

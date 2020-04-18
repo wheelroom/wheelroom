@@ -8,7 +8,7 @@
 
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { elementPresets } from '../../themes/yosemite/element-presets'
+import { elementStyles } from '../../themes/yosemite/element-presets'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { pageSectionHeadlineStyle } from '../../themes/yosemite/page-section/page-section-headline-style'
@@ -32,7 +32,7 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
 
   const wheel: Wheel = {
     style,
-    elementPresets,
+    elementStyles,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }

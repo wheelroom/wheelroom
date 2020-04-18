@@ -74,7 +74,7 @@ export const Video = (props: VideoProps) => {
           mergeNcss([
             videoLabel,
             videoVideoElementStyle,
-            props.wheel.elementPresets.video.video,
+            props.wheel.elementStyles.video.video,
             video,
           ])
         )}
@@ -92,7 +92,7 @@ export const Video = (props: VideoProps) => {
             mergeNcss([
               descritpionLabel,
               videoDescriptionReset,
-              props.wheel.elementPresets.video.description,
+              props.wheel.elementStyles.video.description,
               description,
             ])
           )}

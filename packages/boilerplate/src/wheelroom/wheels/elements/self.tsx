@@ -13,6 +13,7 @@ import { HrElementStyle, selfHrReset } from './resets/self-hr-reset'
 import { PreElementStyle, selfPreReset } from './resets/self-pre-reset'
 import { StrongElementStyle, selfStrongReset } from './resets/self-strong-reset'
 import { TableElementStyle, selfTableReset } from './resets/self-table-reset'
+import { ElementStyles } from './types/element-styles'
 
 export type SelfReset =
   | ListElementStyle
@@ -26,7 +27,7 @@ export type SelfReset =
 export const getSelf = (
   props: ElementProps,
   reset: SelfReset,
-  elementName: string,
+  elementName: keyof ElementStyles,
   extraAttrs: any = {},
   htmlName = ''
 ) => {
@@ -34,7 +35,7 @@ export const getSelf = (
   const ncss = mergeNcss([
     label,
     reset,
-    props.wheel.elementPresets[elementName],
+    props.wheel.elementStyles[elementName],
     props.wheel.style,
     props,
   ])

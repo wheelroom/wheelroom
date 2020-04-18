@@ -1,9 +1,9 @@
-import { ElementResets as ElementsPresets } from '../../wheelroom/wheels/elements/types/element-resets'
+import { ElementStyles } from '../../wheelroom/wheels/elements/types/element-styles'
 import { headingStyle } from './elements/heading-style'
 import { paragraphStyle } from './elements/paragraph-style'
 import { primaryButtonStyle } from './elements/button-style'
 
-export const elementPresets: ElementsPresets = {
+export const elementStyles: ElementStyles = {
   a: {
     ncss: {
       color: 'link',

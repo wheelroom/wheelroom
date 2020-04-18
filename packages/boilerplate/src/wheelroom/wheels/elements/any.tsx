@@ -39,7 +39,7 @@ const getPolyPreset = (props: AnyProps) => {
   ) {
     polyPreset = mergeNcss([
       resetMap[props.is],
-      props.wheel.elementPresets[props.is],
+      props.wheel.elementStyles[props.is],
     ])
   }
   return polyPreset
@@ -55,7 +55,7 @@ export const Any = (props: AnyProps) => {
     mergeNcss([
       label,
       anyPreset,
-      props.wheel.elementPresets.any,
+      props.wheel.elementStyles.any,
       polyPreset,
       props.wheel.style,
       props,

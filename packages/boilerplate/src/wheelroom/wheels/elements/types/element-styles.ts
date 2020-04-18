@@ -16,7 +16,7 @@ import { CodeElementStyle } from '../resets/self-code-reset'
 import { BlockquoteElementStyle } from '../resets/self-blockquote-reset'
 import { TableElementStyle } from '../resets/self-table-reset'
 
-export interface ElementResets {
+export interface ElementStyles {
   any: AnyElementStyle
   table: TableElementStyle
   ol: ListElementStyle

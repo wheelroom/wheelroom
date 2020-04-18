@@ -9,7 +9,7 @@
 import React from 'react'
 import { pageSectionCardPreset } from '../../wheelroom/wheels/page-section/unicorn/page-section-card-preset'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { elementPresets } from '../../themes/yosemite/element-presets'
+import { elementStyles } from '../../themes/yosemite/element-presets'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionProps } from './page-section'
@@ -41,14 +41,14 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
 
   const wheel: Wheel = {
     style,
-    elementPresets,
+    elementStyles,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }
 
   const wheelShadow: Wheel = {
     style: styleShadow,
-    elementPresets,
+    elementStyles,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
   }

@@ -18,7 +18,7 @@ const getPreset = (props: HeadingProps) => {
   if (Object.keys(headingPresets).includes(is)) {
     preset = mergeNcss([
       headingPresets[is as HeadingName],
-      props.wheel.elementPresets[is as HeadingName],
+      props.wheel.elementStyles[is as HeadingName],
     ])
   }
   return preset
