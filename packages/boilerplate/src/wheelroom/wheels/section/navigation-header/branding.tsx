@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { Flex } from '../../element/grid'
-import { GLink } from '../../element/g-link'
 import { Strong } from '../../element/self'
 import { BrandingWheelStyle } from './presets/branding-preset'
 import { Wheel } from '../../types'
@@ -35,7 +34,6 @@ export const Branding = (props: {
       </Fragment>
     )
   }
-
   return (
     <Flex is="div" wheel={props.wheel}>
       <Action
