@@ -4,6 +4,7 @@ export interface TopicInfo {
   hasAbstract: boolean
   hasAction: boolean
   hasHeading: boolean
+  hasIcon: boolean
   hasImage: boolean
   hasVideo: boolean
 }
@@ -13,12 +14,16 @@ export const getTopicInfo = (topic: TopicProps): TopicInfo => {
     hasAbstract: false,
     hasAction: false,
     hasHeading: false,
+    hasIcon: false,
     hasImage: false,
     hasVideo: false,
   } as TopicInfo
 
   if (topic.heading) {
     info.hasHeading = true
+  }
+  if (topic.icon) {
+    info.hasIcon = true
   }
   if (topic.abstract && topic.abstract.abstract) {
     info.hasAbstract = true

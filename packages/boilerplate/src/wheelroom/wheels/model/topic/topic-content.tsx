@@ -45,6 +45,16 @@ export const TopicContent = (props: TopicContentProps) => {
   const topicOptions = pageSectionInfo.topicOptions
   const showAction = topicInfo.hasAction && !topicOptions.hideAction
 
+  const isEmpty =
+    (!topicInfo.hasIcon || topicOptions.hideIcon) &&
+    (!topicInfo.hasHeading || topicOptions.hideHeading) &&
+    (!topicInfo.hasAbstract || topicOptions.hideAbstract) &&
+    (!topicInfo.hasAction || topicOptions.hideAction)
+
+  if (isEmpty) {
+    return null
+  }
+
   return (
     <Box
       ncss={{
