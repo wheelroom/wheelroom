@@ -117,14 +117,14 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
           },
           action: {
             ncss: {
-              ...primaryButtonStyle,
+              ...primaryButtonStyle.ncss,
               mb: 0,
               w: [1 / 2],
             },
           },
           themeButton: {
             ncss: {
-              ...secondaryButtonStyle,
+              ...secondaryButtonStyle.ncss,
               ml: 2,
               w: [1 / 2],
             },
