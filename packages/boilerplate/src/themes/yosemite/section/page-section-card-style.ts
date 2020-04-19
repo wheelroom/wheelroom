@@ -68,7 +68,6 @@ export const pageSectionCardStyle: PageSectionCardWheelStyle = {
 }
 
 export const pageSectionCardShadowStyle = {
-  ...pageSectionCardStyle,
   topic: {
     ncss: {
       transition: 'transform .25s ease 0s',

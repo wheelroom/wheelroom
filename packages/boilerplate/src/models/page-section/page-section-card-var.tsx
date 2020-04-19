@@ -35,8 +35,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   ])
 
   const styleShadow = deepMerge([
-    { topic: topicPreset },
-    pageSectionCardPreset,
+    style,
     pageSectionCardShadowStyle,
   ])
 
