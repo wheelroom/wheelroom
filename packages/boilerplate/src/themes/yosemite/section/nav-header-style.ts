@@ -35,7 +35,7 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
     },
     sup: {
       ncss: {
-        color: 'bullet',
+        color: 'metal',
       },
     },
   },

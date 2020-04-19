@@ -29,7 +29,11 @@ export const navFooterStyle: NavFooterWheelStyle = {
         link: {
           ncss: {},
           icon: {
-            ncss: {},
+            ncss: {
+              ':hover': {
+                color: 'sectionText',
+              },
+            },
           },
         },
       },
@@ -52,7 +56,7 @@ export const navFooterStyle: NavFooterWheelStyle = {
       },
       sup: {
         ncss: {
-          color: 'bullet',
+          color: 'metal',
         },
       },
     },
