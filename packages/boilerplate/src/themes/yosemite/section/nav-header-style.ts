@@ -1,7 +1,7 @@
 import { NavHeaderWheelStyle } from '../../../wheelroom/wheels/section/navigation-header/presets/nav-header-preset'
 import { wrapperStyle } from '../elements/grid-style'
 import {
-  elementAsPrimaryButtonStyle,
+  primaryButtonStyle,
   secondaryButtonStyle,
 } from '../elements/button-style'
 
@@ -52,16 +52,8 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
     },
     actions: {
       ncss: {},
-      action: {
-        ncss: {
-          ...elementAsPrimaryButtonStyle,
-        },
-      },
-      themeButton: {
-        ncss: {
-          ...secondaryButtonStyle,
-        },
-      },
+      action: primaryButtonStyle,
+      themeButton: secondaryButtonStyle,
     },
   },
   modal: {
@@ -125,7 +117,7 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
           },
           action: {
             ncss: {
-              ...elementAsPrimaryButtonStyle,
+              ...primaryButtonStyle,
               mb: 0,
               w: [1 / 2],
             },

@@ -1,5 +1,5 @@
 import { PageSectionCardWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-card-preset'
-import { elementAsPrimaryButtonStyle } from '../elements/button-style'
+import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionCardStyle: PageSectionCardWheelStyle = {
@@ -20,11 +20,7 @@ export const pageSectionCardStyle: PageSectionCardWheelStyle = {
       },
       actions: {
         ncss: {},
-        link: {
-          ncss: {
-            ...elementAsPrimaryButtonStyle,
-          },
-        },
+        link: primaryButtonStyle,
       },
       text: {
         ncss: {},

@@ -1,5 +1,5 @@
 import { PageSectionQuoteWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-quote-preset'
-import { elementAsPrimaryButtonStyle } from '../elements/button-style'
+import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionQuoteStyle: PageSectionQuoteWheelStyle = {
@@ -12,11 +12,7 @@ export const pageSectionQuoteStyle: PageSectionQuoteWheelStyle = {
       ncss: {},
       actions: {
         ncss: {},
-        link: {
-          ncss: {
-            ...elementAsPrimaryButtonStyle,
-          },
-        },
+        link: primaryButtonStyle,
       },
       text: {
         ncss: {},

@@ -1,5 +1,5 @@
 import { PageSectionHeadlineWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-headline-preset'
-import { elementAsPrimaryButtonStyle } from '../elements/button-style'
+import { displayButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
@@ -14,12 +14,7 @@ export const pageSectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
       },
       actions: {
         ncss: {},
-        link: {
-          ncss: {
-            ...elementAsPrimaryButtonStyle,
-            fontSize: [6, 6, 7, 7],
-          },
-        },
+        link: displayButtonStyle,
       },
       text: {
         ncss: {},

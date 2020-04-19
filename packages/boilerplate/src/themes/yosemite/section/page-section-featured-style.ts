@@ -1,5 +1,5 @@
 import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-featured-preset'
-import { elementAsPrimaryButtonStyle } from '../elements/button-style'
+import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
@@ -12,11 +12,7 @@ export const pageSectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
       ncss: {},
       actions: {
         ncss: {},
-        link: {
-          ncss: {
-            ...elementAsPrimaryButtonStyle,
-          },
-        },
+        link: primaryButtonStyle,
       },
       text: {
         ncss: {},
