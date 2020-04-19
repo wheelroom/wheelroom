@@ -5,7 +5,7 @@ import { GlobalsProps } from './models/globals'
 import { PageProps } from './models/page'
 import { pageDebug } from './wheelroom/lib/debug'
 import { Seo } from './wheelroom/lib/seo'
-import { Sections } from './wheelroom/section/sections'
+import { Sections } from './wheelroom/sections/sections'
 import {
   PreviewUpdateButton,
   useFetchPreviewPage,
