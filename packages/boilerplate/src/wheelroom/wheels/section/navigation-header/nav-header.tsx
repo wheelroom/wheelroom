@@ -39,8 +39,8 @@ export const PageSectionNavigationHeader = (props: {
   }
   const globals = props.pageSection.globals
   const siteMetadata = props.pageSection.siteMetadata
-  const navSegment = props.pageSection.navigation
-    .segments[0] as NavigationSegmentProps
+  const navigation = props.pageSection.navigation
+  const navSegment = navigation.segments[0] as NavigationSegmentProps
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
@@ -62,11 +62,12 @@ export const PageSectionNavigationHeader = (props: {
         href="#content"
         wheel={{ ...props.wheel, style: props.wheel.style.skipToContent }}
       >
-        {`Skip to ${globals.siteHeading} Content`}
+        {navigation.skipToContentHeading}
       </ALink>
       <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
         <Fluid wheel={{ ...props.wheel, style: props.wheel.style.container }}>
           <Branding
+            brandAction={navigation.brandAction}
             logo={props.useLogoElement || globals.siteHeading}
             version={siteMetadata.legal.version}
             wheel={{ ...props.wheel, style: props.wheel.style.branding }}

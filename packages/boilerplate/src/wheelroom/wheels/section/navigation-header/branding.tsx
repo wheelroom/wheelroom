@@ -5,22 +5,23 @@ import { Strong } from '../../element/self'
 import { BrandingWheelStyle } from './presets/branding-preset'
 import { Wheel } from '../../types'
 import { Sup } from '../../element/paragraph'
+import { ActionProps } from '../../../../models/action/action'
+import { Action } from '../../model/action/action'
 
 interface LogoWheel extends Wheel {
   style: BrandingWheelStyle
 }
 
 export const Branding = (props: {
+  brandAction: ActionProps
   logo: string | JSX.Element
   version?: string
   wheel: LogoWheel
 }) => {
   // When a React element is passed, use that
   let logo
-  let ariaLabel = `Back to ${props.logo} homepage`
   if (React.isValidElement(props.logo)) {
     logo = props.logo
-    ariaLabel = 'Back to homepage'
   }
   if (typeof props.logo === 'string') {
     logo = (
@@ -37,13 +38,12 @@ export const Branding = (props: {
 
   return (
     <Flex is="div" wheel={props.wheel}>
-      <GLink
-        to="/"
-        ariaLabel={ariaLabel}
+      <Action
+        {...props.brandAction}
         wheel={{ ...props.wheel, style: props.wheel.style.link }}
       >
         {logo}
-      </GLink>
+      </Action>
     </Flex>
   )
 }
