@@ -1,4 +1,4 @@
-export const pageSectionDividerStyle = {
+export const sectionDividerStyle = {
   ncss: {
     my: '1rem',
     color: 'inherit',

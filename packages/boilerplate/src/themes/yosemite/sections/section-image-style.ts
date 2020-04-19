@@ -1,6 +1,7 @@
-import { PageSectionHeroWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-hero-preset'
+import { PageSectionImageWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-image-preset'
+import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionHeroStyle: PageSectionHeroWheelStyle = {
+export const sectionImageStyle: PageSectionImageWheelStyle = {
   container: {
     ncss: {},
   },
@@ -51,6 +52,8 @@ export const pageSectionHeroStyle: PageSectionHeroWheelStyle = {
     },
   },
   wrapper: {
-    ncss: {},
+    ncss: {
+      ...wrapperStyle,
+    },
   },
 }

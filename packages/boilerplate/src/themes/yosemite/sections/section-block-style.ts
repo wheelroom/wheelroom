@@ -2,7 +2,7 @@ import { PageSectionBlockWheelStyle } from '../../../wheelroom/wheels/section/un
 import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionBlockStyle: PageSectionBlockWheelStyle = {
+export const sectionBlockStyle: PageSectionBlockWheelStyle = {
   container: {
     ncss: {},
   },

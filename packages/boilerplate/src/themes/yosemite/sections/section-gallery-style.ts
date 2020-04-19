@@ -1,28 +1,24 @@
-import { PageSectionHeadlineWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-headline-preset'
-import { displayButtonStyle } from '../elements/button-style'
+import { PageSectionGalleryWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-gallery-preset'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
+export const sectionGalleryStyle: PageSectionGalleryWheelStyle = {
   container: {
     ncss: {},
   },
   topic: {
     ncss: {},
     content: {
-      ncss: {
-        py: 5,
-      },
+      ncss: {},
       actions: {
         ncss: {},
-        link: displayButtonStyle,
+        link: {
+          ncss: {},
+        },
       },
       text: {
         ncss: {},
         abstract: {
-          ncss: {
-            fontSize: [7, 7, 8, 8],
-            mb: 5,
-          },
+          ncss: {},
         },
         heading: {
           ncss: {},

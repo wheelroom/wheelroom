@@ -2,7 +2,7 @@ import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/section
 import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
+export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
   container: {
     ncss: {},
   },

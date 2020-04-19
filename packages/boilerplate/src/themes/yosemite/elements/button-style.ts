@@ -1,21 +1,23 @@
 import { ButtonElementStyle } from '../../../wheelroom/wheels/elements/resets/button-reset'
 
-export const buttonStyle = {
-  display: 'inline-flex',
-  justifyContent: 'center',
-  px: 3,
-  py: 2,
-  userSelect: 'none',
-  borderWidth: '1px',
-  borderStyle: 'solid',
-  borderRadius: 4,
-  borderColor: 'transparent',
-  textDecoration: 'none',
+const buttonStyle: ButtonElementStyle = {
+  ncss: {
+    display: 'inline-flex',
+    justifyContent: 'center',
+    px: 3,
+    py: 2,
+    userSelect: 'none',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderRadius: 4,
+    borderColor: 'transparent',
+    textDecoration: 'none',
+  },
 }
 
 export const primaryButtonStyle: ButtonElementStyle = {
   ncss: {
-    ...buttonStyle,
+    ...buttonStyle.ncss,
     color: 'white',
     bg: 'azure',
     borderColor: 'azure',
@@ -24,7 +26,7 @@ export const primaryButtonStyle: ButtonElementStyle = {
 
 export const secondaryButtonStyle: ButtonElementStyle = {
   ncss: {
-    ...buttonStyle,
+    ...buttonStyle.ncss,
     color: 'sectionText',
     bg: 'transparent',
     borderColor: 'metal',

@@ -21,8 +21,8 @@ import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import {
   pageSectionCardShadowStyle,
-  pageSectionCardStyle,
-} from '../../themes/yosemite/section/page-section-card-style'
+  sectionCardStyle,
+} from '../../themes/yosemite/sections/section-card-style'
 import { TopicProps } from '../topic'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
@@ -31,7 +31,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   const style = deepMerge([
     { topic: topicPreset },
     pageSectionCardPreset,
-    pageSectionCardStyle,
+    sectionCardStyle,
   ])
 
   const styleShadow = deepMerge([

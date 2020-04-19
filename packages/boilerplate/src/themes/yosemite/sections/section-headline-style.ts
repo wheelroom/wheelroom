@@ -1,23 +1,28 @@
-import { PageSectionQuoteWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-quote-preset'
-import { primaryButtonStyle } from '../elements/button-style'
+import { PageSectionHeadlineWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-headline-preset'
+import { displayButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionQuoteStyle: PageSectionQuoteWheelStyle = {
+export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
   container: {
     ncss: {},
   },
   topic: {
     ncss: {},
     content: {
-      ncss: {},
+      ncss: {
+        py: 5,
+      },
       actions: {
         ncss: {},
-        link: primaryButtonStyle,
+        link: displayButtonStyle,
       },
       text: {
         ncss: {},
         abstract: {
-          ncss: {},
+          ncss: {
+            fontSize: [7, 7, 8, 8],
+            mb: 5,
+          },
         },
         heading: {
           ncss: {},
@@ -31,19 +36,10 @@ export const pageSectionQuoteStyle: PageSectionQuoteWheelStyle = {
       ncss: {},
       image: {
         img: {
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
-          },
+          ncss: {},
         },
         picture: {
-          ncss: {
-            overflow: 'hidden',
-            h: '200px',
-            w: '200px',
-            borderRadius: '100px',
-            mx: 'auto',
-          },
+          ncss: {},
         },
         figcaption: {
           ncss: {},

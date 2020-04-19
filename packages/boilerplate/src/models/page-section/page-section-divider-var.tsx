@@ -13,12 +13,12 @@ import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { pageSectionDividerStyle } from '../../themes/yosemite/section/page-section-divider-style'
+import { sectionDividerStyle } from '../../themes/yosemite/sections/section-divider-style'
 import { Hr } from '../../wheelroom/wheels/elements/self'
 
 export const PageSectionDividerVar = (props: PageSectionProps) => {
   const wheel: Wheel = {
-    style: pageSectionDividerStyle,
+    style: sectionDividerStyle,
     elementStyles,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,

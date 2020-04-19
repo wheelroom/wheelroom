@@ -11,7 +11,7 @@ import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { elementStyles } from '../../themes/yosemite/element-styles'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
-import { pageSectionHeadlineStyle } from '../../themes/yosemite/section/page-section-headline-style'
+import { sectionHeadlineStyle } from '../../themes/yosemite/sections/section-headline-style'
 import { pageSectionHeadlinePreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-headline-preset'
 import { PageSectionProps } from './page-section'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-section-unicorn'
@@ -27,7 +27,7 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
   const style = deepMerge([
     { topic: topicPreset },
     pageSectionHeadlinePreset,
-    pageSectionHeadlineStyle,
+    sectionHeadlineStyle,
   ])
 
   const wheel: Wheel = {

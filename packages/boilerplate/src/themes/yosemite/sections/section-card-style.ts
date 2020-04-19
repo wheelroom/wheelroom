@@ -2,7 +2,7 @@ import { PageSectionCardWheelStyle } from '../../../wheelroom/wheels/section/uni
 import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const pageSectionCardStyle: PageSectionCardWheelStyle = {
+export const sectionCardStyle: PageSectionCardWheelStyle = {
   container: {
     ncss: {},
   },

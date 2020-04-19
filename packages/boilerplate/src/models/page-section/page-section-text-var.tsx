@@ -19,7 +19,7 @@ import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
-import { pageSectionFreestyleStyle } from '../../themes/yosemite/section/page-section-text-style'
+import { pageSectionFreestyleStyle } from '../../themes/yosemite/sections/section-text-style'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
