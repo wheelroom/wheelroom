@@ -1,4 +1,4 @@
-import { PageSectionHeadlineWheelStyle } from '../../../wheelroom/wheels/page/unicorn/presets/page-section-headline-preset'
+import { PageSectionHeadlineWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-headline-preset'
 import { elementAsPrimaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 

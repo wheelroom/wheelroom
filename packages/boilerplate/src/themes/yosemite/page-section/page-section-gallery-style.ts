@@ -1,4 +1,4 @@
-import { PageSectionGalleryWheelStyle } from '../../../wheelroom/wheels/page/unicorn/presets/page-section-gallery-preset'
+import { PageSectionGalleryWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-gallery-preset'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionGalleryStyle: PageSectionGalleryWheelStyle = {

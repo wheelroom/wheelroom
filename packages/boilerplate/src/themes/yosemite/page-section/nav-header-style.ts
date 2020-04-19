@@ -1,4 +1,4 @@
-import { NavHeaderWheelStyle } from '../../../wheelroom/wheels/page/navigation-header/presets/nav-header-preset'
+import { NavHeaderWheelStyle } from '../../../wheelroom/wheels/section/navigation-header/presets/nav-header-preset'
 import { wrapperStyle } from '../elements/grid-style'
 import {
   elementAsPrimaryButtonStyle,

@@ -1,4 +1,4 @@
-import { PageSectionQuoteWheelStyle } from '../../../wheelroom/wheels/page/unicorn/presets/page-section-quote-preset'
+import { PageSectionQuoteWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-quote-preset'
 import { elementAsPrimaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 

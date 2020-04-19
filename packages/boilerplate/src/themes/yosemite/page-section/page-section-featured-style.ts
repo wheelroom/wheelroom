@@ -1,4 +1,4 @@
-import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/page/unicorn/presets/page-section-featured-preset'
+import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-featured-preset'
 import { elementAsPrimaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
