@@ -20,9 +20,9 @@ import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { navHeaderStyle } from '../../themes/yosemite/page-section/nav-header-style'
+import { navHeaderStyle } from '../../themes/yosemite/section/nav-header-style'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
-import { navFooterStyle } from '../../themes/yosemite/page-section/nav-footer-style'
+import { navFooterStyle } from '../../themes/yosemite/section/nav-footer-style'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)

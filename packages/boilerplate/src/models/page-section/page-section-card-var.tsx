@@ -22,7 +22,7 @@ import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import {
   pageSectionCardShadowStyle,
   pageSectionCardStyle,
-} from '../../themes/yosemite/page-section/page-section-card-style'
+} from '../../themes/yosemite/section/page-section-card-style'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
