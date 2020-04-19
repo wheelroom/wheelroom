@@ -68,13 +68,13 @@ export const textPreset: TextWheelStyle = {
   },
   entryHyperlink: {
     ncss: {
-      wordBreak: 'break-all',
+      wordBreak: 'break-word',
       hyphens: 'auto',
     },
   },
   inlinesHyperlink: {
     ncss: {
-      wordBreak: 'break-all',
+      wordBreak: 'break-word',
       hyphens: 'auto',
     },
   },
@@ -122,7 +122,7 @@ export const textPreset: TextWheelStyle = {
   wrapper: {
     ncss: {
       label: 'wrapper-text',
-      maxWidth: '640px',
+      maxWidth: '712px',
       mx: 'auto',
       py: 0,
       px: 3,

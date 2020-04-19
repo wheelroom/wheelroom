@@ -134,15 +134,11 @@ export const modalPreset: ModalWheelStyle = {
       action: {
         ncss: {
           label: 'modal-actions-action',
-          display: 'block',
-          w: 1,
-          mb: 2,
         },
       },
       themeButton: {
         ncss: {
           label: 'modal-actions-theme-button',
-          w: 1,
         },
       },
     },
