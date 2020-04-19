@@ -1,5 +1,5 @@
 import { NcssProps } from '../../../types'
-import { IconElementStyle } from '../../../elements/resets/icon-reset'
+import { IconElementStyle } from '../../../element/resets/icon-reset'
 
 export interface NavFooterSocialListItemLinkWheelStyle {
   ncss: NcssProps

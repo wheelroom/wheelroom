@@ -1,4 +1,4 @@
-import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { GridElementStyle } from '../../../element/resets/grid-reset'
 import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
 
 export interface PageSectionQuoteWheelStyle {

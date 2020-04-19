@@ -3,7 +3,7 @@ import { PageProps } from '../../../../models/page'
 import { Wheel } from '../../types'
 import { NavFooterListItemPresetWheelStyle } from './presets/nav-footer-list-item-preset'
 import { NavFooterListItemLink } from './nav-footer-list-item-link'
-import { Li } from '../../elements/self'
+import { Li } from '../../element/self'
 
 interface NavFooterListItemWheel extends Wheel {
   style: NavFooterListItemPresetWheelStyle

@@ -1,5 +1,5 @@
 import React from 'react'
-import { GLink } from '../../elements/g-link'
+import { GLink } from '../../element/g-link'
 import { PageProps } from '../../../../models/page'
 import { NavFooterListItemLinkWheelStyle } from './presets/nav-footer-list-item-link-preset'
 import { Wheel } from '../../types'

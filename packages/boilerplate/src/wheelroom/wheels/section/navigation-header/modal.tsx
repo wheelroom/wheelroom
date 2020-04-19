@@ -1,13 +1,13 @@
 import React from 'react'
 import { NavHeaderList } from './nav-header-list'
-import { Box, Flex } from '../../elements/grid'
-import { Button } from '../../elements/button'
+import { Box, Flex } from '../../element/grid'
+import { Button } from '../../element/button'
 import { ActionProps } from '../../../../models/action'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageProps } from '../../../../models/page/page'
 import { Wheel } from '../../types'
 import { ModalWheelStyle } from './presets/modal-preset'
-import { FeatherIcon } from '../../elements/icon'
+import { FeatherIcon } from '../../element/icon'
 import { NavHeaderActions } from './nav-header-actions'
 
 interface ModalWheel extends Wheel {

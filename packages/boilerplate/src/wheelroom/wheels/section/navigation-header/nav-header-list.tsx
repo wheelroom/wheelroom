@@ -1,6 +1,6 @@
 import React from 'react'
 import { Wheel } from '../../types'
-import { Ul } from '../../elements/self'
+import { Ul } from '../../element/self'
 import { NavHeaderListItem } from './nav-header-list-item'
 import { PageProps } from '../../../../models/page'
 import { NavHeaderListWheelStyle } from './presets/nav-header-list-preset'

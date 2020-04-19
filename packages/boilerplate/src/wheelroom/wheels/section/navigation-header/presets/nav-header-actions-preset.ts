@@ -2,7 +2,7 @@ import { NcssProps } from '../../../types'
 import {
   ButtonElementStyle,
   buttonReset,
-} from '../../../elements/resets/button-reset'
+} from '../../../element/resets/button-reset'
 
 export interface NavHeaderActionsWheelStyle {
   ncss: NcssProps

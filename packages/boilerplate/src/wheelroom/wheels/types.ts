@@ -1,5 +1,5 @@
 import { StyledSystemTheme, StyledSystemConfig } from '@wheelroom/styled-system'
-import { ElementStyles } from './elements/types/element-styles'
+import { ElementStyles } from './element/types/element-styles'
 
 export type NcssProps = any
 

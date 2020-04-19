@@ -8,29 +8,29 @@
  */
 
 import React from 'react'
-import { Image } from '../../elements/image'
+import { Image } from '../../element/image'
 import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
-import { Paragraph } from '../../elements/paragraph'
-import { Ul, Ol, Li } from '../../elements/self'
-import { ALink } from '../../elements/a-link'
-import { GLink } from '../../elements/g-link'
-import { H1, H2, H3, H4, H5, H6 } from '../../elements/heading'
+import { Paragraph } from '../../element/paragraph'
+import { Ul, Ol, Li } from '../../element/self'
+import { ALink } from '../../element/a-link'
+import { GLink } from '../../element/g-link'
+import { H1, H2, H3, H4, H5, H6 } from '../../element/heading'
 import { getLocalizedValue } from './get-localized-value'
-import { Wrapper } from '../../elements/grid'
+import { Wrapper } from '../../element/grid'
 import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
-import { Video } from '../../elements/video'
+import { Video } from '../../element/video'
 import { TextWheelStyle } from './text-preset'
-import { MediaObject } from '../../elements/types/media'
+import { MediaObject } from '../../element/types/media'
 import { Wheel } from '../../types'
 import { TextProps } from '../../../../models/text'
-import { Strong } from '../../elements/self'
-import { Pre } from '../../elements/self'
-import { Code } from '../../elements/self'
-import { Hr } from '../../elements/self'
-import { Blockquote } from '../../elements/self'
+import { Strong } from '../../element/self'
+import { Pre } from '../../element/self'
+import { Code } from '../../element/self'
+import { Hr } from '../../element/self'
+import { Blockquote } from '../../element/self'
 
 export interface TextWheel extends Wheel {
   style: TextWheelStyle

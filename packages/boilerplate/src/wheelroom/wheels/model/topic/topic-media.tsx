@@ -1,10 +1,10 @@
 import React from 'react'
-import { Image } from '../../elements/image'
-import { Box } from '../../elements/grid'
+import { Image } from '../../element/image'
+import { Box } from '../../element/grid'
 import { TopicProps } from '../../../../models/topic'
 import { TopicInfo } from '../../../lib/get-topic-info'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
-import { Video } from '../../elements/video'
+import { Video } from '../../element/video'
 import { Wheel } from '../../types'
 import { TopicMediaWheelStyle } from './presets/topic-media-preset'
 

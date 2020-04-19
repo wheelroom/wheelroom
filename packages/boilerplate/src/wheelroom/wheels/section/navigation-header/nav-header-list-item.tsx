@@ -3,7 +3,7 @@ import { PageProps } from '../../../../models/page'
 import { Wheel } from '../../types'
 import { NavHeaderListItemWheelStyle } from './presets/nav-header-list-item-preset'
 import { NavHeaderListItemLink } from './nav-header-list-item-link'
-import { Li } from '../../elements/self'
+import { Li } from '../../element/self'
 
 interface NavHeaderListItemWheel extends Wheel {
   style: NavHeaderListItemWheelStyle

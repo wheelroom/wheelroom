@@ -1,5 +1,5 @@
 import { NcssProps } from '../../../types'
-import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { GridElementStyle } from '../../../element/resets/grid-reset'
 import { BrandingWheelStyle, brandingPreset } from './branding-preset'
 import {
   NavHeaderActionsWheelStyle,
@@ -11,7 +11,7 @@ import {
   NavHeaderListWheelStyle,
   navHeaderListPreset,
 } from './nav-header-list-preset'
-import { ButtonElementStyle } from '../../../elements/resets/button-reset'
+import { ButtonElementStyle } from '../../../element/resets/button-reset'
 
 export interface NavHeaderWheelStyle {
   skipToContent: NcssProps

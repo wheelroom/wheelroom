@@ -8,8 +8,8 @@
 
 import React, { Fragment } from 'react'
 import { ActionProps } from '../../../../models/action'
-import { GLink } from '../../elements/g-link'
-import { ALink } from '../../elements/a-link'
+import { GLink } from '../../element/g-link'
+import { ALink } from '../../element/a-link'
 import { Wheel, NcssProps } from '../../types'
 
 export interface ActionWheelStyle {

@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import { Flex } from '../../elements/grid'
-import { GLink } from '../../elements/g-link'
-import { Strong } from '../../elements/self'
+import { Flex } from '../../element/grid'
+import { GLink } from '../../element/g-link'
+import { Strong } from '../../element/self'
 import { BrandingWheelStyle } from './presets/branding-preset'
 import { Wheel } from '../../types'
-import { Sup } from '../../elements/paragraph'
+import { Sup } from '../../element/paragraph'
 
 interface LogoWheel extends Wheel {
   style: BrandingWheelStyle

@@ -1,19 +1,19 @@
-import { ImageElementStyle } from '../../elements/image'
-import { VideoElementStyle } from '../../elements/video'
-import { GridElementStyle } from '../../elements/resets/grid-reset'
-import { StrongElementStyle } from '../../elements/resets/self-strong-reset'
-import { CodeElementStyle } from '../../elements/resets/self-code-reset'
-import { PreElementStyle } from '../../elements/resets/self-pre-reset'
-import { ParagraphElementStyle } from '../../elements/resets/paragraph-reset'
-import { HrElementStyle } from '../../elements/resets/self-hr-reset'
-import { HeadingElementStyle } from '../../elements/resets/heading-reset'
-import { BlockquoteElementStyle } from '../../elements/resets/self-blockquote-reset'
-import { ListElementStyle } from '../../elements/resets/self-list-reset'
-import { ALinkElementStyle } from '../../elements/resets/a-link-reset'
+import { ImageElementStyle } from '../../element/image'
+import { VideoElementStyle } from '../../element/video'
+import { GridElementStyle } from '../../element/resets/grid-reset'
+import { StrongElementStyle } from '../../element/resets/self-strong-reset'
+import { CodeElementStyle } from '../../element/resets/self-code-reset'
+import { PreElementStyle } from '../../element/resets/self-pre-reset'
+import { ParagraphElementStyle } from '../../element/resets/paragraph-reset'
+import { HrElementStyle } from '../../element/resets/self-hr-reset'
+import { HeadingElementStyle } from '../../element/resets/heading-reset'
+import { BlockquoteElementStyle } from '../../element/resets/self-blockquote-reset'
+import { ListElementStyle } from '../../element/resets/self-list-reset'
+import { ALinkElementStyle } from '../../element/resets/a-link-reset'
 import {
   imageFigcaptionReset,
   imageImgReset,
-} from '../../elements/resets/image-reset'
+} from '../../element/resets/image-reset'
 
 export interface TextWheelStyle {
   wrapper: GridElementStyle

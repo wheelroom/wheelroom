@@ -1,6 +1,6 @@
 import { NcssProps } from '../../../types'
-import { ImageElementStyle } from '../../../elements/image'
-import { VideoElementStyle } from '../../../elements/video'
+import { ImageElementStyle } from '../../../element/image'
+import { VideoElementStyle } from '../../../element/video'
 
 export interface TopicMediaWheelStyle {
   /** Styling for this node */

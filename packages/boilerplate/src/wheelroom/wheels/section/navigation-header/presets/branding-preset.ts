@@ -1,6 +1,6 @@
 import { NcssProps } from '../../../types'
-import { ALinkElementStyle } from '../../../elements/resets/a-link-reset'
-import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
+import { ALinkElementStyle } from '../../../element/resets/a-link-reset'
+import { ParagraphElementStyle } from '../../../element/resets/paragraph-reset'
 
 export interface BrandingWheelStyle {
   ncss: NcssProps

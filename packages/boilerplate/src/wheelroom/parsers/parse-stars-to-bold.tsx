@@ -9,9 +9,9 @@
  */
 
 import React from 'react'
-import { Paragraph } from '../wheels/elements/paragraph'
+import { Paragraph } from '../wheels/element/paragraph'
 import { ParserProps } from './types'
-import { Heading, HeadingMap } from '../wheels/elements/heading'
+import { Heading, HeadingMap } from '../wheels/element/heading'
 
 const replaceStars = (children: React.ReactNode) => {
   const result: any = []

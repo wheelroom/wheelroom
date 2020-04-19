@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { ParserProps } from './types'
-import { Any } from '../wheels/elements/any'
+import { Any } from '../wheels/element/any'
 
 const replaceNewlines = (children: React.ReactNode) => {
   const result: any = []

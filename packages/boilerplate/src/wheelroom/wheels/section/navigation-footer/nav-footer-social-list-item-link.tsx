@@ -2,7 +2,7 @@ import React from 'react'
 import { NavFooterSocialListItemLinkWheelStyle } from './presets/nav-footer-social-list-item-link-preset'
 import { Wheel } from '../../types'
 import { Action } from '../../model/action/action'
-import { FeatherIcon } from '../../elements/icon'
+import { FeatherIcon } from '../../element/icon'
 import { TopicProps } from '../../../../models/topic'
 
 interface NavFooterSocialListItemLinkWheel extends Wheel {
