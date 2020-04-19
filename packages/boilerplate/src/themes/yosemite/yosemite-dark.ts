@@ -24,6 +24,9 @@ export const yosemiteDark: StyledSystemTheme = {
 
     modalBorder: colors.ghost,
     modalShadow: colors.ghost,
+
     iconColor: colors.bullet,
+
+    codeBg: colors.skyblue,
   },
 }

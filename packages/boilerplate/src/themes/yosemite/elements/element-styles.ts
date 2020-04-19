@@ -13,14 +13,21 @@ export const elementStyles: ElementStyles = {
     ncss: {},
   },
   blockquote: {
-    ncss: {},
+    ncss: {
+      fontSize: 5,
+      pl: [3, 5, 7],
+      mx: 0,
+    },
   },
   box: {
     ncss: {},
   },
   button: primaryButtonStyle,
   code: {
-    ncss: {},
+    ncss: {
+      overflowX: 'auto',
+      whiteSpace: 'pre',
+    },
   },
   container: {
     ncss: {},
@@ -115,7 +122,14 @@ export const elementStyles: ElementStyles = {
     },
   },
   pre: {
-    ncss: {},
+    ncss: {
+      tabSize: 2,
+      wordBreak: 'normal',
+      hyphens: 'none',
+      overflow: 'hidden',
+      bg: 'codeBg',
+      p: 3,
+    },
   },
   samp: {
     ncss: {},

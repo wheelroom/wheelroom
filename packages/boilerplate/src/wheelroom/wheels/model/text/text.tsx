@@ -69,35 +69,44 @@ export const Text = (props: TextWheelProps) => {
         </Strong>
       ),
       [MARKS.CODE]: (code) => (
-        <Pre
+        <Code
           wheel={{
             ...textProps.wheel,
-            style: textProps.wheel.style.pre,
+            style: textProps.wheel.style.code,
           }}
         >
-          <Code
-            wheel={{
-              ...textProps.wheel,
-              style: textProps.wheel.style.code,
-            }}
-          >
-            {code}
-          </Code>
-        </Pre>
+          {code}
+        </Code>
       ),
     },
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
-        return (
-          <Paragraph
-            wheel={{
-              ...textProps.wheel,
-              style: textProps.wheel.style.p,
-            }}
-          >
-            {children}
-          </Paragraph>
-        )
+        const isCode =
+          _node.content[0].marks.length &&
+          _node.content[0].marks[0].type === 'code'
+        if (isCode) {
+          return (
+            <Pre
+              wheel={{
+                ...textProps.wheel,
+                style: textProps.wheel.style.pre,
+              }}
+            >
+              {children}
+            </Pre>
+          )
+        } else {
+          return (
+            <Paragraph
+              wheel={{
+                ...textProps.wheel,
+                style: textProps.wheel.style.p,
+              }}
+            >
+              {children}
+            </Paragraph>
+          )
+        }
       },
       [BLOCKS.QUOTE]: (_node: Node, children: Children) => {
         return (

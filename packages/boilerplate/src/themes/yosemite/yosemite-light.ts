@@ -24,6 +24,9 @@ export const yosemiteLight: StyledSystemTheme = {
 
     modalBorder: colors.bullet,
     modalShadow: colors.bullet,
+
     iconColor: colors.metal,
+
+    codeBg: colors.skyblue,
   },
 }
