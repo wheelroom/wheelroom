@@ -34,10 +34,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
     sectionCardStyle,
   ])
 
-  const styleShadow = deepMerge([
-    style,
-    pageSectionCardShadowStyle,
-  ])
+  const styleShadow = deepMerge([style, pageSectionCardShadowStyle])
 
   const wheel: Wheel = {
     style,

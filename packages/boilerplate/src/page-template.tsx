@@ -68,11 +68,10 @@ const PageTemplate = (props: any) => {
     siteVersion,
     title: page.seoTitle,
   }
-  // TODO: Create TS interface for theme
   const backgroundColor =
     activeThemeId === 'light'
-      ? (yosemiteLight as any).colorMap.sectionBg
-      : (yosemiteDark as any).colorMap.sectionBg
+      ? yosemiteLight.colorMap.sectionBg
+      : yosemiteDark.colorMap.sectionBg
 
   return (
     <Fragment>

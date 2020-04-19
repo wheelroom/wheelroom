@@ -1,13 +1,13 @@
-import { StyledSystemTheme } from '@wheelroom/styled-system'
-import { scales } from './styled-system/scales'
-import { maps } from './styled-system/maps'
-import { breakpoints } from './styled-system/breakpoints'
+import { breakpointsPreset } from '../../wheelroom/theme/breakpoints-preset'
 import { colors } from './styled-system/colors'
+import { mapsPreset } from '../../wheelroom/theme/maps-preset'
+import { scalesPreset } from '../../wheelroom/theme/scales-preset'
+import { StyledSystemTheme } from '../../wheelroom/theme/types'
 
 export const yosemiteDark: StyledSystemTheme = {
-  ...breakpoints,
-  ...maps,
-  ...scales,
+  ...breakpointsPreset,
+  ...mapsPreset,
+  ...scalesPreset,
   colorMap: {
     ...colors,
     heading: colors.black,
