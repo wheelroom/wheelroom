@@ -16,7 +16,7 @@ export interface GLinkProps extends ElementProps {
 
 export const GLink = (props: GLinkProps) => {
   const { adminCoreState } = useContext(AdminCoreContext)
-  const label = { ncss: { label: 'a-link' } }
+  const label = { ncss: { label: 'g-link' } }
   const attrs: any = getElementAttrs(props)
   attrs.to = props.to + getPreviewQueryString(adminCoreState)
   attrs.css = styledSystem(
