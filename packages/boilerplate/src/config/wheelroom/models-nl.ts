@@ -393,6 +393,18 @@ export const models: WheelroomComponents = {
         name: 'Navigatie segmenten',
         type: 'multipleComponents',
       } as MultipleComponentsField,
+      skipToContentHeading: {
+        helpText:
+          'Tekst voor schermlezers om direct door te gaan naar de content.',
+        name: 'Direct naar content',
+        type: 'shortText',
+      } as ShortTextField,
+      brandAction: {
+        allowedComponents: ['action'],
+        helpText: 'Actie die wordt gebruikt voor het logo',
+        name: 'Logo actie',
+        type: 'singleComponent',
+      } as SingleComponentField,
     },
     settings: {
       asBoilerplate: true,

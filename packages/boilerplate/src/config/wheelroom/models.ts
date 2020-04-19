@@ -368,6 +368,13 @@ export const models: WheelroomComponents = {
         allowedComponents: ['navigationSegment'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
+      skipToContentHeading: {
+        type: 'shortText',
+      } as ShortTextField,
+      brandAction: {
+        allowedComponents: ['action'],
+        type: 'singleComponent',
+      } as SingleComponentField,
     },
     settings: {
       asBoilerplate: true,
