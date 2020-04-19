@@ -24,16 +24,16 @@ export const wrapperReset: GridElementStyle = {
   },
 }
 
-export const containerReset: GridElementStyle = {
+export const fluidReset: GridElementStyle = {
   ncss: {
     ...flexReset.ncss,
     w: 1,
   },
 }
 
-export const containerMaxWidthReset: GridElementStyle = {
+export const containerReset: GridElementStyle = {
   ncss: {
-    ...containerReset.ncss,
+    ...fluidReset.ncss,
     maxWidth: '1280px',
     mx: 'auto',
   },

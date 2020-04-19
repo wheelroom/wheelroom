@@ -25,15 +25,15 @@ export const elementStyles: ElementStyles = {
   container: {
     ncss: {},
   },
-  containerMaxWidth: {
-    ncss: {},
-  },
   featherIcon: {
     ncss: {
       color: 'iconColor',
     },
   },
   flex: {
+    ncss: {},
+  },
+  fluid: {
     ncss: {},
   },
   gLink: {

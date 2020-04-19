@@ -18,6 +18,7 @@ import { TableElementStyle } from '../resets/self-table-reset'
 
 export interface ElementStyles {
   any: AnyElementStyle
+  container: GridElementStyle
   table: TableElementStyle
   ol: ListElementStyle
   ul: ListElementStyle
@@ -36,8 +37,7 @@ export interface ElementStyles {
   box: GridElementStyle
   button: ButtonElementStyle
   wrapper: GridElementStyle
-  container: GridElementStyle
-  containerMaxWidth: GridElementStyle
+  fluid: GridElementStyle
   flex: GridElementStyle
   gLink: GLinkElementStyle
   h1: HeadingElementStyle

@@ -4,8 +4,8 @@ import {
   boxReset,
   flexReset,
   wrapperReset,
+  fluidReset,
   containerReset,
-  containerMaxWidthReset,
 } from './resets/grid-reset'
 import { LinkRelationshipAttribute } from './types/attribute-names'
 import { ElementProps } from './element'
@@ -50,21 +50,15 @@ export const Wrapper = (props: GridProps) => {
 
 export const Container = (props: GridProps) => {
   const extraAttrs = getExtraAttrs(props)
-  return getSelf(
-    props,
-    containerReset,
-    'container',
-    extraAttrs,
-    props.is || 'div'
-  )
+  return getSelf(props, fluidReset, 'fluid', extraAttrs, props.is || 'div')
 }
 
 export const ContainerMaxWidth = (props: GridProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(
     props,
-    containerMaxWidthReset,
-    'containerMaxWidth',
+    containerReset,
+    'container',
     extraAttrs,
     props.is || 'div'
   )
