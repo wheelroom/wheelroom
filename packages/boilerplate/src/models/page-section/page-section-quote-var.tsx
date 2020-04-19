@@ -47,7 +47,7 @@ export const PageSectionQuoteVar = (props: PageSectionProps) => {
           useAbstractElement: 'blockquote',
           wheel,
         }}
-        containerStyle="maxWidth"
+        containerStyle="container"
         pageSection={props}
         wheel={wheel}
       />

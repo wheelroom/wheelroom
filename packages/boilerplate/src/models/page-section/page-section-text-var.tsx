@@ -41,7 +41,7 @@ export const PageSectionTextVar = (props: PageSectionProps) => {
     return (
       <PageSectionFreestyle
         pageSection={props}
-        containerStyle="maxWidth"
+        containerStyle="container"
         wheel={wheel}
       />
     )

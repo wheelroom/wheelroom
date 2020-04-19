@@ -47,7 +47,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
           useHeadingElement: pageSectionInfo.index <= 1 ? 'h1' : 'h2',
           wheel,
         }}
-        containerStyle="maxWidth"
+        containerStyle="container"
         pageSection={props}
         wheel={wheel}
       />

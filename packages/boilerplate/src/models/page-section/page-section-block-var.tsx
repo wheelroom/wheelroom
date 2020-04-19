@@ -46,7 +46,7 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
           pageSectionInfo,
           wheel,
         }}
-        containerStyle="maxWidth"
+        containerStyle="container"
         pageSection={props}
         wheel={wheel}
       />
