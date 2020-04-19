@@ -6,7 +6,7 @@
  */
 
 import { NavigationSegmentProps } from '../navigation-segment/navigation-segment'
-import { ActionProps } from '../action';
+import { ActionProps } from '../action'
 
 export interface NavigationProps {
   /** Gatsby fetched data */
