@@ -31,5 +31,9 @@ export const GLink = (props: GLinkProps) => {
     ])
   )
 
-  return <Link {...attrs}>{props.children}</Link>
+  return (
+    <Link activeClassName="active" {...attrs}>
+      {props.children}
+    </Link>
+  )
 }
