@@ -55,7 +55,11 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
 
   if (pageSectionInfo.hasNavigation && pageSectionInfo.index < 2) {
     return (
-      <PageSectionNavigationHeader pageSection={props} wheel={wheelHeader} />
+      <PageSectionNavigationHeader
+        pageSection={props}
+        wheel={wheelHeader}
+        ///useLogoElement={<SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheelHeader} />}
+      />
     )
   }
   if (
