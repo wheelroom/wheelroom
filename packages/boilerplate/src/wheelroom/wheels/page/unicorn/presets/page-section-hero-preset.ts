@@ -1,21 +1,29 @@
-import { PageSectionQuoteWheelStyle } from '../../../wheelroom/wheels/page/unicorn/presets/page-section-quote-preset'
-import { elementAsPrimaryButtonStyle } from '../elements/button-style'
-import { wrapperStyle } from '../elements/grid-style'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
 
-export const pageSectionQuoteStyle: PageSectionQuoteWheelStyle = {
+export interface PageSectionHeroWheelStyle {
+  container: GridElementStyle
+  topic: TopicWheelStyle
+  wrapper: GridElementStyle
+}
+
+export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
   container: {
     ncss: {},
   },
   topic: {
-    ncss: {},
+    ncss: {
+      position: 'relative',
+      w: 1,
+    },
     content: {
-      ncss: {},
+      ncss: {
+        p: 3,
+      },
       actions: {
         ncss: {},
         link: {
-          ncss: {
-            ...elementAsPrimaryButtonStyle,
-          },
+          ncss: {},
         },
       },
       text: {
@@ -32,7 +40,15 @@ export const pageSectionQuoteStyle: PageSectionQuoteWheelStyle = {
       },
     },
     media: {
-      ncss: {},
+      ncss: {
+        bottom: '0',
+        left: '0',
+        position: 'absolute',
+        right: '0',
+        top: '0',
+        zIndex: -1,
+        overflow: 'hidden',
+      },
       image: {
         img: {
           ncss: {
@@ -42,11 +58,8 @@ export const pageSectionQuoteStyle: PageSectionQuoteWheelStyle = {
         },
         picture: {
           ncss: {
-            overflow: 'hidden',
-            h: '200px',
-            w: '200px',
-            borderRadius: '100px',
-            mx: 'auto',
+            h: 1,
+            w: 1,
           },
         },
         figcaption: {
@@ -65,7 +78,7 @@ export const pageSectionQuoteStyle: PageSectionQuoteWheelStyle = {
   },
   wrapper: {
     ncss: {
-      ...wrapperStyle,
+      py: 0,
     },
   },
 }

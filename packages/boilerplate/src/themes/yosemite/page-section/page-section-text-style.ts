@@ -1,4 +1,4 @@
-import { FreestyleWheelStyle } from '../../../wheelroom/wheels/page-section/freestyle/page-section-freestyle-preset'
+import { FreestyleWheelStyle } from '../../../wheelroom/wheels/page/freestyle/page-section-freestyle-preset'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const pageSectionFreestyleStyle: FreestyleWheelStyle = {

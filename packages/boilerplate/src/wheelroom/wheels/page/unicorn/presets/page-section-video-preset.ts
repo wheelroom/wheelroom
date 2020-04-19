@@ -1,13 +1,22 @@
-import { PageSectionHeroWheelStyle } from '../../../wheelroom/wheels/page/unicorn/presets/page-section-hero-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
 
-export const pageSectionHeroStyle: PageSectionHeroWheelStyle = {
+export interface PageSectionVideoWheelStyle {
+  container: GridElementStyle
+  topic: TopicWheelStyle
+  wrapper: GridElementStyle
+}
+
+export const pageSectionVideoPreset: PageSectionVideoWheelStyle = {
   container: {
     ncss: {},
   },
   topic: {
     ncss: {},
     content: {
-      ncss: {},
+      ncss: {
+        p: 3,
+      },
       actions: {
         ncss: {},
         link: {
