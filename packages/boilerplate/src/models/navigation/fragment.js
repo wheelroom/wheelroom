@@ -20,5 +20,11 @@ fragment Navigation on ContentfulNavigation {
       ...NavigationSegment
     }
   }
+  skipToContentHeading
+  brandAction {
+    ... on Node {
+      ...Action
+    }
+  }
 }
 `
