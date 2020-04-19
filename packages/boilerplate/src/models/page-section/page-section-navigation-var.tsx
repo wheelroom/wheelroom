@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { elementStyles } from '../../themes/yosemite/element-styles'
+import { elementStyles } from '../../themes/yosemite/elements/element-styles'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { navFooterPreset } from '../../wheelroom/wheels/section/navigation-footer/presets/nav-footer-preset'
 import { navHeaderPreset } from '../../wheelroom/wheels/section/navigation-header/presets/nav-header-preset'
@@ -15,7 +15,7 @@ import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionNavigationFooter } from '../../wheelroom/wheels/section/navigation-footer/nav-footer'
 import { PageSectionNavigationHeader } from '../../wheelroom/wheels/section/navigation-header/nav-header'
 import { PageSectionProps } from './page-section'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
+import { styledSystemConfig } from '../../themes/yosemite/styled-system/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'

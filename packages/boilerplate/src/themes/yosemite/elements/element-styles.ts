@@ -1,7 +1,7 @@
-import { ElementStyles } from '../../wheelroom/wheels/elements/types/element-styles'
-import { headingStyle } from './elements/heading-style'
-import { paragraphStyle } from './elements/paragraph-style'
-import { primaryButtonStyle } from './elements/button-style'
+import { ElementStyles } from '../../../wheelroom/wheels/elements/types/element-styles'
+import { headingStyle } from './heading-style'
+import { paragraphStyle } from './paragraph-style'
+import { primaryButtonStyle } from './button-style'
 
 export const elementStyles: ElementStyles = {
   a: {

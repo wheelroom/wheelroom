@@ -7,9 +7,9 @@
  */
 
 import React from 'react'
-import { elementStyles } from '../../themes/yosemite/element-styles'
+import { elementStyles } from '../../themes/yosemite/elements/element-styles'
 import { PageSectionProps } from '.'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
+import { styledSystemConfig } from '../../themes/yosemite/styled-system/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'

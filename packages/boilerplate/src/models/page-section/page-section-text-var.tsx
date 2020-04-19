@@ -7,13 +7,13 @@
  */
 
 import React from 'react'
-import { elementStyles } from '../../themes/yosemite/element-styles'
+import { elementStyles } from '../../themes/yosemite/elements/element-styles'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionFreestyle } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle'
 import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
 import { PageSectionProps } from './page-section'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system-config'
+import { styledSystemConfig } from '../../themes/yosemite/styled-system/styled-system-config'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
