@@ -64,7 +64,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        wheel={wheel}
+        wheel={pageSectionInfo.hasAction ? wheelShadow : wheel}
       />
     )
   }
