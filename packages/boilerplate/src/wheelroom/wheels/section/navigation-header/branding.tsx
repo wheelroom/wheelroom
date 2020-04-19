@@ -15,9 +15,7 @@ export const Branding = (props: {
   version?: string
   wheel: LogoWheel
 }) => {
-  /**
-   * When a React element is passed, use that
-   */
+  // When a React element is passed, use that
   let logo
   let ariaLabel = `Back to ${props.logo} homepage`
   if (React.isValidElement(props.logo)) {
