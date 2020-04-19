@@ -23,6 +23,7 @@ import {
   pageSectionCardShadowStyle,
   pageSectionCardStyle,
 } from '../../themes/yosemite/section/page-section-card-style'
+import { TopicProps } from '../topic'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -54,6 +55,8 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
   }
 
   if (pageSectionInfo.hasTopic) {
+    const topicActionPresent =
+      props.topics.filter((topic: TopicProps) => topic.actions).length > 0
     return (
       <PageSectionUnicorn
         topicProps={{
@@ -64,7 +67,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
         }}
         containerStyle="maxWidth"
         pageSection={props}
-        wheel={pageSectionInfo.hasAction ? wheelShadow : wheel}
+        wheel={topicActionPresent ? wheelShadow : wheel}
       />
     )
   }
