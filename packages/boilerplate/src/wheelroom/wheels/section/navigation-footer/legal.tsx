@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from '../../element/grid'
+import { Fluid } from '../../element/grid'
 import { Any } from '../../element/any'
 import { ALink } from '../../element/a-link'
 import { SiteMetadata } from '../../../../page-template'
@@ -16,7 +16,7 @@ export const Legal = (props: {
   wheel: LegalWheel
 }) => {
   return (
-    <Container wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Fluid wheel={{ ...props.wheel, style: props.wheel.style }}>
       <Any
         is="span"
         polyPreset={false}
@@ -35,6 +35,6 @@ export const Legal = (props: {
           {' ' + props.siteMetadata.legal.version}
         </Sup>
       </Any>
-    </Container>
+    </Fluid>
   )
 }

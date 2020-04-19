@@ -1,7 +1,7 @@
 import React from 'react'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { Wrapper, Container, ContainerMaxWidth } from '../../element/grid'
+import { Wrapper, Fluid, Container } from '../../element/grid'
 import { Text } from '../../model/text/text'
 import { Wheel } from '../../types'
 import { FreestyleWheelStyle } from './page-section-freestyle-preset'
@@ -16,14 +16,13 @@ export const PageSectionFreestyle = (props: {
   /** Styling wheel */
   wheel: FreestyleWheel
   /** Use a max width or fluid container */
-  containerStyle: 'maxWidth' | 'fluid'
+  containerStyle: 'container' | 'fluid'
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasText) {
     return null
   }
-  const ContainerType =
-    props.containerStyle === 'maxWidth' ? ContainerMaxWidth : Container
+  const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
     <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
       <ContainerType

@@ -48,12 +48,12 @@ export const Wrapper = (props: GridProps) => {
   return getSelf(props, wrapperReset, 'wrapper', extraAttrs, props.is || 'div')
 }
 
-export const Container = (props: GridProps) => {
+export const Fluid = (props: GridProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(props, fluidReset, 'fluid', extraAttrs, props.is || 'div')
 }
 
-export const ContainerMaxWidth = (props: GridProps) => {
+export const Container = (props: GridProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(
     props,

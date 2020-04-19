@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useState, useRef } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../../element/a-link'
-import { Wrapper, Container, Flex, Box } from '../../element/grid'
+import { Wrapper, Fluid, Flex, Box } from '../../element/grid'
 import { Button } from '../../element/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment'
@@ -65,9 +65,7 @@ export const PageSectionNavigationHeader = (props: {
         {`Skip to ${globals.siteHeading} Content`}
       </ALink>
       <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
-        <Container
-          wheel={{ ...props.wheel, style: props.wheel.style.container }}
-        >
+        <Fluid wheel={{ ...props.wheel, style: props.wheel.style.container }}>
           <Branding
             logo={props.useLogoElement || globals.siteHeading}
             version={siteMetadata.legal.version}
@@ -130,7 +128,7 @@ export const PageSectionNavigationHeader = (props: {
               toggleTheme={toggleTheme}
             />
           </Box>
-        </Container>
+        </Fluid>
       </Wrapper>
     </Fragment>
   )

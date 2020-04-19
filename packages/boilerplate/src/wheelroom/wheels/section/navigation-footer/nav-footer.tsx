@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment'
-import { Wrapper, Container, Flex } from '../../element/grid'
+import { Wrapper, Fluid, Flex } from '../../element/grid'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { NavFooterSocialList } from './nav-footer-social-list'
@@ -32,9 +32,7 @@ export const PageSectionNavigationFooter = (props: {
   return (
     <Fragment>
       <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
-        <Container
-          wheel={{ ...props.wheel, style: props.wheel.style.container }}
-        >
+        <Fluid wheel={{ ...props.wheel, style: props.wheel.style.container }}>
           <Flex
             is={'nav'}
             wheel={{ ...props.wheel, style: props.wheel.style.navFooter }}
@@ -56,7 +54,7 @@ export const PageSectionNavigationFooter = (props: {
               />
             )}
           </Flex>
-        </Container>
+        </Fluid>
         <Legal
           siteMetadata={siteMetadata}
           wheel={{ ...props.wheel, style: props.wheel.style.legal }}
