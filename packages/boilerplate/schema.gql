@@ -194,7 +194,7 @@ type ContentfulPageSection implements Node @derivedTypes @dontInfer {
   actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
 }
 
-type ContentfulTopic implements Node @derivedTypes @dontInfer {
+type ContentfulTopic implements Node @derivedTypes {
   title: String
   heading: String
   icon: String
@@ -278,7 +278,7 @@ type ContentfulPageSectionSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulText implements Node @derivedTypes @dontInfer {
+type ContentfulText implements Node @derivedTypes {
   title: String
   pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
   text: contentfulTextTextRichTextNode @link(by: "id", from: "text___NODE")
