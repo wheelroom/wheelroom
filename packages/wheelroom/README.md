@@ -5,7 +5,7 @@ Wheelroom is a command line tool for managing content models.
 
 ## Boilerplate
 
-Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
+Have a look at the [boilerplate](https://github.com/wheelroom/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
 
 
 ## Plugins 
@@ -52,7 +52,7 @@ export const configComponents: WheelroomComponents = {
 ## Content model fields
 
 Wheelroom uses a [fixed set of field
-types](https://github.com/jaccomeijer/wheelroom/blob/master/packages/%40jacco-meijer/wheelroom/src/types/wheelroom-fields.ts).
+types](https://github.com/wheelroom/wheelroom/blob/master/packages/%40jacco-meijer/wheelroom/src/types/wheelroom-fields.ts).
 This is because it was designed to work with more than one headless CMS.
 
 The actual fields that are used to create models at the CMS are defined by

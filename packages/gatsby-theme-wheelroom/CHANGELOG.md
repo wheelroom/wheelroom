@@ -52,7 +52,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.2](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@4.0.1...gatsby-theme-wheelroom@4.0.2) (2020-03-12)
+## [4.0.2](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@4.0.1...gatsby-theme-wheelroom@4.0.2) (2020-03-12)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom
 
@@ -60,7 +60,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [4.0.1](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@4.0.0...gatsby-theme-wheelroom@4.0.1) (2020-03-10)
+## [4.0.1](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@4.0.0...gatsby-theme-wheelroom@4.0.1) (2020-03-10)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom
 
@@ -68,12 +68,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [4.0.0](https://github.com/jaccomeijer/wheelroom/compare/gatsby-theme-wheelroom@3.4.2...gatsby-theme-wheelroom@4.0.0) (2020-03-08)
+# [4.0.0](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@3.4.2...gatsby-theme-wheelroom@4.0.0) (2020-03-08)
 
 
 ### Features
 
-* remove gatsby-config.js ([6f492e0](https://github.com/jaccomeijer/wheelroom/commit/6f492e0d70051fd5bbe140db429c9a51e8e5a4b5))
+* remove gatsby-config.js ([6f492e0](https://github.com/wheelroom/wheelroom/commit/6f492e0d70051fd5bbe140db429c9a51e8e5a4b5))
 
 
 ### BREAKING CHANGES

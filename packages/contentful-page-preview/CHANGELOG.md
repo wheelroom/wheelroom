@@ -61,9 +61,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.3.4](https://github.com/jaccomeijer/contentful-page-preview/compare/@wheelroom/contentful-page-preview@1.3.3...@wheelroom/contentful-page-preview@1.3.4) (2020-03-13)
+## [1.3.4](https://github.com/wheelroom/contentful-page-preview/compare/@wheelroom/contentful-page-preview@1.3.3...@wheelroom/contentful-page-preview@1.3.4) (2020-03-13)
 
 
 ### Bug Fixes
 
-* missing Array/items.type Symbol ([45affa3](https://github.com/jaccomeijer/contentful-page-preview/commit/45affa3463ded3c8fd85844365ac9ea5a47421d4))
+* missing Array/items.type Symbol ([45affa3](https://github.com/wheelroom/contentful-page-preview/commit/45affa3463ded3c8fd85844365ac9ea5a47421d4))

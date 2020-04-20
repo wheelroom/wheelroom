@@ -3,7 +3,7 @@
 A generic `gatsby-node.js` built on consistent models and fragments, which takes
 care of pulling data from Contentful.
 
-Have a look at the [boilerplate](https://github.com/jaccomeijer/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
+Have a look at the [boilerplate](https://github.com/wheelroom/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
 
 ## Wheelroom
 

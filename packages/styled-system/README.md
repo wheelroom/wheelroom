@@ -19,7 +19,7 @@ Responsive styles are generated with `facepaint`.
 
 The `styled-system` package this package was based on has a fixed configuration. This implementation can be fully configured by a simple configuration file.
 
-- [default-config.ts](https://github.com/jaccomeijer/styled-system/blob/master/src/styled-system/config/default-config.ts).
+- [default-config.ts](https://github.com/wheelroom/styled-system/blob/master/src/styled-system/config/default-config.ts).
 
 ## Use with emotionCss
 
@@ -35,8 +35,8 @@ export const emotionCss = (props: any) =>
   styledSystem(defaultConfig, defaultTheme, { ncss: props.ncss })
 ```
 
-- [default-config.ts](https://github.com/jaccomeijer/styled-system/blob/master/src/styled-system/config/default-config.ts).
-- [default-theme.ts](https://github.com/jaccomeijer/styled-system/blob/master/src/styled-system/config/default-theme.ts).
+- [default-config.ts](https://github.com/wheelroom/styled-system/blob/master/src/styled-system/config/default-config.ts).
+- [default-theme.ts](https://github.com/wheelroom/styled-system/blob/master/src/styled-system/config/default-theme.ts).
 
 ## A simple grid
 
