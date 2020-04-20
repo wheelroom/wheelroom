@@ -6,9 +6,11 @@ Have a look at the [boilerplate](https://github.com/wheelroom/wheelroom/tree/mas
 
 ## Contentful API keys
 
-The plugin uses the Contentful management API to create models and content.  For
-that to work, ID's and tokens are required. The CMA token is the one written to
-`~/.contentfulrc.json` when you run `contentful login` from the command line.
+The plugin uses the Contentful management API to create models and content. For
+that to work, ID's and tokens are required. Obtain the CMA token from the
+Contentful Web UI. It's under Settings, API keys and then the tab Content
+management tokens.
+
 Beware, this token gives full access to everything in your space, so be sure
 test first with an empty space and do not commit `.env` to your repository.
 

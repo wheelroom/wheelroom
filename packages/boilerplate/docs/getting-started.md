@@ -36,20 +36,9 @@ cp .env-template .env
 ```
 
 Open `.env` in an editor and replace `paste_here` with the correct values. The
-`CONTENTFUL_SPACE_ID` and `CONTENTFUL_DELIVERY_TOKEN` are found within the
-Contentful web ui at `Settings -> API keys`. To obtain the
-`CONTENTFUL_CMA_TOKEN`, you need to install the Contentful cli:
-
-```bash
-npm install -g contentful-cli
-```
-
-```bash
-contentful login
-```
-
-You don't have to paste the token back in the terminal. Just having it in `.env`
-is enough.
+`CONTENTFUL_SPACE_ID`, `CONTENTFUL_CMA_TOKEN` and `CONTENTFUL_DELIVERY_TOKEN`
+are found within the Contentful web ui at `Settings -> API keys`. Note that
+the Content management tokens (CMA) are in a separate tab.
 
 ## Compile wheelroom config
 
