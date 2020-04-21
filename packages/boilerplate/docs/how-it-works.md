@@ -1,10 +1,8 @@
 # How it works
 
-***THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP***
+**_THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP_**
 
 See: https://github.com/wheelroom/wheelroom/issues/26
-
-_UPDATING_
 
 ## Config
 
@@ -22,9 +20,8 @@ here are used to:
 
 When the Gatsby development server starts, this is what happens:
 
-- Gatsby plugin `gatsby-source-contentful` within
-  [gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroom)
-  creates Graphql nodes of the Contentful content.
+- Gatsby plugin `gatsby-source-contentful` creates Graphql nodes of the
+  Contentful content.
 - Graphql queries defined in [gatsby-config.js](../gatsby-config.js) are fetched by
   `gatsby-theme-wheelroom`:
   ```javascript
@@ -41,17 +38,19 @@ When the Gatsby development server starts, this is what happens:
 - Once all page templates are ready, Gatsby scans the `src` folder to build a
   Graphql node. It uses the generated Graphql in the `src/models` folder.
   Like this file:
-  [src/models/opener-section/fragment.js](../src/models/opener-section/fragment.js)
+  [fragment.js](../src/models/page-section/fragment.js)
 - The page template builds each page from sections. Sections are taken from the
   section list defined in
-  [src/sections/sections.tsx](../src/sections/sections.tsx).
+  [sections.tsx](../src/wheelroom/sections/sections.tsx). This
+  boilerplate has one section defined. This section can be used to build a full
+  webite because the page section has many variations.
 - All generated page templates are rendered by applying the generated Graphql.
 
 ## Styled system
 
 The templates use a style system: [@wheelroom/styled-system](https://www.npmjs.com/package/@wheelroom/styled-system). It's a simple typescript rewrite of [styled-system.com](https://styled-system.com) and makes it fully configurable. Styled system itself is based on [System UI Theme Specification](https://system-ui.com/theme/).
 
-The config file can be found here: [./src/styled-system/styled-system-config.ts](../src/wheelroom/styled-system/styled-system-config.ts). To configure the theme, look here: [./src/styled-system/styled-system-theme.ts](../src/wheelroom/styled-system/styled-system-theme.ts)
+The config file can be found here: [styled-system-config.ts](../src/themes/yosemite/styled-system/styled-system-config.ts). To configure the theme, look here: [yosemite-light.ts](../src/themes/yosemite/yosemite-light.ts)
 
 ## More info
 
