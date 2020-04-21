@@ -22,8 +22,8 @@ When the Gatsby development server starts, this is what happens:
 
 - Gatsby plugin `gatsby-source-contentful` creates Graphql nodes of the
   Contentful content.
-- Graphql queries defined in [gatsby-config.js](../gatsby-config.js) are fetched by
-  `gatsby-theme-wheelroom`:
+- Graphql queries defined in [gatsby-config.js](../gatsby-config.js) are fetched
+  by `gatsby-theme-wheelroom`:
   ```javascript
   const globalsQuery = require('./src/models/globals/query')
   const pageQuery = require('./src/models/page/query')
@@ -36,14 +36,13 @@ When the Gatsby development server starts, this is what happens:
 - Graphql `ids` for page content are added to the page context of each page
   template. Eg `pageId`, `globalsId` or `articleId`.
 - Once all page templates are ready, Gatsby scans the `src` folder to build a
-  Graphql node. It uses the generated Graphql in the `src/models` folder.
-  Like this file:
-  [fragment.js](../src/models/page-section/fragment.js)
+  Graphql node. It uses the generated Graphql in the `src/models` folder. Like
+  this file: [fragment.js](../src/models/page-section/fragment.js)
 - The page template builds each page from sections. Sections are taken from the
   section list defined in
-  [sections.tsx](../src/wheelroom/sections/sections.tsx). This
-  boilerplate has one section defined. This section can be used to build a full
-  webite because the page section has many variations.
+  [sections.tsx](../src/wheelroom/sections/sections.tsx). This boilerplate has
+  one section defined. This section can be used to build a full webite because
+  the page section has many variations.
 - All generated page templates are rendered by applying the generated Graphql.
 
 ## Styled system
@@ -55,10 +54,14 @@ It's a simple typescript rewrite of
 Styled system itself is based on [System UI Theme
 Specification](https://system-ui.com/theme/).
 
-The config file can be found here: [styled-system-config.ts](../src/themes/yosemite/styled-system/styled-system-config.ts). To configure the theme, look here: [yosemite-light.ts](../src/themes/yosemite/yosemite-light.ts)
+The config file can be found here:
+[styled-system-config.ts](../src/themes/yosemite/styled-system/styled-system-config.ts).
+To configure the theme, look here:
+[yosemite-light.ts](../src/themes/yosemite/yosemite-light.ts)
 
-## More info
+## TOC
 
+- [Wheelroom Boilerplate Index](./README.md)
 - [Getting started](./getting-started.md)
 - [How it works](./how-it-works.md)
 - [Roadmap](./roadmap.md)

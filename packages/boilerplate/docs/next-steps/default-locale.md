@@ -2,7 +2,8 @@
 
 Paths for this locale won't have the locale prefix: `/en-US/some-page`.
 
-Set the `defaultLocale` option in [gatsby-config.js](../../gatsby-config.js) for the `gatsby-theme-wheelroom` plugin.
+Set the `defaultLocale` option in [gatsby-config.js](../../gatsby-config.js) for
+the `gatsby-theme-wheelroom` plugin.
 
 ## Next steps
 
@@ -11,8 +12,9 @@ Set the `defaultLocale` option in [gatsby-config.js](../../gatsby-config.js) for
 - [Add a new component](./add-new-component.md)
 - [Auto fix with linter](./linter.md)
 
-## More info
+## TOC
 
+- [Wheelroom Boilerplate Index](../README.md)
 - [Getting started](../getting-started.md)
 - [How it works](../how-it-works.md)
 - [Roadmap](../roadmap.md)

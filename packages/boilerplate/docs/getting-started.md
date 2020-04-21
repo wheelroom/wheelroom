@@ -37,8 +37,8 @@ cp .env-template .env
 
 Open `.env` in an editor and replace `paste_here` with the correct values. The
 `CONTENTFUL_SPACE_ID`, `CONTENTFUL_CMA_TOKEN` and `CONTENTFUL_DELIVERY_TOKEN`
-are found within the Contentful web ui at `Settings -> API keys`. Note that
-the Content management tokens (CMA) are in a separate tab.
+are found within the Contentful web ui at `Settings -> API keys`. Note that the
+Content management tokens (CMA) are in a separate tab.
 
 ## Compile wheelroom config
 
@@ -50,7 +50,8 @@ npm run compile-config
 
 ## Test config by listing all models
 
-Wheelroom can now list the available models configured in [config-models.ts](../src/config/wheelroom/config-models.ts):
+Wheelroom can now list the available models configured in
+[config-models.ts](../src/config/wheelroom/config-models.ts):
 
 ```bash
 npm run wr:ls
@@ -65,7 +66,10 @@ web ui.
 npm run wr:cm
 ```
 
-> **_NOTE:_** All fields have a `name` attribute that contains the Dutch translation. Removing this attribute makes it fall back to the default value which is the English '%Field name%'. Future versions should have this properly localized.
+> **_NOTE:_** All fields have a `name` attribute that contains the Dutch
+> translation. Removing this attribute makes it fall back to the default value
+> which is the English '%Field name%'. Future versions should have this properly
+> localized.
 
 ## Create Contentful content set
 
@@ -76,7 +80,8 @@ Create a dummy image asset and the boilerplate content set found in
 npm run wr:cc
 ```
 
-> **_NOTE:_** All content is in Dutch. Future versions should have this properly localized.
+> **_NOTE:_** All content is in Dutch. Future versions should have this properly
+> localized.
 
 ## Start development server
 
@@ -93,8 +98,9 @@ npm run develop
 - [Add a new component](./next-steps/add-new-component.md)
 - [Auto fix with linter](./next-steps/linter.md)
 
-## More info
+## TOC
 
+- [Wheelroom Boilerplate Index](./README.md)
 - [Getting started](./getting-started.md)
 - [How it works](./how-it-works.md)
 - [Roadmap](./roadmap.md)

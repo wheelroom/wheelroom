@@ -34,8 +34,9 @@ query($pageId: String, $globalsId: String) {
 - [Add a new component](./add-new-component.md)
 - [Auto fix with linter](./linter.md)
 
-## More info
+## TOC
 
+- [Wheelroom Boilerplate Index](../README.md)
 - [Getting started](../getting-started.md)
 - [How it works](../how-it-works.md)
 - [Roadmap](../roadmap.md)

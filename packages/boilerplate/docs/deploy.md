@@ -11,7 +11,7 @@
 - [Add a new component](./next-steps/add-new-component.md)
 - [Auto fix with linter](./next-steps/linter.md)
 
-## TBC
+## TOC
 
 - [Wheelroom Boilerplate Index](./README.md)
 - [Getting started](./getting-started.md)

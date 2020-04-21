@@ -20,8 +20,9 @@ See: https://github.com/wheelroom/wheelroom/issues/26
 - Plugins for other CMS's like Prismic
 -
 
-### More info
+## TOC
 
+- [Wheelroom Boilerplate Index](./README.md)
 - [Getting started](./getting-started.md)
 - [How it works](./how-it-works.md)
 - [Roadmap](./roadmap.md)
