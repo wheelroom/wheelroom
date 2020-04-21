@@ -4,6 +4,8 @@
 
 See: https://github.com/wheelroom/wheelroom/issues/26
 
+_UPDATING_
+
 ## Config
 
 Wheelroom reads the compiled version of
