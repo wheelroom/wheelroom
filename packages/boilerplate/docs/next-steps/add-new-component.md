@@ -15,7 +15,7 @@ New models are added in a few steps:
 ## Add the component and compile the new config
 
 Add a new component to
-[config-models.ts](../../src/config/wheelroom/config-models.ts).
+[models.ts](../../src/config/wheelroom/models.ts).
 
 Compile config:
 
@@ -94,7 +94,7 @@ The `react` template set is written to `src/models`.
 ## Update the section list
 
 When you're adding a section you need to add it to the section list:
-[sections.tsx](../../src/sections/sections.tsx).
+[sections.tsx](../../src/wheelroom/sections/sections.tsx).
 
 ## Update schema
 
