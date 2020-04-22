@@ -5,7 +5,7 @@ The Wheelroom boilerplate includes Content-models, Page-sections, Wheelroom Them
 
 ## Why Wheelroom?
 
-Wheelroom is an open-source project and built for a developers that want to work with the latest technology and services. Wheelroom connects sameless many (web) services and renders a data-driven client-side interface. Check for more information the Plugins or start building your own project with the Wheelroom boilerplate.     
+Wheelroom is an open-source project and built for developers who want to work with the latest technology and services. Wheelroom sameless connects many (web) services and renders a data-driven client-side interface. Check for more information the plugins or start building your own project with the Wheelroom boilerplate.     
 
 ## Wheelroom boilerplate
 
