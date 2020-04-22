@@ -23,7 +23,7 @@ permissions](https://help.github.com/en/github/getting-started-with-github/acces
 settings in your "Personal Github settings". Check if Netlify is configured and
 added to your Personal or Organization account.
 
-### Step 3 - Set build commands
+### Step 3 - Build settings
 
 Build command: 
 ```
@@ -37,8 +37,8 @@ public
 
 ### Step 4 - Environment variables
 
-Like your local environment Netlify need to connect with Contentful. Make sure
-you add the following variables:
+Like your local Wheelroom project Netlify need to connect with Contentful. Make 
+sure you add the following environment variables:
 ```
 CONTENTFUL_SPACE_ID
 CONTENTFUL_DELIVERY_TOKEN
