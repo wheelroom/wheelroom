@@ -1,6 +1,25 @@
 # Wheelroom
 
-Wheelroom connects your code-base within 5 minutes to many useful (web) services, like e.g. Contentful and Netlify.
+Wheelroom connects your code-base within 5 minutes to many useful (web) services, like Contentful and Netlify.
+The Wheelroom boilerplate includes Content-models, Page-sections, Wheelroom Themes, Example content and many more.
+
+## Why Wheelroom?
+
+Wheelroom is an open-source project and built for a developers that want to work with the latest technology and services. Wheelroom connects sameless many (web) services and renders a data-driven client-side interface. Check for more information the Plugins or start building your own project with the Wheelroom boilerplate.     
+
+## Wheelroom boilerplate
+
+With the [Wheelroom boilerplate](https://github.com/wheelroom/wheelroom/tree/master/packages/boilerplate) you can built your own Client-side application with JAMstack technology. It is secure, blazing fast, low cost and very scalable.
+
+## Wheelroom plugins 
+
+Plugins are used to work with the content-models. Three plugins have been written:
+
+- [wheelroom-plugin-boilerplate](https://github.com/wheelroom/wheelroom/tree/master/packages/wheelroom-plugin-boilerplate): template parser for generating typescript (React) files
+- [wheelroom-plugin-graphql](https://github.com/wheelroom/wheelroom/tree/master/packages/wheelroom-plugin-contentful): template parser for generating (Gatbsyjs) graphql queries
+- [wheelroom-plugin-contentful](https://github.com/wheelroom/wheelroom/tree/master/packages/wheelroom-plugin-graphql): for creating content models at Contentful
+
+A plugin for [prismic.io](https://www.prismic.io) can be easily added. 
 
 ## Monorepo
 
@@ -10,66 +29,9 @@ This is a monorepo managed by [lerna](https://www.npmjs.com/package/lerna).
 npm install lerna --global
 ```
 
-## Wheelroom boilerplate
+## Contibutors
 
-Have a look at the [boilerplate](https://github.com/wheelroom/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
+Feel free to contribute to the open-source Wheelroom project. Do you have question or a feature request, please add an [issue](https://github.com/wheelroom/wheelroom/issues).
 
-
-## Wheelroom plugins 
-
-Plugins are used to work with the models. Three plugins have been written:
-
-- [wheelroom-plugin-boilerplate](https://www.npmjs.com/package/@wheelroom/wheelroom-plugin-boilerplate): template parser for generating typescript (React) files
-- [wheelroom-plugin-graphql](https://www.npmjs.com/package/@wheelroom//wheelroom-plugin-graphql): template parser for generating (Gatbsyjs) graphql queries
-- [wheelroom-plugin-contentful](https://www.npmjs.com/package/@wheelroom/wheelroom-plugin-contentful): for creating content models at Contentful
-
-A plugin for [prismic.io](https://www.prismic.io) can be easily added.
-
-
-## Content models
-
-Content models are defined in typescript like this.
-
-```typescript
-export const configComponents: WheelroomComponents = {
-  footerSection: {
-    fields: {
-      backgroundColor: {
-        helpText: 'Select a background color',
-        items: ['blue', 'orange'],
-        required: true,
-        type: 'dropdown',
-      } as DropdownField,
-      footerNavigation: {
-        allowedComponents: ['navigation'],
-        required: true,
-        type: 'singleComponent',
-      } as SingleComponentField,
-    },
-    modelVersion: '1.0.0',
-    settings: {
-      asBoilerplate: true,
-      asFragment: true,
-      asPageSection: true,
-    },
-  },
-...
-```
-
-## Content model fields
-
-Wheelroom uses a [fixed set of field
-types](https://github.com/wheelroom/wheelroom/blob/master/packages/wheelroom/src/types/wheelroom-fields.ts).
-This is because it was designed to work with more than one headless CMS.
-
-The actual fields that are used to create models at the CMS are defined by
-passing them to the CMS plugin.
-
-Field types can be extended by using the `typePostfix` attribute. This way, the
-same Wheelroom field is able to create different content models in the CMS. The
-intention is to create small variations, but there's no actual limit.
-
-
-## Common fields and field defaults
-
-Wheelroom allows for common fields and field defaults.
+[Jacco Meijer](https://github.com/jaccomeijer)
+[Thijs Krooswijk](https://github.com/thijskrooswijk)
