@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.3.0...@wheelroom/boilerplate@2.4.0) (2020-04-22)
+
+
+### Bug Fixes
+
+* aLinkReset ([58edfe8](https://github.com/wheelroom/wheelroom/commit/58edfe8ec499c765b1ade74e5702aace1eadc30a))
+* any reset style order bug ([0d039b8](https://github.com/wheelroom/wheelroom/commit/0d039b871d60c289f48d3cdef2d9e9966a7e1f2b))
+* change value maxWidth into container ([c95cf7f](https://github.com/wheelroom/wheelroom/commit/c95cf7f6e6b00e2e52f056ef7b1de99f9ce69ca5))
+* comment ([29980c4](https://github.com/wheelroom/wheelroom/commit/29980c4936707cff12c6b900e42473645b39d7ab))
+* console.log ([053568c](https://github.com/wheelroom/wheelroom/commit/053568c0c70064b7965451f3975ac8c76720b170))
+* elements ([0222a30](https://github.com/wheelroom/wheelroom/commit/0222a30f0b0bebed7a5564335fa2d296b804f587))
+* footer ([9edb3e4](https://github.com/wheelroom/wheelroom/commit/9edb3e4ae72848ba83326038fa8889d5b4b3a97f))
+* home/home/home ([de04639](https://github.com/wheelroom/wheelroom/commit/de04639a7d73d11d43c26f53db485f8c124e7482))
+* image ([aa2fcb3](https://github.com/wheelroom/wheelroom/commit/aa2fcb356aa8f59b68f0df6bdb9082f166bbdcfe))
+* links ([710f17a](https://github.com/wheelroom/wheelroom/commit/710f17ac83c494f4b7be7324369b27f5d5d4a8c6))
+* linter ([52b45b5](https://github.com/wheelroom/wheelroom/commit/52b45b5889fa06998daeaf07c63c39763fe7c558))
+* linter ([2d20a87](https://github.com/wheelroom/wheelroom/commit/2d20a877f5e7b62a43afb5a99fb9f2c1abd338e8))
+* nav header ([4606a87](https://github.com/wheelroom/wheelroom/commit/4606a87ffd5087176adb9ce48e96c0aa33c2d621))
+* nav header var ([f262e3d](https://github.com/wheelroom/wheelroom/commit/f262e3d56606177aadb2ecfa97151cd609e46ed2))
+* ncss errors ([d7255b9](https://github.com/wheelroom/wheelroom/commit/d7255b927f3a66504aef494cda7b03c307ced1f6))
+* ncss wrapper ([08311c9](https://github.com/wheelroom/wheelroom/commit/08311c96ceecf1fa71f25c0a2622a4316f1cd04b))
+* not implemented ([4028c51](https://github.com/wheelroom/wheelroom/commit/4028c51dc46996603c2fe3007c96947a5d6a4989))
+* only add label to ncss objects ([9a06c9f](https://github.com/wheelroom/wheelroom/commit/9a06c9f687b2e4f6d6b9222aff5c131a8d96bda3))
+* polyPreset ([0692588](https://github.com/wheelroom/wheelroom/commit/0692588b7f5fc9378b4a1e99af8c724e94096202))
+* remove deault tab index double ([0da5fce](https://github.com/wheelroom/wheelroom/commit/0da5fcec2d5e588ad68a84787d38887b40a134e5))
+* require full topic preset tree ([1d689f6](https://github.com/wheelroom/wheelroom/commit/1d689f6ac94a3a1db5d698d10da694dcd67e5019))
+* resetReset ([0204437](https://github.com/wheelroom/wheelroom/commit/020443736f65d285ab5eb0d0e1052189c3cc4216))
+* svg ([6753489](https://github.com/wheelroom/wheelroom/commit/6753489ffa567f3824c8b1c4b7b208c38d0bbe91))
+* text paragraph element ([55e9d57](https://github.com/wheelroom/wheelroom/commit/55e9d579af577f39834e12e16de1ef0eae2ae5b6))
+* theme light dark switch ([37f05d9](https://github.com/wheelroom/wheelroom/commit/37f05d996d8e6cc821f319ca5024ec27062da08a))
+* use default theme values ([3feca75](https://github.com/wheelroom/wheelroom/commit/3feca755eff745a924ee7af3bdfda83ee6862ccf))
+* video typo ([b51625b](https://github.com/wheelroom/wheelroom/commit/b51625be06648b7157cc8c2b49dd7e684d518297))
+
+
+### Features
+
+* add fields skipToContentHeading and brandAction ([0337579](https://github.com/wheelroom/wheelroom/commit/03375799c1bae28e62d15a189c02f295c876dd50))
+* mergeNcss ([52f200a](https://github.com/wheelroom/wheelroom/commit/52f200a76b4803e72f9076d69972fe1eadf5d144))
+* overrideTopicOptions ([1d8b5a1](https://github.com/wheelroom/wheelroom/commit/1d8b5a1c28c2036f5cdafc3a4a61693e17da1a83))
+* polyPreset for any element ([ca4862c](https://github.com/wheelroom/wheelroom/commit/ca4862c174f41be35c0af3f776692e57c32183ff))
+* self element ([9534fcb](https://github.com/wheelroom/wheelroom/commit/9534fcb78bbc7d46b3cb3e8c92fd48a7bf9e7fea))
+* skip empty topic content ([7a14f6e](https://github.com/wheelroom/wheelroom/commit/7a14f6e1c4c3c6c1ce9268932799cbb04141e575))
+* typescript for theme ([ef06e54](https://github.com/wheelroom/wheelroom/commit/ef06e5426836fe1703393e1a3963a0f2e448f6e1))
+
+
+
+
+
 # [2.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.2.1...@wheelroom/boilerplate@2.3.0) (2020-04-08)
 
 
