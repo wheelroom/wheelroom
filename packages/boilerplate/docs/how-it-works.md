@@ -60,5 +60,6 @@ To configure the theme, look here:
 - [Wheelroom Boilerplate Index](../README.md)
 - [Getting started](./getting-started.md)
 - [Deploy](./deploy-wheelroom-project.md)
+- [Admin plugins](./admin-plugins.md)
 - [How it works](./how-it-works.md)
 - [Roadmap](./roadmap.md)

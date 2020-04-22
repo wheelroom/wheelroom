@@ -26,14 +26,14 @@ Currently Wheelroom supports services like:
 - [Contentful](https://www.contentful.com/),
 - [Netlify](https://www.netlify.com/)
 
+## Getting started
+
+[Get started](./docs/getting-started.md) with the Wheelroom boilerplate.
+
 ## Plugins
 
 The [Wheelroom plugin system](./docs/admin-plugins.md) allows for adding
 functionality like a theme switcher and Contentful preview functionality.
-
-## Getting started
-
-[Get started](./docs/getting-started.md) with the Wheelroom boilerplate.
 
 ## How it works
 
