@@ -1,9 +1,5 @@
 # Getting started
 
-**_THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP_**
-
-See: https://github.com/wheelroom/wheelroom/issues/26
-
 ## Clone boilerplate
 
 Copy the boilerplate code into a new folder and open a terminal in that folder.

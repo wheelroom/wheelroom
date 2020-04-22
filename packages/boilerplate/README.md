@@ -1,9 +1,5 @@
 # Wheelroom boilerplate
 
-**_THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP_**
-
-See: https://github.com/wheelroom/wheelroom/issues/26
-
 Example repo on how to use
 [@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom) and
 [gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroom)
