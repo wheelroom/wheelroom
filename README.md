@@ -19,7 +19,11 @@ Plugins are used to work with the content-models. Three plugins have been writte
 - [wheelroom-plugin-graphql](https://github.com/wheelroom/wheelroom/tree/master/packages/wheelroom-plugin-contentful): template parser for generating (Gatbsyjs) graphql queries
 - [wheelroom-plugin-contentful](https://github.com/wheelroom/wheelroom/tree/master/packages/wheelroom-plugin-graphql): for creating content models at Contentful
 
-A plugin for [prismic.io](https://www.prismic.io) can be easily added. 
+### Upcoming plugins
+
+- Wheelroom Analytics (Track, store and control your own data analytics)
+- [NAP Framework](https://www.napframework.com/)
+- [Prismic](https://www.prismic.io)
 
 ## Monorepo
 
