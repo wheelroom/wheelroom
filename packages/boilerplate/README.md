@@ -46,8 +46,9 @@ Read [here](./docs/how-it-works.md)
 ## Deploy your Wheelroom project
 
 Are you ready to deploy your first project? [Read here how you
-deploy](./deploy.md) to a Netlify build server with built‑in CI. More
-information about Netlify visit: [Netlify.com](https://www.netlify.com/)
+deploy a Wheelroom project](./deploy-wheelroom-project.md) to a Netlify build 
+server with built‑in CI. More information about Netlify visit: 
+[Netlify.com](https://www.netlify.com/)
 
 Or if you cannot wait and want to test-run our Wheelroom Boilerplate, click on
 the Netlify deploy button. We still recommend you to make a copy and not to use

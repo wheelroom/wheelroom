@@ -14,6 +14,6 @@ Proper documentation has not been written yet.
 
 - [Wheelroom Boilerplate Index](../README.md)
 - [Getting started](./getting-started.md)
-- [Deploy](./deploy.md)
+- [Deploy](./deploy-wheelroom-project.md)
 - [How it works](./how-it-works.md)
 - [Roadmap](./roadmap.md)
