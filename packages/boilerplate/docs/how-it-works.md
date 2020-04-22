@@ -1,9 +1,5 @@
 # How it works
 
-**_THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP_**
-
-See: https://github.com/wheelroom/wheelroom/issues/26
-
 ## Config
 
 Wheelroom reads the compiled version of
