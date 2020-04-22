@@ -44,7 +44,7 @@ server with built‑in CI. More information about Netlify. [Check
 Netlify.com](https://www.netlify.com/)
 
 Or if you cannot wait and want to test-run the Wheelroom Boilerplate, click on
-the Netlify deploy button. We recommend to make a copy
+the Netlify deploy button. We recommend to make a copy and not use our
 
 [![Deploy Wheelroom Boilerplate on
 Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/wheelroom/wheelroom/tree/master/packages/boilerplate)

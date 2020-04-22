@@ -34,8 +34,7 @@ Add a single model to Contentful:
 npm run wr:cm -- --filter newComponent
 ```
 
-> **_NOTE:_** This runs: `WHEELROOM_CONFIG=compiled-config/wheelroom-config.js
-> wheelroom create-models`. It sets the config and runs the `create-models`
+> **_NOTE:_** This runs: `WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-models`. It sets the config and runs the `create-models`
 > command added by
 > [wheelroom-plugin-contentful](https://www.npmjs.com/package/@wheelroom/wheelroom-plugin-contentful).
 
@@ -74,8 +73,7 @@ Generate graphql for this new component:
 npm run wr:cg -- --filter newComponent
 ```
 
-> **_NOTE:_** This runs: `WHEELROOM_CONFIG=compiled-config/wheelroom-config.js
-> wheelroom create-graphql gatsbyjs src/models`. It sets the config and runs the
+> **_NOTE:_** This runs: `WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-graphql gatsbyjs src/models`. It sets the config and runs the
 > `create-graphql` command added by
 > [wheelroom-plugin-graphql](https://www.npmjs.com/package/@wheelroom//wheelroom-plugin-graphql).
 > The `gatsbyjs` template set is written to `src/models`.
@@ -88,8 +86,7 @@ Generate boilerplate for the new component:
 npm run wr:cb -- --filter newComponent
 ```
 
-This runs: `WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom
-create-boilerplate react src/models`. It sets the config and runs the
+This runs: `WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-boilerplate react src/models`. It sets the config and runs the
 `create-boilerplate` command added by
 [wheelroom-plugin-boilerplate](https://www.npmjs.com/package/@wheelroom/wheelroom-plugin-boilerplate).
 The `react` template set is written to `src/models`.

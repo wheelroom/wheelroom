@@ -1,6 +1,6 @@
 # Roadmap
 
-***THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP***
+**_THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP_**
 
 See: https://github.com/wheelroom/wheelroom/issues/26
 
