@@ -39,15 +39,47 @@ Read [here](./how-it-works.md)
 
 ## Deploy your Wheelroom project
 
-Are you ready to deploy your first project? Read how you deploy to a Netlify
-server with built‑in CI. More information about Netlify. [Check
-Netlify.com](https://www.netlify.com/)
+Are you ready to deploy your first project? [Read here how you deploy](./deploy.md) 
+to a Netlify build server with built‑in CI. More information about Netlify visit: 
+[Netlify.com](https://www.netlify.com/)
 
-Or if you cannot wait and want to test-run the Wheelroom Boilerplate, click on
-the Netlify deploy button. We recommend to make a copy and not use our
+Or if you cannot wait and want to test-run our Wheelroom Boilerplate, click on
+the Netlify deploy button. We still recommend you to make a copy and not to use 
+our code base. Also don't forget to use the following Netlify Build settings.
+
+Base directory:
+```
+packages/boilerplate/
+```
+
+Build command: 
+```
+npm run netlify
+```
+
+Publish directory: 
+```
+packages/boilerplate/public
+```
+
+Production branch:
+
+```
+master
+```
+
+Add Netlify environment variables from [Contentful](https://contentful.com/):
+```
+CONTENTFUL_SPACE_ID
+CONTENTFUL_DELIVERY_TOKEN
+CONTENTFUL_PREVIEW_TOKEN
+CONTENTFUL_ENVIRONMENT
+```
 
 [![Deploy Wheelroom Boilerplate on
-Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/wheelroom/wheelroom/tree/master/packages/boilerplate)
+Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/wheelroom/wheelroom/)
+
+
 
 ## Project roadmap
 
