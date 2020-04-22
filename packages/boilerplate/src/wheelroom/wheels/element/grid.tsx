@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { InlineElementName, BlockLevelElementName } from './types/element-names'
+import { BlockLevelElementName, InlineElementName } from './types/element-names'
 import {
   boxReset,
-  flexReset,
-  wrapperReset,
-  fluidReset,
   containerReset,
+  flexReset,
+  fluidReset,
+  wrapperReset,
 } from './resets/grid-reset'
 import { LinkRelationshipAttribute } from './types/attribute-names'
 import { ElementProps } from './element'

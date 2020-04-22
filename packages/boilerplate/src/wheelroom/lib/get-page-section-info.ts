@@ -1,5 +1,5 @@
 import { PageSectionProps } from '../../models/page-section/page-section'
-import { getTopicOptions, TopicOptions } from './get-topic-options'
+import { TopicOptions, getTopicOptions } from './get-topic-options'
 
 export interface PageSectionInfo {
   actionCount: number

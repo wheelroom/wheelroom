@@ -1,5 +1,5 @@
 import { ElementStyles } from './element/types/element-styles'
-import { StyledSystemTheme, StyledSystemConfig } from '../theme/types'
+import { StyledSystemConfig, StyledSystemTheme } from '../theme/types'
 
 export type NcssProps = any
 

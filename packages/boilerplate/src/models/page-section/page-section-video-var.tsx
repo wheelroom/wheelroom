@@ -45,7 +45,7 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
           pageSectionInfo,
           wheel,
         }}
-        containerStyle="fluid"
+        containerStyle="container"
         maxTopics={1}
         pageSection={props}
         wheel={wheel}

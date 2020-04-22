@@ -1,7 +1,7 @@
 import { NcssProps } from '../../../types'
 import {
-  navFooterSocialListItemLinkPreset,
   NavFooterSocialListItemLinkWheelStyle,
+  navFooterSocialListItemLinkPreset,
 } from './nav-footer-social-list-item-link-preset'
 
 export interface NavFooterSocialListItemWheelStyle {

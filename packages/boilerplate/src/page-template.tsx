@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import React, { useState, Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useState } from 'react'
 import { GlobalsProps } from './models/globals'
 import { PageProps } from './models/page'
 import { pageDebug } from './wheelroom/lib/debug'

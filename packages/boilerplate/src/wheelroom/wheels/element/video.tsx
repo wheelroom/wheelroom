@@ -2,11 +2,11 @@
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
 import {
-  videoVideoElementStyle,
   videoDescriptionReset,
+  videoVideoElementStyle,
 } from './resets/video-reset'
 import { styledSystem } from '@wheelroom/styled-system'
-import { Wheel, NcssProps } from '../types'
+import { NcssProps, Wheel } from '../types'
 import { MediaObject } from './types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
 

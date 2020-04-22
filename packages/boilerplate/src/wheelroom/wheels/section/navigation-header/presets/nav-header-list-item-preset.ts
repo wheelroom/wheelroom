@@ -1,7 +1,7 @@
 import { NcssProps } from '../../../types'
 import {
-  navHeaderListItemLinkPreset,
   NavHeaderListItemLinkWheelStyle,
+  navHeaderListItemLinkPreset,
 } from './nav-header-list-item-link-preset'
 
 export interface NavHeaderListItemWheelStyle {

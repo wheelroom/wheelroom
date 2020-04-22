@@ -9,17 +9,17 @@
 
 import React from 'react'
 import { Image } from '../../element/image'
-import { MARKS, BLOCKS, INLINES, Document } from '@contentful/rich-text-types'
+import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types'
 import { Paragraph } from '../../element/paragraph'
-import { Ul, Ol, Li } from '../../element/self'
+import { Li, Ol, Ul } from '../../element/self'
 import { ALink } from '../../element/a-link'
 import { GLink } from '../../element/g-link'
 import { H1, H2, H3, H4, H5, H6 } from '../../element/heading'
 import { getLocalizedValue } from './get-localized-value'
 import { Wrapper } from '../../element/grid'
 import {
-  documentToReactComponents,
   Options,
+  documentToReactComponents,
 } from '@contentful/rich-text-react-renderer'
 import { Video } from '../../element/video'
 import { TextWheelStyle } from './text-preset'

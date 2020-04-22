@@ -10,7 +10,7 @@ import React, { Fragment } from 'react'
 import { ActionProps } from '../../../../models/action'
 import { GLink } from '../../element/g-link'
 import { ALink } from '../../element/a-link'
-import { Wheel, NcssProps } from '../../types'
+import { NcssProps, Wheel } from '../../types'
 
 export interface ActionWheelStyle {
   ncss: NcssProps

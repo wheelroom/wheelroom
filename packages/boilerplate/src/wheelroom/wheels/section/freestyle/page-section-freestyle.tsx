@@ -1,7 +1,7 @@
 import React from 'react'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { Wrapper, Fluid, Container } from '../../element/grid'
+import { Container, Fluid, Wrapper } from '../../element/grid'
 import { Text } from '../../model/text/text'
 import { Wheel } from '../../types'
 import { FreestyleWheelStyle } from './page-section-freestyle-preset'

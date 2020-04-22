@@ -15,15 +15,26 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
         link: primaryButtonStyle,
       },
       text: {
-        ncss: {},
+        ncss: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        },
         abstract: {
-          ncss: {},
+          ncss: {
+            order: '2',
+            fontSize: '6',
+          },
         },
         heading: {
-          ncss: {},
+          ncss: {
+            order: '1',
+          },
         },
         icon: {
-          ncss: {},
+          ncss: {
+            order: '0',
+          },
         },
       },
     },

@@ -5,19 +5,19 @@
  */
 
 import {
+  CheckboxField,
   CommonField,
   DateField,
   DropdownField,
   FieldDefaults,
-  MediaField,
   LongTextField,
+  MediaField,
   MultipleComponentsField,
   NumberField,
   RichTextField,
   ShortTextField,
   SingleComponentField,
   TagsField,
-  CheckboxField,
 } from '@wheelroom/wheelroom'
 
 const commonFieldDefaults: CommonField = {

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment'
-import { Wrapper, Fluid, Flex } from '../../element/grid'
+import { Flex, Fluid, Wrapper } from '../../element/grid'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { NavFooterSocialList } from './nav-footer-social-list'

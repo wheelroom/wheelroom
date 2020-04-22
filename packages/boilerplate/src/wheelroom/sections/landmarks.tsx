@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { getLandmark, Landmark } from './landmark'
+import { Landmark, getLandmark } from './landmark'
 /**
  *
  * This element wraps the landmark element specified in sections.jsx around each
