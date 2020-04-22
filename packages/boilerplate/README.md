@@ -1,17 +1,11 @@
-# boilerplate
+# Wheelroom boilerplate
 
-***THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP***
+**_THIS DOCUMENTATION IS OUTDATED AND WILL BE UPDATED ASAP_**
 
 See: https://github.com/wheelroom/wheelroom/issues/26
 
-
-## Boilerplate
-
-[Deploy status](https://app.netlify.com/sites/wheelroom-boilerplate/deploys)
-
 Example repo on how to use
-[@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom)
-and
+[@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom) and
 [gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroom)
 
 ## Required
@@ -23,14 +17,74 @@ issues there. I'd be happy to know.
 The boilerplate depends on [nodeJS](https://nodejs.org) and uses
 [Typescript](https://www.typescriptlang.org).
 
+After every update we built and test a [Wheelroom demo
+site](https://boilerplate.wheelroom.io/) on Netlify.
+
+[![Netlify
+Status](https://api.netlify.com/api/v1/badges/a6a09e15-6435-415f-90cb-de81a6b75f5d/deploy-status)](https://app.netlify.com/sites/wheelroom-boilerplate/deploys)
+
+### Services
+
+Currently Wheelroom supports services like:
+
+- [Contentful](https://www.contentful.com/),
+- [Netlify](https://www.netlify.com/)
+
+### Plugins
+
+- Contentful content Preview ([TODO: write docs about
+  /page-url?preview](./roadmap.md))
+
 ## Getting started
 
-Get started [here](./docs/getting-started.md)
+[Get started](./getting-started.md) with the Wheelroom boilerplate.
 
 ## How it works
 
-Read [here](./docs/how-it-works.md)
+Read [here](./how-it-works.md)
 
-## Roadmap
+## Deploy your Wheelroom project
 
-Read [here](./docs/roadmap.md)
+Are you ready to deploy your first project? [Read here how you
+deploy](./deploy.md) to a Netlify build server with built‑in CI. More
+information about Netlify visit: [Netlify.com](https://www.netlify.com/)
+
+Or if you cannot wait and want to test-run our Wheelroom Boilerplate, click on
+the Netlify deploy button. We still recommend you to make a copy and not to use
+our code base. Also don't forget to use the following Netlify Build settings.
+
+Base directory:
+```
+packages/boilerplate/
+```
+
+Build command: 
+```
+npm run netlify
+```
+
+Publish directory: 
+```
+packages/boilerplate/public
+```
+
+Production branch:
+
+```
+master
+```
+
+Add Netlify environment variables from [Contentful](https://contentful.com/):
+```
+CONTENTFUL_SPACE_ID
+CONTENTFUL_DELIVERY_TOKEN
+CONTENTFUL_PREVIEW_TOKEN
+CONTENTFUL_ENVIRONMENT
+```
+
+[![Deploy Wheelroom Boilerplate on
+Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/wheelroom/wheelroom/)
+
+## Project roadmap
+
+[Read about our project roadmap](./roadmap.md)
