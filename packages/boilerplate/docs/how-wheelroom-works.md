@@ -41,10 +41,10 @@ When the Gatsby development server starts, this is what happens:
   the page section has many variations.
 - All generated page templates are rendered by applying the generated Graphql.
 
-## Boilerplate
+## Wheelroom boilerplate
 
-The boilerplate uses wheels. Proper documentation has not been written. There is a
-brief overview of the [core folders](../src/wheelroom/README.md).
+The Wheelroom boilerplate uses wheels. Proper documentation has not been written. 
+There is a brief overview of the [core folders](../src/wheelroom/README.md).
 
 ## Styled system
 
