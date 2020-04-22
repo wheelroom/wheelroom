@@ -7,6 +7,10 @@ Files in this folder are overwritten with each boilerplate update.
 Things global to the boilerplate. Like reset styling that appears on the body
 element.
 
+## Lib
+
+Common functionality like utility and library methods are located here.
+
 ## Parsers
 
 Some fields need parsing. Converting new lines to `<br />` elements or parsing a
@@ -40,12 +44,3 @@ the page section variations in `/src/models/pag-section`.
 ## Wheels
 
 Wheels are HTML structures that are styled by using a tree of style objects.
-
-## Lib
-
-Common functionality like utility and library methods are located here.
-
-## Model views
-
-Views for the page section model are in a separate folder. All other model views
-are located here.
