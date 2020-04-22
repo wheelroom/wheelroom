@@ -87,4 +87,4 @@ Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com
 
 ## Project roadmap
 
-[Read about our project roadmap](./roadmap.md)
+[Read about our project roadmap](./docs/roadmap.md)
