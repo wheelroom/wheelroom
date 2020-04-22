@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-panel@1.1.8...@wheelroom/admin-panel@1.1.9) (2020-04-22)
+
+**Note:** Version bump only for package @wheelroom/admin-panel
+
+
+
+
+
 ## [1.1.8](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-panel@1.1.7...@wheelroom/admin-panel@1.1.8) (2020-04-22)
 
 **Note:** Version bump only for package @wheelroom/admin-panel

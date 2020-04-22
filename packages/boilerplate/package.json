@@ -20,15 +20,15 @@
     "@contentful/rich-text-types": "14.1.0",
     "@emotion/core": "10.0.28",
     "@reach/router": "1.3.3",
-    "@wheelroom/admin-core": "1.1.8",
-    "@wheelroom/admin-page-preview": "1.4.20",
-    "@wheelroom/admin-panel": "1.1.8",
-    "@wheelroom/admin-theme-switcher": "1.1.1",
-    "@wheelroom/styled-system": "4.0.2",
-    "@wheelroom/wheelroom": "4.0.1",
-    "@wheelroom/wheelroom-plugin-boilerplate": "3.0.1",
-    "@wheelroom/wheelroom-plugin-contentful": "3.0.1",
-    "@wheelroom/wheelroom-plugin-graphql": "3.0.1",
+    "@wheelroom/admin-core": "1.1.9",
+    "@wheelroom/admin-page-preview": "1.4.21",
+    "@wheelroom/admin-panel": "1.1.9",
+    "@wheelroom/admin-theme-switcher": "1.1.2",
+    "@wheelroom/styled-system": "4.0.3",
+    "@wheelroom/wheelroom": "4.0.2",
+    "@wheelroom/wheelroom-plugin-boilerplate": "3.0.2",
+    "@wheelroom/wheelroom-plugin-contentful": "3.0.2",
+    "@wheelroom/wheelroom-plugin-graphql": "3.0.2",
     "camelcase": "6.0.0",
     "deepmerge": "4.2.2",
     "dotenv": "8.2.0",
@@ -43,7 +43,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.2.9",
     "gatsby-source-filesystem": "2.2.4",
-    "gatsby-theme-wheelroom": "4.0.7",
+    "gatsby-theme-wheelroom": "4.0.8",
     "gatsby-transformer-json": "2.3.3",
     "query-string": "6.12.1",
     "react": "16.13.1",
@@ -125,8 +125,8 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "wheelroom": {
-    "version": "2.4.0"
+    "version": "2.4.1"
   }
 }

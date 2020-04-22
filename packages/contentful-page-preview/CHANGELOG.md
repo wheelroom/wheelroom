@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.11](https://github.com/wheelroom/wheelroom/compare/@wheelroom/contentful-page-preview@1.3.10...@wheelroom/contentful-page-preview@1.3.11) (2020-04-22)
+
+**Note:** Version bump only for package @wheelroom/contentful-page-preview
+
+
+
+
+
 ## [1.3.10](https://github.com/wheelroom/wheelroom/compare/@wheelroom/contentful-page-preview@1.3.9...@wheelroom/contentful-page-preview@1.3.10) (2020-04-22)
 
 **Note:** Version bump only for package @wheelroom/contentful-page-preview
