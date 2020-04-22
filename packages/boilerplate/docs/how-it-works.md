@@ -61,7 +61,8 @@ To configure the theme, look here:
 
 ## TOC
 
-- [Wheelroom Boilerplate Index](./README.md)
+- [Wheelroom Boilerplate Index](../README.md)
 - [Getting started](./getting-started.md)
+- [Deploy](./deploy.md)
 - [How it works](./how-it-works.md)
 - [Roadmap](./roadmap.md)

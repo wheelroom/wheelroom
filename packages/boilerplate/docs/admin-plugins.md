@@ -1,0 +1,19 @@
+# Wheelroom plugin system
+
+The plugin system allows for adding functionality.
+
+Proper documentation has not been written yet.
+
+## Plugins
+
+- [@wheelroom/admin-panel](../../admin-panel/README.md)
+- [@wheelroom/admin-theme-switcher](../../admin-theme-switcher/README.md)
+- [@wheelroom/admin-page-preview](../../admin-page-preview/README.md)
+
+## TOC
+
+- [Wheelroom Boilerplate Index](../README.md)
+- [Getting started](./getting-started.md)
+- [Deploy](./deploy.md)
+- [How it works](./how-it-works.md)
+- [Roadmap](./roadmap.md)

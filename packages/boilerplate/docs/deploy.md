@@ -54,16 +54,10 @@ After applying the variables you are ready to Deploy the site!
 - [Configure external DNS for a custom
   domain](https://docs.netlify.com/domains-https/custom-domains/configure-external-dns//)
 
-## Next steps
-
-- [Edit page template](./next-steps/page-template.md)
-- [Change default locale](./next-steps/default-locale.md)
-- [Add a new component](./next-steps/add-new-component.md)
-- [Auto fix with linter](./next-steps/linter.md)
-
 ## TOC
 
-- [Wheelroom Boilerplate Index](./README.md)
+- [Wheelroom Boilerplate Index](../README.md)
 - [Getting started](./getting-started.md)
+- [Deploy](./deploy.md)
 - [How it works](./how-it-works.md)
 - [Roadmap](./roadmap.md)

@@ -23,17 +23,17 @@ site](https://boilerplate.wheelroom.io/) on Netlify.
 [![Netlify
 Status](https://api.netlify.com/api/v1/badges/a6a09e15-6435-415f-90cb-de81a6b75f5d/deploy-status)](https://app.netlify.com/sites/wheelroom-boilerplate/deploys)
 
-### Services
+## Services
 
 Currently Wheelroom supports services like:
 
 - [Contentful](https://www.contentful.com/),
 - [Netlify](https://www.netlify.com/)
 
-### Plugins
+## Plugins
 
-- Contentful content Preview ([TODO: write docs about
-  /page-url?preview](./docs/roadmap.md))
+The [Wheelroom plugin system](./docs/admin-plugins.md) allows for adding
+functionality like a theme switcher and Contentful preview functionality.
 
 ## Getting started
 
