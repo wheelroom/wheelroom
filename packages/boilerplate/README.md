@@ -33,15 +33,15 @@ Currently Wheelroom supports services like:
 ### Plugins
 
 - Contentful content Preview ([TODO: write docs about
-  /page-url?preview](./roadmap.md))
+  /page-url?preview](./docs/roadmap.md))
 
 ## Getting started
 
-[Get started](./getting-started.md) with the Wheelroom boilerplate.
+[Get started](./docs/getting-started.md) with the Wheelroom boilerplate.
 
 ## How it works
 
-Read [here](./how-it-works.md)
+Read [here](./docs/how-it-works.md)
 
 ## Deploy your Wheelroom project
 
