@@ -1,6 +1,6 @@
 # Wheelroom
 
-Wheelroom is a command line tool for managing content models.
+Wheelroom connects your code-base within 5 minutes to many useful (web) services, like e.g. Contentful and Netlify.
 
 ## Monorepo
 
@@ -10,12 +10,12 @@ This is a monorepo managed by [lerna](https://www.npmjs.com/package/lerna).
 npm install lerna --global
 ```
 
-## Boilerplate
+## Wheelroom boilerplate
 
 Have a look at the [boilerplate](https://github.com/wheelroom/wheelroom/tree/master/packages/boilerplate) to so see how to use this.
 
 
-## Plugins 
+## Wheelroom plugins 
 
 Plugins are used to work with the models. Three plugins have been written:
 
@@ -23,7 +23,7 @@ Plugins are used to work with the models. Three plugins have been written:
 - [wheelroom-plugin-graphql](https://www.npmjs.com/package/@wheelroom//wheelroom-plugin-graphql): template parser for generating (Gatbsyjs) graphql queries
 - [wheelroom-plugin-contentful](https://www.npmjs.com/package/@wheelroom/wheelroom-plugin-contentful): for creating content models at Contentful
 
-A plugin for [prismic.io](https://prismic.io) can be easily added.
+A plugin for [prismic.io](https://www.prismic.io) can be easily added.
 
 
 ## Content models
@@ -59,7 +59,7 @@ export const configComponents: WheelroomComponents = {
 ## Content model fields
 
 Wheelroom uses a [fixed set of field
-types](https://github.com/wheelroom/wheelroom/blob/master/packages/%40jacco-meijer/wheelroom/src/types/wheelroom-fields.ts).
+types](https://github.com/wheelroom/wheelroom/blob/master/packages/wheelroom/src/types/wheelroom-fields.ts).
 This is because it was designed to work with more than one headless CMS.
 
 The actual fields that are used to create models at the CMS are defined by
