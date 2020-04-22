@@ -1,4 +1,4 @@
-# Deploy
+# Deploy your Wheelroom project on a build server
 
 ## Introduction
 
