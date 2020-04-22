@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Wheelroom Biolerplate is supports Netlify. Netlify lets you link a GitHub,
+Wheelroom Boilerplate is compatible with Netlify. Netlify lets you link a GitHub,
 GitLab, or Bitbucket repository to a site for continuous deployment. The
 following readme will explain how to setup a Netlify build server.
 
