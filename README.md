@@ -29,9 +29,9 @@ This is a monorepo managed by [lerna](https://www.npmjs.com/package/lerna).
 npm install lerna --global
 ```
 
-## Contibutors
+## Contributors
 
 Feel free to contribute to the open-source Wheelroom project. Do you have question or a feature request, please add an [issue](https://github.com/wheelroom/wheelroom/issues).
 
-[Jacco Meijer](https://github.com/jaccomeijer)
-[Thijs Krooswijk](https://github.com/thijskrooswijk)
+- [Jacco Meijer](https://github.com/jaccomeijer)
+- [Thijs Krooswijk](https://github.com/thijskrooswijk)
