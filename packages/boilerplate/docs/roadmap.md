@@ -6,19 +6,21 @@
 - Migrate %slug% to :slug compatible with @reach/router and gatsby/Link
 - Add /admin panel with login
 - Add documentation on schema snapshots
+– Add page-sections
+- Cache Theme ID
+- Add (cookies) notifications
 
 ## Ideas
 
 - Add localization for component-configs and content-sets
 - Examples on how to connect to API's easily (Shopify, etc.)
 - More template sets and designs
-- Plugins for other CMS's like Prismic
--
+- Plugins for like Prismic, NAP, Analytics and much more
 
 ## TOC
 
 - [Wheelroom Boilerplate Index](../README.md)
 - [Getting started](./getting-started.md)
-- [Deploy](./deploy.md)
+- [Deploy](./deploy-wheelroom-project.md)
 - [How it works](./how-it-works.md)
 - [Roadmap](./roadmap.md)
