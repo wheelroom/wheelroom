@@ -35,7 +35,7 @@ Currently Wheelroom supports services like:
 The [Wheelroom plugin system](./docs/admin-plugins.md) allows for adding
 functionality like a theme switcher and Contentful preview functionality.
 
-## How it works
+## How Wheelroom works
 
 Read [here](./docs/how-wheelroom-works.md)
 
