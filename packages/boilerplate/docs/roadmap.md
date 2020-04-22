@@ -6,7 +6,7 @@
 - Migrate %slug% to :slug compatible with @reach/router and gatsby/Link
 - Add /admin panel with login
 - Add documentation on schema snapshots
-– Add page-sections
+- Add page-sections
 - Cache Theme ID
 - Add (cookies) notifications
 
