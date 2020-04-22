@@ -37,7 +37,7 @@ functionality like a theme switcher and Contentful preview functionality.
 
 ## How it works
 
-Read [here](./docs/how-it-works.md)
+Read [here](./docs/how-wheelroom-works.md)
 
 ## Deploy your Wheelroom project
 

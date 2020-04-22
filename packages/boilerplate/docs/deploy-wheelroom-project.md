@@ -60,5 +60,5 @@ After applying the variables you are ready to Deploy the site!
 - [Getting started](./getting-started.md)
 - [Deploy](./deploy-wheelroom-project.md)
 - [Admin plugins](./admin-plugins.md)
-- [How it works](./how-it-works.md)
+- [How it works](./how-wheelroom-works.md)
 - [Roadmap](./roadmap.md)

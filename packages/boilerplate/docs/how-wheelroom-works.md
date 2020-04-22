@@ -1,4 +1,4 @@
-# How it works
+# How Wheelroom works
 
 ## Config
 
@@ -41,6 +41,11 @@ When the Gatsby development server starts, this is what happens:
   the page section has many variations.
 - All generated page templates are rendered by applying the generated Graphql.
 
+## Boilerplate
+
+The boilerplate uses wheels. Proper documentation has not been written. There is a
+brief overview of the [core folders](../src/wheelroom/README.md).
+
 ## Styled system
 
 The templates use a style system:
@@ -61,5 +66,5 @@ To configure the theme, look here:
 - [Getting started](./getting-started.md)
 - [Deploy](./deploy-wheelroom-project.md)
 - [Admin plugins](./admin-plugins.md)
-- [How it works](./how-it-works.md)
+- [How it works](./how-wheelroom-works.md)
 - [Roadmap](./roadmap.md)
