@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.4.1...@wheelroom/boilerplate@2.3.1) (2020-04-23)
+
+
+### Reverts
+
+* Revert "chore(release): release" ([e54c089](https://github.com/wheelroom/wheelroom/commit/e54c0895b5f62dc43b86d34c9292041af2d1f774))
+* Revert "chore(release): release" ([05c9d6c](https://github.com/wheelroom/wheelroom/commit/05c9d6cf301c3a4c505cf8bd375e3cb03e14620b))
+* Revert "chore: remove unnecessary extension" ([0aa7b61](https://github.com/wheelroom/wheelroom/commit/0aa7b613d345ce5d421b89fdd8bbeed1678f0c36))
+
+
+
+
+
 # [2.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.2.1...@wheelroom/boilerplate@2.3.0) (2020-04-08)
 
 

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-core@1.1.9...@wheelroom/admin-core@1.1.8) (2020-04-23)
+
+
+### Reverts
+
+* Revert "chore(release): release" ([e54c089](https://github.com/wheelroom/wheelroom/commit/e54c0895b5f62dc43b86d34c9292041af2d1f774))
+* Revert "chore: update gitHead" ([cccf7e0](https://github.com/wheelroom/wheelroom/commit/cccf7e005abc23726020a1c917bc153a92915cf9))
+* Revert "chore(release): release" ([05c9d6c](https://github.com/wheelroom/wheelroom/commit/05c9d6cf301c3a4c505cf8bd375e3cb03e14620b))
+
+
+
+
+
 ## [1.1.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-core@1.1.6...@wheelroom/admin-core@1.1.7) (2020-03-21)
 
 **Note:** Version bump only for package @wheelroom/admin-core
