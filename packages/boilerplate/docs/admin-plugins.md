@@ -1,6 +1,6 @@
-# Wheelroom plugin system
+# Wheelroom admin plugins
 
-The plugin system allows for adding functionality.
+The plugin system allows for adding admin functionality.
 
 Proper documentation has not been written yet.
 
