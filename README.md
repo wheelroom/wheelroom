@@ -1,7 +1,7 @@
 # Wheelroom
 
 Wheelroom connects your code base within 5 minutes to many services like Contentful and Netlify. The Wheelroom
-boilerplate includes content models, page sections, wheelroom themes, wxample content and much more.
+boilerplate includes content models, page sections, wheelroom themes, example content and much more.
 
 ## Why Wheelroom?
 
