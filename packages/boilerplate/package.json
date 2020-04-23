@@ -27,7 +27,7 @@
     "@wheelroom/styled-system": "4.0.3",
     "@wheelroom/wheelroom": "4.0.2",
     "@wheelroom/wheelroom-plugin-boilerplate": "3.0.2",
-    "@wheelroom/wheelroom-plugin-contentful": "3.0.2",
+    "@wheelroom/wheelroom-plugin-contentful": "3.0.3",
     "@wheelroom/wheelroom-plugin-graphql": "3.0.2",
     "camelcase": "6.0.0",
     "deepmerge": "4.2.2",
@@ -125,8 +125,8 @@
     "wr:ls": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom list"
   },
   "type": "commonjs",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "wheelroom": {
-    "version": "2.3.2"
+    "version": "2.3.3"
   }
 }
