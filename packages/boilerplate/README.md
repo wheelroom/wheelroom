@@ -30,10 +30,10 @@ Currently Wheelroom supports services like:
 
 [Get started](./docs/getting-started.md) with the Wheelroom boilerplate.
 
-## Plugins
+## Wheelroom admin plugins
 
-The [Wheelroom plugin system](./docs/admin-plugins.md) allows for adding
-functionality like a theme switcher and Contentful preview functionality.
+[Wheelroom admin plugins](./docs/admin-plugins.md) allow for adding
+admin functionality like theme switchers, CMS preview and detailed analytics.
 
 ## How Wheelroom works
 
