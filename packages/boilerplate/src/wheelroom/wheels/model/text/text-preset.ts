@@ -10,10 +10,6 @@ import { HeadingElementStyle } from '../../element/resets/heading-reset'
 import { BlockquoteElementStyle } from '../../element/resets/self-blockquote-reset'
 import { ListElementStyle } from '../../element/resets/self-list-reset'
 import { ALinkElementStyle } from '../../element/resets/a-link-reset'
-import {
-  imageFigcaptionReset,
-  imageImgReset,
-} from '../../element/resets/image-reset'
 
 export interface TextWheelStyle {
   wrapper: GridElementStyle
@@ -98,17 +94,13 @@ export const textPreset: TextWheelStyle = {
   },
   image: {
     img: {
-      ncss: {
-        ...imageImgReset,
-      },
+      ncss: {},
     },
     picture: {
       ncss: {},
     },
     figcaption: {
-      ncss: {
-        ...imageFigcaptionReset,
-      },
+      ncss: {},
     },
   },
   video: {
@@ -122,7 +114,7 @@ export const textPreset: TextWheelStyle = {
   wrapper: {
     ncss: {
       label: 'wrapper-text',
-      maxWidth: '712px',
+      maxWidth: '712px', // Golden read width ratio
       mx: 'auto',
       py: 0,
       px: 3,

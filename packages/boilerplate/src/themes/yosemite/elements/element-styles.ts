@@ -14,9 +14,15 @@ export const elementStyles: ElementStyles = {
   },
   blockquote: {
     ncss: {
-      fontSize: 5,
-      pl: [3, 5, 7],
+      // fontSize: [6, 8],
+      fontStyle: 'italic',
+      px: [3, 5, 7],
       mx: 0,
+      my: [4, 5, 6],
+      '>p': {
+        fontSize: 8,
+        fontStyle: 'italic',
+      },
     },
   },
   box: {
@@ -25,7 +31,6 @@ export const elementStyles: ElementStyles = {
   button: primaryButtonStyle,
   code: {
     ncss: {
-      overflowX: 'auto',
       whiteSpace: 'pre',
     },
   },
@@ -116,17 +121,9 @@ export const elementStyles: ElementStyles = {
   ol: {
     ncss: {},
   },
-  p: {
-    ncss: {
-      ...paragraphStyle,
-    },
-  },
+  p: paragraphStyle,
   pre: {
     ncss: {
-      tabSize: 2,
-      wordBreak: 'normal',
-      hyphens: 'none',
-      overflow: 'hidden',
       bg: 'codeBg',
       p: 3,
     },
