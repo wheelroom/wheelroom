@@ -70,9 +70,5 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle,
-    },
-  },
+  wrapper: wrapperStyle,
 }

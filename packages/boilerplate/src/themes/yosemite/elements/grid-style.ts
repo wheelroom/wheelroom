@@ -1,4 +1,6 @@
 export const wrapperStyle = {
-  bg: 'sectionBg',
-  color: 'sectionText',
+  ncss: {
+    bg: 'sectionBg',
+    color: 'sectionText',
+  },
 }

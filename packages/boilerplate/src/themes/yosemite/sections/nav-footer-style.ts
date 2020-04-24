@@ -5,7 +5,7 @@ import { NavFooterWheelStyle } from '../../../wheelroom/wheels/section/navigatio
 export const navFooterStyle: NavFooterWheelStyle = {
   wrapper: {
     ncss: {
-      ...wrapperStyle,
+      ...wrapperStyle.ncss,
       borderColor: 'sectionBorder',
     },
   },

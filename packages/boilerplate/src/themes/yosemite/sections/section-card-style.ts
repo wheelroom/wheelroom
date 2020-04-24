@@ -60,11 +60,7 @@ export const sectionCardStyle: PageSectionCardWheelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle,
-    },
-  },
+  wrapper: wrapperStyle,
 }
 
 export const pageSectionCardShadowStyle = {

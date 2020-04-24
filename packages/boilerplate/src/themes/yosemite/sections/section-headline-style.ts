@@ -55,9 +55,5 @@ export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle,
-    },
-  },
+  wrapper: wrapperStyle,
 }

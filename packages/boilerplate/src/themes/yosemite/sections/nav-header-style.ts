@@ -16,7 +16,7 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
   },
   wrapper: {
     ncss: {
-      ...wrapperStyle,
+      ...wrapperStyle.ncss,
       borderColor: 'sectionBorder',
     },
   },

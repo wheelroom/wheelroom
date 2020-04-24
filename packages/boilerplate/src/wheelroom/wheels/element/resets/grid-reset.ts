@@ -20,6 +20,7 @@ export const flexReset: GridElementStyle = {
 export const wrapperReset: GridElementStyle = {
   ncss: {
     ...boxReset.ncss,
+    w: 1,
     py: 3,
   },
 }

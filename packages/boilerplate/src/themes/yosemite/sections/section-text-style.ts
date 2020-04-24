@@ -96,9 +96,5 @@ export const pageSectionFreestyleStyle: FreestyleWheelStyle = {
       ncss: {},
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle,
-    },
-  },
+  wrapper: wrapperStyle,
 }

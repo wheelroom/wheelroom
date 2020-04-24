@@ -50,9 +50,5 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle,
-    },
-  },
+  wrapper: wrapperStyle,
 }

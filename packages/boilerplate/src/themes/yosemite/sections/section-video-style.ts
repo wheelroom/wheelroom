@@ -51,9 +51,5 @@ export const sectionVideoStyle: PageSectionVideoWheelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle,
-    },
-  },
+  wrapper: wrapperStyle,
 }

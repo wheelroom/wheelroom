@@ -52,9 +52,5 @@ export const sectionBlockStyle: PageSectionBlockWheelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle,
-    },
-  },
+  wrapper: wrapperStyle,
 }

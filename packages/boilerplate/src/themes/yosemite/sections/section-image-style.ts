@@ -51,9 +51,5 @@ export const sectionImageStyle: PageSectionImageWheelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle,
-    },
-  },
+  wrapper: wrapperStyle,
 }

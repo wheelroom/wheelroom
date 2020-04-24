@@ -51,9 +51,5 @@ export const sectionGalleryStyle: PageSectionGalleryWheelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle,
-    },
-  },
+  wrapper: wrapperStyle,
 }
