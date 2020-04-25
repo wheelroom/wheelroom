@@ -408,6 +408,7 @@ export const models: WheelroomComponents = {
           'image',
           'navigation',
           'quote',
+          'showcase',
           'text',
           'video',
         ],

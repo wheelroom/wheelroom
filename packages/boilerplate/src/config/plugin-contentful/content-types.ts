@@ -334,6 +334,7 @@ interface PageSectionModel {
       | 'image'
       | 'navigation'
       | 'quote'
+      | 'showcase'
       | 'text'
       | 'video'
     topics?: Array<'demoTopic'>
