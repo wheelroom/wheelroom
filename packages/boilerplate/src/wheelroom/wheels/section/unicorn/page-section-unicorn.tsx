@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Fluid, Wrapper } from '../../element/grid'
-import { PageSectionProps } from '../../../../models/page-section/page-section'
+import { PageSectionProps } from '../../../../models/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Topic, TopicWheelProps } from '../../model/topic/topic'
 import { MultiParser } from '../../../parsers/multi-parser'
@@ -11,6 +11,7 @@ import { PageSectionCardWheelStyle } from './presets/page-section-card-preset'
 import { PageSectionFeaturedWheelStyle } from './presets/page-section-featured-preset'
 import { PageSectionHeadlineWheelStyle } from './presets/page-section-headline-preset'
 import { PageSectionHeroWheelStyle } from './presets/page-section-hero-preset'
+import { PageSectionShowcaseWheelStyle } from './presets/page-section-showcase-preset'
 import { PageSectionQuoteWheelStyle } from './presets/page-section-quote-preset'
 
 export interface PageSectionUnicornWheel extends Wheel {
@@ -20,6 +21,7 @@ export interface PageSectionUnicornWheel extends Wheel {
     | PageSectionFeaturedWheelStyle
     | PageSectionHeadlineWheelStyle
     | PageSectionHeroWheelStyle
+    | PageSectionShowcaseWheelStyle
     | PageSectionQuoteWheelStyle
 }
 

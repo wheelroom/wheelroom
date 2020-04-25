@@ -18,6 +18,7 @@ import { PageSectionHeroVar } from './page-section-hero-var'
 import { PageSectionImageVar } from './page-section-image-var'
 import { PageSectionNavigationVar } from './page-section-navigation-var'
 import { PageSectionQuoteVar } from './page-section-quote-var'
+import { PageSectionShowcaseVar } from './page-section-showcase-var'
 import { PageSectionTextVar } from './page-section-text-var'
 import { PageSectionVideoVar } from './page-section-video-var'
 import { PageSectionDividerVar } from './page-section-divider-var'
@@ -36,6 +37,7 @@ const componentList = {
   ['image']: PageSectionImageVar,
   ['navigation']: PageSectionNavigationVar,
   ['quote']: PageSectionQuoteVar,
+  ['showcase']: PageSectionShowcaseVar,
   ['text']: PageSectionTextVar,
   ['video']: PageSectionVideoVar,
   ['divider']: PageSectionDividerVar,
