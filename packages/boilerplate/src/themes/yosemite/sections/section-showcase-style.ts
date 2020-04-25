@@ -17,7 +17,9 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
     content: {
       ncss: {},
       actions: {
-        ncss: {},
+        ncss: {
+          mb: 3,
+        },
         link: aLinkButtonStyle,
       },
       text: {

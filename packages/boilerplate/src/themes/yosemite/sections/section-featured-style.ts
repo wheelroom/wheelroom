@@ -20,15 +20,16 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
         w: 1,
       },
       actions: {
-        ncss: {},
+        ncss: {
+          mt: [2, 2, 3],
+          mb: 3,
+        },
         link: displayButtonStyle,
       },
       text: {
         ncss: {},
         abstract: {
-          ncss: {
-            mb: 5,
-          },
+          ncss: {},
         },
         heading: {
           ncss: {},
