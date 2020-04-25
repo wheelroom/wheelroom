@@ -29,7 +29,16 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
       text: {
         ncss: {},
         abstract: {
-          ncss: {},
+          ncss: {
+            tableLayout: 'auto',
+            lineHeight: 1.58,
+            td: {
+              pr: 3,
+            },
+            '> tr > td:nth-last-of-type': {
+              pr: 0,
+            },
+          },
         },
         heading: {
           ncss: {},

@@ -1,6 +1,6 @@
 import { NcssProps } from '../../../types'
 import { GridElementStyle } from '../../../element/resets/grid-reset'
-import { LegalFooterWheelStyle, legalFooterPreset } from './legal-preset'
+import { LegalFooterWheelStyle, legalFooterPreset } from './legal-footer-preset'
 import {
   NavFooterSocialListWheelStyle,
   navFooterSocialListPreset,

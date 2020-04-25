@@ -4,7 +4,7 @@ import { Any } from '../../element/any'
 import { ALink } from '../../element/a-link'
 import { SiteMetadata } from '../../../../page-template'
 import { Wheel } from '../../types'
-import { LegalFooterWheelStyle } from './presets/legal-preset'
+import { LegalFooterWheelStyle } from './presets/legal-footer-preset'
 import { Sup } from '../../element/paragraph'
 
 interface LegalWheel extends Wheel {
