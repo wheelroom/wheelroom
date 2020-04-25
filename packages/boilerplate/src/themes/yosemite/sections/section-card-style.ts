@@ -66,6 +66,7 @@ export const sectionCardStyle: PageSectionCardWheelStyle = {
 export const pageSectionCardShadowStyle = {
   topic: {
     ncss: {
+      label: 'topic-card-shadow',
       transition: 'transform .25s ease 0s',
       transform: 'scale(1)',
       ':hover': {

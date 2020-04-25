@@ -1,5 +1,5 @@
 import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-featured-preset'
-import { primaryButtonStyle } from '../elements/button-style'
+import { aLinkButtonStyle, displayButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
@@ -7,28 +7,40 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
     ncss: {},
   },
   topic: {
-    ncss: {},
+    ncss: {
+      justifyContent: 'space-evenly',
+    },
     content: {
-      ncss: {},
+      ncss: {
+        maxWidth: ['35em', '35em', '40%'],
+        w: 1,
+      },
       actions: {
         ncss: {},
-        link: primaryButtonStyle,
+        link: displayButtonStyle,
       },
       text: {
         ncss: {},
         abstract: {
-          ncss: {},
+          ncss: {
+            mb: 5,
+          },
         },
         heading: {
           ncss: {},
         },
         icon: {
-          ncss: {},
+          ncss: {
+            mb: 2,
+          },
         },
       },
     },
     media: {
-      ncss: {},
+      ncss: {
+        maxWidth: ['35em', '35em', '40%'],
+        w: 1,
+      },
       image: {
         img: {
           ncss: {},
@@ -51,4 +63,42 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
     },
   },
   wrapper: wrapperStyle,
+}
+
+export const sectionFeaturedListStyle = {
+  container: {
+    ncss: {
+      maxWidth: ['35em', '54rem'],
+      flexDirection: 'column',
+    },
+  },
+  topic: {
+    ncss: {
+      label: 'topic-featured-list',
+      alignItems: 'initial',
+      flexDirection: ['column', 'row'],
+    },
+    content: {
+      ncss: {
+        maxWidth: 'auto',
+        w: 1,
+      },
+      actions: {
+        link: aLinkButtonStyle,
+      },
+      text: {
+        abstract: {
+          ncss: {
+            mb: 3,
+          },
+        },
+      },
+    },
+    media: {
+      ncss: {
+        maxWidth: '254px',
+        w: 1,
+      },
+    },
+  },
 }

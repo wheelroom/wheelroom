@@ -19,7 +19,11 @@ import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-pr
 import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { sectionFeaturedStyle } from '../../themes/yosemite/sections/section-featured-style'
+import {
+  sectionFeaturedListStyle,
+  sectionFeaturedStyle,
+} from '../../themes/yosemite/sections/section-featured-style'
+import { TopicProps } from '../topic'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -30,6 +34,8 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     sectionFeaturedStyle,
   ])
 
+  const styleFeaturedList = deepMerge([style, sectionFeaturedListStyle])
+
   const wheel: Wheel = {
     style,
     elementStyles,
@@ -37,19 +43,31 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     styledSystemConfig,
   }
 
+  const wheelFeaturedList: Wheel = {
+    style: styleFeaturedList,
+    elementStyles,
+    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
+    styledSystemConfig,
+  }
+
   if (pageSectionInfo.hasTopic) {
+    const topicListPresent =
+      props.topics.filter((topic: TopicProps) => topic).length > 1
+    const topicHeading =
+      pageSectionInfo.index <= 1 && !topicListPresent ? 'h1' : 'h2'
+    const topicListHeading = 'h3'
     return (
       <PageSectionUnicorn
         topicProps={{
           pageSectionActions: props.actions,
           fullTopicAsLink: false,
           pageSectionInfo,
-          useHeadingElement: pageSectionInfo.index <= 1 ? 'h1' : 'h2',
+          useHeadingElement: topicListPresent ? topicListHeading : topicHeading,
           wheel,
         }}
         containerStyle="container"
         pageSection={props}
-        wheel={wheel}
+        wheel={topicListPresent ? wheelFeaturedList : wheel}
       />
     )
   }

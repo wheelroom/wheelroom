@@ -48,7 +48,6 @@ export const pageSectionFeaturedPreset: PageSectionFeaturedWheelStyle = {
     media: {
       ncss: {
         flexDirection: 'column',
-        mb: [3, 3, 0],
         w: [1, 1, 1 / 2],
         p: 3,
       },

@@ -16,9 +16,7 @@ export const pageSectionQuotePreset: PageSectionQuoteWheelStyle = {
     content: {
       ncss: {
         textAlign: 'center',
-        mx: 'auto',
         p: 3,
-        maxWidth: [1, '960px', '1024px'],
       },
       actions: {
         ncss: {},
@@ -40,7 +38,9 @@ export const pageSectionQuotePreset: PageSectionQuoteWheelStyle = {
       },
     },
     media: {
-      ncss: {},
+      ncss: {
+        p: 3,
+      },
       image: {
         img: {
           ncss: {},

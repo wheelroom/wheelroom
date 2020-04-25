@@ -1,47 +1,34 @@
 import { FreestyleWheelStyle } from '../../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
 import { wrapperStyle } from '../elements/grid-style'
+import { headingTextStyle } from '../elements/heading-style'
 
 export const pageSectionFreestyleStyle: FreestyleWheelStyle = {
   container: {
     ncss: {},
   },
   text: {
-    h1: {
-      ncss: {},
-    },
-    h2: {
-      ncss: {
-        pt: 3,
-      },
-    },
-    h3: {
-      ncss: {
-        pt: 3,
-      },
-    },
-    h4: {
-      ncss: {
-        pt: 3,
-      },
-    },
-    h5: {
-      ncss: {
-        pt: 3,
-      },
-    },
-    h6: {
-      ncss: {
-        pt: 3,
-      },
-    },
+    h1: headingTextStyle,
+    h2: headingTextStyle,
+    h3: headingTextStyle,
+    h4: headingTextStyle,
+    h5: headingTextStyle,
+    h6: headingTextStyle,
     ul: {
-      ncss: {},
+      ncss: {
+        mt: 0,
+      },
     },
     ol: {
-      ncss: {},
+      ncss: {
+        mt: 0,
+      },
     },
     li: {
-      ncss: {},
+      ncss: {
+        '>p': {
+          mb: 2,
+        },
+      },
     },
     entryHyperlink: {
       ncss: {},

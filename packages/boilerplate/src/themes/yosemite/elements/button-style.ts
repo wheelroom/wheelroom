@@ -41,3 +41,14 @@ export const displayButtonStyle: ButtonElementStyle = {
     py: 3,
   },
 }
+
+export const aLinkButtonStyle: ButtonElementStyle = {
+  ncss: {
+    fontSize: 6,
+    bg: 'transparent',
+    color: 'link',
+    border: '0',
+    p: 0,
+    textDecoration: 'underline',
+  },
+}

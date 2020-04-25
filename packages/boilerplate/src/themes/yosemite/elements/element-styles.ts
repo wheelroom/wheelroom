@@ -14,8 +14,6 @@ export const elementStyles: ElementStyles = {
   },
   blockquote: {
     ncss: {
-      // fontSize: [6, 8],
-      fontStyle: 'italic',
       px: [3, 5, 7],
       mx: 0,
       my: [4, 5, 6],
@@ -55,37 +53,37 @@ export const elementStyles: ElementStyles = {
   },
   h1: {
     ncss: {
-      ...headingStyle,
+      ...headingStyle.ncss,
       fontSize: [10, 10, 11, 11],
     },
   },
   h2: {
     ncss: {
-      ...headingStyle,
+      ...headingStyle.ncss,
       fontSize: [9, 9, 10, 10],
     },
   },
   h3: {
     ncss: {
-      ...headingStyle,
+      ...headingStyle.ncss,
       fontSize: [7, 7, 8, 8],
     },
   },
   h4: {
     ncss: {
-      ...headingStyle,
+      ...headingStyle.ncss,
       fontSize: [6, 6, 7, 7],
     },
   },
   h5: {
     ncss: {
-      ...headingStyle,
+      ...headingStyle.ncss,
       fontSize: [6, 6, 7, 7],
     },
   },
   h6: {
     ncss: {
-      ...headingStyle,
+      ...headingStyle.ncss,
       fontSize: [6, 6, 7, 7],
     },
   },

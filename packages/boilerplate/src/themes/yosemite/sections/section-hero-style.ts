@@ -10,20 +10,20 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
     content: {
       ncss: {
         w: 1,
-        py: [5, 7, 9, 11],
-        px: 4,
+        py: [6, 8, 10, 12],
+        px: [4, 5, 6],
         maxWidth: '1280px',
         mx: 'auto',
       },
       actions: {
         ncss: {
-          maxWidth: [1, '480px'],
+          maxWidth: '30em',
         },
         link: displayButtonStyle,
       },
       text: {
         ncss: {
-          maxWidth: [1, '480px'],
+          maxWidth: '30em',
         },
         abstract: {
           ncss: {

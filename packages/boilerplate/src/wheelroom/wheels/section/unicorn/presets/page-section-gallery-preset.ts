@@ -10,14 +10,14 @@ export interface PageSectionGalleryWheelStyle {
 export const pageSectionGalleryPreset: PageSectionGalleryWheelStyle = {
   container: {
     ncss: {
-      flexDirection: ['column', 'row'],
+      flexDirection: 'row',
       flexWrap: 'wrap',
       alignItems: 'center',
     },
   },
   topic: {
     ncss: {
-      w: [1, 1 / 2],
+      w: 1 / 2,
     },
     content: {
       ncss: {

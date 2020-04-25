@@ -20,7 +20,7 @@ fragment Topic on ContentfulTopic {
   media {
     title
     description
-    fluid {
+    fluid (sizes: "(max-width: 2560px, 2560px)") {
       ...GatsbyContentfulFluid
     }
     file {

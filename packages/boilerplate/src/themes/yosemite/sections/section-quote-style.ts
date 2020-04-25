@@ -1,5 +1,5 @@
 import { PageSectionQuoteWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-quote-preset'
-import { primaryButtonStyle } from '../elements/button-style'
+import { displayButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
@@ -9,10 +9,15 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
   topic: {
     ncss: {},
     content: {
-      ncss: {},
+      ncss: {
+        maxWidth: [1, '60em', '68em'],
+        mx: 'auto',
+      },
       actions: {
-        ncss: {},
-        link: primaryButtonStyle,
+        ncss: {
+          mt: 6,
+        },
+        link: displayButtonStyle,
       },
       text: {
         ncss: {
@@ -23,7 +28,10 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
         abstract: {
           ncss: {
             order: '2',
-            fontSize: '6',
+            fontSize: [9, 9, 10],
+            fontStyle: 'italic',
+            lineHeight: 3,
+            my: 0,
           },
         },
         heading: {
@@ -70,5 +78,10 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
       },
     },
   },
-  wrapper: wrapperStyle,
+  wrapper: {
+    ncss: {
+      ...wrapperStyle.ncss,
+      py: 6,
+    },
+  },
 }
