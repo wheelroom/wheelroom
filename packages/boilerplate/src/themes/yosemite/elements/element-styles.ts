@@ -7,6 +7,9 @@ export const elementStyles: ElementStyles = {
   a: {
     ncss: {
       color: 'link',
+      ':focus': {
+        outlineColor: 'amber',
+      },
     },
   },
   any: {
@@ -49,6 +52,9 @@ export const elementStyles: ElementStyles = {
   gLink: {
     ncss: {
       color: 'link',
+      ':focus': {
+        outlineColor: 'amber',
+      },
     },
   },
   h1: {

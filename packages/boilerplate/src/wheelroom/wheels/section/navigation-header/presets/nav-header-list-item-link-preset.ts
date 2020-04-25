@@ -13,9 +13,6 @@ export const navHeaderListItemLinkPreset: NavHeaderListItemLinkWheelStyle = {
     textDecoration: 'none',
     cursor: 'pointer',
     '&.active': { textDecoration: 'underline' },
-    ':hover': { textDecoration: 'underline' },
-    ':active': {},
-    ':focus': {},
-    ':visited': {},
+    '&:hover': { textDecoration: 'underline' },
   },
 }

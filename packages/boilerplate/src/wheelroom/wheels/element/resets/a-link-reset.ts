@@ -11,9 +11,14 @@ export const aLinkReset: ALinkElementStyle = {
     boxSizing: 'border-box',
     cursor: 'pointer',
     fontFamily: 'text',
-    ':hover': {},
-    ':visited': {},
-    ':focus': {},
-    ':active': {},
+    '&:hover': {},
+    '&:visited': {},
+    '&:focus': {
+      outlineColor: 'black',
+      outlineOffset: 4,
+      outlineWidth: 2,
+      outlineStyle: 'dotted',
+    },
+    '&:active': {},
   },
 }

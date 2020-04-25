@@ -12,6 +12,9 @@ const buttonStyle: ButtonElementStyle = {
     borderRadius: 4,
     borderColor: 'transparent',
     textDecoration: 'none',
+    ':focus': {
+      outlineColor: 'amber',
+    },
   },
 }
 

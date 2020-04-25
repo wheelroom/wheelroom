@@ -24,9 +24,14 @@ export const buttonReset: ButtonElementStyle = {
     textDecoration: 'none',
     userSelect: 'none',
     cursor: 'pointer',
-    ':hover': {},
-    ':visited': {},
-    ':focus': {},
-    ':active': {},
+    '&:hover': {},
+    '&:visited': {},
+    '&:focus': {
+      outlineColor: 'black',
+      outlineOffset: 4,
+      outlineWidth: 2,
+      outlineStyle: 'dotted',
+    },
+    '&:active': {},
   },
 }

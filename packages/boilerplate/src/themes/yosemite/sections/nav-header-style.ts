@@ -31,6 +31,9 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
     link: {
       ncss: {
         color: 'sectionText',
+        ':focus': {
+          outlineColor: 'amber',
+        },
       },
     },
     sup: {

@@ -19,7 +19,11 @@ export const navFooterStyle: NavFooterWheelStyle = {
       listItem: {
         ncss: {},
         link: {
-          ncss: {},
+          ncss: {
+            ':focus': {
+              outlineColor: 'amber',
+            },
+          },
         },
       },
     },
@@ -28,7 +32,11 @@ export const navFooterStyle: NavFooterWheelStyle = {
       listItem: {
         ncss: {},
         link: {
-          ncss: {},
+          ncss: {
+            ':focus': {
+              outlineColor: 'amber',
+            },
+          },
           icon: {
             ncss: {
               ':hover': {
