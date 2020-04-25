@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment'
-import { Flex, Fluid, Wrapper } from '../../element/grid'
+import { Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageSectionProps } from '../../../../models/page-section/page-section'
+import { PageSectionProps } from '../../../../models/page-section'
 import { NavFooterSocialList } from './nav-footer-social-list'
 import { NavFooterList } from './nav-footer-list'
-import { Legal } from './legal'
+import { LegalFooter } from './legal-footer'
 import { NavFooterWheelStyle } from './presets/nav-footer-preset'
 import { Wheel } from '../../types'
 
@@ -16,6 +16,7 @@ interface PageSectionNavigationFooterWheel extends Wheel {
 export const PageSectionNavigationFooter = (props: {
   pageSection: PageSectionProps
   wheel: PageSectionNavigationFooterWheel
+  containerStyle: 'container' | 'fluid'
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
   if (!pageSectionInfo.hasNavigation) {
@@ -29,10 +30,14 @@ export const PageSectionNavigationFooter = (props: {
     .segments[0] as NavigationSegmentProps
   const siteMetadata = props.pageSection.siteMetadata
 
+  const ContainerType = props.containerStyle === 'container' ? Container : Fluid
+
   return (
     <Fragment>
       <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
-        <Fluid wheel={{ ...props.wheel, style: props.wheel.style.container }}>
+        <ContainerType
+          wheel={{ ...props.wheel, style: props.wheel.style.container }}
+        >
           <Flex
             is={'nav'}
             wheel={{ ...props.wheel, style: props.wheel.style.navFooter }}
@@ -54,12 +59,13 @@ export const PageSectionNavigationFooter = (props: {
               />
             )}
           </Flex>
-        </Fluid>
-        <Legal
-          siteMetadata={siteMetadata}
-          wheel={{ ...props.wheel, style: props.wheel.style.legal }}
-        />
+        </ContainerType>
       </Wrapper>
+      <LegalFooter
+        siteMetadata={siteMetadata}
+        containerStyle={props.containerStyle}
+        wheel={{ ...props.wheel, style: props.wheel.style.legalFooter }}
+      />
     </Fragment>
   )
 }

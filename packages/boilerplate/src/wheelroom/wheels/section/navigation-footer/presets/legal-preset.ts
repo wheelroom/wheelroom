@@ -1,42 +1,58 @@
 import { NcssProps } from '../../../types'
 import { ALinkElementStyle } from '../../../element/resets/a-link-reset'
 import { ParagraphElementStyle } from '../../../element/resets/paragraph-reset'
+import { GridElementStyle } from '../../../element/resets/grid-reset'
 
-export interface LegalWheelStyle {
-  ncss: NcssProps
-  promise: {
+export interface LegalFooterWheelStyle {
+  wrapper: GridElementStyle
+  container: GridElementStyle
+  legal: {
     ncss: NcssProps
-    link: ALinkElementStyle
-    sup: ParagraphElementStyle
+    promise: {
+      ncss: NcssProps
+      link: ALinkElementStyle
+      sup: ParagraphElementStyle
+    }
   }
 }
 
-export const legalPreset: LegalWheelStyle = {
-  ncss: {
-    label: 'legal',
-    borderTop: '1px solid black',
-    minHeight: '48px',
-    px: 3,
-    /**
-     * On iPhone this link will not be visible without the extra margin-bottom
-     * */
-    mb: [4, 0],
-    alignItems: 'center',
-    justifyContent: ['center', 'flex-end'],
-  },
-  promise: {
+export const legalFooterPreset: LegalFooterWheelStyle = {
+  wrapper: {
     ncss: {
-      label: 'promise',
+      borderTop: '1px solid black',
+      minHeight: '48px',
     },
-    link: {
+  },
+  container: {
+    ncss: {
+      px: 3,
+    },
+  },
+  legal: {
+    ncss: {
+      label: 'legal',
+      alignItems: 'center',
+      justifyContent: ['center', 'flex-end'],
+      w: 1,
+    },
+    promise: {
       ncss: {
-        label: 'legal-link',
-        display: 'inline-flex',
+        label: 'promise',
+        /**
+         * On iPhone this link will not be visible without the extra margin-bottom
+         * */
+        mb: [4, 0],
       },
-    },
-    sup: {
-      ncss: {
-        label: 'legal-sup',
+      link: {
+        ncss: {
+          label: 'promise-link',
+          display: 'inline-flex',
+        },
+      },
+      sup: {
+        ncss: {
+          label: 'promise-sup',
+        },
       },
     },
   },

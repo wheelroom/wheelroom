@@ -1,6 +1,6 @@
 import { NcssProps } from '../../../types'
 import { GridElementStyle } from '../../../element/resets/grid-reset'
-import { LegalWheelStyle, legalPreset } from './legal-preset'
+import { LegalFooterWheelStyle, legalFooterPreset } from './legal-preset'
 import {
   NavFooterSocialListWheelStyle,
   navFooterSocialListPreset,
@@ -18,7 +18,7 @@ export interface NavFooterWheelStyle {
     list: NavFooterListPresetWheelStyle
     socialList: NavFooterSocialListWheelStyle
   }
-  legal: LegalWheelStyle
+  legalFooter: LegalFooterWheelStyle
 }
 
 export const navFooterPreset: NavFooterWheelStyle = {
@@ -45,5 +45,5 @@ export const navFooterPreset: NavFooterWheelStyle = {
     list: navFooterListPreset,
     socialList: navFooterSocialListPreset,
   },
-  legal: legalPreset,
+  legalFooter: legalFooterPreset,
 }

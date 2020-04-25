@@ -40,24 +40,33 @@ export const navFooterStyle: NavFooterWheelStyle = {
       },
     },
   },
-  legal: {
-    ncss: {
-      borderColor: 'sectionBorder',
+  legalFooter: {
+    wrapper: {
+      ncss: {
+        ...wrapperStyle.ncss,
+        borderColor: 'sectionBorder',
+      },
     },
-    promise: {
+    container: {
       ncss: {},
-      link: {
-        ncss: {
-          color: 'sectionText',
-          textDecoration: 'none',
-          ':hover': {
-            textDecoration: 'underline',
+    },
+    legal: {
+      ncss: {},
+      promise: {
+        ncss: {},
+        link: {
+          ncss: {
+            color: 'sectionText',
+            textDecoration: 'none',
+            ':hover': {
+              textDecoration: 'underline',
+            },
           },
         },
-      },
-      sup: {
-        ncss: {
-          color: 'metal',
+        sup: {
+          ncss: {
+            color: 'metal',
+          },
         },
       },
     },
