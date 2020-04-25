@@ -1,12 +1,12 @@
 import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../../element/a-link'
-import { Box, Flex, Fluid, Wrapper } from '../../element/grid'
+import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { Button } from '../../element/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageSectionProps } from '../../../../models/page-section/page-section'
+import { PageSectionProps } from '../../../../models/page-section'
 import { NavHeaderList } from './nav-header-list'
 import { Branding } from './branding'
 import { NavHeaderActions } from './nav-header-actions'
@@ -21,6 +21,7 @@ interface PageSectionNavigationHeaderWheel extends Wheel {
 export const PageSectionNavigationHeader = (props: {
   pageSection: PageSectionProps
   useLogoElement?: JSX.Element
+  containerStyle: 'container' | 'fluid'
   wheel: PageSectionNavigationHeaderWheel
 }) => {
   // Theme switcher admin module
@@ -56,6 +57,8 @@ export const PageSectionNavigationHeader = (props: {
     element.focus()
   }
 
+  const ContainerType = props.containerStyle === 'container' ? Container : Fluid
+
   return (
     <Fragment>
       <ALink
@@ -65,7 +68,9 @@ export const PageSectionNavigationHeader = (props: {
         {navigation.skipToContentHeading}
       </ALink>
       <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
-        <Fluid wheel={{ ...props.wheel, style: props.wheel.style.container }}>
+        <ContainerType
+          wheel={{ ...props.wheel, style: props.wheel.style.container }}
+        >
           <Branding
             brandAction={navigation.brandAction}
             logo={props.useLogoElement || globals.siteHeading}
@@ -129,7 +134,7 @@ export const PageSectionNavigationHeader = (props: {
               toggleTheme={toggleTheme}
             />
           </Box>
-        </Fluid>
+        </ContainerType>
       </Wrapper>
     </Fragment>
   )

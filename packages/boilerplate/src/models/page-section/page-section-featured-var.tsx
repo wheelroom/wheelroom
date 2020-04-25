@@ -51,23 +51,23 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   }
 
   if (pageSectionInfo.hasTopic) {
-    const topicListPresent =
+    const topicsPresent =
       props.topics.filter((topic: TopicProps) => topic).length > 1
-    const topicHeading =
-      pageSectionInfo.index <= 1 && !topicListPresent ? 'h1' : 'h2'
-    const topicListHeading = 'h3'
+
+    const topicHeading = pageSectionInfo.index <= 1 ? 'h1' : 'h2'
+
     return (
       <PageSectionUnicorn
         topicProps={{
           pageSectionActions: props.actions,
           fullTopicAsLink: false,
           pageSectionInfo,
-          useHeadingElement: topicListPresent ? topicListHeading : topicHeading,
+          useHeadingElement: topicHeading,
           wheel,
         }}
         containerStyle="container"
         pageSection={props}
-        wheel={topicListPresent ? wheelFeaturedList : wheel}
+        wheel={topicsPresent ? wheelFeaturedList : wheel}
       />
     )
   }

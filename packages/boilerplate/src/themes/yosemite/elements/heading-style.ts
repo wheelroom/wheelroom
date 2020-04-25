@@ -10,8 +10,5 @@ export const headingTextStyle = {
     display: 'inline-block',
     w: 1,
     mt: 3,
-    ':first-of-type': {
-      mt: 0,
-    },
   },
 }

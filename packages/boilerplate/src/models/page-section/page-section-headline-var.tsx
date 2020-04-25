@@ -47,6 +47,7 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
           wheel,
         }}
         containerStyle="container"
+        maxTopics={1}
         pageSection={props}
         wheel={wheel}
       />

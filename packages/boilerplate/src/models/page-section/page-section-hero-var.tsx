@@ -48,6 +48,7 @@ export const PageSectionHeroVar = (props: PageSectionProps) => {
         }}
         containerStyle="fluid"
         pageSection={props}
+        maxTopics={1}
         wheel={wheel}
       />
     )

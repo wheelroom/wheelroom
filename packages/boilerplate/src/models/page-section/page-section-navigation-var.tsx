@@ -58,6 +58,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
       <PageSectionNavigationHeader
         pageSection={props}
         wheel={wheelHeader}
+        containerStyle="container"
         ///useLogoElement={<SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheelHeader} />}
       />
     )
@@ -67,7 +68,11 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     pageSectionInfo.index > pageSectionInfo.sectionCount - 2
   ) {
     return (
-      <PageSectionNavigationFooter pageSection={props} wheel={wheelFooter} />
+      <PageSectionNavigationFooter
+        pageSection={props}
+        wheel={wheelFooter}
+        containerStyle="container"
+      />
     )
   }
 

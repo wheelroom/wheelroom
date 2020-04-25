@@ -45,7 +45,7 @@ export const PageSectionImageVar = (props: PageSectionProps) => {
           pageSectionInfo,
           wheel,
         }}
-        containerStyle="fluid"
+        containerStyle="container"
         maxTopics={2}
         pageSection={props}
         wheel={wheel}
