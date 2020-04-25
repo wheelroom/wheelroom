@@ -1,29 +1,30 @@
 import { PageSectionShowcaseWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-showcase-preset'
-import { aLinkButtonStyle, displayButtonStyle } from '../elements/button-style'
+import { aLinkButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
   container: {
-    ncss: {},
+    ncss: {
+      maxWidth: ['35em', '54rem'],
+      flexDirection: 'column',
+    },
   },
   topic: {
     ncss: {
-      justifyContent: 'space-evenly',
+      alignItems: 'initial',
+      flexDirection: ['column', 'row'],
     },
     content: {
-      ncss: {
-        maxWidth: ['35em', '35em', '40%'],
-        w: 1,
-      },
+      ncss: {},
       actions: {
         ncss: {},
-        link: displayButtonStyle,
+        link: aLinkButtonStyle,
       },
       text: {
         ncss: {},
         abstract: {
           ncss: {
-            mb: 5,
+            mb: 3,
           },
         },
         heading: {
@@ -38,7 +39,7 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
     },
     media: {
       ncss: {
-        maxWidth: ['35em', '35em', '40%'],
+        maxWidth: '254px',
         w: 1,
       },
       image: {
@@ -63,42 +64,4 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
     },
   },
   wrapper: wrapperStyle,
-}
-
-export const sectionFeaturedListStyle = {
-  container: {
-    ncss: {
-      maxWidth: ['35em', '54rem'],
-      flexDirection: 'column',
-    },
-  },
-  topic: {
-    ncss: {
-      label: 'topic-featured-list',
-      alignItems: 'initial',
-      flexDirection: ['column', 'row'],
-    },
-    content: {
-      ncss: {
-        maxWidth: 'auto',
-        w: 1,
-      },
-      actions: {
-        link: aLinkButtonStyle,
-      },
-      text: {
-        abstract: {
-          ncss: {
-            mb: 3,
-          },
-        },
-      },
-    },
-    media: {
-      ncss: {
-        maxWidth: '254px',
-        w: 1,
-      },
-    },
-  },
 }

@@ -23,7 +23,6 @@ export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
     content: {
       ncss: {
         flexDirection: 'column',
-        w: [1, 1, 1 / 2],
         p: 3,
       },
       actions: {

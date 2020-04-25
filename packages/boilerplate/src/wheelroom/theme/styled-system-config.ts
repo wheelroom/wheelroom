@@ -46,6 +46,7 @@ export const styledSystemConfig: StyledSystemConfig = {
     'marginRight',
     'marginTop',
     'opacity',
+    'order',
     'paddingBottom',
     'paddingLeft',
     'paddingRight',

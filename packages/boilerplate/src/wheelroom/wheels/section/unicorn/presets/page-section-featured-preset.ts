@@ -10,15 +10,12 @@ export interface PageSectionFeaturedWheelStyle {
 export const pageSectionFeaturedPreset: PageSectionFeaturedWheelStyle = {
   container: {
     ncss: {
-      alignItems: ['center', 'baseline'],
-      flexDirection: ['column', 'row'],
-      justifyContent: 'center',
+      flexDirection: 'column',
     },
   },
   topic: {
     ncss: {
       flexDirection: ['column', 'column', 'row'],
-      alignItems: 'center',
     },
     content: {
       ncss: {

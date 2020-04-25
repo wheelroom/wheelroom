@@ -1,5 +1,5 @@
 import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-featured-preset'
-import { aLinkButtonStyle, displayButtonStyle } from '../elements/button-style'
+import { displayButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
@@ -9,6 +9,10 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
   topic: {
     ncss: {
       justifyContent: 'space-evenly',
+      alignItems: 'center',
+      ':nth-of-type(even) > div:nth-of-type(1)': {
+        order: ['0', '0', '1'],
+      },
     },
     content: {
       ncss: {
@@ -65,39 +69,15 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
   wrapper: wrapperStyle,
 }
 
-export const sectionFeaturedListStyle = {
-  container: {
-    ncss: {
-      maxWidth: ['35em', '54rem'],
-      flexDirection: 'column',
-    },
-  },
+export const sectionFeaturedReverseStyle = {
   topic: {
     ncss: {
-      label: 'topic-featured-list',
-      alignItems: 'initial',
-      flexDirection: ['column', 'row'],
-    },
-    content: {
-      ncss: {
-        maxWidth: 'auto',
-        w: 1,
+      label: 'topic-reverse',
+      '> div:nth-of-type(2)': {
+        order: ['1', '1', '-1'],
       },
-      actions: {
-        link: aLinkButtonStyle,
-      },
-      text: {
-        abstract: {
-          ncss: {
-            mb: 3,
-          },
-        },
-      },
-    },
-    media: {
-      ncss: {
-        maxWidth: '254px',
-        w: 1,
+      ':nth-of-type(even) > div:nth-of-type(1)': {
+        order: ['0', '0', '-2'],
       },
     },
   },

@@ -20,7 +20,7 @@ import { Wheel } from '../../wheelroom/wheels/types'
 import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
 import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
 import {
-  sectionFeaturedListStyle,
+  sectionFeaturedReverseStyle,
   sectionFeaturedStyle,
 } from '../../themes/yosemite/sections/section-featured-style'
 import { TopicProps } from '../topic'
@@ -34,7 +34,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     sectionFeaturedStyle,
   ])
 
-  const styleFeaturedList = deepMerge([style, sectionFeaturedListStyle])
+  const styleReverse = deepMerge([style, sectionFeaturedReverseStyle])
 
   const wheel: Wheel = {
     style,
@@ -43,8 +43,8 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     styledSystemConfig,
   }
 
-  const wheelFeaturedList: Wheel = {
-    style: styleFeaturedList,
+  const wheelReverse: Wheel = {
+    style: styleReverse,
     elementStyles,
     theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
     styledSystemConfig,
@@ -54,7 +54,10 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     const topicsPresent =
       props.topics.filter((topic: TopicProps) => topic).length > 1
 
-    const topicHeading = pageSectionInfo.index <= 1 ? 'h1' : 'h2'
+    const topicHeading =
+      pageSectionInfo.index <= 1 && !topicsPresent ? 'h1' : 'h2'
+
+    const reversedOrder = pageSectionInfo.topicOptions.reverseOrder
 
     return (
       <PageSectionUnicorn
@@ -67,7 +70,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
         }}
         containerStyle="container"
         pageSection={props}
-        wheel={topicsPresent ? wheelFeaturedList : wheel}
+        wheel={reversedOrder ? wheelReverse : wheel}
       />
     )
   }
