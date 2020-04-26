@@ -10,11 +10,12 @@ import {
   PreviewUpdateButton,
   useFetchPreviewPage,
 } from '@wheelroom/admin-page-preview'
-import { reset } from './wheelroom/global/reset'
+import { classicGlobalReset } from './wheelroom/global/classic-global-reset'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { yosemiteDark } from './themes/yosemite/yosemite-dark'
 import { yosemiteLight } from './themes/yosemite/yosemite-light'
+import { htmlReset } from './wheelroom/global/html-reset'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -75,18 +76,12 @@ const PageTemplate = (props: any) => {
 
   return (
     <Fragment>
-      <Global styles={reset} />
+      <Global styles={classicGlobalReset} />
+      <Global styles={htmlReset} />
+      // Set theme background color
       <Global
         styles={{
-          //  1. Correct the line height in all browsers.
-          //  2. Prevent adjustments of font size after orientation changes in iOS.
-          html: {
-            lineHeight: '1.15', // 1
-            WebkitTextSizeAdjust: '100%', // 2
-          },
-          // Remove the margin in all browsers.
           body: {
-            margin: 0,
             backgroundColor,
           },
         }}
