@@ -21,7 +21,7 @@ export const navFooterStyle: NavFooterWheelStyle = {
         link: {
           ncss: {
             ':focus': {
-              outlineColor: 'amber',
+              outlineColor: 'outline',
             },
           },
         },
@@ -33,16 +33,16 @@ export const navFooterStyle: NavFooterWheelStyle = {
         ncss: {},
         link: {
           ncss: {
-            ':focus': {
-              outlineColor: 'amber',
+            ':focus > svg': {
+              outlineColor: 'outline',
+              color: 'iconColorState',
+            },
+            ':hover > svg': {
+              color: 'iconColorState',
             },
           },
           icon: {
-            ncss: {
-              ':hover': {
-                color: 'sectionText',
-              },
-            },
+            ncss: {},
           },
         },
       },

@@ -9,11 +9,11 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
     ncss: {},
     content: {
       ncss: {
-        w: 1,
-        py: [7, 8, 10, 12],
-        px: [4, 5, 6],
-        maxWidth: '1280px',
+        maxWidth: '80em',
         mx: 'auto',
+        px: [4, 5, 6],
+        py: [7, 8, 10, 12],
+        w: 1,
       },
       actions: {
         ncss: {
@@ -66,8 +66,6 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
     },
   },
   wrapper: {
-    ncss: {
-      color: 'ghost',
-    },
+    ncss: {},
   },
 }

@@ -9,8 +9,9 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
   skipToContent: {
     ncss: {
       ':focus': {
-        bg: 'amber',
-        color: 'caviar',
+        bg: 'skipToContentBg',
+        color: 'skipToContentText',
+        outlineColor: 'skipToContentOutline',
       },
     },
   },
@@ -32,7 +33,7 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
       ncss: {
         color: 'sectionText',
         ':focus': {
-          outlineColor: 'amber',
+          outlineColor: 'outline',
         },
       },
     },
@@ -85,7 +86,7 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
         ncss: {},
         visible: {
           ncss: {
-            bg: 'sectionBg',
+            bg: 'modalBg',
             borderColor: 'modalBorder',
             borderRadius: 4,
             boxShadow: '0 0 16px',
@@ -112,7 +113,7 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
             link: {
               ncss: {
                 ':focus': {
-                  outlineColor: 'amber',
+                  outlineColor: 'outline',
                   outlineOffset: -2,
                 },
               },

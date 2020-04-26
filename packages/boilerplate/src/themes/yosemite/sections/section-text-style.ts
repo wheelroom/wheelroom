@@ -25,7 +25,7 @@ export const pageSectionFreestyleStyle: FreestyleWheelStyle = {
     },
     li: {
       ncss: {
-        '>p': {
+        '> p': {
           mb: 2,
         },
       },

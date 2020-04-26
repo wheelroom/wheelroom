@@ -8,7 +8,7 @@ export const elementStyles: ElementStyles = {
     ncss: {
       color: 'link',
       ':focus': {
-        outlineColor: 'amber',
+        outlineColor: 'outline',
       },
     },
   },
@@ -53,7 +53,7 @@ export const elementStyles: ElementStyles = {
     ncss: {
       color: 'link',
       ':focus': {
-        outlineColor: 'amber',
+        outlineColor: 'outline',
       },
     },
   },
@@ -173,7 +173,7 @@ export const elementStyles: ElementStyles = {
     video: {
       ncss: {
         ':focus': {
-          outlineColor: 'amber',
+          outlineColor: 'outline',
         },
       },
     },

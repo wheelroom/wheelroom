@@ -7,13 +7,13 @@ const buttonStyle: ButtonElementStyle = {
     px: 3,
     py: 2,
     userSelect: 'none',
-    borderWidth: '1px',
+    borderWidth: 1,
     borderStyle: 'solid',
     borderRadius: 4,
     borderColor: 'transparent',
     textDecoration: 'none',
     ':focus': {
-      outlineColor: 'amber',
+      outlineColor: 'outline',
     },
   },
 }
@@ -21,26 +21,34 @@ const buttonStyle: ButtonElementStyle = {
 export const primaryButtonStyle: ButtonElementStyle = {
   ncss: {
     ...buttonStyle.ncss,
-    color: 'white',
-    bg: 'azure',
-    borderColor: 'azure',
+    color: 'buttonPrimaryText',
+    bg: 'buttonPrimaryBg',
+    borderColor: 'buttonPrimaryBorder',
+    transition: 'background-color .25s ease',
+    ':hover, :focus': {
+      bg: 'buttonPrimaryBgState',
+    },
   },
 }
 
 export const secondaryButtonStyle: ButtonElementStyle = {
   ncss: {
     ...buttonStyle.ncss,
-    color: 'sectionText',
-    bg: 'transparent',
-    borderColor: 'metal',
+    color: 'buttonSecondaryText',
+    bg: 'buttonSecondaryBg',
+    borderColor: 'buttonSecondaryBorder',
+    transition: 'border-color .25s ease',
+    ':hover, :focus': {
+      borderColor: 'buttonSecondaryBorderState',
+    },
   },
 }
 
 export const displayButtonStyle: ButtonElementStyle = {
   ncss: {
     ...primaryButtonStyle.ncss,
-    fontSize: [6, 6, 7, 7],
-    px: 5,
+    fontSize: [6, 6, 7],
+    px: [4, 4, 5],
     py: 3,
   },
 }
