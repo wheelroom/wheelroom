@@ -28,19 +28,19 @@ import { TopicOptionString } from '../../wheelroom/lib/get-topic-options'
 import { TopicProps } from '../topic'
 
 const componentList = {
-  ['block']: PageSectionBlockVar,
-  ['card']: PageSectionCardVar,
-  ['featured']: PageSectionFeaturedVar,
-  ['gallery']: PageSectionGalleryVar,
-  ['headline']: PageSectionHeadlineVar,
-  ['hero']: PageSectionHeroVar,
-  ['image']: PageSectionImageVar,
-  ['navigation']: PageSectionNavigationVar,
-  ['quote']: PageSectionQuoteVar,
-  ['showcase']: PageSectionShowcaseVar,
-  ['text']: PageSectionTextVar,
-  ['video']: PageSectionVideoVar,
-  ['divider']: PageSectionDividerVar,
+  ['block-wr']: PageSectionBlockVar,
+  ['card-wr']: PageSectionCardVar,
+  ['featured-wr']: PageSectionFeaturedVar,
+  ['gallery-wr']: PageSectionGalleryVar,
+  ['headline-wr']: PageSectionHeadlineVar,
+  ['hero-wr']: PageSectionHeroVar,
+  ['image-wr']: PageSectionImageVar,
+  ['navigation-wr']: PageSectionNavigationVar,
+  ['quote-wr']: PageSectionQuoteVar,
+  ['showcase-wr']: PageSectionShowcaseVar,
+  ['text-wr']: PageSectionTextVar,
+  ['video-wr']: PageSectionVideoVar,
+  ['divider-wr']: PageSectionDividerVar,
 }
 
 export interface PageSectionProps extends SectionProps {

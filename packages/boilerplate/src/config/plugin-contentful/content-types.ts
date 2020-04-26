@@ -325,18 +325,18 @@ interface TextModel {
 interface PageSectionModel {
   fields: {
     variation?:
-      | 'block'
-      | 'card'
-      | 'featured'
-      | 'gallery'
-      | 'headline'
-      | 'hero'
-      | 'image'
-      | 'navigation'
-      | 'quote'
-      | 'showcase'
-      | 'text'
-      | 'video'
+      | 'block-wr'
+      | 'card-wr'
+      | 'featured-wr'
+      | 'gallery-wr'
+      | 'headline-wr'
+      | 'hero-wr'
+      | 'image-wr'
+      | 'navigation-wr'
+      | 'quote-wr'
+      | 'showcase-wr'
+      | 'text-wr'
+      | 'video-wr'
     topics?: Array<'demoTopic'>
     topicOptions?: Array<
       | 'Hide icon'
