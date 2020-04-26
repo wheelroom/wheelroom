@@ -35,7 +35,7 @@ export const contentSets: ContentSets = {
     siteHeader: {
       fields: {
         topicOptions: ['Hide icon'],
-        variation: 'navigation',
+        variation: 'navigation-wr',
         navigation: 'mainNavigation',
         title: 'Site header (navigation)',
       },
@@ -43,7 +43,7 @@ export const contentSets: ContentSets = {
     },
     siteFooter: {
       fields: {
-        variation: 'navigation',
+        variation: 'navigation-wr',
         navigation: 'mainNavigation',
         title: 'Site footer (navigation)',
       },
@@ -53,7 +53,7 @@ export const contentSets: ContentSets = {
       fields: {
         topics: ['demoTopic'],
         topicOptions: ['Reversed order'],
-        variation: 'headline',
+        variation: 'headline-wr',
         title: 'Demo headline (headline)',
       },
       model: 'pageSection',
@@ -61,7 +61,7 @@ export const contentSets: ContentSets = {
     homeHText: {
       fields: {
         topicOptions: ['Reversed order'],
-        variation: 'text',
+        variation: 'text-wr',
         text: 'demotext',
         title: 'Demo text (text)',
       },
