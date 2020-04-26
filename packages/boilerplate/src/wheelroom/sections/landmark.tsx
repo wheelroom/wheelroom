@@ -9,7 +9,7 @@ export const getLandmark = (
   const info = getPageSectionInfo(pageProps)
   if (
     info.index <= 1 &&
-    (info.variation === 'hero' || info.variation === 'navigation')
+    (info.variation === 'hero-wr' || info.variation === 'navigation-wr')
   ) {
     return 'header'
   }
