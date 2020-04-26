@@ -3,7 +3,7 @@ import path from 'path'
 import { Context } from '../types/context'
 
 const contentType = 'image/jpg'
-const file = '../../assets/demo-asset.png'
+const file = '../../assets/demo-asset.jpg'
 const fileName = 'wheelroom'
 const assetId = 'demoAsset'
 
