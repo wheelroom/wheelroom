@@ -144,6 +144,12 @@ export const elementStyles: ElementStyles = {
   textIcon: {
     ncss: {},
   },
+  td: {
+    ncss: {},
+  },
+  tr: {
+    ncss: {},
+  },
   ul: {
     ncss: {},
   },
