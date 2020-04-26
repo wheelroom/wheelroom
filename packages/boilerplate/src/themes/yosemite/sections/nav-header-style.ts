@@ -110,7 +110,12 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
               borderColor: 'sectionBorder',
             },
             link: {
-              ncss: {},
+              ncss: {
+                ':focus': {
+                  outlineColor: 'amber',
+                  outlineOffset: -2,
+                },
+              },
             },
           },
         },

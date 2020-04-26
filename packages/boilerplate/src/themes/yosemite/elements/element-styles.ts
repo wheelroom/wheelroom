@@ -158,7 +158,11 @@ export const elementStyles: ElementStyles = {
       ncss: {},
     },
     video: {
-      ncss: {},
+      ncss: {
+        ':focus': {
+          outlineColor: 'amber',
+        },
+      },
     },
   },
   wrapper: {
