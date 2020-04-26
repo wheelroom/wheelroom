@@ -86,11 +86,11 @@ export const Table = (props: ElementProps) => {
 }
 
 export const Td = (props: ElementProps) => {
-  return getSelf(props, selfTdReset, 'table')
+  return getSelf(props, selfTdReset, 'td')
 }
 
 export const Tr = (props: ElementProps) => {
-  return getSelf(props, selfTrReset, 'table')
+  return getSelf(props, selfTrReset, 'tr')
 }
 
 export const Ul = (props: ElementProps) => {
