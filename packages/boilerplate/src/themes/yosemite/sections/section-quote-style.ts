@@ -32,6 +32,7 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
             fontStyle: 'italic',
             lineHeight: 3,
             my: 0,
+            p: 0,
           },
         },
         heading: {
@@ -42,6 +43,7 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
         icon: {
           ncss: {
             order: '0',
+            mb: 2,
           },
         },
       },

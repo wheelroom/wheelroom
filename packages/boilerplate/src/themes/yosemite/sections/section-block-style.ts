@@ -7,24 +7,30 @@ export const sectionBlockStyle: PageSectionBlockWheelStyle = {
     ncss: {},
   },
   topic: {
-    ncss: {},
+    ncss: {
+      maxWidth: '35em',
+    },
     content: {
       ncss: {},
       actions: {
-        ncss: {},
+        ncss: {
+          mt: 3,
+        },
         link: primaryButtonStyle,
       },
       text: {
         ncss: {},
         abstract: {
-          ncss: {},
+          ncss: {
+            mb: 0,
+          },
         },
         heading: {
           ncss: {},
         },
         icon: {
           ncss: {
-            mb: 3,
+            mb: 2,
           },
         },
       },

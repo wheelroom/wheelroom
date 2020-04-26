@@ -13,12 +13,13 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
     ncss: {
       alignItems: 'initial',
       flexDirection: ['column', 'row'],
+      py: 3,
     },
     content: {
       ncss: {},
       actions: {
         ncss: {
-          mb: 3,
+          mt: 3,
         },
         link: aLinkButtonStyle,
       },
@@ -26,7 +27,7 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
         ncss: {},
         abstract: {
           ncss: {
-            mb: 3,
+            mb: 0,
           },
         },
         heading: {

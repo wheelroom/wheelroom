@@ -24,7 +24,9 @@ export const sectionImageStyle: PageSectionImageWheelStyle = {
           ncss: {},
         },
         icon: {
-          ncss: {},
+          ncss: {
+            mb: 2,
+          },
         },
       },
     },
