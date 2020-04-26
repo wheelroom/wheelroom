@@ -18,13 +18,17 @@ export const sectionGalleryStyle: PageSectionGalleryWheelStyle = {
       text: {
         ncss: {},
         abstract: {
-          ncss: {},
+          ncss: {
+            mb: 0,
+          },
         },
         heading: {
           ncss: {},
         },
         icon: {
-          ncss: {},
+          ncss: {
+            mb: 2,
+          },
         },
       },
     },

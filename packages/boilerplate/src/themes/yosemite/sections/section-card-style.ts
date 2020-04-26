@@ -11,28 +11,32 @@ export const sectionCardStyle: PageSectionCardWheelStyle = {
       borderRadius: 4,
       borderColor: 'cardBorder',
       boxShadow: '0 0 16px',
-      textDecoration: 'none',
       color: 'cardShadow',
+      textDecoration: 'none',
     },
     content: {
       ncss: {
         color: 'sectionText',
       },
       actions: {
-        ncss: {},
+        ncss: {
+          mt: 3,
+        },
         link: primaryButtonStyle,
       },
       text: {
         ncss: {},
         abstract: {
-          ncss: {},
+          ncss: {
+            mb: 0,
+          },
         },
         heading: {
           ncss: {},
         },
         icon: {
           ncss: {
-            mb: 3,
+            mb: 2,
           },
         },
       },

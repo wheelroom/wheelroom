@@ -9,6 +9,7 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
   topic: {
     ncss: {
       justifyContent: 'space-evenly',
+      py: 3,
       alignItems: 'center',
       ':nth-of-type(even) > div:nth-of-type(1)': {
         order: ['0', '0', '1'],
@@ -16,13 +17,12 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
     },
     content: {
       ncss: {
-        maxWidth: ['35em', '35em', '40%'],
+        maxWidth: ['35em', '35em', '45%'],
         w: 1,
       },
       actions: {
         ncss: {
-          mt: [2, 2, 3],
-          mb: 3,
+          mt: [4, 4, 5],
         },
         link: displayButtonStyle,
       },
@@ -30,14 +30,7 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
         ncss: {},
         abstract: {
           ncss: {
-            tableLayout: 'auto',
-            lineHeight: 1.58,
-            td: {
-              pr: 3,
-            },
-            '> tr > td:nth-last-of-type': {
-              pr: 0,
-            },
+            mb: 0,
           },
         },
         heading: {
@@ -52,7 +45,7 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
     },
     media: {
       ncss: {
-        maxWidth: ['35em', '35em', '40%'],
+        maxWidth: ['35em', '35em', '45%'],
         w: 1,
       },
       image: {
@@ -83,9 +76,6 @@ export const sectionFeaturedReverseStyle = {
   topic: {
     ncss: {
       label: 'topic-reverse',
-      '> div:nth-of-type(2)': {
-        order: ['1', '1', '-1'],
-      },
       ':nth-of-type(even) > div:nth-of-type(1)': {
         order: ['0', '0', '-2'],
       },

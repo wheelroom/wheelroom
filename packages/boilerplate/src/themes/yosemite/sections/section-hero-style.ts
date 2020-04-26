@@ -10,7 +10,7 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
     content: {
       ncss: {
         w: 1,
-        py: [6, 8, 10, 12],
+        py: [7, 8, 10, 12],
         px: [4, 5, 6],
         maxWidth: '1280px',
         mx: 'auto',
@@ -18,6 +18,7 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
       actions: {
         ncss: {
           maxWidth: '30em',
+          mt: 5,
         },
         link: displayButtonStyle,
       },
@@ -28,14 +29,16 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
         abstract: {
           ncss: {
             fontSize: [7, 7, 8, 8],
-            mb: 5,
+            mb: 0,
           },
         },
         heading: {
           ncss: {},
         },
         icon: {
-          ncss: {},
+          ncss: {
+            mb: 2,
+          },
         },
       },
     },
@@ -63,6 +66,8 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
     },
   },
   wrapper: {
-    ncss: {},
+    ncss: {
+      color: 'ghost',
+    },
   },
 }

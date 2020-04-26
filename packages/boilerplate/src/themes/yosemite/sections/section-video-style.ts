@@ -24,7 +24,9 @@ export const sectionVideoStyle: PageSectionVideoWheelStyle = {
           ncss: {},
         },
         icon: {
-          ncss: {},
+          ncss: {
+            mb: 2,
+          },
         },
       },
     },

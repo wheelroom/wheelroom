@@ -18,7 +18,7 @@ export const pageSectionHeadlinePreset: PageSectionHeadlineWheelStyle = {
         textAlign: 'center',
         mx: 'auto',
         p: 3,
-        maxWidth: [1, '768px'],
+        maxWidth: [1, '48em'],
       },
       actions: {
         ncss: {},

@@ -13,7 +13,9 @@ export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
         py: 5,
       },
       actions: {
-        ncss: {},
+        ncss: {
+          mt: 3,
+        },
         link: displayButtonStyle,
       },
       text: {
@@ -21,14 +23,15 @@ export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
         abstract: {
           ncss: {
             fontSize: [7, 7, 8, 8],
-            mb: 5,
           },
         },
         heading: {
           ncss: {},
         },
         icon: {
-          ncss: {},
+          ncss: {
+            mb: 2,
+          },
         },
       },
     },

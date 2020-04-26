@@ -139,13 +139,26 @@ export const elementStyles: ElementStyles = {
     ncss: {},
   },
   table: {
-    ncss: {},
+    ncss: {
+      borderCollapse: 'collapse',
+      minWidth: '50%',
+      tableLayout: 'auto',
+    },
   },
   textIcon: {
     ncss: {},
   },
   td: {
-    ncss: {},
+    ncss: {
+      fontSize: 6,
+      lineHeight: 3,
+      py: 1,
+      px: 2,
+      whiteSpace: 'nowrap',
+      ':first-of-type': {
+        pl: 0,
+      },
+    },
   },
   tr: {
     ncss: {},
