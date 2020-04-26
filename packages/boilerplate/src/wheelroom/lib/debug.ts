@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // Use sparsely. Intended for having debug info available at production time.
 // Enable verbose logging in your browser and set window.DEBUG to true. Then
 // navigate to another page and watch the console.

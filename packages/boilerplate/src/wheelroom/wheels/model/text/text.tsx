@@ -257,6 +257,7 @@ export const Text = (props: TextWheelProps) => {
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         if (!fields) {
+          // eslint-disable-next-line no-undef
           console.log(
             'Warning: embedded asset fields not found, try npx gatsby clean'
           )
