@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { ListElementStyle, selfListReset } from './resets/self-list-reset'
-import { styledSystem } from '@wheelroom/styled-system'
+import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
 import {
@@ -42,7 +42,7 @@ export const getSelf = (
   const attrs: any = getElementAttrs(props, extraAttrs)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
-    props.wheel.theme as any,
+    (props.wheel.theme as unknown) as StyledSystemTheme,
     ncss
   )
   return jsx(htmlName || elementName, attrs, props.children)
