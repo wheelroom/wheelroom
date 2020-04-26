@@ -42,7 +42,7 @@ export const getSelf = (
   const attrs: any = getElementAttrs(props, extraAttrs)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
-    props.wheel.theme,
+    props.wheel.theme as any,
     ncss
   )
   return jsx(htmlName || elementName, attrs, props.children)
