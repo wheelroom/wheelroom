@@ -5,6 +5,7 @@ export const themeInfo = (props: any): ThemeInfo => {
   const isServer = typeof window === 'undefined'
   const supportsDarkMode =
     !isServer &&
+    // eslint-disable-next-line no-undef
     window.matchMedia('(prefers-color-scheme: dark)').matches === true
 
   const defaultTheme = supportsDarkMode ? 'dark' : 'light'
