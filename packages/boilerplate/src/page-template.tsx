@@ -69,6 +69,7 @@ const PageTemplate = (props: any) => {
     siteVersion,
     title: page.seoTitle,
   }
+  // Set theme background color
   const backgroundColor =
     activeThemeId === 'light'
       ? yosemiteLight.colorMap.sectionBg
@@ -78,7 +79,6 @@ const PageTemplate = (props: any) => {
     <Fragment>
       <Global styles={classicGlobalReset} />
       <Global styles={htmlReset} />
-      // Set theme background color
       <Global
         styles={{
           body: {
