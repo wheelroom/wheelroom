@@ -12,7 +12,12 @@ import { CodeElementStyle, selfCodeReset } from './resets/self-code-reset'
 import { HrElementStyle, selfHrReset } from './resets/self-hr-reset'
 import { PreElementStyle, selfPreReset } from './resets/self-pre-reset'
 import { StrongElementStyle, selfStrongReset } from './resets/self-strong-reset'
-import { TableElementStyle, selfTableReset } from './resets/self-table-reset'
+import {
+  TableElementStyle,
+  selfTableReset,
+  selfTdReset,
+  selfTrReset,
+} from './resets/self-table-reset'
 import { ElementStyles } from './types/element-styles'
 
 export type SelfReset =
@@ -78,6 +83,14 @@ export const Strong = (props: ElementProps) => {
 
 export const Table = (props: ElementProps) => {
   return getSelf(props, selfTableReset, 'table')
+}
+
+export const Td = (props: ElementProps) => {
+  return getSelf(props, selfTdReset, 'table')
+}
+
+export const Tr = (props: ElementProps) => {
+  return getSelf(props, selfTrReset, 'table')
 }
 
 export const Ul = (props: ElementProps) => {

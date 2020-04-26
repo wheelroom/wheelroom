@@ -17,28 +17,16 @@ import { BlockquoteElementStyle } from '../resets/self-blockquote-reset'
 import { TableElementStyle } from '../resets/self-table-reset'
 
 export interface ElementStyles {
-  any: AnyElementStyle
-  container: GridElementStyle
-  table: TableElementStyle
-  ol: ListElementStyle
-  ul: ListElementStyle
-  li: ListElementStyle
-  small: ParagraphElementStyle
-  sub: ParagraphElementStyle
-  sup: ParagraphElementStyle
-  pre: PreElementStyle
-  code: CodeElementStyle
-  kbd: CodeElementStyle
-  samp: CodeElementStyle
-  hr: HrElementStyle
-  strong: StrongElementStyle
-  blockquote: BlockquoteElementStyle
   a: ALinkElementStyle
+  any: AnyElementStyle
+  blockquote: BlockquoteElementStyle
   box: GridElementStyle
   button: ButtonElementStyle
-  wrapper: GridElementStyle
-  fluid: GridElementStyle
+  code: CodeElementStyle
+  container: GridElementStyle
+  featherIcon: IconElementStyle
   flex: GridElementStyle
+  fluid: GridElementStyle
   gLink: GLinkElementStyle
   h1: HeadingElementStyle
   h2: HeadingElementStyle
@@ -46,16 +34,30 @@ export interface ElementStyles {
   h4: HeadingElementStyle
   h5: HeadingElementStyle
   h6: HeadingElementStyle
-  p: ParagraphElementStyle
-  featherIcon: IconElementStyle
-  textIcon: IconElementStyle
+  hr: HrElementStyle
   image: {
     img: ImageElementStyle
     picture: ImageElementStyle
     figcaption: ImageElementStyle
   }
+  kbd: CodeElementStyle
+  li: ListElementStyle
+  ol: ListElementStyle
+  p: ParagraphElementStyle
+  pre: PreElementStyle
+  samp: CodeElementStyle
+  small: ParagraphElementStyle
+  strong: StrongElementStyle
+  sub: ParagraphElementStyle
+  sup: ParagraphElementStyle
+  table: TableElementStyle
+  td: TableElementStyle
+  tr: TableElementStyle
+  textIcon: IconElementStyle
+  ul: ListElementStyle
   video: {
     description: VideoElementStyle
     video: VideoElementStyle
   }
+  wrapper: GridElementStyle
 }

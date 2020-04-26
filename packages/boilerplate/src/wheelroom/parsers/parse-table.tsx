@@ -10,9 +10,10 @@
 
 import React from 'react'
 import { ParserProps } from './types'
-import { Table } from '../wheels/element/self'
+import { Table, Tr, Td } from '../wheels/element/self'
+import { Wheel } from '../wheels/types'
 
-const replaceTable = (children: React.ReactNode) => {
+const replaceTable = (children: React.ReactNode, wheel: Wheel) => {
   let rows: any[] = []
   React.Children.forEach(children, (child) => {
     if (child && typeof child === 'string') {
@@ -22,14 +23,16 @@ const replaceTable = (children: React.ReactNode) => {
         .filter((row) => row.length > 0)
         .reduce((result: any[], currentRow, index) => {
           result.push(
-            <tr key={index}>
+            <Tr key={index} wheel={wheel}>
               {currentRow
                 .split('|')
                 .filter((cell) => cell.length > 0)
                 .map((cell, index) => (
-                  <td key={index}>{cell}</td>
+                  <Td key={index} wheel={wheel}>
+                    {cell}
+                  </Td>
                 ))}
-            </tr>
+            </Tr>
           )
           return result
         }, [])
@@ -55,7 +58,7 @@ export const validTable = (children: React.ReactNode) => {
 export const ParseTable = (props: ParserProps): JSX.Element | null => {
   return (
     <Table wheel={props.wheel}>
-      <tbody>{replaceTable(props.children)}</tbody>
+      <tbody>{replaceTable(props.children, props.wheel)}</tbody>
     </Table>
   )
 }
