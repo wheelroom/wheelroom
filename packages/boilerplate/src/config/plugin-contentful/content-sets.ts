@@ -6,12 +6,24 @@
 
 import { ContentTypes } from './content-types'
 
-export interface ContentSets {
-  [contentSetName: string]: ContentTypes
+export interface ReplaceTypes {
+  [modelGroup: string]: {
+    fields: {
+      [fieldId: string]: {
+        pattern: string | RegExp | number
+        replacement: string | number
+      }
+    }
+    model: string
+  }
 }
 
+export interface ContentSets {
+  [contentSetName: string]: ContentTypes | ReplaceTypes
+}
+
+// export const contentSets: any = {
 export const contentSets: ContentSets = {
-  // export const contentSets: any = {
   boilerplate: {
     siteGlobals: {
       fields: {
@@ -110,6 +122,17 @@ Like this one`,
         title: 'Main navigation',
       },
       model: 'navigation',
+    },
+  },
+  variationReplace: {
+    homeHeadline: {
+      fields: {
+        variation: {
+          pattern: /(.*)/,
+          replacement: '$1-wr',
+        },
+      },
+      model: 'pageSection',
     },
   },
 }
