@@ -89,6 +89,6 @@
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

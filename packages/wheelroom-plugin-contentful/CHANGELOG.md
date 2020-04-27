@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.0.3...@wheelroom/wheelroom-plugin-contentful@3.1.0) (2020-04-27)
+
+
+### Features
+
+* replace-content command ([24b2cf5](https://github.com/wheelroom/wheelroom/commit/24b2cf55b971a0ba82bbc0029ec5c629b34d0f35))
+
+
+
+
+
 ## [3.0.3](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.0.2...@wheelroom/wheelroom-plugin-contentful@3.0.3) (2020-04-23)
 
 
