@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.3.4...@wheelroom/boilerplate@2.5.0) (2020-04-27)
+
+
+### Features
+
+* add Showcase page-section ([6081177](https://github.com/wheelroom/wheelroom/commit/6081177f380ac301825ea532c312064d235f1c54))
+
+
+
+
+
 ## [2.4.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.3.4...@wheelroom/boilerplate@2.4.1) (2020-04-27)
 
 

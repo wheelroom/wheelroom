@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/graphql-query-builder@1.3.4...@wheelroom/graphql-query-builder@1.4.0) (2020-04-27)
+
+**Note:** Version bump only for package @wheelroom/graphql-query-builder
+
+
+
+
+
 ## [1.3.4](https://github.com/wheelroom/wheelroom/compare/@wheelroom/graphql-query-builder@1.3.3...@wheelroom/graphql-query-builder@1.3.4) (2020-04-27)
 
 

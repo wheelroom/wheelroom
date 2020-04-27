@@ -16,7 +16,7 @@
     "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
-    "@wheelroom/wheelroom": "4.0.3",
+    "@wheelroom/wheelroom": "4.1.0",
     "camelcase": "5.3.1",
     "dotenv": "8.2.0"
   },
@@ -83,6 +83,6 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "4.0.9",
+  "version": "4.1.0",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }
