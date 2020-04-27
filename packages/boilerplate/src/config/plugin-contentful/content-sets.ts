@@ -6,20 +6,8 @@
 
 import { ContentTypes } from './content-types'
 
-export interface ReplaceTypes {
-  [modelGroup: string]: {
-    fields: {
-      [fieldId: string]: {
-        pattern: string | RegExp | number
-        replacement: string | number
-      }
-    }
-    model: string
-  }
-}
-
 export interface ContentSets {
-  [contentSetName: string]: ContentTypes | ReplaceTypes
+  [contentSetName: string]: ContentTypes
 }
 
 // export const contentSets: any = {
@@ -122,17 +110,6 @@ Like this one`,
         title: 'Main navigation',
       },
       model: 'navigation',
-    },
-  },
-  variationReplace: {
-    homeHeadline: {
-      fields: {
-        variation: {
-          pattern: /(.*)/,
-          replacement: '$1-wr',
-        },
-      },
-      model: 'pageSection',
     },
   },
 }
