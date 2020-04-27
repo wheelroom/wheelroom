@@ -6,50 +6,11 @@
 
 import { ArgvContentSet } from './argv-content-types'
 
-export interface ArgvReplaceSet {
-  [componentId: string]: {
-    fields: {
-      [fieldId: string]: {
-        pattern: string | RegExp | number
-        replacement: string | number
-      }
-    }
-    model: string
-  }
-}
-
 export interface ArgvContentSets {
-  [contentSetName: string]: ArgvContentSet | ArgvReplaceSet
+  [setName: string]: ArgvContentSet
 }
 
 export const argvContentSets: ArgvContentSets = {
-  replaceTest: {
-    allFieldTypesPage1: {
-      fields: {
-        dateField: {
-          pattern: /2019/i,
-          replacement: '2020',
-        },
-        dropdownField: {
-          pattern: /item/,
-          replacement: 'item',
-        },
-        longTextField: {
-          pattern: /(test)(ing)/,
-          replacement: '$2-$1',
-        },
-        numberField: {
-          pattern: 25,
-          replacement: 36,
-        },
-        tagsField: {
-          pattern: /some/,
-          replacement: 'last',
-        },
-      },
-      model: 'allFieldTypes',
-    },
-  },
   test: {
     allFieldTypesPage1: {
       fields: {

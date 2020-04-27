@@ -1,7 +1,6 @@
 import {
   createEntry,
   getEntry,
-  getFields,
   publishEntry,
   updateEntry,
 } from '../../contentful-api/content'
@@ -11,6 +10,7 @@ import { envComplete } from '../../lib/env-complete'
 import { initializeContext, refreshContext } from '../../lib/initialize-context'
 import { readDotEnv } from '../../lib/read-dot-env'
 import { createAsset } from './create-asset'
+import { getFields } from '../../contentful-api/fields/get-fields'
 
 const handleError = (error: Error) => {
   console.log(error.message)

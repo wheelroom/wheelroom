@@ -1,7 +1,13 @@
-import { ContentfulField } from '../types/contentful-fields'
-import { Context } from '../types/context'
+import { ContentfulField } from '../../types/contentful-fields'
+import { Context } from '../../types/context'
 const richTextFromMarkdown = require('@contentful/rich-text-from-markdown')
   .richTextFromMarkdown
+/**
+ *
+ * Take the context and a ContentfulField and add createContentData to the right
+ * place in the structure. Also, add the default locale
+ *
+ */
 
 export const createField = async (
   context: Context,

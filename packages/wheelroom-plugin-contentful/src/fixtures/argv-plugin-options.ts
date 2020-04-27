@@ -5,10 +5,12 @@
 
 import { argvContentSets } from './argv-content-sets'
 import { contentfulFieldDefinitions } from './contentful-field-definitions'
+import { argvReplaceSets } from './argv-replace-sets'
 
 export const argvPluginOptions = {
   '@wheelroom/wheelroom-plugin-contentful': {
     contentSets: argvContentSets,
+    replaceSets: argvReplaceSets,
     fieldDefinitions: contentfulFieldDefinitions,
   },
   'some-other-package': {},

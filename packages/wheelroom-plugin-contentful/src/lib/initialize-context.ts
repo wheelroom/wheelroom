@@ -7,23 +7,26 @@ import {
 } from '../contentful-api/init'
 import { Context } from '../types/context'
 import { getCfComponents } from './get-cf-components/get-cf-components'
-import { getWrContentSets } from './get-content-sets'
+import { getWrContentSet } from './get-wr-content-set'
 import { orderByDependency } from './get-cf-content-set/order-by-dependency'
 import { getCfContentSet } from './get-cf-content-set/get-cf-content-set'
-import { cfContentSetFromWrContentSet } from './get-cf-components/content-set-from-content-set'
+import { getWrReplaceSet } from './get-wr-replace-set'
+import { cfContentSetFromWrReplaceSet } from './get-cf-components/content-set-from-wr-replace-set'
+import { ContentfulContentSet } from '../types/content-set'
 
 export const initializeContext = async (argv: any) => {
   const pluginOptions = argv.options['@wheelroom/wheelroom-plugin-contentful']
   const wheelroomComponents = getFilteredComponents(argv)
 
   let wrContentSet
-  let cfContentSet
+  let wrReplaceSet
+  let cfContentSet: ContentfulContentSet
 
   if (['create-content', 'delete-content'].includes(argv._[0])) {
     // We need a Wheelroom content set. Display messages on what we do, if no
     // content set is present create a set with each model present
 
-    wrContentSet = getWrContentSets(argv, pluginOptions)
+    wrContentSet = getWrContentSet(argv, pluginOptions)
     cfContentSet = getCfContentSet(wheelroomComponents, wrContentSet)
     // Sort content creation so that dependencies get created first
     orderByDependency(cfContentSet)
@@ -31,16 +34,18 @@ export const initializeContext = async (argv: any) => {
     console.log('Dependency order:', creationOrder)
   } else if (['replace-content'].includes(argv._[0])) {
     // We require a Wheelroom replace set by command line option
-
-    wrContentSet = getWrContentSets(argv, pluginOptions)
-    cfContentSet = cfContentSetFromWrContentSet(
-      wrContentSet!,
-      wheelroomComponents
-    )
+    wrReplaceSet = getWrReplaceSet(argv, pluginOptions)
+    if (!wrReplaceSet) {
+      cfContentSet = []
+    } else {
+      cfContentSet = cfContentSetFromWrReplaceSet(
+        wrReplaceSet,
+        wheelroomComponents
+      )
+    }
   } else {
     // We don't need a Wheelroom content set, create a set with each model
     // present
-
     cfContentSet = getCfContentSet(wheelroomComponents)
   }
 

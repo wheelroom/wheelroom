@@ -4,7 +4,7 @@ import {
   ContentfulContentSet,
 } from '../../types/content-set'
 import { cfContentSetFromComponents } from '../get-cf-components/content-set-from-components'
-import { cfContentSetFromWrContentSet } from '../get-cf-components/content-set-from-content-set'
+import { cfContentSetFromWrContentSet } from '../get-cf-components/content-set-from-wr-content-set'
 
 export const getCfContentSet = (
   wrComponents: WheelroomComponents,

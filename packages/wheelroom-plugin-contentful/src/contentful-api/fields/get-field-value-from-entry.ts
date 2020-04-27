@@ -1,4 +1,4 @@
-import { Context } from '../types/context'
+import { Context } from '../../types/context'
 
 const getFieldType = (field: any) => {
   let type = 'plain'
@@ -13,6 +13,13 @@ const getFieldType = (field: any) => {
   }
   return type
 }
+
+/**
+ *
+ * Take an entry that was fetched from Contentful and get the specific field
+ * value in the same format as the Wheelroom initialContent property.
+ *
+ */
 
 export const getFieldValueFromEntry = (context: Context, fieldId: string) => {
   const defaultLocale = context.contentfulApi.defaultLocale.code

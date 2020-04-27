@@ -1,3 +1,5 @@
+import { ReplaceDetails } from './replace-sets'
+
 /** Data as defined by user */
 export interface WheelroomContent {
   fields: {
@@ -12,7 +14,7 @@ export interface WheelroomContentSet {
 }
 
 export interface ContentfulContentField {
-  initialContent: string
+  initialContent: string | ReplaceDetails
   type: string
 }
 
