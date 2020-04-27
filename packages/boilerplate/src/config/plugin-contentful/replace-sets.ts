@@ -7,7 +7,7 @@
 import { WheelroomReplaceSet } from '@wheelroom/wheelroom-plugin-contentful'
 
 export interface ReplaceSets {
-  [contentSetName: string]: WheelroomReplaceSet
+  [replaceSetName: string]: WheelroomReplaceSet
 }
 
 export const replaceSets: ReplaceSets = {
