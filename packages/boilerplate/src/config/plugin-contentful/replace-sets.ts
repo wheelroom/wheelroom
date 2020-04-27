@@ -1,7 +1,7 @@
 /**
- * Defines the boilerplate content set. In English.
+ * Defines an example replace set.
  *
- *
+ * Needs furhter documentation
  */
 
 import { WheelroomReplaceSet } from '@wheelroom/wheelroom-plugin-contentful'
