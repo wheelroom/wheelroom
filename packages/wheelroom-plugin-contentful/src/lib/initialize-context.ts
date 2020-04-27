@@ -10,6 +10,7 @@ import { getCfComponents } from './get-cf-components/get-cf-components'
 import { getWrContentSets } from './get-content-sets'
 import { orderByDependency } from './get-cf-content-set/order-by-dependency'
 import { getCfContentSet } from './get-cf-content-set/get-cf-content-set'
+import { cfContentSetFromWrContentSet } from './get-cf-components/content-set-from-content-set'
 
 export const initializeContext = async (argv: any) => {
   const pluginOptions = argv.options['@wheelroom/wheelroom-plugin-contentful']
@@ -28,6 +29,14 @@ export const initializeContext = async (argv: any) => {
     orderByDependency(cfContentSet)
     const creationOrder = cfContentSet.map(c => c.componentId).join(' < ')
     console.log('Dependency order:', creationOrder)
+  } else if (['replace-content'].includes(argv._[0])) {
+    // We require a Wheelroom replace set by command line option
+
+    wrContentSet = getWrContentSets(argv, pluginOptions)
+    cfContentSet = cfContentSetFromWrContentSet(
+      wrContentSet!,
+      wheelroomComponents
+    )
   } else {
     // We don't need a Wheelroom content set, create a set with each model
     // present

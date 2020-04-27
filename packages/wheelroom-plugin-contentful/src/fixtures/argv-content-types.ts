@@ -66,6 +66,6 @@ type Model =
   | SecondSectionModel
   | SubPageModelModel
 
-export interface ArgvContent {
+export interface ArgvContentSet {
   [componentId: string]: Model
 }

@@ -40,7 +40,8 @@ export const handler = async (argv: any) => {
     )
     try {
       refreshContext(context)
-      await getFields(context, component)
+      // The false flag disables replace content
+      await getFields(context, component, false)
       await getEntry(context, component)
       await updateEntry(context)
       await createEntry(context, component)
@@ -77,7 +78,7 @@ export const handler = async (argv: any) => {
     console.log(`Retry publishing model ${component.componentId} =============`)
     try {
       refreshContext(context)
-      await getFields(context, component)
+      await getFields(context, component, false)
       await getEntry(context, component)
       await publishEntry(context)
       console.log(

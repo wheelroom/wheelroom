@@ -22,6 +22,8 @@ export interface Context {
     editorInterface?: any
     /** Contentful environment object */
     environment?: any
+    /** Contentful fetched entries */
+    entries?: any
     /** Contentful demo entry */
     entry?: any
     /** Contentful field data for demo entry */

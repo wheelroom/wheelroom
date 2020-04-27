@@ -44,7 +44,7 @@ Object.entries(argvComponents).forEach(
 
 content += `${modelString}
 
-export interface ArgvContent {
+export interface ArgvContentSet {
   [componentId: string]: Model
 }
 `

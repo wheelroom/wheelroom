@@ -1,103 +1,64 @@
-// eslint:disable-next-line: no-var-requires
-const richTextFromMarkdown = require('@contentful/rich-text-from-markdown')
-  .richTextFromMarkdown
 import { ContentfulComponent } from '../types/contentful-components'
 import { ContentfulField } from '../types/contentful-fields'
 import { Context } from '../types/context'
+import { createField } from './create-field'
+import { getFieldValueFromEntry } from './get-field-value-from-entry'
+
+const getReplacedContentData = (
+  field: ContentfulField,
+  fieldId: string,
+  context: Context
+) => {
+  const createContentData: any = field.createContentData
+  if (!(fieldId in context.contentfulApi.entry.fields)) {
+    // If the field does not exist return the original createContentData
+    return createContentData
+  }
+  const cfContent = getFieldValueFromEntry(context, fieldId)
+  if (
+    !createContentData ||
+    !createContentData.pattern ||
+    !createContentData.replacement
+  ) {
+    // If we don't have replace info on this field, return current Contentful value
+    return cfContent
+  }
+  const pattern = createContentData.pattern
+  const replacement = createContentData.replacement
+  if (typeof pattern === 'number') {
+    return replacement
+  }
+  if (Array.isArray(cfContent)) {
+    return cfContent.map(item => item.replace(pattern, replacement))
+  }
+  if (typeof cfContent === 'string') {
+    return cfContent.replace(pattern, replacement)
+  }
+  return 'bug-getReplacedContentData'
+}
 
 export const getFields = async (
   context: Context,
-  component: ContentfulComponent
+  component: ContentfulComponent,
+  enableReplace: boolean
 ) => {
-  const defaultLocale = context.contentfulApi.defaultLocale.code
   Object.entries(component.fields).forEach(
     async ([fieldId, field]: [string, ContentfulField]) => {
-      if (!field.createContentData && field.specs.required) {
+      let createContentData = field.createContentData
+      if (enableReplace) {
+        // In replace mode, get current value for each field and replace content
+        // if needed
+        createContentData = getReplacedContentData(field, fieldId, context)
+      }
+
+      if (!createContentData && field.specs.required) {
         console.log(`Field ${fieldId} is required but has no createContentData`)
       }
-      if (!field.createContentData) {
+      if (!createContentData) {
         return
       }
-      switch (field.specs.type) {
-        case 'Boolean':
-        case 'Date':
-        case 'Integer':
-        case 'Symbol':
-        case 'Text':
-          context.contentfulApi.fields[fieldId] = {
-            [defaultLocale]: field.createContentData,
-          }
-          break
-
-        case 'Array':
-          const arrayItems = field.specs.items || ({} as any)
-          switch (arrayItems.type) {
-            case 'Link':
-              context.contentfulApi.fields[fieldId] = {
-                [defaultLocale]: (field.createContentData as []).map(
-                  (data: string) => {
-                    return {
-                      sys: {
-                        id: data, // + demoEntryPostfix,
-                        linkType: 'Entry',
-                        type: 'Link',
-                      },
-                    }
-                  }
-                ),
-              }
-              break
-
-            case 'Boolean':
-            case 'Date':
-            case 'Integer':
-            case 'Symbol':
-            case 'Text':
-              context.contentfulApi.fields[fieldId] = {
-                [defaultLocale]: field.createContentData,
-              }
-              break
-          }
-          break
-
-        case 'RichText':
-          const document = await richTextFromMarkdown(field.createContentData)
-          context.contentfulApi.fields[fieldId] = {
-            [defaultLocale]: document,
-          }
-          break
-
-        case 'Link':
-          switch (field.specs.linkType) {
-            case 'Asset':
-              context.contentfulApi.fields[fieldId] = {
-                [defaultLocale]: {
-                  sys: {
-                    id: 'demoAsset',
-                    linkType: 'Asset',
-                    type: 'Link',
-                  },
-                },
-              }
-              break
-
-            case 'Entry':
-              context.contentfulApi.fields[fieldId] = {
-                [defaultLocale]: {
-                  sys: {
-                    id: field.createContentData, // + demoEntryPostfix,
-                    linkType: 'Entry',
-                    type: 'Link',
-                  },
-                },
-              }
-              break
-          }
-          break
-
-        default:
-          break
-      }
+      const createdField = await createField(context, field, createContentData)
+      context.contentfulApi.fields[fieldId] = createdField
     }
   )
 }
@@ -114,6 +75,23 @@ export const getEntry = async (
   } catch (error) {
     console.log(`Could not find entry ${component.componentId}`)
     context.contentfulApi.entry = null
+  }
+}
+
+export const getEntries = async (
+  context: Context,
+  component: ContentfulComponent
+) => {
+  console.log(`Getting entries`)
+  try {
+    context.contentfulApi.entries = await context.contentfulApi.environment.getEntries(
+      {
+        'sys.id': component.componentId,
+      }
+    )
+  } catch (error) {
+    console.log(`Could not find entries for ${component.componentId}`)
+    context.contentfulApi.entries = null
   }
 }
 
