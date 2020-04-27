@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.2.0...@wheelroom/wheelroom-plugin-contentful@3.3.0) (2020-04-27)
+
+
+### Features
+
+* improved replace set api ([b0e53bd](https://github.com/wheelroom/wheelroom/commit/b0e53bdd4ab325d7ea705d86cf59a2381c513fcf))
+
+
+
+
+
 # [3.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.1.1...@wheelroom/wheelroom-plugin-contentful@3.2.0) (2020-04-27)
 
 **Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
