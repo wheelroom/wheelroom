@@ -3,7 +3,6 @@ import { Flex } from '../../element/grid'
 import { Strong } from '../../element/self'
 import { BrandingWheelStyle } from './presets/branding-preset'
 import { Wheel } from '../../types'
-import { Sup } from '../../element/paragraph'
 import { ActionProps } from '../../../../models/action/action'
 import { Action } from '../../model/action/action'
 
@@ -14,10 +13,10 @@ interface LogoWheel extends Wheel {
 export const Branding = (props: {
   brandAction: ActionProps
   logo: string | JSX.Element
-  version?: string
   wheel: LogoWheel
 }) => {
   // When a React element is passed, use that
+  const bandActionHeading = props.brandAction && props.brandAction.heading
   let logo
   if (React.isValidElement(props.logo)) {
     logo = props.logo
@@ -26,11 +25,8 @@ export const Branding = (props: {
     logo = (
       <Fragment>
         <Strong wheel={{ ...props.wheel, style: props.wheel.style.logo }}>
-          {props.logo}
+          {bandActionHeading || props.logo}
         </Strong>
-        <Sup wheel={{ ...props.wheel, style: props.wheel.style.sup }}>
-          {' ' + props.version}
-        </Sup>
       </Fragment>
     )
   }

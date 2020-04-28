@@ -39,7 +39,6 @@ export const PageSectionNavigationHeader = (props: {
     return null
   }
   const globals = props.pageSection.globals
-  const siteMetadata = props.pageSection.siteMetadata
   const navigation = props.pageSection.navigation
   const navSegment = navigation.segments[0] as NavigationSegmentProps
 
@@ -74,7 +73,6 @@ export const PageSectionNavigationHeader = (props: {
           <Branding
             brandAction={navigation.brandAction}
             logo={props.useLogoElement || globals.siteHeading}
-            version={siteMetadata.legal.version}
             wheel={{ ...props.wheel, style: props.wheel.style.branding }}
           />
           <Flex
