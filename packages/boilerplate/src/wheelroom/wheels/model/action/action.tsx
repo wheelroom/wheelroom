@@ -11,6 +11,7 @@ import { ActionProps } from '../../../../models/action'
 import { GLink } from '../../element/g-link'
 import { ALink } from '../../element/a-link'
 import { NcssProps, Wheel } from '../../types'
+import { Any } from '../../element/any'
 
 export interface ActionWheelStyle {
   ncss: NcssProps
@@ -40,11 +41,19 @@ const ActionGlink = (props: ActionWheelProps) => {
 }
 
 const ActionAlink = (props: ActionWheelProps) => {
-  return (
-    <ALink href={props.url} wheel={props.wheel} ariaLabel={props.description}>
-      {props.children ? props.children : props.heading}
-    </ALink>
-  )
+  if (props.url) {
+    return (
+      <ALink href={props.url} wheel={props.wheel} ariaLabel={props.description}>
+        {props.children ? props.children : props.heading}
+      </ALink>
+    )
+  } else {
+    return (
+      <Any is="span" wheel={props.wheel} ariaLabel={props.description}>
+        {props.children ? props.children : props.heading}
+      </Any>
+    )
+  }
 }
 
 export const Action = (props: ActionWheelProps) => {
