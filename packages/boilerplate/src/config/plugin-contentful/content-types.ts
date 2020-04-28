@@ -286,7 +286,7 @@ interface TopicModel {
       | 'zap'
       | 'zoom-in'
       | 'zoom-out'
-    actions?: Array<'wrAction'>
+    actions?: Array<'wrHomeAction' | 'wrGithubAction' | 'wrGetStartedAction'>
     title: string
   }
   model: 'topic'
@@ -294,7 +294,7 @@ interface TopicModel {
 interface ActionModel {
   fields: {
     heading?: string
-    page?: 'homePage'
+    page?: string
     url?: string
     title: string
   }
@@ -310,8 +310,10 @@ interface NavigationSegmentModel {
 }
 interface NavigationModel {
   fields: {
-    segments?: Array<'mainNavigationSegment'>
+    segments?: Array<'headerNavigationSegment' | 'footerNavigationSegment'>
     title: string
+    skipToContentHeading?: string
+    brandAction?: string
   }
   model: 'navigation'
 }
@@ -352,8 +354,8 @@ interface PageSectionModel {
       | 'Reversed order'
     >
     text?: 'wrtext'
-    navigation?: 'mainNavigation'
-    actions?: Array<'wrAction'>
+    navigation?: string
+    actions?: Array<'wrHomeAction' | 'wrGithubAction' | 'wrGetStartedAction'>
     title: string
   }
   model: 'pageSection'
@@ -362,7 +364,9 @@ interface PageModel {
   fields: {
     path: string
     navigationHeading?: string
-    sections: Array<'siteHeader' | 'siteFooter' | 'wrHeadline' | 'wrBlock'>
+    sections: Array<
+      'siteHeader' | 'siteFooter' | 'wrHeadline' | 'wrBlock' | 'wrText'
+    >
     theme?: 'light' | 'dark'
     seoTitle?: string
     seoDescription?: string
