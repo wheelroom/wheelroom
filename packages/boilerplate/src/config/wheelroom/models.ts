@@ -351,7 +351,7 @@ export const models: WheelroomComponents = {
       } as ShortTextField,
       pages: {
         allowedComponents: ['page'],
-        // Limit expanding pages, prevent circ refs
+        // Limit expanding pages, prevent circular refs
         expandFragmentRef: true,
         type: 'multipleComponents',
       } as MultipleComponentsField,

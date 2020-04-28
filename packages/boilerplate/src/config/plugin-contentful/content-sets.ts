@@ -15,20 +15,35 @@ export const contentSets: ContentSets = {
   boilerplate: {
     siteGlobals: {
       fields: {
-        siteAuthor: 'John Doe',
+        siteAuthor: 'Site author',
         siteDescription: 'Site description.',
         siteHeading: 'Site heading',
-        siteKeywords: ['Wheelroom', 'io', 'TypeScript', 'Contentful'],
+        siteKeywords: [
+          'Wheelroom',
+          'Boilerplate',
+          'TypeScript',
+          'Contentful',
+          'Netlify',
+        ],
         title: 'Global settings for this site',
       },
       model: 'globals',
     },
-    somePage: {
+    homePage: {
       fields: {
-        path: '/some-page',
-        navigationHeading: 'Some page',
-        sections: ['siteHeader', 'homeHeadline', 'homeHText', 'siteFooter'],
-        title: 'Some page',
+        path: '/',
+        navigationHeading: 'Home',
+        sections: ['siteHeader', 'wrHeadline', 'wrBlock', 'siteFooter'],
+        title: 'Home (Demo page)',
+      },
+      model: 'page',
+    },
+    wheelroomPage: {
+      fields: {
+        path: '/wheelroom',
+        navigationHeading: 'Wheelroom',
+        sections: ['siteHeader', 'wrHeadline', 'wrBlock', 'siteFooter'],
+        title: 'Wheelroom (Demo page)',
       },
       model: 'page',
     },
@@ -49,57 +64,83 @@ export const contentSets: ContentSets = {
       },
       model: 'pageSection',
     },
-    homeHeadline: {
+    wrHeadline: {
       fields: {
-        topics: ['demoTopic'],
+        topics: ['promiseTopic'],
         topicOptions: ['Reversed order'],
         variation: 'headline-wr',
-        title: 'Demo headline (headline)',
+        title: 'Wheelroom promise (Demo headline)',
       },
       model: 'pageSection',
     },
-    homeHText: {
+    wrBlock: {
       fields: {
-        topicOptions: ['Reversed order'],
+        topics: ['openSourceTopic', 'nonprofitTopic', 'freeForEveryoneTopic'],
+        topicOptions: ['Hide media'],
+        variation: 'block-wr',
+        title: 'Three (3) demo topics (Demo block)',
+      },
+      model: 'pageSection',
+    },
+    wrText: {
+      fields: {
         variation: 'text-wr',
-        text: 'demotext',
-        title: 'Demo text (text)',
+        text: 'wrtext',
+        title: 'Wheelroom (Demo text)',
       },
       model: 'pageSection',
     },
-    demotext: {
+    wrtext: {
       fields: {
-        text: `## Heading
-        
-En een regel.
-Deze line-break moet er niet zijn.`,
-        title: 'Demo text',
+        text: `## Wheelroom`,
+        title: 'Rich Text',
       },
       model: 'text',
     },
-    demoTopic: {
+    openSourceTopic: {
       fields: {
-        heading: 'Demo topic',
-        abstract: `What happens with new-lines?
-Like this one`,
-        icon: 'activity',
+        heading: 'Open Source',
+        abstract: `Everything we produce is open source. Every time we write code, we get to share it with the world.`,
+        icon: 'code',
         media: true,
-        actions: ['demoAction'],
-        title: 'Demo topic',
+        actions: ['wrAction'],
+        title: 'Open Source (Demo topic)',
       },
       model: 'topic',
     },
-    demoAction: {
+    nonprofitTopic: {
       fields: {
-        heading: 'Go home',
-        page: 'somePage',
-        title: 'Go home',
+        heading: 'Nonprofit',
+        abstract: `Our goal is to protect free expression and enable secure global communication. We're working with users to build something sustainable.`,
+        icon: 'heart',
+        media: true,
+        actions: ['wrAction'],
+        title: 'Nonprofit (Demo topic)',
+      },
+      model: 'topic',
+    },
+    freeForEveryoneTopic: {
+      fields: {
+        heading: 'Free for everyone',
+        abstract: `Wheelroom is an independent nonprofit. Development is supported by grants and donations from people like you.`,
+        icon: 'globe',
+        media: true,
+        actions: ['wrAction'],
+        title: 'Nonprofit (Demo topic)',
+      },
+      model: 'topic',
+    },
+    wrAction: {
+      fields: {
+        heading: 'Try Wheelroom for Free',
+        page: 'homePage',
+        title: 'Try Wheelroom for Free (Demo action)',
       },
       model: 'action',
     },
     mainNavigationSegment: {
       fields: {
-        pages: ['somePage'],
+        pages: ['homePage', 'wheelroomPage'],
         title: 'Main navigation segment',
       },
       model: 'navigationSegment',

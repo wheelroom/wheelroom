@@ -1,7 +1,7 @@
 /**
  * Defines an example replace set.
  *
- * Needs furhter documentation
+ * Needs further documentation
  */
 
 import { WheelroomReplaceSet } from '@wheelroom/wheelroom-plugin-contentful'

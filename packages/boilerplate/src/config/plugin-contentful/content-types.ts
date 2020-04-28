@@ -286,7 +286,7 @@ interface TopicModel {
       | 'zap'
       | 'zoom-in'
       | 'zoom-out'
-    actions?: Array<'demoAction'>
+    actions?: Array<'wrAction'>
     title: string
   }
   model: 'topic'
@@ -294,7 +294,7 @@ interface TopicModel {
 interface ActionModel {
   fields: {
     heading?: string
-    page?: 'somePage'
+    page?: 'homePage'
     url?: string
     title: string
   }
@@ -303,7 +303,7 @@ interface ActionModel {
 interface NavigationSegmentModel {
   fields: {
     heading?: string
-    pages?: Array<'somePage'>
+    pages?: Array<'homePage' | 'wheelroomPage'>
     title: string
   }
   model: 'navigationSegment'
@@ -337,7 +337,12 @@ interface PageSectionModel {
       | 'showcase-wr'
       | 'text-wr'
       | 'video-wr'
-    topics?: Array<'demoTopic'>
+    topics?: Array<
+      | 'promiseTopic'
+      | 'openSourceTopic'
+      | 'nonprofitTopic'
+      | 'freeForEveryoneTopic'
+    >
     topicOptions?: Array<
       | 'Hide icon'
       | 'Hide media'
@@ -346,9 +351,9 @@ interface PageSectionModel {
       | 'Hide action'
       | 'Reversed order'
     >
-    text?: 'demotext'
+    text?: 'wrtext'
     navigation?: 'mainNavigation'
-    actions?: Array<'demoAction'>
+    actions?: Array<'wrAction'>
     title: string
   }
   model: 'pageSection'
@@ -357,7 +362,7 @@ interface PageModel {
   fields: {
     path: string
     navigationHeading?: string
-    sections: Array<'siteHeader' | 'siteFooter' | 'homeHeadline' | 'homeHText'>
+    sections: Array<'siteHeader' | 'siteFooter' | 'wrHeadline' | 'wrBlock'>
     theme?: 'light' | 'dark'
     seoTitle?: string
     seoDescription?: string
