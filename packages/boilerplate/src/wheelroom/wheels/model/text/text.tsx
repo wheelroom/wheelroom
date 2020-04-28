@@ -82,6 +82,7 @@ export const Text = (props: TextWheelProps) => {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_node: Node, children: Children) => {
         const isCode =
+          _node.content[0].marks &&
           _node.content[0].marks.length &&
           _node.content[0].marks[0].type === 'code'
         if (isCode) {
