@@ -18,10 +18,6 @@ export const NavHeaderActions = (props: {
   toggleTheme: () => void
   wheel: NavActionsWheel
 }) => {
-  if (!props.pageSectionInfo.hasAction) {
-    return null
-  }
-
   return (
     <Flex is="div" wheel={props.wheel}>
       {props.pageSectionInfo.hasAction && (
