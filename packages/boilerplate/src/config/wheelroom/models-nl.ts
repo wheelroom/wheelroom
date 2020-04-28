@@ -339,6 +339,11 @@ export const models: WheelroomComponents = {
         name: 'Actie naam',
         type: 'shortText',
       } as ShortTextField,
+      description: {
+        helpText: 'Omschrijving van de actie, voor zoekmachines',
+        name: 'Actie omschrijving',
+        type: 'shortText',
+      } as ShortTextField,
       page: {
         allowedComponents: ['page'],
         // Limit expanding pages, prevent circ refs
