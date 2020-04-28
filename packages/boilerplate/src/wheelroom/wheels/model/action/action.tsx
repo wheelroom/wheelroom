@@ -29,7 +29,11 @@ export interface ActionWheelProps extends ActionProps {
 
 const ActionGlink = (props: ActionWheelProps) => {
   return (
-    <GLink to={props.page.path} wheel={props.wheel} ariaLabel={props.heading}>
+    <GLink
+      to={props.page.path}
+      wheel={props.wheel}
+      ariaLabel={props.description}
+    >
       {props.children ? props.children : props.heading}
     </GLink>
   )
@@ -37,7 +41,7 @@ const ActionGlink = (props: ActionWheelProps) => {
 
 const ActionAlink = (props: ActionWheelProps) => {
   return (
-    <ALink href={props.url} wheel={props.wheel} ariaLabel={props.heading}>
+    <ALink href={props.url} wheel={props.wheel} ariaLabel={props.description}>
       {props.children ? props.children : props.heading}
     </ALink>
   )

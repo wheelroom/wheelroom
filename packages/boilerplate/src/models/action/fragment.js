@@ -15,6 +15,7 @@ export const fragment = graphql`
 fragment Action on ContentfulAction {
   __typename
   title
+  description
   heading
   page {
     __typename

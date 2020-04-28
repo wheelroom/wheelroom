@@ -326,6 +326,9 @@ export const models: WheelroomComponents = {
       heading: {
         type: 'shortText',
       } as ShortTextField,
+      description: {
+        type: 'shortText',
+      } as ShortTextField,
       page: {
         allowedComponents: ['page'],
         // Limit expanding pages, prevent circ refs
