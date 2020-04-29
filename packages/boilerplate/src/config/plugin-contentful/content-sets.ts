@@ -50,10 +50,10 @@ export const contentSets: ContentSets = {
         sections: [
           'siteHeader',
           'exampleHeadline',
-          'exampleBlock',
-          'exampleCard',
           'exampleFeatured',
+          'exampleBlock',
           'exampleGallery',
+          'exampleCard',
           'exampleImage',
           'exampleShowcase',
           'exampleQuote',
@@ -196,7 +196,6 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
         ],
         topicOptions: [
           'Hide icon',
-          'Hide media',
           'Hide heading',
           'Hide abstract',
           'Hide action',
