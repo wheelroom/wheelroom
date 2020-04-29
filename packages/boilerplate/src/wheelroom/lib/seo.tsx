@@ -29,13 +29,18 @@ export const Seo = (context: SeoProps) => {
   const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
   const linkLocales = context.alternateLocales || []
 
+  let titleTemplate = '%s'
+  if (context.pageHeading && context.siteHeading) {
+    // If we have both siteHeading and pageHeading, use both
+    titleTemplate = `%s | ${context.siteHeading}`
+  }
+
   return (
     <Helmet
       htmlAttributes={{
         lang: context.locale,
       }}
-      title={metaHeading}
-      titleTemplate={`%s | ${metaHeading}`}
+      titleTemplate={titleTemplate}
       meta={[
         {
           content: context.siteVersion,
@@ -93,6 +98,7 @@ export const Seo = (context: SeoProps) => {
         },
       ].concat(context.meta)}
     >
+      <title>{metaHeading}</title>
       {linkLocales.map((linkLocale: any) => (
         <link
           rel="alternate"
