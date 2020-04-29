@@ -4,7 +4,7 @@ import React, { Fragment, useContext, useState } from 'react'
 import { GlobalsProps } from './models/globals'
 import { PageProps } from './models/page'
 import { pageDebug } from './wheelroom/lib/debug'
-import { Seo } from './wheelroom/lib/seo'
+import { Seo, SeoProps } from './wheelroom/lib/seo'
 import { Sections } from './wheelroom/sections/sections'
 import {
   PreviewUpdateButton,
@@ -56,18 +56,18 @@ const PageTemplate = (props: any) => {
 
     sections,
   }
-  const seoProps = {
-    description: page.seoDescription,
+  const seoProps: SeoProps = {
     imageSrc: page.seoImage && page.seoImage.fluid && page.seoImage.fluid.src,
     keywords,
     locale,
     meta: [],
+    pageDescription: page.seoDescription,
+    pageHeading: page.seoTitle,
     siteAuthor: globals.siteAuthor,
     siteDescription: globals.siteDescription,
     siteHeading: globals.siteHeading,
     siteKeywords: globals.siteKeywords,
     siteVersion,
-    title: page.seoTitle,
   }
   // Set theme background color
   const backgroundColor =

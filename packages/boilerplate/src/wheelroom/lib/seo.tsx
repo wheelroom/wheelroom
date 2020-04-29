@@ -6,68 +6,36 @@ export interface AlternateLocale {
   hrefLang: string
 }
 
-export interface SeoContentTypeInfo {
-  type: 'article' | 'none'
-  tags: SeoTags
-}
-
-export interface SeoTags {
-  author?: string
-  first_name?: string
-  gender?: string
-  last_name?: string
-  modified_time?: string
-  published_time?: string
-  section?: string
-  username?: string
-  [tagName: string]: string | undefined
-}
-
-interface SeoProps {
-  contentTypeInfo?: SeoContentTypeInfo
-  description?: string
+export interface SeoProps {
+  alternateLocales?: AlternateLocale[]
   imageSrc?: string
   keywords?: string[]
   locale: string
-  alternateLocales?: AlternateLocale[]
   meta: any[]
+  pageDescription?: string
+  pageHeading: string
   siteAuthor: string
   siteDescription: string
-  siteKeywords: string[]
   siteHeading: string
+  siteKeywords: string[]
   siteVersion: string
-  title: string
 }
 
 export const Seo = (context: SeoProps) => {
-  const metaDescription = context.description || context.siteDescription || ''
+  const metaDescription =
+    context.pageDescription || context.siteDescription || ''
+  const metaHeading = context.pageHeading || context.siteHeading || ''
   const useKeywords = context.keywords || context.siteKeywords
   const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
   const linkLocales = context.alternateLocales || []
-  const typeTags = [
-    {
-      content: context.contentTypeInfo
-        ? context.contentTypeInfo.type
-        : 'website',
-      property: 'og:type',
-    },
-  ]
-  if (context.contentTypeInfo && context.contentTypeInfo.type === 'article') {
-    Object.keys(context.contentTypeInfo.tags as object).forEach((tag) => {
-      typeTags.push({
-        content: context.contentTypeInfo!.tags[tag],
-        property: context.contentTypeInfo!.type + ':' + tag,
-      } as any)
-    })
-  }
 
   return (
     <Helmet
       htmlAttributes={{
         lang: context.locale,
       }}
-      title={context.title}
-      titleTemplate={`%s | ${context.siteHeading}`}
+      title={metaHeading}
+      titleTemplate={`%s | ${metaHeading}`}
       meta={[
         {
           content: context.siteVersion,
@@ -85,7 +53,7 @@ export const Seo = (context: SeoProps) => {
         ////////////////////////////////////////////////
         /// Open Graph
         {
-          content: context.title,
+          content: metaHeading,
           property: 'og:title',
         },
         {
@@ -112,7 +80,7 @@ export const Seo = (context: SeoProps) => {
           name: 'twitter:creator',
         },
         {
-          content: context.title,
+          content: metaHeading,
           name: 'twitter:title',
         },
         {
@@ -123,9 +91,7 @@ export const Seo = (context: SeoProps) => {
           content: context.imageSrc,
           name: 'twitter:image',
         },
-      ]
-        .concat(context.meta)
-        .concat(typeTags)}
+      ].concat(context.meta)}
     >
       {linkLocales.map((linkLocale: any) => (
         <link
