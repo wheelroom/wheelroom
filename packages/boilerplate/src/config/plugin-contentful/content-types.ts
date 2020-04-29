@@ -286,9 +286,7 @@ interface TopicModel {
       | 'zap'
       | 'zoom-in'
       | 'zoom-out'
-    actions?: Array<
-      'wrExamplesAction' | 'wrGithubAction' | 'wrGetStartedAction'
-    >
+    actions?: Array<'wrExampleAction' | 'wrGithubAction' | 'wrGetStartedAction'>
     title: string
   }
   model: 'topic'
@@ -360,9 +358,7 @@ interface PageSectionModel {
     >
     text?: 'docstext'
     navigation?: string
-    actions?: Array<
-      'wrExamplesAction' | 'wrGithubAction' | 'wrGetStartedAction'
-    >
+    actions?: Array<'wrExampleAction' | 'wrGithubAction' | 'wrGetStartedAction'>
     title: string
   }
   model: 'pageSection'

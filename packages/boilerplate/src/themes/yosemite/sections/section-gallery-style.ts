@@ -18,9 +18,7 @@ export const sectionGalleryStyle: PageSectionGalleryWheelStyle = {
       text: {
         ncss: {},
         abstract: {
-          ncss: {
-            mb: 0,
-          },
+          ncss: {},
         },
         heading: {
           ncss: {},
