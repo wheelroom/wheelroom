@@ -15,9 +15,10 @@ export const contentSets: ContentSets = {
   boilerplate: {
     siteGlobals: {
       fields: {
-        siteAuthor: 'Site author',
-        siteDescription: 'Site description',
-        siteHeading: 'Site heading',
+        siteAuthor: 'Wheelroom',
+        siteDescription:
+          'Wheelroom is an open source project and created for developers that want to work with the latest technology and services.',
+        siteHeading: 'Wheelroom',
         siteKeywords: [
           'Wheelroom',
           'Boilerplate',
@@ -34,21 +35,35 @@ export const contentSets: ContentSets = {
         path: '/',
         navigationHeading: 'Home',
         sections: ['siteHeader', 'homeHero', 'homeBlock', 'siteFooter'],
+        seoTitle: 'The world’s fastest boilerplate for building applications',
+        seoDescription:
+          'Wheelroom is a new approach to faster, cost efficient and more secure applications.',
+        seoImage: true,
         title: 'Home (Demo page)',
       },
       model: 'page',
     },
-    examplesPage: {
+    examplePage: {
       fields: {
-        path: '/examples',
+        path: '/example',
         navigationHeading: 'Examples',
         sections: [
           'siteHeader',
-          'examplesHeadline',
-          'examplesBlock',
+          'exampleBlock',
+          'exampleCard',
+          'exampleFeatured',
+          'exampleGallery',
+          'exampleHeadline',
+          'exampleImage',
+          'exampleShowcase',
+          'exampleQuote',
           'siteFooter',
         ],
-        title: 'Demo of Wheelroom (Demo page)',
+        seoTitle: 'Examples',
+        seoDescription:
+          'Wheelroom is an open source project and created for developers that want to work with the latest technology and services.',
+        seoImage: true,
+        title: 'Examples (Demo page)',
       },
       model: 'page',
     },
@@ -57,6 +72,10 @@ export const contentSets: ContentSets = {
         path: '/documentation',
         navigationHeading: 'Documentation',
         sections: ['siteHeader', 'docsText', 'siteFooter'],
+        seoTitle: 'Documentation',
+        seoDescription:
+          'Wheelroom connects your code base within 5 minutes to many services like Contentful and Netlify.',
+        seoImage: true,
         title: 'Documentation (Demo page)',
       },
       model: 'page',
@@ -82,7 +101,7 @@ export const contentSets: ContentSets = {
     homeHero: {
       fields: {
         topics: ['promiseTopic'],
-        topicOptions: ['Reversed order'],
+        topicOptions: ['Hide icon'],
         variation: 'hero-wr',
         title: 'Wheelroom promise (Demo headline)',
       },
@@ -125,11 +144,11 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
 
 - [Jacco Meijer](https://github.com/jaccomeijer)
 - [Thijs Krooswijk](https://github.com/thijskrooswijk)`,
-        title: 'Rich Text',
+        title: 'Rich Text (Demo text)',
       },
       model: 'text',
     },
-    examplesHeadline: {
+    exampleHeadline: {
       fields: {
         topics: ['exampleTopic'],
         topicOptions: ['Reversed order'],
@@ -138,11 +157,76 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       },
       model: 'pageSection',
     },
-    examplesBlock: {
+    exampleFeatured: {
+      fields: {
+        topics: ['exampleTopic', 'exampleTopic'],
+        variation: 'featured-wr',
+        title: 'Example (Demo featured)',
+      },
+      model: 'pageSection',
+    },
+    exampleBlock: {
       fields: {
         topics: ['exampleTopic', 'exampleTopic', 'exampleTopic'],
         variation: 'block-wr',
         title: 'Example (Demo block)',
+      },
+      model: 'pageSection',
+    },
+    exampleCard: {
+      fields: {
+        topics: [
+          'exampleTopic',
+          'exampleTopic',
+          'exampleTopic',
+          'exampleTopic',
+          'exampleTopic',
+          'exampleTopic',
+        ],
+        variation: 'card-wr',
+        title: 'Example (Demo card)',
+      },
+      model: 'pageSection',
+    },
+    exampleGallery: {
+      fields: {
+        topics: [
+          'exampleTopic',
+          'exampleTopic',
+          'exampleTopic',
+          'exampleTopic',
+        ],
+        variation: 'gallery-wr',
+        title: 'Example (Demo gallery)',
+      },
+      model: 'pageSection',
+    },
+    exampleImage: {
+      fields: {
+        topics: ['exampleTopic'],
+        variation: 'image-wr',
+        title: 'Example (Demo image)',
+      },
+      model: 'pageSection',
+    },
+    exampleQuote: {
+      fields: {
+        topics: ['exampleTopic'],
+        variation: 'quote-wr',
+        title: 'Example (Demo quote)',
+      },
+      model: 'pageSection',
+    },
+    exampleShowcase: {
+      fields: {
+        topics: [
+          'exampleTopic',
+          'exampleTopic',
+          'exampleTopic',
+          'exampleTopic',
+        ],
+        variation: 'showcase-wr',
+        title: 'Example (Demo showcase)',
       },
       model: 'pageSection',
     },
@@ -152,7 +236,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
         abstract: `Wheelroom connects your code base within 5 minutes to many services like Contentful and Netlify. `,
         icon: 'layers',
         media: true,
-        actions: ['wrGithubAction'],
+        actions: ['wrExamplesAction'],
         title: 'Promise (Demo topic)',
       },
       model: 'topic',
@@ -163,7 +247,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
         abstract: `Everything we produce is open source. Every time we write code, we get to share it with the world.`,
         icon: 'code',
         media: true,
-        actions: ['wrGithubAction'],
+        actions: ['wrExamplesAction'],
         title: 'Open Source (Demo topic)',
       },
       model: 'topic',
@@ -174,7 +258,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
         abstract: `Our goal is to protect free expression and enable secure global communication. We're working with users to build something sustainable.`,
         icon: 'heart',
         media: true,
-        actions: ['wrGithubAction'],
+        actions: ['wrExamplesAction'],
         title: 'Nonprofit (Demo topic)',
       },
       model: 'topic',
@@ -185,7 +269,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
         abstract: `Wheelroom is an independent nonprofit. Development is supported by grants and donations from people like you.`,
         icon: 'globe',
         media: true,
-        actions: ['wrGithubAction'],
+        actions: ['wrExamplesAction'],
         title: 'Nonprofit (Demo topic)',
       },
       model: 'topic',
@@ -243,14 +327,14 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       fields: {
         heading: 'Check the Wheelroom examples',
         description: 'An overview of all the Wheelroom page-section exmaples',
-        page: 'examplesPage',
+        page: 'examplePage',
         title: 'Check the Wheelroom examples (Demo action)',
       },
       model: 'action',
     },
     headerNavigationSegment: {
       fields: {
-        pages: ['homePage', 'examplesPage', 'aboutPage'],
+        pages: ['homePage', 'examplePage', 'aboutPage'],
         title: 'Header navigation segment',
       },
       model: 'navigationSegment',
@@ -266,7 +350,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
     },
     footerNavigationSegment: {
       fields: {
-        pages: ['homePage', 'examplesPage', 'aboutPage'],
+        pages: ['homePage', 'examplePage', 'aboutPage'],
         title: 'Footer navigation segment',
       },
       model: 'navigationSegment',

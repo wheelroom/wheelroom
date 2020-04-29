@@ -306,7 +306,7 @@ interface ActionModel {
 interface NavigationSegmentModel {
   fields: {
     heading?: string
-    pages?: Array<'homePage' | 'examplesPage' | 'aboutPage'>
+    pages?: Array<'homePage' | 'examplePage' | 'aboutPage'>
     title: string
   }
   model: 'navigationSegment'
@@ -377,8 +377,14 @@ interface PageModel {
       | 'homeHero'
       | 'homeBlock'
       | 'docsText'
-      | 'examplesHeadline'
-      | 'examplesBlock'
+      | 'exampleBlock'
+      | 'exampleCard'
+      | 'exampleFeatured'
+      | 'exampleGallery'
+      | 'exampleHeadline'
+      | 'exampleImage'
+      | 'exampleShowcase'
+      | 'exampleQuote'
     >
     theme?: 'light' | 'dark'
     seoTitle?: string
