@@ -286,7 +286,9 @@ interface TopicModel {
       | 'zap'
       | 'zoom-in'
       | 'zoom-out'
-    actions?: Array<'wrHomeAction' | 'wrGithubAction' | 'wrGetStartedAction'>
+    actions?: Array<
+      'wrExamplesAction' | 'wrGithubAction' | 'wrGetStartedAction'
+    >
     title: string
   }
   model: 'topic'
@@ -294,6 +296,7 @@ interface TopicModel {
 interface ActionModel {
   fields: {
     heading?: string
+    description?: string
     page?: string
     url?: string
     title: string
@@ -303,7 +306,7 @@ interface ActionModel {
 interface NavigationSegmentModel {
   fields: {
     heading?: string
-    pages?: Array<'homePage' | 'wheelroomPage'>
+    pages?: Array<'homePage' | 'examplesPage' | 'aboutPage'>
     title: string
   }
   model: 'navigationSegment'
@@ -340,10 +343,12 @@ interface PageSectionModel {
       | 'text-wr'
       | 'video-wr'
     topics?: Array<
+      | 'exampleTopic'
       | 'promiseTopic'
       | 'openSourceTopic'
       | 'nonprofitTopic'
       | 'freeForEveryoneTopic'
+      | 'githubProfileTopic'
     >
     topicOptions?: Array<
       | 'Hide icon'
@@ -353,9 +358,11 @@ interface PageSectionModel {
       | 'Hide action'
       | 'Reversed order'
     >
-    text?: 'wrtext'
+    text?: 'docstext'
     navigation?: string
-    actions?: Array<'wrHomeAction' | 'wrGithubAction' | 'wrGetStartedAction'>
+    actions?: Array<
+      'wrExamplesAction' | 'wrGithubAction' | 'wrGetStartedAction'
+    >
     title: string
   }
   model: 'pageSection'
@@ -365,7 +372,13 @@ interface PageModel {
     path: string
     navigationHeading?: string
     sections: Array<
-      'siteHeader' | 'siteFooter' | 'wrHeadline' | 'wrBlock' | 'wrText'
+      | 'siteHeader'
+      | 'siteFooter'
+      | 'homeHero'
+      | 'homeBlock'
+      | 'docsText'
+      | 'examplesHeadline'
+      | 'examplesBlock'
     >
     theme?: 'light' | 'dark'
     seoTitle?: string
