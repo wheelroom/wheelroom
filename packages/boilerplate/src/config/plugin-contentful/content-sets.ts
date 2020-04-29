@@ -16,7 +16,7 @@ export const contentSets: ContentSets = {
     siteGlobals: {
       fields: {
         siteAuthor: 'Site author',
-        siteDescription: 'Site description.',
+        siteDescription: 'Site description',
         siteHeading: 'Site heading',
         siteKeywords: [
           'Wheelroom',
@@ -33,23 +33,36 @@ export const contentSets: ContentSets = {
       fields: {
         path: '/',
         navigationHeading: 'Home',
-        sections: ['siteHeader', 'wrHeadline', 'wrBlock', 'siteFooter'],
+        sections: ['siteHeader', 'homeHero', 'homeBlock', 'siteFooter'],
         title: 'Home (Demo page)',
       },
       model: 'page',
     },
-    wheelroomPage: {
+    examplesPage: {
       fields: {
-        path: '/wheelroom',
-        navigationHeading: 'Wheelroom',
-        sections: ['siteHeader', 'wrText', 'siteFooter'],
-        title: 'Wheelroom (Demo page)',
+        path: '/examples',
+        navigationHeading: 'Examples',
+        sections: [
+          'siteHeader',
+          'examplesHeadline',
+          'examplesBlock',
+          'siteFooter',
+        ],
+        title: 'Demo of Wheelroom (Demo page)',
+      },
+      model: 'page',
+    },
+    aboutPage: {
+      fields: {
+        path: '/documentation',
+        navigationHeading: 'Documentation',
+        sections: ['siteHeader', 'docsText', 'siteFooter'],
+        title: 'Documentation (Demo page)',
       },
       model: 'page',
     },
     siteHeader: {
       fields: {
-        topicOptions: ['Hide icon'],
         variation: 'navigation-wr',
         navigation: 'headerNavigation',
         title: 'Site header (navigation)',
@@ -61,20 +74,21 @@ export const contentSets: ContentSets = {
       fields: {
         variation: 'navigation-wr',
         navigation: 'footerNavigation',
+        topics: ['githubProfileTopic'],
         title: 'Site footer (navigation)',
       },
       model: 'pageSection',
     },
-    wrHeadline: {
+    homeHero: {
       fields: {
         topics: ['promiseTopic'],
         topicOptions: ['Reversed order'],
-        variation: 'headline-wr',
+        variation: 'hero-wr',
         title: 'Wheelroom promise (Demo headline)',
       },
       model: 'pageSection',
     },
-    wrBlock: {
+    homeBlock: {
       fields: {
         topics: ['openSourceTopic', 'nonprofitTopic', 'freeForEveryoneTopic'],
         topicOptions: ['Hide media'],
@@ -83,15 +97,15 @@ export const contentSets: ContentSets = {
       },
       model: 'pageSection',
     },
-    wrText: {
+    docsText: {
       fields: {
         variation: 'text-wr',
-        text: 'wrtext',
-        title: 'Wheelroom (Demo text)',
+        text: 'docstext',
+        title: 'Wheelroom documentation (Demo text)',
       },
       model: 'pageSection',
     },
-    wrtext: {
+    docstext: {
       fields: {
         text: `# Wheelroom
 
@@ -115,9 +129,26 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       },
       model: 'text',
     },
+    examplesHeadline: {
+      fields: {
+        topics: ['exampleTopic'],
+        topicOptions: ['Reversed order'],
+        variation: 'headline-wr',
+        title: 'Example (Demo headline)',
+      },
+      model: 'pageSection',
+    },
+    examplesBlock: {
+      fields: {
+        topics: ['exampleTopic', 'exampleTopic', 'exampleTopic'],
+        variation: 'block-wr',
+        title: 'Example (Demo block)',
+      },
+      model: 'pageSection',
+    },
     promiseTopic: {
       fields: {
-        heading: 'The world’s fastest boilerplate for building applications',
+        heading: 'The world’s fastest boilerplate for applications',
         abstract: `Wheelroom connects your code base within 5 minutes to many services like Contentful and Netlify. `,
         icon: 'layers',
         media: true,
@@ -159,9 +190,32 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       },
       model: 'topic',
     },
+    exampleTopic: {
+      fields: {
+        heading: 'Build great things with Wheelroom',
+        abstract: `Wheelroom is a new approach to faster, cost efficient and more secure applications.`,
+        icon: 'box',
+        media: true,
+        actions: ['wrGithubAction'],
+        title: 'Example (Demo topic)',
+      },
+      model: 'topic',
+    },
+    githubProfileTopic: {
+      fields: {
+        heading: 'Github profile',
+        abstract: `Check our code-base on Github`,
+        icon: 'github',
+        media: false,
+        actions: ['wrGithubAction'],
+        title: 'Github profile (Demo topic)',
+      },
+      model: 'topic',
+    },
     wrBrandAction: {
       fields: {
         heading: 'Wheelroom',
+        description: 'Go back to the Wheelroom homepage',
         page: 'homePage',
         title: 'Wheelroom (Demo action)',
       },
@@ -170,7 +224,8 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
     wrGithubAction: {
       fields: {
         heading: 'Try Wheelroom for Free',
-        page: 'wheelroomPage',
+        description: 'Visit our Github Wheelroom code repository',
+        url: 'https://github.com/wheelroom/wheelroom',
         title: 'Try Wheelroom for Free (Demo action)',
       },
       model: 'action',
@@ -178,22 +233,24 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
     wrGetStartedAction: {
       fields: {
         heading: 'Get started',
+        description: 'Visit our Github Wheelroom code repository',
         url: 'https://github.com/wheelroom/wheelroom',
         title: 'Get started (Demo action)',
       },
       model: 'action',
     },
-    wrHomeAction: {
+    wrExamplesAction: {
       fields: {
-        heading: 'Go back to Homepage',
-        page: 'homePage',
-        title: 'Go back to Homepage (Demo action)',
+        heading: 'Check the Wheelroom examples',
+        description: 'An overview of all the Wheelroom page-section exmaples',
+        page: 'examplesPage',
+        title: 'Check the Wheelroom examples (Demo action)',
       },
       model: 'action',
     },
     headerNavigationSegment: {
       fields: {
-        pages: ['homePage', 'wheelroomPage'],
+        pages: ['homePage', 'examplesPage', 'aboutPage'],
         title: 'Header navigation segment',
       },
       model: 'navigationSegment',
@@ -209,7 +266,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
     },
     footerNavigationSegment: {
       fields: {
-        pages: ['homePage', 'wheelroomPage'],
+        pages: ['homePage', 'examplesPage', 'aboutPage'],
         title: 'Footer navigation segment',
       },
       model: 'navigationSegment',
