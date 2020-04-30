@@ -25,8 +25,8 @@ export const Seo = (context: SeoProps) => {
   const metaDescription =
     context.pageDescription || context.siteDescription || ''
   const metaHeading = context.pageHeading || context.siteHeading || ''
-  const useKeywords = context.keywords || context.siteKeywords || ''
-  const metaKeywords = useKeywords.length >= 1 ? useKeywords.join(', ') : ''
+  const useKeywords = context.keywords || context.siteKeywords || []
+  const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
   const linkLocales = context.alternateLocales || []
 
   let titleTemplate = '%s'
