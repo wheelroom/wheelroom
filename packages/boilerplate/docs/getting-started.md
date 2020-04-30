@@ -69,15 +69,33 @@ npm run wr:cm
 
 ## Create Contentful content set
 
-Create a dummy image asset and the boilerplate content set found in
-[content-sets.ts](../src/config/plugin-contentful/content-sets.ts).
+Wheelroom includes two different Contentful content-sets:
+
+- `starterSet` 
+- `exampleSet`.
+
+The content-sets contains media (image) placeholder and page-sections with 
+example topics. You can create your own content-set by editing the 
+[content-sets.ts](../src/config/plugin-contentful/content-sets.ts) file and run
+the following script.
 
 ```bash
-npm run wr:cc
+npm run wr:cc starterSet
 ```
 
-> **_NOTE:_** All content is in Dutch. Future versions should have this properly
-> localized.
+> **_NOTE:_** All content is written in English. Future versions should have 
+> this properly localized.
+
+## Delete Contentful content set
+
+Deleting your content is as easy as creating a content-set by running:
+
+```bash
+npm run wr:dc starterSet
+```
+
+> **_NOTE:_** Always check which content-set you used! Otherwise the script won't 
+> delete your content, or the wrong content-set.
 
 ## Start development server
 
