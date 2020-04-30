@@ -42,7 +42,7 @@ Read [here](./docs/how-wheelroom-works.md)
 ## Deploy your Wheelroom project
 
 Are you ready to deploy your first project? [Read here how you
-deploy a Wheelroom project](./deploy-wheelroom-project.md) to a Netlify build 
+deploy a Wheelroom project](./docs/deploy-wheelroom-project.md) to a Netlify build 
 server with built‑in CI. More information about Netlify visit: 
 [Netlify.com](https://www.netlify.com/)
 
