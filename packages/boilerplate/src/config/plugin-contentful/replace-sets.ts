@@ -18,6 +18,13 @@ export const replaceSets: ReplaceSets = {
           pattern: /(headline)(.*)/,
           replacement: 'hero$2',
         },
+        // Replace page-section variation name:
+        // "variationName" to "variationName-wr"
+        //
+        // variation: {
+        //   pattern: /(.*)/,
+        //   replacement: '$1-wr',
+        // },
       },
     },
   },
