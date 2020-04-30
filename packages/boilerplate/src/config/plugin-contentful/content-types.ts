@@ -286,7 +286,9 @@ interface TopicModel {
       | 'zap'
       | 'zoom-in'
       | 'zoom-out'
-    actions?: Array<'wrExampleAction' | 'wrGithubAction' | 'wrGetStartedAction'>
+    actions?: Array<
+      'brandAction' | 'exampleAction' | 'githubAction' | 'getStartedAction'
+    >
     title: string
   }
   model: 'topic'
@@ -304,7 +306,14 @@ interface ActionModel {
 interface NavigationSegmentModel {
   fields: {
     heading?: string
-    pages?: Array<'homePage' | 'examplePage' | 'aboutPage'>
+    pages?: Array<
+      | 'homePage'
+      | 'examplesPage'
+      | 'documentationPage'
+      | 'freeForEveryonePage'
+      | 'nonProfitPage'
+      | 'openSourcePage'
+    >
     title: string
   }
   model: 'navigationSegment'
@@ -356,9 +365,11 @@ interface PageSectionModel {
       | 'Hide action'
       | 'Reversed order'
     >
-    text?: 'docstext'
+    text?: string
     navigation?: string
-    actions?: Array<'wrExampleAction' | 'wrGithubAction' | 'wrGetStartedAction'>
+    actions?: Array<
+      'brandAction' | 'exampleAction' | 'githubAction' | 'getStartedAction'
+    >
     title: string
   }
   model: 'pageSection'
@@ -372,12 +383,21 @@ interface PageModel {
       | 'siteFooter'
       | 'homeHero'
       | 'homeBlock'
-      | 'docsText'
+      | 'starterBlock'
+      | 'starterCard'
+      | 'starterFeatured'
+      | 'starterHeadline'
+      | 'starterHero'
+      | 'starterText'
+      | 'starterQuote'
+      | 'starterShowcase'
+      | 'exampleText'
       | 'exampleBlock'
       | 'exampleCard'
       | 'exampleFeatured'
       | 'exampleGallery'
       | 'exampleHeadline'
+      | 'exampleHero'
       | 'exampleImage'
       | 'exampleShowcase'
       | 'exampleQuote'
