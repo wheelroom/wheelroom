@@ -75,7 +75,6 @@
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:clean": "rm -rf ./dist",
     "build:test": "jest ./src/lib/get-cf-components/tests/get-cf-components.unit.test.ts",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "tsc",

@@ -64,7 +64,6 @@
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:clean": "rm -rf ./dist",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "tsc",
     "build:test": "jest --silent",
