@@ -80,7 +80,7 @@ example topics. You can create your own content-set by editing the
 the following script.
 
 ```bash
-npm run wr:cc starterSet
+npm run wr:cc -- starterSet
 ```
 
 > **_NOTE:_** All content is written in English. Future versions should have 
@@ -91,7 +91,7 @@ npm run wr:cc starterSet
 Deleting your content is as easy as creating a content-set by running:
 
 ```bash
-npm run wr:dc starterSet
+npm run wr:dc -- starterSet
 ```
 
 > **_NOTE:_** Always check which content-set you used! Otherwise the script won't 
