@@ -5,11 +5,13 @@
   "contributors": [
     {
       "name": "Jacco Meijer",
-      "email": "jacco@jaccomeijer.nl",
+      "email": "jacco@wheelroom.io",
       "url": "https://www.jaccomeijer.nl"
     },
     {
-      "name": "Thijs Krooswijk"
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
     }
   ],
   "bugs": {
