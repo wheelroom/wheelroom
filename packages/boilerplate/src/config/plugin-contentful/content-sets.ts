@@ -109,7 +109,7 @@ export const contentSets: ContentSets = {
     },
     starterBlock: {
       fields: {
-        topics: ['freeForEveryoneTopic', 'openSourceTopic', 'promiseTopic'],
+        topics: ['freeForEveryoneTopic', 'openSourceTopic', 'nonprofitTopic'],
         variation: 'block-wr',
         topicOptions: ['Hide media'],
         title: 'Starter content (block)',
