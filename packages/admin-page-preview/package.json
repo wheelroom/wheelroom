@@ -59,7 +59,7 @@
   "main": "dist/index.js",
   "name": "@wheelroom/admin-page-preview",
   "dependencies": {
-    "@wheelroom/contentful-page-preview": "1.4.0"
+    "@wheelroom/contentful-page-preview": "1.4.1"
   },
   "peerDependencies": {
     "@emotion/core": "10.x",
@@ -86,6 +86,6 @@
     "test": "npm run build:test"
   },
   "type": "commonjs",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

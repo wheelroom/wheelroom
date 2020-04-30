@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.5.2...@wheelroom/boilerplate@2.6.0) (2020-04-30)
+
+
+### Bug Fixes
+
+* allows siteKeywords to be empty ([27b197a](https://github.com/wheelroom/wheelroom/commit/27b197a49976733642d56d8c10bb0fc5a5b039e6))
+* always show theme button ([fd407ef](https://github.com/wheelroom/wheelroom/commit/fd407ef1aa8939b7e4174fd3fbf1f765c332241f))
+* branding heading ([4e5ae8a](https://github.com/wheelroom/wheelroom/commit/4e5ae8a5c81f4a0f0576e0f896f0c2c4cdafea5a))
+* isCode check ([f213ec5](https://github.com/wheelroom/wheelroom/commit/f213ec5d4c88791daf109ff4795946346b19acd3))
+* remove Alink when url is missing ([f5dedd2](https://github.com/wheelroom/wheelroom/commit/f5dedd274ff815d94ad9231c2b015d9ee0e54506))
+* use new Helmet API ([21d4260](https://github.com/wheelroom/wheelroom/commit/21d426082c4849ffe66bad6c1f823bad24bc4ed0))
+
+
+### Features
+
+* add action.descritpion field ([dbc226d](https://github.com/wheelroom/wheelroom/commit/dbc226d9ad20feeb82a712d88b094ed41cb33c4d))
+
+
+
+
+
 ## [2.5.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.5.1...@wheelroom/boilerplate@2.5.2) (2020-04-27)
 
 **Note:** Version bump only for package @wheelroom/boilerplate
