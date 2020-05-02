@@ -30,6 +30,7 @@ import { TopicProps } from '../topic'
 const componentList = {
   ['block-wr']: PageSectionBlockVar,
   ['card-wr']: PageSectionCardVar,
+  ['divider-wr']: PageSectionDividerVar,
   ['featured-wr']: PageSectionFeaturedVar,
   ['gallery-wr']: PageSectionGalleryVar,
   ['headline-wr']: PageSectionHeadlineVar,
@@ -40,7 +41,6 @@ const componentList = {
   ['showcase-wr']: PageSectionShowcaseVar,
   ['text-wr']: PageSectionTextVar,
   ['video-wr']: PageSectionVideoVar,
-  ['divider-wr']: PageSectionDividerVar,
 }
 
 export interface PageSectionProps extends SectionProps {
