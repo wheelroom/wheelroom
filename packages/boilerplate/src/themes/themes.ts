@@ -92,6 +92,9 @@ const sectionStyleMap = {
 }
 
 export const getTheme = (activeThemeId: ThemeId): StyledSystemTheme => {
+  if (!activeThemeId) {
+    return themeMap.light
+  }
   return themeMap[activeThemeId]
 }
 
@@ -99,7 +102,7 @@ export const getWheel = (activeThemeId: ThemeId): Wheel => {
   return {
     style: undefined,
     elementStyles,
-    theme: themeMap[activeThemeId],
+    theme: getTheme(activeThemeId),
     styledSystemConfig,
   }
 }
