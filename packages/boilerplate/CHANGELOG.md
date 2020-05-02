@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.6.1...@wheelroom/boilerplate@2.7.0) (2020-05-02)
+
+
+### Bug Fixes
+
+* typescript warning ([69388dc](https://github.com/wheelroom/wheelroom/commit/69388dc))
+
+
+### Features
+
+* add hideThemeSwitchButton option to navigation ([53fda0c](https://github.com/wheelroom/wheelroom/commit/53fda0c))
+* add stars-to-bold parser ([0d5f93a](https://github.com/wheelroom/wheelroom/commit/0d5f93a))
+
+
+
+
+
 ## [2.6.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.6.0...@wheelroom/boilerplate@2.6.1) (2020-04-30)
 
 **Note:** Version bump only for package @wheelroom/boilerplate
