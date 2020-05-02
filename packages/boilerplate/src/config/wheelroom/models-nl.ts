@@ -440,6 +440,7 @@ export const models: WheelroomComponents = {
         items: [
           'block-wr',
           'card-wr',
+          'divider-wr',
           'featured-wr',
           'gallery-wr',
           'headline-wr',
