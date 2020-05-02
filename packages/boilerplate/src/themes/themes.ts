@@ -24,6 +24,7 @@ import { sectionImageStyle } from './yosemite/sections/section-image-style'
 import { sectionQuoteStyle } from './yosemite/sections/section-quote-style'
 import { sectionShowcaseStyle } from './yosemite/sections/section-showcase-style'
 import { sectionVideoStyle } from './yosemite/sections/section-video-style'
+import { StyledSystemTheme } from '../wheelroom/theme/types'
 
 export type sectionId =
   | 'block'
@@ -88,6 +89,10 @@ const sectionStyleMap = {
   video: {
     base: sectionVideoStyle,
   },
+}
+
+export const getTheme = (activeThemeId: ThemeId): StyledSystemTheme => {
+  return themeMap[activeThemeId]
 }
 
 export const getWheel = (activeThemeId: ThemeId): Wheel => {

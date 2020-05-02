@@ -13,9 +13,9 @@ import {
 import { classicGlobalReset } from './wheelroom/global/classic-global-reset'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { yosemiteDark } from './themes/yosemite/yosemite-dark'
-import { yosemiteLight } from './themes/yosemite/yosemite-light'
 import { htmlReset } from './wheelroom/global/html-reset'
+import { getTheme } from './themes/themes'
+import { ThemeId } from './admin-resources/theme-info'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -30,7 +30,7 @@ const PageTemplate = (props: any) => {
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
-  const activeThemeId = themeSwitcherStore?.state.activeThemeId
+  const activeThemeId = themeSwitcherStore?.state.activeThemeId as ThemeId
 
   pageDebug('PageTemplate', props)
   if (!page.sections) {
@@ -70,10 +70,7 @@ const PageTemplate = (props: any) => {
     siteVersion,
   }
   // Set theme background color
-  const backgroundColor =
-    activeThemeId === 'light'
-      ? yosemiteLight.colorMap.sectionBg
-      : yosemiteDark.colorMap.sectionBg
+  const backgroundColor = getTheme(activeThemeId).colorMap.sectionBg
 
   return (
     <Fragment>
