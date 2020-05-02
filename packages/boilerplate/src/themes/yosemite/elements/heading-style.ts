@@ -1,14 +1,16 @@
 export const headingStyle = {
   ncss: {
-    mt: 0,
+    fontFamily: 'heading',
     mb: 3,
+    mt: 0,
   },
 }
 
 export const headingTextStyle = {
   ncss: {
     display: 'inline-block',
-    w: 1,
+    fontFamily: 'heading',
     mt: 3,
+    w: 1,
   },
 }
