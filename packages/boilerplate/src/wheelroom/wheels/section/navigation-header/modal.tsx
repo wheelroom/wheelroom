@@ -18,11 +18,12 @@ export const Modal = (props: {
   action: ActionProps
   activeThemeId?: string
   closeMenu: () => void
+  hideThemeSwitchButton?: boolean
   menuVisible: boolean
   pages: PageProps[]
   pageSectionInfo: PageSectionInfo
-  wheel: ModalWheel
   toggleTheme: () => void
+  wheel: ModalWheel
 }) => {
   return (
     <Box
@@ -90,6 +91,7 @@ export const Modal = (props: {
         <NavHeaderActions
           action={props.action}
           activeThemeId={props.activeThemeId}
+          hideThemeSwitchButton={props.hideThemeSwitchButton}
           pageSectionInfo={props.pageSectionInfo}
           toggleTheme={props.toggleTheme}
           wheel={{

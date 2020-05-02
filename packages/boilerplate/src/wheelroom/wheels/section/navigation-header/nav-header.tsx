@@ -124,6 +124,7 @@ export const PageSectionNavigationHeader = (props: {
               action={action}
               activeThemeId={activeThemeId}
               closeMenu={closeMenu}
+              hideThemeSwitchButton={props.hideThemeSwitchButton}
               menuVisible={menuVisible}
               pages={navSegment.pages}
               pageSectionInfo={pageSectionInfo}
