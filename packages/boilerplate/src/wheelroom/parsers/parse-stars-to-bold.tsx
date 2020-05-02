@@ -9,9 +9,8 @@
  */
 
 import React from 'react'
-import { Paragraph } from '../wheels/element/paragraph'
 import { ParserProps } from './types'
-import { Heading, HeadingMap } from '../wheels/element/heading'
+import { Any } from '../wheels/element/any'
 
 const replaceStars = (children: React.ReactNode) => {
   const result: any = []
@@ -40,14 +39,21 @@ const replaceStars = (children: React.ReactNode) => {
   return result
 }
 
-export const ParseStarsToBold = (props: ParserProps): JSX.Element => {
-  let Element = Paragraph
-  if (Object.keys(HeadingMap).includes(props.is)) {
-    Element = Heading
-  }
+export const hasStar = (children: React.ReactNode) => {
+  const childArray = React.Children.toArray(children)
   return (
-    <Element is={props.is} wheel={props.wheel}>
+    childArray &&
+    Array.isArray(childArray) &&
+    childArray.length > 0 &&
+    typeof childArray[0] === 'string' &&
+    childArray[0].indexOf('*') >= 0
+  )
+}
+
+export const ParseStarsToBold = (props: ParserProps): JSX.Element => {
+  return (
+    <Any is={props.is} polyPreset={true} wheel={props.wheel}>
       {replaceStars(props.children)}
-    </Element>
+    </Any>
   )
 }
