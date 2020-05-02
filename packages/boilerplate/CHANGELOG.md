@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.7.0...@wheelroom/boilerplate@2.7.1) (2020-05-02)
+
+
+### Bug Fixes
+
+* activeThemeId can be undefined ([1bc46a5](https://github.com/wheelroom/wheelroom/commit/1bc46a5))
+
+
+
+
+
 # [2.7.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.6.1...@wheelroom/boilerplate@2.7.0) (2020-05-02)
 
 
