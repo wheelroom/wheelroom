@@ -14,6 +14,7 @@ interface NavActionsWheel extends Wheel {
 export const NavHeaderActions = (props: {
   action: ActionProps
   activeThemeId?: string
+  hideThemeSwitchButton?: boolean
   pageSectionInfo: PageSectionInfo
   toggleTheme: () => void
   wheel: NavActionsWheel
@@ -26,16 +27,18 @@ export const NavHeaderActions = (props: {
           wheel={{ ...props.wheel, style: props.wheel.style.action }}
         />
       )}
-      <Button
-        type="button"
-        title={`Current theme is ` + props.activeThemeId}
-        ariaLabel={`Current theme is ` + props.activeThemeId}
-        value=""
-        onClick={() => props.toggleTheme()}
-        wheel={{ ...props.wheel, style: props.wheel.style.themeButton }}
-      >
-        {props.activeThemeId}
-      </Button>
+      {!props.hideThemeSwitchButton && (
+        <Button
+          type="button"
+          title={`Current theme is ` + props.activeThemeId}
+          ariaLabel={`Current theme is ` + props.activeThemeId}
+          value=""
+          onClick={() => props.toggleTheme()}
+          wheel={{ ...props.wheel, style: props.wheel.style.themeButton }}
+        >
+          {props.activeThemeId}
+        </Button>
+      )}
     </Flex>
   )
 }

@@ -19,9 +19,10 @@ interface PageSectionNavigationHeaderWheel extends Wheel {
 }
 
 export const PageSectionNavigationHeader = (props: {
+  containerStyle: 'container' | 'fluid'
+  hideThemeSwitchButton?: boolean
   pageSection: PageSectionProps
   useLogoElement?: JSX.Element
-  containerStyle: 'container' | 'fluid'
   wheel: PageSectionNavigationHeaderWheel
 }) => {
   // Theme switcher admin module
@@ -89,6 +90,7 @@ export const PageSectionNavigationHeader = (props: {
             <NavHeaderActions
               action={action}
               activeThemeId={activeThemeId}
+              hideThemeSwitchButton={props.hideThemeSwitchButton}
               pageSectionInfo={pageSectionInfo}
               toggleTheme={toggleTheme}
               wheel={{

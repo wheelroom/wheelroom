@@ -39,6 +39,7 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
   if (pageSectionInfo.hasNavigation && pageSectionInfo.index < 2) {
     return (
       <PageSectionNavigationHeader
+        hideThemeSwitchButton={false}
         pageSection={props}
         wheel={wheelHeader}
         containerStyle="container"
