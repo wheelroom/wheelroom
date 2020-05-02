@@ -1,6 +1,8 @@
 import { ThemeInfo } from '@wheelroom/admin-theme-switcher'
 import { PageProps } from '../models/page/page'
 
+export type ThemeId = 'light' | 'dark'
+
 export const themeInfo = (props: any): ThemeInfo => {
   const isServer = typeof window === 'undefined'
   const supportsDarkMode =

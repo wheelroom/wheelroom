@@ -7,52 +7,35 @@
  */
 
 import React from 'react'
-import { elementStyles } from '../../themes/yosemite/elements/element-styles'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { getWheel, getSectionStyle } from '../../themes/themes'
 import { navFooterPreset } from '../../wheelroom/wheels/section/navigation-footer/presets/nav-footer-preset'
 import { navHeaderPreset } from '../../wheelroom/wheels/section/navigation-header/presets/nav-header-preset'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionNavigationFooter } from '../../wheelroom/wheels/section/navigation-footer/nav-footer'
 import { PageSectionNavigationHeader } from '../../wheelroom/wheels/section/navigation-header/nav-header'
 import { PageSectionProps } from './page-section'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system/styled-system-config'
-import { Wheel } from '../../wheelroom/wheels/types'
-import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
-import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { navHeaderStyle } from '../../themes/yosemite/sections/nav-header-style'
+import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
-import { navFooterStyle } from '../../themes/yosemite/sections/nav-footer-style'
+import { Wheel } from '../../wheelroom/wheels/types'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const headerStyle = deepMerge([
+  const wheelHeader: Wheel = getWheel(props.activeThemeId as ThemeId)
+  wheelHeader.style = deepMerge([
     { topic: topicPreset },
     navHeaderPreset,
-    navHeaderStyle,
+    getSectionStyle('navigation').header,
   ])
 
-  const wheelHeader: Wheel = {
-    style: headerStyle,
-    elementStyles,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
-    styledSystemConfig,
-  }
-
-  const footerStyle = deepMerge([
+  const wheelFooter: Wheel = getWheel(props.activeThemeId as ThemeId)
+  wheelFooter.style = deepMerge([
     { topic: topicPreset },
     navFooterPreset,
-    navFooterStyle,
+    getSectionStyle('navigation').footer,
   ])
-
-  const wheelFooter: Wheel = {
-    style: footerStyle,
-    elementStyles,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
-    styledSystemConfig,
-  }
-
   if (pageSectionInfo.hasNavigation && pageSectionInfo.index < 2) {
     return (
       <PageSectionNavigationHeader

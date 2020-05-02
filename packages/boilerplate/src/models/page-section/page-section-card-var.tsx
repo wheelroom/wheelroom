@@ -7,48 +7,35 @@
  */
 
 import React from 'react'
-import { pageSectionCardPreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-card-preset'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { elementStyles } from '../../themes/yosemite/elements/element-styles'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { getWheel, getSectionStyle } from '../../themes/themes'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
+import { pageSectionCardPreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-card-preset'
 import { PageSectionProps } from './page-section'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-section-unicorn'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system/styled-system-config'
+import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
-import { Wheel } from '../../wheelroom/wheels/types'
-import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
-import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import {
-  pageSectionCardShadowStyle,
-  sectionCardStyle,
-} from '../../themes/yosemite/sections/section-card-style'
 import { TopicProps } from '../topic'
+import { Wheel } from '../../wheelroom/wheels/types'
 
 export const PageSectionCardVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge([
+  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
+  wheel.style = deepMerge([
     { topic: topicPreset },
     pageSectionCardPreset,
-    sectionCardStyle,
+    getSectionStyle('card').base,
   ])
 
-  const styleShadow = deepMerge([style, pageSectionCardShadowStyle])
-
-  const wheel: Wheel = {
-    style,
-    elementStyles,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
-    styledSystemConfig,
-  }
-
-  const wheelShadow: Wheel = {
-    style: styleShadow,
-    elementStyles,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
-    styledSystemConfig,
-  }
+  const wheelShadow: Wheel = getWheel(props.activeThemeId as ThemeId)
+  wheelShadow.style = deepMerge([
+    { topic: topicPreset },
+    pageSectionCardPreset,
+    getSectionStyle('card').base,
+    getSectionStyle('card').shadow,
+  ])
 
   if (pageSectionInfo.hasTopic) {
     const topicActionPresent =

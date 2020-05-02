@@ -8,47 +8,34 @@
 
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { elementStyles } from '../../themes/yosemite/elements/element-styles'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { getWheel, getSectionStyle } from '../../themes/themes'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { pageSectionFeaturedPreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-featured-preset'
 import { PageSectionProps } from './page-section'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-section-unicorn'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system/styled-system-config'
+import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
-import { Wheel } from '../../wheelroom/wheels/types'
-import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
-import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import {
-  sectionFeaturedReverseStyle,
-  sectionFeaturedStyle,
-} from '../../themes/yosemite/sections/section-featured-style'
 import { TopicProps } from '../topic'
+import { Wheel } from '../../wheelroom/wheels/types'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge([
+  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
+  wheel.style = deepMerge([
     { topic: topicPreset },
     pageSectionFeaturedPreset,
-    sectionFeaturedStyle,
+    getSectionStyle('featured').base,
   ])
 
-  const styleReverse = deepMerge([style, sectionFeaturedReverseStyle])
-
-  const wheel: Wheel = {
-    style,
-    elementStyles,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
-    styledSystemConfig,
-  }
-
-  const wheelReverse: Wheel = {
-    style: styleReverse,
-    elementStyles,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
-    styledSystemConfig,
-  }
+  const wheelReverse: Wheel = getWheel(props.activeThemeId as ThemeId)
+  wheelReverse.style = deepMerge([
+    { topic: topicPreset },
+    pageSectionFeaturedPreset,
+    getSectionStyle('featured').base,
+    getSectionStyle('featured').reversed,
+  ])
 
   if (pageSectionInfo.hasTopic) {
     const topicsPresent =

@@ -7,35 +7,26 @@
  */
 
 import React from 'react'
-import { elementStyles } from '../../themes/yosemite/elements/element-styles'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { getWheel, getSectionStyle } from '../../themes/themes'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionFreestyle } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle'
 import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
 import { PageSectionProps } from './page-section'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system/styled-system-config'
-import { Wheel } from '../../wheelroom/wheels/types'
-import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
-import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { deepMerge } from '../../wheelroom/lib/deep-merge'
+import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
-import { pageSectionFreestyleStyle } from '../../themes/yosemite/sections/section-text-style'
+import { Wheel } from '../../wheelroom/wheels/types'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge([
+  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
+  wheel.style = deepMerge([
     { topic: topicPreset },
     pageSectionFreestylePreset,
-    pageSectionFreestyleStyle,
+    getSectionStyle('text').base,
   ])
-
-  const wheel: Wheel = {
-    style,
-    elementStyles,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
-    styledSystemConfig,
-  }
 
   if (pageSectionInfo.hasText) {
     return (

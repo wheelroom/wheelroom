@@ -7,22 +7,15 @@
  */
 
 import React from 'react'
-import { elementStyles } from '../../themes/yosemite/elements/element-styles'
-import { PageSectionProps } from '.'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system/styled-system-config'
-import { Wheel } from '../../wheelroom/wheels/types'
-import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
-import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { sectionDividerStyle } from '../../themes/yosemite/sections/section-divider-style'
+import { getWheel, getSectionStyle } from '../../themes/themes'
 import { Hr } from '../../wheelroom/wheels/element/self'
+import { PageSectionProps } from '.'
+import { ThemeId } from '../../admin-resources/theme-info'
+import { Wheel } from '../../wheelroom/wheels/types'
 
 export const PageSectionDividerVar = (props: PageSectionProps) => {
-  const wheel: Wheel = {
-    style: sectionDividerStyle,
-    elementStyles,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
-    styledSystemConfig,
-  }
+  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
+  wheel.style = getSectionStyle('divider').base
 
   return <Hr wheel={wheel} />
 }

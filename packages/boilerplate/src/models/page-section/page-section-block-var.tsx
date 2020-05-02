@@ -8,34 +8,25 @@
 
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { elementStyles } from '../../themes/yosemite/elements/element-styles'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { getWheel, getSectionStyle } from '../../themes/themes'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { pageSectionBlockPreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-block-preset'
 import { PageSectionProps } from './page-section'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-section-unicorn'
-import { styledSystemConfig } from '../../themes/yosemite/styled-system/styled-system-config'
+import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
-import { yosemiteDark } from '../../themes/yosemite/yosemite-dark'
-import { yosemiteLight } from '../../themes/yosemite/yosemite-light'
-import { sectionBlockStyle } from '../../themes/yosemite/sections/section-block-style'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
-  const style = deepMerge([
+  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
+  wheel.style = deepMerge([
     { topic: topicPreset },
     pageSectionBlockPreset,
-    sectionBlockStyle,
+    getSectionStyle('block').base,
   ])
-
-  const wheel: Wheel = {
-    style,
-    elementStyles,
-    theme: props.activeThemeId === 'light' ? yosemiteLight : yosemiteDark,
-    styledSystemConfig,
-  }
 
   if (pageSectionInfo.hasTopic) {
     return (
