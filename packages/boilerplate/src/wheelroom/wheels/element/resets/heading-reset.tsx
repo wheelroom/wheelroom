@@ -4,7 +4,7 @@ export interface HeadingElementStyle {
   ncss: NcssProps
 }
 
-export const headingPreset: HeadingElementStyle = {
+export const headingReset: HeadingElementStyle = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
@@ -19,39 +19,39 @@ export const heading1Reset: HeadingElementStyle = {
     fontSize: '2em',
     my: '0.67em',
     mx: '0',
-    ...headingPreset.ncss,
+    ...headingReset.ncss,
   },
 }
 
 export const heading2Reset: HeadingElementStyle = {
   ncss: {
-    ...headingPreset.ncss,
+    ...headingReset.ncss,
   },
 }
 
 export const heading3Reset: HeadingElementStyle = {
   ncss: {
-    ...headingPreset.ncss,
+    ...headingReset.ncss,
   },
 }
 
 export const heading4Reset: HeadingElementStyle = {
   ncss: {
-    ...headingPreset.ncss,
+    ...headingReset.ncss,
   },
 }
 
 export const heading5Reset: HeadingElementStyle = {
   ncss: {
-    ...headingPreset.ncss,
+    ...headingReset.ncss,
   },
 }
 
 export const heading6Reset: HeadingElementStyle = {
-  ...headingPreset.ncss,
+  ...headingReset.ncss,
 }
 
-export const headingPresets = {
+export const headingResets = {
   h1: heading1Reset,
   h2: heading2Reset,
   h3: heading3Reset,

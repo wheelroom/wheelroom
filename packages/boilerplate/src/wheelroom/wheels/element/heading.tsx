@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { BlockLevelElementName, HeadingName } from './types/element-names'
 import { styledSystem } from '@wheelroom/styled-system'
-import { headingPresets } from './resets/heading-reset'
+import { headingResets } from './resets/heading-reset'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
 
@@ -15,9 +15,9 @@ export interface HeadingProps extends ElementProps {
 const getPreset = (props: HeadingProps) => {
   let preset = { ncss: {} }
   const is = props.is || 'h1'
-  if (Object.keys(headingPresets).includes(is)) {
+  if (Object.keys(headingResets).includes(is)) {
     preset = mergeNcss([
-      headingPresets[is as HeadingName],
+      headingResets[is as HeadingName],
       props.wheel.elementStyles[is as HeadingName],
     ])
   }
