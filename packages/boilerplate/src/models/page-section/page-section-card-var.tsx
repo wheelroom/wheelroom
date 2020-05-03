@@ -39,6 +39,7 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
 
   if (pageSectionInfo.hasTopic) {
     const topicActionPresent =
+      !pageSectionInfo.topicOptions.hideAction &&
       props.topics.filter((topic: TopicProps) => topic.actions).length > 0
     return (
       <PageSectionUnicorn
