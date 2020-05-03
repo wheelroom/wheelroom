@@ -9,7 +9,7 @@ import React from 'react'
 import { ParserProps } from './types'
 import { Any } from '../wheels/element/any'
 
-const replaceNewlines = (children: React.ReactNode) => {
+export const replaceNewlines = (children: React.ReactNode) => {
   const result: any = []
   React.Children.forEach(children, (child: any) => {
     if (child && typeof child === 'string') {

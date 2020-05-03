@@ -11,8 +11,9 @@
 import React from 'react'
 import { ParserProps } from './types'
 import { Any } from '../wheels/element/any'
+import { replaceNewlines } from './parse-new-lines'
 
-const replaceStars = (children: React.ReactNode) => {
+export const replaceStars = (children: React.ReactNode) => {
   const result: any = []
   React.Children.forEach(children, (child) => {
     if (child && typeof child === 'string') {
@@ -53,7 +54,7 @@ export const hasStar = (children: React.ReactNode) => {
 export const ParseStarsToBold = (props: ParserProps): JSX.Element => {
   return (
     <Any is={props.is} polyPreset={true} wheel={props.wheel}>
-      {replaceStars(props.children)}
+      {replaceStars(replaceNewlines(props.children))}
     </Any>
   )
 }
