@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.7.1...@wheelroom/boilerplate@2.7.2) (2020-05-05)
+
+
+### Bug Fixes
+
+* bold parser new lines ([250ac36](https://github.com/wheelroom/wheelroom/commit/250ac362324436355a8b1b590e5c87d546aea437))
+* hide theme swtich button in modal ([ddd46fd](https://github.com/wheelroom/wheelroom/commit/ddd46fd6529010ce34a07afb27aae51074d0a751))
+* hover with hideAction ([72311e6](https://github.com/wheelroom/wheelroom/commit/72311e6cd6c49c9c73743fb1e676dc33d24e7189))
+* svgr config file not used ([c866878](https://github.com/wheelroom/wheelroom/commit/c866878e812d57dc50b74f205a5329d4115eef79))
+
+
+
+
+
 ## [2.7.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.7.0...@wheelroom/boilerplate@2.7.1) (2020-05-02)
 
 
