@@ -57,7 +57,7 @@ Add the property `initialContent` to each field of your model. An entry with the
 initial content for each field will be created when you run:
 
 ```bash
-npm run wr -- create-content --filter newComponent
+npm run wr:cc -- --filter newComponent
 ```
 
 ### 3. Create a content set
