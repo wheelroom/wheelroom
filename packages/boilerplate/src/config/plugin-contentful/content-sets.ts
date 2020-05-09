@@ -83,7 +83,7 @@ export const contentSets: ContentSets = {
     siteHeader: {
       fields: {
         variation: 'navigation-wr',
-        navigation: 'headerNavigation',
+        navigation: ['headerNavigation'],
         title: 'Site header (navigation)',
         actions: ['getStartedAction'],
       },
@@ -92,7 +92,7 @@ export const contentSets: ContentSets = {
     siteFooter: {
       fields: {
         variation: 'navigation-wr',
-        navigation: 'footerNavigation',
+        navigation: ['footerNavigation'],
         topics: ['githubProfileTopic'],
         title: 'Site footer (navigation)',
       },
@@ -373,7 +373,7 @@ Everything we produce is open source. Every time we write code, we get to share 
     siteHeader: {
       fields: {
         variation: 'navigation-wr',
-        navigation: 'headerNavigation',
+        navigation: ['headerNavigation'],
         title: 'Site header (navigation)',
         actions: ['getStartedAction'],
       },
@@ -382,7 +382,7 @@ Everything we produce is open source. Every time we write code, we get to share 
     siteFooter: {
       fields: {
         variation: 'navigation-wr',
-        navigation: 'footerNavigation',
+        navigation: ['footerNavigation'],
         topics: ['githubProfileTopic'],
         title: 'Site footer (navigation)',
       },
