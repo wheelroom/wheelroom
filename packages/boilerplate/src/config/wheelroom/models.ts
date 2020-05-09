@@ -1,5 +1,6 @@
 import {
   CheckboxField,
+  DateField,
   DropdownField,
   LongTextField,
   MediaField,
@@ -13,6 +14,71 @@ import {
 import { featherIcons } from './feather-icons'
 
 export const models: WheelroomComponents = {
+  embed: {
+    fields: {
+      code: {
+        type: 'longText',
+      } as LongTextField,
+    },
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  media: {
+    fields: {
+      image: {
+        type: 'media',
+        typePostfix: 'Image',
+      } as MediaField,
+      video: {
+        type: 'media',
+        typePostfix: 'Video',
+      } as MediaField,
+      breakpointImageSmall: {
+        type: 'media',
+        typePostfix: 'Image',
+      } as MediaField,
+      breakpointImageMedium: {
+        type: 'media',
+        typePostfix: 'Image',
+      } as MediaField,
+      breakpointImageLarge: {
+        type: 'media',
+        typePostfix: 'Image',
+      } as MediaField,
+      breakpointImageExtraLarge: {
+        type: 'media',
+        typePostfix: 'Image',
+      } as MediaField,
+      breakpointVideoSmall: {
+        type: 'media',
+        typePostfix: 'Video',
+      } as MediaField,
+      breakpointVideoMedium: {
+        type: 'media',
+        typePostfix: 'Video',
+      } as MediaField,
+      breakpointVideoLarge: {
+        type: 'media',
+        typePostfix: 'Video',
+      } as MediaField,
+      breakpointVideoXLarge: {
+        type: 'media',
+        typePostfix: 'Video',
+      } as MediaField,
+      embed: {
+        allowedComponents: ['embed'],
+        type: 'singleComponent',
+      } as SingleComponentField,
+    },
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
   topic: {
     fields: {
       heading: {
@@ -39,6 +105,68 @@ export const models: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
+  topicTable: {
+    fields: {
+      heading: {
+        type: 'shortText',
+      } as ShortTextField,
+      abstract: {
+        type: 'longText',
+      } as LongTextField,
+      media: {
+        allowedComponents: ['media'],
+        type: 'singleComponent',
+      } as SingleComponentField,
+      icon: {
+        items: featherIcons,
+        type: 'dropdown',
+      } as DropdownField,
+      actions: {
+        allowedComponents: ['action'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      rows: {
+        allowedComponents: ['topicRow'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+    },
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
+  topicRow: {
+    fields: {
+      heading: {
+        type: 'shortText',
+      } as ShortTextField,
+      abstract: {
+        type: 'longText',
+      } as LongTextField,
+      media: {
+        allowedComponents: ['media'],
+        type: 'singleComponent',
+      } as SingleComponentField,
+      icon: {
+        items: featherIcons,
+        type: 'dropdown',
+      } as DropdownField,
+      actions: {
+        allowedComponents: ['action'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      topics: {
+        allowedComponents: ['topic'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+    },
+    settings: {
+      asBoilerplate: true,
+      asFragment: true,
+    },
+    modelVersion: '1.0.0',
+  },
   action: {
     fields: {
       heading: {
@@ -47,6 +175,10 @@ export const models: WheelroomComponents = {
       description: {
         type: 'shortText',
       } as ShortTextField,
+      icon: {
+        items: featherIcons,
+        type: 'dropdown',
+      } as DropdownField,
       page: {
         allowedComponents: ['page'],
         // Limit expanding pages, prevent circ refs
@@ -57,6 +189,19 @@ export const models: WheelroomComponents = {
         initialContent: 'https://localhost:8000',
         type: 'shortText',
         typePostfix: 'Url',
+      } as ShortTextField,
+      anchor: {
+        helpText: 'Example: #anchor',
+        type: 'shortText',
+      } as ShortTextField,
+      query: {
+        helpText: 'Example: ?q=50&w=100',
+        type: 'shortText',
+      } as ShortTextField,
+      data: {
+        initialContent: '',
+        type: 'shortText',
+        typePostfix: 'JSON',
       } as ShortTextField,
     },
     settings: {
@@ -207,11 +352,62 @@ export const models: WheelroomComponents = {
       seoImage: {
         type: 'media',
       } as MediaField,
+      seoKeywords: {
+        type: 'tags',
+      } as TagsField,
+      embeds: {
+        allowedComponents: ['embed'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
     },
     modelVersion: '1.0.0',
     settings: {
       asFragment: true,
       asQuery: 'page',
+    },
+  },
+  blog: {
+    fields: {
+      slug: {
+        initialContent: 'initial-slug-content',
+        required: true,
+        type: 'shortText',
+        typePostfix: 'Slug',
+        unique: true,
+      } as ShortTextField,
+      navigationHeading: {
+        type: 'shortText',
+      } as ShortTextField,
+      date: {
+        helpText: 'Override Contentful publish date',
+        type: 'date',
+      } as DateField,
+      text: {
+        required: true,
+        type: 'richText',
+      } as RichTextField,
+      profile: {
+        allowedComponents: ['topic'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      seoTitle: {
+        type: 'shortText',
+      } as ShortTextField,
+      seoDescription: {
+        maxLength: 155,
+        type: 'shortText',
+      } as ShortTextField,
+      seoImage: {
+        type: 'media',
+      } as MediaField,
+      seoKeywords: {
+        type: 'tags',
+      } as TagsField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asQuery: 'subPage',
     },
   },
   globals: {
@@ -228,6 +424,10 @@ export const models: WheelroomComponents = {
       siteKeywords: {
         type: 'tags',
       } as TagsField,
+      siteEmbeds: {
+        allowedComponents: ['embed'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
     },
     modelVersion: '1.0.0',
     settings: {
