@@ -35,38 +35,47 @@ export const models: WheelroomComponents = {
       video: {
         type: 'media',
         typePostfix: 'Video',
+        initialContent: false,
       } as MediaField,
       breakpointImageSmall: {
         type: 'media',
         typePostfix: 'Image',
+        initialContent: false,
       } as MediaField,
       breakpointImageMedium: {
         type: 'media',
         typePostfix: 'Image',
+        initialContent: false,
       } as MediaField,
       breakpointImageLarge: {
         type: 'media',
         typePostfix: 'Image',
+        initialContent: false,
       } as MediaField,
       breakpointImageExtraLarge: {
         type: 'media',
         typePostfix: 'Image',
+        initialContent: false,
       } as MediaField,
       breakpointVideoSmall: {
         type: 'media',
         typePostfix: 'Video',
+        initialContent: false,
       } as MediaField,
       breakpointVideoMedium: {
         type: 'media',
         typePostfix: 'Video',
+        initialContent: false,
       } as MediaField,
       breakpointVideoLarge: {
         type: 'media',
         typePostfix: 'Video',
+        initialContent: false,
       } as MediaField,
       breakpointVideoXLarge: {
         type: 'media',
         typePostfix: 'Video',
+        initialContent: false,
       } as MediaField,
       embed: {
         allowedComponents: ['embed'],
@@ -88,8 +97,9 @@ export const models: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       media: {
-        type: 'media',
-      } as MediaField,
+        allowedComponents: ['media'],
+        type: 'singleComponent',
+      } as SingleComponentField,
       icon: {
         items: featherIcons,
         type: 'dropdown',
