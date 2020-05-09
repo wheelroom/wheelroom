@@ -366,7 +366,7 @@ interface PageSectionModel {
       | 'Reversed order'
     >
     text?: string
-    navigation?: string
+    navigation?: Array<'headerNavigation' | 'footerNavigation'>
     actions?: Array<
       'brandAction' | 'exampleAction' | 'githubAction' | 'getStartedAction'
     >
