@@ -13,7 +13,7 @@ export const getLandmark = (
   ) {
     return 'header'
   }
-  if (info.index === sectionCount - 1 && info.hasNavigation) {
+  if (info.index === sectionCount - 1 && info.hasNavigationSegment) {
     return 'footer'
   }
 

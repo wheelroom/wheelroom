@@ -4,15 +4,15 @@ import { TopicOptions, getTopicOptions } from './get-topic-options'
 export interface PageSectionInfo {
   actionCount: number
   hasAction: boolean
-  hasNavigation: boolean
+  hasNavigationSegment: boolean
   hasText: boolean
   hasTopic: boolean
-  topicOptions: TopicOptions
   index: number
-  navigationSegmentCount: number
+  navigationCount: number
   path: string
   sectionCount: number
   topicCount: number
+  topicOptions: TopicOptions
   variation: string
 }
 
@@ -23,11 +23,11 @@ export const getPageSectionInfo = (
   const info = {
     actionCount: 0,
     hasAction: false,
-    hasNavigation: false,
+    hasNavigationSegment: false,
     hasText: false,
     hasTopic: false,
     index: pageSection.index,
-    navigationSegmentCount: 0,
+    navigationCount: 0,
     path: pageSection.page.path,
     sectionCount: pageSection.page.sections.length,
     topicCount: 0,
@@ -60,11 +60,13 @@ export const getPageSectionInfo = (
   }
   if (
     pageSection.navigation &&
-    Array.isArray(pageSection.navigation.segments) &&
-    pageSection.navigation.segments.length > 0
+    Array.isArray(pageSection.navigation) &&
+    pageSection.navigation.length > 0 &&
+    Array.isArray(pageSection.navigation[0].segments) &&
+    pageSection.navigation[0].segments.length > 0
   ) {
-    info.hasNavigation = true
-    info.navigationSegmentCount = pageSection.navigation.segments.length
+    info.hasNavigationSegment = true
+    info.navigationCount = pageSection.navigation.length
   }
   return info
 }

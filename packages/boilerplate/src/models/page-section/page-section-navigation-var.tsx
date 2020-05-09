@@ -36,19 +36,19 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     navFooterPreset,
     getSectionStyle('navigation').footer,
   ])
-  if (pageSectionInfo.hasNavigation && pageSectionInfo.index < 2) {
+  if (pageSectionInfo.hasNavigationSegment && pageSectionInfo.index < 2) {
     return (
       <PageSectionNavigationHeader
         hideThemeSwitchButton={false}
         pageSection={props}
         wheel={wheelHeader}
         containerStyle="container"
-        ///useLogoElement={<SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheelHeader} />}
+        //useLogoElement={<SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheelHeader} />}
       />
     )
   }
   if (
-    pageSectionInfo.hasNavigation &&
+    pageSectionInfo.hasNavigationSegment &&
     pageSectionInfo.index > pageSectionInfo.sectionCount - 2
   ) {
     return (

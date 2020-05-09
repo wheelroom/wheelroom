@@ -19,14 +19,14 @@ export const PageSectionNavigationFooter = (props: {
   containerStyle: 'container' | 'fluid'
 }) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
-  if (!pageSectionInfo.hasNavigation) {
+  if (!pageSectionInfo.hasNavigationSegment) {
     return null
   }
 
-  if (!pageSectionInfo.hasNavigation) {
+  if (!pageSectionInfo.hasNavigationSegment) {
     return null
   }
-  const navSegment = props.pageSection.navigation
+  const navSegment = props.pageSection.navigation[0]
     .segments[0] as NavigationSegmentProps
   const siteMetadata = props.pageSection.siteMetadata
 

@@ -47,7 +47,7 @@ export interface PageSectionProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
   actions: ActionProps[]
-  navigation: NavigationProps
+  navigation: NavigationProps[]
   text: TextProps
   title: string
   topicOptions: TopicOptionString[]

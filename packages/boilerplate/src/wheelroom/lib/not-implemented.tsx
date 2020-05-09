@@ -31,9 +31,9 @@ export const NotImplemented = (props: {
         <br />
         actionCount: {info.actionCount}
         <br />
-        hasNavigation: {yesNo(info.hasNavigation)}
+        hasNavigationSegment: {yesNo(info.hasNavigationSegment)}
         <br />
-        navigationSegmentCount: {info.navigationSegmentCount}
+        navigationCount: {info.navigationCount}
         <br />
         path: {info.path}
         <br />

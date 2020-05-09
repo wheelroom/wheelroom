@@ -36,11 +36,11 @@ export const PageSectionNavigationHeader = (props: {
   const action = props.pageSection.actions && props.pageSection.actions[0]
 
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
-  if (!pageSectionInfo.hasNavigation) {
+  if (!pageSectionInfo.hasNavigationSegment) {
     return null
   }
   const globals = props.pageSection.globals
-  const navigation = props.pageSection.navigation
+  const navigation = props.pageSection.navigation[0]
   const navSegment = navigation.segments[0] as NavigationSegmentProps
 
   const toggleTheme = () => {
