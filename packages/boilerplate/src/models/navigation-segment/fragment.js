@@ -16,14 +16,10 @@ fragment NavigationSegment on ContentfulNavigationSegment {
   __typename
   title
   heading
-  pages {
-    __typename
-    title
-    path
-    navigationHeading
-    theme
-    seoTitle
-    seoDescription
+  actions {
+    ... on Node {
+      ...Action
+    }
   }
 }
 `
