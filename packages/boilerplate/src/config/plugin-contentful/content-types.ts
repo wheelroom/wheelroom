@@ -306,13 +306,13 @@ interface ActionModel {
 interface NavigationSegmentModel {
   fields: {
     heading?: string
-    pages?: Array<
-      | 'homePage'
-      | 'examplesPage'
-      | 'documentationPage'
-      | 'freeForEveryonePage'
-      | 'nonProfitPage'
-      | 'openSourcePage'
+    actions?: Array<
+      | 'homeAction'
+      | 'freeForEveryoneAction'
+      | 'nonprofitAction'
+      | 'openSourceAction'
+      | 'examplesAction'
+      | 'documentationAction'
     >
     title: string
   }

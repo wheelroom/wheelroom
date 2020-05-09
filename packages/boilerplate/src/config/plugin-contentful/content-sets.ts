@@ -26,7 +26,6 @@ export const contentSets: ContentSets = {
     homePage: {
       fields: {
         path: '/',
-        navigationHeading: 'Home',
         sections: ['siteHeader', 'starterHero', 'starterBlock', 'siteFooter'],
         seoTitle: 'The world’s fastest boilerplate for building applications',
         seoDescription:
@@ -39,7 +38,6 @@ export const contentSets: ContentSets = {
     openSourcePage: {
       fields: {
         path: '/open-source',
-        navigationHeading: 'Open source',
         sections: ['siteHeader', 'starterFeatured', 'siteFooter'],
         seoTitle: 'Open source',
         seoDescription:
@@ -49,10 +47,9 @@ export const contentSets: ContentSets = {
       },
       model: 'page',
     },
-    nonProfitPage: {
+    nonprofitPage: {
       fields: {
         path: '/nonprofit',
-        navigationHeading: 'Nonprofit',
         sections: [
           'siteHeader',
           'starterHeadline',
@@ -70,7 +67,6 @@ export const contentSets: ContentSets = {
     freeForEveryonePage: {
       fields: {
         path: '/free-for-everyone',
-        navigationHeading: 'Free for everyone',
         sections: ['siteHeader', 'starterCard', 'starterQuote', 'siteFooter'],
         seoTitle: 'Free for everyone',
         seoDescription:
@@ -267,13 +263,49 @@ Everything we produce is open source. Every time we write code, we get to share 
       },
       model: 'action',
     },
+    homeAction: {
+      fields: {
+        heading: 'Home',
+        description: 'Go to Wheelroom homepage',
+        page: 'homePage',
+        title: 'Home (action)',
+      },
+      model: 'action',
+    },
+    openSourceAction: {
+      fields: {
+        heading: 'Open source',
+        description: 'Wheelroom is an open source boilerplate',
+        page: 'openSourcePage',
+        title: 'Open source (action)',
+      },
+      model: 'action',
+    },
+    nonprofitAction: {
+      fields: {
+        heading: 'Nonprofit',
+        description: 'Wheelroom is an independent nonprofit',
+        page: 'nonprofitPage',
+        title: 'Nonprofit (action)',
+      },
+      model: 'action',
+    },
+    freeForEveryoneAction: {
+      fields: {
+        heading: 'Free for everyone',
+        description: "We're working with users to build something sustainable",
+        page: 'freeForEveryonePage',
+        title: 'Free for everyone (action)',
+      },
+      model: 'action',
+    },
     headerNavigationSegment: {
       fields: {
-        pages: [
-          'homePage',
-          'freeForEveryonePage',
-          'nonProfitPage',
-          'openSourcePage',
+        actions: [
+          'homeAction',
+          'freeForEveryoneAction',
+          'nonprofitAction',
+          'openSourceAction',
         ],
         title: 'Header navigation (segment)',
       },
@@ -290,11 +322,11 @@ Everything we produce is open source. Every time we write code, we get to share 
     },
     footerNavigationSegment: {
       fields: {
-        pages: [
-          'homePage',
-          'freeForEveryonePage',
-          'nonProfitPage',
-          'openSourcePage',
+        actions: [
+          'homeAction',
+          'freeForEveryoneAction',
+          'nonprofitAction',
+          'openSourceAction',
         ],
         title: 'Footer navigation (segment)',
       },
@@ -323,7 +355,6 @@ Everything we produce is open source. Every time we write code, we get to share 
     homePage: {
       fields: {
         path: '/',
-        navigationHeading: 'Home',
         sections: ['siteHeader', 'homeHero', 'homeBlock', 'siteFooter'],
         seoTitle: 'The world’s fastest boilerplate for building applications',
         seoDescription:
@@ -336,7 +367,6 @@ Everything we produce is open source. Every time we write code, we get to share 
     examplesPage: {
       fields: {
         path: '/examples',
-        navigationHeading: 'Examples',
         sections: [
           'siteHeader',
           'exampleHeadline',
@@ -360,7 +390,6 @@ Everything we produce is open source. Every time we write code, we get to share 
     documentationPage: {
       fields: {
         path: '/documentation',
-        navigationHeading: 'Documentation',
         sections: ['siteHeader', 'exampleText', 'siteFooter'],
         seoTitle: 'Documentation',
         seoDescription:
@@ -627,9 +656,37 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       },
       model: 'action',
     },
+    homeAction: {
+      fields: {
+        heading: 'Home',
+        description:
+          'The world’s fastest boilerplate for building applications',
+        page: 'homePage',
+        title: 'Home (action)',
+      },
+      model: 'action',
+    },
+    documentationAction: {
+      fields: {
+        heading: 'Documentation',
+        description: 'Wheelroom connects your code base within 5 minutes',
+        page: 'documentationPage',
+        title: 'Documentation (action)',
+      },
+      model: 'action',
+    },
+    examplesAction: {
+      fields: {
+        heading: 'Examples',
+        description: 'Work with the latest technology and services',
+        page: 'examplesPage',
+        title: 'Examples (action)',
+      },
+      model: 'action',
+    },
     headerNavigationSegment: {
       fields: {
-        pages: ['homePage', 'examplesPage', 'documentationPage'],
+        actions: ['homeAction', 'examplesAction', 'documentationAction'],
         title: 'Header navigation (segment)',
       },
       model: 'navigationSegment',
@@ -645,7 +702,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
     },
     footerNavigationSegment: {
       fields: {
-        pages: ['homePage', 'examplesPage', 'documentationPage'],
+        actions: ['homeAction', 'examplesAction', 'documentationAction'],
         title: 'Footer navigation (segment)',
       },
       model: 'navigationSegment',
