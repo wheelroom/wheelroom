@@ -303,8 +303,8 @@ export const models: WheelroomComponents = {
       } as SingleComponentField,
       navigation: {
         allowedComponents: ['navigation'],
-        type: 'singleComponent',
-      } as SingleComponentField,
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
       actions: {
         allowedComponents: ['action'],
         type: 'multipleComponents',
