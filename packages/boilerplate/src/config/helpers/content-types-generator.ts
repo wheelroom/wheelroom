@@ -1,7 +1,9 @@
 /**
- * Generates this typescript file: src/config/plugin-contentful/content-types.ts
+ * Generates this typescript file: src/config/plugin-contentful/content-types-{CONTENT_SET}.ts
  *
  * How it works
+ *
+ * Set the CONTENT_SET name in the constant below
  *
  * The script imports the content set from ../plugin-contentful/content-sets
  * Next the script imports the models from ../wheelroom/config-models
@@ -21,17 +23,6 @@
  * invalid types are generated, the content set is invalid and the generator
  * cannot be used to fix the invalid types.
  *
- * In that case, edit content-sets.ts and replace this line:
- *
- * export const contentSets: ContentSets = {
- *
- * with this lien:
- *
- * export const contentSets: any = {
- *
- *
- * This turns off type checking so that you can compile a new content-types.ts.
- * Once done put back the original line.
  *
  */
 
@@ -44,7 +35,7 @@ import * as fse from 'fs-extra'
 import { contentSets } from '../plugin-contentful/content-sets'
 import { models } from '../wheelroom/models'
 
-const TEMPLATE_SET = 'starterSet'
+const CONTENT_SET = 'starter'
 
 type TypeTable = Record<FieldTypeName, string>
 
@@ -65,7 +56,7 @@ const wheelroomTypeToTsType: TypeTable = {
 const getAllowedComponentIds = (field: FieldType, limitResults: string[]) => {
   // Limit values to defined models that fit allowedComponents
   if (field.type === 'singleComponent' || field.type === 'multipleComponents') {
-    Object.entries(contentSets[TEMPLATE_SET]).forEach(
+    Object.entries(contentSets[CONTENT_SET]).forEach(
       ([componentId, compInstance]: [string, any]) => {
         if (field.allowedComponents.includes(compInstance.model)) {
           limitResults.push(`'${componentId}'`)
@@ -78,7 +69,7 @@ const getAllowedComponentIds = (field: FieldType, limitResults: string[]) => {
 const getPageSections = (field: FieldType, limitResults: string[]) => {
   // Limit values to defined models that have settings.asPageSection
   if (field.type === 'multipleComponents') {
-    Object.entries(contentSets[TEMPLATE_SET]).forEach(
+    Object.entries(contentSets[CONTENT_SET]).forEach(
       ([componentId, compInstance]: [string, any]) => {
         if (models[compInstance.model].settings.asPageSection) {
           limitResults.push(`'${componentId}'`)
@@ -162,4 +153,7 @@ export interface ContentTypes {
 }
 `
 
-fse.outputFile('src/config/plugin-contentful/content-types.ts', content)
+fse.outputFile(
+  `src/config/plugin-contentful/content-types-${CONTENT_SET}.ts`,
+  content
+)
