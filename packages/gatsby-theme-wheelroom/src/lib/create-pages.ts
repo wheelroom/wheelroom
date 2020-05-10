@@ -20,8 +20,9 @@ export const createPages = (context: CreatePages) => {
         const pathName = context.pathNames[page.path]
         const locale = page.node_locale || context.defaultLocale
         const localizedBasePath = context.namedPaths[pathName][locale]
-        const tokens = localizedBasePath.split('%')
-        if (tokens.length === 3) {
+        const tokens = localizedBasePath.split(':slug')
+        if (tokens.length > 1) {
+          // :slug was found
           return
         }
         console.log(`Creating page: ${localizedBasePath}`)

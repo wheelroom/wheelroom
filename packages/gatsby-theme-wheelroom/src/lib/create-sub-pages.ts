@@ -12,7 +12,7 @@ interface CreateSubPages {
 }
 
 export const createSubPages = (context: CreateSubPages) => {
-  console.log(`Creating sub pages`)
+  console.log('Creating sub pages')
   Object.entries(context.queryResults.page).forEach(
     ([componentName, pageEdge]: [string, ContentfulEdge[]]) => {
       pageEdge.forEach(edge => {
@@ -20,20 +20,23 @@ export const createSubPages = (context: CreateSubPages) => {
         const pathName = context.pathNames[page.path]
         const pageLocale = page.node_locale || context.defaultLocale
         const localizedBasePath = context.namedPaths[pathName][pageLocale]
-        // Build sub pages if we find a fieldname like %slug%
-        const tokens = localizedBasePath.split('%')
-        if (tokens.length !== 3) {
+        // Build sub pages if we find :slug in the path
+        const pathSplit = localizedBasePath.split(':slug')
+        if (pathSplit.length === 1) {
+          // :slug was not found
           return
         }
-        const templateVar = tokens[1]
-        tokens.splice(1, 1)
+        const subPageComponentName = pathSplit[0].split('/').join('')
 
         const pathsDone: string[] = []
-        context.queryResults.subPage[pathName].forEach(subPage => {
-          if (!subPage.node.node_locale) {
+        context.queryResults.subPage[subPageComponentName].forEach(subPage => {
+          if (!subPage.node.slug) {
             console.log(
-              `Using default locale for subPage ${subPage.node[templateVar]}`
+              `slug field not found in subPage with id ${subPage.node.id}`
             )
+          }
+          if (!subPage.node.node_locale) {
+            console.log(`Using default locale for subPage ${subPage.node.slug}`)
           }
           const subPageLocale =
             subPage.node.node_locale || context.defaultLocale
@@ -42,9 +45,9 @@ export const createSubPages = (context: CreateSubPages) => {
             return
           }
 
-          const subPageTokens = tokens.slice()
-          subPageTokens.push(subPage.node[templateVar])
-          const pagePath = subPageTokens.join('')
+          const pagePath = [pathSplit[0], subPage.node.slug, pathSplit[1]].join(
+            ''
+          )
           if (pathsDone.includes(pagePath)) {
             return
           }

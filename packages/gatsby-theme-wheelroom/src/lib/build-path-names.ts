@@ -8,11 +8,17 @@ interface BuildPathNames {
   defaultLocale: string
 }
 
-const pathToCamelCase = (path: string): string => {
+export const pathToCamelCase = (path: string): string => {
   if (path === '/') {
     return 'home'
   }
-  return camelcase(path.split('/').join('-'))
+  return camelcase(
+    path
+      .split('/')
+      .join('-')
+      .split(':')
+      .join('')
+  )
 }
 
 export const buildPathNames = (context: BuildPathNames): PathNames => {
@@ -35,11 +41,7 @@ export const buildPathNames = (context: BuildPathNames): PathNames => {
     const page = edge.node
     const defaultLocalePage =
       pagesByContentfulId[page.contentful_id][context.defaultLocale]
-    let pathName = pathToCamelCase(defaultLocalePage.path)
-    // If pathName attribute exists, use it
-    if (page.pathName) {
-      pathName = page.pathName
-    }
+    const pathName = pathToCamelCase(defaultLocalePage.path)
     if (!(page.path in pathNames)) {
       pathNames[page.path] = pathName
     }
