@@ -13,7 +13,7 @@ export const starter: ContentTypes = {
   },
   blogPage: {
     fields: {
-      path: '/blog/%slug%',
+      path: '/blog/:slug',
       sections: [
         'siteHeaderSection',
         'starterBlogSection',
@@ -22,7 +22,7 @@ export const starter: ContentTypes = {
       seoDescription: 'Blogs are here to stay',
       seoImage: true,
       seoTitle: 'Blog',
-      title: 'Blog template',
+      title: '/blog/:slug',
     },
     model: 'page',
   },
