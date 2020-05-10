@@ -2,6 +2,7 @@ import { NamedPaths } from 'gatsby-theme-wheelroom'
 import { GlobalsProps } from '../../models/globals'
 import { PageProps } from '../../models/page'
 import { SiteMetadata } from '../../page-template'
+import { BlogProps } from '../../models/blog/blog'
 
 /** These are suitable defaults, you probably want to add some props specific
  * for this project
@@ -19,4 +20,6 @@ export interface SectionProps {
   globals: GlobalsProps
   page: PageProps
   siteMetadata: SiteMetadata
+  blog: BlogProps
+  allBlog: BlogProps[]
 }

@@ -16,6 +16,7 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { htmlReset } from './wheelroom/global/html-reset'
 import { getTheme } from './themes/themes'
 import { ThemeId } from './admin-resources/theme-info'
+import { BlogProps } from './models/blog'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -38,19 +39,22 @@ const PageTemplate = (props: any) => {
   }
 
   const globals: GlobalsProps = props.data.globals
+  const blog: BlogProps = props.data.blog
+  const allBlog: BlogProps[] = props.data.allBlog
   const keywords = globals.siteKeywords
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const siteMetadata: SiteMetadata = props.data.site.siteMetadata
   const siteVersion = siteMetadata.siteVersion
   const sections = page.sections
-
   const sectionProps = {
     locale,
     namedPaths,
     activeThemeId,
 
     globals,
+    blog,
+    allBlog,
     page,
     siteMetadata,
 
@@ -93,7 +97,7 @@ const PageTemplate = (props: any) => {
 export default PageTemplate
 
 export const query = graphql`
-  query($pageId: String, $globalsId: String) {
+  query($pageId: String, $globalsId: String, $blogId: String) {
     site {
       siteMetadata {
         siteVersion
@@ -115,6 +119,20 @@ export const query = graphql`
     }
     globals: contentfulGlobals(id: { eq: $globalsId }) {
       ...Globals
+    }
+    blog: contentfulBlog(id: { eq: $blogId }) {
+      ...Blog
+    }
+    allBlog: allContentfulBlog(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: date, order: DESC }
+      limit: 10
+    ) {
+      edges {
+        node {
+          ...Blog
+        }
+      }
     }
   }
 `
