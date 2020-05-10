@@ -74,7 +74,7 @@
     "@types/yargs": "15.0.4",
     "@typescript-eslint/eslint-plugin": "2.31.0",
     "@typescript-eslint/parser": "2.31.0",
-    "conventional-changelog-cli": "2.0.31",
+    "conventional-changelog-cli": "2.0.34",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-loader": "4.0.2",
