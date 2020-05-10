@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.0.0...@wheelroom/boilerplate@3.0.1) (2020-05-10)
+
+
+### Bug Fixes
+
+* allow colon in url ([b4a849b](https://github.com/wheelroom/wheelroom/commit/b4a849b055754768ef1d790c0b94eb4f71734633))
+* change %slug% into :slug ([cf43a94](https://github.com/wheelroom/wheelroom/commit/cf43a9494e27a3522328c1e2c7fbb234569501d1))
+
+
+
+
+
 # [3.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.7.2...@wheelroom/boilerplate@3.0.0) (2020-05-10)
 
 

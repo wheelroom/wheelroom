@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@4.1.2...gatsby-theme-wheelroom@5.0.0) (2020-05-10)
+
+
+### Features
+
+* fixed :slug parameter for slug ([03ffc9a](https://github.com/wheelroom/wheelroom/commit/03ffc9abecfec1c4dde107559f5c84fcf246aa15))
+
+
+### BREAKING CHANGES
+
+* a subPage query requires a slug field to be present in the subPage model. The page template in the page query must use /modelname/:slug as path for this to work.
+
+
+
+
+
 ## [4.1.2](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@4.1.1...gatsby-theme-wheelroom@4.1.2) (2020-04-30)
 
 **Note:** Version bump only for package gatsby-theme-wheelroom
