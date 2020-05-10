@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 packageJson = require('./package.json')
 path = require('path')
+
+const blogQuery = require('./src/models/blog/query')
 const globalsQuery = require('./src/models/globals/query')
 const pageQuery = require('./src/models/page/query')
 const dotenv = require('dotenv')
@@ -40,7 +43,7 @@ module.exports = {
       options: {
         defaultLocale: 'en-US',
         pageTemplate: path.resolve('./src/page-template.tsx'),
-        queries: [globalsQuery, pageQuery],
+        queries: [globalsQuery, pageQuery, blogQuery],
       },
       resolve: `gatsby-theme-wheelroom`,
     },
