@@ -44,7 +44,7 @@ import * as fse from 'fs-extra'
 import { contentSets } from '../plugin-contentful/content-sets'
 import { models } from '../wheelroom/models'
 
-const TEMPLATE_SET = 'boilerplate'
+const TEMPLATE_SET = 'starterSet'
 
 type TypeTable = Record<FieldTypeName, string>
 

@@ -6,13 +6,13 @@
  * by scanning the src folder, then adds the fragments to the main page query.
  *
  *
- * Component: topic
+ * Component: topicTable
  */
 
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment Topic on ContentfulTopic {
+fragment TopicTable on ContentfulTopicTable {
   __typename
   title
   heading
@@ -35,6 +35,11 @@ fragment Topic on ContentfulTopic {
   actions {
     ... on Node {
       ...Action
+    }
+  }
+  rows {
+    ... on Node {
+      ...TopicRow
     }
   }
   advancedMedia {

@@ -8,9 +8,9 @@ export const baseComponentAsPageSection = `/**
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
-import { MediaObject } from '../../core/elements/types'
-import { SectionProps } from '../../core/sections/section-props'
+import { MediaObject } from '../../wheelroom/wheels/element/types/media'
+import { getVariation } from '../../wheelroom/lib/get-variation'
+import { SectionProps } from '../../wheelroom/sections/section-props'
 %variationImportList%
 
 const componentList = {

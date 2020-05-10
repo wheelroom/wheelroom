@@ -8,8 +8,8 @@ export const baseComponentAsBoilerplate = `/**
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
-import { MediaObject } from '../../core/elements/types'
+import { MediaObject } from '../../wheelroom/wheels/element/types/media'
+import { getVariation } from '../../wheelroom/lib/get-variation'
 %variationImportList%
 
 const componentList = {

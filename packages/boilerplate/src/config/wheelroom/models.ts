@@ -26,61 +26,24 @@ export const models: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  media: {
+  mediaBreakpoint: {
     fields: {
-      image: {
+      small: {
         type: 'media',
         typePostfix: 'Image',
       } as MediaField,
-      video: {
-        type: 'media',
-        typePostfix: 'Video',
-        initialContent: false,
-      } as MediaField,
-      breakpointImageSmall: {
+      medium: {
         type: 'media',
         typePostfix: 'Image',
-        initialContent: false,
       } as MediaField,
-      breakpointImageMedium: {
+      large: {
         type: 'media',
         typePostfix: 'Image',
-        initialContent: false,
       } as MediaField,
-      breakpointImageLarge: {
+      extraLarge: {
         type: 'media',
         typePostfix: 'Image',
-        initialContent: false,
       } as MediaField,
-      breakpointImageExtraLarge: {
-        type: 'media',
-        typePostfix: 'Image',
-        initialContent: false,
-      } as MediaField,
-      breakpointVideoSmall: {
-        type: 'media',
-        typePostfix: 'Video',
-        initialContent: false,
-      } as MediaField,
-      breakpointVideoMedium: {
-        type: 'media',
-        typePostfix: 'Video',
-        initialContent: false,
-      } as MediaField,
-      breakpointVideoLarge: {
-        type: 'media',
-        typePostfix: 'Video',
-        initialContent: false,
-      } as MediaField,
-      breakpointVideoXLarge: {
-        type: 'media',
-        typePostfix: 'Video',
-        initialContent: false,
-      } as MediaField,
-      embed: {
-        allowedComponents: ['embed'],
-        type: 'singleComponent',
-      } as SingleComponentField,
     },
     settings: {
       asBoilerplate: true,
@@ -97,15 +60,18 @@ export const models: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       media: {
-        allowedComponents: ['media'],
-        type: 'singleComponent',
-      } as SingleComponentField,
+        type: 'media',
+      } as MediaField,
       icon: {
         items: featherIcons,
         type: 'dropdown',
       } as DropdownField,
       actions: {
         allowedComponents: ['action'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      advancedMedia: {
+        allowedComponents: ['embed', 'mediaBreakpoint'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -124,9 +90,8 @@ export const models: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       media: {
-        allowedComponents: ['media'],
-        type: 'singleComponent',
-      } as SingleComponentField,
+        type: 'media',
+      } as MediaField,
       icon: {
         items: featherIcons,
         type: 'dropdown',
@@ -137,6 +102,10 @@ export const models: WheelroomComponents = {
       } as MultipleComponentsField,
       rows: {
         allowedComponents: ['topicRow'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      advancedMedia: {
+        allowedComponents: ['embed', 'mediaBreakpoint'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -155,9 +124,8 @@ export const models: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       media: {
-        allowedComponents: ['media'],
-        type: 'singleComponent',
-      } as SingleComponentField,
+        type: 'media',
+      } as MediaField,
       icon: {
         items: featherIcons,
         type: 'dropdown',
@@ -168,6 +136,10 @@ export const models: WheelroomComponents = {
       } as MultipleComponentsField,
       topics: {
         allowedComponents: ['topic'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      advancedMedia: {
+        allowedComponents: ['embed', 'mediaBreakpoint'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -359,6 +331,7 @@ export const models: WheelroomComponents = {
       } as ShortTextField,
       seoImage: {
         type: 'media',
+        typePostfix: 'Image',
       } as MediaField,
       seoKeywords: {
         type: 'tags',
@@ -407,6 +380,7 @@ export const models: WheelroomComponents = {
       } as ShortTextField,
       seoImage: {
         type: 'media',
+        typePostfix: 'Image',
       } as MediaField,
       seoKeywords: {
         type: 'tags',
