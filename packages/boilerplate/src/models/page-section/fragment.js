@@ -22,6 +22,11 @@ fragment PageSection on ContentfulPageSection {
     }
   }
   topicOptions
+  topicTables {
+    ... on Node {
+      ...TopicTable
+    }
+  }
   text {
     ... on Node {
       ...Text

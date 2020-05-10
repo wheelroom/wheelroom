@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-05-10T19:37:44.413Z ###
+### Type definitions saved at 2020-05-10T19:46:23.456Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -74,6 +74,54 @@ type SitePage implements Node @dontInfer {
   internalComponentName: String!
   componentChunkName: String!
   matchPath: String
+}
+
+type contentfulBlogTextRichTextNode implements Node @derivedTypes @dontInfer {
+  content: [contentfulBlogTextRichTextNodeContent]
+  nodeType: String
+  text: String
+}
+
+type contentfulBlogTextRichTextNodeContent @derivedTypes {
+  content: [contentfulBlogTextRichTextNodeContentContent]
+  nodeType: String
+}
+
+type contentfulBlogTextRichTextNodeContentContent {
+  value: String
+  nodeType: String
+}
+
+type contentfulTextTextRichTextNode implements Node @derivedTypes @dontInfer {
+  nodeType: String
+  content: [contentfulTextTextRichTextNodeContent]
+  text: String
+}
+
+type contentfulTextTextRichTextNodeContent @derivedTypes {
+  nodeType: String
+  content: [contentfulTextTextRichTextNodeContentContent]
+}
+
+type contentfulTextTextRichTextNodeContentContent {
+  nodeType: String
+  value: String
+}
+
+type contentfulTopicRowAbstractTextNode implements Node @dontInfer {
+  abstract: String
+}
+
+type contentfulTopicTableAbstractTextNode implements Node @dontInfer {
+  abstract: String
+}
+
+type contentfulTopicAbstractTextNode implements Node @dontInfer {
+  abstract: String
+}
+
+type contentfulEmbedCodeTextNode implements Node @dontInfer {
+  code: String
 }
 
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
@@ -224,22 +272,6 @@ type ContentfulText implements Node @derivedTypes {
   node_locale: String
 }
 
-type contentfulTextTextRichTextNode implements Node @derivedTypes @dontInfer {
-  nodeType: String
-  content: [contentfulTextTextRichTextNodeContent]
-  text: String
-}
-
-type contentfulTextTextRichTextNodeContent @derivedTypes {
-  nodeType: String
-  content: [contentfulTextTextRichTextNodeContentContent]
-}
-
-type contentfulTextTextRichTextNodeContentContent {
-  nodeType: String
-  value: String
-}
-
 type ContentfulTextSys @derivedTypes {
   revision: Int
   contentType: ContentfulTextSysContentType
@@ -292,10 +324,6 @@ type ContentfulTopicRow implements Node @derivedTypes {
   node_locale: String
 }
 
-type contentfulTopicRowAbstractTextNode implements Node @dontInfer {
-  abstract: String
-}
-
 type ContentfulTopicRowSys @derivedTypes {
   revision: Int
   contentType: ContentfulTopicRowSysContentType
@@ -310,10 +338,6 @@ type ContentfulTopicRowSysContentTypeSys {
   linkType: String
   id: String
   contentful_id: String
-}
-
-type contentfulTopicTableAbstractTextNode implements Node @dontInfer {
-  abstract: String
 }
 
 type ContentfulTopicTableSys @derivedTypes {
@@ -458,22 +482,6 @@ type ContentfulBlog implements Node @derivedTypes {
   node_locale: String
 }
 
-type contentfulBlogTextRichTextNode implements Node @derivedTypes @dontInfer {
-  content: [contentfulBlogTextRichTextNodeContent]
-  nodeType: String
-  text: String
-}
-
-type contentfulBlogTextRichTextNodeContent @derivedTypes {
-  content: [contentfulBlogTextRichTextNodeContentContent]
-  nodeType: String
-}
-
-type contentfulBlogTextRichTextNodeContentContent {
-  value: String
-  nodeType: String
-}
-
 type ContentfulBlogSys @derivedTypes {
   revision: Int
   contentType: ContentfulBlogSysContentType
@@ -490,10 +498,6 @@ type ContentfulBlogSysContentTypeSys {
   contentful_id: String
 }
 
-type contentfulTopicAbstractTextNode implements Node @dontInfer {
-  abstract: String
-}
-
 type ContentfulTopicSys @derivedTypes {
   revision: Int
   contentType: ContentfulTopicSysContentType
@@ -508,10 +512,6 @@ type ContentfulTopicSysContentTypeSys {
   linkType: String
   id: String
   contentful_id: String
-}
-
-type contentfulEmbedCodeTextNode implements Node @dontInfer {
-  code: String
 }
 
 type ContentfulEmbedSys @derivedTypes {
