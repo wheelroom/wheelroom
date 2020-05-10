@@ -1,27 +1,29 @@
 import React, { Fragment } from 'react'
-import { PageProps } from '../../../../models/page'
-import { Wheel } from '../../types'
-import { NavFooterListItemPresetWheelStyle } from './presets/nav-footer-list-item-preset'
-import { NavFooterListItemLink } from './nav-footer-list-item-link'
+import { ActionProps } from '../../../../models/action/action'
 import { Li } from '../../element/self'
+import { NavFooterListItemLink } from './nav-footer-list-item-link'
+import { NavFooterListItemPresetWheelStyle } from './presets/nav-footer-list-item-preset'
+import { Wheel } from '../../types'
 
 interface NavFooterListItemWheel extends Wheel {
   style: NavFooterListItemPresetWheelStyle
 }
 
 export interface NavFooterListItemProps {
-  pages: PageProps[]
+  actions: ActionProps[]
   wheel: NavFooterListItemWheel
 }
 
 export const NavFooterListItem = (props: NavFooterListItemProps) => {
-  const listItemlink = props.pages.map((page: PageProps, index: number) => (
-    <Li key={index} wheel={props.wheel}>
-      <NavFooterListItemLink
-        page={page}
-        wheel={{ ...props.wheel, style: props.wheel.style.link }}
-      />
-    </Li>
-  ))
+  const listItemlink = props.actions.map(
+    (action: ActionProps, index: number) => (
+      <Li key={index} wheel={props.wheel}>
+        <NavFooterListItemLink
+          action={action}
+          wheel={{ ...props.wheel, style: props.wheel.style.link }}
+        />
+      </Li>
+    )
+  )
   return <Fragment>{listItemlink}</Fragment>
 }

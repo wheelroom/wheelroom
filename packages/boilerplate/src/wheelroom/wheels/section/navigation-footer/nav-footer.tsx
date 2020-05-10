@@ -47,7 +47,7 @@ export const PageSectionNavigationFooter = (props: {
                 ...props.wheel,
                 style: props.wheel.style.navFooter.list,
               }}
-              pages={navSegment.pages}
+              actions={navSegment.actions}
             />
             {pageSectionInfo.hasTopic && (
               <NavFooterSocialList

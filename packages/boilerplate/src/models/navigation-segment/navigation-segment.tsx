@@ -12,5 +12,5 @@ export interface NavigationSegmentProps {
   __typename: string
   title: string
   heading: string
-  pages: ActionProps[]
+  actions: ActionProps[]
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { GLink } from '../../element/g-link'
-import { PageProps } from '../../../../models/page'
+import { Action } from '../../model/action/action'
+import { ActionProps } from '../../../../models/action/action'
 import { NavHeaderListItemLinkWheelStyle } from './presets/nav-header-list-item-link-preset'
 import { Wheel } from '../../types'
 
@@ -9,12 +9,6 @@ interface NavHeaderListItemLinkWheel extends Wheel {
 }
 
 export const NavHeaderListItemLink = (props: {
-  page: PageProps
+  action: ActionProps
   wheel: NavHeaderListItemLinkWheel
-}) => {
-  return (
-    <GLink wheel={props.wheel} to={props.page.path}>
-      {props.page.navigationHeading}
-    </GLink>
-  )
-}
+}) => <Action wheel={props.wheel} {...props.action} />

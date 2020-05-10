@@ -1,8 +1,8 @@
 import React from 'react'
-import { Ul } from '../../element/self'
+import { ActionProps } from '../../../../models/action/action'
 import { NavFooterListItem } from './nav-footer-list-item'
-import { PageProps } from '../../../../models/page'
 import { NavFooterListPresetWheelStyle } from './presets/nav-footer-list-preset'
+import { Ul } from '../../element/self'
 import { Wheel } from '../../types'
 
 interface NavFooterListWheel extends Wheel {
@@ -10,13 +10,13 @@ interface NavFooterListWheel extends Wheel {
 }
 
 export const NavFooterList = (props: {
-  pages: PageProps[]
+  actions: ActionProps[]
   wheel: NavFooterListWheel
 }) => {
   return (
     <Ul wheel={props.wheel}>
       <NavFooterListItem
-        pages={props.pages}
+        actions={props.actions}
         wheel={{ ...props.wheel, style: props.wheel.style.listItem }}
       />
     </Ul>

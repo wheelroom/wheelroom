@@ -85,7 +85,7 @@ export const PageSectionNavigationHeader = (props: {
                 ...props.wheel,
                 style: props.wheel.style.navHeader.list,
               }}
-              pages={navSegment.pages}
+              actions={navSegment.actions}
             />
             <NavHeaderActions
               action={action}
@@ -126,7 +126,7 @@ export const PageSectionNavigationHeader = (props: {
               closeMenu={closeMenu}
               hideThemeSwitchButton={props.hideThemeSwitchButton}
               menuVisible={menuVisible}
-              pages={navSegment.pages}
+              actions={navSegment.actions}
               pageSectionInfo={pageSectionInfo}
               wheel={{
                 ...props.wheel,

@@ -1,26 +1,26 @@
-import React, { Fragment } from 'react'
-import { PageProps } from '../../../../models/page'
-import { Wheel } from '../../types'
-import { NavHeaderListItemWheelStyle } from './presets/nav-header-list-item-preset'
-import { NavHeaderListItemLink } from './nav-header-list-item-link'
+import { ActionProps } from '../../../../models/action/action'
 import { Li } from '../../element/self'
+import { NavHeaderListItemLink } from './nav-header-list-item-link'
+import { NavHeaderListItemWheelStyle } from './presets/nav-header-list-item-preset'
+import { Wheel } from '../../types'
+import React, { Fragment } from 'react'
 
 interface NavHeaderListItemWheel extends Wheel {
   style: NavHeaderListItemWheelStyle
 }
 
 export interface NavHeaderListItemProps {
-  pages: PageProps[]
+  actions: ActionProps[]
   wheel: NavHeaderListItemWheel
 }
 
 export const NavHeaderListItem = (props: NavHeaderListItemProps) => {
   return (
     <Fragment>
-      {props.pages.map((page: PageProps, index: number) => (
+      {props.actions.map((action: ActionProps, index: number) => (
         <Li key={index} wheel={props.wheel}>
           <NavHeaderListItemLink
-            page={page}
+            action={action}
             wheel={{ ...props.wheel, style: props.wheel.style.link }}
           />
         </Li>

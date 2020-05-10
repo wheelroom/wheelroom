@@ -1,14 +1,13 @@
 import React from 'react'
-import { NavHeaderList } from './nav-header-list'
+import { ActionProps } from '../../../../models/action'
 import { Box, Flex } from '../../element/grid'
 import { Button } from '../../element/button'
-import { ActionProps } from '../../../../models/action'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageProps } from '../../../../models/page/page'
-import { Wheel } from '../../types'
-import { ModalWheelStyle } from './presets/modal-preset'
 import { FeatherIcon } from '../../element/icon'
+import { ModalWheelStyle } from './presets/modal-preset'
 import { NavHeaderActions } from './nav-header-actions'
+import { NavHeaderList } from './nav-header-list'
+import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { Wheel } from '../../types'
 
 interface ModalWheel extends Wheel {
   style: ModalWheelStyle
@@ -20,7 +19,7 @@ export const Modal = (props: {
   closeMenu: () => void
   hideThemeSwitchButton?: boolean
   menuVisible: boolean
-  pages: PageProps[]
+  actions: ActionProps[]
   pageSectionInfo: PageSectionInfo
   toggleTheme: () => void
   wheel: ModalWheel
@@ -86,7 +85,7 @@ export const Modal = (props: {
         </Button>
         <NavHeaderList
           wheel={{ ...props.wheel, style: props.wheel.style.document.list }}
-          pages={props.pages}
+          actions={props.actions}
         />
         <NavHeaderActions
           action={props.action}
