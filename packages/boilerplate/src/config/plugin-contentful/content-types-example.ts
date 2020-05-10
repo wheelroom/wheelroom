@@ -93,7 +93,7 @@ interface TextModel {
 }
 interface PageSectionModel {
   fields: {
-    variation?: 'block-wr' | 'card-wr' | 'divider-wr' | 'featured-wr' | 'gallery-wr' | 'headline-wr' | 'hero-wr' | 'image-wr' | 'navigation-wr' | 'quote-wr' | 'showcase-wr' | 'text-wr' | 'video-wr'
+    variation?: 'block-wr' | 'blog-wr' | 'card-wr' | 'divider-wr' | 'featured-wr' | 'gallery-wr' | 'headline-wr' | 'hero-wr' | 'image-wr' | 'navigation-wr' | 'quote-wr' | 'showcase-wr' | 'text-wr' | 'video-wr'
     topics?: Array<'promiseTopic' | 'openSourceTopic' | 'nonprofitTopic' | 'freeForEveryoneTopic' | 'exampleTopic' | 'githubProfileTopic'>
     topicOptions?: Array<'Hide icon' | 'Hide media' | 'Hide heading' | 'Hide abstract' | 'Hide action' | 'Reversed order'>
     text?: 'exampletext'
@@ -124,7 +124,7 @@ interface BlogModel {
     navigationHeading?: string
     date?: string
     text: string
-    profile?: Array<'promiseTopic' | 'openSourceTopic' | 'nonprofitTopic' | 'freeForEveryoneTopic' | 'exampleTopic' | 'githubProfileTopic'>
+    profiles?: Array<'promiseTopic' | 'openSourceTopic' | 'nonprofitTopic' | 'freeForEveryoneTopic' | 'exampleTopic' | 'githubProfileTopic'>
     seoTitle?: string
     seoDescription?: string
     seoImage?: boolean

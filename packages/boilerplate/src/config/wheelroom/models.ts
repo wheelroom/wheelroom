@@ -246,6 +246,7 @@ export const models: WheelroomComponents = {
       variation: {
         items: [
           'block-wr',
+          'blog-wr',
           'card-wr',
           'divider-wr',
           'featured-wr',
@@ -367,7 +368,7 @@ export const models: WheelroomComponents = {
         required: true,
         type: 'richText',
       } as RichTextField,
-      profile: {
+      profiles: {
         allowedComponents: ['topic'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
