@@ -154,9 +154,10 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
         type: 'Symbol',
         validations: [
           {
-            message: 'Please use a valid path: /this/is/a/valid/path',
+            message:
+              'Please use a valid path: /this/is/a/valid/path/with/:slug',
             regexp: {
-              pattern: '^\\/[a-z0-9\\._/~%\\-\\+&\\#\\?!=\\(\\)@]*$',
+              pattern: '^\\/[a-z0-9:\\._/~%\\-\\+&\\#\\?!=\\(\\)@]*$',
             },
           },
         ],
