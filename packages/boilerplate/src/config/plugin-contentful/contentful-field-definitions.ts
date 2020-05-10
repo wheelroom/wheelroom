@@ -47,6 +47,30 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       },
       widgetId: 'assetLinkEditor',
     },
+    mediaImage: {
+      specs: {
+        linkType: 'Asset',
+        type: 'Link',
+        validations: [
+          {
+            linkMimetypeGroup: ['image'],
+          },
+        ],
+      },
+      widgetId: 'assetLinkEditor',
+    },
+    mediaVideo: {
+      specs: {
+        linkType: 'Asset',
+        type: 'Link',
+        validations: [
+          {
+            linkMimetypeGroup: ['video'],
+          },
+        ],
+      },
+      widgetId: 'assetLinkEditor',
+    },
     longText: {
       specs: {
         type: 'Text',

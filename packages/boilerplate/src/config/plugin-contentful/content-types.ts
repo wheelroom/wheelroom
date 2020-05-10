@@ -2,7 +2,7 @@ interface TopicModel {
   fields: {
     heading?: string
     abstract?: string
-    media?: boolean
+    media?: 'mediaImage'
     icon?:
       | 'activity'
       | 'airplay'
@@ -303,6 +303,13 @@ interface ActionModel {
   }
   model: 'action'
 }
+interface MediaModel {
+  fields: {
+    image?: boolean
+    title: string
+  }
+  model: 'media'
+}
 interface NavigationSegmentModel {
   fields: {
     heading?: string
@@ -423,6 +430,7 @@ interface GlobalsModel {
 type Model =
   | TopicModel
   | ActionModel
+  | MediaModel
   | NavigationSegmentModel
   | NavigationModel
   | TextModel
