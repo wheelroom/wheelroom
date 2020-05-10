@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.7.2...@wheelroom/boilerplate@3.0.0) (2020-05-10)
+
+
+### Bug Fixes
+
+* content set types ([6aef814](https://github.com/wheelroom/wheelroom/commit/6aef814973e2ee67a058adcf1f91f52ae5d2f841))
+
+
+### Features
+
+* advanced media ([3ec451a](https://github.com/wheelroom/wheelroom/commit/3ec451a2a0a52f622896bc5addde6cd616f781b5))
+* better media ([a7c4308](https://github.com/wheelroom/wheelroom/commit/a7c4308c6563ea78acc2f5447263975ce4c10f7f))
+* better navigation ([8241e0a](https://github.com/wheelroom/wheelroom/commit/8241e0a93ed479fc0ff271a2346d2632de8f5eb9))
+* better navigation segments ([c9d0a73](https://github.com/wheelroom/wheelroom/commit/c9d0a7371f2162f307c15b674270a9b58bebdae9))
+* improved models and new models: blog, embed, media, tabel, row ([0c4dce0](https://github.com/wheelroom/wheelroom/commit/0c4dce089b5fbd58c68a1abfd97c9ba723c6f4cc))
+
+
+### BREAKING CHANGES
+
+* the media field is restored and accepts contentful media as before. To work with media embeds and specific media breakpoints a new model was added: mediaBreakpoint. The Topic model has a new field that accepts the MediaBreakpoint model as well as the new Embed model
+* topic model has a new media field. Existing topic models must be updated.
+* navigationSegments model has a new actions field which replaces the pages field. Existing navigationSegments models must be updated.
+* pageSection model has a new navigation field that allows for multiple navigation-s. Existing pageSection models must be updated.
+
+
+
+
+
 ## [2.7.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@2.7.1...@wheelroom/boilerplate@2.7.2) (2020-05-05)
 
 
