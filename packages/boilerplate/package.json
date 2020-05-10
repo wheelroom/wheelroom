@@ -119,6 +119,7 @@
     "version": "node sync-wheelroom-version.js",
     "wr": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom",
     "wr:cm": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-models",
+    "wr:dm": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom delete-models",
     "wr:cc": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-content",
     "wr:dc": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom delete-content",
     "wr:cb": "WHEELROOM_CONFIG=compiled-config/wheelroom-config.js wheelroom create-boilerplate react src/models",

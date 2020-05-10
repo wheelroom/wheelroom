@@ -67,6 +67,17 @@ npm run wr:cm
 > which is the English '%Field name%'. Future versions should have this properly
 > localized.
 
+## Delete Contentul models
+ 
+ Delete the configured models in your Contentful space and check the Contentful
+ web ui.
+ 
+ ```bash
+ npm run wr:dm
+ ```
+
+> **_NOTE:_** Before content models can be deleted, delete your content (set) first.
+
 ## Create Contentful content set
 
 Wheelroom includes two different Contentful content-sets:
