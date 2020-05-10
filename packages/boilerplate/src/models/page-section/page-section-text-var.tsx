@@ -15,7 +15,6 @@ import { PageSectionFreestyle } from '../../wheelroom/wheels/section/freestyle/p
 import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
 import { PageSectionProps } from './page-section'
 import { ThemeId } from '../../admin-resources/theme-info'
-import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
@@ -23,7 +22,6 @@ export const PageSectionTextVar = (props: PageSectionProps) => {
 
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
-    { topic: topicPreset },
     pageSectionFreestylePreset,
     getSectionStyle('text').base,
   ])

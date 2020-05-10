@@ -23,6 +23,8 @@ export const Sections = (props: any) => {
       activeThemeId: props.activeThemeId,
 
       globals: props.globals,
+      blog: props.blog,
+      allBlog: props.allBlog,
       page: props.page,
       siteMetadata: props.siteMetadata,
 
