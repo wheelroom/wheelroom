@@ -255,6 +255,7 @@ export const models: WheelroomComponents = {
           'hero-wr',
           'image-wr',
           'navigation-wr',
+          'price-table-wr',
           'quote-wr',
           'showcase-wr',
           'text-wr',
@@ -282,6 +283,10 @@ export const models: WheelroomComponents = {
         allowedComponents: ['text'],
         type: 'singleComponent',
       } as SingleComponentField,
+      topicTables: {
+        allowedComponents: ['topicTable'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
       navigation: {
         allowedComponents: ['navigation'],
         type: 'multipleComponents',
