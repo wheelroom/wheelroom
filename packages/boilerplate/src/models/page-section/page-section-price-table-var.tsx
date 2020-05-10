@@ -17,6 +17,9 @@ export const PageSectionPriceTableVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = { ncss: {} }
 
+  // eslint-disable-next-line no-undef
+  console.log('props.topicTables', props.topicTables)
+
   return (
     <Flex wheel={wheel} ncss={{ bg: 'amber' }}>
       Price table
