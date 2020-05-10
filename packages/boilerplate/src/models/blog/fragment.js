@@ -21,7 +21,7 @@ fragment Blog on ContentfulBlog {
   text {
     json
   }
-  profile {
+  profiles {
     ... on Node {
       ...Topic
     }

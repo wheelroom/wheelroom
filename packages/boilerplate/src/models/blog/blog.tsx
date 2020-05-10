@@ -5,7 +5,8 @@
  *
  */
 
-import { MediaObject } from '../../core/elements/types'
+import { TopicProps } from '../topic/topic'
+import { MediaObject } from '../../wheelroom/wheels/element/types/media'
 
 export interface BlogProps {
   /** Gatsby fetched data */
@@ -17,9 +18,9 @@ export interface BlogProps {
   text: {
     json: string
   }
-  profile: any
+  profiles: TopicProps[]
   seoTitle: string
   seoDescription: string
-  seoImage: any
+  seoImage: MediaObject
   seoKeywords: string[]
 }
