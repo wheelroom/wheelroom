@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@5.0.0...gatsby-theme-wheelroom@5.0.1) (2020-05-11)
+
+
+### Bug Fixes
+
+* subPage id bug ([faa8988](https://github.com/wheelroom/wheelroom/commit/faa898838516c829d03430b2206c53dab8a563d4))
+
+
+
+
+
 # [5.0.0](https://github.com/wheelroom/wheelroom/compare/gatsby-theme-wheelroom@4.1.2...gatsby-theme-wheelroom@5.0.0) (2020-05-10)
 
 
