@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.0.1...@wheelroom/boilerplate@3.1.0) (2020-05-11)
+
+
+### Features
+
+* add blog to section props ([c0b0b9a](https://github.com/wheelroom/wheelroom/commit/c0b0b9a8923fd8840974e88405af347d008c6421))
+* topicTables field for pageSection ([81e6482](https://github.com/wheelroom/wheelroom/commit/81e64820165f37dcd0238a76e51831308428efe4))
+
+
+
+
+
 ## [3.0.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.0.0...@wheelroom/boilerplate@3.0.1) (2020-05-10)
 
 
