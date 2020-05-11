@@ -424,6 +424,7 @@ export const models: WheelroomComponents = {
       } as MultipleComponentsField,
       parent: {
         allowedComponents: ['doc'],
+        initialContent: undefined,
         type: 'singleComponent',
         expandFragmentRef: true,
       } as SingleComponentField,
