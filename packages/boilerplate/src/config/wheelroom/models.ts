@@ -373,6 +373,10 @@ export const models: WheelroomComponents = {
         required: true,
         type: 'richText',
       } as RichTextField,
+      topics: {
+        allowedComponents: ['topic'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
       profiles: {
         allowedComponents: ['topic'],
         type: 'multipleComponents',
