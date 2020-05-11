@@ -356,7 +356,7 @@ export const models: WheelroomComponents = {
   blog: {
     fields: {
       slug: {
-        initialContent: 'initial-slug-content',
+        initialContent: 'initial-boilerplate-slug',
         required: true,
         type: 'shortText',
         typePostfix: 'Slug',
@@ -395,6 +395,37 @@ export const models: WheelroomComponents = {
       seoKeywords: {
         type: 'tags',
       } as TagsField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asQuery: 'subPage',
+    },
+  },
+  doc: {
+    fields: {
+      slug: {
+        initialContent: 'initial-boilerplate-slug',
+        required: true,
+        type: 'shortText',
+        typePostfix: 'Slug',
+        unique: true,
+      } as ShortTextField,
+      navigationHeading: {
+        type: 'shortText',
+      } as ShortTextField,
+      text: {
+        required: true,
+        type: 'richText',
+      } as RichTextField,
+      topics: {
+        allowedComponents: ['topic'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      parent: {
+        allowedComponents: ['doc'],
+        type: 'singleComponent',
+      } as SingleComponentField,
     },
     modelVersion: '1.0.0',
     settings: {
