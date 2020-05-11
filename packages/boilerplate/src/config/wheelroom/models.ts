@@ -425,6 +425,7 @@ export const models: WheelroomComponents = {
       parent: {
         allowedComponents: ['doc'],
         type: 'singleComponent',
+        expandFragmentRef: true,
       } as SingleComponentField,
     },
     modelVersion: '1.0.0',
