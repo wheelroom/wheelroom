@@ -6,12 +6,13 @@ import {
 import { NamedPaths } from '../types/named-paths'
 
 interface GetPageContext {
+  componentName: string
   locale: string
   namedPaths: NamedPaths
   page: ContentfulNode
-  subPage?: ContentfulNode
-  componentName: string
   queryResults: QueryResults
+  subPage?: ContentfulNode
+  subPageComponentName?: string
 }
 
 interface PageContext {
@@ -47,7 +48,7 @@ export const getPageContext = (context: GetPageContext): PageContext => {
 
   // Add subPage id
   if (context.subPage) {
-    pageContext[context.page.pathName + 'Id'] = context.subPage.id
+    pageContext[context.subPageComponentName + 'Id'] = context.subPage.id
   }
   return pageContext
 }

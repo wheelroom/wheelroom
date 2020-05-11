@@ -61,6 +61,7 @@ export const createSubPages = (context: CreateSubPages) => {
               namedPaths: context.namedPaths,
               page,
               subPage: subPage.node,
+              subPageComponentName,
               queryResults: context.queryResults,
             }),
             path: pagePath,
