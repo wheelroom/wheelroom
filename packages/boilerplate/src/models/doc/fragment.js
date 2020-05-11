@@ -6,18 +6,17 @@
  * by scanning the src folder, then adds the fragments to the main page query.
  *
  *
- * Component: blog
+ * Component: doc
  */
 
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment Blog on ContentfulBlog {
+fragment Doc on ContentfulDoc {
   __typename
   title
   slug
   navigationHeading
-  date
   text {
     json
   }
@@ -26,25 +25,14 @@ fragment Blog on ContentfulBlog {
       ...Topic
     }
   }
-  profiles {
-    ... on Node {
-      ...Topic
-    }
-  }
-  seoTitle
-  seoDescription
-  seoImage {
+  parent {
+    __typename
     title
-    description
-    fluid {
-      ...GatsbyContentfulFluid
-    }
-    file {
-      url
-      fileName
-      contentType
+    slug
+    navigationHeading
+    text {
+      json
     }
   }
-  seoKeywords
 }
 `

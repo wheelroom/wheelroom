@@ -18,6 +18,7 @@ export interface BlogProps {
   text: {
     json: string
   }
+  topics: TopicProps[]
   profiles: TopicProps[]
   seoTitle: string
   seoDescription: string
