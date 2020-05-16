@@ -342,10 +342,6 @@ export const models: WheelroomComponents = {
       seoKeywords: {
         type: 'tags',
       } as TagsField,
-      embeds: {
-        allowedComponents: ['embed'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
     },
     modelVersion: '1.0.0',
     settings: {

@@ -81,7 +81,9 @@ const PageTemplate = (props: any) => {
   const backgroundColor = getTheme(activeThemeId).colorMap.sectionBg
   // Run embed code
   if (!embedsDone && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
-    globals.siteEmbeds.map((embed: EmbedProps) => eval(embed.code.code))
+    globals.siteEmbeds.map((embed: EmbedProps) =>
+      Function('props', embed.code.code)(props)
+    )
     setEmbedsDone(true)
   }
   return (
