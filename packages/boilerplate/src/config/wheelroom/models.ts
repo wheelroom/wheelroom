@@ -19,6 +19,10 @@ export const models: WheelroomComponents = {
       code: {
         type: 'longText',
       } as LongTextField,
+      type: {
+        items: ['html', 'script-src', 'js-app', 'js-page', 'js-action'],
+        type: 'dropdown',
+      } as DropdownField,
     },
     settings: {
       asBoilerplate: true,
