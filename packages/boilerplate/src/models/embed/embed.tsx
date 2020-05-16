@@ -16,8 +16,8 @@ export interface EmbedProps {
   /** Gatsby fetched data */
   __typename: string
   title: string
-  code: {
+  code?: {
     code: string
   }
-  type: EmbedType
+  type?: EmbedType
 }

@@ -184,8 +184,12 @@ export const models: WheelroomComponents = {
         helpText: 'Example: ?q=50&w=100',
         type: 'shortText',
       } as ShortTextField,
+      eventId: {
+        helpText: 'Example: my-campaign',
+        type: 'shortText',
+      } as ShortTextField,
       data: {
-        initialContent: '',
+        initialContent: '{ initial: data }',
         type: 'shortText',
         typePostfix: 'JSON',
       } as ShortTextField,

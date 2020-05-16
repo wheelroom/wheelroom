@@ -14,8 +14,10 @@ import { graphql } from 'gatsby'
 export const fragment = graphql`
 fragment Action on ContentfulAction {
   __typename
-  title
+  anchor
+  data
   description
+  eventId
   heading
   page {
     __typename
@@ -26,6 +28,8 @@ fragment Action on ContentfulAction {
     seoTitle
     seoDescription
   }
+  query
+  title
   url
 }
 `
