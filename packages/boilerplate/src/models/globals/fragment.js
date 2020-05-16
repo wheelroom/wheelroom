@@ -19,5 +19,10 @@ fragment Globals on ContentfulGlobals {
   siteDescription
   siteHeading
   siteKeywords
+  siteEmbeds {
+    ... on Node {
+      ...Embed
+    }
+  }
 }
 `

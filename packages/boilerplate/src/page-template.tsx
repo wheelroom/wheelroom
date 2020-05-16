@@ -75,7 +75,10 @@ const PageTemplate = (props: any) => {
   }
   // Set theme background color
   const backgroundColor = getTheme(activeThemeId).colorMap.sectionBg
-
+  // Run embed code
+  if (globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
+    globals.siteEmbeds.map((embed: any) => eval(embed.code.code))
+  }
   return (
     <Fragment>
       <Global styles={classicGlobalReset} />
