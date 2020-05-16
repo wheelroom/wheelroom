@@ -5,6 +5,13 @@
  *
  */
 
+export type EmbedType =
+  | 'html'
+  | 'script-src'
+  | 'js-app'
+  | 'js-page'
+  | 'js-action'
+
 export interface EmbedProps {
   /** Gatsby fetched data */
   __typename: string
@@ -12,4 +19,5 @@ export interface EmbedProps {
   code: {
     code: string
   }
+  type: EmbedType
 }

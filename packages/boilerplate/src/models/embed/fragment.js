@@ -18,5 +18,6 @@ fragment Embed on ContentfulEmbed {
   code {
     code
   }
+  type
 }
 `
