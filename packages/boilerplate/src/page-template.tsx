@@ -17,6 +17,7 @@ import { htmlReset } from './wheelroom/global/html-reset'
 import { getTheme } from './themes/themes'
 import { ThemeId } from './admin-resources/theme-info'
 import { BlogProps } from './models/blog'
+import { EmbedProps } from './models/embed/embed'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -80,7 +81,7 @@ const PageTemplate = (props: any) => {
   const backgroundColor = getTheme(activeThemeId).colorMap.sectionBg
   // Run embed code
   if (!embedsDone && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
-    globals.siteEmbeds.map((embed: any) => eval(embed.code.code))
+    globals.siteEmbeds.map((embed: EmbedProps) => eval(embed.code.code))
     setEmbedsDone(true)
   }
   return (
