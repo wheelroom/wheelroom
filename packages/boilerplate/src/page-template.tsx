@@ -33,6 +33,9 @@ const PageTemplate = (props: any) => {
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
   const activeThemeId = themeSwitcherStore?.state.activeThemeId as ThemeId
 
+  // Run embed codes only once
+  const [embedsDone, setEmbedsDone] = useState(false)
+
   pageDebug('PageTemplate', props)
   if (!page.sections) {
     return 'No sections'
@@ -76,8 +79,9 @@ const PageTemplate = (props: any) => {
   // Set theme background color
   const backgroundColor = getTheme(activeThemeId).colorMap.sectionBg
   // Run embed code
-  if (globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
+  if (!embedsDone && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
     globals.siteEmbeds.map((embed: any) => eval(embed.code.code))
+    setEmbedsDone(true)
   }
   return (
     <Fragment>
