@@ -29,6 +29,7 @@ export const starter: ContentTypes = {
   brandAction: {
     fields: {
       description: 'Go back to the Wheelroom homepage',
+      eventId: 'brand-action',
       heading: 'Wheelroom',
       page: 'homePage',
       title: 'Go home',
@@ -81,6 +82,7 @@ export const starter: ContentTypes = {
   getStarted: {
     fields: {
       description: 'Visit our Github Wheelroom code repository',
+      eventId: 'get-started',
       heading: 'Get started',
       title: 'Get started link',
       url: 'https://github.com/wheelroom/wheelroom',
@@ -101,6 +103,7 @@ export const starter: ContentTypes = {
   goFreeForEveryone: {
     fields: {
       description: "We're working with users to build something sustainable",
+      eventId: 'go-free-for-everyone',
       heading: 'Free for everyone',
       page: 'freeForEveryonePage',
       title: 'Go free for everyone',
@@ -110,6 +113,7 @@ export const starter: ContentTypes = {
   goHome: {
     fields: {
       description: 'Go to Wheelroom homepage',
+      eventId: 'go-home',
       heading: 'Home',
       page: 'homePage',
       title: 'Go home',
@@ -119,6 +123,7 @@ export const starter: ContentTypes = {
   goNonprofit: {
     fields: {
       description: 'Wheelroom is an independent nonprofit',
+      eventId: 'go-non-profit',
       heading: 'Nonprofit',
       page: 'nonprofitPage',
       title: 'Go nonprofit',
@@ -128,6 +133,7 @@ export const starter: ContentTypes = {
   goOpenSource: {
     fields: {
       description: 'Wheelroom is an open source boilerplate',
+      eventId: 'go-open-source',
       heading: 'Open source',
       page: 'openSourcePage',
       title: 'Go open source',
