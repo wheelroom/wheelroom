@@ -17,13 +17,16 @@ import { htmlReset } from './wheelroom/global/html-reset'
 import { getTheme } from './themes/themes'
 import { ThemeId } from './admin-resources/theme-info'
 import { BlogProps } from './models/blog'
-import { EmbedProps } from './models/embed/embed'
+import { usePageEmbed } from './wheelroom/embed/use-page-embed'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
 // do so for all pages.
 
 const PageTemplate = (props: any) => {
+  // Run page embeds
+  usePageEmbed(props)
+
   // Page preview admin module
   const [previewPage, setPreviewPage] = useState()
   useFetchPreviewPage(setPreviewPage)
@@ -33,9 +36,6 @@ const PageTemplate = (props: any) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
   const activeThemeId = themeSwitcherStore?.state.activeThemeId as ThemeId
-
-  // Run embed codes only once
-  const [embedsDone, setEmbedsDone] = useState(false)
 
   pageDebug('PageTemplate', props)
   if (!page.sections) {
@@ -79,13 +79,6 @@ const PageTemplate = (props: any) => {
   }
   // Set theme background color
   const backgroundColor = getTheme(activeThemeId).colorMap.sectionBg
-  // Run embed code
-  if (!embedsDone && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
-    globals.siteEmbeds.map((embed: EmbedProps) =>
-      Function('props', embed.code.code)(props)
-    )
-    setEmbedsDone(true)
-  }
   return (
     <Fragment>
       <Global styles={classicGlobalReset} />
