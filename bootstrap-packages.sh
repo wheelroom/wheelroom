@@ -17,6 +17,7 @@ prepare_module_folder() {
         return
     fi
     mkdir -p packages/admin-core/node_modules/$1
+    mkdir -p packages/admin-events/node_modules/$1
     mkdir -p packages/admin-panel/node_modules/$1
     mkdir -p packages/admin-page-preview/node_modules/$1
     mkdir -p packages/admin-theme-switcher/node_modules/$1
@@ -31,6 +32,7 @@ remove_module_folder() {
     fi
 
     rm -rf packages/admin-core/node_modules/$1
+    rm -rf packages/admin-events/node_modules/$1
     rm -rf packages/admin-panel/node_modules/$1
     rm -rf packages/admin-page-preview/node_modules/$1
     rm -rf packages/admin-theme-switcher/node_modules/$1
@@ -47,6 +49,7 @@ link_module_folder() {
         fi
 
         ln -s $2 packages/admin-core/node_modules/$1
+        ln -s $2 packages/admin-events/node_modules/$1
         ln -s $2 packages/admin-panel/node_modules/$1
         ln -s $2 packages/admin-page-preview/node_modules/$1
         ln -s $2 packages/admin-theme-switcher/node_modules/$1
