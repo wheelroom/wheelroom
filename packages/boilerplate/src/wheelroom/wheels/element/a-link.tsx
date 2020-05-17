@@ -15,12 +15,15 @@ export interface ALinkProps extends ElementProps {
   role?: string | undefined
   /** Link target attribute */
   target?: '_blank' | '_self' | '_parent' | '_top' | undefined
+  /** On click handler */
+  onClick?: () => any
 }
 
 export const ALink = (props: ALinkProps) => {
   const extraAttrs = {
     download: props.download,
     href: props.href,
+    onClick: props.onClick,
     rel: props.rel,
     role: props.role,
     target: props.target,

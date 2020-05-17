@@ -6,12 +6,14 @@
  *
  */
 
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { ActionProps } from '../../../../models/action'
-import { GLink } from '../../element/g-link'
+import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { ALink } from '../../element/a-link'
-import { NcssProps, Wheel } from '../../types'
 import { Any } from '../../element/any'
+import { EmbedProps } from '../../../../models/embed/embed'
+import { GLink } from '../../element/g-link'
+import { NcssProps, Wheel } from '../../types'
 
 export interface ActionWheelStyle {
   ncss: NcssProps
@@ -26,14 +28,33 @@ export interface ActionWheelProps extends ActionProps {
   wheel: ActionWheel
   children?: any
   key?: any
+  /** On click handler */
+  onClick?: () => any
+}
+
+const onClickHander = (
+  eventId: string | undefined,
+  adminCoreState: AdminCoreState
+) => {
+  const globals =
+    adminCoreState.pageProps && adminCoreState.pageProps.data.globals
+  if (globals && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
+    globals.siteEmbeds.forEach((embed: EmbedProps) => {
+      if (embed.code && embed.type === 'js-action') {
+        Function('eventId', embed.code.code)(eventId)
+      }
+    })
+  }
 }
 
 const ActionGlink = (props: ActionWheelProps) => {
+  const { adminCoreState } = useContext(AdminCoreContext)
   return (
     <GLink
+      ariaLabel={props.description}
+      onClick={() => onClickHander(props.eventId, adminCoreState)}
       to={props.page.path}
       wheel={props.wheel}
-      ariaLabel={props.description}
     >
       {props.children ? props.children : props.heading}
     </GLink>
@@ -41,9 +62,15 @@ const ActionGlink = (props: ActionWheelProps) => {
 }
 
 const ActionAlink = (props: ActionWheelProps) => {
+  const { adminCoreState } = useContext(AdminCoreContext)
   if (props.url) {
     return (
-      <ALink href={props.url} wheel={props.wheel} ariaLabel={props.description}>
+      <ALink
+        ariaLabel={props.description}
+        href={props.url}
+        onClick={() => onClickHander(props.eventId, adminCoreState)}
+        wheel={props.wheel}
+      >
         {props.children ? props.children : props.heading}
       </ALink>
     )

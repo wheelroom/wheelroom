@@ -5,23 +5,26 @@ import { useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { gLinkReset } from './resets/g-link-reset'
-import { styledSystem } from '@wheelroom/styled-system'
+import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
 
 export interface GLinkProps extends ElementProps {
   /** URL attribute */
   to?: any
+  /** On click handler */
+  onClick?: () => any
 }
 
 export const GLink = (props: GLinkProps) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   const label = { ncss: { label: 'g-link' } }
   const attrs: any = getElementAttrs(props)
+  attrs.onClick = props.onClick
   attrs.to = props.to + getPreviewQueryString(adminCoreState)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
-    props.wheel.theme,
+    (props.wheel.theme as unknown) as StyledSystemTheme,
     mergeNcss([
       label,
       gLinkReset,
