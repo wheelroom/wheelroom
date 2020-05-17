@@ -9,5 +9,5 @@ export const useInitEvents = (gatsbyProps: any) => {
     // Register module only once
     adminCoreDispatch(eventsRegister)
     console.log('events', gatsbyProps)
-  }, [])
+  })
 }
