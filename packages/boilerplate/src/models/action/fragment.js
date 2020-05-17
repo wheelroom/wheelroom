@@ -15,7 +15,6 @@ export const fragment = graphql`
 fragment Action on ContentfulAction {
   __typename
   anchor
-  data
   description
   eventId
   heading

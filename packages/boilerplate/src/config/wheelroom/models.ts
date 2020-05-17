@@ -177,21 +177,16 @@ export const models: WheelroomComponents = {
         typePostfix: 'Url',
       } as ShortTextField,
       anchor: {
-        helpText: 'Example: #anchor',
+        helpText: 'Example: my-anchor',
         type: 'shortText',
       } as ShortTextField,
       query: {
-        helpText: 'Example: ?q=50&w=100',
+        helpText: 'Example: &x=1&y=2',
         type: 'shortText',
       } as ShortTextField,
       eventId: {
-        helpText: 'Example: my-campaign',
+        helpText: 'Example: my-campaign-action',
         type: 'shortText',
-      } as ShortTextField,
-      data: {
-        initialContent: '{ initial: data }',
-        type: 'shortText',
-        typePostfix: 'JSON',
       } as ShortTextField,
     },
     settings: {

@@ -9,7 +9,6 @@ export interface ActionProps {
   /** Gatsby fetched data */
   __typename?: string
   anchor?: string
-  data?: any
   description?: string
   eventId?: string
   heading?: string
