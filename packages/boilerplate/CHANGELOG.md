@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.1.1...@wheelroom/boilerplate@3.2.0) (2020-05-17)
+
+
+### Bug Fixes
+
+* run embeds only once ([07a2739](https://github.com/wheelroom/wheelroom/commit/07a27398a841b352b5f1d75648d71f0dce30fd03))
+
+
+### Features
+
+* add admin-events ([b981696](https://github.com/wheelroom/wheelroom/commit/b9816969aabfe2f83dc16991aebd27853af39597))
+* add embed.type ([62137e3](https://github.com/wheelroom/wheelroom/commit/62137e3d07c680e2d036b1b1b442aa375a52871f))
+
+
+
+
+
 ## [3.1.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.1.0...@wheelroom/boilerplate@3.1.1) (2020-05-11)
 
 **Note:** Version bump only for package @wheelroom/boilerplate
