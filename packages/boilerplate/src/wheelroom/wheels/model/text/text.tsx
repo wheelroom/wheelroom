@@ -12,8 +12,6 @@ import { Image } from '../../element/image'
 import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types'
 import { Paragraph } from '../../element/paragraph'
 import { Li, Ol, Ul } from '../../element/self'
-import { ALink } from '../../element/a-link'
-import { GLink } from '../../element/g-link'
 import { H1, H2, H3, H4, H5, H6 } from '../../element/heading'
 import { getLocalizedValue } from './get-localized-value'
 import { Wrapper } from '../../element/grid'
@@ -31,6 +29,7 @@ import { Pre } from '../../element/self'
 import { Code } from '../../element/self'
 import { Hr } from '../../element/self'
 import { Blockquote } from '../../element/self'
+import { Action } from '../action/action'
 
 export interface TextWheel extends Wheel {
   style: TextWheelStyle
@@ -160,15 +159,15 @@ export const Text = (props: TextWheelProps) => {
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {
         const uri = node.data.uri
         return (
-          <ALink
-            href={uri}
+          <Action
+            url={uri}
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.inlinesHyperlink,
             }}
           >
             {children}
-          </ALink>
+          </Action>
         )
       },
       [INLINES.ENTRY_HYPERLINK]: (node: Node, children: Children) => {
@@ -176,15 +175,15 @@ export const Text = (props: TextWheelProps) => {
           node.data.target.fields &&
           node.data.target.fields.path[textProps.locale]
         return (
-          <GLink
+          <Action
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.entryHyperlink,
             }}
-            to={internalPath}
+            page={{ path: internalPath }}
           >
             {children}
-          </GLink>
+          </Action>
         )
       },
       [BLOCKS.HEADING_1]: (_node: Node, children: Children) => (
