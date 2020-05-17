@@ -23,6 +23,7 @@
     "@emotion/core": "10.0.28",
     "@reach/router": "1.3.3",
     "@wheelroom/admin-core": "1.2.2",
+    "@wheelroom/admin-events": "1.0.0",
     "@wheelroom/admin-page-preview": "1.5.2",
     "@wheelroom/admin-panel": "1.2.2",
     "@wheelroom/admin-theme-switcher": "1.2.2",
