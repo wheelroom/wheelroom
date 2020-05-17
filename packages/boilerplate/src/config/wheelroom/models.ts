@@ -20,7 +20,7 @@ export const models: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       type: {
-        items: ['html', 'script-src', 'js-app', 'js-page', 'js-action'],
+        items: ['html', 'js-app', 'js-page', 'js-action'],
         type: 'dropdown',
       } as DropdownField,
     },
