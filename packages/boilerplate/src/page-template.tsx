@@ -17,15 +17,15 @@ import { htmlReset } from './wheelroom/global/html-reset'
 import { getTheme } from './themes/themes'
 import { ThemeId } from './admin-resources/theme-info'
 import { BlogProps } from './models/blog'
-import { usePageEmbed } from './wheelroom/embed/use-page-embed'
+import { useEmbeds } from './wheelroom/embed/use-embed'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
 // do so for all pages.
 
 const PageTemplate = (props: any) => {
-  // Run page embeds
-  usePageEmbed(props)
+  // Run global embeds
+  useEmbeds(props)
 
   // Page preview admin module
   const [previewPage, setPreviewPage] = useState()

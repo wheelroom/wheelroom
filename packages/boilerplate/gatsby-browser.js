@@ -4,4 +4,5 @@ import { wrapWithUseAdminModules } from './src/admin-resources/wrap-with-use-adm
 export const wrapRootElement = wrapWithProvider
 export const wrapPageElement = wrapWithUseAdminModules
 
+// eslint-disable-next-line no-undef
 export const onServiceWorkerUpdateReady = () => window.location.reload(true)
