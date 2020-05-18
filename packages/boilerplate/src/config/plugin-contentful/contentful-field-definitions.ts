@@ -135,6 +135,12 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       },
       widgetId: 'singleLine',
     },
+    shortSlug: {
+      specs: {
+        type: 'Symbol',
+      },
+      widgetId: 'slugEditor',
+    },
     shortTextCamelCase: {
       specs: {
         type: 'Symbol',
