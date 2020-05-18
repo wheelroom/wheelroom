@@ -16,7 +16,6 @@ fragment Doc on ContentfulDoc {
   __typename
   title
   slug
-  navigationHeading
   text {
     json
   }

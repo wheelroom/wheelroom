@@ -317,9 +317,6 @@ export const models: WheelroomComponents = {
         typePostfix: 'Path',
         unique: true,
       } as ShortTextField,
-      navigationHeading: {
-        type: 'shortText',
-      } as ShortTextField,
       sections: {
         allowedComponents: [
           '%componentNameArray(filter:settings.asPageSection)%',
@@ -361,9 +358,6 @@ export const models: WheelroomComponents = {
         type: 'shortText',
         typePostfix: 'Slug',
         unique: true,
-      } as ShortTextField,
-      navigationHeading: {
-        type: 'shortText',
       } as ShortTextField,
       date: {
         helpText: 'Override Contentful publish date',
@@ -414,9 +408,6 @@ export const models: WheelroomComponents = {
         type: 'shortText',
         typePostfix: 'Slug',
         unique: true,
-      } as ShortTextField,
-      navigationHeading: {
-        type: 'shortText',
       } as ShortTextField,
       text: {
         required: true,

@@ -16,7 +16,6 @@ fragment Blog on ContentfulBlog {
   __typename
   title
   slug
-  navigationHeading
   date
   text {
     json
