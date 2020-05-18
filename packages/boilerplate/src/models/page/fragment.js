@@ -32,5 +32,6 @@ fragment Page on ContentfulPage {
       ...GatsbyContentfulFluid
     }
   }
+  seoKeywords
 }
 `

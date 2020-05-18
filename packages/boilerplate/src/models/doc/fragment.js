@@ -20,12 +20,16 @@ fragment Doc on ContentfulDoc {
   text {
     json
   }
-  topics {
-    ... on Node {
-      ...Topic
+  parent {
+    __typename
+    title
+    slug
+    navigationHeading
+    text {
+      json
     }
   }
-  parent {
+  next {
     __typename
     title
     slug

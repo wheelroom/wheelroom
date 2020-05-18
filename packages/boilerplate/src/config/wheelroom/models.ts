@@ -250,6 +250,7 @@ export const models: WheelroomComponents = {
         items: [
           'block-wr',
           'blog-wr',
+          'blog-list-wr',
           'card-wr',
           'divider-wr',
           'featured-wr',
@@ -372,11 +373,15 @@ export const models: WheelroomComponents = {
         required: true,
         type: 'richText',
       } as RichTextField,
+      labels: {
+        type: 'tags',
+      } as TagsField,
       topics: {
+        required: true,
         allowedComponents: ['topic'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      profiles: {
+      authors: {
         allowedComponents: ['topic'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
@@ -417,11 +422,13 @@ export const models: WheelroomComponents = {
         required: true,
         type: 'richText',
       } as RichTextField,
-      topics: {
-        allowedComponents: ['topic'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
       parent: {
+        allowedComponents: ['doc'],
+        initialContent: undefined,
+        type: 'singleComponent',
+        expandFragmentRef: true,
+      } as SingleComponentField,
+      next: {
         allowedComponents: ['doc'],
         initialContent: undefined,
         type: 'singleComponent',

@@ -21,12 +21,17 @@ fragment Blog on ContentfulBlog {
   text {
     json
   }
+  labels {
+    ... on Node {
+      ...Topic
+    }
+  }
   topics {
     ... on Node {
       ...Topic
     }
   }
-  profiles {
+  authors {
     ... on Node {
       ...Topic
     }

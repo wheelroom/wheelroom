@@ -18,14 +18,11 @@ fragment Action on ContentfulAction {
   description
   eventId
   heading
+  icon
   page {
-    __typename
-    title
-    path
-    navigationHeading
-    theme
-    seoTitle
-    seoDescription
+    ... on Node {
+      ...Page
+    }
   }
   query
   title
