@@ -29,7 +29,12 @@ export interface ModalWheelStyle {
     list: NavHeaderListWheelStyle
     actions: {
       ncss: NcssProps
-      action: NcssProps
+      link: {
+        ncss: NcssProps
+        icon: {
+          ncss: NcssProps
+        }
+      }
       themeButton: NcssProps
     }
   }
@@ -138,9 +143,14 @@ export const modalPreset: ModalWheelStyle = {
         w: 1,
         p: 3,
       },
-      action: {
+      link: {
         ncss: {
           label: 'modal-actions-action',
+        },
+        icon: {
+          ncss: {
+            label: 'modal-actions-icon',
+          },
         },
       },
       themeButton: {

@@ -1,12 +1,12 @@
 import { NcssProps } from '../../../types'
-import {
-  ButtonElementStyle,
-  buttonReset,
-} from '../../../element/resets/button-reset'
+import { IconElementStyle } from '../../../element/resets/icon-reset'
 
 export interface NavHeaderActionsWheelStyle {
   ncss: NcssProps
-  action: ButtonElementStyle
+  link: {
+    ncss: NcssProps
+    icon: IconElementStyle
+  }
   themeButton: NcssProps
 }
 
@@ -14,11 +14,18 @@ export const navHeaderActionsPreset: NavHeaderActionsWheelStyle = {
   ncss: {
     label: 'nav-header-actions',
   },
-  action: {
+  link: {
     ncss: {
       label: 'nav-header-action',
-      ...buttonReset,
       mr: 2,
+      ':last-child': {
+        mr: 0,
+      },
+    },
+    icon: {
+      ncss: {
+        label: 'nav-header-action-icon',
+      },
     },
   },
   themeButton: {

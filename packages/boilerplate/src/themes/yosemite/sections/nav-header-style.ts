@@ -62,7 +62,17 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
     },
     actions: {
       ncss: {},
-      action: primaryButtonStyle,
+      link: {
+        ncss: primaryButtonStyle.ncss,
+        icon: {
+          ncss: {
+            w: '16px',
+            h: '16px',
+            my: 'auto',
+            transform: 'translateX(4px)',
+          },
+        },
+      },
       themeButton: secondaryButtonStyle,
     },
   },
@@ -133,11 +143,19 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
           ncss: {
             flexDirection: 'row',
           },
-          action: {
+          link: {
             ncss: {
               ...primaryButtonStyle.ncss,
               mb: 0,
               w: [1 / 2],
+            },
+            icon: {
+              ncss: {
+                w: '16px',
+                h: '16px',
+                my: 'auto',
+                transform: 'translateX(4px)',
+              },
             },
           },
           themeButton: {

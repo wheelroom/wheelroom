@@ -7,24 +7,26 @@ import { Action } from '../../model/action/action'
 import { NavHeaderActionsWheelStyle } from './presets/nav-header-actions-preset'
 import { Wheel } from '../../types'
 
-interface NavActionsWheel extends Wheel {
+interface NavHeaderActionsWheel extends Wheel {
   style: NavHeaderActionsWheelStyle
 }
 
-export const NavHeaderActions = (props: {
+export interface NavHeaderActionsProps {
   action: ActionProps
   activeThemeId?: string
   hideThemeSwitchButton?: boolean
   pageSectionInfo: PageSectionInfo
   toggleTheme: () => void
-  wheel: NavActionsWheel
-}) => {
+  wheel: NavHeaderActionsWheel
+}
+
+export const NavHeaderActions = (props: NavHeaderActionsProps) => {
   return (
     <Flex is="div" wheel={props.wheel}>
       {props.pageSectionInfo.hasAction && (
         <Action
           {...props.action}
-          wheel={{ ...props.wheel, style: props.wheel.style.action }}
+          wheel={{ ...props.wheel, style: props.wheel.style.link }}
         />
       )}
       {!props.hideThemeSwitchButton && (

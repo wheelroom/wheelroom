@@ -1,6 +1,6 @@
 import React from 'react'
 import { Action } from '../../model/action/action'
-import { ActionProps } from '../../../../models/action/action'
+import { ActionProps } from '../../../../models/action'
 import { NavHeaderListItemLinkWheelStyle } from './presets/nav-header-list-item-link-preset'
 import { Wheel } from '../../types'
 
