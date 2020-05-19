@@ -24,6 +24,9 @@ export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {

@@ -27,6 +27,9 @@ export const pageSectionFeaturedPreset: PageSectionFeaturedWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {

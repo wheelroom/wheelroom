@@ -39,9 +39,7 @@ export const elementStyles: ElementStyles = {
     ncss: {},
   },
   featherIcon: {
-    ncss: {
-      color: 'iconColor',
-    },
+    ncss: {},
   },
   flex: {
     ncss: {},

@@ -13,6 +13,9 @@ export const sectionImageStyle: PageSectionImageWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {
@@ -24,9 +27,7 @@ export const sectionImageStyle: PageSectionImageWheelStyle = {
           ncss: {},
         },
         icon: {
-          ncss: {
-            mb: 2,
-          },
+          ncss: {},
         },
       },
     },

@@ -8,16 +8,20 @@
 
 import React, { Fragment, useContext } from 'react'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
-import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
+import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
 import { ActionProps } from '../../../../models/action'
 import { ALink } from '../../element/a-link'
 import { Any } from '../../element/any'
 import { EmbedProps } from '../../../../models/embed'
+import { FeatherIcon } from '../../element/icon'
 import { GLink } from '../../element/g-link'
 import { NcssProps, Wheel } from '../../types'
 
 export interface ActionWheelStyle {
   ncss: NcssProps
+  icon: {
+    ncss: NcssProps
+  }
 }
 
 export interface ActionWheel extends Wheel {
@@ -33,17 +37,16 @@ export interface ActionWheelProps extends ActionProps {
   onClick?: () => any
 }
 
-const createURL = (
-  action: ActionWheelProps,
-  adminCoreState: AdminCoreState
-) => {
-  const getPreviewQuery =
-    getPreviewQueryString(adminCoreState) && action.page ? '?preview=true' : ''
-  const setQuery = !getPreviewQuery && action.page ? '?' : ''
-  const getUrl = action.page ? action.page.path : action.url
-  const getQuery = action.query ? setQuery + action.query : ''
-  const getAnchor = action.anchor ? '#' + action.anchor : ''
-  return getUrl + getPreviewQuery + getQuery + getAnchor
+const createURL = (action: ActionWheelProps, isPreviewMode: boolean) => {
+  const hasQuery = action.query || isPreviewMode
+  let url = action.page ? action.page.path : action.url
+  if (hasQuery) {
+    url += '?'
+    url += isPreviewMode ? '&preview=true' : ''
+    url += action.query || ''
+  }
+  url += action.anchor ? '#' + action.anchor : ''
+  return url
 }
 
 const onClickHander = (
@@ -61,16 +64,30 @@ const onClickHander = (
   }
 }
 
+const isPreviewMode = (adminCoreState: AdminCoreState): boolean => {
+  const store = getPreviewPageStore(adminCoreState)
+  return !!(store && store.state.inPreviewMode)
+}
+
 const ActionGlink = (props: ActionWheelProps) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   return (
     <GLink
       ariaLabel={props.description}
       onClick={() => onClickHander(props.eventId, adminCoreState)}
-      to={createURL(props, adminCoreState)}
+      to={createURL(props, isPreviewMode(adminCoreState))}
       wheel={props.wheel}
     >
       {props.children ? props.children : props.heading}
+      {props.icon && (
+        <FeatherIcon
+          icon={props.icon}
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.icon,
+          }}
+        />
+      )}
     </GLink>
   )
 }
@@ -81,17 +98,40 @@ const ActionAlink = (props: ActionWheelProps) => {
     return (
       <ALink
         ariaLabel={props.description}
-        href={createURL(props, adminCoreState)}
+        href={createURL(props, isPreviewMode(adminCoreState))}
         onClick={() => onClickHander(props.eventId, adminCoreState)}
         wheel={props.wheel}
       >
         {props.children ? props.children : props.heading}
+        {props.icon && (
+          <FeatherIcon
+            icon={props.icon}
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.icon,
+            }}
+          />
+        )}
       </ALink>
     )
   } else {
     return (
-      <Any is="span" wheel={props.wheel} ariaLabel={props.description}>
+      <Any
+        is="span"
+        wheel={props.wheel}
+        ariaLabel={props.description}
+        polyPreset={true}
+      >
         {props.children ? props.children : props.heading}
+        {props.icon && (
+          <FeatherIcon
+            icon={props.icon}
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.icon,
+            }}
+          />
+        )}
       </Any>
     )
   }

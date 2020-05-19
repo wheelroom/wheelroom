@@ -1,4 +1,5 @@
 import { PageSectionVideoWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-video-preset'
+import { iconTopicStyle } from '../elements/icon-style'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const sectionVideoStyle: PageSectionVideoWheelStyle = {
@@ -13,6 +14,9 @@ export const sectionVideoStyle: PageSectionVideoWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {
@@ -23,11 +27,7 @@ export const sectionVideoStyle: PageSectionVideoWheelStyle = {
         heading: {
           ncss: {},
         },
-        icon: {
-          ncss: {
-            mb: 2,
-          },
-        },
+        icon: iconTopicStyle,
       },
     },
     media: {

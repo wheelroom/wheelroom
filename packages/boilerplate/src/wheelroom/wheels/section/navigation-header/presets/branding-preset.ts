@@ -1,11 +1,14 @@
 import { NcssProps } from '../../../types'
-import { ALinkElementStyle } from '../../../element/resets/a-link-reset'
 import { ParagraphElementStyle } from '../../../element/resets/paragraph-reset'
+import { IconElementStyle } from '../../../element/resets/icon-reset'
 
 export interface BrandingWheelStyle {
   ncss: NcssProps
   logo: NcssProps
-  link: ALinkElementStyle
+  link: {
+    ncss: NcssProps
+    icon: IconElementStyle
+  }
   sup: ParagraphElementStyle
 }
 
@@ -23,9 +26,17 @@ export const brandingPreset: BrandingWheelStyle = {
   link: {
     ncss: {
       label: 'branding-link',
+      display: 'inline-flex',
       fontFamily: 'branding',
       textDecoration: 'none',
-      sup: {},
+    },
+    icon: {
+      ncss: {
+        label: 'branding-icon',
+        w: '16px',
+        h: '16px',
+        my: 'auto',
+      },
     },
   },
   sup: {

@@ -36,6 +36,9 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
           outlineColor: 'outline',
         },
       },
+      icon: {
+        ncss: {},
+      },
     },
     sup: {
       ncss: {
@@ -51,6 +54,9 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
     },
@@ -116,6 +122,9 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
                   outlineColor: 'outline',
                   outlineOffset: -2,
                 },
+              },
+              icon: {
+                ncss: {},
               },
             },
           },

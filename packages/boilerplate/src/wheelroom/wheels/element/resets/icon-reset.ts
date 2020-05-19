@@ -10,7 +10,7 @@ export const featherIconElementStyle: IconElementStyle = {
     display: 'inline-flex',
     w: '48px',
     h: '48px',
-    strokeWidth: '1px',
+    strokeWidth: '1.5px',
   },
 }
 

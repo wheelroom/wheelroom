@@ -22,6 +22,9 @@ export const pageSectionQuotePreset: PageSectionQuoteWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {

@@ -22,7 +22,12 @@ export const sectionCardStyle: PageSectionCardWheelStyle = {
         ncss: {
           mt: 3,
         },
-        link: primaryButtonStyle,
+        link: {
+          ...primaryButtonStyle,
+          icon: {
+            ncss: {},
+          },
+        },
       },
       text: {
         ncss: {},
@@ -36,6 +41,8 @@ export const sectionCardStyle: PageSectionCardWheelStyle = {
         },
         icon: {
           ncss: {
+            color: 'iconColor',
+            strokeWidth: '1px',
             mb: 2,
           },
         },

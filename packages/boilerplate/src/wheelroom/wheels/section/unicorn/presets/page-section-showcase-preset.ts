@@ -29,6 +29,9 @@ export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {

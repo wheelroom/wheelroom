@@ -27,6 +27,9 @@ export const pageSectionGalleryPreset: PageSectionGalleryWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {

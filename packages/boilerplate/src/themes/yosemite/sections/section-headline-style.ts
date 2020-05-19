@@ -1,6 +1,7 @@
 import { PageSectionHeadlineWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-headline-preset'
 import { displayButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
+import { iconButtonStyle, iconTopicStyle } from '../elements/icon-style'
 
 export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
   container: {
@@ -16,7 +17,10 @@ export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
         ncss: {
           mt: 3,
         },
-        link: displayButtonStyle,
+        link: {
+          ...displayButtonStyle,
+          icon: iconButtonStyle,
+        },
       },
       text: {
         ncss: {},
@@ -28,11 +32,7 @@ export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
         heading: {
           ncss: {},
         },
-        icon: {
-          ncss: {
-            mb: 2,
-          },
-        },
+        icon: iconTopicStyle,
       },
     },
     media: {

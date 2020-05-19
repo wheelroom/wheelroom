@@ -54,7 +54,7 @@ export const Topic = (props: TopicWheelProps) => {
   let elementProps = {}
   if (fullTopicAsLink) {
     Element = Action
-    elementProps = props.topic.actions[0]
+    elementProps = { ...props.topic.actions[0], icon: undefined }
   } else {
     Element = Box
     elementProps = { is: 'div' }

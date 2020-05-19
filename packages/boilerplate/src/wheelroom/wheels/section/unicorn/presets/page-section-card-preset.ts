@@ -52,6 +52,9 @@ export const pageSectionCardPreset: PageSectionCardWheelStyle = {
         },
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
     },

@@ -1,6 +1,7 @@
 import { PageSectionQuoteWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-quote-preset'
 import { displayButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
+import { iconButtonStyle, iconTopicStyle } from '../elements/icon-style'
 
 export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
   container: {
@@ -17,7 +18,10 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
         ncss: {
           mt: 6,
         },
-        link: displayButtonStyle,
+        link: {
+          ...displayButtonStyle,
+          icon: iconButtonStyle,
+        },
       },
       text: {
         ncss: {
@@ -42,8 +46,8 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
         },
         icon: {
           ncss: {
+            ...iconTopicStyle.ncss,
             order: '0',
-            mb: 2,
           },
         },
       },

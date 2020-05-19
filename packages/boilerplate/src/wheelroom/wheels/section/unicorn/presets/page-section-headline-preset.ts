@@ -24,6 +24,9 @@ export const pageSectionHeadlinePreset: PageSectionHeadlineWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {

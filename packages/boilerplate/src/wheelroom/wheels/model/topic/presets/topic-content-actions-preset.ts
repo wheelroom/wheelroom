@@ -6,6 +6,9 @@ export interface TopicContentActionsWheelStyle {
   /** Action link or button style */
   link: {
     ncss: NcssProps
+    icon: {
+      ncss: NcssProps
+    }
   }
 }
 
@@ -16,6 +19,15 @@ export const topicContentActionsPreset: TopicContentActionsWheelStyle = {
   link: {
     ncss: {
       label: 'topic-link',
+    },
+    icon: {
+      ncss: {
+        label: 'topic-icon',
+        w: '15px',
+        h: '15px',
+        my: 'auto',
+        transform: 'translateX(4px)',
+      },
     },
   },
 }

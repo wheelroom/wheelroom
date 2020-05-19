@@ -1,7 +1,6 @@
 import React from 'react'
 import { ActionProps } from '../../../../models/action'
 import { Box } from '../../element/grid'
-import { Any } from '../../element/any'
 import { TopicProps } from '../../../../models/topic'
 import { TopicInfo } from '../../../lib/get-topic-info'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
@@ -39,22 +38,12 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
 
   return (
     <Box is="div" wheel={props.wheel}>
-      {props.fullTopicAsLink ? (
-        <Any
-          polyPreset={true}
-          is="span"
-          wheel={{ ...props.wheel, style: props.wheel.style.link }}
-        >
-          {action.heading}
-        </Any>
-      ) : (
-        <Action
-          {...action}
-          wheel={{ ...props.wheel, style: props.wheel.style.link }}
-        >
-          {action.heading}
-        </Action>
-      )}
+      <Action
+        {...action}
+        url={!props.fullTopicAsLink && action.url}
+        page={!props.fullTopicAsLink && action.page}
+        wheel={{ ...props.wheel, style: props.wheel.style.link }}
+      />
     </Box>
   )
 }

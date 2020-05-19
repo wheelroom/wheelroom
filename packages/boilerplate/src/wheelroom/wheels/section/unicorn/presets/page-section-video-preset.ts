@@ -21,6 +21,9 @@ export const pageSectionVideoPreset: PageSectionVideoWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {

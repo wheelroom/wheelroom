@@ -1,6 +1,7 @@
 import { PageSectionShowcaseWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-showcase-preset'
 import { aLinkButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
+import { iconTopicStyle } from '../elements/icon-style'
 
 export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
   container: {
@@ -21,7 +22,12 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
         ncss: {
           mt: 3,
         },
-        link: aLinkButtonStyle,
+        link: {
+          ...aLinkButtonStyle,
+          icon: {
+            ncss: {},
+          },
+        },
       },
       text: {
         ncss: {},
@@ -33,11 +39,7 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
         heading: {
           ncss: {},
         },
-        icon: {
-          ncss: {
-            mb: 2,
-          },
-        },
+        icon: iconTopicStyle,
       },
     },
     media: {

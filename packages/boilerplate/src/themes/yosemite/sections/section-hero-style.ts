@@ -1,5 +1,6 @@
 import { PageSectionHeroWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-hero-preset'
 import { displayButtonStyle } from '../elements/button-style'
+import { iconButtonStyle, iconTopicStyle } from '../elements/icon-style'
 
 export const sectionHeroStyle: PageSectionHeroWheelStyle = {
   container: {
@@ -20,7 +21,10 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
           maxWidth: '30em',
           mt: 5,
         },
-        link: displayButtonStyle,
+        link: {
+          ...displayButtonStyle,
+          icon: iconButtonStyle,
+        },
       },
       text: {
         ncss: {
@@ -35,11 +39,7 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
         heading: {
           ncss: {},
         },
-        icon: {
-          ncss: {
-            mb: 2,
-          },
-        },
+        icon: iconTopicStyle,
       },
     },
     media: {

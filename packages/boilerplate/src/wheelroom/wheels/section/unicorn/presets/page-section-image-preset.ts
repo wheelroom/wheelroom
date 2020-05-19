@@ -23,6 +23,9 @@ export const pageSectionImagePreset: PageSectionImageWheelStyle = {
         ncss: {},
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
       text: {

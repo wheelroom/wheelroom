@@ -24,6 +24,9 @@ export const navFooterStyle: NavFooterWheelStyle = {
               outlineColor: 'outline',
             },
           },
+          icon: {
+            ncss: {},
+          },
         },
       },
     },

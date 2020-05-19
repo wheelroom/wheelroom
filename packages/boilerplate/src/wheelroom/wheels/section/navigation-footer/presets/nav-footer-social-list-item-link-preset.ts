@@ -18,7 +18,6 @@ export const navFooterSocialListItemLinkPreset: NavFooterSocialListItemLinkWheel
       label: 'nav-footer-social-icon',
       width: '20px',
       height: '20px',
-      strokeWidth: '1.15px',
     },
   },
 }

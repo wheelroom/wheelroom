@@ -115,11 +115,18 @@ export const modalPreset: ModalWheelStyle = {
         link: {
           ncss: {
             label: 'modal-list-item-link',
-            display: 'block',
+            display: 'flex',
             textDecoration: 'none',
             p: 3,
             '&.active': { textDecoration: 'underline' },
             ':hover': { textDecoration: 'underline' },
+          },
+          icon: {
+            ncss: {
+              width: '16px',
+              height: '16px',
+              my: 'auto',
+            },
           },
         },
       },

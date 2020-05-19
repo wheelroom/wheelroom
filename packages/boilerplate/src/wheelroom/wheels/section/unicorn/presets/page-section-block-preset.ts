@@ -44,6 +44,9 @@ export const pageSectionBlockPreset: PageSectionBlockWheelStyle = {
         },
         link: {
           ncss: {},
+          icon: {
+            ncss: {},
+          },
         },
       },
     },
