@@ -17,6 +17,7 @@ import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-
 import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -30,17 +31,19 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
 
   if (pageSectionInfo.hasTopic) {
     return (
-      <PageSectionUnicorn
-        topicProps={{
-          fullTopicAsLink: false,
-          pageSectionActions: props.actions,
-          pageSectionInfo,
-          wheel,
-        }}
-        containerStyle="container"
-        pageSection={props}
-        wheel={wheel}
-      />
+      <ScrollSpy id="test-block">
+        <PageSectionUnicorn
+          topicProps={{
+            fullTopicAsLink: false,
+            pageSectionActions: props.actions,
+            pageSectionInfo,
+            wheel,
+          }}
+          containerStyle="container"
+          pageSection={props}
+          wheel={wheel}
+        />
+      </ScrollSpy>
     )
   }
   return <NotImplemented pageSection={props} wheel={wheel} />
