@@ -11,7 +11,7 @@ import { ActionProps } from '../../../../models/action'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { ALink } from '../../element/a-link'
 import { Any } from '../../element/any'
-import { EmbedProps } from '../../../../models/embed/embed'
+import { EmbedProps } from '../../../../models/embed'
 import { GLink } from '../../element/g-link'
 import { NcssProps, Wheel } from '../../types'
 
@@ -30,6 +30,13 @@ export interface ActionWheelProps extends ActionProps {
   key?: any
   /** On click handler */
   onClick?: () => any
+}
+
+const createURL = (action: ActionWheelProps) => {
+  const setUrl = action.page ? action.page.path : action.url
+  const setAnchor = action.anchor ? '#' + action.anchor : ''
+  const setQuery = action.query ? '?' + action.query : ''
+  return setUrl + setAnchor + setQuery
 }
 
 const onClickHander = (
@@ -53,7 +60,7 @@ const ActionGlink = (props: ActionWheelProps) => {
     <GLink
       ariaLabel={props.description}
       onClick={() => onClickHander(props.eventId, adminCoreState)}
-      to={props.page.path}
+      to={createURL(props)}
       wheel={props.wheel}
     >
       {props.children ? props.children : props.heading}
@@ -67,7 +74,7 @@ const ActionAlink = (props: ActionWheelProps) => {
     return (
       <ALink
         ariaLabel={props.description}
-        href={props.url}
+        href={createURL(props)}
         onClick={() => onClickHander(props.eventId, adminCoreState)}
         wheel={props.wheel}
       >
