@@ -20,9 +20,13 @@ fragment Action on ContentfulAction {
   heading
   icon
   page {
-    ... on Node {
-      ...Page
-    }
+    __typename
+    title
+    path
+    theme
+    seoTitle
+    seoDescription
+    seoKeywords
   }
   query
   title
