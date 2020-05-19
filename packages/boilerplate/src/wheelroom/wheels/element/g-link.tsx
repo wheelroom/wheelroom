@@ -1,9 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
-import { useContext } from 'react'
-import { AdminCoreContext } from '@wheelroom/admin-core'
-import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { gLinkReset } from './resets/g-link-reset'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
@@ -17,11 +14,10 @@ export interface GLinkProps extends ElementProps {
 }
 
 export const GLink = (props: GLinkProps) => {
-  const { adminCoreState } = useContext(AdminCoreContext)
   const label = { ncss: { label: 'g-link' } }
   const attrs: any = getElementAttrs(props)
   attrs.onClick = props.onClick
-  attrs.to = props.to + getPreviewQueryString(adminCoreState)
+  attrs.to = props.to
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
     (props.wheel.theme as unknown) as StyledSystemTheme,

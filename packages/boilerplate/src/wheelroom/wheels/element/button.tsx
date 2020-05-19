@@ -1,8 +1,5 @@
 /** @jsx jsx */
 import React from 'react'
-import { useContext } from 'react'
-import { AdminCoreContext } from '@wheelroom/admin-core'
-import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
 import { buttonReset } from './resets/button-reset'
 import { ElementProps } from './element'
 import { getSelf } from './self'
@@ -29,7 +26,6 @@ export interface ButtonProps extends ElementProps {
 }
 
 export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
-  const { adminCoreState } = useContext(AdminCoreContext)
   const extraAttrs: any = {
     'aria-controls': props.ariaControls,
     'aria-expanded': props.ariaExpanded,
@@ -41,6 +37,6 @@ export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
     type: props.type,
   }
   extraAttrs.ref = ref
-  extraAttrs.value = props.value + getPreviewQueryString(adminCoreState)
+  extraAttrs.value = props.value
   return getSelf(props, buttonReset, 'button', extraAttrs)
 })

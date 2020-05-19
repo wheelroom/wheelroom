@@ -7,8 +7,9 @@
  */
 
 import React, { Fragment, useContext } from 'react'
-import { ActionProps } from '../../../../models/action'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
+import { getPreviewQueryString } from '@wheelroom/admin-page-preview'
+import { ActionProps } from '../../../../models/action'
 import { ALink } from '../../element/a-link'
 import { Any } from '../../element/any'
 import { EmbedProps } from '../../../../models/embed'
@@ -32,11 +33,17 @@ export interface ActionWheelProps extends ActionProps {
   onClick?: () => any
 }
 
-const createURL = (action: ActionWheelProps) => {
-  const setUrl = action.page ? action.page.path : action.url
-  const setAnchor = action.anchor ? '#' + action.anchor : ''
-  const setQuery = action.query ? '?' + action.query : ''
-  return setUrl + setAnchor + setQuery
+const createURL = (
+  action: ActionWheelProps,
+  adminCoreState: AdminCoreState
+) => {
+  const getPreviewQuery =
+    getPreviewQueryString(adminCoreState) && action.page ? '?preview=true' : ''
+  const setQuery = !getPreviewQuery && action.page ? '?' : ''
+  const getUrl = action.page ? action.page.path : action.url
+  const getQuery = action.query ? setQuery + action.query : ''
+  const getAnchor = action.anchor ? '#' + action.anchor : ''
+  return getUrl + getPreviewQuery + getQuery + getAnchor
 }
 
 const onClickHander = (
@@ -60,7 +67,7 @@ const ActionGlink = (props: ActionWheelProps) => {
     <GLink
       ariaLabel={props.description}
       onClick={() => onClickHander(props.eventId, adminCoreState)}
-      to={createURL(props)}
+      to={createURL(props, adminCoreState)}
       wheel={props.wheel}
     >
       {props.children ? props.children : props.heading}
@@ -74,7 +81,7 @@ const ActionAlink = (props: ActionWheelProps) => {
     return (
       <ALink
         ariaLabel={props.description}
-        href={createURL(props)}
+        href={createURL(props, adminCoreState)}
         onClick={() => onClickHander(props.eventId, adminCoreState)}
         wheel={props.wheel}
       >
