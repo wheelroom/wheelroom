@@ -47,6 +47,12 @@ fragment Blog on ContentfulBlog {
       url
       fileName
       contentType
+      details {
+        image {
+          height
+          width
+        }
+      }
     }
   }
   seoKeywords

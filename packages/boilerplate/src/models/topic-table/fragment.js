@@ -29,6 +29,12 @@ fragment TopicTable on ContentfulTopicTable {
       url
       fileName
       contentType
+      details {
+        image {
+          height
+          width
+        }
+      }
     }
   }
   icon

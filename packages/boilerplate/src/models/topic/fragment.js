@@ -29,6 +29,12 @@ fragment Topic on ContentfulTopic {
       url
       fileName
       contentType
+      details {
+        image {
+          height
+          width
+        }
+      }
     }
   }
   icon

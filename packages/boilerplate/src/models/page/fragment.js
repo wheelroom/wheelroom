@@ -30,6 +30,17 @@ fragment Page on ContentfulPage {
     fluid {
       ...GatsbyContentfulFluid
     }
+    file {
+      url
+      fileName
+      contentType
+      details {
+        image {
+          height
+          width
+        }
+      }
+    }
   }
   seoKeywords
 }

@@ -25,6 +25,12 @@ fragment MediaBreakpoint on ContentfulMediaBreakpoint {
       url
       fileName
       contentType
+      details {
+        image {
+          height
+          width
+        }
+      }
     }
   }
   medium {
@@ -37,6 +43,12 @@ fragment MediaBreakpoint on ContentfulMediaBreakpoint {
       url
       fileName
       contentType
+      details {
+        image {
+          height
+          width
+        }
+      }
     }
   }
   large {
@@ -49,6 +61,12 @@ fragment MediaBreakpoint on ContentfulMediaBreakpoint {
       url
       fileName
       contentType
+      details {
+        image {
+          height
+          width
+        }
+      }
     }
   }
   extraLarge {
@@ -61,6 +79,12 @@ fragment MediaBreakpoint on ContentfulMediaBreakpoint {
       url
       fileName
       contentType
+      details {
+        image {
+          height
+          width
+        }
+      }
     }
   }
 }
