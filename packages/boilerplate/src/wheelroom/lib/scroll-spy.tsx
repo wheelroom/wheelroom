@@ -14,6 +14,9 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
   const divRef = useRef() as any
   const inView = useRef(false)
   const isServer = typeof window === 'undefined'
+  if (!props.eventId) {
+    return props.children
+  }
 
   const onScroll = () => {
     if (isServer) {
