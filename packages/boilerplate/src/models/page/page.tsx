@@ -17,5 +17,6 @@ export interface PageProps {
   theme: string
   seoTitle: string
   seoDescription: string
+  seoKeywords: string[]
   seoImage: MediaObject
 }

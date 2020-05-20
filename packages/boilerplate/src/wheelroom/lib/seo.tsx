@@ -14,6 +14,7 @@ export interface SeoProps {
   meta: any[]
   pageDescription?: string
   pageHeading: string
+  pageKeywords: string[]
   siteAuthor: string
   siteDescription: string
   siteHeading: string
@@ -25,7 +26,7 @@ export const Seo = (context: SeoProps) => {
   const metaDescription =
     context.pageDescription || context.siteDescription || ''
   const metaHeading = context.pageHeading || context.siteHeading || ''
-  const useKeywords = context.keywords || context.siteKeywords || []
+  const useKeywords = context.pageKeywords || context.siteKeywords || []
   const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
   const linkLocales = context.alternateLocales || []
 

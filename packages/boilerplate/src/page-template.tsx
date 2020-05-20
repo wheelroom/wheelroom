@@ -71,6 +71,7 @@ const PageTemplate = (props: any) => {
     meta: [],
     pageDescription: page.seoDescription,
     pageHeading: page.seoTitle,
+    pageKeywords: page.seoKeywords,
     siteAuthor: globals.siteAuthor,
     siteDescription: globals.siteDescription,
     siteHeading: globals.siteHeading,
