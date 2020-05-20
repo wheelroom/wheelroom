@@ -10,6 +10,7 @@ import { HeadingElementStyle } from '../../element/resets/heading-reset'
 import { BlockquoteElementStyle } from '../../element/resets/self-blockquote-reset'
 import { ListElementStyle } from '../../element/resets/self-list-reset'
 import { ALinkElementStyle } from '../../element/resets/a-link-reset'
+import { HtmlElementStyle } from '../../element/resets/html-reset'
 
 export interface TextWheelStyle {
   wrapper: GridElementStyle
@@ -17,6 +18,7 @@ export interface TextWheelStyle {
   code: CodeElementStyle
   pre: PreElementStyle
   hr: HrElementStyle
+  html: HtmlElementStyle
   p: ParagraphElementStyle
   blockquote: BlockquoteElementStyle
   ul: ListElementStyle
@@ -75,6 +77,9 @@ export const textPreset: TextWheelStyle = {
     },
   },
   hr: {
+    ncss: {},
+  },
+  html: {
     ncss: {},
   },
   blockquote: {

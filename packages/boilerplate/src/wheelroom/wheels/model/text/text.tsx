@@ -20,6 +20,7 @@ import {
   documentToReactComponents,
 } from '@contentful/rich-text-react-renderer'
 import { Video } from '../../element/video'
+import { Html } from '../../element/html'
 import { TextWheelStyle } from './text-preset'
 import { MediaObject } from '../../element/types/media'
 import { Wheel } from '../../types'
@@ -254,6 +255,20 @@ export const Text = (props: TextWheelProps) => {
           }}
         />
       ),
+      [BLOCKS.EMBEDDED_ENTRY]: (node: Node) => {
+        const fields = node.data.target.fields
+        if (!fields) {
+          return null
+        }
+        return (
+          <Html
+            code={fields.code}
+            type={fields.type}
+            title={fields.title}
+            wheel={{ ...props.wheel, style: props.wheel.style.html }}
+          />
+        )
+      },
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields
         if (!fields) {

@@ -97,10 +97,15 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
     richText: {
       specs: {
         type: 'RichText',
-
         validations: [
           {
-            nodes: {},
+            nodes: {
+              'embedded-entry-block': [
+                {
+                  linkContentType: ['embed'],
+                },
+              ],
+            },
           },
           {
             enabledMarks: ['bold', 'italic', 'underline', 'code'],
@@ -117,6 +122,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
               'ordered-list',
               'unordered-list',
               'embedded-asset-block',
+              'embedded-entry-block',
               'hyperlink',
               'entry-hyperlink',
               'blockquote',

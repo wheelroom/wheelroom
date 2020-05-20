@@ -39,6 +39,20 @@ export const pageSectionFreestyleStyle: FreestyleWheelStyle = {
     hr: {
       ncss: {},
     },
+    html: {
+      ncss: {
+        mt: 3,
+        mb: 5,
+        position: 'relative',
+        h: '0px',
+        pb: '56.25%',
+        iframe: {
+          position: 'absolute',
+          h: 1,
+          w: 1,
+        },
+      },
+    },
     blockquote: {
       ncss: {},
     },
