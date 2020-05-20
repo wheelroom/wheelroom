@@ -1,10 +1,13 @@
-import { useEffect, useRef } from 'react'
-import * as React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { EmbedProps } from '../../models/embed'
+import { PageSectionProps } from '../../models/page-section/page-section'
 
 interface ScrollSpyProps {
   /** The #id added to the div  */
-  id: string
   children: any
+  eventId: string
+  pageSectionProps: PageSectionProps
+  siteEmbeds: EmbedProps[]
 }
 
 export const ScrollSpy = (props: ScrollSpyProps) => {
@@ -36,9 +39,16 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
     }
 
     if (lastInview != inView.current) {
-      // eslint-disable-next-line no-undef
-      console.log(`view for ${props.id} changed to`, inView.current)
-      //'js-page-section'
+      props.siteEmbeds.forEach((embed: EmbedProps) => {
+        const postFix = inView.current ? '-enter' : '-leave'
+        if (embed.code && embed.type === 'js-page-section') {
+          Function(
+            'eventId',
+            'props',
+            embed.code.code
+          )(props.eventId + postFix, props.pageSectionProps)
+        }
+      })
     }
   }
 
@@ -55,7 +65,7 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
   }, [])
 
   return (
-    <div ref={divRef} id={props.id}>
+    <div ref={divRef} id={props.eventId}>
       {props.children}
     </div>
   )

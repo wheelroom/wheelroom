@@ -30,7 +30,11 @@ export const PageSectionHeroVar = (props: PageSectionProps) => {
   ])
   if (pageSectionInfo.hasTopic) {
     return (
-      <ScrollSpy id="test-hero">
+      <ScrollSpy
+        eventId={props.eventId}
+        siteEmbeds={props.globals.siteEmbeds}
+        pageSectionProps={props}
+      >
         <PageSectionUnicorn
           topicProps={{
             pageSectionActions: props.actions,

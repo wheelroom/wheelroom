@@ -59,6 +59,7 @@ export interface PageSectionProps extends SectionProps {
   topics: TopicProps[]
   topicTables: TopicTableProps[]
   variation: string
+  eventId: string
 }
 
 export const PageSection = (props: PageSectionProps) => {

@@ -31,7 +31,11 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
 
   if (pageSectionInfo.hasTopic) {
     return (
-      <ScrollSpy id="test-block">
+      <ScrollSpy
+        eventId={props.eventId}
+        siteEmbeds={props.globals.siteEmbeds}
+        pageSectionProps={props}
+      >
         <PageSectionUnicorn
           topicProps={{
             fullTopicAsLink: false,

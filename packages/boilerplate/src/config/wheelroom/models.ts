@@ -299,6 +299,9 @@ export const models: WheelroomComponents = {
         allowedComponents: ['action'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
+      eventId: {
+        type: 'shortText',
+      } as ShortTextField,
     },
     modelVersion: '1.0.0',
     settings: {

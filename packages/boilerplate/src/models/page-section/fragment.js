@@ -16,6 +16,7 @@ fragment PageSection on ContentfulPageSection {
   __typename
   title
   variation
+  eventId
   topics {
     ... on Node {
       ...Topic
