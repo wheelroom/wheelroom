@@ -1,7 +1,7 @@
 interface EmbedModel {
   fields: {
     code?: string
-    type?: 'html' | 'js-app' | 'js-page' | 'js-action'
+    type?: 'html' | 'js-app' | 'js-page' | 'js-action' | 'js-page-section'
     title: string
   }
   model: 'embed'

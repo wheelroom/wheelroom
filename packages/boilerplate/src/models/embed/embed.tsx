@@ -5,7 +5,12 @@
  *
  */
 
-export type EmbedType = 'html' | 'js-app' | 'js-page' | 'js-action'
+export type EmbedType =
+  | 'html'
+  | 'js-action'
+  | 'js-app'
+  | 'js-page-section'
+  | 'js-page'
 
 export interface EmbedProps {
   /** Gatsby fetched data */

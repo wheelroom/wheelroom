@@ -58,7 +58,11 @@ const onClickHander = (
   if (globals && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
     globals.siteEmbeds.forEach((embed: EmbedProps) => {
       if (embed.code && embed.type === 'js-action') {
-        Function('eventId', embed.code.code)(eventId)
+        Function(
+          'eventId',
+          'props',
+          embed.code.code
+        )(eventId, adminCoreState.pageProps)
       }
     })
   }

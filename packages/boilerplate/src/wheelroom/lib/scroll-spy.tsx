@@ -18,20 +18,27 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
     }
     const boundingRect = divRef.current.getBoundingClientRect()
     const lastInview = inView.current
-    const requiredVisibleHeight = boundingRect.height / 3
-    const vh = Math.max(
+
+    const viewportHeight = Math.max(
       // eslint-disable-next-line no-undef
       document.documentElement.clientHeight || 0,
       // eslint-disable-next-line no-undef
       window.innerHeight || 0
     )
+    if (boundingRect.height > viewportHeight) {
+      // The element is bigger than the viewport, require element to fill viewport
+      inView.current =
+        boundingRect.top < 0 && boundingRect.bottom > viewportHeight
+    } else {
+      // The element is smaller than the viewport, require full element to be visibel
+      inView.current =
+        boundingRect.top > 0 && boundingRect.bottom < viewportHeight
+    }
 
-    inView.current =
-      boundingRect.top < requiredVisibleHeight &&
-      boundingRect.bottom > requiredVisibleHeight
     if (lastInview != inView.current) {
       // eslint-disable-next-line no-undef
-      console.log(`view for ${props.id} changed to`, inView.current, vh)
+      console.log(`view for ${props.id} changed to`, inView.current)
+      //'js-page-section'
     }
   }
 
