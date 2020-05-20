@@ -1,5 +1,6 @@
 import { PageSectionImageWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-image-preset'
 import { wrapperStyle } from '../elements/grid-style'
+import { iconTopicStyle } from '../elements/icon-style'
 
 export const sectionImageStyle: PageSectionImageWheelStyle = {
   container: {
@@ -26,13 +27,14 @@ export const sectionImageStyle: PageSectionImageWheelStyle = {
         heading: {
           ncss: {},
         },
-        icon: {
-          ncss: {},
-        },
+        icon: iconTopicStyle,
       },
     },
     media: {
       ncss: {},
+      html: {
+        ncss: {},
+      },
       image: {
         img: {
           ncss: {},

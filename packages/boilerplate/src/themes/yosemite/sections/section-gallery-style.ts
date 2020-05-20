@@ -32,6 +32,9 @@ export const sectionGalleryStyle: PageSectionGalleryWheelStyle = {
     },
     media: {
       ncss: {},
+      html: {
+        ncss: {},
+      },
       image: {
         img: {
           ncss: {},

@@ -52,6 +52,16 @@ export const pageSectionBlockPreset: PageSectionBlockWheelStyle = {
     },
     media: {
       ncss: {},
+      html: {
+        ncss: {
+          position: 'relative',
+          h: '0px',
+          pb: '56.25%',
+          iframe: {
+            position: 'absolute',
+          },
+        },
+      },
       image: {
         img: {
           ncss: {
@@ -65,7 +75,7 @@ export const pageSectionBlockPreset: PageSectionBlockWheelStyle = {
           ncss: {
             display: 'block',
             h: '0px',
-            pb: '65.25%',
+            pb: '56.25%',
             position: 'relative',
           },
         },

@@ -94,6 +94,9 @@ export const elementStyles: ElementStyles = {
   hr: {
     ncss: {},
   },
+  html: {
+    ncss: {},
+  },
   image: {
     figcaption: {
       ncss: {},

@@ -7,6 +7,8 @@ import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Video } from '../../element/video'
 import { Wheel } from '../../types'
 import { TopicMediaWheelStyle } from './presets/topic-media-preset'
+import { EmbedProps } from '../../../../models/embed'
+import { Html } from '../../element/html'
 
 export interface TopicMediaWheel extends Wheel {
   style: TopicMediaWheelStyle
@@ -17,6 +19,8 @@ export interface TopicMediaProps {
   wheel: TopicMediaWheel
   /** All topic props */
   topic: TopicProps
+  /** All embed props */
+  embed: EmbedProps
   /** Topic info object */
   topicInfo: TopicInfo
   /** Page section info */
@@ -33,7 +37,19 @@ export const TopicMedia = (props: TopicMediaProps) => {
       }}
       wheel={props.wheel}
     >
-      {props.topicInfo.hasImage && (
+      {props.topic.advancedMedia &&
+        props.topic.advancedMedia
+          .slice(0, 1)
+          .map((embed: EmbedProps, index: number) => (
+            <Html
+              key={index}
+              code={embed.code?.code}
+              title={embed.title}
+              type={embed.type}
+              wheel={{ ...props.wheel, style: props.wheel.style.html }}
+            />
+          ))}
+      {!props.topic.advancedMedia && props.topicInfo.hasImage && (
         <Image
           includeFigcaption={false}
           description={props.topic.media?.description}
@@ -42,7 +58,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
           title={props.topic.media?.title}
         />
       )}
-      {props.topicInfo.hasVideo && (
+      {!props.topic.advancedMedia && props.topicInfo.hasVideo && (
         <Video
           includeTitle={false}
           includeDescription={false}

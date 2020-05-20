@@ -37,6 +37,9 @@ export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
     },
     media: {
       ncss: {},
+      html: {
+        ncss: {},
+      },
       image: {
         img: {
           ncss: {},

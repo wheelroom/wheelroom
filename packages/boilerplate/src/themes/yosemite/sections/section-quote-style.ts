@@ -54,6 +54,9 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
     },
     media: {
       ncss: {},
+      html: {
+        ncss: {},
+      },
       image: {
         img: {
           ncss: {

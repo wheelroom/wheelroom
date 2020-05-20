@@ -52,6 +52,16 @@ export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
         zIndex: -1,
         overflow: 'hidden',
       },
+      html: {
+        ncss: {
+          position: 'relative',
+          h: 1,
+          w: 1,
+          iframe: {
+            position: 'absolute',
+          },
+        },
+      },
       image: {
         img: {
           ncss: {
@@ -71,7 +81,9 @@ export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
       },
       video: {
         video: {
-          ncss: {},
+          ncss: {
+            h: 1,
+          },
         },
         description: {
           ncss: {},

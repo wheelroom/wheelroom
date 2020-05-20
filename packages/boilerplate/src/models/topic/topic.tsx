@@ -20,5 +20,5 @@ export interface TopicProps {
   media: MediaObject | undefined
   icon: string | JSX.Element
   actions: any
-  advancedMedia: MediaBreakpointProps | EmbedProps
+  advancedMedia: EmbedProps[]
 }

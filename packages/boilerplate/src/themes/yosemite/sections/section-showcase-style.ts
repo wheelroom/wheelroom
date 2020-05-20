@@ -47,6 +47,9 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
         maxWidth: '254px',
         w: 1,
       },
+      html: {
+        ncss: {},
+      },
       image: {
         img: {
           ncss: {},

@@ -51,6 +51,16 @@ export const pageSectionFeaturedPreset: PageSectionFeaturedWheelStyle = {
         w: [1, 1, 1 / 2],
         p: 3,
       },
+      html: {
+        ncss: {
+          position: 'relative',
+          h: '0px',
+          pb: '56.25%',
+          iframe: {
+            position: 'absolute',
+          },
+        },
+      },
       image: {
         img: {
           ncss: {},

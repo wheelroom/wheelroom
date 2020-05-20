@@ -44,6 +44,16 @@ export const pageSectionQuotePreset: PageSectionQuoteWheelStyle = {
       ncss: {
         p: 3,
       },
+      html: {
+        ncss: {
+          position: 'relative',
+          h: '0px',
+          pb: '56.25%',
+          iframe: {
+            position: 'absolute',
+          },
+        },
+      },
       image: {
         img: {
           ncss: {},

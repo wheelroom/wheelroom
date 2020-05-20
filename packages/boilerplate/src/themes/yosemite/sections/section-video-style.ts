@@ -32,6 +32,9 @@ export const sectionVideoStyle: PageSectionVideoWheelStyle = {
     },
     media: {
       ncss: {},
+      html: {
+        ncss: {},
+      },
       image: {
         img: {
           ncss: {},

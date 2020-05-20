@@ -1,7 +1,7 @@
 import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-featured-preset'
 import { displayButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
-import { iconButtonStyle } from '../elements/icon-style'
+import { iconButtonStyle, iconTopicStyle } from '../elements/icon-style'
 
 export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
   container: {
@@ -40,19 +40,16 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
         heading: {
           ncss: {},
         },
-        icon: {
-          ncss: {
-            color: 'iconColor',
-            strokeWidth: '1px',
-            mb: 2,
-          },
-        },
+        icon: iconTopicStyle,
       },
     },
     media: {
       ncss: {
         maxWidth: ['35em', '35em', '45%'],
         w: 1,
+      },
+      html: {
+        ncss: {},
       },
       image: {
         img: {

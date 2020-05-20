@@ -53,6 +53,17 @@ export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
         w: [1, 1, 1 / 2],
         p: 3,
       },
+      html: {
+        ncss: {
+          display: 'block',
+          h: '0px',
+          pb: '56.25%',
+          position: 'relative',
+          iframe: {
+            position: 'absolute',
+          },
+        },
+      },
       image: {
         img: {
           ncss: {},

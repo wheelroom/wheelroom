@@ -1,6 +1,7 @@
 import { PageSectionCardWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-card-preset'
 import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
+import { iconTopicStyle } from '../elements/icon-style'
 
 export const sectionCardStyle: PageSectionCardWheelStyle = {
   container: {
@@ -39,17 +40,14 @@ export const sectionCardStyle: PageSectionCardWheelStyle = {
         heading: {
           ncss: {},
         },
-        icon: {
-          ncss: {
-            color: 'iconColor',
-            strokeWidth: '1px',
-            mb: 2,
-          },
-        },
+        icon: iconTopicStyle,
       },
     },
     media: {
       ncss: {},
+      html: {
+        ncss: {},
+      },
       image: {
         img: {
           ncss: {},

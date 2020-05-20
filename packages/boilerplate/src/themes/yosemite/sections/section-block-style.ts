@@ -1,6 +1,7 @@
 import { PageSectionBlockWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-block-preset'
 import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
+import { iconTopicStyle } from '../elements/icon-style'
 
 export const sectionBlockStyle: PageSectionBlockWheelStyle = {
   container: {
@@ -33,17 +34,14 @@ export const sectionBlockStyle: PageSectionBlockWheelStyle = {
         heading: {
           ncss: {},
         },
-        icon: {
-          ncss: {
-            color: 'iconColor',
-            strokeWidth: '1px',
-            mb: 2,
-          },
-        },
+        icon: iconTopicStyle,
       },
     },
     media: {
       ncss: {},
+      html: {
+        ncss: {},
+      },
       image: {
         img: {
           ncss: {},
