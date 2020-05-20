@@ -48,7 +48,6 @@ export const PreviewUpdateButton = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '16px 24px',
         right: '24px',
         bottom: '16px',
         height: '48px',
