@@ -30,29 +30,32 @@ export const PreviewUpdateButton = () => {
 
   return (
     <div
+      role="button"
+      aria-label="Update preview content"
       onClick={fetch}
       css={{
-        alignItems: 'center',
-        backgroundColor: '#eee',
-        borderColor: '#ccc',
-        borderRadius: '5px',
-        borderStyle: 'solid',
-        borderWidth: '2px',
+        backdropFilter: 'saturate(180%) blur(20px)',
+        backgroundColor: 'rgba(255,255,255,0.3)',
+        boxShadow: 'rgba(0,0,0,0.3) 0 0 6px, rgba(0,0,0,0.15) 0 1px 6px',
+        border: '1px solid rgba(255,255,255,.5)',
+        borderRadius: '10px',
         cursor: 'pointer',
-        display: 'flex',
-        fontFamily: 'sans-serif',
-        fontSize: '1em',
-        flexDirection: 'row',
-        height: '40px',
-        justifyContent: 'center',
-        padding: '5px',
+        fontFamily:
+          '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"',
+        fontSize: '16px',
+        color: '#222',
         position: 'fixed',
-        right: '30px',
-        bottom: '30px',
-        width: '100px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '16px 24px',
+        right: '24px',
+        bottom: '16px',
+        height: '48px',
+        width: '160px',
       }}
     >
-      {store.state.isFetching ? <Spinner /> : 'Update'}
+      {store.state.isFetching ? <Spinner /> : 'Update preview'}
     </div>
   )
 }

@@ -3,17 +3,16 @@ import { jsx } from '@emotion/core'
 
 export const Spinner = () => {
   const spinnerStyle = {
-    animation: 'spin 0.5s linear infinite',
-    borderColor: '#ccc',
+    animation: 'spin .75s linear infinite',
+    borderColor: 'rgba(0,0,0,0.3)',
     borderRadius: '50%',
-    borderTopColor: '#555',
+    borderTopColor: 'white',
     borderStyle: 'solid',
-    borderTopWidth: '4px',
-    borderWidth: '4px',
+    borderTopWidth: '2px',
+    borderWidth: '2px',
     display: 'inline-block',
-    height: '30px',
-    width: '30px',
-
+    height: '24px',
+    width: '24px',
     '@keyframes spin': {
       '0%': { transform: 'rotate(0deg)' },
       '100%': { transform: 'rotate(360deg) }' },
