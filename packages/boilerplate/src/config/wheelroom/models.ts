@@ -301,6 +301,9 @@ export const models: WheelroomComponents = {
       } as MultipleComponentsField,
       eventId: {
         type: 'shortText',
+        initialContent: '',
+        typePostfix: 'Slug',
+        unique: true,
       } as ShortTextField,
     },
     modelVersion: '1.0.0',

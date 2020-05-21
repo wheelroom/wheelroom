@@ -141,7 +141,7 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       },
       widgetId: 'singleLine',
     },
-    shortSlug: {
+    shortTextSlug: {
       specs: {
         type: 'Symbol',
       },
