@@ -11,12 +11,9 @@ interface ScrollSpyProps {
 }
 
 export const ScrollSpy = (props: ScrollSpyProps) => {
+  const isServer = typeof window === 'undefined'
   const divRef = useRef() as any
   const inView = useRef(false)
-  const isServer = typeof window === 'undefined'
-  if (!props.eventId) {
-    return props.children
-  }
 
   const onScroll = () => {
     if (isServer) {
@@ -32,18 +29,23 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
       window.innerHeight || 0
     )
     if (boundingRect.height > viewportHeight) {
-      // The element is bigger than the viewport, require element to fill viewport
+      // A) The element is bigger than the viewport, require element to fill viewport
       inView.current =
-        boundingRect.top < 0 && boundingRect.bottom > viewportHeight
+        boundingRect.top < viewportHeight / 3 &&
+        boundingRect.bottom > (viewportHeight / 3) * 2
     } else {
-      // The element is smaller than the viewport, require full element to be visibel
+      // B) The element is smaller than the viewport, require full element to be visible
       inView.current =
         boundingRect.top > 0 && boundingRect.bottom < viewportHeight
     }
 
-    if (lastInview != inView.current) {
+    if (
+      lastInview != inView.current &&
+      props.siteEmbeds &&
+      Array.isArray(props.siteEmbeds)
+    ) {
       props.siteEmbeds.forEach((embed: EmbedProps) => {
-        const postFix = inView.current ? '-enter' : '-leave'
+        const postFix = inView.current ? '-in-viewport' : '-out-viewport'
         if (embed.code && embed.type === 'js-page-section') {
           Function(
             'eventId',
@@ -61,11 +63,16 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
     }
     // eslint-disable-next-line no-undef
     window.addEventListener('scroll', onScroll)
+    onScroll()
     return () => {
       // eslint-disable-next-line no-undef
       window.removeEventListener('scroll', onScroll)
     }
-  }, [])
+  })
+
+  if (!props.eventId) {
+    return props.children
+  }
 
   return (
     <div ref={divRef} id={props.eventId}>
