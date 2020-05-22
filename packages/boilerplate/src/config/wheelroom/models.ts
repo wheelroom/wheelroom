@@ -74,10 +74,21 @@ export const models: WheelroomComponents = {
         allowedComponents: ['action'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      advancedMedia: {
-        allowedComponents: ['embed', 'mediaBreakpoint'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
+      poster: {
+        type: 'media',
+        typePostfix: 'Image',
+      } as MediaField,
+      mediaEmbed: {
+        helpText:
+          'Add a Youtube/Vimeo embed code. Note: Media embed only uses Embed-type: html',
+        allowedComponents: ['embed'],
+        type: 'singleComponent',
+      } as SingleComponentField,
+      mediaBreakpoint: {
+        helpText: 'Display a different media asset on each Breakpoint',
+        allowedComponents: ['mediaBreakpoint'],
+        type: 'singleComponent',
+      } as SingleComponentField,
     },
     settings: {
       asBoilerplate: true,
@@ -93,9 +104,6 @@ export const models: WheelroomComponents = {
       abstract: {
         type: 'longText',
       } as LongTextField,
-      media: {
-        type: 'media',
-      } as MediaField,
       icon: {
         items: featherIcons,
         type: 'dropdown',
@@ -106,10 +114,6 @@ export const models: WheelroomComponents = {
       } as MultipleComponentsField,
       rows: {
         allowedComponents: ['topicRow'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
-      advancedMedia: {
-        allowedComponents: ['embed', 'mediaBreakpoint'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -127,9 +131,6 @@ export const models: WheelroomComponents = {
       abstract: {
         type: 'longText',
       } as LongTextField,
-      media: {
-        type: 'media',
-      } as MediaField,
       icon: {
         items: featherIcons,
         type: 'dropdown',
@@ -140,10 +141,6 @@ export const models: WheelroomComponents = {
       } as MultipleComponentsField,
       topics: {
         allowedComponents: ['topic'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
-      advancedMedia: {
-        allowedComponents: ['embed', 'mediaBreakpoint'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -359,7 +356,7 @@ export const models: WheelroomComponents = {
   blog: {
     fields: {
       slug: {
-        initialContent: 'initial-boilerplate-slug',
+        initialContent: '',
         required: true,
         type: 'shortText',
         typePostfix: 'Slug',
@@ -400,38 +397,6 @@ export const models: WheelroomComponents = {
       seoKeywords: {
         type: 'tags',
       } as TagsField,
-    },
-    modelVersion: '1.0.0',
-    settings: {
-      asFragment: true,
-      asQuery: 'subPage',
-    },
-  },
-  doc: {
-    fields: {
-      slug: {
-        initialContent: 'initial-boilerplate-slug',
-        required: true,
-        type: 'shortText',
-        typePostfix: 'Slug',
-        unique: true,
-      } as ShortTextField,
-      text: {
-        required: true,
-        type: 'richText',
-      } as RichTextField,
-      parent: {
-        allowedComponents: ['doc'],
-        initialContent: undefined,
-        type: 'singleComponent',
-        expandFragmentRef: true,
-      } as SingleComponentField,
-      next: {
-        allowedComponents: ['doc'],
-        initialContent: undefined,
-        type: 'singleComponent',
-        expandFragmentRef: true,
-      } as SingleComponentField,
     },
     modelVersion: '1.0.0',
     settings: {
