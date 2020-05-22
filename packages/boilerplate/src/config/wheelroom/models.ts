@@ -182,8 +182,11 @@ export const models: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
       eventId: {
-        helpText: 'Example: my-campaign-action',
+        initialContent: 'initial-content-for-action-event-id',
+        typePostfix: 'Slug',
+        helpText: 'Example: my-event-id',
         type: 'shortText',
+        unique: true,
       } as ShortTextField,
     },
     settings: {
@@ -298,8 +301,9 @@ export const models: WheelroomComponents = {
       } as MultipleComponentsField,
       eventId: {
         type: 'shortText',
-        initialContent: '',
+        initialContent: 'initial-content-for-page-section-event-id',
         typePostfix: 'Slug',
+        helpText: 'Example: my-event-id',
         unique: true,
       } as ShortTextField,
     },
@@ -356,7 +360,7 @@ export const models: WheelroomComponents = {
   blog: {
     fields: {
       slug: {
-        initialContent: '',
+        initialContent: 'initial-content-for-slug',
         required: true,
         type: 'shortText',
         typePostfix: 'Slug',
