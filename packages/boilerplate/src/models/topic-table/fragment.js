@@ -19,24 +19,6 @@ fragment TopicTable on ContentfulTopicTable {
   abstract {
     abstract
   }
-  media {
-    title
-    description
-    fluid {
-      ...GatsbyContentfulFluid
-    }
-    file {
-      url
-      fileName
-      contentType
-      details {
-        image {
-          height
-          width
-        }
-      }
-    }
-  }
   icon
   actions {
     ... on Node {
@@ -46,12 +28,6 @@ fragment TopicTable on ContentfulTopicTable {
   rows {
     ... on Node {
       ...TopicRow
-    }
-  }
-  advancedMedia {
-    ... on Node {
-      ...Embed
-      ...MediaBreakpoint
     }
   }
 }

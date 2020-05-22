@@ -43,9 +43,31 @@ fragment Topic on ContentfulTopic {
       ...Action
     }
   }
-  advancedMedia {
+  poster {
+    title
+    description
+    fluid {
+      ...GatsbyContentfulFluid
+    }
+    file {
+      url
+      fileName
+      contentType
+      details {
+        image {
+          height
+          width
+        }
+      }
+    }
+  }
+  mediaEmbed {
     ... on Node {
       ...Embed
+    }
+  }
+  mediaBreakpoint {
+    ... on Node {
       ...MediaBreakpoint
     }
   }
