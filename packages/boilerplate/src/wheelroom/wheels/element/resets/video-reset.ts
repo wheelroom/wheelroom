@@ -6,6 +6,8 @@ export interface VideoElementStyle {
 
 export const videoVideoElementStyle: VideoElementStyle = {
   ncss: {
+    // Video poster need to cover the whole video element
+    objectFit: 'cover',
     height: 'auto',
     width: '100%',
     '&:focus': {
