@@ -37,19 +37,15 @@ export const TopicMedia = (props: TopicMediaProps) => {
       }}
       wheel={props.wheel}
     >
-      {props.topic.advancedMedia &&
-        props.topic.advancedMedia
-          .slice(0, 1)
-          .map((embed: EmbedProps, index: number) => (
-            <Html
-              key={index}
-              code={embed.code?.code}
-              title={embed.title}
-              type={embed.type}
-              wheel={{ ...props.wheel, style: props.wheel.style.html }}
-            />
-          ))}
-      {!props.topic.advancedMedia && props.topicInfo.hasImage && (
+      {props.topic.mediaEmbed && props.topic.mediaEmbed && (
+        <Html
+          code={props.topic.mediaEmbed.code.code}
+          title={props.topic.mediaEmbed.title}
+          type={props.topic.mediaEmbed.type}
+          wheel={{ ...props.wheel, style: props.wheel.style.html }}
+        />
+      )}
+      {!props.topic.mediaEmbed && props.topicInfo.hasImage && (
         <Image
           includeFigcaption={false}
           description={props.topic.media?.description}
@@ -58,10 +54,11 @@ export const TopicMedia = (props: TopicMediaProps) => {
           title={props.topic.media?.title}
         />
       )}
-      {!props.topic.advancedMedia && props.topicInfo.hasVideo && (
+      {!props.topic.mediaEmbed && props.topicInfo.hasVideo && (
         <Video
           includeTitle={false}
           includeDescription={false}
+          poster={props.topic.poster?.file?.url}
           description={props.topic.media?.description}
           media={props.topic.media}
           wheel={{ ...props.wheel, style: props.wheel.style.video }}

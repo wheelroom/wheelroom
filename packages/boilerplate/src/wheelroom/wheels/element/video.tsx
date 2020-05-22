@@ -26,6 +26,7 @@ export interface VideoProps {
   includeDescription?: boolean
   includeTitle?: boolean
   media?: MediaObject
+  poster?: string
   title?: string
 }
 
@@ -49,6 +50,7 @@ export const Video = (props: VideoProps) => {
   }
 
   const videoAttrs = {
+    poster: props.poster || '',
     title: media.title || props.title || defaultMediaObject.title,
     url: (media.file && media.file.url) || defaultMediaObject.file!.url,
     type:
@@ -68,6 +70,7 @@ export const Video = (props: VideoProps) => {
   return (
     <Fragment>
       <video
+        poster={videoAttrs.poster && videoAttrs.poster + '?q=75'}
         css={styledSystem(
           props.wheel.styledSystemConfig,
           props.wheel.theme,
