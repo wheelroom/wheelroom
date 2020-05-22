@@ -18,6 +18,7 @@ import { Text } from '../../wheelroom/wheels/model/text/text'
 import { Li, Ul } from '../../wheelroom/wheels/element/self'
 import { BlogProps } from '../blog/blog'
 import { Action } from '../../wheelroom/wheels/model/action/action'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 
 export const PageSectionBlogVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
@@ -29,25 +30,31 @@ export const PageSectionBlogVar = (props: PageSectionProps) => {
     (edge: any) => edge.node
   )
   return (
-    <Wrapper wheel={{ ...wheel, style: wheel.style.wrapper }}>
-      <Ul wheel={wheel} ncss={{ listStyle: 'none' }}>
-        {allBlog.map((blog: BlogProps, index: number) => {
-          return (
-            <Li key={index} wheel={wheel}>
-              <Action wheel={wheel} page={{ path: '/blog/' + blog.slug }}>
-                {blog.navigationHeading}
-              </Action>
-            </Li>
-          )
-        })}
-      </Ul>
-      <Container wheel={{ ...wheel, style: wheel.style.container }}>
-        <Text
-          locale={props.locale}
-          wheel={{ ...wheel, style: wheel.style.text }}
-          text={{ text: props.blog.text, __typename: '', title: '' }}
-        />
-      </Container>
-    </Wrapper>
+    <ScrollSpy
+      eventId={props.eventId}
+      siteEmbeds={props.globals.siteEmbeds}
+      pageSectionProps={props}
+    >
+      <Wrapper wheel={{ ...wheel, style: wheel.style.wrapper }}>
+        <Ul wheel={wheel} ncss={{ listStyle: 'none' }}>
+          {allBlog.map((blog: BlogProps, index: number) => {
+            return (
+              <Li key={index} wheel={wheel}>
+                <Action wheel={wheel} page={{ path: '/blog/' + blog.slug }}>
+                  {blog.navigationHeading}
+                </Action>
+              </Li>
+            )
+          })}
+        </Ul>
+        <Container wheel={{ ...wheel, style: wheel.style.container }}>
+          <Text
+            locale={props.locale}
+            wheel={{ ...wheel, style: wheel.style.text }}
+            text={{ text: props.blog.text, __typename: '', title: '' }}
+          />
+        </Container>
+      </Wrapper>
+    </ScrollSpy>
   )
 }

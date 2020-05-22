@@ -19,6 +19,7 @@ import { PageSectionProps } from './page-section'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 
 export const PageSectionNavigationVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -38,13 +39,19 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
   ])
   if (pageSectionInfo.hasNavigationSegment && pageSectionInfo.index < 2) {
     return (
-      <PageSectionNavigationHeader
-        hideThemeSwitchButton={false}
-        pageSection={props}
-        wheel={wheelHeader}
-        containerStyle="container"
-        //useLogoElement={<SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheelHeader} />}
-      />
+      <ScrollSpy
+        eventId={props.eventId}
+        siteEmbeds={props.globals.siteEmbeds}
+        pageSectionProps={props}
+      >
+        <PageSectionNavigationHeader
+          hideThemeSwitchButton={false}
+          pageSection={props}
+          wheel={wheelHeader}
+          containerStyle="container"
+          //useLogoElement={<SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheelHeader} />}
+        />
+      </ScrollSpy>
     )
   }
   if (
@@ -52,11 +59,17 @@ export const PageSectionNavigationVar = (props: PageSectionProps) => {
     pageSectionInfo.index > pageSectionInfo.sectionCount - 2
   ) {
     return (
-      <PageSectionNavigationFooter
-        pageSection={props}
-        wheel={wheelFooter}
-        containerStyle="container"
-      />
+      <ScrollSpy
+        eventId={props.eventId}
+        siteEmbeds={props.globals.siteEmbeds}
+        pageSectionProps={props}
+      >
+        <PageSectionNavigationFooter
+          pageSection={props}
+          wheel={wheelFooter}
+          containerStyle="container"
+        />
+      </ScrollSpy>
     )
   }
 

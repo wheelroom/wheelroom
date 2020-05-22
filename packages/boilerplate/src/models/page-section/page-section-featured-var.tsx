@@ -18,6 +18,7 @@ import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { TopicProps } from '../topic'
 import { Wheel } from '../../wheelroom/wheels/types'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -47,18 +48,24 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     const reversedOrder = pageSectionInfo.topicOptions.reverseOrder
 
     return (
-      <PageSectionUnicorn
-        topicProps={{
-          pageSectionActions: props.actions,
-          fullTopicAsLink: false,
-          pageSectionInfo,
-          useHeadingElement: topicHeading,
-          wheel,
-        }}
-        containerStyle="container"
-        pageSection={props}
-        wheel={reversedOrder ? wheelReverse : wheel}
-      />
+      <ScrollSpy
+        eventId={props.eventId}
+        siteEmbeds={props.globals.siteEmbeds}
+        pageSectionProps={props}
+      >
+        <PageSectionUnicorn
+          topicProps={{
+            pageSectionActions: props.actions,
+            fullTopicAsLink: false,
+            pageSectionInfo,
+            useHeadingElement: topicHeading,
+            wheel,
+          }}
+          containerStyle="container"
+          pageSection={props}
+          wheel={reversedOrder ? wheelReverse : wheel}
+        />
+      </ScrollSpy>
     )
   }
   return <NotImplemented pageSection={props} wheel={wheel} />

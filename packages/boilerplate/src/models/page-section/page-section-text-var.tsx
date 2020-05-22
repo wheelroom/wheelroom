@@ -16,6 +16,7 @@ import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/frees
 import { PageSectionProps } from './page-section'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { Wheel } from '../../wheelroom/wheels/types'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 
 export const PageSectionTextVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -28,11 +29,17 @@ export const PageSectionTextVar = (props: PageSectionProps) => {
 
   if (pageSectionInfo.hasText) {
     return (
-      <PageSectionFreestyle
-        pageSection={props}
-        containerStyle="container"
-        wheel={wheel}
-      />
+      <ScrollSpy
+        eventId={props.eventId}
+        siteEmbeds={props.globals.siteEmbeds}
+        pageSectionProps={props}
+      >
+        <PageSectionFreestyle
+          pageSection={props}
+          containerStyle="container"
+          wheel={wheel}
+        />
+      </ScrollSpy>
     )
   }
   return <NotImplemented pageSection={props} wheel={wheel} />

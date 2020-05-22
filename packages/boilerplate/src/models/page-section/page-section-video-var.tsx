@@ -17,6 +17,7 @@ import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-pr
 import { Wheel } from '../../wheelroom/wheels/types'
 import { getWheel, getSectionStyle } from '../../themes/themes'
 import { ThemeId } from '../../admin-resources/theme-info'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -30,17 +31,23 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
 
   if (pageSectionInfo.hasTopic) {
     return (
-      <PageSectionUnicorn
-        topicProps={{
-          pageSectionActions: props.actions,
-          pageSectionInfo,
-          wheel,
-        }}
-        containerStyle="container"
-        maxTopics={1}
-        pageSection={props}
-        wheel={wheel}
-      />
+      <ScrollSpy
+        eventId={props.eventId}
+        siteEmbeds={props.globals.siteEmbeds}
+        pageSectionProps={props}
+      >
+        <PageSectionUnicorn
+          topicProps={{
+            pageSectionActions: props.actions,
+            pageSectionInfo,
+            wheel,
+          }}
+          containerStyle="container"
+          maxTopics={1}
+          pageSection={props}
+          wheel={wheel}
+        />
+      </ScrollSpy>
     )
   }
   return <NotImplemented pageSection={props} wheel={wheel} />
