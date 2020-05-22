@@ -32,9 +32,10 @@ cp .env-template .env
 ```
 
 Open `.env` in an editor and replace `paste_here` with the correct values. The
-`CONTENTFUL_SPACE_ID`, `CONTENTFUL_CMA_TOKEN` and `CONTENTFUL_DELIVERY_TOKEN`
-are found within the Contentful web ui at `Settings -> API keys`. Note that the
-Content management tokens (CMA) are in a separate tab.
+`CONTENTFUL_SPACE_ID`, `CONTENTFUL_DELIVERY_TOKEN`, `CONTENTFUL_PREVIEW_TOKEN` 
+and `CONTENTFUL_CMA_TOKEN` are found within the Contentful web ui at `Settings 
+-> API keys`. Note that the Content management tokens (CMA) are in a separate 
+tab.
 
 ## Compile wheelroom config
 
@@ -68,13 +69,13 @@ npm run wr:cm
 > localized.
 
 ## Delete Contentul models
- 
- Delete the configured models in your Contentful space and check the Contentful
- web ui.
- 
- ```bash
- npm run wr:dm
- ```
+
+Delete the configured models in your Contentful space and check the Contentful
+web ui.
+
+```bash
+npm run wr:dm
+```
 
 > **_NOTE:_** Before content models can be deleted, delete your content (set) first.
 
@@ -82,19 +83,19 @@ npm run wr:cm
 
 Wheelroom includes two different Contentful content-sets:
 
-- `starterSet` 
-- `exampleSet`.
+- `starter`
+- `examples`
 
-The content-sets contains media (image) placeholder and page-sections with 
-example topics. You can create your own content-set by editing the 
+The content-sets contains media (image) placeholder and page-sections with
+example topics. You can create your own content-set by editing the
 [content-sets.ts](../src/config/plugin-contentful/content-sets.ts) file and run
 the following script.
 
 ```bash
-npm run wr:cc -- starterSet
+npm run wr:cc -- starter
 ```
 
-> **_NOTE:_** All content is written in English. Future versions should have 
+> **_NOTE:_** All content is written in English. Future versions should have
 > this properly localized.
 
 ## Delete Contentful content set
@@ -102,10 +103,10 @@ npm run wr:cc -- starterSet
 Deleting your content is as easy as creating a content-set by running:
 
 ```bash
-npm run wr:dc -- starterSet
+npm run wr:dc -- starter
 ```
 
-> **_NOTE:_** Always check which content-set you used! Otherwise the script won't 
+> **_NOTE:_** Always check which content-set you used! Otherwise the script won't
 > delete your content, or the wrong content-set.
 
 ## Start development server
