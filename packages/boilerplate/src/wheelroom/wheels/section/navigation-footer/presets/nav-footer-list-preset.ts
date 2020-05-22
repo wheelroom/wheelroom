@@ -16,6 +16,7 @@ export const navFooterListPreset: NavFooterListPresetWheelStyle = {
     flexDirection: 'row',
     ListElementStyle: 'none',
     flexWrap: 'wrap',
+    justifyContent: 'center',
     my: 0,
     pl: 0,
   },
