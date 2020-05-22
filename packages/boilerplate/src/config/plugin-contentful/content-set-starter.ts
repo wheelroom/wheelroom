@@ -1,13 +1,13 @@
 import { ContentTypes } from './content-types-starter'
 
 export const starter: ContentTypes = {
-  advancedMedia: {
+  mediaBreakpoint: {
     fields: {
       extraLarge: true,
       large: true,
       medium: true,
       small: true,
-      title: 'Advanced media',
+      title: 'Media breakpoint',
     },
     model: 'mediaBreakpoint',
   },
@@ -22,6 +22,7 @@ export const starter: ContentTypes = {
       seoDescription: 'Blogs are here to stay',
       seoImage: true,
       seoTitle: 'Blog',
+      seoKeywords: ['Wheelroom', 'Blog'],
       title: '/blog/:slug',
     },
     model: 'page',
