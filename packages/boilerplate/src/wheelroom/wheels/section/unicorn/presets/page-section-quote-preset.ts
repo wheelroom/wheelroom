@@ -44,7 +44,7 @@ export const pageSectionQuotePreset: PageSectionQuoteWheelStyle = {
       ncss: {
         p: 3,
       },
-      html: {
+      embed: {
         ncss: {
           position: 'relative',
           h: '0px',

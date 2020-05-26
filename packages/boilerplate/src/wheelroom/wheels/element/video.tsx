@@ -5,7 +5,7 @@ import {
   videoDescriptionReset,
   videoVideoElementStyle,
 } from './resets/video-reset'
-import { styledSystem } from '@wheelroom/styled-system'
+import {styledSystem, StyledSystemTheme} from '@wheelroom/styled-system'
 import { NcssProps, Wheel } from '../types'
 import { MediaObject } from './types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
@@ -73,7 +73,7 @@ export const Video = (props: VideoProps) => {
         poster={videoAttrs.poster && videoAttrs.poster + '?q=75'}
         css={styledSystem(
           props.wheel.styledSystemConfig,
-          props.wheel.theme,
+          (props.wheel.theme as unknown) as StyledSystemTheme,
           mergeNcss([
             videoLabel,
             videoVideoElementStyle,
@@ -91,7 +91,7 @@ export const Video = (props: VideoProps) => {
         <p
           css={styledSystem(
             props.wheel.styledSystemConfig,
-            props.wheel.theme,
+            (props.wheel.theme as unknown) as StyledSystemTheme,
             mergeNcss([
               descritpionLabel,
               videoDescriptionReset,

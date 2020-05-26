@@ -20,7 +20,7 @@ import {
   documentToReactComponents,
 } from '@contentful/rich-text-react-renderer'
 import { Video } from '../../element/video'
-import { Html } from '../../element/html'
+import { Embed } from '../embed/embed'
 import { TextWheelStyle } from './text-preset'
 import { MediaObject } from '../../element/types/media'
 import { Wheel } from '../../types'
@@ -261,11 +261,11 @@ export const Text = (props: TextWheelProps) => {
           return null
         }
         return (
-          <Html
+          <Embed
             code={fields.code}
             type={fields.type}
             title={fields.title}
-            wheel={{ ...props.wheel, style: props.wheel.style.html }}
+            wheel={{ ...textProps.wheel, style: textProps.wheel.style.embed }}
           />
         )
       },

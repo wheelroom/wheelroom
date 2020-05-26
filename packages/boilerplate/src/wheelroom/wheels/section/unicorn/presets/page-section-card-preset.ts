@@ -62,7 +62,7 @@ export const pageSectionCardPreset: PageSectionCardWheelStyle = {
       ncss: {
         p: 3,
       },
-      html: {
+      embed: {
         ncss: {},
       },
       image: {

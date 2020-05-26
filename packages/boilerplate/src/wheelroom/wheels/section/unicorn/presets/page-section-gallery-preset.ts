@@ -47,7 +47,7 @@ export const pageSectionGalleryPreset: PageSectionGalleryWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {
           position: 'relative',
           h: '0px',

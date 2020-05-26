@@ -53,7 +53,7 @@ export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
         w: [1, 1, 1 / 2],
         p: 3,
       },
-      html: {
+      embed: {
         ncss: {
           display: 'block',
           h: '0px',

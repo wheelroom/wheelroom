@@ -52,7 +52,7 @@ export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
         zIndex: -1,
         overflow: 'hidden',
       },
-      html: {
+      embed: {
         ncss: {
           position: 'relative',
           h: 1,

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { BlockLevelElementName, InlineElementName } from './types/element-names'
-import { styledSystem } from '@wheelroom/styled-system'
+import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { anyPreset, anyResetMap } from './resets/any-reset'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
@@ -18,6 +18,8 @@ export interface AnyProps extends ElementProps {
   role?: string | undefined
   /** On click handler */
   onClick?: () => any
+  /** Inner HTML */
+  dangerouslySetInnerHTML?: any
 }
 
 const getAttrs = (props: AnyProps) => {
@@ -54,7 +56,7 @@ export const Any = (props: AnyProps) => {
   const polyPreset = getPolyPreset(props)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
-    props.wheel.theme,
+    (props.wheel.theme as unknown) as StyledSystemTheme,
     mergeNcss([
       label,
       anyPreset,

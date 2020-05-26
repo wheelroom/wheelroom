@@ -19,6 +19,7 @@ export const TopicBody = (props: TopicWheelProps) => {
         <TopicMedia
           pageSectionInfo={pageSectionInfo}
           wheel={{ ...props.wheel, style: props.wheel.style.media }}
+          embed={props.topic!}
           topic={props.topic!}
           topicInfo={topicInfo}
         />

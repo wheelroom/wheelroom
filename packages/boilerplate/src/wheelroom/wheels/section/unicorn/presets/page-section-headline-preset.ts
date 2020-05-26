@@ -44,7 +44,7 @@ export const pageSectionHeadlinePreset: PageSectionHeadlineWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {
           position: 'relative',
           h: '0px',

@@ -43,7 +43,7 @@ export const pageSectionImagePreset: PageSectionImageWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {
           display: 'block',
           h: '0px',

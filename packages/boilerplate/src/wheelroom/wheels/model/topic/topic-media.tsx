@@ -8,7 +8,8 @@ import { Video } from '../../element/video'
 import { Wheel } from '../../types'
 import { TopicMediaWheelStyle } from './presets/topic-media-preset'
 import { EmbedProps } from '../../../../models/embed'
-import { Html } from '../../element/html'
+import { Embed } from '../embed/embed'
+import { MediaObject } from '../../element/types/media'
 
 export interface TopicMediaWheel extends Wheel {
   style: TopicMediaWheelStyle
@@ -30,6 +31,45 @@ export interface TopicMediaProps {
 export const TopicMedia = (props: TopicMediaProps) => {
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
+  const topicInfo = props.topicInfo
+  const topic = props.topic
+  let Media: any = null
+  let mediaProps = {}
+  if (topicInfo.hasImage && topic.media) {
+    const media: MediaObject = topic.media
+    Media = Image
+    mediaProps = {
+      includeFigcaption: false,
+      description: media.description,
+      media: topic.media,
+      wheel: { ...props.wheel, style: props.wheel.style.image },
+      title: media.title,
+    }
+  } else if (topicInfo.hasVideo && topic.media) {
+    const media: MediaObject = topic.media
+    Media = Video
+    mediaProps = {
+      includeTitle: false,
+      includeDescription: false,
+      description: media.description,
+      media: media,
+      wheel: { ...props.wheel, style: props.wheel.style.video },
+      title: media.title,
+    }
+  } else if (topicInfo.hasMediaEmbed && topic.mediaEmbed) {
+    const embed = props.topic.mediaEmbed
+    Media = Embed
+    mediaProps = {
+      code: embed?.code,
+      title: embed?.title,
+      type: embed?.type,
+      wheel: { ...props.wheel, style: props.wheel.style.embed },
+    }
+  } else if (topicInfo.hasMediaBreakpoint && topic.mediaBreakpoint) {
+    Media = <div>Media breakpoint not yet implemented</div>
+    mediaProps = {}
+  }
+
   return (
     <Box
       ncss={{
@@ -37,34 +77,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
       }}
       wheel={props.wheel}
     >
-      {props.topic.mediaEmbed && props.topic.mediaEmbed && (
-        <Html
-          code={props.topic.mediaEmbed.code.code}
-          title={props.topic.mediaEmbed.title}
-          type={props.topic.mediaEmbed.type}
-          wheel={{ ...props.wheel, style: props.wheel.style.html }}
-        />
-      )}
-      {!props.topic.mediaEmbed && props.topicInfo.hasImage && (
-        <Image
-          includeFigcaption={false}
-          description={props.topic.media?.description}
-          media={props.topic.media}
-          wheel={{ ...props.wheel, style: props.wheel.style.image }}
-          title={props.topic.media?.title}
-        />
-      )}
-      {!props.topic.mediaEmbed && props.topicInfo.hasVideo && (
-        <Video
-          includeTitle={false}
-          includeDescription={false}
-          poster={props.topic.poster?.file?.url}
-          description={props.topic.media?.description}
-          media={props.topic.media}
-          wheel={{ ...props.wheel, style: props.wheel.style.video }}
-          title={props.topic.media?.title}
-        />
-      )}
+      <Media {...mediaProps} />
     </Box>
   )
 }

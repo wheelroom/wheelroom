@@ -52,7 +52,7 @@ export const pageSectionBlockPreset: PageSectionBlockWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {
           position: 'relative',
           h: '0px',

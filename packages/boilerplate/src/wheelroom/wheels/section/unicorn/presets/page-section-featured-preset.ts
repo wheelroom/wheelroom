@@ -51,7 +51,7 @@ export const pageSectionFeaturedPreset: PageSectionFeaturedWheelStyle = {
         w: [1, 1, 1 / 2],
         p: 3,
       },
-      html: {
+      embed: {
         ncss: {
           position: 'relative',
           h: '0px',

@@ -1,13 +1,13 @@
 import { NcssProps } from '../../../types'
 import { ImageElementStyle } from '../../../element/image'
 import { VideoElementStyle } from '../../../element/video'
-import { HtmlElementStyle } from '../../../element/html'
+import { EmbedStyle } from '../../embed/embed'
 
 export interface TopicMediaWheelStyle {
   /** Styling for this node */
   ncss: NcssProps
   /** Video style */
-  html: HtmlElementStyle
+  embed: EmbedStyle
   /** Image style */
   image: ImageElementStyle
   /** Video style */
@@ -20,9 +20,9 @@ export const topicMediaPreset: TopicMediaWheelStyle = {
     display: 'flex',
     flexDirection: 'column',
   },
-  html: {
+  embed: {
     ncss: {
-      label: 'topic-embed',
+      label: 'topic-media-embed',
       iframe: {
         h: 1,
         w: 1,

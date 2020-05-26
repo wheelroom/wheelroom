@@ -41,7 +41,7 @@ export const pageSectionVideoPreset: PageSectionVideoWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {
           display: 'block',
           h: '0px',

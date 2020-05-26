@@ -6,7 +6,7 @@ import {
   imagePictureReset,
 } from './resets/image-reset'
 import { NcssProps, Wheel } from '../types'
-import { styledSystem } from '@wheelroom/styled-system'
+import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { MediaObject } from './types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
 
@@ -64,7 +64,7 @@ export const Image = (props: ImageProps) => {
     <picture
       css={styledSystem(
         props.wheel.styledSystemConfig,
-        props.wheel.theme,
+        (props.wheel.theme as unknown) as StyledSystemTheme,
         mergeNcss([
           pictureLabel,
           imagePictureReset,
@@ -77,7 +77,7 @@ export const Image = (props: ImageProps) => {
         {...imgElementAttrs}
         css={styledSystem(
           props.wheel.styledSystemConfig,
-          props.wheel.theme,
+          (props.wheel.theme as unknown) as StyledSystemTheme,
           mergeNcss([
             imgLabel,
             imageImgReset,
@@ -90,7 +90,7 @@ export const Image = (props: ImageProps) => {
         <figcaption
           css={styledSystem(
             props.wheel.styledSystemConfig,
-            props.wheel.theme,
+            (props.wheel.theme as unknown) as StyledSystemTheme,
             mergeNcss([
               figcaptionLabel,
               imageFigcaptionReset,

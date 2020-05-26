@@ -7,6 +7,9 @@ export interface TopicInfo {
   hasIcon: boolean
   hasImage: boolean
   hasVideo: boolean
+  hasMedia: boolean
+  hasMediaEmbed: boolean
+  hasMediaBreakpoint: boolean
 }
 
 export const getTopicInfo = (topic: TopicProps): TopicInfo => {
@@ -17,6 +20,8 @@ export const getTopicInfo = (topic: TopicProps): TopicInfo => {
     hasIcon: false,
     hasImage: false,
     hasVideo: false,
+    hasMediaEmbed: false,
+    hasMediaBreakpoint: false,
   } as TopicInfo
 
   if (topic.heading) {
@@ -47,6 +52,17 @@ export const getTopicInfo = (topic: TopicProps): TopicInfo => {
       }
     }
   }
+  if (topic.mediaBreakpoint) {
+    info.hasMediaBreakpoint = true
+  }
+  if (topic.mediaEmbed) {
+    info.hasMediaEmbed
+  }
+  info.hasMedia =
+    info.hasImage ||
+    info.hasMediaBreakpoint ||
+    info.hasMediaEmbed ||
+    info.hasVideo
 
   return info
 }
