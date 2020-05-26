@@ -32,33 +32,65 @@ export interface ImageProps {
 }
 
 const defaultMediaObject = {
-  description: 'no alt available',
+  description: 'No media description available',
+  file: {
+    url: '//placehold.it/320',
+    fileName: '',
+    contentType: 'image/png',
+  },
   fluid: {
-    sizes: '',
+    sizes: '(max-width: 2560px, 100vw, 2560px)',
     src: '//placehold.it/320',
     srcSet: '',
   },
-  title: 'no title available',
+  title: 'No media title available',
 } as MediaObject
 
 export const Image = (props: ImageProps) => {
   const media = props.media || defaultMediaObject
-  /** Video uses media.file, images use media.fluid */
-  if (!media.fluid) {
+  /** Avoid video media asset */
+  if (props.media?.file?.contentType === 'video/mp4') {
     return null
   }
-
-  const imgElementAttrs = {
-    alt:
+  /** If includeFigcaption is true use description as figcaption */
+  const figcaption = {
+    description:
       media.description || props.description || defaultMediaObject.description,
-    title: media.title || props.title || defaultMediaObject.title,
-    sizes: media.fluid && media.fluid.sizes,
-    src: media.fluid && media.fluid.src,
-    srcSet: media.fluid && media.fluid.srcSet,
   }
+
   const imgLabel = { ncss: { label: 'image-img' } }
   const pictureLabel = { ncss: { label: 'image-picture' } }
   const figcaptionLabel = { ncss: { label: 'image-figcaption' } }
+
+  let imgElementAttrs
+
+  /** The complete list of images types can be found here:
+   * https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types */
+  if (
+    props.media?.file?.contentType === 'image/jpeg' ||
+    props.media?.file?.contentType === 'image/webp' ||
+    props.media?.file?.contentType === 'image/png'
+  ) {
+    imgElementAttrs = {
+      alt:
+        media.description ||
+        props.description ||
+        defaultMediaObject.description,
+      title: media.title || props.title || defaultMediaObject.title,
+      sizes: media.fluid && media.fluid.sizes,
+      src: media.fluid && media.fluid.src,
+      srcSet: media.fluid && media.fluid.srcSet,
+    }
+  } else {
+    imgElementAttrs = {
+      alt:
+        media.description ||
+        props.description ||
+        defaultMediaObject.description,
+      title: media.title || props.title || defaultMediaObject.title,
+      src: media.file?.url || defaultMediaObject.file?.url,
+    }
+  }
 
   return (
     <picture
@@ -86,7 +118,7 @@ export const Image = (props: ImageProps) => {
           ])
         )}
       />
-      {props.includeFigcaption && imgElementAttrs.alt && (
+      {props.includeFigcaption && figcaption.description && (
         <figcaption
           css={styledSystem(
             props.wheel.styledSystemConfig,
@@ -99,7 +131,7 @@ export const Image = (props: ImageProps) => {
             ])
           )}
         >
-          {imgElementAttrs.alt}
+          {figcaption.description}
         </figcaption>
       )}
     </picture>
