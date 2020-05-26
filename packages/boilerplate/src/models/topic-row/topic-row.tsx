@@ -7,10 +7,7 @@
 
 import React from 'react'
 import { ActionProps } from '../action/action'
-import { EmbedProps } from '../embed/embed'
 import { getVariation } from '../../wheelroom/lib/get-variation'
-import { MediaBreakpointProps } from '../media-breakpoint/media-breakpoint'
-import { MediaObject } from '../../wheelroom/wheels/element/types/media'
 import { TopicProps } from '../topic/topic'
 import { TopicRowSingleVar } from './topic-row-single-var'
 

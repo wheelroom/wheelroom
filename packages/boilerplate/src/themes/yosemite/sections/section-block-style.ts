@@ -39,7 +39,7 @@ export const sectionBlockStyle: PageSectionBlockWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {},
       },
       image: {

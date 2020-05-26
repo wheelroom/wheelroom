@@ -57,6 +57,7 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
           topicProps={{
             pageSectionActions: props.actions,
             fullTopicAsLink: false,
+            maxActions: 2,
             pageSectionInfo,
             useHeadingElement: topicHeading,
             wheel,

@@ -82,14 +82,6 @@ export const pageSectionFreestyleStyle: FreestyleWheelStyle = {
         ncss: {},
       },
     },
-    mediaBreakpoint: {
-      picture: {
-        ncss: {},
-      },
-      img: {
-        ncss: {},
-      },
-    },
     video: {
       video: {
         ncss: {

@@ -16,5 +16,5 @@ export interface ActionProps {
   page?: any
   query?: string
   title?: string
-  url?: string
+  url?: any
 }

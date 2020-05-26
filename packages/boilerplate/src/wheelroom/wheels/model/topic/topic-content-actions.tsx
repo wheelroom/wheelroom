@@ -17,9 +17,10 @@ export interface TopicContentActionsProps {
   wheel: TopicContentActionsWheel
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
+  /** Accept max number of Actions, ignore all others */
+  maxActions?: number
   /** Page section actions will override all topic actions */
   pageSectionActions?: ActionProps[]
-
   /** All topic props */
   topic: TopicProps
   /** Topic info object */
@@ -33,17 +34,20 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
     return null
   }
   const actions = props.pageSectionActions || props.topic.actions
-  /** Support only one action for now */
-  const action = actions[0]
 
   return (
     <Box is="div" wheel={props.wheel}>
-      <Action
-        {...action}
-        url={!props.fullTopicAsLink && action.url}
-        page={!props.fullTopicAsLink && action.page}
-        wheel={{ ...props.wheel, style: props.wheel.style.link }}
-      />
+      {actions
+        .slice(0, props.maxActions)
+        .map((action: ActionProps, index: number) => (
+          <Action
+            key={index}
+            url={!props.fullTopicAsLink && action.url}
+            page={!props.fullTopicAsLink && action.page}
+            wheel={{ ...props.wheel, style: props.wheel.style.link }}
+            {...action}
+          />
+        ))}
     </Box>
   )
 }

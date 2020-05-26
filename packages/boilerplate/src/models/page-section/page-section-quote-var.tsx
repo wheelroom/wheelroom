@@ -38,6 +38,7 @@ export const PageSectionQuoteVar = (props: PageSectionProps) => {
       >
         <PageSectionUnicorn
           topicProps={{
+            maxActions: 2,
             pageSectionActions: props.actions,
             pageSectionInfo,
             useHeadingElement: 'p',

@@ -5,8 +5,8 @@
  *
  */
 
-import { EmbedProps } from '../embed/embed'
-import { MediaBreakpointProps } from '../media-breakpoint/media-breakpoint'
+import { EmbedProps } from '../embed'
+import { MediaBreakpointProps } from '../media-breakpoint'
 import { MediaObject } from '../../wheelroom/wheels/element/types/media'
 
 export interface TopicProps {

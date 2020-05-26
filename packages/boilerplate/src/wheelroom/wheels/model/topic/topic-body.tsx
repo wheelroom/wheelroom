@@ -23,6 +23,7 @@ export const TopicBody = (props: TopicWheelProps) => {
       )}
       <TopicContent
         fullTopicAsLink={props.fullTopicAsLink}
+        maxActions={props.maxActions}
         pageSectionActions={props.pageSectionActions}
         pageSectionInfo={pageSectionInfo}
         wheel={{ ...props.wheel, style: props.wheel.style.content }}

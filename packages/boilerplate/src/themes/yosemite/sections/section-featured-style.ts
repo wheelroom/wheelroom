@@ -1,5 +1,9 @@
 import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-featured-preset'
-import { displayButtonStyle } from '../elements/button-style'
+import {
+  displayButtonStyle,
+  primaryButtonStyle,
+  secondaryButtonStyle,
+} from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 import { iconButtonStyle, iconTopicStyle } from '../elements/icon-style'
 
@@ -26,7 +30,14 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
           mt: [4, 4, 5],
         },
         link: {
-          ...displayButtonStyle,
+          ncss: {
+            ...primaryButtonStyle.ncss,
+            ...displayButtonStyle.ncss,
+            ':nth-of-type(2)': {
+              ...secondaryButtonStyle.ncss,
+              ...displayButtonStyle.ncss,
+            },
+          },
           icon: iconButtonStyle,
         },
       },

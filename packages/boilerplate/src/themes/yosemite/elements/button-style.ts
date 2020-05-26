@@ -46,7 +46,6 @@ export const secondaryButtonStyle: ButtonElementStyle = {
 
 export const displayButtonStyle: ButtonElementStyle = {
   ncss: {
-    ...primaryButtonStyle.ncss,
     fontSize: [6, 6, 7],
     px: [4, 4, 5],
     py: 3,

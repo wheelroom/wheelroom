@@ -18,12 +18,12 @@ export interface TopicContentWheel extends Wheel {
 export interface TopicContentProps {
   /** Styling wheel */
   wheel: TopicContentWheel
+  /** Topic props */
   topic: TopicProps
   /** Topic info object */
   topicInfo: TopicInfo
   /** Page section info */
   pageSectionInfo: PageSectionInfo
-
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
@@ -32,11 +32,12 @@ export interface TopicContentProps {
   useHeadingParser?: ParserFunction
   /** Defaults to p */
   useAbstractParser?: ParserFunction
-
   /** Page section actions will override all topic actions */
   pageSectionActions?: ActionProps[]
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
+  /** Accept max number of Actions, ignore all others */
+  maxActions?: number
 }
 
 export const TopicContent = (props: TopicContentProps) => {
@@ -75,6 +76,7 @@ export const TopicContent = (props: TopicContentProps) => {
       {showAction && (
         <TopicContentActions
           fullTopicAsLink={props.fullTopicAsLink}
+          maxActions={props.maxActions}
           pageSectionActions={props.pageSectionActions}
           pageSectionInfo={pageSectionInfo}
           wheel={{ ...props.wheel, style: props.wheel.style.actions }}

@@ -45,7 +45,7 @@ export const sectionCardStyle: PageSectionCardWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {},
       },
       image: {

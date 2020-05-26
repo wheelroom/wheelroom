@@ -39,6 +39,8 @@ export interface TopicWheelProps {
 
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
+  /** Accept max number of Actions, ignore all others */
+  maxActions?: number
 }
 
 export const Topic = (props: TopicWheelProps) => {
