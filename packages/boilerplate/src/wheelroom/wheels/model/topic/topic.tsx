@@ -50,8 +50,8 @@ export const Topic = (props: TopicWheelProps) => {
   const fullTopicAsLink =
     !topicOptions.hideAction && topicInfo.hasAction && props.fullTopicAsLink
 
-  let Element
-  let elementProps = {}
+  let Element: any
+  let elementProps
   if (fullTopicAsLink) {
     Element = Action
     elementProps = { ...props.topic.actions[0], icon: undefined }
