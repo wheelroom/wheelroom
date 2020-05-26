@@ -23,7 +23,6 @@ export const getTopicInfo = (topic: TopicProps): TopicInfo => {
     hasMediaEmbed: false,
     hasMediaBreakpoint: false,
   } as TopicInfo
-
   if (topic.heading) {
     info.hasHeading = true
   }
@@ -56,7 +55,7 @@ export const getTopicInfo = (topic: TopicProps): TopicInfo => {
     info.hasMediaBreakpoint = true
   }
   if (topic.mediaEmbed) {
-    info.hasMediaEmbed
+    info.hasMediaEmbed = true
   }
   info.hasMedia =
     info.hasImage ||

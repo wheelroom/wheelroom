@@ -54,7 +54,7 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {},
       },
       image: {
@@ -74,6 +74,14 @@ export const sectionQuoteStyle: PageSectionQuoteWheelStyle = {
           },
         },
         figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
           ncss: {},
         },
       },

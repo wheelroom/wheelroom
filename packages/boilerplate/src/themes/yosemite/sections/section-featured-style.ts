@@ -48,7 +48,7 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
         maxWidth: ['35em', '35em', '45%'],
         w: 1,
       },
-      html: {
+      embed: {
         ncss: {},
       },
       image: {
@@ -59,6 +59,14 @@ export const sectionFeaturedStyle: PageSectionFeaturedWheelStyle = {
           ncss: {},
         },
         figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
           ncss: {},
         },
       },

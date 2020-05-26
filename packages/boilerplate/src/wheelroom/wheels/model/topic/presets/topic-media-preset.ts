@@ -2,6 +2,7 @@ import { NcssProps } from '../../../types'
 import { ImageElementStyle } from '../../../element/image'
 import { VideoElementStyle } from '../../../element/video'
 import { EmbedStyle } from '../../embed/embed'
+import { MediaBreakpointStyle } from '../../media-breakpoint/media-breakpoint'
 
 export interface TopicMediaWheelStyle {
   /** Styling for this node */
@@ -10,6 +11,8 @@ export interface TopicMediaWheelStyle {
   embed: EmbedStyle
   /** Image style */
   image: ImageElementStyle
+  /** Media Breakpoint Style */
+  mediaBreakpoint: MediaBreakpointStyle
   /** Video style */
   video: VideoElementStyle
 }
@@ -43,6 +46,18 @@ export const topicMediaPreset: TopicMediaWheelStyle = {
     figcaption: {
       ncss: {
         label: 'topic-caption',
+      },
+    },
+  },
+  mediaBreakpoint: {
+    picture: {
+      ncss: {
+        label: 'topic-mb-picture',
+      },
+    },
+    img: {
+      ncss: {
+        label: 'topic-mb-img',
       },
     },
   },

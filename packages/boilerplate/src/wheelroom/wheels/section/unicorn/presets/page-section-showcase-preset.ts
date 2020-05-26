@@ -75,6 +75,14 @@ export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
           ncss: {},
         },
       },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
+          ncss: {},
+        },
+      },
       video: {
         video: {
           ncss: {},

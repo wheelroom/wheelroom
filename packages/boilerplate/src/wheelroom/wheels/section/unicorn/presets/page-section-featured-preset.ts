@@ -72,6 +72,14 @@ export const pageSectionFeaturedPreset: PageSectionFeaturedWheelStyle = {
           ncss: {},
         },
       },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
+          ncss: {},
+        },
+      },
       video: {
         video: {
           ncss: {},

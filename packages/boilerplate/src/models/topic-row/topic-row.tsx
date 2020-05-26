@@ -26,11 +26,9 @@ export interface TopicRowProps {
   abstract: {
     abstract: string
   }
-  media: MediaObject | undefined
   icon: string | JSX.Element
   actions: ActionProps[]
   topics: TopicProps[]
-  advancedMedia: MediaBreakpointProps | EmbedProps
 }
 
 export const TopicRow = (props: TopicRowProps) => {

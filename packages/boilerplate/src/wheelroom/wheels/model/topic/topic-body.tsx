@@ -9,10 +9,7 @@ export const TopicBody = (props: TopicWheelProps) => {
   const pageSectionInfo = props.pageSectionInfo
   const topicOptions = pageSectionInfo.topicOptions
 
-  const showMedia =
-    (topicInfo.hasImage && !topicOptions.hideMedia) ||
-    (topicInfo.hasVideo && !topicOptions.hideMedia)
-
+  const showMedia = topicInfo.hasMedia && !topicOptions.hideMedia
   return (
     <Fragment>
       {showMedia && (

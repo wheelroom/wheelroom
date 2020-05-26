@@ -44,7 +44,7 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {},
       },
       image: {
@@ -55,6 +55,14 @@ export const sectionHeroStyle: PageSectionHeroWheelStyle = {
           ncss: {},
         },
         figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
           ncss: {},
         },
       },

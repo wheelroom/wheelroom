@@ -70,6 +70,14 @@ export const pageSectionGalleryPreset: PageSectionGalleryWheelStyle = {
           ncss: {},
         },
       },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
+          ncss: {},
+        },
+      },
       video: {
         video: {
           ncss: {},

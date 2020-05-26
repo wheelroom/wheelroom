@@ -12,5 +12,11 @@ export interface MediaObject {
     url: string
     fileName: string
     contentType: string
+    details: {
+      image: {
+        height: number
+        width: number
+      }
+    }
   }
 }

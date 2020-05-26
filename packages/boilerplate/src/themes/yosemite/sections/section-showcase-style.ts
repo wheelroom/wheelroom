@@ -47,7 +47,7 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
         maxWidth: '254px',
         w: 1,
       },
-      html: {
+      embed: {
         ncss: {},
       },
       image: {
@@ -58,6 +58,14 @@ export const sectionShowcaseStyle: PageSectionShowcaseWheelStyle = {
           ncss: {},
         },
         figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
           ncss: {},
         },
       },

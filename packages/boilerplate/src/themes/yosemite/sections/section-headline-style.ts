@@ -37,7 +37,7 @@ export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {},
       },
       image: {
@@ -48,6 +48,14 @@ export const sectionHeadlineStyle: PageSectionHeadlineWheelStyle = {
           ncss: {},
         },
         figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
           ncss: {},
         },
       },

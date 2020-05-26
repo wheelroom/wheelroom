@@ -15,7 +15,7 @@ import { StrongElementStyle } from '../resets/self-strong-reset'
 import { CodeElementStyle } from '../resets/self-code-reset'
 import { BlockquoteElementStyle } from '../resets/self-blockquote-reset'
 import { TableElementStyle } from '../resets/self-table-reset'
-import { HtmlElementStyle } from '../resets/html-reset'
+import { EmbedStyle } from '../../model/embed/embed'
 
 export interface ElementStyles {
   a: ALinkElementStyle
@@ -25,6 +25,7 @@ export interface ElementStyles {
   button: ButtonElementStyle
   code: CodeElementStyle
   container: GridElementStyle
+  embed: EmbedStyle
   featherIcon: IconElementStyle
   flex: GridElementStyle
   fluid: GridElementStyle
@@ -36,7 +37,6 @@ export interface ElementStyles {
   h5: HeadingElementStyle
   h6: HeadingElementStyle
   hr: HrElementStyle
-  html: HtmlElementStyle
   image: {
     img: ImageElementStyle
     picture: ImageElementStyle
@@ -44,6 +44,10 @@ export interface ElementStyles {
   }
   kbd: CodeElementStyle
   li: ListElementStyle
+  mediaBreakpoint: {
+    img: ImageElementStyle
+    picture: ImageElementStyle
+  }
   ol: ListElementStyle
   p: ParagraphElementStyle
   pre: PreElementStyle

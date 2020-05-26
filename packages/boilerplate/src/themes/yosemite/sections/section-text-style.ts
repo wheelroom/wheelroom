@@ -39,7 +39,7 @@ export const pageSectionFreestyleStyle: FreestyleWheelStyle = {
     hr: {
       ncss: {},
     },
-    html: {
+    embed: {
       ncss: {
         mt: 3,
         mb: 5,
@@ -79,6 +79,14 @@ export const pageSectionFreestyleStyle: FreestyleWheelStyle = {
         },
       },
       figcaption: {
+        ncss: {},
+      },
+    },
+    mediaBreakpoint: {
+      picture: {
+        ncss: {},
+      },
+      img: {
         ncss: {},
       },
     },

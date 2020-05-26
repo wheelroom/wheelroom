@@ -53,6 +53,14 @@ export const sectionBlockStyle: PageSectionBlockWheelStyle = {
           ncss: {},
         },
       },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
+          ncss: {},
+        },
+      },
       video: {
         video: {
           ncss: {},

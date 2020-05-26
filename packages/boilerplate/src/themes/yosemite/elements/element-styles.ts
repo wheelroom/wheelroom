@@ -94,7 +94,7 @@ export const elementStyles: ElementStyles = {
   hr: {
     ncss: {},
   },
-  html: {
+  embed: {
     ncss: {},
   },
   image: {
@@ -110,6 +110,14 @@ export const elementStyles: ElementStyles = {
   },
   kbd: {
     ncss: {},
+  },
+  mediaBreakpoint: {
+    picture: {
+      ncss: {},
+    },
+    img: {
+      ncss: {},
+    },
   },
   small: {
     ncss: {},

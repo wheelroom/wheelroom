@@ -10,6 +10,7 @@ import { TopicMediaWheelStyle } from './presets/topic-media-preset'
 import { EmbedProps } from '../../../../models/embed'
 import { Embed } from '../embed/embed'
 import { MediaObject } from '../../element/types/media'
+import { MediaBreakpoint } from '../media-breakpoint/media-breakpoint'
 
 export interface TopicMediaWheel extends Wheel {
   style: TopicMediaWheelStyle
@@ -35,7 +36,17 @@ export const TopicMedia = (props: TopicMediaProps) => {
   const topic = props.topic
   let Media: any = null
   let mediaProps = {}
-  if (topicInfo.hasImage && topic.media) {
+  if (topicInfo.hasMediaBreakpoint && topic.mediaBreakpoint) {
+    Media = MediaBreakpoint
+    const media = topic.mediaBreakpoint
+    mediaProps = {
+      small: media?.small,
+      medium: media?.medium,
+      large: media?.large,
+      extraLarge: media.extraLarge,
+      wheel: { ...props.wheel, style: props.wheel.style.mediaBreakpoint },
+    }
+  } else if (topicInfo.hasImage && topic.media) {
     const media: MediaObject = topic.media
     Media = Image
     mediaProps = {
@@ -65,9 +76,6 @@ export const TopicMedia = (props: TopicMediaProps) => {
       type: embed?.type,
       wheel: { ...props.wheel, style: props.wheel.style.embed },
     }
-  } else if (topicInfo.hasMediaBreakpoint && topic.mediaBreakpoint) {
-    Media = <div>Media breakpoint not yet implemented</div>
-    mediaProps = {}
   }
 
   return (

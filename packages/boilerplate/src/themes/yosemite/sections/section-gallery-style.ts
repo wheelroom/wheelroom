@@ -32,7 +32,7 @@ export const sectionGalleryStyle: PageSectionGalleryWheelStyle = {
     },
     media: {
       ncss: {},
-      html: {
+      embed: {
         ncss: {},
       },
       image: {
@@ -43,6 +43,14 @@ export const sectionGalleryStyle: PageSectionGalleryWheelStyle = {
           ncss: {},
         },
         figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
           ncss: {},
         },
       },
