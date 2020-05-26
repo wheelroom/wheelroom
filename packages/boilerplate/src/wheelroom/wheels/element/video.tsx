@@ -5,7 +5,7 @@ import {
   videoDescriptionReset,
   videoVideoElementStyle,
 } from './resets/video-reset'
-import {styledSystem, StyledSystemTheme} from '@wheelroom/styled-system'
+import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { NcssProps, Wheel } from '../types'
 import { MediaObject } from './types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
@@ -43,67 +43,71 @@ const defaultMediaObject = {
 } as MediaObject
 
 export const Video = (props: VideoProps) => {
-  const media = props.media || defaultMediaObject
-  // Video uses media.file, images use media.fluid
-  if (!media.file) {
-    return null
-  }
+  /** The complete list of file types can be found here:
+   * https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers */
+  if (
+    props.media?.file?.contentType === 'video/ogg' ||
+    props.media?.file?.contentType === 'video/mp4' ||
+    props.media?.file?.contentType === 'video/webm'
+  ) {
+    const media = props.media || defaultMediaObject
+    const videoAttrs = {
+      poster: props.poster || '',
+      title: media.title || props.title || defaultMediaObject.title,
+      url: (media.file && media.file.url) || defaultMediaObject.file!.url,
+      type:
+        (media.file && media.file.contentType) ||
+        defaultMediaObject.file!.contentType,
+      description:
+        media.description ||
+        props.description ||
+        defaultMediaObject.description,
+    }
 
-  const videoAttrs = {
-    poster: props.poster || '',
-    title: media.title || props.title || defaultMediaObject.title,
-    url: (media.file && media.file.url) || defaultMediaObject.file!.url,
-    type:
-      (media.file && media.file.contentType) ||
-      defaultMediaObject.file!.contentType,
-    description:
-      media.description || props.description || defaultMediaObject.description,
-  }
+    const style = props.wheel.style || {}
+    const video = style.video || {}
+    const description = style.description || {}
 
-  const style = props.wheel.style || {}
-  const video = style.video || {}
-  const description = style.description || {}
-
-  const videoLabel = { ncss: { label: 'video-video' } }
-  const descritpionLabel = { ncss: { label: 'video-description' } }
-
-  return (
-    <Fragment>
-      <video
-        poster={videoAttrs.poster && videoAttrs.poster + '?q=75'}
-        css={styledSystem(
-          props.wheel.styledSystemConfig,
-          (props.wheel.theme as unknown) as StyledSystemTheme,
-          mergeNcss([
-            videoLabel,
-            videoVideoElementStyle,
-            props.wheel.elementStyles.video.video,
-            video,
-          ])
-        )}
-        controls
-        playsInline
-      >
-        <source src={videoAttrs.url} type={videoAttrs.type} />
-        Your browser does not support the video tag.
-      </video>
-      {props.includeTitle && (
-        <p
+    const videoLabel = { ncss: { label: 'video-video' } }
+    const descriptionLabel = { ncss: { label: 'video-description' } }
+    return (
+      <Fragment>
+        <video
+          poster={videoAttrs.poster && videoAttrs.poster + '?q=75'}
           css={styledSystem(
             props.wheel.styledSystemConfig,
             (props.wheel.theme as unknown) as StyledSystemTheme,
             mergeNcss([
-              descritpionLabel,
-              videoDescriptionReset,
-              props.wheel.elementStyles.video.description,
-              description,
+              videoLabel,
+              videoVideoElementStyle,
+              props.wheel.elementStyles.video.video,
+              video,
             ])
           )}
+          controls
+          playsInline
         >
-          <b>{videoAttrs.title}</b>
-          {props.includeDescription && ` – ` + videoAttrs.description}
-        </p>
-      )}
-    </Fragment>
-  )
+          <source src={videoAttrs.url} type={videoAttrs.type} />
+          Your browser does not support the video tag.
+        </video>
+        {props.includeTitle && (
+          <p
+            css={styledSystem(
+              props.wheel.styledSystemConfig,
+              (props.wheel.theme as unknown) as StyledSystemTheme,
+              mergeNcss([
+                descriptionLabel,
+                videoDescriptionReset,
+                props.wheel.elementStyles.video.description,
+                description,
+              ])
+            )}
+          >
+            <b>{videoAttrs.title}</b>
+            {props.includeDescription && ` – ` + videoAttrs.description}
+          </p>
+        )}
+      </Fragment>
+    )
+  } else return null
 }
