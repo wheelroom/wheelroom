@@ -9,7 +9,7 @@ import { TopicRowCell } from './topic-row-cell'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Action } from '../action/action'
 import { Any } from '../../element/any'
-import { TopicRowProps } from '../../../../models/topic-row/topic-row'
+import { TopicRowProps } from '../../../../models/topic-row'
 import { TopicIcon } from '../topic/topic-icon'
 
 export interface TopicRowWheel extends Wheel {
@@ -32,7 +32,7 @@ export const TopicRow = (props: TopicRowWheelProps) => {
   }
   const pageSectionInfo = props.pageSectionInfo
 
-  // Based on topicCount calculate width of first and following cols
+  // Based on topicCount calculate width of first and following cols:
   // 0 = 1
   // 1 = 2/3  1/3
   // 2 = 2/4  1/4  1/4
@@ -48,6 +48,9 @@ export const TopicRow = (props: TopicRowWheelProps) => {
   if (!(rowHeaderCellStyle.ncss.w || rowHeaderCellStyle.ncss.width)) {
     rowHeaderCellStyle.ncss.w = headerCellWidth
   }
+  if (topicRow.variation === 'header' || topicRow.variation === 'footer') {
+    props.wheel.style.ncss.bg = 'skyblue'
+  }
 
   return (
     <Tr wheel={{ ...props.wheel, style: props.wheel.style }}>
@@ -59,12 +62,16 @@ export const TopicRow = (props: TopicRowWheelProps) => {
           />
         )}
         <Dl wheel={{ ...props.wheel, style: props.wheel.style.dl }}>
-          <Dt wheel={{ ...props.wheel, style: props.wheel.style.dt }}>
-            {topicRow.heading}
-          </Dt>
-          <Dd wheel={{ ...props.wheel, style: props.wheel.style.dd }}>
-            {topicRow.abstract?.abstract}
-          </Dd>
+          {topicRow.heading && (
+            <Dt wheel={{ ...props.wheel, style: props.wheel.style.dt }}>
+              {topicRow.heading}
+            </Dt>
+          )}
+          {topicRow.abstract && (
+            <Dd wheel={{ ...props.wheel, style: props.wheel.style.dd }}>
+              {topicRow.abstract?.abstract}
+            </Dd>
+          )}
         </Dl>
         {topicRow.actions && (
           <Any

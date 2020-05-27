@@ -11,7 +11,7 @@ import { Action } from '../action/action'
 import { Any } from '../../element/any'
 import { TopicTableProps } from '../../../../models/topic-table'
 import { TopicIcon } from '../topic/topic-icon'
-import { TopicRowProps } from '../../../../models/topic-row/topic-row'
+import { TopicRowProps } from '../../../../models/topic-row'
 
 export interface TopicTableWheel extends Wheel {
   style: TopicTableWheelStyle
@@ -45,62 +45,78 @@ export const TopicTable = (props: TopicTableWheelProps) => {
                 columnCount = row.topics.length
               }
             })
-
             return (
               <Fragment key={index}>
-                <Tr wheel={{ ...props.wheel, style: props.wheel.style.tr }}>
-                  <Th
-                    wheel={{ ...props.wheel, style: props.wheel.style.th }}
-                    colspan={columnCount + 1}
-                  >
-                    {topicTable.icon && (
-                      <TopicIcon
-                        icon={topicTable.icon}
+                {topicTable.heading && (
+                  <Tr wheel={{ ...props.wheel, style: props.wheel.style.tr }}>
+                    <Th
+                      wheel={{ ...props.wheel, style: props.wheel.style.th }}
+                      colspan={columnCount + 1}
+                    >
+                      {topicTable.icon && (
+                        <TopicIcon
+                          icon={topicTable.icon}
+                          wheel={{
+                            ...props.wheel,
+                            style: props.wheel.style.icon,
+                          }}
+                        />
+                      )}
+                      <Dl
                         wheel={{
                           ...props.wheel,
-                          style: props.wheel.style.icon,
-                        }}
-                      />
-                    )}
-                    <Dl wheel={{ ...props.wheel, style: props.wheel.style.dl }}>
-                      <Dt
-                        wheel={{ ...props.wheel, style: props.wheel.style.dt }}
-                      >
-                        {topicTable.heading}
-                      </Dt>
-                      <Dd
-                        wheel={{ ...props.wheel, style: props.wheel.style.dd }}
-                      >
-                        {topicTable.abstract?.abstract}
-                      </Dd>
-                    </Dl>
-                    {topicTable.actions && (
-                      <Any
-                        is="div"
-                        wheel={{
-                          ...props.wheel,
-                          style: props.wheel.style.actions,
+                          style: props.wheel.style.dl,
                         }}
                       >
-                        {topicTable.actions.map(
-                          (action: ActionProps, index: number) => (
-                            <Action
-                              key={index}
-                              url={action.url}
-                              page={action.page}
-                              icon={action.icon}
-                              wheel={{
-                                ...props.wheel,
-                                style: props.wheel.style.actions.action,
-                              }}
-                              {...action}
-                            />
-                          )
+                        {topicTable.heading && (
+                          <Dt
+                            wheel={{
+                              ...props.wheel,
+                              style: props.wheel.style.dt,
+                            }}
+                          >
+                            {topicTable.heading}
+                          </Dt>
                         )}
-                      </Any>
-                    )}
-                  </Th>
-                </Tr>
+                        {topicTable.abstract && (
+                          <Dd
+                            wheel={{
+                              ...props.wheel,
+                              style: props.wheel.style.dd,
+                            }}
+                          >
+                            {topicTable.abstract?.abstract}
+                          </Dd>
+                        )}
+                      </Dl>
+                      {topicTable.actions && (
+                        <Any
+                          is="div"
+                          wheel={{
+                            ...props.wheel,
+                            style: props.wheel.style.actions,
+                          }}
+                        >
+                          {topicTable.actions.map(
+                            (action: ActionProps, index: number) => (
+                              <Action
+                                key={index}
+                                url={action.url}
+                                page={action.page}
+                                icon={action.icon}
+                                wheel={{
+                                  ...props.wheel,
+                                  style: props.wheel.style.actions.action,
+                                }}
+                                {...action}
+                              />
+                            )
+                          )}
+                        </Any>
+                      )}
+                    </Th>
+                  </Tr>
+                )}
                 {topicTable.rows.map(
                   (topicRow: TopicRowProps, index: number) => {
                     return (
