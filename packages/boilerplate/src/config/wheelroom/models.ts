@@ -125,6 +125,10 @@ export const models: WheelroomComponents = {
   },
   topicRow: {
     fields: {
+      variation: {
+        items: ['header', 'footer'],
+        type: 'dropdown',
+      } as DropdownField,
       heading: {
         type: 'shortText',
       } as ShortTextField,

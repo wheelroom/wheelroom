@@ -621,6 +621,7 @@ interface TopicTableModel {
 }
 interface TopicRowModel {
   fields: {
+    variation?: 'header' | 'footer'
     heading?: string
     abstract?: string
     media?: boolean
