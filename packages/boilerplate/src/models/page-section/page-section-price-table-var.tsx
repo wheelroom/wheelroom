@@ -6,30 +6,34 @@
  *
  */
 
-import React from 'react'
-import { Flex } from '../../wheelroom/wheels/element/grid'
+import React, { Fragment } from 'react'
 import { getWheel } from '../../themes/themes'
 import { PageSectionProps } from '.'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { Wheel } from '../../wheelroom/wheels/types'
-import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
+import { TopicTable } from '../../wheelroom/wheels/model/topic-table/topic-table'
+import { TopicTableProps } from '../topic-table'
 
 export const PageSectionPriceTableVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = { ncss: {} }
 
-  // eslint-disable-next-line no-undef
-  console.log('props.topicTables', props.topicTables)
+  //console.log('Page Section Props:', props)
 
   return (
-    <ScrollSpy
-      eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds}
-      pageSectionProps={props}
-    >
-      <Flex wheel={wheel} ncss={{ bg: 'amber' }}>
-        Price table
-      </Flex>
-    </ScrollSpy>
+    <Fragment>
+      {props.topicTables.map((table: TopicTableProps, index: number) => {
+        //console.log('topic table props:', table)
+        return (
+          <TopicTable
+            key={index}
+            topicCount={table.rows[0].topics.length + 1}
+            rows={table.rows}
+            wheel={wheel}
+            {...table}
+          />
+        )
+      })}
+    </Fragment>
   )
 }
