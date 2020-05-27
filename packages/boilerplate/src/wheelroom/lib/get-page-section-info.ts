@@ -7,11 +7,13 @@ export interface PageSectionInfo {
   hasNavigationSegment: boolean
   hasText: boolean
   hasTopic: boolean
+  hasTopicTable: boolean
   index: number
   navigationCount: number
   path: string
   sectionCount: number
   topicCount: number
+  topicTableCount: number
   topicOptions: TopicOptions
   variation: string
 }
@@ -26,11 +28,13 @@ export const getPageSectionInfo = (
     hasNavigationSegment: false,
     hasText: false,
     hasTopic: false,
+    hasTopicTable: false,
     index: pageSection.index,
     navigationCount: 0,
     path: pageSection.page.path,
     sectionCount: pageSection.page.sections.length,
     topicCount: 0,
+    topicTableCount: 0,
     variation: pageSection.variation,
   } as PageSectionInfo
 
@@ -54,6 +58,19 @@ export const getPageSectionInfo = (
 
     info.hasTopic = true
     info.topicCount = pageSection.topics.length
+  }
+  if (
+    pageSection.topicTables &&
+    Array.isArray(pageSection.topicTables) &&
+    pageSection.topicTables.length > 0
+  ) {
+    info.topicOptions = getTopicOptions(
+      pageSection.topicOptions,
+      overrideTopicOptions
+    )
+
+    info.hasTopicTable = true
+    info.topicTableCount = pageSection.topicTables.length
   }
   if (pageSection.text && pageSection.text.text && pageSection.locale) {
     info.hasText = true
