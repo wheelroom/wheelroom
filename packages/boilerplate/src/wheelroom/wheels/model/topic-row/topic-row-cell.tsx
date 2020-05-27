@@ -30,6 +30,7 @@ export const TopicRowCell = (props: TopicRowCellProps) => {
       <Topic
         topic={props.topic}
         wheel={{ ...props.wheel, style: props.wheel.style.topic }}
+        useHeadingElement="p"
         pageSectionInfo={pageSectionInfo}
       />
     </Td>
