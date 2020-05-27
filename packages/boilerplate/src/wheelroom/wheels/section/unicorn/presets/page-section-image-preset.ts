@@ -65,6 +65,14 @@ export const pageSectionImagePreset: PageSectionImageWheelStyle = {
           ncss: {},
         },
       },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
+          ncss: {},
+        },
+      },
       video: {
         video: {
           ncss: {},
