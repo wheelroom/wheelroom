@@ -7,6 +7,9 @@ import { TopicRowWheelStyle } from './presets/topic-row-preset'
 import { Dd, Dl, Dt, Th, Tr } from '../../element/self'
 import { TopicRowCell } from './topic-row-cell'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { FeatherIcon } from '../../element/icon'
+import { Action } from '../action/action'
+import { Any } from '../../element/any'
 
 export interface TopicRowWheel extends Wheel {
   style: TopicRowWheelStyle
@@ -22,7 +25,7 @@ export interface TopicRowProps {
   abstract: {
     abstract: string
   }
-  icon: string | JSX.Element
+  icon: string
   actions: ActionProps[]
   topics: TopicProps[]
 }
@@ -35,6 +38,12 @@ export const TopicRow = (props: TopicRowProps) => {
   return (
     <Tr wheel={{ ...props.wheel, style: props.wheel.style }}>
       <Th wheel={{ ...props.wheel, style: props.wheel.style.th }}>
+        {props.icon && (
+          <FeatherIcon
+            icon={props.icon}
+            wheel={{ ...props.wheel, style: props.wheel.style.icon }}
+          />
+        )}
         <Dl wheel={{ ...props.wheel, style: props.wheel.style.dl }}>
           <Dt wheel={{ ...props.wheel, style: props.wheel.style.dt }}>
             {props.heading}
@@ -43,6 +52,26 @@ export const TopicRow = (props: TopicRowProps) => {
             {props.abstract?.abstract}
           </Dd>
         </Dl>
+        {props.actions && (
+          <Any
+            is="div"
+            wheel={{ ...props.wheel, style: props.wheel.style.actions }}
+          >
+            {props.actions.map((action: ActionProps, index: number) => (
+              <Action
+                key={index}
+                url={action.url}
+                page={action.page}
+                icon={action.icon}
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.actions.action,
+                }}
+                {...action}
+              />
+            ))}
+          </Any>
+        )}
       </Th>
       {props.topics.map((topic: TopicProps, index: number) => {
         return (

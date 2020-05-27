@@ -15,12 +15,12 @@ export interface TopicContentActionsWheelStyle {
 export const topicContentActionsPreset: TopicContentActionsWheelStyle = {
   ncss: {
     label: 'topic-actions',
-    mx: '-4px',
+    mx: -1,
   },
   link: {
     ncss: {
       label: 'topic-link',
-      m: '4px',
+      m: 1,
     },
     icon: {
       ncss: {

@@ -6,6 +6,9 @@ import { TopicRow, TopicRowProps } from '../topic-row/topic-row'
 import { ActionProps } from '../../../../models/action'
 import { TopicTableWheelStyle } from './presets/topic-table-preset'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { FeatherIcon } from '../../element/icon'
+import { Action } from '../action/action'
+import { Any } from '../../element/any'
 
 export interface TopicTableWheel extends Wheel {
   style: TopicTableWheelStyle
@@ -23,7 +26,7 @@ export interface TopicTableProps {
   abstract?: {
     abstract: string
   }
-  icon?: string | JSX.Element
+  icon?: string
   actions?: ActionProps[]
   rows?: TopicRowProps[]
 }
@@ -41,6 +44,12 @@ export const TopicTable = (props: TopicTableProps) => {
             wheel={{ ...props.wheel, style: props.wheel.style.th }}
             colspan={props.topicCount}
           >
+            {props.icon && (
+              <FeatherIcon
+                icon={props.icon}
+                wheel={{ ...props.wheel, style: props.wheel.style.icon }}
+              />
+            )}
             <Dl wheel={{ ...props.wheel, style: props.wheel.style.dl }}>
               <Dt wheel={{ ...props.wheel, style: props.wheel.style.dt }}>
                 {props.heading}
@@ -49,6 +58,26 @@ export const TopicTable = (props: TopicTableProps) => {
                 {props.abstract?.abstract}
               </Dd>
             </Dl>
+            {props.actions && (
+              <Any
+                is="div"
+                wheel={{ ...props.wheel, style: props.wheel.style.actions }}
+              >
+                {props.actions.map((action: ActionProps, index: number) => (
+                  <Action
+                    key={index}
+                    url={action.url}
+                    page={action.page}
+                    icon={action.icon}
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.actions.action,
+                    }}
+                    {...action}
+                  />
+                ))}
+              </Any>
+            )}
           </Th>
         </Tr>
         {props.rows.map((row: TopicRowProps, index: number) => {

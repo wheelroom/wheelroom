@@ -33,6 +33,21 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
     dt: {
       ncss: {},
     },
+    icon: {
+      ncss: {
+        w: '24px',
+        h: '24px',
+      },
+    },
+    actions: {
+      ncss: {},
+      action: {
+        ncss: {},
+        icon: {
+          ncss: {},
+        },
+      },
+    },
     row: {
       ncss: {},
       th: {
@@ -55,6 +70,21 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
       },
       dt: {
         ncss: {},
+      },
+      icon: {
+        ncss: {
+          w: '24px',
+          h: '24px',
+        },
+      },
+      actions: {
+        ncss: {},
+        action: {
+          ncss: {},
+          icon: {
+            ncss: {},
+          },
+        },
       },
       cell: {
         ncss: {
