@@ -54,6 +54,7 @@ export const styledSystemConfig: StyledSystemConfig = {
     'right',
     'top',
     'textAlign',
+    'transform',
     'visibility',
     'width',
     'maxWidth',

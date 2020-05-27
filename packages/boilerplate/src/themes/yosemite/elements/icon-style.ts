@@ -7,15 +7,15 @@ const iconStyle = {
 
 const iconSmallStyle = {
   ncss: {
-    w: '23px',
-    h: '23px',
+    w: ['17px', '17px', '20px'],
+    h: ['17px', '17px', '20px'],
   },
 }
 
 export const iconButtonStyle = {
   ncss: {
     ...iconSmallStyle.ncss,
-    transform: 'translateX(10px)',
+    transform: ['translateX(8px)', 'translateX(8px)', 'translateX(10px)'],
   },
 }
 

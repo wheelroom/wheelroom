@@ -54,7 +54,6 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
       ncss: {},
       th: {
         ncss: {
-          w: 2 / 6,
           textAlign: 'left',
           p: 2,
         },
@@ -88,7 +87,6 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
       },
       cell: {
         ncss: {
-          w: 1 / 6,
           p: 2,
         },
         topic: {

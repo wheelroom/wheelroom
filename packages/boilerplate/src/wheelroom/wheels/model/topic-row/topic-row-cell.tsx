@@ -18,6 +18,8 @@ export interface TopicRowCellProps {
   pageSectionInfo: PageSectionInfo
   /** Topic props */
   topic: TopicProps
+  /** Percentage */
+  dataCellWidth: number
 }
 
 export const TopicRowCell = (props: TopicRowCellProps) => {
@@ -25,8 +27,15 @@ export const TopicRowCell = (props: TopicRowCellProps) => {
     return null
   }
   const pageSectionInfo = props.pageSectionInfo
+
+  const dataCellStyle = props.wheel.style
+
+  if (!(dataCellStyle.ncss.w || dataCellStyle.ncss.width)) {
+    dataCellStyle.ncss.w = props.dataCellWidth
+  }
+
   return (
-    <Td wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Td wheel={{ ...props.wheel, style: dataCellStyle }}>
       <Topic
         topic={props.topic}
         wheel={{ ...props.wheel, style: props.wheel.style.topic }}

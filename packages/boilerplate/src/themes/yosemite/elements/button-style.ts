@@ -4,6 +4,7 @@ const buttonStyle: ButtonElementStyle = {
   ncss: {
     display: 'inline-flex',
     justifyContent: 'center',
+    fontSize: 5,
     px: 3,
     py: 2,
     userSelect: 'none',
