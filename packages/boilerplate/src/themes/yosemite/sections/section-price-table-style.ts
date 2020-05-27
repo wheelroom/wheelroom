@@ -1,5 +1,6 @@
 import { wrapperStyle } from '../elements/grid-style'
 import { PageSectionPriceTableWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-price-table-preset'
+import { iconSmallTopicStyle } from '../elements/icon-style'
 
 export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
   container: {
@@ -30,22 +31,20 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
     },
     dl: {
       ncss: {
+        lineHeight: '1.58',
         m: 0,
       },
     },
     dt: {
       ncss: {},
     },
-    icon: {
-      ncss: {
-        w: '24px',
-        h: '24px',
-      },
-    },
+    icon: iconSmallTopicStyle,
     actions: {
       ncss: {},
       action: {
-        ncss: {},
+        ncss: {
+          fontWeight: 4,
+        },
         icon: {
           ncss: {},
         },
@@ -68,22 +67,20 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
       },
       dl: {
         ncss: {
+          lineHeight: '1.58',
           m: 0,
         },
       },
       dt: {
         ncss: {},
       },
-      icon: {
-        ncss: {
-          w: '24px',
-          h: '24px',
-        },
-      },
+      icon: iconSmallTopicStyle,
       actions: {
         ncss: {},
         action: {
-          ncss: {},
+          ncss: {
+            fontWeight: 4,
+          },
           icon: {
             ncss: {},
           },
@@ -125,12 +122,7 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
                   fontSize: 4,
                 },
               },
-              icon: {
-                ncss: {
-                  w: '24px',
-                  h: '24px',
-                },
-              },
+              icon: iconSmallTopicStyle,
             },
           },
           media: {
