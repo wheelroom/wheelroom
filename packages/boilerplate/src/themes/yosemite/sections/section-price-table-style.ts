@@ -7,6 +7,39 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
   },
   table: {
     ncss: {},
+    th: {
+      ncss: {},
+    },
+    tr: {
+      ncss: {},
+    },
+    dd: {
+      ncss: {},
+    },
+    dl: {
+      ncss: {},
+    },
+    dt: {
+      ncss: {},
+    },
+    row: {
+      ncss: {},
+      th: {
+        ncss: {},
+      },
+      dd: {
+        ncss: {},
+      },
+      dl: {
+        ncss: {},
+      },
+      dt: {
+        ncss: {},
+      },
+      cell: {
+        ncss: {},
+      },
+    },
   },
   wrapper: wrapperStyle,
 }

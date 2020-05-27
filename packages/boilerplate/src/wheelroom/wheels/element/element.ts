@@ -27,6 +27,8 @@ export interface ElementProps {
   title?: string | undefined
   /** Styling wheel */
   wheel: Wheel
+  /** Table attribute */
+  colspan?: number
 }
 
 type GetElementAttrsProps =
@@ -47,6 +49,7 @@ export const getElementAttrs = (
 ) => ({
   'aria-hidden': props.ariaHidden,
   'aria-label': props.ariaLabel,
+  colSpan: props.colspan,
   hidden: props.hidden,
   id: props.id,
   'tab-index': props.tabIndex,

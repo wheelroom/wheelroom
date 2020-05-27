@@ -18,6 +18,7 @@ import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { Container, Wrapper } from '../../wheelroom/wheels/element/grid'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { pageSectionPriceTablePreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-price-table-preset'
+import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 
 export const PageSectionPriceTableVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -29,7 +30,7 @@ export const PageSectionPriceTableVar = (props: PageSectionProps) => {
   ])
 
   if (!pageSectionInfo.hasTopicTable) {
-    return null
+    return <NotImplemented pageSection={props} wheel={wheel} />
   }
   return (
     <ScrollSpy
@@ -45,6 +46,7 @@ export const PageSectionPriceTableVar = (props: PageSectionProps) => {
                 key={index}
                 topicCount={table.rows[0].topics.length + 1}
                 wheel={{ ...wheel, style: wheel.style.table }}
+                pageSectionInfo={pageSectionInfo}
                 rows={table.rows}
                 {...table}
               />

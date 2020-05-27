@@ -38,6 +38,15 @@ export const elementStyles: ElementStyles = {
   container: {
     ncss: {},
   },
+  dd: {
+    ncss: {},
+  },
+  dl: {
+    ncss: {},
+  },
+  dt: {
+    ncss: {},
+  },
   featherIcon: {
     ncss: {},
   },
@@ -148,26 +157,16 @@ export const elementStyles: ElementStyles = {
     ncss: {},
   },
   table: {
-    ncss: {
-      borderCollapse: 'collapse',
-      minWidth: '50%',
-      tableLayout: 'auto',
-    },
+    ncss: {},
   },
   textIcon: {
     ncss: {},
   },
   td: {
-    ncss: {
-      fontSize: 6,
-      lineHeight: 3,
-      py: 1,
-      px: 2,
-      whiteSpace: 'nowrap',
-      ':first-of-type': {
-        pl: 0,
-      },
-    },
+    ncss: {},
+  },
+  th: {
+    ncss: {},
   },
   tr: {
     ncss: {},

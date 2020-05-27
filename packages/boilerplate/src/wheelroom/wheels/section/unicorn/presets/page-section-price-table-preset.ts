@@ -1,9 +1,12 @@
 import { GridElementStyle } from '../../../element/resets/grid-reset'
-import { NcssProps } from '../../../types'
+import {
+  topicTablePreset,
+  TopicTableWheelStyle,
+} from '../../../model/topic-table/presets/topic-table-preset'
 
 export interface PageSectionPriceTableWheelStyle {
   container: GridElementStyle
-  table: NcssProps
+  table: TopicTableWheelStyle
   wrapper: GridElementStyle
 }
 
@@ -11,9 +14,7 @@ export const pageSectionPriceTablePreset: PageSectionPriceTableWheelStyle = {
   container: {
     ncss: {},
   },
-  table: {
-    ncss: {},
-  },
+  table: topicTablePreset,
   wrapper: {
     ncss: {},
   },

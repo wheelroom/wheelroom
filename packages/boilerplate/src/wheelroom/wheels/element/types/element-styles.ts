@@ -1,3 +1,4 @@
+import { DescriptionListElementStyle } from '../resets/self-dl-reset'
 import { ImageElementStyle } from '../resets/image-reset'
 import { AnyElementStyle } from '../resets/any-reset'
 import { PreElementStyle } from '../resets/self-pre-reset'
@@ -25,6 +26,9 @@ export interface ElementStyles {
   button: ButtonElementStyle
   code: CodeElementStyle
   container: GridElementStyle
+  dd: DescriptionListElementStyle
+  dl: DescriptionListElementStyle
+  dt: DescriptionListElementStyle
   embed: EmbedStyle
   featherIcon: IconElementStyle
   flex: GridElementStyle
@@ -58,6 +62,7 @@ export interface ElementStyles {
   sup: ParagraphElementStyle
   table: TableElementStyle
   td: TableElementStyle
+  th: TableElementStyle
   tr: TableElementStyle
   textIcon: IconElementStyle
   ul: ListElementStyle

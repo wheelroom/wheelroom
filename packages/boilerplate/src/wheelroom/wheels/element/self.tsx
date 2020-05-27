@@ -9,6 +9,12 @@ import {
   selfBlockquoteReset,
 } from './resets/self-blockquote-reset'
 import { CodeElementStyle, selfCodeReset } from './resets/self-code-reset'
+import {
+  DescriptionListElementStyle,
+  selfDdReset,
+  selfDlReset,
+  selfDtReset,
+} from './resets/self-dl-reset'
 import { HrElementStyle, selfHrReset } from './resets/self-hr-reset'
 import { PreElementStyle, selfPreReset } from './resets/self-pre-reset'
 import { StrongElementStyle, selfStrongReset } from './resets/self-strong-reset'
@@ -17,6 +23,7 @@ import {
   selfTableReset,
   selfTdReset,
   selfTrReset,
+  selfThReset,
 } from './resets/self-table-reset'
 import { ElementStyles } from './types/element-styles'
 
@@ -24,6 +31,7 @@ export type SelfReset =
   | ListElementStyle
   | BlockquoteElementStyle
   | CodeElementStyle
+  | DescriptionListElementStyle
   | HrElementStyle
   | PreElementStyle
   | StrongElementStyle
@@ -61,6 +69,18 @@ export const Code = (props: ElementProps) => {
   return getSelf(props, selfCodeReset, 'code')
 }
 
+export const Dd = (props: ElementProps) => {
+  return getSelf(props, selfDdReset, 'dd')
+}
+
+export const Dl = (props: ElementProps) => {
+  return getSelf(props, selfDlReset, 'dl')
+}
+
+export const Dt = (props: ElementProps) => {
+  return getSelf(props, selfDtReset, 'dt')
+}
+
 export const Hr = (props: ElementProps) => {
   return getSelf(props, selfHrReset, 'hr')
 }
@@ -87,6 +107,10 @@ export const Table = (props: ElementProps) => {
 
 export const Td = (props: ElementProps) => {
   return getSelf(props, selfTdReset, 'td')
+}
+
+export const Th = (props: ElementProps) => {
+  return getSelf(props, selfThReset, 'th')
 }
 
 export const Tr = (props: ElementProps) => {

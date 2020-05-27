@@ -18,6 +18,13 @@ export const selfTdReset: TableElementStyle = {
   },
 }
 
+export const selfThReset: TableElementStyle = {
+  ncss: {
+    boxSizing: 'border-box',
+    fontFamily: 'text',
+  },
+}
+
 export const selfTrReset: TableElementStyle = {
   ncss: {
     boxSizing: 'border-box',
