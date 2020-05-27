@@ -15,6 +15,7 @@ export const fragment = graphql`
 fragment TopicRow on ContentfulTopicRow {
   __typename
   title
+  variation
   heading
   abstract {
     abstract

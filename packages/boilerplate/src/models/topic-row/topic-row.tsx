@@ -12,6 +12,7 @@ export interface TopicRowProps {
   /** Gatsby fetched data */
   __typename: string
   title: string
+  variation: string
   heading: string
   abstract: {
     abstract: string
