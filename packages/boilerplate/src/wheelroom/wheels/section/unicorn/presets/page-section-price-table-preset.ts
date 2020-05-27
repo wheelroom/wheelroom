@@ -6,15 +6,18 @@ import {
 
 export interface PageSectionPriceTableWheelStyle {
   container: GridElementStyle
-  table: TopicTableWheelStyle
+  topicTable: TopicTableWheelStyle
   wrapper: GridElementStyle
 }
 
 export const pageSectionPriceTablePreset: PageSectionPriceTableWheelStyle = {
   container: {
-    ncss: {},
+    ncss: {
+      px: 3,
+      overflow: 'hidden',
+    },
   },
-  table: topicTablePreset,
+  topicTable: topicTablePreset,
   wrapper: {
     ncss: {},
   },

@@ -13,6 +13,7 @@ import {
 
 export interface TopicTableWheelStyle {
   ncss: NcssProps
+  table: TableElementStyle
   th: TableElementStyle
   tr: TableElementStyle
   dd: DescriptionListElementStyle
@@ -29,6 +30,12 @@ export interface TopicTableWheelStyle {
 export const topicTablePreset: TopicTableWheelStyle = {
   ncss: {
     label: 'topic-table',
+    overflowX: 'auto',
+  },
+  table: {
+    ncss: {
+      label: 'topic-table-table',
+    },
   },
   th: {
     ncss: {

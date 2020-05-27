@@ -45,7 +45,7 @@ export const PageSectionPriceTableVar = (props: PageSectionProps) => {
               <TopicTable
                 key={index}
                 topicCount={table.rows[0].topics.length + 1}
-                wheel={{ ...wheel, style: wheel.style.table }}
+                wheel={{ ...wheel, style: wheel.style.topicTable }}
                 pageSectionInfo={pageSectionInfo}
                 rows={table.rows}
                 {...table}

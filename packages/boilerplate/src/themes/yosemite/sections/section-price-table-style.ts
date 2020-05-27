@@ -5,9 +5,12 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
   container: {
     ncss: {},
   },
-  table: {
-    ncss: {
-      fontSize: 4,
+  topicTable: {
+    ncss: {},
+    table: {
+      ncss: {
+        fontSize: 4,
+      },
     },
     th: {
       ncss: {
