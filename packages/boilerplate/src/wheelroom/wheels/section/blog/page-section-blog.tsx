@@ -9,7 +9,7 @@ import { BlogWheelStyle } from './page-section-blog-preset'
 import { Heading } from '../../element/heading'
 import { TopicProps } from '../../../../models/topic'
 import { Any } from '../../element/any'
-import { Paragraph } from '../../element/paragraph'
+import { Topic } from '../../model/topic/topic'
 
 export interface BlogWheel extends Wheel {
   style: BlogWheelStyle
@@ -23,7 +23,7 @@ export interface BlogWheelProps {
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
   /** Properties to configure Topic element */
-  topicProps?: TopicProps
+  topicProps?: TopicProps[]
   /** Accept max number of topics, ignore all others */
   maxTopics?: number
 }
@@ -34,19 +34,26 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
     return null
   }
 
-  const blog = props.pageSection.blog
+  /** Get localisation for Date and Text translation */
   const locale = props.pageSection.locale
 
+  /** Blog props */
+  const blog = props.pageSection.blog
   const heading = blog.heading
   const date = blog.date
   const text = blog.text
   const labels = blog.labels
   const authors = blog.authors
 
-  // console.log('pageSectionInfo:', pageSectionInfo)
-  // console.log('authors:', authors)
-  // console.log('featured:', featured)
-  // console.log('labels:', labels)
+  /** Convert and Translate Date */
+  const dateEvent = new Date(Date.parse(date))
+  const dateOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
+  const dateTime = dateEvent.toLocaleDateString(locale, dateOptions)
 
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
@@ -62,10 +69,11 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
             {heading}
           </Heading>
           <Any
-            is="div"
-            wheel={{ ...props.wheel, style: props.wheel.style.article }}
+            is="time"
+            wheel={{ ...props.wheel, style: props.wheel.style.date }}
+            datetime={date}
           >
-            {date}
+            {dateTime}
           </Any>
           <Text
             locale={locale}
@@ -81,13 +89,25 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
           </div>
           {labels &&
             labels.map((label: TopicProps, index: number) => {
+              /** Set Topic Options for Labels */
+              pageSectionInfo.topicOptions = {
+                reverseOrder: false,
+                hideIcon: false,
+                hideMedia: false,
+                hideHeading: false,
+                hideAbstract: false,
+                hideAction: false,
+              }
               return (
-                <Any
+                <Topic
                   key={index}
+                  maxActions={2}
+                  fullTopicAsLink={false}
+                  pageSectionActions={label.actions}
+                  pageSectionInfo={pageSectionInfo}
+                  topic={label}
                   wheel={{ ...props.wheel, style: props.wheel.style.label }}
-                >
-                  {label.heading}
-                </Any>
+                />
               )
             })}
           <div>
@@ -95,28 +115,25 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
           </div>
           {authors &&
             authors.map((author: TopicProps, index: number) => {
+              /** Set Topic Options for Authors */
+              pageSectionInfo.topicOptions = {
+                reverseOrder: false,
+                hideIcon: false,
+                hideMedia: false,
+                hideHeading: false,
+                hideAbstract: false,
+                hideAction: false,
+              }
               return (
-                <Any
+                <Topic
                   key={index}
+                  maxActions={2}
+                  fullTopicAsLink={false}
+                  pageSectionActions={author.actions}
+                  pageSectionInfo={pageSectionInfo}
+                  topic={author}
                   wheel={{ ...props.wheel, style: props.wheel.style.author }}
-                >
-                  <Heading
-                    wheel={{
-                      ...props.wheel,
-                      style: props.wheel.style.author.content.text.heading,
-                    }}
-                  >
-                    {author.heading}
-                  </Heading>
-                  <Paragraph
-                    wheel={{
-                      ...props.wheel,
-                      style: props.wheel.style.author.content.text.abstract,
-                    }}
-                  >
-                    {author.abstract.abstract}
-                  </Paragraph>
-                </Any>
+                />
               )
             })}
         </Any>

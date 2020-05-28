@@ -24,7 +24,9 @@ export const PageSectionBlogVar = (props: PageSectionProps) => {
 
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
-    { topic: topicPreset },
+    { featured: topicPreset },
+    { author: topicPreset },
+    { label: topicPreset },
     pageSectionBlogPreset,
     getSectionStyle('blog').base,
   ])
@@ -32,6 +34,8 @@ export const PageSectionBlogVar = (props: PageSectionProps) => {
   if (!pageSectionInfo.hasBlog) {
     return <NotImplemented pageSection={props} wheel={wheel} />
   }
+
+  console.log('pageSection:', props)
   return (
     <ScrollSpy
       eventId={props.eventId}
