@@ -48,12 +48,17 @@ export const TopicRow = (props: TopicRowWheelProps) => {
   if (!(rowHeaderCellStyle.ncss.w || rowHeaderCellStyle.ncss.width)) {
     rowHeaderCellStyle.ncss.w = headerCellWidth
   }
-  if (topicRow.variation === 'header' || topicRow.variation === 'footer') {
-    props.wheel.style.ncss.bg = 'skyblue'
+
+  let rowStyle = props.wheel.style
+  if (topicRow.variation === 'header' && rowStyle.header) {
+    rowStyle = rowStyle.header
+  }
+  if (topicRow.variation === 'footer' && rowStyle.footer) {
+    rowStyle = rowStyle.footer
   }
 
   return (
-    <Tr wheel={{ ...props.wheel, style: props.wheel.style }}>
+    <Tr wheel={{ ...props.wheel, style: rowStyle }}>
       <Th wheel={{ ...props.wheel, style: rowHeaderCellStyle }}>
         {topicRow.icon && (
           <TopicIcon

@@ -52,6 +52,12 @@ export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {
     },
     row: {
       ncss: {},
+      header: {
+        ncss: {},
+      },
+      footer: {
+        ncss: {},
+      },
       th: {
         ncss: {
           textAlign: 'left',

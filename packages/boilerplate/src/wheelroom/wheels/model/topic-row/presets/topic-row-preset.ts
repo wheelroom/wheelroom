@@ -13,6 +13,8 @@ import {
 
 export interface TopicRowWheelStyle {
   ncss: NcssProps
+  header: NcssProps
+  footer: NcssProps
   th: TableElementStyle
   dd: DescriptionListElementStyle
   dl: DescriptionListElementStyle
@@ -28,6 +30,12 @@ export interface TopicRowWheelStyle {
 export const topicRowPreset: TopicRowWheelStyle = {
   ncss: {
     label: 'topic-row',
+  },
+  header: {
+    ncss: {},
+  },
+  footer: {
+    ncss: {},
   },
   th: {
     ncss: {
