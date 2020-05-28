@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-05-27T21:48:32.851Z ###
+### Type definitions saved at 2020-05-28T13:54:02.632Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -76,11 +76,11 @@ type SitePage implements Node @dontInfer {
   matchPath: String
 }
 
-type contentfulTopicTableAbstractTextNode implements Node @dontInfer {
+type contentfulTopicRowAbstractTextNode implements Node @dontInfer {
   abstract: String
 }
 
-type contentfulTopicRowAbstractTextNode implements Node @dontInfer {
+type contentfulTopicTableAbstractTextNode implements Node @dontInfer {
   abstract: String
 }
 
@@ -209,11 +209,11 @@ type ContentfulAction implements Node @derivedTypes @dontInfer {
   sys: ContentfulActionSys
   node_locale: String
   navigation: [ContentfulNavigation] @link(by: "id", from: "navigation___NODE")
-  icon: String
   topicrow: [ContentfulTopicRow] @link(by: "id", from: "topicrow___NODE")
   url: String
   topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
   pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
+  icon: String
   anchor: String
   query: String
   topictable: [ContentfulTopicTable] @link(by: "id", from: "topictable___NODE")
@@ -379,6 +379,7 @@ type ContentfulTopicTable implements Node @derivedTypes {
   title: String
   heading: String
   icon: String
+  actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
   rows: [ContentfulTopicRow] @link(by: "id", from: "rows___NODE")
   abstract: contentfulTopicTableAbstractTextNode @link(by: "id", from: "abstract___NODE")
   spaceId: String
@@ -387,17 +388,16 @@ type ContentfulTopicTable implements Node @derivedTypes {
   updatedAt: Date @dateformat
   sys: ContentfulTopicTableSys
   node_locale: String
-  actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
   pagesection: [ContentfulPageSection] @link(by: "id", from: "pagesection___NODE")
 }
 
 type ContentfulTopicRow implements Node @derivedTypes {
   title: String
-  variation: String
   heading: String
   icon: String
   actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
   topics: [ContentfulTopic] @link(by: "id", from: "topics___NODE")
+  topictable: [ContentfulTopicTable] @link(by: "id", from: "topictable___NODE")
   abstract: contentfulTopicRowAbstractTextNode @link(by: "id", from: "abstract___NODE")
   spaceId: String
   contentful_id: String
@@ -405,7 +405,7 @@ type ContentfulTopicRow implements Node @derivedTypes {
   updatedAt: Date @dateformat
   sys: ContentfulTopicRowSys
   node_locale: String
-  topictable: [ContentfulTopicTable] @link(by: "id", from: "topictable___NODE")
+  variation: String
 }
 
 type ContentfulTopicRowSys @derivedTypes {
@@ -508,8 +508,10 @@ type ContentfulBlog implements Node @derivedTypes {
   updatedAt: Date @dateformat
   sys: ContentfulBlogSys
   node_locale: String
+  heading: String
   seoKeywords: [String]
   labels: [ContentfulTopic] @link(by: "id", from: "labels___NODE")
+  featured: ContentfulTopic @link(by: "id", from: "featured___NODE")
 }
 
 type contentfulBlogTextRichTextNode implements Node @derivedTypes @dontInfer {

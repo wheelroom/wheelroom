@@ -15,6 +15,7 @@ export const fragment = graphql`
 fragment Blog on ContentfulBlog {
   __typename
   title
+  heading
   slug
   date
   text {
@@ -25,12 +26,12 @@ fragment Blog on ContentfulBlog {
       ...Topic
     }
   }
-  topics {
+  authors {
     ... on Node {
       ...Topic
     }
   }
-  authors {
+  featured {
     ... on Node {
       ...Topic
     }

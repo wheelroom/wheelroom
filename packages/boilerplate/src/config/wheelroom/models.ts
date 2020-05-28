@@ -363,6 +363,9 @@ export const models: WheelroomComponents = {
   },
   blog: {
     fields: {
+      heading: {
+        type: 'shortText',
+      } as ShortTextField,
       slug: {
         initialContent: 'initial-content-for-slug',
         required: true,
@@ -371,7 +374,7 @@ export const models: WheelroomComponents = {
         unique: true,
       } as ShortTextField,
       date: {
-        helpText: 'Override Contentful publish date',
+        helpText: 'Override publish date',
         type: 'date',
       } as DateField,
       text: {
@@ -382,15 +385,15 @@ export const models: WheelroomComponents = {
         allowedComponents: ['topic'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      topics: {
-        required: true,
-        allowedComponents: ['topic'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
       authors: {
         allowedComponents: ['topic'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
+      featured: {
+        required: true,
+        allowedComponents: ['topic'],
+        type: 'singleComponent',
+      } as SingleComponentField,
       seoTitle: {
         type: 'shortText',
       } as ShortTextField,
