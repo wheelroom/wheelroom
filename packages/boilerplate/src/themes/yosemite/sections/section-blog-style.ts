@@ -1,9 +1,18 @@
-import { FreestyleWheelStyle } from '../../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
+import { BlogWheelStyle } from '../../../wheelroom/wheels/section/blog/page-section-blog-preset'
 import { wrapperStyle } from '../elements/grid-style'
 import { headingTextStyle } from '../elements/heading-style'
 
-export const sectionFreestyleStyle: FreestyleWheelStyle = {
+export const sectionBlogStyle: BlogWheelStyle = {
   container: {
+    ncss: {},
+  },
+  author: {
+    ncss: {},
+  },
+  date: {
+    ncss: {},
+  },
+  label: {
     ncss: {},
   },
   text: {
@@ -95,6 +104,66 @@ export const sectionFreestyleStyle: FreestyleWheelStyle = {
     },
     wrapper: {
       ncss: {},
+    },
+  },
+  topic: {
+    ncss: {},
+    content: {
+      ncss: {},
+      actions: {
+        ncss: {},
+        link: {
+          ncss: {},
+          icon: {
+            ncss: {},
+          },
+        },
+      },
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
+        icon: {
+          ncss: {},
+        },
+      },
+    },
+    media: {
+      ncss: {},
+      embed: {
+        ncss: {},
+      },
+      image: {
+        img: {
+          ncss: {},
+        },
+        picture: {
+          ncss: {},
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
+        },
+      },
     },
   },
   wrapper: wrapperStyle,

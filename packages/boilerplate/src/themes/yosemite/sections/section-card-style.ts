@@ -80,7 +80,7 @@ export const sectionCardStyle: PageSectionCardWheelStyle = {
   wrapper: wrapperStyle,
 }
 
-export const pageSectionCardShadowStyle = {
+export const sectionCardShadowStyle = {
   topic: {
     ncss: {
       label: 'topic-card-shadow',

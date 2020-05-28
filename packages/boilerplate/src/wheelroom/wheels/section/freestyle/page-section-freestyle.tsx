@@ -1,5 +1,5 @@
 import React from 'react'
-import { PageSectionProps } from '../../../../models/page-section/page-section'
+import { PageSectionProps } from '../../../../models/page-section'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { Container, Fluid, Wrapper } from '../../element/grid'
 import { Text } from '../../model/text/text'

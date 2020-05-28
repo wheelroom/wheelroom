@@ -4,6 +4,7 @@ import { TopicOptions, getTopicOptions } from './get-topic-options'
 export interface PageSectionInfo {
   actionCount: number
   hasAction: boolean
+  hasBlog: boolean
   hasNavigationSegment: boolean
   hasText: boolean
   hasTopic: boolean
@@ -25,6 +26,7 @@ export const getPageSectionInfo = (
   const info = {
     actionCount: 0,
     hasAction: false,
+    hasBlog: false,
     hasNavigationSegment: false,
     hasText: false,
     hasTopic: false,
@@ -45,6 +47,9 @@ export const getPageSectionInfo = (
   ) {
     info.hasAction = true
     info.actionCount = pageSection.actions.length
+  }
+  if (pageSection.blog) {
+    info.hasBlog = true
   }
   if (
     pageSection.topics &&

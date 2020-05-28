@@ -4,14 +4,14 @@ import { yosemiteDark } from './yosemite/yosemite-dark'
 import { yosemiteLight } from './yosemite/yosemite-light'
 import { sectionBlockStyle } from './yosemite/sections/section-block-style'
 import {
-  pageSectionCardShadowStyle,
+  sectionCardShadowStyle,
   sectionCardStyle,
 } from './yosemite/sections/section-card-style'
 import { Wheel } from '../wheelroom/wheels/types'
 import { ThemeId } from '../admin-resources/theme-info'
 import { navFooterStyle } from './yosemite/sections/nav-footer-style'
 import { navHeaderStyle } from './yosemite/sections/nav-header-style'
-import { pageSectionFreestyleStyle } from './yosemite/sections/section-text-style'
+import { sectionFreestyleStyle } from './yosemite/sections/section-text-style'
 import { sectionDividerStyle } from './yosemite/sections/section-divider-style'
 import {
   sectionFeaturedStyle,
@@ -26,9 +26,11 @@ import { sectionShowcaseStyle } from './yosemite/sections/section-showcase-style
 import { sectionVideoStyle } from './yosemite/sections/section-video-style'
 import { StyledSystemTheme } from '../wheelroom/theme/types'
 import { sectionPriceTableStyle } from './yosemite/sections/section-price-table-style'
+import { sectionBlogStyle } from './yosemite/sections/section-blog-style'
 
 export type sectionId =
   | 'block'
+  | 'blog'
   | 'card'
   | 'divider'
   | 'featured'
@@ -52,9 +54,12 @@ const sectionStyleMap = {
   block: {
     base: sectionBlockStyle,
   },
+  blog: {
+    base: sectionBlogStyle,
+  },
   card: {
     base: sectionCardStyle,
-    shadow: pageSectionCardShadowStyle,
+    shadow: sectionCardShadowStyle,
   },
   divider: {
     base: sectionDividerStyle,
@@ -89,7 +94,7 @@ const sectionStyleMap = {
     base: sectionShowcaseStyle,
   },
   text: {
-    base: pageSectionFreestyleStyle,
+    base: sectionFreestyleStyle,
   },
   video: {
     base: sectionVideoStyle,

@@ -11,50 +11,46 @@ import { getWheel, getSectionStyle } from '../../themes/themes'
 import { PageSectionProps } from '.'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { Wheel } from '../../wheelroom/wheels/types'
-import { Wrapper, Container } from '../../wheelroom/wheels/element/grid'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
-import { Text } from '../../wheelroom/wheels/model/text/text'
-import { Li, Ul } from '../../wheelroom/wheels/element/self'
-import { BlogProps } from '../blog/blog'
-import { Action } from '../../wheelroom/wheels/model/action/action'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
+import { NotImplemented } from '../../wheelroom/lib/not-implemented'
+import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { pageSectionBlogPreset } from '../../wheelroom/wheels/section/blog/page-section-blog-preset'
+import { PageSectionBlog } from '../../wheelroom/wheels/section/blog/page-section-blog'
+import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 
 export const PageSectionBlogVar = (props: PageSectionProps) => {
+  const pageSectionInfo = getPageSectionInfo(props)
+
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
-    pageSectionFreestylePreset,
-    getSectionStyle('text').base,
+    { topic: topicPreset },
+    pageSectionBlogPreset,
+    getSectionStyle('blog').base,
   ])
-  const allBlog: BlogProps[] = (props.allBlog as any).edges.map(
-    (edge: any) => edge.node
-  )
+
+  if (!pageSectionInfo.hasBlog) {
+    return <NotImplemented pageSection={props} wheel={wheel} />
+  }
   return (
     <ScrollSpy
       eventId={props.eventId}
       siteEmbeds={props.globals.siteEmbeds}
       pageSectionProps={props}
     >
-      <Wrapper wheel={{ ...wheel, style: wheel.style.wrapper }}>
-        <Ul wheel={wheel} ncss={{ listStyle: 'none' }}>
-          {allBlog.map((blog: BlogProps, index: number) => {
-            return (
-              <Li key={index} wheel={wheel}>
-                <Action wheel={wheel} page={{ path: '/blog/' + blog.slug }}>
-                  {blog.navigationHeading}
-                </Action>
-              </Li>
-            )
-          })}
-        </Ul>
-        <Container wheel={{ ...wheel, style: wheel.style.container }}>
-          <Text
-            locale={props.locale}
-            wheel={{ ...wheel, style: wheel.style.text }}
-            text={{ text: props.blog.text, __typename: '', title: '' }}
-          />
-        </Container>
-      </Wrapper>
+      <PageSectionBlog
+        maxTopics={1}
+        topicProps={{
+          pageSectionActions: props.actions,
+          fullTopicAsLink: false,
+          maxActions: 2,
+          pageSectionInfo,
+          wheel,
+        }}
+        pageSection={props}
+        containerStyle="container"
+        wheel={wheel}
+      />
     </ScrollSpy>
   )
 }
