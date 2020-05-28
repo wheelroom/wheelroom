@@ -1,5 +1,5 @@
 import { wrapperStyle } from '../elements/grid-style'
-import { PageSectionPriceTableWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-price-table-preset'
+import { PageSectionPriceTableWheelStyle } from '../../../wheelroom/wheels/section/price-table/page-section-price-table-preset'
 import { iconSmallTopicStyle } from '../elements/icon-style'
 
 export const sectionPriceTableStyle: PageSectionPriceTableWheelStyle = {

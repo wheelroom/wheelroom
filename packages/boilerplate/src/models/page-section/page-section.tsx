@@ -28,7 +28,7 @@ import { SectionProps } from '../../wheelroom/sections/section-props'
 import { TextProps } from '../text'
 import { TopicOptionString } from '../../wheelroom/lib/get-topic-options'
 import { TopicProps } from '../topic'
-import { TopicTableProps } from '../topic-table/topic-table'
+import { TopicTableProps } from '../topic-table'
 
 const componentList = {
   ['block-wr']: PageSectionBlockVar,

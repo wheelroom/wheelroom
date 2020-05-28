@@ -16,7 +16,7 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { Container, Wrapper } from '../../wheelroom/wheels/element/grid'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { pageSectionPriceTablePreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-price-table-preset'
+import { pageSectionPriceTablePreset } from '../../wheelroom/wheels/section/price-table/page-section-price-table-preset'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 
 export const PageSectionPriceTableVar = (props: PageSectionProps) => {
