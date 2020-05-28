@@ -6,6 +6,7 @@ import { HeadingElementStyle } from '../../element/resets/heading-reset'
 
 export interface BlogWheelStyle {
   container: GridElementStyle
+  article: NcssProps
   author: TopicWheelStyle
   date: NcssProps
   heading: HeadingElementStyle
@@ -19,8 +20,16 @@ export const pageSectionBlogPreset: BlogWheelStyle = {
   container: {
     ncss: {},
   },
+  article: {
+    ncss: {
+      label: 'blog-article',
+      w: 1,
+    },
+  },
   author: {
-    ncss: {},
+    ncss: {
+      label: 'blog-author',
+    },
     content: {
       ncss: {},
       text: {
@@ -80,13 +89,19 @@ export const pageSectionBlogPreset: BlogWheelStyle = {
     },
   },
   date: {
-    ncss: {},
+    ncss: {
+      label: 'blog-date',
+    },
   },
   heading: {
-    ncss: {},
+    ncss: {
+      label: 'blog-heading',
+    },
   },
   label: {
-    ncss: {},
+    ncss: {
+      label: 'blog-label',
+    },
     content: {
       ncss: {},
       text: {
@@ -147,7 +162,9 @@ export const pageSectionBlogPreset: BlogWheelStyle = {
   },
   text: textPreset,
   featured: {
-    ncss: {},
+    ncss: {
+      label: 'blog-featured',
+    },
     content: {
       ncss: {},
       text: {

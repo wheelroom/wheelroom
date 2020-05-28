@@ -39,14 +39,6 @@ export const PageSectionBlogVar = (props: PageSectionProps) => {
       pageSectionProps={props}
     >
       <PageSectionBlog
-        maxTopics={1}
-        topicProps={{
-          pageSectionActions: props.actions,
-          fullTopicAsLink: false,
-          maxActions: 2,
-          pageSectionInfo,
-          wheel,
-        }}
         pageSection={props}
         containerStyle="container"
         wheel={wheel}

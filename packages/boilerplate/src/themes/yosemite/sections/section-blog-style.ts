@@ -6,14 +6,134 @@ export const sectionBlogStyle: BlogWheelStyle = {
   container: {
     ncss: {},
   },
+  article: {
+    ncss: {},
+  },
   author: {
     ncss: {},
+    content: {
+      ncss: {},
+      actions: {
+        ncss: {},
+        link: {
+          ncss: {},
+          icon: {
+            ncss: {},
+          },
+        },
+      },
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
+        icon: {
+          ncss: {},
+        },
+      },
+    },
+    media: {
+      ncss: {},
+      embed: {
+        ncss: {},
+      },
+      image: {
+        img: {
+          ncss: {},
+        },
+        picture: {
+          ncss: {},
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
+        },
+      },
+    },
   },
   date: {
     ncss: {},
   },
+  heading: {
+    ncss: {},
+  },
   label: {
     ncss: {},
+    content: {
+      ncss: {},
+      actions: {
+        ncss: {},
+        link: {
+          ncss: {},
+          icon: {
+            ncss: {},
+          },
+        },
+      },
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
+        icon: {
+          ncss: {},
+        },
+      },
+    },
+    media: {
+      ncss: {},
+      embed: {
+        ncss: {},
+      },
+      image: {
+        img: {
+          ncss: {},
+        },
+        picture: {
+          ncss: {},
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
+        },
+      },
+    },
   },
   text: {
     h1: headingTextStyle,
@@ -106,7 +226,7 @@ export const sectionBlogStyle: BlogWheelStyle = {
       ncss: {},
     },
   },
-  topic: {
+  featured: {
     ncss: {},
     content: {
       ncss: {},
