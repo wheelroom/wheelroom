@@ -31,11 +31,10 @@ export const PageSectionBlogVar = (props: PageSectionProps) => {
     getSectionStyle('blog').base,
   ])
 
-  if (!pageSectionInfo.hasBlog) {
+  if (!props.blog) {
     return <NotImplemented pageSection={props} wheel={wheel} />
   }
 
-  console.log('pageSection:', props)
   return (
     <ScrollSpy
       eventId={props.eventId}

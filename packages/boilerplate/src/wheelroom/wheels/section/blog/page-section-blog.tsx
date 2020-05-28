@@ -10,6 +10,8 @@ import { Heading } from '../../element/heading'
 import { TopicProps } from '../../../../models/topic'
 import { Any } from '../../element/any'
 import { Topic } from '../../model/topic/topic'
+import { BlogProps } from '../../../../models/blog'
+import { getTopicInfo } from '../../../lib/get-topic-info'
 
 export interface BlogWheel extends Wheel {
   style: BlogWheelStyle
@@ -30,9 +32,12 @@ export interface BlogWheelProps {
 
 export const PageSectionBlog = (props: BlogWheelProps) => {
   const pageSectionInfo = getPageSectionInfo(props.pageSection)
-  if (!pageSectionInfo.hasBlog) {
+  if (!props.pageSection.blog) {
     return null
   }
+  const allBlogs = props.pageSection.allBlog.edges.map(
+    (blogNode: any) => blogNode.node
+  )
 
   /** Get localisation for Date and Text translation */
   const locale = props.pageSection.locale
@@ -65,6 +70,7 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
           is="article"
           wheel={{ ...props.wheel, style: props.wheel.style.article }}
         >
+          LABELS
           <Heading wheel={{ ...props.wheel, style: props.wheel.style.heading }}>
             {heading}
           </Heading>
@@ -84,46 +90,11 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
               title: '',
             }}
           />
-          <div>
-            <strong>Labels</strong>
-          </div>
-          {labels &&
-            labels.map((label: TopicProps, index: number) => {
-              /** Set Topic Options for Labels */
-              pageSectionInfo.topicOptions = {
-                reverseOrder: false,
-                hideIcon: false,
-                hideMedia: false,
-                hideHeading: false,
-                hideAbstract: false,
-                hideAction: false,
-              }
-              return (
-                <Topic
-                  key={index}
-                  maxActions={2}
-                  fullTopicAsLink={false}
-                  pageSectionActions={label.actions}
-                  pageSectionInfo={pageSectionInfo}
-                  topic={label}
-                  wheel={{ ...props.wheel, style: props.wheel.style.label }}
-                />
-              )
-            })}
-          <div>
-            <strong>Written by</strong>
-          </div>
+          <strong>Written by</strong>
           {authors &&
             authors.map((author: TopicProps, index: number) => {
               /** Set Topic Options for Authors */
-              pageSectionInfo.topicOptions = {
-                reverseOrder: false,
-                hideIcon: false,
-                hideMedia: false,
-                hideHeading: false,
-                hideAbstract: false,
-                hideAction: false,
-              }
+              pageSectionInfo.topicOptions.hideIcon = true
               return (
                 <Topic
                   key={index}
@@ -136,6 +107,27 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
                 />
               )
             })}
+          BLOG OVERVIEW
+          {allBlogs.map((blog: BlogProps, index: number) => {
+            if (!blog.featured) {
+              return null
+            }
+            const featuredInfo = getTopicInfo(blog.featured)
+            if (!featuredInfo.hasAction) {
+              blog.featured.actions = [{ page: { path: '/blog/' + blog.slug } }]
+            }
+            return (
+              <Topic
+                key={index}
+                maxActions={2}
+                fullTopicAsLink={true}
+                pageSectionActions={blog.featured?.actions}
+                pageSectionInfo={pageSectionInfo}
+                topic={blog.featured}
+                wheel={{ ...props.wheel, style: props.wheel.style.author }}
+              />
+            )
+          })}
         </Any>
       </ContainerType>
     </Wrapper>

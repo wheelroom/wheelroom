@@ -77,3 +77,15 @@ export const getTopicOptions = (
   })
   return result
 }
+
+export const getEmptyTopicOptions = () => {
+  return {
+    reverseOrder: false,
+    hideIcon: false,
+    hideMedia: false,
+    hideHeading: false,
+    hideAbstract: false,
+    hideAction: false,
+    previewMode: false,
+  }
+}

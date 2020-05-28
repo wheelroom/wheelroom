@@ -4,6 +4,10 @@ import { PageProps } from '../../models/page'
 import { SiteMetadata } from '../../page-template'
 import { BlogProps } from '../../models/blog/blog'
 
+export interface BlogNode {
+  node: BlogProps
+}
+
 /** These are suitable defaults, you probably want to add some props specific
  * for this project
  */
@@ -21,5 +25,7 @@ export interface SectionProps {
   page: PageProps
   siteMetadata: SiteMetadata
   blog: BlogProps
-  allBlog: BlogProps[]
+  allBlog: {
+    edges: BlogNode[]
+  }
 }

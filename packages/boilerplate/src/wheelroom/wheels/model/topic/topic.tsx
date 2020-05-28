@@ -25,8 +25,6 @@ export interface TopicWheelProps {
   pageSectionInfo: PageSectionInfo
   /** Page section actions will override all topic actions */
   pageSectionActions?: ActionProps[]
-  /** Force these topic options */
-  overrideTopicOptions?: TopicOptions
 
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName

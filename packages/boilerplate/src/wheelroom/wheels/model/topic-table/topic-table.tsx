@@ -3,7 +3,6 @@ import { jsx } from '@emotion/core'
 import { Fragment } from 'react'
 import { Dd, Dl, Dt, Table, Th, Tr } from '../../element/self'
 import { Wheel } from '../../types'
-import { TopicRow } from '../topic-row/topic-row'
 import { ActionProps } from '../../../../models/action'
 import { TopicTableWheelStyle } from './presets/topic-table-preset'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
@@ -11,7 +10,7 @@ import { Action } from '../action/action'
 import { Any } from '../../element/any'
 import { TopicTableProps } from '../../../../models/topic-table'
 import { TopicIcon } from '../topic/topic-icon'
-import { TopicRowProps } from '../../../../models/topic-row'
+import { TopicRowProps, TopicRow } from '../../../../models/topic-row'
 
 export interface TopicTableWheel extends Wheel {
   style: TopicTableWheelStyle
