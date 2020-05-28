@@ -29,7 +29,7 @@ const getAttrs = (props: AnyProps) => {
     ...getElementAttrs(props),
     'aria-modal': props.ariaModal,
     role: props.role,
-    datetime: props.datetime,
+    dateTime: props.datetime,
     onClick: props.onClick,
   }
   return attrs
