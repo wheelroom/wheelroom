@@ -381,10 +381,9 @@ export const models: WheelroomComponents = {
         required: true,
         type: 'richText',
       } as RichTextField,
-      labels: {
-        allowedComponents: ['topic'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
+      topic: {
+        type: 'tags',
+      } as TagsField,
       authors: {
         allowedComponents: ['topic'],
         type: 'multipleComponents',

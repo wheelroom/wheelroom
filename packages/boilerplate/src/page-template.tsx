@@ -130,7 +130,6 @@ export const query = graphql`
     allBlog: allContentfulBlog(
       filter: { node_locale: { eq: "en-US" } }
       sort: { fields: date, order: DESC }
-      limit: 10
     ) {
       edges {
         node {

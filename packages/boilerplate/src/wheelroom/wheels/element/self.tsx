@@ -26,6 +26,7 @@ import {
   selfThReset,
 } from './resets/self-table-reset'
 import { ElementStyles } from './types/element-styles'
+import {selfTimeReset} from "./resets/self-time-reset";
 
 export type SelfReset =
   | ListElementStyle
@@ -115,6 +116,10 @@ export const Th = (props: ElementProps) => {
 
 export const Tr = (props: ElementProps) => {
   return getSelf(props, selfTrReset, 'tr')
+}
+
+export const Time = (props: ElementProps) => {
+  return getSelf(props, selfTimeReset, 'time')
 }
 
 export const Ul = (props: ElementProps) => {

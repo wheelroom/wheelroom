@@ -17,15 +17,13 @@ fragment Blog on ContentfulBlog {
   title
   heading
   slug
+  createdAt
+  updatedAt
   date
   text {
     json
   }
-  labels {
-    ... on Node {
-      ...Topic
-    }
-  }
+  topic
   authors {
     ... on Node {
       ...Topic

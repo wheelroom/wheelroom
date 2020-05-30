@@ -4,7 +4,7 @@ import { NcssProps } from '../../types'
 import { TopicWheelStyle } from '../../model/topic/presets/topic-preset'
 import { HeadingElementStyle } from '../../element/resets/heading-reset'
 
-export interface BlogWheelStyle {
+export interface BlogListWheelStyle {
   container: GridElementStyle
   article: NcssProps
   header: {
@@ -14,12 +14,19 @@ export interface BlogWheelStyle {
     heading: HeadingElementStyle
   }
   text: TextWheelStyle
-  authors: NcssProps
+  authors: {
+    ncss: NcssProps
+  }
   author: TopicWheelStyle
+  blogList: {
+    ncss: NcssProps
+    heading: HeadingElementStyle
+  }
+  featured: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionBlogPreset: BlogWheelStyle = {
+export const pageSectionBlogListPreset: BlogListWheelStyle = {
   container: {
     ncss: {},
   },
@@ -142,6 +149,79 @@ export const pageSectionBlogPreset: BlogWheelStyle = {
     },
   },
   text: textPreset,
+  blogList: {
+    ncss: {
+      label: 'blog-list',
+      flexDirection: 'column',
+    },
+    heading: {
+      ncss: {
+        label: 'blog-list-heading',
+      },
+    },
+  },
+  featured: {
+    ncss: {
+      label: 'blog-featured',
+    },
+    content: {
+      ncss: {},
+      text: {
+        ncss: {},
+        heading: {
+          ncss: {},
+        },
+        abstract: {
+          ncss: {},
+        },
+        icon: {
+          ncss: {},
+        },
+      },
+      actions: {
+        ncss: {},
+        link: {
+          ncss: {},
+          icon: {
+            ncss: {},
+          },
+        },
+      },
+    },
+    media: {
+      ncss: {},
+      embed: {
+        ncss: {},
+      },
+      image: {
+        img: {
+          ncss: {},
+        },
+        picture: {
+          ncss: {},
+        },
+        figcaption: {
+          ncss: {},
+        },
+      },
+      mediaBreakpoint: {
+        picture: {
+          ncss: {},
+        },
+        img: {
+          ncss: {},
+        },
+      },
+      video: {
+        video: {
+          ncss: {},
+        },
+        description: {
+          ncss: {},
+        },
+      },
+    },
+  },
   wrapper: {
     ncss: {},
   },

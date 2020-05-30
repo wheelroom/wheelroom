@@ -11,7 +11,7 @@ import { Any } from '../../element/any'
 import { TopicTableProps } from '../../../../models/topic-table'
 import { TopicIcon } from '../topic/topic-icon'
 import { TopicRowProps } from '../../../../models/topic-row'
-import {TopicRow} from "../topic-row/topic-row";
+import { TopicRow } from '../topic-row/topic-row'
 
 export interface TopicTableWheel extends Wheel {
   style: TopicTableWheelStyle

@@ -16,8 +16,6 @@ export interface AnyProps extends ElementProps {
   polyPreset?: boolean
   /** Role attribute */
   role?: string
-  /** Role attribute */
-  datetime?: string
   /** On click handler */
   onClick?: () => any
   /** Inner HTML */
@@ -29,7 +27,6 @@ const getAttrs = (props: AnyProps) => {
     ...getElementAttrs(props),
     'aria-modal': props.ariaModal,
     role: props.role,
-    dateTime: props.datetime,
     onClick: props.onClick,
   }
   return attrs

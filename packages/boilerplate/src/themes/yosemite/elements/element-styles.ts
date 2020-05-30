@@ -174,6 +174,9 @@ export const elementStyles: ElementStyles = {
   ul: {
     ncss: {},
   },
+  time: {
+    ncss: {},
+  },
   video: {
     description: {
       ncss: {},

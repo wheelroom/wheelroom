@@ -1,6 +1,6 @@
 import { BlogWheelStyle } from '../../../wheelroom/wheels/section/blog/page-section-blog-preset'
-import { wrapperStyle } from '../elements/grid-style'
 import { headingTextStyle } from '../elements/heading-style'
+import { wrapperStyle } from '../elements/grid-style'
 
 export const sectionBlogStyle: BlogWheelStyle = {
   container: {
@@ -9,26 +9,69 @@ export const sectionBlogStyle: BlogWheelStyle = {
   article: {
     ncss: {},
   },
+  header: {
+    ncss: {
+      py: 5,
+      maxWidth: '712px',
+      mx: 'auto',
+    },
+    topic: {
+      ncss: {
+        fontFamily: 'text',
+        textTransform: 'uppercase',
+        fontSize: 4,
+        color: 'azure',
+      },
+    },
+    date: {
+      ncss: {
+        fontFamily: 'text',
+        color: 'bullet',
+        mt: 1,
+      },
+    },
+    heading: {
+      ncss: {
+        mt: 3,
+      },
+    },
+  },
+  authors: {
+    ncss: {},
+  },
   author: {
     ncss: {},
     content: {
       ncss: {},
       actions: {
-        ncss: {},
+        ncss: {
+          mt: 1,
+        },
         link: {
-          ncss: {},
+          ncss: {
+            display: 'inline-flex',
+          },
           icon: {
-            ncss: {},
+            ncss: {
+              w: '16px',
+              h: '16px',
+              my: 'auto',
+              transform: 'translateX(4px)',
+            },
           },
         },
       },
       text: {
         ncss: {},
         abstract: {
-          ncss: {},
+          ncss: {
+            mb: 0,
+          },
         },
         heading: {
-          ncss: {},
+          ncss: {
+            mb: 0,
+          },
         },
         icon: {
           ncss: {},
@@ -42,76 +85,18 @@ export const sectionBlogStyle: BlogWheelStyle = {
       },
       image: {
         img: {
-          ncss: {},
-        },
-        picture: {
-          ncss: {},
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        img: {
-          ncss: {},
-        },
-      },
-      video: {
-        video: {
-          ncss: {},
-        },
-        description: {
-          ncss: {},
-        },
-      },
-    },
-  },
-  date: {
-    ncss: {},
-  },
-  heading: {
-    ncss: {},
-  },
-  label: {
-    ncss: {},
-    content: {
-      ncss: {},
-      actions: {
-        ncss: {},
-        link: {
-          ncss: {},
-          icon: {
-            ncss: {},
+          ncss: {
+            h: 1,
+            objectFit: 'cover',
           },
         },
-      },
-      text: {
-        ncss: {},
-        abstract: {
-          ncss: {},
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: {
-          ncss: {},
-        },
-      },
-    },
-    media: {
-      ncss: {},
-      embed: {
-        ncss: {},
-      },
-      image: {
-        img: {
-          ncss: {},
-        },
         picture: {
-          ncss: {},
+          ncss: {
+            overflow: 'hidden',
+            h: ['60px', '80px'],
+            w: ['60px', '80px'],
+            borderRadius: '50%',
+          },
         },
         figcaption: {
           ncss: {},
@@ -119,10 +104,18 @@ export const sectionBlogStyle: BlogWheelStyle = {
       },
       mediaBreakpoint: {
         picture: {
-          ncss: {},
+          ncss: {
+            overflow: 'hidden',
+            h: ['60px', '80px'],
+            w: ['60px', '80px'],
+            borderRadius: '50%',
+          },
         },
         img: {
-          ncss: {},
+          ncss: {
+            h: 1,
+            objectFit: 'cover',
+          },
         },
       },
       video: {
@@ -224,66 +217,6 @@ export const sectionBlogStyle: BlogWheelStyle = {
     },
     wrapper: {
       ncss: {},
-    },
-  },
-  featured: {
-    ncss: {},
-    content: {
-      ncss: {},
-      actions: {
-        ncss: {},
-        link: {
-          ncss: {},
-          icon: {
-            ncss: {},
-          },
-        },
-      },
-      text: {
-        ncss: {},
-        abstract: {
-          ncss: {},
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: {
-          ncss: {},
-        },
-      },
-    },
-    media: {
-      ncss: {},
-      embed: {
-        ncss: {},
-      },
-      image: {
-        img: {
-          ncss: {},
-        },
-        picture: {
-          ncss: {},
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        img: {
-          ncss: {},
-        },
-      },
-      video: {
-        video: {
-          ncss: {},
-        },
-        description: {
-          ncss: {},
-        },
-      },
     },
   },
   wrapper: wrapperStyle,

@@ -17,6 +17,7 @@ import { CodeElementStyle } from '../resets/self-code-reset'
 import { BlockquoteElementStyle } from '../resets/self-blockquote-reset'
 import { TableElementStyle } from '../resets/self-table-reset'
 import { EmbedStyle } from '../../model/embed/embed'
+import { TimeElementStyle } from '../resets/self-time-reset'
 
 export interface ElementStyles {
   a: ALinkElementStyle
@@ -64,6 +65,7 @@ export interface ElementStyles {
   td: TableElementStyle
   th: TableElementStyle
   tr: TableElementStyle
+  time: TimeElementStyle
   textIcon: IconElementStyle
   ul: ListElementStyle
   video: {

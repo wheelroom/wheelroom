@@ -14,11 +14,13 @@ export interface BlogProps {
   heading: string
   title: string
   slug: string
+  createdAt: string
+  updatedAt: string
   date: string
   text: {
     json: string
   }
-  labels: TopicProps[]
+  topic: string[]
   authors: TopicProps[]
   featured: TopicProps
   seoTitle: string

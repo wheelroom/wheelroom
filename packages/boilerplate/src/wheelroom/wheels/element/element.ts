@@ -29,6 +29,8 @@ export interface ElementProps {
   wheel: Wheel
   /** Table attribute */
   colspan?: number
+  /** Time attribute */
+  datetime?: string
 }
 
 type GetElementAttrsProps =
@@ -50,6 +52,7 @@ export const getElementAttrs = (
   'aria-hidden': props.ariaHidden,
   'aria-label': props.ariaLabel,
   colSpan: props.colspan,
+  dateTime: props.datetime,
   hidden: props.hidden,
   id: props.id,
   'tab-index': props.tabIndex,

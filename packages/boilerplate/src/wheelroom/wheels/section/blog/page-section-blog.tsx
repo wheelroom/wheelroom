@@ -4,14 +4,13 @@ import { Wheel } from '../../types'
 import { Text } from '../../model/text/text'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
 import { PageSectionProps } from '../../../../models/page-section'
-import { Container, Fluid, Wrapper } from '../../element/grid'
+import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { BlogWheelStyle } from './page-section-blog-preset'
 import { Heading } from '../../element/heading'
 import { TopicProps } from '../../../../models/topic'
 import { Any } from '../../element/any'
 import { Topic } from '../../model/topic/topic'
-import { BlogProps } from '../../../../models/blog'
-import { getTopicInfo } from '../../../lib/get-topic-info'
+import { Time } from '../../element/self'
 
 export interface BlogWheel extends Wheel {
   style: BlogWheelStyle
@@ -35,9 +34,6 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
   if (!props.pageSection.blog) {
     return null
   }
-  const allBlogs = props.pageSection.allBlog.edges.map(
-    (blogNode: any) => blogNode.node
-  )
 
   /** Get localisation for Date and Text translation */
   const locale = props.pageSection.locale
@@ -45,13 +41,17 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
   /** Blog props */
   const blog = props.pageSection.blog
   const heading = blog.heading
+  const topic = blog.topic
   const date = blog.date
+  let createdAt = blog.createdAt
   const text = blog.text
-  const labels = blog.labels
   const authors = blog.authors
 
   /** Convert and Translate Date */
-  const dateEvent = new Date(Date.parse(date))
+  if (date) {
+    createdAt = date
+  }
+  const dateEvent = new Date(Date.parse(createdAt))
   const dateOptions = {
     weekday: 'long',
     year: 'numeric',
@@ -66,21 +66,35 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
       <ContainerType
         wheel={{ ...props.wheel, style: props.wheel.style.container }}
       >
-        <Any
+        <Box
           is="article"
           wheel={{ ...props.wheel, style: props.wheel.style.article }}
         >
-          LABELS
-          <Heading wheel={{ ...props.wheel, style: props.wheel.style.heading }}>
-            {heading}
-          </Heading>
-          <Any
-            is="time"
-            wheel={{ ...props.wheel, style: props.wheel.style.date }}
-            datetime={date}
+          <Flex
+            is="header"
+            wheel={{ ...props.wheel, style: props.wheel.style.header }}
           >
-            {dateTime}
-          </Any>
+            <Any
+              is="span"
+              wheel={{ ...props.wheel, style: props.wheel.style.header.topic }}
+            >
+              {topic}
+            </Any>
+            <Time
+              wheel={{ ...props.wheel, style: props.wheel.style.header.date }}
+              datetime={date}
+            >
+              {dateTime}
+            </Time>
+            <Heading
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.header.heading,
+              }}
+            >
+              {heading}
+            </Heading>
+          </Flex>
           <Text
             locale={locale}
             wheel={{ ...props.wheel, style: props.wheel.style.text }}
@@ -90,45 +104,29 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
               title: '',
             }}
           />
-          <strong>Written by</strong>
-          {authors &&
-            authors.map((author: TopicProps, index: number) => {
-              /** Set Topic Options for Authors */
-              pageSectionInfo.topicOptions.hideIcon = true
-              return (
-                <Topic
-                  key={index}
-                  maxActions={2}
-                  fullTopicAsLink={false}
-                  pageSectionActions={author.actions}
-                  pageSectionInfo={pageSectionInfo}
-                  topic={author}
-                  wheel={{ ...props.wheel, style: props.wheel.style.author }}
-                />
-              )
-            })}
-          BLOG OVERVIEW
-          {allBlogs.map((blog: BlogProps, index: number) => {
-            if (!blog.featured) {
-              return null
-            }
-            const featuredInfo = getTopicInfo(blog.featured)
-            if (!featuredInfo.hasAction) {
-              blog.featured.actions = [{ page: { path: '/blog/' + blog.slug } }]
-            }
-            return (
-              <Topic
-                key={index}
-                maxActions={2}
-                fullTopicAsLink={true}
-                pageSectionActions={blog.featured?.actions}
-                pageSectionInfo={pageSectionInfo}
-                topic={blog.featured}
-                wheel={{ ...props.wheel, style: props.wheel.style.author }}
-              />
-            )
-          })}
-        </Any>
+          <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
+            {authors &&
+              authors.map((author: TopicProps, index: number) => {
+                /** Set Topic Options for Authors */
+                pageSectionInfo.topicOptions.hideIcon = true
+                return (
+                  <Topic
+                    key={index}
+                    maxActions={2}
+                    fullTopicAsLink={false}
+                    pageSectionActions={author.actions}
+                    useHeadingElement="p"
+                    pageSectionInfo={pageSectionInfo}
+                    topic={author}
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.author,
+                    }}
+                  />
+                )
+              })}
+          </Flex>
+        </Box>
       </ContainerType>
     </Wrapper>
   )
