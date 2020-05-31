@@ -14,7 +14,7 @@ describe('Parser should parse', () => {
     const result = parser.parse(
       'This is the test case for %firstAllowedComponent%'
     )
-    expect(result).toEqual('This is the test case for KL')
+    expect(result).toEqual('This is the test case for page')
   })
   test('array %firstAllowedComponent% with multipleComponents field', () => {
     parser.updateVars({

@@ -1,3 +1,9 @@
+import {
+  CheckboxTranslations,
+  DropdownTranslations,
+  Translations,
+} from './wheelroom-translations'
+
 export type FieldTypeName =
   | 'date'
   | 'dropdown'
@@ -12,17 +18,17 @@ export type FieldTypeName =
   | 'checkbox'
 
 export type FieldType =
+  | CheckboxField
   | DateField
   | DropdownField
-  | MediaField
   | LongTextField
+  | MediaField
   | MultipleComponentsField
   | NumberField
   | RichTextField
   | ShortTextField
   | SingleComponentField
   | TagsField
-  | CheckboxField
 
 export interface CommonField {
   /** Help text for an input element */
@@ -35,6 +41,8 @@ export interface CommonField {
   required?: boolean
   /** Do not create this field at the backend */
   system?: boolean
+  /** Translatio of field names, help text and items */
+  translations?: Translations
   /** Allows for extending fields without overriding the fixed FieldType */
   typePostfix?: string
   /** Adds a field must be unique validation */
@@ -45,6 +53,14 @@ export interface WheelroomFields {
   [fieldName: string]: FieldType
 }
 
+export interface CheckboxField extends CommonField {
+  /** List of strings for the checkbox field validation */
+  items: string[]
+  /** Demo content that a field can be filled with */
+  initialContent?: string[]
+  translations?: CheckboxTranslations
+  type: 'checkbox'
+}
 export interface DateField extends CommonField {
   /** Date string, e.g. 2019-06-03T00:00+01:00 */
   initialContent?: string
@@ -55,6 +71,7 @@ export interface DropdownField extends CommonField {
   items: string[]
   /** One of the item strings */
   initialContent?: string
+  translations?: DropdownTranslations
   type: 'dropdown'
 }
 export interface MediaField extends CommonField {
@@ -106,11 +123,4 @@ export interface TagsField extends CommonField {
   /** Demo content that a field can be filled with */
   initialContent?: string[]
   type: 'tags'
-}
-export interface CheckboxField extends CommonField {
-  /** List of strings for the checkbox field validation */
-  items: string[]
-  /** Demo content that a field can be filled with */
-  initialContent?: string[]
-  type: 'checkbox'
 }

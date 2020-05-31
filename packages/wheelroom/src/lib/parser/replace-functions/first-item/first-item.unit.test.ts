@@ -10,7 +10,7 @@ describe('Parser should parse', () => {
   test('variable %firstItem% with proper field', () => {
     parser.updateVars({ field: replaceVars.component.fields.dropdownField })
     const result = parser.parse('This is the test case for %firstItem%')
-    expect(result).toEqual('This is the test case for first item')
+    expect(result).toEqual('This is the test case for drop A')
   })
   test('variable %firstItem% with wrong field', () => {
     parser.updateVars({ field: replaceVars.component.fields.numberField })
