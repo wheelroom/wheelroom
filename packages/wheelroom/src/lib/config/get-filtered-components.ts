@@ -2,8 +2,9 @@ import {
   WheelroomComponent,
   WheelroomComponents,
 } from '../../types/wheelroom-components'
+import { WheelroomPluginArguments } from '../../types/wheelroom-plugin-arguments'
 
-export const getFilteredComponents = (arv: any) => {
+export const getFilteredComponents = (arv: WheelroomPluginArguments) => {
   let components = {} as WheelroomComponents
   if ('filter' in arv) {
     console.log(`Applying filter (componentName == ${arv.filter})`)

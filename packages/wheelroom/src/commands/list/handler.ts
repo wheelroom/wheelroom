@@ -1,7 +1,8 @@
 import { getFilteredComponents } from '../../lib/config/get-filtered-components'
 import { WheelroomComponent } from '../../types/wheelroom-components'
+import { WheelroomPluginArguments } from '../../types/wheelroom-plugin-arguments'
 
-export const handler = async (argv: any) => {
+export const handler = async (argv: WheelroomPluginArguments) => {
   const components = getFilteredComponents(argv)
   let fields
   Object.entries(components).forEach(
