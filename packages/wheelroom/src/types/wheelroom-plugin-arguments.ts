@@ -1,7 +1,9 @@
 import { WheelroomComponents } from './wheelroom-components'
 
-/** Wheelroom plugin options are defined by the plugin that uses them */
-type WheelroomPluginOptions = any
+export interface WheelroomPluginOptions {
+  /** Wheelroom plugin options are defined by the plugin that uses them */
+  [npmModuleName: string]: any
+}
 
 /**
  * Defines the output of the wheelroom binary. This output is the input for a

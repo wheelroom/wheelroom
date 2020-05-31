@@ -11,6 +11,7 @@ export const argvCommand = {
   _: ['create-content'],
   components: argvComponents,
   contentSet: undefined as string | undefined,
+  locale: 'en-US',
   replaceSet: undefined as string | undefined,
   options: argvPluginOptions,
   yes: true,
