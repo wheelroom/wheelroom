@@ -1,5 +1,5 @@
-import { Argv } from 'yargs'
 import { handler } from './handler'
+import { PluginArguments } from '../../types/plugin-arguments'
 
 export const command = {
   aliases: ['cg'],
@@ -16,7 +16,7 @@ export const command = {
   },
   command: 'create-graphql <template-set> <path> [options]',
   describe: 'Create graphql files defined in template set',
-  handler: async (argv: Argv) => {
+  handler: async (argv: PluginArguments) => {
     await handler(argv)
   },
 }

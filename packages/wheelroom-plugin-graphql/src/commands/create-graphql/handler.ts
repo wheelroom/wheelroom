@@ -1,8 +1,9 @@
 import { getFilteredComponents } from '@wheelroom/wheelroom'
 import { writeTemplates } from '../../lib/write-templates'
 import { TemplateSets } from '../../types/template-sets'
+import { PluginArguments } from '../../types/plugin-arguments'
 
-export const handler = async (argv: any) => {
+export const handler = async (argv: PluginArguments) => {
   const templateSets = argv.options['@wheelroom/wheelroom-plugin-graphql']
     .templateSets as TemplateSets
 

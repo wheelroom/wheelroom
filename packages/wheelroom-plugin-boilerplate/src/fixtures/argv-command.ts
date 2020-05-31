@@ -9,6 +9,7 @@ import { argvPluginOptions } from './argv-plugin-options'
 import { PluginArguments } from '../types/plugin-arguments'
 
 export const argvCommand: PluginArguments = {
+  _: ['create-boilerplate'],
   components: argvComponents,
   locale: 'en-US',
   options: argvPluginOptions,

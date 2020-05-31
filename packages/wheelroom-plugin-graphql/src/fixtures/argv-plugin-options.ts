@@ -4,8 +4,9 @@
  */
 
 import { templateSets } from './template-sets/template-sets'
+import { PluginOptions } from '../types/plugin-arguments'
 
-export const argvPluginOptions = {
+export const argvPluginOptions: PluginOptions = {
   '@wheelroom/wheelroom-plugin-graphql': {
     templateSets,
   },

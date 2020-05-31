@@ -6,9 +6,12 @@
 
 import { argvComponents } from './argv-components'
 import { argvPluginOptions } from './argv-plugin-options'
+import { PluginArguments } from '../types/plugin-arguments'
 
-export const argvCommand = {
+export const argvCommand: PluginArguments = {
+  _: ['create-graphql'],
   components: argvComponents,
+  locale: 'en-US',
   options: argvPluginOptions,
   path: 'test-output',
   templateSet: 'gatsbyjs',
