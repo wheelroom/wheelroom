@@ -3,18 +3,11 @@ export interface Translations {
   helpText?: {
     [locale: string]: string
   }
+  items?: {
+    [locale: string]: string[]
+  }
   name?: {
     [locale: string]: string
   }
-}
-
-export interface CheckboxTranslations extends Translations {
-  items?: {
-    [locale: string]: string[]
-  }
-}
-export interface DropdownTranslations extends Translations {
-  items?: {
-    [locale: string]: string[]
-  }
+  [property: string]: any
 }

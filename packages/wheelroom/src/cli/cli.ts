@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
+import { baseCli } from './base-cli'
 import { command as listCommand } from '../commands/list/command'
+import { getAppDir } from '../lib/get-app-dir'
 import { getCommands } from '../lib/config/get-commands'
 import { getComponents } from '../lib/config/get-components'
 import { getPluginOptions } from '../lib/config/get-plugin-options'
 import { readConfig } from '../lib/config/read-config'
-import { getAppDir } from '../lib/get-app-dir'
-import { baseCli } from './base-cli'
+import { translateComponents } from '../lib/config/translate-components'
 
 const main = async (argv: string[]) => {
   const params = baseCli(argv).parse(argv)
@@ -25,9 +26,11 @@ const main = async (argv: string[]) => {
     return
   }
 
-  const components = await getComponents(config, locale)
+  const components = await getComponents(config)
   const commands = await getCommands(config)
   const options = getPluginOptions(config)
+
+  translateComponents(components, locale)
 
   const context = {
     components,

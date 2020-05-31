@@ -1,8 +1,4 @@
-import {
-  CheckboxTranslations,
-  DropdownTranslations,
-  Translations,
-} from './wheelroom-translations'
+import { Translations } from './wheelroom-translations'
 
 export type FieldTypeName =
   | 'date'
@@ -58,7 +54,6 @@ export interface CheckboxField extends CommonField {
   items: string[]
   /** Demo content that a field can be filled with */
   initialContent?: string[]
-  translations?: CheckboxTranslations
   type: 'checkbox'
 }
 export interface DateField extends CommonField {
@@ -71,7 +66,6 @@ export interface DropdownField extends CommonField {
   items: string[]
   /** One of the item strings */
   initialContent?: string
-  translations?: DropdownTranslations
   type: 'dropdown'
 }
 export interface MediaField extends CommonField {

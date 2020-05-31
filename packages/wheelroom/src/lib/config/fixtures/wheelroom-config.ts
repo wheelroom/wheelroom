@@ -8,5 +8,6 @@ export const config: WheelroomConfig = {
   commonFields: configCommonFields,
   components: configComponents,
   fieldDefaults: configFieldDefaults,
+  locale: 'en-US',
   plugins: configPluginOptions,
 }

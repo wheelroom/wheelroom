@@ -18,7 +18,7 @@ export interface WheelroomConfig {
   /** Default values for each field type  */
   fieldDefaults: FieldDefaults
   /** Locale used for model translations and by plugins */
-  locale?: string
+  locale: string
   /** Wheelroom plugins and plungin options */
   plugins: Plugin[]
 }
