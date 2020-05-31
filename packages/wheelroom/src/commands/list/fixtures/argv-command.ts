@@ -6,8 +6,10 @@
 
 import { argvComponents } from './argv-components'
 import { argvPluginOptions } from './argv-plugin-options'
+import { WheelroomPluginArguments } from '../../../types/wheelroom-plugin-arguments'
 
-export const argvCommand = {
+export const argvCommand: WheelroomPluginArguments = {
   components: argvComponents,
+  locale: 'en-US',
   options: argvPluginOptions,
 }
