@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.1.2...@wheelroom/wheelroom@4.2.0) (2020-05-31)
+
+
+### Features
+
+* add locale plugin option ([55acb42](https://github.com/wheelroom/wheelroom/commit/55acb427c341501eb1fe6a18bf146a2e56c2f7e2))
+* better plugin argument types ([09da0a6](https://github.com/wheelroom/wheelroom/commit/09da0a657413d8425b03bb029cf14af5622aa53f))
+
+
+
+
+
 ## [4.1.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.1.1...@wheelroom/wheelroom@4.1.2) (2020-04-30)
 
 **Note:** Version bump only for package @wheelroom/wheelroom
