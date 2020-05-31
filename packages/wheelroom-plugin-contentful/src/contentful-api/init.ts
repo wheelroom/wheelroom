@@ -38,7 +38,13 @@ export const getLocales = async (context: Context) => {
     context.contentfulApi.defaultLocale = result.items.find(
       (locale: any) => locale.default
     )
-    console.log(`Default locale: ${context.contentfulApi.defaultLocale.code}`)
+    const locale = context.contentfulApi.defaultLocale.code
+    console.log(`Default locale: ${locale}`)
+    if (locale !== context.commandLineOptions.locale) {
+      console.log(
+        `WARNING: Contentful locale (${locale}) differs from command line locale (${context.commandLineOptions.locale})`
+      )
+    }
   } catch (error) {
     console.log(`Could not fetch locales`)
     context.contentfulApi.locales = null

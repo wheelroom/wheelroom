@@ -53,6 +53,7 @@ export const initializeContext = async (argv: PluginArguments) => {
   const context: Context = {
     commandLineOptions: {
       contentSet: argv.contentSet,
+      locale: argv.locale,
       yes: argv.yes,
     },
     contentfulApi: {

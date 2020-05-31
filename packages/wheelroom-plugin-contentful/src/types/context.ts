@@ -6,6 +6,8 @@ export interface Context {
   commandLineOptions: {
     /** Name of content set to use */
     contentSet?: string
+    /** Locale set by command line */
+    locale: string
     /** Non interactive mode, answers yes to all questions */
     yes?: boolean
   }
