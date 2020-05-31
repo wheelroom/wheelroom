@@ -4,9 +4,23 @@ import yargs from 'yargs'
 
 const addOptions = (cli: any) => {
   const options = {
+    config: {
+      alias: 'c',
+      default: 'wheelroom-config.js',
+      describe: 'File name and path to the compiled wheelrrom config file',
+      requiresArg: true,
+      type: 'string',
+    },
     filter: {
       alias: 'f',
       describe: 'Filter by componentType',
+      requiresArg: true,
+      type: 'string',
+    },
+    locale: {
+      alias: 'l',
+      default: 'en-US',
+      describe: 'Override default locale en-US',
       requiresArg: true,
       type: 'string',
     },

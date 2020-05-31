@@ -9,18 +9,23 @@ import { getAppDir } from '../lib/get-app-dir'
 import { baseCli } from './base-cli'
 
 const main = async (argv: string[]) => {
-  const cli = baseCli(argv)
-  const config = await readConfig(getAppDir(), process.env.WHEELROOM_CONFIG)
+  const params = baseCli(argv).parse(argv)
+  const configFile = params.config
+  const locale = params.locale
+
+  const config = await readConfig(getAppDir(), configFile)
   if (!config) {
     console.log(
-      `Aborting: config not found. Suggestion: compile the config from typescript.
-WHEELROOM_CONFIG=${process.env.WHEELROOM_CONFIG || 'wheelroom-config.js'}
-path=${getAppDir()}
+      `Aborting: config not found. Suggestions:
+- compile the config from typescript
+- check the --config option, now set to: ${configFile}
+- the path to the config file is relative from ${getAppDir()}
 `
     )
     return
   }
-  const components = await getComponents(config)
+
+  const components = await getComponents(config, locale)
   const commands = await getCommands(config)
   const options = getPluginOptions(config)
 
@@ -29,11 +34,14 @@ path=${getAppDir()}
     options,
   }
 
+  const cli = baseCli(argv)
+  // Add commands
   const cliWithCommands = commands.reduce(
     (newCli, command) => newCli.command(command),
     cli
   )
 
+  // Add list command and arguments
   return cliWithCommands.command(listCommand).parse(argv, context)
 }
 

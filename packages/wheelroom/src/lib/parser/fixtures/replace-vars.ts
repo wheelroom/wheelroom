@@ -17,6 +17,8 @@ const componentName = 'myDemoComponent'
 const fieldName = 'myFieldName'
 const fieldType = 'someFieldType'
 
+// TOO: copy this file to lib/config/fixtures and remove translations here
+
 const component: WheelroomComponent = {
   fields: {
     checkboxField: {

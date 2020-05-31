@@ -8,7 +8,11 @@ import { FieldType } from '../../types/wheelroom-fields'
 import { createParser } from '../parser/create-parser'
 import { replaceFunctions } from '../parser/replace-functions'
 
-export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
+export const getComponents = async (
+  wheelroomConfig: WheelroomConfig,
+  locale: string
+) => {
+  console.log(`Using locale: ${locale}`)
   if (
     !('components' in wheelroomConfig) ||
     typeof wheelroomConfig.components !== 'object'

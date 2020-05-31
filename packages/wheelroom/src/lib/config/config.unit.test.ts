@@ -19,8 +19,13 @@ describe('Readig config should provide', () => {
     expect(configRead).toStrictEqual(config)
   })
 
-  test('the configured components', async () => {
-    const components = await getComponents(config)
+  test('the configured components for en-US locale', async () => {
+    const components = await getComponents(config, 'en-US')
+    expect(components).toMatchSnapshot()
+  })
+
+  test('the configured components for nl locale', async () => {
+    const components = await getComponents(config, 'nl')
     expect(components).toMatchSnapshot()
   })
 
