@@ -1,6 +1,7 @@
 import { WheelroomReplaceSet } from '../types/replace-sets'
+import { PluginArguments } from '../types/plugin-arguments'
 
-export const getWrReplaceSet = (argv: any, pluginOptions: any) => {
+export const getWrReplaceSet = (argv: PluginArguments, pluginOptions: any) => {
   let setNames
   let replaceSet: WheelroomReplaceSet | undefined
   if (

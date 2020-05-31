@@ -4,13 +4,9 @@
  *
  */
 
-import { WheelroomReplaceSet } from '../types/replace-sets'
+import { ReplaceSets } from '../types/replace-sets'
 
-export interface ArgvReplaceSets {
-  [setName: string]: WheelroomReplaceSet
-}
-
-export const argvReplaceSets: ArgvReplaceSets = {
+export const argvReplaceSets: ReplaceSets = {
   replaceTest: {
     allFieldTypes: {
       fields: {

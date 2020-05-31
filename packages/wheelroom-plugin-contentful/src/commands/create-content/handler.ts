@@ -11,12 +11,13 @@ import { initializeContext, refreshContext } from '../../lib/initialize-context'
 import { readDotEnv } from '../../lib/read-dot-env'
 import { createAsset } from './create-asset'
 import { getFields } from '../../contentful-api/fields/get-fields'
+import { PluginArguments } from '../../types/plugin-arguments'
 
 const handleError = (error: Error) => {
   console.log(error.message)
 }
 
-export const handler = async (argv: any) => {
+export const handler = async (argv: PluginArguments) => {
   readDotEnv()
   if (!envComplete()) {
     return

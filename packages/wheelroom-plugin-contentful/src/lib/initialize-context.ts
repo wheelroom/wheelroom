@@ -13,8 +13,9 @@ import { getCfContentSet } from './get-cf-content-set/get-cf-content-set'
 import { getWrReplaceSet } from './get-wr-replace-set'
 import { cfContentSetFromWrReplaceSet } from './get-cf-components/content-set-from-wr-replace-set'
 import { ContentfulContentSet } from '../types/content-set'
+import { PluginArguments } from '../types/plugin-arguments'
 
-export const initializeContext = async (argv: any) => {
+export const initializeContext = async (argv: PluginArguments) => {
   const pluginOptions = argv.options['@wheelroom/wheelroom-plugin-contentful']
   const wheelroomComponents = getFilteredComponents(argv)
 

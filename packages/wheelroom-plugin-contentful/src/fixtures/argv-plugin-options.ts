@@ -6,8 +6,9 @@
 import { argvContentSets } from './argv-content-sets'
 import { contentfulFieldDefinitions } from './contentful-field-definitions'
 import { argvReplaceSets } from './argv-replace-sets'
+import { PluginOptions } from '../types/plugin-arguments'
 
-export const argvPluginOptions = {
+export const argvPluginOptions: PluginOptions = {
   '@wheelroom/wheelroom-plugin-contentful': {
     contentSets: argvContentSets,
     replaceSets: argvReplaceSets,

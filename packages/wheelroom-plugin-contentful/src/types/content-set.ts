@@ -31,3 +31,12 @@ export interface ContentfulContent {
 
 /** Data in flat structure with field type added so that it can be sorted */
 export type ContentfulContentSet = ContentfulContent[]
+
+export interface ContentSets {
+  [setName: string]: {
+    [entryId: string]: {
+      fields: any
+      model: string
+    }
+  }
+}

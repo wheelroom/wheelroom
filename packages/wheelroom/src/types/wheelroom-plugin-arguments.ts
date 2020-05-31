@@ -11,6 +11,8 @@ export interface WheelroomPluginOptions {
  * handler. Command handlers can be added by plugins.
  */
 export interface WheelroomPluginArguments {
+  /** All aruments, 0 = command name */
+  _: string[]
   /** Component data passed to the plugin */
   components: WheelroomComponents
   /** --filter argument value */

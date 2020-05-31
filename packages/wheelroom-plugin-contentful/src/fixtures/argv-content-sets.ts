@@ -4,13 +4,9 @@
  *
  */
 
-import { ArgvContentSet } from './argv-content-types'
+import { ContentSets } from '../types/content-set'
 
-export interface ArgvContentSets {
-  [setName: string]: ArgvContentSet
-}
-
-export const argvContentSets: ArgvContentSets = {
+export const argvContentSets: ContentSets = {
   test: {
     allFieldTypesPage1: {
       fields: {

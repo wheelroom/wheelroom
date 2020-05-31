@@ -9,6 +9,7 @@ import { argvPluginOptions } from './argv-plugin-options'
 import { WheelroomPluginArguments } from '../../../types/wheelroom-plugin-arguments'
 
 export const argvCommand: WheelroomPluginArguments = {
+  _: ['list'],
   components: argvComponents,
   locale: 'en-US',
   options: argvPluginOptions,

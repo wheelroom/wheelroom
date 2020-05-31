@@ -13,3 +13,7 @@ export interface ReplaceFields {
 export interface WheelroomReplaceSet {
   [model: string]: ReplaceFields
 }
+
+export interface ReplaceSets {
+  [setName: string]: WheelroomReplaceSet
+}

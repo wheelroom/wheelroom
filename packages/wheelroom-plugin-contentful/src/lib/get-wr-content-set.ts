@@ -1,6 +1,7 @@
 import { WheelroomContentSet } from '../types/content-set'
+import { PluginArguments } from '../types/plugin-arguments'
 
-export const getWrContentSet = (argv: any, pluginOptions: any) => {
+export const getWrContentSet = (argv: PluginArguments, pluginOptions: any) => {
   let setNames
   let contentSet: WheelroomContentSet | undefined
   if (

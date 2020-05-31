@@ -6,13 +6,14 @@
 
 import { argvComponents } from './argv-components'
 import { argvPluginOptions } from './argv-plugin-options'
+import { PluginArguments } from '../types/plugin-arguments'
 
-export const argvCommand = {
+export const argvCommand: PluginArguments = {
   _: ['create-content'],
   components: argvComponents,
-  contentSet: undefined as string | undefined,
+  contentSet: undefined,
   locale: 'en-US',
-  replaceSet: undefined as string | undefined,
+  replaceSet: undefined,
   options: argvPluginOptions,
   yes: true,
 }
