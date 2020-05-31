@@ -36,6 +36,7 @@ export const translateComponents = async (
               )
             }
           )
+          delete field.translations
         }
       )
     }

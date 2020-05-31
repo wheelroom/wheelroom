@@ -21,21 +21,6 @@ Object {
         "localized": false,
         "name": "Checkbox field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Check the box",
-            "nl": "Controleer het vak",
-          },
-          "items": Object {
-            "nl": Array [
-              "vak A",
-              "vak B",
-            ],
-          },
-          "name": Object {
-            "nl": "Controle vak veld",
-          },
-        },
         "type": "checkbox",
       },
       "dateField": Object {
@@ -44,15 +29,6 @@ Object {
         "localized": false,
         "name": "Date field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for date field",
-            "nl": "Helptext voor datum",
-          },
-          "name": Object {
-            "nl": "Datum",
-          },
-        },
         "type": "date",
       },
       "dropdownField": Object {
@@ -65,21 +41,6 @@ Object {
         "localized": false,
         "name": "Dropdown field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Choose a value",
-            "nl": "Maak een keuze",
-          },
-          "items": Object {
-            "nl": Array [
-              "optie A",
-              "optie B",
-            ],
-          },
-          "name": Object {
-            "nl": "Opties",
-          },
-        },
         "type": "dropdown",
       },
       "longTextField": Object {
@@ -88,15 +49,6 @@ Object {
         "localized": false,
         "name": "Long text field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for long text field",
-            "nl": "Helptext voor lange tekst",
-          },
-          "name": Object {
-            "nl": "Lange tekst",
-          },
-        },
         "type": "longText",
       },
       "mediaField": Object {
@@ -105,15 +57,6 @@ Object {
         "localized": false,
         "name": "Media field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for media field",
-            "nl": "Helptext voor media veld",
-          },
-          "name": Object {
-            "nl": "Afbeelding of video",
-          },
-        },
         "type": "media",
       },
       "multipleComponentsField": Object {
@@ -127,15 +70,6 @@ Object {
         "localized": false,
         "name": "Multiple components field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for multiple components field",
-            "nl": "Helptext voor meerdere compoenten",
-          },
-          "name": Object {
-            "nl": "Meerdere componenten",
-          },
-        },
         "type": "multipleComponents",
       },
       "numberField": Object {
@@ -144,15 +78,6 @@ Object {
         "localized": false,
         "name": "Number field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for number field",
-            "nl": "Helptext voor nummer veld",
-          },
-          "name": Object {
-            "nl": "Nummer",
-          },
-        },
         "type": "number",
       },
       "richTextField": Object {
@@ -161,15 +86,6 @@ Object {
         "localized": false,
         "name": "Rich text field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for rich text field",
-            "nl": "Helptext voor tekst editor",
-          },
-          "name": Object {
-            "nl": "Tekst editor",
-          },
-        },
         "type": "richText",
       },
       "shortTextField": Object {
@@ -178,15 +94,6 @@ Object {
         "localized": false,
         "name": "Short text field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for short text field",
-            "nl": "Helptext voor korte tekst",
-          },
-          "name": Object {
-            "nl": "Korte tekst",
-          },
-        },
         "type": "shortText",
       },
       "singleComponentField": Object {
@@ -198,15 +105,6 @@ Object {
         "localized": false,
         "name": "Single component field",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for sinlge component field",
-            "nl": "Helptext voor enkel component",
-          },
-          "name": Object {
-            "nl": "Enkel component",
-          },
-        },
         "type": "singleComponent",
       },
       "tagsField": Object {
@@ -434,21 +332,6 @@ Object {
         "localized": false,
         "name": "Controle vak veld",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Check the box",
-            "nl": "Controleer het vak",
-          },
-          "items": Object {
-            "nl": Array [
-              "vak A",
-              "vak B",
-            ],
-          },
-          "name": Object {
-            "nl": "Controle vak veld",
-          },
-        },
         "type": "checkbox",
       },
       "dateField": Object {
@@ -457,15 +340,6 @@ Object {
         "localized": false,
         "name": "Datum",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for date field",
-            "nl": "Helptext voor datum",
-          },
-          "name": Object {
-            "nl": "Datum",
-          },
-        },
         "type": "date",
       },
       "dropdownField": Object {
@@ -478,21 +352,6 @@ Object {
         "localized": false,
         "name": "Opties",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Choose a value",
-            "nl": "Maak een keuze",
-          },
-          "items": Object {
-            "nl": Array [
-              "optie A",
-              "optie B",
-            ],
-          },
-          "name": Object {
-            "nl": "Opties",
-          },
-        },
         "type": "dropdown",
       },
       "longTextField": Object {
@@ -501,15 +360,6 @@ Object {
         "localized": false,
         "name": "Lange tekst",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for long text field",
-            "nl": "Helptext voor lange tekst",
-          },
-          "name": Object {
-            "nl": "Lange tekst",
-          },
-        },
         "type": "longText",
       },
       "mediaField": Object {
@@ -518,15 +368,6 @@ Object {
         "localized": false,
         "name": "Afbeelding of video",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for media field",
-            "nl": "Helptext voor media veld",
-          },
-          "name": Object {
-            "nl": "Afbeelding of video",
-          },
-        },
         "type": "media",
       },
       "multipleComponentsField": Object {
@@ -540,15 +381,6 @@ Object {
         "localized": false,
         "name": "Meerdere componenten",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for multiple components field",
-            "nl": "Helptext voor meerdere compoenten",
-          },
-          "name": Object {
-            "nl": "Meerdere componenten",
-          },
-        },
         "type": "multipleComponents",
       },
       "numberField": Object {
@@ -557,15 +389,6 @@ Object {
         "localized": false,
         "name": "Nummer",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for number field",
-            "nl": "Helptext voor nummer veld",
-          },
-          "name": Object {
-            "nl": "Nummer",
-          },
-        },
         "type": "number",
       },
       "richTextField": Object {
@@ -574,15 +397,6 @@ Object {
         "localized": false,
         "name": "Tekst editor",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for rich text field",
-            "nl": "Helptext voor tekst editor",
-          },
-          "name": Object {
-            "nl": "Tekst editor",
-          },
-        },
         "type": "richText",
       },
       "shortTextField": Object {
@@ -591,15 +405,6 @@ Object {
         "localized": false,
         "name": "Korte tekst",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for short text field",
-            "nl": "Helptext voor korte tekst",
-          },
-          "name": Object {
-            "nl": "Korte tekst",
-          },
-        },
         "type": "shortText",
       },
       "singleComponentField": Object {
@@ -611,15 +416,6 @@ Object {
         "localized": false,
         "name": "Enkel component",
         "required": false,
-        "translations": Object {
-          "helpText": Object {
-            "en": "Helptext for sinlge component field",
-            "nl": "Helptext voor enkel component",
-          },
-          "name": Object {
-            "nl": "Enkel component",
-          },
-        },
         "type": "singleComponent",
       },
       "tagsField": Object {
