@@ -1,14 +1,22 @@
 import React from 'react'
+import { BlogSection } from '../../models/blog-section/blog-section'
 import { Landmarks } from './landmarks'
+import { NavigationSection } from '../../models/navigation-section/navigation-section'
+import { PageSection } from '../../models/page-section/page-section'
 import { SectionProps } from './section-props'
-import { PageSection } from '../../models/page-section'
+import { TableSection } from '../../models/table-section/table-section'
+import { TextSection } from '../../models/text-section/text-section'
 
 export interface SectionMap {
   [contentfulSectionName: string]: any
 }
 
 const sectionMap: SectionMap = {
+  ContentfulBlogSection: BlogSection,
+  ContentfulNavigationSection: NavigationSection,
   ContentfulPageSection: PageSection,
+  ContentfulTableSection: TableSection,
+  ContentfulTextSection: TextSection,
 }
 
 export const Sections = (props: any) => {

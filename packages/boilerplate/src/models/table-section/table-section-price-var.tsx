@@ -11,22 +11,24 @@ import { Container, Wrapper } from '../../wheelroom/wheels/element/grid'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { getSectionStyle, getWheel } from '../../themes/themes'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
-import { tableSectionPreset } from '../../wheelroom/wheels/section/price-table/page-section-price-table-preset'
-import { PageSectionProps } from '../page-section/page-section'
+import { pageSectionPriceTablePreset } from '../../wheelroom/wheels/section/price-table/page-section-price-table-preset'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
+import { TableSectionProps } from './table-section'
 import { ThemeId } from '../../admin-resources/theme-info'
-import { Table } from '../../wheelroom/wheels/model/topic-table/topic-table'
+import { TopicTable } from '../../wheelroom/wheels/model/topic-table/topic-table'
 import { Wheel } from '../../wheelroom/wheels/types'
 
-export const TableSectionPriceVar = (props: PageSectionProps) => {
+export const TableSectionPriceVar = (props: TableSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([tableSectionPreset, getSectionStyle('price').base])
+  wheel.style = deepMerge([
+    pageSectionPriceTablePreset,
+    getSectionStyle('priceTable').base,
+  ])
 
-  if (!pageSectionInfo.hasTable) {
-    return <NotImplemented pageSection={props} wheel={wheel} />
+  if (!pageSectionInfo.hasTopicTable) {
+    return null
   }
   return (
     <ScrollSpy
@@ -36,10 +38,10 @@ export const TableSectionPriceVar = (props: PageSectionProps) => {
     >
       <Wrapper wheel={{ ...wheel, style: wheel.style.wrapper }}>
         <Container wheel={{ ...wheel, style: wheel.style.container }}>
-          <Table
+          <TopicTable
             wheel={{ ...wheel, style: wheel.style.topicTable }}
             pageSectionInfo={pageSectionInfo}
-            tables={props.tables}
+            topicTables={props.tables}
           />
         </Container>
       </Wrapper>

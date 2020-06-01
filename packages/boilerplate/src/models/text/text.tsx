@@ -7,7 +7,7 @@
 
 export interface TextProps {
   /** Gatsby fetched data */
-  __typename: string
+  __typename?: string
   text: {
     json: string
   }

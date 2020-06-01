@@ -24,13 +24,13 @@ import { Embed } from '../embed/embed'
 import { TextWheelStyle } from './text-preset'
 import { MediaObject } from '../../element/types/media'
 import { Wheel } from '../../types'
-import { TextProps } from '../../../../models/text'
 import { Strong } from '../../element/self'
 import { Pre } from '../../element/self'
 import { Code } from '../../element/self'
 import { Hr } from '../../element/self'
 import { Blockquote } from '../../element/self'
 import { Action } from '../action/action'
+import { TextProps } from '../../../../models/text/text'
 
 export interface TextWheel extends Wheel {
   style: TextWheelStyle

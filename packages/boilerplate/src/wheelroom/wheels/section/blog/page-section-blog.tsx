@@ -1,16 +1,15 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
-import { Wheel } from '../../types'
-import { Text } from '../../model/text/text'
-import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageSectionProps } from '../../../../models/page-section'
-import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
-import { BlogWheelStyle } from './page-section-blog-preset'
-import { Heading } from '../../element/heading'
-import { TopicProps } from '../../../../models/topic'
 import { Any } from '../../element/any'
-import { Topic } from '../../model/topic/topic'
+import { BlogWheelStyle } from './page-section-blog-preset'
+import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
+import { Heading } from '../../element/heading'
+import { jsx } from '@emotion/core'
+import { Text } from '../../model/text/text'
 import { Time } from '../../element/self'
+import { Topic } from '../../model/topic/topic'
+import { TopicProps } from '../../../../models/topic/topic'
+import { Wheel } from '../../types'
+import { BlogProps } from '../../../../models/blog/blog'
 
 export interface BlogWheel extends Wheel {
   style: BlogWheelStyle
@@ -19,8 +18,10 @@ export interface BlogWheel extends Wheel {
 export interface BlogWheelProps {
   /** Styling wheel */
   wheel: BlogWheel
-  /** Contains the topic to render */
-  pageSection: PageSectionProps
+  /** Locale needed for rich text render */
+  locale: string
+  /** Blog props to render */
+  blog: BlogProps
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
   /** Properties to configure Topic element */
@@ -30,35 +31,19 @@ export interface BlogWheelProps {
 }
 
 export const PageSectionBlog = (props: BlogWheelProps) => {
-  const pageSectionInfo = getPageSectionInfo(props.pageSection)
-  if (!props.pageSection.blog) {
+  if (!props.blog) {
     return null
   }
 
-  /** Get localisation for Date and Text translation */
-  const locale = props.pageSection.locale
-
-  /** Blog props */
-  const blog = props.pageSection.blog
-  const heading = blog.heading
-  const topic = blog.topic
-  const date = blog.date
-  let createdAt = blog.createdAt
-  const text = blog.text
-  const authors = blog.authors
-
   /** Convert and Translate Date */
-  if (date) {
-    createdAt = date
-  }
-  const dateEvent = new Date(Date.parse(createdAt))
+  const dateEvent = new Date(Date.parse(props.blog.date))
   const dateOptions = {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   }
-  const dateTime = dateEvent.toLocaleDateString(locale, dateOptions)
+  const dateTime = dateEvent.toLocaleDateString(props.locale, dateOptions)
 
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
@@ -78,11 +63,11 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
               is="span"
               wheel={{ ...props.wheel, style: props.wheel.style.header.topic }}
             >
-              {topic}
+              {props.blog.categories}
             </Any>
             <Time
               wheel={{ ...props.wheel, style: props.wheel.style.header.date }}
-              datetime={date}
+              datetime={props.blog.date}
             >
               {dateTime}
             </Time>
@@ -92,30 +77,23 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
                 style: props.wheel.style.header.heading,
               }}
             >
-              {heading}
+              {props.blog.heading}
             </Heading>
           </Flex>
           <Text
-            locale={locale}
+            locale={props.locale}
             wheel={{ ...props.wheel, style: props.wheel.style.text }}
-            text={{
-              text: text,
-              __typename: '',
-              title: '',
-            }}
+            text={{ text: props.blog.text }}
           />
           <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
-            {authors &&
-              authors.map((author: TopicProps, index: number) => {
-                /** Set Topic Options for Authors */
-                pageSectionInfo.topicOptions.hideIcon = true
+            {props.blog.authors &&
+              props.blog.authors.map((author: TopicProps, index: number) => {
                 return (
                   <Topic
                     key={index}
                     maxActions={2}
                     fullTopicAsLink={false}
                     useHeadingElement="p"
-                    pageSectionInfo={pageSectionInfo}
                     topic={author}
                     wheel={{
                       ...props.wheel,

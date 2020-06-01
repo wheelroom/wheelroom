@@ -12,12 +12,12 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { getWheel, getSectionStyle } from '../../themes/themes'
 import { PageSectionFreestyle } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle'
 import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
-import { PageSectionProps } from '../page-section/page-section'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
+import { TextSectionProps } from './text-section'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { Wheel } from '../../wheelroom/wheels/types'
-import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 
-export const TextSectionTextVar = (props: PageSectionProps) => {
+export const TextSectionTextVar = (props: TextSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
@@ -27,6 +27,9 @@ export const TextSectionTextVar = (props: PageSectionProps) => {
   ])
 
   if (pageSectionInfo.hasText) {
+    if (!props.text) {
+      return null
+    }
     return (
       <ScrollSpy
         eventId={props.eventId}
@@ -34,7 +37,8 @@ export const TextSectionTextVar = (props: PageSectionProps) => {
         pageSectionProps={props}
       >
         <PageSectionFreestyle
-          pageSection={props}
+          text={props.text}
+          locale={props.locale}
           containerStyle="container"
           wheel={wheel}
         />
