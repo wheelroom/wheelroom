@@ -7,7 +7,7 @@ export interface EmbedStyle {
   ncss: NcssProps
 }
 
-export interface EmbedProps {
+export interface EmbedWheelProps {
   /** Styling wheel */
   wheel: Wheel
   /** Embed props */
@@ -16,7 +16,7 @@ export interface EmbedProps {
   type?: string
 }
 
-export const Embed = (props: EmbedProps) => {
+export const Embed = (props: EmbedWheelProps) => {
   if (!props.type || props.type !== 'html') {
     return null
   }

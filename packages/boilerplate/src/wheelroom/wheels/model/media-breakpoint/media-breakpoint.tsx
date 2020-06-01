@@ -18,7 +18,7 @@ export interface MediaBreakpointStyle {
   }
 }
 
-export interface MediaBreakpointProps {
+export interface MediaBreakpointWheelProps {
   /** Styling wheel */
   wheel: Wheel
   /** MediaObject props */
@@ -28,7 +28,7 @@ export interface MediaBreakpointProps {
   extraLarge?: MediaObject
 }
 
-export const MediaBreakpoint = (media: MediaBreakpointProps) => {
+export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
   if (!media.small) {
     return null
   }
