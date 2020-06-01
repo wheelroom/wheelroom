@@ -135,7 +135,7 @@ export const models: WheelroomComponents = {
   tableRow: {
     fields: {
       variation: {
-        items: ['header', 'footer'],
+        items: ['header', 'body', 'footer'],
         type: 'dropdown',
       } as DropdownField,
       heading: {
