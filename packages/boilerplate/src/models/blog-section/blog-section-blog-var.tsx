@@ -11,6 +11,6 @@ import { BlogSectionProps } from './blog-section'
 
 export const BlogSectionBlogVar = (props: BlogSectionProps) => {
   // eslint-disable-next-line no-undef
-  console.log('TableSingleVar props', props)
+  console.log('BlogSectionBlogVar props', props)
   return <div>TODO:Implement BlogSectionBlogVar</div>
 }

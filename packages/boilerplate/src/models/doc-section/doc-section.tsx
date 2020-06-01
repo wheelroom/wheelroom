@@ -1,28 +1,29 @@
 /**
  * Component
  *
- * Component type: blogSection
+ * Component type: docSection
  *
  */
 
 import React from 'react'
+import { DocProps } from '../doc/doc'
+import { DocSectionDocVar } from './doc-section-doc-var'
 import { getVariation } from '../../wheelroom/lib/get-variation'
 import { SectionProps } from '../../wheelroom/sections/section-props'
-import { BlogSectionBlogVar } from './blog-section-blog-var'
 
 const componentList = {
-  ['blog']: BlogSectionBlogVar,
+  ['doc']: DocSectionDocVar,
 }
 
-export interface BlogSectionProps extends SectionProps {
+export interface DocSectionProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
+  docs?: DocProps
   eventId?: string
   variation?: string
-  // blog property us injected by page-template.tsx
 }
 
-export const BlogSection = (props: BlogSectionProps) => {
+export const DocSection = (props: DocSectionProps) => {
   const Variation = getVariation(props, componentList)
 
   return <Variation {...props} />
