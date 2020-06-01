@@ -6,7 +6,6 @@
  */
 
 import React from 'react'
-import { MediaObject } from '../../wheelroom/wheels/element/types/media'
 import { getVariation } from '../../wheelroom/lib/get-variation'
 import { SectionProps } from '../../wheelroom/sections/section-props'
 import { NavigationSectionHeaderVar } from './navigation-section-header-var'
@@ -20,10 +19,9 @@ const componentList = {
 export interface NavigationSectionProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
-  title: string
-  variation: string
-  navigation: any
-  eventId: string
+  variation?: string
+  navigation?: any
+  eventId?: string
 }
 
 export const NavigationSection = (props: NavigationSectionProps) => {

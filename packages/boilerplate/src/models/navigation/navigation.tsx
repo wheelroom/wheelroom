@@ -7,21 +7,28 @@
 
 import React from 'react'
 import { getVariation } from '../../wheelroom/lib/get-variation'
-import { NavigationFooterVar } from './navigation-footer-var'
-import { NavigationHeaderVar } from './navigation-header-var'
+import { NavigationActionsVar } from './navigation-actions-var'
+import { NavigationBrandVar } from './navigation-brand-var'
+import { NavigationLegalVar } from './navigation-legal-var'
+import { NavigationListVar } from './navigation-list-var'
+import { NavigationMenuVar } from './navigation-menu-var'
 import { NavigationSegmentProps } from '../navigation-segment/navigation-segment'
-import { SectionProps } from '../../wheelroom/sections/section-props'
+import { NavigationSocialVar } from './navigation-social-var'
 
-export interface NavigationProps extends SectionProps {
+const componentList = {
+  ['menu']: NavigationMenuVar,
+  ['list']: NavigationListVar,
+  ['actions']: NavigationActionsVar,
+  ['social']: NavigationSocialVar,
+  ['brand']: NavigationBrandVar,
+  ['legal']: NavigationLegalVar,
+}
+
+export interface NavigationProps {
   /** Gatsby fetched data */
   __typename: string
   variation?: string
   segments?: NavigationSegmentProps[]
-}
-
-const componentList = {
-  ['footer']: NavigationFooterVar,
-  ['header']: NavigationHeaderVar,
 }
 
 export const Navigation = (props: NavigationProps) => {
