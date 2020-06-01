@@ -6,29 +6,30 @@
  * by scanning the src folder, then adds the fragments to the main page query.
  *
  *
- * Component: row
+ * Component: tableRow
  */
 
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-  fragment TableRow on ContentfulTopicRow {
-    __typename
-    variation
-    heading
-    abstract {
-      abstract
-    }
-    icon
-    actions {
-      ... on Node {
-        ...Action
-      }
-    }
-    topics {
-      ... on Node {
-        ...Topic
-      }
+fragment TableRow on ContentfulTableRow {
+  __typename
+  title
+  variation
+  heading
+  abstract {
+    abstract
+  }
+  icon
+  actions {
+    ... on Node {
+      ...Action
     }
   }
+  topics {
+    ... on Node {
+      ...Topic
+    }
+  }
+}
 `

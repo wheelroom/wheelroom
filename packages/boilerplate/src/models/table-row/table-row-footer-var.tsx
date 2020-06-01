@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: tableRow
- * Variation: footer
+ * Variation: Footer
  *
  */
 
@@ -10,5 +10,6 @@ import React from 'react'
 import { TableRowProps } from './table-row'
 
 export const TableRowFooterVar = (props: TableRowProps) => {
-  return <div>TODO: Implement this</div>
+  console.log('TableRowFooterVar props', props)
+  return <div>TableRowFooterVar</div>
 }

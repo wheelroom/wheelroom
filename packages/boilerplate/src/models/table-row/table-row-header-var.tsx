@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: tableRow
- * Variation: header
+ * Variation: Header
  *
  */
 
@@ -10,5 +10,6 @@ import React from 'react'
 import { TableRowProps } from './table-row'
 
 export const TableRowHeaderVar = (props: TableRowProps) => {
-  return <div>TODO: Implement this</div>
+  console.log('TableRowHeaderVar props', props)
+  return <div>TableRowHeaderVar</div>
 }
