@@ -14,7 +14,6 @@ import { graphql } from 'gatsby'
 export const fragment = graphql`
 fragment Table on ContentfulTable {
   __typename
-  title
   heading
   abstract {
     abstract

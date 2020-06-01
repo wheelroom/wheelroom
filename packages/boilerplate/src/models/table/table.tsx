@@ -6,7 +6,6 @@
  */
 
 import React from 'react'
-import { MediaObject } from '../../wheelroom/wheels/element/types/media'
 import { getVariation } from '../../wheelroom/lib/get-variation'
 import { TableSingleVar } from './table-single-var'
 
@@ -17,14 +16,13 @@ const componentList = {
 export interface TableProps {
   /** Gatsby fetched data */
   __typename: string
-  title: string
-  heading: string
-  abstract: {
+  heading?: string
+  abstract?: {
     abstract: string
   }
-  icon: string
-  actions: any
-  tableRows: any
+  icon?: string
+  actions?: any
+  tableRows?: any
 }
 
 export const Table = (props: TableProps) => {
