@@ -6,11 +6,12 @@
  */
 
 import React from 'react'
-import { MediaObject } from '../../wheelroom/wheels/element/types/media'
 import { getVariation } from '../../wheelroom/lib/get-variation'
 import { SectionProps } from '../../wheelroom/sections/section-props'
-import { TableSectionTableVar } from './table-section-table-var'
+import { TableProps } from '../table/table'
 import { TableSectionPriceVar } from './table-section-price-var'
+import { TableSectionTableVar } from './table-section-table-var'
+import { TopicOptionString } from '../../wheelroom/lib/get-topic-options'
 
 const componentList = {
   ['table']: TableSectionTableVar,
@@ -20,11 +21,10 @@ const componentList = {
 export interface TableSectionProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
-  title: string
-  variation: string
-  topicOptions: string[]
-  tables: any
-  eventId: string
+  eventId?: string
+  tables?: TableProps[]
+  topicOptions?: TopicOptionString[]
+  variation?: string
 }
 
 export const TableSection = (props: TableSectionProps) => {
