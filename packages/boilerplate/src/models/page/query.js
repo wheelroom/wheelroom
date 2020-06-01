@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /**
  * Graphql query definition
  *
@@ -7,6 +6,7 @@
  *
  */
 
+// eslint-disable-next-line no-undef
 module.exports = {
   componentName: 'page',
   query: `
