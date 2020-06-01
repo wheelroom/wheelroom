@@ -15,7 +15,9 @@ export const fragment = graphql`
   fragment Blog on ContentfulBlog {
     __typename
     heading
-    abstract
+    abstract {
+      abstract
+    }
     media {
       title
       description
