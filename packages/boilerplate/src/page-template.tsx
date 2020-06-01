@@ -1,8 +1,6 @@
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
 import React, { Fragment, useContext, useState } from 'react'
-import { GlobalsProps } from './models/globals'
-import { PageProps } from './models/page'
 import { pageDebug } from './wheelroom/lib/debug'
 import { Seo, SeoProps } from './wheelroom/lib/seo'
 import { Sections } from './wheelroom/sections/sections'
@@ -16,8 +14,10 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { htmlReset } from './wheelroom/global/html-reset'
 import { getTheme } from './themes/themes'
 import { ThemeId } from './admin-resources/theme-info'
-import { BlogProps } from './models/blog'
 import { useEmbeds } from './wheelroom/embed/use-embed'
+import { GlobalsProps } from './models/globals/globals'
+import { BlogProps } from './models/blog/blog'
+import { PageProps } from './models/page/page'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -70,12 +70,12 @@ const PageTemplate = (props: any) => {
     locale,
     meta: [],
     pageDescription: page.seoDescription,
-    pageHeading: page.seoTitle,
-    pageKeywords: page.seoKeywords,
-    siteAuthor: globals.siteAuthor,
-    siteDescription: globals.siteDescription,
-    siteHeading: globals.siteHeading,
-    siteKeywords: globals.siteKeywords,
+    pageHeading: page.seoTitle || '',
+    pageKeywords: page.seoKeywords || [],
+    siteAuthor: globals.siteAuthor || '',
+    siteDescription: globals.siteDescription || '',
+    siteHeading: globals.siteHeading || '',
+    siteKeywords: globals.siteKeywords || [],
     siteVersion,
   }
   // Set theme background color
