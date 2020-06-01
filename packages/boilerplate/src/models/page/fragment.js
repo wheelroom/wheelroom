@@ -22,7 +22,6 @@ export const fragment = graphql`
         ...NavigationSection
         ...TableSection
         ...BlogSection
-        ...DocSection
       }
     }
     theme
