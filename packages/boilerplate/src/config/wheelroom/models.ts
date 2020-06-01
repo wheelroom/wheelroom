@@ -383,7 +383,7 @@ export const models: WheelroomComponents = {
   blogSection: {
     fields: {
       variation: {
-        items: ['blog'],
+        items: ['blog', 'list'],
         type: 'dropdown',
       } as DropdownField,
       blog: {

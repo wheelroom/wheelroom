@@ -12,14 +12,14 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment BlogSection on ContentfulBlogSection {
-  __typename
-  variation
-  blog {
-    ... on Node {
-      ...Blog
+  fragment BlogSection on ContentfulBlogSection {
+    __typename
+    variation
+    blog {
+      ... on Node {
+        ...Blog
+      }
     }
+    eventId
   }
-  eventId
-}
 `

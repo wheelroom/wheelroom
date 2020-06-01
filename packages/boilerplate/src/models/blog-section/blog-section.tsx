@@ -6,12 +6,14 @@
  */
 
 import React from 'react'
+import { BlogSectionBlogVar } from './blog-section-blog-var'
+import { BlogSectionListVar } from './blog-section-list-var'
 import { getVariation } from '../../wheelroom/lib/get-variation'
 import { SectionProps } from '../../wheelroom/sections/section-props'
-import { BlogSectionBlogVar } from './blog-section-blog-var'
 
 const componentList = {
   ['blog']: BlogSectionBlogVar,
+  ['list']: BlogSectionListVar,
 }
 
 export interface BlogSectionProps extends SectionProps {
@@ -19,7 +21,7 @@ export interface BlogSectionProps extends SectionProps {
   __typename: string
   eventId?: string
   variation?: string
-  // blog property us injected by page-template.tsx
+  // Blog property us injected by page-template.tsx
 }
 
 export const BlogSection = (props: BlogSectionProps) => {
