@@ -37,29 +37,31 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
     getSectionStyle('card').shadow,
   ])
 
-  if (pageSectionInfo.hasTopic) {
-    const topicActionPresent =
-      !pageSectionInfo.topicOptions.hideAction &&
-      props.topics &&
-      props.topics.filter((topic: TopicProps) => topic.actions).length > 0
-    return (
-      <ScrollSpy
-        eventId={props.eventId}
-        siteEmbeds={props.globals.siteEmbeds}
-        pageSectionProps={props}
-      >
-        <PageSectionUnicorn
-          topicProps={{
-            fullTopicAsLink: true,
-            pageSectionInfo,
-            wheel,
-          }}
-          containerStyle="container"
-          pageSection={props}
-          wheel={topicActionPresent ? wheelShadow : wheel}
-        />
-      </ScrollSpy>
-    )
+  if (!props.topics) {
+    return null
   }
-  return null
+
+  const topicActionsPresent =
+    !pageSectionInfo.topicOptions.hideAction &&
+    props.topics &&
+    props.topics.filter((topic: TopicProps) => topic.actions).length > 0
+
+  return (
+    <ScrollSpy
+      eventId={props.eventId}
+      siteEmbeds={props.globals.siteEmbeds}
+      sectionProps={props}
+    >
+      <PageSectionUnicorn
+        topicProps={{
+          fullTopicAsLink: true,
+          topicOptions: pageSectionInfo.topicOptions,
+          wheel,
+        }}
+        containerStyle="container"
+        topics={props.topics}
+        wheel={topicActionsPresent ? wheelShadow : wheel}
+      />
+    </ScrollSpy>
+  )
 }

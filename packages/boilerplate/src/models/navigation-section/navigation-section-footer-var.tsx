@@ -36,7 +36,7 @@ export const NavigationSectionFooterVar = (props: NavigationSectionProps) => {
     <ScrollSpy
       eventId={props.eventId}
       siteEmbeds={props.globals.siteEmbeds}
-      pageSectionProps={props}
+      sectionProps={props}
     >
       <PageSectionNavigationFooter
         pageSection={props}

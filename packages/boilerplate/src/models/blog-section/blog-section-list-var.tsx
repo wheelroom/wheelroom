@@ -35,7 +35,7 @@ export const BlogSectionListVar = (props: BlogSectionProps) => {
     <ScrollSpy
       eventId={props.eventId}
       siteEmbeds={props.globals.siteEmbeds}
-      pageSectionProps={props}
+      sectionProps={props}
     >
       <Wrapper wheel={{ ...wheel, style: wheel.style.wrapper }}>
         <Container wheel={{ ...wheel, style: wheel.style.container }}>

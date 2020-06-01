@@ -28,27 +28,28 @@ export const PageSectionQuoteVar = (props: PageSectionProps) => {
     getSectionStyle('quote').base,
   ])
 
-  if (pageSectionInfo.hasTopic) {
-    return (
-      <ScrollSpy
-        eventId={props.eventId}
-        siteEmbeds={props.globals.siteEmbeds}
-        pageSectionProps={props}
-      >
-        <PageSectionUnicorn
-          topicProps={{
-            maxActions: 2,
-            pageSectionInfo,
-            useHeadingElement: 'p',
-            useAbstractElement: 'blockquote',
-            wheel,
-          }}
-          containerStyle="container"
-          pageSection={props}
-          wheel={wheel}
-        />
-      </ScrollSpy>
-    )
+  if (!props.topics) {
+    return null
   }
-  return null
+
+  return (
+    <ScrollSpy
+      eventId={props.eventId}
+      siteEmbeds={props.globals.siteEmbeds}
+      sectionProps={props}
+    >
+      <PageSectionUnicorn
+        topicProps={{
+          maxActions: 2,
+          topicOptions: pageSectionInfo.topicOptions,
+          useAbstractElement: 'blockquote',
+          useHeadingElement: 'p',
+          wheel,
+        }}
+        containerStyle="container"
+        topics={props.topics}
+        wheel={wheel}
+      />
+    </ScrollSpy>
+  )
 }

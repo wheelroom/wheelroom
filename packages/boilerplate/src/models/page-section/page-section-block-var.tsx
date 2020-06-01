@@ -13,10 +13,10 @@ import { getWheel, getSectionStyle } from '../../themes/themes'
 import { pageSectionBlockPreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-block-preset'
 import { PageSectionProps } from './page-section'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-section-unicorn'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
-import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 
 export const PageSectionBlockVar = (props: PageSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
@@ -28,25 +28,26 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
     getSectionStyle('block').base,
   ])
 
-  if (pageSectionInfo.hasTopic) {
-    return (
-      <ScrollSpy
-        eventId={props.eventId}
-        siteEmbeds={props.globals.siteEmbeds}
-        pageSectionProps={props}
-      >
-        <PageSectionUnicorn
-          topicProps={{
-            fullTopicAsLink: false,
-            pageSectionInfo,
-            wheel,
-          }}
-          containerStyle="container"
-          pageSection={props}
-          wheel={wheel}
-        />
-      </ScrollSpy>
-    )
+  if (!props.topics) {
+    return null
   }
-  return null
+
+  return (
+    <ScrollSpy
+      eventId={props.eventId}
+      siteEmbeds={props.globals.siteEmbeds}
+      sectionProps={props}
+    >
+      <PageSectionUnicorn
+        topicProps={{
+          fullTopicAsLink: false,
+          topicOptions: pageSectionInfo.topicOptions,
+          wheel,
+        }}
+        containerStyle="container"
+        topics={props.topics}
+        wheel={wheel}
+      />
+    </ScrollSpy>
+  )
 }

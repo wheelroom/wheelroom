@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { PageSectionProps } from '../../models/page-section/page-section'
 import { EmbedProps } from '../../models/embed/embed'
 
 interface ScrollSpyProps {
   /** The #id added to the div  */
   children: any
   eventId: string | undefined
-  pageSectionProps: PageSectionProps
+  sectionProps: any
   siteEmbeds: EmbedProps[]
 }
 
@@ -51,7 +50,7 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
             'eventId',
             'props',
             embed.code.code
-          )(props.eventId + postFix, props.pageSectionProps)
+          )(props.eventId + postFix, props.sectionProps)
         }
       })
     }

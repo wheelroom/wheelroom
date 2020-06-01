@@ -37,35 +37,36 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
     getSectionStyle('featured').reversed,
   ])
 
-  if (pageSectionInfo.hasTopic) {
-    const topicsPresent = props.topics &&
-      props.topics.filter((topic: TopicProps) => topic).length > 1
-
-    const topicHeading =
-      pageSectionInfo.index <= 1 && !topicsPresent ? 'h1' : 'h2'
-
-    const reversedOrder = pageSectionInfo.topicOptions.reverseOrder
-
-    return (
-      <ScrollSpy
-        eventId={props.eventId}
-        siteEmbeds={props.globals.siteEmbeds}
-        pageSectionProps={props}
-      >
-        <PageSectionUnicorn
-          topicProps={{
-            fullTopicAsLink: false,
-            maxActions: 2,
-            pageSectionInfo,
-            useHeadingElement: topicHeading,
-            wheel,
-          }}
-          containerStyle="container"
-          pageSection={props}
-          wheel={reversedOrder ? wheelReverse : wheel}
-        />
-      </ScrollSpy>
-    )
+  if (!props.topics) {
+    return null
   }
-  return null
+
+  const topicsPresent =
+    props.topics && props.topics.filter((topic: TopicProps) => topic).length > 1
+
+  const topicHeading =
+    pageSectionInfo.index <= 1 && !topicsPresent ? 'h1' : 'h2'
+
+  const reversedOrder = pageSectionInfo.topicOptions.reverseOrder
+
+  return (
+    <ScrollSpy
+      eventId={props.eventId}
+      siteEmbeds={props.globals.siteEmbeds}
+      sectionProps={props}
+    >
+      <PageSectionUnicorn
+        topicProps={{
+          fullTopicAsLink: false,
+          maxActions: 2,
+          topicOptions: pageSectionInfo.topicOptions,
+          useHeadingElement: topicHeading,
+          wheel,
+        }}
+        containerStyle="container"
+        topics={props.topics}
+        wheel={reversedOrder ? wheelReverse : wheel}
+      />
+    </ScrollSpy>
+  )
 }

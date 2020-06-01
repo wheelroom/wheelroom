@@ -1,16 +1,16 @@
 import React from 'react'
-import { Image } from '../../element/image'
 import { Box } from '../../element/grid'
-import { TopicProps } from '../../../../models/topic'
+import { Embed } from '../embed/embed'
+import { EmbedProps } from '../../../../models/embed/embed'
+import { Image } from '../../element/image'
+import { MediaBreakpoint } from '../media-breakpoint/media-breakpoint'
+import { MediaObject } from '../../element/types/media'
 import { TopicInfo } from '../../../lib/get-topic-info'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { TopicMediaWheelStyle } from './presets/topic-media-preset'
+import { TopicOptions } from '../../../lib/get-topic-options'
+import { TopicProps } from '../../../../models/topic/topic'
 import { Video } from '../../element/video'
 import { Wheel } from '../../types'
-import { TopicMediaWheelStyle } from './presets/topic-media-preset'
-import { EmbedProps } from '../../../../models/embed'
-import { Embed } from '../embed/embed'
-import { MediaObject } from '../../element/types/media'
-import { MediaBreakpoint } from '../media-breakpoint/media-breakpoint'
 
 export interface TopicMediaWheel extends Wheel {
   style: TopicMediaWheelStyle
@@ -25,13 +25,12 @@ export interface TopicMediaProps {
   embed: EmbedProps
   /** Topic info object */
   topicInfo: TopicInfo
-  /** Page section info */
-  pageSectionInfo: PageSectionInfo
+  /** Topic options */
+  topicOptions: TopicOptions
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
-  const pageSectionInfo = props.pageSectionInfo
-  const topicOptions = pageSectionInfo.topicOptions
+  const topicOptions = props.topicOptions
   const topicInfo = props.topicInfo
   const topic = props.topic
   let Media: any = null

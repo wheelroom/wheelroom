@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core'
 import { TableRowCellWheelStyle } from './presets/table-row-cell-preset'
 import { Td } from '../../element/self'
 import { Topic } from '../topic/topic'
+import { TopicOptions } from '../../../lib/get-topic-options'
 import { TopicProps } from '../../../../models/topic/topic'
 import { Wheel } from '../../types'
 
@@ -17,6 +18,8 @@ export interface TableRowCellProps {
   topic: TopicProps
   /** Percentage */
   dataCellWidth: number
+  /** Topic options */
+  topicsOptions: TopicOptions
 }
 
 export const TableRowCell = (props: TableRowCellProps) => {
@@ -34,8 +37,9 @@ export const TableRowCell = (props: TableRowCellProps) => {
     <Td wheel={{ ...props.wheel, style: dataCellStyle }}>
       <Topic
         topic={props.topic}
-        wheel={{ ...props.wheel, style: props.wheel.style.topic }}
+        topicOptions={props.topicsOptions}
         useHeadingElement="p"
+        wheel={{ ...props.wheel, style: props.wheel.style.topic }}
       />
     </Td>
   )

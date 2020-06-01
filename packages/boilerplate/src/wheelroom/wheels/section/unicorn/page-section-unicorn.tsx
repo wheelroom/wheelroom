@@ -48,10 +48,10 @@ export const PageSectionUnicorn = (props: {
           .slice(0, props.maxTopics)
           .map((topic: TopicProps, index: number) => (
             <Topic
+              {...props.topicProps}
               key={index}
               topic={topic}
               useAbstractParser={MultiParser}
-              {...props.topicProps}
               wheel={{ ...props.wheel, style: props.wheel.style.topic }}
             />
           ))}

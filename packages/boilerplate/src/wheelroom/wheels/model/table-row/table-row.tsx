@@ -8,6 +8,7 @@ import { TableRowCell } from './table-row-cell'
 import { TableRowProps } from '../../../../models/table-row/table-row'
 import { TableRowWheelStyle } from './presets/table-row-preset'
 import { TopicIcon } from '../topic/topic-icon'
+import { TopicOptions } from '../../../lib/get-topic-options'
 import { TopicProps } from '../../../../models/topic/topic'
 import { Wheel } from '../../types'
 
@@ -20,6 +21,8 @@ export interface TableRowWheelProps {
   wheel: TableRowWheel
   /** The topic rows to render */
   tableRow?: TableRowProps
+  /** Topic options */
+  topicsOptions: TopicOptions
 }
 
 export const TableRow = (props: TableRowWheelProps) => {
@@ -98,11 +101,11 @@ export const TableRow = (props: TableRowWheelProps) => {
       {(tableRow.topics || []).map((topic: TopicProps, index: number) => {
         return (
           <TableRowCell
+            dataCellWidth={dataCellWidth}
             key={index}
             topic={topic}
-            dataCellWidth={dataCellWidth}
+            topicsOptions={props.topicsOptions}
             wheel={{ ...props.wheel, style: props.wheel.style.cell }}
-            {...topic}
           />
         )
       })}

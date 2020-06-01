@@ -1,14 +1,14 @@
 import React from 'react'
-import { TopicProps } from '../../../../models/topic/topic'
-import { Box } from '../../element/grid'
-import { BlockLevelElementName } from '../../element/types/element-names'
-import { TopicInfo } from '../../../lib/get-topic-info'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Any } from '../../element/any'
-import { TopicIcon } from './topic-icon'
+import { BlockLevelElementName } from '../../element/types/element-names'
+import { Box } from '../../element/grid'
 import { ParserFunction } from '../../../parsers/types'
-import { Wheel } from '../../types'
 import { TopicContentTextWheelStyle } from './presets/topic-content-text-preset'
+import { TopicIcon } from './topic-icon'
+import { TopicInfo } from '../../../lib/get-topic-info'
+import { TopicOptions } from '../../../lib/get-topic-options'
+import { TopicProps } from '../../../../models/topic/topic'
+import { Wheel } from '../../types'
 
 export interface TopicContentTextWheel extends Wheel {
   style: TopicContentTextWheelStyle
@@ -25,29 +25,28 @@ export interface TopicContentTextProps {
   useHeadingParser?: ParserFunction
   /** Defaults to p */
   useAbstractParser?: ParserFunction
-
   /** All topic props */
   topic: TopicProps
   /** Topic info object */
   topicInfo: TopicInfo
   /** Page section info */
-  pageSectionInfo: PageSectionInfo
+  topicOptions: TopicOptions
 }
 
 export const TopicContentText = (props: TopicContentTextProps) => {
-  const topicOptions = props.pageSectionInfo.topicOptions
+  const topicOptions = props.topicOptions
 
-  const useHeadingElement = props.useHeadingElement || 'h3'
   const useAbstractElement = props.useAbstractElement || 'p'
+  const useHeadingElement = props.useHeadingElement || 'h3'
 
-  const HeadingParser = props.useHeadingParser || Any
   const AbstractParser = props.useAbstractParser || Any
+  const HeadingParser = props.useHeadingParser || Any
 
   return (
     <Box is="div" wheel={props.wheel}>
       {!topicOptions.hideIcon && (
         <TopicIcon
-          icon={props.topic.icon}
+          icon={props.topic.icon || ''}
           wheel={{ ...props.wheel, style: props.wheel.style.icon }}
         />
       )}

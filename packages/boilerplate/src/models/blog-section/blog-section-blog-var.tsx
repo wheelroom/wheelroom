@@ -33,7 +33,7 @@ export const BlogSectionBlogVar = (props: BlogSectionProps) => {
     <ScrollSpy
       eventId={props.eventId}
       siteEmbeds={props.globals.siteEmbeds}
-      pageSectionProps={props}
+      sectionProps={props}
     >
       <PageSectionBlog
         pageSection={props}

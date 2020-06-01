@@ -1,12 +1,12 @@
 import React from 'react'
-import { ActionProps } from '../../../../models/action'
-import { Box } from '../../element/grid'
-import { TopicProps } from '../../../../models/topic'
-import { TopicInfo } from '../../../lib/get-topic-info'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Action } from '../action/action'
-import { Wheel } from '../../types'
+import { ActionProps } from '../../../../models/action/action'
+import { Box } from '../../element/grid'
 import { TopicContentActionsWheelStyle } from './presets/topic-content-actions-preset'
+import { TopicInfo } from '../../../lib/get-topic-info'
+import { TopicOptions } from '../../../lib/get-topic-options'
+import { TopicProps } from '../../../../models/topic/topic'
+import { Wheel } from '../../types'
 
 export interface TopicContentActionsWheel extends Wheel {
   style: TopicContentActionsWheelStyle
@@ -23,15 +23,16 @@ export interface TopicContentActionsProps {
   topic: TopicProps
   /** Topic info object */
   topicInfo: TopicInfo
-  /** Page section info */
-  pageSectionInfo: PageSectionInfo
+  /** Topic options */
+  topicOptions: TopicOptions
 }
 
 export const TopicContentActions = (props: TopicContentActionsProps) => {
-  if (!props.topicInfo.hasAction) {
+  const actions = props.topic.actions
+
+  if (!actions) {
     return null
   }
-  const actions = props.topic.actions
 
   return (
     <Box is="div" wheel={props.wheel}>

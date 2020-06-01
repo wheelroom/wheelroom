@@ -27,27 +27,29 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
     pageSectionHeadlinePreset,
     getSectionStyle('headline').base,
   ])
-  if (pageSectionInfo.hasTopic) {
-    return (
-      <ScrollSpy
-        eventId={props.eventId}
-        siteEmbeds={props.globals.siteEmbeds}
-        pageSectionProps={props}
-      >
-        <PageSectionUnicorn
-          topicProps={{
-            maxActions: 2,
-            pageSectionInfo,
-            useHeadingElement: pageSectionInfo.index <= 1 ? 'h1' : 'h2',
-            wheel,
-          }}
-          containerStyle="container"
-          maxTopics={1}
-          pageSection={props}
-          wheel={wheel}
-        />
-      </ScrollSpy>
-    )
+
+  if (!props.topics) {
+    return null
   }
-  return null
+
+  return (
+    <ScrollSpy
+      eventId={props.eventId}
+      siteEmbeds={props.globals.siteEmbeds}
+      sectionProps={props}
+    >
+      <PageSectionUnicorn
+        topicProps={{
+          maxActions: 2,
+          topicOptions: pageSectionInfo.topicOptions,
+          useHeadingElement: pageSectionInfo.index <= 1 ? 'h1' : 'h2',
+          wheel,
+        }}
+        containerStyle="container"
+        maxTopics={1}
+        topics={props.topics}
+        wheel={wheel}
+      />
+    </ScrollSpy>
+  )
 }

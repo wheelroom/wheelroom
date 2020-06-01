@@ -36,7 +36,7 @@ export const NavigationSectionHeaderVar = (props: NavigationSectionProps) => {
     <ScrollSpy
       eventId={props.eventId}
       siteEmbeds={props.globals.siteEmbeds}
-      pageSectionProps={props}
+      sectionProps={props}
     >
       <PageSectionNavigationHeader
         hideThemeSwitchButton={false}

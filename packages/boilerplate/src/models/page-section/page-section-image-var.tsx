@@ -28,25 +28,26 @@ export const PageSectionImageVar = (props: PageSectionProps) => {
     getSectionStyle('image').base,
   ])
 
-  if (pageSectionInfo.hasTopic) {
-    return (
-      <ScrollSpy
-        eventId={props.eventId}
-        siteEmbeds={props.globals.siteEmbeds}
-        pageSectionProps={props}
-      >
-        <PageSectionUnicorn
-          topicProps={{
-            pageSectionInfo,
-            wheel,
-          }}
-          containerStyle="container"
-          maxTopics={2}
-          pageSection={props}
-          wheel={wheel}
-        />
-      </ScrollSpy>
-    )
+  if (!props.topics) {
+    return null
   }
-  return null
+
+  return (
+    <ScrollSpy
+      eventId={props.eventId}
+      siteEmbeds={props.globals.siteEmbeds}
+      sectionProps={props}
+    >
+      <PageSectionUnicorn
+        topicProps={{
+          topicOptions: pageSectionInfo.topicOptions,
+          wheel,
+        }}
+        containerStyle="container"
+        maxTopics={2}
+        topics={props.topics}
+        wheel={wheel}
+      />
+    </ScrollSpy>
+  )
 }

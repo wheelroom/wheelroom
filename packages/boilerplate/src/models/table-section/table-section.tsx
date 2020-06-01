@@ -11,7 +11,7 @@ import { SectionProps } from '../../wheelroom/sections/section-props'
 import { TableProps } from '../table/table'
 import { TableSectionPriceVar } from './table-section-price-var'
 import { TableSectionTableVar } from './table-section-table-var'
-import { TopicOptionString } from '../../wheelroom/lib/get-topic-options'
+import { TopicOptions } from '../../wheelroom/lib/get-topic-options'
 
 const componentList = {
   ['table']: TableSectionTableVar,
@@ -23,7 +23,7 @@ export interface TableSectionProps extends SectionProps {
   __typename: string
   eventId?: string
   tables?: TableProps[]
-  topicOptions?: TopicOptionString[]
+  topicOptions?: TopicOptions
   variation?: string
 }
 
