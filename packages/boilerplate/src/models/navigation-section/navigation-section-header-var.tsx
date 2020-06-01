@@ -8,20 +8,17 @@
 
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { getWheel, getSectionStyle } from '../../themes/themes'
 import { navFooterPreset } from '../../wheelroom/wheels/section/navigation-footer/presets/nav-footer-preset'
 import { navHeaderPreset } from '../../wheelroom/wheels/section/navigation-header/presets/nav-header-preset'
-import { NavigationProps } from '../navigation/navigation'
 import { PageSectionNavigationHeader } from '../../wheelroom/wheels/section/navigation-header/nav-header'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
+import { NavigationSectionProps } from './navigation-section'
 
-export const NavigationSectionHeaderVar = (props: NavigationProps) => {
-  const pageSectionInfo = getPageSectionInfo(props)
-
+export const NavigationSectionHeaderVar = (props: NavigationSectionProps) => {
   const wheelHeader: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheelHeader.style = deepMerge([
     { topic: topicPreset },
