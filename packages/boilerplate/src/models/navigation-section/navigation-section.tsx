@@ -7,9 +7,10 @@
 
 import React from 'react'
 import { getVariation } from '../../wheelroom/lib/get-variation'
-import { SectionProps } from '../../wheelroom/sections/section-props'
-import { NavigationSectionHeaderVar } from './navigation-section-header-var'
+import { NavigationProps } from '../navigation/navigation'
 import { NavigationSectionFooterVar } from './navigation-section-footer-var'
+import { NavigationSectionHeaderVar } from './navigation-section-header-var'
+import { SectionProps } from '../../wheelroom/sections/section-props'
 
 const componentList = {
   ['header']: NavigationSectionHeaderVar,
@@ -20,7 +21,7 @@ export interface NavigationSectionProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
   variation?: string
-  navigation?: any
+  navigation?: NavigationProps[]
   eventId?: string
 }
 

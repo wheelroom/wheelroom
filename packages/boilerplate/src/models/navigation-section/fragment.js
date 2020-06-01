@@ -14,7 +14,6 @@ import { graphql } from 'gatsby'
 export const fragment = graphql`
   fragment NavigationSection on ContentfulNavigationSection {
     __typename
-    title
     variation
     navigation {
       ... on Node {
