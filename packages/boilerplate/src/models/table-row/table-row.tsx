@@ -6,7 +6,6 @@
  */
 
 import React from 'react'
-import { MediaObject } from '../../wheelroom/wheels/element/types/media'
 import { getVariation } from '../../wheelroom/lib/get-variation'
 import { TableRowHeaderVar } from './table-row-header-var'
 import { TableRowBodyVar } from './table-row-body-var'
@@ -21,15 +20,14 @@ const componentList = {
 export interface TableRowProps {
   /** Gatsby fetched data */
   __typename: string
-  title: string
-  variation: string
-  heading: string
-  abstract: {
+  variation?: string
+  heading?: string
+  abstract?: {
     abstract: string
   }
-  icon: string
-  actions: any
-  topics: any
+  icon?: string
+  actions?: any
+  topics?: any
 }
 
 export const TableRow = (props: TableRowProps) => {
