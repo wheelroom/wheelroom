@@ -12,36 +12,35 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment PageSection on ContentfulPageSection {
-  __typename
-  title
-  variation
-  eventId
-  topics {
-    ... on Node {
-      ...Topic
+  fragment PageSection on ContentfulPageSection {
+    __typename
+    variation
+    eventId
+    topics {
+      ... on Node {
+        ...Topic
+      }
+    }
+    topicOptions
+    topicTables {
+      ... on Node {
+        ...TopicTable
+      }
+    }
+    text {
+      ... on Node {
+        ...Text
+      }
+    }
+    navigation {
+      ... on Node {
+        ...Navigation
+      }
+    }
+    actions {
+      ... on Node {
+        ...Action
+      }
     }
   }
-  topicOptions
-  topicTables {
-    ... on Node {
-      ...TopicTable
-    }
-  }
-  text {
-    ... on Node {
-      ...Text
-    }
-  }
-  navigation {
-    ... on Node {
-      ...Navigation
-    }
-  }
-  actions {
-    ... on Node {
-      ...Action
-    }
-  }
-}
 `

@@ -317,7 +317,7 @@ interface TopicModel {
   }
   model: 'topic'
 }
-interface TopicTableModel {
+interface TableModel {
   fields: {
     heading?: string
     abstract?: string
@@ -617,9 +617,9 @@ interface TopicTableModel {
     advancedMedia?: Array<'advancedMedia'>
     title: string
   }
-  model: 'topicTable'
+  model: 'table'
 }
-interface TopicRowModel {
+interface TableRowModel {
   fields: {
     variation?: 'header' | 'footer'
     heading?: string
@@ -927,7 +927,7 @@ interface TopicRowModel {
     advancedMedia?: Array<'advancedMedia'>
     title: string
   }
-  model: 'topicRow'
+  model: 'tableRow'
 }
 interface ActionModel {
   fields: {
@@ -1303,7 +1303,7 @@ interface PageSectionModel {
       | 'Reversed order'
     >
     text?: 'starterText'
-    topicTables?: string[]
+    tables?: string[]
     navigation?: Array<'footerNavigation' | 'headerNavigation'>
     actions?: Array<
       | 'brandAction'
@@ -1405,8 +1405,8 @@ type Model =
   | EmbedModel
   | MediaBreakpointModel
   | TopicModel
-  | TopicTableModel
-  | TopicRowModel
+  | TableModel
+  | TableRowModel
   | ActionModel
   | NavigationSegmentModel
   | NavigationModel

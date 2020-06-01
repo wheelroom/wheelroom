@@ -12,24 +12,23 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment Action on ContentfulAction {
-  __typename
-  anchor
-  description
-  eventId
-  heading
-  icon
-  page {
+  fragment Action on ContentfulAction {
     __typename
-    title
-    path
-    theme
-    seoTitle
-    seoDescription
-    seoKeywords
+    anchor
+    description
+    eventId
+    heading
+    icon
+    page {
+      __typename
+      title
+      path
+      theme
+      seoTitle
+      seoDescription
+      seoKeywords
+    }
+    query
+    url
   }
-  query
-  title
-  url
-}
 `

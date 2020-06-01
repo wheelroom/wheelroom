@@ -7,14 +7,13 @@
 
 export interface ActionProps {
   /** Gatsby fetched data */
-  __typename?: string
+  __typename: string
   anchor?: string
   description?: string
   eventId?: string
   heading?: string
-  icon?: string
+  icon?: string | JSX.Element
   page?: any
   query?: string
-  title?: string
   url?: any
 }

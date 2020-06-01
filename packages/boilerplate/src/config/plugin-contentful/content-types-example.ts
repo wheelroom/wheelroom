@@ -318,7 +318,7 @@ interface TopicModel {
   }
   model: 'topic'
 }
-interface TopicTableModel {
+interface TableModel {
   fields: {
     heading?: string
     abstract?: string
@@ -619,9 +619,9 @@ interface TopicTableModel {
     advancedMedia?: string[]
     title: string
   }
-  model: 'topicTable'
+  model: 'table'
 }
-interface TopicRowModel {
+interface TableRowModel {
   fields: {
     heading?: string
     abstract?: string
@@ -929,7 +929,7 @@ interface TopicRowModel {
     advancedMedia?: string[]
     title: string
   }
-  model: 'topicRow'
+  model: 'TableRow'
 }
 interface ActionModel {
   fields: {
@@ -1380,8 +1380,8 @@ type Model =
   | EmbedModel
   | MediaBreakpointModel
   | TopicModel
-  | TopicTableModel
-  | TopicRowModel
+  | TableModel
+  | TableRowModel
   | ActionModel
   | NavigationSegmentModel
   | NavigationModel

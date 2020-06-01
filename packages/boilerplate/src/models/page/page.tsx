@@ -10,13 +10,11 @@ import { MediaObject } from '../../wheelroom/wheels/element/types/media'
 export interface PageProps {
   /** Gatsby fetched data */
   __typename: string
-  title: string
   path: string
-  navigationHeading: string
   sections: any
-  theme: string
-  seoTitle: string
-  seoDescription: string
-  seoKeywords: string[]
-  seoImage: MediaObject
+  theme?: string
+  seoTitle?: string
+  seoDescription?: string
+  seoKeywords?: string[]
+  seoImage?: MediaObject
 }

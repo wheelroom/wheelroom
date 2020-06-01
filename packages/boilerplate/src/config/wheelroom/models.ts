@@ -13,6 +13,15 @@ import {
 } from '@wheelroom/wheelroom'
 import { featherIcons } from './feather-icons'
 
+const topicOptions = [
+  'Hide icon',
+  'Hide media',
+  'Hide heading',
+  'Hide abstract',
+  'Hide action',
+  'Reversed order',
+]
+
 export const models: WheelroomComponents = {
   embed: {
     fields: {
@@ -96,7 +105,7 @@ export const models: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  topicTable: {
+  table: {
     fields: {
       heading: {
         type: 'shortText',
@@ -112,8 +121,8 @@ export const models: WheelroomComponents = {
         allowedComponents: ['action'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      rows: {
-        allowedComponents: ['topicRow'],
+      tableRows: {
+        allowedComponents: ['tableRow'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
     },
@@ -123,7 +132,7 @@ export const models: WheelroomComponents = {
     },
     modelVersion: '1.0.0',
   },
-  topicRow: {
+  tableRow: {
     fields: {
       variation: {
         items: ['header', 'footer'],
@@ -217,17 +226,14 @@ export const models: WheelroomComponents = {
   },
   navigation: {
     fields: {
+      variation: {
+        items: ['menu', 'list', 'actions', 'social', 'brand', 'legal'],
+        type: 'dropdown',
+      } as DropdownField,
       segments: {
         allowedComponents: ['navigationSegment'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      skipToContentHeading: {
-        type: 'shortText',
-      } as ShortTextField,
-      brandAction: {
-        allowedComponents: ['action'],
-        type: 'singleComponent',
-      } as SingleComponentField,
     },
     settings: {
       asBoilerplate: true,
@@ -252,22 +258,17 @@ export const models: WheelroomComponents = {
     fields: {
       variation: {
         items: [
-          'block-wr',
-          'blog-wr',
-          'blog-list-wr',
-          'card-wr',
-          'divider-wr',
-          'featured-wr',
-          'gallery-wr',
-          'headline-wr',
-          'hero-wr',
-          'image-wr',
-          'navigation-wr',
-          'price-table-wr',
-          'quote-wr',
-          'showcase-wr',
-          'text-wr',
-          'video-wr',
+          'block',
+          'card',
+          'divider',
+          'featured',
+          'gallery',
+          'headline',
+          'hero',
+          'image',
+          'quote',
+          'showcase',
+          'video',
         ],
         type: 'dropdown',
       } as DropdownField,
@@ -277,35 +278,147 @@ export const models: WheelroomComponents = {
       } as MultipleComponentsField,
       topicOptions: {
         initialContent: ['Hide icon'],
-        items: [
-          'Hide icon',
-          'Hide media',
-          'Hide heading',
-          'Hide abstract',
-          'Hide action',
-          'Reversed order',
-        ],
+        items: topicOptions,
         type: 'checkbox',
       } as CheckboxField,
+      eventId: {
+        type: 'shortText',
+        initialContent: 'initial-content-for-page-section-event-id',
+        typePostfix: 'Slug',
+        helpText: 'Example: my-event-id',
+        unique: true,
+      } as ShortTextField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      // asPageSection will create boilerplate code
+      asBoilerplate: false,
+      asFragment: true,
+      asPageSection: true,
+    },
+  },
+  textSection: {
+    fields: {
+      variation: {
+        items: ['text'],
+        type: 'dropdown',
+      } as DropdownField,
       text: {
         allowedComponents: ['text'],
         type: 'singleComponent',
       } as SingleComponentField,
-      topicTables: {
-        allowedComponents: ['topicTable'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
+      eventId: {
+        type: 'shortText',
+        initialContent: 'initial-content-for-text-section-event-id',
+        typePostfix: 'Slug',
+        helpText: 'Example: my-event-id',
+        unique: true,
+      } as ShortTextField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      // asPageSection will create boilerplate code
+      asBoilerplate: false,
+      asFragment: true,
+      asPageSection: true,
+    },
+  },
+  navigationSection: {
+    fields: {
+      variation: {
+        items: ['header', 'footer'],
+        type: 'dropdown',
+      } as DropdownField,
       navigation: {
         allowedComponents: ['navigation'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      actions: {
-        allowedComponents: ['action'],
+      eventId: {
+        type: 'shortText',
+        initialContent: 'initial-content-for-navigation-section-event-id',
+        typePostfix: 'Slug',
+        helpText: 'Example: my-event-id',
+        unique: true,
+      } as ShortTextField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      // asPageSection will create boilerplate code
+      asBoilerplate: false,
+      asFragment: true,
+      asPageSection: true,
+    },
+  },
+  tableSection: {
+    fields: {
+      variation: {
+        items: ['table', 'price'],
+        type: 'dropdown',
+      } as DropdownField,
+      topicOptions: {
+        initialContent: ['Hide icon'],
+        items: topicOptions,
+        type: 'checkbox',
+      } as CheckboxField,
+      tables: {
+        allowedComponents: ['table'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
       eventId: {
         type: 'shortText',
-        initialContent: 'initial-content-for-page-section-event-id',
+        initialContent: 'initial-content-for-table-section-event-id',
+        typePostfix: 'Slug',
+        helpText: 'Example: my-event-id',
+        unique: true,
+      } as ShortTextField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      // asPageSection will create boilerplate code
+      asBoilerplate: false,
+      asFragment: true,
+      asPageSection: true,
+    },
+  },
+  blogSection: {
+    fields: {
+      variation: {
+        items: ['blog'],
+        type: 'dropdown',
+      } as DropdownField,
+      blog: {
+        allowedComponents: ['blog'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      eventId: {
+        type: 'shortText',
+        initialContent: 'initial-content-for-blog-section-event-id',
+        typePostfix: 'Slug',
+        helpText: 'Example: my-event-id',
+        unique: true,
+      } as ShortTextField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      // asPageSection will create boilerplate code
+      asBoilerplate: false,
+      asFragment: true,
+      asPageSection: true,
+    },
+  },
+  docSection: {
+    fields: {
+      variation: {
+        items: ['doc'],
+        type: 'dropdown',
+      } as DropdownField,
+      docs: {
+        allowedComponents: ['doc'],
+        type: 'multipleComponents',
+      } as MultipleComponentsField,
+      eventId: {
+        type: 'shortText',
+        initialContent: 'initial-content-for-doc-section-event-id',
         typePostfix: 'Slug',
         helpText: 'Example: my-event-id',
         unique: true,
@@ -361,11 +474,63 @@ export const models: WheelroomComponents = {
       asQuery: 'page',
     },
   },
+  doc: {
+    fields: {
+      heading: {
+        type: 'shortText',
+      } as ShortTextField,
+      abstract: {
+        type: 'longText',
+      } as LongTextField,
+      media: {
+        type: 'media',
+      } as MediaField,
+      icon: {
+        items: featherIcons,
+        type: 'dropdown',
+      } as DropdownField,
+      slug: {
+        initialContent: 'initial-boilerplate-slug',
+        required: true,
+        type: 'shortText',
+        typePostfix: 'Slug',
+        unique: true,
+      } as ShortTextField,
+      text: {
+        required: true,
+        type: 'richText',
+      } as RichTextField,
+      parent: {
+        allowedComponents: ['doc'],
+        initialContent: undefined,
+        type: 'singleComponent',
+        expandFragmentRef: true,
+      } as SingleComponentField,
+      sortOrder: {
+        type: 'shortText',
+      } as ShortTextField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      asFragment: true,
+      asQuery: 'subPage',
+    },
+  },
   blog: {
     fields: {
       heading: {
         type: 'shortText',
       } as ShortTextField,
+      abstract: {
+        type: 'longText',
+      } as LongTextField,
+      media: {
+        type: 'media',
+      } as MediaField,
+      icon: {
+        items: featherIcons,
+        type: 'dropdown',
+      } as DropdownField,
       slug: {
         initialContent: 'initial-content-for-slug',
         required: true,
@@ -374,25 +539,20 @@ export const models: WheelroomComponents = {
         unique: true,
       } as ShortTextField,
       date: {
-        helpText: 'Override publish date',
+        required: true,
         type: 'date',
       } as DateField,
       text: {
         required: true,
         type: 'richText',
       } as RichTextField,
-      topic: {
+      categories: {
         type: 'tags',
       } as TagsField,
       authors: {
         allowedComponents: ['topic'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
-      featured: {
-        required: true,
-        allowedComponents: ['topic'],
-        type: 'singleComponent',
-      } as SingleComponentField,
       seoTitle: {
         type: 'shortText',
       } as ShortTextField,
@@ -432,6 +592,9 @@ export const models: WheelroomComponents = {
         allowedComponents: ['embed'],
         type: 'multipleComponents',
       } as MultipleComponentsField,
+      skipToContentHeading: {
+        type: 'shortText',
+      } as ShortTextField,
     },
     modelVersion: '1.0.0',
     settings: {

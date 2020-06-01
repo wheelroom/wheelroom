@@ -12,19 +12,13 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment Navigation on ContentfulNavigation {
-  __typename
-  title
-  segments {
-    ... on Node {
-      ...NavigationSegment
+  fragment Navigation on ContentfulNavigation {
+    __typename
+    variation
+    segments {
+      ... on Node {
+        ...NavigationSegment
+      }
     }
   }
-  skipToContentHeading
-  brandAction {
-    ... on Node {
-      ...Action
-    }
-  }
-}
 `

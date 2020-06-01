@@ -12,12 +12,11 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment Embed on ContentfulEmbed {
-  __typename
-  title
-  code {
-    code
+  fragment Embed on ContentfulEmbed {
+    __typename
+    code {
+      code
+    }
+    type
   }
-  type
-}
 `

@@ -6,12 +6,8 @@
  */
 
 import React from 'react'
-import { ActionProps } from '../action'
 import { getVariation } from '../../wheelroom/lib/get-variation'
-import { NavigationProps } from '../navigation'
 import { PageSectionBlockVar } from './page-section-block-var'
-import { PageSectionBlogVar } from './page-section-blog-var'
-import { PageSectionBlogListVar } from './page-section-blog-list-var'
 import { PageSectionCardVar } from './page-section-card-var'
 import { PageSectionDividerVar } from './page-section-divider-var'
 import { PageSectionFeaturedVar } from './page-section-featured-var'
@@ -19,49 +15,34 @@ import { PageSectionGalleryVar } from './page-section-gallery-var'
 import { PageSectionHeadlineVar } from './page-section-headline-var'
 import { PageSectionHeroVar } from './page-section-hero-var'
 import { PageSectionImageVar } from './page-section-image-var'
-import { PageSectionNavigationVar } from './page-section-navigation-var'
-import { PageSectionPriceTableVar } from './page-section-price-table-var'
 import { PageSectionQuoteVar } from './page-section-quote-var'
 import { PageSectionShowcaseVar } from './page-section-showcase-var'
-import { PageSectionTextVar } from './page-section-text-var'
 import { PageSectionVideoVar } from './page-section-video-var'
 import { SectionProps } from '../../wheelroom/sections/section-props'
-import { TextProps } from '../text'
 import { TopicOptionString } from '../../wheelroom/lib/get-topic-options'
-import { TopicProps } from '../topic'
-import { TopicTableProps } from '../topic-table'
+import { TopicProps } from '../topic/topic'
 
 const componentList = {
-  ['block-wr']: PageSectionBlockVar,
-  ['blog-wr']: PageSectionBlogVar,
-  ['blog-list-wr']: PageSectionBlogListVar,
-  ['card-wr']: PageSectionCardVar,
-  ['divider-wr']: PageSectionDividerVar,
-  ['featured-wr']: PageSectionFeaturedVar,
-  ['gallery-wr']: PageSectionGalleryVar,
-  ['headline-wr']: PageSectionHeadlineVar,
-  ['hero-wr']: PageSectionHeroVar,
-  ['image-wr']: PageSectionImageVar,
-  ['navigation-wr']: PageSectionNavigationVar,
-  ['price-table-wr']: PageSectionPriceTableVar,
-  ['quote-wr']: PageSectionQuoteVar,
-  ['showcase-wr']: PageSectionShowcaseVar,
-  ['text-wr']: PageSectionTextVar,
-  ['video-wr']: PageSectionVideoVar,
+  ['block']: PageSectionBlockVar,
+  ['card']: PageSectionCardVar,
+  ['divider']: PageSectionDividerVar,
+  ['featured']: PageSectionFeaturedVar,
+  ['gallery']: PageSectionGalleryVar,
+  ['headline']: PageSectionHeadlineVar,
+  ['hero']: PageSectionHeroVar,
+  ['image']: PageSectionImageVar,
+  ['quote']: PageSectionQuoteVar,
+  ['showcase']: PageSectionShowcaseVar,
+  ['video']: PageSectionVideoVar,
 }
 
 export interface PageSectionProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
-  actions: ActionProps[]
-  navigation: NavigationProps[]
-  text: TextProps
-  title: string
-  topicOptions: TopicOptionString[]
-  topics: TopicProps[]
-  topicTables: TopicTableProps[]
-  variation: string
-  eventId: string
+  eventId?: string
+  topicOptions?: TopicOptionString[]
+  topics?: TopicProps[]
+  variation?: string
 }
 
 export const PageSection = (props: PageSectionProps) => {

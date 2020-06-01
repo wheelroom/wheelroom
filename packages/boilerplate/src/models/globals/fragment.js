@@ -12,17 +12,17 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment Globals on ContentfulGlobals {
-  __typename
-  title
-  siteAuthor
-  siteDescription
-  siteHeading
-  siteKeywords
-  siteEmbeds {
-    ... on Node {
-      ...Embed
+  fragment Globals on ContentfulGlobals {
+    __typename
+    siteAuthor
+    siteDescription
+    siteHeading
+    siteKeywords
+    siteEmbeds {
+      ... on Node {
+        ...Embed
+      }
     }
+    skipToContentHeading
   }
-}
 `

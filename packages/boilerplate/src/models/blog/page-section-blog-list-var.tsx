@@ -7,18 +7,18 @@
  */
 
 import React from 'react'
+import { Action } from '../../wheelroom/wheels/model/action/action'
+import { BlogProps } from '../blog/blog'
+import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../themes/themes'
-import { PageSectionProps } from '.'
+import { Li, Ul } from '../../wheelroom/wheels/element/self'
+import { NotImplemented } from '../../wheelroom/lib/not-implemented'
+import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
+import { PageSectionProps } from '../page-section/page-section'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { Wrapper, Container } from '../../wheelroom/wheels/element/grid'
-import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
-import { Li, Ul } from '../../wheelroom/wheels/element/self'
-import { BlogProps } from '../blog'
-import { Action } from '../../wheelroom/wheels/model/action/action'
-import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 
 export const PageSectionBlogListVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)

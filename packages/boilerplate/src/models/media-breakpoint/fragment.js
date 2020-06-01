@@ -12,80 +12,80 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment MediaBreakpoint on ContentfulMediaBreakpoint {
-  __typename
-  title
-  small {
+  fragment MediaBreakpoint on ContentfulMediaBreakpoint {
+    __typename
     title
-    description
-    fluid {
-      ...GatsbyContentfulFluid
+    small {
+      title
+      description
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+      file {
+        url
+        fileName
+        contentType
+        details {
+          image {
+            height
+            width
+          }
+        }
+      }
     }
-    file {
-      url
-      fileName
-      contentType
-      details {
-        image {
-          height
-          width
+    medium {
+      title
+      description
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+      file {
+        url
+        fileName
+        contentType
+        details {
+          image {
+            height
+            width
+          }
+        }
+      }
+    }
+    large {
+      title
+      description
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+      file {
+        url
+        fileName
+        contentType
+        details {
+          image {
+            height
+            width
+          }
+        }
+      }
+    }
+    extraLarge {
+      title
+      description
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+      file {
+        url
+        fileName
+        contentType
+        details {
+          image {
+            height
+            width
+          }
         }
       }
     }
   }
-  medium {
-    title
-    description
-    fluid {
-      ...GatsbyContentfulFluid
-    }
-    file {
-      url
-      fileName
-      contentType
-      details {
-        image {
-          height
-          width
-        }
-      }
-    }
-  }
-  large {
-    title
-    description
-    fluid {
-      ...GatsbyContentfulFluid
-    }
-    file {
-      url
-      fileName
-      contentType
-      details {
-        image {
-          height
-          width
-        }
-      }
-    }
-  }
-  extraLarge {
-    title
-    description
-    fluid {
-      ...GatsbyContentfulFluid
-    }
-    file {
-      url
-      fileName
-      contentType
-      details {
-        image {
-          height
-          width
-        }
-      }
-    }
-  }
-}
 `

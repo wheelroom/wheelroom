@@ -12,11 +12,10 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment Text on ContentfulText {
-  __typename
-  title
-  text {
-    json
+  fragment Text on ContentfulText {
+    __typename
+    text {
+      json
+    }
   }
-}
 `

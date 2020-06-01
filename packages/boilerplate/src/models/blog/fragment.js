@@ -12,48 +12,60 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment Blog on ContentfulBlog {
-  __typename
-  title
-  heading
-  slug
-  createdAt
-  updatedAt
-  date
-  text {
-    json
-  }
-  topic
-  authors {
-    ... on Node {
-      ...Topic
-    }
-  }
-  featured {
-    ... on Node {
-      ...Topic
-    }
-  }
-  seoTitle
-  seoDescription
-  seoImage {
-    title
-    description
-    fluid {
-      ...GatsbyContentfulFluid
-    }
-    file {
-      url
-      fileName
-      contentType
-      details {
-        image {
-          height
-          width
+  fragment Blog on ContentfulBlog {
+    __typename
+    heading
+    abstract
+    media {
+      title
+      description
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+      file {
+        url
+        fileName
+        contentType
+        details {
+          image {
+            height
+            width
+          }
         }
       }
     }
+    icon
+    slug
+    date
+    text {
+      json
+    }
+    categories
+    authors {
+      ... on Node {
+        ...Topic
+      }
+    }
+    seoTitle
+    seoDescription
+    seoImage {
+      title
+      description
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+      file {
+        url
+        fileName
+        contentType
+        details {
+          image {
+            height
+            width
+          }
+        }
+      }
+    }
+    seoKeywords
   }
-  seoKeywords
-}
 `
