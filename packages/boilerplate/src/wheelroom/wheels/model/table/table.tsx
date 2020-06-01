@@ -2,7 +2,7 @@
 import { Action } from '../action/action'
 import { ActionProps } from '../../../../models/action/action'
 import { Any } from '../../element/any'
-import { Dd, Dl, Dt, Table, Th, Tr } from '../../element/self'
+import { Dd, Dl, Dt, Th, Tr } from '../../element/self'
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
 import { TableProps } from '../../../../models/table/table'
@@ -23,7 +23,7 @@ export interface TableWheelProps {
   tables?: TableProps[]
 }
 
-export const TopicTable = (props: TableWheelProps) => {
+export const Table = (props: TableWheelProps) => {
   const tables = props.tables
   if (!tables) {
     return null
@@ -31,7 +31,10 @@ export const TopicTable = (props: TableWheelProps) => {
 
   return (
     <Any wheel={{ ...props.wheel, style: props.wheel.style }}>
-      <Table wheel={{ ...props.wheel, style: props.wheel.style.table }}>
+      <Any
+        is="table"
+        wheel={{ ...props.wheel, style: props.wheel.style.table }}
+      >
         <tbody>
           {tables.map((table: TableProps, index: number) => {
             const tableRows = table.tableRows || []
@@ -128,7 +131,7 @@ export const TopicTable = (props: TableWheelProps) => {
             )
           })}
         </tbody>
-      </Table>
+      </Any>
     </Any>
   )
 }

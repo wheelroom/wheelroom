@@ -13,9 +13,9 @@ import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { getSectionStyle, getWheel } from '../../themes/themes'
 import { pageSectionPriceTablePreset } from '../../wheelroom/wheels/section/price-table/page-section-price-table-preset'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
+import { Table } from '../../wheelroom/wheels/model/table/table'
 import { TableSectionProps } from './table-section'
 import { ThemeId } from '../../admin-resources/theme-info'
-import { TopicTable } from '../../wheelroom/wheels/model/table/table'
 import { Wheel } from '../../wheelroom/wheels/types'
 
 export const TableSectionPriceVar = (props: TableSectionProps) => {
@@ -38,10 +38,9 @@ export const TableSectionPriceVar = (props: TableSectionProps) => {
     >
       <Wrapper wheel={{ ...wheel, style: wheel.style.wrapper }}>
         <Container wheel={{ ...wheel, style: wheel.style.container }}>
-          <TopicTable
+          <Table
             wheel={{ ...wheel, style: wheel.style.topicTable }}
-            pageSectionInfo={pageSectionInfo}
-            topicTables={props.tables}
+            tables={props.tables}
           />
         </Container>
       </Wrapper>
