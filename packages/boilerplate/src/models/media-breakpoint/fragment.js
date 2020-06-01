@@ -14,7 +14,6 @@ import { graphql } from 'gatsby'
 export const fragment = graphql`
   fragment MediaBreakpoint on ContentfulMediaBreakpoint {
     __typename
-    title
     small {
       title
       description
