@@ -4,13 +4,11 @@ import { getTopicInfo } from '../../../lib/get-topic-info'
 import { BlockLevelElementName } from '../../element/types/element-names'
 import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { TopicBody } from './topic-body'
-import { TopicProps } from '../../../../models/topic'
 import { ParserFunction } from '../../../parsers/types'
-import { ActionProps } from '../../../../models/action'
 import { Action } from '../action/action'
 import { Wheel } from '../../types'
 import { TopicWheelStyle } from './presets/topic-preset'
-import { TopicOptions } from '../../../lib/get-topic-options'
+import { TopicProps } from '../../../../models/topic/topic'
 
 export interface TopicWheel extends Wheel {
   style: TopicWheelStyle
@@ -23,8 +21,6 @@ export interface TopicWheelProps {
   topic?: TopicProps
   /** Options that change topic display behaviour */
   pageSectionInfo: PageSectionInfo
-  /** Page section actions will override all topic actions */
-  pageSectionActions?: ActionProps[]
 
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName

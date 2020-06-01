@@ -94,7 +94,6 @@ export const PageSectionBlogList = (props: BlogListWheelProps) => {
                 key={index}
                 maxActions={2}
                 fullTopicAsLink={true}
-                pageSectionActions={blog.featured?.actions}
                 pageSectionInfo={pageSectionInfo}
                 topic={blog.featured}
                 wheel={{ ...props.wheel, style: props.wheel.style.featured }}

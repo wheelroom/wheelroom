@@ -19,8 +19,6 @@ export interface TopicContentActionsProps {
   fullTopicAsLink?: boolean
   /** Accept max number of Actions, ignore all others */
   maxActions?: number
-  /** Page section actions will override all topic actions */
-  pageSectionActions?: ActionProps[]
   /** All topic props */
   topic: TopicProps
   /** Topic info object */
@@ -30,10 +28,10 @@ export interface TopicContentActionsProps {
 }
 
 export const TopicContentActions = (props: TopicContentActionsProps) => {
-  if (!props.topicInfo.hasAction && !props.pageSectionActions) {
+  if (!props.topicInfo.hasAction) {
     return null
   }
-  const actions = props.pageSectionActions || props.topic.actions
+  const actions = props.topic.actions
 
   return (
     <Box is="div" wheel={props.wheel}>

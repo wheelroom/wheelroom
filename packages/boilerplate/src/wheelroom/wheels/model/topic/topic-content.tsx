@@ -32,8 +32,6 @@ export interface TopicContentProps {
   useHeadingParser?: ParserFunction
   /** Defaults to p */
   useAbstractParser?: ParserFunction
-  /** Page section actions will override all topic actions */
-  pageSectionActions?: ActionProps[]
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
   /** Accept max number of Actions, ignore all others */
@@ -77,7 +75,6 @@ export const TopicContent = (props: TopicContentProps) => {
         <TopicContentActions
           fullTopicAsLink={props.fullTopicAsLink}
           maxActions={props.maxActions}
-          pageSectionActions={props.pageSectionActions}
           pageSectionInfo={pageSectionInfo}
           wheel={{ ...props.wheel, style: props.wheel.style.actions }}
           topic={props.topic}

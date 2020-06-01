@@ -38,7 +38,6 @@ export const PageSectionGalleryVar = (props: PageSectionProps) => {
       >
         <PageSectionUnicorn
           topicProps={{
-            pageSectionActions: props.actions,
             pageSectionInfo,
             wheel,
           }}

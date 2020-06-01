@@ -38,7 +38,6 @@ export const PageSectionShowcaseVar = (props: PageSectionProps) => {
       >
         <PageSectionUnicorn
           topicProps={{
-            pageSectionActions: props.actions,
             fullTopicAsLink: false,
             pageSectionInfo,
             useHeadingElement: 'h3',

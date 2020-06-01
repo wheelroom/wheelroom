@@ -38,7 +38,6 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
         <PageSectionUnicorn
           topicProps={{
             maxActions: 2,
-            pageSectionActions: props.actions,
             pageSectionInfo,
             useHeadingElement: pageSectionInfo.index <= 1 ? 'h1' : 'h2',
             wheel,

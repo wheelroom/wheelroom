@@ -50,7 +50,6 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
       >
         <PageSectionUnicorn
           topicProps={{
-            pageSectionActions: props.actions,
             fullTopicAsLink: true,
             pageSectionInfo,
             wheel,

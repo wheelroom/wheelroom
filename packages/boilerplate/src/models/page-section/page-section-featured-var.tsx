@@ -55,7 +55,6 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
       >
         <PageSectionUnicorn
           topicProps={{
-            pageSectionActions: props.actions,
             fullTopicAsLink: false,
             maxActions: 2,
             pageSectionInfo,

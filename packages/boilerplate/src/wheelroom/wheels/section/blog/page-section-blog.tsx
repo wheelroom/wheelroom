@@ -114,7 +114,6 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
                     key={index}
                     maxActions={2}
                     fullTopicAsLink={false}
-                    pageSectionActions={author.actions}
                     useHeadingElement="p"
                     pageSectionInfo={pageSectionInfo}
                     topic={author}

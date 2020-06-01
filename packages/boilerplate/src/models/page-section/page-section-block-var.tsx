@@ -39,7 +39,6 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
         <PageSectionUnicorn
           topicProps={{
             fullTopicAsLink: false,
-            pageSectionActions: props.actions,
             pageSectionInfo,
             wheel,
           }}

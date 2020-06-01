@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { EmbedProps } from '../../models/embed'
 import { PageSectionProps } from '../../models/page-section/page-section'
+import { EmbedProps } from '../../models/embed/embed'
 
 interface ScrollSpyProps {
   /** The #id added to the div  */
   children: any
-  eventId: string
+  eventId: string | undefined
   pageSectionProps: PageSectionProps
   siteEmbeds: EmbedProps[]
 }
