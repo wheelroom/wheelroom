@@ -1,61 +1,57 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
-import { Fragment } from 'react'
-import { Dd, Dl, Dt, Table, Th, Tr } from '../../element/self'
-import { Wheel } from '../../types'
-import { ActionProps } from '../../../../models/action'
-import { TopicTableWheelStyle } from './presets/topic-table-preset'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Action } from '../action/action'
+import { ActionProps } from '../../../../models/action/action'
 import { Any } from '../../element/any'
-import { TopicTableProps } from '../../../../models/topic-table'
+import { Dd, Dl, Dt, Table, Th, Tr } from '../../element/self'
+import { Fragment } from 'react'
+import { jsx } from '@emotion/core'
+import { TableProps } from '../../../../models/table/table'
+import { TableRow } from '../table-row/table-row'
+import { TableRowProps } from '../../../../models/table-row/table-row'
+import { TableWheelStyle } from './presets/table-preset'
 import { TopicIcon } from '../topic/topic-icon'
-import { TopicRowProps } from '../../../../models/topic-row'
-import { TopicRow } from '../topic-row/topic-row'
+import { Wheel } from '../../types'
 
-export interface TopicTableWheel extends Wheel {
-  style: TopicTableWheelStyle
+export interface TableWheel extends Wheel {
+  style: TableWheelStyle
 }
 
-export interface TopicTableWheelProps {
+export interface TableWheelProps {
   /** Styling wheel */
-  wheel: TopicTableWheel
+  wheel: TableWheel
   /** The topic to render */
-  topicTables?: TopicTableProps[]
-  /** Options that change topic display behaviour */
-  pageSectionInfo: PageSectionInfo
+  tables?: TableProps[]
 }
 
-export const TopicTable = (props: TopicTableWheelProps) => {
-  const topicTables = props.topicTables
-  if (!topicTables) {
+export const TopicTable = (props: TableWheelProps) => {
+  const tables = props.tables
+  if (!tables) {
     return null
   }
-  const pageSectionInfo = props.pageSectionInfo
 
   return (
     <Any wheel={{ ...props.wheel, style: props.wheel.style }}>
       <Table wheel={{ ...props.wheel, style: props.wheel.style.table }}>
         <tbody>
-          {topicTables.map((topicTable: TopicTableProps, index: number) => {
-            const rows = topicTable.rows || []
+          {tables.map((table: TableProps, index: number) => {
+            const tableRows = table.tableRows || []
             let columnCount = 0
-            rows.forEach((row: TopicRowProps) => {
-              if (row.topics && row.topics.length > columnCount) {
-                columnCount = row.topics.length
+            tableRows.forEach((tableRow: TableRowProps) => {
+              if (tableRow.topics && tableRow.topics.length > columnCount) {
+                columnCount = tableRow.topics.length
               }
             })
             return (
               <Fragment key={index}>
-                {topicTable.heading && (
+                {table.heading && (
                   <Tr wheel={{ ...props.wheel, style: props.wheel.style.tr }}>
                     <Th
                       wheel={{ ...props.wheel, style: props.wheel.style.th }}
                       colspan={columnCount + 1}
                     >
-                      {topicTable.icon && (
+                      {table.icon && (
                         <TopicIcon
-                          icon={topicTable.icon}
+                          icon={table.icon}
                           wheel={{
                             ...props.wheel,
                             style: props.wheel.style.icon,
@@ -68,28 +64,28 @@ export const TopicTable = (props: TopicTableWheelProps) => {
                           style: props.wheel.style.dl,
                         }}
                       >
-                        {topicTable.heading && (
+                        {table.heading && (
                           <Dt
                             wheel={{
                               ...props.wheel,
                               style: props.wheel.style.dt,
                             }}
                           >
-                            {topicTable.heading}
+                            {table.heading}
                           </Dt>
                         )}
-                        {topicTable.abstract && (
+                        {table.abstract && (
                           <Dd
                             wheel={{
                               ...props.wheel,
                               style: props.wheel.style.dd,
                             }}
                           >
-                            {topicTable.abstract?.abstract}
+                            {table.abstract?.abstract}
                           </Dd>
                         )}
                       </Dl>
-                      {topicTable.actions && (
+                      {table.actions && (
                         <Any
                           is="div"
                           wheel={{
@@ -97,7 +93,7 @@ export const TopicTable = (props: TopicTableWheelProps) => {
                             style: props.wheel.style.actions,
                           }}
                         >
-                          {topicTable.actions.map(
+                          {table.actions.map(
                             (action: ActionProps, index: number) => (
                               <Action
                                 key={index}
@@ -117,14 +113,13 @@ export const TopicTable = (props: TopicTableWheelProps) => {
                     </Th>
                   </Tr>
                 )}
-                {topicTable.rows.map(
-                  (topicRow: TopicRowProps, index: number) => {
+                {table.tableRows?.map(
+                  (tableRow: TableRowProps, index: number) => {
                     return (
-                      <TopicRow
+                      <TableRow
                         key={index}
                         wheel={{ ...props.wheel, style: props.wheel.style.row }}
-                        pageSectionInfo={pageSectionInfo}
-                        topicRow={topicRow}
+                        tableRow={tableRow}
                       />
                     )
                   }

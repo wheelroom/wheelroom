@@ -24,8 +24,6 @@ export interface BlogWheelProps {
   blog: BlogProps
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
-  /** Properties to configure Topic element */
-  topicProps?: TopicProps[]
   /** Accept max number of topics, ignore all others */
   maxTopics?: number
 }

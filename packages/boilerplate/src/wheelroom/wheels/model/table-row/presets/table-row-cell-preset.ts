@@ -1,14 +1,14 @@
 import { NcssProps } from '../../../types'
 import { topicPreset, TopicWheelStyle } from '../../topic/presets/topic-preset'
 
-export interface TopicRowCellWheelStyle {
+export interface TableRowCellWheelStyle {
   ncss: NcssProps
   topic: TopicWheelStyle
 }
 
-export const topicRowCellPreset: TopicRowCellWheelStyle = {
+export const tableRowCellPreset: TableRowCellWheelStyle = {
   ncss: {
-    label: 'topic-row-cell',
+    label: 'table-row-cell',
   },
   topic: topicPreset,
 }

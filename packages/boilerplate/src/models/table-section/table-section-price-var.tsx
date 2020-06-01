@@ -15,7 +15,7 @@ import { pageSectionPriceTablePreset } from '../../wheelroom/wheels/section/pric
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { TableSectionProps } from './table-section'
 import { ThemeId } from '../../admin-resources/theme-info'
-import { TopicTable } from '../../wheelroom/wheels/model/topic-table/topic-table'
+import { TopicTable } from '../../wheelroom/wheels/model/table/table'
 import { Wheel } from '../../wheelroom/wheels/types'
 
 export const TableSectionPriceVar = (props: TableSectionProps) => {

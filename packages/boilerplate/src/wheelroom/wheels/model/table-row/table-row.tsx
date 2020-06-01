@@ -1,38 +1,34 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
-import { Wheel } from '../../types'
-import { TopicProps } from '../../../../models/topic'
-import { ActionProps } from '../../../../models/action'
-import { TopicRowWheelStyle } from './presets/topic-row-preset'
-import { Dd, Dl, Dt, Th, Tr } from '../../element/self'
-import { TopicRowCell } from './topic-row-cell'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Action } from '../action/action'
+import { ActionProps } from '../../../../models/action/action'
 import { Any } from '../../element/any'
-import { TopicRowProps } from '../../../../models/topic-row'
+import { Dd, Dl, Dt, Th, Tr } from '../../element/self'
+import { jsx } from '@emotion/core'
+import { TableRowCell } from './table-row-cell'
+import { TableRowProps } from '../../../../models/table-row/table-row'
+import { TableRowWheelStyle } from './presets/table-row-preset'
 import { TopicIcon } from '../topic/topic-icon'
+import { TopicProps } from '../../../../models/topic/topic'
+import { Wheel } from '../../types'
 
-export interface TopicRowWheel extends Wheel {
-  style: TopicRowWheelStyle
+export interface TableRowWheel extends Wheel {
+  style: TableRowWheelStyle
 }
 
-export interface TopicRowWheelProps {
+export interface TableRowWheelProps {
   /** Styling wheel */
-  wheel: TopicRowWheel
+  wheel: TableRowWheel
   /** The topic rows to render */
-  topicRow?: TopicRowProps
-  /** Options that change topic display behaviour */
-  pageSectionInfo: PageSectionInfo
+  tableRow?: TableRowProps
 }
 
-export const TopicRow = (props: TopicRowWheelProps) => {
-  const topicRow = props.topicRow
-  if (!topicRow) {
+export const TableRow = (props: TableRowWheelProps) => {
+  const tableRow = props.tableRow
+  if (!tableRow) {
     return null
   }
-  const pageSectionInfo = props.pageSectionInfo
 
-  // Based on topicCount calculate width of first and following cols:
+  // Based on tableCount calculate width of first and following cols:
   // 0 = 1
   // 1 = 2/3  1/3
   // 2 = 2/4  1/4  1/4
@@ -40,7 +36,7 @@ export const TopicRow = (props: TopicRowWheelProps) => {
   // 4 = 2/6  1/6  1/6  1/6  1/6
   // 5 = 2/7  1/7  1/7  1/7  1/7  1/7
 
-  const topicCount = topicRow.topics.length
+  const topicCount = (tableRow.topics && tableRow.topics.length) || 0
   const rowHeaderCellStyle = props.wheel.style.th
   const headerCellWidth = topicCount ? 2 / (topicCount + 2) : 1
   const dataCellWidth = topicCount ? 1 / (topicCount + 2) : 0
@@ -50,40 +46,40 @@ export const TopicRow = (props: TopicRowWheelProps) => {
   }
 
   let rowStyle = props.wheel.style
-  if (topicRow.variation === 'header' && rowStyle.header) {
+  if (tableRow.variation === 'header' && rowStyle.header) {
     rowStyle = rowStyle.header
   }
-  if (topicRow.variation === 'footer' && rowStyle.footer) {
+  if (tableRow.variation === 'footer' && rowStyle.footer) {
     rowStyle = rowStyle.footer
   }
 
   return (
     <Tr wheel={{ ...props.wheel, style: rowStyle }}>
       <Th wheel={{ ...props.wheel, style: rowHeaderCellStyle }}>
-        {topicRow.icon && (
+        {tableRow.icon && (
           <TopicIcon
-            icon={topicRow.icon}
+            icon={tableRow.icon}
             wheel={{ ...props.wheel, style: props.wheel.style.icon }}
           />
         )}
         <Dl wheel={{ ...props.wheel, style: props.wheel.style.dl }}>
-          {topicRow.heading && (
+          {tableRow.heading && (
             <Dt wheel={{ ...props.wheel, style: props.wheel.style.dt }}>
-              {topicRow.heading}
+              {tableRow.heading}
             </Dt>
           )}
-          {topicRow.abstract && (
+          {tableRow.abstract && (
             <Dd wheel={{ ...props.wheel, style: props.wheel.style.dd }}>
-              {topicRow.abstract?.abstract}
+              {tableRow.abstract?.abstract}
             </Dd>
           )}
         </Dl>
-        {topicRow.actions && (
+        {tableRow.actions && (
           <Any
             is="div"
             wheel={{ ...props.wheel, style: props.wheel.style.actions }}
           >
-            {topicRow.actions.map((action: ActionProps, index: number) => (
+            {tableRow.actions.map((action: ActionProps, index: number) => (
               <Action
                 key={index}
                 url={action.url}
@@ -99,14 +95,13 @@ export const TopicRow = (props: TopicRowWheelProps) => {
           </Any>
         )}
       </Th>
-      {topicRow.topics.map((topic: TopicProps, index: number) => {
+      {(tableRow.topics || []).map((topic: TopicProps, index: number) => {
         return (
-          <TopicRowCell
+          <TableRowCell
             key={index}
             topic={topic}
             dataCellWidth={dataCellWidth}
             wheel={{ ...props.wheel, style: props.wheel.style.cell }}
-            pageSectionInfo={pageSectionInfo}
             {...topic}
           />
         )

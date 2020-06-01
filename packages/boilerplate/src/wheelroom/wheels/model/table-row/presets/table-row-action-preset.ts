@@ -1,21 +1,21 @@
 import { NcssProps } from '../../../types'
 
-export interface TopicTableActionWheelStyle {
+export interface TableRowActionWheelStyle {
   ncss: NcssProps
   icon: {
     ncss: NcssProps
   }
 }
 
-export const topicTableActionPreset: TopicTableActionWheelStyle = {
+export const tableRowActionPreset: TableRowActionWheelStyle = {
   ncss: {
-    label: 'topic-table-action',
+    label: 'table-row-action',
     display: 'inline-flex',
     m: 1,
   },
   icon: {
     ncss: {
-      label: 'topic-table-icon',
+      label: 'table-row-icon',
       w: '15px',
       h: '15px',
       my: 'auto',

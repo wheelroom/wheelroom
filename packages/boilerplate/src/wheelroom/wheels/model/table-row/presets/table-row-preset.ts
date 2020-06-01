@@ -3,15 +3,15 @@ import { DescriptionListElementStyle } from '../../../element/resets/self-dl-res
 import { IconElementStyle } from '../../../element/resets/icon-reset'
 import { TableElementStyle } from '../../../element/resets/self-table-reset'
 import {
-  topicRowCellPreset,
-  TopicRowCellWheelStyle,
-} from './topic-row-cell-preset'
+  tableRowCellPreset,
+  TableRowCellWheelStyle,
+} from './table-row-cell-preset'
 import {
-  topicRowActionPreset,
-  TopicRowActionWheelStyle,
-} from './topic-row-action-preset'
+  tableRowActionPreset,
+  TableRowActionWheelStyle,
+} from './table-row-action-preset'
 
-export interface TopicRowWheelStyle {
+export interface TableRowWheelStyle {
   ncss: NcssProps
   header: NcssProps
   footer: NcssProps
@@ -22,14 +22,14 @@ export interface TopicRowWheelStyle {
   icon: IconElementStyle
   actions: {
     ncss: NcssProps
-    action: TopicRowActionWheelStyle
+    action: TableRowActionWheelStyle
   }
-  cell: TopicRowCellWheelStyle
+  cell: TableRowCellWheelStyle
 }
 
-export const topicRowPreset: TopicRowWheelStyle = {
+export const tableRowPreset: TableRowWheelStyle = {
   ncss: {
-    label: 'topic-row',
+    label: 'table-row',
   },
   header: {
     ncss: {},
@@ -39,35 +39,35 @@ export const topicRowPreset: TopicRowWheelStyle = {
   },
   th: {
     ncss: {
-      label: 'topic-row-header-cell',
+      label: 'table-row-header-cell',
     },
   },
   dd: {
     ncss: {
-      label: 'topic-row-description-definition',
+      label: 'table-row-description-definition',
     },
   },
   dl: {
     ncss: {
-      label: 'topic-row-description-list',
+      label: 'table-row-description-list',
     },
   },
   dt: {
     ncss: {
-      label: 'topic-row-description-term',
+      label: 'table-row-description-term',
     },
   },
   icon: {
     ncss: {
-      label: 'topic-row-icon',
+      label: 'table-row-icon',
     },
   },
   actions: {
     ncss: {
-      label: 'topic-row-actions',
+      label: 'table-row-actions',
       mx: -1,
     },
-    action: topicRowActionPreset,
+    action: tableRowActionPreset,
   },
-  cell: topicRowCellPreset,
+  cell: tableRowCellPreset,
 }

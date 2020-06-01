@@ -1,14 +1,14 @@
 import React from 'react'
+import { Action } from '../action/action'
+import { BlockLevelElementName } from '../../element/types/element-names'
 import { Box } from '../../element/grid'
 import { getTopicInfo } from '../../../lib/get-topic-info'
-import { BlockLevelElementName } from '../../element/types/element-names'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
-import { TopicBody } from './topic-body'
 import { ParserFunction } from '../../../parsers/types'
-import { Action } from '../action/action'
-import { Wheel } from '../../types'
-import { TopicWheelStyle } from './presets/topic-preset'
+import { TopicBody } from './topic-body'
 import { TopicProps } from '../../../../models/topic/topic'
+import { TopicWheelStyle } from './presets/topic-preset'
+import { Wheel } from '../../types'
+import { TopicOptions } from '../../../lib/get-topic-options'
 
 export interface TopicWheel extends Wheel {
   style: TopicWheelStyle
@@ -19,9 +19,8 @@ export interface TopicWheelProps {
   wheel: TopicWheel
   /** The topic to render */
   topic?: TopicProps
-  /** Options that change topic display behaviour */
-  pageSectionInfo: PageSectionInfo
-
+  /** Topic render options */
+  topicOptions: TopicOptions
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
@@ -42,15 +41,17 @@ export const Topic = (props: TopicWheelProps) => {
     return null
   }
   const topicInfo = getTopicInfo(props.topic)
-  const topicOptions = props.pageSectionInfo.topicOptions
   const fullTopicAsLink =
-    !topicOptions.hideAction && topicInfo.hasAction && props.fullTopicAsLink
+    !props.topicOptions.hideAction &&
+    topicInfo.hasAction &&
+    props.fullTopicAsLink
 
+  const action = props.topic.actions && props.topic.actions[0]
   let Element: any
   let elementProps
   if (fullTopicAsLink) {
     Element = Action
-    elementProps = { ...props.topic.actions[0], icon: undefined }
+    elementProps = { ...action, icon: undefined }
   } else {
     Element = Box
     elementProps = { is: 'div' }

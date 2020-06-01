@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
-import { NavigationSegmentProps } from '../../../../models/navigation-segment'
 import { Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageSectionProps } from '../../../../models/page-section'
 import { NavFooterSocialList } from './nav-footer-social-list'
 import { NavFooterList } from './nav-footer-list'
 import { LegalFooter } from './legal-footer'
 import { NavFooterWheelStyle } from './presets/nav-footer-preset'
 import { Wheel } from '../../types'
+import { PageSectionProps } from '../../../../models/page-section/page-section'
+import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
 
 interface PageSectionNavigationFooterWheel extends Wheel {
   style: NavFooterWheelStyle

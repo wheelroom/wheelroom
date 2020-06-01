@@ -1,32 +1,28 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Wheel } from '../../types'
-import { TopicProps } from '../../../../models/topic'
+import { TableRowCellWheelStyle } from './presets/table-row-cell-preset'
 import { Td } from '../../element/self'
-import { TopicRowCellWheelStyle } from './presets/topic-row-cell-preset'
 import { Topic } from '../topic/topic'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
+import { TopicProps } from '../../../../models/topic/topic'
+import { Wheel } from '../../types'
 
-export interface TopicRowCellWheel extends Wheel {
-  style: TopicRowCellWheelStyle
+export interface TableRowCellWheel extends Wheel {
+  style: TableRowCellWheelStyle
 }
 
-export interface TopicRowCellProps {
+export interface TableRowCellProps {
   /** Styling wheel */
-  wheel: TopicRowCellWheel
-  /** Options that change topic display behaviour */
-  pageSectionInfo: PageSectionInfo
+  wheel: TableRowCellWheel
   /** Topic props */
   topic: TopicProps
   /** Percentage */
   dataCellWidth: number
 }
 
-export const TopicRowCell = (props: TopicRowCellProps) => {
+export const TableRowCell = (props: TableRowCellProps) => {
   if (!props.topic) {
     return null
   }
-  const pageSectionInfo = props.pageSectionInfo
 
   const dataCellStyle = props.wheel.style
 
@@ -40,7 +36,6 @@ export const TopicRowCell = (props: TopicRowCellProps) => {
         topic={props.topic}
         wheel={{ ...props.wheel, style: props.wheel.style.topic }}
         useHeadingElement="p"
-        pageSectionInfo={pageSectionInfo}
       />
     </Td>
   )

@@ -3,15 +3,12 @@ import { DescriptionListElementStyle } from '../../../element/resets/self-dl-res
 import { IconElementStyle } from '../../../element/resets/icon-reset'
 import { TableElementStyle } from '../../../element/resets/self-table-reset'
 import {
-  topicRowPreset,
-  TopicRowWheelStyle,
-} from '../../topic-row/presets/topic-row-preset'
-import {
-  topicTableActionPreset,
-  TopicTableActionWheelStyle,
-} from './topic-table-action-preset'
+  tableRowPreset,
+  TableRowWheelStyle,
+} from '../../table-row/presets/table-row-preset'
+import { TableActionWheelStyle, tableActionPreset } from './table-action-preset'
 
-export interface TopicTableWheelStyle {
+export interface TableWheelStyle {
   ncss: NcssProps
   table: TableElementStyle
   th: TableElementStyle
@@ -22,12 +19,12 @@ export interface TopicTableWheelStyle {
   icon: IconElementStyle
   actions: {
     ncss: NcssProps
-    action: TopicTableActionWheelStyle
+    action: TableActionWheelStyle
   }
-  row: TopicRowWheelStyle
+  row: TableRowWheelStyle
 }
 
-export const topicTablePreset: TopicTableWheelStyle = {
+export const topicTablePreset: TableWheelStyle = {
   ncss: {
     label: 'topic-table',
     overflowX: 'auto',
@@ -72,7 +69,7 @@ export const topicTablePreset: TopicTableWheelStyle = {
       label: 'topic-table-actions',
       mx: -1,
     },
-    action: topicTableActionPreset,
+    action: tableActionPreset,
   },
-  row: topicRowPreset,
+  row: tableRowPreset,
 }
