@@ -8,29 +8,30 @@
  */
 
 import React from 'react'
-import { Image } from '../../element/image'
-import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types'
-import { Paragraph } from '../../element/paragraph'
-import { Li, Ol, Ul } from '../../element/self'
-import { H1, H2, H3, H4, H5, H6 } from '../../element/heading'
-import { getLocalizedValue } from './get-localized-value'
-import { Wrapper } from '../../element/grid'
 import {
   Options,
   documentToReactComponents,
 } from '@contentful/rich-text-react-renderer'
-import { Video } from '../../element/video'
-import { Embed } from '../embed/embed'
-import { TextWheelStyle } from './text-preset'
-import { MediaObject } from '../../element/types/media'
-import { Wheel } from '../../types'
-import { Strong } from '../../element/self'
-import { Pre } from '../../element/self'
-import { Code } from '../../element/self'
-import { Hr } from '../../element/self'
+import { ALink } from '../../element/a-link'
 import { Blockquote } from '../../element/self'
-import { Action } from '../action/action'
+import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types'
+import { Code } from '../../element/self'
+import { Embed } from '../embed/embed'
+import { getLocalizedValue } from './get-localized-value'
+import { GLink } from '../../element/g-link'
+import { H1, H2, H3, H4, H5, H6 } from '../../element/heading'
+import { Hr } from '../../element/self'
+import { Image } from '../../element/image'
+import { Li, Ol, Ul } from '../../element/self'
+import { MediaObject } from '../../element/types/media'
+import { Paragraph } from '../../element/paragraph'
+import { Pre } from '../../element/self'
+import { Strong } from '../../element/self'
 import { TextProps } from '../../../../models/text/text'
+import { TextWheelStyle } from './text-preset'
+import { Video } from '../../element/video'
+import { Wheel } from '../../types'
+import { Wrapper } from '../../element/grid'
 
 export interface TextWheel extends Wheel {
   style: TextWheelStyle
@@ -160,15 +161,15 @@ export const Text = (props: TextWheelProps) => {
       [INLINES.HYPERLINK]: (node: Node, children: Children) => {
         const uri = node.data.uri
         return (
-          <Action
-            url={uri}
+          <ALink
+            href={uri}
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.inlinesHyperlink,
             }}
           >
             {children}
-          </Action>
+          </ALink>
         )
       },
       [INLINES.ENTRY_HYPERLINK]: (node: Node, children: Children) => {
@@ -176,15 +177,15 @@ export const Text = (props: TextWheelProps) => {
           node.data.target.fields &&
           node.data.target.fields.path[textProps.locale]
         return (
-          <Action
+          <GLink
             wheel={{
               ...textProps.wheel,
               style: textProps.wheel.style.entryHyperlink,
             }}
-            page={{ path: internalPath }}
+            to={internalPath}
           >
             {children}
-          </Action>
+          </GLink>
         )
       },
       [BLOCKS.HEADING_1]: (_node: Node, children: Children) => (

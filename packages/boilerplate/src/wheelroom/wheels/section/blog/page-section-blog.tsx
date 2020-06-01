@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { Any } from '../../element/any'
+import { BlogProps } from '../../../../models/blog/blog'
 import { BlogWheelStyle } from './page-section-blog-preset'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { Heading } from '../../element/heading'
@@ -7,9 +8,9 @@ import { jsx } from '@emotion/core'
 import { Text } from '../../model/text/text'
 import { Time } from '../../element/self'
 import { Topic } from '../../model/topic/topic'
+import { TopicOptions } from '../../../lib/get-topic-options'
 import { TopicProps } from '../../../../models/topic/topic'
 import { Wheel } from '../../types'
-import { BlogProps } from '../../../../models/blog/blog'
 
 export interface BlogWheel extends Wheel {
   style: BlogWheelStyle
@@ -26,6 +27,7 @@ export interface BlogWheelProps {
   containerStyle: 'container' | 'fluid'
   /** Accept max number of topics, ignore all others */
   maxTopics?: number
+  topicOptions: TopicOptions
 }
 
 export const PageSectionBlog = (props: BlogWheelProps) => {
@@ -88,11 +90,12 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
               props.blog.authors.map((author: TopicProps, index: number) => {
                 return (
                   <Topic
+                    fullTopicAsLink={false}
                     key={index}
                     maxActions={2}
-                    fullTopicAsLink={false}
-                    useHeadingElement="p"
                     topic={author}
+                    topicOptions={props.topicOptions}
+                    useHeadingElement="p"
                     wheel={{
                       ...props.wheel,
                       style: props.wheel.style.author,

@@ -27,3 +27,11 @@ export interface BlogProps {
   seoImage?: MediaObject
   seoKeywords?: string[]
 }
+
+export interface BlogNodeProps {
+  node: BlogProps
+}
+
+export interface AllBlogProps {
+  edges: BlogNodeProps[]
+}
