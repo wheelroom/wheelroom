@@ -39,7 +39,7 @@ export type sectionId =
   | 'hero'
   | 'image'
   | 'navigation'
-  | 'priceTable'
+  | 'table'
   | 'quote'
   | 'showcase'
   | 'text'
