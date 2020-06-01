@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.3.4...@wheelroom/wheelroom-plugin-contentful@3.4.0) (2020-06-01)
+
+
+### Features
+
+* check for matching locale ([46b9d79](https://github.com/wheelroom/wheelroom/commit/46b9d79a84e9d34354d0504bd988dc3efb20688b))
+
+
+
+
+
 ## [3.3.4](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.3.3...@wheelroom/wheelroom-plugin-contentful@3.3.4) (2020-05-31)
 
 **Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.2.0...@wheelroom/wheelroom@4.3.0) (2020-06-01)
+
+
+### Features
+
+* new --config command line option ([6e41abb](https://github.com/wheelroom/wheelroom/commit/6e41abb6430542c3066a40f214411e0f081634d1))
+
+
+
+
+
 # [4.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.1.2...@wheelroom/wheelroom@4.2.0) (2020-05-31)
 
 
