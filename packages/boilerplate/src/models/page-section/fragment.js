@@ -22,25 +22,5 @@ export const fragment = graphql`
       }
     }
     topicOptions
-    topicTables {
-      ... on Node {
-        ...TopicTable
-      }
-    }
-    text {
-      ... on Node {
-        ...Text
-      }
-    }
-    navigation {
-      ... on Node {
-        ...Navigation
-      }
-    }
-    actions {
-      ... on Node {
-        ...Action
-      }
-    }
   }
 `
