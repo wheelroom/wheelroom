@@ -17,10 +17,10 @@ export interface TopicProps {
   abstract?: {
     abstract: string
   }
-  media?: MediaObject | undefined
+  media?: MediaObject
   icon?: string | JSX.Element
-  actions?: ActionProps[] | undefined
-  poster?: MediaObject | undefined
-  mediaEmbed?: EmbedProps | undefined
-  mediaBreakpoint?: MediaBreakpointProps | undefined
+  actions?: ActionProps[]
+  poster?: MediaObject
+  mediaEmbed?: EmbedProps
+  mediaBreakpoint?: MediaBreakpointProps
 }

@@ -10,7 +10,6 @@ import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { getWheel, getSectionStyle } from '../../themes/themes'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionFreestyle } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle'
 import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
 import { PageSectionProps } from '../page-section/page-section'
@@ -42,5 +41,5 @@ export const TextSectionTextVar = (props: PageSectionProps) => {
       </ScrollSpy>
     )
   }
-  return <NotImplemented pageSection={props} wheel={wheel} />
+  return null
 }

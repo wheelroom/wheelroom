@@ -6,7 +6,6 @@
  */
 
 import React from 'react'
-import { MediaObject } from '../../wheelroom/wheels/element/types/media'
 import { getVariation } from '../../wheelroom/lib/get-variation'
 import { SectionProps } from '../../wheelroom/sections/section-props'
 import { BlogSectionBlogVar } from './blog-section-blog-var'
@@ -18,10 +17,9 @@ const componentList = {
 export interface BlogSectionProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
-  title: string
   variation: string
-  blog: any
   eventId: string
+  // blog property us injected by page-template.tsx
 }
 
 export const BlogSection = (props: BlogSectionProps) => {

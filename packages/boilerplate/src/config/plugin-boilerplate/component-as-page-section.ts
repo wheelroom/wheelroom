@@ -8,9 +8,8 @@ export const componentAsPageSection = `/**
 
 import React from 'react'
 import { %ComponentName%Props } from './%component-name%'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 
 export const %ComponentName%%VariationName%Var = (props: %ComponentName%Props) => {
-  return <NotImplemented {...props} />
+  return <div>TODO:Implement this</div>
 }
 `

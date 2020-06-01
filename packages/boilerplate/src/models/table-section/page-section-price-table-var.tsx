@@ -7,19 +7,18 @@
  */
 
 import React from 'react'
-import { getSectionStyle, getWheel } from '../../themes/themes'
-import { PageSectionProps } from '.'
-import { ThemeId } from '../../admin-resources/theme-info'
-import { Wheel } from '../../wheelroom/wheels/types'
-import { TopicTable } from '../../wheelroom/wheels/model/topic-table/topic-table'
-import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { Container, Wrapper } from '../../wheelroom/wheels/element/grid'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
+import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
+import { getSectionStyle, getWheel } from '../../themes/themes'
 import { pageSectionPriceTablePreset } from '../../wheelroom/wheels/section/price-table/page-section-price-table-preset'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
+import { TableSectionProps } from './table-section'
+import { ThemeId } from '../../admin-resources/theme-info'
+import { TopicTable } from '../../wheelroom/wheels/model/topic-table/topic-table'
+import { Wheel } from '../../wheelroom/wheels/types'
 
-export const PageSectionPriceTableVar = (props: PageSectionProps) => {
+export const PageSectionPriceTableVar = (props: TableSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
@@ -29,7 +28,7 @@ export const PageSectionPriceTableVar = (props: PageSectionProps) => {
   ])
 
   if (!pageSectionInfo.hasTopicTable) {
-    return <NotImplemented pageSection={props} wheel={wheel} />
+    return null
   }
   return (
     <ScrollSpy

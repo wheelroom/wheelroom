@@ -8,8 +8,9 @@
 
 import React from 'react'
 import { BlogSectionProps } from './blog-section'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 
 export const BlogSectionBlogVar = (props: BlogSectionProps) => {
-  return <NotImplemented {...props} />
+  // eslint-disable-next-line no-undef
+  console.log('TableSingleVar props', props)
+  return <div>TODO:Implement BlogSectionBlogVar</div>
 }

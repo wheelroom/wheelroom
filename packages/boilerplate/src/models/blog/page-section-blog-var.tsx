@@ -9,7 +9,6 @@
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../themes/themes'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionBlog } from '../../wheelroom/wheels/section/blog/page-section-blog'
 import { pageSectionBlogPreset } from '../../wheelroom/wheels/section/blog/page-section-blog-preset'
 import { PageSectionProps } from '../page-section/page-section'
@@ -27,7 +26,7 @@ export const PageSectionBlogVar = (props: PageSectionProps) => {
   ])
 
   if (!props.blog) {
-    return <NotImplemented pageSection={props} wheel={wheel} />
+    return null
   }
 
   return (

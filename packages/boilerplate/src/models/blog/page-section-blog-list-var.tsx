@@ -12,7 +12,6 @@ import { BlogProps } from '../blog/blog'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../themes/themes'
 import { Li, Ul } from '../../wheelroom/wheels/element/self'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { pageSectionFreestylePreset } from '../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
 import { PageSectionProps } from '../page-section/page-section'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
@@ -27,7 +26,7 @@ export const PageSectionBlogListVar = (props: PageSectionProps) => {
     getSectionStyle('text').base,
   ])
   if (!props.blog) {
-    return <NotImplemented pageSection={props} wheel={wheel} />
+    return null
   }
   const allBlog: BlogProps[] = (props.allBlog as any).edges.map(
     (edge: any) => edge.node

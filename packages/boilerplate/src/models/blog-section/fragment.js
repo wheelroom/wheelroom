@@ -14,7 +14,6 @@ import { graphql } from 'gatsby'
 export const fragment = graphql`
 fragment BlogSection on ContentfulBlogSection {
   __typename
-  title
   variation
   blog {
     ... on Node {

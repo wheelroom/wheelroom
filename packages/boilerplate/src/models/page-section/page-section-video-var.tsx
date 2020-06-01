@@ -9,7 +9,6 @@
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
-import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 import { PageSectionProps } from './page-section'
 import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-section-unicorn'
 import { pageSectionVideoPreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-video-preset'
@@ -49,5 +48,5 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
       </ScrollSpy>
     )
   }
-  return <NotImplemented pageSection={props} wheel={wheel} />
+  return null
 }
