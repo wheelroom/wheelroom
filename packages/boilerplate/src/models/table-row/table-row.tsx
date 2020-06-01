@@ -10,6 +10,8 @@ import { getVariation } from '../../wheelroom/lib/get-variation'
 import { TableRowHeaderVar } from './table-row-header-var'
 import { TableRowBodyVar } from './table-row-body-var'
 import { TableRowFooterVar } from './table-row-footer-var'
+import { ActionProps } from '../action/action'
+import { TopicProps } from '../topic/topic'
 
 const componentList = {
   ['header']: TableRowHeaderVar,
@@ -26,8 +28,8 @@ export interface TableRowProps {
     abstract: string
   }
   icon?: string
-  actions?: any
-  topics?: any
+  actions?: ActionProps[]
+  topics?: TopicProps[]
 }
 
 export const TableRow = (props: TableRowProps) => {
