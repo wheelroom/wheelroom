@@ -14,6 +14,8 @@ import { Any } from '../../element/any'
 import { FeatherIcon } from '../../element/icon'
 import { GLink } from '../../element/g-link'
 import { NcssProps, Wheel } from '../../types'
+import { ActionProps } from '../../../../models/action/action'
+import { EmbedProps } from '../../../../models/embed/embed'
 
 export interface ActionWheelStyle {
   ncss: NcssProps

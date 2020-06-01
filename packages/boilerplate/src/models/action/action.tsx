@@ -12,7 +12,7 @@ export interface ActionProps {
   description?: string
   eventId?: string
   heading?: string
-  icon?: string | JSX.Element
+  icon?: string
   page?: any
   query?: string
   url?: any
