@@ -14,19 +14,14 @@ import { Wheel } from '../../wheelroom/wheels/types'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { NotImplemented } from '../../wheelroom/lib/not-implemented'
-import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { pageSectionBlogPreset } from '../../wheelroom/wheels/section/blog/page-section-blog-preset'
 import { PageSectionBlog } from '../../wheelroom/wheels/section/blog/page-section-blog'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 
 export const PageSectionBlogVar = (props: PageSectionProps) => {
-  const pageSectionInfo = getPageSectionInfo(props)
-
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
-    { featured: topicPreset },
     { author: topicPreset },
-    { label: topicPreset },
     pageSectionBlogPreset,
     getSectionStyle('blog').base,
   ])

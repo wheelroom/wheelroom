@@ -11,6 +11,7 @@ import { getVariation } from '../../wheelroom/lib/get-variation'
 import { NavigationProps } from '../navigation'
 import { PageSectionBlockVar } from './page-section-block-var'
 import { PageSectionBlogVar } from './page-section-blog-var'
+import { PageSectionBlogListVar } from './page-section-blog-list-var'
 import { PageSectionCardVar } from './page-section-card-var'
 import { PageSectionDividerVar } from './page-section-divider-var'
 import { PageSectionFeaturedVar } from './page-section-featured-var'
@@ -33,6 +34,7 @@ import { TopicTableProps } from '../topic-table'
 const componentList = {
   ['block-wr']: PageSectionBlockVar,
   ['blog-wr']: PageSectionBlogVar,
+  ['blog-list-wr']: PageSectionBlogListVar,
   ['card-wr']: PageSectionCardVar,
   ['divider-wr']: PageSectionDividerVar,
   ['featured-wr']: PageSectionFeaturedVar,

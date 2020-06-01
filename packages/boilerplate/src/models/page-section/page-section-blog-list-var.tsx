@@ -18,6 +18,7 @@ import { Li, Ul } from '../../wheelroom/wheels/element/self'
 import { BlogProps } from '../blog'
 import { Action } from '../../wheelroom/wheels/model/action/action'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
+import { NotImplemented } from '../../wheelroom/lib/not-implemented'
 
 export const PageSectionBlogListVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
@@ -25,6 +26,9 @@ export const PageSectionBlogListVar = (props: PageSectionProps) => {
     pageSectionFreestylePreset,
     getSectionStyle('text').base,
   ])
+  if (!props.blog) {
+    return <NotImplemented pageSection={props} wheel={wheel} />
+  }
   const allBlog: BlogProps[] = (props.allBlog as any).edges.map(
     (edge: any) => edge.node
   )
@@ -41,7 +45,7 @@ export const PageSectionBlogListVar = (props: PageSectionProps) => {
               return (
                 <Li key={index} wheel={wheel}>
                   <Action wheel={wheel} page={{ path: '/blog/' + blog.slug }}>
-                    {blog.navigationHeading}
+                    {blog.heading}
                   </Action>
                 </Li>
               )
