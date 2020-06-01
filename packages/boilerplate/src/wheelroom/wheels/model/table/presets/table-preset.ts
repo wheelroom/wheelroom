@@ -24,49 +24,49 @@ export interface TableWheelStyle {
   row: TableRowWheelStyle
 }
 
-export const topicTablePreset: TableWheelStyle = {
+export const tablePreset: TableWheelStyle = {
   ncss: {
-    label: 'topic-table',
+    label: 'table',
     overflowX: 'auto',
   },
   table: {
     ncss: {
-      label: 'topic-table-table',
+      label: 'table-table',
     },
   },
   th: {
     ncss: {
-      label: 'topic-table-head',
+      label: 'table-head',
     },
   },
   tr: {
     ncss: {
-      label: 'topic-table-row',
+      label: 'table-row',
     },
   },
   dd: {
     ncss: {
-      label: 'topic-table-description-definition',
+      label: 'table-description-definition',
     },
   },
   dl: {
     ncss: {
-      label: 'topic-table-description-list',
+      label: 'table-description-list',
     },
   },
   dt: {
     ncss: {
-      label: 'topic-table-description-term',
+      label: 'table-description-term',
     },
   },
   icon: {
     ncss: {
-      label: 'topic-table-icon',
+      label: 'table-icon',
     },
   },
   actions: {
     ncss: {
-      label: 'topic-table-actions',
+      label: 'table-actions',
       mx: -1,
     },
     action: tableActionPreset,

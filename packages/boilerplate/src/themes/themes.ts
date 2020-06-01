@@ -25,7 +25,7 @@ import { sectionQuoteStyle } from './yosemite/sections/section-quote-style'
 import { sectionShowcaseStyle } from './yosemite/sections/section-showcase-style'
 import { sectionVideoStyle } from './yosemite/sections/section-video-style'
 import { StyledSystemTheme } from '../wheelroom/theme/types'
-import { sectionPriceTableStyle } from './yosemite/sections/section-price-table-style'
+import { sectionTableStyle } from './yosemite/sections/section-table-style'
 import { sectionBlogStyle } from './yosemite/sections/section-blog-style'
 
 export type sectionId =
@@ -84,8 +84,8 @@ const sectionStyleMap = {
     header: navHeaderStyle,
     footer: navFooterStyle,
   },
-  priceTable: {
-    base: sectionPriceTableStyle,
+  table: {
+    base: sectionTableStyle,
   },
   quote: {
     base: sectionQuoteStyle,

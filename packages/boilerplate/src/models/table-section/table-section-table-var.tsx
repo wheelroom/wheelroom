@@ -11,7 +11,7 @@ import { Container, Wrapper } from '../../wheelroom/wheels/element/grid'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { getSectionStyle, getWheel } from '../../themes/themes'
-import { pageSectionPriceTablePreset } from '../../wheelroom/wheels/section/price-table/page-section-price-table-preset'
+import { tableSectionPreset } from '../../wheelroom/wheels/section/presets/table-section-preset'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { Table } from '../../wheelroom/wheels/model/table/table'
 import { TableSectionProps } from './table-section'
@@ -22,10 +22,7 @@ export const TableSectionTableVar = (props: TableSectionProps) => {
   const pageSectionInfo = getPageSectionInfo(props)
 
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([
-    pageSectionPriceTablePreset,
-    getSectionStyle('priceTable').base,
-  ])
+  wheel.style = deepMerge([tableSectionPreset, getSectionStyle('table').base])
 
   if (!pageSectionInfo.hasTopicTable) {
     return null

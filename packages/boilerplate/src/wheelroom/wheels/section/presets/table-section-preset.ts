@@ -4,20 +4,20 @@ import {
   TableWheelStyle,
 } from '../../model/table/presets/table-preset'
 
-export interface PageSectionPriceTableWheelStyle {
+export interface TableSectionWheelStyle {
   container: GridElementStyle
-  topicTable: TableWheelStyle
+  table: TableWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionPriceTablePreset: PageSectionPriceTableWheelStyle = {
+export const tableSectionPreset: TableSectionWheelStyle = {
   container: {
     ncss: {
       px: 3,
       overflow: 'hidden',
     },
   },
-  topicTable: tablePreset,
+  table: tablePreset,
   wrapper: {
     ncss: {},
   },
