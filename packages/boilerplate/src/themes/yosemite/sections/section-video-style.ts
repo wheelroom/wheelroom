@@ -1,4 +1,4 @@
-import { PageSectionVideoWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-video-preset'
+import { PageSectionVideoWheelStyle } from '../../../wheelroom/wheels/section/page/presets/page-section-video-preset'
 import { iconTopicStyle } from '../elements/icon-style'
 import { wrapperStyle } from '../elements/grid-style'
 

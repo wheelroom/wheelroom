@@ -21,7 +21,7 @@ export const PageSectionDividerVar = (props: PageSectionProps) => {
   return (
     <ScrollSpy
       eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds}
+      siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
       <Hr wheel={wheel} />

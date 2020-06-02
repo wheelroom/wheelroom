@@ -8,19 +8,16 @@
 
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { getSectionStyle, getWheel } from '../../themes/themes'
-import { pageSectionGalleryPreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-gallery-preset'
+import { pageSectionGalleryPreset } from '../../wheelroom/wheels/section/page/presets/page-section-gallery-preset'
 import { PageSectionProps } from './page-section'
-import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-section-unicorn'
+import { PageSection } from '../../wheelroom/wheels/section/page/page-section'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 
 export const PageSectionGalleryVar = (props: PageSectionProps) => {
-  const pageSectionInfo = getPageSectionInfo(props)
-
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
     { topic: topicPreset },
@@ -35,16 +32,13 @@ export const PageSectionGalleryVar = (props: PageSectionProps) => {
   return (
     <ScrollSpy
       eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds}
+      siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <PageSectionUnicorn
-        topicProps={{
-          topicOptions: pageSectionInfo.topicOptions,
-          wheel,
-        }}
+      <PageSection
         containerStyle="container"
         maxTopics={4}
+        topicOptions={props.topicOptions || {}}
         topics={props.topics}
         wheel={wheel}
       />

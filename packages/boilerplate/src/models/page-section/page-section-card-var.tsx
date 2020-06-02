@@ -10,9 +10,9 @@ import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { getWheel, getSectionStyle } from '../../themes/themes'
-import { pageSectionCardPreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-card-preset'
+import { pageSectionCardPreset } from '../../wheelroom/wheels/section/page/presets/page-section-card-preset'
 import { PageSectionProps } from './page-section'
-import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-section-unicorn'
+import { PageSection } from '../../wheelroom/wheels/section/page/page-section'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
@@ -41,26 +41,27 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
     return null
   }
 
-  const topicActionsPresent =
-    !pageSectionInfo.topicOptions.hideAction &&
-    props.topics &&
-    props.topics.filter((topic: TopicProps) => topic.actions).length > 0
+  // const topicActionsPresent =
+  //   !pageSectionInfo.topicOptions.hideAction &&
+  //   props.topics &&
+  //   props.topics.filter((topic: TopicProps) => topic.actions).length > 0
 
   return (
     <ScrollSpy
       eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds}
+      siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <PageSectionUnicorn
+      <PageSection
         topicProps={{
           fullTopicAsLink: true,
-          topicOptions: pageSectionInfo.topicOptions,
           wheel,
         }}
         containerStyle="container"
+        topicOptions={props.topicOptions || {}}
         topics={props.topics}
-        wheel={topicActionsPresent ? wheelShadow : wheel}
+        wheel={wheel}
+        // wheel={topicActionsPresent ? wheelShadow : wheel}
       />
     </ScrollSpy>
   )

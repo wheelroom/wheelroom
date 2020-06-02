@@ -9,10 +9,11 @@ import { PageSectionHeroWheelStyle } from './presets/page-section-hero-preset'
 import { PageSectionQuoteWheelStyle } from './presets/page-section-quote-preset'
 import { PageSectionShowcaseWheelStyle } from './presets/page-section-showcase-preset'
 import { Topic, TopicWheelProps } from '../../model/topic/topic'
+import { TopicOptions } from '../../../lib/get-topic-options'
 import { TopicProps } from '../../../../models/topic/topic'
 import { Wheel } from '../../types'
 
-export interface PageSectionUnicornWheel extends Wheel {
+export interface PageSectionWheel extends Wheel {
   style:
     | PageSectionBlockWheelStyle
     | PageSectionCardWheelStyle
@@ -23,17 +24,19 @@ export interface PageSectionUnicornWheel extends Wheel {
     | PageSectionQuoteWheelStyle
 }
 
-export const PageSectionUnicorn = (props: {
+export const PageSection = (props: {
   /** Styling wheel */
-  wheel: PageSectionUnicornWheel
+  wheel: PageSectionWheel
   /** Topics to render */
   topics: TopicProps[]
   /** Properties to configure Topic element */
-  topicProps: TopicWheelProps
+  // topicProps: TopicWheelProps
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
   /** Accept max number of topics, ignore all others */
   maxTopics?: number
+  /** Topic options */
+  topicOptions: TopicOptions
 }) => {
   if (!props.topics) {
     return null
@@ -48,11 +51,11 @@ export const PageSectionUnicorn = (props: {
           .slice(0, props.maxTopics)
           .map((topic: TopicProps, index: number) => (
             <Topic
-              {...props.topicProps}
               key={index}
               topic={topic}
               useAbstractParser={MultiParser}
               wheel={{ ...props.wheel, style: props.wheel.style.topic }}
+              topicOptions={props.topicOptions}
             />
           ))}
       </ContainerType>

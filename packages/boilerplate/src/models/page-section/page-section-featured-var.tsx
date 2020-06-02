@@ -8,20 +8,17 @@
 
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
-import { getPageSectionInfo } from '../../wheelroom/lib/get-page-section-info'
 import { getWheel, getSectionStyle } from '../../themes/themes'
-import { pageSectionFeaturedPreset } from '../../wheelroom/wheels/section/unicorn/presets/page-section-featured-preset'
+import { PageSection } from '../../wheelroom/wheels/section/page/page-section'
+import { pageSectionFeaturedPreset } from '../../wheelroom/wheels/section/page/presets/page-section-featured-preset'
 import { PageSectionProps } from './page-section'
-import { PageSectionUnicorn } from '../../wheelroom/wheels/section/unicorn/page-section-unicorn'
+import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
-import { Wheel } from '../../wheelroom/wheels/types'
-import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { TopicProps } from '../topic/topic'
+import { Wheel } from '../../wheelroom/wheels/types'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
-  const pageSectionInfo = getPageSectionInfo(props)
-
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
     { topic: topicPreset },
@@ -44,28 +41,28 @@ export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const topicsPresent =
     props.topics && props.topics.filter((topic: TopicProps) => topic).length > 1
 
-  const topicHeading =
-    pageSectionInfo.index <= 1 && !topicsPresent ? 'h1' : 'h2'
+  const topicHeading = props.index <= 1 && !topicsPresent ? 'h1' : 'h2'
 
-  const reversedOrder = pageSectionInfo.topicOptions.reverseOrder
+  // const reversedOrder = props.topicOptions.reverseOrder
 
   return (
     <ScrollSpy
       eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds}
+      siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <PageSectionUnicorn
+      <PageSection
         topicProps={{
           fullTopicAsLink: false,
           maxActions: 2,
-          topicOptions: pageSectionInfo.topicOptions,
           useHeadingElement: topicHeading,
           wheel,
         }}
         containerStyle="container"
+        topicOptions={props.topicOptions || {}}
         topics={props.topics}
-        wheel={reversedOrder ? wheelReverse : wheel}
+        wheel={wheel}
+        // wheel={reversedOrder ? wheelReverse : wheel}
       />
     </ScrollSpy>
   )

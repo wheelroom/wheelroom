@@ -27,7 +27,7 @@ export const TableSectionPriceVar = (props: TableSectionProps) => {
   return (
     <ScrollSpy
       eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds}
+      siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
       <TableSection

@@ -1,4 +1,4 @@
-import { PageSectionImageWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-image-preset'
+import { PageSectionImageWheelStyle } from '../../../wheelroom/wheels/section/page/presets/page-section-image-preset'
 import { wrapperStyle } from '../elements/grid-style'
 import { iconTopicStyle } from '../elements/icon-style'
 

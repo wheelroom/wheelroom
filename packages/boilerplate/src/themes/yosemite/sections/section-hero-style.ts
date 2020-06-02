@@ -1,4 +1,4 @@
-import { PageSectionHeroWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-hero-preset'
+import { PageSectionHeroWheelStyle } from '../../../wheelroom/wheels/section/page/presets/page-section-hero-preset'
 import {
   displayButtonStyle,
   primaryButtonStyle,
