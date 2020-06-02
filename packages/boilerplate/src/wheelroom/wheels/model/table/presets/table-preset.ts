@@ -26,12 +26,12 @@ export interface TableWheelStyle {
 
 export const tablePreset: TableWheelStyle = {
   ncss: {
-    label: 'table',
+    label: 'table-container',
     overflowX: 'auto',
   },
   table: {
     ncss: {
-      label: 'table-table',
+      label: 'table',
     },
   },
   th: {

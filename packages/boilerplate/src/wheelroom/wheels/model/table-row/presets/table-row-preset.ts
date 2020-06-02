@@ -32,10 +32,14 @@ export const tableRowPreset: TableRowWheelStyle = {
     label: 'table-row',
   },
   header: {
-    ncss: {},
+    ncss: {
+      label: 'table-row-header-style',
+    },
   },
   footer: {
-    ncss: {},
+    ncss: {
+      label: 'table-row-footer-style',
+    },
   },
   th: {
     ncss: {

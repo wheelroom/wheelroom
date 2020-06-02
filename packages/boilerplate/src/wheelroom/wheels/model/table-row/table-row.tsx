@@ -48,16 +48,16 @@ export const TableRow = (props: TableRowWheelProps) => {
     rowHeaderCellStyle.ncss.w = headerCellWidth
   }
 
-  let rowStyle = props.wheel.style
-  if (tableRow.variation === 'header' && rowStyle.header) {
-    rowStyle = rowStyle.header
+  let tableRowStyle = props.wheel.style
+  if (tableRow.variation === 'header' && tableRowStyle.header) {
+    tableRowStyle = tableRowStyle.header
   }
-  if (tableRow.variation === 'footer' && rowStyle.footer) {
-    rowStyle = rowStyle.footer
+  if (tableRow.variation === 'footer' && tableRowStyle.footer) {
+    tableRowStyle = tableRowStyle.footer
   }
 
   return (
-    <Tr wheel={{ ...props.wheel, style: rowStyle }}>
+    <Tr wheel={{ ...props.wheel, style: tableRowStyle }}>
       <Th wheel={{ ...props.wheel, style: rowHeaderCellStyle }}>
         {tableRow.icon && (
           <TopicIcon

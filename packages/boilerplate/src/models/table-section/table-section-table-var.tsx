@@ -36,7 +36,7 @@ export const TableSectionTableVar = (props: TableSectionProps) => {
           <Table
             tables={props.tables}
             topicsOptions={props.topicOptions || {}}
-            wheel={{ ...wheel, style: wheel.style.topicTable }}
+            wheel={{ ...wheel, style: wheel.style.table }}
           />
         </Container>
       </Wrapper>
