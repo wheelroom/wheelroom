@@ -17,6 +17,7 @@ const componentList = {
 }
 
 export interface BlogSectionProps extends SectionProps {
+  topicOptions: {}
   /** Gatsby fetched data */
   __typename: string
   eventId?: string

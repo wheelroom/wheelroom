@@ -1,10 +1,9 @@
 /** @jsx jsx */
-import { BlogListWheelStyle } from './page-section-blog-list-preset'
+import { BlogListWheelStyle } from '../../section/blog/presets/blog-section-list-preset'
 import { BlogProps, AllBlogProps } from '../../../../models/blog/blog'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { Heading } from '../../element/heading'
 import { jsx } from '@emotion/core'
-import { PageSectionProps } from '../../../../models/page-section/page-section'
 import { TopicOptions } from '../../../lib/get-topic-options'
 import { Wheel } from '../../types'
 
@@ -19,17 +18,15 @@ export interface BlogListWheelProps {
   locale: string
   /** List of all blogs to render */
   allBlog: AllBlogProps
-  /** Contains the topic to render */
-  pageSection: PageSectionProps
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
   /** Accept max number of topics, ignore all others */
   maxTopics?: number
-
+  /** Topic options */
   topicOptions: TopicOptions
 }
 
-export const PageSectionBlogList = (props: BlogListWheelProps) => {
+export const BlogList = (props: BlogListWheelProps) => {
   if (!props.allBlog) {
     return null
   }
@@ -42,6 +39,17 @@ export const PageSectionBlogList = (props: BlogListWheelProps) => {
       <ContainerType
         wheel={{ ...props.wheel, style: props.wheel.style.container }}
       >
+        {/* <Ul wheel={wheel} ncss={{ listStyle: 'none' }}>
+            {allBlog.map((blog: BlogProps, index: number) => {
+              return (
+                <Li key={index} wheel={wheel}>
+                  <Action wheel={wheel} page={{ path: '/blog/' + blog.slug }}>
+                    {blog.heading}
+                  </Action>
+                </Li>
+              )
+            })}
+          </Ul> */}
         <Flex wheel={{ ...props.wheel, style: props.wheel.style.blogList }}>
           <Heading
             is="h2"

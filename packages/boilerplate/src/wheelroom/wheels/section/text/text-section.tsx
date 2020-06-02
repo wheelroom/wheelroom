@@ -2,20 +2,20 @@ import React from 'react'
 import { Container, Fluid, Wrapper } from '../../element/grid'
 import { Text } from '../../model/text/text'
 import { Wheel } from '../../types'
-import { FreestyleWheelStyle } from './page-section-freestyle-preset'
+import { TextSectionWheelStyle } from './text-section-preset'
 import { TextProps } from '../../../../models/text/text'
 
-export interface FreestyleWheel extends Wheel {
-  style: FreestyleWheelStyle
+export interface TextSectionWheel extends Wheel {
+  style: TextSectionWheelStyle
 }
 
-export const PageSectionFreestyle = (props: {
+export const TextSection = (props: {
   /** Locale needed for rendering rich text */
   locale: string
   /** Text to render */
   text: TextProps
   /** Styling wheel */
-  wheel: FreestyleWheel
+  wheel: TextSectionWheel
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
 }) => {

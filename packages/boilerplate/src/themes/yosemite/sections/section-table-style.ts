@@ -1,12 +1,12 @@
 import { wrapperStyle } from '../elements/grid-style'
-import { TableSectionWheelStyle } from '../../../wheelroom/wheels/section/presets/table-section-preset'
+import { TableSectionWheelStyle } from '../../../wheelroom/wheels/section/table/presets/table-section-preset'
 import { iconSmallTopicStyle } from '../elements/icon-style'
 
 export const sectionTableStyle: TableSectionWheelStyle = {
   container: {
     ncss: {},
   },
-  table: {
+  section: {
     ncss: {},
     table: {
       ncss: {

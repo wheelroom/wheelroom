@@ -22,7 +22,7 @@ export interface TableRowWheelProps {
   /** The topic rows to render */
   tableRow?: TableRowProps
   /** Topic options */
-  topicsOptions: TopicOptions
+  topicOptions: TopicOptions
 }
 
 export const TableRow = (props: TableRowWheelProps) => {
@@ -104,7 +104,7 @@ export const TableRow = (props: TableRowWheelProps) => {
             dataCellWidth={dataCellWidth}
             key={index}
             topic={topic}
-            topicsOptions={props.topicsOptions}
+            topicOptions={props.topicOptions}
             wheel={{ ...props.wheel, style: props.wheel.style.cell }}
           />
         )

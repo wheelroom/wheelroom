@@ -11,7 +11,10 @@ import { Wheel } from '../wheelroom/wheels/types'
 import { ThemeId } from '../admin-resources/theme-info'
 import { navFooterStyle } from './yosemite/sections/nav-footer-style'
 import { navHeaderStyle } from './yosemite/sections/nav-header-style'
-import { sectionFreestyleStyle } from './yosemite/sections/section-text-style'
+import {
+  sectionFreestyleStyle,
+  sectionTextStyle,
+} from './yosemite/sections/section-text-style'
 import { sectionDividerStyle } from './yosemite/sections/section-divider-style'
 import {
   sectionFeaturedStyle,
@@ -94,7 +97,7 @@ const sectionStyleMap = {
     base: sectionShowcaseStyle,
   },
   text: {
-    base: sectionFreestyleStyle,
+    base: sectionTextStyle,
   },
   video: {
     base: sectionVideoStyle,

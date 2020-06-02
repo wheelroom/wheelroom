@@ -2,17 +2,16 @@
  * Component variation
  *
  * Component type: tableSection
- * Variation: Price
+ * Variation: Table
  *
  */
 
 import React from 'react'
-import { Container, Wrapper } from '../../wheelroom/wheels/element/grid'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getSectionStyle, getWheel } from '../../themes/themes'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
-import { Table } from '../../wheelroom/wheels/model/table/table'
-import { tableSectionPreset } from '../../wheelroom/wheels/section/presets/table-section-preset'
+import { TableSection } from '../../wheelroom/wheels/section/table/table-section'
+import { tableSectionPreset } from '../../wheelroom/wheels/section/table/presets/table-section-preset'
 import { TableSectionProps } from './table-section'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { Wheel } from '../../wheelroom/wheels/types'
@@ -31,15 +30,12 @@ export const TableSectionPriceVar = (props: TableSectionProps) => {
       siteEmbeds={props.globals.siteEmbeds}
       sectionProps={props}
     >
-      <Wrapper wheel={{ ...wheel, style: wheel.style.wrapper }}>
-        <Container wheel={{ ...wheel, style: wheel.style.container }}>
-          <Table
-            tables={props.tables}
-            topicsOptions={props.topicOptions || {}}
-            wheel={{ ...wheel, style: wheel.style.table }}
-          />
-        </Container>
-      </Wrapper>
+      <TableSection
+        containerStyle="container"
+        tables={props.tables}
+        topicOptions={props.topicOptions || {}}
+        wheel={wheel}
+      />
     </ScrollSpy>
   )
 }

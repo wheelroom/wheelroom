@@ -1,32 +1,25 @@
-import { GridElementStyle } from '../../element/resets/grid-reset'
-import { TextWheelStyle, textPreset } from '../../model/text/text-preset'
-import { NcssProps } from '../../types'
-import { TopicWheelStyle } from '../../model/topic/presets/topic-preset'
-import { HeadingElementStyle } from '../../element/resets/heading-reset'
+import { GridElementStyle } from '../../../element/resets/grid-reset'
+import { TextWheelStyle, textPreset } from '../../../model/text/text-preset'
+import { NcssProps } from '../../../types'
+import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
+import { HeadingElementStyle } from '../../../element/resets/heading-reset'
 
-export interface BlogListWheelStyle {
+export interface BlogWheelStyle {
   container: GridElementStyle
   article: NcssProps
   header: {
     ncss: NcssProps
-    topic: NcssProps
+    categories: NcssProps
     date: NcssProps
     heading: HeadingElementStyle
   }
   text: TextWheelStyle
-  authors: {
-    ncss: NcssProps
-  }
+  authors: NcssProps
   author: TopicWheelStyle
-  blogList: {
-    ncss: NcssProps
-    heading: HeadingElementStyle
-  }
-  featured: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionBlogListPreset: BlogListWheelStyle = {
+export const blogSectionPreset: BlogWheelStyle = {
   container: {
     ncss: {},
   },
@@ -42,9 +35,9 @@ export const pageSectionBlogListPreset: BlogListWheelStyle = {
       flexDirection: 'column',
       px: 3,
     },
-    topic: {
+    categories: {
       ncss: {
-        label: 'blog-topic',
+        label: 'blog-categories',
       },
     },
     date: {
@@ -149,79 +142,6 @@ export const pageSectionBlogListPreset: BlogListWheelStyle = {
     },
   },
   text: textPreset,
-  blogList: {
-    ncss: {
-      label: 'blog-list',
-      flexDirection: 'column',
-    },
-    heading: {
-      ncss: {
-        label: 'blog-list-heading',
-      },
-    },
-  },
-  featured: {
-    ncss: {
-      label: 'blog-featured',
-    },
-    content: {
-      ncss: {},
-      text: {
-        ncss: {},
-        heading: {
-          ncss: {},
-        },
-        abstract: {
-          ncss: {},
-        },
-        icon: {
-          ncss: {},
-        },
-      },
-      actions: {
-        ncss: {},
-        link: {
-          ncss: {},
-          icon: {
-            ncss: {},
-          },
-        },
-      },
-    },
-    media: {
-      ncss: {},
-      embed: {
-        ncss: {},
-      },
-      image: {
-        img: {
-          ncss: {},
-        },
-        picture: {
-          ncss: {},
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        img: {
-          ncss: {},
-        },
-      },
-      video: {
-        video: {
-          ncss: {},
-        },
-        description: {
-          ncss: {},
-        },
-      },
-    },
-  },
   wrapper: {
     ncss: {},
   },

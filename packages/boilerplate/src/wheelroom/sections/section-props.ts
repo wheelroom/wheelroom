@@ -1,8 +1,8 @@
-import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { GlobalsProps } from '../../models/globals'
-import { PageProps } from '../../models/page'
-import { SiteMetadata } from '../../page-template'
 import { BlogProps } from '../../models/blog/blog'
+import { GlobalsProps } from '../../models/globals/globals'
+import { NamedPaths } from 'gatsby-theme-wheelroom'
+import { PageProps } from '../../models/page/page'
+import { SiteMetadata } from '../../page-template'
 
 export interface BlogNode {
   node: BlogProps

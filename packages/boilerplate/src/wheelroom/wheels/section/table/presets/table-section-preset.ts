@@ -1,12 +1,12 @@
-import { GridElementStyle } from '../../element/resets/grid-reset'
+import { GridElementStyle } from '../../../element/resets/grid-reset'
 import {
   tablePreset,
   TableWheelStyle,
-} from '../../model/table/presets/table-preset'
+} from '../../../model/table/presets/table-preset'
 
 export interface TableSectionWheelStyle {
   container: GridElementStyle
-  table: TableWheelStyle
+  section: TableWheelStyle
   wrapper: GridElementStyle
 }
 
@@ -17,7 +17,7 @@ export const tableSectionPreset: TableSectionWheelStyle = {
       overflow: 'hidden',
     },
   },
-  table: tablePreset,
+  section: tablePreset,
   wrapper: {
     ncss: {},
   },

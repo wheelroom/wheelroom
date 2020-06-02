@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { Any } from '../../element/any'
 import { BlogProps } from '../../../../models/blog/blog'
-import { BlogWheelStyle } from './page-section-blog-preset'
+import { BlogWheelStyle } from '../../section/blog/presets/blog-section-preset'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { Heading } from '../../element/heading'
 import { jsx } from '@emotion/core'
-import { Text } from '../../model/text/text'
+import { Text } from '../text/text'
 import { Time } from '../../element/self'
-import { Topic } from '../../model/topic/topic'
+import { Topic } from '../topic/topic'
 import { TopicOptions } from '../../../lib/get-topic-options'
 import { TopicProps } from '../../../../models/topic/topic'
 import { Wheel } from '../../types'
@@ -27,10 +27,11 @@ export interface BlogWheelProps {
   containerStyle: 'container' | 'fluid'
   /** Accept max number of topics, ignore all others */
   maxTopics?: number
+  /** Topic options */
   topicOptions: TopicOptions
 }
 
-export const PageSectionBlog = (props: BlogWheelProps) => {
+export const Blog = (props: BlogWheelProps) => {
   if (!props.blog) {
     return null
   }
@@ -61,7 +62,10 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
           >
             <Any
               is="span"
-              wheel={{ ...props.wheel, style: props.wheel.style.header.topic }}
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.header.categories,
+              }}
             >
               {props.blog.categories}
             </Any>
@@ -80,11 +84,11 @@ export const PageSectionBlog = (props: BlogWheelProps) => {
               {props.blog.heading}
             </Heading>
           </Flex>
-          <Text
+          {/* <Text
             locale={props.locale}
             wheel={{ ...props.wheel, style: props.wheel.style.text }}
             text={{ text: props.blog.text }}
-          />
+          /> */}
           <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
             {props.blog.authors &&
               props.blog.authors.map((author: TopicProps, index: number) => {

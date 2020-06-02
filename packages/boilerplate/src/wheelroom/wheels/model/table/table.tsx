@@ -24,7 +24,7 @@ export interface TableWheelProps {
   /** The topic to render */
   tables?: TableProps[]
   /** Topic options */
-  topicsOptions: TopicOptions
+  topicOptions: TopicOptions
 }
 
 export const Table = (props: TableWheelProps) => {
@@ -123,7 +123,7 @@ export const Table = (props: TableWheelProps) => {
                       <TableRow
                         key={index}
                         tableRow={tableRow}
-                        topicsOptions={props.topicsOptions}
+                        topicOptions={props.topicOptions}
                         wheel={{ ...props.wheel, style: props.wheel.style.row }}
                       />
                     )

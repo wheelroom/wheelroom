@@ -1,4 +1,4 @@
-import { BlogWheelStyle } from '../../../wheelroom/wheels/section/blog/page-section-blog-preset'
+import { BlogWheelStyle } from '../../../wheelroom/wheels/section/blog/presets/blog-section-preset'
 import { headingTextStyle } from '../elements/heading-style'
 import { wrapperStyle } from '../elements/grid-style'
 
@@ -15,7 +15,7 @@ export const sectionBlogStyle: BlogWheelStyle = {
       maxWidth: '712px',
       mx: 'auto',
     },
-    topic: {
+    categories: {
       ncss: {
         fontFamily: 'text',
         textTransform: 'uppercase',

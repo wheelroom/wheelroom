@@ -19,7 +19,7 @@ export interface TableRowCellProps {
   /** Percentage */
   dataCellWidth: number
   /** Topic options */
-  topicsOptions: TopicOptions
+  topicOptions: TopicOptions
 }
 
 export const TableRowCell = (props: TableRowCellProps) => {
@@ -37,7 +37,7 @@ export const TableRowCell = (props: TableRowCellProps) => {
     <Td wheel={{ ...props.wheel, style: dataCellStyle }}>
       <Topic
         topic={props.topic}
-        topicOptions={props.topicsOptions}
+        topicOptions={props.topicOptions}
         useHeadingElement="p"
         wheel={{ ...props.wheel, style: props.wheel.style.topic }}
       />
