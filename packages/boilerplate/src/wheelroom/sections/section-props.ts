@@ -12,6 +12,8 @@ export interface BlogNode {
  * for this project
  */
 export interface SectionProps {
+  /** Contentful type name */
+  __typename: string
   /** index can be used by sections */
   index: number
   /** the current (two characters) locale */
