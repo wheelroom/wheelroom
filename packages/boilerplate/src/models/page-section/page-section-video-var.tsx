@@ -16,6 +16,9 @@ import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { ThemeId } from '../../admin-resources/theme-info'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
 import { Wheel } from '../../wheelroom/wheels/types'
+import { Topic } from '../../wheelroom/wheels/model/topic/topic'
+import { TopicProps } from '../topic/topic'
+import { MultiParser } from '../../wheelroom/parsers/multi-parser'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
@@ -35,13 +38,17 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
       siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <PageSection
-        containerStyle="container"
-        maxTopics={1}
-        topicOptions={props.topicOptions || {}}
-        topics={props.topics}
-        wheel={wheel}
-      />
+      <PageSection containerStyle="container" wheel={wheel}>
+        {props.topics.slice(0, 1).map((topic: TopicProps, index: number) => (
+          <Topic
+            key={index}
+            topic={topic}
+            useAbstractParser={MultiParser}
+            wheel={{ ...wheel, style: wheel.style.topic }}
+            topicOptions={props.topicOptions || {}}
+          />
+        ))}
+      </PageSection>
     </ScrollSpy>
   )
 }
