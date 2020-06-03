@@ -59,30 +59,12 @@ export const example: ContentTypes = {
     },
     model: 'page',
   },
-  siteHeader: {
-    fields: {
-      variation: 'navigation-wr',
-      navigation: ['headerNavigation'],
-      title: 'Site header',
-      actions: ['getStartedAction'],
-    },
-    model: 'pageSection',
-  },
-  siteFooter: {
-    fields: {
-      variation: 'navigation-wr',
-      navigation: ['footerNavigation'],
-      topics: ['githubProfileTopic'],
-      title: 'Site footer',
-    },
-    model: 'pageSection',
-  },
   homeHero: {
     fields: {
       topics: ['promiseTopic'],
       topicOptions: ['Hide icon'],
-      variation: 'hero-wr',
-      title: 'Example (variation: hero-wr)',
+      variation: 'hero',
+      title: 'Example (variation: hero)',
     },
     model: 'pageSection',
   },
@@ -90,16 +72,15 @@ export const example: ContentTypes = {
     fields: {
       topics: ['openSourceTopic', 'nonprofitTopic', 'freeForEveryoneTopic'],
       topicOptions: ['Hide media'],
-      variation: 'block-wr',
-      title: 'Example (variation: block-wr)',
+      variation: 'block',
+      title: 'Example (variation: block)',
     },
     model: 'pageSection',
   },
   exampleText: {
     fields: {
-      variation: 'text-wr',
-      text: 'exampletext',
-      title: 'Example (variation: text-wr)',
+      variation: 'block',
+      title: 'Example (variation: text)',
     },
     model: 'pageSection',
   },
@@ -131,32 +112,32 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
     fields: {
       topics: ['exampleTopic'],
       topicOptions: ['Reversed order'],
-      variation: 'headline-wr',
-      title: 'Example (variation: headline-wr)',
+      variation: 'headline',
+      title: 'Example (variation: headline)',
     },
     model: 'pageSection',
   },
   exampleFeatured: {
     fields: {
       topics: ['exampleTopic', 'exampleTopic'],
-      variation: 'featured-wr',
-      title: 'Example (variation: featured-wr)',
+      variation: 'featured',
+      title: 'Example (variation: featured)',
     },
     model: 'pageSection',
   },
   exampleBlock: {
     fields: {
       topics: ['exampleTopic', 'exampleTopic', 'exampleTopic'],
-      variation: 'block-wr',
-      title: 'Example (variation: block-wr)',
+      variation: 'block',
+      title: 'Example (variation: block)',
     },
     model: 'pageSection',
   },
   exampleCard: {
     fields: {
       topics: ['exampleTopic', 'exampleTopic', 'exampleTopic', 'exampleTopic'],
-      variation: 'card-wr',
-      title: 'Example (variation: card-wr)',
+      variation: 'card',
+      title: 'Example (variation: card)',
     },
     model: 'pageSection',
   },
@@ -169,24 +150,24 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
         'Hide abstract',
         'Hide action',
       ],
-      variation: 'gallery-wr',
-      title: 'Example (variation: gallery-wr)',
+      variation: 'gallery',
+      title: 'Example (variation: gallery)',
     },
     model: 'pageSection',
   },
   exampleImage: {
     fields: {
       topics: ['exampleTopic'],
-      variation: 'image-wr',
-      title: 'Example (variation: image-wr)',
+      variation: 'image',
+      title: 'Example (variation: image)',
     },
     model: 'pageSection',
   },
   exampleQuote: {
     fields: {
       topics: ['exampleTopic'],
-      variation: 'quote-wr',
-      title: 'Example (variation: quote-wr)',
+      variation: 'quote',
+      title: 'Example (variation: quote)',
     },
     model: 'pageSection',
   },
@@ -194,8 +175,8 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
     fields: {
       topics: ['exampleTopic', 'exampleTopic', 'exampleTopic', 'exampleTopic'],
       topicOptions: ['Hide icon'],
-      variation: 'showcase-wr',
-      title: 'Example (variation: showcase-wr)',
+      variation: 'showcase',
+      title: 'Example (variation: showcase)',
     },
     model: 'pageSection',
   },
@@ -339,8 +320,6 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
     fields: {
       segments: ['headerNavigationSegment'],
       title: 'Header navigation',
-      skipToContentHeading: 'Skip to Wheelroom content',
-      brandAction: 'brandAction',
     },
     model: 'navigation',
   },
@@ -357,5 +336,21 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       title: 'Footer navigation',
     },
     model: 'navigation',
+  },
+  siteHeader: {
+    model: 'navigationSection',
+    fields: {
+      title: 'navigation (variation: header)',
+      variation: 'header',
+      navigation: ['headerNavigation'],
+    },
+  },
+  siteFooter: {
+    model: 'navigationSection',
+    fields: {
+      title: 'navigation (variation: footer)',
+      variation: 'footer',
+      navigation: ['footerNavigation'],
+    },
   },
 }

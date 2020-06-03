@@ -11,34 +11,9 @@ export const starter: ContentTypes = {
     },
     model: 'mediaBreakpoint',
   },
-  blogPage: {
-    fields: {
-      path: '/blog/:slug',
-      sections: [
-        'siteHeaderSection',
-        'starterBlogSection',
-        'siteFooterSection',
-      ],
-      seoDescription: 'Blogs are here to stay',
-      seoImage: true,
-      seoTitle: 'Blog',
-      seoKeywords: ['Wheelroom', 'Blog'],
-      title: '/blog/:slug',
-    },
-    model: 'page',
-  },
-  brandAction: {
-    fields: {
-      description: 'Go back to the Wheelroom homepage',
-      eventId: 'brand-action',
-      heading: 'Wheelroom',
-      page: 'homePage',
-      title: 'Go home',
-    },
-    model: 'action',
-  },
   footerNavigation: {
     fields: {
+      variation: 'menu',
       segments: ['footerNavigationSegment'],
       title: 'Footer navigation',
     },
@@ -55,10 +30,10 @@ export const starter: ContentTypes = {
     fields: {
       path: '/free-for-everyone',
       sections: [
-        'siteHeaderSection',
+        'siteHeader',
         'starterCardSection',
         'starterQuoteSection',
-        'siteFooterSection',
+        'siteFooter',
       ],
       seoDescription:
         'Wheelroom is an independent nonprofit. Development is supported by grants and donations from people like you.',
@@ -143,9 +118,8 @@ export const starter: ContentTypes = {
   },
   headerNavigation: {
     fields: {
-      brandAction: 'brandAction',
+      variation: 'menu',
       segments: ['headerNavigationSegment'],
-      skipToContentHeading: 'Skip to Wheelroom content',
       title: 'Header navigation',
     },
     model: 'navigation',
@@ -161,10 +135,10 @@ export const starter: ContentTypes = {
     fields: {
       path: '/',
       sections: [
-        'siteHeaderSection',
+        'siteHeader',
         'starterHeroSection',
         'starterBlockSection',
-        'siteFooterSection',
+        'siteFooter',
       ],
       seoDescription:
         'Wheelroom is a new approach to faster, cost efficient and more secure applications.',
@@ -174,61 +148,14 @@ export const starter: ContentTypes = {
     },
     model: 'page',
   },
-  myFrstBlog: {
-    fields: {
-      date: '2020-05-01T00:00+01:00',
-      authors: ['myGreatBlogProfile'],
-      topics: ['wheelroomConnectsTopic'],
-      seoDescription: 'Blogs are here to stay',
-      seoImage: true,
-      seoTitle: 'My first blog',
-      slug: 'my-first-blog',
-      text: `# My first blog
-This is my first blog.
-## Blogs are green
-
-All blogs that I produce are green. Every time I talk, I get to improve the world.`,
-      title: 'My first blog',
-    },
-    model: 'blog',
-  },
-  myGreatBlogProfile: {
-    fields: {
-      abstract: 'I am a blogger',
-      actions: ['goHome'],
-      heading: 'Mr. Blog',
-      icon: 'smile',
-      media: true,
-      title: 'Mr. Blog',
-    },
-    model: 'topic',
-  },
-  mySecondBlog: {
-    fields: {
-      date: '2020-05-02T00:00+02:00',
-      authors: ['myGreatBlogProfile'],
-      topics: ['wheelroomConnectsTopic'],
-      seoDescription: 'Blogs are here to stay',
-      seoImage: true,
-      seoTitle: 'My second blog',
-      slug: 'my-second-blog',
-      text: `# My second blog
-This is my second blog.
-## Blogs are cool
-
-All blogs that I produce are open source. Every time I talk, I get to share it with the world.`,
-      title: 'My second blog',
-    },
-    model: 'blog',
-  },
   nonprofitPage: {
     fields: {
       path: '/nonprofit',
       sections: [
-        'siteHeaderSection',
+        'siteHeader',
         'starterHeadlineSection',
         'starterTextSection',
-        'siteFooterSection',
+        'siteFooter',
       ],
       seoDescription:
         "Our goal is to protect free expression and enable secure global communication. We're working with users to build something sustainable.",
@@ -253,11 +180,7 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
   openSourcePage: {
     fields: {
       path: '/open-source',
-      sections: [
-        'siteHeaderSection',
-        'starterFeaturedSection',
-        'siteFooterSection',
-      ],
+      sections: ['siteHeader', 'starterFeaturedSection', 'siteFooter'],
       seoDescription:
         'Everything we produce is open source. Every time we write code, we get to share it with the world.',
       seoImage: true,
@@ -278,16 +201,6 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
     },
     model: 'topic',
   },
-  siteFooterSection: {
-    fields: {
-      navigation: ['footerNavigation'],
-      title: 'Site footer (variation: navigation-wr)',
-      topics: ['githubProfileTopic'],
-      variation: 'navigation-wr',
-      eventId: 'site-footer',
-    },
-    model: 'pageSection',
-  },
   siteGlobals: {
     fields: {
       siteAuthor: 'Wheelroom',
@@ -299,89 +212,71 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
     },
     model: 'globals',
   },
-  siteHeaderSection: {
-    fields: {
-      actions: ['getStarted'],
-      navigation: ['headerNavigation'],
-      title: 'Site header (variation: navigation-wr)',
-      variation: 'navigation-wr',
-      eventId: 'site-header',
-    },
-    model: 'pageSection',
-  },
   starterBlockSection: {
     fields: {
-      title: 'Starter content (variation: block-wr)',
+      title: 'Starter content (variation: block)',
       topicOptions: ['Hide media'],
       topics: ['freeForEveryoneTopic', 'openSourceTopic', 'nonprofitTopic'],
-      variation: 'block-wr',
+      variation: 'block',
       eventId: 'block',
-    },
-    model: 'pageSection',
-  },
-  starterBlogSection: {
-    fields: {
-      title: 'Starter blog (variation: blog-wr)',
-      variation: 'blog-wr',
-      eventId: 'blog',
     },
     model: 'pageSection',
   },
   starterCardSection: {
     fields: {
-      title: 'Starter content (variation: card-wr)',
+      title: 'Starter content (variation: card)',
       topics: [
         'freeForEveryoneTopic',
         'nonprofitTopic',
         'openSourceTopic',
         'wheelroomConnectsTopic',
       ],
-      variation: 'card-wr',
+      variation: 'card',
       eventId: 'card',
     },
     model: 'pageSection',
   },
   starterFeaturedSection: {
     fields: {
-      title: 'Starter content (variation: featured-wr)',
+      title: 'Starter content (variation: featured)',
       topics: ['openSourceTopic', 'wheelroomConnectsTopic'],
-      variation: 'featured-wr',
+      variation: 'featured',
       eventId: 'feature',
     },
     model: 'pageSection',
   },
   starterHeadlineSection: {
     fields: {
-      title: 'Starter content (variation: headline-wr)',
+      title: 'Starter content (variation: headline)',
       topicOptions: ['Reversed order'],
       topics: ['nonprofitTopic'],
-      variation: 'headline-wr',
+      variation: 'headline',
       eventId: 'headline',
     },
     model: 'pageSection',
   },
   starterHeroSection: {
     fields: {
-      title: 'Starter content (variation: hero-wr)',
+      title: 'Starter content (variation: hero)',
       topicOptions: ['Hide icon'],
       topics: ['wheelroomConnectsTopic'],
-      variation: 'hero-wr',
+      variation: 'hero',
       eventId: 'hero',
     },
     model: 'pageSection',
   },
   starterQuoteSection: {
     fields: {
-      title: 'Starter content (variation: quote-wr)',
+      title: 'Starter content (variation: quote)',
       topics: ['wheelroomConnectsTopic'],
-      variation: 'quote-wr',
+      variation: 'quote',
       eventId: 'quote',
     },
     model: 'pageSection',
   },
   starterShowcaseSection: {
     fields: {
-      title: 'Starter content (variation: showcase-wr)',
+      title: 'Starter content (variation: showcase)',
       topicOptions: ['Hide icon'],
       topics: [
         'freeForEveryoneTopic',
@@ -389,7 +284,7 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
         'openSourceTopic',
         'wheelroomConnectsTopic',
       ],
-      variation: 'showcase-wr',
+      variation: 'showcase',
       eventId: 'showcase',
     },
     model: 'pageSection',
@@ -405,9 +300,8 @@ Everything we produce is open source. Every time we write code, we get to share 
   },
   starterTextSection: {
     fields: {
-      text: 'starterText',
-      title: 'Starter content (variation: text-wr)',
-      variation: 'text-wr',
+      title: 'Starter content (variation: text)',
+      variation: 'block',
       eventId: 'text',
     },
     model: 'pageSection',
@@ -423,5 +317,21 @@ Everything we produce is open source. Every time we write code, we get to share 
       title: 'Wheelroom connects',
     },
     model: 'topic',
+  },
+  siteHeader: {
+    model: 'navigationSection',
+    fields: {
+      title: 'navigation (variation: header)',
+      variation: 'header',
+      navigation: ['headerNavigation'],
+    },
+  },
+  siteFooter: {
+    model: 'navigationSection',
+    fields: {
+      title: 'navigation (variation: footer)',
+      variation: 'footer',
+      navigation: ['footerNavigation'],
+    },
   },
 }

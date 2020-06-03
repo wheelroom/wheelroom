@@ -1,9 +1,8 @@
+/* eslint-disable no-undef */
 /**
- * Generates this typescript file: src/config/plugin-contentful/content-types-{CONTENT_SET}.ts
+ * Generates this typescript file: src/config/plugin-contentful/content-types-{contentSet}.ts
  *
  * How it works
- *
- * Set the CONTENT_SET name in the constant below
  *
  * The script imports the content set from ../plugin-contentful/content-sets
  * Next the script imports the models from ../wheelroom/config-models
@@ -15,7 +14,7 @@
  *
  * Runs like this:
  * - npx tsc --project src/config/helpers/tsconfig.json
- * - node compiled-config/helpers/content-types-generator.js
+ * - node compiled-config/helpers/content-types-generator.js <starter|examples>
  *
  *
  * Note: the script needs a valid content set to generate content types for the
@@ -35,7 +34,15 @@ import * as fse from 'fs-extra'
 import { contentSets } from '../plugin-contentful/content-sets'
 import { models } from '../wheelroom/models'
 
-const CONTENT_SET = 'starter'
+type ContentSetName = 'starter' | 'example'
+
+const contentSet: ContentSetName = process.argv[2] as ContentSetName
+
+if (!['starter', 'example'].includes(contentSet)) {
+  console.error(`Bad content set: '${contentSet}'
+Available content sets: starter, example`)
+  process.exit(1)
+}
 
 type TypeTable = Record<FieldTypeName, string>
 
@@ -56,7 +63,7 @@ const wheelroomTypeToTsType: TypeTable = {
 const getAllowedComponentIds = (field: FieldType, limitResults: string[]) => {
   // Limit values to defined models that fit allowedComponents
   if (field.type === 'singleComponent' || field.type === 'multipleComponents') {
-    Object.entries(contentSets[CONTENT_SET]).forEach(
+    Object.entries(contentSets[contentSet]).forEach(
       ([componentId, compInstance]: [string, any]) => {
         if (field.allowedComponents.includes(compInstance.model)) {
           limitResults.push(`'${componentId}'`)
@@ -69,7 +76,7 @@ const getAllowedComponentIds = (field: FieldType, limitResults: string[]) => {
 const getPageSections = (field: FieldType, limitResults: string[]) => {
   // Limit values to defined models that have settings.asPageSection
   if (field.type === 'multipleComponents') {
-    Object.entries(contentSets[CONTENT_SET]).forEach(
+    Object.entries(contentSets[contentSet]).forEach(
       ([componentId, compInstance]: [string, any]) => {
         if (models[compInstance.model].settings.asPageSection) {
           limitResults.push(`'${componentId}'`)
@@ -154,6 +161,6 @@ export interface ContentTypes {
 `
 
 fse.outputFile(
-  `src/config/plugin-contentful/content-types-${CONTENT_SET}.ts`,
+  `src/config/plugin-contentful/content-types-${contentSet}.ts`,
   content
 )
