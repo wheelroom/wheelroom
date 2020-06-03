@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, Fluid, Wrapper } from '../../element/grid'
-import { MultiParser } from '../../../parsers/multi-parser'
 import { PageSectionBlockWheelStyle } from './presets/page-section-block-preset'
 import { PageSectionCardWheelStyle } from './presets/page-section-card-preset'
 import { PageSectionFeaturedWheelStyle } from './presets/page-section-featured-preset'
@@ -8,9 +7,6 @@ import { PageSectionHeadlineWheelStyle } from './presets/page-section-headline-p
 import { PageSectionHeroWheelStyle } from './presets/page-section-hero-preset'
 import { PageSectionQuoteWheelStyle } from './presets/page-section-quote-preset'
 import { PageSectionShowcaseWheelStyle } from './presets/page-section-showcase-preset'
-import { Topic, TopicWheelProps } from '../../model/topic/topic'
-import { TopicOptions } from '../../../lib/get-topic-options'
-import { TopicProps } from '../../../../models/topic/topic'
 import { Wheel } from '../../types'
 
 export interface PageSectionWheel extends Wheel {
@@ -27,37 +23,18 @@ export interface PageSectionWheel extends Wheel {
 export const PageSection = (props: {
   /** Styling wheel */
   wheel: PageSectionWheel
-  /** Topics to render */
-  topics: TopicProps[]
-  /** Properties to configure Topic element */
-  // topicProps: TopicWheelProps
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
-  /** Accept max number of topics, ignore all others */
-  maxTopics?: number
-  /** Topic options */
-  topicOptions: TopicOptions
+  /** Page section children */
+  children: any
 }) => {
-  if (!props.topics) {
-    return null
-  }
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
     <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
       <ContainerType
         wheel={{ ...props.wheel, style: props.wheel.style.container }}
       >
-        {props.topics
-          .slice(0, props.maxTopics)
-          .map((topic: TopicProps, index: number) => (
-            <Topic
-              key={index}
-              topic={topic}
-              useAbstractParser={MultiParser}
-              wheel={{ ...props.wheel, style: props.wheel.style.topic }}
-              topicOptions={props.topicOptions}
-            />
-          ))}
+        {props.children}
       </ContainerType>
     </Wrapper>
   )

@@ -9,12 +9,15 @@
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../themes/themes'
+import { MultiParser } from '../../wheelroom/parsers/multi-parser'
 import { PageSection } from '../../wheelroom/wheels/section/page/page-section'
 import { pageSectionHeroPreset } from '../../wheelroom/wheels/section/page/presets/page-section-hero-preset'
 import { PageSectionProps } from './page-section'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { ThemeId } from '../../admin-resources/theme-info'
+import { Topic } from '../../wheelroom/wheels/model/topic/topic'
 import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
+import { TopicProps } from '../topic/topic'
 import { Wheel } from '../../wheelroom/wheels/types'
 
 export const PageSectionHeroVar = (props: PageSectionProps) => {
@@ -28,25 +31,25 @@ export const PageSectionHeroVar = (props: PageSectionProps) => {
   if (!props.topics) {
     return null
   }
-
+  const topicHeading = props.index <= 1 ? 'h1' : 'h2'
   return (
     <ScrollSpy
       eventId={props.eventId}
       siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <PageSection
-        topicProps={{
-          maxActions: 2,
-          useHeadingElement: pageSectionInfo.index <= 1 ? 'h1' : 'h2',
-          wheel,
-        }}
-        containerStyle="fluid"
-        maxTopics={1}
-        topicOptions={props.topicOptions || {}}
-        topics={props.topics}
-        wheel={wheel}
-      />
+      <PageSection containerStyle="container" wheel={wheel}>
+        {props.topics.slice(0, 1).map((topic: TopicProps, index: number) => (
+          <Topic
+            key={index}
+            topic={topic}
+            useAbstractParser={MultiParser}
+            useHeadingElement={topicHeading}
+            wheel={{ ...wheel, style: wheel.style.topic }}
+            topicOptions={props.topicOptions || {}}
+          />
+        ))}
+      </PageSection>
     </ScrollSpy>
   )
 }
