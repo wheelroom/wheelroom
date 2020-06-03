@@ -4,15 +4,13 @@ import { ALink } from '../../element/a-link'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { Button } from '../../element/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { NavigationSegmentProps } from '../../../../models/navigation-segment'
-import { getPageSectionInfo } from '../../../lib/get-page-section-info'
-import { PageSectionProps } from '../../../../models/page-section'
 import { NavHeaderList } from './nav-header-list'
 import { Branding } from './branding'
 import { NavHeaderActions } from './nav-header-actions'
 import { Modal } from './modal'
 import { Wheel } from '../../types'
 import { NavHeaderWheelStyle } from './presets/nav-header-preset'
+import { NavigationSectionProps } from '../../../../models/navigation-section/navigation-section'
 
 interface PageSectionNavigationHeaderWheel extends Wheel {
   style: NavHeaderWheelStyle
@@ -21,7 +19,7 @@ interface PageSectionNavigationHeaderWheel extends Wheel {
 export const PageSectionNavigationHeader = (props: {
   containerStyle: 'container' | 'fluid'
   hideThemeSwitchButton?: boolean
-  pageSection: PageSectionProps
+  pageSection: NavigationSectionProps
   useLogoElement?: JSX.Element
   wheel: PageSectionNavigationHeaderWheel
 }) => {
@@ -33,15 +31,17 @@ export const PageSectionNavigationHeader = (props: {
   const [menuVisible, setMenuVisible] = useState(false)
   const buttonRef = useRef(null)
 
-  const action = props.pageSection.actions && props.pageSection.actions[0]
-
-  const pageSectionInfo = getPageSectionInfo(props.pageSection)
-  if (!pageSectionInfo.hasNavigationSegment) {
+  const globals = props.pageSection.globals
+  const navigation = props.pageSection.navigation || []
+  if (!Array.isArray(navigation) || navigation.length < 1) {
     return null
   }
-  const globals = props.pageSection.globals
-  const navigation = props.pageSection.navigation[0]
-  const navSegment = navigation.segments[0] as NavigationSegmentProps
+  const segments = navigation[0].segments
+  if (!Array.isArray(segments) || segments.length < 0) {
+    return null
+  }
+
+  const navSegment = segments[0]
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
