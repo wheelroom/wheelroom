@@ -5,48 +5,50 @@ import { BrandingWheelStyle } from './presets/branding-preset'
 import { Wheel } from '../../types'
 import { Action } from '../../model/action/action'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
-import { NavHeaderAction } from './nav-header-action'
 
 interface BrandingWheel extends Wheel {
   style: BrandingWheelStyle
 }
 
 export interface BrandingWheelProps {
-  logo: string | JSX.Element | undefined
+  logoElement?: JSX.Element
   navigationSegments: NavigationSegmentProps[]
+  siteHeading?: string
   wheel: BrandingWheel
 }
 
 export const Branding = (props: BrandingWheelProps) => {
-  if (!props.logo) {
-    return null
+  const hasSegment = props.navigationSegments.length < 1
+  const hasBrandAction =
+    hasSegment &&
+    Array.isArray(props.navigationSegments[0].actions) &&
+    props.navigationSegments[0].actions.length > 0
+  let brandAction = null
+  if (hasBrandAction) {
+    brandAction = props.navigationSegments[0].actions![0]
   }
-  console.log('BrandingWheelProps:', props)
-  console.log('Logo:', props.logo)
-  console.log('navigationSegments:', props.navigationSegments)
-
-  let logo
-
-  if (React.isValidElement(props.logo)) {
-    logo = props.logo
+  let brandHeading: string | undefined = ''
+  if (brandAction) {
+    brandHeading = brandAction.heading
   }
-  if (typeof props.logo === 'string') {
-    logo = (
+  const display = props.logoElement || brandHeading || props.siteHeading
+  if (hasBrandAction) {
+    return (
+      <Flex is="div" wheel={props.wheel}>
+        <Action
+          {...brandAction}
+          wheel={{ ...props.wheel, style: props.wheel.style.link }}
+        >
+          {display}
+        </Action>
+      </Flex>
+    )
+  } else
+    return (
       <Fragment>
         <Strong wheel={{ ...props.wheel, style: props.wheel.style.logo }}>
-          {props.logo}
+          {display}
         </Strong>
       </Fragment>
     )
-  }
-  return (
-    <Flex is="div" wheel={props.wheel}>
-      <NavHeaderAction
-        action={props.navigationSegments[0].actions[0] || []}
-        wheel={{ ...props.wheel, style: props.wheel.style.link }}
-      >
-        {logo}
-      </NavHeaderAction>
-    </Flex>
-  )
 }

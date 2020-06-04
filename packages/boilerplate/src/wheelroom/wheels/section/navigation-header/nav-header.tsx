@@ -87,7 +87,8 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
           wheel={{ ...props.wheel, style: props.wheel.style.container }}
         >
           <Branding
-            logo={props.useLogoElement || props.globals.siteHeading}
+            logoElement={props.useLogoElement}
+            siteHeading={props.globals.siteHeading}
             navigationSegments={brandNavSegments}
             wheel={{ ...props.wheel, style: props.wheel.style.branding }}
           />
