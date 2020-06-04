@@ -1,19 +1,19 @@
 import React from 'react'
-import { Flex } from '../../element/grid'
-import { ActionProps } from '../../../../models/action'
 import { Button } from '../../element/button'
-import { Action } from '../../model/action/action'
+import { Flex } from '../../element/grid'
 import { NavHeaderActionsWheelStyle } from './presets/nav-header-actions-preset'
+import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
 import { Wheel } from '../../types'
+import { ActionList } from './action-list'
 
 interface NavHeaderActionsWheel extends Wheel {
   style: NavHeaderActionsWheelStyle
 }
 
 export interface NavHeaderActionsProps {
-  action: ActionProps
   activeThemeId?: string
   hideThemeSwitchButton?: boolean
+  navigationSegments: NavigationSegmentProps[]
   toggleTheme: () => void
   wheel: NavHeaderActionsWheel
 }
@@ -21,12 +21,10 @@ export interface NavHeaderActionsProps {
 export const NavHeaderActions = (props: NavHeaderActionsProps) => {
   return (
     <Flex is="div" wheel={props.wheel}>
-      {props.action && (
-        <Action
-          {...props.action}
-          wheel={{ ...props.wheel, style: props.wheel.style.link }}
-        />
-      )}
+      <ActionList
+        actions={props.navigationSegments[0].actions || []}
+        wheel={{ ...props.wheel, style: props.wheel.style }}
+      />
       {!props.hideThemeSwitchButton && (
         <Button
           type="button"

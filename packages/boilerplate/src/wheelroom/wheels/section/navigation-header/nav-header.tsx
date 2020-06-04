@@ -12,6 +12,7 @@ import { Wheel } from '../../types'
 import { NavHeaderWheelStyle } from './presets/nav-header-preset'
 import { NavigationProps } from '../../../../models/navigation/navigation'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
+import { GlobalsProps } from '../../../../models/globals/globals'
 
 interface NavigationHeaderWheel extends Wheel {
   style: NavHeaderWheelStyle
@@ -19,10 +20,21 @@ interface NavigationHeaderWheel extends Wheel {
 
 export interface NavigationHeaderWheelProps {
   containerStyle: 'container' | 'fluid'
+  globals: GlobalsProps
   hideThemeSwitchButton?: boolean
   navigation: NavigationProps[]
   useLogoElement?: JSX.Element
   wheel: NavigationHeaderWheel
+}
+
+const getNavSegments = (navigation: NavigationProps[], variation: string) => {
+  const nav = navigation.find(
+    (nav: NavigationProps) => nav.variation === variation
+  )
+  if (!nav || !nav.segments || !Array.isArray(nav.segments)) {
+    return [] as NavigationSegmentProps[]
+  }
+  return nav.segments
 }
 
 export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
@@ -34,39 +46,17 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
   const [menuVisible, setMenuVisible] = useState(false)
   const buttonRef = useRef(null)
 
-  console.log('navigation: ', props.navigation)
-  console.log('segments: ', props.navigation[0].segments)
-
-  const navigation = props.navigation || []
-  if (
-    !props.navigation ||
-    !Array.isArray(navigation) ||
-    navigation.length < 1
-  ) {
+  if (!Array.isArray(props.navigation) || props.navigation.length < 1) {
     return null
   }
 
-  const menuNavigation = navigation.find((navigation: NavigationProps) => {
-    if (navigation.variation === 'menu') {
-      const menuSegment = navigation.segments
-      console.log('menuSegment:', menuSegment)
-    }
-  })
+  const actionsNavSegments = getNavSegments(props.navigation, 'actions')
+  const brandNavSegments = getNavSegments(props.navigation, 'brand')
+  const menuNavSegments = getNavSegments(props.navigation, 'menu')
 
-  // const navigation now is the first navigation from the array
-  // what we must do here is:
-  // loop through full array and find the variations we need
-  // const brandNav = navigation.find(nav => nav.variation === 'brand')
-
-  // For each nav like brandNav get the segments
-
-  // Or get the first segment, see code below this line
-  const segments = navigation[0].segments
-  if (!Array.isArray(segments) || segments.length < 0) {
-    return null
-  }
-
-  const navSegment = segments[0]
+  console.log('actionsSegments', actionsNavSegments)
+  console.log('brandSegments', brandNavSegments)
+  console.log('menuSegments', menuNavSegments)
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
@@ -90,38 +80,38 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
         href="#content"
         wheel={{ ...props.wheel, style: props.wheel.style.skipToContent }}
       >
-        {/* {navigation.skipToContentHeading} */}
+        {props.globals.skipToContentHeading}
       </ALink>
       <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
         <ContainerType
           wheel={{ ...props.wheel, style: props.wheel.style.container }}
         >
-          {/* <Branding
-            brandAction={navigation.brandAction}
-            logo={props.useLogoElement || globals.siteHeading}
+          <Branding
+            logo={props.useLogoElement || props.globals.siteHeading}
+            navigationSegments={brandNavSegments}
             wheel={{ ...props.wheel, style: props.wheel.style.branding }}
-          /> */}
+          />
           <Flex
             is={'nav'}
             wheel={{ ...props.wheel, style: props.wheel.style.navHeader }}
           >
             <NavHeaderList
+              navigationSegments={menuNavSegments}
               wheel={{
                 ...props.wheel,
                 style: props.wheel.style.navHeader.list,
               }}
-              actions={navSegment.actions}
             />
-            {/* <NavHeaderActions
-              action={menuNavigation}
+            <NavHeaderActions
               activeThemeId={activeThemeId}
               hideThemeSwitchButton={props.hideThemeSwitchButton}
+              navigationSegments={actionsNavSegments}
               toggleTheme={toggleTheme}
               wheel={{
                 ...props.wheel,
                 style: props.wheel.style.navHeader.actions,
               }}
-            /> */}
+            />
           </Flex>
           <Box
             is="div"

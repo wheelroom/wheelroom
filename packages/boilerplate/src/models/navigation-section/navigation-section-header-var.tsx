@@ -29,6 +29,7 @@ export const NavigationSectionHeaderVar = (props: NavigationSectionProps) => {
       sectionProps={props}
     >
       <NavigationHeader
+        globals={props.globals}
         containerStyle="container"
         navigation={props.navigation || []}
         hideThemeSwitchButton={false}

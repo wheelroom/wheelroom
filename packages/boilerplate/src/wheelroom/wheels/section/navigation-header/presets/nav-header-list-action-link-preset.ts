@@ -6,7 +6,7 @@ export interface NavHeaderActionWheelStyle {
   icon: IconElementStyle
 }
 
-export const navHeaderListItemLinkPreset: NavHeaderActionWheelStyle = {
+export const navHeaderListActionLinkPreset: NavHeaderActionWheelStyle = {
   ncss: {
     label: 'nav-header-list-item-link',
     display: 'inline-flex',

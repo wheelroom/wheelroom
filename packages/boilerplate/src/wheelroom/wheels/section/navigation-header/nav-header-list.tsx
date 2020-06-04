@@ -3,20 +3,25 @@ import { Wheel } from '../../types'
 import { Ul } from '../../element/self'
 import { NavHeaderListItem } from './nav-header-list-item'
 import { NavHeaderListWheelStyle } from './presets/nav-header-list-preset'
-import { ActionProps } from '../../../../models/action/action'
+import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
 
 interface NavHeaderListWheel extends Wheel {
   style: NavHeaderListWheelStyle
 }
 
-export const NavHeaderList = (props: {
-  actions: ActionProps[]
+export interface NavHeaderListWheelProps {
+  navigationSegments: NavigationSegmentProps[]
   wheel: NavHeaderListWheel
-}) => {
+}
+
+export const NavHeaderList = (props: NavHeaderListWheelProps) => {
+  if (!props.navigationSegments) {
+    return null
+  }
   return (
     <Ul wheel={props.wheel}>
       <NavHeaderListItem
-        actions={props.actions}
+        actions={props.navigationSegments[0].actions || []}
         wheel={{ ...props.wheel, style: props.wheel.style.listItem }}
       />
     </Ul>
