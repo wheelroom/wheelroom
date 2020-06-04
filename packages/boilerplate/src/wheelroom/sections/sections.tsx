@@ -24,6 +24,7 @@ export const Sections = (props: any) => {
   props.sections.forEach((section: any, index: number) => {
     const Section = sectionMap[section.__typename]
     const sectionProps = {
+      __typename: section.__typename,
       index,
       key: index,
       locale: props.locale,
