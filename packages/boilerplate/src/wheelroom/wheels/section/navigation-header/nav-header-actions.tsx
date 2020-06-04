@@ -2,7 +2,6 @@ import React from 'react'
 import { Flex } from '../../element/grid'
 import { ActionProps } from '../../../../models/action'
 import { Button } from '../../element/button'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Action } from '../../model/action/action'
 import { NavHeaderActionsWheelStyle } from './presets/nav-header-actions-preset'
 import { Wheel } from '../../types'
@@ -15,7 +14,6 @@ export interface NavHeaderActionsProps {
   action: ActionProps
   activeThemeId?: string
   hideThemeSwitchButton?: boolean
-  pageSectionInfo: PageSectionInfo
   toggleTheme: () => void
   wheel: NavHeaderActionsWheel
 }
@@ -23,7 +21,7 @@ export interface NavHeaderActionsProps {
 export const NavHeaderActions = (props: NavHeaderActionsProps) => {
   return (
     <Flex is="div" wheel={props.wheel}>
-      {props.pageSectionInfo.hasAction && (
+      {props.action && (
         <Action
           {...props.action}
           wheel={{ ...props.wheel, style: props.wheel.style.link }}

@@ -10,19 +10,22 @@ import { NavHeaderActions } from './nav-header-actions'
 import { Modal } from './modal'
 import { Wheel } from '../../types'
 import { NavHeaderWheelStyle } from './presets/nav-header-preset'
-import { NavigationSectionProps } from '../../../../models/navigation-section/navigation-section'
+import { NavigationProps } from '../../../../models/navigation/navigation'
+import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
 
-interface PageSectionNavigationHeaderWheel extends Wheel {
+interface NavigationHeaderWheel extends Wheel {
   style: NavHeaderWheelStyle
 }
 
-export const PageSectionNavigationHeader = (props: {
+export interface NavigationHeaderWheelProps {
   containerStyle: 'container' | 'fluid'
   hideThemeSwitchButton?: boolean
-  pageSection: NavigationSectionProps
+  navigation: NavigationProps[]
   useLogoElement?: JSX.Element
-  wheel: PageSectionNavigationHeaderWheel
-}) => {
+  wheel: NavigationHeaderWheel
+}
+
+export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
@@ -31,11 +34,33 @@ export const PageSectionNavigationHeader = (props: {
   const [menuVisible, setMenuVisible] = useState(false)
   const buttonRef = useRef(null)
 
-  const globals = props.pageSection.globals
-  const navigation = props.pageSection.navigation || []
-  if (!Array.isArray(navigation) || navigation.length < 1) {
+  console.log('navigation: ', props.navigation)
+  console.log('segments: ', props.navigation[0].segments)
+
+  const navigation = props.navigation || []
+  if (
+    !props.navigation ||
+    !Array.isArray(navigation) ||
+    navigation.length < 1
+  ) {
     return null
   }
+
+  const menuNavigation = navigation.find((navigation: NavigationProps) => {
+    if (navigation.variation === 'menu') {
+      const menuSegment = navigation.segments
+      console.log('menuSegment:', menuSegment)
+    }
+  })
+
+  // const navigation now is the first navigation from the array
+  // what we must do here is:
+  // loop through full array and find the variations we need
+  // const brandNav = navigation.find(nav => nav.variation === 'brand')
+
+  // For each nav like brandNav get the segments
+
+  // Or get the first segment, see code below this line
   const segments = navigation[0].segments
   if (!Array.isArray(segments) || segments.length < 0) {
     return null
@@ -65,17 +90,17 @@ export const PageSectionNavigationHeader = (props: {
         href="#content"
         wheel={{ ...props.wheel, style: props.wheel.style.skipToContent }}
       >
-        {navigation.skipToContentHeading}
+        {/* {navigation.skipToContentHeading} */}
       </ALink>
       <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
         <ContainerType
           wheel={{ ...props.wheel, style: props.wheel.style.container }}
         >
-          <Branding
+          {/* <Branding
             brandAction={navigation.brandAction}
             logo={props.useLogoElement || globals.siteHeading}
             wheel={{ ...props.wheel, style: props.wheel.style.branding }}
-          />
+          /> */}
           <Flex
             is={'nav'}
             wheel={{ ...props.wheel, style: props.wheel.style.navHeader }}
@@ -87,17 +112,16 @@ export const PageSectionNavigationHeader = (props: {
               }}
               actions={navSegment.actions}
             />
-            <NavHeaderActions
-              action={action}
+            {/* <NavHeaderActions
+              action={menuNavigation}
               activeThemeId={activeThemeId}
               hideThemeSwitchButton={props.hideThemeSwitchButton}
-              pageSectionInfo={pageSectionInfo}
               toggleTheme={toggleTheme}
               wheel={{
                 ...props.wheel,
                 style: props.wheel.style.navHeader.actions,
               }}
-            />
+            /> */}
           </Flex>
           <Box
             is="div"
@@ -120,7 +144,7 @@ export const PageSectionNavigationHeader = (props: {
             >
               Menu
             </Button>
-            <Modal
+            {/* <Modal
               action={action}
               activeThemeId={activeThemeId}
               closeMenu={closeMenu}
@@ -133,7 +157,7 @@ export const PageSectionNavigationHeader = (props: {
                 style: props.wheel.style.modal.dialog,
               }}
               toggleTheme={toggleTheme}
-            />
+            /> */}
           </Box>
         </ContainerType>
       </Wrapper>

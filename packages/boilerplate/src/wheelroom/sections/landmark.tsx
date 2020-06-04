@@ -1,22 +1,17 @@
-import { PageSectionProps } from '../../models/page-section/page-section'
-import { getPageSectionInfo } from '../lib/get-page-section-info'
 import { jsx } from '@emotion/core'
 
-export const getLandmark = (
-  pageProps: PageSectionProps,
-  sectionCount: number
-): string => {
-  const info = getPageSectionInfo(pageProps)
-  if (
-    info.index <= 1 &&
-    (info.variation === 'hero' || info.variation === 'navigation')
-  ) {
-    return 'header'
-  }
-  if (info.index === sectionCount - 1 && info.hasNavigationSegment) {
-    return 'footer'
-  }
-
+export const getLandmark = (): string => {
+  // TODO: @jacco – fix the getLandmark function
+  // const info = getPageSectionInfo(pageProps)
+  // if (
+  //   info.index <= 1 &&
+  //   (info.variation === 'hero' || info.variation === 'navigation')
+  // ) {
+  //   return 'header'
+  // }
+  // if (info.index === sectionCount - 1 && info.hasNavigationSegment) {
+  //   return 'footer'
+  // }
   return 'main'
 }
 

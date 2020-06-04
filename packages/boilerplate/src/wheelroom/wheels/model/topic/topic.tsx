@@ -29,7 +29,6 @@ export interface TopicWheelProps {
   useHeadingParser?: ParserFunction
   /** Defaults to p */
   useAbstractParser?: ParserFunction
-
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
   /** Accept max number of Actions, ignore all others */

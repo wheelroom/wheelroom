@@ -20,14 +20,16 @@ export interface PageSectionWheel extends Wheel {
     | PageSectionQuoteWheelStyle
 }
 
-export const PageSection = (props: {
+export interface PageSectionWheelProps {
   /** Styling wheel */
   wheel: PageSectionWheel
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
   /** Page section children */
   children: any
-}) => {
+}
+
+export const PageSection = (props: PageSectionWheelProps) => {
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
     <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
