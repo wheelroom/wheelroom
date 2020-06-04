@@ -57,7 +57,7 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
   }
 
   useEffect(() => {
-    if (isServer) {
+    if (isServer || !props.eventId) {
       return
     }
     // eslint-disable-next-line no-undef
