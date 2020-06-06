@@ -78,7 +78,7 @@ interface NavigationSegmentModel {
 interface NavigationModel {
   fields: {
     variation?: 'menu' | 'list' | 'actions' | 'social' | 'brand' | 'legal'
-    segments?: Array<'footerNavigationSegment' | 'headerNavigationSegment'>
+    segments?: Array<'menuSegment' | 'socialSegment' | 'actionsSegment' | 'brandSegment'>
     title: string
   }
   model: 'navigation'
@@ -112,7 +112,7 @@ interface TextSectionModel {
 interface NavigationSectionModel {
   fields: {
     variation?: 'header' | 'footer'
-    navigation?: Array<'footerNavigation' | 'headerNavigation'>
+    navigation?: Array<'menuNavigation' | 'socialNavigation' | 'actionNavigation' | 'brandNavigation'>
     eventId?: string
     title: string
   }

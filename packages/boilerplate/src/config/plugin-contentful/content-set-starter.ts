@@ -11,21 +11,6 @@ export const starter: ContentTypes = {
     },
     model: 'mediaBreakpoint',
   },
-  footerNavigation: {
-    fields: {
-      variation: 'menu',
-      segments: ['footerNavigationSegment'],
-      title: 'Footer navigation',
-    },
-    model: 'navigation',
-  },
-  footerNavigationSegment: {
-    fields: {
-      actions: ['goHome', 'goFreeForEveryone', 'goNonprofit', 'goOpenSource'],
-      title: 'Footer navigation segment',
-    },
-    model: 'navigationSegment',
-  },
   freeForEveryonePage: {
     fields: {
       path: '/free-for-everyone',
@@ -60,6 +45,7 @@ export const starter: ContentTypes = {
       description: 'Visit our Github Wheelroom code repository',
       eventId: 'get-started',
       heading: 'Get started',
+      icon: 'github',
       title: 'Get started link',
       url: 'https://github.com/wheelroom/wheelroom',
     },
@@ -70,7 +56,6 @@ export const starter: ContentTypes = {
       abstract: 'Check our code-base on Github',
       actions: ['getStarted'],
       heading: 'Github profile',
-      icon: 'github',
       media: true,
       title: 'Github profile',
     },
@@ -116,18 +101,63 @@ export const starter: ContentTypes = {
     },
     model: 'action',
   },
-  headerNavigation: {
+  menuNavigation: {
     fields: {
       variation: 'menu',
-      segments: ['headerNavigationSegment'],
-      title: 'Header navigation',
+      segments: ['menuSegment'],
+      title: 'Menu navigation',
     },
     model: 'navigation',
   },
-  headerNavigationSegment: {
+  menuSegment: {
     fields: {
       actions: ['goHome', 'goFreeForEveryone', 'goNonprofit', 'goOpenSource'],
-      title: 'Header navigation segment',
+      title: 'Menu segment',
+    },
+    model: 'navigationSegment',
+  },
+  socialNavigation: {
+    fields: {
+      variation: 'social',
+      segments: ['socialSegment'],
+      title: 'Social navigation',
+    },
+    model: 'navigation',
+  },
+  socialSegment: {
+    fields: {
+      actions: ['getStarted'],
+      title: 'Social segment',
+    },
+    model: 'navigationSegment',
+  },
+  actionNavigation: {
+    fields: {
+      variation: 'actions',
+      segments: ['actionsSegment'],
+      title: 'Action navigation',
+    },
+    model: 'navigation',
+  },
+  actionsSegment: {
+    fields: {
+      actions: ['getStarted'],
+      title: 'Footer segment',
+    },
+    model: 'navigationSegment',
+  },
+  brandNavigation: {
+    fields: {
+      variation: 'brand',
+      segments: ['brandSegment'],
+      title: 'Brand navigation',
+    },
+    model: 'navigation',
+  },
+  brandSegment: {
+    fields: {
+      actions: ['goHome'],
+      title: 'Brand segment',
     },
     model: 'navigationSegment',
   },
@@ -323,7 +353,7 @@ Everything we produce is open source. Every time we write code, we get to share 
     fields: {
       title: 'navigation (variation: header)',
       variation: 'header',
-      navigation: ['headerNavigation'],
+      navigation: ['menuNavigation', 'actionNavigation', 'brandNavigation'],
     },
   },
   siteFooter: {
@@ -331,7 +361,7 @@ Everything we produce is open source. Every time we write code, we get to share 
     fields: {
       title: 'navigation (variation: footer)',
       variation: 'footer',
-      navigation: ['footerNavigation'],
+      navigation: ['menuNavigation', 'socialNavigation'],
     },
   },
 }
