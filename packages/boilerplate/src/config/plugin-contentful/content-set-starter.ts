@@ -1,5 +1,6 @@
 import { ContentTypes } from './content-types-starter'
 
+// export const starter: any = {
 export const starter: ContentTypes = {
   mediaBreakpoint: {
     fields: {
@@ -81,6 +82,16 @@ export const starter: ContentTypes = {
     },
     model: 'action',
   },
+  brandAction: {
+    fields: {
+      description: 'Go back to the Wheelroom homepage',
+      eventId: 'brand-action',
+      heading: 'Wheelroom',
+      page: 'homePage',
+      title: 'Go home',
+    },
+    model: 'action',
+  },
   goNonprofit: {
     fields: {
       description: 'Wheelroom is an independent nonprofit',
@@ -156,7 +167,7 @@ export const starter: ContentTypes = {
   },
   brandSegment: {
     fields: {
-      actions: ['goHome'],
+      actions: ['brandAction'],
       title: 'Brand segment',
     },
     model: 'navigationSegment',
@@ -177,6 +188,101 @@ export const starter: ContentTypes = {
       title: '/',
     },
     model: 'page',
+  },
+  blogPage: {
+    fields: {
+      path: '/blog/:slug',
+      sections: ['siteHeader', 'starterBlogSection', 'siteFooter'],
+      seoDescription: 'Blogs are here to stay',
+      seoImage: true,
+      seoTitle: 'Blog',
+      seoKeywords: ['Wheelroom', 'Blog'],
+      title: '/blog/:slug',
+    },
+    model: 'page',
+  },
+  starterBlogSection: {
+    fields: {
+      title: 'Starter blog',
+      variation: 'blog',
+      eventId: 'blog',
+    },
+    model: 'blogSection',
+  },
+  blogListPage: {
+    fields: {
+      path: '/blog',
+      sections: ['siteHeader', 'starterBlogListSection', 'siteFooter'],
+      seoDescription: 'Blogs are here to stay',
+      seoImage: true,
+      seoTitle: 'Blog',
+      seoKeywords: ['Wheelroom', 'Blog'],
+      title: '/blog/:slug',
+    },
+    model: 'page',
+  },
+  starterBlogListSection: {
+    fields: {
+      title: 'Starter blog list',
+      variation: 'list',
+      eventId: 'blog-list',
+    },
+    model: 'blogSection',
+  },
+  myGreatBlogProfile: {
+    fields: {
+      abstract: 'I am a blogger',
+      actions: ['goHome'],
+      heading: 'Mr. Blog',
+      icon: 'smile',
+      media: true,
+      title: 'Mr. Blog',
+    },
+    model: 'topic',
+  },
+  myFrstBlog: {
+    fields: {
+      heading: '',
+      abstract: '',
+      media: true,
+      icon: 'heart',
+      slug: 'my-first-blog',
+      date: '2020-05-01T00:00+01:00',
+      text: `# My first blog
+This is my first blog.
+## Blogs are green
+
+All blogs that I produce are green. Every time I talk, I get to improve the world.`,
+      categories: ['success', 'lifestyle'],
+      authors: ['myGreatBlogProfile'],
+      seoTitle: 'My first blog',
+      seoDescription: 'Blogs are here to stay',
+      seoImage: true,
+      title: 'My first blog',
+    },
+    model: 'blog',
+  },
+  mySecondBlog: {
+    fields: {
+      heading: '',
+      abstract: '',
+      media: true,
+      icon: 'heart',
+      slug: 'my-second-blog',
+      date: '2020-05-02T00:00+01:00',
+      text: `# My second blog
+This is my second blog.
+## Blogs are cool
+
+All blogs that I produce are open source. Every time I talk, I get to share it with the world.`,
+      categories: ['lifestyle', 'home', 'opinion'],
+      authors: ['myGreatBlogProfile'],
+      seoTitle: 'My first blog',
+      seoDescription: 'Blogs are here to stay',
+      seoImage: true,
+      title: 'My first blog',
+    },
+    model: 'blog',
   },
   nonprofitPage: {
     fields: {
