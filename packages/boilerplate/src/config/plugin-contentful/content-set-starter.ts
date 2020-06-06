@@ -72,6 +72,16 @@ export const starter: ContentTypes = {
     },
     model: 'action',
   },
+  goBlog: {
+    fields: {
+      description: 'Blogs are here to stay',
+      eventId: 'go-blog',
+      heading: 'Blogs',
+      page: 'blogPage',
+      title: 'Go blog',
+    },
+    model: 'action',
+  },
   goHome: {
     fields: {
       description: 'Go to Wheelroom homepage',
@@ -122,7 +132,13 @@ export const starter: ContentTypes = {
   },
   menuSegment: {
     fields: {
-      actions: ['goHome', 'goFreeForEveryone', 'goNonprofit', 'goOpenSource'],
+      actions: [
+        'goHome',
+        'goBlog',
+        'goFreeForEveryone',
+        'goNonprofit',
+        'goOpenSource',
+      ],
       title: 'Menu segment',
     },
     model: 'navigationSegment',
