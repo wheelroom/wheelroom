@@ -75,7 +75,6 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
   }
 
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
-
   return (
     <Fragment>
       <ALink

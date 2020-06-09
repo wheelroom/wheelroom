@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
-import { Flex } from '../../element/grid'
-import { Strong } from '../../element/self'
-import { BrandingWheelStyle } from './presets/branding-preset'
-import { Wheel } from '../../types'
+import React from 'react'
 import { Action } from '../../model/action/action'
+import { BrandingWheelStyle } from './presets/branding-preset'
+import { Flex } from '../../element/grid'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
+import { Strong } from '../../element/self'
+import { Wheel } from '../../types'
 
 interface BrandingWheel extends Wheel {
   style: BrandingWheelStyle
@@ -18,7 +18,7 @@ export interface BrandingWheelProps {
 }
 
 export const Branding = (props: BrandingWheelProps) => {
-  const hasSegment = props.navigationSegments.length < 1
+  const hasSegment = props.navigationSegments.length > 0
   const hasBrandAction =
     hasSegment &&
     Array.isArray(props.navigationSegments[0].actions) &&
