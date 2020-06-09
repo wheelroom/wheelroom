@@ -18,7 +18,6 @@ export interface LegalFooterProps {
 }
 
 export const LegalFooter = (props: LegalFooterProps) => {
-  console.log(props)
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
     <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
