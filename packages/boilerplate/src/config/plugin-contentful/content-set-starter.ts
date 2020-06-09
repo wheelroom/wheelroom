@@ -72,13 +72,13 @@ export const starter: ContentTypes = {
     },
     model: 'action',
   },
-  goBlog: {
+  goBlogList: {
     fields: {
       description: 'Blogs are here to stay',
-      eventId: 'go-blog',
+      eventId: 'go-blog-list',
       heading: 'Blogs',
-      page: 'blogPage',
-      title: 'Go blog',
+      page: 'blogListPage',
+      title: 'Go blog list',
     },
     model: 'action',
   },
@@ -134,7 +134,7 @@ export const starter: ContentTypes = {
     fields: {
       actions: [
         'goHome',
-        'goBlog',
+        'goBlogList',
         'goFreeForEveryone',
         'goNonprofit',
         'goOpenSource',
@@ -233,7 +233,7 @@ export const starter: ContentTypes = {
       seoImage: true,
       seoTitle: 'Blog',
       seoKeywords: ['Wheelroom', 'Blog'],
-      title: '/blog/:slug',
+      title: '/blog',
     },
     model: 'page',
   },
