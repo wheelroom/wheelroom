@@ -7,10 +7,6 @@ import {
 import { ModalWheelStyle, modalPreset } from './modal-preset'
 import { ButtonElementStyle } from '../../../element/resets/button-reset'
 import {
-  secondaryButtonStyle,
-  primaryButtonStyle,
-} from '../../../../../themes/yosemite/elements/button-style'
-import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,
 } from '../../../model/navigation-segment/presets/navigation-segment-preset'
@@ -82,7 +78,9 @@ export const navHeaderPreset: NavigationHeaderWheelStyle = {
     },
     menu: navigationSegmentPreset,
     actions: navigationSegmentPreset,
-    themeButton: primaryButtonStyle,
+    themeButton: {
+      ncss: {},
+    },
   },
   modal: {
     ncss: {

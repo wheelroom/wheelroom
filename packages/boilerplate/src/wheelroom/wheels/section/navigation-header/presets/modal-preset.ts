@@ -98,7 +98,7 @@ export const modalPreset: ModalWheelStyle = {
     actions: navigationSegmentPreset,
     themeButton: {
       ncss: {
-        label: 'modal-actions-theme-button',
+        label: 'modal-theme-button',
       },
     },
   },
