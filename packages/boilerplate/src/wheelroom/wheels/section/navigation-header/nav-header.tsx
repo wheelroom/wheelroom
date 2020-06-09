@@ -2,17 +2,18 @@ import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../../element/a-link'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
+import { Branding } from './branding'
 import { Button } from '../../element/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { NavHeaderList } from './nav-header-list'
-import { Branding } from './branding'
-import { NavHeaderActions } from './nav-header-actions'
+import { GlobalsProps } from '../../../../models/globals/globals'
 import { Modal } from './modal'
-import { Wheel } from '../../types'
+import { NavHeaderActions } from './nav-header-actions'
+import { NavHeaderList } from './nav-header-list'
 import { NavHeaderWheelStyle } from './presets/nav-header-preset'
 import { NavigationProps } from '../../../../models/navigation/navigation'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
-import { GlobalsProps } from '../../../../models/globals/globals'
+import { SiteMetadata } from '../../../../page-template'
+import { Wheel } from '../../types'
 
 interface NavigationHeaderWheel extends Wheel {
   style: NavHeaderWheelStyle
@@ -23,6 +24,7 @@ export interface NavigationHeaderWheelProps {
   globals: GlobalsProps
   hideThemeSwitchButton?: boolean
   navigation: NavigationProps[]
+  siteMetaData: SiteMetadata
   useLogoElement?: JSX.Element
   wheel: NavigationHeaderWheel
 }

@@ -45,10 +45,10 @@ export const Branding = (props: BrandingWheelProps) => {
     )
   } else
     return (
-      <Fragment>
+      <Flex is="div" wheel={props.wheel}>
         <Strong wheel={{ ...props.wheel, style: props.wheel.style.logo }}>
           {display}
         </Strong>
-      </Fragment>
+      </Flex>
     )
 }

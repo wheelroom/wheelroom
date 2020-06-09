@@ -1,21 +1,24 @@
 import React from 'react'
-import { Container, Flex, Fluid, Wrapper } from '../../element/grid'
-import { Any } from '../../element/any'
 import { ALink } from '../../element/a-link'
-import { SiteMetadata } from '../../../../page-template'
-import { Wheel } from '../../types'
+import { Any } from '../../element/any'
+import { Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { LegalFooterWheelStyle } from './presets/legal-footer-preset'
+import { SiteMetadata } from '../../../../page-template'
 import { Sup } from '../../element/paragraph'
+import { Wheel } from '../../types'
 
 interface LegalWheel extends Wheel {
   style: LegalFooterWheelStyle
 }
 
-export const LegalFooter = (props: {
-  siteMetadata: SiteMetadata
+export interface LegalFooterProps {
   containerStyle: 'container' | 'fluid'
+  siteMetadata: SiteMetadata
   wheel: LegalWheel
-}) => {
+}
+
+export const LegalFooter = (props: LegalFooterProps) => {
+  console.log(props)
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
     <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
