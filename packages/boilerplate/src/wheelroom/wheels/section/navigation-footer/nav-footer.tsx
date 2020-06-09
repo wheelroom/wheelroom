@@ -6,27 +6,46 @@ import { LegalFooter } from './legal-footer'
 import { NavFooterWheelStyle } from './presets/nav-footer-preset'
 import { Wheel } from '../../types'
 import { NavigationSectionProps } from '../../../../models/navigation-section/navigation-section'
+import { NavigationProps } from '../../../../models/navigation/navigation'
+import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
+import { GlobalsProps } from '../../../../models/globals/globals'
 
 interface PageSectionNavigationFooterWheel extends Wheel {
   style: NavFooterWheelStyle
 }
 
-export const PageSectionNavigationFooter = (props: {
-  pageSection: NavigationSectionProps
-  wheel: PageSectionNavigationFooterWheel
+export interface PageSectionNavigationFooterProps {
   containerStyle: 'container' | 'fluid'
-}) => {
-  const navigation = props.pageSection.navigation || []
-  if (!Array.isArray(navigation) || navigation.length < 1) {
-    return null
+  globals: GlobalsProps
+  navigation: NavigationProps[]
+  wheel: PageSectionNavigationFooterWheel
+}
+
+const getNavSegments = (navigation: NavigationProps[], variation: string) => {
+  const nav = navigation.find(
+    (nav: NavigationProps) => nav.variation === variation
+  )
+  if (!nav || !nav.segments || !Array.isArray(nav.segments)) {
+    return [] as NavigationSegmentProps[]
   }
-  const segments = navigation[0].segments
-  if (!Array.isArray(segments) || segments.length < 0) {
+  return nav.segments
+}
+
+export const NavigationFooter = (props: PageSectionNavigationFooterProps) => {
+  console.log(props)
+  if (!Array.isArray(props.navigation) || props.navigation.length < 1) {
     return null
   }
 
-  const navSegment = segments[0]
-  const siteMetadata = props.pageSection.siteMetadata
+  const actionsNavSegments = getNavSegments(props.navigation, 'actions')
+  const brandNavSegments = getNavSegments(props.navigation, 'brand')
+  const menuNavSegments = getNavSegments(props.navigation, 'menu')
+  const socialNavSegments = getNavSegments(props.navigation, 'social')
+
+  console.log('actionsSegments', actionsNavSegments)
+  console.log('brandSegments', brandNavSegments)
+  console.log('menuSegments', menuNavSegments)
+  console.log('socialSegments', socialNavSegments)
 
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
 
@@ -45,25 +64,23 @@ export const PageSectionNavigationFooter = (props: {
                 ...props.wheel,
                 style: props.wheel.style.navFooter.list,
               }}
-              actions={navSegment.actions}
+              navigationSegments={menuNavSegments}
             />
-            {pageSectionInfo.hasTopic && (
-              <NavFooterSocialList
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.navFooter.socialList,
-                }}
-                topics={props.pageSection.topics}
-              />
-            )}
+            <NavFooterList
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.navFooter.list,
+              }}
+              navigationSegments={socialNavSegments}
+            />
           </Flex>
         </ContainerType>
       </Wrapper>
-      <LegalFooter
-        siteMetadata={siteMetadata}
-        containerStyle={props.containerStyle}
-        wheel={{ ...props.wheel, style: props.wheel.style.legalFooter }}
-      />
+      {/*<LegalFooter*/}
+      {/*  siteMetadata={'Wheelroom'}*/}
+      {/*  containerStyle={props.containerStyle}*/}
+      {/*  wheel={{ ...props.wheel, style: props.wheel.style.legalFooter }}*/}
+      {/*/>*/}
     </Fragment>
   )
 }

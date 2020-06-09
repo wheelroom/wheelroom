@@ -6,24 +6,28 @@ import { FeatherIcon } from '../../element/icon'
 import { ModalWheelStyle } from './presets/modal-preset'
 import { NavHeaderActions } from './nav-header-actions'
 import { NavHeaderList } from './nav-header-list'
-import { PageSectionInfo } from '../../../lib/get-page-section-info'
 import { Wheel } from '../../types'
+import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
+import {GlobalsProps} from "../../../../models/globals/globals";
 
 interface ModalWheel extends Wheel {
   style: ModalWheelStyle
 }
 
-export const Modal = (props: {
-  action: ActionProps
+export interface ModalProps {
+  menuNavSegments: NavigationSegmentProps[]
+  actionsNavSegments: NavigationSegmentProps[]
   activeThemeId?: string
   closeMenu: () => void
   hideThemeSwitchButton?: boolean
   menuVisible: boolean
   actions: ActionProps[]
-  pageSectionInfo: PageSectionInfo
+  globals: GlobalsProps
   toggleTheme: () => void
   wheel: ModalWheel
-}) => {
+}
+
+export const Modal = (props: ModalProps) => {
   return (
     <Box
       is="div"
@@ -85,13 +89,12 @@ export const Modal = (props: {
         </Button>
         <NavHeaderList
           wheel={{ ...props.wheel, style: props.wheel.style.document.list }}
-          actions={props.actions}
+          navigationSegments={props.menuNavSegments}
         />
         <NavHeaderActions
-          action={props.action}
+          navigationSegments={props.actionsNavSegments}
           activeThemeId={props.activeThemeId}
           hideThemeSwitchButton={props.hideThemeSwitchButton}
-          pageSectionInfo={props.pageSectionInfo}
           toggleTheme={props.toggleTheme}
           wheel={{
             ...props.wheel,

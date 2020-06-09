@@ -1,8 +1,8 @@
 import { ActionProps } from '../../../../models/action/action'
-import { NavHeaderAction } from './nav-header-action'
 import { NavHeaderListActionWheelStyle } from './presets/nav-header-list-action-preset'
 import { Wheel } from '../../types'
 import React, { Fragment } from 'react'
+import { Action } from '../../model/action/action'
 
 interface NavHeaderListActionWheel extends Wheel {
   style: NavHeaderListActionWheelStyle
@@ -20,9 +20,9 @@ export const ActionList = (props: NavHeaderListActionProps) => {
   return (
     <Fragment>
       {props.actions.map((action: ActionProps, index: number) => (
-        <NavHeaderAction
+        <Action
           key={index}
-          action={action}
+          {...action}
           wheel={{ ...props.wheel, style: props.wheel.style.link }}
         />
       ))}

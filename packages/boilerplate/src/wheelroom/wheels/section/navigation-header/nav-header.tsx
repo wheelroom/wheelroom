@@ -54,9 +54,9 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
   const brandNavSegments = getNavSegments(props.navigation, 'brand')
   const menuNavSegments = getNavSegments(props.navigation, 'menu')
 
-  console.log('actionsSegments', actionsNavSegments)
-  console.log('brandSegments', brandNavSegments)
-  console.log('menuSegments', menuNavSegments)
+  // console.log('actionsSegments', actionsNavSegments)
+  // console.log('brandSegments', brandNavSegments)
+  // console.log('menuSegments', menuNavSegments)
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
@@ -135,20 +135,19 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
             >
               Menu
             </Button>
-            {/* <Modal
-              action={action}
+            <Modal
+              menuNavSegments={menuNavSegments}
+              actionsNavSegments={actionsNavSegments}
               activeThemeId={activeThemeId}
               closeMenu={closeMenu}
               hideThemeSwitchButton={props.hideThemeSwitchButton}
               menuVisible={menuVisible}
-              actions={navSegment.actions}
-              pageSectionInfo={pageSectionInfo}
               wheel={{
                 ...props.wheel,
                 style: props.wheel.style.modal.dialog,
               }}
               toggleTheme={toggleTheme}
-            /> */}
+            />
           </Box>
         </ContainerType>
       </Wrapper>

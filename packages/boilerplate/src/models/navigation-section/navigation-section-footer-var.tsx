@@ -10,25 +10,14 @@ import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../themes/themes'
 import { navFooterPreset } from '../../wheelroom/wheels/section/navigation-footer/presets/nav-footer-preset'
-import { navHeaderPreset } from '../../wheelroom/wheels/section/navigation-header/presets/nav-header-preset'
 import { NavigationSectionProps } from './navigation-section'
-import { PageSectionNavigationFooter } from '../../wheelroom/wheels/section/navigation-footer/nav-footer'
+import { NavigationFooter } from '../../wheelroom/wheels/section/navigation-footer/nav-footer'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
 import { ThemeId } from '../../admin-resources/theme-info'
-import { topicPreset } from '../../wheelroom/wheels/model/topic/presets/topic-preset'
-import { Wheel } from '../../wheelroom/wheels/types'
 
 export const NavigationSectionFooterVar = (props: NavigationSectionProps) => {
-  const wheelHeader: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheelHeader.style = deepMerge([
-    { topic: topicPreset },
-    navHeaderPreset,
-    getSectionStyle('navigation').header,
-  ])
-
-  const wheelFooter: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheelFooter.style = deepMerge([
-    { topic: topicPreset },
+  const wheel = getWheel(props.activeThemeId as ThemeId)
+  wheel.style = deepMerge([
     navFooterPreset,
     getSectionStyle('navigation').footer,
   ])
@@ -38,10 +27,11 @@ export const NavigationSectionFooterVar = (props: NavigationSectionProps) => {
       siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <PageSectionNavigationFooter
-        pageSection={props}
-        wheel={wheelFooter}
+      <NavigationFooter
+        globals={props.globals}
         containerStyle="container"
+        navigation={props.navigation || []}
+        wheel={wheel}
       />
     </ScrollSpy>
   )
