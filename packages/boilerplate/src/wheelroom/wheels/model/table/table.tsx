@@ -5,12 +5,12 @@ import { Any } from '../../element/any'
 import { Box } from '../../element/grid'
 import { Dd, Dl, Dt, Table as TableElement, Th, Tr } from '../../element/self'
 import { Fragment } from 'react'
+import { Icon } from '../../element/icon'
 import { jsx } from '@emotion/core'
 import { TableProps } from '../../../../models/table/table'
 import { TableRow } from '../table-row/table-row'
 import { TableRowProps } from '../../../../models/table-row/table-row'
 import { TableWheelStyle } from './presets/table-preset'
-import { TopicIcon } from '../topic/topic-icon'
 import { TopicOptions } from '../../../lib/get-topic-options'
 import { Wheel } from '../../types'
 
@@ -54,7 +54,7 @@ export const Table = (props: TableWheelProps) => {
                       colspan={columnCount + 1}
                     >
                       {table.icon && (
-                        <TopicIcon
+                        <Icon
                           icon={table.icon}
                           wheel={{
                             ...props.wheel,

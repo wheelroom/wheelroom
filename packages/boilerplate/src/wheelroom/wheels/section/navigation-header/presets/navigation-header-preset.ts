@@ -1,27 +1,30 @@
 import { NcssProps } from '../../../types'
 import { GridElementStyle } from '../../../element/resets/grid-reset'
-import { BrandingWheelStyle, brandingPreset } from './branding-preset'
 import {
-  NavHeaderActionsWheelStyle,
-  navHeaderActionsPreset,
-} from './nav-header-actions-preset'
+  BrandNavigationSegmentWheelStyle,
+  brandNavigationSegmentPreset,
+} from '../../../model/navigation-segment/presets/brand-navigation-segment-preset'
 import { ModalWheelStyle, modalPreset } from './modal-preset'
-
-import {
-  NavHeaderListWheelStyle,
-  navHeaderListPreset,
-} from './nav-header-list-preset'
 import { ButtonElementStyle } from '../../../element/resets/button-reset'
+import {
+  secondaryButtonStyle,
+  primaryButtonStyle,
+} from '../../../../../themes/yosemite/elements/button-style'
+import {
+  NavigationSegmentWheelStyle,
+  navigationSegmentPreset,
+} from '../../../model/navigation-segment/presets/navigation-segment-preset'
 
-export interface NavHeaderWheelStyle {
+export interface NavigationHeaderWheelStyle {
   skipToContent: NcssProps
   wrapper: GridElementStyle
   container: GridElementStyle
-  branding: BrandingWheelStyle
-  navHeader: {
+  brandNavSegment: BrandNavigationSegmentWheelStyle
+  navigation: {
     ncss: NcssProps
-    list: NavHeaderListWheelStyle
-    actions: NavHeaderActionsWheelStyle
+    menu: NavigationSegmentWheelStyle
+    actions: NavigationSegmentWheelStyle
+    themeButton: ButtonElementStyle
   }
   modal: {
     ncss: NcssProps
@@ -30,7 +33,7 @@ export interface NavHeaderWheelStyle {
   }
 }
 
-export const navHeaderPreset: NavHeaderWheelStyle = {
+export const navHeaderPreset: NavigationHeaderWheelStyle = {
   skipToContent: {
     ncss: {
       label: 'skip-to-content',
@@ -69,16 +72,17 @@ export const navHeaderPreset: NavHeaderWheelStyle = {
       px: 3,
     },
   },
-  branding: brandingPreset,
-  navHeader: {
+  brandNavSegment: brandNavigationSegmentPreset,
+  navigation: {
     ncss: {
-      label: 'nav-header',
+      label: 'navigation',
       flex: '1',
       alignItems: 'center',
       display: ['none', 'none', 'flex'],
     },
-    list: navHeaderListPreset,
-    actions: navHeaderActionsPreset,
+    menu: navigationSegmentPreset,
+    actions: navigationSegmentPreset,
+    themeButton: primaryButtonStyle,
   },
   modal: {
     ncss: {

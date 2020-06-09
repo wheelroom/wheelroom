@@ -1,45 +1,42 @@
 import { NcssProps } from '../../../types'
-import { ParagraphElementStyle } from '../../../element/resets/paragraph-reset'
 import { IconElementStyle } from '../../../element/resets/icon-reset'
 
-export interface BrandingWheelStyle {
+export interface BrandNavigationSegmentWheelStyle {
   ncss: NcssProps
   logo: NcssProps
-  link: {
+  action: {
     ncss: NcssProps
     icon: IconElementStyle
   }
-  sup: ParagraphElementStyle
 }
 
-export const brandingPreset: BrandingWheelStyle = {
+export const brandNavigationSegmentPreset: BrandNavigationSegmentWheelStyle = {
   ncss: {
-    label: 'branding',
+    label: 'brand-navigation-segment',
     alignItems: 'center',
     mr: 3,
   },
   logo: {
     ncss: {
-      label: 'branding-logo',
+      label: 'brand-navigation-segment-logo',
     },
   },
-  link: {
+  action: {
     ncss: {
-      label: 'branding-link',
+      label: 'brand-navigation-segment-action',
       display: 'inline-flex',
       fontFamily: 'branding',
+      fontWeight: 'bold',
       textDecoration: 'none',
     },
     icon: {
       ncss: {
-        label: 'branding-icon',
-        w: '16px',
-        h: '16px',
+        label: 'brand-navigation-segment-action-icon',
+        w: '15px',
+        h: '15px',
         my: 'auto',
+        transform: 'translateX(4px)',
       },
     },
-  },
-  sup: {
-    ncss: {},
   },
 }

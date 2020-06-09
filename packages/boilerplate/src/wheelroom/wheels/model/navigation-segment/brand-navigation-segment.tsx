@@ -1,31 +1,33 @@
 import React from 'react'
-import { Action } from '../../model/action/action'
-import { BrandingWheelStyle } from './presets/branding-preset'
+import { Action } from '../action/action'
+import { BrandNavigationSegmentWheelStyle } from './presets/brand-navigation-segment-preset'
 import { Flex } from '../../element/grid'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
 import { Strong } from '../../element/self'
 import { Wheel } from '../../types'
 
-interface BrandingWheel extends Wheel {
-  style: BrandingWheelStyle
+interface BrandNavigationSegmentWheel extends Wheel {
+  style: BrandNavigationSegmentWheelStyle
 }
 
-export interface BrandingWheelProps {
+export interface BrandNavigationSegmentWheelProps {
   logoElement?: JSX.Element
-  navigationSegments: NavigationSegmentProps[]
+  navigationSegment: NavigationSegmentProps[]
   siteHeading?: string
-  wheel: BrandingWheel
+  wheel: BrandNavigationSegmentWheel
 }
 
-export const Branding = (props: BrandingWheelProps) => {
-  const hasSegment = props.navigationSegments.length > 0
+export const BrandNavigationSegment = (
+  props: BrandNavigationSegmentWheelProps
+) => {
+  const hasSegment = props.navigationSegment.length > 0
   const hasBrandAction =
     hasSegment &&
-    Array.isArray(props.navigationSegments[0].actions) &&
-    props.navigationSegments[0].actions.length > 0
+    Array.isArray(props.navigationSegment[0].actions) &&
+    props.navigationSegment[0].actions.length > 0
   let brandAction = null
   if (hasBrandAction) {
-    brandAction = props.navigationSegments[0].actions![0]
+    brandAction = props.navigationSegment[0].actions![0]
   }
   let brandHeading: string | undefined = ''
   if (brandAction) {
@@ -37,7 +39,7 @@ export const Branding = (props: BrandingWheelProps) => {
       <Flex is="div" wheel={props.wheel}>
         <Action
           {...brandAction}
-          wheel={{ ...props.wheel, style: props.wheel.style.link }}
+          wheel={{ ...props.wheel, style: props.wheel.style.action }}
         >
           {display}
         </Action>

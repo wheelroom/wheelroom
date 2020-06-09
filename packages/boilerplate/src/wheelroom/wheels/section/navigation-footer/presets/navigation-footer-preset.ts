@@ -2,26 +2,22 @@ import { NcssProps } from '../../../types'
 import { GridElementStyle } from '../../../element/resets/grid-reset'
 import { LegalFooterWheelStyle, legalFooterPreset } from './legal-footer-preset'
 import {
-  NavFooterSocialListWheelStyle,
-  navFooterSocialListPreset,
-} from './nav-footer-social-list-preset'
-import {
-  NavFooterListPresetWheelStyle,
-  navFooterListPreset,
-} from './nav-footer-list-preset'
+  NavigationSegmentWheelStyle,
+  navigationSegmentPreset,
+} from '../../../model/navigation-segment/presets/navigation-segment-preset'
 
-export interface NavFooterWheelStyle {
+export interface NavigationFooterWheelStyle {
   wrapper: GridElementStyle
   container: GridElementStyle
-  navFooter: {
+  navigation: {
     ncss: NcssProps
-    list: NavFooterListPresetWheelStyle
-    socialList: NavFooterSocialListWheelStyle
+    menu: NavigationSegmentWheelStyle
+    social: NavigationSegmentWheelStyle
   }
   legalFooter: LegalFooterWheelStyle
 }
 
-export const navFooterPreset: NavFooterWheelStyle = {
+export const navFooterPreset: NavigationFooterWheelStyle = {
   wrapper: {
     ncss: {
       borderTop: '1px solid black',
@@ -34,7 +30,7 @@ export const navFooterPreset: NavFooterWheelStyle = {
       px: 2,
     },
   },
-  navFooter: {
+  navigation: {
     ncss: {
       label: 'nav-footer',
       flex: 1,
@@ -42,8 +38,8 @@ export const navFooterPreset: NavFooterWheelStyle = {
       flexDirection: ['column', 'row'],
       alignItems: 'center',
     },
-    list: navFooterListPreset,
-    socialList: navFooterSocialListPreset,
+    menu: navigationSegmentPreset,
+    social: navigationSegmentPreset,
   },
   legalFooter: legalFooterPreset,
 }

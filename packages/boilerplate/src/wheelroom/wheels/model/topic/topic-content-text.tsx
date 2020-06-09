@@ -4,7 +4,7 @@ import { BlockLevelElementName } from '../../element/types/element-names'
 import { Box } from '../../element/grid'
 import { ParserFunction } from '../../../parsers/types'
 import { TopicContentTextWheelStyle } from './presets/topic-content-text-preset'
-import { TopicIcon } from './topic-icon'
+import { Icon } from '../../element/icon'
 import { TopicInfo } from '../../../lib/get-topic-info'
 import { TopicOptions } from '../../../lib/get-topic-options'
 import { TopicProps } from '../../../../models/topic/topic'
@@ -45,7 +45,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   return (
     <Box is="div" wheel={props.wheel}>
       {!topicOptions.hideIcon && (
-        <TopicIcon
+        <Icon
           icon={props.topic.icon || ''}
           wheel={{ ...props.wheel, style: props.wheel.style.icon }}
         />

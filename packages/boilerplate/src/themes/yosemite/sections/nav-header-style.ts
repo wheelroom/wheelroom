@@ -1,4 +1,4 @@
-import { NavHeaderWheelStyle } from '../../../wheelroom/wheels/section/navigation-header/presets/nav-header-preset'
+import { NavHeaderWheelStyle } from '../../../wheelroom/wheels/section/navigation-header/presets/navigation-header-preset'
 import { wrapperStyle } from '../elements/grid-style'
 import {
   primaryButtonStyle,
@@ -40,41 +40,46 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
         ncss: {},
       },
     },
-    sup: {
-      ncss: {
-        color: 'metal',
-      },
-    },
   },
-  navHeader: {
+  navigation: {
     ncss: {},
-    list: {
+    menu: {
       ncss: {},
-      listItem: {
+      heading: {
         ncss: {},
-        link: {
+      },
+      list: {
+        ncss: {},
+        item: {
           ncss: {},
-          icon: {
+          action: {
             ncss: {},
+            icon: {
+              ncss: {},
+            },
           },
         },
       },
     },
     actions: {
       ncss: {},
-      link: {
-        ncss: primaryButtonStyle.ncss,
-        icon: {
-          ncss: {
-            w: '16px',
-            h: '16px',
-            my: 'auto',
-            transform: 'translateX(4px)',
+      heading: {
+        ncss: {},
+      },
+      list: {
+        ncss: {},
+        item: {
+          ncss: {},
+          action: {
+            ncss: {},
+            icon: {
+              ncss: {},
+            },
           },
         },
       },
-      themeButton: secondaryButtonStyle,
     },
+    themeButton: secondaryButtonStyle,
   },
   modal: {
     ncss: {},

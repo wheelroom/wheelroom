@@ -2,23 +2,23 @@ import React, { Fragment } from 'react'
 import { Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { GlobalsProps } from '../../../../models/globals/globals'
 import { LegalFooter } from './legal-footer'
-import { NavFooterList } from './nav-footer-list'
-import { NavFooterWheelStyle } from './presets/nav-footer-preset'
+import { NavigationFooterWheelStyle } from './presets/navigation-footer-preset'
 import { NavigationProps } from '../../../../models/navigation/navigation'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
 import { SiteMetadata } from '../../../../page-template'
 import { Wheel } from '../../types'
+import { NavigationSegment } from '../../model/navigation-segment/navigation-segment'
 
-interface PageSectionNavigationFooterWheel extends Wheel {
-  style: NavFooterWheelStyle
+interface NavigationFooterWheel extends Wheel {
+  style: NavigationFooterWheelStyle
 }
 
-export interface PageSectionNavigationFooterProps {
+export interface NavigationFooterWheelProps {
   containerStyle: 'container' | 'fluid'
   globals: GlobalsProps
   navigation: NavigationProps[]
   siteMetaData: SiteMetadata
-  wheel: PageSectionNavigationFooterWheel
+  wheel: NavigationFooterWheel
 }
 
 const getNavSegments = (navigation: NavigationProps[], variation: string) => {
@@ -31,7 +31,7 @@ const getNavSegments = (navigation: NavigationProps[], variation: string) => {
   return nav.segments
 }
 
-export const NavigationFooter = (props: PageSectionNavigationFooterProps) => {
+export const NavigationFooter = (props: NavigationFooterWheelProps) => {
   if (!Array.isArray(props.navigation) || props.navigation.length < 1) {
     return null
   }
@@ -49,21 +49,27 @@ export const NavigationFooter = (props: PageSectionNavigationFooterProps) => {
         >
           <Flex
             is={'nav'}
-            wheel={{ ...props.wheel, style: props.wheel.style.navFooter }}
+            wheel={{ ...props.wheel, style: props.wheel.style.navigation }}
           >
-            <NavFooterList
+            <NavigationSegment
+              hideActionHeading={false}
+              hideSegmentHeading={true}
+              maxSegments={1}
+              navigationSegment={menuNavSegments}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navFooter.list,
+                style: props.wheel.style.navigation.menu,
               }}
-              navigationSegments={menuNavSegments}
             />
-            <NavFooterList
+            <NavigationSegment
+              hideActionHeading={true}
+              hideSegmentHeading={true}
+              maxSegments={1}
+              navigationSegment={socialNavSegments}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navFooter.list,
+                style: props.wheel.style.navigation.social,
               }}
-              navigationSegments={socialNavSegments}
             />
           </Flex>
         </ContainerType>

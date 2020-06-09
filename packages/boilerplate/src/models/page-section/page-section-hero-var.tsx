@@ -38,7 +38,7 @@ export const PageSectionHeroVar = (props: PageSectionProps) => {
       siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <PageSection containerStyle="container" wheel={wheel}>
+      <PageSection containerStyle="fluid" wheel={wheel}>
         {props.topics.slice(0, 1).map((topic: TopicProps, index: number) => (
           <Topic
             key={index}

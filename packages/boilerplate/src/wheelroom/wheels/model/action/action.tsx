@@ -33,6 +33,8 @@ export interface ActionWheelProps extends ActionProps {
   wheel: ActionWheel
   children?: any
   key?: any
+  hideIcon?: boolean
+  hideHeading?: boolean
   /** On click handler */
   onClick?: () => any
 }
@@ -75,6 +77,7 @@ const isPreviewMode = (adminCoreState: AdminCoreState): boolean => {
 
 const ActionGlink = (props: ActionWheelProps) => {
   const { adminCoreState } = useContext(AdminCoreContext)
+  const heading = props.children ? props.children : props.heading
   return (
     <GLink
       ariaLabel={props.description}
@@ -82,8 +85,8 @@ const ActionGlink = (props: ActionWheelProps) => {
       to={createURL(props, isPreviewMode(adminCoreState))}
       wheel={props.wheel}
     >
-      {props.children ? props.children : props.heading}
-      {props.icon && (
+      {!props.hideHeading && heading}
+      {props.icon && !props.hideIcon && (
         <FeatherIcon
           icon={props.icon}
           wheel={{
@@ -98,6 +101,7 @@ const ActionGlink = (props: ActionWheelProps) => {
 
 const ActionAlink = (props: ActionWheelProps) => {
   const { adminCoreState } = useContext(AdminCoreContext)
+  const heading = props.children ? props.children : props.heading
   if (props.url) {
     return (
       <ALink
@@ -106,8 +110,8 @@ const ActionAlink = (props: ActionWheelProps) => {
         onClick={() => onClickHander(props.eventId, adminCoreState)}
         wheel={props.wheel}
       >
-        {props.children ? props.children : props.heading}
-        {props.icon && (
+        {!props.hideHeading && heading}
+        {props.icon && !props.hideIcon && (
           <FeatherIcon
             icon={props.icon}
             wheel={{
@@ -126,8 +130,8 @@ const ActionAlink = (props: ActionWheelProps) => {
         ariaLabel={props.description}
         polyPreset={true}
       >
-        {props.children ? props.children : props.heading}
-        {props.icon && (
+        {!props.hideHeading && heading}
+        {props.icon && !props.hideIcon && (
           <FeatherIcon
             icon={props.icon}
             wheel={{

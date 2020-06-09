@@ -1,12 +1,13 @@
 import React from 'react'
 import { Box } from './grid'
-import { IconMap } from '../../svg/feather/iconMap'
+import { ElementProps, getElementAttrs } from './element'
 import {
   featherIconElementStyle,
   textIconElementStyle,
 } from './resets/icon-reset'
+import { IconMap } from '../../svg/feather/iconMap'
 import { mergeNcss } from '../../lib/merge-ncss'
-import { ElementProps, getElementAttrs } from './element'
+import { Wheel } from '../types'
 
 export interface FeatherIconProps extends ElementProps {
   icon: string
@@ -53,4 +54,25 @@ export const TextIcon = (props: TextIconProps) => {
       {props.text}
     </Box>
   )
+}
+
+export interface IconProps extends ElementProps {
+  icon: string | JSX.Element
+}
+
+export const Icon = (props: IconProps) => {
+  // When a React element is passed, return that
+  if (React.isValidElement(props.icon)) {
+    return props.icon
+  }
+  if (typeof props.icon === 'string') {
+    if (Object.keys(IconMap).includes(props.icon)) {
+      // When a valid feather icon string is passed, return the svg icon
+      return <FeatherIcon icon={props.icon} wheel={props.wheel} />
+    } else {
+      // When a non feather icon string is passed, return the string
+      return <TextIcon text={props.icon} wheel={props.wheel} />
+    }
+  }
+  return null
 }

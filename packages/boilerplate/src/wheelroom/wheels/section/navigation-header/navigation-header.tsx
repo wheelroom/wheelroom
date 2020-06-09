@@ -2,29 +2,27 @@ import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { ALink } from '../../element/a-link'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
-import { Branding } from './branding'
+import { BrandNavigationSegment } from '../../model/navigation-segment/brand-navigation-segment'
 import { Button } from '../../element/button'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { GlobalsProps } from '../../../../models/globals/globals'
 import { Modal } from './modal'
-import { NavHeaderActions } from './nav-header-actions'
-import { NavHeaderList } from './nav-header-list'
-import { NavHeaderWheelStyle } from './presets/nav-header-preset'
+import { NavigationHeaderWheelStyle } from './presets/navigation-header-preset'
 import { NavigationProps } from '../../../../models/navigation/navigation'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
-import { SiteMetadata } from '../../../../page-template'
+import { NavigationSegment } from '../../model/navigation-segment/navigation-segment'
+import { ThemeButton } from './theme-button'
 import { Wheel } from '../../types'
 
 interface NavigationHeaderWheel extends Wheel {
-  style: NavHeaderWheelStyle
+  style: NavigationHeaderWheelStyle
 }
 
 export interface NavigationHeaderWheelProps {
   containerStyle: 'container' | 'fluid'
   globals: GlobalsProps
-  hideThemeSwitchButton?: boolean
+  hideThemeButton?: boolean
   navigation: NavigationProps[]
-  siteMetaData: SiteMetadata
   useLogoElement?: JSX.Element
   wheel: NavigationHeaderWheel
 }
@@ -52,13 +50,9 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
     return null
   }
 
-  const actionsNavSegments = getNavSegments(props.navigation, 'actions')
-  const brandNavSegments = getNavSegments(props.navigation, 'brand')
-  const menuNavSegments = getNavSegments(props.navigation, 'menu')
-
-  // console.log('actionsSegments', actionsNavSegments)
-  // console.log('brandSegments', brandNavSegments)
-  // console.log('menuSegments', menuNavSegments)
+  const actionsSegments = getNavSegments(props.navigation, 'actions')
+  const brandSegments = getNavSegments(props.navigation, 'brand')
+  const menuSegments = getNavSegments(props.navigation, 'menu')
 
   const toggleTheme = () => {
     setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
@@ -87,32 +81,47 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
         <ContainerType
           wheel={{ ...props.wheel, style: props.wheel.style.container }}
         >
-          <Branding
+          <BrandNavigationSegment
             logoElement={props.useLogoElement}
             siteHeading={props.globals.siteHeading}
-            navigationSegments={brandNavSegments}
-            wheel={{ ...props.wheel, style: props.wheel.style.branding }}
+            navigationSegment={brandSegments}
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.brandNavSegment,
+            }}
           />
           <Flex
             is={'nav'}
-            wheel={{ ...props.wheel, style: props.wheel.style.navHeader }}
+            wheel={{ ...props.wheel, style: props.wheel.style.navigation }}
           >
-            <NavHeaderList
-              navigationSegments={menuNavSegments}
+            <NavigationSegment
+              hideActionHeading={false}
+              hideSegmentHeading={true}
+              maxSegments={1}
+              navigationSegment={menuSegments}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navHeader.list,
+                style: props.wheel.style.navigation.menu,
               }}
             />
-            <NavHeaderActions
-              activeThemeId={activeThemeId}
-              hideThemeSwitchButton={props.hideThemeSwitchButton}
-              navigationSegments={actionsNavSegments}
-              toggleTheme={toggleTheme}
+            <NavigationSegment
+              hideActionHeading={false}
+              hideSegmentHeading={true}
+              maxSegments={1}
+              navigationSegment={actionsSegments}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navHeader.actions,
+                style: props.wheel.style.navigation.actions,
               }}
+            />
+            <ThemeButton
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.navigation.themeButton,
+              }}
+              activeThemeId={activeThemeId}
+              hideThemeButton={props.hideThemeButton}
+              toggleTheme={toggleTheme}
             />
           </Flex>
           <Box
@@ -137,11 +146,11 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
               Menu
             </Button>
             <Modal
-              menuNavSegments={menuNavSegments}
-              actionsNavSegments={actionsNavSegments}
+              menuSegments={menuSegments}
+              actionsSegments={actionsSegments}
               activeThemeId={activeThemeId}
               closeMenu={closeMenu}
-              hideThemeSwitchButton={props.hideThemeSwitchButton}
+              hideThemeButton={props.hideThemeButton}
               menuVisible={menuVisible}
               wheel={{
                 ...props.wheel,

@@ -1,8 +1,8 @@
 import { wrapperStyle } from '../elements/grid-style'
 
-import { NavFooterWheelStyle } from '../../../wheelroom/wheels/section/navigation-footer/presets/nav-footer-preset'
+import { NavigationFooterWheelStyle } from '../../../wheelroom/wheels/section/navigation-footer/presets/navigation-footer-preset'
 
-export const navFooterStyle: NavFooterWheelStyle = {
+export const navFooterStyle: NavigationFooterWheelStyle = {
   wrapper: {
     ncss: {
       ...wrapperStyle.ncss,
@@ -12,40 +12,40 @@ export const navFooterStyle: NavFooterWheelStyle = {
   container: {
     ncss: {},
   },
-  navFooter: {
+  navigation: {
     ncss: {},
-    list: {
+    menu: {
       ncss: {},
-      listItem: {
+      heading: {
         ncss: {},
-        link: {
-          ncss: {
-            ':focus': {
-              outlineColor: 'outline',
-            },
-          },
-          icon: {
+      },
+      list: {
+        ncss: {},
+        item: {
+          ncss: {},
+          action: {
             ncss: {},
+            icon: {
+              ncss: {},
+            },
           },
         },
       },
     },
-    socialList: {
+    social: {
       ncss: {},
-      listItem: {
+      heading: {
         ncss: {},
-        link: {
-          ncss: {
-            ':focus > svg': {
-              outlineColor: 'outline',
-              color: 'iconColorState',
-            },
-            ':hover > svg': {
-              color: 'iconColorState',
-            },
-          },
-          icon: {
+      },
+      list: {
+        ncss: {},
+        item: {
+          ncss: {},
+          action: {
             ncss: {},
+            icon: {
+              ncss: {},
+            },
           },
         },
       },

@@ -7,7 +7,7 @@ import { jsx } from '@emotion/core'
 import { TableRowCell } from './table-row-cell'
 import { TableRowProps } from '../../../../models/table-row/table-row'
 import { TableRowWheelStyle } from './presets/table-row-preset'
-import { TopicIcon } from '../topic/topic-icon'
+import { Icon } from '../../element/icon'
 import { TopicOptions } from '../../../lib/get-topic-options'
 import { TopicProps } from '../../../../models/topic/topic'
 import { Wheel } from '../../types'
@@ -60,7 +60,7 @@ export const TableRow = (props: TableRowWheelProps) => {
     <Tr wheel={{ ...props.wheel, style: tableRowStyle }}>
       <Th wheel={{ ...props.wheel, style: rowHeaderCellStyle }}>
         {tableRow.icon && (
-          <TopicIcon
+          <Icon
             icon={tableRow.icon}
             wheel={{ ...props.wheel, style: props.wheel.style.icon }}
           />

@@ -1,33 +1,29 @@
 import React from 'react'
-import { ActionProps } from '../../../../models/action'
 import { Box, Flex } from '../../element/grid'
 import { Button } from '../../element/button'
 import { FeatherIcon } from '../../element/icon'
 import { ModalWheelStyle } from './presets/modal-preset'
-import { NavHeaderActions } from './nav-header-actions'
-import { NavHeaderList } from './nav-header-list'
-import { Wheel } from '../../types'
 import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
-import {GlobalsProps} from "../../../../models/globals/globals";
+import { NavigationSegment } from '../../model/navigation-segment/navigation-segment'
+import { ThemeButton } from './theme-button'
+import { Wheel } from '../../types'
 
 interface ModalWheel extends Wheel {
   style: ModalWheelStyle
 }
 
-export interface ModalProps {
-  menuNavSegments: NavigationSegmentProps[]
-  actionsNavSegments: NavigationSegmentProps[]
+export interface ModalWheelProps {
+  actionsSegments: NavigationSegmentProps[]
   activeThemeId?: string
   closeMenu: () => void
-  hideThemeSwitchButton?: boolean
+  hideThemeButton?: boolean
+  menuSegments: NavigationSegmentProps[]
   menuVisible: boolean
-  actions: ActionProps[]
-  globals: GlobalsProps
   toggleTheme: () => void
   wheel: ModalWheel
 }
 
-export const Modal = (props: ModalProps) => {
+export const Modal = (props: ModalWheelProps) => {
   return (
     <Box
       is="div"
@@ -87,19 +83,34 @@ export const Modal = (props: ModalProps) => {
             />
           </Flex>
         </Button>
-        <NavHeaderList
-          wheel={{ ...props.wheel, style: props.wheel.style.document.list }}
-          navigationSegments={props.menuNavSegments}
+        <NavigationSegment
+          hideActionHeading={false}
+          hideSegmentHeading={true}
+          maxSegments={1}
+          navigationSegment={props.menuSegments}
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.document.menu,
+          }}
         />
-        <NavHeaderActions
-          navigationSegments={props.actionsNavSegments}
-          activeThemeId={props.activeThemeId}
-          hideThemeSwitchButton={props.hideThemeSwitchButton}
-          toggleTheme={props.toggleTheme}
+        <NavigationSegment
+          hideActionHeading={false}
+          hideSegmentHeading={true}
+          maxSegments={1}
+          navigationSegment={props.actionsSegments}
           wheel={{
             ...props.wheel,
             style: props.wheel.style.document.actions,
           }}
+        />
+        <ThemeButton
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.document.themeButton,
+          }}
+          activeThemeId={props.activeThemeId}
+          hideThemeButton={props.hideThemeButton}
+          toggleTheme={props.toggleTheme}
         />
       </Flex>
     </Box>

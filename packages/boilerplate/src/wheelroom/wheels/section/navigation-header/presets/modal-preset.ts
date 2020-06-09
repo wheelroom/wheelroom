@@ -7,7 +7,11 @@ import {
   modalDialogPreset,
 } from './modal-dialog-preset'
 import { NcssProps } from '../../../types'
-import { NavHeaderListWheelStyle } from './nav-header-list-preset'
+import { ButtonElementStyle } from '../../../element/resets/button-reset'
+import {
+  NavigationSegmentWheelStyle,
+  navigationSegmentPreset,
+} from '../../../model/navigation-segment/presets/navigation-segment-preset'
 
 export interface ModalWheelStyle {
   container: {
@@ -26,17 +30,9 @@ export interface ModalWheelStyle {
       ncss: NcssProps
       icon: NcssProps
     }
-    list: NavHeaderListWheelStyle
-    actions: {
-      ncss: NcssProps
-      link: {
-        ncss: NcssProps
-        icon: {
-          ncss: NcssProps
-        }
-      }
-      themeButton: NcssProps
-    }
+    menu: NavigationSegmentWheelStyle
+    actions: NavigationSegmentWheelStyle
+    themeButton: ButtonElementStyle
   }
 }
 
@@ -98,65 +94,11 @@ export const modalPreset: ModalWheelStyle = {
         },
       },
     },
-    list: {
+    menu: navigationSegmentPreset,
+    actions: navigationSegmentPreset,
+    themeButton: {
       ncss: {
-        label: 'modal-list',
-        display: 'flex',
-        flex: '1',
-        flexDirection: 'column',
-        flexWrap: 'wrap',
-        ListElementStyle: 'none',
-        mb: 0,
-        mt: 0,
-        pl: 0,
-        w: 1,
-      },
-      listItem: {
-        ncss: {
-          label: 'modal-list-item',
-          borderBottom: '1px solid black',
-          m: 0,
-        },
-        link: {
-          ncss: {
-            label: 'modal-list-item-link',
-            display: 'flex',
-            textDecoration: 'none',
-            p: 3,
-            '&.active': { textDecoration: 'underline' },
-            ':hover': { textDecoration: 'underline' },
-          },
-          icon: {
-            ncss: {
-              width: '16px',
-              height: '16px',
-              my: 'auto',
-            },
-          },
-        },
-      },
-    },
-    actions: {
-      ncss: {
-        label: 'modal-actions',
-        flexDirection: 'column',
-        w: 1,
-        p: 3,
-      },
-      link: {
-        ncss: {
-          label: 'modal-actions-action',
-        },
-        icon: {
-          ncss: {
-            label: 'modal-actions-icon',
-          },
-        },
-      },
-      themeButton: {
-        ncss: {
-          label: 'modal-actions-theme-button',
-        },
+        label: 'modal-actions-theme-button',
       },
     },
   },
