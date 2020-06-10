@@ -89,6 +89,7 @@ export const Modal = (props: ModalWheelProps) => {
         >
           <NavigationSegment
             hideActionHeading={false}
+            hideActionIcon={false}
             hideSegmentHeading={true}
             maxSegments={1}
             navigationSegment={props.menuSegments}
@@ -104,6 +105,7 @@ export const Modal = (props: ModalWheelProps) => {
         >
           <NavigationSegment
             hideActionHeading={false}
+            hideActionIcon={true}
             hideSegmentHeading={true}
             maxSegments={1}
             navigationSegment={props.actionsSegments}
