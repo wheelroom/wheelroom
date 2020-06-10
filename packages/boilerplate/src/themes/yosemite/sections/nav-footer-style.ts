@@ -2,7 +2,7 @@ import { wrapperStyle } from '../elements/grid-style'
 
 import { NavigationFooterWheelStyle } from '../../../wheelroom/wheels/section/navigation-footer/presets/navigation-footer-preset'
 
-export const navFooterStyle: NavigationFooterWheelStyle = {
+export const navigationFooterStyle: NavigationFooterWheelStyle = {
   wrapper: {
     ncss: {
       ...wrapperStyle.ncss,
@@ -12,21 +12,38 @@ export const navFooterStyle: NavigationFooterWheelStyle = {
   container: {
     ncss: {},
   },
-  navigation: {
-    ncss: {},
+  section: {
+    ncss: {
+      flexDirection: ['column', 'row'],
+      justifyContent: ['space-between'],
+      mx: 'auto',
+      w: 1,
+    },
     menu: {
       ncss: {},
-      heading: {
+      segment: {
         ncss: {},
-      },
-      list: {
-        ncss: {},
-        item: {
+        heading: {
           ncss: {},
-          action: {
+        },
+        list: {
+          ncss: {
+            textAlign: 'center',
+          },
+          item: {
             ncss: {},
-            icon: {
-              ncss: {},
+            action: {
+              ncss: {
+                textDecoration: 'none',
+                px: 2,
+                py: 3,
+                ':hover, &.active': {
+                  textDecoration: 'underline',
+                },
+              },
+              icon: {
+                ncss: {},
+              },
             },
           },
         },
@@ -34,17 +51,28 @@ export const navFooterStyle: NavigationFooterWheelStyle = {
     },
     social: {
       ncss: {},
-      heading: {
+      segment: {
         ncss: {},
-      },
-      list: {
-        ncss: {},
-        item: {
+        heading: {
           ncss: {},
-          action: {
+        },
+        list: {
+          ncss: {
+            textAlign: 'center',
+          },
+          item: {
             ncss: {},
-            icon: {
-              ncss: {},
+            action: {
+              ncss: {
+                px: 2,
+                py: 3,
+                ':hover': {
+                  color: 'sectionText',
+                },
+              },
+              icon: {
+                ncss: {},
+              },
             },
           },
         },

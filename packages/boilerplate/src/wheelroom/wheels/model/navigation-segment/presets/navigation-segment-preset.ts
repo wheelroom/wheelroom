@@ -13,11 +13,11 @@ export interface NavigationSegmentWheelStyle {
 
 export const navigationSegmentPreset: NavigationSegmentWheelStyle = {
   ncss: {
-    label: 'navigation-segments',
+    label: 'navigation-segment',
   },
   heading: {
     ncss: {
-      label: 'navigation-segments-heading',
+      label: 'navigation-segment-heading',
     },
   },
   list: navigationSegmentListPreset,

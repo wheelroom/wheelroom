@@ -9,15 +9,21 @@ import {
 export interface NavigationFooterWheelStyle {
   wrapper: GridElementStyle
   container: GridElementStyle
-  navigation: {
+  section: {
     ncss: NcssProps
-    menu: NavigationSegmentWheelStyle
-    social: NavigationSegmentWheelStyle
+    menu: {
+      ncss: NcssProps
+      segment: NavigationSegmentWheelStyle
+    }
+    social: {
+      ncss: NcssProps
+      segment: NavigationSegmentWheelStyle
+    }
   }
   legalFooter: LegalFooterWheelStyle
 }
 
-export const navFooterPreset: NavigationFooterWheelStyle = {
+export const navigationFooterPreset: NavigationFooterWheelStyle = {
   wrapper: {
     ncss: {
       borderTop: '1px solid black',
@@ -30,16 +36,23 @@ export const navFooterPreset: NavigationFooterWheelStyle = {
       px: 2,
     },
   },
-  navigation: {
+  section: {
     ncss: {
-      label: 'nav-footer',
-      flex: 1,
-      justifyContent: ['space-evenly', 'space-between'],
-      flexDirection: ['column', 'row'],
+      label: 'navigation-segments',
       alignItems: 'center',
     },
-    menu: navigationSegmentPreset,
-    social: navigationSegmentPreset,
+    menu: {
+      ncss: {
+        label: 'menu-navigation',
+      },
+      segment: navigationSegmentPreset,
+    },
+    social: {
+      ncss: {
+        label: 'social-navigation',
+      },
+      segment: navigationSegmentPreset,
+    },
   },
   legalFooter: legalFooterPreset,
 }

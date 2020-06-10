@@ -5,16 +5,31 @@ const iconStyle = {
   },
 }
 
-const iconSmallStyle = {
+const iconLargeStyle = {
   ncss: {
     w: ['17px', '17px', '20px'],
     h: ['17px', '17px', '20px'],
   },
 }
 
-export const iconButtonStyle = {
+const iconSmallStyle = {
+  ncss: {
+    w: '16px',
+    h: '16px',
+  },
+}
+
+export const iconButtonSmallStyle = {
   ncss: {
     ...iconSmallStyle.ncss,
+    transform: 'translateX(4px)',
+  },
+}
+
+export const iconButtonStyle = {
+  ncss: {
+    ...iconStyle.ncss,
+    ...iconLargeStyle.ncss,
     transform: ['translateX(8px)', 'translateX(8px)', 'translateX(10px)'],
   },
 }

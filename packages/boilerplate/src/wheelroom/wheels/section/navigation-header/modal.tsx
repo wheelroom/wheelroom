@@ -83,35 +83,45 @@ export const Modal = (props: ModalWheelProps) => {
             />
           </Flex>
         </Button>
-        <NavigationSegment
-          hideActionHeading={false}
-          hideSegmentHeading={true}
-          maxSegments={1}
-          navigationSegment={props.menuSegments}
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.document.menu,
-          }}
-        />
-        <NavigationSegment
-          hideActionHeading={false}
-          hideSegmentHeading={true}
-          maxSegments={1}
-          navigationSegment={props.actionsSegments}
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.document.actions,
-          }}
-        />
-        <ThemeButton
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.document.themeButton,
-          }}
-          activeThemeId={props.activeThemeId}
-          hideThemeButton={props.hideThemeButton}
-          toggleTheme={props.toggleTheme}
-        />
+        <Flex
+          is="nav"
+          wheel={{ ...props.wheel, style: props.wheel.style.document.menu }}
+        >
+          <NavigationSegment
+            hideActionHeading={false}
+            hideSegmentHeading={true}
+            maxSegments={1}
+            navigationSegment={props.menuSegments}
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.document.menu.segment,
+            }}
+          />
+        </Flex>
+        <Flex
+          is="div"
+          wheel={{ ...props.wheel, style: props.wheel.style.document.actions }}
+        >
+          <NavigationSegment
+            hideActionHeading={false}
+            hideSegmentHeading={true}
+            maxSegments={1}
+            navigationSegment={props.actionsSegments}
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.document.actions.segment,
+            }}
+          />
+          <ThemeButton
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.document.actions.themeButton,
+            }}
+            activeThemeId={props.activeThemeId}
+            hideThemeButton={props.hideThemeButton}
+            toggleTheme={props.toggleTheme}
+          />
+        </Flex>
       </Flex>
     </Box>
   )

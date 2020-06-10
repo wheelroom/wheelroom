@@ -12,7 +12,6 @@ export interface NavigationSegmentListWheelStyle {
 export const navigationSegmentListPreset: NavigationSegmentListWheelStyle = {
   ncss: {
     label: 'navigation-segment-list',
-    display: 'flex',
     my: 0,
     pl: 0,
   },
@@ -20,14 +19,12 @@ export const navigationSegmentListPreset: NavigationSegmentListWheelStyle = {
     ncss: {
       label: 'navigation-segment-list-item',
       listStyle: 'none',
-      display: 'flex',
+      display: 'inline-flex',
     },
     action: {
       ncss: {
         label: 'navigation-segment-list-item-action',
         display: 'inline-flex',
-        px: 2,
-        py: 3,
       },
       icon: {
         ncss: {
@@ -35,7 +32,6 @@ export const navigationSegmentListPreset: NavigationSegmentListWheelStyle = {
           w: '15px',
           h: '15px',
           my: 'auto',
-          transform: 'translateX(4px)',
         },
       },
     },

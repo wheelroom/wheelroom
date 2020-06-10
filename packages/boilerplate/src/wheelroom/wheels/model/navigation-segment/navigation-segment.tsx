@@ -11,8 +11,9 @@ interface NavigationSegmentWheel extends Wheel {
 }
 
 export interface NavigationSegmentWheelProps {
-  hideSegmentHeading: boolean
   hideActionHeading: boolean
+  hideActionIcon: boolean
+  hideSegmentHeading: boolean
   maxSegments: number
   navigationSegment: NavigationSegmentProps[]
   wheel: NavigationSegmentWheel
@@ -35,6 +36,7 @@ export const NavigationSegment = (props: NavigationSegmentWheelProps) => {
             <NavigationSegmentList
               actions={navigationSegment.actions}
               hideActionHeading={props.hideActionHeading}
+              hideActionIcon={props.hideActionIcon}
               key={index}
               wheel={{
                 ...props.wheel,

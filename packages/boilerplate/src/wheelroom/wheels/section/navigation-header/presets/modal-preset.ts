@@ -30,9 +30,15 @@ export interface ModalWheelStyle {
       ncss: NcssProps
       icon: NcssProps
     }
-    menu: NavigationSegmentWheelStyle
-    actions: NavigationSegmentWheelStyle
-    themeButton: ButtonElementStyle
+    menu: {
+      ncss: NcssProps
+      segment: NavigationSegmentWheelStyle
+    }
+    actions: {
+      ncss: NcssProps
+      segment: NavigationSegmentWheelStyle
+      themeButton: ButtonElementStyle
+    }
   }
 }
 
@@ -81,6 +87,7 @@ export const modalPreset: ModalWheelStyle = {
     },
     closeNavigationButton: {
       ncss: {
+        label: 'modal-close-button',
         mt: 3,
         mr: 3,
         p: 1,
@@ -94,11 +101,21 @@ export const modalPreset: ModalWheelStyle = {
         },
       },
     },
-    menu: navigationSegmentPreset,
-    actions: navigationSegmentPreset,
-    themeButton: {
+    menu: {
       ncss: {
-        label: 'modal-theme-button',
+        label: 'menu-navigation',
+      },
+      segment: navigationSegmentPreset,
+    },
+    actions: {
+      ncss: {
+        label: 'actions-navigation',
+      },
+      segment: navigationSegmentPreset,
+      themeButton: {
+        ncss: {
+          label: 'modal-theme-button',
+        },
       },
     },
   },

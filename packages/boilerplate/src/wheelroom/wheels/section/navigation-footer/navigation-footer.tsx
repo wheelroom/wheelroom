@@ -36,8 +36,8 @@ export const NavigationFooter = (props: NavigationFooterWheelProps) => {
     return null
   }
 
-  const menuNavSegments = getNavSegments(props.navigation, 'menu')
-  const socialNavSegments = getNavSegments(props.navigation, 'social')
+  const menuSegments = getNavSegments(props.navigation, 'menu')
+  const socialSegments = getNavSegments(props.navigation, 'social')
 
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
 
@@ -48,29 +48,42 @@ export const NavigationFooter = (props: NavigationFooterWheelProps) => {
           wheel={{ ...props.wheel, style: props.wheel.style.container }}
         >
           <Flex
-            is={'nav'}
-            wheel={{ ...props.wheel, style: props.wheel.style.navigation }}
+            is="div"
+            wheel={{ ...props.wheel, style: props.wheel.style.section }}
           >
-            <NavigationSegment
-              hideActionHeading={false}
-              hideSegmentHeading={true}
-              maxSegments={1}
-              navigationSegment={menuNavSegments}
+            <Flex
+              is={'nav'}
+              wheel={{ ...props.wheel, style: props.wheel.style.section.menu }}
+            >
+              <NavigationSegment
+                hideActionHeading={false}
+                hideSegmentHeading={true}
+                maxSegments={1}
+                navigationSegment={menuSegments}
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.section.menu.segment,
+                }}
+              />
+            </Flex>
+            <Flex
+              is={'div'}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navigation.menu,
+                style: props.wheel.style.section.social,
               }}
-            />
-            <NavigationSegment
-              hideActionHeading={true}
-              hideSegmentHeading={true}
-              maxSegments={1}
-              navigationSegment={socialNavSegments}
-              wheel={{
-                ...props.wheel,
-                style: props.wheel.style.navigation.social,
-              }}
-            />
+            >
+              <NavigationSegment
+                hideActionHeading={true}
+                hideSegmentHeading={true}
+                maxSegments={1}
+                navigationSegment={socialSegments}
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.section.social.segment,
+                }}
+              />
+            </Flex>
           </Flex>
         </ContainerType>
       </Wrapper>

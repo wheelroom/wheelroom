@@ -7,7 +7,6 @@ import { TopicWheelProps } from './topic'
 export const TopicBody = (props: TopicWheelProps) => {
   const topicInfo = getTopicInfo(props.topic!)
   const topicOptions = props.topicOptions
-
   const showMedia = topicInfo.hasMedia && !topicOptions.hideMedia
   return (
     <Fragment>

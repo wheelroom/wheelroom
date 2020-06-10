@@ -9,8 +9,8 @@ import {
 } from './yosemite/sections/section-card-style'
 import { Wheel } from '../wheelroom/wheels/types'
 import { ThemeId } from '../admin-resources/theme-info'
-import { navFooterStyle } from './yosemite/sections/nav-footer-style'
-import { navHeaderStyle } from './yosemite/sections/nav-header-style'
+import { navigationFooterStyle } from './yosemite/sections/nav-footer-style'
+import { navigationHeaderStyle } from './yosemite/sections/nav-header-style'
 import { sectionTextStyle } from './yosemite/sections/section-text-style'
 import { sectionDividerStyle } from './yosemite/sections/section-divider-style'
 import {
@@ -81,8 +81,8 @@ const sectionStyleMap = {
     base: sectionImageStyle,
   },
   navigation: {
-    header: navHeaderStyle,
-    footer: navFooterStyle,
+    header: navigationHeaderStyle,
+    footer: navigationFooterStyle,
   },
   table: {
     base: sectionTableStyle,

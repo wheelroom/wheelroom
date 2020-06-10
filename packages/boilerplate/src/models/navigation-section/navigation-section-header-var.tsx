@@ -9,7 +9,7 @@
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../themes/themes'
-import { navHeaderPreset } from '../../wheelroom/wheels/section/navigation-header/presets/navigation-header-preset'
+import { navigationHeaderPreset } from '../../wheelroom/wheels/section/navigation-header/presets/navigation-header-preset'
 import { NavigationHeader } from '../../wheelroom/wheels/section/navigation-header/navigation-header'
 import { NavigationSectionProps } from './navigation-section'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
@@ -19,7 +19,7 @@ import { Wheel } from '../../wheelroom/wheels/types'
 export const NavigationSectionHeaderVar = (props: NavigationSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
-    navHeaderPreset,
+    navigationHeaderPreset,
     getSectionStyle('navigation').header,
   ])
   return (
@@ -35,7 +35,9 @@ export const NavigationSectionHeaderVar = (props: NavigationSectionProps) => {
         hideThemeButton={false}
         useLogoElement={undefined}
         wheel={wheel}
-        //useLogoElement={<SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheelHeader} />}
+        // useLogoElement={
+        //   <SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheel} />
+        // }
       />
     </ScrollSpy>
   )

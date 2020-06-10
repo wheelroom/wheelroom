@@ -40,11 +40,6 @@ export const PageSectionCardVar = (props: PageSectionProps) => {
     return null
   }
 
-  // const topicActionsPresent =
-  //   !pageSectionInfo.topicOptions.hideAction &&
-  //   props.topics &&
-  //   props.topics.filter((topic: TopicProps) => topic.actions).length > 0
-
   return (
     <ScrollSpy
       eventId={props.eventId}

@@ -15,11 +15,16 @@ export interface NavigationHeaderWheelStyle {
   skipToContent: NcssProps
   wrapper: GridElementStyle
   container: GridElementStyle
-  brandNavSegment: BrandNavigationSegmentWheelStyle
-  navigation: {
+  brand: {
+    segment: BrandNavigationSegmentWheelStyle
+  }
+  menu: {
     ncss: NcssProps
-    menu: NavigationSegmentWheelStyle
-    actions: NavigationSegmentWheelStyle
+    segment: NavigationSegmentWheelStyle
+  }
+  actions: {
+    ncss: NcssProps
+    segment: NavigationSegmentWheelStyle
     themeButton: ButtonElementStyle
   }
   modal: {
@@ -29,7 +34,7 @@ export interface NavigationHeaderWheelStyle {
   }
 }
 
-export const navHeaderPreset: NavigationHeaderWheelStyle = {
+export const navigationHeaderPreset: NavigationHeaderWheelStyle = {
   skipToContent: {
     ncss: {
       label: 'skip-to-content',
@@ -68,18 +73,29 @@ export const navHeaderPreset: NavigationHeaderWheelStyle = {
       px: 3,
     },
   },
-  brandNavSegment: brandNavigationSegmentPreset,
-  navigation: {
+  brand: {
+    segment: brandNavigationSegmentPreset,
+  },
+  menu: {
     ncss: {
-      label: 'navigation',
+      label: 'menu-navigation',
       flex: '1',
       alignItems: 'center',
       display: ['none', 'none', 'flex'],
     },
-    menu: navigationSegmentPreset,
-    actions: navigationSegmentPreset,
+    segment: navigationSegmentPreset,
+  },
+  actions: {
+    ncss: {
+      label: 'actions-navigation',
+      alignItems: 'center',
+      display: ['none', 'none', 'flex'],
+    },
+    segment: navigationSegmentPreset,
     themeButton: {
-      ncss: {},
+      ncss: {
+        label: 'actions-theme-button',
+      },
     },
   },
   modal: {

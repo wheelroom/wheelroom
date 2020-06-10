@@ -9,7 +9,7 @@
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../themes/themes'
-import { navFooterPreset } from '../../wheelroom/wheels/section/navigation-footer/presets/navigation-footer-preset'
+import { navigationFooterPreset } from '../../wheelroom/wheels/section/navigation-footer/presets/navigation-footer-preset'
 import { NavigationFooter } from '../../wheelroom/wheels/section/navigation-footer/navigation-footer'
 import { NavigationSectionProps } from './navigation-section'
 import { ScrollSpy } from '../../wheelroom/lib/scroll-spy'
@@ -18,7 +18,7 @@ import { ThemeId } from '../../admin-resources/theme-info'
 export const NavigationSectionFooterVar = (props: NavigationSectionProps) => {
   const wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
-    navFooterPreset,
+    navigationFooterPreset,
     getSectionStyle('navigation').footer,
   ])
   return (

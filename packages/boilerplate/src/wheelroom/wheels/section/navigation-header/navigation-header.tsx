@@ -87,37 +87,44 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
             navigationSegment={brandSegments}
             wheel={{
               ...props.wheel,
-              style: props.wheel.style.brandNavSegment,
+              style: props.wheel.style.brand.segment,
             }}
           />
           <Flex
             is={'nav'}
-            wheel={{ ...props.wheel, style: props.wheel.style.navigation }}
+            wheel={{ ...props.wheel, style: props.wheel.style.menu }}
           >
             <NavigationSegment
               hideActionHeading={false}
+              hideActionIcon={false}
               hideSegmentHeading={true}
               maxSegments={1}
               navigationSegment={menuSegments}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navigation.menu,
+                style: props.wheel.style.menu.segment,
               }}
             />
+          </Flex>
+          <Flex
+            is="div"
+            wheel={{ ...props.wheel, style: props.wheel.style.actions }}
+          >
             <NavigationSegment
               hideActionHeading={false}
+              hideActionIcon={true}
               hideSegmentHeading={true}
               maxSegments={1}
               navigationSegment={actionsSegments}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navigation.actions,
+                style: props.wheel.style.actions.segment,
               }}
             />
             <ThemeButton
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.navigation.themeButton,
+                style: props.wheel.style.actions.themeButton,
               }}
               activeThemeId={activeThemeId}
               hideThemeButton={props.hideThemeButton}
