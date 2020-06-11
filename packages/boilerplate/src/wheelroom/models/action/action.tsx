@@ -7,14 +7,35 @@
  */
 
 import React, { useContext } from 'react'
-import { ActionWheelProps } from './types'
+import { ActionProps } from './model-types'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { ALink } from '../../elements/a-link'
 import { Any } from '../../elements/any'
-import { EmbedProps } from '../embed/embed'
+import { EmbedProps } from '../embed/model-types'
 import { FeatherIcon } from '../../elements/icon'
 import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
 import { GLink } from '../../elements/g-link'
+import { NcssProps, Wheel } from '../../types/wheel'
+
+export interface ActionWheelStyle {
+  ncss: NcssProps
+  icon: {
+    ncss: NcssProps
+  }
+}
+
+export interface ActionWheel extends Wheel {
+  style: ActionWheelStyle
+}
+
+export interface ActionWheelProps extends ActionProps {
+  wheel: ActionWheel
+  children?: any
+  key?: any
+  hideIcon?: boolean
+  hideHeading?: boolean
+  onClick?: () => any
+}
 
 const createURL = (action: ActionWheelProps, isPreviewMode: boolean) => {
   const hasQuery = action.query || isPreviewMode

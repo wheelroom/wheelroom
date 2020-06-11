@@ -16,7 +16,7 @@ import { StrongElementStyle } from '../resets/self-strong-reset'
 import { CodeElementStyle } from '../resets/self-code-reset'
 import { BlockquoteElementStyle } from '../resets/self-blockquote-reset'
 import { TableElementStyle } from '../resets/self-table-reset'
-import { EmbedStyle } from '../../wheels/model/embed/embed'
+import { EmbedStyle } from '../../models/embed/embed'
 import { TimeElementStyle } from '../resets/self-time-reset'
 
 export interface ElementStyles {

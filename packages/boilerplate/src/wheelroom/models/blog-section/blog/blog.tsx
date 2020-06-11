@@ -1,15 +1,34 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Any } from '../../elements/any'
-import { BlogWheelProps } from './types'
-import { Box, Container, Flex, Fluid, Wrapper } from '../../elements/grid'
-import { Heading } from '../../elements/heading'
-import { Image } from '../../elements/image'
-import { Paragraph } from '../../elements/paragraph'
-import { Text } from '../../wheels/model/text/text'
-import { Time } from '../../elements/self'
-import { Topic } from '../../wheels/model/topic/topic'
-import { TopicProps } from '../topic/topic'
+import { Any } from '../../../elements/any'
+import { BlogProps } from '../../blog/model-types'
+import { BlogWheelStyle } from '../../../wheels/section/blog/presets/blog-section-preset'
+import { Box, Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
+import { Heading } from '../../../elements/heading'
+import { Image } from '../../../elements/image'
+import { Paragraph } from '../../../elements/paragraph'
+import { Text } from '../../../wheels/model/text/text'
+import { Time } from '../../../elements/self'
+import { Topic } from '../../../wheels/model/topic/topic'
+import { TopicProps } from '../../topic/topic'
+import { Wheel } from '../../../types/wheel'
+
+export interface BlogWheel extends Wheel {
+  style: BlogWheelStyle
+}
+
+export interface BlogWheelProps {
+  /** Styling wheel */
+  wheel: BlogWheel
+  /** Locale needed for rich text render */
+  locale: string
+  /** Blog props to render */
+  blog: BlogProps
+  /** Use a max width or fluid container */
+  containerStyle: 'container' | 'fluid'
+  /** Accept max number of topics, ignore all others */
+  maxTopics?: number
+}
 
 export const Blog = (props: BlogWheelProps) => {
   if (!props.blog) {

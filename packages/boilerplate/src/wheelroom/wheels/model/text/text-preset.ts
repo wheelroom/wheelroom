@@ -1,4 +1,4 @@
-import { EmbedStyle } from '../embed/embed'
+import { EmbedStyle } from '../../../models/embed/embed'
 import { ImageElementStyle } from '../../../elements/image'
 import { VideoElementStyle } from '../../../elements/video'
 import { GridElementStyle } from '../../../elements/resets/grid-reset'

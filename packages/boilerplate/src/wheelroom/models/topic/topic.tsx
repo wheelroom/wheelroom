@@ -5,7 +5,7 @@
  *
  */
 
-import { EmbedProps } from '../embed/embed'
+import { EmbedProps } from '../embed/model-types'
 import { MediaBreakpointProps } from '../media-breakpoint/media-breakpoint'
 import { MediaObject } from '../../elements/types/media'
 import { ActionProps } from '../action/action'

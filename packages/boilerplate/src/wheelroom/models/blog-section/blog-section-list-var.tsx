@@ -7,12 +7,12 @@
  */
 
 import React from 'react'
-import { BlogProps } from '../blog/types'
-import { BlogList } from '../../wheels/model/blog-list/blog-list'
+import { BlogProps } from '../blog/model-types'
 import { blogSectionListPreset } from '../../wheels/section/blog/presets/blog-section-list-preset'
-import { BlogSectionProps } from './blog-section'
+import { BlogSectionProps } from './model-types'
 import { deepMerge } from '../../lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../../themes/themes'
+import { List } from './list/list'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
 import { Wheel } from '../../types/wheel'
@@ -35,7 +35,7 @@ export const BlogSectionListVar = (props: BlogSectionProps) => {
       siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <BlogList
+      <List
         blogPosts={blogPosts}
         containerStyle="container"
         locale={props.locale}

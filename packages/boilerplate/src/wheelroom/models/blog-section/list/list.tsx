@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Any } from '../../../elements/any'
-import { BlogListWheelStyle } from '../../section/blog/presets/blog-section-list-preset'
-import { BlogProps } from '../../../models/blog/types'
+import { BlogListWheelStyle } from '../../../wheels/section/blog/presets/blog-section-list-preset'
+import { BlogProps } from '../../blog/model-types'
 import { Container, Fluid, Wrapper, Box, Flex } from '../../../elements/grid'
 import { GLink } from '../../../elements/g-link'
 import { Heading } from '../../../elements/heading'
@@ -28,7 +28,7 @@ export interface BlogListWheelProps {
   maxTopics?: number
 }
 
-export const BlogList = (props: BlogListWheelProps) => {
+export const List = (props: BlogListWheelProps) => {
   if (!props.blogPosts) {
     return null
   }

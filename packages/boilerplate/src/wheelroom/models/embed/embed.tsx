@@ -1,22 +1,31 @@
-/**
- * Component
- *
- * Component type: embed
- *
- */
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { NcssProps, Wheel } from '../../types/wheel'
+import { Any } from '../../elements/any'
 
-export type EmbedType =
-  | 'html'
-  | 'js-action'
-  | 'js-app'
-  | 'js-page-section'
-  | 'js-page'
+export interface EmbedStyle {
+  ncss: NcssProps
+}
 
-export interface EmbedProps {
-  /** Gatsby fetched data */
-  __typename: string
-  code?: {
-    code: string
+export interface EmbedWheelProps {
+  /** Styling wheel */
+  wheel: Wheel
+  /** Embed props */
+  code?: string
+  title?: string
+  type?: string
+}
+
+export const Embed = (props: EmbedWheelProps) => {
+  if (!props.type || props.type !== 'html') {
+    return null
   }
-  type?: EmbedType
+
+  return (
+    <Any
+      is="div"
+      wheel={{ ...props.wheel, style: props.wheel.style.embed }}
+      dangerouslySetInnerHTML={{ __html: props.code || '' }}
+    />
+  )
 }

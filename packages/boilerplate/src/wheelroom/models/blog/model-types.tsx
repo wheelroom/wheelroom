@@ -5,8 +5,6 @@
  *
  */
 
-import { BlogWheelStyle } from '../../wheels/section/blog/presets/blog-section-preset'
-import { Wheel } from '../../types/wheel'
 import { MediaObject } from '../../elements/types/media'
 import { TopicProps } from '../topic/topic'
 
@@ -38,21 +36,4 @@ export interface BlogNodeProps {
 
 export interface AllBlogProps {
   edges: BlogNodeProps[]
-}
-
-export interface BlogWheel extends Wheel {
-  style: BlogWheelStyle
-}
-
-export interface BlogWheelProps {
-  /** Styling wheel */
-  wheel: BlogWheel
-  /** Locale needed for rich text render */
-  locale: string
-  /** Blog props to render */
-  blog: BlogProps
-  /** Use a max width or fluid container */
-  containerStyle: 'container' | 'fluid'
-  /** Accept max number of topics, ignore all others */
-  maxTopics?: number
 }

@@ -7,9 +7,9 @@
  */
 
 import React from 'react'
-import { Blog } from '../blog/blog'
+import { Blog } from './blog/blog'
 import { blogSectionPreset } from '../../wheels/section/blog/presets/blog-section-preset'
-import { BlogSectionProps } from './blog-section'
+import { BlogSectionProps } from './model-types'
 import { deepMerge } from '../../lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
