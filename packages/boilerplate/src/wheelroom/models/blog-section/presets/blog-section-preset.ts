@@ -1,11 +1,14 @@
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
-import { HeadingElementStyle } from '../../../../elements/resets/heading-reset'
-import { ImageElementStyle } from '../../../../elements/image'
-import { NcssProps } from '../../../../types/wheel'
-import { ParagraphElementStyle } from '../../../../elements/resets/paragraph-reset'
-import { TextWheelStyle, textPreset } from '../../../model/text/text-preset'
-import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
-import { VideoElementStyle } from '../../../../elements/video'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { HeadingElementStyle } from '../../../elements/resets/heading-reset'
+import { ImageElementStyle } from '../../../elements/image'
+import { NcssProps } from '../../../types/wheel'
+import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
+import {
+  TextWheelStyle,
+  textPreset,
+} from '../../../wheels/model/text/text-preset'
+import { TopicWheelStyle } from '../../../wheels/model/topic/presets/topic-preset'
+import { VideoElementStyle } from '../../../elements/video'
 
 export interface BlogWheelStyle {
   container: GridElementStyle

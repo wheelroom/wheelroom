@@ -1,9 +1,9 @@
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
-import { HeadingElementStyle } from '../../../../elements/resets/heading-reset'
-import { ImageElementStyle } from '../../../../elements/image'
-import { NcssProps } from '../../../../types/wheel'
-import { ParagraphElementStyle } from '../../../../elements/resets/paragraph-reset'
-import { VideoElementStyle } from '../../../../elements/video'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { HeadingElementStyle } from '../../../elements/resets/heading-reset'
+import { ImageElementStyle } from '../../../elements/image'
+import { NcssProps } from '../../../types/wheel'
+import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
+import { VideoElementStyle } from '../../../elements/video'
 
 export interface BlogListWheelStyle {
   container: GridElementStyle

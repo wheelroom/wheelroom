@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { Any } from '../../../elements/any'
 import { BlogProps } from '../../blog/model-types'
-import { BlogWheelStyle } from '../../../wheels/section/blog/presets/blog-section-preset'
+import { BlogWheelStyle } from '../presets/blog-section-preset'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
 import { Heading } from '../../../elements/heading'
 import { Image } from '../../../elements/image'

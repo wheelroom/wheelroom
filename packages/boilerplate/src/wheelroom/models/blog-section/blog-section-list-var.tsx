@@ -8,7 +8,7 @@
 
 import React from 'react'
 import { BlogProps } from '../blog/model-types'
-import { blogSectionListPreset } from '../../wheels/section/blog/presets/blog-section-list-preset'
+import { blogSectionListPreset } from './presets/blog-section-list-preset'
 import { BlogSectionProps } from './model-types'
 import { deepMerge } from '../../lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../../themes/themes'

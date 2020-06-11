@@ -1,4 +1,4 @@
-import { BlogListWheelStyle } from '../../../wheelroom/wheels/section/blog/presets/blog-section-list-preset'
+import { BlogListWheelStyle } from '../../../wheelroom/models/blog-section/presets/blog-section-list-preset'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const blogSectionListStyle: BlogListWheelStyle = {
