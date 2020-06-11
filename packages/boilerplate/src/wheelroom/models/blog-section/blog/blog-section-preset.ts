@@ -3,10 +3,7 @@ import { HeadingElementStyle } from '../../../elements/resets/heading-reset'
 import { ImageElementStyle } from '../../../elements/image'
 import { NcssProps } from '../../../types/wheel'
 import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
-import {
-  TextWheelStyle,
-  textPreset,
-} from '../../../wheels/model/text/text-preset'
+import { TextWheelStyle, textPreset } from '../../text/text-preset'
 import { TopicWheelStyle } from '../../topic/presets/topic-preset'
 import { VideoElementStyle } from '../../../elements/video'
 

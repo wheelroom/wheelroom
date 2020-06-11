@@ -1,8 +1,5 @@
 import { GridElementStyle } from '../../../elements/resets/grid-reset'
-import {
-  textPreset,
-  TextWheelStyle,
-} from '../../../wheels/model/text/text-preset'
+import { textPreset, TextWheelStyle } from '../../text/text-preset'
 
 export interface TextSectionWheelStyle {
   container: GridElementStyle
