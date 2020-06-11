@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { Blog } from '../../wheels/model/blog/blog'
+import { Blog } from '../blog/blog'
 import { blogSectionPreset } from '../../wheels/section/blog/presets/blog-section-preset'
 import { BlogSectionProps } from './blog-section'
 import { deepMerge } from '../../lib/deep-merge'
