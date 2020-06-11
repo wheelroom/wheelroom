@@ -1,5 +1,5 @@
 import { headingTextStyle } from '../elements/heading-style'
-import { TextSectionWheelStyle } from '../../../wheelroom/wheels/section/text/text-section-preset'
+import { TextSectionWheelStyle } from '../../../wheelroom/models/text-section/text/text-section-preset'
 import { wrapperStyle } from '../elements/grid-style'
 
 export const sectionTextStyle: TextSectionWheelStyle = {

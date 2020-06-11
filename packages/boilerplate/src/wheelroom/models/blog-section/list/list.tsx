@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Any } from '../../../elements/any'
-import { BlogListWheelStyle } from '../presets/blog-section-list-preset'
+import { BlogListWheelStyle } from './blog-section-list-preset'
 import { BlogProps } from '../../blog/model-types'
 import { Container, Fluid, Wrapper, Box, Flex } from '../../../elements/grid'
 import { GLink } from '../../../elements/g-link'

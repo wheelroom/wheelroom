@@ -1,4 +1,4 @@
-import { BlogWheelStyle } from '../../../wheelroom/models/blog-section/presets/blog-section-preset'
+import { BlogWheelStyle } from '../../../wheelroom/models/blog-section/blog/blog-section-preset'
 import { headingTextStyle } from '../elements/heading-style'
 import { wrapperStyle } from '../elements/grid-style'
 
