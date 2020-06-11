@@ -360,6 +360,8 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
         'Wheelroom is an open source project and created for developers that want to work with the latest technology and services.',
       siteHeading: 'Wheelroom',
       siteKeywords: ['Wheelroom', 'Boilerplate', 'Starter set'],
+      siteImage: true,
+      skipToContentHeading: 'Skip to Wheelroom starter content',
       title: 'Global settings for this site',
     },
     model: 'globals',

@@ -1675,9 +1675,10 @@ interface GlobalsModel {
   fields: {
     siteAuthor?: string
     siteDescription?: string
-    siteHeading?: string
-    siteKeywords?: string[]
     siteEmbeds?: string[]
+    siteHeading?: string
+    siteImage?: boolean
+    siteKeywords?: string[]
     skipToContentHeading?: string
     title: string
   }

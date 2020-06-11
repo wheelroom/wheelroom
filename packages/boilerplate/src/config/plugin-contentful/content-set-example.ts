@@ -8,6 +8,8 @@ export const example: ContentTypes = {
         'Wheelroom is an open source project and created for developers that want to work with the latest technology and services.',
       siteHeading: 'Wheelroom',
       siteKeywords: ['Wheelroom', 'Boilerplate', 'Example set'],
+      siteImage: true,
+      skipToContentHeading: 'Skip to Wheelroom example content',
       title: 'Global settings for this site',
     },
     model: 'globals',
