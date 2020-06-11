@@ -4,7 +4,7 @@ import { LegalFooterWheelStyle, legalFooterPreset } from './legal-footer-preset'
 import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,
-} from '../../../model/navigation-segment/presets/navigation-segment-preset'
+} from '../../../../wheels/model/navigation-segment/presets/navigation-segment-preset'
 
 export interface NavigationFooterWheelStyle {
   wrapper: GridElementStyle

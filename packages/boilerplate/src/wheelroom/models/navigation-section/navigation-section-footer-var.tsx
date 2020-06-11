@@ -9,9 +9,9 @@
 import React from 'react'
 import { deepMerge } from '../../lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../../themes/themes'
-import { navigationFooterPreset } from '../../wheels/section/navigation-footer/presets/navigation-footer-preset'
-import { NavigationFooter } from '../../wheels/section/navigation-footer/navigation-footer'
-import { NavigationSectionProps } from './navigation-section'
+import { NavigationFooter } from './footer/navigation-footer'
+import { navigationFooterPreset } from './footer/presets/navigation-footer-preset'
+import { NavigationSectionProps } from './model-types'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
 

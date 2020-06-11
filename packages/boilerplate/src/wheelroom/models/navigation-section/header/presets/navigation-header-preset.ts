@@ -3,13 +3,13 @@ import { GridElementStyle } from '../../../../elements/resets/grid-reset'
 import {
   BrandNavigationSegmentWheelStyle,
   brandNavigationSegmentPreset,
-} from '../../../model/navigation-segment/presets/brand-navigation-segment-preset'
+} from '../../../../wheels/model/navigation-segment/presets/brand-navigation-segment-preset'
 import { ModalWheelStyle, modalPreset } from './modal-preset'
 import { ButtonElementStyle } from '../../../../elements/resets/button-reset'
 import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,
-} from '../../../model/navigation-segment/presets/navigation-segment-preset'
+} from '../../../../wheels/model/navigation-segment/presets/navigation-segment-preset'
 
 export interface NavigationHeaderWheelStyle {
   skipToContent: NcssProps

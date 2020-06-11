@@ -1,6 +1,6 @@
 import { wrapperStyle } from '../elements/grid-style'
 
-import { NavigationFooterWheelStyle } from '../../../wheelroom/wheels/section/navigation-footer/presets/navigation-footer-preset'
+import { NavigationFooterWheelStyle } from '../../../wheelroom/models/navigation-section/footer/presets/navigation-footer-preset'
 
 export const navigationFooterStyle: NavigationFooterWheelStyle = {
   wrapper: {

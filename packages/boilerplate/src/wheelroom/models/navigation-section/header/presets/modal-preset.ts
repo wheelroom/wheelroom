@@ -11,7 +11,7 @@ import { ButtonElementStyle } from '../../../../elements/resets/button-reset'
 import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,
-} from '../../../model/navigation-segment/presets/navigation-segment-preset'
+} from '../../../../wheels/model/navigation-segment/presets/navigation-segment-preset'
 
 export interface ModalWheelStyle {
   container: {
