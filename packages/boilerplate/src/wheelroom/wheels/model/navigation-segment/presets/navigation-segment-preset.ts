@@ -1,9 +1,9 @@
-import { NcssProps } from '../../../types'
+import { NcssProps } from '../../../../types/wheel'
 import {
   NavigationSegmentListWheelStyle,
   navigationSegmentListPreset,
 } from './navigation-segment-list-preset'
-import { HeadingElementStyle } from '../../../element/resets/heading-reset'
+import { HeadingElementStyle } from '../../../../elements/resets/heading-reset'
 
 export interface NavigationSegmentWheelStyle {
   ncss: NcssProps

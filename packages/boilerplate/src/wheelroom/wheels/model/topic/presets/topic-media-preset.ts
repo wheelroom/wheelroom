@@ -1,6 +1,6 @@
-import { NcssProps } from '../../../types'
-import { ImageElementStyle } from '../../../element/image'
-import { VideoElementStyle } from '../../../element/video'
+import { NcssProps } from '../../../../types/wheel'
+import { ImageElementStyle } from '../../../../elements/image'
+import { VideoElementStyle } from '../../../../elements/video'
 import { EmbedStyle } from '../../embed/embed'
 import { MediaBreakpointStyle } from '../../media-breakpoint/media-breakpoint'
 

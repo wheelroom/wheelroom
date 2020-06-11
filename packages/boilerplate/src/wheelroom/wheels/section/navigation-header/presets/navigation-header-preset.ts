@@ -1,11 +1,11 @@
-import { NcssProps } from '../../../types'
-import { GridElementStyle } from '../../../element/resets/grid-reset'
+import { NcssProps } from '../../../../types/wheel'
+import { GridElementStyle } from '../../../../elements/resets/grid-reset'
 import {
   BrandNavigationSegmentWheelStyle,
   brandNavigationSegmentPreset,
 } from '../../../model/navigation-segment/presets/brand-navigation-segment-preset'
 import { ModalWheelStyle, modalPreset } from './modal-preset'
-import { ButtonElementStyle } from '../../../element/resets/button-reset'
+import { ButtonElementStyle } from '../../../../elements/resets/button-reset'
 import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,

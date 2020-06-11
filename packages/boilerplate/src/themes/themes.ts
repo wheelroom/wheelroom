@@ -7,7 +7,7 @@ import {
   sectionCardShadowStyle,
   sectionCardStyle,
 } from './yosemite/sections/section-card-style'
-import { Wheel } from '../wheelroom/wheels/types'
+import { Wheel } from '../wheelroom/types/wheel'
 import { ThemeId } from '../admin-resources/theme-info'
 import { navigationFooterStyle } from './yosemite/sections/nav-footer-style'
 import { navigationHeaderStyle } from './yosemite/sections/nav-header-style'

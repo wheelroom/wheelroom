@@ -1,14 +1,14 @@
 import React from 'react'
-import { BlockLevelElementName } from '../../element/types/element-names'
-import { Box } from '../../element/grid'
+import { BlockLevelElementName } from '../../../elements/types/element-names'
+import { Box } from '../../../elements/grid'
 import { ParserFunction } from '../../../parsers/types'
 import { TopicContentActions } from './topic-content-actions'
 import { TopicContentText } from './topic-content-text'
 import { TopicContentWheelStyle } from './presets/topic-content-preset'
 import { TopicInfo } from '../../../lib/get-topic-info'
 import { TopicOptions } from '../../../lib/get-topic-options'
-import { TopicProps } from '../../../../models/topic/topic'
-import { Wheel } from '../../types'
+import { TopicProps } from '../../../models/topic/topic'
+import { Wheel } from '../../../types/wheel'
 
 export interface TopicContentWheel extends Wheel {
   style: TopicContentWheelStyle

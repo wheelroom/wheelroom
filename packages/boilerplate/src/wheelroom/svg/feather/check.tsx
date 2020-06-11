@@ -1,5 +1,5 @@
 import React, { SVGProps } from 'react'
-import { Wheel } from '../../wheels/types'
+import { Wheel } from '../../types/wheel'
 import { styledSystem } from '@wheelroom/styled-system'
 export interface IconProps extends SVGProps<SVGSVGElement> {
   ncss: any

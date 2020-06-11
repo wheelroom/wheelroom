@@ -1,10 +1,10 @@
 import React from 'react'
-import { Container, Fluid, Wrapper } from '../../element/grid'
+import { Container, Fluid, Wrapper } from '../../../elements/grid'
 import { Table } from '../../model/table/table'
-import { TableProps } from '../../../../models/table/table'
+import { TableProps } from '../../../models/table/table'
 import { TableSectionWheelStyle } from './presets/table-section-preset'
 import { TopicOptions } from '../../../lib/get-topic-options'
-import { Wheel } from '../../types'
+import { Wheel } from '../../../types/wheel'
 
 export interface TableSectionWheel extends Wheel {
   style: TableSectionWheelStyle

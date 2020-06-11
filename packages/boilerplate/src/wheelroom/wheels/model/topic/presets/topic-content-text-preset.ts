@@ -1,4 +1,4 @@
-import { NcssProps } from '../../../types'
+import { NcssProps } from '../../../../types/wheel'
 
 export interface TopicContentTextWheelStyle {
   /** Styling for this node */

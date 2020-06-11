@@ -6,10 +6,10 @@ here include:
 - Adding new data to the templates
 - Add SEO settings
 
-You can edit [src/page-template.tsx](../../src/page-template.tsx). E.g. add
+You can edit [src/page-template.tsx](../../src/page-template/page-template.tsx). E.g. add
 `console.log(props)` to the `PageTemplate` and inspect the `pageContext` prop.
 It contains the `pageId` key used in the query in
-[src/page-template.tsx](../../src/page-template.tsx):
+[src/page-template.tsx](../../src/page-template/page-template.tsx):
 
 ```graphql
 query($pageId: String, $globalsId: String) {

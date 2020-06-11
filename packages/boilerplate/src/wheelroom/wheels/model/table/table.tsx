@@ -1,18 +1,25 @@
 /** @jsx jsx */
-import { Action } from '../action/action'
-import { ActionProps } from '../../../../models/action/action'
-import { Any } from '../../element/any'
-import { Box } from '../../element/grid'
-import { Dd, Dl, Dt, Table as TableElement, Th, Tr } from '../../element/self'
+import { Action } from '../../../models/action/action'
+import { ActionProps } from '../../../models/action/action'
+import { Any } from '../../../elements/any'
+import { Box } from '../../../elements/grid'
+import {
+  Dd,
+  Dl,
+  Dt,
+  Table as TableElement,
+  Th,
+  Tr,
+} from '../../../elements/self'
 import { Fragment } from 'react'
-import { Icon } from '../../element/icon'
+import { Icon } from '../../../elements/icon'
 import { jsx } from '@emotion/core'
-import { TableProps } from '../../../../models/table/table'
+import { TableProps } from '../../../models/table/table'
 import { TableRow } from '../table-row/table-row'
-import { TableRowProps } from '../../../../models/table-row/table-row'
+import { TableRowProps } from '../../../models/table-row/table-row'
 import { TableWheelStyle } from './presets/table-preset'
 import { TopicOptions } from '../../../lib/get-topic-options'
-import { Wheel } from '../../types'
+import { Wheel } from '../../../types/wheel'
 
 export interface TableWheel extends Wheel {
   style: TableWheelStyle

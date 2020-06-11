@@ -1,11 +1,11 @@
 import React from 'react'
-import { ALink } from '../../element/a-link'
-import { Any } from '../../element/any'
-import { Container, Flex, Fluid, Wrapper } from '../../element/grid'
+import { ALink } from '../../../elements/a-link'
+import { Any } from '../../../elements/any'
+import { Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
 import { LegalFooterWheelStyle } from './presets/legal-footer-preset'
-import { SiteMetadata } from '../../../../page-template'
-import { Sup } from '../../element/paragraph'
-import { Wheel } from '../../types'
+import { SiteMetadata } from '../../../../page-template/page-template'
+import { Sup } from '../../../elements/paragraph'
+import { Wheel } from '../../../types/wheel'
 
 interface LegalWheel extends Wheel {
   style: LegalFooterWheelStyle

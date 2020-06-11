@@ -1,7 +1,7 @@
-import { NcssProps } from '../../../types'
-import { DescriptionListElementStyle } from '../../../element/resets/self-dl-reset'
-import { IconElementStyle } from '../../../element/resets/icon-reset'
-import { TableElementStyle } from '../../../element/resets/self-table-reset'
+import { NcssProps } from '../../../../types/wheel'
+import { DescriptionListElementStyle } from '../../../../elements/resets/self-dl-reset'
+import { IconElementStyle } from '../../../../elements/resets/icon-reset'
+import { TableElementStyle } from '../../../../elements/resets/self-table-reset'
 import {
   tableRowCellPreset,
   TableRowCellWheelStyle,

@@ -1,16 +1,16 @@
 import React from 'react'
-import { Box } from '../../element/grid'
+import { Box } from '../../../elements/grid'
 import { Embed } from '../embed/embed'
-import { EmbedProps } from '../../../../models/embed/embed'
-import { Image } from '../../element/image'
+import { EmbedProps } from '../../../models/embed/embed'
+import { Image } from '../../../elements/image'
 import { MediaBreakpoint } from '../media-breakpoint/media-breakpoint'
-import { MediaObject } from '../../element/types/media'
+import { MediaObject } from '../../../elements/types/media'
 import { TopicInfo } from '../../../lib/get-topic-info'
 import { TopicMediaWheelStyle } from './presets/topic-media-preset'
 import { TopicOptions } from '../../../lib/get-topic-options'
-import { TopicProps } from '../../../../models/topic/topic'
-import { Video } from '../../element/video'
-import { Wheel } from '../../types'
+import { TopicProps } from '../../../models/topic/topic'
+import { Video } from '../../../elements/video'
+import { Wheel } from '../../../types/wheel'
 
 export interface TopicMediaWheel extends Wheel {
   style: TopicMediaWheelStyle

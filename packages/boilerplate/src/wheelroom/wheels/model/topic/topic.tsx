@@ -1,13 +1,13 @@
 import React from 'react'
-import { Action } from '../action/action'
-import { BlockLevelElementName } from '../../element/types/element-names'
-import { Box } from '../../element/grid'
+import { Action } from '../../../models/action/action'
+import { BlockLevelElementName } from '../../../elements/types/element-names'
+import { Box } from '../../../elements/grid'
 import { getTopicInfo } from '../../../lib/get-topic-info'
 import { ParserFunction } from '../../../parsers/types'
 import { TopicBody } from './topic-body'
-import { TopicProps } from '../../../../models/topic/topic'
+import { TopicProps } from '../../../models/topic/topic'
 import { TopicWheelStyle } from './presets/topic-preset'
-import { Wheel } from '../../types'
+import { Wheel } from '../../../types/wheel'
 import { TopicOptions } from '../../../lib/get-topic-options'
 
 export interface TopicWheel extends Wheel {

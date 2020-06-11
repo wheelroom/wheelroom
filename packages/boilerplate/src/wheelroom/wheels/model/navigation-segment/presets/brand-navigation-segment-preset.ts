@@ -1,5 +1,5 @@
-import { NcssProps } from '../../../types'
-import { IconElementStyle } from '../../../element/resets/icon-reset'
+import { NcssProps } from '../../../../types/wheel'
+import { IconElementStyle } from '../../../../elements/resets/icon-reset'
 
 export interface BrandNavigationSegmentWheelStyle {
   ncss: NcssProps

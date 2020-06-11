@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { NcssProps, Wheel } from '../../types'
-import { MediaObject } from '../../element/types/media'
+import { NcssProps, Wheel } from '../../../types/wheel'
+import { MediaObject } from '../../../elements/types/media'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../../lib/merge-ncss'
 import {
   imageImgReset,
   imagePictureReset,
-} from '../../element/resets/image-reset'
+} from '../../../elements/resets/image-reset'
 
 export interface MediaBreakpointStyle {
   img: {

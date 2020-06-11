@@ -1,7 +1,7 @@
-import { NcssProps } from '../../../types'
-import { ALinkElementStyle } from '../../../element/resets/a-link-reset'
-import { ParagraphElementStyle } from '../../../element/resets/paragraph-reset'
-import { GridElementStyle } from '../../../element/resets/grid-reset'
+import { NcssProps } from '../../../../types/wheel'
+import { ALinkElementStyle } from '../../../../elements/resets/a-link-reset'
+import { ParagraphElementStyle } from '../../../../elements/resets/paragraph-reset'
+import { GridElementStyle } from '../../../../elements/resets/grid-reset'
 
 export interface LegalFooterWheelStyle {
   wrapper: GridElementStyle

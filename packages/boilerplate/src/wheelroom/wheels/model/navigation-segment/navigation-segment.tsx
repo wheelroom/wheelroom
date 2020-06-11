@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import { Flex } from '../../element/grid'
-import { H3 } from '../../element/heading'
+import { Flex } from '../../../elements/grid'
+import { H3 } from '../../../elements/heading'
 import { NavigationSegmentWheelStyle } from './presets/navigation-segment-preset'
-import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
+import { NavigationSegmentProps } from '../../../models/navigation-segment/navigation-segment'
 import { NavigationSegmentList } from './navigation-segment-list'
-import { Wheel } from '../../types'
+import { Wheel } from '../../../types/wheel'
 
 interface NavigationSegmentWheel extends Wheel {
   style: NavigationSegmentWheelStyle

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { EmbedProps } from '../../models/embed/embed'
+import { EmbedProps } from '../models/embed/embed'
 
 interface ScrollSpyProps {
   /** The #id added to the div  */

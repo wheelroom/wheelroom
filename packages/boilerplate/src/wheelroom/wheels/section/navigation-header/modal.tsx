@@ -1,12 +1,12 @@
 import React from 'react'
-import { Box, Flex } from '../../element/grid'
-import { Button } from '../../element/button'
-import { FeatherIcon } from '../../element/icon'
+import { Box, Flex } from '../../../elements/grid'
+import { Button } from '../../../elements/button'
+import { FeatherIcon } from '../../../elements/icon'
 import { ModalWheelStyle } from './presets/modal-preset'
-import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
+import { NavigationSegmentProps } from '../../../models/navigation-segment/navigation-segment'
 import { NavigationSegment } from '../../model/navigation-segment/navigation-segment'
 import { ThemeButton } from './theme-button'
-import { Wheel } from '../../types'
+import { Wheel } from '../../../types/wheel'
 
 interface ModalWheel extends Wheel {
   style: ModalWheelStyle

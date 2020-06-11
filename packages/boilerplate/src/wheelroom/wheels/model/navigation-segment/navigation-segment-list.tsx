@@ -1,9 +1,9 @@
 import React from 'react'
-import { Action } from '../action/action'
-import { ActionProps } from '../../../../models/action/action'
-import { Li, Ul } from '../../element/self'
+import { Action } from '../../../models/action/action'
+import { ActionProps } from '../../../models/action/action'
+import { Li, Ul } from '../../../elements/self'
 import { NavigationSegmentListWheelStyle } from './presets/navigation-segment-list-preset'
-import { Wheel } from '../../types'
+import { Wheel } from '../../../types/wheel'
 
 interface NavigationSegmentListWheel extends Wheel {
   style: NavigationSegmentListWheelStyle

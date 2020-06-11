@@ -1,15 +1,15 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Any } from '../../element/any'
+import { Any } from '../../../elements/any'
 import { BlogListWheelStyle } from '../../section/blog/presets/blog-section-list-preset'
-import { BlogProps } from '../../../../models/blog/blog'
-import { Container, Fluid, Wrapper, Box, Flex } from '../../element/grid'
-import { GLink } from '../../element/g-link'
-import { Heading } from '../../element/heading'
-import { Image } from '../../element/image'
-import { Paragraph } from '../../element/paragraph'
-import { Time } from '../../element/self'
-import { Wheel } from '../../types'
+import { BlogProps } from '../../../models/blog/types'
+import { Container, Fluid, Wrapper, Box, Flex } from '../../../elements/grid'
+import { GLink } from '../../../elements/g-link'
+import { Heading } from '../../../elements/heading'
+import { Image } from '../../../elements/image'
+import { Paragraph } from '../../../elements/paragraph'
+import { Time } from '../../../elements/self'
+import { Wheel } from '../../../types/wheel'
 
 export interface BlogListWheel extends Wheel {
   style: BlogListWheelStyle

@@ -1,16 +1,16 @@
 /** @jsx jsx */
-import { Action } from '../action/action'
-import { ActionProps } from '../../../../models/action/action'
-import { Any } from '../../element/any'
-import { Dd, Dl, Dt, Th, Tr } from '../../element/self'
+import { Action } from '../../../models/action/action'
+import { ActionProps } from '../../../models/action/action'
+import { Any } from '../../../elements/any'
+import { Dd, Dl, Dt, Th, Tr } from '../../../elements/self'
 import { jsx } from '@emotion/core'
 import { TableRowCell } from './table-row-cell'
-import { TableRowProps } from '../../../../models/table-row/table-row'
+import { TableRowProps } from '../../../models/table-row/table-row'
 import { TableRowWheelStyle } from './presets/table-row-preset'
-import { Icon } from '../../element/icon'
+import { Icon } from '../../../elements/icon'
 import { TopicOptions } from '../../../lib/get-topic-options'
-import { TopicProps } from '../../../../models/topic/topic'
-import { Wheel } from '../../types'
+import { TopicProps } from '../../../models/topic/topic'
+import { Wheel } from '../../../types/wheel'
 
 export interface TableRowWheel extends Wheel {
   style: TableRowWheelStyle

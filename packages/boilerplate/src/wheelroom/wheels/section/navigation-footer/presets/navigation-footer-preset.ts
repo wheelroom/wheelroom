@@ -1,5 +1,5 @@
-import { NcssProps } from '../../../types'
-import { GridElementStyle } from '../../../element/resets/grid-reset'
+import { NcssProps } from '../../../../types/wheel'
+import { GridElementStyle } from '../../../../elements/resets/grid-reset'
 import { LegalFooterWheelStyle, legalFooterPreset } from './legal-footer-preset'
 import {
   NavigationSegmentWheelStyle,

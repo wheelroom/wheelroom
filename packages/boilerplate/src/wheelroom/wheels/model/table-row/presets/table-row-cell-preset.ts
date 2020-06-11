@@ -1,4 +1,4 @@
-import { NcssProps } from '../../../types'
+import { NcssProps } from '../../../../types/wheel'
 import { topicPreset, TopicWheelStyle } from '../../topic/presets/topic-preset'
 
 export interface TableRowCellWheelStyle {

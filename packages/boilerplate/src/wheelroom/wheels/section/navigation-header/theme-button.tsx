@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from '../../element/button'
-import { Wheel, NcssProps } from '../../types'
+import { Button } from '../../../elements/button'
+import { Wheel, NcssProps } from '../../../types/wheel'
 
 interface ThemeButtonWheel extends Wheel {
   style: NcssProps

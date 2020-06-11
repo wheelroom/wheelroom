@@ -1,17 +1,17 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Any } from '../../element/any'
-import { BlogProps } from '../../../../models/blog/blog'
+import { Any } from '../../../elements/any'
+import { BlogProps } from '../../../models/blog/types'
 import { BlogWheelStyle } from '../../section/blog/presets/blog-section-preset'
-import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
-import { Heading } from '../../element/heading'
-import { Image } from '../../element/image'
-import { Paragraph } from '../../element/paragraph'
+import { Box, Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
+import { Heading } from '../../../elements/heading'
+import { Image } from '../../../elements/image'
+import { Paragraph } from '../../../elements/paragraph'
 import { Text } from '../text/text'
-import { Time } from '../../element/self'
+import { Time } from '../../../elements/self'
 import { Topic } from '../topic/topic'
-import { TopicProps } from '../../../../models/topic/topic'
-import { Wheel } from '../../types'
+import { TopicProps } from '../../../models/topic/topic'
+import { Wheel } from '../../../types/wheel'
 
 export interface BlogWheel extends Wheel {
   style: BlogWheelStyle

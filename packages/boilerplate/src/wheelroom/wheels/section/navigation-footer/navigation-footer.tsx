@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
-import { Container, Flex, Fluid, Wrapper } from '../../element/grid'
-import { GlobalsProps } from '../../../../models/globals/globals'
+import { Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
+import { GlobalsProps } from '../../../models/globals/globals'
 import { LegalFooter } from './legal-footer'
 import { NavigationFooterWheelStyle } from './presets/navigation-footer-preset'
-import { NavigationProps } from '../../../../models/navigation/navigation'
-import { NavigationSegmentProps } from '../../../../models/navigation-segment/navigation-segment'
-import { SiteMetadata } from '../../../../page-template'
-import { Wheel } from '../../types'
+import { NavigationProps } from '../../../models/navigation/navigation'
+import { NavigationSegmentProps } from '../../../models/navigation-segment/navigation-segment'
+import { SiteMetadata } from '../../../../page-template/page-template'
+import { Wheel } from '../../../types/wheel'
 import { NavigationSegment } from '../../model/navigation-segment/navigation-segment'
 
 interface NavigationFooterWheel extends Wheel {

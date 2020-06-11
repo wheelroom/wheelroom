@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { TableRowCellWheelStyle } from './presets/table-row-cell-preset'
-import { Td } from '../../element/self'
+import { Td } from '../../../elements/self'
 import { Topic } from '../topic/topic'
 import { TopicOptions } from '../../../lib/get-topic-options'
-import { TopicProps } from '../../../../models/topic/topic'
-import { Wheel } from '../../types'
+import { TopicProps } from '../../../models/topic/topic'
+import { Wheel } from '../../../types/wheel'
 
 export interface TableRowCellWheel extends Wheel {
   style: TableRowCellWheelStyle

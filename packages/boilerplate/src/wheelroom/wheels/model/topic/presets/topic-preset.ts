@@ -1,4 +1,4 @@
-import { NcssProps } from '../../../types'
+import { NcssProps } from '../../../../types/wheel'
 import { TopicMediaWheelStyle, topicMediaPreset } from './topic-media-preset'
 import {
   TopicContentWheelStyle,

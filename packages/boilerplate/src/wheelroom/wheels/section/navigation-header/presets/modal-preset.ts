@@ -6,8 +6,8 @@ import {
   modalDialogOverlayPreset,
   modalDialogPreset,
 } from './modal-dialog-preset'
-import { NcssProps } from '../../../types'
-import { ButtonElementStyle } from '../../../element/resets/button-reset'
+import { NcssProps } from '../../../../types/wheel'
+import { ButtonElementStyle } from '../../../../elements/resets/button-reset'
 import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,
