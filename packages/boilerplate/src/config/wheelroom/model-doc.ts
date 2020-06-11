@@ -2,7 +2,6 @@ import {
   DropdownField,
   LongTextField,
   MediaField,
-  MultipleComponentsField,
   RichTextField,
   ShortTextField,
   SingleComponentField,
@@ -17,10 +16,6 @@ export const models: WheelroomComponents = {
         items: ['doc'],
         type: 'dropdown',
       } as DropdownField,
-      docs: {
-        allowedComponents: ['doc'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
       eventId: {
         type: 'shortText',
         initialContent: 'initial-content-for-doc-section-event-id',

@@ -15,11 +15,6 @@ export const fragment = graphql`
   fragment BlogSection on ContentfulBlogSection {
     __typename
     variation
-    blog {
-      ... on Node {
-        ...Blog
-      }
-    }
     eventId
   }
 `

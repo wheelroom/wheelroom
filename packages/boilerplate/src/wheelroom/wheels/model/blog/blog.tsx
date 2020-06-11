@@ -1,15 +1,13 @@
 /** @jsx jsx */
+import { jsx } from '@emotion/core'
 import { Any } from '../../element/any'
 import { BlogProps } from '../../../../models/blog/blog'
 import { BlogWheelStyle } from '../../section/blog/presets/blog-section-preset'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { Heading } from '../../element/heading'
-import { jsx } from '@emotion/core'
 import { Text } from '../text/text'
 import { Time } from '../../element/self'
-import { Topic } from '../topic/topic'
 import { TopicOptions } from '../../../lib/get-topic-options'
-import { TopicProps } from '../../../../models/topic/topic'
 import { Wheel } from '../../types'
 
 export interface BlogWheel extends Wheel {
@@ -84,12 +82,12 @@ export const Blog = (props: BlogWheelProps) => {
               {props.blog.heading}
             </Heading>
           </Flex>
-          {/* <Text
+          <Text
             locale={props.locale}
             wheel={{ ...props.wheel, style: props.wheel.style.text }}
             text={{ text: props.blog.text }}
-          /> */}
-          <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
+          />
+          {/* <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
             {props.blog.authors &&
               props.blog.authors.map((author: TopicProps, index: number) => {
                 return (
@@ -107,7 +105,7 @@ export const Blog = (props: BlogWheelProps) => {
                   />
                 )
               })}
-          </Flex>
+          </Flex> */}
         </Box>
       </ContainerType>
     </Wrapper>

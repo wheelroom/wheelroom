@@ -386,10 +386,6 @@ export const models: WheelroomComponents = {
         items: ['blog', 'list'],
         type: 'dropdown',
       } as DropdownField,
-      blog: {
-        allowedComponents: ['blog'],
-        type: 'multipleComponents',
-      } as MultipleComponentsField,
       eventId: {
         type: 'shortText',
         initialContent: 'initial-content-for-blog-section-event-id',
