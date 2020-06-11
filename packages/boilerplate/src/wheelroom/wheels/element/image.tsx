@@ -17,7 +17,7 @@ export interface ImageElementStyle {
   img: {
     ncss: NcssProps
   }
-  figcaption: {
+  figcaption?: {
     ncss: NcssProps
   }
 }
@@ -64,7 +64,7 @@ export const Image = (props: ImageProps) => {
 
   let imgElementAttrs
 
-  /** The complete list of images types can be found here:
+  /** The complete list of image types can be found here:
    * https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types */
   if (
     props.media?.file?.contentType === 'image/jpeg' ||

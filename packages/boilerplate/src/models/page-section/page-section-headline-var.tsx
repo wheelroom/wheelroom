@@ -8,6 +8,7 @@
 
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
+import { getTopicOptions } from '../../wheelroom/lib/get-topic-options'
 import { getWheel, getSectionStyle } from '../../themes/themes'
 import { MultiParser } from '../../wheelroom/parsers/multi-parser'
 import { PageSection } from '../../wheelroom/wheels/section/page/page-section'
@@ -46,7 +47,7 @@ export const PageSectionHeadlineVar = (props: PageSectionProps) => {
             useAbstractParser={MultiParser}
             useHeadingElement={topicHeading}
             wheel={{ ...wheel, style: wheel.style.topic }}
-            topicOptions={props.topicOptions || {}}
+            topicOptions={getTopicOptions(props.topicOptions || [])}
           />
         ))}
       </PageSection>

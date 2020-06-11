@@ -26,11 +26,13 @@ import { sectionShowcaseStyle } from './yosemite/sections/section-showcase-style
 import { sectionVideoStyle } from './yosemite/sections/section-video-style'
 import { StyledSystemTheme } from '../wheelroom/theme/types'
 import { sectionTableStyle } from './yosemite/sections/section-table-style'
-import { sectionBlogStyle } from './yosemite/sections/section-blog-style'
+import { blogSectionBlogStyle } from './yosemite/sections/blog-section-blog-style'
+import { blogSectionListStyle } from './yosemite/sections/blog-section-list-style'
 
 export type sectionId =
   | 'block'
   | 'blog'
+  | 'blogList'
   | 'card'
   | 'divider'
   | 'featured'
@@ -55,7 +57,10 @@ const sectionStyleMap = {
     base: sectionBlockStyle,
   },
   blog: {
-    base: sectionBlogStyle,
+    base: blogSectionBlogStyle,
+  },
+  blogList: {
+    base: blogSectionListStyle,
   },
   card: {
     base: sectionCardStyle,

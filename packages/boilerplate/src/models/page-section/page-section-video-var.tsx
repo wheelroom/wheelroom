@@ -19,6 +19,7 @@ import { Wheel } from '../../wheelroom/wheels/types'
 import { Topic } from '../../wheelroom/wheels/model/topic/topic'
 import { TopicProps } from '../topic/topic'
 import { MultiParser } from '../../wheelroom/parsers/multi-parser'
+import { getTopicOptions } from '../../wheelroom/lib/get-topic-options'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
@@ -45,7 +46,7 @@ export const PageSectionVideoVar = (props: PageSectionProps) => {
             topic={topic}
             useAbstractParser={MultiParser}
             wheel={{ ...wheel, style: wheel.style.topic }}
-            topicOptions={props.topicOptions || {}}
+            topicOptions={getTopicOptions(props.topicOptions || [])}
           />
         ))}
       </PageSection>

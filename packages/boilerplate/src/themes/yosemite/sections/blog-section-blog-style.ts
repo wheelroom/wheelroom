@@ -2,7 +2,7 @@ import { BlogWheelStyle } from '../../../wheelroom/wheels/section/blog/presets/b
 import { headingTextStyle } from '../elements/heading-style'
 import { wrapperStyle } from '../elements/grid-style'
 
-export const sectionBlogStyle: BlogWheelStyle = {
+export const blogSectionBlogStyle: BlogWheelStyle = {
   container: {
     ncss: {},
   },

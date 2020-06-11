@@ -71,7 +71,6 @@ export const TopicMedia = (props: TopicMediaProps) => {
     Media = Embed
     mediaProps = {
       code: embed?.code,
-      title: embed?.title,
       type: embed?.type,
       wheel: { ...props.wheel, style: props.wheel.style.embed },
     }

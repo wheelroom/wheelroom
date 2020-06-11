@@ -12,7 +12,9 @@ export interface BlogProps {
   /** Gatsby fetched data */
   __typename: string
   heading?: string
-  abstract?: string
+  abstract?: {
+    abstract: string
+  }
   media?: MediaObject
   icon?: string
   slug: string

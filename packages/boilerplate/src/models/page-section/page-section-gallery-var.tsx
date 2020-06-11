@@ -9,6 +9,7 @@
 import React from 'react'
 import { deepMerge } from '../../wheelroom/lib/deep-merge'
 import { getSectionStyle, getWheel } from '../../themes/themes'
+import { getTopicOptions } from '../../wheelroom/lib/get-topic-options'
 import { MultiParser } from '../../wheelroom/parsers/multi-parser'
 import { PageSection } from '../../wheelroom/wheels/section/page/page-section'
 import { pageSectionGalleryPreset } from '../../wheelroom/wheels/section/page/presets/page-section-gallery-preset'
@@ -45,7 +46,7 @@ export const PageSectionGalleryVar = (props: PageSectionProps) => {
             topic={topic}
             useAbstractParser={MultiParser}
             wheel={{ ...wheel, style: wheel.style.topic }}
-            topicOptions={props.topicOptions || {}}
+            topicOptions={getTopicOptions(props.topicOptions || [])}
           />
         ))}
       </PageSection>

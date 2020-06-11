@@ -38,15 +38,21 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
     <Box is="div" wheel={props.wheel}>
       {actions
         .slice(0, props.maxActions)
-        .map((action: ActionProps, index: number) => (
-          <Action
-            key={index}
-            url={!props.fullTopicAsLink && action.url}
-            page={!props.fullTopicAsLink && action.page}
-            wheel={{ ...props.wheel, style: props.wheel.style.link }}
-            {...action}
-          />
-        ))}
+        .map((action: ActionProps, index: number) => {
+          const modifiedAction = { ...action }
+
+          // If the full topic is a link, the button inside the topic must be span
+          modifiedAction.url = props.fullTopicAsLink ? undefined : action.url
+          modifiedAction.page = props.fullTopicAsLink ? undefined : action.page
+
+          return (
+            <Action
+              key={index}
+              wheel={{ ...props.wheel, style: props.wheel.style.link }}
+              {...modifiedAction}
+            />
+          )
+        })}
     </Box>
   )
 }

@@ -14,7 +14,7 @@ export interface VideoElementStyle {
   video: {
     ncss: NcssProps
   }
-  description: {
+  description?: {
     ncss: NcssProps
   }
 }

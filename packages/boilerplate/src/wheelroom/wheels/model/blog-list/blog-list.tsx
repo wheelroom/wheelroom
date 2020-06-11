@@ -1,11 +1,16 @@
 /** @jsx jsx */
-import { BlogListWheelStyle } from '../../section/blog/presets/blog-section-list-preset'
-import { BlogProps, AllBlogProps } from '../../../../models/blog/blog'
-import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
-import { Heading } from '../../element/heading'
 import { jsx } from '@emotion/core'
+import { Any } from '../../element/any'
+import { BlogListWheelStyle } from '../../section/blog/presets/blog-section-list-preset'
+import { BlogProps } from '../../../../models/blog/blog'
+import { Container, Fluid, Wrapper, Box, Flex } from '../../element/grid'
+import { GLink } from '../../element/g-link'
+import { Heading } from '../../element/heading'
+import { Paragraph } from '../../element/paragraph'
+import { Time } from '../../element/self'
 import { TopicOptions } from '../../../lib/get-topic-options'
 import { Wheel } from '../../types'
+import { Image } from '../../element/image'
 
 export interface BlogListWheel extends Wheel {
   style: BlogListWheelStyle
@@ -17,7 +22,7 @@ export interface BlogListWheelProps {
   /** Locale needed for rich text render */
   locale: string
   /** List of all blogs to render */
-  allBlog: AllBlogProps
+  blogPosts: BlogProps[]
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
   /** Accept max number of topics, ignore all others */
@@ -27,11 +32,9 @@ export interface BlogListWheelProps {
 }
 
 export const BlogList = (props: BlogListWheelProps) => {
-  if (!props.allBlog) {
+  if (!props.blogPosts) {
     return null
   }
-
-  const allBlog = props.allBlog.edges.map((blogNode: any) => blogNode.node)
 
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
@@ -39,28 +42,8 @@ export const BlogList = (props: BlogListWheelProps) => {
       <ContainerType
         wheel={{ ...props.wheel, style: props.wheel.style.container }}
       >
-        {/* <Ul wheel={wheel} ncss={{ listStyle: 'none' }}>
-            {allBlog.map((blog: BlogProps, index: number) => {
-              return (
-                <Li key={index} wheel={wheel}>
-                  <Action wheel={wheel} page={{ path: '/blog/' + blog.slug }}>
-                    {blog.heading}
-                  </Action>
-                </Li>
-              )
-            })}
-          </Ul> */}
-        <Flex wheel={{ ...props.wheel, style: props.wheel.style.blogList }}>
-          <Heading
-            is="h2"
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.blogList.heading,
-            }}
-          >
-            Read the latest articles
-          </Heading>
-          {allBlog.map((blog: BlogProps, index: number) => {
+        {props.blogPosts &&
+          props.blogPosts.map((blog: BlogProps, index: number) => {
             if (!blog) {
               return null
             }
@@ -77,17 +60,91 @@ export const BlogList = (props: BlogListWheelProps) => {
               props.locale,
               dateOptions
             )
-            // if (!featuredInfo.hasAction) {
-            //   blog.featured.actions = [{ page: { path: '/blog/' + blog.slug } }]
-            // }
+
+            if (!blog.categories) {
+              return undefined
+            }
+            const categories =
+              blog.categories.length > 0 ? blog.categories.join(', ') : ''
             return (
-              <Box wheel={props.wheel} key={index}>
-                {blog.heading}
-                {dateTime}
-              </Box>
+              <GLink
+                key={index}
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.blog,
+                }}
+                to={'/blog/' + blog.slug}
+                ariaLabel={blog.heading + ' - ' + categories + ' - ' + dateTime}
+              >
+                <Flex
+                  is="div"
+                  wheel={{
+                    ...props.wheel,
+                    style: props.wheel.style.blog.media,
+                  }}
+                >
+                  <Image
+                    media={blog.media}
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.blog.media.image,
+                    }}
+                  />
+                </Flex>
+                <Flex
+                  is="div"
+                  wheel={{
+                    ...props.wheel,
+                    style: props.wheel.style.blog.content,
+                  }}
+                >
+                  <Any
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.blog.content.categories,
+                    }}
+                    is="span"
+                  >
+                    {categories}
+                  </Any>
+                  <Box
+                    is="div"
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.blog.content.text,
+                    }}
+                  >
+                    <Heading
+                      is="h3"
+                      wheel={{
+                        ...props.wheel,
+                        style: props.wheel.style.blog.content.text.heading,
+                      }}
+                    >
+                      {blog.heading}
+                    </Heading>
+                    <Paragraph
+                      wheel={{
+                        ...props.wheel,
+                        style: props.wheel.style.blog.content.text.abstract,
+                      }}
+                    >
+                      {blog.abstract?.abstract}
+                    </Paragraph>
+                  </Box>
+                  <Time
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.blog.content.date,
+                    }}
+                    datetime={blog.date}
+                  >
+                    {dateTime}
+                  </Time>
+                </Flex>
+              </GLink>
             )
           })}
-        </Flex>
       </ContainerType>
     </Wrapper>
   )

@@ -19,7 +19,10 @@ import { PageSectionQuoteVar } from './page-section-quote-var'
 import { PageSectionShowcaseVar } from './page-section-showcase-var'
 import { PageSectionVideoVar } from './page-section-video-var'
 import { SectionProps } from '../../wheelroom/sections/section-props'
-import { TopicOptions } from '../../wheelroom/lib/get-topic-options'
+import {
+  TopicOptionString,
+  TopicOptionStringNl,
+} from '../../wheelroom/lib/get-topic-options'
 import { TopicProps } from '../topic/topic'
 
 const componentList = {
@@ -40,7 +43,7 @@ export interface PageSectionProps extends SectionProps {
   /** Gatsby fetched data */
   __typename: string
   eventId?: string
-  topicOptions?: TopicOptions
+  topicOptions?: (TopicOptionString | TopicOptionStringNl)[]
   topics?: TopicProps[]
   variation?: string
 }

@@ -102,53 +102,56 @@ const ActionGlink = (props: ActionWheelProps) => {
 const ActionAlink = (props: ActionWheelProps) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   const heading = props.children ? props.children : props.heading
-  if (props.url) {
-    return (
-      <ALink
-        ariaLabel={props.description}
-        href={createURL(props, isPreviewMode(adminCoreState))}
-        onClick={() => onClickHander(props.eventId, adminCoreState)}
-        wheel={props.wheel}
-      >
-        {!props.hideHeading && heading}
-        {props.icon && !props.hideIcon && (
-          <FeatherIcon
-            icon={props.icon}
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.icon,
-            }}
-          />
-        )}
-      </ALink>
-    )
-  } else {
-    return (
-      <Any
-        is="span"
-        wheel={props.wheel}
-        ariaLabel={props.description}
-        polyPreset={true}
-      >
-        {!props.hideHeading && heading}
-        {props.icon && !props.hideIcon && (
-          <FeatherIcon
-            icon={props.icon}
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.icon,
-            }}
-          />
-        )}
-      </Any>
-    )
-  }
+  return (
+    <ALink
+      ariaLabel={props.description}
+      href={createURL(props, isPreviewMode(adminCoreState))}
+      onClick={() => onClickHander(props.eventId, adminCoreState)}
+      wheel={props.wheel}
+    >
+      {!props.hideHeading && heading}
+      {props.icon && !props.hideIcon && (
+        <FeatherIcon
+          icon={props.icon}
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.icon,
+          }}
+        />
+      )}
+    </ALink>
+  )
+}
+
+const NoLink = (props: ActionWheelProps) => {
+  const heading = props.children ? props.children : props.heading
+  return (
+    <Any
+      is="span"
+      wheel={props.wheel}
+      ariaLabel={props.description}
+      polyPreset={true}
+    >
+      {!props.hideHeading && heading}
+      {props.icon && !props.hideIcon && (
+        <FeatherIcon
+          icon={props.icon}
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.icon,
+          }}
+        />
+      )}
+    </Any>
+  )
 }
 
 export const Action = (props: ActionWheelProps) => {
-  return (
-    <Fragment>
-      {props.page ? <ActionGlink {...props} /> : <ActionAlink {...props} />}
-    </Fragment>
-  )
+  if (props.page) {
+    return <ActionGlink {...props} />
+  } else if (props.url) {
+    return <ActionAlink {...props} />
+  } else {
+    return <NoLink {...props} />
+  }
 }

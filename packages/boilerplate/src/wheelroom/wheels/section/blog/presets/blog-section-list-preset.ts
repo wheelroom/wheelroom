@@ -1,28 +1,30 @@
 import { GridElementStyle } from '../../../element/resets/grid-reset'
-import { TextWheelStyle, textPreset } from '../../../model/text/text-preset'
-import { NcssProps } from '../../../types'
-import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
 import { HeadingElementStyle } from '../../../element/resets/heading-reset'
+import { ImageElementStyle } from '../../../element/image'
+import { NcssProps } from '../../../types'
+import { ParagraphElementStyle } from '../../../element/resets/paragraph-reset'
+import { VideoElementStyle } from '../../../element/video'
 
 export interface BlogListWheelStyle {
   container: GridElementStyle
-  article: NcssProps
-  header: {
+  blog: {
     ncss: NcssProps
-    topic: NcssProps
-    date: NcssProps
-    heading: HeadingElementStyle
+    media: {
+      ncss: NcssProps
+      image: ImageElementStyle
+      video: VideoElementStyle
+    }
+    content: {
+      ncss: NcssProps
+      date: NcssProps
+      categories: NcssProps
+      text: {
+        ncss: NcssProps
+        heading: HeadingElementStyle
+        abstract: ParagraphElementStyle
+      }
+    }
   }
-  text: TextWheelStyle
-  authors: {
-    ncss: NcssProps
-  }
-  author: TopicWheelStyle
-  blogList: {
-    ncss: NcssProps
-    heading: HeadingElementStyle
-  }
-  featured: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
@@ -30,194 +32,63 @@ export const blogSectionListPreset: BlogListWheelStyle = {
   container: {
     ncss: {},
   },
-  article: {
+  blog: {
     ncss: {
-      label: 'blog-article',
-      w: 1,
+      label: 'blog',
+      textDecoration: 'none',
+      m: 3,
+      w: ['auto', 1 / 2, 1 / 3],
     },
-  },
-  header: {
-    ncss: {
-      label: 'blog-header',
-      flexDirection: 'column',
-      px: 3,
-    },
-    topic: {
+    media: {
       ncss: {
-        label: 'blog-topic',
+        label: 'blog-media',
       },
-    },
-    date: {
-      ncss: {
-        label: 'blog-date',
-      },
-    },
-    heading: {
-      ncss: {
-        label: 'blog-heading',
-      },
-    },
-  },
-  authors: {
-    ncss: {
-      label: 'blog-authors',
-      flexDirection: 'column',
-      alignItems: 'center',
-      maxWidth: '712px',
-      mx: 'auto',
-      py: 4,
-    },
-  },
-  author: {
-    ncss: {
-      label: 'blog-author',
-      flexDirection: ['column', 'row'],
-      w: 1,
-    },
-    content: {
-      ncss: {
-        flexDirection: 'column',
-        p: 3,
-      },
-      actions: {
-        ncss: {},
-        link: {
-          ncss: {},
-          icon: {
-            ncss: {},
+      image: {
+        picture: {
+          ncss: {
+            label: 'blog-picture',
+          },
+        },
+        img: {
+          ncss: {
+            label: 'blog-img',
           },
         },
       },
-      text: {
-        ncss: {},
-        abstract: {
+      video: {
+        video: {
           ncss: {},
+        },
+      },
+    },
+    content: {
+      ncss: {
+        label: 'blog-content',
+        p: 3,
+      },
+      categories: {
+        ncss: {
+          label: 'blog-categories',
+        },
+      },
+      date: {
+        ncss: {
+          label: 'blog-date',
+        },
+      },
+      text: {
+        ncss: {
+          label: 'blog-text',
         },
         heading: {
           ncss: {
-            fontWeight: 'bold',
+            label: 'blog-heading',
           },
-        },
-        icon: {
-          ncss: {},
-        },
-      },
-    },
-    media: {
-      ncss: {
-        flexDirection: 'column',
-        p: 3,
-      },
-      embed: {
-        ncss: {
-          display: 'block',
-          h: '0px',
-          pb: '56.25%',
-          position: 'relative',
-          iframe: {
-            position: 'absolute',
-          },
-        },
-      },
-      image: {
-        img: {
-          ncss: {},
-        },
-        picture: {
-          ncss: {},
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        img: {
-          ncss: {},
-        },
-      },
-      video: {
-        video: {
-          ncss: {},
-        },
-        description: {
-          ncss: {},
-        },
-      },
-    },
-  },
-  text: textPreset,
-  blogList: {
-    ncss: {
-      label: 'blog-list',
-      flexDirection: 'column',
-    },
-    heading: {
-      ncss: {
-        label: 'blog-list-heading',
-      },
-    },
-  },
-  featured: {
-    ncss: {
-      label: 'blog-featured',
-    },
-    content: {
-      ncss: {},
-      text: {
-        ncss: {},
-        heading: {
-          ncss: {},
         },
         abstract: {
-          ncss: {},
-        },
-        icon: {
-          ncss: {},
-        },
-      },
-      actions: {
-        ncss: {},
-        link: {
-          ncss: {},
-          icon: {
-            ncss: {},
+          ncss: {
+            label: 'blog-abstract',
           },
-        },
-      },
-    },
-    media: {
-      ncss: {},
-      embed: {
-        ncss: {},
-      },
-      image: {
-        img: {
-          ncss: {},
-        },
-        picture: {
-          ncss: {},
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        img: {
-          ncss: {},
-        },
-      },
-      video: {
-        video: {
-          ncss: {},
-        },
-        description: {
-          ncss: {},
         },
       },
     },
