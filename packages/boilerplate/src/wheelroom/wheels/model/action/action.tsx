@@ -6,7 +6,7 @@
  *
  */
 
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
 import { ALink } from '../../element/a-link'

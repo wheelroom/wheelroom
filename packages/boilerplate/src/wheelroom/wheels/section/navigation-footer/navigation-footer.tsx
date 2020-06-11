@@ -57,6 +57,7 @@ export const NavigationFooter = (props: NavigationFooterWheelProps) => {
             >
               <NavigationSegment
                 hideActionHeading={false}
+                hideActionIcon={false}
                 hideSegmentHeading={true}
                 maxSegments={1}
                 navigationSegment={menuSegments}
@@ -75,6 +76,7 @@ export const NavigationFooter = (props: NavigationFooterWheelProps) => {
             >
               <NavigationSegment
                 hideActionHeading={true}
+                hideActionIcon={false}
                 hideSegmentHeading={true}
                 maxSegments={1}
                 navigationSegment={socialSegments}

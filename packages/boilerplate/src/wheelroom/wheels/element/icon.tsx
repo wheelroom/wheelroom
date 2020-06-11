@@ -7,7 +7,6 @@ import {
 } from './resets/icon-reset'
 import { IconMap } from '../../svg/feather/iconMap'
 import { mergeNcss } from '../../lib/merge-ncss'
-import { Wheel } from '../types'
 
 export interface FeatherIconProps extends ElementProps {
   icon: string

@@ -31,8 +31,6 @@ export interface VideoProps {
 }
 
 const defaultMediaObject = {
-  includeTitle: false,
-  includeDescription: false,
   description: 'no description',
   file: {
     url: 'https://www.example.com',
