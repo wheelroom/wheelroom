@@ -9,8 +9,8 @@ import { Image } from '../../../elements/image'
 import { Paragraph } from '../../../elements/paragraph'
 import { Text } from '../../../wheels/model/text/text'
 import { Time } from '../../../elements/self'
-import { Topic } from '../../../wheels/model/topic/topic'
-import { TopicProps } from '../../topic/topic'
+import { Topic } from '../../topic/topic'
+import { TopicProps } from '../../topic/model-types'
 import { Wheel } from '../../../types/wheel'
 
 export interface BlogWheel extends Wheel {

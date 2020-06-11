@@ -1,4 +1,4 @@
-import { NcssProps } from '../../../../types/wheel'
+import { NcssProps } from '../../../types/wheel'
 import {
   TopicContentTextWheelStyle,
   topicContentTextWheelStyle,

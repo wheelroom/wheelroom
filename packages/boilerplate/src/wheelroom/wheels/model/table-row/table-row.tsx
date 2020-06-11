@@ -9,7 +9,7 @@ import { TableRowProps } from '../../../models/table-row/table-row'
 import { TableRowWheelStyle } from './presets/table-row-preset'
 import { Icon } from '../../../elements/icon'
 import { TopicOptions } from '../../../lib/get-topic-options'
-import { TopicProps } from '../../../models/topic/topic'
+import { TopicProps } from '../../../models/topic/model-types'
 import { Wheel } from '../../../types/wheel'
 
 export interface TableRowWheel extends Wheel {

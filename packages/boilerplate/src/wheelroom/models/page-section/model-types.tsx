@@ -3,7 +3,7 @@ import {
   TopicOptionString,
   TopicOptionStringNl,
 } from '../../lib/get-topic-options'
-import { TopicProps } from '../topic/topic'
+import { TopicProps } from '../topic/model-types'
 
 export interface PageSectionProps extends SectionProps {
   /** Gatsby fetched data */

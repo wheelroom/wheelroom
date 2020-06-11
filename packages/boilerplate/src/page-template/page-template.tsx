@@ -16,7 +16,7 @@ import { getTheme } from '../themes/themes'
 import { ThemeId } from '../admin-resources/theme-info'
 import { useEmbeds } from '../wheelroom/models/embed/use-embed'
 import { GlobalsProps } from '../wheelroom/models/globals/model-types'
-import { BlogProps } from '../wheelroom/models/blog/types'
+import { BlogProps } from '../wheelroom/models/blog/model-types'
 import { PageProps } from '../wheelroom/models/page/model-types'
 
 // This is the main template used for all pages. Adding a section property here

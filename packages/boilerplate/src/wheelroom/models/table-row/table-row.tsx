@@ -6,12 +6,12 @@
  */
 
 import React from 'react'
+import { ActionProps } from '../action/model-types'
 import { getVariation } from '../../lib/get-variation'
-import { TableRowHeaderVar } from './table-row-header-var'
 import { TableRowBodyVar } from './table-row-body-var'
 import { TableRowFooterVar } from './table-row-footer-var'
-import { ActionProps } from '../action/action'
-import { TopicProps } from '../topic/topic'
+import { TableRowHeaderVar } from './table-row-header-var'
+import { TopicProps } from '../topic/model-types'
 
 const componentList = {
   ['header']: TableRowHeaderVar,

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { getTopicInfo } from '../../../lib/get-topic-info'
+import { getTopicInfo } from '../../lib/get-topic-info'
 import { TopicContent } from './topic-content'
 import { TopicMedia } from './topic-media'
 import { TopicWheelProps } from './topic'

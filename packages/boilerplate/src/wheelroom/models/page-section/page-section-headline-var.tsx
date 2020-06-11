@@ -16,9 +16,9 @@ import { pageSectionHeadlinePreset } from './presets/page-section-headline-prese
 import { PageSectionProps } from './model-types'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
-import { Topic } from '../../wheels/model/topic/topic'
-import { topicPreset } from '../../wheels/model/topic/presets/topic-preset'
-import { TopicProps } from '../topic/topic'
+import { Topic } from '../topic/topic'
+import { topicPreset } from '../topic/presets/topic-preset'
+import { TopicProps } from '../topic/model-types'
 import { Wheel } from '../../types/wheel'
 
 export const PageSectionHeadlineVar = (props: PageSectionProps) => {

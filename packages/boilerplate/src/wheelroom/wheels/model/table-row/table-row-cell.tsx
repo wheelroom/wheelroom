@@ -2,9 +2,9 @@
 import { jsx } from '@emotion/core'
 import { TableRowCellWheelStyle } from './presets/table-row-cell-preset'
 import { Td } from '../../../elements/self'
-import { Topic } from '../topic/topic'
+import { Topic } from '../../../models/topic/topic'
 import { TopicOptions } from '../../../lib/get-topic-options'
-import { TopicProps } from '../../../models/topic/topic'
+import { TopicProps } from '../../../models/topic/model-types'
 import { Wheel } from '../../../types/wheel'
 
 export interface TableRowCellWheel extends Wheel {

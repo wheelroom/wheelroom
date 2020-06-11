@@ -14,7 +14,7 @@ import { deepMerge } from '../../lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
-import { topicPreset } from '../../wheels/model/topic/presets/topic-preset'
+import { topicPreset } from '../topic/presets/topic-preset'
 import { Wheel } from '../../types/wheel'
 
 export const BlogSectionBlogVar = (props: BlogSectionProps) => {

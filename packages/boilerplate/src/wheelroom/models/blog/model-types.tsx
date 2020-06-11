@@ -6,7 +6,7 @@
  */
 
 import { MediaObject } from '../../elements/types/media'
-import { TopicProps } from '../topic/topic'
+import { TopicProps } from '../topic/model-types'
 
 export interface BlogProps {
   /** Gatsby fetched data */

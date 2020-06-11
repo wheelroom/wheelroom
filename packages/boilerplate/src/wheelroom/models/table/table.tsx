@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { ActionProps } from '../action/action'
+import { ActionProps } from '../action/model-types'
 import { getVariation } from '../../lib/get-variation'
 import { TableRowProps } from '../table-row/table-row'
 import { TableSingleVar } from './table-single-var'

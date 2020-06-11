@@ -1,14 +1,14 @@
 import React from 'react'
-import { Any } from '../../../elements/any'
-import { BlockLevelElementName } from '../../../elements/types/element-names'
-import { Box } from '../../../elements/grid'
-import { ParserFunction } from '../../../parsers/types'
+import { Any } from '../../elements/any'
+import { BlockLevelElementName } from '../../elements/types/element-names'
+import { Box } from '../../elements/grid'
+import { ParserFunction } from '../../parsers/types'
 import { TopicContentTextWheelStyle } from './presets/topic-content-text-preset'
-import { Icon } from '../../../elements/icon'
-import { TopicInfo } from '../../../lib/get-topic-info'
-import { TopicOptions } from '../../../lib/get-topic-options'
-import { TopicProps } from '../../../models/topic/topic'
-import { Wheel } from '../../../types/wheel'
+import { Icon } from '../../elements/icon'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { TopicOptions } from '../../lib/get-topic-options'
+import { TopicProps } from './model-types'
+import { Wheel } from '../../types/wheel'
 
 export interface TopicContentTextWheel extends Wheel {
   style: TopicContentTextWheelStyle
