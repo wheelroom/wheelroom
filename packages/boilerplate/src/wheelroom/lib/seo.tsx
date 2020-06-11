@@ -18,19 +18,33 @@ export interface SeoProps {
   siteVersion: string
 }
 
-const getFirstValue = (anArray: any[] | undefined) => {
-  if (!anArray) {
-    return
+type MetaString = string | undefined
+type MetaArray = string[] | undefined
+
+const getFirstStringValue = (strings: MetaString[] | undefined): MetaString => {
+  if (!strings) {
+    return ''
   }
-  return anArray.filter((anItem: string) => anItem)
+  return strings.find(
+    (aString: MetaString) => typeof aString === 'string' && aString.length > 0
+  )
+}
+
+const getFirstArrayValue = (arrays: MetaArray[] | undefined): MetaArray => {
+  if (!Array.isArray(arrays)) {
+    return []
+  }
+  return arrays.find(
+    (anArray: MetaArray) => Array.isArray(anArray) && anArray.length > 0
+  )
 }
 
 export const Seo = (context: SeoProps) => {
-  const author = getFirstValue(context.authorArray) || ''
-  const imageSrc = getFirstValue(context.imageSrcArray) || ''
-  const keywordsArray = getFirstValue(context.keywordsArray) || []
-  const metaDescription = getFirstValue(context.descriptionArray) || ''
-  const metaHeading = getFirstValue(context.headingArray) || ''
+  const author = getFirstStringValue(context.authorArray) || ''
+  const imageSrc = getFirstStringValue(context.imageSrcArray) || ''
+  const keywordsArray = getFirstArrayValue(context.keywordsArray) || []
+  const metaDescription = getFirstStringValue(context.descriptionArray) || ''
+  const metaHeading = getFirstStringValue(context.headingArray) || ''
 
   const metaKeywords = keywordsArray.length > 0 ? keywordsArray.join(', ') : ''
   const linkLocales = context.alternateLocales || []
