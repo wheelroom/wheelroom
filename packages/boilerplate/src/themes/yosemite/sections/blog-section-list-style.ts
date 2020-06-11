@@ -6,6 +6,7 @@ export const blogSectionListStyle: BlogListWheelStyle = {
     ncss: {
       alignItems: ['center', 'initial'],
       flexDirection: ['column', 'row'],
+      flexWrap: 'wrap',
     },
   },
   blog: {

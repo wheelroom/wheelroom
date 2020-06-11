@@ -36,7 +36,7 @@ export const blogSectionListPreset: BlogListWheelStyle = {
     ncss: {
       label: 'blog',
       textDecoration: 'none',
-      m: 3,
+      p: 3,
       w: ['auto', 1 / 2, 1 / 3],
     },
     media: {
