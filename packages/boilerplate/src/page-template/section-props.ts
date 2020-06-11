@@ -1,7 +1,7 @@
 import { BlogProps } from '../wheelroom/models/blog/types'
 import { GlobalsProps } from '../wheelroom/models/globals/model-types'
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { PageProps } from '../wheelroom/models/page/page'
+import { PageProps } from '../wheelroom/models/page/model-types'
 import { SiteMetadata } from './page-template'
 
 export interface BlogNode {

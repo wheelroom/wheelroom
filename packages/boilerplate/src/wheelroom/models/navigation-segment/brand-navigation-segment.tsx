@@ -1,10 +1,10 @@
 import React from 'react'
-import { Action } from '../../../models/action/action'
+import { Action } from '../action/action'
 import { BrandNavigationSegmentWheelStyle } from './presets/brand-navigation-segment-preset'
-import { Flex } from '../../../elements/grid'
-import { NavigationSegmentProps } from '../../../models/navigation-segment/navigation-segment'
-import { Strong } from '../../../elements/self'
-import { Wheel } from '../../../types/wheel'
+import { Flex } from '../../elements/grid'
+import { NavigationSegmentProps } from './model-types'
+import { Strong } from '../../elements/self'
+import { Wheel } from '../../types/wheel'
 
 interface BrandNavigationSegmentWheel extends Wheel {
   style: BrandNavigationSegmentWheelStyle
