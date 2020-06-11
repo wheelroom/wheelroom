@@ -6,11 +6,10 @@ import { BlogProps } from '../../../../models/blog/blog'
 import { Container, Fluid, Wrapper, Box, Flex } from '../../element/grid'
 import { GLink } from '../../element/g-link'
 import { Heading } from '../../element/heading'
+import { Image } from '../../element/image'
 import { Paragraph } from '../../element/paragraph'
 import { Time } from '../../element/self'
-import { TopicOptions } from '../../../lib/get-topic-options'
 import { Wheel } from '../../types'
-import { Image } from '../../element/image'
 
 export interface BlogListWheel extends Wheel {
   style: BlogListWheelStyle
@@ -27,8 +26,6 @@ export interface BlogListWheelProps {
   containerStyle: 'container' | 'fluid'
   /** Accept max number of topics, ignore all others */
   maxTopics?: number
-  /** Topic options */
-  topicOptions: TopicOptions
 }
 
 export const BlogList = (props: BlogListWheelProps) => {
@@ -60,12 +57,13 @@ export const BlogList = (props: BlogListWheelProps) => {
               props.locale,
               dateOptions
             )
-
-            if (!blog.categories) {
-              return undefined
+            let categories = blog.categories
+            if (!categories) {
+              categories = []
             }
-            const categories =
-              blog.categories.length > 0 ? blog.categories.join(', ') : ''
+            const getCategories =
+              categories.length > 0 ? categories.join(', ') : ''
+
             return (
               <GLink
                 key={index}
@@ -105,7 +103,7 @@ export const BlogList = (props: BlogListWheelProps) => {
                     }}
                     is="span"
                   >
-                    {categories}
+                    {getCategories}
                   </Any>
                   <Box
                     is="div"

@@ -5,9 +5,12 @@ import { BlogProps } from '../../../../models/blog/blog'
 import { BlogWheelStyle } from '../../section/blog/presets/blog-section-preset'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../element/grid'
 import { Heading } from '../../element/heading'
+import { Image } from '../../element/image'
+import { Paragraph } from '../../element/paragraph'
 import { Text } from '../text/text'
 import { Time } from '../../element/self'
-import { TopicOptions } from '../../../lib/get-topic-options'
+import { Topic } from '../topic/topic'
+import { TopicProps } from '../../../../models/topic/topic'
 import { Wheel } from '../../types'
 
 export interface BlogWheel extends Wheel {
@@ -25,15 +28,12 @@ export interface BlogWheelProps {
   containerStyle: 'container' | 'fluid'
   /** Accept max number of topics, ignore all others */
   maxTopics?: number
-  /** Topic options */
-  topicOptions: TopicOptions
 }
 
 export const Blog = (props: BlogWheelProps) => {
   if (!props.blog) {
     return null
   }
-
   /** Convert and Translate Date */
   const dateEvent = new Date(Date.parse(props.blog.date))
   const dateOptions = {
@@ -43,6 +43,12 @@ export const Blog = (props: BlogWheelProps) => {
     day: 'numeric',
   }
   const dateTime = dateEvent.toLocaleDateString(props.locale, dateOptions)
+
+  let categories = props.blog.categories
+  if (!categories) {
+    categories = []
+  }
+  const getCategories = categories.length > 0 ? categories.join(', ') : ''
 
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
@@ -65,7 +71,7 @@ export const Blog = (props: BlogWheelProps) => {
                 style: props.wheel.style.header.categories,
               }}
             >
-              {props.blog.categories}
+              {getCategories}
             </Any>
             <Time
               wheel={{ ...props.wheel, style: props.wheel.style.header.date }}
@@ -74,6 +80,7 @@ export const Blog = (props: BlogWheelProps) => {
               {dateTime}
             </Time>
             <Heading
+              is="h1"
               wheel={{
                 ...props.wheel,
                 style: props.wheel.style.header.heading,
@@ -81,13 +88,28 @@ export const Blog = (props: BlogWheelProps) => {
             >
               {props.blog.heading}
             </Heading>
+            <Paragraph
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.header.abstract,
+              }}
+            >
+              {props.blog.abstract?.abstract}
+            </Paragraph>
           </Flex>
+          {props.blog.media && (
+            <Image
+              includeFigcaption={true}
+              media={props.blog.media}
+              wheel={{ ...props.wheel, style: props.wheel.style.media.image }}
+            />
+          )}
           <Text
             locale={props.locale}
             wheel={{ ...props.wheel, style: props.wheel.style.text }}
             text={{ text: props.blog.text }}
           />
-          {/* <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
+          <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
             {props.blog.authors &&
               props.blog.authors.map((author: TopicProps, index: number) => {
                 return (
@@ -96,7 +118,10 @@ export const Blog = (props: BlogWheelProps) => {
                     key={index}
                     maxActions={2}
                     topic={author}
-                    topicOptions={props.topicOptions}
+                    topicOptions={{
+                      hideAction: false,
+                      hideIcon: true,
+                    }}
                     useHeadingElement="p"
                     wheel={{
                       ...props.wheel,
@@ -105,7 +130,7 @@ export const Blog = (props: BlogWheelProps) => {
                   />
                 )
               })}
-          </Flex> */}
+          </Flex>
         </Box>
       </ContainerType>
     </Wrapper>

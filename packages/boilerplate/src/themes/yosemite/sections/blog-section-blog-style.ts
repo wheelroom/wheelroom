@@ -35,6 +35,37 @@ export const blogSectionBlogStyle: BlogWheelStyle = {
         mt: 3,
       },
     },
+    abstract: {
+      ncss: {
+        fontSize: 8,
+      },
+    },
+  },
+  media: {
+    ncss: {},
+    image: {
+      picture: {
+        ncss: {
+          w: 1,
+          mb: 6,
+        },
+      },
+      img: {
+        ncss: {},
+      },
+      figcaption: {
+        ncss: {
+          my: 3,
+          color: 'bullet',
+          fontSize: 4,
+        },
+      },
+    },
+    video: {
+      video: {
+        ncss: {},
+      },
+    },
   },
   authors: {
     ncss: {},

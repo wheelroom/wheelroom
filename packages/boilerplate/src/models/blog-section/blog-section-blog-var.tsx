@@ -37,7 +37,6 @@ export const BlogSectionBlogVar = (props: BlogSectionProps) => {
         locale={props.locale}
         blog={props.blog}
         containerStyle="container"
-        topicOptions={props.topicOptions}
         wheel={wheel}
       />
     </ScrollSpy>

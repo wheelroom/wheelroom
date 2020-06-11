@@ -1,8 +1,11 @@
 import { GridElementStyle } from '../../../element/resets/grid-reset'
-import { TextWheelStyle, textPreset } from '../../../model/text/text-preset'
-import { NcssProps } from '../../../types'
-import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
 import { HeadingElementStyle } from '../../../element/resets/heading-reset'
+import { ImageElementStyle } from '../../../element/image'
+import { NcssProps } from '../../../types'
+import { ParagraphElementStyle } from '../../../element/resets/paragraph-reset'
+import { TextWheelStyle, textPreset } from '../../../model/text/text-preset'
+import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
+import { VideoElementStyle } from '../../../element/video'
 
 export interface BlogWheelStyle {
   container: GridElementStyle
@@ -12,6 +15,12 @@ export interface BlogWheelStyle {
     categories: NcssProps
     date: NcssProps
     heading: HeadingElementStyle
+    abstract: ParagraphElementStyle
+  }
+  media: {
+    ncss: NcssProps
+    image: ImageElementStyle
+    video: VideoElementStyle
   }
   text: TextWheelStyle
   authors: NcssProps
@@ -48,6 +57,38 @@ export const blogSectionPreset: BlogWheelStyle = {
     heading: {
       ncss: {
         label: 'blog-heading',
+      },
+    },
+    abstract: {
+      ncss: {
+        label: 'blog-abstract',
+      },
+    },
+  },
+  media: {
+    ncss: {
+      label: 'blog-media',
+    },
+    image: {
+      picture: {
+        ncss: {
+          label: 'blog-picture',
+        },
+      },
+      img: {
+        ncss: {
+          label: 'blog-img',
+        },
+      },
+      figcaption: {
+        ncss: {
+          label: 'blog-figcaption',
+        },
+      },
+    },
+    video: {
+      video: {
+        ncss: {},
       },
     },
   },
