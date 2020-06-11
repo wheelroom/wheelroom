@@ -516,6 +516,10 @@ export const models: WheelroomComponents = {
       siteKeywords: {
         type: 'tags',
       } as TagsField,
+      siteImage: {
+        type: 'media',
+        typePostfix: 'Image',
+      } as MediaField,
       siteEmbeds: {
         allowedComponents: ['embed'],
         type: 'multipleComponents',

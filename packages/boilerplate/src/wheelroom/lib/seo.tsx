@@ -8,32 +8,42 @@ export interface AlternateLocale {
 
 export interface SeoProps {
   alternateLocales?: AlternateLocale[]
-  imageSrc?: string
-  keywords?: string[]
+  authorArray: (string | undefined)[]
+  descriptionArray?: (string | undefined)[]
+  headingArray?: (string | undefined)[]
+  imageSrcArray?: (string | undefined)[]
+  keywordsArray?: (string[] | undefined)[]
   locale: string
   meta: any[]
-  pageDescription?: string
-  pageHeading: string
-  pageKeywords: string[]
-  siteAuthor: string
-  siteDescription: string
-  siteHeading: string
-  siteKeywords: string[]
   siteVersion: string
 }
 
+const getFirstValue = (anArray: any[] | undefined) => {
+  if (!anArray) {
+    return
+  }
+  return anArray.filter((anItem: string) => anItem)
+}
+
 export const Seo = (context: SeoProps) => {
-  const metaDescription =
-    context.pageDescription || context.siteDescription || ''
-  const metaHeading = context.pageHeading || context.siteHeading || ''
-  const useKeywords = context.pageKeywords || context.siteKeywords || []
-  const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
+  const author = getFirstValue(context.authorArray) || ''
+  const imageSrc = getFirstValue(context.imageSrcArray) || ''
+  const keywordsArray = getFirstValue(context.keywordsArray) || []
+  const metaDescription = getFirstValue(context.descriptionArray) || ''
+  const metaHeading = getFirstValue(context.headingArray) || ''
+
+  const metaKeywords = keywordsArray.length > 0 ? keywordsArray.join(', ') : ''
   const linkLocales = context.alternateLocales || []
 
   let titleTemplate = '%s'
-  if (context.pageHeading && context.siteHeading) {
+  if (
+    Array.isArray(context.headingArray) &&
+    context.headingArray.length > 1 &&
+    context.headingArray[0] &&
+    context.headingArray[1]
+  ) {
     // If we have both siteHeading and pageHeading, use both
-    titleTemplate = `%s | ${context.siteHeading}`
+    titleTemplate = `%s | ${context.headingArray[1]}`
   }
 
   return (
@@ -63,7 +73,7 @@ export const Seo = (context: SeoProps) => {
           property: 'og:title',
         },
         {
-          content: context.imageSrc,
+          content: imageSrc,
           property: 'og:image',
         },
         {
@@ -82,7 +92,7 @@ export const Seo = (context: SeoProps) => {
           name: 'twitter:card',
         },
         {
-          content: context.siteAuthor,
+          content: author,
           name: 'twitter:creator',
         },
         {
@@ -94,7 +104,7 @@ export const Seo = (context: SeoProps) => {
           name: 'twitter:description',
         },
         {
-          content: context.imageSrc,
+          content: imageSrc,
           name: 'twitter:image',
         },
       ].concat(context.meta)}

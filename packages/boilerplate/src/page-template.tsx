@@ -45,7 +45,6 @@ const PageTemplate = (props: any) => {
   const globals: GlobalsProps = props.data.globals
   const blog: BlogProps = props.data.blog
   const allBlog: BlogProps[] = props.data.allBlog
-  const keywords = globals.siteKeywords
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const siteMetadata: SiteMetadata = props.data.site.siteMetadata
@@ -64,18 +63,33 @@ const PageTemplate = (props: any) => {
 
     sections,
   }
+
+  const pageImageSrc =
+    (page.seoImage && page.seoImage.fluid && page.seoImage.fluid.src) || ''
+  const blogImageSrc =
+    (blog.seoImage && blog.seoImage.fluid && blog.seoImage.fluid.src) || ''
+  const siteImageSrc =
+    (globals.siteImage &&
+      globals.siteImage.fluid &&
+      globals.siteImage.fluid.src) ||
+    ''
+  const blogAuthor =
+    (Array.isArray(blog.authors) &&
+      blog.authors.length > 0 &&
+      blog.authors[0].heading) ||
+    ''
   const seoProps: SeoProps = {
-    imageSrc: page.seoImage && page.seoImage.fluid && page.seoImage.fluid.src,
-    keywords,
+    authorArray: [blogAuthor, globals.siteAuthor],
+    descriptionArray: [
+      page.seoDescription,
+      blog.seoDescription,
+      globals.siteDescription,
+    ],
+    headingArray: [page.seoTitle, blog.seoTitle, globals.siteHeading],
+    imageSrcArray: [pageImageSrc, blogImageSrc, siteImageSrc],
+    keywordsArray: [page.seoKeywords, blog.seoKeywords, globals.siteKeywords],
     locale,
     meta: [],
-    pageDescription: page.seoDescription,
-    pageHeading: page.seoTitle || '',
-    pageKeywords: page.seoKeywords || [],
-    siteAuthor: globals.siteAuthor || '',
-    siteDescription: globals.siteDescription || '',
-    siteHeading: globals.siteHeading || '',
-    siteKeywords: globals.siteKeywords || [],
     siteVersion,
   }
   // Set theme background color

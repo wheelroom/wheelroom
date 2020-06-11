@@ -18,6 +18,24 @@ export const fragment = graphql`
     siteDescription
     siteHeading
     siteKeywords
+    siteImage {
+      title
+      description
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+      file {
+        url
+        fileName
+        contentType
+        details {
+          image {
+            height
+            width
+          }
+        }
+      }
+    }
     siteEmbeds {
       ... on Node {
         ...Embed
