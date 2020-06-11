@@ -1,5 +1,5 @@
 import { wrapperStyle } from '../elements/grid-style'
-import { TableSectionWheelStyle } from '../../../wheelroom/wheels/section/table/presets/table-section-preset'
+import { TableSectionWheelStyle } from '../../../wheelroom/models/table-section/price/table-section-preset'
 import { iconSmallTopicStyle } from '../elements/icon-style'
 
 export const sectionTableStyle: TableSectionWheelStyle = {

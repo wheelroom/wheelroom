@@ -12,23 +12,23 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment TableRow on ContentfulTableRow {
-  __typename
-  variation
-  heading
-  abstract {
-    abstract
-  }
-  icon
-  actions {
-    ... on Node {
-      ...Action
+  fragment TableRow on ContentfulTableRow {
+    __typename
+    variation
+    heading
+    abstract {
+      abstract
+    }
+    icon
+    actions {
+      ... on Node {
+        ...Action
+      }
+    }
+    topics {
+      ... on Node {
+        ...Topic
+      }
     }
   }
-  topics {
-    ... on Node {
-      ...Topic
-    }
-  }
-}
 `

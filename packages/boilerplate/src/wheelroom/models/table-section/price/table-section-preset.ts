@@ -1,8 +1,5 @@
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
-import {
-  tablePreset,
-  TableWheelStyle,
-} from '../../../model/table/presets/table-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { tablePreset, TableWheelStyle } from '../../table/table-preset'
 
 export interface TableSectionWheelStyle {
   container: GridElementStyle

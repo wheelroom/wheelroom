@@ -10,11 +10,11 @@ import React from 'react'
 import { deepMerge } from '../../lib/deep-merge'
 import { getSectionStyle, getWheel } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
-import { tableSectionPreset } from '../../wheels/section/table/presets/table-section-preset'
-import { TableSectionProps } from './table-section'
+import { TableSection } from './price/table-section'
+import { tableSectionPreset } from './price/table-section-preset'
+import { TableSectionProps } from './model-types'
 import { ThemeId } from '../../../admin-resources/theme-info'
 import { Wheel } from '../../types/wheel'
-import { TableSection } from '../../wheels/section/table/table-section'
 
 export const TableSectionTableVar = (props: TableSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)

@@ -1,11 +1,11 @@
-import { NcssProps } from '../../../../types/wheel'
-import { DescriptionListElementStyle } from '../../../../elements/resets/self-dl-reset'
-import { IconElementStyle } from '../../../../elements/resets/icon-reset'
-import { TableElementStyle } from '../../../../elements/resets/self-table-reset'
+import { NcssProps } from '../../types/wheel'
+import { DescriptionListElementStyle } from '../../elements/resets/self-dl-reset'
+import { IconElementStyle } from '../../elements/resets/icon-reset'
+import { TableElementStyle } from '../../elements/resets/self-table-reset'
 import {
   tableRowPreset,
   TableRowWheelStyle,
-} from '../../table-row/presets/table-row-preset'
+} from '../../wheels/model/table-row/presets/table-row-preset'
 import { TableActionWheelStyle, tableActionPreset } from './table-action-preset'
 
 export interface TableWheelStyle {
