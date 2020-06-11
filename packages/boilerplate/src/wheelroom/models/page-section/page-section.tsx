@@ -15,15 +15,10 @@ import { PageSectionGalleryVar } from './page-section-gallery-var'
 import { PageSectionHeadlineVar } from './page-section-headline-var'
 import { PageSectionHeroVar } from './page-section-hero-var'
 import { PageSectionImageVar } from './page-section-image-var'
+import { PageSectionProps } from './model-types'
 import { PageSectionQuoteVar } from './page-section-quote-var'
 import { PageSectionShowcaseVar } from './page-section-showcase-var'
 import { PageSectionVideoVar } from './page-section-video-var'
-import { SectionProps } from '../../../page-template/section-props'
-import {
-  TopicOptionString,
-  TopicOptionStringNl,
-} from '../../lib/get-topic-options'
-import { TopicProps } from '../topic/topic'
 
 const componentList = {
   ['block']: PageSectionBlockVar,
@@ -37,15 +32,6 @@ const componentList = {
   ['quote']: PageSectionQuoteVar,
   ['showcase']: PageSectionShowcaseVar,
   ['video']: PageSectionVideoVar,
-}
-
-export interface PageSectionProps extends SectionProps {
-  /** Gatsby fetched data */
-  __typename: string
-  eventId?: string
-  topicOptions?: (TopicOptionString | TopicOptionStringNl)[]
-  topics?: TopicProps[]
-  variation?: string
 }
 
 export const PageSection = (props: PageSectionProps) => {

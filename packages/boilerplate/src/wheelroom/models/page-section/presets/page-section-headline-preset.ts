@@ -1,52 +1,44 @@
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
-import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../wheels/model/topic/presets/topic-preset'
 
-export interface PageSectionBlockWheelStyle {
+export interface PageSectionHeadlineWheelStyle {
   container: GridElementStyle
   topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionBlockPreset: PageSectionBlockWheelStyle = {
+export const pageSectionHeadlinePreset: PageSectionHeadlineWheelStyle = {
   container: {
-    ncss: {
-      alignItems: ['center', 'initial'],
-      flexDirection: ['column', 'row'],
-      flexWrap: 'wrap',
-    },
+    ncss: {},
   },
   topic: {
-    ncss: {
-      p: 3,
-      w: [1, 1 / 2, 1 / 3],
-    },
+    ncss: {},
     content: {
       ncss: {
+        textAlign: 'center',
+        mx: 'auto',
         p: 3,
-      },
-      text: {
-        ncss: {
-          flex: '1 1 auto',
-        },
-        heading: {
-          ncss: {},
-        },
-        abstract: {
-          ncss: {},
-        },
-        icon: {
-          ncss: {},
-        },
+        maxWidth: [1, '48em'],
       },
       actions: {
-        ncss: {
-          flex: '0',
-        },
+        ncss: {},
         link: {
           ncss: {},
           icon: {
             ncss: {},
           },
+        },
+      },
+      text: {
+        ncss: {},
+        abstract: {
+          ncss: {},
+        },
+        heading: {
+          ncss: {},
+        },
+        icon: {
+          ncss: {},
         },
       },
     },
@@ -64,20 +56,10 @@ export const pageSectionBlockPreset: PageSectionBlockWheelStyle = {
       },
       image: {
         img: {
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
-            position: 'absolute',
-            w: 1,
-          },
+          ncss: {},
         },
         picture: {
-          ncss: {
-            display: 'block',
-            h: '0px',
-            pb: '56.25%',
-            position: 'relative',
-          },
+          ncss: {},
         },
         figcaption: {
           ncss: {},

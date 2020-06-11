@@ -1,13 +1,13 @@
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
-import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../wheels/model/topic/presets/topic-preset'
 
-export interface PageSectionQuoteWheelStyle {
+export interface PageSectionVideoWheelStyle {
   container: GridElementStyle
   topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionQuotePreset: PageSectionQuoteWheelStyle = {
+export const pageSectionVideoPreset: PageSectionVideoWheelStyle = {
   container: {
     ncss: {},
   },
@@ -15,7 +15,6 @@ export const pageSectionQuotePreset: PageSectionQuoteWheelStyle = {
     ncss: {},
     content: {
       ncss: {
-        textAlign: 'center',
         p: 3,
       },
       actions: {
@@ -41,14 +40,13 @@ export const pageSectionQuotePreset: PageSectionQuoteWheelStyle = {
       },
     },
     media: {
-      ncss: {
-        p: 3,
-      },
+      ncss: {},
       embed: {
         ncss: {
-          position: 'relative',
+          display: 'block',
           h: '0px',
           pb: '56.25%',
+          position: 'relative',
           iframe: {
             position: 'absolute',
           },

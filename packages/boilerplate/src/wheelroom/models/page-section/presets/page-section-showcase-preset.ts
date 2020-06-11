@@ -1,26 +1,28 @@
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
-import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../wheels/model/topic/presets/topic-preset'
 
-export interface PageSectionGalleryWheelStyle {
+export interface PageSectionShowcaseWheelStyle {
   container: GridElementStyle
   topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionGalleryPreset: PageSectionGalleryWheelStyle = {
+export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
   container: {
     ncss: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignItems: 'center',
+      alignItems: ['center', 'baseline'],
+      flexDirection: ['column', 'row'],
+      justifyContent: 'center',
     },
   },
   topic: {
     ncss: {
-      w: 1 / 2,
+      flexDirection: ['column', 'column', 'row'],
+      alignItems: 'center',
     },
     content: {
       ncss: {
+        flexDirection: 'column',
         p: 3,
       },
       actions: {
@@ -46,12 +48,17 @@ export const pageSectionGalleryPreset: PageSectionGalleryWheelStyle = {
       },
     },
     media: {
-      ncss: {},
+      ncss: {
+        flexDirection: 'column',
+        w: [1, 1, 1 / 2],
+        p: 3,
+      },
       embed: {
         ncss: {
-          position: 'relative',
+          display: 'block',
           h: '0px',
           pb: '56.25%',
+          position: 'relative',
           iframe: {
             position: 'absolute',
           },
@@ -62,9 +69,7 @@ export const pageSectionGalleryPreset: PageSectionGalleryWheelStyle = {
           ncss: {},
         },
         picture: {
-          ncss: {
-            p: 3,
-          },
+          ncss: {},
         },
         figcaption: {
           ncss: {},

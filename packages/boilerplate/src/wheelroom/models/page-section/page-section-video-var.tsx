@@ -8,18 +8,18 @@
 
 import React from 'react'
 import { deepMerge } from '../../lib/deep-merge'
+import { getTopicOptions } from '../../lib/get-topic-options'
 import { getWheel, getSectionStyle } from '../../../themes/themes'
-import { PageSection } from '../../wheels/section/page/page-section'
-import { PageSectionProps } from './page-section'
-import { pageSectionVideoPreset } from '../../wheels/section/page/presets/page-section-video-preset'
+import { MultiParser } from '../../parsers/multi-parser'
+import { PageSection } from './page-section-body'
+import { PageSectionProps } from './model-types'
+import { pageSectionVideoPreset } from './presets/page-section-video-preset'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
-import { topicPreset } from '../../wheels/model/topic/presets/topic-preset'
-import { Wheel } from '../../types/wheel'
 import { Topic } from '../../wheels/model/topic/topic'
+import { topicPreset } from '../../wheels/model/topic/presets/topic-preset'
 import { TopicProps } from '../topic/topic'
-import { MultiParser } from '../../parsers/multi-parser'
-import { getTopicOptions } from '../../lib/get-topic-options'
+import { Wheel } from '../../types/wheel'
 
 export const PageSectionVideoVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)

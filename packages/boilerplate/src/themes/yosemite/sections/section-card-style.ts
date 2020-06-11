@@ -1,4 +1,4 @@
-import { PageSectionCardWheelStyle } from '../../../wheelroom/wheels/section/page/presets/page-section-card-preset'
+import { PageSectionCardWheelStyle } from '../../../wheelroom/models/page-section/presets/page-section-card-preset'
 import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 import { iconTopicStyle } from '../elements/icon-style'

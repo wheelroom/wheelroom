@@ -1,4 +1,4 @@
-import { PageSectionBlockWheelStyle } from '../../../wheelroom/wheels/section/page/presets/page-section-block-preset'
+import { PageSectionBlockWheelStyle } from '../../../wheelroom/models/page-section/presets/page-section-block-preset'
 import { primaryButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 import { iconTopicStyle } from '../elements/icon-style'

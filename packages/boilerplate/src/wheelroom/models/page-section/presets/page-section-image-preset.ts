@@ -1,21 +1,20 @@
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
-import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../wheels/model/topic/presets/topic-preset'
 
-export interface PageSectionHeroWheelStyle {
+export interface PageSectionImageWheelStyle {
   container: GridElementStyle
   topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
+export const pageSectionImagePreset: PageSectionImageWheelStyle = {
   container: {
-    ncss: {},
+    ncss: {
+      flexDirection: ['column', 'row'],
+    },
   },
   topic: {
-    ncss: {
-      position: 'relative',
-      w: 1,
-    },
+    ncss: {},
     content: {
       ncss: {
         p: 3,
@@ -43,37 +42,24 @@ export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
       },
     },
     media: {
-      ncss: {
-        bottom: '0',
-        left: '0',
-        position: 'absolute',
-        right: '0',
-        top: '0',
-        zIndex: -1,
-        overflow: 'hidden',
-      },
+      ncss: {},
       embed: {
         ncss: {
+          display: 'block',
+          h: '0px',
+          pb: '56.25%',
           position: 'relative',
-          h: 1,
-          w: 1,
           iframe: {
             position: 'absolute',
           },
         },
       },
       image: {
-        img: {
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
-          },
-        },
         picture: {
-          ncss: {
-            h: 1,
-            w: 1,
-          },
+          ncss: {},
+        },
+        img: {
+          ncss: {},
         },
         figcaption: {
           ncss: {},
@@ -89,9 +75,7 @@ export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
       },
       video: {
         video: {
-          ncss: {
-            h: 1,
-          },
+          ncss: {},
         },
         description: {
           ncss: {},
@@ -100,8 +84,6 @@ export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
     },
   },
   wrapper: {
-    ncss: {
-      py: 0,
-    },
+    ncss: {},
   },
 }

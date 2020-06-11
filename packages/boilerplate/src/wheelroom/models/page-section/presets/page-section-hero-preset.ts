@@ -1,28 +1,23 @@
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
-import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../wheels/model/topic/presets/topic-preset'
 
-export interface PageSectionShowcaseWheelStyle {
+export interface PageSectionHeroWheelStyle {
   container: GridElementStyle
   topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
+export const pageSectionHeroPreset: PageSectionHeroWheelStyle = {
   container: {
-    ncss: {
-      alignItems: ['center', 'baseline'],
-      flexDirection: ['column', 'row'],
-      justifyContent: 'center',
-    },
+    ncss: {},
   },
   topic: {
     ncss: {
-      flexDirection: ['column', 'column', 'row'],
-      alignItems: 'center',
+      position: 'relative',
+      w: 1,
     },
     content: {
       ncss: {
-        flexDirection: 'column',
         p: 3,
       },
       actions: {
@@ -49,16 +44,19 @@ export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
     },
     media: {
       ncss: {
-        flexDirection: 'column',
-        w: [1, 1, 1 / 2],
-        p: 3,
+        bottom: '0',
+        left: '0',
+        position: 'absolute',
+        right: '0',
+        top: '0',
+        zIndex: -1,
+        overflow: 'hidden',
       },
       embed: {
         ncss: {
-          display: 'block',
-          h: '0px',
-          pb: '56.25%',
           position: 'relative',
+          h: 1,
+          w: 1,
           iframe: {
             position: 'absolute',
           },
@@ -66,10 +64,16 @@ export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
       },
       image: {
         img: {
-          ncss: {},
+          ncss: {
+            h: 1,
+            objectFit: 'cover',
+          },
         },
         picture: {
-          ncss: {},
+          ncss: {
+            h: 1,
+            w: 1,
+          },
         },
         figcaption: {
           ncss: {},
@@ -85,7 +89,9 @@ export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
       },
       video: {
         video: {
-          ncss: {},
+          ncss: {
+            h: 1,
+          },
         },
         description: {
           ncss: {},
@@ -94,6 +100,8 @@ export const pageSectionShowcasePreset: PageSectionShowcaseWheelStyle = {
     },
   },
   wrapper: {
-    ncss: {},
+    ncss: {
+      py: 0,
+    },
   },
 }

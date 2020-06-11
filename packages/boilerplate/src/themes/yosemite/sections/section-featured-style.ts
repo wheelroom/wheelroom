@@ -1,4 +1,4 @@
-import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/wheels/section/page/presets/page-section-featured-preset'
+import { PageSectionFeaturedWheelStyle } from '../../../wheelroom/models/page-section/presets/page-section-featured-preset'
 import {
   displayButtonStyle,
   primaryButtonStyle,

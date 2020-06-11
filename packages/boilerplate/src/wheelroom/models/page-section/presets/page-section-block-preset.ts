@@ -1,39 +1,31 @@
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
-import { TopicWheelStyle } from '../../../model/topic/presets/topic-preset'
+import { GridElementStyle } from '../../../elements/resets/grid-reset'
+import { TopicWheelStyle } from '../../../wheels/model/topic/presets/topic-preset'
 
-export interface PageSectionCardWheelStyle {
+export interface PageSectionBlockWheelStyle {
   container: GridElementStyle
   topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionCardPreset: PageSectionCardWheelStyle = {
+export const pageSectionBlockPreset: PageSectionBlockWheelStyle = {
   container: {
     ncss: {
-      alignItems: 'stretch',
-      flexDirection: 'row',
+      alignItems: ['center', 'initial'],
+      flexDirection: ['column', 'row'],
       flexWrap: 'wrap',
-      justifyContent: 'center',
     },
   },
   topic: {
     ncss: {
-      maxWidth: '288px',
-      minWidth: '288px',
-      m: 3,
-      border: '1px solid black',
+      p: 3,
+      w: [1, 1 / 2, 1 / 3],
     },
     content: {
       ncss: {
-        display: 'flex',
-        flex: '1 1 auto',
-        flexDirection: 'column',
-        px: 3,
-        pb: 3,
+        p: 3,
       },
       text: {
         ncss: {
-          display: 'block',
           flex: '1 1 auto',
         },
         heading: {
@@ -59,23 +51,32 @@ export const pageSectionCardPreset: PageSectionCardWheelStyle = {
       },
     },
     media: {
-      ncss: {
-        p: 3,
-      },
+      ncss: {},
       embed: {
-        ncss: {},
+        ncss: {
+          position: 'relative',
+          h: '0px',
+          pb: '56.25%',
+          iframe: {
+            position: 'absolute',
+          },
+        },
       },
       image: {
         img: {
           ncss: {
             h: 1,
             objectFit: 'cover',
+            position: 'absolute',
+            w: 1,
           },
         },
         picture: {
           ncss: {
             display: 'block',
-            h: '178px',
+            h: '0px',
+            pb: '56.25%',
+            position: 'relative',
           },
         },
         figcaption: {

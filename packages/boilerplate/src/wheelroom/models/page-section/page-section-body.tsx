@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Fluid, Wrapper } from '../../../elements/grid'
+import { Container, Fluid, Wrapper } from '../../elements/grid'
 import { PageSectionBlockWheelStyle } from './presets/page-section-block-preset'
 import { PageSectionCardWheelStyle } from './presets/page-section-card-preset'
 import { PageSectionFeaturedWheelStyle } from './presets/page-section-featured-preset'
@@ -7,7 +7,7 @@ import { PageSectionHeadlineWheelStyle } from './presets/page-section-headline-p
 import { PageSectionHeroWheelStyle } from './presets/page-section-hero-preset'
 import { PageSectionQuoteWheelStyle } from './presets/page-section-quote-preset'
 import { PageSectionShowcaseWheelStyle } from './presets/page-section-showcase-preset'
-import { Wheel } from '../../../types/wheel'
+import { Wheel } from '../../types/wheel'
 
 export interface PageSectionWheel extends Wheel {
   style:
