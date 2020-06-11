@@ -21,6 +21,17 @@ export interface SeoProps {
 type MetaString = string | undefined
 type MetaArray = string[] | undefined
 
+const getLastStringValue = (strings: MetaString[] | undefined): MetaString => {
+  if (!strings) {
+    return ''
+  }
+  return strings
+    .reverse()
+    .find(
+      (aString: MetaString) => typeof aString === 'string' && aString.length > 0
+    )
+}
+
 const getFirstStringValue = (strings: MetaString[] | undefined): MetaString => {
   if (!strings) {
     return ''
@@ -50,14 +61,11 @@ export const Seo = (context: SeoProps) => {
   const linkLocales = context.alternateLocales || []
 
   let titleTemplate = '%s'
-  if (
-    Array.isArray(context.headingArray) &&
-    context.headingArray.length > 1 &&
-    context.headingArray[0] &&
-    context.headingArray[1]
-  ) {
-    // If we have both siteHeading and pageHeading, use both
-    titleTemplate = `%s | ${context.headingArray[1]}`
+  if (Array.isArray(context.headingArray) && context.headingArray.length > 1) {
+    const lastValue = getLastStringValue(context.headingArray)
+    if (metaHeading !== lastValue) {
+      titleTemplate = `%s | ${lastValue}`
+    }
   }
 
   return (
