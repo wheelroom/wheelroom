@@ -2,7 +2,7 @@ import { NcssProps } from '../../../../types/wheel'
 import { ImageElementStyle } from '../../../../elements/image'
 import { VideoElementStyle } from '../../../../elements/video'
 import { EmbedStyle } from '../../../../models/embed/embed'
-import { MediaBreakpointStyle } from '../../media-breakpoint/media-breakpoint'
+import { MediaBreakpointStyle } from '../../../../models/media-breakpoint/media-breakpoint'
 
 export interface TopicMediaWheelStyle {
   /** Styling for this node */

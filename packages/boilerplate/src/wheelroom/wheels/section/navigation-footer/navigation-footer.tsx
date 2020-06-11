@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
-import { GlobalsProps } from '../../../models/globals/globals'
+import { GlobalsProps } from '../../../models/globals/model-types'
 import { LegalFooter } from './legal-footer'
 import { NavigationFooterWheelStyle } from './presets/navigation-footer-preset'
 import { NavigationProps } from '../../../models/navigation/navigation'

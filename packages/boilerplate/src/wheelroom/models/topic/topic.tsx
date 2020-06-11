@@ -6,9 +6,9 @@
  */
 
 import { EmbedProps } from '../embed/model-types'
-import { MediaBreakpointProps } from '../media-breakpoint/media-breakpoint'
+import { MediaBreakpointProps } from '../media-breakpoint/model-types'
 import { MediaObject } from '../../elements/types/media'
-import { ActionProps } from '../action/action'
+import { ActionProps } from '../action/model-types'
 
 export interface TopicProps {
   /** Gatsby fetched data */
