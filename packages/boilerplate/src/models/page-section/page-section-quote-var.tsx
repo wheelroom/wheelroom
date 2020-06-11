@@ -44,6 +44,7 @@ export const PageSectionQuoteVar = (props: PageSectionProps) => {
           <Topic
             key={index}
             topic={topic}
+            useHeadingElement="p"
             useAbstractParser={MultiParser}
             wheel={{ ...wheel, style: wheel.style.topic }}
             topicOptions={getTopicOptions(props.topicOptions || [])}

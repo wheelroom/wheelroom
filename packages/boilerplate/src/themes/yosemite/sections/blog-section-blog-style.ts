@@ -55,9 +55,10 @@ export const blogSectionBlogStyle: BlogWheelStyle = {
       },
       figcaption: {
         ncss: {
-          my: 3,
           color: 'bullet',
           fontSize: 4,
+          p: 3,
+          pb: 0,
         },
       },
     },

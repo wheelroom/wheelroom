@@ -74,9 +74,9 @@ export const starter: ContentTypes = {
   },
   goBlogList: {
     fields: {
-      description: 'Blogs are here to stay',
+      description: 'Blog are here to stay',
       eventId: 'go-blog-list',
-      heading: 'Blogs',
+      heading: 'Blog',
       page: 'blogListPage',
       title: 'Go blog list',
     },
@@ -209,7 +209,7 @@ export const starter: ContentTypes = {
     fields: {
       path: '/blog/:slug',
       sections: ['siteHeader', 'starterBlogSection', 'siteFooter'],
-      seoDescription: 'Blogs are here to stay',
+      seoDescription: 'Blog are here to stay',
       seoImage: true,
       seoTitle: 'Blog',
       seoKeywords: ['Wheelroom', 'Blog'],
@@ -229,7 +229,7 @@ export const starter: ContentTypes = {
     fields: {
       path: '/blog',
       sections: ['siteHeader', 'starterBlogListSection', 'siteFooter'],
-      seoDescription: 'Blogs are here to stay',
+      seoDescription: 'Blog are here to stay',
       seoImage: true,
       seoTitle: 'Blog',
       seoKeywords: ['Wheelroom', 'Blog'],
@@ -258,21 +258,21 @@ export const starter: ContentTypes = {
   },
   myFrstBlog: {
     fields: {
-      heading: '',
-      abstract: '',
+      heading: 'My first blog',
+      abstract: 'My first blog abstract',
       media: true,
       icon: 'heart',
       slug: 'my-first-blog',
       date: '2020-05-01T00:00+01:00',
       text: `# My first blog
 This is my first blog.
-## Blogs are green
+## Blog are green
 
 All blogs that I produce are green. Every time I talk, I get to improve the world.`,
       categories: ['success', 'lifestyle'],
       authors: ['myGreatBlogProfile'],
       seoTitle: 'My first blog',
-      seoDescription: 'Blogs are here to stay',
+      seoDescription: 'Blog are here to stay',
       seoImage: true,
       title: 'My first blog',
     },
@@ -280,23 +280,23 @@ All blogs that I produce are green. Every time I talk, I get to improve the worl
   },
   mySecondBlog: {
     fields: {
-      heading: '',
-      abstract: '',
+      heading: 'My second blog',
+      abstract: 'My second blog abstract',
       media: true,
       icon: 'heart',
       slug: 'my-second-blog',
       date: '2020-05-02T00:00+01:00',
       text: `# My second blog
 This is my second blog.
-## Blogs are cool
+## Blog are cool
 
 All blogs that I produce are open source. Every time I talk, I get to share it with the world.`,
       categories: ['lifestyle', 'home', 'opinion'],
       authors: ['myGreatBlogProfile'],
       seoTitle: 'My first blog',
-      seoDescription: 'Blogs are here to stay',
+      seoDescription: 'Blog are here to stay',
       seoImage: true,
-      title: 'My first blog',
+      title: 'My second blog',
     },
     model: 'blog',
   },
