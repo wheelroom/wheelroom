@@ -1,5 +1,5 @@
 import { ThemeInfo } from '@wheelroom/admin-theme-switcher'
-import { PageProps } from '../wheelroom/models/page/model-types'
+import { PageProps } from '../wheelroom'
 
 export type ThemeId = 'light' | 'dark'
 
