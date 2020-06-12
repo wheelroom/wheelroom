@@ -1,11 +1,11 @@
 import React from 'react'
-import { BlogSection } from '../wheelroom/models/blog-section/blog-section'
+import { BlogSection } from '../wheelroom'
 import { Landmarks } from './landmarks'
-import { NavigationSection } from '../wheelroom/models/navigation-section/navigation-section'
-import { PageSection } from '../wheelroom/models/page-section/page-section'
+import { NavigationSection } from '../wheelroom'
+import { PageSection } from '../wheelroom'
 import { SectionProps } from './section-props'
-import { TableSection } from '../wheelroom/models/table-section/table-section'
-import { TextSection } from '../wheelroom/models/text-section/text-section'
+import { TableSection } from '../wheelroom'
+import { TextSection } from '../wheelroom'
 
 export interface SectionMap {
   [contentfulSectionName: string]: any

@@ -1,9 +1,9 @@
 import React, { SVGProps } from 'react'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../..'
 import { styledSystem } from '@wheelroom/styled-system'
 export interface IconProps extends SVGProps<SVGSVGElement> {
-  ncss: any
-  wheel: Wheel
+  ncss: any;
+  wheel: Wheel;
 }
 const componentId = 'svg-battery'
 export const SvgBattery = (props: IconProps) => {
