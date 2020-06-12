@@ -1,4 +1,4 @@
-import { ButtonElementStyle } from '../../../wheelroom/elements/resets/button-reset'
+import { ButtonElementStyle } from '../../../wheelroom'
 
 const buttonStyle: ButtonElementStyle = {
   ncss: {
