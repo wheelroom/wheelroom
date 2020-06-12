@@ -1,21 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { SeoProps } from './seo-props'
 
 export interface AlternateLocale {
   href: string
   hrefLang: string
-}
-
-export interface SeoProps {
-  alternateLocales?: AlternateLocale[]
-  authorArray: (string | undefined)[]
-  descriptionArray?: (string | undefined)[]
-  headingArray?: (string | undefined)[]
-  imageSrcArray?: (string | undefined)[]
-  keywordsArray?: (string[] | undefined)[]
-  locale: string
-  meta: any[]
-  siteVersion: string
 }
 
 type MetaString = string | undefined

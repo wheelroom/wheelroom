@@ -1,4 +1,4 @@
-import { PageSectionHeadlineWheelStyle } from '../../../wheelroom/models/page-section/presets/page-section-headline-preset'
+import { PageSectionHeadlineWheelStyle } from '../../../wheelroom'
 import {
   displayButtonStyle,
   primaryButtonStyle,

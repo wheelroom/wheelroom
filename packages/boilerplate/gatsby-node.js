@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-undef */
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   createPage({

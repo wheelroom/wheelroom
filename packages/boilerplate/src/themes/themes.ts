@@ -7,7 +7,7 @@ import {
   sectionCardShadowStyle,
   sectionCardStyle,
 } from './yosemite/sections/section-card-style'
-import { Wheel } from '../wheelroom/types/wheel'
+import { Wheel } from '../wheelroom'
 import { ThemeId } from '../admin-resources/theme-info'
 import { navigationFooterStyle } from './yosemite/sections/nav-footer-style'
 import { navigationHeaderStyle } from './yosemite/sections/nav-header-style'
@@ -24,7 +24,7 @@ import { sectionImageStyle } from './yosemite/sections/section-image-style'
 import { sectionQuoteStyle } from './yosemite/sections/section-quote-style'
 import { sectionShowcaseStyle } from './yosemite/sections/section-showcase-style'
 import { sectionVideoStyle } from './yosemite/sections/section-video-style'
-import { StyledSystemTheme } from '../wheelroom/theme/types'
+import { StyledSystemTheme } from '../wheelroom'
 import { sectionTableStyle } from './yosemite/sections/section-table-style'
 import { blogSectionBlogStyle } from './yosemite/sections/blog-section-blog-style'
 import { blogSectionListStyle } from './yosemite/sections/blog-section-list-style'
