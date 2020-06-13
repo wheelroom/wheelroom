@@ -2,11 +2,11 @@ import React from 'react'
 import { Box, Flex } from '../../../elements/grid'
 import { Button } from '../../../elements/button'
 import { FeatherIcon } from '../../../elements/icon'
-import { ModalWheelStyle } from './presets/modal-preset'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { ThemeButton } from './theme-button'
 import { Wheel } from '../../../types/wheel'
+import { ThemeButton } from './theme-button'
+import { ModalWheelStyle } from './presets/modal-preset'
 
 interface ModalWheel extends Wheel {
   style: ModalWheelStyle

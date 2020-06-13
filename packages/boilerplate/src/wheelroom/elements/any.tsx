@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { BlockLevelElementName, InlineElementName } from './types/element-names'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
-import { anyPreset, anyResetMap } from './resets/any-reset'
 import { mergeNcss } from '../lib/merge-ncss'
+import { BlockLevelElementName, InlineElementName } from './types/element-names'
+import { anyPreset, anyResetMap } from './resets/any-reset'
 import { ElementProps, getElementAttrs } from './element'
 import { ElementStyles } from './types/element-styles'
 

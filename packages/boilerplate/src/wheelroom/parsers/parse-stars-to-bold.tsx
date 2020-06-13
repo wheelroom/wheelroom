@@ -9,8 +9,8 @@
  */
 
 import React from 'react'
-import { ParserProps } from './types'
 import { Any } from '../elements/any'
+import { ParserProps } from './types'
 import { replaceNewlines } from './parse-new-lines'
 
 export const replaceStars = (children: React.ReactNode) => {

@@ -2,9 +2,9 @@ import React from 'react'
 import { Container, Fluid, Wrapper } from '../../../elements/grid'
 import { Table } from '../../table/table'
 import { TableProps } from '../../table/model-types'
-import { TableSectionWheelStyle } from './table-section-preset'
 import { TopicOptions } from '../../../lib/get-topic-options'
 import { Wheel } from '../../../types/wheel'
+import { TableSectionWheelStyle } from './table-section-preset'
 
 export interface TableSectionWheel extends Wheel {
   style: TableSectionWheelStyle

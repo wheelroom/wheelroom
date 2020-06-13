@@ -2,11 +2,11 @@ import React from 'react'
 import { Action } from '../action/action'
 import { ActionProps } from '../action/model-types'
 import { Box } from '../../elements/grid'
-import { TopicContentActionsWheelStyle } from './presets/topic-content-actions-preset'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { TopicProps } from './model-types'
 import { Wheel } from '../../types/wheel'
+import { TopicProps } from './model-types'
+import { TopicContentActionsWheelStyle } from './presets/topic-content-actions-preset'
 
 export interface TopicContentActionsWheel extends Wheel {
   style: TopicContentActionsWheelStyle

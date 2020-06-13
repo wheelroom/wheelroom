@@ -11,15 +11,15 @@ import { deepMerge } from '../../lib/deep-merge'
 import { getSectionStyle, getWheel } from '../../../themes/themes'
 import { getTopicOptions } from '../../lib/get-topic-options'
 import { MultiParser } from '../../parsers/multi-parser'
-import { PageSection } from './page-section-body'
-import { pageSectionGalleryPreset } from './presets/page-section-gallery-preset'
-import { PageSectionProps } from './model-types'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
 import { Topic } from '../topic/topic'
 import { topicPreset } from '../topic/presets/topic-preset'
 import { TopicProps } from '../topic/model-types'
 import { Wheel } from '../../types/wheel'
+import { PageSectionProps } from './model-types'
+import { pageSectionGalleryPreset } from './presets/page-section-gallery-preset'
+import { PageSection } from './page-section-body'
 
 export const PageSectionGalleryVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)

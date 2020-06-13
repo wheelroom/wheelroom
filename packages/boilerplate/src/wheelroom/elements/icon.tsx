@@ -1,12 +1,12 @@
 import React from 'react'
+import { IconMap } from '../svg/feather/iconMap'
+import { mergeNcss } from '../lib/merge-ncss'
 import { Box } from './grid'
 import { ElementProps, getElementAttrs } from './element'
 import {
   featherIconElementStyle,
   textIconElementStyle,
 } from './resets/icon-reset'
-import { IconMap } from '../svg/feather/iconMap'
-import { mergeNcss } from '../lib/merge-ncss'
 
 export interface FeatherIconProps extends ElementProps {
   icon: string

@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
-import { gLinkReset } from './resets/g-link-reset'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../lib/merge-ncss'
+import { gLinkReset } from './resets/g-link-reset'
 import { ElementProps, getElementAttrs } from './element'
 
 export interface GLinkProps extends ElementProps {

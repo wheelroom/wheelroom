@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import { Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
 import { GlobalsProps } from '../../globals/model-types'
-import { LegalFooter } from './legal-footer'
-import { NavigationFooterWheelStyle } from './presets/navigation-footer-preset'
 import { NavigationProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
 import { SiteMetadata } from '../../../../page-template/page-template'
 import { Wheel } from '../../../types/wheel'
+import { NavigationFooterWheelStyle } from './presets/navigation-footer-preset'
+import { LegalFooter } from './legal-footer'
 
 interface NavigationFooterWheel extends Wheel {
   style: NavigationFooterWheelStyle

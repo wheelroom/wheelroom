@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { ListElementStyle, selfListReset } from './resets/self-list-reset'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../lib/merge-ncss'
+import { ListElementStyle, selfListReset } from './resets/self-list-reset'
 import { ElementProps, getElementAttrs } from './element'
 import {
   BlockquoteElementStyle,
@@ -26,7 +26,7 @@ import {
   selfThReset,
 } from './resets/self-table-reset'
 import { ElementStyles } from './types/element-styles'
-import {selfTimeReset} from "./resets/self-time-reset";
+import { selfTimeReset } from './resets/self-time-reset'
 
 export type SelfReset =
   | ListElementStyle

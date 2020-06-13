@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
+import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { NcssProps, Wheel } from '../../types/wheel'
 import { MediaObject } from '../../elements/types/media'
-import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import {
   imageImgReset,

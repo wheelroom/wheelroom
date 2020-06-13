@@ -1,18 +1,18 @@
 import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
+import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { ALink } from '../../../elements/a-link'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
 import { BrandNavigationSegment } from '../../navigation-segment/brand-navigation-segment'
 import { Button } from '../../../elements/button'
-import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { GlobalsProps } from '../../globals/model-types'
-import { Modal } from './modal'
-import { NavigationHeaderWheelStyle } from './presets/navigation-header-preset'
 import { NavigationProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
-import { ThemeButton } from './theme-button'
 import { Wheel } from '../../../types/wheel'
+import { Modal } from './modal'
+import { NavigationHeaderWheelStyle } from './presets/navigation-header-preset'
+import { ThemeButton } from './theme-button'
 
 interface NavigationHeaderWheel extends Wheel {
   style: NavigationHeaderWheelStyle

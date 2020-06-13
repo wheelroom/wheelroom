@@ -7,15 +7,15 @@
  */
 
 import React, { useContext } from 'react'
-import { ActionProps } from './model-types'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
+import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
 import { ALink } from '../../elements/a-link'
 import { Any } from '../../elements/any'
 import { EmbedProps } from '../embed/model-types'
 import { FeatherIcon } from '../../elements/icon'
-import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
 import { GLink } from '../../elements/g-link'
 import { NcssProps, Wheel } from '../../types/wheel'
+import { ActionProps } from './model-types'
 
 export interface ActionWheelStyle {
   ncss: NcssProps

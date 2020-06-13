@@ -1,3 +1,9 @@
+import { NcssProps } from '../../../../types/wheel'
+import { ButtonElementStyle } from '../../../../elements/resets/button-reset'
+import {
+  NavigationSegmentWheelStyle,
+  navigationSegmentPreset,
+} from '../../../navigation-segment/presets/navigation-segment-preset'
 import {
   modalDialogContentOpenPreset,
   modalDialogContentPreset,
@@ -6,12 +12,6 @@ import {
   modalDialogOverlayPreset,
   modalDialogPreset,
 } from './modal-dialog-preset'
-import { NcssProps } from '../../../../types/wheel'
-import { ButtonElementStyle } from '../../../../elements/resets/button-reset'
-import {
-  NavigationSegmentWheelStyle,
-  navigationSegmentPreset,
-} from '../../../navigation-segment/presets/navigation-segment-preset'
 
 export interface ModalWheelStyle {
   container: {

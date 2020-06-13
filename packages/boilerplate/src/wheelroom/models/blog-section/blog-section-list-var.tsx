@@ -8,14 +8,14 @@
 
 import React from 'react'
 import { BlogProps } from '../blog/model-types'
-import { blogSectionListPreset } from './list/blog-section-list-preset'
-import { BlogSectionProps } from './model-types'
 import { deepMerge } from '../../lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../../themes/themes'
-import { List } from './list/list'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
 import { Wheel } from '../../types/wheel'
+import { List } from './list/list'
+import { BlogSectionProps } from './model-types'
+import { blogSectionListPreset } from './list/blog-section-list-preset'
 
 export const BlogSectionListVar = (props: BlogSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)

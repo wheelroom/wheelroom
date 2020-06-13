@@ -1,16 +1,16 @@
 /** @jsx jsx */
+import { jsx } from '@emotion/core'
 import { Action } from '../action/action'
 import { ActionProps } from '../action/model-types'
 import { Any } from '../../elements/any'
 import { Dd, Dl, Dt, Th, Tr } from '../../elements/self'
 import { Icon } from '../../elements/icon'
-import { jsx } from '@emotion/core'
-import { TableRowCell } from './table-row-cell'
-import { TableRowProps } from './model-types'
-import { TableRowWheelStyle } from './table-row-preset'
 import { TopicOptions } from '../../lib/get-topic-options'
 import { TopicProps } from '../topic/model-types'
 import { Wheel } from '../../types/wheel'
+import { TableRowCell } from './table-row-cell'
+import { TableRowProps } from './model-types'
+import { TableRowWheelStyle } from './table-row-preset'
 
 export interface TableRowWheel extends Wheel {
   style: TableRowWheelStyle

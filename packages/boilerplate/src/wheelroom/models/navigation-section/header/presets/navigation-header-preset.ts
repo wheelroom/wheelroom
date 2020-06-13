@@ -4,12 +4,12 @@ import {
   BrandNavigationSegmentWheelStyle,
   brandNavigationSegmentPreset,
 } from '../../../navigation-segment/presets/brand-navigation-segment-preset'
-import { ModalWheelStyle, modalPreset } from './modal-preset'
 import { ButtonElementStyle } from '../../../../elements/resets/button-reset'
 import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,
 } from '../../../navigation-segment/presets/navigation-segment-preset'
+import { ModalWheelStyle, modalPreset } from './modal-preset'
 
 export interface NavigationHeaderWheelStyle {
   skipToContent: NcssProps

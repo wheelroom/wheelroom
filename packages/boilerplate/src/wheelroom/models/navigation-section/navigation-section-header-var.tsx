@@ -9,12 +9,12 @@
 import React from 'react'
 import { deepMerge } from '../../lib/deep-merge'
 import { getWheel, getSectionStyle } from '../../../themes/themes'
-import { NavigationHeader } from './header/navigation-header'
-import { navigationHeaderPreset } from './header/presets/navigation-header-preset'
-import { NavigationSectionProps } from './model-types'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
 import { Wheel } from '../../types/wheel'
+import { NavigationHeader } from './header/navigation-header'
+import { navigationHeaderPreset } from './header/presets/navigation-header-preset'
+import { NavigationSectionProps } from './model-types'
 
 export const NavigationSectionHeaderVar = (props: NavigationSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)

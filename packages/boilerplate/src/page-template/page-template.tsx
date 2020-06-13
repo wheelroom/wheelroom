@@ -1,7 +1,6 @@
 import React, { Fragment, useContext, useState } from 'react'
 import { Global } from '@emotion/core'
 import { graphql } from 'gatsby'
-import { Sections } from './sections'
 import {
   PreviewUpdateButton,
   useFetchPreviewPage,
@@ -20,6 +19,7 @@ import {
   SeoProps,
   useEmbeds,
 } from '../wheelroom'
+import { Sections } from './sections'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will

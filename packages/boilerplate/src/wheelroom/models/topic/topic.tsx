@@ -4,11 +4,11 @@ import { BlockLevelElementName } from '../../elements/types/element-names'
 import { Box } from '../../elements/grid'
 import { getTopicInfo } from '../../lib/get-topic-info'
 import { ParserFunction } from '../../parsers/types'
+import { Wheel } from '../../types/wheel'
+import { TopicOptions } from '../../lib/get-topic-options'
 import { TopicBody } from './topic-body'
 import { TopicProps } from './model-types'
 import { TopicWheelStyle } from './presets/topic-preset'
-import { Wheel } from '../../types/wheel'
-import { TopicOptions } from '../../lib/get-topic-options'
 
 export interface TopicWheel extends Wheel {
   style: TopicWheelStyle

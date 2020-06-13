@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
+import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
+import { NcssProps, Wheel } from '../types/wheel'
+import { mergeNcss } from '../lib/merge-ncss'
+import { MediaObject } from './types/media'
 import {
   videoDescriptionReset,
   videoVideoElementStyle,
 } from './resets/video-reset'
-import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
-import { NcssProps, Wheel } from '../types/wheel'
-import { MediaObject } from './types/media'
-import { mergeNcss } from '../lib/merge-ncss'
 
 export interface VideoElementStyle {
   video: {

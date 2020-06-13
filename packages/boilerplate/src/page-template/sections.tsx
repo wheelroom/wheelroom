@@ -1,11 +1,14 @@
 import React from 'react'
-import { BlogSection } from '../wheelroom'
+import {
+  BlogSection,
+  NavigationSection,
+  PageSection,
+  TableSection,
+  TextSection,
+} from '../wheelroom'
 import { Landmarks } from './landmarks'
-import { NavigationSection } from '../wheelroom'
-import { PageSection } from '../wheelroom'
+
 import { SectionProps } from './section-props'
-import { TableSection } from '../wheelroom'
-import { TextSection } from '../wheelroom'
 
 export interface SectionMap {
   [contentfulSectionName: string]: any

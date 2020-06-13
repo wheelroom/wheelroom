@@ -2,7 +2,6 @@
 import { jsx } from '@emotion/core'
 import { Any } from '../../../elements/any'
 import { BlogProps } from '../../blog/model-types'
-import { BlogWheelStyle } from './blog-section-preset'
 import { Box, Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
 import { Heading } from '../../../elements/heading'
 import { Image } from '../../../elements/image'
@@ -12,6 +11,7 @@ import { Time } from '../../../elements/self'
 import { Topic } from '../../topic/topic'
 import { TopicProps } from '../../topic/model-types'
 import { Wheel } from '../../../types/wheel'
+import { BlogWheelStyle } from './blog-section-preset'
 
 export interface BlogWheel extends Wheel {
   style: BlogWheelStyle

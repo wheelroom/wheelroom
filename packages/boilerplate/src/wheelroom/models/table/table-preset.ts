@@ -1,12 +1,12 @@
 import { DescriptionListElementStyle } from '../../elements/resets/self-dl-reset'
 import { IconElementStyle } from '../../elements/resets/icon-reset'
 import { NcssProps } from '../../types/wheel'
-import { TableActionWheelStyle, tableActionPreset } from './table-action-preset'
 import { TableElementStyle } from '../../elements/resets/self-table-reset'
 import {
   TableRowWheelStyle,
   tableRowPreset,
 } from '../table-row/table-row-preset'
+import { TableActionWheelStyle, tableActionPreset } from './table-action-preset'
 
 export interface TableWheelStyle {
   ncss: NcssProps

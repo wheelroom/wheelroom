@@ -6,9 +6,9 @@
  */
 
 import React from 'react'
+import { getVariation } from '../../lib/get-variation'
 import { BlogSectionBlogVar } from './blog-section-blog-var'
 import { BlogSectionListVar } from './blog-section-list-var'
-import { getVariation } from '../../lib/get-variation'
 import { BlogSectionProps } from './model-types'
 
 const componentList = {

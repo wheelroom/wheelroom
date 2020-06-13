@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { BlockLevelElementName, HeadingName } from './types/element-names'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
-import { headingResets } from './resets/heading-reset'
 import { mergeNcss } from '../lib/merge-ncss'
+import { BlockLevelElementName, HeadingName } from './types/element-names'
+import { headingResets } from './resets/heading-reset'
 import { ElementProps, getElementAttrs } from './element'
 
 export interface HeadingProps extends ElementProps {

@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Any } from '../../../elements/any'
-import { BlogListWheelStyle } from './blog-section-list-preset'
 import { BlogProps } from '../../blog/model-types'
 import { Container, Fluid, Wrapper, Box, Flex } from '../../../elements/grid'
 import { GLink } from '../../../elements/g-link'
@@ -10,6 +9,7 @@ import { Image } from '../../../elements/image'
 import { Paragraph } from '../../../elements/paragraph'
 import { Time } from '../../../elements/self'
 import { Wheel } from '../../../types/wheel'
+import { BlogListWheelStyle } from './blog-section-list-preset'
 
 export interface BlogListWheel extends Wheel {
   style: BlogListWheelStyle

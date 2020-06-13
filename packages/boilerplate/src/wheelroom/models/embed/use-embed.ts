@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
-import { EmbedProps } from './model-types'
-import { GlobalsProps } from '../globals/model-types'
 import { AdminCoreContext } from '@wheelroom/admin-core'
+import { GlobalsProps } from '../globals/model-types'
+import { EmbedProps } from './model-types'
 
 export const useEmbeds = (gatsbyProps: any) => {
   const { adminCoreState } = useContext(AdminCoreContext)
