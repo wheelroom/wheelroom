@@ -1,4 +1,4 @@
-export const featherIcons = [
+export const featherIconNames = [
   'activity',
   'airplay',
   'alert-circle',

@@ -11,7 +11,7 @@ import {
   TagsField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIcons } from './feather-icons'
+import { featherIconNames } from '../../src/wheelroom'
 
 export const models: WheelroomComponents = {
   embed: {
@@ -75,7 +75,7 @@ export const models: WheelroomComponents = {
       icon: {
         helpText: 'Icoon bij het onderwerp',
         name: 'Onderwerp icoon',
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       actions: {
@@ -116,7 +116,7 @@ export const models: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       icon: {
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       actions: {
@@ -147,7 +147,7 @@ export const models: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       icon: {
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       actions: {
@@ -178,7 +178,7 @@ export const models: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
       icon: {
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       page: {

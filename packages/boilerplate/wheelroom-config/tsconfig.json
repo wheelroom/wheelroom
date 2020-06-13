@@ -15,6 +15,6 @@
     "strict": true,
     "target": "es3"
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.json"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.json", "../src/wheelroom/svg/feather-icons.ts"],
   "exclude": []
 }

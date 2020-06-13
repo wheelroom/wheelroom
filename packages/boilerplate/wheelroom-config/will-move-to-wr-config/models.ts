@@ -11,7 +11,7 @@ import {
   TagsField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIcons } from './feather-icons'
+import { featherIconNames } from '../../src/wheelroom'
 
 const topicOptions = [
   'Hide icon',
@@ -76,7 +76,7 @@ export const models: WheelroomComponents = {
         type: 'media',
       } as MediaField,
       icon: {
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       actions: {
@@ -114,7 +114,7 @@ export const models: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       icon: {
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       actions: {
@@ -145,7 +145,7 @@ export const models: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       icon: {
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       actions: {
@@ -172,7 +172,7 @@ export const models: WheelroomComponents = {
         type: 'shortText',
       } as ShortTextField,
       icon: {
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       page: {
@@ -456,7 +456,7 @@ export const models: WheelroomComponents = {
         type: 'media',
       } as MediaField,
       icon: {
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       slug: {

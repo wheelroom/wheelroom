@@ -7,7 +7,7 @@ import {
   SingleComponentField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIcons } from './feather-icons'
+import { featherIconNames } from '../../src/wheelroom'
 
 export const models: WheelroomComponents = {
   docSection: {
@@ -44,7 +44,7 @@ export const models: WheelroomComponents = {
         type: 'media',
       } as MediaField,
       icon: {
-        items: featherIcons,
+        items: featherIconNames,
         type: 'dropdown',
       } as DropdownField,
       slug: {

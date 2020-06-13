@@ -8,6 +8,9 @@ export { scalesPreset } from './theme/scales-preset'
 export { styledSystemConfig } from './theme/styled-system-config'
 export { mapsPreset } from './theme/maps-preset'
 
+// Icons
+export { featherIconNames } from './svg/feather-icon-names'
+
 // Glboal reset
 export { classicGlobalReset } from './global-reset/classic-global-reset'
 export { htmlReset } from './global-reset/html-reset'
