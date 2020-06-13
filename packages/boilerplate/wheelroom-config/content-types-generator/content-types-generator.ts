@@ -18,7 +18,7 @@
  *
  * Runs like this:
  * - npm run compile-config
- * - node compiled-config/helpers/content-types-generator.js <starter|examples>
+ * - node compiled-config/content-types-generator/content-types-generator.js examples <starter|examples>
  *
  *
  * Note: the script needs a valid content set to generate content types for the
