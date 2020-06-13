@@ -7,11 +7,11 @@ import {
   sectionCardShadowStyle,
   sectionCardStyle,
 } from './yosemite/sections/section-card-style'
-import { Wheel } from '../wheelroom/wheels/types'
+import { Wheel } from '../wheelroom'
 import { ThemeId } from '../admin-resources/theme-info'
-import { navFooterStyle } from './yosemite/sections/nav-footer-style'
-import { navHeaderStyle } from './yosemite/sections/nav-header-style'
-import { sectionFreestyleStyle } from './yosemite/sections/section-text-style'
+import { navigationFooterStyle } from './yosemite/sections/nav-footer-style'
+import { navigationHeaderStyle } from './yosemite/sections/nav-header-style'
+import { sectionTextStyle } from './yosemite/sections/section-text-style'
 import { sectionDividerStyle } from './yosemite/sections/section-divider-style'
 import {
   sectionFeaturedStyle,
@@ -24,13 +24,15 @@ import { sectionImageStyle } from './yosemite/sections/section-image-style'
 import { sectionQuoteStyle } from './yosemite/sections/section-quote-style'
 import { sectionShowcaseStyle } from './yosemite/sections/section-showcase-style'
 import { sectionVideoStyle } from './yosemite/sections/section-video-style'
-import { StyledSystemTheme } from '../wheelroom/theme/types'
-import { sectionPriceTableStyle } from './yosemite/sections/section-price-table-style'
-import { sectionBlogStyle } from './yosemite/sections/section-blog-style'
+import { StyledSystemTheme } from '../wheelroom'
+import { sectionTableStyle } from './yosemite/sections/section-table-style'
+import { blogSectionBlogStyle } from './yosemite/sections/blog-section-blog-style'
+import { blogSectionListStyle } from './yosemite/sections/blog-section-list-style'
 
 export type sectionId =
   | 'block'
   | 'blog'
+  | 'blogList'
   | 'card'
   | 'divider'
   | 'featured'
@@ -39,7 +41,7 @@ export type sectionId =
   | 'hero'
   | 'image'
   | 'navigation'
-  | 'priceTable'
+  | 'table'
   | 'quote'
   | 'showcase'
   | 'text'
@@ -55,7 +57,10 @@ const sectionStyleMap = {
     base: sectionBlockStyle,
   },
   blog: {
-    base: sectionBlogStyle,
+    base: blogSectionBlogStyle,
+  },
+  blogList: {
+    base: blogSectionListStyle,
   },
   card: {
     base: sectionCardStyle,
@@ -81,11 +86,11 @@ const sectionStyleMap = {
     base: sectionImageStyle,
   },
   navigation: {
-    header: navHeaderStyle,
-    footer: navFooterStyle,
+    header: navigationHeaderStyle,
+    footer: navigationFooterStyle,
   },
-  priceTable: {
-    base: sectionPriceTableStyle,
+  table: {
+    base: sectionTableStyle,
   },
   quote: {
     base: sectionQuoteStyle,
@@ -94,7 +99,7 @@ const sectionStyleMap = {
     base: sectionShowcaseStyle,
   },
   text: {
-    base: sectionFreestyleStyle,
+    base: sectionTextStyle,
   },
   video: {
     base: sectionVideoStyle,

@@ -19,8 +19,7 @@ const addOptions = (cli: any) => {
     },
     locale: {
       alias: 'l',
-      default: 'en-US',
-      describe: 'Override default locale en-US',
+      describe: 'Override locale in config',
       requiresArg: true,
       type: 'string',
     },

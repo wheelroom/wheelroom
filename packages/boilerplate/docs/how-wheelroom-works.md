@@ -3,7 +3,7 @@
 ## Config
 
 Wheelroom reads the compiled version of
-[wheelroom-config.ts](../src/config/wheelroom-config.ts). The models defined
+[wheelroom-config.ts](../wheelroom-config.ts). The models defined
 here are used to:
 
 - create content models at Contentful
@@ -25,7 +25,7 @@ When the Gatsby development server starts, this is what happens:
   const pageQuery = require('./src/models/page/query')
   ```
 - `gatsby-theme-wheelroom` plugin uses the
-  [src/page-template.tsx](../src/page-template.tsx) to create page templates for
+  [src/page-template.tsx](../src/page-template/page-template.tsx) to create page templates for
   each path.
 - Page queries have `type: 'page'` defined. These entries have a `path`
   attribute.
@@ -33,10 +33,10 @@ When the Gatsby development server starts, this is what happens:
   template. Eg `pageId`, `globalsId` or `articleId`.
 - Once all page templates are ready, Gatsby scans the `src` folder to build a
   Graphql node. It uses the generated Graphql in the `src/models` folder. Like
-  this file: [fragment.js](../src/models/page-section/fragment.js)
+  this file: [fragment.js](../src/wheelroom/models/page-section/fragment.js)
 - The page template builds each page from sections. Sections are taken from the
   section list defined in
-  [sections.tsx](../src/wheelroom/sections/sections.tsx). This boilerplate has
+  [sections.tsx](../src/page-template/sections.tsx). This boilerplate has
   one section defined. This section can be used to build a full webite because
   the page section has many variations.
 - All generated page templates are rendered by applying the generated Graphql.

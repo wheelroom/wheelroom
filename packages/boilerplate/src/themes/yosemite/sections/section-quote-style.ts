@@ -1,4 +1,4 @@
-import { PageSectionQuoteWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-quote-preset'
+import { PageSectionQuoteWheelStyle } from '../../../wheelroom'
 import {
   displayButtonStyle,
   primaryButtonStyle,

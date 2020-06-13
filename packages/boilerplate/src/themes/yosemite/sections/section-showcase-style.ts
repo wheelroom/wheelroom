@@ -1,4 +1,4 @@
-import { PageSectionShowcaseWheelStyle } from '../../../wheelroom/wheels/section/unicorn/presets/page-section-showcase-preset'
+import { PageSectionShowcaseWheelStyle } from '../../../wheelroom'
 import { aLinkButtonStyle } from '../elements/button-style'
 import { wrapperStyle } from '../elements/grid-style'
 import { iconTopicStyle } from '../elements/icon-style'

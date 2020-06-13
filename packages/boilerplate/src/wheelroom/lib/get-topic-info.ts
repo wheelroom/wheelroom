@@ -1,4 +1,4 @@
-import { TopicProps } from '../../models/topic'
+import { TopicProps } from '../models/topic/model-types'
 
 export interface TopicInfo {
   hasAbstract: boolean

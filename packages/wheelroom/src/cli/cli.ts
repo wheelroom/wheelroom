@@ -12,9 +12,9 @@ import { translateComponents } from '../lib/config/translate-components'
 const main = async (argv: string[]) => {
   const params = baseCli(argv).parse(argv)
   const configFile = params.config
-  const locale = params.locale
 
   const config = await readConfig(getAppDir(), configFile)
+
   if (!config) {
     console.log(
       `Aborting: config not found. Suggestions:
@@ -25,6 +25,8 @@ const main = async (argv: string[]) => {
     )
     return
   }
+
+  const locale = params.locale || config.locale || 'en-US'
 
   const components = await getComponents(config)
   const commands = await getCommands(config)

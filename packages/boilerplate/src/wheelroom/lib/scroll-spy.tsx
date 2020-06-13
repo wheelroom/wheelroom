@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { EmbedProps } from '../../models/embed'
-import { PageSectionProps } from '../../models/page-section/page-section'
+import { EmbedProps } from '../models/embed/model-types'
 
 interface ScrollSpyProps {
   /** The #id added to the div  */
   children: any
-  eventId: string
-  pageSectionProps: PageSectionProps
+  eventId: string | undefined
+  sectionProps: any
   siteEmbeds: EmbedProps[]
 }
 
@@ -51,14 +50,14 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
             'eventId',
             'props',
             embed.code.code
-          )(props.eventId + postFix, props.pageSectionProps)
+          )(props.eventId + postFix, props.sectionProps)
         }
       })
     }
   }
 
   useEffect(() => {
-    if (isServer) {
+    if (isServer || !props.eventId) {
       return
     }
     // eslint-disable-next-line no-undef

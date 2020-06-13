@@ -1,39 +1,60 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { SeoProps } from './seo-props'
 
 export interface AlternateLocale {
   href: string
   hrefLang: string
 }
 
-export interface SeoProps {
-  alternateLocales?: AlternateLocale[]
-  imageSrc?: string
-  keywords?: string[]
-  locale: string
-  meta: any[]
-  pageDescription?: string
-  pageHeading: string
-  pageKeywords: string[]
-  siteAuthor: string
-  siteDescription: string
-  siteHeading: string
-  siteKeywords: string[]
-  siteVersion: string
+type MetaString = string | undefined
+type MetaArray = string[] | undefined
+
+const getLastStringValue = (strings: MetaString[] | undefined): MetaString => {
+  if (!strings) {
+    return ''
+  }
+  return strings
+    .reverse()
+    .find(
+      (aString: MetaString) => typeof aString === 'string' && aString.length > 0
+    )
+}
+
+const getFirstStringValue = (strings: MetaString[] | undefined): MetaString => {
+  if (!strings) {
+    return ''
+  }
+  return strings.find(
+    (aString: MetaString) => typeof aString === 'string' && aString.length > 0
+  )
+}
+
+const getFirstArrayValue = (arrays: MetaArray[] | undefined): MetaArray => {
+  if (!Array.isArray(arrays)) {
+    return []
+  }
+  return arrays.find(
+    (anArray: MetaArray) => Array.isArray(anArray) && anArray.length > 0
+  )
 }
 
 export const Seo = (context: SeoProps) => {
-  const metaDescription =
-    context.pageDescription || context.siteDescription || ''
-  const metaHeading = context.pageHeading || context.siteHeading || ''
-  const useKeywords = context.pageKeywords || context.siteKeywords || []
-  const metaKeywords = useKeywords.length > 0 ? useKeywords.join(', ') : ''
+  const author = getFirstStringValue(context.authorArray) || ''
+  const imageSrc = getFirstStringValue(context.imageSrcArray) || ''
+  const keywordsArray = getFirstArrayValue(context.keywordsArray) || []
+  const metaDescription = getFirstStringValue(context.descriptionArray) || ''
+  const metaHeading = getFirstStringValue(context.headingArray) || ''
+
+  const metaKeywords = keywordsArray.length > 0 ? keywordsArray.join(', ') : ''
   const linkLocales = context.alternateLocales || []
 
   let titleTemplate = '%s'
-  if (context.pageHeading && context.siteHeading) {
-    // If we have both siteHeading and pageHeading, use both
-    titleTemplate = `%s | ${context.siteHeading}`
+  if (Array.isArray(context.headingArray) && context.headingArray.length > 1) {
+    const lastValue = getLastStringValue(context.headingArray)
+    if (metaHeading !== lastValue) {
+      titleTemplate = `%s | ${lastValue}`
+    }
   }
 
   return (
@@ -63,7 +84,7 @@ export const Seo = (context: SeoProps) => {
           property: 'og:title',
         },
         {
-          content: context.imageSrc,
+          content: imageSrc,
           property: 'og:image',
         },
         {
@@ -82,7 +103,7 @@ export const Seo = (context: SeoProps) => {
           name: 'twitter:card',
         },
         {
-          content: context.siteAuthor,
+          content: author,
           name: 'twitter:creator',
         },
         {
@@ -94,7 +115,7 @@ export const Seo = (context: SeoProps) => {
           name: 'twitter:description',
         },
         {
-          content: context.imageSrc,
+          content: imageSrc,
           name: 'twitter:image',
         },
       ].concat(context.meta)}

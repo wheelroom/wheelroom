@@ -48,7 +48,7 @@ npm run compile-config
 ## Test config by listing all models
 
 Wheelroom can now list the available models configured in
-[config-models.ts](../src/config/wheelroom/config-models.ts):
+[config-models.ts](../src/wheelroom/config/wheelroom/config-models.ts):
 
 ```bash
 npm run wr:ls
@@ -88,7 +88,7 @@ Wheelroom includes two different Contentful content-sets:
 
 The content-sets contains media (image) placeholder and page-sections with
 example topics. You can create your own content-set by editing the
-[content-sets.ts](../src/config/plugin-contentful/content-sets.ts) file and run
+[content-sets.ts](../src/wheelroom/config/plugin-contentful/content-sets.ts) file and run
 the following script.
 
 ```bash

@@ -15,7 +15,7 @@ New models are added in a few steps:
 ## Add the component and compile the new config
 
 Add a new component to
-[models.ts](../../src/config/wheelroom/models.ts).
+[models.ts](../../src/wheelroom/config/wheelroom/models.ts).
 
 Compile config:
 
@@ -63,7 +63,7 @@ npm run wr:cc -- --filter newComponent
 ### 3. Create a content set
 
 Add demo content to
-[content-sets.ts](../../src/config/plugin-contentful/content-sets.ts).
+[content-sets.ts](../../src/wheelroom/config/plugin-contentful/content-sets.ts).
 
 ## Create Graphql fragments and queries
 
@@ -94,7 +94,7 @@ The `react` template set is written to `src/models`.
 ## Update the section list
 
 When you're adding a section you need to add it to the section list:
-[sections.tsx](../../src/wheelroom/sections/sections.tsx).
+[sections.tsx](../../src/page-template/sections.tsx).
 
 ## Update schema
 

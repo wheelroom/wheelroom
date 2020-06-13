@@ -1,11 +1,12 @@
-import { NavHeaderWheelStyle } from '../../../wheelroom/wheels/section/navigation-header/presets/nav-header-preset'
+import { NavigationHeaderWheelStyle } from '../../../wheelroom'
 import { wrapperStyle } from '../elements/grid-style'
 import {
   primaryButtonStyle,
   secondaryButtonStyle,
 } from '../elements/button-style'
+import { iconButtonSmallStyle } from '../elements/icon-style'
 
-export const navHeaderStyle: NavHeaderWheelStyle = {
+export const navigationHeaderStyle: NavigationHeaderWheelStyle = {
   skipToContent: {
     ncss: {
       ':focus': {
@@ -24,56 +25,86 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
   container: {
     ncss: {},
   },
-  branding: {
-    ncss: {},
-    logo: {
+  brand: {
+    segment: {
       ncss: {},
-    },
-    link: {
-      ncss: {
-        color: 'sectionText',
-        ':focus': {
-          outlineColor: 'outline',
-        },
-      },
-      icon: {
+      logo: {
         ncss: {},
       },
-    },
-    sup: {
-      ncss: {
-        color: 'metal',
+      action: {
+        ncss: {
+          color: 'sectionText',
+          ':focus': {
+            outlineColor: 'outline',
+          },
+        },
+        icon: {
+          ncss: {},
+        },
       },
     },
   },
-  navHeader: {
+  menu: {
     ncss: {},
-    list: {
+    segment: {
       ncss: {},
-      listItem: {
+      heading: {
         ncss: {},
-        link: {
+      },
+      list: {
+        ncss: {},
+        item: {
           ncss: {},
-          icon: {
-            ncss: {},
+          action: {
+            ncss: {
+              textDecoration: 'none',
+              px: 2,
+              py: 3,
+              ':hover, &.active': {
+                textDecoration: 'underline',
+              },
+            },
+            icon: {
+              ncss: {},
+            },
           },
         },
       },
     },
-    actions: {
+  },
+  actions: {
+    ncss: {
+      mx: -1,
+    },
+    segment: {
       ncss: {},
-      link: {
-        ncss: primaryButtonStyle.ncss,
-        icon: {
-          ncss: {
-            w: '16px',
-            h: '16px',
-            my: 'auto',
-            transform: 'translateX(4px)',
+      heading: {
+        ncss: {},
+      },
+      list: {
+        ncss: {},
+        item: {
+          ncss: {},
+          action: {
+            ncss: {
+              ...primaryButtonStyle.ncss,
+              m: 1,
+              w: 1,
+            },
+            icon: {
+              ncss: {
+                ...iconButtonSmallStyle.ncss,
+              },
+            },
           },
         },
       },
-      themeButton: secondaryButtonStyle,
+    },
+    themeButton: {
+      ncss: {
+        ...secondaryButtonStyle.ncss,
+        m: 1,
+      },
     },
   },
   modal: {
@@ -120,49 +151,87 @@ export const navHeaderStyle: NavHeaderWheelStyle = {
             },
           },
         },
-        list: {
-          ncss: {},
-          listItem: {
-            ncss: {
-              borderColor: 'sectionBorder',
+        menu: {
+          ncss: {
+            w: 1,
+          },
+          segment: {
+            ncss: {},
+            heading: {
+              ncss: {},
             },
-            link: {
+            list: {
               ncss: {
-                ':focus': {
-                  outlineColor: 'outline',
-                  outlineOffset: -2,
-                },
+                flexDirection: 'column',
+                w: 1,
               },
-              icon: {
-                ncss: {},
+              item: {
+                ncss: {
+                  borderBottom: '1px solid transparent',
+                  borderColor: 'sectionBorder',
+                  w: 1,
+                },
+                action: {
+                  ncss: {
+                    textDecoration: 'none',
+                    px: 2,
+                    py: 3,
+                    w: 1,
+                    ':hover, &.active': {
+                      textDecoration: 'underline',
+                    },
+                    ':focus': {
+                      outlineColor: 'outline',
+                      outlineOffset: -2,
+                    },
+                  },
+                  icon: {
+                    ncss: {},
+                  },
+                },
               },
             },
           },
         },
         actions: {
           ncss: {
-            flexDirection: 'row',
+            flexDirection: ['column', 'row', 'row'],
+            w: 1,
+            p: 1,
           },
-          link: {
-            ncss: {
-              ...primaryButtonStyle.ncss,
-              mb: 0,
-              w: [1 / 2],
+          segment: {
+            ncss: {},
+            heading: {
+              ncss: {},
             },
-            icon: {
+            list: {
               ncss: {
-                w: '16px',
-                h: '16px',
-                my: 'auto',
-                transform: 'translateX(4px)',
+                w: 1,
+                alignItems: 'center',
+              },
+              item: {
+                ncss: {
+                  w: 1,
+                },
+                action: {
+                  ncss: {
+                    ...primaryButtonStyle.ncss,
+                    m: 1,
+                    w: 1,
+                  },
+                  icon: {
+                    ncss: {
+                      ...iconButtonSmallStyle.ncss,
+                    },
+                  },
+                },
               },
             },
           },
           themeButton: {
             ncss: {
               ...secondaryButtonStyle.ncss,
-              ml: 2,
-              w: [1 / 2],
+              m: 1,
             },
           },
         },

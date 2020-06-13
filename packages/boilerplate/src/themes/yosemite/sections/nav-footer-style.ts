@@ -1,8 +1,8 @@
 import { wrapperStyle } from '../elements/grid-style'
 
-import { NavFooterWheelStyle } from '../../../wheelroom/wheels/section/navigation-footer/presets/nav-footer-preset'
+import { NavigationFooterWheelStyle } from '../../../wheelroom'
 
-export const navFooterStyle: NavFooterWheelStyle = {
+export const navigationFooterStyle: NavigationFooterWheelStyle = {
   wrapper: {
     ncss: {
       ...wrapperStyle.ncss,
@@ -12,40 +12,68 @@ export const navFooterStyle: NavFooterWheelStyle = {
   container: {
     ncss: {},
   },
-  navFooter: {
-    ncss: {},
-    list: {
+  section: {
+    ncss: {
+      flexDirection: ['column', 'row'],
+      justifyContent: ['space-between'],
+      mx: 'auto',
+      w: 1,
+    },
+    menu: {
       ncss: {},
-      listItem: {
+      segment: {
         ncss: {},
-        link: {
+        heading: {
+          ncss: {},
+        },
+        list: {
           ncss: {
-            ':focus': {
-              outlineColor: 'outline',
-            },
+            textAlign: 'center',
           },
-          icon: {
+          item: {
             ncss: {},
+            action: {
+              ncss: {
+                textDecoration: 'none',
+                px: 2,
+                py: 3,
+                ':hover, &.active': {
+                  textDecoration: 'underline',
+                },
+              },
+              icon: {
+                ncss: {},
+              },
+            },
           },
         },
       },
     },
-    socialList: {
+    social: {
       ncss: {},
-      listItem: {
+      segment: {
         ncss: {},
-        link: {
+        heading: {
+          ncss: {},
+        },
+        list: {
           ncss: {
-            ':focus > svg': {
-              outlineColor: 'outline',
-              color: 'iconColorState',
-            },
-            ':hover > svg': {
-              color: 'iconColorState',
-            },
+            textAlign: 'center',
           },
-          icon: {
+          item: {
             ncss: {},
+            action: {
+              ncss: {
+                px: 2,
+                py: 3,
+                ':hover': {
+                  color: 'sectionText',
+                },
+              },
+              icon: {
+                ncss: {},
+              },
+            },
           },
         },
       },

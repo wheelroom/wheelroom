@@ -10,8 +10,8 @@
 
 import React from 'react'
 import { ParserProps } from './types'
-import { Table, Tr, Td } from '../wheels/element/self'
-import { Wheel } from '../wheels/types'
+import { Table, Tr, Td } from '../elements/self'
+import { Wheel } from '../types/wheel'
 
 const replaceTable = (children: React.ReactNode, wheel: Wheel) => {
   let rows: any[] = []

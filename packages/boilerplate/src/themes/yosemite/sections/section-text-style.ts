@@ -1,8 +1,8 @@
-import { FreestyleWheelStyle } from '../../../wheelroom/wheels/section/freestyle/page-section-freestyle-preset'
-import { wrapperStyle } from '../elements/grid-style'
 import { headingTextStyle } from '../elements/heading-style'
+import { TextSectionWheelStyle } from '../../../wheelroom'
+import { wrapperStyle } from '../elements/grid-style'
 
-export const sectionFreestyleStyle: FreestyleWheelStyle = {
+export const sectionTextStyle: TextSectionWheelStyle = {
   container: {
     ncss: {},
   },

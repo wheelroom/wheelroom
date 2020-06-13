@@ -1,8 +1,8 @@
-import { breakpointsPreset } from '../../wheelroom/theme/breakpoints-preset'
+import { breakpointsPreset } from '../../wheelroom'
 import { colors } from './styled-system/colors'
-import { mapsPreset } from '../../wheelroom/theme/maps-preset'
-import { scalesPreset } from '../../wheelroom/theme/scales-preset'
-import { StyledSystemTheme } from '../../wheelroom/theme/types'
+import { mapsPreset } from '../../wheelroom'
+import { scalesPreset } from '../../wheelroom'
+import { StyledSystemTheme } from '../../wheelroom'
 
 export const yosemiteDark: StyledSystemTheme = {
   ...breakpointsPreset,
