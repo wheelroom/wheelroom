@@ -4,6 +4,7 @@ import { graphqlTemplates } from './template-sets/graphql/graphql-templates'
 import { contentSets } from './content-sets/content-sets'
 import { replaceSets } from './replace-sets'
 
+// The files are in a temp local folder, because of the ts compiler
 import { coreModels } from './will-move-to-wr-module/models/core-models'
 import { tableModels } from './will-move-to-wr-module/models/table-models'
 import { blogModels } from './will-move-to-wr-module/models/blog-models'
