@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.3.1...@wheelroom/boilerplate@3.3.2) (2020-06-13)
+
+
+### Bug Fixes
+
+* properly use locale options ([afd57dd](https://github.com/wheelroom/wheelroom/commit/afd57dd16fa0b3006ea36518dbf2c5b639346c2e))
+* table and table-row props ([f78563f](https://github.com/wheelroom/wheelroom/commit/f78563f303f9cffba9a00a4411119a60e61f1044))
+
+
+
+
+
 ## [3.3.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.3.0...@wheelroom/boilerplate@3.3.1) (2020-06-01)
 
 **Note:** Version bump only for package @wheelroom/boilerplate

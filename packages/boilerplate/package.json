@@ -28,10 +28,10 @@
     "@wheelroom/admin-panel": "1.2.2",
     "@wheelroom/admin-theme-switcher": "1.2.2",
     "@wheelroom/styled-system": "4.1.2",
-    "@wheelroom/wheelroom": "4.3.0",
-    "@wheelroom/wheelroom-plugin-boilerplate": "3.1.4",
-    "@wheelroom/wheelroom-plugin-contentful": "3.4.0",
-    "@wheelroom/wheelroom-plugin-graphql": "3.1.4",
+    "@wheelroom/wheelroom": "4.3.1",
+    "@wheelroom/wheelroom-plugin-boilerplate": "3.1.5",
+    "@wheelroom/wheelroom-plugin-contentful": "3.4.1",
+    "@wheelroom/wheelroom-plugin-graphql": "3.1.5",
     "camelcase": "6.0.0",
     "deepmerge": "4.2.2",
     "dotenv": "8.2.0",
@@ -46,7 +46,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.3.2",
     "gatsby-source-filesystem": "2.3.1",
-    "gatsby-theme-wheelroom": "5.0.3",
+    "gatsby-theme-wheelroom": "5.0.4",
     "gatsby-transformer-json": "2.4.1",
     "query-string": "6.12.1",
     "react": "16.13.1",
@@ -129,8 +129,8 @@
     "wr:ls": "wheelroom --config compiled-config/wheelroom-config.js list"
   },
   "type": "commonjs",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "wheelroom": {
-    "version": "3.3.1"
+    "version": "3.3.2"
   }
 }

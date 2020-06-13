@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.3.0...@wheelroom/wheelroom@4.3.1) (2020-06-13)
+
+
+### Bug Fixes
+
+* properly use locale options ([afd57dd](https://github.com/wheelroom/wheelroom/commit/afd57dd16fa0b3006ea36518dbf2c5b639346c2e))
+
+
+
+
+
 # [4.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.2.0...@wheelroom/wheelroom@4.3.0) (2020-06-01)
 
 
