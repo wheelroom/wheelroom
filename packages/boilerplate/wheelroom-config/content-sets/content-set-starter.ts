@@ -262,7 +262,7 @@ export const starter: ContentTypes = {
       abstract: 'My first blog abstract',
       media: true,
       icon: 'heart',
-      slug: 'my-first-blog',
+      slug: 'my-first-blog-slug',
       date: '2020-05-01T00:00+01:00',
       text: `# My first blog
 This is my first blog.
@@ -284,7 +284,7 @@ All blogs that I produce are green. Every time I talk, I get to improve the worl
       abstract: 'My second blog abstract',
       media: true,
       icon: 'heart',
-      slug: 'my-second-blog',
+      slug: 'my-second-blog-slug',
       date: '2020-05-02T00:00+01:00',
       text: `# My second blog
 This is my second blog.
@@ -293,7 +293,7 @@ This is my second blog.
 All blogs that I produce are open source. Every time I talk, I get to share it with the world.`,
       categories: ['lifestyle', 'home', 'opinion'],
       authors: ['myGreatBlogProfile'],
-      seoTitle: 'My first blog',
+      seoTitle: 'My second blog',
       seoDescription: 'Blog are here to stay',
       seoImage: true,
       title: 'My second blog',
