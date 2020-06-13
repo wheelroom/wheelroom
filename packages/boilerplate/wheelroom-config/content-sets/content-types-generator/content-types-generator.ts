@@ -32,7 +32,7 @@ import {
 } from '@wheelroom/wheelroom'
 import * as fse from 'fs-extra'
 import { contentSets } from '../content-sets'
-import { models } from '../../will-move-to-wr-config/models'
+import { coreModels } from '../../will-move-to-wr-config/models/core-models'
 
 type ContentSetName = 'starter' | 'example'
 
@@ -78,7 +78,7 @@ const getPageSections = (field: FieldType, limitResults: string[]) => {
   if (field.type === 'multipleComponents') {
     Object.entries(contentSets[contentSet]).forEach(
       ([componentId, compInstance]: [string, any]) => {
-        if (models[compInstance.model].settings.asPageSection) {
+        if (coreModels[compInstance.model].settings.asPageSection) {
           limitResults.push(`'${componentId}'`)
         }
       }
@@ -119,7 +119,7 @@ const firstUpperCase = (str: string): string =>
 let modelString = 'type Model ='
 let content = ''
 
-Object.entries(models).forEach(
+Object.entries(coreModels).forEach(
   ([componentName, wrComponent]: [string, WheelroomComponent]) => {
     modelString += `
   | ${firstUpperCase(componentName)}Model`

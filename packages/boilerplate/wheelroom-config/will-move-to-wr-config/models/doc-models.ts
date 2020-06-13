@@ -7,9 +7,9 @@ import {
   SingleComponentField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIconNames } from '../../src/wheelroom'
+import { featherIconNames } from '../../../src/wheelroom'
 
-export const models: WheelroomComponents = {
+export const docModels: WheelroomComponents = {
   docSection: {
     fields: {
       variation: {

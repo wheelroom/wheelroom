@@ -11,18 +11,10 @@ import {
   TagsField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIconNames } from '../../src/wheelroom'
+import { featherIconNames } from '../../../src/wheelroom'
+import { topicOptions } from './topic-options'
 
-const topicOptions = [
-  'Hide icon',
-  'Hide media',
-  'Hide heading',
-  'Hide abstract',
-  'Hide action',
-  'Reversed order',
-]
-
-export const models: WheelroomComponents = {
+export const coreModels: WheelroomComponents = {
   embed: {
     fields: {
       code: {
