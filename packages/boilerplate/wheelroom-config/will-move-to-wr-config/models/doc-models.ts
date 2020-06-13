@@ -7,31 +7,9 @@ import {
   SingleComponentField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIconNames } from '../../../src/wheelroom'
+import { featherIconNames } from '../feather-icon-names'
 
 export const docModels: WheelroomComponents = {
-  docSection: {
-    fields: {
-      variation: {
-        items: ['doc'],
-        type: 'dropdown',
-      } as DropdownField,
-      eventId: {
-        type: 'shortText',
-        initialContent: 'initial-content-for-doc-section-event-id',
-        typePostfix: 'Slug',
-        helpText: 'Example: my-event-id',
-        unique: true,
-      } as ShortTextField,
-    },
-    modelVersion: '1.0.0',
-    settings: {
-      // asPageSection will create boilerplate code
-      asBoilerplate: false,
-      asFragment: true,
-      asPageSection: true,
-    },
-  },
   doc: {
     fields: {
       heading: {
@@ -72,6 +50,28 @@ export const docModels: WheelroomComponents = {
     settings: {
       asFragment: true,
       asQuery: 'subPage',
+    },
+  },
+  docSection: {
+    fields: {
+      variation: {
+        items: ['doc'],
+        type: 'dropdown',
+      } as DropdownField,
+      eventId: {
+        type: 'shortText',
+        initialContent: 'initial-content-for-doc-section-event-id',
+        typePostfix: 'Slug',
+        helpText: 'Example: my-event-id',
+        unique: true,
+      } as ShortTextField,
+    },
+    modelVersion: '1.0.0',
+    settings: {
+      // asPageSection will create boilerplate code
+      asBoilerplate: false,
+      asFragment: true,
+      asPageSection: true,
     },
   },
 }

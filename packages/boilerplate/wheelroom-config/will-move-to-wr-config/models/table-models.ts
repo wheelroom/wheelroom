@@ -6,7 +6,7 @@ import {
   ShortTextField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIconNames } from '../../../src/wheelroom'
+import { featherIconNames } from '../feather-icon-names'
 import { topicOptions } from './topic-options'
 
 export const tableModels: WheelroomComponents = {
@@ -76,7 +76,7 @@ export const tableModels: WheelroomComponents = {
       } as DropdownField,
       topicOptions: {
         initialContent: ['Hide icon'],
-        items: topicOptions,
+        items: topicOptions.en,
         type: 'checkbox',
       } as CheckboxField,
       tables: {

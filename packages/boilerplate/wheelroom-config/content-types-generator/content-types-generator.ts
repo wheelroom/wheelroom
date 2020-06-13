@@ -1,11 +1,15 @@
 /* eslint-disable no-undef */
 /**
- * Generates this typescript file: src/config/plugin-contentful/content-types-{contentSet}.ts
+ * Generates this typescript file:
+ * wheelroom-config/content-sets/content-types-${contentSet}.ts
  *
  * How it works
  *
- * The script imports the content set from ../plugin-contentful/content-sets
- * Next the script imports the models from ../wheelroom/config-models
+ * The script imports the content set and models:
+ *
+ * import { contentSets } from '../content-sets/content-sets'
+ * import { coreModels } from '../will-move-to-wr-config/models/core-models'
+ *
  *
  * It then generates interface definitions for each component. The content set
  * is used to find valid component names in references. Like e.g.
@@ -13,7 +17,7 @@
  * link?: 'homePage' | 'productPage' | 'backgroundPage' | 'contactPage'
  *
  * Runs like this:
- * - npx tsc --project src/config/helpers/tsconfig.json
+ * - npm run compile-config
  * - node compiled-config/helpers/content-types-generator.js <starter|examples>
  *
  *
@@ -31,8 +35,8 @@ import {
   WheelroomComponent,
 } from '@wheelroom/wheelroom'
 import * as fse from 'fs-extra'
-import { contentSets } from '../content-sets'
-import { coreModels } from '../../will-move-to-wr-config/models/core-models'
+import { contentSets } from '../content-sets/content-sets'
+import { coreModels } from '../will-move-to-wr-config/models/core-models'
 
 type ContentSetName = 'starter' | 'example'
 
@@ -161,6 +165,6 @@ export interface ContentTypes {
 `
 
 fse.outputFile(
-  `src/config/plugin-contentful/content-types-${contentSet}.ts`,
+  `wheelroom-config/content-sets/content-types-${contentSet}.ts`,
   content
 )
