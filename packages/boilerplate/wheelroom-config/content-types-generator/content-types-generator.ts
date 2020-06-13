@@ -8,7 +8,7 @@
  * The script imports the content set and models:
  *
  * import { contentSets } from '../content-sets/content-sets'
- * import { coreModels } from '../will-move-to-wr-config/models/core-models'
+ * import { coreModels } from '../will-move-to-wr-module/models/core-models'
  *
  *
  * It then generates interface definitions for each component. The content set
@@ -36,7 +36,7 @@ import {
 } from '@wheelroom/wheelroom'
 import * as fse from 'fs-extra'
 import { contentSets } from '../content-sets/content-sets'
-import { coreModels } from '../will-move-to-wr-config/models/core-models'
+import { coreModels } from '../will-move-to-wr-module/models/core-models'
 
 type ContentSetName = 'starter' | 'example'
 

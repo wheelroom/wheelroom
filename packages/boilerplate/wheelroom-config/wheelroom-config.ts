@@ -4,10 +4,10 @@ import { graphqlTemplates } from './template-sets/graphql/graphql-templates'
 import { contentSets } from './content-sets/content-sets'
 import { replaceSets } from './replace-sets'
 
-import { coreModels } from './will-move-to-wr-config/models/core-models'
-import { fieldDefautls } from './will-move-to-wr-config/field-defaults'
-import { commonFields } from './will-move-to-wr-config/common-fields'
-import { contentfulFieldDefinitions } from './will-move-to-wr-config/contentful-field-definitions'
+import { coreModels } from './will-move-to-wr-module/models/core-models'
+import { fieldDefautls } from './will-move-to-wr-module/field-defaults'
+import { commonFields } from './will-move-to-wr-module/common-fields'
+import { contentfulFieldDefinitions } from './will-move-to-wr-module/contentful-field-definitions'
 
 export const config: WheelroomConfig = {
   commonFields: commonFields,
