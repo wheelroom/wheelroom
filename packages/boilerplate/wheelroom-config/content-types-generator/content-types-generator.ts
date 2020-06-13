@@ -37,6 +37,10 @@ import {
 import * as fse from 'fs-extra'
 import { contentSets } from '../content-sets/content-sets'
 import { coreModels } from '../will-move-to-wr-module/models/core-models'
+import { tableModels } from '../will-move-to-wr-module/models/table-models'
+import { blogModels } from '../will-move-to-wr-module/models/blog-models'
+
+const models = { ...coreModels, ...blogModels, ...tableModels }
 
 type ContentSetName = 'starter' | 'example'
 
@@ -82,7 +86,7 @@ const getPageSections = (field: FieldType, limitResults: string[]) => {
   if (field.type === 'multipleComponents') {
     Object.entries(contentSets[contentSet]).forEach(
       ([componentId, compInstance]: [string, any]) => {
-        if (coreModels[compInstance.model].settings.asPageSection) {
+        if (models[compInstance.model].settings.asPageSection) {
           limitResults.push(`'${componentId}'`)
         }
       }
@@ -123,7 +127,7 @@ const firstUpperCase = (str: string): string =>
 let modelString = 'type Model ='
 let content = ''
 
-Object.entries(coreModels).forEach(
+Object.entries(models).forEach(
   ([componentName, wrComponent]: [string, WheelroomComponent]) => {
     modelString += `
   | ${firstUpperCase(componentName)}Model`
