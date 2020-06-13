@@ -7,7 +7,6 @@ import { configPluginOptions } from './src/wheelroom/config/wheelroom/plugin-opt
 export const config: WheelroomConfig = {
   commonFields: configCommonFields,
   components: models,
-  locale: 'en-US',
   fieldDefaults: configFieldDefaults,
   plugins: configPluginOptions,
 }

@@ -15,6 +15,6 @@
     "strict": true,
     "target": "es3"
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.json"],
+  "include": ["../../../wheelroom-config.ts", "**/*.ts", "**/*.tsx", "**/*.json"],
   "exclude": []
 }
