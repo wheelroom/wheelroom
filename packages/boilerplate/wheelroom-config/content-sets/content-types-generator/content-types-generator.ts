@@ -31,8 +31,8 @@ import {
   WheelroomComponent,
 } from '@wheelroom/wheelroom'
 import * as fse from 'fs-extra'
-import { contentSets } from '../plugin-contentful/content-sets'
-import { models } from '../wheelroom/models'
+import { contentSets } from '../content-sets'
+import { models } from '../../will-move-to-wr-config/models'
 
 type ContentSetName = 'starter' | 'example'
 

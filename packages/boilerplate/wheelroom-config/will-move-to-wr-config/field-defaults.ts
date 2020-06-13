@@ -74,7 +74,7 @@ const tags: TagsField = {
   type: 'tags',
 }
 
-export const configFieldDefaults: FieldDefaults = {
+export const fieldDefautls: FieldDefaults = {
   commonFieldDefaults,
   fieldTypeDefaults: {
     checkbox,

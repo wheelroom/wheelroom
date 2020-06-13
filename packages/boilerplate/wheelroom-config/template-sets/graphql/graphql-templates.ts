@@ -2,7 +2,7 @@ import { TemplateSets } from '@wheelroom/wheelroom-plugin-graphql'
 import { fragment } from './fragment'
 import { query } from './query'
 
-export const templateSets: TemplateSets = {
+export const graphqlTemplates: TemplateSets = {
   gatsbyjs: {
     fragment: {
       filterComponentSetting: 'asFragment',

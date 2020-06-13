@@ -8,13 +8,13 @@
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "outDir": "../../../compiled-config",
+    "outDir": "../compiled-config",
     "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
     "target": "es3"
   },
-  "include": ["../../../wheelroom-config.ts", "**/*.ts", "**/*.tsx", "**/*.json"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.json"],
   "exclude": []
 }

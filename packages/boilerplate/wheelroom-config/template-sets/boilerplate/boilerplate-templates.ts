@@ -7,7 +7,7 @@ import { componentReadme } from './component-readme'
 import { componentAsPageSection } from './component-as-page-section'
 import { componentAsBoilerplate } from './component-as-boilerplate'
 
-export const templateSets: TemplateSets = {
+export const boilerplateTemplates: TemplateSets = {
   react: {
     baseComponentAsBoilerplate: {
       filterComponentSetting: 'asBoilerplate',

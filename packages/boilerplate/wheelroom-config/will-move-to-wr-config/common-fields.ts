@@ -7,7 +7,7 @@
 import { WheelroomFields } from '@wheelroom/wheelroom'
 import { ShortTextField } from '@wheelroom/wheelroom'
 
-export const configCommonFields: WheelroomFields = {
+export const commonFields: WheelroomFields = {
   __typename: {
     system: true,
     type: 'shortText',
