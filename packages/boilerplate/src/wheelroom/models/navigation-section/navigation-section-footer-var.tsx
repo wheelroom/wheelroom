@@ -19,7 +19,7 @@ export const NavigationSectionFooterVar = (props: NavigationSectionProps) => {
   const wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
     navigationFooterPreset,
-    getSectionStyle('navigation').footer,
+    getSectionStyle('navigationSection').footer,
   ])
   return (
     <ScrollSpy

@@ -17,16 +17,14 @@ import { Topic } from '../topic/topic'
 import { topicPreset } from '../topic/presets/topic-preset'
 import { TopicProps } from '../topic/model-types'
 import { Wheel } from '../../types/wheel'
-import { pageSectionShowcasePreset } from './presets/page-section-showcase-preset'
 import { PageSectionProps } from './model-types'
-import { PageSection } from './page-section-body'
+import { PageSection } from './page-section-wheel'
 
 export const PageSectionShowcaseVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
     { topic: topicPreset },
-    pageSectionShowcasePreset,
-    getSectionStyle('showcase').base,
+    getSectionStyle('pageSection').showcase,
   ])
 
   if (!props.topics) {

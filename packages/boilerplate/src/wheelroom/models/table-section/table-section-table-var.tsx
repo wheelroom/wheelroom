@@ -12,13 +12,16 @@ import { getSectionStyle, getWheel } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
 import { Wheel } from '../../types/wheel'
-import { TableSection } from './price/table-section'
-import { tableSectionPreset } from './price/table-section-preset'
+import { TableSection } from './table-section-wheel'
 import { TableSectionProps } from './model-types'
+import { tableSectionWheelStyle } from './table-section-wheel-style'
 
 export const TableSectionTableVar = (props: TableSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([tableSectionPreset, getSectionStyle('table').base])
+  wheel.style = deepMerge([
+    tableSectionWheelStyle,
+    getSectionStyle('tableSection').table,
+  ])
 
   if (!props.tables) {
     return null

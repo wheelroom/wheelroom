@@ -15,14 +15,11 @@ import { ThemeId } from '../../../admin-resources/theme-info'
 import { Wheel } from '../../types/wheel'
 import { List } from './list/list'
 import { BlogSectionProps } from './model-types'
-import { blogSectionListPreset } from './list/blog-section-list-preset'
 
 export const BlogSectionListVar = (props: BlogSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([
-    blogSectionListPreset,
-    getSectionStyle('blogList').base,
-  ])
+  wheel.style = deepMerge([getSectionStyle('blogSection').list])
+
   if (!props.allBlog) {
     return null
   }

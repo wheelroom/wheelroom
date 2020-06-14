@@ -17,16 +17,14 @@ import { Topic } from '../topic/topic'
 import { topicPreset } from '../topic/presets/topic-preset'
 import { TopicProps } from '../topic/model-types'
 import { Wheel } from '../../types/wheel'
-import { pageSectionQuotePreset } from './presets/page-section-quote-preset'
 import { PageSectionProps } from './model-types'
-import { PageSection } from './page-section-body'
+import { PageSection } from './page-section-wheel'
 
 export const PageSectionQuoteVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
     { topic: topicPreset },
-    pageSectionQuotePreset,
-    getSectionStyle('quote').base,
+    getSectionStyle('pageSection').quote,
   ])
 
   if (!props.topics) {

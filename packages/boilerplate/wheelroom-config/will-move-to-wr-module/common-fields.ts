@@ -21,8 +21,10 @@ export const commonFields: WheelroomFields = {
         nl: 'Titel binnen Contentful',
       },
       helpText: {
-        'en-US': 'Only used within Contentful, does not appear on the site itself',
-        nl: 'Alleen gebruikt in Contentful, wordt nooit getoond op de site zelf',
+        'en-US':
+          'Only used within Contentful, does not appear on the site itself',
+        nl:
+          'Alleen gebruikt in Contentful, wordt nooit getoond op de site zelf',
       },
     },
     type: 'shortText',

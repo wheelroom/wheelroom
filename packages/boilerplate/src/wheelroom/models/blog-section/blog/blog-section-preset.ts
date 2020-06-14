@@ -33,57 +33,34 @@ export const blogSectionPreset: BlogWheelStyle = {
     ncss: {},
   },
   article: {
-    ncss: {
-      label: 'blog-article',
-      w: 1,
-    },
+    ncss: {},
   },
   header: {
-    ncss: {
-      label: 'blog-header',
-      flexDirection: 'column',
-      px: 3,
-    },
+    ncss: {},
     categories: {
-      ncss: {
-        label: 'blog-categories',
-      },
+      ncss: {},
     },
     date: {
-      ncss: {
-        label: 'blog-date',
-      },
+      ncss: {},
     },
     heading: {
-      ncss: {
-        label: 'blog-heading',
-      },
+      ncss: {},
     },
     abstract: {
-      ncss: {
-        label: 'blog-abstract',
-      },
+      ncss: {},
     },
   },
   media: {
-    ncss: {
-      label: 'blog-media',
-    },
+    ncss: {},
     image: {
       picture: {
-        ncss: {
-          label: 'blog-picture',
-        },
+        ncss: {},
       },
       img: {
-        ncss: {
-          label: 'blog-img',
-        },
+        ncss: {},
       },
       figcaption: {
-        ncss: {
-          label: 'blog-figcaption',
-        },
+        ncss: {},
       },
     },
     video: {
@@ -93,26 +70,12 @@ export const blogSectionPreset: BlogWheelStyle = {
     },
   },
   authors: {
-    ncss: {
-      label: 'blog-authors',
-      flexDirection: 'column',
-      alignItems: 'center',
-      maxWidth: '712px',
-      mx: 'auto',
-      py: 4,
-    },
+    ncss: {},
   },
   author: {
-    ncss: {
-      label: 'blog-author',
-      flexDirection: ['column', 'row'],
-      w: 1,
-    },
+    ncss: {},
     content: {
-      ncss: {
-        flexDirection: 'column',
-        p: 3,
-      },
+      ncss: {},
       actions: {
         ncss: {},
         link: {
@@ -128,9 +91,7 @@ export const blogSectionPreset: BlogWheelStyle = {
           ncss: {},
         },
         heading: {
-          ncss: {
-            fontWeight: 'bold',
-          },
+          ncss: {},
         },
         icon: {
           ncss: {},
@@ -138,20 +99,9 @@ export const blogSectionPreset: BlogWheelStyle = {
       },
     },
     media: {
-      ncss: {
-        flexDirection: 'column',
-        p: 3,
-      },
+      ncss: {},
       embed: {
-        ncss: {
-          display: 'block',
-          h: '0px',
-          pb: '56.25%',
-          position: 'relative',
-          iframe: {
-            position: 'absolute',
-          },
-        },
+        ncss: {},
       },
       image: {
         img: {

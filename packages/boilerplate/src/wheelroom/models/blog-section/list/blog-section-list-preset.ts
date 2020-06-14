@@ -33,26 +33,15 @@ export const blogSectionListPreset: BlogListWheelStyle = {
     ncss: {},
   },
   blog: {
-    ncss: {
-      label: 'blog',
-      textDecoration: 'none',
-      p: 3,
-      w: ['auto', 1 / 2, 1 / 3],
-    },
+    ncss: {},
     media: {
-      ncss: {
-        label: 'blog-media',
-      },
+      ncss: {},
       image: {
         picture: {
-          ncss: {
-            label: 'blog-picture',
-          },
+          ncss: {},
         },
         img: {
-          ncss: {
-            label: 'blog-img',
-          },
+          ncss: {},
         },
       },
       video: {
@@ -62,33 +51,20 @@ export const blogSectionListPreset: BlogListWheelStyle = {
       },
     },
     content: {
-      ncss: {
-        label: 'blog-content',
-        p: 3,
-      },
+      ncss: {},
       categories: {
-        ncss: {
-          label: 'blog-categories',
-        },
+        ncss: {},
       },
       date: {
-        ncss: {
-          label: 'blog-date',
-        },
+        ncss: {},
       },
       text: {
-        ncss: {
-          label: 'blog-text',
-        },
+        ncss: {},
         heading: {
-          ncss: {
-            label: 'blog-heading',
-          },
+          ncss: {},
         },
         abstract: {
-          ncss: {
-            label: 'blog-abstract',
-          },
+          ncss: {},
         },
       },
     },

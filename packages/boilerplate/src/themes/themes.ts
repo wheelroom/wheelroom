@@ -1,108 +1,77 @@
 import { Wheel, StyledSystemTheme } from '../wheelroom'
 import { ThemeId } from '../admin-resources/theme-info'
-import { elementStyles } from './yosemite/elements/element-styles'
-import { styledSystemConfig } from './yosemite/styled-system/styled-system-config'
-import { yosemiteDark } from './yosemite/yosemite-dark'
-import { yosemiteLight } from './yosemite/yosemite-light'
-import { sectionBlockStyle } from './yosemite/sections/section-block-style'
+import { elementStyles } from './glacier/elements/element-styles'
+import { styledSystemConfig } from './glacier/styled-system/styled-system-config'
+import { glacierDark } from './glacier/glacier-dark'
+import { glacierLight } from './glacier/glacier-light'
+import { pageSectionBlockStyle } from './glacier/models/page-section-block-style'
 import {
-  sectionCardShadowStyle,
-  sectionCardStyle,
-} from './yosemite/sections/section-card-style'
-import { navigationFooterStyle } from './yosemite/sections/nav-footer-style'
-import { navigationHeaderStyle } from './yosemite/sections/nav-header-style'
-import { sectionTextStyle } from './yosemite/sections/section-text-style'
-import { sectionDividerStyle } from './yosemite/sections/section-divider-style'
+  pageSectionCardShadowStyle,
+  pageSectionCardStyle,
+} from './glacier/models/page-section-card-style'
+import { navigationSectionFooterStyle } from './glacier/models/navigation-section-footer-style'
+import { navigationSectionHeaderStyle } from './glacier/models/navigation-section-header-style'
+import { textSectionTextStyle } from './glacier/models/text-section-text-style'
+import { pageSectionDividerStyle } from './glacier/models/page-section-divider-style'
 import {
-  sectionFeaturedStyle,
-  sectionFeaturedReverseStyle,
-} from './yosemite/sections/section-featured-style'
-import { sectionGalleryStyle } from './yosemite/sections/section-gallery-style'
-import { sectionHeadlineStyle } from './yosemite/sections/section-headline-style'
-import { sectionHeroStyle } from './yosemite/sections/section-hero-style'
-import { sectionImageStyle } from './yosemite/sections/section-image-style'
-import { sectionQuoteStyle } from './yosemite/sections/section-quote-style'
-import { sectionShowcaseStyle } from './yosemite/sections/section-showcase-style'
-import { sectionVideoStyle } from './yosemite/sections/section-video-style'
+  pageSectionFeaturedStyle,
+  pageSectionFeaturedReverseStyle,
+} from './glacier/models/page-section-featured-style'
+import { pageSectionGalleryStyle } from './glacier/models/page-section-gallery-style'
+import { pageSectionHeadlineStyle } from './glacier/models/page-section-headline-style'
+import { pageSectionHeroStyle } from './glacier/models/page-section-hero-style'
+import { pageSectionImageStyle } from './glacier/models/page-section-image-style'
+import { pageSectionQuoteStyle } from './glacier/models/page-section-quote-style'
+import { pageSectionShowcaseStyle } from './glacier/models/page-section-showcase-style'
+import { pageSectionVideoStyle } from './glacier/models/page-section-video-style'
 
-import { sectionTableStyle } from './yosemite/sections/section-table-style'
-import { blogSectionBlogStyle } from './yosemite/sections/blog-section-blog-style'
-import { blogSectionListStyle } from './yosemite/sections/blog-section-list-style'
+import { blogSectionBlogStyle } from './glacier/models/blog-section-blog-style'
+import { blogSectionListStyle } from './glacier/models/blog-section-list-style'
+import { tableSectionTableStyle } from './glacier/models/table-section-table-style'
+import { tableSectionPriceStyle } from './glacier/models/table-section-price-style'
 
 export type sectionId =
-  | 'block'
-  | 'blog'
-  | 'blogList'
-  | 'card'
-  | 'divider'
-  | 'featured'
-  | 'gallery'
-  | 'headline'
-  | 'hero'
-  | 'image'
-  | 'navigation'
-  | 'table'
-  | 'quote'
-  | 'showcase'
-  | 'text'
-  | 'video'
+  | 'blogSection'
+  | 'navigationSection'
+  | 'pageSection'
+  | 'tableSection'
+  | 'textSection'
 
 const themeMap = {
-  light: yosemiteLight,
-  dark: yosemiteDark,
+  dark: glacierDark,
+  light: glacierLight,
 }
 
 const sectionStyleMap = {
-  block: {
-    base: sectionBlockStyle,
+  blogSection: {
+    blog: blogSectionBlogStyle,
+    list: blogSectionListStyle,
   },
-  blog: {
-    base: blogSectionBlogStyle,
+  navigationSection: {
+    header: navigationSectionHeaderStyle,
+    footer: navigationSectionFooterStyle,
   },
-  blogList: {
-    base: blogSectionListStyle,
+  pageSection: {
+    block: pageSectionBlockStyle,
+    card: pageSectionCardStyle,
+    cardShadow: pageSectionCardShadowStyle,
+    divider: pageSectionDividerStyle,
+    featured: pageSectionFeaturedStyle,
+    featuredReversed: pageSectionFeaturedReverseStyle,
+    gallery: pageSectionGalleryStyle,
+    headline: pageSectionHeadlineStyle,
+    hero: pageSectionHeroStyle,
+    image: pageSectionImageStyle,
+    quote: pageSectionQuoteStyle,
+    showcase: pageSectionShowcaseStyle,
+    video: pageSectionVideoStyle,
   },
-  card: {
-    base: sectionCardStyle,
-    shadow: sectionCardShadowStyle,
+  tableSection: {
+    table: tableSectionTableStyle,
+    price: tableSectionPriceStyle,
   },
-  divider: {
-    base: sectionDividerStyle,
-  },
-  featured: {
-    base: sectionFeaturedStyle,
-    reversed: sectionFeaturedReverseStyle,
-  },
-  gallery: {
-    base: sectionGalleryStyle,
-  },
-  headline: {
-    base: sectionHeadlineStyle,
-  },
-  hero: {
-    base: sectionHeroStyle,
-  },
-  image: {
-    base: sectionImageStyle,
-  },
-  navigation: {
-    header: navigationHeaderStyle,
-    footer: navigationFooterStyle,
-  },
-  table: {
-    base: sectionTableStyle,
-  },
-  quote: {
-    base: sectionQuoteStyle,
-  },
-  showcase: {
-    base: sectionShowcaseStyle,
-  },
-  text: {
-    base: sectionTextStyle,
-  },
-  video: {
-    base: sectionVideoStyle,
+  textSection: {
+    text: textSectionTextStyle,
   },
 }
 

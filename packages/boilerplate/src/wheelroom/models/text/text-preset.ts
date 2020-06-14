@@ -65,16 +65,10 @@ export const textPreset: TextWheelStyle = {
     ncss: {},
   },
   entryHyperlink: {
-    ncss: {
-      wordBreak: 'break-word',
-      hyphens: 'auto',
-    },
+    ncss: {},
   },
   inlinesHyperlink: {
-    ncss: {
-      wordBreak: 'break-word',
-      hyphens: 'auto',
-    },
+    ncss: {},
   },
   hr: {
     ncss: {},
@@ -117,12 +111,6 @@ export const textPreset: TextWheelStyle = {
     },
   },
   wrapper: {
-    ncss: {
-      label: 'wrapper-text',
-      maxWidth: '712px', // Golden read width ratio
-      mx: 'auto',
-      py: 0,
-      px: 3,
-    },
+    ncss: {},
   },
 }

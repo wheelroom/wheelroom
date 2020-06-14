@@ -18,23 +18,20 @@ import { topicPreset } from '../topic/presets/topic-preset'
 import { TopicProps } from '../topic/model-types'
 import { Wheel } from '../../types/wheel'
 import { PageSectionProps } from './model-types'
-import { pageSectionFeaturedPreset } from './presets/page-section-featured-preset'
-import { PageSection } from './page-section-body'
+import { PageSection } from './page-section-wheel'
 
 export const PageSectionFeaturedVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
     { topic: topicPreset },
-    pageSectionFeaturedPreset,
-    getSectionStyle('featured').base,
+    getSectionStyle('pageSection').featured,
   ])
 
   const wheelReverse: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheelReverse.style = deepMerge([
     { topic: topicPreset },
-    pageSectionFeaturedPreset,
-    getSectionStyle('featured').base,
-    getSectionStyle('featured').reversed,
+    getSectionStyle('pageSection').featured,
+    getSectionStyle('pageSection').featuredReversed,
   ])
 
   if (!props.topics) {

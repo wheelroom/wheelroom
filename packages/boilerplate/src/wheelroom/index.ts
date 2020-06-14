@@ -66,18 +66,7 @@ export { PageProps } from './models/page/model-types'
 // Page section
 export { PageSection } from './models/page-section/page-section'
 export { PageSectionProps } from './models/page-section/model-types'
-export type { PageSectionBlockWheelStyle } from './models/page-section/presets/page-section-block-preset'
-export type { PageSectionCardWheelStyle } from './models/page-section/presets/page-section-card-preset'
-export type { PageSectionFeaturedWheelStyle } from './models/page-section/presets/page-section-featured-preset'
-export type { PageSectionGalleryWheelStyle } from './models/page-section/presets/page-section-gallery-preset'
-export type { PageSectionHeadlineWheelStyle } from './models/page-section/presets/page-section-headline-preset'
-export type { PageSectionHeroWheelStyle } from './models/page-section/presets/page-section-hero-preset'
-export type { PageSectionImageWheelStyle } from './models/page-section/presets/page-section-image-preset'
-export type { PageSectionQuoteWheelStyle } from './models/page-section/presets/page-section-quote-preset'
-export type { PageSectionShowcaseWheelStyle } from './models/page-section/presets/page-section-showcase-preset'
-export type { PageSectionVideoWheelStyle } from './models/page-section/presets/page-section-video-preset'
-export type { TableSectionWheelStyle } from './models/table-section/price/table-section-preset'
-export type { TextSectionWheelStyle } from './models/text-section/text/text-section-preset'
+export type { PageSectionWheelStyle } from './models/page-section/page-section-wheel-style'
 
 // Table
 export { Table } from './models/table/table'
@@ -90,6 +79,7 @@ export { TableRowProps } from './models/table-row/model-types'
 // Table section
 export { TableSection } from './models/table-section/table-section'
 export { TableSectionProps } from './models/table-section/model-types'
+export type { TableSectionWheelStyle } from './models/table-section/table-section-wheel-style'
 
 // Text
 export { Text } from './models/text/text'
@@ -98,6 +88,7 @@ export { TextProps } from './models/text/model-types'
 // Text section
 export { TextSection } from './models/text-section/text-section'
 export { TextSectionProps } from './models/text-section/model-types'
+export type { TextSectionWheelStyle } from './models/text-section/text/text-section-preset'
 
 // Topic
 export { Topic } from './models/topic/topic'

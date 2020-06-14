@@ -9,14 +9,14 @@
 import React from 'react'
 import { getWheel, getSectionStyle } from '../../../themes/themes'
 import { Hr } from '../../elements/self'
+import { Wheel } from '../../types/wheel'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
-import { Wheel } from '../../types/wheel'
-import { PageSectionProps } from './page-section'
+import { PageSectionProps } from './model-types'
 
 export const PageSectionDividerVar = (props: PageSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = getSectionStyle('divider').base
+  wheel.style = getSectionStyle('pageSection').divider
 
   return (
     <ScrollSpy

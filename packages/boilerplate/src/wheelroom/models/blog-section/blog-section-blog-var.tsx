@@ -13,17 +13,16 @@ import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
 import { topicPreset } from '../topic/presets/topic-preset'
 import { Wheel } from '../../types/wheel'
-import { BlogSectionProps } from './model-types'
-import { blogSectionPreset } from './blog/blog-section-preset'
 import { Blog } from './blog/blog'
+import { BlogSectionProps } from './model-types'
 
 export const BlogSectionBlogVar = (props: BlogSectionProps) => {
   const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
   wheel.style = deepMerge([
     { author: topicPreset },
-    blogSectionPreset,
-    getSectionStyle('blog').base,
+    getSectionStyle('blogSection').blog,
   ])
+
   if (!props.blog) {
     return null
   }
