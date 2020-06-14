@@ -1,4 +1,6 @@
+// Types
 export { NcssProps, Wheel } from './types/wheel'
+export { DeepPartial } from './types/deep-partial'
 
 // Theme
 export { breakpointsPreset } from './theme/breakpoints-preset'
