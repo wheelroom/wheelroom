@@ -28,7 +28,11 @@ export const cfContentSetFromWrContentSet = (
             return
           }
           const wrField = wrComponents[wrContent.model].fields[fieldName]
-          if ('allowedComponents' in wrField) {
+          if (
+            wrField &&
+            typeof wrField === 'object' &&
+            'allowedComponents' in wrField
+          ) {
             if (Array.isArray(wrField.allowedComponents)) {
               content.dependsOnModels.push(...wrField.allowedComponents)
             } else {
