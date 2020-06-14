@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.3.2...@wheelroom/boilerplate@3.4.0) (2020-06-14)
+
+
+### Features
+
+* integrated dutch translations (incomplete) ([4af0eab](https://github.com/wheelroom/wheelroom/commit/4af0eabe03b445edfd13762be3e3614f1ab9e007))
+
+
+
+
+
 ## [3.3.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.3.1...@wheelroom/boilerplate@3.3.2) (2020-06-13)
 
 
