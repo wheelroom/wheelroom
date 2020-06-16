@@ -7,23 +7,20 @@
  */
 
 import React from 'react'
-import { deepMerge } from '../../lib/deep-merge'
-import { getSectionStyle, getWheel } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
-import { ThemeId } from '../../../admin-resources/theme-info'
-import { Wheel } from '../../types/wheel'
+import { getWheel } from '../../lib/get-wheel'
 import { TableSection } from './table-section-wheel'
 import { TableSectionProps } from './model-types'
-import { tableSectionWheelStyle } from './table-section-wheel-style'
 
 export const TableSectionTableVar = (props: TableSectionProps) => {
-  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([
-    tableSectionWheelStyle,
-    getSectionStyle('tableSection').table,
-  ])
+  const wheel = getWheel({
+    themeId: props.activeThemeId,
+    wheelId: 'table',
+    sectionWheels: props.sectionWheels,
+    variation: 'table',
+  })
 
-  if (!props.tables) {
+  if (!wheel || !props.tables) {
     return null
   }
 

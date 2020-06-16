@@ -1,4 +1,4 @@
-import { NcssProps } from '../../../types/wheel'
+import { NcssProps } from '../../../lib/get-wheel'
 import { HeadingElementStyle } from '../../../elements/resets/heading-reset'
 import {
   NavigationSegmentListWheelStyle,

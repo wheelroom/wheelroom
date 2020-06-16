@@ -1,4 +1,4 @@
-import { NcssProps, Wheel } from '../types/wheel'
+import { NcssProps, Wheel } from '../lib/get-wheel'
 import { ALinkProps } from './a-link'
 import { AnyProps } from './any'
 import { ButtonProps } from './button'

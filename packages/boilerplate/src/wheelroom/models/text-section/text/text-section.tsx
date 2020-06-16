@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text } from '../../text/text'
 import { TextProps } from '../../text/model-types'
-import { Wheel } from '../../../types/wheel'
+import { Wheel } from '../../../lib/get-wheel'
 import { Wrapper, Container, Fluid } from '../../../elements/grid'
 import { TextSectionWheelStyle } from './text-section-preset'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Fluid, Wrapper } from '../../elements/grid'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { PageSectionWheelStyle } from './page-section-wheel-style'
 
 export interface PageSectionWheel extends Wheel {

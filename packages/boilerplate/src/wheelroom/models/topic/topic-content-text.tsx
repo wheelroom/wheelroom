@@ -6,7 +6,7 @@ import { ParserFunction } from '../../parsers/types'
 import { Icon } from '../../elements/icon'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { TopicProps } from './model-types'
 import { TopicContentTextWheelStyle } from './presets/topic-content-text-preset'
 

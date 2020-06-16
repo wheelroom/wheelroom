@@ -8,19 +8,20 @@
 
 import React from 'react'
 import { BlogProps } from '../blog/model-types'
-import { deepMerge } from '../../lib/deep-merge'
-import { getWheel, getSectionStyle } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
-import { ThemeId } from '../../../admin-resources/theme-info'
-import { Wheel } from '../../types/wheel'
+import { getWheel } from '../../lib/get-wheel'
 import { List } from './list/list'
 import { BlogSectionProps } from './model-types'
 
 export const BlogSectionListVar = (props: BlogSectionProps) => {
-  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([getSectionStyle('blogSection').list])
+  const wheel = getWheel({
+    themeId: props.activeThemeId,
+    wheelId: 'blog',
+    sectionWheels: props.sectionWheels,
+    variation: 'list',
+  })
 
-  if (!props.allBlog) {
+  if (!wheel || !props.allBlog) {
     return null
   }
   const blogPosts: BlogProps[] = props.allBlog.edges.map(

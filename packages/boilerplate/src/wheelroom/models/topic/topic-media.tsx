@@ -8,7 +8,7 @@ import { MediaObject } from '../../elements/types/media'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
 import { Video } from '../../elements/video'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { TopicProps } from './model-types'
 import { TopicMediaWheelStyle } from './presets/topic-media-preset'
 

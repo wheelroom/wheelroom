@@ -1,5 +1,5 @@
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { BlogProps, GlobalsProps, PageProps } from '../wheelroom'
+import { BlogProps, GlobalsProps, PageProps, SectionWheels } from '../wheelroom'
 
 import { SiteMetadata } from './page-template'
 
@@ -21,6 +21,8 @@ export interface SectionProps {
   namedPaths: NamedPaths
   /** Active theme id from theme switcher admin module */
   activeThemeId: string
+  /** Section wheels */
+  sectionWheels: SectionWheels
 
   globals: GlobalsProps
   page: PageProps

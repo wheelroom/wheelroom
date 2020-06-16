@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { NcssProps, Wheel } from '../../types/wheel'
+import { NcssProps, Wheel } from '../../lib/get-wheel'
 import { Any } from '../../elements/any'
 
 export interface EmbedStyle {

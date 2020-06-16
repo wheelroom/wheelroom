@@ -5,7 +5,7 @@ import { NavigationProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
 import { SiteMetadata } from '../../../../page-template/page-template'
-import { Wheel } from '../../../types/wheel'
+import { Wheel } from '../../../lib/get-wheel'
 import { NavigationFooterWheelStyle } from './presets/navigation-footer-preset'
 import { LegalFooter } from './legal-footer'
 

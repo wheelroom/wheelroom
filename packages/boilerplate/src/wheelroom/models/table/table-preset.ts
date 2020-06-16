@@ -1,6 +1,6 @@
 import { DescriptionListElementStyle } from '../../elements/resets/self-dl-reset'
 import { IconElementStyle } from '../../elements/resets/icon-reset'
-import { NcssProps } from '../../types/wheel'
+import { NcssProps } from '../../lib/get-wheel'
 import { TableElementStyle } from '../../elements/resets/self-table-reset'
 import {
   TableRowWheelStyle,

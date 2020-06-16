@@ -4,7 +4,7 @@ import { Button } from '../../../elements/button'
 import { FeatherIcon } from '../../../elements/icon'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { Wheel } from '../../../types/wheel'
+import { Wheel } from '../../../lib/get-wheel'
 import { ThemeButton } from './theme-button'
 import { ModalWheelStyle } from './presets/modal-preset'
 

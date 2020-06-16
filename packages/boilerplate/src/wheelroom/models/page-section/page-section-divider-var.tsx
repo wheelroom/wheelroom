@@ -9,7 +9,7 @@
 import React from 'react'
 import { getWheel, getSectionStyle } from '../../../themes/themes'
 import { Hr } from '../../elements/self'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { ScrollSpy } from '../../lib/scroll-spy'
 import { ThemeId } from '../../../admin-resources/theme-info'
 import { PageSectionProps } from './model-types'

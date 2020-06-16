@@ -1,7 +1,7 @@
 import { GridElementStyle } from '../../../elements/resets/grid-reset'
 import { HeadingElementStyle } from '../../../elements/resets/heading-reset'
 import { ImageElementStyle } from '../../../elements/image'
-import { NcssProps } from '../../../types/wheel'
+import { NcssProps } from '../../../lib/get-wheel'
 import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
 import { VideoElementStyle } from '../../../elements/video'
 

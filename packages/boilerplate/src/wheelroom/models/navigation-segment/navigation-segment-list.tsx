@@ -2,7 +2,7 @@ import React from 'react'
 import { Action } from '../action/action'
 import { ActionProps } from '../action/model-types'
 import { Li, Ul } from '../../elements/self'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { NavigationSegmentListWheelStyle } from './presets/navigation-segment-list-preset'
 
 interface NavigationSegmentListWheel extends Wheel {

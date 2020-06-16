@@ -35,7 +35,7 @@ import { MediaObject } from '../../elements/types/media'
 import { Paragraph } from '../../elements/paragraph'
 
 import { Video } from '../../elements/video'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { Wrapper } from '../../elements/grid'
 import { TextWheelStyle } from './text-preset'
 import { TextProps } from './model-types'

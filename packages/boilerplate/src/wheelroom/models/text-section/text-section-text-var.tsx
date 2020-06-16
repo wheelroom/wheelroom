@@ -7,20 +7,20 @@
  */
 
 import React from 'react'
-import { deepMerge } from '../../lib/deep-merge'
-import { getWheel, getSectionStyle } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
-import { ThemeId } from '../../../admin-resources/theme-info'
-import { Wheel } from '../../types/wheel'
+import { getWheel } from '../../lib/get-wheel'
 import { TextSection } from './text/text-section'
-import { textSectionPreset } from './text/text-section-preset'
 import { TextSectionProps } from './model-types'
 
 export const TextSectionTextVar = (props: TextSectionProps) => {
-  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([textSectionPreset, getSectionStyle('text').base])
+  const wheel = getWheel({
+    themeId: props.activeThemeId,
+    wheelId: 'text',
+    sectionWheels: props.sectionWheels,
+    variation: 'text',
+  })
 
-  if (!props.text) {
+  if (!wheel || !props.text) {
     return null
   }
 

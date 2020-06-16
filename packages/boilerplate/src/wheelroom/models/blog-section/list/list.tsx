@@ -8,7 +8,7 @@ import { Heading } from '../../../elements/heading'
 import { Image } from '../../../elements/image'
 import { Paragraph } from '../../../elements/paragraph'
 import { Time } from '../../../elements/self'
-import { Wheel } from '../../../types/wheel'
+import { Wheel } from '../../../lib/get-wheel'
 import { BlogListWheelStyle } from './blog-section-list-preset'
 
 export interface BlogListWheel extends Wheel {

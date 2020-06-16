@@ -7,21 +7,21 @@
  */
 
 import React from 'react'
-import { deepMerge } from '../../lib/deep-merge'
-import { getWheel, getSectionStyle } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
-import { ThemeId } from '../../../admin-resources/theme-info'
-import { Wheel } from '../../types/wheel'
+import { getWheel } from '../../lib/get-wheel'
 import { NavigationHeader } from './header/navigation-header'
-import { navigationHeaderPreset } from './header/presets/navigation-header-preset'
 import { NavigationSectionProps } from './model-types'
 
 export const NavigationSectionHeaderVar = (props: NavigationSectionProps) => {
-  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([
-    navigationHeaderPreset,
-    getSectionStyle('navigationSection').header,
-  ])
+  const wheel = getWheel({
+    themeId: props.activeThemeId,
+    wheelId: 'navigation',
+    sectionWheels: props.sectionWheels,
+    variation: 'header',
+  })
+  if (!wheel) {
+    return null
+  }
   return (
     <ScrollSpy
       eventId={props.eventId}

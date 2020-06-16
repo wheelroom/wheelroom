@@ -10,7 +10,7 @@ import { Text } from '../../text/text'
 import { Time } from '../../../elements/self'
 import { Topic } from '../../topic/topic'
 import { TopicProps } from '../../topic/model-types'
-import { Wheel } from '../../../types/wheel'
+import { Wheel } from '../../../lib/get-wheel'
 import { BlogWheelStyle } from './blog-section-preset'
 
 export interface BlogWheel extends Wheel {

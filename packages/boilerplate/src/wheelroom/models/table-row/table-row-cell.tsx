@@ -4,7 +4,7 @@ import { Td } from '../../elements/self'
 import { Topic } from '../topic/topic'
 import { TopicOptions } from '../../lib/get-topic-options'
 import { TopicProps } from '../topic/model-types'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { TableRowCellWheelStyle } from './table-row-cell-preset'
 
 export interface TableRowCellWheel extends Wheel {

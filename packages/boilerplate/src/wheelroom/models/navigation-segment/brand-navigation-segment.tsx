@@ -2,7 +2,7 @@ import React from 'react'
 import { Action } from '../action/action'
 import { Flex } from '../../elements/grid'
 import { Strong } from '../../elements/self'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { NavigationSegmentProps } from './model-types'
 import { BrandNavigationSegmentWheelStyle } from './presets/brand-navigation-segment-preset'
 

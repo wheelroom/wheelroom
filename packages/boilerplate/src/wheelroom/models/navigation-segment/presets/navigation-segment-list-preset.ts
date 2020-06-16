@@ -1,4 +1,4 @@
-import { NcssProps } from '../../../types/wheel'
+import { NcssProps } from '../../../lib/get-wheel'
 import { ActionWheelStyle } from '../../action/action'
 
 export interface NavigationSegmentListWheelStyle {

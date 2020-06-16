@@ -1,4 +1,4 @@
-import { NcssProps } from '../../types/wheel'
+import { NcssProps } from '../../lib/get-wheel'
 import { aLinkReset } from './a-link-reset'
 import { selfBlockquoteReset } from './self-blockquote-reset'
 import { buttonReset } from './button-reset'

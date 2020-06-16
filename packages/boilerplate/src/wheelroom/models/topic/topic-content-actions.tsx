@@ -4,7 +4,7 @@ import { ActionProps } from '../action/model-types'
 import { Box } from '../../elements/grid'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { TopicProps } from './model-types'
 import { TopicContentActionsWheelStyle } from './presets/topic-content-actions-preset'
 

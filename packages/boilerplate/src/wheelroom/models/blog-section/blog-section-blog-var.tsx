@@ -7,23 +7,20 @@
  */
 
 import React from 'react'
-import { deepMerge } from '../../lib/deep-merge'
-import { getWheel, getSectionStyle } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
-import { ThemeId } from '../../../admin-resources/theme-info'
-import { topicPreset } from '../topic/presets/topic-preset'
-import { Wheel } from '../../types/wheel'
+import { getWheel } from '../../lib/get-wheel'
 import { Blog } from './blog/blog'
 import { BlogSectionProps } from './model-types'
 
 export const BlogSectionBlogVar = (props: BlogSectionProps) => {
-  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([
-    { author: topicPreset },
-    getSectionStyle('blogSection').blog,
-  ])
+  const wheel = getWheel({
+    themeId: props.activeThemeId,
+    wheelId: 'blog',
+    sectionWheels: props.sectionWheels,
+    variation: 'blog',
+  })
 
-  if (!props.blog) {
+  if (!wheel || !props.blog) {
     return null
   }
   return (

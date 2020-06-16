@@ -10,7 +10,7 @@ import { Icon } from '../../elements/icon'
 import { TableRow } from '../table-row/table-row'
 import { TableRowProps } from '../table-row/model-types'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { TableProps } from './model-types'
 import { TableWheelStyle } from './table-preset'
 

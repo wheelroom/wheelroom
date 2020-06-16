@@ -1,5 +1,13 @@
+// Get wheel
+export {
+  getWheel,
+  GetWheel,
+  NcssProps,
+  SectionWheels,
+  Wheel,
+} from './lib/get-wheel'
+
 // Types
-export { NcssProps, Wheel } from './types/wheel'
 export { DeepPartial } from './types/deep-partial'
 
 // Theme

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '../../../elements/button'
 import { ButtonElementStyle } from '../../../elements/resets/button-reset'
-import { Wheel } from '../../../types/wheel'
+import { Wheel } from '../../../lib/get-wheel'
 
 interface ThemeButtonWheel extends Wheel {
   style: ButtonElementStyle

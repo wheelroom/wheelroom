@@ -3,7 +3,7 @@ import { Container, Fluid, Wrapper } from '../../elements/grid'
 import { Table } from '../table/table'
 import { TableProps } from '../table/model-types'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { TableSectionWheelStyle } from './table-section-wheel-style'
 
 export interface TableSectionWheel extends Wheel {

@@ -16,7 +16,7 @@ import { ThemeId } from '../../../admin-resources/theme-info'
 import { Topic } from '../topic/topic'
 import { topicPreset } from '../topic/presets/topic-preset'
 import { TopicProps } from '../topic/model-types'
-import { Wheel } from '../../types/wheel'
+import { Wheel } from '../../lib/get-wheel'
 import { PageSectionProps } from './model-types'
 import { PageSection } from './page-section-wheel'
 

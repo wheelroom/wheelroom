@@ -7,20 +7,21 @@
  */
 
 import React from 'react'
-import { deepMerge } from '../../lib/deep-merge'
-import { getWheel, getSectionStyle } from '../../../themes/themes'
 import { ScrollSpy } from '../../lib/scroll-spy'
-import { ThemeId } from '../../../admin-resources/theme-info'
+import { getWheel } from '../../lib/get-wheel'
 import { NavigationFooter } from './footer/navigation-footer'
-import { navigationFooterPreset } from './footer/presets/navigation-footer-preset'
 import { NavigationSectionProps } from './model-types'
 
 export const NavigationSectionFooterVar = (props: NavigationSectionProps) => {
-  const wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([
-    navigationFooterPreset,
-    getSectionStyle('navigationSection').footer,
-  ])
+  const wheel = getWheel({
+    themeId: props.activeThemeId,
+    wheelId: 'navigation',
+    sectionWheels: props.sectionWheels,
+    variation: 'footer',
+  })
+  if (!wheel) {
+    return null
+  }
   return (
     <ScrollSpy
       eventId={props.eventId}
