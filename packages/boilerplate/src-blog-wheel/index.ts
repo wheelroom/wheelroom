@@ -5,4 +5,7 @@ export type { BlogListWheelStyle } from './models/blog-section/list/blog-section
 
 // Blog section
 export { BlogSection } from './models/blog-section/blog-section'
-export { BlogSectionProps } from './models/blog-section/model-types'
+export {
+  BlogSectionProps,
+  InjectedBlogSectionProps,
+} from './models/blog-section/model-types'
