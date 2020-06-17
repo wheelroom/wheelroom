@@ -8,11 +8,28 @@ export {
 } from './lib/get-wheel'
 
 // Elements
-export type { ButtonElementStyle } from './elements/resets/button-reset'
 export type { ElementStyles } from './elements/types/element-styles'
+export type { ALinkElementStyle } from './elements/resets/a-link-reset'
+export type { ButtonElementStyle } from './elements/resets/button-reset'
+export type { GLinkElementStyle } from './elements/resets/g-link-reset'
+export type { GridElementStyle } from './elements/resets/grid-reset'
+export type { HeadingElementStyle } from './elements/resets/heading-reset'
+export type { IconElementStyle } from './elements/resets/icon-reset'
+export type { ImageElementStyle } from './elements/resets/image-reset'
+export type { ParagraphElementStyle } from './elements/resets/paragraph-reset'
+export type { BlockquoteElementStyle } from './elements/resets/self-blockquote-reset'
+export type { CodeElementStyle } from './elements/resets/self-code-reset'
+export type { DescriptionListElementStyle } from './elements/resets/self-dl-reset'
+export type { HrElementStyle } from './elements/resets/self-hr-reset'
+export type { ListElementStyle } from './elements/resets/self-list-reset'
+export type { PreElementStyle } from './elements/resets/self-pre-reset'
+export type { StrongElementStyle } from './elements/resets/self-strong-reset'
+export type { TableElementStyle } from './elements/resets/self-table-reset'
+export type { TimeElementStyle } from './elements/resets/self-time-reset'
+export type { VideoElementStyle } from './elements/resets/video-reset'
 
 // Embed
-export { Embed } from './models/embed/embed'
+export { Embed, EmbedStyle } from './models/embed/embed'
 export { EmbedProps } from './models/embed/model-types'
 export { useEmbeds } from './models/embed/use-embed'
 
