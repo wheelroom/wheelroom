@@ -1,11 +1,5 @@
 // Get wheel
-export {
-  getWheel,
-  GetWheel,
-  NcssProps,
-  SectionWheels,
-  Wheel,
-} from './lib/get-wheel'
+export { getWheel, GetWheel, NcssProps, Wheel } from './lib/get-wheel'
 
 // Elements
 export type { ElementStyles } from './elements/types/element-styles'
@@ -62,3 +56,4 @@ export { mapsPreset } from './theme/maps-preset'
 
 // Types
 export { DeepPartial } from './types/deep-partial'
+export { CoreSectionProps, SectionWheels } from './types/core-section-props'

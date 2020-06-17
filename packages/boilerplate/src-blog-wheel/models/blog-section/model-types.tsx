@@ -1,6 +1,6 @@
-import { SectionProps } from '../../../page-template/section-props'
+import { CoreSectionProps } from '../../../src-core'
 
-export interface BlogSectionProps extends SectionProps {
+export interface BlogSectionProps extends CoreSectionProps {
   /** Gatsby fetched data */
   __typename: string
   eventId?: string

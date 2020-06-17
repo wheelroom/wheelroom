@@ -1,5 +1,6 @@
 import { ElementStyles } from '../elements/types/element-styles'
 import { StyledSystemConfig, StyledSystemTheme } from '../theme/types'
+import { SectionWheels } from '../types/core-section-props'
 
 export type NcssProps = any
 
@@ -8,21 +9,6 @@ export interface Wheel {
   style: any
   elementStyles: ElementStyles
   theme: StyledSystemTheme
-  styledSystemConfig: StyledSystemConfig
-}
-
-/** Passed to a Wheelroom page section (wheel) */
-export interface SectionWheels {
-  styles: {
-    [wheelId: string]: {
-      [variation: string]: any
-    }
-  }
-  elementStyles: ElementStyles
-  themes: {
-    [themeId: string]: StyledSystemTheme
-  }
-  defaultTheme: string
   styledSystemConfig: StyledSystemConfig
 }
 
