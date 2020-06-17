@@ -1,6 +1,14 @@
 import { CoreSectionProps } from '../../../src-core'
+import { BlogProps, AllBlogProps } from '../blog/model-types'
 
-export interface BlogSectionProps extends CoreSectionProps {
+export interface InjectedBlogSectionProps {
+  blog: BlogProps
+  allBlog: AllBlogProps
+}
+
+export interface BlogSectionProps
+  extends CoreSectionProps,
+    InjectedBlogSectionProps {
   /** Gatsby fetched data */
   __typename: string
   eventId?: string
