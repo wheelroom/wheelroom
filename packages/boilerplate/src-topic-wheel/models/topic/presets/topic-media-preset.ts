@@ -1,7 +1,9 @@
-import { NcssProps } from '../../../../src-core'
+import {
+  NcssProps,
+  ImageElementStyle,
+  VideoElementStyle,
+} from '../../../../src-core'
 
-import { ImageElementStyle } from '../../../elements/image'
-import { VideoElementStyle } from '../../../elements/video'
 import { EmbedStyle } from '../../../../src-core/models/embed/embed'
 import { MediaBreakpointStyle } from '../../../../src-core/models/media-breakpoint/media-breakpoint'
 
