@@ -47,9 +47,10 @@ export { MediaBreakpointProps } from './models/media-breakpoint/model-types'
 // Page
 export { PageProps } from './models/page/model-types'
 
-// Seo
+// Lib
 export { Seo } from './lib/seo'
 export { SeoProps } from './lib/seo-props'
+export { ScrollSpy } from './lib/scroll-spy'
 
 // Theme
 export { breakpointsPreset } from './theme/breakpoints-preset'

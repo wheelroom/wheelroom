@@ -8,8 +8,7 @@
 
 import React from 'react'
 import { BlogProps } from '../../../src-blog-wheel/models/blog/model-types'
-import { ScrollSpy } from '../../lib/scroll-spy'
-import { getWheel } from '../../lib/get-wheel'
+import { getWheel, ScrollSpy } from '../../../src-core'
 import { List } from './list/list'
 import { BlogSectionProps } from './model-types'
 
