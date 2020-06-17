@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Fluid, Wrapper } from '../../elements/grid'
 import { Wheel } from '../../lib/get-wheel'
-import { PageSectionWheelStyle } from './topic-section-wheel-style'
+import { PageSectionWheelStyle } from './topic-section-style'
 
 export interface PageSectionWheel extends Wheel {
   style: PageSectionWheelStyle

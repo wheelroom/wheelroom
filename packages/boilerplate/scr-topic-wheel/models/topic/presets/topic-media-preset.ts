@@ -1,4 +1,5 @@
-import { NcssProps } from '../../../lib/get-wheel'
+import { NcssProps } from '../../../../src-core'
+
 import { ImageElementStyle } from '../../../elements/image'
 import { VideoElementStyle } from '../../../elements/video'
 import { EmbedStyle } from '../../../../src-core/models/embed/embed'

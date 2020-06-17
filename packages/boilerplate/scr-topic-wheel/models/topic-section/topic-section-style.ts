@@ -1,5 +1,5 @@
-import { GridElementStyle } from '../../elements/resets/grid-reset'
 import { TopicWheelStyle } from '../topic/presets/topic-preset'
+import { GridElementStyle } from '../../../src-core/elements/resets/grid-reset'
 
 export interface PageSectionWheelStyle {
   container: GridElementStyle
