@@ -6,6 +6,7 @@
  */
 
 import { MediaObject } from '../../../src-core'
+import { TopicProps } from '../../../src-topic-wheel'
 
 export interface BlogProps {
   /** Gatsby fetched data */

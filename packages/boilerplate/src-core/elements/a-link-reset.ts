@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface ALinkElementStyle {
-  ncss: NcssProps
-}
+import { ALinkElementStyle } from './a-link'
 
 export const aLinkReset: ALinkElementStyle = {
   ncss: {

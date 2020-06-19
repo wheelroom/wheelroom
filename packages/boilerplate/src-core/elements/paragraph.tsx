@@ -1,9 +1,14 @@
 /** @jsx jsx */
+import { NcssProps } from '../lib/get-wheel'
 import { BlockLevelElementName } from './types/element-names'
-import { paragraphReset } from './resets/paragraph-reset'
 import { LinkRelationshipAttribute } from './types/attribute-names'
 import { ElementProps } from './element'
 import { getSelf } from './self'
+import { paragraphReset } from './paragraph-reset'
+
+export interface ParagraphElementStyle {
+  ncss: NcssProps
+}
 
 export interface ParagraphProps extends ElementProps {
   /** Render as another HTML element */

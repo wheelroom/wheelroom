@@ -1,15 +1,20 @@
 /** @jsx jsx */
+import { NcssProps } from '../lib/get-wheel'
 import { BlockLevelElementName, InlineElementName } from './types/element-names'
+import { LinkRelationshipAttribute } from './types/attribute-names'
+import { ElementProps } from './element'
+import { getSelf } from './self'
 import {
   boxReset,
   containerReset,
   flexReset,
   fluidReset,
   wrapperReset,
-} from './resets/grid-reset'
-import { LinkRelationshipAttribute } from './types/attribute-names'
-import { ElementProps } from './element'
-import { getSelf } from './self'
+} from './grid-reset'
+
+export interface GridElementStyle {
+  ncss: NcssProps
+}
 
 export interface GridProps extends ElementProps {
   /** Aria-modal attribute */

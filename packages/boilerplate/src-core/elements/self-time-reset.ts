@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface TimeElementStyle {
-  ncss: NcssProps
-}
+import { TimeElementStyle } from './self-styles'
 
 export const selfTimeReset: TimeElementStyle = {
   ncss: {

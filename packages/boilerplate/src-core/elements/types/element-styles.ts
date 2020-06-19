@@ -1,23 +1,25 @@
-import { DescriptionListElementStyle } from '../resets/self-dl-reset'
-import { ImageElementStyle } from '../resets/image-reset'
-import { AnyElementStyle } from '../resets/any-reset'
-import { PreElementStyle } from '../resets/self-pre-reset'
-import { ALinkElementStyle } from '../resets/a-link-reset'
-import { GridElementStyle } from '../resets/grid-reset'
-import { ButtonElementStyle } from '../resets/button-reset'
-import { IconElementStyle } from '../resets/icon-reset'
-import { GLinkElementStyle } from '../resets/g-link-reset'
-import { HeadingElementStyle } from '../resets/heading-reset'
-import { ListElementStyle } from '../resets/self-list-reset'
-import { ParagraphElementStyle } from '../resets/paragraph-reset'
-import { VideoElementStyle } from '../resets/video-reset'
-import { HrElementStyle } from '../resets/self-hr-reset'
-import { StrongElementStyle } from '../resets/self-strong-reset'
-import { CodeElementStyle } from '../resets/self-code-reset'
-import { BlockquoteElementStyle } from '../resets/self-blockquote-reset'
-import { TableElementStyle } from '../resets/self-table-reset'
-import { EmbedStyle } from '../../models/embed/embed'
-import { TimeElementStyle } from '../resets/self-time-reset'
+import { ALinkElementStyle } from '../a-link'
+import { AnyElementStyle } from '../any'
+import {
+  BlockquoteElementStyle,
+  CodeElementStyle,
+  DescriptionListElementStyle,
+  HrElementStyle,
+  ListElementStyle,
+  PreElementStyle,
+  StrongElementStyle,
+  TableElementStyle,
+  TimeElementStyle,
+} from '../self-styles'
+import { GridElementStyle } from '../grid'
+import { ButtonElementStyle } from '../button'
+import { EmbedStyle } from '../..'
+import { IconElementStyle } from '../icon'
+import { GLinkElementStyle } from '../g-link'
+import { HeadingElementStyle } from '../heading'
+import { ImageElementStyle } from '../image'
+import { ParagraphElementStyle } from '../paragraph'
+import { VideoElementStyle } from '../video'
 
 export interface ElementStyles {
   a: ALinkElementStyle

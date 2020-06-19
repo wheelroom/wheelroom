@@ -2,9 +2,14 @@
 import { jsx } from '@emotion/core'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../lib/merge-ncss'
+import { NcssProps } from '../lib/get-wheel'
 import { BlockLevelElementName, HeadingName } from './types/element-names'
-import { headingResets } from './resets/heading-reset'
 import { ElementProps, getElementAttrs } from './element'
+import { headingResets } from './heading-reset'
+
+export interface HeadingElementStyle {
+  ncss: NcssProps
+}
 
 export interface HeadingProps extends ElementProps {
   /** Render as another HTML element */

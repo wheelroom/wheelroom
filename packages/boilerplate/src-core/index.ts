@@ -1,60 +1,84 @@
-// Get wheel
-export { getWheel, GetWheel, NcssProps, Wheel } from './lib/get-wheel'
-
-// Elements
-export type { ALinkElementStyle } from './elements/resets/a-link-reset'
-export type { BlockquoteElementStyle } from './elements/resets/self-blockquote-reset'
-export type { ButtonElementStyle } from './elements/resets/button-reset'
-export type { CodeElementStyle } from './elements/resets/self-code-reset'
-export type { DescriptionListElementStyle } from './elements/resets/self-dl-reset'
+export type { ALinkElementStyle } from './elements/a-link'
+export type { AnyProps } from './elements/any'
+export type { BlockquoteElementStyle } from './elements/self-styles'
+export type { ButtonElementStyle } from './elements/button'
+export type { CodeElementStyle } from './elements/self-styles'
+export type { DescriptionListElementStyle } from './elements/self-styles'
 export type { ElementStyles } from './elements/types/element-styles'
-export type { GLinkElementStyle } from './elements/resets/g-link-reset'
-export type { GridElementStyle } from './elements/resets/grid-reset'
-export type { HeadingElementStyle } from './elements/resets/heading-reset'
-export type { HrElementStyle } from './elements/resets/self-hr-reset'
-export type { IconElementStyle } from './elements/resets/icon-reset'
-export type { ImageElementStyle } from './elements/resets/image-reset'
-export type { ListElementStyle } from './elements/resets/self-list-reset'
+export type { GLinkElementStyle } from './elements/g-link'
+export type { GridElementStyle } from './elements/grid'
+export type { GridProps } from './elements/grid'
+export type { HeadingElementStyle } from './elements/heading'
+export type { HrElementStyle } from './elements/self-styles'
+export type { IconElementStyle } from './elements/icon'
+export type { IconProps } from './elements/icon'
+export type { ImageElementStyle } from './elements/image'
+export type { ImageProps } from './elements/image'
+export type { ListElementStyle } from './elements/self-styles'
 export type { MediaObject } from './elements/types/media'
-export type { ParagraphElementStyle } from './elements/resets/paragraph-reset'
-export type { PreElementStyle } from './elements/resets/self-pre-reset'
-export type { StrongElementStyle } from './elements/resets/self-strong-reset'
-export type { TableElementStyle } from './elements/resets/self-table-reset'
-export type { TimeElementStyle } from './elements/resets/self-time-reset'
-export type { VideoElementStyle } from './elements/resets/video-reset'
+export type { ParagraphElementStyle } from './elements/paragraph'
+export type { ParagraphProps } from './elements/paragraph'
+export type { PreElementStyle } from './elements/self-styles'
+export type { StrongElementStyle } from './elements/self-styles'
+export type { TableElementStyle } from './elements/self-styles'
+export type { TimeElementStyle } from './elements/self-styles'
+export type { VideoElementStyle } from './elements/video'
+export type { VideoProps } from './elements/video'
 
-// Embed
-export { Embed, EmbedStyle } from './models/embed/embed'
-export { EmbedProps } from './models/embed/model-types'
-export { useEmbeds } from './models/embed/use-embed'
+export {
+  Blockquote,
+  Code,
+  Dd,
+  Dl,
+  Dt,
+  Hr,
+  Li,
+  Ol,
+  Pre,
+  Strong,
+  Table,
+  Time,
+  Ul,
+} from './elements/self'
+export { ALink } from './elements/a-link'
+export { Any } from './elements/any'
+export { Box, Container, Flex, Fluid, Wrapper } from './elements/grid'
+export { Button } from './elements/button'
+export { GLink } from './elements/g-link'
+export { Heading, H1, H2, H3, H4, H5, H6 } from './elements/heading'
+export { Icon } from './elements/icon'
+export { Image } from './elements/image'
+export { Paragraph } from './elements/paragraph'
+export { Video } from './elements/video'
 
-// Glboal reset
-export { classicGlobalReset } from './global-reset/classic-global-reset'
-export { htmlReset } from './global-reset/html-reset'
+export type { ALinkProps } from './elements/a-link'
+export type { ButtonProps } from './elements/button'
+export type { DeepPartial } from './types/deep-partial'
+export type { EmbedProps } from './models/embed/model-types'
+export type { EmbedStyle } from './models/embed/embed'
+export type { GetWheel, NcssProps, Wheel } from './lib/get-wheel'
+export type { GlobalsProps } from './models/globals/model-types'
+export type { HeadingProps } from './elements/heading'
+export type { MediaBreakpointProps } from './models/media-breakpoint/model-types'
+export type { SeoProps } from './lib/seo-props'
+export type { StyledSystemConfig } from './theme/types'
+export type { StyledSystemTheme } from './theme/types'
+export type {
+  CoreSectionProps,
+  SectionWheels,
+} from './types/core-section-props'
 
-// Globals
-export { GlobalsProps } from './models/globals/model-types'
-
-// Media breakpoint
-export { MediaBreakpoint } from './models/media-breakpoint/media-breakpoint'
-export { MediaBreakpointProps } from './models/media-breakpoint/model-types'
-
-// Page
-export { PageProps } from './models/page/model-types'
-
-// Lib
-export { Seo } from './lib/seo'
-export { SeoProps } from './lib/seo-props'
-export { ScrollSpy } from './lib/scroll-spy'
-
-// Theme
 export { breakpointsPreset } from './theme/breakpoints-preset'
-export { StyledSystemConfig } from './theme/types'
-export { StyledSystemTheme } from './theme/types'
-export { scalesPreset } from './theme/scales-preset'
-export { styledSystemConfig } from './theme/styled-system-config'
+export { classicGlobalReset } from './global-reset/classic-global-reset'
+export { Embed } from './models/embed/embed'
+export { getWheel } from './lib/get-wheel'
+export { getVariation } from './lib/get-variation'
+export { htmlReset } from './global-reset/html-reset'
 export { mapsPreset } from './theme/maps-preset'
-
-// Types
-export { DeepPartial } from './types/deep-partial'
-export { CoreSectionProps, SectionWheels } from './types/core-section-props'
+export { MediaBreakpoint } from './models/media-breakpoint/media-breakpoint'
+export { PageProps } from './models/page/model-types'
+export { scalesPreset } from './theme/scales-preset'
+export { ScrollSpy } from './lib/scroll-spy'
+export { Seo } from './lib/seo'
+export { styledSystemConfig } from './theme/styled-system-config'
+export { useEmbeds } from './models/embed/use-embed'

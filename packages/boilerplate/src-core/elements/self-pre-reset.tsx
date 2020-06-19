@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface PreElementStyle {
-  ncss: NcssProps
-}
+import { PreElementStyle } from './self-styles'
 
 export const selfPreReset: PreElementStyle = {
   ncss: {

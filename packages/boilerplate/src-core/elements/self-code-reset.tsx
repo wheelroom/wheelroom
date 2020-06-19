@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface CodeElementStyle {
-  ncss: NcssProps
-}
+import { CodeElementStyle } from './self-styles'
 
 export const selfCodeReset: CodeElementStyle = {
   ncss: {

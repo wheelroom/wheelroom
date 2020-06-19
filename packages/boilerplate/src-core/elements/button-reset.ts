@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface ButtonElementStyle {
-  ncss: NcssProps
-}
+import { ButtonElementStyle } from './button'
 
 export const buttonReset: ButtonElementStyle = {
   ncss: {

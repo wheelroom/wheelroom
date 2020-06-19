@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface BlockquoteElementStyle {
-  ncss: NcssProps
-}
+import { BlockquoteElementStyle } from './self-styles'
 
 export const selfBlockquoteReset: BlockquoteElementStyle = {
   ncss: {

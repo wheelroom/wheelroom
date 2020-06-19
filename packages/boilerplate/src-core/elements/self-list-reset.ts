@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface ListElementStyle {
-  ncss: NcssProps
-}
+import { ListElementStyle } from './self-styles'
 
 export const selfListReset: ListElementStyle = {
   ncss: {

@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface GridElementStyle {
-  ncss: NcssProps
-}
+import { GridElementStyle } from './grid'
 
 export const boxReset: GridElementStyle = {
   ncss: {

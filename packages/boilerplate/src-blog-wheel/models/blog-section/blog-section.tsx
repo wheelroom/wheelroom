@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
+import { getVariation } from '../../../src-core'
 import { BlogSectionBlogVar } from './blog-section-blog-var'
 import { BlogSectionListVar } from './blog-section-list-var'
 import { BlogSectionProps } from './model-types'

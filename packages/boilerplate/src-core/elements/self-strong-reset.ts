@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface StrongElementStyle {
-  ncss: NcssProps
-}
+import { StrongElementStyle } from './self-styles'
 
 export const selfStrongReset: StrongElementStyle = {
   ncss: {

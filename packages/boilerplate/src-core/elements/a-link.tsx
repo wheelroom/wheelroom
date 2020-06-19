@@ -1,8 +1,13 @@
 /** @jsx jsx */
-import { aLinkReset } from './resets/a-link-reset'
+import { NcssProps } from '../lib/get-wheel'
 import { LinkRelationshipAttribute } from './types/attribute-names'
 import { ElementProps } from './element'
 import { getSelf } from './self'
+import { aLinkReset } from './a-link-reset'
+
+export interface ALinkElementStyle {
+  ncss: NcssProps
+}
 
 export interface ALinkProps extends ElementProps {
   /** Link download attribute */
