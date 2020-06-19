@@ -1,14 +1,20 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Any } from '../../../elements/any'
 import { BlogProps } from '../../../../src-blog-wheel/models/blog/model-types'
-import { Container, Fluid, Wrapper, Box, Flex } from '../../../elements/grid'
-import { GLink } from '../../../elements/g-link'
-import { Heading } from '../../../elements/heading'
-import { Image } from '../../../elements/image'
-import { Paragraph } from '../../../elements/paragraph'
-import { Time } from '../../../elements/self'
-import { Wheel } from '../../../lib/get-wheel'
+import {
+  Any,
+  Box,
+  Container,
+  Flex,
+  Fluid,
+  GLink,
+  Heading,
+  Image,
+  Paragraph,
+  Time,
+  Wheel,
+  Wrapper,
+} from '../../../../src-core'
 import { BlogListWheelStyle } from './blog-section-list-preset'
 
 export interface BlogListWheel extends Wheel {

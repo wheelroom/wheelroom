@@ -1,9 +1,11 @@
-import { GridElementStyle } from '../../../elements/resets/grid-reset'
-import { HeadingElementStyle } from '../../../elements/resets/heading-reset'
-import { ImageElementStyle } from '../../../elements/image'
-import { NcssProps } from '../../../lib/get-wheel'
-import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
-import { VideoElementStyle } from '../../../elements/video'
+import {
+  GridElementStyle,
+  NcssProps,
+  ImageElementStyle,
+  VideoElementStyle,
+  HeadingElementStyle,
+  ParagraphElementStyle,
+} from '../../../../src-core'
 
 export interface BlogListWheelStyle {
   container: GridElementStyle
