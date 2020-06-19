@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
+import { getVariation } from '../../../src-core'
 import { NavigationSectionFooterVar } from './navigation-section-footer-var'
 import { NavigationSectionHeaderVar } from './navigation-section-header-var'
 import { NavigationSectionProps } from './model-types'

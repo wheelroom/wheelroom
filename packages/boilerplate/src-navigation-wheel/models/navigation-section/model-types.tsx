@@ -1,7 +1,7 @@
 import { NavigationProps } from '../navigation/model-types'
-import { SectionProps } from '../../../page-template/section-props'
+import { CoreSectionProps } from '../../../src-core';
 
-export interface NavigationSectionProps extends SectionProps {
+export interface NavigationSectionProps extends CoreSectionProps {
   /** Gatsby fetched data */
   __typename: string
   variation?: string
