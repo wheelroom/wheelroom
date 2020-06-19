@@ -1,10 +1,15 @@
 import React from 'react'
-import { ALink } from '../../../elements/a-link'
-import { Any } from '../../../elements/any'
-import { Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
-import { SiteMetadata } from '../../../../page-template/page-template'
-import { Sup } from '../../../elements/paragraph'
-import { Wheel } from '../../../lib/get-wheel'
+import {
+  ALink,
+  Any,
+  Container,
+  CoreSiteMetadata,
+  Flex,
+  Fluid,
+  Wheel,
+  Wrapper,
+} from '../../../../src-core'
+import { Sup } from '../../../../src-core/elements/element/paragraph'
 import { LegalFooterWheelStyle } from './presets/legal-footer-preset'
 
 interface LegalWheel extends Wheel {
@@ -13,7 +18,7 @@ interface LegalWheel extends Wheel {
 
 export interface LegalFooterProps {
   containerStyle: 'container' | 'fluid'
-  siteMetadata: SiteMetadata
+  siteMetadata: CoreSiteMetadata
   wheel: LegalWheel
 }
 

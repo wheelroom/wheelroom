@@ -1,5 +1,4 @@
-import { NcssProps } from '../../../lib/get-wheel'
-import { IconElementStyle } from '../../../elements/resets/icon-reset'
+import { NcssProps, IconElementStyle } from '../../../../src-core'
 
 export interface BrandNavigationSegmentWheelStyle {
   ncss: NcssProps

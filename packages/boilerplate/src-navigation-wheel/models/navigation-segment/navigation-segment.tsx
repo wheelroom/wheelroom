@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react'
-import { Flex } from '../../elements/grid'
-import { H3 } from '../../elements/heading'
-import { Wheel } from '../../lib/get-wheel'
+import { Wheel, Flex, H3 } from '../../../src-core'
 import { NavigationSegmentWheelStyle } from './presets/navigation-segment-preset'
 import { NavigationSegmentProps } from './model-types'
 import { NavigationSegmentList } from './navigation-segment-list'

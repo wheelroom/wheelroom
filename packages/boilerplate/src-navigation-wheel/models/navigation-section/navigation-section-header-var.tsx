@@ -7,8 +7,7 @@
  */
 
 import React from 'react'
-import { ScrollSpy } from '../../lib/scroll-spy'
-import { getWheel } from '../../lib/get-wheel'
+import { getWheel, ScrollSpy } from '../../../src-core'
 import { NavigationHeader } from './header/navigation-header'
 import { NavigationSectionProps } from './model-types'
 

@@ -1,7 +1,9 @@
-import { NcssProps } from '../../../../lib/get-wheel'
-import { ALinkElementStyle } from '../../../../elements/resets/a-link-reset'
-import { ParagraphElementStyle } from '../../../../elements/resets/paragraph-reset'
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
+import {
+  GridElementStyle,
+  NcssProps,
+  ALinkElementStyle,
+  ParagraphElementStyle,
+} from '../../../../../src-core'
 
 export interface LegalFooterWheelStyle {
   wrapper: GridElementStyle

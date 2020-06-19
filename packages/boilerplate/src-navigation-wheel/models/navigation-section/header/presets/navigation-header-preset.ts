@@ -1,14 +1,16 @@
-import { NcssProps } from '../../../../lib/get-wheel'
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
 import {
   BrandNavigationSegmentWheelStyle,
   brandNavigationSegmentPreset,
 } from '../../../navigation-segment/presets/brand-navigation-segment-preset'
-import { ButtonElementStyle } from '../../../../elements/resets/button-reset'
 import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,
 } from '../../../navigation-segment/presets/navigation-segment-preset'
+import {
+  NcssProps,
+  GridElementStyle,
+  ButtonElementStyle,
+} from '../../../../../src-core'
 import { ModalWheelStyle, modalPreset } from './modal-preset'
 
 export interface NavigationHeaderWheelStyle {

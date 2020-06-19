@@ -1,9 +1,8 @@
-import { NcssProps } from '../../../../lib/get-wheel'
-import { ButtonElementStyle } from '../../../../elements/resets/button-reset'
 import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,
 } from '../../../navigation-segment/presets/navigation-segment-preset'
+import { NcssProps, ButtonElementStyle } from '../../../../../src-core'
 import {
   modalDialogContentOpenPreset,
   modalDialogContentPreset,

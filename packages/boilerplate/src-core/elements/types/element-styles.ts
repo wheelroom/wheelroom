@@ -1,5 +1,5 @@
 import { ALinkElementStyle } from '../element/a-link'
-import { AnyElementStyle } from '../any'
+import { AnyElementStyle } from '../element/any'
 import {
   BlockquoteElementStyle,
   CodeElementStyle,
@@ -10,16 +10,16 @@ import {
   StrongElementStyle,
   TableElementStyle,
   TimeElementStyle,
-} from '../self-styles'
-import { GridElementStyle } from '../grid'
-import { ButtonElementStyle } from '../button'
-import { EmbedStyle } from '../..'
-import { IconElementStyle } from '../icon'
-import { GLinkElementStyle } from '../g-link'
-import { HeadingElementStyle } from '../heading'
-import { ImageElementStyle } from '../image'
-import { ParagraphElementStyle } from '../paragraph'
-import { VideoElementStyle } from '../video'
+} from '../self/self-styles'
+import { ButtonElementStyle } from '../element/button'
+import { EmbedStyle } from '../../models/embed/embed'
+import { GLinkElementStyle } from '../element/g-link'
+import { GridElementStyle } from '../element/grid'
+import { HeadingElementStyle } from '../element/heading'
+import { IconElementStyle } from '../element/icon'
+import { ImageElementStyle } from '../element/image'
+import { ParagraphElementStyle } from '../element/paragraph'
+import { VideoElementStyle } from '../element/video'
 
 export interface ElementStyles {
   a: ALinkElementStyle

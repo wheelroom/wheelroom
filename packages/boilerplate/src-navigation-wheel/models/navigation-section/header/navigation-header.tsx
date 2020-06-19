@@ -1,15 +1,21 @@
 import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { ALink } from '../../../elements/a-link'
-import { Box, Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
 import { BrandNavigationSegment } from '../../navigation-segment/brand-navigation-segment'
-import { Button } from '../../../elements/button'
-import { GlobalsProps } from '../../globals/model-types'
 import { NavigationProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
-import { Wheel } from '../../../lib/get-wheel'
+import {
+  ALink,
+  Box,
+  Button,
+  Container,
+  Flex,
+  Fluid,
+  GlobalsProps,
+  Wheel,
+  Wrapper,
+} from '../../../../src-core'
 import { Modal } from './modal'
 import { NavigationHeaderWheelStyle } from './presets/navigation-header-preset'
 import { ThemeButton } from './theme-button'

@@ -1,12 +1,12 @@
 import { NcssProps, Wheel } from '../lib/get-wheel'
 import { ALinkProps } from './element/a-link'
-import { AnyProps } from './any'
-import { ButtonProps } from './button'
-import { GLinkProps } from './g-link'
-import { GridProps } from './grid'
-import { HeadingProps } from './heading'
-import { FeatherIconProps, TextIconProps } from './icon'
-import { ParagraphProps } from './paragraph'
+import { AnyProps } from './element/any'
+import { ButtonProps } from './element/button'
+import { GLinkProps } from './element/g-link'
+import { GridProps } from './element/grid'
+import { HeadingProps } from './element/heading'
+import { FeatherIconProps, TextIconProps } from './element/icon'
+import { ParagraphProps } from './element/paragraph'
 
 export interface ElementProps {
   /** Aria-hidden attribute */

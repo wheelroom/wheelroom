@@ -1,10 +1,8 @@
 import React from 'react'
-import { Box, Flex } from '../../../elements/grid'
-import { Button } from '../../../elements/button'
-import { FeatherIcon } from '../../../elements/icon'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { Wheel } from '../../../lib/get-wheel'
+import { Box, Wheel, Flex, Button } from '../../../../src-core'
+import { FeatherIcon } from '../../../../src-core/elements/element/icon'
 import { ThemeButton } from './theme-button'
 import { ModalWheelStyle } from './presets/modal-preset'
 

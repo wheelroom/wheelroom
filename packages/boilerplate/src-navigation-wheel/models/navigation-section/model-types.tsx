@@ -1,5 +1,5 @@
 import { NavigationProps } from '../navigation/model-types'
-import { CoreSectionProps } from '../../../src-core';
+import { CoreSectionProps } from '../../../src-core'
 
 export interface NavigationSectionProps extends CoreSectionProps {
   /** Gatsby fetched data */

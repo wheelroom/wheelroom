@@ -1,9 +1,8 @@
-import { NcssProps } from '../../../../lib/get-wheel'
-import { GridElementStyle } from '../../../../elements/resets/grid-reset'
 import {
   NavigationSegmentWheelStyle,
   navigationSegmentPreset,
 } from '../../../navigation-segment/presets/navigation-segment-preset'
+import { GridElementStyle, NcssProps } from '../../../../../src-core'
 import { LegalFooterWheelStyle, legalFooterPreset } from './legal-footer-preset'
 
 export interface NavigationFooterWheelStyle {

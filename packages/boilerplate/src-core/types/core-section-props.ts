@@ -1,7 +1,9 @@
 import { NamedPaths } from 'gatsby-theme-wheelroom'
 import { StyledSystemTheme, StyledSystemConfig } from '@wheelroom/styled-system'
 import { ElementStyles } from '../elements/types/element-styles'
-import { GlobalsProps, PageProps } from '../../src-core'
+import { PageProps } from '../models/page/model-types'
+import { GlobalsProps } from '../models/globals/model-types'
+import { CoreSiteMetadata } from './core-site-metadata'
 
 /** Passed to a Wheelroom page section (wheel) */
 export interface SectionWheels {
@@ -41,4 +43,6 @@ export interface CoreSectionProps {
   sectionWheels: SectionWheels
   /** Section variation */
   variation?: string
+  /** Default site metadata */
+  siteMetadata: CoreSiteMetadata
 }

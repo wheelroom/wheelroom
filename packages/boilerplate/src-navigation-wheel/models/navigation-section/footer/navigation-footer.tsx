@@ -1,11 +1,16 @@
 import React, { Fragment } from 'react'
-import { Container, Flex, Fluid, Wrapper } from '../../../elements/grid'
-import { GlobalsProps } from '../../globals/model-types'
 import { NavigationProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
-import { SiteMetadata } from '../../../../page-template/page-template'
-import { Wheel } from '../../../lib/get-wheel'
+import {
+  Container,
+  CoreSiteMetadata,
+  Flex,
+  Fluid,
+  GlobalsProps,
+  Wheel,
+  Wrapper,
+} from '../../../../src-core'
 import { NavigationFooterWheelStyle } from './presets/navigation-footer-preset'
 import { LegalFooter } from './legal-footer'
 
@@ -17,7 +22,7 @@ export interface NavigationFooterWheelProps {
   containerStyle: 'container' | 'fluid'
   globals: GlobalsProps
   navigation: NavigationProps[]
-  siteMetaData: SiteMetadata
+  siteMetaData: CoreSiteMetadata
   wheel: NavigationFooterWheel
 }
 
