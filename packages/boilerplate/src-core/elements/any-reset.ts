@@ -1,4 +1,3 @@
-import { NcssProps } from '../../lib/get-wheel'
 import { aLinkReset } from './a-link-reset'
 import { selfBlockquoteReset } from './self-blockquote-reset'
 import { buttonReset } from './button-reset'
@@ -17,16 +16,6 @@ import { paragraphReset } from './paragraph-reset'
 import { selfPreReset } from './self-pre-reset'
 import { selfStrongReset } from './self-strong-reset'
 import { selfTableReset } from './self-table-reset'
-
-export interface AnyElementStyle {
-  ncss: NcssProps
-}
-
-export const anyPreset: AnyElementStyle = {
-  ncss: {
-    boxSizing: 'border-box',
-  },
-}
 
 export const anyResetMap = {
   a: aLinkReset,

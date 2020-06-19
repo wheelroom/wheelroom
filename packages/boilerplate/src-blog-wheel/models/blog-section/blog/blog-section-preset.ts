@@ -1,11 +1,16 @@
-import { GridElementStyle } from '../../../elements/resets/grid-reset'
-import { HeadingElementStyle } from '../../../elements/resets/heading-reset'
-import { ImageElementStyle } from '../../../elements/image'
-import { NcssProps } from '../../../lib/get-wheel'
-import { ParagraphElementStyle } from '../../../elements/resets/paragraph-reset'
-import { TextWheelStyle, textPreset } from '../../text/text-preset'
-import { TopicWheelStyle } from '../../topic/presets/topic-preset'
-import { VideoElementStyle } from '../../../elements/video'
+import {
+  GridElementStyle,
+  HeadingElementStyle,
+  ImageElementStyle,
+  NcssProps,
+  ParagraphElementStyle,
+  VideoElementStyle,
+} from '../../../../src-core'
+import {
+  TextWheelStyle,
+  textPreset,
+} from '../../../../src-text-wheel/models/text/text-preset'
+import { TopicWheelStyle } from '../../../../src-topic-wheel/models/topic/presets/topic-preset'
 
 export interface BlogWheelStyle {
   container: GridElementStyle

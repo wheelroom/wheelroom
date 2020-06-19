@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface IconElementStyle {
-  ncss: NcssProps
-}
+import { IconElementStyle } from './icon'
 
 export const featherIconElementStyle: IconElementStyle = {
   ncss: {

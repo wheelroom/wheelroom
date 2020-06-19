@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface DescriptionListElementStyle {
-  ncss: NcssProps
-}
+import { DescriptionListElementStyle } from './self-styles'
 
 export const selfDdReset: DescriptionListElementStyle = {
   ncss: {

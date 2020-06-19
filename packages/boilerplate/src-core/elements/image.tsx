@@ -7,7 +7,7 @@ import {
   imageFigcaptionReset,
   imageImgReset,
   imagePictureReset,
-} from './resets/image-reset'
+} from './image-reset'
 import { MediaObject } from './types/media'
 
 export interface ImageElementStyle {

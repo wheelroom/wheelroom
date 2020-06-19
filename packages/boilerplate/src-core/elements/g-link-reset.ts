@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface GLinkElementStyle {
-  ncss: NcssProps
-}
+import { GLinkElementStyle } from './g-link'
 
 export const gLinkReset: GLinkElementStyle = {
   ncss: {

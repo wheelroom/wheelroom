@@ -1,8 +1,13 @@
 /** @jsx jsx */
 import React from 'react'
-import { buttonReset } from './resets/button-reset'
+import { NcssProps } from '../lib/get-wheel'
 import { ElementProps } from './element'
 import { getSelf } from './self'
+import { buttonReset } from './button-reset'
+
+export interface ButtonElementStyle {
+  ncss: NcssProps
+}
 
 export interface ButtonProps extends ElementProps {
   /** Button aria-controls attribute */

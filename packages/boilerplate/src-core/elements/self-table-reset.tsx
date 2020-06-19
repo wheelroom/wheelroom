@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface TableElementStyle {
-  ncss: NcssProps
-}
+import { TableElementStyle } from './self-styles'
 
 export const selfTableReset: TableElementStyle = {
   ncss: {

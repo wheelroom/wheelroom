@@ -3,8 +3,13 @@ import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../lib/merge-ncss'
-import { gLinkReset } from './resets/g-link-reset'
+import { NcssProps } from '../lib/get-wheel'
 import { ElementProps, getElementAttrs } from './element'
+import { gLinkReset } from './g-link-reset'
+
+export interface GLinkElementStyle {
+  ncss: NcssProps
+}
 
 export interface GLinkProps extends ElementProps {
   /** URL attribute */

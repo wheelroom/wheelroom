@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface HeadingElementStyle {
-  ncss: NcssProps
-}
+import { HeadingElementStyle } from './heading'
 
 export const headingReset: HeadingElementStyle = {
   ncss: {

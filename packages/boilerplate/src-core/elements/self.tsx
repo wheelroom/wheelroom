@@ -2,31 +2,32 @@
 import { jsx } from '@emotion/core'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../lib/merge-ncss'
-import { ListElementStyle, selfListReset } from './resets/self-list-reset'
 import { ElementProps, getElementAttrs } from './element'
 import {
+  ListElementStyle,
   BlockquoteElementStyle,
-  selfBlockquoteReset,
-} from './resets/self-blockquote-reset'
-import { CodeElementStyle, selfCodeReset } from './resets/self-code-reset'
-import {
+  CodeElementStyle,
   DescriptionListElementStyle,
-  selfDdReset,
-  selfDlReset,
-  selfDtReset,
-} from './resets/self-dl-reset'
-import { HrElementStyle, selfHrReset } from './resets/self-hr-reset'
-import { PreElementStyle, selfPreReset } from './resets/self-pre-reset'
-import { StrongElementStyle, selfStrongReset } from './resets/self-strong-reset'
-import {
+  HrElementStyle,
+  PreElementStyle,
+  StrongElementStyle,
   TableElementStyle,
+} from './self-styles'
+import { selfBlockquoteReset } from './self-blockquote-reset'
+import { selfCodeReset } from './self-code-reset'
+import { selfDdReset, selfDlReset, selfDtReset } from './self-dl-reset'
+import { selfHrReset } from './self-hr-reset'
+import { selfListReset } from './self-list-reset'
+import { selfPreReset } from './self-pre-reset'
+import { selfStrongReset } from './self-strong-reset'
+import {
   selfTableReset,
   selfTdReset,
-  selfTrReset,
   selfThReset,
-} from './resets/self-table-reset'
+  selfTrReset,
+} from './self-table-reset'
+import { selfTimeReset } from './self-time-reset'
 import { ElementStyles } from './types/element-styles'
-import { selfTimeReset } from './resets/self-time-reset'
 
 export type SelfReset =
   | ListElementStyle

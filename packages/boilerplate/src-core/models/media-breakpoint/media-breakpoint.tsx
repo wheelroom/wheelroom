@@ -4,10 +4,7 @@ import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { NcssProps, Wheel } from '../../lib/get-wheel'
 import { MediaObject } from '../../elements/types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
-import {
-  imageImgReset,
-  imagePictureReset,
-} from '../../elements/resets/image-reset'
+import { imageImgReset, imagePictureReset } from '../../elements/image-reset'
 
 export interface MediaBreakpointStyle {
   img: {

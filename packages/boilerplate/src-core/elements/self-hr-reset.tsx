@@ -1,8 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
-
-export interface HrElementStyle {
-  ncss: NcssProps
-}
+import { HrElementStyle } from './self-styles'
 
 export const selfHrReset: HrElementStyle = {
   ncss: {
