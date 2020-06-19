@@ -22,7 +22,7 @@ import {
   Ul,
   Pre,
   Strong,
-} from '../../../src-core/elements/self'
+} from '../../../src-core/elements/self/self'
 import { ALink } from '../../../src-core/elements/a-link'
 
 import { Embed } from '../embed/embed'

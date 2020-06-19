@@ -1,4 +1,4 @@
-import { ALinkElementStyle } from '../a-link'
+import { ALinkElementStyle } from '../element/a-link'
 import { AnyElementStyle } from '../any'
 import {
   BlockquoteElementStyle,

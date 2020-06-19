@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
-import { mergeNcss } from '../lib/merge-ncss'
-import { NcssProps } from '../lib/get-wheel'
-import { BlockLevelElementName, HeadingName } from './types/element-names'
-import { ElementProps, getElementAttrs } from './element'
+import { mergeNcss } from '../../lib/merge-ncss'
+import { NcssProps } from '../../lib/get-wheel'
+import { BlockLevelElementName, HeadingName } from '../types/element-names'
+import { ElementProps, getElementAttrs } from '../element'
 import { headingResets } from './heading-reset'
 
 export interface HeadingElementStyle {

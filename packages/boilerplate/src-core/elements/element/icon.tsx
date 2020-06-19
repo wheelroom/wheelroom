@@ -1,9 +1,9 @@
 import React from 'react'
-import { IconMap } from '../svg/feather/iconMap'
-import { mergeNcss } from '../lib/merge-ncss'
-import { NcssProps } from '../lib/get-wheel'
+import { IconMap } from '../../svg/feather/iconMap'
+import { mergeNcss } from '../../lib/merge-ncss'
+import { NcssProps } from '../../lib/get-wheel'
+import { ElementProps, getElementAttrs } from '../element'
 import { Box } from './grid'
-import { ElementProps, getElementAttrs } from './element'
 import { featherIconElementStyle, textIconElementStyle } from './icon-reset'
 
 export interface FeatherIconProps extends ElementProps {

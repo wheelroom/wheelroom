@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import React from 'react'
-import { NcssProps } from '../lib/get-wheel'
-import { ElementProps } from './element'
-import { getSelf } from './self'
+import { NcssProps } from '../../lib/get-wheel'
+import { ElementProps } from '../element'
+import { getSelf } from '../self/self'
 import { buttonReset } from './button-reset'
 
 export interface ButtonElementStyle {

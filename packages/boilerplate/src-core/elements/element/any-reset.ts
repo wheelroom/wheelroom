@@ -1,7 +1,12 @@
+import { selfBlockquoteReset } from '../self/self-blockquote-reset'
+import { selfCodeReset } from '../self/self-code-reset'
+import { selfHrReset } from '../self/self-hr-reset'
+import { selfListReset } from '../self/self-list-reset'
+import { selfPreReset } from '../self/self-pre-reset'
+import { selfStrongReset } from '../self/self-strong-reset'
+import { selfTableReset } from '../self/self-table-reset'
 import { aLinkReset } from './a-link-reset'
-import { selfBlockquoteReset } from './self-blockquote-reset'
 import { buttonReset } from './button-reset'
-import { selfCodeReset } from './self-code-reset'
 import {
   heading1Reset,
   heading2Reset,
@@ -10,12 +15,7 @@ import {
   heading5Reset,
   heading6Reset,
 } from './heading-reset'
-import { selfHrReset } from './self-hr-reset'
-import { selfListReset } from './self-list-reset'
 import { paragraphReset } from './paragraph-reset'
-import { selfPreReset } from './self-pre-reset'
-import { selfStrongReset } from './self-strong-reset'
-import { selfTableReset } from './self-table-reset'
 
 export const anyResetMap = {
   a: aLinkReset,

@@ -1,11 +1,14 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
-import { mergeNcss } from '../lib/merge-ncss'
-import { NcssProps } from '../lib/get-wheel'
-import { BlockLevelElementName, InlineElementName } from './types/element-names'
-import { ElementProps, getElementAttrs } from './element'
-import { ElementStyles } from './types/element-styles'
+import { mergeNcss } from '../../lib/merge-ncss'
+import { NcssProps } from '../../lib/get-wheel'
+import {
+  BlockLevelElementName,
+  InlineElementName,
+} from '../types/element-names'
+import { ElementProps, getElementAttrs } from '../element'
+import { ElementStyles } from '../types/element-styles'
 import { anyResetMap } from './any-reset'
 
 export interface AnyElementStyle {

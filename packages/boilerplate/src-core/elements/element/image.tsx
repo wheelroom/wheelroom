@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
-import { NcssProps, Wheel } from '../lib/get-wheel'
-import { mergeNcss } from '../lib/merge-ncss'
+import { NcssProps, Wheel } from '../../lib/get-wheel'
+import { mergeNcss } from '../../lib/merge-ncss'
+import { MediaObject } from '../types/media'
 import {
   imageFigcaptionReset,
   imageImgReset,
   imagePictureReset,
 } from './image-reset'
-import { MediaObject } from './types/media'
 
 export interface ImageElementStyle {
   picture: {
