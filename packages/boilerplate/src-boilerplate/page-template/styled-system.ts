@@ -3,7 +3,7 @@ import {
   mapsPreset,
   scalesPreset,
   StyledSystemTheme,
-} from '../../wheelroom'
+} from '../../src-core'
 import { colors } from './colors'
 
 export const dark: StyledSystemTheme = {
@@ -12,6 +12,5 @@ export const dark: StyledSystemTheme = {
   ...scalesPreset,
   colorMap: {
     ...colors,
-
   },
 }

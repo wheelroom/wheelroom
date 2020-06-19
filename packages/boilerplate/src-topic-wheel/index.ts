@@ -7,6 +7,6 @@ export { Topic } from './models/topic/topic'
 export { TopicProps } from './models/topic/model-types'
 
 // Topic section
-export { PageSection } from './models/topic-section/topic-section'
-export { PageSectionProps } from './models/topic-section/model-types'
+export { TopicSection } from './models/topic-section/topic-section'
+export { TopicSectionProps } from './models/topic-section/model-types'
 export type { PageSectionWheelStyle } from './models/topic-section/topic-section-style'

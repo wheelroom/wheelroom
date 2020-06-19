@@ -29,14 +29,16 @@ export interface CoreSectionProps {
 
   /** Contentful type name */
   __typename: string
+  /** Active theme id from theme switcher admin module */
+  activeThemeId: string
   /** index can be used by sections */
   index: number
   /** the current (two characters) locale */
   locale: string
   /** an object with path names and there actual (localized) paths */
   namedPaths: NamedPaths
-  /** Active theme id from theme switcher admin module */
-  activeThemeId: string
   /** Section wheels */
   sectionWheels: SectionWheels
+  /** Section variation */
+  variation?: string
 }

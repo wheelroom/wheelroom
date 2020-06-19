@@ -1,13 +1,11 @@
 import React from 'react'
-import {
-  BlogSection,
-  NavigationSection,
-  PageSection,
-  TableSection,
-  TextSection,
-} from '../wheelroom'
-import { Landmarks } from './landmarks'
 
+import { BlogSection } from '../../src-blog-wheel'
+import { TextSection } from '../../src-text-wheel'
+import { NavigationSection } from '../../src-navigation-wheel'
+import { TableSection } from '../../src-table-wheel'
+import { TopicSection } from '../../src-topic-wheel'
+import { Landmarks } from './landmarks'
 import { SectionProps } from './section-props'
 
 export interface SectionMap {
@@ -17,7 +15,7 @@ export interface SectionMap {
 const sectionMap: SectionMap = {
   ContentfulBlogSection: BlogSection,
   ContentfulNavigationSection: NavigationSection,
-  ContentfulPageSection: PageSection,
+  ContentfulTopicSection: TopicSection,
   ContentfulTableSection: TableSection,
   ContentfulTextSection: TextSection,
 }
