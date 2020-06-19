@@ -1,4 +1,4 @@
-import { NcssProps } from '../lib/get-wheel'
+import { ImageElementStyle } from './image'
 
 export const imageImgReset: ImageElementStyle = {
   ncss: {

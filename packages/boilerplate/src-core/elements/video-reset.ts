@@ -1,4 +1,4 @@
-import { NcssProps } from '../lib/get-wheel'
+import { VideoElementStyle } from './video'
 
 export const videoVideoElementStyle: VideoElementStyle = {
   ncss: {
