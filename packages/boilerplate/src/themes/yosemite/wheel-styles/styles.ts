@@ -1,4 +1,9 @@
-import { SectionWheelThemeStyles } from '../../../../src-core'
+import { SectionWheelThemeStyles, deepMerge } from '../../../../src-core'
+import { topicPreset } from '../../../../src-topic-wheel/models/topic/presets/topic-preset'
+import {
+  navigationHeaderPreset,
+  navigationFooterPreset,
+} from '../../../../src-navigation-wheel'
 import { blogSectionBlogStyle } from './blog/blog-style'
 import { blogSectionListStyle } from './blog/list-style'
 import { navigationSectionHeaderStyle } from './navigation/header-style'
@@ -15,26 +20,28 @@ import { topicSectionQuoteStyle } from './topic/quote-style'
 import { topicSectionShowcaseStyle } from './topic/showcase-style'
 import { topicSectionVideoStyle } from './topic/video-style'
 
+const mergeTopic = (style: any) => deepMerge([{ topic: topicPreset }, style])
+
 export const styles: SectionWheelThemeStyles = {
   blogSection: {
     blog: blogSectionBlogStyle,
     list: blogSectionListStyle,
   },
   navigationSection: {
-    header: navigationSectionHeaderStyle,
-    footer: navigationSectionFooterStyle,
+    header: deepMerge([navigationHeaderPreset, navigationSectionHeaderStyle]),
+    footer: deepMerge([navigationFooterPreset, navigationSectionFooterStyle]),
   },
   topicSection: {
-    block: topicSectionBlockStyle,
-    card: topicSectionCardStyle,
-    divider: topicSectionDividerStyle,
-    feature: topicSectionFeaturedStyle,
-    gallery: topicSectionGalleryStyle,
-    headline: topicSectionHeadlineStyle,
-    hero: topicSectionHeroStyle,
-    image: topicSectionImageStyle,
-    quote: topicSectionQuoteStyle,
-    showcase: topicSectionShowcaseStyle,
-    video: topicSectionVideoStyle,
+    block: mergeTopic(topicSectionBlockStyle),
+    card: mergeTopic(topicSectionCardStyle),
+    divider: mergeTopic(topicSectionDividerStyle),
+    featured: mergeTopic(topicSectionFeaturedStyle),
+    gallery: mergeTopic(topicSectionGalleryStyle),
+    headline: mergeTopic(topicSectionHeadlineStyle),
+    hero: mergeTopic(topicSectionHeroStyle),
+    image: mergeTopic(topicSectionImageStyle),
+    quote: mergeTopic(topicSectionQuoteStyle),
+    showcase: mergeTopic(topicSectionShowcaseStyle),
+    video: mergeTopic(topicSectionVideoStyle),
   },
 }

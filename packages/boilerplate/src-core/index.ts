@@ -89,6 +89,7 @@ export { Video } from './elements/element/video'
 
 export { breakpointsPreset } from './theme/breakpoints-preset'
 export { classicGlobalReset } from './global-reset/classic-global-reset'
+export { deepMerge } from './lib/deep-merge'
 export { getVariation } from './lib/get-variation'
 export { getWheel } from './lib/get-wheel'
 export { htmlReset } from './global-reset/html-reset'
