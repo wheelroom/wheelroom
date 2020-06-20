@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from '../element'
+import { ElementStyles } from '../types/element-styles'
 import {
   ListElementStyle,
   BlockquoteElementStyle,
@@ -27,7 +28,6 @@ import {
   selfTrReset,
 } from './self-table-reset'
 import { selfTimeReset } from './self-time-reset'
-import { ElementStyles } from '../types/element-styles'
 
 export type SelfReset =
   | ListElementStyle

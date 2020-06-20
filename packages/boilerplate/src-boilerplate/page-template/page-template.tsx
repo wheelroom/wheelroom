@@ -7,18 +7,18 @@ import {
 } from '@wheelroom/admin-page-preview'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { getTheme } from '../themes/themes'
 import { ThemeId } from '../admin-resources/theme-info'
 import {
-  BlogProps,
   classicGlobalReset,
   GlobalsProps,
   htmlReset,
-  PageProps,
   Seo,
   SeoProps,
   useEmbeds,
-} from '../wheelroom'
+  PageProps,
+  CoreSiteMetadata,
+} from '../../src-core'
+import { BlogProps } from '../../src-blog-wheel'
 import { Sections } from './sections'
 
 // This is the main template used for all pages. Adding a section property here
@@ -48,7 +48,7 @@ const PageTemplate = (props: any) => {
   const allBlog: BlogProps[] = props.data.allBlog
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
-  const siteMetadata: SiteMetadata = props.data.site.siteMetadata
+  const siteMetadata: CoreSiteMetadata = props.data.site.siteMetadata
   const siteVersion = siteMetadata.siteVersion
   const sections = page.sections
   const sectionProps = {
@@ -154,4 +154,3 @@ export const query = graphql`
     }
   }
 `
-

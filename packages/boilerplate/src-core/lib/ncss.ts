@@ -1,0 +1,1 @@
+export type NcssProps = any

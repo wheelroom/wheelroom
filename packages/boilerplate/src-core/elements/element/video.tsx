@@ -2,9 +2,10 @@
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
-import { NcssProps, Wheel } from '../../lib/wheel'
-import { mergeNcss } from '../../lib/merge-ncss'
 import { MediaObject } from '../types/media'
+import { mergeNcss } from '../../lib/merge-ncss'
+import { NcssProps } from '../../lib/ncss'
+import { Wheel } from '../../lib/wheel'
 import { videoDescriptionReset, videoVideoElementStyle } from './video-reset'
 
 export interface VideoElementStyle {

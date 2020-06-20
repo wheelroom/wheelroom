@@ -1,24 +1,8 @@
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { StyledSystemTheme, StyledSystemConfig } from '@wheelroom/styled-system'
-import { ElementStyles } from '../elements/types/element-styles'
 import { PageProps } from '../models/page/model-types'
 import { GlobalsProps } from '../models/globals/model-types'
 import { CoreSiteMetadata } from './core-site-metadata'
-
-/** Passed to a Wheelroom page section (wheel) */
-export interface SectionWheels {
-  styles: {
-    [wheelId: string]: {
-      [variation: string]: any
-    }
-  }
-  elementStyles: ElementStyles
-  themes: {
-    [themeId: string]: StyledSystemTheme
-  }
-  defaultTheme: string
-  styledSystemConfig: StyledSystemConfig
-}
+import { SectionWheels } from './section-wheels'
 
 /** These are suitable defaults, you probably want to add some props specific
  * for this project

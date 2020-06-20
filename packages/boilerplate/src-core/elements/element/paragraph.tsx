@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { NcssProps } from '../../lib/wheel'
+import { NcssProps } from '../../lib/ncss'
 import { BlockLevelElementName } from '../types/element-names'
 import { LinkRelationshipAttribute } from '../types/attribute-names'
 import { ElementProps } from '../element'

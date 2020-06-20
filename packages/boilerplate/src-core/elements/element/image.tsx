@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
-import { NcssProps, Wheel } from '../../lib/wheel'
+import { Wheel } from '../../lib/wheel'
+import { NcssProps } from '../../lib/ncss'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { MediaObject } from '../types/media'
 import {

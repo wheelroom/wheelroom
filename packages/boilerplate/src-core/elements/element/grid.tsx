@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { NcssProps } from '../../lib/wheel'
+import { NcssProps } from '../../lib/ncss'
 import {
   BlockLevelElementName,
   InlineElementName,
