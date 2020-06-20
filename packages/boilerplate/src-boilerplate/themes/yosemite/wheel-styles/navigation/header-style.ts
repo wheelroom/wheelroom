@@ -1,10 +1,10 @@
-import { NavigationHeaderWheelStyle } from '../../../../../wheelroom'
-import { wrapperStyle } from '../elements/grid-style'
+import { NavigationHeaderWheelStyle } from '../../../../../src-navigation-wheel'
+import { wrapperStyle } from '../shared-styles/grid-style'
 import {
   primaryButtonStyle,
   secondaryButtonStyle,
-} from '../elements/button-style'
-import { iconButtonSmallStyle } from '../elements/icon-style'
+} from '../../element-styles/button-style'
+import { iconButtonSmallStyle } from '../shared-styles/icon-style'
 
 export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
   skipToContent: {

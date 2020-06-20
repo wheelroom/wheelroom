@@ -1,7 +1,7 @@
-import { wrapperStyle } from '../element-styles/grid-style'
-import { TableSectionWheelStyle } from '../../../../../wheelroom'
-import { iconSmallTopicStyle } from '../element-styles/icon-style'
-import { embedStyle } from '../element-styles/embed-style'
+import { TableSectionWheelStyle } from '../../../../../src-table-wheel'
+import { iconSmallTopicStyle } from '../shared-styles/icon-style'
+import { embedStyle } from '../shared-styles/embed-style'
+import { wrapperStyle } from '../shared-styles/grid-style'
 
 export const tableSectionPriceStyle: TableSectionWheelStyle = {
   container: {

@@ -1,5 +1,5 @@
-import { BlogListWheelStyle } from '../../../../../wheelroom'
-import { wrapperStyle } from '../../../themes/glacier/element-styles/grid-style'
+import { BlogListWheelStyle } from '../../../../../src-blog-wheel'
+import { wrapperStyle } from '../shared-styles/grid-style'
 
 export const blogSectionListStyle: BlogListWheelStyle = {
   container: {

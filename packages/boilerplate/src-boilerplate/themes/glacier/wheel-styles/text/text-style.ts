@@ -1,7 +1,7 @@
-import { containerStyle, wrapperStyle } from '../../../themes/glacier/element-styles/grid-style'
-import { embedStyle } from '../../../themes/glacier/element-styles/embed-style'
-import { headingTextStyle } from '../../../themes/glacier/element-styles/heading-style'
-import { TextSectionWheelStyle } from '../../../../../wheelroom'
+import { TextSectionWheelStyle } from '../../../../../src-text-wheel'
+import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
+import { headingTextStyle } from '../../element-styles/heading-style'
+import { embedStyle } from '../shared-styles/embed-style'
 
 export const textSectionTextStyle: TextSectionWheelStyle = {
   container: containerStyle,

@@ -1,4 +1,4 @@
-import { ButtonElementStyle } from '../../../../../wheelroom'
+import { ButtonElementStyle } from '../../../../src-core'
 
 const buttonStyle: ButtonElementStyle = {
   ncss: {

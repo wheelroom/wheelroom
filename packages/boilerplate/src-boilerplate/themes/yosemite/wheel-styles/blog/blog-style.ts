@@ -1,6 +1,9 @@
-import { BlogWheelStyle } from '../../../../../wheelroom'
-import { headingTextStyle } from '../elements/heading-style'
-import { containerStyle, wrapperStyle } from '../elements/grid-style'
+import { BlogWheelStyle } from '../../../../../src-blog-wheel'
+import {
+  containerStyle,
+  wrapperStyle,
+} from '../../../glacier/wheel-styles/shared-styles/grid-style'
+import { headingTextStyle } from '../../../glacier/element-styles/heading-style'
 
 export const blogSectionBlogStyle: BlogWheelStyle = {
   container: containerStyle,
