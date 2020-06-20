@@ -1,44 +1,43 @@
 import { baseColors } from './base-colors'
 
 export const dark = {
-    ...baseColors,
+  ...baseColors,
 
-    heading: baseColors.ghost,
-    text: baseColors.ghost,
-    link: baseColors.azure,
-    border: baseColors.bullet,
-    outline: baseColors.amber,
+  heading: baseColors.ghost,
+  text: baseColors.ghost,
+  link: baseColors.azure,
+  border: baseColors.bullet,
+  outline: baseColors.amber,
 
-    dividerBg: baseColors.white,
+  dividerBg: baseColors.white,
 
-    skipToContentBg: baseColors.amber,
-    skipToContentText: baseColors.ghost,
-    skipToContentOutline: baseColors.ghost,
+  skipToContentBg: baseColors.amber,
+  skipToContentText: baseColors.ghost,
+  skipToContentOutline: baseColors.ghost,
 
-    sectionBg: baseColors.caviar,
-    sectionText: baseColors.white,
-    sectionBorder: baseColors.bullet,
+  sectionBg: baseColors.caviar,
+  sectionText: baseColors.white,
+  sectionBorder: baseColors.bullet,
 
-    buttonPrimaryBg: baseColors.azure,
-    buttonPrimaryBgState: baseColors.azureShade,
-    buttonPrimaryBorder: baseColors.azure,
-    buttonPrimaryText: baseColors.white,
+  buttonPrimaryBg: baseColors.azure,
+  buttonPrimaryBgState: baseColors.azureShade,
+  buttonPrimaryBorder: baseColors.azure,
+  buttonPrimaryText: baseColors.white,
 
-    buttonSecondaryBg: 'transparent',
-    buttonSecondaryBorder: baseColors.metal,
-    buttonSecondaryBorderState: baseColors.bullet,
-    buttonSecondaryText: baseColors.white,
+  buttonSecondaryBg: 'transparent',
+  buttonSecondaryBorder: baseColors.metal,
+  buttonSecondaryBorderState: baseColors.bullet,
+  buttonSecondaryText: baseColors.white,
 
-    cardBorder: baseColors.ghost,
-    cardShadow: baseColors.ghost,
+  cardBorder: baseColors.ghost,
+  cardShadow: baseColors.ghost,
 
-    modalBg: baseColors.caviar,
-    modalBorder: baseColors.ghost,
-    modalShadow: baseColors.ghost,
+  modalBg: baseColors.caviar,
+  modalBorder: baseColors.ghost,
+  modalShadow: baseColors.ghost,
 
-    iconColor: baseColors.bullet,
-    iconColorState: baseColors.white,
+  iconColor: baseColors.bullet,
+  iconColorState: baseColors.white,
 
-    codeBg: baseColors.skyblue,
-  },
+  codeBg: baseColors.skyblue,
 }

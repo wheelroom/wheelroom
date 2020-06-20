@@ -4,8 +4,7 @@
  *
  */
 
-import { WheelroomFields } from '@wheelroom/wheelroom'
-import { ShortTextField } from '@wheelroom/wheelroom'
+import { WheelroomFields, ShortTextField } from '@wheelroom/wheelroom'
 
 export const commonFields: WheelroomFields = {
   __typename: {
