@@ -1,6 +1,5 @@
-import { StyledSystemConfig } from '@wheelroom/styled-system'
 import { ElementStyles } from '../elements/types/element-styles'
-import { WrSystemTheme } from '../theme/types'
+import { WrSystemTheme, WrSystemConfig } from '../theme/types'
 
 /** Set of style trees */
 export interface SectionWheelThemeStyles {
@@ -24,5 +23,5 @@ export interface SectionWheels {
   themes: {
     [themeId: string]: SectionWheelTheme
   }
-  styledSystemConfig: StyledSystemConfig
+  wrSystemConfig: WrSystemConfig
 }

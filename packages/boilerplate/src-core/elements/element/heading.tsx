@@ -34,7 +34,7 @@ export const Heading = (props: HeadingProps) => {
   const reset = getReset(props)
   const attrs: any = getElementAttrs(props)
   attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
+    props.wheel.wrSystemConfig,
     props.wheel.theme,
     mergeNcss([label, reset, props.wheel.style, props])
   )

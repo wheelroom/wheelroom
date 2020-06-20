@@ -69,7 +69,7 @@ export const Any = (props: AnyProps) => {
   const attrs: any = getAttrs(props)
   const polyPreset = getPolyPreset(props)
   attrs.css = styledSystem(
-    props.wheel.styledSystemConfig,
+    props.wheel.wrSystemConfig,
     props.wheel.theme,
     mergeNcss([
       label,

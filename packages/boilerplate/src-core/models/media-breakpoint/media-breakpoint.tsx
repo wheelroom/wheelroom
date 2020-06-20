@@ -60,7 +60,7 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
   return (
     <picture
       css={styledSystem(
-        media.wheel.styledSystemConfig,
+        media.wheel.wrSystemConfig,
         media.wheel.theme,
         mergeNcss([
           pictureLabel,
@@ -96,7 +96,7 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
       )}
       <img
         css={styledSystem(
-          media.wheel.styledSystemConfig,
+          media.wheel.wrSystemConfig,
           media.wheel.theme,
           mergeNcss([
             imgLabel,

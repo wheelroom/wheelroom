@@ -1,6 +1,6 @@
-import { StyledSystemConfig } from './types'
+import { WrSystemConfig } from './types'
 
-export const styledSystemConfig: StyledSystemConfig = {
+export const wrSystemConfig: WrSystemConfig = {
   ignoreProperties: ['children'],
   propertyAliases: {
     bg: ['backgroundColor'],

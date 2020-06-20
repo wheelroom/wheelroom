@@ -31,7 +31,7 @@ module.exports = {
     export const ${componentName} = (props: IconProps) => {
       const strokeWidth = props.strokeWidth || 2
       const css = styledSystem(
-        props.wheel.styledSystemConfig,
+        props.wheel.wrSystemConfig,
         props.wheel.theme,
         {
           ncss: props.ncss,

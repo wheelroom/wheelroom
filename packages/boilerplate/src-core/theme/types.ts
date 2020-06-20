@@ -1,6 +1,6 @@
-import { StyledSystemTheme } from '@wheelroom/styled-system'
+import { StyledSystemTheme, StyledSystemConfig } from '@wheelroom/styled-system'
 
-export interface StyledSystemConfig {
+export interface WrSystemConfig extends StyledSystemConfig {
   ignoreProperties: string[]
   propertyAliases: {
     [cssPropertyName: string]: string[]

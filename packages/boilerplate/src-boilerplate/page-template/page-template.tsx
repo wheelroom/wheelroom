@@ -21,7 +21,6 @@ import {
 import { BlogProps, AllBlogProps } from '../../src-blog-wheel'
 import { Sections, SectionsProps } from './sections'
 import { sectionWheels } from './section-wheels'
-import { SectionProps } from './section-props'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
