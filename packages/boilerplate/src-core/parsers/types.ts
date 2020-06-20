@@ -1,5 +1,5 @@
 import { BlockLevelElementName } from '../elements/types/element-names'
-import { NcssProps, Wheel } from '../lib/get-wheel'
+import { NcssProps, Wheel } from '../lib/wheel'
 
 export interface ParserProps {
   children: any

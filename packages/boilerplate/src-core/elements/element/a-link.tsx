@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { NcssProps } from '../../lib/get-wheel'
+import { NcssProps } from '../../lib/wheel'
 import { LinkRelationshipAttribute } from '../types/attribute-names'
 import { ElementProps } from '../element'
 import { getSelf } from '../self/self'

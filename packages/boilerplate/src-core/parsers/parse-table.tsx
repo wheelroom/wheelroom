@@ -9,8 +9,9 @@
  */
 
 import React from 'react'
-import { Table, Tr, Td } from '../elements/self'
-import { Wheel } from '../lib/get-wheel'
+import { Wheel } from '../lib/wheel'
+import { Tr, Td } from '../elements/self/self'
+import { Table } from '..'
 import { ParserProps } from './types'
 
 const replaceTable = (children: React.ReactNode, wheel: Wheel) => {

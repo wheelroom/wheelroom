@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
-import { NcssProps } from '../../lib/get-wheel'
+import { NcssProps } from '../../lib/wheel'
 import {
   BlockLevelElementName,
   InlineElementName,

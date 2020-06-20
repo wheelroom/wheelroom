@@ -1,6 +1,6 @@
 import { ElementStyles } from '../elements/types/element-styles'
 import { StyledSystemConfig, StyledSystemTheme } from '../theme/types'
-import { SectionWheels } from '../types/core-section-props'
+import { SectionWheels } from './core-section-props'
 
 export type NcssProps = any
 

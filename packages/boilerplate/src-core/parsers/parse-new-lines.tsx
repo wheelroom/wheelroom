@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { Any } from '../elements/any'
+import { Any } from '../elements/element/any'
 import { ParserProps } from './types'
 
 export const replaceNewlines = (children: React.ReactNode) => {

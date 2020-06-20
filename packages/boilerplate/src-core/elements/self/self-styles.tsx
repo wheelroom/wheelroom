@@ -1,4 +1,4 @@
-import { NcssProps } from '../../lib/get-wheel'
+import { NcssProps } from '../../lib/wheel'
 
 export interface BlockquoteElementStyle {
   ncss: NcssProps
