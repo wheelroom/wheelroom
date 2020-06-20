@@ -5,7 +5,7 @@
  *
  */
 
-import { ActionProps } from '../action/model-types'
+import { ActionProps } from '../../../src-topic-wheel'
 
 export interface NavigationSegmentProps {
   /** Gatsby fetched data */

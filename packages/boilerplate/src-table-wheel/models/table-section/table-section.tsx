@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
+import { getVariation } from '../../../src-core'
 import { TableSectionPriceVar } from './table-section-price-var'
 import { TableSectionProps } from './model-types'
 import { TableSectionTableVar } from './table-section-table-var'

@@ -1,7 +1,7 @@
-import { SectionProps } from '../../../page-template/section-props'
 import { TextProps } from '../../../src-text-wheel/models/text/model-types'
+import { CoreSectionProps } from '../../../src-core'
 
-export interface TextSectionProps extends SectionProps {
+export interface TextSectionProps extends CoreSectionProps {
   /** Gatsby fetched data */
   __typename: string
   eventId?: string

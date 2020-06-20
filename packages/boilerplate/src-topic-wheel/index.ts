@@ -1,14 +1,18 @@
-// Action
 export { Action } from './models/action/action'
-export { ActionProps } from './models/action/model-types'
-export { ActionWheelStyle } from './models/action/action'
-
-// Topic
 export { Topic } from './models/topic/topic'
-export { TopicProps } from './models/topic/model-types'
-export { TopicWheelStyle } from './models/topic/presets/topic-preset'
-
-// Topic section
 export { TopicSection } from './models/topic-section/topic-section'
-export { TopicSectionProps } from './models/topic-section/model-types'
+
+export type { ActionProps } from './models/action/model-types'
+export type { ActionWheelStyle } from './models/action/action'
 export type { PageSectionWheelStyle } from './models/topic-section/topic-section-style'
+export type { TopicInfo } from './lib/get-topic-info'
+export type { TopicOptions } from './lib/get-topic-options'
+export type { TopicProps } from './models/topic/model-types'
+export type { TopicSectionProps } from './models/topic-section/model-types'
+export type { TopicWheelStyle } from './models/topic/presets/topic-preset'
+
+export type { getTopicInfo } from './lib/get-topic-info'
+export type {
+  getEmptyTopicOptions,
+  getTopicOptions,
+} from './lib/get-topic-options'

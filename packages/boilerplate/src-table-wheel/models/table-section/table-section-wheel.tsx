@@ -1,9 +1,8 @@
 import React from 'react'
-import { Container, Fluid, Wrapper } from '../../elements/grid'
 import { Table } from '../table/table'
 import { TableProps } from '../table/model-types'
-import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel } from '../../lib/get-wheel'
+import { Wheel, Container, Fluid, Wrapper } from '../../../src-core'
+import { TopicOptions } from '../../../src-topic-wheel'
 import { TableSectionWheelStyle } from './table-section-wheel-style'
 
 export interface TableSectionWheel extends Wheel {

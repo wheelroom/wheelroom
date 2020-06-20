@@ -60,6 +60,8 @@ export {
   Strong,
   Table,
   Time,
+  Th,
+  Tr,
   Ul,
 } from './elements/self/self'
 export { ALink } from './elements/element/a-link'

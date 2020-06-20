@@ -1,7 +1,9 @@
-import { NcssProps } from '../../lib/get-wheel'
-import { TableElementStyle } from '../../elements/resets/self-table-reset'
-import { DescriptionListElementStyle } from '../../elements/resets/self-dl-reset'
-import { IconElementStyle } from '../../elements/resets/icon-reset'
+import {
+  NcssProps,
+  TableElementStyle,
+  DescriptionListElementStyle,
+  IconElementStyle,
+} from '../../../src-core'
 import {
   tableRowCellPreset,
   TableRowCellWheelStyle,

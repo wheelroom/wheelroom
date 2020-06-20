@@ -1,11 +1,13 @@
-import { DescriptionListElementStyle } from '../../elements/resets/self-dl-reset'
-import { IconElementStyle } from '../../elements/resets/icon-reset'
-import { NcssProps } from '../../lib/get-wheel'
-import { TableElementStyle } from '../../elements/resets/self-table-reset'
 import {
   TableRowWheelStyle,
   tableRowPreset,
 } from '../table-row/table-row-preset'
+import {
+  DescriptionListElementStyle,
+  NcssProps,
+  TableElementStyle,
+  IconElementStyle,
+} from '../../../src-core'
 import { TableActionWheelStyle, tableActionPreset } from './table-action-preset'
 
 export interface TableWheelStyle {

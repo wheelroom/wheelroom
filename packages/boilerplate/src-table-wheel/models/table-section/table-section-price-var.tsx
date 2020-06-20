@@ -7,8 +7,7 @@
  */
 
 import React from 'react'
-import { ScrollSpy } from '../../lib/scroll-spy'
-import { getWheel } from '../../lib/get-wheel'
+import { ScrollSpy, getWheel } from '../../../src-core'
 import { TableSection } from './table-section-wheel'
 import { TableSectionProps } from './model-types'
 

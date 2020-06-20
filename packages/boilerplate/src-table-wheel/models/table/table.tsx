@@ -1,16 +1,21 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { Action } from '../action/action'
-import { ActionProps } from '../action/model-types'
-import { Any } from '../../elements/any'
-import { Box } from '../../elements/grid'
-import { Dd, Dl, Dt, Table as TableElement, Th, Tr } from '../../elements/self'
-import { Icon } from '../../elements/icon'
 import { TableRow } from '../table-row/table-row'
 import { TableRowProps } from '../table-row/model-types'
-import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel } from '../../lib/get-wheel'
+import {
+  Wheel,
+  Box,
+  Tr,
+  Th,
+  Icon,
+  Dl,
+  Dt,
+  Dd,
+  Any,
+  Table as TableElement,
+} from '../../../src-core'
+import { TopicOptions, ActionProps, Action } from '../../../src-topic-wheel'
 import { TableProps } from './model-types'
 import { TableWheelStyle } from './table-preset'
 

@@ -1,5 +1,5 @@
-import { ActionProps } from '../action/model-types'
-import { TableRowProps } from '../table-row/table-row'
+import { ActionProps } from '../../../src-topic-wheel'
+import { TableRowProps } from '../table-row/model-types'
 
 export interface TableProps {
   /** Gatsby fetched data */

@@ -10,14 +10,14 @@ export const baseComponentAsPageSection = `/**
 import React from 'react'
 import { MediaObject } from './media'
 import { getVariation } from './get-variation'
-import { SectionProps } from './section-props'
+import { CoreSectionProps } from '@wheelroom/core'
 %variationImportList%
 
 const componentList = {
 %variationList(indent:2)%
 }
 
-export interface %ComponentName%Props extends SectionProps {
+export interface %ComponentName%Props extends CoreSectionProps {
   /** Gatsby fetched data */
 %reactProps(indent:2)%
 }
