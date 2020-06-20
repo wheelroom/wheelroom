@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
+import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { NcssProps } from '../../lib/ncss'
 import {
@@ -70,7 +70,7 @@ export const Any = (props: AnyProps) => {
   const polyPreset = getPolyPreset(props)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
-    (props.wheel.theme as unknown) as StyledSystemTheme,
+    props.wheel.theme,
     mergeNcss([
       label,
       anyPreset,

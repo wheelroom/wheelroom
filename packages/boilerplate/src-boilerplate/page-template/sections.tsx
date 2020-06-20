@@ -1,10 +1,12 @@
 import React from 'react'
 
-import { BlogSection } from '../../src-blog-wheel'
+import { NamedPaths } from 'gatsby-theme-wheelroom'
+import { BlogSection, BlogProps } from '../../src-blog-wheel'
 import { TextSection } from '../../src-text-wheel'
 import { NavigationSection } from '../../src-navigation-wheel'
 import { TableSection } from '../../src-table-wheel'
 import { TopicSection } from '../../src-topic-wheel'
+import { GlobalsProps, CoreSiteMetadata, PageProps } from '../../src-core'
 import { Landmarks } from './landmarks'
 import { SectionProps } from './section-props'
 
@@ -20,11 +22,23 @@ const sectionMap: SectionMap = {
   ContentfulTextSection: TextSection,
 }
 
-export const Sections = (props: any) => {
-  const sectionList = [] as JSX.Element[]
+interface SectionsProps {
+  locale: string
+  namedPaths: NamedPaths
+  activeThemeId: string
+  globals: GlobalsProps
+  blog: BlogProps
+  allBlog: BlogProps[]
+  page: PageProps
+  siteMetadata: CoreSiteMetadata
+  sections: any
+}
+
+export const Sections = (props: SectionsProps) => {
+  const sectionList: JSX.Element[] = []
   props.sections.forEach((section: any, index: number) => {
     const Section = sectionMap[section.__typename]
-    const sectionProps = {
+    const sectionProps: SectionProps = {
       __typename: section.__typename,
       index,
       key: index,
@@ -39,7 +53,7 @@ export const Sections = (props: any) => {
       siteMetadata: props.siteMetadata,
 
       ...section,
-    } as SectionProps
+    }
 
     sectionList.push(<Section {...sectionProps} />)
   })

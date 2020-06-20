@@ -44,17 +44,10 @@ export interface ElementStyles {
   h5: HeadingElementStyle
   h6: HeadingElementStyle
   hr: HrElementStyle
-  image: {
-    img: ImageElementStyle
-    picture: ImageElementStyle
-    figcaption: ImageElementStyle
-  }
+  image: ImageElementStyle
   kbd: CodeElementStyle
   li: ListElementStyle
-  mediaBreakpoint: {
-    img: ImageElementStyle
-    picture: ImageElementStyle
-  }
+  mediaBreakpoint: ImageElementStyle
   ol: ListElementStyle
   p: ParagraphElementStyle
   pre: PreElementStyle
@@ -70,9 +63,6 @@ export interface ElementStyles {
   time: TimeElementStyle
   textIcon: IconElementStyle
   ul: ListElementStyle
-  video: {
-    description: VideoElementStyle
-    video: VideoElementStyle
-  }
+  video: VideoElementStyle
   wrapper: GridElementStyle
 }

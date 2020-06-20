@@ -10,13 +10,13 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { ThemeId } from '../admin-resources/theme-info'
 import {
   classicGlobalReset,
+  CoreSiteMetadata,
   GlobalsProps,
   htmlReset,
+  PageProps,
   Seo,
   SeoProps,
   useEmbeds,
-  PageProps,
-  CoreSiteMetadata,
 } from '../../src-core'
 import { BlogProps } from '../../src-blog-wheel'
 import { Sections } from './sections'

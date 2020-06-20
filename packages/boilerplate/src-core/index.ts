@@ -33,11 +33,15 @@ export type { ParagraphElementStyle } from './elements/element/paragraph'
 export type { ParagraphProps } from './elements/element/paragraph'
 export type { ParserProps } from './parsers/types'
 export type { PreElementStyle } from './elements/self/self-styles'
-export type { SectionWheels } from './lib/section-wheels'
+export type {
+  SectionWheels,
+  SectionWheelTheme,
+  SectionWheelThemeStyles,
+} from './lib/section-wheels'
 export type { SeoProps } from './lib/seo-props'
 export type { StrongElementStyle } from './elements/self/self-styles'
 export type { StyledSystemConfig } from './theme/types'
-export type { StyledSystemTheme } from './theme/types'
+export type { WrSystemTheme } from './theme/types'
 export type { TableElementStyle } from './elements/self/self-styles'
 export type { TimeElementStyle } from './elements/self/self-styles'
 export type { VideoElementStyle } from './elements/element/video'

@@ -1,13 +1,14 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
-import { NcssProps, Wheel } from '../../lib/wheel'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel } from '../../lib/wheel'
 import { MediaObject } from '../../elements/types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
 import {
   imageImgReset,
   imagePictureReset,
 } from '../../elements/element/image-reset'
+import { NcssProps } from '../../lib/ncss'
 
 export interface MediaBreakpointStyle {
   img: {
@@ -60,7 +61,7 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
     <picture
       css={styledSystem(
         media.wheel.styledSystemConfig,
-        (media.wheel.theme as unknown) as StyledSystemTheme,
+        media.wheel.theme,
         mergeNcss([
           pictureLabel,
           imagePictureReset,
@@ -96,7 +97,7 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
       <img
         css={styledSystem(
           media.wheel.styledSystemConfig,
-          (media.wheel.theme as unknown) as StyledSystemTheme,
+          media.wheel.theme,
           mergeNcss([
             imgLabel,
             imageImgReset,

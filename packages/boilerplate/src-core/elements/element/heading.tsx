@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
+import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { NcssProps } from '../../lib/ncss'
 import { BlockLevelElementName, HeadingName } from '../types/element-names'
@@ -35,7 +35,7 @@ export const Heading = (props: HeadingProps) => {
   const attrs: any = getElementAttrs(props)
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
-    (props.wheel.theme as unknown) as StyledSystemTheme,
+    props.wheel.theme,
     mergeNcss([label, reset, props.wheel.style, props])
   )
   return jsx(props.is || 'h1', attrs, props.children)

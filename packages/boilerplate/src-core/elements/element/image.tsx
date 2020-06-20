@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
+import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel } from '../../lib/wheel'
 import { NcssProps } from '../../lib/ncss'
 import { mergeNcss } from '../../lib/merge-ncss'
@@ -97,7 +97,7 @@ export const Image = (props: ImageProps) => {
     <picture
       css={styledSystem(
         props.wheel.styledSystemConfig,
-        (props.wheel.theme as unknown) as StyledSystemTheme,
+        props.wheel.theme,
         mergeNcss([
           pictureLabel,
           imagePictureReset,
@@ -110,7 +110,7 @@ export const Image = (props: ImageProps) => {
         {...imgElementAttrs}
         css={styledSystem(
           props.wheel.styledSystemConfig,
-          (props.wheel.theme as unknown) as StyledSystemTheme,
+          props.wheel.theme,
           mergeNcss([
             imgLabel,
             imageImgReset,
@@ -123,7 +123,7 @@ export const Image = (props: ImageProps) => {
         <figcaption
           css={styledSystem(
             props.wheel.styledSystemConfig,
-            (props.wheel.theme as unknown) as StyledSystemTheme,
+            props.wheel.theme,
             mergeNcss([
               figcaptionLabel,
               imageFigcaptionReset,

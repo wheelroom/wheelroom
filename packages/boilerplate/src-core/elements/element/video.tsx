@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
+import { styledSystem } from '@wheelroom/styled-system'
 import { MediaObject } from '../types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { NcssProps } from '../../lib/ncss'
@@ -72,7 +72,7 @@ export const Video = (props: VideoProps) => {
           poster={videoAttrs.poster && videoAttrs.poster + '?q=75'}
           css={styledSystem(
             props.wheel.styledSystemConfig,
-            (props.wheel.theme as unknown) as StyledSystemTheme,
+            props.wheel.theme,
             mergeNcss([
               videoLabel,
               videoVideoElementStyle,
@@ -90,7 +90,7 @@ export const Video = (props: VideoProps) => {
           <p
             css={styledSystem(
               props.wheel.styledSystemConfig,
-              (props.wheel.theme as unknown) as StyledSystemTheme,
+              props.wheel.theme,
               mergeNcss([
                 descriptionLabel,
                 videoDescriptionReset,

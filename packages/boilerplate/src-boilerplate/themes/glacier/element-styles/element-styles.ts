@@ -1,4 +1,4 @@
-import { ElementStyles } from '../../../../../wheelroom'
+import { ElementStyles } from '../../../../src-core'
 import { headingStyle } from './heading-style'
 import { paragraphStyle } from './paragraph-style'
 import { primaryButtonStyle } from './button-style'

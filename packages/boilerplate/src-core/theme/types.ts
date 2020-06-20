@@ -1,3 +1,5 @@
+import { StyledSystemTheme } from '@wheelroom/styled-system'
+
 export interface StyledSystemConfig {
   ignoreProperties: string[]
   propertyAliases: {
@@ -21,7 +23,7 @@ export interface StyledSystemConfig {
   }
 }
 
-export interface StyledSystemTheme {
+export interface WrSystemTheme extends StyledSystemTheme {
   breakpoints: string[]
   fontMap: {
     [fontName: string]: string

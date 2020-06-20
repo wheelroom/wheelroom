@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Link } from 'gatsby'
-import { styledSystem, StyledSystemTheme } from '@wheelroom/styled-system'
+import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { NcssProps } from '../../lib/ncss'
 import { ElementProps, getElementAttrs } from '../element'
@@ -25,7 +25,7 @@ export const GLink = (props: GLinkProps) => {
   attrs.to = props.to
   attrs.css = styledSystem(
     props.wheel.styledSystemConfig,
-    (props.wheel.theme as unknown) as StyledSystemTheme,
+    props.wheel.theme,
     mergeNcss([
       label,
       gLinkReset,

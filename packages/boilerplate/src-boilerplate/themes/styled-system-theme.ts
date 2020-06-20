@@ -2,15 +2,12 @@ import {
   breakpointsPreset,
   mapsPreset,
   scalesPreset,
-  StyledSystemTheme,
+  WrSystemTheme,
 } from '../../src-core'
-import { colors } from './colors'
 
-export const dark: StyledSystemTheme = {
+export const styledSystemTheme: WrSystemTheme = {
   ...breakpointsPreset,
   ...mapsPreset,
   ...scalesPreset,
-  colorMap: {
-    ...colors,
-  },
+  colorMap: {},
 }
