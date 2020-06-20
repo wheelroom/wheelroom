@@ -8,9 +8,13 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 const componentId = 'svg-book-open'
 export const SvgBookOpen = (props: IconProps) => {
   const strokeWidth = props.strokeWidth || 2
-  const css = styledSystem(props.wheel.wrSystemConfig, props.wheel.theme, {
-    ncss: props.ncss,
-  })
+  const css = styledSystem(
+    props.wheel.wrSystemConfig,
+    props.wheel.wrSystemTheme,
+    {
+      ncss: props.ncss,
+    }
+  )
   return (
     <svg
       viewBox="0 0 24 24"

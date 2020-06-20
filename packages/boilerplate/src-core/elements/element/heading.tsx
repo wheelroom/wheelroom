@@ -35,7 +35,7 @@ export const Heading = (props: HeadingProps) => {
   const attrs: any = getElementAttrs(props)
   attrs.css = styledSystem(
     props.wheel.wrSystemConfig,
-    props.wheel.theme,
+    props.wheel.wrSystemTheme,
     mergeNcss([label, reset, props.wheel.style, props])
   )
   return jsx(props.is || 'h1', attrs, props.children)

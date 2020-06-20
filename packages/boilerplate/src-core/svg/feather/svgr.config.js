@@ -33,7 +33,7 @@ module.exports = {
       const strokeWidth = props.strokeWidth || 2
       const css = styledSystem(
         props.wheel.wrSystemConfig,
-        props.wheel.theme,
+        props.wheel.wrSystemTheme,
         {
           ncss: props.ncss,
         }

@@ -97,7 +97,7 @@ export const Image = (props: ImageProps) => {
     <picture
       css={styledSystem(
         props.wheel.wrSystemConfig,
-        props.wheel.theme,
+        props.wheel.wrSystemTheme,
         mergeNcss([
           pictureLabel,
           imagePictureReset,
@@ -110,7 +110,7 @@ export const Image = (props: ImageProps) => {
         {...imgElementAttrs}
         css={styledSystem(
           props.wheel.wrSystemConfig,
-          props.wheel.theme,
+          props.wheel.wrSystemTheme,
           mergeNcss([
             imgLabel,
             imageImgReset,
@@ -123,7 +123,7 @@ export const Image = (props: ImageProps) => {
         <figcaption
           css={styledSystem(
             props.wheel.wrSystemConfig,
-            props.wheel.theme,
+            props.wheel.wrSystemTheme,
             mergeNcss([
               figcaptionLabel,
               imageFigcaptionReset,

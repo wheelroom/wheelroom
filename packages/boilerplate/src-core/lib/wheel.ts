@@ -5,6 +5,6 @@ import { WrSystemConfig, WrSystemTheme } from '../theme/types'
 export interface Wheel {
   style: any
   elementStyles: ElementStyles
-  theme: WrSystemTheme
+  wrSystemTheme: WrSystemTheme
   wrSystemConfig: WrSystemConfig
 }

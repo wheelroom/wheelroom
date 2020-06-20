@@ -8,15 +8,29 @@ export interface GetWheel {
   themeId: string
 }
 
-export const getWheel = (params: GetWheel): Wheel => {
-  const theme =
-    params.sectionWheels.themes[
-      params.themeId || params.sectionWheels.defaultThemeId
-    ]
+export const getWheel = (params: GetWheel): Wheel | undefined => {
+  const themeId = params.themeId || params.sectionWheels.defaultThemeId
+  const theme = params.sectionWheels.themes[themeId]
+  if (!theme) {
+    console.log(`Warning: theme '${themeId}' not found`)
+    return
+  }
+  const styles = theme.styles[params.wheelId]
+  if (!styles) {
+    console.log(`Warning: wheelId '${params.wheelId}' not found`)
+    return
+  }
+  const style = styles[params.variation]
+  if (!style) {
+    console.log(
+      `Warning: variation '${params.variation}' for wheelId '${params.wheelId}' not found`
+    )
+    return
+  }
   const wheel: Wheel = {
-    style: theme.styles[params.wheelId][params.variation],
+    style,
     elementStyles: theme.elementStyles,
-    theme: theme.wrSystemTheme,
+    wrSystemTheme: theme.wrSystemTheme,
     wrSystemConfig: params.sectionWheels.wrSystemConfig,
   }
   return wheel

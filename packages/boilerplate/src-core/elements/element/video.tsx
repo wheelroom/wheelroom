@@ -72,7 +72,7 @@ export const Video = (props: VideoProps) => {
           poster={videoAttrs.poster && videoAttrs.poster + '?q=75'}
           css={styledSystem(
             props.wheel.wrSystemConfig,
-            props.wheel.theme,
+            props.wheel.wrSystemTheme,
             mergeNcss([
               videoLabel,
               videoVideoElementStyle,
@@ -90,7 +90,7 @@ export const Video = (props: VideoProps) => {
           <p
             css={styledSystem(
               props.wheel.wrSystemConfig,
-              props.wheel.theme,
+              props.wheel.wrSystemTheme,
               mergeNcss([
                 descriptionLabel,
                 videoDescriptionReset,

@@ -25,7 +25,7 @@ export const GLink = (props: GLinkProps) => {
   attrs.to = props.to
   attrs.css = styledSystem(
     props.wheel.wrSystemConfig,
-    props.wheel.theme,
+    props.wheel.wrSystemTheme,
     mergeNcss([
       label,
       gLinkReset,

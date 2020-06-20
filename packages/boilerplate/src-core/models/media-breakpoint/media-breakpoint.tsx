@@ -49,10 +49,10 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
   }
 
   /** Check and get all Theme breakpoints*/
-  const smallWidth = media.wheel.theme.breakpoints[0]
-  const mediumWidth = media.wheel.theme.breakpoints[1]
-  const largeWidth = media.wheel.theme.breakpoints[2]
-  const extraLargeWidth = media.wheel.theme.breakpoints[3]
+  const smallWidth = media.wheel.wrSystemTheme.breakpoints[0]
+  const mediumWidth = media.wheel.wrSystemTheme.breakpoints[1]
+  const largeWidth = media.wheel.wrSystemTheme.breakpoints[2]
+  const extraLargeWidth = media.wheel.wrSystemTheme.breakpoints[3]
 
   const pictureLabel = { ncss: { label: 'picture' } }
   const imgLabel = { ncss: { label: 'img' } }
@@ -61,7 +61,7 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
     <picture
       css={styledSystem(
         media.wheel.wrSystemConfig,
-        media.wheel.theme,
+        media.wheel.wrSystemTheme,
         mergeNcss([
           pictureLabel,
           imagePictureReset,
@@ -97,7 +97,7 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
       <img
         css={styledSystem(
           media.wheel.wrSystemConfig,
-          media.wheel.theme,
+          media.wheel.wrSystemTheme,
           mergeNcss([
             imgLabel,
             imageImgReset,
