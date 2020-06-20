@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { getVariation } from '../../lib/get-variation'
+import { getVariation } from '../../../src-core'
 import { TextSectionTextVar } from './text-section-text-var'
 import { TextSectionProps } from './model-types'
 

@@ -1,16 +1,18 @@
-import { EmbedStyle } from '../embed/embed'
-import { ImageElementStyle } from '../../../src-core/elements/image'
-import { VideoElementStyle } from '../../../src-core/elements/video'
-import { GridElementStyle } from '../../../src-core/elements/resets/grid-reset'
-import { StrongElementStyle } from '../../../src-core/elements/resets/self-strong-reset'
-import { CodeElementStyle } from '../../../src-core/elements/resets/self-code-reset'
-import { PreElementStyle } from '../../../src-core/elements/resets/self-pre-reset'
-import { ParagraphElementStyle } from '../../../src-core/elements/resets/paragraph-reset'
-import { HrElementStyle } from '../../../src-core/elements/resets/self-hr-reset'
-import { HeadingElementStyle } from '../../../src-core/elements/resets/heading-reset'
-import { BlockquoteElementStyle } from '../../../src-core/elements/resets/self-blockquote-reset'
-import { ListElementStyle } from '../../../src-core/elements/resets/self-list-reset'
-import { ALinkElementStyle } from '../../../src-core/elements/resets/a-link-reset'
+import {
+  ALinkElementStyle,
+  BlockquoteElementStyle,
+  CodeElementStyle,
+  EmbedStyle,
+  GridElementStyle,
+  HeadingElementStyle,
+  HrElementStyle,
+  ImageElementStyle,
+  ListElementStyle,
+  ParagraphElementStyle,
+  PreElementStyle,
+  StrongElementStyle,
+  VideoElementStyle,
+} from '../../../src-core'
 
 export interface TextWheelStyle {
   wrapper: GridElementStyle

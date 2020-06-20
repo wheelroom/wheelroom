@@ -14,29 +14,30 @@ import {
 } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types'
 import {
+  ALink,
   Blockquote,
   Code,
+  Embed,
+  GLink,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
   Hr,
+  Image,
   Li,
+  MediaObject,
   Ol,
-  Ul,
+  Paragraph,
   Pre,
   Strong,
-} from '../../../src-core/elements/self/self'
-import { ALink } from '../../../src-core/elements/a-link'
-
-import { Embed } from '../embed/embed'
-import { GLink } from '../../../src-core/elements/g-link'
-import { H1, H2, H3, H4, H5, H6 } from '../../../src-core/elements/heading'
-
-import { Image } from '../../../src-core/elements/image'
-
-import { MediaObject } from '../../../src-core/elements/types/media'
-import { Paragraph } from '../../../src-core/elements/paragraph'
-
-import { Video } from '../../../src-core/elements/video'
-import { Wheel } from '../../../src-core/lib/get-wheel'
-import { Wrapper } from '../../../src-core/elements/grid'
+  Ul,
+  Video,
+  Wheel,
+  Wrapper,
+} from '../../../src-core'
 import { TextWheelStyle } from './text-preset'
 import { TextProps } from './model-types'
 import { getLocalizedValue } from './get-localized-value'
