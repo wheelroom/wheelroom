@@ -5,7 +5,7 @@ import {
   WrSystemTheme,
 } from '../../src-core'
 
-export const styledSystemTheme: WrSystemTheme = {
+export const wrSystemTheme: WrSystemTheme = {
   ...breakpointsPreset,
   ...mapsPreset,
   ...scalesPreset,

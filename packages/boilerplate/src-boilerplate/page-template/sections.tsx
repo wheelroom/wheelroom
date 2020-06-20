@@ -1,12 +1,17 @@
 import React from 'react'
 
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { BlogSection, BlogProps } from '../../src-blog-wheel'
+import { BlogSection, BlogProps, AllBlogProps } from '../../src-blog-wheel'
 import { TextSection } from '../../src-text-wheel'
 import { NavigationSection } from '../../src-navigation-wheel'
 import { TableSection } from '../../src-table-wheel'
 import { TopicSection } from '../../src-topic-wheel'
-import { GlobalsProps, CoreSiteMetadata, PageProps } from '../../src-core'
+import {
+  GlobalsProps,
+  CoreSiteMetadata,
+  PageProps,
+  SectionWheels,
+} from '../../src-core'
 import { Landmarks } from './landmarks'
 import { SectionProps } from './section-props'
 
@@ -22,16 +27,17 @@ const sectionMap: SectionMap = {
   ContentfulTextSection: TextSection,
 }
 
-interface SectionsProps {
+export interface SectionsProps {
   locale: string
   namedPaths: NamedPaths
   activeThemeId: string
   globals: GlobalsProps
   blog: BlogProps
-  allBlog: BlogProps[]
+  allBlog: AllBlogProps
   page: PageProps
   siteMetadata: CoreSiteMetadata
   sections: any
+  sectionWheels: SectionWheels
 }
 
 export const Sections = (props: SectionsProps) => {

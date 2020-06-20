@@ -18,8 +18,10 @@ import {
   SeoProps,
   useEmbeds,
 } from '../../src-core'
-import { BlogProps } from '../../src-blog-wheel'
-import { Sections } from './sections'
+import { BlogProps, AllBlogProps } from '../../src-blog-wheel'
+import { Sections, SectionsProps } from './sections'
+import { sectionWheels } from './section-wheels'
+import { SectionProps } from './section-props'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -45,13 +47,13 @@ const PageTemplate = (props: any) => {
 
   const globals: GlobalsProps = props.data.globals
   const blog: BlogProps = props.data.blog
-  const allBlog: BlogProps[] = props.data.allBlog
+  const allBlog: AllBlogProps = props.data.allBlog
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const siteMetadata: CoreSiteMetadata = props.data.site.siteMetadata
   const siteVersion = siteMetadata.siteVersion
   const sections = page.sections
-  const sectionProps = {
+  const sectionProps: SectionsProps = {
     locale,
     namedPaths,
     activeThemeId,
@@ -63,6 +65,7 @@ const PageTemplate = (props: any) => {
     siteMetadata,
 
     sections,
+    sectionWheels,
   }
 
   const pageImageSrc =
@@ -94,7 +97,9 @@ const PageTemplate = (props: any) => {
     siteVersion,
   }
   // Set theme background color
-  const backgroundColor = getTheme(activeThemeId).colorMap.sectionBg
+  const backgroundColor =
+    sectionWheels.themes[activeThemeId || sectionWheels.defaultThemeId]
+      .wrSystemTheme.colorMap.sectionBg
   return (
     <Fragment>
       <Global styles={classicGlobalReset} />

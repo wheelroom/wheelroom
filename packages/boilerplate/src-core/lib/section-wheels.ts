@@ -19,7 +19,7 @@ export interface SectionWheelTheme {
 /** Passed to a Wheelroom page section (wheel) */
 export interface SectionWheels {
   /** Default theme */
-  defaultTheme: string
+  defaultThemeId: string
   /** Themes combine element styles, a set of style trees and a styled sytem theme */
   themes: {
     [themeId: string]: SectionWheelTheme

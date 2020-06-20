@@ -1,17 +1,11 @@
-import { styledSystemConfig } from '../../src-core'
+import { styledSystemConfig, SectionWheels } from '../../src-core'
+import { glacierDark, glacierLight } from '../themes/glacier/glacier'
 
-export const sectionWheels: SectionWheels {
-  defaultTheme: 'light',
+export const sectionWheels: SectionWheels = {
+  defaultThemeId: 'glacierLight',
   themes: {
-    [themeId: string]: {
-      elementStyles: ElementStyles
-      wrSystemTheme: WrSystemTheme
-      styles: {
-        [wheelId: string]: {
-          [variation: string]: any
-        }
-      }
-    }
-  }
-  styledSystemConfig
-}  
+    glacierLight,
+    glacierDark,
+  },
+  styledSystemConfig,
+}
