@@ -3,7 +3,7 @@ import { glacierDark, glacierLight } from '../themes/glacier/glacier'
 import { yosemiteDark, yosemiteLight } from '../themes/yosemite/yosemite'
 
 export const sectionWheels: SectionWheels = {
-  defaultThemeId: 'glacierLight',
+  defaultThemeId: 'yosemiteLight',
   themes: {
     glacierLight,
     glacierDark,

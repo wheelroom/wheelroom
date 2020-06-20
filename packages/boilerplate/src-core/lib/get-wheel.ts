@@ -9,7 +9,10 @@ export interface GetWheel {
 }
 
 export const getWheel = (params: GetWheel): Wheel => {
-  const theme = params.sectionWheels.themes[params.themeId]
+  const theme =
+    params.sectionWheels.themes[
+      params.themeId || params.sectionWheels.defaultThemeId
+    ]
   const wheel: Wheel = {
     style: theme.styles[params.wheelId][params.variation],
     elementStyles: theme.elementStyles,
