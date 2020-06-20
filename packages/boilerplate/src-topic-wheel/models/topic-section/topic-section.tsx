@@ -7,31 +7,31 @@
 
 import React from 'react'
 import { getVariation } from '../../../src-core'
-import { PageSectionBlockVar } from './topic-section-block-var'
-import { PageSectionCardVar } from './topic-section-card-var'
-import { PageSectionDividerVar } from './topic-section-divider-var'
-import { PageSectionFeaturedVar } from './topic-section-featured-var'
-import { PageSectionGalleryVar } from './topic-section-gallery-var'
-import { PageSectionHeadlineVar } from './topic-section-headline-var'
-import { PageSectionHeroVar } from './topic-section-hero-var'
-import { PageSectionImageVar } from './topic-section-image-var'
+import { TopicSectionBlockVar } from './topic-section-block-var'
+import { TopicSectionCardVar } from './topic-section-card-var'
+import { TopicSectionDividerVar } from './topic-section-divider-var'
+import { TopicSectionFeaturedVar } from './topic-section-featured-var'
+import { TopicSectionGalleryVar } from './topic-section-gallery-var'
+import { TopicSectionHeadlineVar } from './topic-section-headline-var'
+import { TopicSectionHeroVar } from './topic-section-hero-var'
+import { TopicSectionImageVar } from './topic-section-image-var'
 import { TopicSectionProps } from './model-types'
-import { PageSectionQuoteVar } from './topic-section-quote-var'
-import { PageSectionShowcaseVar } from './topic-showcase-var'
-import { PageSectionVideoVar } from './topic-video-var'
+import { TopicSectionQuoteVar } from './topic-section-quote-var'
+import { TopicSectionShowcaseVar } from './topic-showcase-var'
+import { TopicSectionVideoVar } from './topic-video-var'
 
 const componentList = {
-  ['block']: PageSectionBlockVar,
-  ['card']: PageSectionCardVar,
-  ['divider']: PageSectionDividerVar,
-  ['featured']: PageSectionFeaturedVar,
-  ['gallery']: PageSectionGalleryVar,
-  ['headline']: PageSectionHeadlineVar,
-  ['hero']: PageSectionHeroVar,
-  ['image']: PageSectionImageVar,
-  ['quote']: PageSectionQuoteVar,
-  ['showcase']: PageSectionShowcaseVar,
-  ['video']: PageSectionVideoVar,
+  ['block']: TopicSectionBlockVar,
+  ['card']: TopicSectionCardVar,
+  ['divider']: TopicSectionDividerVar,
+  ['featured']: TopicSectionFeaturedVar,
+  ['gallery']: TopicSectionGalleryVar,
+  ['headline']: TopicSectionHeadlineVar,
+  ['hero']: TopicSectionHeroVar,
+  ['image']: TopicSectionImageVar,
+  ['quote']: TopicSectionQuoteVar,
+  ['showcase']: TopicSectionShowcaseVar,
+  ['video']: TopicSectionVideoVar,
 }
 
 export const TopicSection = (props: TopicSectionProps) => {

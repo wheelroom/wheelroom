@@ -1,14 +1,15 @@
 import React from 'react'
-import { Box } from '../../elements/grid'
-import { Embed } from '../../../src-core/models/embed/embed'
-import { EmbedProps } from '../../../src-core/models/embed/model-types'
-import { Image } from '../../elements/image'
-import { MediaBreakpoint } from '../../../src-core/models/media-breakpoint/media-breakpoint'
-import { MediaObject } from '../../elements/types/media'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Video } from '../../elements/video'
-import { Wheel } from '../../lib/get-wheel'
+import {
+  Box,
+  Embed,
+  EmbedProps,
+  MediaBreakpoint,
+  MediaObject,
+  Video,
+  Wheel,
+} from '../../../src-core'
 import { TopicProps } from './model-types'
 import { TopicMediaWheelStyle } from './presets/topic-media-preset'
 

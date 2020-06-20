@@ -5,10 +5,12 @@
  *
  */
 
-import { EmbedProps } from '../../../src-core/models/embed/model-types'
-import { MediaBreakpointProps } from '../../../src-core/models/media-breakpoint/model-types'
+import {
+  EmbedProps,
+  MediaBreakpointProps,
+  MediaObject,
+} from '../../../src-core'
 import { ActionProps } from '../action/model-types'
-import { MediaObject } from '../../../src-core'
 
 export interface TopicProps {
   /** Gatsby fetched data */

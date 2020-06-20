@@ -1,22 +1,21 @@
 import React from 'react'
-import { Container, Fluid, Wrapper } from '../../elements/grid'
-import { Wheel } from '../../lib/get-wheel'
-import { PageSectionWheelStyle } from './topic-section-style'
+import { Wrapper, Wheel, Container, Fluid } from '../../../src-core'
+import { TopicSectionWheelStyle } from './topic-section-style'
 
-export interface PageSectionWheel extends Wheel {
-  style: PageSectionWheelStyle
+export interface TopicSectionWheel extends Wheel {
+  style: TopicSectionWheelStyle
 }
 
-export interface PageSectionWheelProps {
+export interface TopicSectionWheelProps {
   /** Styling wheel */
-  wheel: PageSectionWheel
+  wheel: TopicSectionWheel
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
   /** Page section children */
   children: any
 }
 
-export const PageSection = (props: PageSectionWheelProps) => {
+export const TopicSectionWrapper = (props: TopicSectionWheelProps) => {
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
     <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>

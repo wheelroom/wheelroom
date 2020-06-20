@@ -9,12 +9,9 @@
 import React, { useContext } from 'react'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
-import { ALink } from '../../../src-core/elements/a-link'
-import { Any } from '../../../src-core/elements/any'
 import { EmbedProps } from '../../../src-core/models/embed/model-types'
-import { FeatherIcon } from '../../../src-core/elements/icon'
-import { GLink } from '../../../src-core/elements/g-link'
-import { NcssProps, Wheel } from '../../../src-core/lib/get-wheel'
+import { NcssProps, Wheel, GLink, ALink, Any } from '../../../src-core'
+import { FeatherIcon } from '../../../src-core/elements/element/icon'
 import { ActionProps } from './model-types'
 
 export interface ActionWheelStyle {

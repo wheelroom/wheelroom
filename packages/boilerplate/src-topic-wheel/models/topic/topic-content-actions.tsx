@@ -1,10 +1,9 @@
 import React from 'react'
 import { Action } from '../action/action'
 import { ActionProps } from '../action/model-types'
-import { Box } from '../../elements/grid'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel } from '../../lib/get-wheel'
+import { Wheel, Box } from '../../../src-core'
 import { TopicProps } from './model-types'
 import { TopicContentActionsWheelStyle } from './presets/topic-content-actions-preset'
 

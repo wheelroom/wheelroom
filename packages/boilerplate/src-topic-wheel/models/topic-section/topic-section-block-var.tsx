@@ -8,20 +8,18 @@
 
 import React from 'react'
 import { getTopicOptions } from '../../lib/get-topic-options'
-import { MultiParser } from '../../parsers/multi-parser'
-import { ScrollSpy } from '../../../src-core/lib/scroll-spy'
 import { Topic } from '../topic/topic'
 import { TopicProps } from '../topic/model-types'
-import { getWheel } from '../../lib/get-wheel'
-import { PageSectionProps } from './model-types'
-import { PageSection } from './topic-section-wheel'
+import { getWheel, MultiParser, ScrollSpy } from '../../../src-core'
+import { TopicSectionProps } from './model-types'
+import { TopicSectionWrapper } from './topic-section-wrapper'
 
-export const PageSectionBlockVar = (props: PageSectionProps) => {
+export const TopicSectionBlockVar = (props: TopicSectionProps) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
-    wheelId: 'text',
+    wheelId: 'topicSection',
     sectionWheels: props.sectionWheels,
-    variation: 'text',
+    variation: 'block',
   })
 
   if (!wheel || !props.topics) {
@@ -34,7 +32,7 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
       siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <PageSection containerStyle="container" wheel={wheel}>
+      <TopicSectionWrapper containerStyle="container" wheel={wheel}>
         {props.topics.map((topic: TopicProps, index: number) => (
           <Topic
             key={index}
@@ -44,7 +42,7 @@ export const PageSectionBlockVar = (props: PageSectionProps) => {
             topicOptions={getTopicOptions(props.topicOptions || [])}
           />
         ))}
-      </PageSection>
+      </TopicSectionWrapper>
     </ScrollSpy>
   )
 }

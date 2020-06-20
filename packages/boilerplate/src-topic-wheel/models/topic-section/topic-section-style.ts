@@ -1,13 +1,13 @@
 import { TopicWheelStyle } from '../topic/presets/topic-preset'
-import { GridElementStyle } from '../../../src-core/elements/resets/grid-reset'
+import { GridElementStyle } from '../../../src-core'
 
-export interface PageSectionWheelStyle {
+export interface TopicSectionWheelStyle {
   container: GridElementStyle
   topic: TopicWheelStyle
   wrapper: GridElementStyle
 }
 
-export const pageSectionWheelStyle: PageSectionWheelStyle = {
+export const topicSectionWheelStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {},
   },

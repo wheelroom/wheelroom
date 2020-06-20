@@ -7,16 +7,20 @@
  */
 
 import React from 'react'
-import { getWheel, getSectionStyle } from '../../../themes/themes'
-import { Hr } from '../../elements/self'
-import { Wheel } from '../../lib/get-wheel'
-import { ScrollSpy } from '../../lib/scroll-spy'
-import { ThemeId } from '../../../admin-resources/theme-info'
-import { PageSectionProps } from './model-types'
+import { getWheel, ScrollSpy, Hr } from '../../../src-core'
+import { TopicSectionProps } from './model-types'
 
-export const PageSectionDividerVar = (props: PageSectionProps) => {
-  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = getSectionStyle('pageSection').divider
+export const TopicSectionDividerVar = (props: TopicSectionProps) => {
+  const wheel = getWheel({
+    themeId: props.activeThemeId,
+    wheelId: 'topicSection',
+    sectionWheels: props.sectionWheels,
+    variation: 'divider',
+  })
+
+  if (!wheel || !props.topics) {
+    return null
+  }
 
   return (
     <ScrollSpy

@@ -7,27 +7,22 @@
  */
 
 import React from 'react'
-import { deepMerge } from '../../lib/deep-merge'
 import { getTopicOptions } from '../../lib/get-topic-options'
-import { getWheel, getSectionStyle } from '../../../themes/themes'
-import { MultiParser } from '../../parsers/multi-parser'
-import { ScrollSpy } from '../../../src-core/lib/scroll-spy'
-import { ThemeId } from '../../../admin-resources/theme-info'
 import { Topic } from '../topic/topic'
-import { topicPreset } from '../topic/presets/topic-preset'
 import { TopicProps } from '../topic/model-types'
-import { Wheel } from '../../lib/get-wheel'
-import { PageSectionProps } from './model-types'
-import { PageSection } from './topic-section-wheel'
+import { getWheel, MultiParser, ScrollSpy } from '../../../src-core'
+import { TopicSectionProps } from './model-types'
+import { TopicSectionWrapper } from './topic-section-wrapper'
 
-export const PageSectionShowcaseVar = (props: PageSectionProps) => {
-  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([
-    { topic: topicPreset },
-    getSectionStyle('pageSection').showcase,
-  ])
+export const TopicSectionShowcaseVar = (props: TopicSectionProps) => {
+  const wheel = getWheel({
+    themeId: props.activeThemeId,
+    wheelId: 'topicSection',
+    sectionWheels: props.sectionWheels,
+    variation: 'block',
+  })
 
-  if (!props.topics) {
+  if (!wheel || !props.topics) {
     return null
   }
 
@@ -37,7 +32,7 @@ export const PageSectionShowcaseVar = (props: PageSectionProps) => {
       siteEmbeds={props.globals.siteEmbeds || []}
       sectionProps={props}
     >
-      <PageSection containerStyle="container" wheel={wheel}>
+      <TopicSectionWrapper containerStyle="container" wheel={wheel}>
         {props.topics.map((topic: TopicProps, index: number) => (
           <Topic
             key={index}
@@ -48,7 +43,7 @@ export const PageSectionShowcaseVar = (props: PageSectionProps) => {
             topicOptions={getTopicOptions(props.topicOptions || [])}
           />
         ))}
-      </PageSection>
+      </TopicSectionWrapper>
     </ScrollSpy>
   )
 }

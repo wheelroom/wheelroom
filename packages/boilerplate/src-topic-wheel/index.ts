@@ -4,7 +4,7 @@ export { TopicSection } from './models/topic-section/topic-section'
 
 export type { ActionProps } from './models/action/model-types'
 export type { ActionWheelStyle } from './models/action/action'
-export type { PageSectionWheelStyle } from './models/topic-section/topic-section-style'
+export type { TopicSectionWheelStyle } from './models/topic-section/topic-section-style'
 export type { TopicInfo } from './lib/get-topic-info'
 export type { TopicOptions } from './lib/get-topic-options'
 export type { TopicProps } from './models/topic/model-types'

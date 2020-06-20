@@ -1,11 +1,10 @@
 import {
-  NcssProps,
+  EmbedStyle,
   ImageElementStyle,
+  MediaBreakpointStyle,
+  NcssProps,
   VideoElementStyle,
 } from '../../../../src-core'
-
-import { EmbedStyle } from '../../../../src-core/models/embed/embed'
-import { MediaBreakpointStyle } from '../../../../src-core/models/media-breakpoint/media-breakpoint'
 
 export interface TopicMediaWheelStyle {
   /** Styling for this node */
