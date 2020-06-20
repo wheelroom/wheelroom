@@ -8,7 +8,7 @@ import { iconButtonStyle, iconTopicStyle } from '../shared-styles/icon-style'
 import { embedStyle } from '../shared-styles/embed-style'
 import { wrapperStyle } from '../shared-styles/grid-style'
 
-export const pageSectionFeaturedStyle: TopicSectionWheelStyle = {
+export const topicSectionFeaturedStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {
       flexDirection: 'column',

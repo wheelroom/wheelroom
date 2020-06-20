@@ -3,7 +3,7 @@ import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
 import { primaryButtonStyle } from '../../element-styles/button-style'
 import { iconTopicStyle } from '../shared-styles/icon-style'
 
-export const pageSectionCardStyle: TopicSectionWheelStyle = {
+export const topicSectionCardStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {
       ...containerStyle.ncss,

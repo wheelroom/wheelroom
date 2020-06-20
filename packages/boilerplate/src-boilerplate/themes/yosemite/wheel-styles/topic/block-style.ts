@@ -1,9 +1,9 @@
-import { PageSectionWheelStyle } from '../../../../../wheelroom'
-import { primaryButtonStyle } from '../elements/button-style'
-import { wrapperStyle, containerStyle } from '../elements/grid-style'
-import { iconTopicStyle } from '../elements/icon-style'
+import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
+import { containerStyle, wrapperStyle } from '..//shared-styles/grid-style'
+import { primaryButtonStyle } from '../../element-styles/button-style'
+import { iconTopicStyle } from '..//shared-styles/icon-style'
 
-export const pageSectionBlockStyle: PageSectionWheelStyle = {
+export const topicSectionBlockStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {
       ...containerStyle,

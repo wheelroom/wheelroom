@@ -1,13 +1,13 @@
-import { PageSectionWheelStyle } from '../../../../../wheelroom'
 import {
-  displayButtonStyle,
   primaryButtonStyle,
+  displayButtonStyle,
   secondaryButtonStyle,
-} from '../elements/button-style'
-import { iconButtonStyle, iconTopicStyle } from '../elements/icon-style'
-import { embedStyle } from '../elements/embed-style'
+} from '../../element-styles/button-style'
+import { iconTopicStyle, iconButtonStyle } from '..//shared-styles/icon-style'
+import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
+import { embedStyle } from '../shared-styles/embed-style'
 
-export const pageSectionHeroStyle: PageSectionWheelStyle = {
+export const topicSectionHeroStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {},
   },

@@ -4,7 +4,7 @@ import { iconTopicStyle } from '../shared-styles/icon-style'
 import { embedStyle } from '../shared-styles/embed-style'
 import { wrapperStyle } from '../shared-styles/grid-style'
 
-export const pageSectionShowcaseStyle: TopicSectionWheelStyle = {
+export const topicSectionShowcaseStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {
       alignItems: ['center', 'baseline'],

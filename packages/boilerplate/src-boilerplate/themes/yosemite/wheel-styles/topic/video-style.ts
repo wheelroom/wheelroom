@@ -1,9 +1,9 @@
-import { PageSectionWheelStyle } from '../../../../../wheelroom'
-import { iconTopicStyle } from '../elements/icon-style'
-import { wrapperStyle } from '../elements/grid-style'
-import { embedStyle } from '../elements/embed-style'
+import { wrapperStyle } from '..//shared-styles/grid-style'
+import { iconTopicStyle } from '..//shared-styles/icon-style'
+import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
+import { embedStyle } from '../shared-styles/embed-style'
 
-export const pageSectionVideoStyle: PageSectionWheelStyle = {
+export const topicSectionVideoStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {},
   },

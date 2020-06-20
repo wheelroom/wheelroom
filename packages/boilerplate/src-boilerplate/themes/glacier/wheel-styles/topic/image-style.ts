@@ -3,7 +3,7 @@ import { iconTopicStyle } from '../shared-styles/icon-style'
 import { embedStyle } from '../shared-styles/embed-style'
 import { wrapperStyle } from '../shared-styles/grid-style'
 
-export const pageSectionImageStyle: TopicSectionWheelStyle = {
+export const topicSectionImageStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {
       flexDirection: ['column', 'row'],

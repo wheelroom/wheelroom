@@ -1,14 +1,14 @@
-import { PageSectionWheelStyle } from '../../../../../wheelroom'
+import { wrapperStyle } from '..//shared-styles/grid-style'
 import {
-  displayButtonStyle,
   primaryButtonStyle,
+  displayButtonStyle,
   secondaryButtonStyle,
-} from '../elements/button-style'
-import { wrapperStyle } from '../elements/grid-style'
-import { iconButtonStyle, iconTopicStyle } from '../elements/icon-style'
-import { embedStyle } from '../elements/embed-style'
+} from '../../element-styles/button-style'
+import { iconTopicStyle, iconButtonStyle } from '..//shared-styles/icon-style'
+import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
+import { embedStyle } from '../shared-styles/embed-style'
 
-export const pageSectionFeaturedStyle: PageSectionWheelStyle = {
+export const topicSectionFeaturedStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {
       flexDirection: 'column',

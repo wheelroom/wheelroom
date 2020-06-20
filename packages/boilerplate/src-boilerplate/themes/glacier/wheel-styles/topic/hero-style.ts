@@ -7,7 +7,7 @@ import {
 import { iconButtonStyle, iconTopicStyle } from '../shared-styles/icon-style'
 import { embedStyle } from '../shared-styles/embed-style'
 
-export const pageSectionHeroStyle: TopicSectionWheelStyle = {
+export const topicSectionHeroStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {},
   },

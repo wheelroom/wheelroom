@@ -1,10 +1,10 @@
-import { PageSectionWheelStyle } from '../../../../../wheelroom'
-import { aLinkButtonStyle } from '../elements/button-style'
-import { wrapperStyle } from '../elements/grid-style'
-import { iconTopicStyle } from '../elements/icon-style'
-import { embedStyle } from '../elements/embed-style'
+import { wrapperStyle } from '..//shared-styles/grid-style'
+import { iconTopicStyle } from '..//shared-styles/icon-style'
+import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
+import { aLinkButtonStyle } from '../../element-styles/button-style'
+import { embedStyle } from '../shared-styles/embed-style'
 
-export const pageSectionShowcaseStyle: PageSectionWheelStyle = {
+export const topicSectionShowcaseStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {
       alignItems: ['center', 'baseline'],
