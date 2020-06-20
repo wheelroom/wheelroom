@@ -5,6 +5,7 @@ import {
   Box,
   Embed,
   EmbedProps,
+  Image,
   MediaBreakpoint,
   MediaObject,
   Video,
