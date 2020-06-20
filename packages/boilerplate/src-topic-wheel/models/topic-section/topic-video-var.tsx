@@ -19,20 +19,10 @@ export const TopicSectionVideoVar = (props: TopicSectionProps) => {
     themeId: props.activeThemeId,
     wheelId: 'topicSection',
     sectionWheels: props.sectionWheels,
-    variation: 'block',
+    variation: 'video',
   })
 
   if (!wheel || !props.topics) {
-    return null
-  }
-
-  const wheel: Wheel = getWheel(props.activeThemeId as ThemeId)
-  wheel.style = deepMerge([
-    { topic: topicPreset },
-    getSectionStyle('pageSection').video,
-  ])
-
-  if (!props.topics) {
     return null
   }
 

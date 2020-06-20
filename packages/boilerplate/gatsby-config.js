@@ -3,11 +3,10 @@
 packageJson = require('./package.json')
 path = require('path')
 
-const blogQuery = require('./src/wheelroom/models/blog/query')
-const globalsQuery = require('./src/wheelroom/models/globals/query')
-const pageQuery = require('./src/wheelroom/models/page/query')
-
 const dotenv = require('dotenv')
+const blogQuery = require('./src-blog-wheel/models/blog/query')
+const globalsQuery = require('./src-core/models/globals/query')
+const pageQuery = require('./src-core/models/page/query')
 
 /**
  * Load environment from .env in development mode

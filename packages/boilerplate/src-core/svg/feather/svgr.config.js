@@ -1,3 +1,4 @@
+/* eslint-disable */
 path = require('path')
 svgrCliUtil = require('@svgr/cli/lib/util')
 module.exports = {

@@ -107,7 +107,7 @@
     "lint-fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
     "build:gatsby": "gatsby build",
     "netlify": "npm-run-all build:*",
-    "compile-config": "tsc --project wheelroom-config/tsconfig.json",
+    "compile-config": "tsc --project src/wheelroom-config/tsconfig.json",
     "dev": "gatsby develop",
     "develop": "gatsby develop",
     "lint": "eslint 'src/**/*.{js,ts,tsx}'",
