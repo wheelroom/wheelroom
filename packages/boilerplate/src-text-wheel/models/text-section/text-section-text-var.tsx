@@ -14,7 +14,7 @@ import { TextSectionProps } from './model-types'
 export const TextSectionTextVar = (props: TextSectionProps) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
-    wheelId: 'text',
+    wheelId: 'textSection',
     sectionWheels: props.sectionWheels,
     variation: 'text',
   })

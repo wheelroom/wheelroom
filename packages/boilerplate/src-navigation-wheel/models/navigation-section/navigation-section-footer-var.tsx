@@ -14,7 +14,7 @@ import { NavigationSectionProps } from './model-types'
 export const NavigationSectionFooterVar = (props: NavigationSectionProps) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
-    wheelId: 'navigation',
+    wheelId: 'navigationSection',
     sectionWheels: props.sectionWheels,
     variation: 'footer',
   })

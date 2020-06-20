@@ -14,7 +14,7 @@ import { TableSectionProps } from './model-types'
 export const TableSectionPriceVar = (props: TableSectionProps) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
-    wheelId: 'table',
+    wheelId: 'tableSection',
     sectionWheels: props.sectionWheels,
     variation: 'price',
   })

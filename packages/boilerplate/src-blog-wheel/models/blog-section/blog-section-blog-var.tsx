@@ -14,7 +14,7 @@ import { BlogSectionProps } from './model-types'
 export const BlogSectionBlogVar = (props: BlogSectionProps) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
-    wheelId: 'blog',
+    wheelId: 'blogSection',
     sectionWheels: props.sectionWheels,
     variation: 'blog',
   })

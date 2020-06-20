@@ -18,11 +18,11 @@ export const themeInfo = (props: any): ThemeInfo => {
   return {
     pageTheme,
     themeNames: {
-      light: {
+      yosemiteLight: {
         name: 'Light theme',
         default: defaultTheme === 'yosemiteLight',
       },
-      dark: {
+      yosemiteDark: {
         name: 'Dark theme',
         default: defaultTheme === 'yosemiteDark',
       },
