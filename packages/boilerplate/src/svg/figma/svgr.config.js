@@ -18,9 +18,9 @@ module.exports = {
     const typeScriptTpl = template.smart({ plugins: ['typescript'] })
     return typeScriptTpl.ast`
     import React, { SVGProps } from 'react'
-    import { Wheel } from '../../wheelroom'
     import { styledSystem } from '@wheelroom/styled-system'
-    export interface IconProps extends SVGProps<SVGSVGElement> {
+    import { Wheel } from '@wheelroom/core'
+        export interface IconProps extends SVGProps<SVGSVGElement> {
       ncss: any
       wheel: Wheel
     }

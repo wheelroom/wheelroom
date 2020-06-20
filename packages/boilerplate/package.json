@@ -114,7 +114,7 @@
     "start": "npm run develop",
     "svgr": "npm-run-all svgr:*",
     "svgr:figma": "svgr --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/figma src/svg/figma --config-file ./src/svg/figma/svgr.config.js",
-    "svgr:feather": "svgr --filename-case kebab --ext tsx --no-dimensions --out-dir src/wheelroom/svg/feather src/wheelroom/svg/feather --config-file ./src/wheelroom/svg/feather/svgr.config.js",
+    "svgr:feather": "svgr --filename-case kebab --ext tsx --no-dimensions --out-dir src-core/svg/feather src-core/svg/feather --config-file ./src-core/svg/feather/svgr.config.js",
     "type-check": "tsc --noEmit",
     "demo-load-env": "export $(grep -v '^#' .env | xargs)",
     "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
