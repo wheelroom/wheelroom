@@ -16,6 +16,6 @@
     "strict": true,
     "target": "es2015"
   },
-  "include": ["src-boilerplate/**/*.ts", "src-boilerplate/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": []
 }
