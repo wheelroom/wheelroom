@@ -25,6 +25,9 @@ const sectionMap: SectionMap = {
   ContentfulTopicSection: TopicSection,
   ContentfulTableSection: TableSection,
   ContentfulTextSection: TextSection,
+
+  // TODO: Remove this
+  ContentfulPageSection: TopicSection,
 }
 
 export interface SectionsProps {
@@ -46,15 +49,16 @@ export const Sections = (props: SectionsProps) => {
     const Section = sectionMap[section.__typename]
     const sectionProps: SectionProps = {
       __typename: section.__typename,
+      activeThemeId: props.activeThemeId,
       index,
       key: index,
       locale: props.locale,
       namedPaths: props.namedPaths,
-      activeThemeId: props.activeThemeId,
+      sectionWheels: props.sectionWheels,
 
-      globals: props.globals,
-      blog: props.blog,
       allBlog: props.allBlog,
+      blog: props.blog,
+      globals: props.globals,
       page: props.page,
       siteMetadata: props.siteMetadata,
 

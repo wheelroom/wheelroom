@@ -61,7 +61,9 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
   const menuSegments = getNavSegments(props.navigation, 'menu')
 
   const toggleTheme = () => {
-    setActiveTheme(activeThemeId === 'light' ? 'dark' : 'light')
+    setActiveTheme(
+      activeThemeId === 'yosemiteLight' ? 'yosemiteLight' : 'yosemiteDark'
+    )
   }
 
   const openMenu = () => {

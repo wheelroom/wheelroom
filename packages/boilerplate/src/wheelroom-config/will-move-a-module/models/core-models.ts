@@ -355,7 +355,7 @@ export const coreModels: WheelroomComponents = {
         type: 'multipleComponents',
       } as MultipleComponentsField,
       theme: {
-        items: ['light', 'dark'],
+        items: ['yosemiteLight', 'yosemiteDark'],
         translations: {
           name: {
             nl: 'Paginathema',

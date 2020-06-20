@@ -376,7 +376,7 @@ interface PageModel {
       | 'siteHeader'
       | 'siteFooter'
     >
-    theme?: 'light' | 'dark'
+    theme?: 'yosemiteLight' | 'yosemiteDark'
     seoTitle?: string
     seoDescription?: string
     seoImage?: boolean
