@@ -36,3 +36,7 @@
 
 - Add comments to files in the boilerplate
 - Legacy PageSection model, remove PageSection ref in sections.ts
+
+# Split up into actual npm modules
+
+- ...
