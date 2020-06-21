@@ -67,10 +67,7 @@ export const Sections = (props: SectionsProps) => {
     }
 
     sectionList.push(
-      <ScrollSpy
-        siteEmbeds={props.globals.siteEmbeds || []}
-        sectionProps={sectionProps}
-      >
+      <ScrollSpy siteEmbeds={props.globals.siteEmbeds || []} {...sectionProps}>
         <Section {...sectionProps} />
       </ScrollSpy>
     )
