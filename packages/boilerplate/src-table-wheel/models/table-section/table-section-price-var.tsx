@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { ScrollSpy, getWheel } from '../../../src-core'
+import { getWheel } from '../../../src-core'
 import { TableSection } from './table-section-wheel'
 import { TableSectionProps } from './model-types'
 
@@ -24,17 +24,11 @@ export const TableSectionPriceVar = (props: TableSectionProps) => {
   }
 
   return (
-    <ScrollSpy
-      eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds || []}
-      sectionProps={props}
-    >
-      <TableSection
-        containerStyle="container"
-        tables={props.tables}
-        topicOptions={props.topicOptions || {}}
-        wheel={wheel}
-      />
-    </ScrollSpy>
+    <TableSection
+      containerStyle="container"
+      tables={props.tables}
+      topicOptions={props.topicOptions || {}}
+      wheel={wheel}
+    />
   )
 }

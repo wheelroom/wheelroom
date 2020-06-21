@@ -5,7 +5,7 @@ export interface GetWheel {
   sectionWheels: SectionWheels
   wheelId: string
   variation: string
-  themeId: string
+  themeId?: string
 }
 
 export const getWheel = (params: GetWheel): Wheel | undefined => {

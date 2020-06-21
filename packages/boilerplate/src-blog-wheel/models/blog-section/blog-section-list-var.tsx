@@ -8,7 +8,7 @@
 
 import React from 'react'
 import { BlogProps } from '../../../src-blog-wheel/models/blog/model-types'
-import { getWheel, ScrollSpy } from '../../../src-core'
+import { getWheel } from '../../../src-core'
 import { List } from './list/list'
 import { BlogSectionProps } from './model-types'
 
@@ -27,17 +27,11 @@ export const BlogSectionListVar = (props: BlogSectionProps) => {
     (edges: any) => edges.node
   )
   return (
-    <ScrollSpy
-      eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds || []}
-      sectionProps={props}
-    >
-      <List
-        blogPosts={blogPosts}
-        containerStyle="container"
-        locale={props.locale}
-        wheel={wheel}
-      />
-    </ScrollSpy>
+    <List
+      blogPosts={blogPosts}
+      containerStyle="container"
+      locale={props.locale}
+      wheel={wheel}
+    />
   )
 }

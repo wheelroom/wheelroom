@@ -16,7 +16,9 @@ export interface CoreSectionProps {
   /** Contentful type name */
   __typename: string
   /** Active theme id from theme switcher admin module */
-  activeThemeId: string
+  activeThemeId?: string
+  /** Used for section anyalytics */
+  eventId?: string
   /** index can be used by sections */
   index: number
   /** the current (two characters) locale */

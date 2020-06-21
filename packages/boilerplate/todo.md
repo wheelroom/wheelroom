@@ -11,3 +11,6 @@
 - What to do with ncss postfixes like nscs-header, ncss-footer
 - What to do with topicSection variants of variants like card and cardShadow
 - Check if all modules have consistent exports in index.ts
+- Add comments to files in the boilerplate
+- Remove PageSection ref in sections.ts
+- 

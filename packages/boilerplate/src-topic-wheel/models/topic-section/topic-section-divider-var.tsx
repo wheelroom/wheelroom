@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { getWheel, ScrollSpy, Hr } from '../../../src-core'
+import { getWheel, Hr } from '../../../src-core'
 import { TopicSectionProps } from './model-types'
 
 export const TopicSectionDividerVar = (props: TopicSectionProps) => {
@@ -22,13 +22,5 @@ export const TopicSectionDividerVar = (props: TopicSectionProps) => {
     return null
   }
 
-  return (
-    <ScrollSpy
-      eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds || []}
-      sectionProps={props}
-    >
-      <Hr wheel={wheel} />
-    </ScrollSpy>
-  )
+  return <Hr wheel={wheel} />
 }

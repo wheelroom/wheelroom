@@ -11,6 +11,7 @@ import {
   CoreSiteMetadata,
   PageProps,
   SectionWheels,
+  ScrollSpy,
 } from '../../src-core'
 import { Landmarks } from './landmarks'
 import { SectionProps } from './section-props'
@@ -65,7 +66,14 @@ export const Sections = (props: SectionsProps) => {
       ...section,
     }
 
-    sectionList.push(<Section {...sectionProps} />)
+    sectionList.push(
+      <ScrollSpy
+        siteEmbeds={props.globals.siteEmbeds || []}
+        sectionProps={sectionProps}
+      >
+        <Section {...sectionProps} />
+      </ScrollSpy>
+    )
   })
 
   return <Landmarks>{sectionList}</Landmarks>

@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { ScrollSpy, getWheel } from '../../../src-core'
+import { getWheel } from '../../../src-core'
 import { Blog } from './blog/blog'
 import { BlogSectionProps } from './model-types'
 
@@ -23,17 +23,11 @@ export const BlogSectionBlogVar = (props: BlogSectionProps) => {
     return null
   }
   return (
-    <ScrollSpy
-      eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds || []}
-      sectionProps={props}
-    >
-      <Blog
-        locale={props.locale}
-        blog={props.blog}
-        containerStyle="container"
-        wheel={wheel}
-      />
-    </ScrollSpy>
+    <Blog
+      locale={props.locale}
+      blog={props.blog}
+      containerStyle="container"
+      wheel={wheel}
+    />
   )
 }

@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { getWheel, ScrollSpy } from '../../../src-core'
+import { getWheel } from '../../../src-core'
 import { NavigationHeader } from './header/navigation-header'
 import { NavigationSectionProps } from './model-types'
 
@@ -22,22 +22,16 @@ export const NavigationSectionHeaderVar = (props: NavigationSectionProps) => {
     return null
   }
   return (
-    <ScrollSpy
-      eventId={props.eventId}
-      siteEmbeds={props.globals.siteEmbeds || []}
-      sectionProps={props}
-    >
-      <NavigationHeader
-        globals={props.globals}
-        containerStyle="container"
-        navigation={props.navigation || []}
-        hideThemeButton={false}
-        useLogoElement={undefined}
-        wheel={wheel}
-        // useLogoElement={
-        //   <SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheel} />
-        // }
-      />
-    </ScrollSpy>
+    <NavigationHeader
+      globals={props.globals}
+      containerStyle="container"
+      navigation={props.navigation || []}
+      hideThemeButton={false}
+      useLogoElement={undefined}
+      wheel={wheel}
+      // useLogoElement={
+      //   <SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheel} />
+      // }
+    />
   )
 }

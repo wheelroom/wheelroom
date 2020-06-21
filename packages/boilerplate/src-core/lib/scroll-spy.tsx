@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { EmbedProps } from '../models/embed/model-types'
+import { CoreSectionProps } from './core-section-props'
 
 interface ScrollSpyProps {
   /** The #id added to the div  */
   children: any
-  eventId: string | undefined
-  sectionProps: any
+  sectionProps: CoreSectionProps
   siteEmbeds: EmbedProps[]
 }
 
@@ -50,14 +50,14 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
             'eventId',
             'props',
             embed.code.code
-          )(props.eventId + postFix, props.sectionProps)
+          )(props.sectionProps.eventId + postFix, props.sectionProps)
         }
       })
     }
   }
 
   useEffect(() => {
-    if (isServer || !props.eventId) {
+    if (isServer || !props.sectionProps || !props.sectionProps.eventId) {
       return
     }
     // eslint-disable-next-line no-undef
@@ -69,12 +69,12 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
     }
   })
 
-  if (!props.eventId) {
+  if (!props.sectionProps || !props.sectionProps.eventId) {
     return props.children
   }
 
   return (
-    <div ref={divRef} id={props.eventId}>
+    <div ref={divRef} id={props.sectionProps.eventId}>
       {props.children}
     </div>
   )
