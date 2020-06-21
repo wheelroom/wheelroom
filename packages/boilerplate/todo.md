@@ -22,7 +22,8 @@
 
 ### Proposal
 
-- The ncss-header is not a good idea because it is hard to check with Typescript
+- The ncss-header soution is not a good idea because it is hard to check with
+  Typescript
 - topicInfo/cards and topicInfo/shadowCards is a good way of working
 - For relative small style tree switches we could:
   - besides ncss: {}, allow ncss: [{}, {}, ...]
