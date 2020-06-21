@@ -34,7 +34,7 @@ const sectionMap: SectionMap = {
 export interface SectionsProps {
   locale: string
   namedPaths: NamedPaths
-  activeThemeId: string
+  activeThemeId: string | undefined
   globals: GlobalsProps
   blog: BlogProps
   allBlog: AllBlogProps

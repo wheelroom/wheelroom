@@ -1,17 +1,8 @@
 import { ThemeInfo } from '@wheelroom/admin-theme-switcher'
 import { PageProps } from '../../src-core'
-
-export type ThemeId = 'yosemiteLight' | 'yosemiteDark'
+// import { sectionWheels } from '../page-template/section-wheels'
 
 export const themeInfo = (props: any): ThemeInfo => {
-  const isServer = typeof window === 'undefined'
-  const supportsDarkMode =
-    !isServer &&
-    // eslint-disable-next-line no-undef
-    window.matchMedia('(prefers-color-scheme: dark)').matches === true
-
-  const defaultTheme = supportsDarkMode ? 'yosemiteDark' : 'yosemiteLight'
-
   const page: PageProps = props && props.data && props.data.page
   const pageTheme = page && page.theme
 
@@ -20,11 +11,11 @@ export const themeInfo = (props: any): ThemeInfo => {
     themeNames: {
       yosemiteLight: {
         name: 'Light theme',
-        default: defaultTheme === 'yosemiteLight',
+        default: true,
       },
       yosemiteDark: {
         name: 'Dark theme',
-        default: defaultTheme === 'yosemiteDark',
+        default: false,
       },
     },
   }

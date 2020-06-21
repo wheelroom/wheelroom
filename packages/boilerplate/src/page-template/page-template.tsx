@@ -7,7 +7,6 @@ import {
 } from '@wheelroom/admin-page-preview'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { ThemeId } from '../admin-resources/theme-info'
 import {
   classicGlobalReset,
   CoreSiteMetadata,
@@ -38,7 +37,7 @@ const PageTemplate = (props: any) => {
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
-  const activeThemeId = themeSwitcherStore?.state.activeThemeId as ThemeId
+  const activeThemeId = themeSwitcherStore?.state.activeThemeId
 
   if (!page.sections) {
     return 'No sections'

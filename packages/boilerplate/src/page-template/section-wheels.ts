@@ -1,9 +1,9 @@
-import { wrSystemConfig, SectionWheels } from '../../src-core'
+import { wrSystemConfig, SectionWheels, supportsDarkMode } from '../../src-core'
 import { glacierDark, glacierLight } from '../themes/glacier/glacier'
 import { yosemiteDark, yosemiteLight } from '../themes/yosemite/yosemite'
 
 export const sectionWheels: SectionWheels = {
-  defaultThemeId: 'yosemiteLight',
+  defaultThemeId: supportsDarkMode() ? 'yosemiteDark' : 'yosemiteLight',
   themes: {
     glacierLight,
     glacierDark,
