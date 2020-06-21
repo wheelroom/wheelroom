@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-theme-switcher@1.2.2...@wheelroom/admin-theme-switcher@2.0.0) (2020-06-21)
+
+
+### Features
+
+* new ThemeInfo compatible with @wheelroom/core ([d6aa84e](https://github.com/wheelroom/wheelroom/commit/d6aa84e73c139fc4a8166ce911e853dd5abdaba6))
+
+
+### BREAKING CHANGES
+
+* TS Definition of ThemeInfo changed
+
+
+
+
+
 ## [1.2.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/admin-theme-switcher@1.2.1...@wheelroom/admin-theme-switcher@1.2.2) (2020-04-30)
 
 **Note:** Version bump only for package @wheelroom/admin-theme-switcher

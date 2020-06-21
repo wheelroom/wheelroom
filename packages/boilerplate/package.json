@@ -26,7 +26,7 @@
     "@wheelroom/admin-events": "1.0.2",
     "@wheelroom/admin-page-preview": "1.5.4",
     "@wheelroom/admin-panel": "1.2.2",
-    "@wheelroom/admin-theme-switcher": "1.2.2",
+    "@wheelroom/admin-theme-switcher": "2.0.0",
     "@wheelroom/styled-system": "4.1.2",
     "@wheelroom/wheelroom": "4.3.2",
     "@wheelroom/wheelroom-plugin-boilerplate": "3.1.6",
@@ -130,8 +130,8 @@
     "wr:ls": "wheelroom --config compiled-config/wheelroom-config.js list"
   },
   "type": "commonjs",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "wheelroom": {
-    "version": "3.4.0"
+    "version": "3.4.1"
   }
 }
