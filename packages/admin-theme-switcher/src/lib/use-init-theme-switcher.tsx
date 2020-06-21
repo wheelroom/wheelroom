@@ -6,7 +6,6 @@ import { themeSwitcherReducer } from './theme-switcher-reducer'
 import { initialState } from './initial-state'
 import { actionCreator } from './action-creator'
 import { ThemeInfo } from './types'
-import { getActiveTheme } from './getters'
 
 /**
  * Use init theme switcher
@@ -21,8 +20,8 @@ import { getActiveTheme } from './getters'
  */
 export const useInitThemeSwitcher = (themeInfo: ThemeInfo) => {
   const { adminCoreDispatch } = useContext(AdminCoreContext)
-  initialState.themeNames = themeInfo.themeNames
-  initialState.activeThemeId = getActiveTheme(themeInfo.themeNames)
+  initialState.themes = themeInfo.themes
+  initialState.activeThemeId = themeInfo.defaultThemeId
   initialState.lastThemeId = initialState.activeThemeId
   const [themeSwitcherState, themeSwitcherDispatch] = useReducer(
     themeSwitcherReducer,
@@ -36,12 +35,12 @@ export const useInitThemeSwitcher = (themeInfo: ThemeInfo) => {
    * to the last theme is needed.
    */
   useLayoutEffect(() => {
-    if (themeInfo.pageTheme) {
-      actions.setTemporaryActiveTheme(themeInfo.pageTheme)
+    if (themeInfo.pageThemeId) {
+      actions.setTemporaryActiveTheme(themeInfo.pageThemeId)
     } else {
       actions.setLastTheme()
     }
-  }, [themeInfo.pageTheme])
+  }, [themeInfo.pageThemeId])
 
   /**
    * Register module only once

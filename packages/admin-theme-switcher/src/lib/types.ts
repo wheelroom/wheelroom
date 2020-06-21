@@ -1,19 +1,18 @@
 import { Dispatch } from 'react'
 
-export interface ThemeName {
+export interface Theme {
   /** Human readable name of the theme */
-  name: string
-  /** Use as default theme */
-  default: boolean
+  themeName: string
 }
 
-export interface ThemeNames {
-  [themeId: string]: ThemeName
+export interface Themes {
+  [themeId: string]: Theme
 }
 
 export interface ThemeInfo {
-  pageTheme: string | undefined
-  themeNames: ThemeNames
+  defaultThemeId: string
+  pageThemeId: string | undefined
+  themes: Themes
 }
 
 export interface ThemeSwitcherState {
@@ -22,16 +21,11 @@ export interface ThemeSwitcherState {
   /** Id of the last theme before the active theme */
   lastThemeId: string | undefined
   /** List of avaibale themes */
-  themeNames: ThemeNames
+  themes: Themes
 }
 
 export interface BaseAction {
   type: string
-}
-
-export interface SetThemeNames extends BaseAction {
-  type: 'SET_THEME_NAMES'
-  themeNames: ThemeNames
 }
 
 export interface SetActiveTheme extends BaseAction {
@@ -52,7 +46,6 @@ export type ActionTypes =
   | SetActiveTheme
   | SetLastTheme
   | SetTemporaryActiveTheme
-  | SetThemeNames
 
 export interface ThemeSwitcherStore {
   actions: any
