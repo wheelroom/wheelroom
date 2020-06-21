@@ -13,6 +13,7 @@ import {
   Flex,
   Fluid,
   GlobalsProps,
+  SectionWheelThemes,
   Wheel,
   Wrapper,
 } from '../../../../src-core'
@@ -26,9 +27,11 @@ interface NavigationHeaderWheel extends Wheel {
 
 export interface NavigationHeaderWheelProps {
   containerStyle: 'container' | 'fluid'
+  defaultThemeId: string
   globals: GlobalsProps
   hideThemeButton?: boolean
   navigation: NavigationProps[]
+  themes: SectionWheelThemes
   useLogoElement?: JSX.Element
   wheel: NavigationHeaderWheel
 }
@@ -43,12 +46,22 @@ const getNavSegments = (navigation: NavigationProps[], variation: string) => {
   return nav.segments
 }
 
+const getNextKey = (obj: any, key: string): string => {
+  const keys = Object.keys(obj),
+    i = keys.indexOf(key)
+  if (i + 1 >= keys.length) {
+    return keys[0]
+  }
+  return keys[i + 1]
+}
+
 export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
   const setActiveTheme = themeSwitcherStore?.actions.setActiveTheme
-  const activeThemeId = themeSwitcherStore?.state.activeThemeId
+  const activeThemeId =
+    themeSwitcherStore?.state.activeThemeId || props.defaultThemeId
   const [menuVisible, setMenuVisible] = useState(false)
   const buttonRef = useRef(null)
 
@@ -61,9 +74,7 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
   const menuSegments = getNavSegments(props.navigation, 'menu')
 
   const toggleTheme = () => {
-    setActiveTheme(
-      activeThemeId === 'yosemiteLight' ? 'yosemiteLight' : 'yosemiteDark'
-    )
+    setActiveTheme(getNextKey(props.themes, activeThemeId))
   }
 
   const openMenu = () => {
@@ -134,7 +145,7 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
                 ...props.wheel,
                 style: props.wheel.style.actions.themeButton,
               }}
-              activeThemeId={activeThemeId}
+              buttonName={props.themes[activeThemeId].themeName}
               hideThemeButton={props.hideThemeButton}
               toggleTheme={toggleTheme}
             />
@@ -163,7 +174,7 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
             <Modal
               menuSegments={menuSegments}
               actionsSegments={actionsSegments}
-              activeThemeId={activeThemeId}
+              buttonName={props.themes[activeThemeId].themeName}
               closeMenu={closeMenu}
               hideThemeButton={props.hideThemeButton}
               menuVisible={menuVisible}

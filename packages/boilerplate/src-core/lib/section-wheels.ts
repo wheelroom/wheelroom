@@ -20,13 +20,15 @@ export interface SectionWheelTheme {
   wrSystemTheme: WrSystemTheme
 }
 
+export interface SectionWheelThemes {
+  [themeId: string]: SectionWheelTheme
+}
+
 /** Passed to a Wheelroom page section (wheel) */
 export interface SectionWheels {
   /** Default theme for light mode */
   defaultThemeId: string
   /** Themes combine element styles, a set of style trees and a styled sytem theme */
-  themes: {
-    [themeId: string]: SectionWheelTheme
-  }
+  themes: SectionWheelThemes
   wrSystemConfig: WrSystemConfig
 }

@@ -6,7 +6,7 @@ interface ThemeButtonWheel extends Wheel {
 }
 
 export interface ThemeButtonWheelProps {
-  activeThemeId?: string
+  buttonName?: string
   hideThemeButton?: boolean
   toggleTheme: () => void
   wheel: ThemeButtonWheel
@@ -18,9 +18,9 @@ export const ThemeButton = (props: ThemeButtonWheelProps) => {
   }
   return (
     <Button
-      ariaLabel={`Current theme is ` + props.activeThemeId}
+      ariaLabel={`Current theme is ` + props.buttonName}
       onClick={() => props.toggleTheme()}
-      title={`Current theme is ` + props.activeThemeId}
+      title={`Current theme is ` + props.buttonName}
       type="button"
       value=""
       wheel={{
@@ -28,7 +28,7 @@ export const ThemeButton = (props: ThemeButtonWheelProps) => {
         style: props.wheel.style,
       }}
     >
-      {props.activeThemeId}
+      {props.buttonName}
     </Button>
   )
 }

@@ -7,10 +7,6 @@
 
 ## Theme switcher
 
-- make theme button rotate through all active themes
-- define theme ids only on one place
-- use theme name
-- add active property to activate themes
 - How to update model with themeIds?
 
 ## Styling

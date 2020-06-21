@@ -23,10 +23,12 @@ export const NavigationSectionHeaderVar = (props: NavigationSectionProps) => {
   }
   return (
     <NavigationHeader
-      globals={props.globals}
       containerStyle="container"
-      navigation={props.navigation || []}
+      defaultThemeId={props.sectionWheels.defaultThemeId}
+      globals={props.globals}
       hideThemeButton={false}
+      navigation={props.navigation || []}
+      themes={props.sectionWheels.themes}
       useLogoElement={undefined}
       wheel={wheel}
       // useLogoElement={

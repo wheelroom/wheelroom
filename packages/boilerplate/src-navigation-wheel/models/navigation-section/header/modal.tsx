@@ -12,7 +12,7 @@ interface ModalWheel extends Wheel {
 
 export interface ModalWheelProps {
   actionsSegments: NavigationSegmentProps[]
-  activeThemeId?: string
+  buttonName?: string
   closeMenu: () => void
   hideThemeButton?: boolean
   menuSegments: NavigationSegmentProps[]
@@ -117,7 +117,7 @@ export const Modal = (props: ModalWheelProps) => {
               ...props.wheel,
               style: props.wheel.style.document.actions.themeButton,
             }}
-            activeThemeId={props.activeThemeId}
+            buttonName={props.buttonName}
             hideThemeButton={props.hideThemeButton}
             toggleTheme={props.toggleTheme}
           />

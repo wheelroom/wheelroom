@@ -39,6 +39,7 @@ export type { PreElementStyle } from './elements/self/self-styles'
 export type {
   SectionWheels,
   SectionWheelTheme,
+  SectionWheelThemes,
   SectionWheelThemeStyles,
 } from './lib/section-wheels'
 export type { SeoProps } from './lib/seo-props'
