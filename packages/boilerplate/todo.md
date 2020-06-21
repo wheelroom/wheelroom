@@ -13,4 +13,5 @@
 - Check if all modules have consistent exports in index.ts
 - Add comments to files in the boilerplate
 - Remove PageSection ref in sections.ts
+- How to handle common styling like topicPreset
 - 
