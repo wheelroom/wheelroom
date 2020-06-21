@@ -1,6 +1,6 @@
 # Todo for refactor/themes branch
 
-- Scroll Spy to sections.ts (like landmarks)
+- Test Scroll Spy refactor
 - Remove styling from modules (presets)
 - Fix themes
   - make theme button rotate through all active themes
