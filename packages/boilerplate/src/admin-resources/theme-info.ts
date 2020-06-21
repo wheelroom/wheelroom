@@ -7,19 +7,16 @@ export const themeInfo = (props: any): ThemeInfo => {
   const pageThemeId = page && page.theme
 
   const themeIds = Object.keys(sectionWheels.themes)
-  const themeInfo = themeIds.reduce(
-    (newThemeInfo: ThemeInfo, themeId: string) => {
-      newThemeInfo.themes[themeId] = {
-        themeName: sectionWheels.themes[themeId].themeName || '',
-      }
-      return newThemeInfo
-    },
-    {
-      defaultThemeId: sectionWheels.defaultThemeId,
-      pageThemeId,
-      themes: {},
-    } as ThemeInfo
-  )
+  const themeInfo: ThemeInfo = {
+    defaultThemeId: sectionWheels.defaultThemeId,
+    pageThemeId,
+    themes: {},
+  }
 
-  return themeInfo
+  return themeIds.reduce((newThemeInfo: ThemeInfo, themeId: string) => {
+    newThemeInfo.themes[themeId] = {
+      themeName: sectionWheels.themes[themeId].themeName || '',
+    }
+    return newThemeInfo
+  }, themeInfo)
 }
