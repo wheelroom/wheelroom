@@ -1,22 +1,30 @@
 import React from 'react'
-import { Wheel, Container, Fluid, Wrapper } from '../../../../src-core'
-import { Text } from '../../text/text'
-import { TextProps } from '../../text/model-types'
-import { TextSectionWheelStyle } from './text-section-preset'
+import {
+  Wheel,
+  Container,
+  Fluid,
+  Wrapper,
+  GridElementStyle,
+} from '../../../src-core'
+import { TextWheelStyle } from '../text/text-wheel-style'
+
+export interface TextSectionWheelStyle {
+  container: GridElementStyle
+  text: TextWheelStyle
+  wrapper: GridElementStyle
+}
 
 export interface TextSectionWheel extends Wheel {
   style: TextSectionWheelStyle
 }
 
-export const TextSection = (props: {
-  /** Locale needed for rendering rich text */
-  locale: string
-  /** Text to render */
-  text: TextProps
+export const TextSectionWrapper = (props: {
   /** Styling wheel */
   wheel: TextSectionWheel
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
+  /** Page section children */
+  children: any
 }) => {
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
@@ -24,11 +32,7 @@ export const TextSection = (props: {
       <ContainerType
         wheel={{ ...props.wheel, style: props.wheel.style.container }}
       >
-        <Text
-          locale={props.locale}
-          wheel={{ ...props.wheel, style: props.wheel.style.text }}
-          text={props.text}
-        />
+        {props.children}
       </ContainerType>
     </Wrapper>
   )

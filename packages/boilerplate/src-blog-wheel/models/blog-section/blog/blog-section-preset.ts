@@ -9,7 +9,7 @@ import {
 import {
   TextWheelStyle,
   textPreset,
-} from '../../../../src-text-wheel/models/text/text-preset'
+} from '../../../../src-text-wheel/models/text/text-wheel-style'
 import { TopicWheelStyle } from '../../../../src-topic-wheel/models/topic/topic'
 
 export interface BlogWheelStyle {

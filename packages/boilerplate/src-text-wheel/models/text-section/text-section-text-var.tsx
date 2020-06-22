@@ -8,8 +8,9 @@
 
 import React from 'react'
 import { getWheel } from '../../../src-core'
-import { TextSection } from './text/text-section'
+import { Text } from '../text/text'
 import { TextSectionProps } from './model-types'
+import { TextSectionWrapper } from './text-section-wrapper'
 
 export const TextSectionTextVar = (props: TextSectionProps) => {
   const wheel = getWheel({
@@ -24,11 +25,12 @@ export const TextSectionTextVar = (props: TextSectionProps) => {
   }
 
   return (
-    <TextSection
-      containerStyle="fluid"
-      locale={props.locale}
-      text={props.text}
-      wheel={wheel}
-    />
+    <TextSectionWrapper containerStyle="fluid" wheel={wheel}>
+      <Text
+        locale={props.locale}
+        wheel={{ ...wheel, style: wheel.style.text }}
+        text={props.text}
+      />
+    </TextSectionWrapper>
   )
 }

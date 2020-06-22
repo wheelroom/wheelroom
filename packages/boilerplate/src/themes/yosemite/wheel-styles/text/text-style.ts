@@ -92,17 +92,14 @@ export const textSectionTextStyle: TextSectionWheelStyle = {
       },
     },
     wrapper: {
-      ncss: {},
+      ncss: {
+        label: 'text-wrapper',
+        maxWidth: '712px', // Golden read width ratio
+        mx: 'auto',
+        py: 0,
+        px: 3,
+      },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle.ncss,
-      label: 'wrapper-text',
-      maxWidth: '712px', // Golden read width ratio
-      mx: 'auto',
-      py: 0,
-      px: 3,
-    },
-  },
+  wrapper: wrapperStyle,
 }

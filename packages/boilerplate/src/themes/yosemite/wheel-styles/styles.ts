@@ -19,6 +19,7 @@ import { topicSectionQuoteStyle } from './topic/topic-section/quote-style'
 import { topicSectionShowcaseStyle } from './topic/topic-section/showcase-style'
 import { topicSectionVideoStyle } from './topic/topic-section/video-style'
 import { topicStyle } from './topic/topic/topic-style'
+import { textSectionTextStyle } from './text/text-style'
 
 const mergeTopic = (style: any) => deepMerge([{ topic: topicStyle }, style])
 
@@ -30,6 +31,9 @@ export const styles: SectionWheelThemeStyles = {
   navigationSection: {
     header: deepMerge([navigationHeaderPreset, navigationSectionHeaderStyle]),
     footer: deepMerge([navigationFooterPreset, navigationSectionFooterStyle]),
+  },
+  textSection: {
+    text: textSectionTextStyle,
   },
   topicSection: {
     block: mergeTopic(topicSectionBlockStyle),

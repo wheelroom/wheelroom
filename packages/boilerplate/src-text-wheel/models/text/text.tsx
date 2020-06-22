@@ -38,7 +38,7 @@ import {
   Wheel,
   Wrapper,
 } from '../../../src-core'
-import { TextWheelStyle } from './text-preset'
+import { TextWheelStyle } from './text-wheel-style'
 import { TextProps } from './model-types'
 import { getLocalizedValue } from './get-localized-value'
 
