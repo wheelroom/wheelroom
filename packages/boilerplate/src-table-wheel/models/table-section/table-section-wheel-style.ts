@@ -9,10 +9,7 @@ export interface TableSectionWheelStyle {
 
 export const tableSectionWheelStyle: TableSectionWheelStyle = {
   container: {
-    ncss: {
-      px: 3,
-      overflow: 'hidden',
-    },
+    ncss: {},
   },
   section: tablePreset,
   wrapper: {

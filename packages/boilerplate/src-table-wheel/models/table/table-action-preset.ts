@@ -8,18 +8,8 @@ export interface TableActionWheelStyle {
 }
 
 export const tableActionPreset: TableActionWheelStyle = {
-  ncss: {
-    label: 'topic-table-action',
-    display: 'inline-flex',
-    m: 1,
-  },
+  ncss: {},
   icon: {
-    ncss: {
-      label: 'topic-table-icon',
-      w: '15px',
-      h: '15px',
-      my: 'auto',
-      transform: 'translateX(4px)',
-    },
+    ncss: {},
   },
 }

@@ -8,8 +8,6 @@ export interface TableRowCellWheelStyle {
 }
 
 export const tableRowCellPreset: TableRowCellWheelStyle = {
-  ncss: {
-    label: 'table-row-cell',
-  },
+  ncss: {},
   topic: topicPreset,
 }

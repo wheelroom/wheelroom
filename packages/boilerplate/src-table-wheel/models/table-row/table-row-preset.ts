@@ -30,49 +30,30 @@ export interface TableRowWheelStyle {
 }
 
 export const tableRowPreset: TableRowWheelStyle = {
-  ncss: {
-    label: 'table-row',
-  },
+  ncss: {},
   header: {
-    ncss: {
-      label: 'table-row-header-style',
-    },
+    ncss: {},
   },
   footer: {
-    ncss: {
-      label: 'table-row-footer-style',
-    },
+    ncss: {},
   },
   th: {
-    ncss: {
-      label: 'table-row-header-cell',
-    },
+    ncss: {},
   },
   dd: {
-    ncss: {
-      label: 'table-row-description-definition',
-    },
+    ncss: {},
   },
   dl: {
-    ncss: {
-      label: 'table-row-description-list',
-    },
+    ncss: {},
   },
   dt: {
-    ncss: {
-      label: 'table-row-description-term',
-    },
+    ncss: {},
   },
   icon: {
-    ncss: {
-      label: 'table-row-icon',
-    },
+    ncss: {},
   },
   actions: {
-    ncss: {
-      label: 'table-row-actions',
-      mx: -1,
-    },
+    ncss: {},
     action: tableRowActionPreset,
   },
   cell: tableRowCellPreset,
