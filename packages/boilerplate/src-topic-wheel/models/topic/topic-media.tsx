@@ -1,18 +1,35 @@
 import React from 'react'
-import { TopicInfo } from '../../lib/get-topic-info'
-import { TopicOptions } from '../../lib/get-topic-options'
 import {
   Box,
   Embed,
   EmbedProps,
+  EmbedStyle,
   Image,
+  ImageElementStyle,
   MediaBreakpoint,
+  MediaBreakpointStyle,
   MediaObject,
+  NcssProps,
   Video,
+  VideoElementStyle,
   Wheel,
 } from '../../../src-core'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { TopicOptions } from '../../lib/get-topic-options'
 import { TopicProps } from './model-types'
-import { TopicMediaWheelStyle } from './presets/topic-media-style'
+
+export interface TopicMediaWheelStyle {
+  /** Styling for this node */
+  ncss: NcssProps
+  /** Video style */
+  embed: EmbedStyle
+  /** Image style */
+  image: ImageElementStyle
+  /** Media Breakpoint Style */
+  mediaBreakpoint: MediaBreakpointStyle
+  /** Video style */
+  video: VideoElementStyle
+}
 
 export interface TopicMediaWheel extends Wheel {
   style: TopicMediaWheelStyle

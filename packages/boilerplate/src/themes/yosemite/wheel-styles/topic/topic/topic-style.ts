@@ -1,4 +1,4 @@
-import { TopicWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-style'
+import { TopicWheelStyle } from '../../../../../../src-topic-wheel/models/topic/topic'
 import { topicMediaStyle } from './topic-media-style'
 import { topicContentStyle } from './topic-content-style'
 

@@ -5,12 +5,23 @@ import { TopicOptions } from '../../lib/get-topic-options'
 import {
   BlockLevelElementName,
   Box,
+  NcssProps,
   ParserFunction,
   Wheel,
 } from '../../../src-core'
 import { TopicBody } from './topic-body'
+import { TopicContentWheelStyle } from './topic-content'
+import { TopicMediaWheelStyle } from './topic-media'
 import { TopicProps } from './model-types'
-import { TopicWheelStyle } from './presets/topic-style'
+
+export interface TopicWheelStyle {
+  /** Styling for this node */
+  ncss: NcssProps
+  /** Media */
+  media: TopicMediaWheelStyle
+  /** Content */
+  content: TopicContentWheelStyle
+}
 
 export interface TopicWheel extends Wheel {
   style: TopicWheelStyle

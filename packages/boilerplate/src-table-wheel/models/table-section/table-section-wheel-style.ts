@@ -1,4 +1,4 @@
-import { tablePreset, TableWheelStyle } from '../table/table-preset'
+import { tablePreset, TableWheelStyle } from '../table/table-wheel-style'
 import { GridElementStyle } from '../../../src-core'
 
 export interface TableSectionWheelStyle {

@@ -1,4 +1,4 @@
-import { TopicContentTextWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-content-text-style'
+import { TopicContentTextWheelStyle } from '../../../../../../src-topic-wheel/models/topic/topic-content-text'
 
 export const topicContentTextWheelStyle: TopicContentTextWheelStyle = {
   ncss: {

@@ -6,11 +6,24 @@ import {
   Box,
   ParserFunction,
   Wheel,
+  NcssProps,
 } from '../../../src-core'
-import { TopicContentActions } from './topic-content-actions'
-import { TopicContentText } from './topic-content-text'
-import { TopicContentWheelStyle } from './presets/topic-content-style'
+import {
+  TopicContentActions,
+  TopicContentActionsWheelStyle,
+} from './topic-content-actions'
+import {
+  TopicContentText,
+  TopicContentTextWheelStyle,
+} from './topic-content-text'
 import { TopicProps } from './model-types'
+
+export interface TopicContentWheelStyle {
+  /** Wrapper around all content including action */
+  ncss: NcssProps
+  text: TopicContentTextWheelStyle
+  actions: TopicContentActionsWheelStyle
+}
 
 export interface TopicContentWheel extends Wheel {
   style: TopicContentWheelStyle

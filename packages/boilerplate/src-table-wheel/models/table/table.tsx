@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
+import { TableRowWheelStyle } from '../table-row/table-row-style'
 import { TableRow } from '../table-row/table-row'
 import { TableRowProps } from '../table-row/model-types'
 import {
@@ -14,10 +15,34 @@ import {
   Dd,
   Any,
   Table as TableElement,
+  NcssProps,
+  TableElementStyle,
+  DescriptionListElementStyle,
+  IconElementStyle,
 } from '../../../src-core'
 import { TopicOptions, ActionProps, Action } from '../../../src-topic-wheel'
 import { TableProps } from './model-types'
-import { TableWheelStyle } from './table-preset'
+
+export interface TableWheelStyle {
+  ncss: NcssProps
+  table: TableElementStyle
+  th: TableElementStyle
+  tr: TableElementStyle
+  dd: DescriptionListElementStyle
+  dl: DescriptionListElementStyle
+  dt: DescriptionListElementStyle
+  icon: IconElementStyle
+  actions: {
+    ncss: NcssProps
+    action: {
+      ncss: NcssProps
+      icon: {
+        ncss: NcssProps
+      }
+    }
+  }
+  row: TableRowWheelStyle
+}
 
 export interface TableWheel extends Wheel {
   style: TableWheelStyle

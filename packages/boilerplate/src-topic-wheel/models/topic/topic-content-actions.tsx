@@ -3,9 +3,20 @@ import { Action } from '../action/action'
 import { ActionProps } from '../action/model-types'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel, Box } from '../../../src-core'
+import { Wheel, Box, NcssProps } from '../../../src-core'
 import { TopicProps } from './model-types'
-import { TopicContentActionsWheelStyle } from './presets/topic-content-actions-style'
+
+export interface TopicContentActionsWheelStyle {
+  /** Styling for this node */
+  ncss: NcssProps
+  /** Action link or button style */
+  link: {
+    ncss: NcssProps
+    icon: {
+      ncss: NcssProps
+    }
+  }
+}
 
 export interface TopicContentActionsWheel extends Wheel {
   style: TopicContentActionsWheelStyle
