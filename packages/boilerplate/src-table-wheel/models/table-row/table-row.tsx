@@ -1,15 +1,44 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Wheel, Icon, Dl, Dt, Dd, Any, Tr, Th } from '../../../src-core'
+import {
+  Wheel,
+  Icon,
+  Dl,
+  Dt,
+  Dd,
+  Any,
+  Tr,
+  Th,
+  NcssProps,
+  TableElementStyle,
+  DescriptionListElementStyle,
+  IconElementStyle,
+} from '../../../src-core'
 import {
   Action,
   ActionProps,
   TopicOptions,
   TopicProps,
+  ActionWheelStyle,
 } from '../../../src-topic-wheel'
-import { TableRowWheelStyle } from './table-row-style'
 import { TableRowProps } from './model-types'
-import { TableRowCell } from './table-row-cell'
+import { TableRowCell, TableRowCellWheelStyle } from './table-row-cell'
+
+export interface TableRowWheelStyle {
+  ncss: NcssProps
+  header: NcssProps
+  footer: NcssProps
+  th: TableElementStyle
+  dd: DescriptionListElementStyle
+  dl: DescriptionListElementStyle
+  dt: DescriptionListElementStyle
+  icon: IconElementStyle
+  actions: {
+    ncss: NcssProps
+    action: ActionWheelStyle
+  }
+  cell: TableRowCellWheelStyle
+}
 
 export interface TableRowWheel extends Wheel {
   style: TableRowWheelStyle

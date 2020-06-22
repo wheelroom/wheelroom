@@ -2,14 +2,15 @@
  * Component variation
  *
  * Component type: tableSection
- * Variation: Table
+ * Variation: Price
  *
  */
 
 import React from 'react'
 import { getWheel } from '../../../src-core'
-import { TableSection } from './table-section-wheel'
+import { Table } from '../table/table'
 import { TableSectionProps } from './model-types'
+import { TableSectionWrapper } from './table-section-wrapper'
 
 export const TableSectionPriceVar = (props: TableSectionProps) => {
   const wheel = getWheel({
@@ -24,11 +25,12 @@ export const TableSectionPriceVar = (props: TableSectionProps) => {
   }
 
   return (
-    <TableSection
-      containerStyle="container"
-      tables={props.tables}
-      topicOptions={props.topicOptions || {}}
-      wheel={wheel}
-    />
+    <TableSectionWrapper containerStyle="container" wheel={wheel}>
+      <Table
+        tables={props.tables}
+        topicOptions={props.topicOptions || {}}
+        wheel={{ ...wheel, style: wheel.style.section }}
+      />
+    </TableSectionWrapper>
   )
 }

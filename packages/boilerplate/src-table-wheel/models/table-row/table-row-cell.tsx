@@ -1,10 +1,14 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Wheel } from '../../../src-core'
-import { TopicProps, Topic } from '../../../src-topic-wheel'
+import { Wheel, NcssProps } from '../../../src-core'
+import { TopicProps, Topic, TopicWheelStyle } from '../../../src-topic-wheel'
 import { TopicOptions } from '../../../src-topic-wheel/lib/get-topic-options'
 import { Td } from '../../../src-core/elements/self/self'
-import { TableRowCellWheelStyle } from './table-row-cell-style'
+
+export interface TableRowCellWheelStyle {
+  ncss: NcssProps
+  topic: TopicWheelStyle
+}
 
 export interface TableRowCellWheel extends Wheel {
   style: TableRowCellWheelStyle

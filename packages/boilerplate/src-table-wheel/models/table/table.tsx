@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { TableRowWheelStyle } from '../table-row/table-row-style'
-import { TableRow } from '../table-row/table-row'
+import { TableRow, TableRowWheelStyle } from '../table-row/table-row'
 import { TableRowProps } from '../table-row/model-types'
 import {
   Wheel,
@@ -20,7 +19,12 @@ import {
   DescriptionListElementStyle,
   IconElementStyle,
 } from '../../../src-core'
-import { TopicOptions, ActionProps, Action } from '../../../src-topic-wheel'
+import {
+  TopicOptions,
+  ActionProps,
+  Action,
+  ActionWheelStyle,
+} from '../../../src-topic-wheel'
 import { TableProps } from './model-types'
 
 export interface TableWheelStyle {
@@ -34,12 +38,7 @@ export interface TableWheelStyle {
   icon: IconElementStyle
   actions: {
     ncss: NcssProps
-    action: {
-      ncss: NcssProps
-      icon: {
-        ncss: NcssProps
-      }
-    }
+    action: ActionWheelStyle
   }
   row: TableRowWheelStyle
 }
@@ -55,6 +54,8 @@ export interface TableWheelProps {
   tables?: TableProps[]
   /** Topic options */
   topicOptions: TopicOptions
+  /** Accept max number of topics, ignore all others */
+  maxTopics?: number
 }
 
 export const Table = (props: TableWheelProps) => {
