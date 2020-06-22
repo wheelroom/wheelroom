@@ -19,7 +19,7 @@ export const TopicSectionQuoteVar = (props: TopicSectionProps) => {
     themeId: props.activeThemeId,
     wheelId: 'topicSection',
     sectionWheels: props.sectionWheels,
-    variation: 'block',
+    variation: 'quote',
   })
 
   if (!wheel || !props.topics) {

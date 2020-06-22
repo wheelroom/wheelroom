@@ -19,7 +19,7 @@ export const TopicSectionShowcaseVar = (props: TopicSectionProps) => {
     themeId: props.activeThemeId,
     wheelId: 'topicSection',
     sectionWheels: props.sectionWheels,
-    variation: 'block',
+    variation: 'showcase',
   })
 
   if (!wheel || !props.topics) {
