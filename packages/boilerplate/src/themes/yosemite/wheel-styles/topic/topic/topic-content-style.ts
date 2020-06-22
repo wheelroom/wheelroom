@@ -1,5 +1,5 @@
-import { TopicContentWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-content-preset'
-import { topicContentTextWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-content-text-preset'
+import { TopicContentWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-content-style'
+import { topicContentTextWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-content-text-style'
 import { topicContentActionsStyle } from './topic-content-actions-style'
 
 export const topicContentStyle: TopicContentWheelStyle = {

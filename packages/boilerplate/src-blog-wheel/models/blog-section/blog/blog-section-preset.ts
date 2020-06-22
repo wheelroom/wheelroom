@@ -10,7 +10,7 @@ import {
   TextWheelStyle,
   textPreset,
 } from '../../../../src-text-wheel/models/text/text-preset'
-import { TopicWheelStyle } from '../../../../src-topic-wheel/models/topic/presets/topic-preset'
+import { TopicWheelStyle } from '../../../../src-topic-wheel/models/topic/presets/topic-style'
 
 export interface BlogWheelStyle {
   container: GridElementStyle

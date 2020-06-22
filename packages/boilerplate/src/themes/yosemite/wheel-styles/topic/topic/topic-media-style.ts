@@ -1,4 +1,4 @@
-import { TopicMediaWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-media-preset'
+import { TopicMediaWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-media-style'
 
 export const topicMediaStyle: TopicMediaWheelStyle = {
   ncss: {

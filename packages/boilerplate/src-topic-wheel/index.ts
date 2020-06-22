@@ -9,7 +9,7 @@ export type { TopicInfo } from './lib/get-topic-info'
 export type { TopicOptions } from './lib/get-topic-options'
 export type { TopicProps } from './models/topic/model-types'
 export type { TopicSectionProps } from './models/topic-section/model-types'
-export type { TopicWheelStyle } from './models/topic/presets/topic-preset'
+export type { TopicWheelStyle } from './models/topic/presets/topic-style'
 
 export type { getTopicInfo } from './lib/get-topic-info'
 export type {

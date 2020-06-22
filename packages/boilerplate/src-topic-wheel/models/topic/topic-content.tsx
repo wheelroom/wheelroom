@@ -9,7 +9,7 @@ import {
 } from '../../../src-core'
 import { TopicContentActions } from './topic-content-actions'
 import { TopicContentText } from './topic-content-text'
-import { TopicContentWheelStyle } from './presets/topic-content-preset'
+import { TopicContentWheelStyle } from './presets/topic-content-style'
 import { TopicProps } from './model-types'
 
 export interface TopicContentWheel extends Wheel {

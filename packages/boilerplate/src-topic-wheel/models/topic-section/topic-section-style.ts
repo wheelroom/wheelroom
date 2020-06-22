@@ -1,4 +1,4 @@
-import { TopicWheelStyle } from '../topic/presets/topic-preset'
+import { TopicWheelStyle } from '../topic/topic-style'
 import { GridElementStyle } from '../../../src-core'
 
 export interface TopicSectionWheelStyle {

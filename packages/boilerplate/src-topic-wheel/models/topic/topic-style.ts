@@ -1,6 +1,6 @@
 import { NcssProps } from '../../../../src-core'
-import { TopicContentWheelStyle } from './topic-content-preset'
-import { TopicMediaWheelStyle } from './topic-media-preset'
+import { TopicContentWheelStyle } from './topic-content-style'
+import { TopicMediaWheelStyle } from './topic-media-style'
 
 export interface TopicWheelStyle {
   /** Styling for this node */

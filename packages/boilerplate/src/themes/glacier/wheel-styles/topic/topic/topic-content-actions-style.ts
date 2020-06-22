@@ -1,4 +1,4 @@
-import { TopicContentActionsWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-content-actions-preset'
+import { TopicContentActionsWheelStyle } from '../../../../../../src-topic-wheel/models/topic/presets/topic-content-actions-style'
 
 export const topicContentActionsStyle: TopicContentActionsWheelStyle = {
   ncss: {

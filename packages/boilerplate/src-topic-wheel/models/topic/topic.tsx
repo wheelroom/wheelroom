@@ -10,7 +10,7 @@ import {
 } from '../../../src-core'
 import { TopicBody } from './topic-body'
 import { TopicProps } from './model-types'
-import { TopicWheelStyle } from './presets/topic-preset'
+import { TopicWheelStyle } from './presets/topic-style'
 
 export interface TopicWheel extends Wheel {
   style: TopicWheelStyle

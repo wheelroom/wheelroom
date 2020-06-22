@@ -12,7 +12,7 @@ import {
   Wheel,
 } from '../../../src-core'
 import { TopicProps } from './model-types'
-import { TopicMediaWheelStyle } from './presets/topic-media-preset'
+import { TopicMediaWheelStyle } from './presets/topic-media-style'
 
 export interface TopicMediaWheel extends Wheel {
   style: TopicMediaWheelStyle

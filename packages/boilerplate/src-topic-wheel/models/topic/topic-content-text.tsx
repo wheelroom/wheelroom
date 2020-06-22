@@ -10,7 +10,7 @@ import {
   Wheel,
 } from '../../../src-core'
 import { TopicProps } from './model-types'
-import { TopicContentTextWheelStyle } from './presets/topic-content-text-preset'
+import { TopicContentTextWheelStyle } from './presets/topic-content-text-style'
 
 export interface TopicContentTextWheel extends Wheel {
   style: TopicContentTextWheelStyle

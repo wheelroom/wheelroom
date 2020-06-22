@@ -5,7 +5,7 @@ import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
 import { Wheel, Box } from '../../../src-core'
 import { TopicProps } from './model-types'
-import { TopicContentActionsWheelStyle } from './presets/topic-content-actions-preset'
+import { TopicContentActionsWheelStyle } from './presets/topic-content-actions-style'
 
 export interface TopicContentActionsWheel extends Wheel {
   style: TopicContentActionsWheelStyle
