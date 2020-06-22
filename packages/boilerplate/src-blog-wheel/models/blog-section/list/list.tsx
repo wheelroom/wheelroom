@@ -8,14 +8,42 @@ import {
   Flex,
   Fluid,
   GLink,
+  GridElementStyle,
   Heading,
+  HeadingElementStyle,
   Image,
+  ImageElementStyle,
+  NcssProps,
   Paragraph,
+  ParagraphElementStyle,
   Time,
+  VideoElementStyle,
   Wheel,
   Wrapper,
 } from '../../../../src-core'
-import { BlogListWheelStyle } from './blog-section-list-preset'
+
+export interface BlogListWheelStyle {
+  container: GridElementStyle
+  blog: {
+    ncss: NcssProps
+    media: {
+      ncss: NcssProps
+      image: ImageElementStyle
+      video: VideoElementStyle
+    }
+    content: {
+      ncss: NcssProps
+      date: NcssProps
+      categories: NcssProps
+      text: {
+        ncss: NcssProps
+        heading: HeadingElementStyle
+        abstract: ParagraphElementStyle
+      }
+    }
+  }
+  wrapper: GridElementStyle
+}
 
 export interface BlogListWheel extends Wheel {
   style: BlogListWheelStyle
@@ -30,8 +58,6 @@ export interface BlogListWheelProps {
   blogPosts: BlogProps[]
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
-  /** Accept max number of topics, ignore all others */
-  maxTopics?: number
 }
 
 export const List = (props: BlogListWheelProps) => {

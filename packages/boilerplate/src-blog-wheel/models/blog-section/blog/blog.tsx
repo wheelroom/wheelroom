@@ -13,10 +13,37 @@ import {
   Time,
   Wheel,
   Wrapper,
+  GridElementStyle,
+  NcssProps,
+  HeadingElementStyle,
+  ParagraphElementStyle,
+  ImageElementStyle,
+  VideoElementStyle,
 } from '../../../../src-core'
-import { TopicProps, Topic } from '../../../../src-topic-wheel'
+import { TopicProps, Topic, TopicWheelStyle } from '../../../../src-topic-wheel'
 import { Text } from '../../../../src-text-wheel'
-import { BlogWheelStyle } from './blog-section-preset'
+import { TextWheelStyle } from '../../../../src-text-wheel/models/text/text-wheel-style'
+
+export interface BlogWheelStyle {
+  container: GridElementStyle
+  article: NcssProps
+  header: {
+    ncss: NcssProps
+    categories: NcssProps
+    date: NcssProps
+    heading: HeadingElementStyle
+    abstract: ParagraphElementStyle
+  }
+  media: {
+    ncss: NcssProps
+    image: ImageElementStyle
+    video: VideoElementStyle
+  }
+  text: TextWheelStyle
+  authors: NcssProps
+  author: TopicWheelStyle
+  wrapper: GridElementStyle
+}
 
 export interface BlogWheel extends Wheel {
   style: BlogWheelStyle
@@ -31,8 +58,6 @@ export interface BlogWheelProps {
   blog: BlogProps
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
-  /** Accept max number of topics, ignore all others */
-  maxTopics?: number
 }
 
 export const Blog = (props: BlogWheelProps) => {
