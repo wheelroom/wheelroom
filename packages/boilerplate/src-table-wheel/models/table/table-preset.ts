@@ -1,7 +1,7 @@
 import {
   TableRowWheelStyle,
   tableRowPreset,
-} from '../table-row/table-row-preset'
+} from '../table-row/table-row-style'
 import {
   DescriptionListElementStyle,
   NcssProps,

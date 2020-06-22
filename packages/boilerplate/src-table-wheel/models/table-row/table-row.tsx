@@ -7,7 +7,7 @@ import {
   TopicOptions,
   TopicProps,
 } from '../../../src-topic-wheel'
-import { TableRowWheelStyle } from './table-row-preset'
+import { TableRowWheelStyle } from './table-row-style'
 import { TableRowProps } from './model-types'
 import { TableRowCell } from './table-row-cell'
 

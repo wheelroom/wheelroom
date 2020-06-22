@@ -6,10 +6,3 @@ export interface TableRowActionWheelStyle {
     ncss: NcssProps
   }
 }
-
-export const tableRowActionPreset: TableRowActionWheelStyle = {
-  ncss: {},
-  icon: {
-    ncss: {},
-  },
-}
