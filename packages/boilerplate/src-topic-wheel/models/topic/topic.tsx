@@ -1,8 +1,8 @@
 import React from 'react'
-import { Action } from '../action/action'
 import { getTopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
 import {
+  Action,
   BlockLevelElementName,
   Box,
   NcssProps,

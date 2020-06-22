@@ -1,9 +1,7 @@
 import React from 'react'
-import { Action } from '../action/action'
-import { ActionProps } from '../action/model-types'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel, Box, NcssProps } from '../../../src-core'
+import { Wheel, Box, NcssProps, Action, ActionProps } from '../../../src-core'
 import { TopicProps } from './model-types'
 
 export interface TopicContentActionsWheelStyle {

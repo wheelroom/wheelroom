@@ -1,4 +1,4 @@
-import { ActionProps } from '../../../src-topic-wheel'
+import { ActionProps } from '../../../src-core'
 import { TableRowProps } from '../table-row/model-types'
 
 export interface TableProps {

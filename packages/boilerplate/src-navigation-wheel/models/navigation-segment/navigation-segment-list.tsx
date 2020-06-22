@@ -1,6 +1,5 @@
 import React from 'react'
-import { Wheel, Ul, Li } from '../../../src-core'
-import { ActionProps, Action } from '../../../src-topic-wheel'
+import { Wheel, Ul, Li, Action, ActionProps } from '../../../src-core'
 import { NavigationSegmentListWheelStyle } from './presets/navigation-segment-list-preset'
 
 interface NavigationSegmentListWheel extends Wheel {

@@ -1,26 +1,23 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import {
-  Wheel,
-  Icon,
-  Dl,
-  Dt,
-  Dd,
-  Any,
-  Tr,
-  Th,
-  NcssProps,
-  TableElementStyle,
-  DescriptionListElementStyle,
-  IconElementStyle,
-} from '../../../src-core'
-import {
   Action,
   ActionProps,
-  TopicOptions,
-  TopicProps,
   ActionWheelStyle,
-} from '../../../src-topic-wheel'
+  Any,
+  Dd,
+  DescriptionListElementStyle,
+  Dl,
+  Dt,
+  Icon,
+  IconElementStyle,
+  NcssProps,
+  TableElementStyle,
+  Th,
+  Tr,
+  Wheel,
+} from '../../../src-core'
+import { TopicOptions, TopicProps } from '../../../src-topic-wheel'
 import { TableRowProps } from './model-types'
 import { TableRowCell, TableRowCellWheelStyle } from './table-row-cell'
 

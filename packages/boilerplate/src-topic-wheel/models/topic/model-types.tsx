@@ -6,11 +6,11 @@
  */
 
 import {
+  ActionProps,
   EmbedProps,
   MediaBreakpointProps,
   MediaObject,
 } from '../../../src-core'
-import { ActionProps } from '../action/model-types'
 
 export interface TopicProps {
   /** Gatsby fetched data */

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Wheel, Flex, Strong } from '../../../src-core'
-import { Action } from '../../../src-topic-wheel'
+import { Action, Wheel, Flex, Strong } from '../../../src-core'
 import { NavigationSegmentProps } from './model-types'
 import { BrandNavigationSegmentWheelStyle } from './presets/brand-navigation-segment-preset'
 

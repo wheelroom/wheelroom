@@ -1,3 +1,5 @@
+export type { ActionProps } from './models/action/model-types'
+export type { ActionWheelStyle } from './models/action/action'
 export type { ALinkElementStyle } from './elements/element/a-link'
 export type { ALinkProps } from './elements/element/a-link'
 export type { AnyProps } from './elements/element/any'
@@ -68,6 +70,7 @@ export {
   Tr,
   Ul,
 } from './elements/self/self'
+export { Action } from './models/action/action'
 export { ALink } from './elements/element/a-link'
 export { Any } from './elements/element/any'
 export { Box, Container, Flex, Fluid, Wrapper } from './elements/element/grid'

@@ -4,8 +4,7 @@
  * Component type: navigationSegment
  *
  */
-
-import { ActionProps } from '../../../src-topic-wheel'
+import { ActionProps } from "../../../src-core"
 
 export interface NavigationSegmentProps {
   /** Gatsby fetched data */

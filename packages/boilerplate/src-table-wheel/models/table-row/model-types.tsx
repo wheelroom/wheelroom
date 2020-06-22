@@ -1,4 +1,5 @@
-import { ActionProps, TopicProps } from '../../../src-topic-wheel'
+import { ActionProps } from '../../../src-core'
+import { TopicProps } from '../../../src-topic-wheel'
 
 export interface TableRowProps {
   /** Gatsby fetched data */

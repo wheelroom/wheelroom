@@ -18,13 +18,11 @@ import {
   TableElementStyle,
   DescriptionListElementStyle,
   IconElementStyle,
-} from '../../../src-core'
-import {
-  TopicOptions,
+  ActionWheelStyle,
   ActionProps,
   Action,
-  ActionWheelStyle,
-} from '../../../src-topic-wheel'
+} from '../../../src-core'
+import { TopicOptions } from '../../../src-topic-wheel'
 import { TableProps } from './model-types'
 
 export interface TableWheelStyle {
