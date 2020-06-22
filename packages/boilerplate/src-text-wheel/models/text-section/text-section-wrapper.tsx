@@ -23,7 +23,7 @@ export const TextSectionWrapper = (props: {
   wheel: TextSectionWheel
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
-  /** Page section children */
+  /** Text section children */
   children: any
 }) => {
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
