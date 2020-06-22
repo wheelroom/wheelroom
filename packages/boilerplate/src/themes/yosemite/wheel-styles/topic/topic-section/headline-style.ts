@@ -1,39 +1,30 @@
-import { wrapperStyle } from '..//shared-styles/grid-style'
+import { wrapperStyle } from '../../shared-styles/grid-style'
 import {
   primaryButtonStyle,
   displayButtonStyle,
   secondaryButtonStyle,
-} from '../../element-styles/button-style'
-import { iconTopicStyle, iconButtonStyle } from '..//shared-styles/icon-style'
-import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
-import { embedStyle } from '../shared-styles/embed-style'
+} from '../../../element-styles/button-style'
+import { iconTopicStyle, iconButtonStyle } from '../../shared-styles/icon-style'
+import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
+import { embedStyle } from '../../shared-styles/embed-style'
 
-export const topicSectionFeaturedStyle: TopicSectionWheelStyle = {
+export const topicSectionHeadlineStyle: TopicSectionWheelStyle = {
   container: {
-    ncss: {
-      flexDirection: 'column',
-    },
+    ncss: {},
   },
   topic: {
-    ncss: {
-      flexDirection: ['column', 'column', 'row'],
-      justifyContent: 'space-evenly',
-      py: 3,
-      alignItems: 'center',
-      ':nth-of-type(even) > div:nth-of-type(1)': {
-        order: ['0', '0', '1'],
-      },
-    },
+    ncss: {},
     content: {
       ncss: {
-        flexDirection: 'column',
+        textAlign: 'center',
+        mx: 'auto',
         p: 3,
-        maxWidth: ['35em', '35em', '45%'],
-        w: 1,
+        maxWidth: [1, '48em'],
+        py: 5,
       },
       actions: {
         ncss: {
-          mt: [4, 4, 5],
+          mt: 3,
         },
         link: {
           ncss: {
@@ -51,7 +42,7 @@ export const topicSectionFeaturedStyle: TopicSectionWheelStyle = {
         ncss: {},
         abstract: {
           ncss: {
-            mb: 0,
+            fontSize: [7, 7, 8, 8],
           },
         },
         heading: {
@@ -61,12 +52,7 @@ export const topicSectionFeaturedStyle: TopicSectionWheelStyle = {
       },
     },
     media: {
-      ncss: {
-        flexDirection: 'column',
-        p: 3,
-        maxWidth: ['35em', '35em', '45%'],
-        w: 1,
-      },
+      ncss: {},
       embed: embedStyle,
       image: {
         img: {
@@ -98,15 +84,4 @@ export const topicSectionFeaturedStyle: TopicSectionWheelStyle = {
     },
   },
   wrapper: wrapperStyle,
-}
-
-export const pageSectionFeaturedReverseStyle = {
-  topic: {
-    ncss: {
-      label: 'topic-reverse',
-      ':nth-of-type(even) > div:nth-of-type(1)': {
-        order: ['0', '0', '-2'],
-      },
-    },
-  },
 }

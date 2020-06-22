@@ -1,20 +1,14 @@
-import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
-import { iconTopicStyle } from '../shared-styles/icon-style'
-import { embedStyle } from '../shared-styles/embed-style'
-import { wrapperStyle } from '../shared-styles/grid-style'
+import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
+import { iconTopicStyle } from '../../shared-styles/icon-style'
+import { embedStyle } from '../../shared-styles/embed-style'
+import { wrapperStyle } from '../../shared-styles/grid-style'
 
-export const topicSectionGalleryStyle: TopicSectionWheelStyle = {
+export const topicSectionVideoStyle: TopicSectionWheelStyle = {
   container: {
-    ncss: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-    },
+    ncss: {},
   },
   topic: {
-    ncss: {
-      w: 1 / 2,
-    },
+    ncss: {},
     content: {
       ncss: {
         p: 3,
@@ -47,9 +41,7 @@ export const topicSectionGalleryStyle: TopicSectionWheelStyle = {
           ncss: {},
         },
         picture: {
-          ncss: {
-            p: 3,
-          },
+          ncss: {},
         },
         figcaption: {
           ncss: {},

@@ -1,5 +1,4 @@
 import { SectionWheelThemeStyles, deepMerge } from '../../../../src-core'
-import { topicPreset } from '../../../../src-topic-wheel/models/topic/presets/topic-preset'
 import {
   navigationHeaderPreset,
   navigationFooterPreset,
@@ -8,19 +7,20 @@ import { blogSectionBlogStyle } from './blog/blog-style'
 import { blogSectionListStyle } from './blog/list-style'
 import { navigationSectionHeaderStyle } from './navigation/header-style'
 import { navigationSectionFooterStyle } from './navigation/footer-style'
-import { topicSectionBlockStyle } from './topic/block-style'
-import { topicSectionCardStyle } from './topic/card-style'
-import { topicSectionDividerStyle } from './topic/divider-style'
-import { topicSectionFeaturedStyle } from './topic/featured-style'
-import { topicSectionGalleryStyle } from './topic/gallery-style'
-import { topicSectionHeadlineStyle } from './topic/headline-style'
-import { topicSectionHeroStyle } from './topic/hero-style'
-import { topicSectionImageStyle } from './topic/image-style'
-import { topicSectionQuoteStyle } from './topic/quote-style'
-import { topicSectionShowcaseStyle } from './topic/showcase-style'
-import { topicSectionVideoStyle } from './topic/video-style'
+import { topicSectionBlockStyle } from './topic/topic-section/block-style'
+import { topicSectionCardStyle } from './topic/topic-section/card-style'
+import { topicSectionDividerStyle } from './topic/topic-section/divider-style'
+import { topicSectionFeaturedStyle } from './topic/topic-section/featured-style'
+import { topicSectionGalleryStyle } from './topic/topic-section/gallery-style'
+import { topicSectionHeadlineStyle } from './topic/topic-section/headline-style'
+import { topicSectionHeroStyle } from './topic/topic-section/hero-style'
+import { topicSectionImageStyle } from './topic/topic-section/image-style'
+import { topicSectionQuoteStyle } from './topic/topic-section/quote-style'
+import { topicSectionShowcaseStyle } from './topic/topic-section/showcase-style'
+import { topicSectionVideoStyle } from './topic/topic-section/video-style'
+import { topicStyle } from './topic/topic/topic-style'
 
-const mergeTopic = (style: any) => deepMerge([{ topic: topicPreset }, style])
+const mergeTopic = (style: any) => deepMerge([{ topic: topicStyle }, style])
 
 export const styles: SectionWheelThemeStyles = {
   blogSection: {

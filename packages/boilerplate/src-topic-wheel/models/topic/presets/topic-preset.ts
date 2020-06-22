@@ -1,9 +1,6 @@
 import { NcssProps } from '../../../../src-core'
-import { TopicMediaWheelStyle, topicMediaPreset } from './topic-media-preset'
-import {
-  TopicContentWheelStyle,
-  topicContentPreset,
-} from './topic-content-preset'
+import { TopicContentWheelStyle } from './topic-content-preset'
+import { TopicMediaWheelStyle } from './topic-media-preset'
 
 export interface TopicWheelStyle {
   /** Styling for this node */
@@ -12,15 +9,4 @@ export interface TopicWheelStyle {
   media: TopicMediaWheelStyle
   /** Content */
   content: TopicContentWheelStyle
-}
-
-export const topicPreset: TopicWheelStyle = {
-  ncss: {
-    label: 'topic',
-    display: 'flex',
-    flexDirection: 'column',
-    w: 1,
-  },
-  media: topicMediaPreset,
-  content: topicContentPreset,
 }

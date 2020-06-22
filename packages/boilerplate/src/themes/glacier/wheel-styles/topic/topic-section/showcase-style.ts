@@ -1,8 +1,8 @@
-import { wrapperStyle } from '..//shared-styles/grid-style'
-import { iconTopicStyle } from '..//shared-styles/icon-style'
-import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
-import { aLinkButtonStyle } from '../../element-styles/button-style'
-import { embedStyle } from '../shared-styles/embed-style'
+import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
+import { aLinkButtonStyle } from '../../../element-styles/button-style'
+import { iconTopicStyle } from '../../shared-styles/icon-style'
+import { embedStyle } from '../../shared-styles/embed-style'
+import { wrapperStyle } from '../../shared-styles/grid-style'
 
 export const topicSectionShowcaseStyle: TopicSectionWheelStyle = {
   container: {

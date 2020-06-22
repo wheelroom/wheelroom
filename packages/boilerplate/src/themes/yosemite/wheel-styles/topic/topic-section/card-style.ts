@@ -1,7 +1,7 @@
-import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
-import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
-import { primaryButtonStyle } from '../../element-styles/button-style'
-import { iconTopicStyle } from '../shared-styles/icon-style'
+import { containerStyle, wrapperStyle } from '../../shared-styles/grid-style'
+import { primaryButtonStyle } from '../../../element-styles/button-style'
+import { iconTopicStyle } from '../../shared-styles/icon-style'
+import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
 
 export const topicSectionCardStyle: TopicSectionWheelStyle = {
   container: {

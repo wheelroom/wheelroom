@@ -1,34 +1,28 @@
-import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
-import { aLinkButtonStyle } from '../../element-styles/button-style'
-import { iconTopicStyle } from '../shared-styles/icon-style'
-import { embedStyle } from '../shared-styles/embed-style'
-import { wrapperStyle } from '../shared-styles/grid-style'
+import { wrapperStyle } from '../../shared-styles/grid-style'
+import { iconTopicStyle } from '../../shared-styles/icon-style'
+import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
+import { embedStyle } from '../../shared-styles/embed-style'
 
-export const topicSectionShowcaseStyle: TopicSectionWheelStyle = {
+export const topicSectionGalleryStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {
-      alignItems: ['center', 'baseline'],
-      justifyContent: 'center',
-      maxWidth: ['35em', '54rem'],
-      flexDirection: 'column',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
     },
   },
   topic: {
     ncss: {
-      flexDirection: ['column', 'row'],
-      py: 3,
+      w: 1 / 2,
     },
     content: {
       ncss: {
-        flexDirection: 'column',
         p: 3,
       },
       actions: {
-        ncss: {
-          mt: 3,
-        },
+        ncss: {},
         link: {
-          ...aLinkButtonStyle,
+          ncss: {},
           icon: {
             ncss: {},
           },
@@ -37,9 +31,7 @@ export const topicSectionShowcaseStyle: TopicSectionWheelStyle = {
       text: {
         ncss: {},
         abstract: {
-          ncss: {
-            mb: 0,
-          },
+          ncss: {},
         },
         heading: {
           ncss: {},
@@ -48,19 +40,16 @@ export const topicSectionShowcaseStyle: TopicSectionWheelStyle = {
       },
     },
     media: {
-      ncss: {
-        flexDirection: 'column',
-        p: 3,
-        maxWidth: '254px',
-        w: 1,
-      },
+      ncss: {},
       embed: embedStyle,
       image: {
         img: {
           ncss: {},
         },
         picture: {
-          ncss: {},
+          ncss: {
+            p: 3,
+          },
         },
         figcaption: {
           ncss: {},

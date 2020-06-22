@@ -1,33 +1,29 @@
+import { wrapperStyle } from '../../shared-styles/grid-style'
 import {
   primaryButtonStyle,
   displayButtonStyle,
   secondaryButtonStyle,
-} from '../../element-styles/button-style'
-import { iconTopicStyle, iconButtonStyle } from '..//shared-styles/icon-style'
-import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
-import { embedStyle } from '../shared-styles/embed-style'
+} from '../../../element-styles/button-style'
+import { iconTopicStyle, iconButtonStyle } from '../../shared-styles/icon-style'
+import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
+import { embedStyle } from '../../shared-styles/embed-style'
 
-export const topicSectionHeroStyle: TopicSectionWheelStyle = {
+export const topicSectionQuoteStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {},
   },
   topic: {
-    ncss: {
-      position: 'relative',
-      w: 1,
-    },
+    ncss: {},
     content: {
       ncss: {
-        maxWidth: '80em',
+        textAlign: 'center',
+        p: 3,
+        maxWidth: [1, '60em', '68em'],
         mx: 'auto',
-        px: [4, 5, 6],
-        py: [7, 8, 10, 12],
-        w: 1,
       },
       actions: {
         ncss: {
-          maxWidth: '30em',
-          mt: 5,
+          mt: 6,
         },
         link: {
           ncss: {
@@ -43,29 +39,36 @@ export const topicSectionHeroStyle: TopicSectionWheelStyle = {
       },
       text: {
         ncss: {
-          maxWidth: '30em',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         },
         abstract: {
           ncss: {
-            fontSize: [7, 7, 8, 8],
-            mb: 0,
+            order: '2',
+            fontSize: [9, 9, 10],
+            fontStyle: 'italic',
+            lineHeight: 3,
+            my: 0,
+            p: 0,
           },
         },
         heading: {
-          ncss: {},
+          ncss: {
+            order: '1',
+          },
         },
-        icon: iconTopicStyle,
+        icon: {
+          ncss: {
+            ...iconTopicStyle.ncss,
+            order: '0',
+          },
+        },
       },
     },
     media: {
       ncss: {
-        bottom: '0',
-        left: '0',
-        position: 'absolute',
-        right: '0',
-        top: '0',
-        zIndex: -1,
-        overflow: 'hidden',
+        p: 3,
       },
       embed: embedStyle,
       image: {
@@ -77,8 +80,11 @@ export const topicSectionHeroStyle: TopicSectionWheelStyle = {
         },
         picture: {
           ncss: {
-            h: 1,
-            w: 1,
+            overflow: 'hidden',
+            h: '200px',
+            w: '200px',
+            borderRadius: '100px',
+            mx: 'auto',
           },
         },
         figcaption: {
@@ -95,9 +101,7 @@ export const topicSectionHeroStyle: TopicSectionWheelStyle = {
       },
       video: {
         video: {
-          ncss: {
-            h: 1,
-          },
+          ncss: {},
         },
         description: {
           ncss: {},
@@ -107,7 +111,8 @@ export const topicSectionHeroStyle: TopicSectionWheelStyle = {
   },
   wrapper: {
     ncss: {
-      py: 0,
+      ...wrapperStyle.ncss,
+      py: 6,
     },
   },
 }

@@ -1,11 +1,11 @@
-import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
+import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
 import {
   primaryButtonStyle,
   displayButtonStyle,
   secondaryButtonStyle,
-} from '../../element-styles/button-style'
-import { iconButtonStyle, iconTopicStyle } from '../shared-styles/icon-style'
-import { embedStyle } from '../shared-styles/embed-style'
+} from '../../../element-styles/button-style'
+import { iconButtonStyle, iconTopicStyle } from '../../shared-styles/icon-style'
+import { embedStyle } from '../../shared-styles/embed-style'
 
 export const topicSectionHeroStyle: TopicSectionWheelStyle = {
   container: {

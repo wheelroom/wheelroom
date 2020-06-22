@@ -1,18 +1,24 @@
-import { wrapperStyle } from '..//shared-styles/grid-style'
-import { iconTopicStyle } from '..//shared-styles/icon-style'
-import { TopicSectionWheelStyle } from '../../../../../src-topic-wheel'
-import { embedStyle } from '../shared-styles/embed-style'
+import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
+import { iconTopicStyle } from '../../shared-styles/icon-style'
+import { embedStyle } from '../../shared-styles/embed-style'
+import { wrapperStyle } from '../../shared-styles/grid-style'
 
-export const topicSectionImageStyle: TopicSectionWheelStyle = {
+export const topicSectionGalleryStyle: TopicSectionWheelStyle = {
   container: {
     ncss: {
-      flexDirection: ['column', 'row'],
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
     },
   },
   topic: {
-    ncss: {},
+    ncss: {
+      w: 1 / 2,
+    },
     content: {
-      ncss: {},
+      ncss: {
+        p: 3,
+      },
       actions: {
         ncss: {},
         link: {
@@ -41,7 +47,9 @@ export const topicSectionImageStyle: TopicSectionWheelStyle = {
           ncss: {},
         },
         picture: {
-          ncss: {},
+          ncss: {
+            p: 3,
+          },
         },
         figcaption: {
           ncss: {},
