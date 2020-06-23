@@ -5,7 +5,7 @@
  *
  */
 
-export interface ActionProps {
+export interface ActionModelProps {
   /** Gatsby fetched data */
   __typename?: string
   anchor?: string

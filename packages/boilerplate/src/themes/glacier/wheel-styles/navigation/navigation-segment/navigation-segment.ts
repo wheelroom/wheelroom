@@ -1,6 +1,7 @@
-import { NavigationSegmentWheelStyle } from '../../../../../../src-navigation-wheel/models/navigation-segment/navigation-segment'
+import { NavigationSegmentModelStyle } from '../../../../../../src-navigation-wheel'
+import { iconButtonSmallStyle } from '../../shared-styles/icon-style'
 
-export const navigationSegment: NavigationSegmentWheelStyle = {
+export const navigationSegment: NavigationSegmentModelStyle = {
   ncss: {
     label: 'navigation-segment',
   },
@@ -15,25 +16,23 @@ export const navigationSegment: NavigationSegmentWheelStyle = {
       my: 0,
       pl: 0,
     },
-    item: {
+  },
+  item: {
+    ncss: {
+      label: 'navigation-segment-item',
+      listStyle: 'none',
+      display: 'inline-flex',
+    },
+  },
+  action: {
+    ncss: {
+      label: 'navigation-segment-action',
+      display: 'inline-flex',
+    },
+    icon: {
       ncss: {
-        label: 'navigation-segment-list-item',
-        listStyle: 'none',
-        display: 'inline-flex',
-      },
-      action: {
-        ncss: {
-          label: 'navigation-segment-list-item-action',
-          display: 'inline-flex',
-        },
-        icon: {
-          ncss: {
-            label: 'navigation-segment-list-item-action-icon',
-            w: '15px',
-            h: '15px',
-            my: 'auto',
-          },
-        },
+        label: 'navigation-segment-action-icon',
+        ...iconButtonSmallStyle.ncss,
       },
     },
   },

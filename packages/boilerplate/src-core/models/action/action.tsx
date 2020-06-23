@@ -10,22 +10,21 @@ import React, { useContext } from 'react'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
 import { EmbedProps } from '../../../src-core/models/embed/model-types'
-import { NcssProps, Wheel, GLink, ALink, Any } from '../../../src-core'
 import { FeatherIcon } from '../../../src-core/elements/element/icon'
-import { ActionProps } from './model-types'
-
-export interface ActionWheelStyle {
-  ncss: NcssProps
-  icon: {
-    ncss: NcssProps
-  }
-}
+import {
+  Wheel,
+  GLink,
+  ALink,
+  Any,
+  ActionModelProps,
+  ActionModelStyle,
+} from '../../../src-core'
 
 export interface ActionWheel extends Wheel {
-  style: ActionWheelStyle
+  style: ActionModelStyle | undefined
 }
 
-export interface ActionWheelProps extends ActionProps {
+export interface ActionWheelProps extends ActionModelProps {
   wheel: ActionWheel
   children?: any
   key?: any

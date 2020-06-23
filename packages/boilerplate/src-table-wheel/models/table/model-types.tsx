@@ -1,4 +1,4 @@
-import { ActionProps } from '../../../src-core'
+import { ActionModelProps } from '../../../src-core'
 import { TableRowProps } from '../table-row/model-types'
 
 export interface TableProps {
@@ -9,6 +9,6 @@ export interface TableProps {
     abstract: string
   }
   icon?: string
-  actions?: ActionProps[]
+  actions?: ActionModelProps[]
   tableRows?: TableRowProps[]
 }

@@ -1,25 +1,11 @@
 import React, { Fragment } from 'react'
-import {
-  Wheel,
-  Flex,
-  H3,
-  NcssProps,
-  HeadingElementStyle,
-} from '../../../src-core'
+import { Wheel, Flex, H3 } from '../../../src-core'
 import { NavigationSegmentProps } from './model-types'
-import {
-  NavigationSegmentList,
-  NavigationSegmentListWheelStyle,
-} from './navigation-segment-list'
-
-export interface NavigationSegmentWheelStyle {
-  ncss: NcssProps
-  heading: HeadingElementStyle
-  list: NavigationSegmentListWheelStyle
-}
+import { NavigationSegmentList } from './navigation-segment-list'
+import { NavigationSegmentStyle } from './model-style-types'
 
 interface NavigationSegmentWheel extends Wheel {
-  style: NavigationSegmentWheelStyle
+  style: NavigationSegmentStyle
 }
 
 export interface NavigationSegmentWheelProps {
@@ -35,7 +21,7 @@ export const NavigationSegment = (props: NavigationSegmentWheelProps) => {
   if (!props.navigationSegment) {
     return null
   }
-
+  console.log(props.wheel)
   return (
     <Fragment>
       {props.navigationSegment
@@ -50,10 +36,7 @@ export const NavigationSegment = (props: NavigationSegmentWheelProps) => {
               hideActionHeading={props.hideActionHeading}
               hideActionIcon={props.hideActionIcon}
               key={index}
-              wheel={{
-                ...props.wheel,
-                style: props.wheel.style.list,
-              }}
+              wheel={props.wheel}
             />
           )
           if (props.hideSegmentHeading) {
@@ -64,7 +47,7 @@ export const NavigationSegment = (props: NavigationSegmentWheelProps) => {
                 key={index}
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style,
+                  style: props.wheel.style.container,
                 }}
                 is="div"
               >

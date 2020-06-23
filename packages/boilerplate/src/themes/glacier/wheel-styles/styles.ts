@@ -15,8 +15,6 @@ import { topicSectionQuoteStyle } from './topic/topic-section/quote-style'
 import { topicSectionShowcaseStyle } from './topic/topic-section/showcase-style'
 import { topicSectionVideoStyle } from './topic/topic-section/video-style'
 import { topicStyle } from './topic/topic/topic-style'
-import { navigationSegment } from './navigation/navigation-segment/navigation-segment'
-import { legalFooter } from './navigation/navigation-section/legal-footer'
 
 const mergeTopic = (style: any) => deepMerge([{ topic: topicStyle }, style])
 
@@ -26,28 +24,8 @@ export const styles: SectionWheelThemeStyles = {
     list: blogSectionListStyle,
   },
   navigationSection: {
-    header: deepMerge([
-      { actions: { segment: { ...navigationSegment } } },
-      {
-        modal: {
-          dialog: { document: { menu: { segment: { ...navigationSegment } } } },
-        },
-      },
-      {
-        modal: {
-          dialog: {
-            document: { actions: { segment: { ...navigationSegment } } },
-          },
-        },
-      },
-      navigationSectionHeaderStyle,
-    ]),
-    footer: deepMerge([
-      { section: { menu: { segment: { ...navigationSegment } } } },
-      { section: { social: { segment: { ...navigationSegment } } } },
-      { legalFooter: legalFooter },
-      navigationSectionFooterStyle,
-    ]),
+    header: navigationSectionHeaderStyle,
+    footer: navigationSectionFooterStyle,
   },
   topicSection: {
     block: mergeTopic(topicSectionBlockStyle),

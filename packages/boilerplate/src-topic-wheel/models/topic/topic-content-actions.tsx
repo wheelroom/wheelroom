@@ -1,7 +1,7 @@
 import React from 'react'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel, Box, NcssProps, Action, ActionProps } from '../../../src-core'
+import { Wheel, Box, NcssProps, Action, ActionModelProps } from '../../../src-core'
 import { TopicProps } from './model-types'
 
 export interface TopicContentActionsWheelStyle {
@@ -46,7 +46,7 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
     <Box is="div" wheel={props.wheel}>
       {actions
         .slice(0, props.maxActions)
-        .map((action: ActionProps, index: number) => {
+        .map((action: ActionModelProps, index: number) => {
           const modifiedAction = { ...action }
 
           // If the full topic is a link, the button inside the topic must be span

@@ -6,11 +6,9 @@ import {
   BrandNavigationSegmentWheelStyle,
 } from '../../navigation-segment/brand-navigation-segment'
 import { NavigationProps } from '../../navigation/model-types'
-import {
-  NavigationSegment,
-  NavigationSegmentWheelStyle,
-} from '../../navigation-segment/navigation-segment'
+import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
+import { NavigationSegmentModelStyle } from '../../navigation-segment/model-style-types'
 import {
   ALink,
   Box,
@@ -38,11 +36,11 @@ export interface NavigationHeaderWheelStyle {
   }
   menu: {
     ncss: NcssProps
-    segment: NavigationSegmentWheelStyle
+    segment: NavigationSegmentModelStyle
   }
   actions: {
     ncss: NcssProps
-    segment: NavigationSegmentWheelStyle
+    segment: NavigationSegmentModelStyle
     themeButton: ButtonElementStyle
   }
   modal: {

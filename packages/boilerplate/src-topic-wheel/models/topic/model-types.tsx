@@ -6,7 +6,7 @@
  */
 
 import {
-  ActionProps,
+  ActionModelProps,
   EmbedProps,
   MediaBreakpointProps,
   MediaObject,
@@ -21,7 +21,7 @@ export interface TopicProps {
   }
   media?: MediaObject
   icon?: string | JSX.Element
-  actions?: ActionProps[]
+  actions?: ActionModelProps[]
   poster?: MediaObject
   mediaEmbed?: EmbedProps
   mediaBreakpoint?: MediaBreakpointProps

@@ -2,8 +2,8 @@
 import { jsx } from '@emotion/core'
 import {
   Action,
-  ActionProps,
-  ActionWheelStyle,
+  ActionModelProps,
+  ActionModelStyle,
   Any,
   Dd,
   DescriptionListElementStyle,
@@ -32,7 +32,7 @@ export interface TableRowWheelStyle {
   icon: IconElementStyle
   actions: {
     ncss: NcssProps
-    action: ActionWheelStyle
+    action: ActionModelStyle
   }
   cell: TableRowCellWheelStyle
 }
@@ -107,7 +107,7 @@ export const TableRow = (props: TableRowWheelProps) => {
             is="div"
             wheel={{ ...props.wheel, style: props.wheel.style.actions }}
           >
-            {tableRow.actions.map((action: ActionProps, index: number) => (
+            {tableRow.actions.map((action: ActionModelProps, index: number) => (
               <Action
                 key={index}
                 url={action.url}

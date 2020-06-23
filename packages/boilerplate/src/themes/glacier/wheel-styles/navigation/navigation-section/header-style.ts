@@ -101,26 +101,13 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
     segment: deepMerge([
       navigationSegment,
       {
-        ncss: {},
-        heading: {
-          ncss: {},
-        },
-        list: {
-          ncss: {},
-          item: {
-            ncss: {},
-            action: {
-              ncss: {
-                textDecoration: 'none',
-                px: 2,
-                py: 3,
-                ':hover, &.active': {
-                  textDecoration: 'underline',
-                },
-              },
-              icon: {
-                ncss: {},
-              },
+        action: {
+          ncss: {
+            textDecoration: 'none',
+            px: 2,
+            py: 3,
+            ':hover, &.active': {
+              textDecoration: 'underline',
             },
           },
         },
@@ -134,26 +121,19 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
       display: ['none', 'none', 'flex'],
       mx: -1,
     },
-    segment: {
-      ncss: {},
-      heading: {
-        ncss: {},
-      },
-      list: {
-        ncss: {},
-        item: {
-          ncss: {},
-          action: {
-            ncss: {
-              ...primaryButtonStyle.ncss,
-              m: 1,
-              w: 1,
-            },
-            icon: iconButtonSmallStyle,
+    segment: deepMerge([
+      navigationSegment,
+      {
+        action: {
+          ncss: {
+            ...primaryButtonStyle.ncss,
+            m: 1,
+            w: 1,
           },
+          icon: iconButtonSmallStyle,
         },
       },
-    },
+    ]),
     themeButton: {
       ncss: {
         label: 'actions-theme-button',
@@ -240,15 +220,14 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
             label: 'menu-navigation',
             w: 1,
           },
-          segment: {
-            ncss: {},
-            heading: {
-              ncss: {},
-            },
-            list: {
-              ncss: {
-                flexDirection: 'column',
-                w: 1,
+          segment: deepMerge([
+            navigationSegment,
+            {
+              list: {
+                ncss: {
+                  flexDirection: 'column',
+                  w: 1,
+                },
               },
               item: {
                 ncss: {
@@ -256,27 +235,27 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
                   borderColor: 'sectionBorder',
                   w: 1,
                 },
-                action: {
-                  ncss: {
-                    textDecoration: 'none',
-                    px: 2,
-                    py: 3,
-                    w: 1,
-                    ':hover, &.active': {
-                      textDecoration: 'underline',
-                    },
-                    ':focus': {
-                      outlineColor: 'outline',
-                      outlineOffset: -2,
-                    },
+              },
+              action: {
+                ncss: {
+                  textDecoration: 'none',
+                  px: 2,
+                  py: 3,
+                  w: 1,
+                  ':hover, &.active': {
+                    textDecoration: 'underline',
                   },
-                  icon: {
-                    ncss: {},
+                  ':focus': {
+                    outlineColor: 'outline',
+                    outlineOffset: -2,
                   },
+                },
+                icon: {
+                  ncss: {},
                 },
               },
             },
-          },
+          ]),
         },
         actions: {
           ncss: {
@@ -285,35 +264,34 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
             w: 1,
             p: 1,
           },
-          segment: {
-            ncss: {},
-            heading: {
-              ncss: {},
-            },
-            list: {
-              ncss: {
-                w: 1,
-                alignItems: 'center',
+          segment: deepMerge([
+            navigationSegment,
+            {
+              list: {
+                ncss: {
+                  w: 1,
+                  alignItems: 'center',
+                },
               },
               item: {
                 ncss: {
                   w: 1,
                 },
-                action: {
+              },
+              action: {
+                ncss: {
+                  ...primaryButtonStyle.ncss,
+                  m: 1,
+                  w: 1,
+                },
+                icon: {
                   ncss: {
-                    ...primaryButtonStyle.ncss,
-                    m: 1,
-                    w: 1,
-                  },
-                  icon: {
-                    ncss: {
-                      ...iconButtonSmallStyle.ncss,
-                    },
+                    ...iconButtonSmallStyle.ncss,
                   },
                 },
               },
             },
-          },
+          ]),
           themeButton: {
             ncss: {
               label: 'modal-theme-button',

@@ -1,4 +1,4 @@
-import { ActionProps } from '../../../src-core'
+import { ActionModelProps } from '../../../src-core'
 import { TopicProps } from '../../../src-topic-wheel'
 
 export interface TableRowProps {
@@ -10,6 +10,6 @@ export interface TableRowProps {
     abstract: string
   }
   icon?: string
-  actions?: ActionProps[]
+  actions?: ActionModelProps[]
   topics?: TopicProps[]
 }

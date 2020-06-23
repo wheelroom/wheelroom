@@ -1,28 +1,13 @@
 import React from 'react'
-import {
-  Wheel,
-  Action,
-  ActionProps,
-  ActionWheelStyle,
-  Li,
-  NcssProps,
-  Ul,
-} from '../../../src-core'
-
-export interface NavigationSegmentListWheelStyle {
-  ncss: NcssProps
-  item: {
-    ncss: NcssProps
-    action: ActionWheelStyle
-  }
-}
+import { Wheel, Action, ActionModelProps, Li, Ul } from '../../../src-core'
+import { NavigationSegmentListStyle } from './model-style-types'
 
 interface NavigationSegmentListWheel extends Wheel {
-  style: NavigationSegmentListWheelStyle
+  style: NavigationSegmentListStyle
 }
 
 export interface NavigationSegmentListProps {
-  actions: ActionProps[]
+  actions: ActionModelProps[]
   hideActionHeading: boolean
   hideActionIcon: boolean
   wheel: NavigationSegmentListWheel
@@ -33,8 +18,8 @@ export const NavigationSegmentList = (props: NavigationSegmentListProps) => {
     return null
   }
   return (
-    <Ul wheel={{ ...props.wheel, style: props.wheel.style }}>
-      {props.actions.map((action: ActionProps, index: number) => (
+    <Ul wheel={{ ...props.wheel, style: props.wheel.style.list }}>
+      {props.actions.map((action: ActionModelProps, index: number) => (
         <Li
           key={index}
           wheel={{ ...props.wheel, style: props.wheel.style.item }}
@@ -43,7 +28,7 @@ export const NavigationSegmentList = (props: NavigationSegmentListProps) => {
             {...action}
             hideHeading={props.hideActionHeading}
             hideIcon={props.hideActionIcon}
-            wheel={{ ...props.wheel, style: props.wheel.style.item.action }}
+            wheel={{ ...props.wheel, style: props.wheel.style.action }}
           />
         </Li>
       ))}

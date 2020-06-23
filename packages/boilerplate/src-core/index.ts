@@ -1,5 +1,5 @@
-export type { ActionProps } from './models/action/model-types'
-export type { ActionWheelStyle } from './models/action/action'
+export type { ActionModelProps } from './models/action/model-types'
+export type { ActionModelStyle } from './models/action/model-style-types'
 export type { ALinkElementStyle } from './elements/element/a-link'
 export type { ALinkProps } from './elements/element/a-link'
 export type { AnyProps } from './elements/element/any'

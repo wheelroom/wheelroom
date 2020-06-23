@@ -1,5 +1,7 @@
 import { NavigationFooterWheelStyle } from '../../../../../../src-navigation-wheel'
 import { wrapperStyle } from '../../shared-styles/grid-style'
+import { deepMerge } from '../../../../../../src-core'
+import { navigationSegment } from '../navigation-segment/navigation-segment'
 
 export const navigationSectionFooterStyle: NavigationFooterWheelStyle = {
   wrapper: {
@@ -29,82 +31,82 @@ export const navigationSectionFooterStyle: NavigationFooterWheelStyle = {
       ncss: {
         label: 'menu-navigation',
       },
-      segment: {
-        ncss: {},
-        heading: {
-          ncss: {},
-        },
-        list: {
-          ncss: {
-            textAlign: 'center',
+      segment: deepMerge([
+        navigationSegment,
+        {
+          list: {
+            ncss: {
+              textAlign: 'center',
+            },
           },
-          item: {
-            ncss: {},
-            action: {
-              ncss: {
-                textDecoration: 'none',
-                px: 2,
-                py: 3,
-                ':hover, &.active': {
-                  textDecoration: 'underline',
-                },
-              },
-              icon: {
-                ncss: {},
+          action: {
+            ncss: {
+              textDecoration: 'none',
+              px: 2,
+              py: 3,
+              ':hover, &.active': {
+                textDecoration: 'underline',
               },
             },
           },
         },
-      },
+      ]),
     },
     social: {
       ncss: {
         label: 'social-navigation',
       },
-      segment: {
-        ncss: {},
-        heading: {
-          ncss: {},
-        },
-        list: {
-          ncss: {
-            textAlign: 'center',
+      segment: deepMerge([
+        navigationSegment,
+        {
+          list: {
+            ncss: {
+              textAlign: 'center',
+            },
           },
-          item: {
-            ncss: {},
-            action: {
-              ncss: {
-                px: 2,
-                py: 3,
-                ':hover': {
-                  color: 'sectionText',
-                },
-              },
-              icon: {
-                ncss: {},
+          action: {
+            ncss: {
+              px: 2,
+              py: 3,
+              ':hover': {
+                color: 'sectionText',
               },
             },
           },
         },
-      },
+      ]),
     },
   },
   legalFooter: {
     wrapper: {
       ncss: {
         ...wrapperStyle.ncss,
-        borderColor: 'sectionBorder',
+        borderTop: '1px solid sectionBorder',
+        minHeight: '48px',
       },
     },
     container: {
-      ncss: {},
+      ncss: {
+        px: 3,
+      },
     },
     legal: {
-      ncss: {},
+      ncss: {
+        label: 'legal',
+        alignItems: 'center',
+        justifyContent: ['center', 'flex-end'],
+        w: 1,
+      },
       promise: {
-        ncss: {},
+        ncss: {
+          label: 'promise',
+          // On iPhone this link will not be visible without the extra margin-bottom
+          mb: [4, 0],
+        },
         link: {
           ncss: {
+            label: 'promise-link',
+            display: 'inline-flex',
             color: 'sectionText',
             textDecoration: 'none',
             ':hover': {
@@ -114,6 +116,7 @@ export const navigationSectionFooterStyle: NavigationFooterWheelStyle = {
         },
         sup: {
           ncss: {
+            label: 'promise-sup',
             color: 'metal',
           },
         },

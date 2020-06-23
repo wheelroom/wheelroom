@@ -18,8 +18,8 @@ import {
   TableElementStyle,
   DescriptionListElementStyle,
   IconElementStyle,
-  ActionWheelStyle,
-  ActionProps,
+  ActionModelStyle,
+  ActionModelProps,
   Action,
 } from '../../../src-core'
 import { TopicOptions } from '../../../src-topic-wheel'
@@ -36,7 +36,7 @@ export interface TableWheelStyle {
   icon: IconElementStyle
   actions: {
     ncss: NcssProps
-    action: ActionWheelStyle
+    action: ActionModelStyle
   }
   row: TableRowWheelStyle
 }
@@ -127,7 +127,7 @@ export const Table = (props: TableWheelProps) => {
                           }}
                         >
                           {table.actions.map(
-                            (action: ActionProps, index: number) => (
+                            (action: ActionModelProps, index: number) => (
                               <Action
                                 key={index}
                                 url={action.url}
