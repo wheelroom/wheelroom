@@ -1,5 +1,4 @@
 import { SectionWheelThemeStyles, deepMerge } from '../../../../src-core'
-import { navigationFooterPreset } from '../../../../src-navigation-wheel'
 import { blogSectionBlogStyle } from './blog/blog-style'
 import { blogSectionListStyle } from './blog/list-style'
 import { navigationSectionHeaderStyle } from './navigation/navigation-section/header-style'
@@ -17,6 +16,7 @@ import { topicSectionShowcaseStyle } from './topic/topic-section/showcase-style'
 import { topicSectionVideoStyle } from './topic/topic-section/video-style'
 import { topicStyle } from './topic/topic/topic-style'
 import { navigationSegment } from './navigation/navigation-segment/navigation-segment'
+import { legalFooter } from './navigation/navigation-section/legal-footer'
 
 const mergeTopic = (style: any) => deepMerge([{ topic: topicStyle }, style])
 
@@ -27,7 +27,6 @@ export const styles: SectionWheelThemeStyles = {
   },
   navigationSection: {
     header: deepMerge([
-      { menu: { segment: { ...navigationSegment } } },
       { actions: { segment: { ...navigationSegment } } },
       {
         modal: {
@@ -43,7 +42,12 @@ export const styles: SectionWheelThemeStyles = {
       },
       navigationSectionHeaderStyle,
     ]),
-    footer: deepMerge([navigationFooterPreset, navigationSectionFooterStyle]),
+    footer: deepMerge([
+      { section: { menu: { segment: { ...navigationSegment } } } },
+      { section: { social: { segment: { ...navigationSegment } } } },
+      { legalFooter: legalFooter },
+      navigationSectionFooterStyle,
+    ]),
   },
   topicSection: {
     block: mergeTopic(topicSectionBlockStyle),

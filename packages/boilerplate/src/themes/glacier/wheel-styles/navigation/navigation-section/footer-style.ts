@@ -5,21 +5,30 @@ export const navigationSectionFooterStyle: NavigationFooterWheelStyle = {
   wrapper: {
     ncss: {
       ...wrapperStyle.ncss,
+      borderTop: '1px solid transparent',
       borderColor: 'sectionBorder',
+      py: 0,
     },
   },
   container: {
-    ncss: {},
+    ncss: {
+      minHeight: '84px',
+      px: 2,
+    },
   },
   section: {
     ncss: {
+      label: 'navigation-segments',
+      alignItems: 'center',
       flexDirection: ['column', 'row'],
       justifyContent: ['space-between'],
       mx: 'auto',
       w: 1,
     },
     menu: {
-      ncss: {},
+      ncss: {
+        label: 'menu-navigation',
+      },
       segment: {
         ncss: {},
         heading: {
@@ -49,7 +58,9 @@ export const navigationSectionFooterStyle: NavigationFooterWheelStyle = {
       },
     },
     social: {
-      ncss: {},
+      ncss: {
+        label: 'social-navigation',
+      },
       segment: {
         ncss: {},
         heading: {

@@ -13,6 +13,8 @@ import {
   modalDialogOverlayOpen,
   modalDialogOverlay,
 } from '../modal/modal-dialog'
+import { navigationSegment } from '../navigation-segment/navigation-segment'
+import { deepMerge } from '../../../../../../src-core'
 
 export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
   skipToContent: {
@@ -96,31 +98,34 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
       alignItems: 'center',
       display: ['none', 'none', 'flex'],
     },
-    segment: {
-      ncss: {},
-      heading: {
+    segment: deepMerge([
+      navigationSegment,
+      {
         ncss: {},
-      },
-      list: {
-        ncss: {},
-        item: {
+        heading: {
           ncss: {},
-          action: {
-            ncss: {
-              textDecoration: 'none',
-              px: 2,
-              py: 3,
-              ':hover, &.active': {
-                textDecoration: 'underline',
+        },
+        list: {
+          ncss: {},
+          item: {
+            ncss: {},
+            action: {
+              ncss: {
+                textDecoration: 'none',
+                px: 2,
+                py: 3,
+                ':hover, &.active': {
+                  textDecoration: 'underline',
+                },
               },
-            },
-            icon: {
-              ncss: {},
+              icon: {
+                ncss: {},
+              },
             },
           },
         },
       },
-    },
+    ]),
   },
   actions: {
     ncss: {

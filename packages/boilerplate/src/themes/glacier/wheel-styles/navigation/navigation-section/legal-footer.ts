@@ -1,24 +1,6 @@
-import {
-  GridElementStyle,
-  NcssProps,
-  ALinkElementStyle,
-  ParagraphElementStyle,
-} from '../../../../../src-core'
+import { LegalFooterWheelStyle } from '../../../../../../src-navigation-wheel/models/navigation-section/footer/legal-footer'
 
-export interface LegalFooterWheelStyle {
-  wrapper: GridElementStyle
-  container: GridElementStyle
-  legal: {
-    ncss: NcssProps
-    promise: {
-      ncss: NcssProps
-      link: ALinkElementStyle
-      sup: ParagraphElementStyle
-    }
-  }
-}
-
-export const legalFooterPreset: LegalFooterWheelStyle = {
+export const legalFooter: LegalFooterWheelStyle = {
   wrapper: {
     ncss: {
       borderTop: '1px solid black',

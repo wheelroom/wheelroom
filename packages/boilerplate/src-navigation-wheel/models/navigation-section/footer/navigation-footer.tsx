@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react'
 import { NavigationProps } from '../../navigation/model-types'
-import { NavigationSegment } from '../../navigation-segment/navigation-segment'
+import {
+  NavigationSegment,
+  NavigationSegmentWheelStyle,
+} from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
 import {
   Container,
@@ -10,9 +13,27 @@ import {
   GlobalsProps,
   Wheel,
   Wrapper,
+  GridElementStyle,
+  NcssProps,
 } from '../../../../src-core'
-import { NavigationFooterWheelStyle } from './presets/navigation-footer-preset'
-import { LegalFooter } from './legal-footer'
+import { LegalFooter, LegalFooterWheelStyle } from './legal-footer'
+
+export interface NavigationFooterWheelStyle {
+  wrapper: GridElementStyle
+  container: GridElementStyle
+  section: {
+    ncss: NcssProps
+    menu: {
+      ncss: NcssProps
+      segment: NavigationSegmentWheelStyle
+    }
+    social: {
+      ncss: NcssProps
+      segment: NavigationSegmentWheelStyle
+    }
+  }
+  legalFooter: LegalFooterWheelStyle
+}
 
 interface NavigationFooterWheel extends Wheel {
   style: NavigationFooterWheelStyle

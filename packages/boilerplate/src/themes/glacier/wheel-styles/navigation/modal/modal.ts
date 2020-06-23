@@ -3,12 +3,8 @@ import { navigationSegment } from '../navigation-segment/navigation-segment'
 
 export const modal: ModalWheelStyle = {
   container: {
-    visible: {
-      ncss: {},
-    },
-    hidden: {
-      ncss: {},
-    },
+    visible: {},
+    hidden: {},
   },
   overlay: {
     visible: {

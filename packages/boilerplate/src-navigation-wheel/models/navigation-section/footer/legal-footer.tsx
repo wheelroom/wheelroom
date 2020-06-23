@@ -8,9 +8,27 @@ import {
   Fluid,
   Wheel,
   Wrapper,
+  GridElementStyle,
+  NcssProps,
+  ALinkElementStyle,
 } from '../../../../src-core'
-import { Sup } from '../../../../src-core/elements/element/paragraph'
-import { LegalFooterWheelStyle } from './presets/legal-footer-preset'
+import {
+  Sup,
+  ParagraphElementStyle,
+} from '../../../../src-core/elements/element/paragraph'
+
+export interface LegalFooterWheelStyle {
+  wrapper: GridElementStyle
+  container: GridElementStyle
+  legal: {
+    ncss: NcssProps
+    promise: {
+      ncss: NcssProps
+      link: ALinkElementStyle
+      sup: ParagraphElementStyle
+    }
+  }
+}
 
 interface LegalWheel extends Wheel {
   style: LegalFooterWheelStyle
