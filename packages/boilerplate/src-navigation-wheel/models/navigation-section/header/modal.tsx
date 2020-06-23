@@ -17,6 +17,7 @@ import { ThemeButton } from './theme-button'
 
 export interface ModalWheelStyle {
   container: {
+    // ncssSwitch: Record<'visible' | 'hidden', any>
     visible: NcssProps
     hidden: NcssProps
   }
