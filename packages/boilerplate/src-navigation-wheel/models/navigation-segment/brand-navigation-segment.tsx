@@ -1,7 +1,22 @@
 import React from 'react'
-import { Action, Wheel, Flex, Strong } from '../../../src-core'
+import {
+  Action,
+  Wheel,
+  Flex,
+  Strong,
+  NcssProps,
+  IconElementStyle,
+} from '../../../src-core'
 import { NavigationSegmentProps } from './model-types'
-import { BrandNavigationSegmentWheelStyle } from './presets/brand-navigation-segment-preset'
+
+export interface BrandNavigationSegmentWheelStyle {
+  ncss: NcssProps
+  logo: NcssProps
+  action: {
+    ncss: NcssProps
+    icon: IconElementStyle
+  }
+}
 
 interface BrandNavigationSegmentWheel extends Wheel {
   style: BrandNavigationSegmentWheelStyle

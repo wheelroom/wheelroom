@@ -1,5 +1,5 @@
-import { NavigationFooterWheelStyle } from '../../../../../src-navigation-wheel'
-import { wrapperStyle } from '../shared-styles/grid-style'
+import { NavigationFooterWheelStyle } from '../../../../../../src-navigation-wheel'
+import { wrapperStyle } from '../../shared-styles/grid-style'
 
 export const navigationSectionFooterStyle: NavigationFooterWheelStyle = {
   wrapper: {

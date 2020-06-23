@@ -1,9 +1,15 @@
 import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { BrandNavigationSegment } from '../../navigation-segment/brand-navigation-segment'
+import {
+  BrandNavigationSegment,
+  BrandNavigationSegmentWheelStyle,
+} from '../../navigation-segment/brand-navigation-segment'
 import { NavigationProps } from '../../navigation/model-types'
-import { NavigationSegment } from '../../navigation-segment/navigation-segment'
+import {
+  NavigationSegment,
+  NavigationSegmentWheelStyle,
+} from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
 import {
   ALink,
@@ -16,10 +22,35 @@ import {
   SectionWheelThemes,
   Wheel,
   Wrapper,
+  NcssProps,
+  GridElementStyle,
+  ButtonElementStyle,
 } from '../../../../src-core'
-import { Modal } from './modal'
-import { NavigationHeaderWheelStyle } from './presets/navigation-header-preset'
+import { Modal, ModalWheelStyle } from './modal'
 import { ThemeButton } from './theme-button'
+
+export interface NavigationHeaderWheelStyle {
+  skipToContent: NcssProps
+  wrapper: GridElementStyle
+  container: GridElementStyle
+  brand: {
+    segment: BrandNavigationSegmentWheelStyle
+  }
+  menu: {
+    ncss: NcssProps
+    segment: NavigationSegmentWheelStyle
+  }
+  actions: {
+    ncss: NcssProps
+    segment: NavigationSegmentWheelStyle
+    themeButton: ButtonElementStyle
+  }
+  modal: {
+    ncss: NcssProps
+    button: ButtonElementStyle
+    dialog: ModalWheelStyle
+  }
+}
 
 interface NavigationHeaderWheel extends Wheel {
   style: NavigationHeaderWheelStyle

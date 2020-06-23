@@ -1,10 +1,48 @@
 import React from 'react'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
-import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { Box, Wheel, Flex, Button } from '../../../../src-core'
+import {
+  NavigationSegment,
+  NavigationSegmentWheelStyle,
+} from '../../navigation-segment/navigation-segment'
+import {
+  Box,
+  Wheel,
+  Flex,
+  Button,
+  NcssProps,
+  ButtonElementStyle,
+} from '../../../../src-core'
 import { FeatherIcon } from '../../../../src-core/elements/element/icon'
 import { ThemeButton } from './theme-button'
-import { ModalWheelStyle } from './presets/modal-preset'
+
+export interface ModalWheelStyle {
+  container: {
+    visible: NcssProps
+    hidden: NcssProps
+  }
+  overlay: {
+    visible: NcssProps
+    hidden: NcssProps
+  }
+  document: {
+    ncss: NcssProps
+    visible: NcssProps
+    hidden: NcssProps
+    closeNavigationButton: {
+      ncss: NcssProps
+      icon: NcssProps
+    }
+    menu: {
+      ncss: NcssProps
+      segment: NavigationSegmentWheelStyle
+    }
+    actions: {
+      ncss: NcssProps
+      segment: NavigationSegmentWheelStyle
+      themeButton: ButtonElementStyle
+    }
+  }
+}
 
 interface ModalWheel extends Wheel {
   style: ModalWheelStyle

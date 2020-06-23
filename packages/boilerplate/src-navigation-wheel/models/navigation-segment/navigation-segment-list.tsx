@@ -1,6 +1,21 @@
 import React from 'react'
-import { Wheel, Ul, Li, Action, ActionProps } from '../../../src-core'
-import { NavigationSegmentListWheelStyle } from './presets/navigation-segment-list-preset'
+import {
+  Wheel,
+  Action,
+  ActionProps,
+  ActionWheelStyle,
+  Li,
+  NcssProps,
+  Ul,
+} from '../../../src-core'
+
+export interface NavigationSegmentListWheelStyle {
+  ncss: NcssProps
+  item: {
+    ncss: NcssProps
+    action: ActionWheelStyle
+  }
+}
 
 interface NavigationSegmentListWheel extends Wheel {
   style: NavigationSegmentListWheelStyle

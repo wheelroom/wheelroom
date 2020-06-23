@@ -1,15 +1,38 @@
-import { NavigationHeaderWheelStyle } from '../../../../../src-navigation-wheel'
-import { wrapperStyle } from '../shared-styles/grid-style'
+import { NavigationHeaderWheelStyle } from '../../../../../../src-navigation-wheel'
+import { wrapperStyle } from '../../shared-styles/grid-style'
 import {
   primaryButtonStyle,
   secondaryButtonStyle,
-} from '../../element-styles/button-style'
-import { iconButtonSmallStyle } from '../shared-styles/icon-style'
+} from '../../../element-styles/button-style'
+import { iconButtonSmallStyle } from '../../shared-styles/icon-style'
+import {
+  modalDialogContentOpen,
+  modalDialogContent,
+  modalDialogOpen,
+  modalDialog,
+  modalDialogOverlayOpen,
+  modalDialogOverlay,
+} from '../modal/modal-dialog'
 
 export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
   skipToContent: {
     ncss: {
+      label: 'skip-to-content',
+      position: 'absolute',
+      left: '-100%',
       ':focus': {
+        w: 1,
+        minHeight: '70px',
+        py: 4,
+        px: 3,
+        left: 0,
+        top: 0,
+        right: 0,
+        textAlign: 'center',
+        zIndex: 1002,
+        outlineOffset: -2,
+        outlineStyle: 'dotted',
+        outlineWidth: 2,
         bg: 'skipToContentBg',
         color: 'skipToContentText',
         outlineColor: 'skipToContentOutline',
@@ -18,34 +41,61 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
   },
   wrapper: {
     ncss: {
-      ...wrapperStyle.ncss,
+      width: 1,
+      height: '70px',
+      py: 0,
+      borderBottom: '1px solid transparent',
       borderColor: 'sectionBorder',
+      ...wrapperStyle.ncss,
     },
   },
   container: {
-    ncss: {},
+    ncss: {
+      height: '100%',
+      justifyContent: 'space-between',
+      px: 3,
+    },
   },
   brand: {
     segment: {
-      ncss: {},
+      ncss: {
+        label: 'brand-navigation-segment',
+        alignItems: 'center',
+        mr: 3,
+      },
       logo: {
-        ncss: {},
+        ncss: {
+          label: 'brand-navigation-segment-logo',
+        },
       },
       action: {
         ncss: {
+          label: 'brand-navigation-segment-action',
+          display: 'inline-flex',
+          fontFamily: 'branding',
+          fontWeight: 'bold',
+          textDecoration: 'none',
           color: 'sectionText',
           ':focus': {
             outlineColor: 'outline',
           },
         },
         icon: {
-          ncss: {},
+          ncss: {
+            label: 'brand-navigation-segment-action-icon',
+            ...iconButtonSmallStyle.ncss,
+          },
         },
       },
     },
   },
   menu: {
-    ncss: {},
+    ncss: {
+      label: 'menu-navigation',
+      flex: '1',
+      alignItems: 'center',
+      display: ['none', 'none', 'flex'],
+    },
     segment: {
       ncss: {},
       heading: {
@@ -74,6 +124,9 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
   },
   actions: {
     ncss: {
+      label: 'actions-navigation',
+      alignItems: 'center',
+      display: ['none', 'none', 'flex'],
       mx: -1,
     },
     segment: {
@@ -91,48 +144,62 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
               m: 1,
               w: 1,
             },
-            icon: {
-              ncss: {
-                ...iconButtonSmallStyle.ncss,
-              },
-            },
+            icon: iconButtonSmallStyle,
           },
         },
       },
     },
     themeButton: {
       ncss: {
+        label: 'actions-theme-button',
         ...secondaryButtonStyle.ncss,
         m: 1,
       },
     },
   },
   modal: {
-    ncss: {},
+    ncss: {
+      label: 'modal',
+      display: ['flex', 'flex', 'none'],
+      alignItems: 'center',
+    },
     button: {
       ncss: {},
     },
     dialog: {
       container: {
         visible: {
-          ncss: {},
+          ncss: {
+            ...modalDialogOpen.ncss,
+            label: 'modal-is-visible',
+          },
         },
         hidden: {
-          ncss: {},
+          ncss: {
+            ...modalDialog.ncss,
+            label: 'modal-is-hidden',
+          },
         },
       },
       overlay: {
         visible: {
-          ncss: {},
+          ncss: {
+            ...modalDialogOverlayOpen.ncss,
+            label: 'before-is-visible',
+          },
         },
         hidden: {
           ncss: {},
+          ...modalDialogOverlay.ncss,
+          label: 'before-is-hidden',
         },
       },
       document: {
         ncss: {},
         visible: {
           ncss: {
+            ...modalDialogContentOpen.ncss,
+            label: 'document-is-visible',
             bg: 'modalBg',
             borderColor: 'modalBorder',
             borderRadius: 4,
@@ -141,18 +208,31 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
           },
         },
         hidden: {
-          ncss: {},
+          ncss: {
+            ...modalDialogContent.ncss,
+            label: 'document-is-hidden',
+          },
         },
         closeNavigationButton: {
-          ncss: {},
+          ncss: {
+            label: 'modal-close-button',
+            mt: 3,
+            mr: 3,
+            p: 1,
+            w: '36px',
+            h: '36px',
+          },
           icon: {
             ncss: {
+              w: '26px',
+              h: '26px',
               color: 'white',
             },
           },
         },
         menu: {
           ncss: {
+            label: 'menu-navigation',
             w: 1,
           },
           segment: {
@@ -195,7 +275,8 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
         },
         actions: {
           ncss: {
-            flexDirection: ['column', 'row', 'row'],
+            label: 'actions-navigation',
+            flexDirection: 'column',
             w: 1,
             p: 1,
           },
@@ -230,6 +311,7 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
           },
           themeButton: {
             ncss: {
+              label: 'modal-theme-button',
               ...secondaryButtonStyle.ncss,
               m: 1,
             },

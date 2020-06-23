@@ -1,8 +1,6 @@
-import {
-  NavigationSegmentWheelStyle,
-  navigationSegmentPreset,
-} from '../../../navigation-segment/presets/navigation-segment-preset'
 import { GridElementStyle, NcssProps } from '../../../../../src-core'
+import { NavigationSegmentWheelStyle } from '../../../navigation-segment/navigation-segment'
+import { navigationSegment } from '../../../../../src/themes/glacier/wheel-styles/navigation/navigation-segment/navigation-segment'
 import { LegalFooterWheelStyle, legalFooterPreset } from './legal-footer-preset'
 
 export interface NavigationFooterWheelStyle {
@@ -44,13 +42,13 @@ export const navigationFooterPreset: NavigationFooterWheelStyle = {
       ncss: {
         label: 'menu-navigation',
       },
-      segment: navigationSegmentPreset,
+      segment: navigationSegment,
     },
     social: {
       ncss: {
         label: 'social-navigation',
       },
-      segment: navigationSegmentPreset,
+      segment: navigationSegment,
     },
   },
   legalFooter: legalFooterPreset,

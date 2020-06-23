@@ -1,8 +1,22 @@
 import React, { Fragment } from 'react'
-import { Wheel, Flex, H3 } from '../../../src-core'
-import { NavigationSegmentWheelStyle } from './presets/navigation-segment-preset'
+import {
+  Wheel,
+  Flex,
+  H3,
+  NcssProps,
+  HeadingElementStyle,
+} from '../../../src-core'
 import { NavigationSegmentProps } from './model-types'
-import { NavigationSegmentList } from './navigation-segment-list'
+import {
+  NavigationSegmentList,
+  NavigationSegmentListWheelStyle,
+} from './navigation-segment-list'
+
+export interface NavigationSegmentWheelStyle {
+  ncss: NcssProps
+  heading: HeadingElementStyle
+  list: NavigationSegmentListWheelStyle
+}
 
 interface NavigationSegmentWheel extends Wheel {
   style: NavigationSegmentWheelStyle

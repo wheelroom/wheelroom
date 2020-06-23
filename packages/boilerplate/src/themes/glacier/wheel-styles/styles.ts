@@ -1,12 +1,9 @@
 import { SectionWheelThemeStyles, deepMerge } from '../../../../src-core'
-import {
-  navigationHeaderPreset,
-  navigationFooterPreset,
-} from '../../../../src-navigation-wheel'
+import { navigationFooterPreset } from '../../../../src-navigation-wheel'
 import { blogSectionBlogStyle } from './blog/blog-style'
 import { blogSectionListStyle } from './blog/list-style'
-import { navigationSectionHeaderStyle } from './navigation/header-style'
-import { navigationSectionFooterStyle } from './navigation/footer-style'
+import { navigationSectionHeaderStyle } from './navigation/navigation-section/header-style'
+import { navigationSectionFooterStyle } from './navigation/navigation-section/footer-style'
 import { topicSectionBlockStyle } from './topic/topic-section/block-style'
 import { topicSectionCardStyle } from './topic/topic-section/card-style'
 import { topicSectionDividerStyle } from './topic/topic-section/divider-style'
@@ -19,6 +16,7 @@ import { topicSectionQuoteStyle } from './topic/topic-section/quote-style'
 import { topicSectionShowcaseStyle } from './topic/topic-section/showcase-style'
 import { topicSectionVideoStyle } from './topic/topic-section/video-style'
 import { topicStyle } from './topic/topic/topic-style'
+import { navigationSegment } from './navigation/navigation-segment/navigation-segment'
 
 const mergeTopic = (style: any) => deepMerge([{ topic: topicStyle }, style])
 
@@ -28,7 +26,23 @@ export const styles: SectionWheelThemeStyles = {
     list: blogSectionListStyle,
   },
   navigationSection: {
-    header: deepMerge([navigationHeaderPreset, navigationSectionHeaderStyle]),
+    header: deepMerge([
+      { menu: { segment: { ...navigationSegment } } },
+      { actions: { segment: { ...navigationSegment } } },
+      {
+        modal: {
+          dialog: { document: { menu: { segment: { ...navigationSegment } } } },
+        },
+      },
+      {
+        modal: {
+          dialog: {
+            document: { actions: { segment: { ...navigationSegment } } },
+          },
+        },
+      },
+      navigationSectionHeaderStyle,
+    ]),
     footer: deepMerge([navigationFooterPreset, navigationSectionFooterStyle]),
   },
   topicSection: {

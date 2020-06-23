@@ -1,4 +1,4 @@
-export const modalDialogOverlayPreset = {
+export const modalDialogOverlay = {
   ncss: {
     content: '""',
     height: 1,
@@ -15,15 +15,15 @@ export const modalDialogOverlayPreset = {
   },
 }
 
-export const modalDialogOverlayOpenPreset = {
+export const modalDialogOverlayOpen = {
   ncss: {
-    ...modalDialogOverlayPreset.ncss,
+    ...modalDialogOverlay.ncss,
     opacity: 1,
     transition: 'opacity 2s ease',
   },
 }
 
-export const modalDialogPreset = {
+export const modalDialog = {
   ncss: {
     position: 'fixed',
     display: 'flex',
@@ -39,15 +39,15 @@ export const modalDialogPreset = {
   },
 }
 
-export const modalDialogOpenPreset = {
+export const modalDialogOpen = {
   ncss: {
-    ...modalDialogPreset.ncss,
+    ...modalDialog.ncss,
     visibility: 'visible',
     overflowY: 'auto',
   },
 }
 
-export const modalDialogContentPreset = {
+export const modalDialogContent = {
   ncss: {
     w: [1, '360px'],
     m: 3,
@@ -63,9 +63,9 @@ export const modalDialogContentPreset = {
   },
 }
 
-export const modalDialogContentOpenPreset = {
+export const modalDialogContentOpen = {
   ncss: {
-    ...modalDialogContentPreset.ncss,
+    ...modalDialogContent.ncss,
     transform: 'scale(1)',
     opacity: 1,
     transition:
