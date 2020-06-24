@@ -9,5 +9,6 @@ export const wrapperStyle = {
     label: 'wrapper',
     bg: 'sectionBg',
     color: 'sectionText',
+    py: 3,
   },
 }

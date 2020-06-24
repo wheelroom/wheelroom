@@ -2,6 +2,7 @@ import { TextSectionWheelStyle } from '../../../../../src-text-wheel'
 import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
 import { headingTextStyle } from '../../element-styles/heading-style'
 import { embedStyle } from '../shared-styles/embed-style'
+import { deepMerge } from '../../../../../src-core'
 
 export const textSectionTextStyle: TextSectionWheelStyle = {
   container: containerStyle,
@@ -92,17 +93,13 @@ export const textSectionTextStyle: TextSectionWheelStyle = {
       },
     },
     wrapper: {
-      ncss: {},
+      ncss: {
+        label: 'wrapper-text',
+        maxWidth: '712px', // Golden read width ratio
+        mx: 'auto',
+        px: 3,
+      },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle.ncss,
-      label: 'wrapper-text',
-      maxWidth: '712px', // Golden read width ratio
-      mx: 'auto',
-      py: 0,
-      px: 3,
-    },
-  },
+  wrapper: wrapperStyle,
 }

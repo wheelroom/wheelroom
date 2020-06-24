@@ -17,7 +17,6 @@ export const wrapperReset: GridElementStyle = {
   ncss: {
     ...boxReset.ncss,
     w: 1,
-    py: 3,
   },
 }
 
