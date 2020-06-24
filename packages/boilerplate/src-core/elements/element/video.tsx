@@ -9,12 +9,8 @@ import { Wheel } from '../../lib/wheel'
 import { videoDescriptionReset, videoVideoElementStyle } from './video-reset'
 
 export interface VideoElementStyle {
-  video: {
-    ncss: NcssProps
-  }
-  description?: {
-    ncss: NcssProps
-  }
+  video: NcssProps
+  description?: NcssProps
 }
 
 export interface VideoProps {
