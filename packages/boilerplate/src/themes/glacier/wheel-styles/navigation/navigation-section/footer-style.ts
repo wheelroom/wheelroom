@@ -81,7 +81,8 @@ export const navigationSectionFooterStyle: NavigationFooterWheelStyle = {
     wrapper: {
       ncss: {
         ...wrapperStyle.ncss,
-        borderTop: '1px solid sectionBorder',
+        borderTop: '1px solid transparent',
+        borderColor: 'sectionBorder',
         minHeight: '48px',
       },
     },

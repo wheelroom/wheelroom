@@ -1,10 +1,8 @@
 import React, { Fragment } from 'react'
 import { NavigationProps } from '../../navigation/model-types'
-import {
-  NavigationSegment,
-  NavigationSegmentWheelStyle,
-} from '../../navigation-segment/navigation-segment'
+import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
+import { NavigationSegmentModelStyle } from '../../navigation-segment/model-style-types'
 import {
   Container,
   CoreSiteMetadata,
@@ -25,11 +23,11 @@ export interface NavigationFooterWheelStyle {
     ncss: NcssProps
     menu: {
       ncss: NcssProps
-      segment: NavigationSegmentWheelStyle
+      segment: NavigationSegmentModelStyle
     }
     social: {
       ncss: NcssProps
-      segment: NavigationSegmentWheelStyle
+      segment: NavigationSegmentModelStyle
     }
   }
   legalFooter: LegalFooterWheelStyle
