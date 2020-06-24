@@ -4,17 +4,16 @@ import {
   ActionModelStyle,
 } from '../../../src-core'
 
-export interface NavigationSegmentStyle {
-  container?: NcssProps
+export interface NavigationSegmentModelStyle {
+  ncss?: NcssProps
   heading?: HeadingElementStyle
-}
-
-export interface NavigationSegmentListStyle {
   list?: NcssProps
   item?: NcssProps
   action?: ActionModelStyle
 }
 
-export interface NavigationSegmentModelStyle
-  extends NavigationSegmentStyle,
-    NavigationSegmentListStyle {}
+export interface BrandNavigationSegmentModelStyle {
+  ncss?: NcssProps
+  brand?: NcssProps
+  action?: ActionModelStyle
+}

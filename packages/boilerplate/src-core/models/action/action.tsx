@@ -21,7 +21,7 @@ import {
 } from '../../../src-core'
 
 export interface ActionWheel extends Wheel {
-  style: ActionModelStyle | undefined
+  style: ActionModelStyle
 }
 
 export interface ActionWheelProps extends ActionModelProps {

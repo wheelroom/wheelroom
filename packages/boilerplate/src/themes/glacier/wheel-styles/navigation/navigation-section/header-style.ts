@@ -65,9 +65,9 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
         alignItems: 'center',
         mr: 3,
       },
-      logo: {
+      brand: {
         ncss: {
-          label: 'brand-navigation-segment-logo',
+          label: 'brand-navigation-segment-brand',
         },
       },
       action: {

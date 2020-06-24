@@ -1,14 +1,14 @@
 import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import {
-  BrandNavigationSegment,
-  BrandNavigationSegmentWheelStyle,
-} from '../../navigation-segment/brand-navigation-segment'
+import { BrandNavigationSegment } from '../../navigation-segment/brand-navigation-segment'
 import { NavigationProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
-import { NavigationSegmentModelStyle } from '../../navigation-segment/model-style-types'
+import {
+  NavigationSegmentModelStyle,
+  BrandNavigationSegmentModelStyle,
+} from '../../navigation-segment/model-style-types'
 import {
   ALink,
   Box,
@@ -32,7 +32,7 @@ export interface NavigationHeaderWheelStyle {
   wrapper: GridElementStyle
   container: GridElementStyle
   brand: {
-    segment: BrandNavigationSegmentWheelStyle
+    segment: BrandNavigationSegmentModelStyle
   }
   menu: {
     ncss: NcssProps

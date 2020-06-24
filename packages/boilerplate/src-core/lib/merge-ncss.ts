@@ -1,4 +1,4 @@
-import { NcssProps } from './wheel'
+import { NcssProps } from './ncss'
 import { mergeNcssTable } from './merge-ncss-table'
 
 interface NcssObject {

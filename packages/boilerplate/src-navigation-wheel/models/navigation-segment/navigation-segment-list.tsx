@@ -1,16 +1,16 @@
 import React from 'react'
-import { Wheel, Action, ActionModelProps, Li, Ul } from '../../../src-core'
-import { NavigationSegmentListStyle } from './model-style-types'
+import { Action, ActionModelProps, Li, Ul, Wheel } from '../../../src-core'
+import { NavigationSegmentModelStyle } from './model-style-types'
 
-interface NavigationSegmentListWheel extends Wheel {
-  style: NavigationSegmentListStyle
+interface NavigationSegmentWheel extends Wheel {
+  style: NavigationSegmentModelStyle
 }
 
-export interface NavigationSegmentListProps {
+interface NavigationSegmentListProps {
   actions: ActionModelProps[]
   hideActionHeading: boolean
   hideActionIcon: boolean
-  wheel: NavigationSegmentListWheel
+  wheel: NavigationSegmentWheel
 }
 
 export const NavigationSegmentList = (props: NavigationSegmentListProps) => {

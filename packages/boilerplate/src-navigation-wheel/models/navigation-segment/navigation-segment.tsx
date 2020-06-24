@@ -2,13 +2,13 @@ import React, { Fragment } from 'react'
 import { Wheel, Flex, H3 } from '../../../src-core'
 import { NavigationSegmentProps } from './model-types'
 import { NavigationSegmentList } from './navigation-segment-list'
-import { NavigationSegmentStyle } from './model-style-types'
+import { NavigationSegmentModelStyle } from './model-style-types'
 
 interface NavigationSegmentWheel extends Wheel {
-  style: NavigationSegmentStyle
+  style: NavigationSegmentModelStyle
 }
 
-export interface NavigationSegmentWheelProps {
+interface NavigationSegmentWheelProps {
   hideActionHeading: boolean
   hideActionIcon: boolean
   hideSegmentHeading: boolean
@@ -21,7 +21,6 @@ export const NavigationSegment = (props: NavigationSegmentWheelProps) => {
   if (!props.navigationSegment) {
     return null
   }
-  console.log(props.wheel)
   return (
     <Fragment>
       {props.navigationSegment

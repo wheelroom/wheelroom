@@ -1,28 +1,13 @@
 import React from 'react'
-import {
-  Action,
-  Wheel,
-  Flex,
-  Strong,
-  NcssProps,
-  IconElementStyle,
-} from '../../../src-core'
+import { Action, Wheel, Flex, Any } from '../../../src-core'
 import { NavigationSegmentProps } from './model-types'
-
-export interface BrandNavigationSegmentWheelStyle {
-  ncss: NcssProps
-  logo: NcssProps
-  action: {
-    ncss: NcssProps
-    icon: IconElementStyle
-  }
-}
+import { BrandNavigationSegmentModelStyle } from './model-style-types'
 
 interface BrandNavigationSegmentWheel extends Wheel {
-  style: BrandNavigationSegmentWheelStyle
+  style: BrandNavigationSegmentModelStyle
 }
 
-export interface BrandNavigationSegmentWheelProps {
+interface BrandNavigationSegmentWheelProps {
   logoElement?: JSX.Element
   navigationSegment: NavigationSegmentProps[]
   siteHeading?: string
@@ -48,7 +33,7 @@ export const BrandNavigationSegment = (
   const display = props.logoElement || brandHeading || props.siteHeading
   if (hasBrandAction) {
     return (
-      <Flex is="div" wheel={props.wheel}>
+      <Flex is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
         <Action
           {...brandAction}
           wheel={{ ...props.wheel, style: props.wheel.style.action }}
@@ -59,10 +44,16 @@ export const BrandNavigationSegment = (
     )
   } else
     return (
-      <Flex is="div" wheel={props.wheel}>
-        <Strong wheel={{ ...props.wheel, style: props.wheel.style.logo }}>
+      <Flex
+        is="div"
+        wheel={{ ...props.wheel, style: props.wheel.style.container }}
+      >
+        <Any
+          is="span"
+          wheel={{ ...props.wheel, style: props.wheel.style.brand }}
+        >
           {display}
-        </Strong>
+        </Any>
       </Flex>
     )
 }
