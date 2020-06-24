@@ -17,7 +17,11 @@ import {
   ImageElementStyle,
   VideoElementStyle,
 } from '../../../../src-core'
-import { TopicModelProps, Topic, TopicModelStyle } from '../../../../src-topic-wheel'
+import {
+  TopicModelProps,
+  Topic,
+  TopicModelStyle,
+} from '../../../../src-topic-wheel'
 import { Text } from '../../../../src-text-wheel'
 import { TextModelStyle } from '../../../../src-text-wheel/models/text/model-style-types'
 
