@@ -1,4 +1,4 @@
-import { TopicProps } from '../models/topic/model-types'
+import { TopicModelProps } from '../models/topic/model-types'
 
 export interface TopicInfo {
   hasAbstract: boolean
@@ -12,7 +12,7 @@ export interface TopicInfo {
   hasMediaBreakpoint: boolean
 }
 
-export const getTopicInfo = (topic: TopicProps): TopicInfo => {
+export const getTopicInfo = (topic: TopicModelProps): TopicInfo => {
   const info = {
     hasAbstract: false,
     hasAction: false,

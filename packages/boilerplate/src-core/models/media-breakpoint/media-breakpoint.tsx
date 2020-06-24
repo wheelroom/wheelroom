@@ -8,20 +8,15 @@ import {
   imageImgReset,
   imagePictureReset,
 } from '../../elements/element/image-reset'
-import { NcssProps } from '../../lib/ncss'
+import { MediaBreakpointModelStyle } from './model-style-types'
 
-export interface MediaBreakpointStyle {
-  img: {
-    ncss: NcssProps
-  }
-  picture: {
-    ncss: NcssProps
-  }
+interface MediaBreakpointWheelStyle extends Wheel {
+  style: MediaBreakpointModelStyle
 }
 
 export interface MediaBreakpointWheelProps {
   /** Styling wheel */
-  wheel: Wheel
+  wheel: MediaBreakpointWheelStyle
   /** MediaObject props */
   small?: MediaObject
   medium?: MediaObject

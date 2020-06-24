@@ -9,12 +9,12 @@
 import React from 'react'
 import { getTopicOptions } from '../../lib/get-topic-options'
 import { Topic } from '../topic/topic'
-import { TopicProps } from '../topic/model-types'
+import { TopicModelProps } from '../topic/model-types'
 import { getWheel, MultiParser } from '../../../src-core'
-import { TopicSectionProps } from './model-types'
+import { TopicSectionModelProps } from './model-types'
 import { TopicSectionWrapper } from './topic-section-wrapper'
 
-export const TopicSectionQuoteVar = (props: TopicSectionProps) => {
+export const TopicSectionQuoteVar = (props: TopicSectionModelProps) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
     wheelId: 'topicSection',
@@ -28,7 +28,7 @@ export const TopicSectionQuoteVar = (props: TopicSectionProps) => {
 
   return (
     <TopicSectionWrapper containerStyle="container" wheel={wheel}>
-      {props.topics.slice(0, 2).map((topic: TopicProps, index: number) => (
+      {props.topics.slice(0, 2).map((topic: TopicModelProps, index: number) => (
         <Topic
           key={index}
           topic={topic}

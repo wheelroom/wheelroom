@@ -2,7 +2,7 @@ import {
   ALinkElementStyle,
   BlockquoteElementStyle,
   CodeElementStyle,
-  EmbedStyle,
+  EmbedModelStyle,
   GridElementStyle,
   HeadingElementStyle,
   HrElementStyle,
@@ -33,7 +33,7 @@ export interface TextModelStyle {
   h4: HeadingElementStyle
   h5: HeadingElementStyle
   h6: HeadingElementStyle
-  embed: EmbedStyle
+  embed: EmbedModelStyle
   image: ImageElementStyle
   video: VideoElementStyle
 }

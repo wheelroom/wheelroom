@@ -5,33 +5,22 @@ import {
   Action,
   BlockLevelElementName,
   Box,
-  NcssProps,
   ParserFunction,
   Wheel,
 } from '../../../src-core'
 import { TopicBody } from './topic-body'
-import { TopicContentWheelStyle } from './topic-content'
-import { TopicMediaWheelStyle } from './topic-media'
-import { TopicProps } from './model-types'
-
-export interface TopicWheelStyle {
-  /** Styling for this node */
-  ncss: NcssProps
-  /** Media */
-  media: TopicMediaWheelStyle
-  /** Content */
-  content: TopicContentWheelStyle
-}
+import { TopicModelProps } from './model-types'
+import { TopicModelStyle } from './model-style-types'
 
 export interface TopicWheel extends Wheel {
-  style: TopicWheelStyle
+  style: TopicModelStyle
 }
 
 export interface TopicWheelProps {
   /** Styling wheel */
   wheel: TopicWheel
   /** The topic to render */
-  topic?: TopicProps
+  topic?: TopicModelProps
   /** Topic render options */
   topicOptions: TopicOptions
   /** Defaults to h3 */

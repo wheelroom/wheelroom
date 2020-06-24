@@ -7,12 +7,12 @@
 
 import {
   ActionModelProps,
-  EmbedProps,
-  MediaBreakpointProps,
+  EmbedModelProps,
+  MediaBreakpointModelProps,
   MediaObject,
 } from '../../../src-core'
 
-export interface TopicProps {
+export interface TopicModelProps {
   /** Gatsby fetched data */
   __typename: string
   heading?: string
@@ -23,6 +23,6 @@ export interface TopicProps {
   icon?: string | JSX.Element
   actions?: ActionModelProps[]
   poster?: MediaObject
-  mediaEmbed?: EmbedProps
-  mediaBreakpoint?: MediaBreakpointProps
+  mediaEmbed?: EmbedModelProps
+  mediaBreakpoint?: MediaBreakpointModelProps
 }

@@ -1,9 +1,9 @@
-import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
+import { TopicSectionModelStyle } from '../../../../../../src-topic-wheel'
 import { containerStyle, wrapperStyle } from '../../shared-styles/grid-style'
 import { primaryButtonStyle } from '../../../element-styles/button-style'
 import { iconTopicStyle } from '../../shared-styles/icon-style'
 
-export const topicSectionCardStyle: TopicSectionWheelStyle = {
+export const topicSectionCardStyle: TopicSectionModelStyle = {
   container: {
     ncss: {
       ...containerStyle.ncss,

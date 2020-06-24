@@ -2,7 +2,7 @@ import React from 'react'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
 import { Wheel, Box, NcssProps, Action, ActionModelProps } from '../../../src-core'
-import { TopicProps } from './model-types'
+import { TopicModelProps } from './model-types'
 
 export interface TopicContentActionsWheelStyle {
   /** Styling for this node */
@@ -28,7 +28,7 @@ export interface TopicContentActionsProps {
   /** Accept max number of Actions, ignore all others */
   maxActions?: number
   /** All topic props */
-  topic: TopicProps
+  topic: TopicModelProps
   /** Topic info object */
   topicInfo: TopicInfo
   /** Topic options */

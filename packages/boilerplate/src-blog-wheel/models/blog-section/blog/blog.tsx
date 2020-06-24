@@ -17,9 +17,9 @@ import {
   ImageElementStyle,
   VideoElementStyle,
 } from '../../../../src-core'
-import { TopicProps, Topic, TopicWheelStyle } from '../../../../src-topic-wheel'
+import { TopicModelProps, Topic, TopicModelStyle } from '../../../../src-topic-wheel'
 import { Text } from '../../../../src-text-wheel'
-import { ModelStyleTypes } from '../../../../src-text-wheel/models/text/text-wheel-style'
+import { TextModelStyle } from '../../../../src-text-wheel/models/text/model-style-types'
 
 export interface BlogSectionBlogVariationStyle {
   article?: NcssProps
@@ -31,9 +31,9 @@ export interface BlogSectionBlogVariationStyle {
   media?: NcssProps
   image?: ImageElementStyle
   video?: VideoElementStyle
-  text: ModelStyleTypes
+  text: TextModelStyle
   authors?: NcssProps
-  author: TopicWheelStyle
+  author: TopicModelStyle
 }
 
 export interface BlogSectionBlogWheel extends Wheel {
@@ -125,7 +125,7 @@ export const Blog = (props: BlogWheelProps) => {
         />
         <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
           {props.blog.authors &&
-            props.blog.authors.map((author: TopicProps, index: number) => {
+            props.blog.authors.map((author: TopicModelProps, index: number) => {
               return (
                 <Topic
                   fullTopicAsLink={false}

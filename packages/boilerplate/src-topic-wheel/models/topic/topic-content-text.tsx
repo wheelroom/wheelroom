@@ -10,7 +10,7 @@ import {
   Wheel,
   NcssProps,
 } from '../../../src-core'
-import { TopicProps } from './model-types'
+import { TopicModelProps } from './model-types'
 
 export interface TopicContentTextWheelStyle {
   /** Styling for this node */
@@ -36,7 +36,7 @@ export interface TopicContentTextProps {
   /** Defaults to p */
   useAbstractParser?: ParserFunction
   /** All topic props */
-  topic: TopicProps
+  topic: TopicModelProps
   /** Topic info object */
   topicInfo: TopicInfo
   /** Page section info */

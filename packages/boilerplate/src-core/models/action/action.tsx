@@ -9,7 +9,7 @@
 import React, { useContext } from 'react'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
-import { EmbedProps } from '../../../src-core/models/embed/model-types'
+import { EmbedModelProps } from '../../../src-core/models/embed/model-types'
 import { FeatherIcon } from '../../../src-core/elements/element/icon'
 import {
   Wheel,
@@ -52,7 +52,7 @@ const onClickHander = (
   const globals =
     adminCoreState.pageProps && adminCoreState.pageProps.data.globals
   if (globals && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
-    globals.siteEmbeds.forEach((embed: EmbedProps) => {
+    globals.siteEmbeds.forEach((embed: EmbedModelProps) => {
       if (embed.code && embed.type === 'js-action') {
         Function(
           'eventId',

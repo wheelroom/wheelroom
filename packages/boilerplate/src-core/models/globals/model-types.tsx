@@ -5,7 +5,7 @@
  *
  */
 
-import { EmbedProps } from '../embed/model-types'
+import { EmbedModelProps } from '../embed/model-types'
 import { MediaObject } from '../../elements/types/media'
 
 export interface GlobalsProps {
@@ -16,6 +16,6 @@ export interface GlobalsProps {
   siteHeading?: string
   siteKeywords?: string[]
   siteImage?: MediaObject
-  siteEmbeds?: EmbedProps[]
+  siteEmbeds?: EmbedModelProps[]
   skipToContentHeading?: string
 }

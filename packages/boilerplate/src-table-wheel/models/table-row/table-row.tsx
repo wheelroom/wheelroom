@@ -12,7 +12,7 @@ import {
   Tr,
   Wheel,
 } from '../../../src-core'
-import { TopicOptions, TopicProps } from '../../../src-topic-wheel'
+import { TopicOptions, TopicModelProps } from '../../../src-topic-wheel'
 import { TableRowProps } from './model-types'
 import { TableRowModelStyle } from './model-style-types'
 import { TableRowCell } from './table-row-cell'
@@ -110,7 +110,7 @@ export const TableRow = (props: TableRowWheelProps) => {
           </Any>
         )}
       </Th>
-      {(tableRow.topics || []).map((topic: TopicProps, index: number) => {
+      {(tableRow.topics || []).map((topic: TopicModelProps, index: number) => {
         return (
           <TableRowCell
             dataCellWidth={dataCellWidth}

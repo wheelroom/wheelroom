@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { GlobalsProps } from '../globals/model-types'
-import { EmbedProps } from './model-types'
+import { EmbedModelProps } from './model-types'
 
 export const useEmbeds = (gatsbyProps: any) => {
   const { adminCoreState } = useContext(AdminCoreContext)
@@ -13,7 +13,7 @@ export const useEmbeds = (gatsbyProps: any) => {
   // Run embed code
   if (!embedsDone && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
     const isAppInit = adminCoreState.lastModuleId === '*'
-    globals.siteEmbeds.forEach((embed: EmbedProps) => {
+    globals.siteEmbeds.forEach((embed: EmbedModelProps) => {
       if (embed.code && embed.type === 'js-page') {
         Function('props', embed.code.code)(gatsbyProps)
       }

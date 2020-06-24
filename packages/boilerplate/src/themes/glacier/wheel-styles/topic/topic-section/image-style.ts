@@ -1,9 +1,9 @@
-import { TopicSectionWheelStyle } from '../../../../../../src-topic-wheel'
+import { TopicSectionModelStyle } from '../../../../../../src-topic-wheel'
 import { iconTopicStyle } from '../../shared-styles/icon-style'
 import { embedStyle } from '../../shared-styles/embed-style'
 import { wrapperStyle } from '../../shared-styles/grid-style'
 
-export const topicSectionImageStyle: TopicSectionWheelStyle = {
+export const topicSectionImageStyle: TopicSectionModelStyle = {
   container: {
     ncss: {
       flexDirection: ['column', 'row'],

@@ -6,7 +6,7 @@
  */
 
 import { MediaObject } from '../../../src-core'
-import { TopicProps } from '../../../src-topic-wheel'
+import { TopicModelProps } from '../../../src-topic-wheel'
 
 export interface BlogProps {
   /** Gatsby fetched data */
@@ -23,7 +23,7 @@ export interface BlogProps {
     json: string
   }
   categories?: string[]
-  authors?: TopicProps[]
+  authors?: TopicModelProps[]
   seoTitle?: string
   seoDescription?: string
   seoImage?: MediaObject

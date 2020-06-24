@@ -2,8 +2,8 @@ import React from 'react'
 import {
   Box,
   Embed,
-  EmbedProps,
-  EmbedStyle,
+  EmbedModelProps,
+  EmbedModelStyle,
   Image,
   ImageElementStyle,
   MediaBreakpoint,
@@ -16,13 +16,13 @@ import {
 } from '../../../src-core'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { TopicProps } from './model-types'
+import { TopicModelProps } from './model-types'
 
 export interface TopicMediaWheelStyle {
   /** Styling for this node */
   ncss: NcssProps
   /** Video style */
-  embed: EmbedStyle
+  embed: EmbedModelStyle
   /** Image style */
   image: ImageElementStyle
   /** Media Breakpoint Style */
@@ -39,9 +39,9 @@ export interface TopicMediaProps {
   /** Styling wheel */
   wheel: TopicMediaWheel
   /** All topic props */
-  topic: TopicProps
+  topic: TopicModelProps
   /** All embed props */
-  embed: EmbedProps
+  embed: EmbedModelProps
   /** Topic info object */
   topicInfo: TopicInfo
   /** Topic options */

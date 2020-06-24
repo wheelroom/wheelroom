@@ -1,16 +1,16 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Any } from '../../elements/element/any'
-import { NcssProps } from '../../lib/ncss'
 import { Wheel } from '../../lib/wheel'
+import { EmbedModelStyle } from './model-style-types'
 
-export interface EmbedStyle {
-  ncss: NcssProps
+export interface EmbedWheel extends Wheel {
+  style: EmbedModelStyle
 }
 
 export interface EmbedWheelProps {
   /** Styling wheel */
-  wheel: Wheel
+  wheel: EmbedWheel
   /** Embed props */
   code?: string
   title?: string

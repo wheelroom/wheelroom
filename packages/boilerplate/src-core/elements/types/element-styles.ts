@@ -12,7 +12,7 @@ import {
   TimeElementStyle,
 } from '../self/self-styles'
 import { ButtonElementStyle } from '../element/button'
-import { EmbedStyle } from '../../models/embed/embed'
+import { EmbedModelStyle } from '../../models/embed/embed'
 import { GLinkElementStyle } from '../element/g-link'
 import { GridElementStyle } from '../element/grid'
 import { HeadingElementStyle } from '../element/heading'
@@ -32,7 +32,7 @@ export interface ElementStyles {
   dd: DescriptionListElementStyle
   dl: DescriptionListElementStyle
   dt: DescriptionListElementStyle
-  embed: EmbedStyle
+  embed: EmbedModelStyle
   featherIcon: IconElementStyle
   flex: GridElementStyle
   fluid: GridElementStyle

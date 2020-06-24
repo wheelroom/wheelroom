@@ -5,7 +5,7 @@ import {
   NcssProps,
   TableElementStyle,
 } from '../../../src-core'
-import { TopicWheelStyle } from '../../../src-topic-wheel'
+import { TopicModelStyle } from '../../../src-topic-wheel'
 
 export interface TableRowModelStyle {
   th: TableElementStyle
@@ -21,5 +21,5 @@ export interface TableRowModelStyle {
   actionGroup?: NcssProps
   action: ActionModelStyle
   cell?: NcssProps
-  topic: TopicWheelStyle
+  topic: TopicModelStyle
 }

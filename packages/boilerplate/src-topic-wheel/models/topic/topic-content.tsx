@@ -16,7 +16,7 @@ import {
   TopicContentText,
   TopicContentTextWheelStyle,
 } from './topic-content-text'
-import { TopicProps } from './model-types'
+import { TopicModelProps } from './model-types'
 
 export interface TopicContentWheelStyle {
   /** Wrapper around all content including action */
@@ -33,7 +33,7 @@ export interface TopicContentProps {
   /** Styling wheel */
   wheel: TopicContentWheel
   /** Topic props */
-  topic: TopicProps
+  topic: TopicModelProps
   /** Topic info object */
   topicInfo: TopicInfo
   /** Topic options */

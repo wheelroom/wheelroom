@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { EmbedProps } from '../models/embed/model-types'
+import { EmbedModelProps } from '../models/embed/model-types'
 import { CoreSectionProps } from './core-section-props'
 
 interface ScrollSpyProps extends CoreSectionProps {
   /** The #id added to the div  */
   children: any
-  siteEmbeds: EmbedProps[]
+  siteEmbeds: EmbedModelProps[]
 }
 
 export const ScrollSpy = (props: ScrollSpyProps) => {
@@ -42,7 +42,7 @@ export const ScrollSpy = (props: ScrollSpyProps) => {
       props.siteEmbeds &&
       Array.isArray(props.siteEmbeds)
     ) {
-      props.siteEmbeds.forEach((embed: EmbedProps) => {
+      props.siteEmbeds.forEach((embed: EmbedModelProps) => {
         const postFix = inView.current ? '-in-viewport' : '-out-viewport'
         if (embed.code && embed.type === 'js-page-section') {
           Function(

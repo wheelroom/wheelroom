@@ -1,21 +1,9 @@
 import React from 'react'
-import {
-  Container,
-  Fluid,
-  GridElementStyle,
-  Wheel,
-  Wrapper,
-} from '../../../src-core'
-import { TopicWheelStyle } from '../topic/topic'
-
-export interface TopicSectionWheelStyle {
-  container: GridElementStyle
-  topic: TopicWheelStyle
-  wrapper: GridElementStyle
-}
+import { Container, Fluid, Wheel, Wrapper } from '../../../src-core'
+import { TopicSectionModelStyle } from './model-style-types'
 
 export interface TopicSectionWheel extends Wheel {
-  style: TopicSectionWheelStyle
+  style: TopicSectionModelStyle
 }
 
 export interface TopicSectionWheelProps {

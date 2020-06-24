@@ -1,5 +1,5 @@
 import { ActionModelProps } from '../../../src-core'
-import { TopicProps } from '../../../src-topic-wheel'
+import { TopicModelProps } from '../../../src-topic-wheel'
 
 export interface TableRowProps {
   /** Gatsby fetched data */
@@ -11,5 +11,5 @@ export interface TableRowProps {
   }
   icon?: string
   actions?: ActionModelProps[]
-  topics?: TopicProps[]
+  topics?: TopicModelProps[]
 }
