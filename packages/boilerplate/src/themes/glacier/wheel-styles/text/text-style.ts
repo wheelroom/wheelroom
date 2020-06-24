@@ -1,11 +1,11 @@
-import { TextSectionWheelStyle } from '../../../../../src-text-wheel'
+import { TextSectionModelStyle } from '../../../../../src-text-wheel'
 import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
 import { headingTextStyle } from '../../element-styles/heading-style'
 import { embedStyle } from '../shared-styles/embed-style'
 
-export const textSectionTextStyle: TextSectionWheelStyle = {
+export const textSectionTextStyle: TextSectionModelStyle = {
   container: containerStyle,
-  text: {
+  section: {
     h1: headingTextStyle,
     h2: headingTextStyle,
     h3: headingTextStyle,

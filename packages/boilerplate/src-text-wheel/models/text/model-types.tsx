@@ -5,7 +5,7 @@
  *
  */
 
-export interface TextProps {
+export interface TextModelProps {
   /** Gatsby fetched data */
   __typename?: string
   text: {

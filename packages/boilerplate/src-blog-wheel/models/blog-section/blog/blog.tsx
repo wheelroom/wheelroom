@@ -19,7 +19,7 @@ import {
 } from '../../../../src-core'
 import { TopicProps, Topic, TopicWheelStyle } from '../../../../src-topic-wheel'
 import { Text } from '../../../../src-text-wheel'
-import { TextWheelStyle } from '../../../../src-text-wheel/models/text/text-wheel-style'
+import { ModelStyleTypes } from '../../../../src-text-wheel/models/text/text-wheel-style'
 
 export interface BlogSectionBlogVariationStyle {
   article?: NcssProps
@@ -31,7 +31,7 @@ export interface BlogSectionBlogVariationStyle {
   media?: NcssProps
   image?: ImageElementStyle
   video?: VideoElementStyle
-  text: TextWheelStyle
+  text: ModelStyleTypes
   authors?: NcssProps
   author: TopicWheelStyle
 }

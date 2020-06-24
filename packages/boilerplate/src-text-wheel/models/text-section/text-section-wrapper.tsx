@@ -1,21 +1,9 @@
 import React from 'react'
-import {
-  Wheel,
-  Container,
-  Fluid,
-  Wrapper,
-  GridElementStyle,
-} from '../../../src-core'
-import { TextWheelStyle } from '../text/text-wheel-style'
-
-export interface TextSectionWheelStyle {
-  container: GridElementStyle
-  text: TextWheelStyle
-  wrapper: GridElementStyle
-}
+import { Wheel, Container, Fluid, Wrapper } from '../../../src-core'
+import { TextSectionModelStyle } from './model-style-types'
 
 export interface TextSectionWheel extends Wheel {
-  style: TextSectionWheelStyle
+  style: TextSectionModelStyle
 }
 
 export const TextSectionWrapper = (props: {

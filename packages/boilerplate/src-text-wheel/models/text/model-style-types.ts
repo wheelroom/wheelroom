@@ -14,7 +14,7 @@ import {
   VideoElementStyle,
 } from '../../../src-core'
 
-export interface TextWheelStyle {
+export interface TextModelStyle {
   wrapper: GridElementStyle
   strong: StrongElementStyle
   code: CodeElementStyle

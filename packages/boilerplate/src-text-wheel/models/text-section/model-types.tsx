@@ -1,4 +1,4 @@
-import { TextProps } from '../../../src-text-wheel/models/text/model-types'
+import { TextModelProps } from '../../../src-text-wheel/models/text/model-types'
 import { CoreSectionProps } from '../../../src-core'
 
 export interface TextSectionProps extends CoreSectionProps {

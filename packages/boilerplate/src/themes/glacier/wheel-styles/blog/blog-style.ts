@@ -206,7 +206,7 @@ export const blogSectionBlogStyle: BlogSectionBlogModelStyle = {
         },
       },
     ]),
-    text: textSectionTextStyle.text,
+    text: textSectionTextStyle.section,
   },
   wrapper: wrapperStyle,
 }

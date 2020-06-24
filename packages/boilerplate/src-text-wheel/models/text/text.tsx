@@ -38,19 +38,19 @@ import {
   Wheel,
   Wrapper,
 } from '../../../src-core'
-import { TextWheelStyle } from './text-wheel-style'
-import { TextProps } from './model-types'
+import { TextModelProps } from './model-types'
 import { getLocalizedValue } from './get-localized-value'
+import { TextModelStyle } from './model-style-types'
 
 export interface TextWheel extends Wheel {
-  style: TextWheelStyle
+  style: TextModelStyle
 }
 
 export interface TextWheelProps {
   /** Locale needed for rendering rich text */
   locale: string
   wheel: TextWheel
-  text: TextProps
+  text: TextModelProps
 }
 
 type Node = any
