@@ -3,7 +3,6 @@ import {
   BlockquoteElementStyle,
   CodeElementStyle,
   EmbedModelStyle,
-  GridElementStyle,
   HeadingElementStyle,
   HrElementStyle,
   ImageElementStyle,
@@ -12,10 +11,11 @@ import {
   PreElementStyle,
   StrongElementStyle,
   VideoElementStyle,
+  NcssObjectProps,
 } from '../../../src-core'
 
 export interface TextModelStyle {
-  wrapper: GridElementStyle
+  wrapper: NcssObjectProps
   strong: StrongElementStyle
   code: CodeElementStyle
   pre: PreElementStyle

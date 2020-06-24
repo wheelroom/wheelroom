@@ -1,8 +1,8 @@
-import { GridElementStyle } from '../../../src-core'
 import { TopicModelStyle } from '../..'
+import { NcssObjectProps } from '../../../src-core'
 
 export interface TopicSectionModelStyle {
-  container: GridElementStyle
+  container: NcssObjectProps
   topic: TopicModelStyle
-  wrapper: GridElementStyle
+  wrapper: NcssObjectProps
 }

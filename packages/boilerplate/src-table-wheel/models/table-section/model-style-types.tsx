@@ -1,8 +1,8 @@
-import { GridElementStyle } from '../../../src-core'
 import { TableModelStyle } from '../table/model-style-types'
+import { NcssObjectProps } from '../../../src-core'
 
 export interface TableSectionModelStyle {
-  container: GridElementStyle
+  container: NcssObjectProps
   section: TableModelStyle
-  wrapper: GridElementStyle
+  wrapper: NcssObjectProps
 }

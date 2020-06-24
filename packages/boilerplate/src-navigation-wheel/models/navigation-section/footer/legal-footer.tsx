@@ -8,9 +8,9 @@ import {
   Fluid,
   Wheel,
   Wrapper,
-  GridElementStyle,
   NcssProps,
   ALinkElementStyle,
+  NcssObjectProps,
 } from '../../../../src-core'
 import {
   Sup,
@@ -18,8 +18,8 @@ import {
 } from '../../../../src-core/elements/element/paragraph'
 
 export interface LegalFooterWheelStyle {
-  wrapper: GridElementStyle
-  container: GridElementStyle
+  wrapper: NcssObjectProps
+  container: NcssObjectProps
   legal: {
     ncss: NcssProps
     promise: {

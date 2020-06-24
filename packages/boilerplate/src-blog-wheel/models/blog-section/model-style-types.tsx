@@ -1,21 +1,21 @@
-import { GridElementStyle } from '../../../src-core'
+import { NcssObjectProps } from '../../../src-core'
 import { BlogSectionBlogVariationStyle } from './blog/blog'
 import { BlogSectionListVariationStyle } from './list/list'
 
 export interface BlogSectionModelStyle {
-  container: GridElementStyle
+  container: NcssObjectProps
   section: BlogSectionBlogVariationStyle | BlogSectionListVariationStyle
-  wrapper: GridElementStyle
+  wrapper: NcssObjectProps
 }
 
 export interface BlogSectionBlogModelStyle {
-  container: GridElementStyle
+  container: NcssObjectProps
   section: BlogSectionBlogVariationStyle
-  wrapper: GridElementStyle
+  wrapper: NcssObjectProps
 }
 
 export interface BlogSectionListModelStyle {
-  container: GridElementStyle
+  container: NcssObjectProps
   section: BlogSectionListVariationStyle
-  wrapper: GridElementStyle
+  wrapper: NcssObjectProps
 }

@@ -1,33 +1,33 @@
-import { GridElementStyle } from './grid'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const boxReset: GridElementStyle = {
+export const boxReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
   },
 }
 
-export const flexReset: GridElementStyle = {
+export const flexReset: NcssObjectProps = {
   ncss: {
     ...boxReset.ncss,
     display: 'flex',
   },
 }
 
-export const wrapperReset: GridElementStyle = {
+export const wrapperReset: NcssObjectProps = {
   ncss: {
     ...boxReset.ncss,
     w: 1,
   },
 }
 
-export const fluidReset: GridElementStyle = {
+export const fluidReset: NcssObjectProps = {
   ncss: {
     ...flexReset.ncss,
     w: 1,
   },
 }
 
-export const containerReset: GridElementStyle = {
+export const containerReset: NcssObjectProps = {
   ncss: {
     ...fluidReset.ncss,
     maxWidth: '1280px',

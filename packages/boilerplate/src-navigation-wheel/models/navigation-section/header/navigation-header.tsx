@@ -21,16 +21,16 @@ import {
   Wheel,
   Wrapper,
   NcssProps,
-  GridElementStyle,
   ButtonElementStyle,
+  NcssObjectProps,
 } from '../../../../src-core'
 import { Modal, ModalWheelStyle } from './modal'
 import { ThemeButton } from './theme-button'
 
 export interface NavigationHeaderWheelStyle {
   skipToContent: NcssProps
-  wrapper: GridElementStyle
-  container: GridElementStyle
+  wrapper: NcssObjectProps
+  container: NcssObjectProps
   brand: {
     segment: BrandNavigationSegmentModelStyle
   }

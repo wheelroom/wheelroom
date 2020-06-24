@@ -11,14 +11,14 @@ import {
   GlobalsProps,
   Wheel,
   Wrapper,
-  GridElementStyle,
   NcssProps,
+  NcssObjectProps,
 } from '../../../../src-core'
 import { LegalFooter, LegalFooterWheelStyle } from './legal-footer'
 
 export interface NavigationFooterWheelStyle {
-  wrapper: GridElementStyle
-  container: GridElementStyle
+  wrapper: NcssObjectProps
+  container: NcssObjectProps
   section: {
     ncss: NcssProps
     menu: {

@@ -12,30 +12,30 @@ import {
   TimeElementStyle,
 } from '../self/self-styles'
 import { ButtonElementStyle } from '../element/button'
-import { EmbedModelStyle } from '../../models/embed/embed'
 import { GLinkElementStyle } from '../element/g-link'
-import { GridElementStyle } from '../element/grid'
 import { HeadingElementStyle } from '../element/heading'
 import { IconElementStyle } from '../element/icon'
 import { ImageElementStyle } from '../element/image'
 import { ParagraphElementStyle } from '../element/paragraph'
 import { VideoElementStyle } from '../element/video'
+import { NcssObjectProps } from '../../lib/ncss'
+import { EmbedModelStyle } from '../../models/embed/model-style-types'
 
 export interface ElementStyles {
   a: ALinkElementStyle
   any: AnyElementStyle
   blockquote: BlockquoteElementStyle
-  box: GridElementStyle
+  box: NcssObjectProps
   button: ButtonElementStyle
   code: CodeElementStyle
-  container: GridElementStyle
+  container: NcssObjectProps
   dd: DescriptionListElementStyle
   dl: DescriptionListElementStyle
   dt: DescriptionListElementStyle
   embed: EmbedModelStyle
   featherIcon: IconElementStyle
-  flex: GridElementStyle
-  fluid: GridElementStyle
+  flex: NcssObjectProps
+  fluid: NcssObjectProps
   gLink: GLinkElementStyle
   h1: HeadingElementStyle
   h2: HeadingElementStyle
@@ -64,5 +64,5 @@ export interface ElementStyles {
   textIcon: IconElementStyle
   ul: ListElementStyle
   video: VideoElementStyle
-  wrapper: GridElementStyle
+  wrapper: NcssObjectProps
 }

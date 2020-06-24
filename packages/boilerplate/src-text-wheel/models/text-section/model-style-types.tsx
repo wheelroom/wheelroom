@@ -1,8 +1,8 @@
-import { GridElementStyle } from '../../../src-core'
 import { TextModelStyle } from '../text/model-style-types'
+import { NcssObjectProps } from '../../../src-core'
 
 export interface TextSectionModelStyle {
-  container: GridElementStyle
+  container: NcssObjectProps
   section: TextModelStyle
-  wrapper: GridElementStyle
+  wrapper: NcssObjectProps
 }
