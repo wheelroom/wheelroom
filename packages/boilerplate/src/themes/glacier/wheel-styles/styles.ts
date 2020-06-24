@@ -16,6 +16,8 @@ import { topicSectionShowcaseStyle } from './topic/topic-section/showcase-style'
 import { topicSectionVideoStyle } from './topic/topic-section/video-style'
 import { topicStyle } from './topic/topic/topic-style'
 import { textSectionTextStyle } from './text/text-style'
+import { tableSectionTableStyle } from './table/table-style'
+import { tableSectionPriceStyle } from './table/price-style'
 
 const mergeTopic = (style: any) => deepMerge([{ topic: topicStyle }, style])
 
@@ -27,6 +29,13 @@ export const styles: SectionWheelThemeStyles = {
   navigationSection: {
     header: navigationSectionHeaderStyle,
     footer: navigationSectionFooterStyle,
+  },
+  tableSection: {
+    table: tableSectionTableStyle,
+    price: tableSectionPriceStyle,
+  },
+  textSection: {
+    text: textSectionTextStyle,
   },
   topicSection: {
     block: mergeTopic(topicSectionBlockStyle),
@@ -40,8 +49,5 @@ export const styles: SectionWheelThemeStyles = {
     quote: mergeTopic(topicSectionQuoteStyle),
     showcase: mergeTopic(topicSectionShowcaseStyle),
     video: mergeTopic(topicSectionVideoStyle),
-  },
-  textSection: {
-    text: textSectionTextStyle,
   },
 }
