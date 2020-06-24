@@ -1,12 +1,12 @@
-import { embedStyle } from '../shared-styles/embed-style'
+import { TableSectionModelStyle } from '../../../../../src-table-wheel'
 import {
   iconSmallTopicStyle,
   iconButtonSmallStyle,
 } from '../shared-styles/icon-style'
-import { TableSectionWheelStyle } from '../../../../../src-table-wheel'
 import { wrapperStyle } from '../shared-styles/grid-style'
+import { embedStyle } from '../shared-styles/embed-style'
 
-export const tableSectionTableStyle: TableSectionWheelStyle = {
+export const tableSectionTableStyle: TableSectionModelStyle = {
   container: {
     ncss: {
       label: 'table-container',
@@ -16,8 +16,9 @@ export const tableSectionTableStyle: TableSectionWheelStyle = {
   },
   section: {
     ncss: {
-      label: 'table-variation',
+      label: 'table-section-table',
       overflowX: 'auto',
+      w: 1,
     },
     table: {
       ncss: {
@@ -27,7 +28,7 @@ export const tableSectionTableStyle: TableSectionWheelStyle = {
     },
     th: {
       ncss: {
-        label: 'table-head',
+        label: 'table-th',
         textAlign: 'left',
         bg: 'skyblue',
         p: 2,
@@ -35,7 +36,7 @@ export const tableSectionTableStyle: TableSectionWheelStyle = {
     },
     tr: {
       ncss: {
-        label: 'table-row',
+        label: 'table-tr',
       },
     },
     dd: {
@@ -63,43 +64,47 @@ export const tableSectionTableStyle: TableSectionWheelStyle = {
         ...iconSmallTopicStyle.ncss,
       },
     },
-    actions: {
+    actionGroup: {
       ncss: {
-        label: 'table-actions',
+        label: 'table-action-group',
         mx: -1,
       },
-      action: {
+    },
+    action: {
+      ncss: {
+        label: 'table-action',
+        display: 'inline-flex',
+        m: 1,
+        fontWeight: 4,
+      },
+      icon: {
         ncss: {
-          label: 'table-action',
-          display: 'inline-flex',
-          m: 1,
-          fontWeight: 4,
-        },
-        icon: {
-          ncss: {
-            label: 'table-action-icon',
-            ...iconButtonSmallStyle.ncss,
-          },
+          label: 'table-action-icon',
+          ...iconButtonSmallStyle.ncss,
         },
       },
     },
     row: {
-      ncss: {
-        label: 'table-row',
-      },
-      header: {
-        ncss: {
-          label: 'table-row-header-style',
+      ncssSwitch: {
+        trHeader: {
+          ncss: {
+            label: 'table-row-tr-header',
+          },
         },
-      },
-      footer: {
-        ncss: {
-          label: 'table-row-footer-style',
+        trBody: {
+          ncss: {
+            label: 'table-row-tr-body',
+          },
+        },
+        trFooter: {
+          ncss: {
+            label: 'table-row-tr-footer',
+          },
         },
       },
       th: {
         ncss: {
-          label: 'table-row-header-cell',
+          label: 'table-row-th',
           textAlign: 'left',
           p: 2,
         },
@@ -129,23 +134,23 @@ export const tableSectionTableStyle: TableSectionWheelStyle = {
           ...iconSmallTopicStyle.ncss,
         },
       },
-      actions: {
+      actionGroup: {
         ncss: {
           label: 'table-row-actions',
         },
-        action: {
+      },
+      action: {
+        ncss: {
+          label: 'table-row-action',
+          display: 'inline-flex',
+          m: 1,
+          mx: -1,
+          fontWeight: 4,
+        },
+        icon: {
           ncss: {
-            label: 'table-row-action',
-            display: 'inline-flex',
-            m: 1,
-            mx: -1,
-            fontWeight: 4,
-          },
-          icon: {
-            ncss: {
-              label: 'table-row-action-icon',
-              ...iconButtonSmallStyle.ncss,
-            },
+            label: 'table-row-action-icon',
+            ...iconButtonSmallStyle.ncss,
           },
         },
       },
@@ -154,71 +159,71 @@ export const tableSectionTableStyle: TableSectionWheelStyle = {
           label: 'table-row-cell',
           p: 2,
         },
-        topic: {
-          ncss: {},
-          content: {
-            ncss: {
-              textAlign: 'center',
-              my: 1,
-            },
-            actions: {
-              ncss: {},
-              link: {
-                ncss: {
-                  display: 'inline-flex',
-                  fontSize: 4,
-                },
-                icon: {
-                  ncss: {},
-                },
+      },
+      topic: {
+        ncss: {},
+        content: {
+          ncss: {
+            textAlign: 'center',
+            my: 1,
+          },
+          actions: {
+            ncss: {},
+            link: {
+              ncss: {
+                display: 'inline-flex',
+                fontSize: 4,
               },
-            },
-            text: {
-              ncss: {},
-              abstract: {
-                ncss: {
-                  fontSize: 4,
-                },
+              icon: {
+                ncss: {},
               },
-              heading: {
-                ncss: {
-                  fontSize: 4,
-                },
-              },
-              icon: iconSmallTopicStyle,
             },
           },
-          media: {
-            ncss: {
-              my: 1,
-            },
-            embed: embedStyle,
-            image: {
-              picture: {
-                ncss: {},
-              },
-              img: {
-                ncss: {},
-              },
-              figcaption: {
-                ncss: {},
+          text: {
+            ncss: {},
+            abstract: {
+              ncss: {
+                fontSize: 4,
               },
             },
-            mediaBreakpoint: {
-              picture: {
-                ncss: {},
-              },
-              img: {
-                ncss: {},
+            heading: {
+              ncss: {
+                fontSize: 4,
               },
             },
+            icon: iconSmallTopicStyle,
+          },
+        },
+        media: {
+          ncss: {
+            my: 1,
+          },
+          embed: embedStyle,
+          image: {
+            picture: {
+              ncss: {},
+            },
+            img: {
+              ncss: {},
+            },
+            figcaption: {
+              ncss: {},
+            },
+          },
+          mediaBreakpoint: {
+            picture: {
+              ncss: {},
+            },
+            img: {
+              ncss: {},
+            },
+          },
+          video: {
             video: {
-              video: {
-                ncss: {},
-              },
-              description: {
-                ncss: {},
-              },
+              ncss: {},
+            },
+            description: {
+              ncss: {},
             },
           },
         },

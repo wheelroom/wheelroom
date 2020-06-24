@@ -9,11 +9,11 @@ export interface NavigationSegmentModelStyle {
   heading?: HeadingElementStyle
   list?: NcssProps
   item?: NcssProps
-  action?: ActionModelStyle
+  action: ActionModelStyle
 }
 
 export interface BrandNavigationSegmentModelStyle {
   ncss?: NcssProps
   brand?: NcssProps
-  action?: ActionModelStyle
+  action: ActionModelStyle
 }

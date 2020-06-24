@@ -1,17 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Td } from '../../../src-core/elements/self/self'
-import { TopicOptions } from '../../../src-topic-wheel/lib/get-topic-options'
-import { TopicProps, Topic, TopicWheelStyle } from '../../../src-topic-wheel'
-import { Wheel, NcssProps } from '../../../src-core'
-
-export interface TableRowCellWheelStyle {
-  ncss: NcssProps
-  topic: TopicWheelStyle
-}
+import { TopicOptions } from '../../../src-topic-wheel'
+import { TopicProps, Topic } from '../../../src-topic-wheel'
+import { Wheel } from '../../../src-core'
+import { TableRowModelStyle } from './model-style-types'
 
 export interface TableRowCellWheel extends Wheel {
-  style: TableRowCellWheelStyle
+  style: TableRowModelStyle
 }
 
 export interface TableRowCellProps {
@@ -30,7 +26,7 @@ export const TableRowCell = (props: TableRowCellProps) => {
     return null
   }
 
-  const dataCellStyle = props.wheel.style
+  const dataCellStyle = props.wheel.style.cell
 
   if (!(dataCellStyle.ncss.w || dataCellStyle.ncss.width)) {
     dataCellStyle.ncss.w = props.dataCellWidth

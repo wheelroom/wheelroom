@@ -1,21 +1,9 @@
 import React from 'react'
-import {
-  Wheel,
-  Container,
-  Fluid,
-  Wrapper,
-  GridElementStyle,
-} from '../../../src-core'
-import { TableWheelStyle } from '../table/table'
-
-export interface TableSectionWheelStyle {
-  container: GridElementStyle
-  section: TableWheelStyle
-  wrapper: GridElementStyle
-}
+import { Wheel, Container, Fluid, Wrapper } from '../../../src-core'
+import { TableSectionModelStyle } from './model-style-types'
 
 export interface TableSectionWheel extends Wheel {
-  style: TableSectionWheelStyle
+  style: TableSectionModelStyle
 }
 
 export const TableSectionWrapper = (props: {

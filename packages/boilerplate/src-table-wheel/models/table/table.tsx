@@ -1,8 +1,6 @@
 /** @jsx jsx */
 import { Fragment } from 'react'
 import { jsx } from '@emotion/core'
-import { TableRow, TableRowWheelStyle } from '../table-row/table-row'
-import { TableRowProps } from '../table-row/model-types'
 import {
   Wheel,
   Box,
@@ -14,35 +12,17 @@ import {
   Dd,
   Any,
   Table as TableElement,
-  NcssProps,
-  TableElementStyle,
-  DescriptionListElementStyle,
-  IconElementStyle,
-  ActionModelStyle,
   ActionModelProps,
   Action,
 } from '../../../src-core'
 import { TopicOptions } from '../../../src-topic-wheel'
+import { TableRow } from '../table-row/table-row'
+import { TableRowProps } from '../table-row/model-types'
+import { TableModelStyle } from './model-style-types'
 import { TableProps } from './model-types'
 
-export interface TableWheelStyle {
-  ncss: NcssProps
-  table: TableElementStyle
-  th: TableElementStyle
-  tr: TableElementStyle
-  dd: DescriptionListElementStyle
-  dl: DescriptionListElementStyle
-  dt: DescriptionListElementStyle
-  icon: IconElementStyle
-  actions: {
-    ncss: NcssProps
-    action: ActionModelStyle
-  }
-  row: TableRowWheelStyle
-}
-
 export interface TableWheel extends Wheel {
-  style: TableWheelStyle
+  style: TableModelStyle
 }
 
 export interface TableWheelProps {
@@ -61,7 +41,6 @@ export const Table = (props: TableWheelProps) => {
   if (!tables) {
     return null
   }
-
   return (
     <Box wheel={{ ...props.wheel, style: props.wheel.style }}>
       <TableElement wheel={{ ...props.wheel, style: props.wheel.style.table }}>
@@ -121,9 +100,10 @@ export const Table = (props: TableWheelProps) => {
                       {table.actions && (
                         <Any
                           is="div"
+                          role="group"
                           wheel={{
                             ...props.wheel,
-                            style: props.wheel.style.actions,
+                            style: props.wheel.style.actionGroup,
                           }}
                         >
                           {table.actions.map(
@@ -135,7 +115,7 @@ export const Table = (props: TableWheelProps) => {
                                 icon={action.icon}
                                 wheel={{
                                   ...props.wheel,
-                                  style: props.wheel.style.actions.action,
+                                  style: props.wheel.style.action,
                                 }}
                                 {...action}
                               />

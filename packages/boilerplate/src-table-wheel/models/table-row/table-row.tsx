@@ -3,42 +3,22 @@ import { jsx } from '@emotion/core'
 import {
   Action,
   ActionModelProps,
-  ActionModelStyle,
   Any,
   Dd,
-  DescriptionListElementStyle,
   Dl,
   Dt,
   Icon,
-  IconElementStyle,
-  NcssProps,
-  TableElementStyle,
   Th,
   Tr,
   Wheel,
 } from '../../../src-core'
 import { TopicOptions, TopicProps } from '../../../src-topic-wheel'
 import { TableRowProps } from './model-types'
-import { TableRowCell, TableRowCellWheelStyle } from './table-row-cell'
-
-export interface TableRowWheelStyle {
-  ncss: NcssProps
-  header: NcssProps
-  footer: NcssProps
-  th: TableElementStyle
-  dd: DescriptionListElementStyle
-  dl: DescriptionListElementStyle
-  dt: DescriptionListElementStyle
-  icon: IconElementStyle
-  actions: {
-    ncss: NcssProps
-    action: ActionModelStyle
-  }
-  cell: TableRowCellWheelStyle
-}
+import { TableRowModelStyle } from './model-style-types'
+import { TableRowCell } from './table-row-cell'
 
 export interface TableRowWheel extends Wheel {
-  style: TableRowWheelStyle
+  style: TableRowModelStyle
 }
 
 export interface TableRowWheelProps {
@@ -74,11 +54,17 @@ export const TableRow = (props: TableRowWheelProps) => {
   }
 
   let tableRowStyle = props.wheel.style
-  if (tableRow.variation === 'header' && tableRowStyle.header) {
-    tableRowStyle = tableRowStyle.header
+  if (tableRow.variation === 'header' && tableRowStyle.ncssSwitch.trHeader) {
+    tableRowStyle = tableRowStyle.ncssSwitch.trHeader
   }
-  if (tableRow.variation === 'footer' && tableRowStyle.footer) {
-    tableRowStyle = tableRowStyle.footer
+  if (
+    !tableRow.variation ||
+    (tableRow.variation === 'body' && tableRowStyle.ncssSwitch.trBody)
+  ) {
+    tableRowStyle = tableRowStyle.ncssSwitch.trBody
+  }
+  if (tableRow.variation === 'footer' && tableRowStyle.ncssSwitch.trFooter) {
+    tableRowStyle = tableRowStyle.ncssSwitch.trFooter
   }
 
   return (
@@ -105,7 +91,8 @@ export const TableRow = (props: TableRowWheelProps) => {
         {tableRow.actions && (
           <Any
             is="div"
-            wheel={{ ...props.wheel, style: props.wheel.style.actions }}
+            role="group"
+            wheel={{ ...props.wheel, style: props.wheel.style.actionGroup }}
           >
             {tableRow.actions.map((action: ActionModelProps, index: number) => (
               <Action
@@ -115,7 +102,7 @@ export const TableRow = (props: TableRowWheelProps) => {
                 icon={action.icon}
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.actions.action,
+                  style: props.wheel.style.action,
                 }}
                 {...action}
               />
@@ -130,7 +117,7 @@ export const TableRow = (props: TableRowWheelProps) => {
             key={index}
             topic={topic}
             topicOptions={props.topicOptions}
-            wheel={{ ...props.wheel, style: props.wheel.style.cell }}
+            wheel={props.wheel}
           />
         )
       })}
