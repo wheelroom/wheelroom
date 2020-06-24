@@ -25,7 +25,7 @@ export const Embed = (props: EmbedWheelProps) => {
   return (
     <Any
       is="div"
-      wheel={{ ...props.wheel, style: props.wheel.style.embed }}
+      wheel={{ ...props.wheel, style: props.wheel.style }}
       dangerouslySetInnerHTML={{ __html: props.code || '' }}
     />
   )
