@@ -1,23 +1,27 @@
-import { BlogWheelStyle } from '../../../../../src-blog-wheel'
+import { BlogSectionBlogModelStyle } from '../../../../../src-blog-wheel'
 import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
-import { headingTextStyle } from '../../element-styles/heading-style'
+import { deepMerge } from '../../../../../src-core'
+import { textSectionTextStyle } from '../text/text-style'
+import { topicStyle } from '../topic/topic/topic-style'
 
-export const blogSectionBlogStyle: BlogWheelStyle = {
+export const blogSectionBlogStyle: BlogSectionBlogModelStyle = {
   container: containerStyle,
-  article: {
-    ncss: {
-      label: 'blog-article',
-      w: 1,
+  section: {
+    article: {
+      ncss: {
+        label: 'blog-article',
+        w: 1,
+      },
     },
-  },
-  header: {
-    ncss: {
-      label: 'blog-header',
-      flexDirection: 'column',
-      px: 3,
-      py: 5,
-      maxWidth: '712px',
-      mx: 'auto',
+    header: {
+      ncss: {
+        label: 'blog-header',
+        flexDirection: 'column',
+        px: 3,
+        py: 5,
+        maxWidth: '712px',
+        mx: 'auto',
+      },
     },
     categories: {
       ncss: {
@@ -48,10 +52,10 @@ export const blogSectionBlogStyle: BlogWheelStyle = {
         fontSize: 8,
       },
     },
-  },
-  media: {
-    ncss: {
-      label: 'blog-media',
+    media: {
+      ncss: {
+        label: 'blog-media',
+      },
     },
     image: {
       picture: {
@@ -81,215 +85,128 @@ export const blogSectionBlogStyle: BlogWheelStyle = {
         ncss: {},
       },
     },
-  },
-  authors: {
-    ncss: {
-      label: 'blog-authors',
-      flexDirection: 'column',
-      alignItems: 'center',
-      maxWidth: '712px',
-      mx: 'auto',
-      py: 4,
-    },
-  },
-  author: {
-    ncss: {
-      label: 'blog-author',
-      flexDirection: ['column', 'row'],
-      w: 1,
-    },
-    content: {
+    authors: {
       ncss: {
+        label: 'blog-authors',
         flexDirection: 'column',
-        p: 3,
+        alignItems: 'center',
+        maxWidth: '712px',
+        mx: 'auto',
+        py: 4,
       },
-      actions: {
+    },
+    author: deepMerge([
+      topicStyle,
+      {
         ncss: {
-          mt: 1,
+          label: 'blog-author',
+          flexDirection: ['column', 'row'],
+          w: 1,
         },
-        link: {
+        content: {
           ncss: {
-            display: 'inline-flex',
+            flexDirection: 'column',
+            p: 3,
           },
-          icon: {
+          actions: {
             ncss: {
-              w: '16px',
-              h: '16px',
-              my: 'auto',
-              transform: 'translateX(4px)',
+              mt: 1,
+            },
+            link: {
+              ncss: {
+                display: 'inline-flex',
+              },
+              icon: {
+                ncss: {
+                  w: '16px',
+                  h: '16px',
+                  my: 'auto',
+                  transform: 'translateX(4px)',
+                },
+              },
+            },
+          },
+          text: {
+            ncss: {},
+            abstract: {
+              ncss: {
+                mb: 0,
+              },
+            },
+            heading: {
+              ncss: {
+                fontWeight: 'bold',
+                mb: 0,
+              },
+            },
+            icon: {
+              ncss: {},
+            },
+          },
+        },
+        media: {
+          ncss: {
+            flexDirection: 'column',
+            p: 3,
+          },
+          embed: {
+            ncss: {
+              display: 'block',
+              h: '0px',
+              pb: '56.25%',
+              position: 'relative',
+              iframe: {
+                position: 'absolute',
+              },
+            },
+          },
+          image: {
+            img: {
+              ncss: {
+                h: 1,
+                objectFit: 'cover',
+              },
+            },
+            picture: {
+              ncss: {
+                overflow: 'hidden',
+                h: ['60px', '80px'],
+                w: ['60px', '80px'],
+                borderRadius: '50%',
+              },
+            },
+            figcaption: {
+              ncss: {},
+            },
+          },
+          mediaBreakpoint: {
+            picture: {
+              ncss: {
+                overflow: 'hidden',
+                h: ['60px', '80px'],
+                w: ['60px', '80px'],
+                borderRadius: '50%',
+              },
+            },
+            img: {
+              ncss: {
+                h: 1,
+                objectFit: 'cover',
+              },
+            },
+          },
+          video: {
+            video: {
+              ncss: {},
+            },
+            description: {
+              ncss: {},
             },
           },
         },
       },
-      text: {
-        ncss: {},
-        abstract: {
-          ncss: {
-            mb: 0,
-          },
-        },
-        heading: {
-          ncss: {
-            fontWeight: 'bold',
-            mb: 0,
-          },
-        },
-        icon: {
-          ncss: {},
-        },
-      },
-    },
-    media: {
-      ncss: {
-        flexDirection: 'column',
-        p: 3,
-      },
-      embed: {
-        ncss: {
-          display: 'block',
-          h: '0px',
-          pb: '56.25%',
-          position: 'relative',
-          iframe: {
-            position: 'absolute',
-          },
-        },
-      },
-      image: {
-        img: {
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
-          },
-        },
-        picture: {
-          ncss: {
-            overflow: 'hidden',
-            h: ['60px', '80px'],
-            w: ['60px', '80px'],
-            borderRadius: '50%',
-          },
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {
-            overflow: 'hidden',
-            h: ['60px', '80px'],
-            w: ['60px', '80px'],
-            borderRadius: '50%',
-          },
-        },
-        img: {
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
-          },
-        },
-      },
-      video: {
-        video: {
-          ncss: {},
-        },
-        description: {
-          ncss: {},
-        },
-      },
-    },
-  },
-  text: {
-    h1: headingTextStyle,
-    h2: headingTextStyle,
-    h3: headingTextStyle,
-    h4: headingTextStyle,
-    h5: headingTextStyle,
-    h6: headingTextStyle,
-    ul: {
-      ncss: {
-        mt: 0,
-      },
-    },
-    ol: {
-      ncss: {
-        mt: 0,
-      },
-    },
-    li: {
-      ncss: {
-        '> p': {
-          mb: 2,
-        },
-      },
-    },
-    entryHyperlink: {
-      ncss: {},
-    },
-    inlinesHyperlink: {
-      ncss: {},
-    },
-    hr: {
-      ncss: {},
-    },
-    embed: {
-      ncss: {
-        mt: 3,
-        mb: 5,
-        position: 'relative',
-        h: '0px',
-        pb: '56.25%',
-        iframe: {
-          position: 'absolute',
-          h: 1,
-          w: 1,
-        },
-      },
-    },
-    blockquote: {
-      ncss: {},
-    },
-    p: {
-      ncss: {},
-    },
-    strong: {
-      ncss: {},
-    },
-    code: {
-      ncss: {},
-    },
-    pre: {
-      ncss: {},
-    },
-    image: {
-      img: {
-        ncss: {},
-      },
-      picture: {
-        ncss: {
-          mt: 3,
-          mb: 5,
-        },
-      },
-      figcaption: {
-        ncss: {},
-      },
-    },
-    video: {
-      video: {
-        ncss: {
-          mt: 3,
-          mb: 5,
-        },
-      },
-      description: {
-        ncss: {},
-      },
-    },
-    wrapper: {
-      ncss: {},
-    },
+    ]),
+    text: textSectionTextStyle.text,
   },
   wrapper: wrapperStyle,
 }

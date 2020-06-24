@@ -1,14 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
+import { Fragment } from 'react'
 import { BlogProps } from '../../../../src-blog-wheel/models/blog/model-types'
 import {
   Any,
   Box,
-  Container,
   Flex,
-  Fluid,
   GLink,
-  GridElementStyle,
   Heading,
   HeadingElementStyle,
   Image,
@@ -19,34 +17,23 @@ import {
   Time,
   VideoElementStyle,
   Wheel,
-  Wrapper,
 } from '../../../../src-core'
 
-export interface BlogListWheelStyle {
-  container: GridElementStyle
-  blog: {
-    ncss: NcssProps
-    media: {
-      ncss: NcssProps
-      image: ImageElementStyle
-      video: VideoElementStyle
-    }
-    content: {
-      ncss: NcssProps
-      date: NcssProps
-      categories: NcssProps
-      text: {
-        ncss: NcssProps
-        heading: HeadingElementStyle
-        abstract: ParagraphElementStyle
-      }
-    }
-  }
-  wrapper: GridElementStyle
+export interface BlogSectionListVariationStyle {
+  link?: NcssProps
+  media?: NcssProps
+  image?: ImageElementStyle
+  video?: VideoElementStyle
+  content?: NcssProps
+  date?: NcssProps
+  categories?: NcssProps
+  text?: NcssProps
+  heading?: HeadingElementStyle
+  abstract?: ParagraphElementStyle
 }
 
 export interface BlogListWheel extends Wheel {
-  style: BlogListWheelStyle
+  style: BlogSectionListVariationStyle
 }
 
 export interface BlogListWheelProps {
@@ -56,8 +43,6 @@ export interface BlogListWheelProps {
   locale: string
   /** List of all blogs to render */
   blogPosts: BlogProps[]
-  /** Use a max width or fluid container */
-  containerStyle: 'container' | 'fluid'
 }
 
 export const List = (props: BlogListWheelProps) => {
@@ -65,117 +50,112 @@ export const List = (props: BlogListWheelProps) => {
     return null
   }
 
-  const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
-    <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
-      <ContainerType
-        wheel={{ ...props.wheel, style: props.wheel.style.container }}
-      >
-        {props.blogPosts &&
-          props.blogPosts.map((blog: BlogProps, index: number) => {
-            if (!blog) {
-              return null
-            }
-            /** Convert and Translate Date */
-            const dateEvent = new Date(Date.parse(blog.date))
-            const dateOptions = {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            }
+    <Fragment>
+      {props.blogPosts &&
+        props.blogPosts.map((blog: BlogProps, index: number) => {
+          if (!blog) {
+            return null
+          }
+          /** Convert and Translate Date */
+          const dateEvent = new Date(Date.parse(blog.date))
+          const dateOptions = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          }
 
-            const dateTime = dateEvent.toLocaleDateString(
-              props.locale,
-              dateOptions
-            )
-            let categories = blog.categories
-            if (!categories) {
-              categories = []
-            }
-            const getCategories =
-              categories.length > 0 ? categories.join(', ') : ''
+          const dateTime = dateEvent.toLocaleDateString(
+            props.locale,
+            dateOptions
+          )
+          let categories = blog.categories
+          if (!categories) {
+            categories = []
+          }
+          const getCategories =
+            categories.length > 0 ? categories.join(', ') : ''
 
-            return (
-              <GLink
-                key={index}
+          return (
+            <GLink
+              key={index}
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.link,
+              }}
+              to={'/blog/' + blog.slug}
+              ariaLabel={blog.heading + ' - ' + categories + ' - ' + dateTime}
+            >
+              <Flex
+                is="div"
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.blog,
+                  style: props.wheel.style.media,
                 }}
-                to={'/blog/' + blog.slug}
-                ariaLabel={blog.heading + ' - ' + categories + ' - ' + dateTime}
               >
-                <Flex
+                <Image
+                  media={blog.media}
+                  wheel={{
+                    ...props.wheel,
+                    style: props.wheel.style.image,
+                  }}
+                />
+              </Flex>
+              <Flex
+                is="div"
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.content,
+                }}
+              >
+                <Any
+                  wheel={{
+                    ...props.wheel,
+                    style: props.wheel.style.categories,
+                  }}
+                  is="span"
+                >
+                  {getCategories}
+                </Any>
+                <Box
                   is="div"
                   wheel={{
                     ...props.wheel,
-                    style: props.wheel.style.blog.media,
+                    style: props.wheel.style.text,
                   }}
                 >
-                  <Image
-                    media={blog.media}
+                  <Heading
+                    is="h3"
                     wheel={{
                       ...props.wheel,
-                      style: props.wheel.style.blog.media.image,
+                      style: props.wheel.style.heading,
                     }}
-                  />
-                </Flex>
-                <Flex
-                  is="div"
+                  >
+                    {blog.heading}
+                  </Heading>
+                  <Paragraph
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.abstract,
+                    }}
+                  >
+                    {blog.abstract?.abstract}
+                  </Paragraph>
+                </Box>
+                <Time
                   wheel={{
                     ...props.wheel,
-                    style: props.wheel.style.blog.content,
+                    style: props.wheel.style.date,
                   }}
+                  datetime={blog.date}
                 >
-                  <Any
-                    wheel={{
-                      ...props.wheel,
-                      style: props.wheel.style.blog.content.categories,
-                    }}
-                    is="span"
-                  >
-                    {getCategories}
-                  </Any>
-                  <Box
-                    is="div"
-                    wheel={{
-                      ...props.wheel,
-                      style: props.wheel.style.blog.content.text,
-                    }}
-                  >
-                    <Heading
-                      is="h3"
-                      wheel={{
-                        ...props.wheel,
-                        style: props.wheel.style.blog.content.text.heading,
-                      }}
-                    >
-                      {blog.heading}
-                    </Heading>
-                    <Paragraph
-                      wheel={{
-                        ...props.wheel,
-                        style: props.wheel.style.blog.content.text.abstract,
-                      }}
-                    >
-                      {blog.abstract?.abstract}
-                    </Paragraph>
-                  </Box>
-                  <Time
-                    wheel={{
-                      ...props.wheel,
-                      style: props.wheel.style.blog.content.date,
-                    }}
-                    datetime={blog.date}
-                  >
-                    {dateTime}
-                  </Time>
-                </Flex>
-              </GLink>
-            )
-          })}
-      </ContainerType>
-    </Wrapper>
+                  {dateTime}
+                </Time>
+              </Flex>
+            </GLink>
+          )
+        })}
+    </Fragment>
   )
 }

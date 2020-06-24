@@ -10,6 +10,7 @@ import React from 'react'
 import { getWheel } from '../../../src-core'
 import { Blog } from './blog/blog'
 import { BlogSectionProps } from './model-types'
+import { BlogSectionWrapper } from './blog-section-wrapper'
 
 export const BlogSectionBlogVar = (props: BlogSectionProps) => {
   const wheel = getWheel({
@@ -23,11 +24,12 @@ export const BlogSectionBlogVar = (props: BlogSectionProps) => {
     return null
   }
   return (
-    <Blog
-      locale={props.locale}
-      blog={props.blog}
-      containerStyle="container"
-      wheel={wheel}
-    />
+    <BlogSectionWrapper containerStyle="container" wheel={wheel}>
+      <Blog
+        locale={props.locale}
+        blog={props.blog}
+        wheel={{ ...wheel, style: wheel.style.section }}
+      />
+    </BlogSectionWrapper>
   )
 }

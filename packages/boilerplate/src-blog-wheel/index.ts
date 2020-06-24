@@ -2,8 +2,8 @@ export type {
   BlogProps,
   AllBlogProps,
 } from '../src-blog-wheel/models/blog/model-types'
-export type { BlogWheelStyle } from './models/blog-section/blog/blog'
-export type { BlogListWheelStyle } from './models/blog-section/list/list'
+export type { BlogSectionBlogModelStyle } from './models/blog-section/model-style-types'
+export type { BlogSectionListModelStyle } from './models/blog-section/model-style-types'
 export type {
   BlogSectionProps,
   InjectedBlogSectionProps,

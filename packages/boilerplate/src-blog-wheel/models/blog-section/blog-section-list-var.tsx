@@ -7,10 +7,11 @@
  */
 
 import React from 'react'
-import { BlogProps } from '../../../src-blog-wheel/models/blog/model-types'
 import { getWheel } from '../../../src-core'
-import { List } from './list/list'
+import { BlogProps } from '../../../src-blog-wheel/models/blog/model-types'
 import { BlogSectionProps } from './model-types'
+import { BlogSectionWrapper } from './blog-section-wrapper'
+import { List } from './list/list'
 
 export const BlogSectionListVar = (props: BlogSectionProps) => {
   const wheel = getWheel({
@@ -27,11 +28,12 @@ export const BlogSectionListVar = (props: BlogSectionProps) => {
     (edges: any) => edges.node
   )
   return (
-    <List
-      blogPosts={blogPosts}
-      containerStyle="container"
-      locale={props.locale}
-      wheel={wheel}
-    />
+    <BlogSectionWrapper containerStyle="container" wheel={wheel}>
+      <List
+        blogPosts={blogPosts}
+        locale={props.locale}
+        wheel={{ ...wheel, style: wheel.style.section }}
+      />
+    </BlogSectionWrapper>
   )
 }

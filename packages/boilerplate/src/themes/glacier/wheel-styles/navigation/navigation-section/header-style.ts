@@ -43,12 +43,11 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
   },
   wrapper: {
     ncss: {
+      ...wrapperStyle.ncss,
       width: 1,
       height: '70px',
-      py: 0,
       borderBottom: '1px solid transparent',
       borderColor: 'sectionBorder',
-      ...wrapperStyle.ncss,
     },
   },
   container: {

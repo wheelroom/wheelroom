@@ -2,7 +2,6 @@ import { TextSectionWheelStyle } from '../../../../../src-text-wheel'
 import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
 import { headingTextStyle } from '../../element-styles/heading-style'
 import { embedStyle } from '../shared-styles/embed-style'
-import { deepMerge } from '../../../../../src-core'
 
 export const textSectionTextStyle: TextSectionWheelStyle = {
   container: containerStyle,
