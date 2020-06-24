@@ -1,9 +1,6 @@
-import { NcssProps } from './ncss'
 import { mergeNcssTable } from './merge-ncss-table'
+import { NcssObjectProps, NcssProps } from './ncss'
 
-interface NcssObject {
-  ncss: NcssProps
-}
 /**
  *
  * This helper merges Ncss objects.  The first object is the base, other objects
@@ -17,7 +14,7 @@ interface NcssObject {
  *
  */
 
-export const mergeNcss = (ncssObjects: NcssObject[]): NcssObject => {
+export const mergeNcss = (ncssObjects: NcssObjectProps[]): NcssObjectProps => {
   const result = {}
   ncssObjects.forEach((ncssObject: NcssProps) => {
     if (!ncssObject.ncss) {
