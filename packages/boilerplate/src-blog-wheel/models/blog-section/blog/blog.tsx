@@ -11,7 +11,6 @@ import {
   Paragraph,
   Time,
   Wheel,
-  NcssProps,
   NcssObjectProps,
   ImageElementStyle,
   VideoElementStyle,
@@ -25,17 +24,17 @@ import { Text } from '../../../../src-text-wheel'
 import { TextModelStyle } from '../../../../src-text-wheel/models/text/model-style-types'
 
 export interface BlogSectionBlogVariationStyle {
-  article?: NcssProps
-  header?: NcssProps
-  categories?: NcssProps
-  date?: NcssProps
+  article?: NcssObjectProps
+  header?: NcssObjectProps
+  categories?: NcssObjectProps
+  date?: NcssObjectProps
   heading?: NcssObjectProps
   abstract?: NcssObjectProps
-  media?: NcssProps
+  media?: NcssObjectProps
   image?: ImageElementStyle
   video?: VideoElementStyle
   text: TextModelStyle
-  authors?: NcssProps
+  authors?: NcssObjectProps
   author: TopicModelStyle
 }
 

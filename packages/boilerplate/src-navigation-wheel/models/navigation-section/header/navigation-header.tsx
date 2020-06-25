@@ -20,33 +20,29 @@ import {
   SectionWheelThemes,
   Wheel,
   Wrapper,
-  NcssProps,
   NcssObjectProps,
 } from '../../../../src-core'
 import { Modal, ModalWheelStyle } from './modal'
 import { ThemeButton } from './theme-button'
 
 export interface NavigationHeaderWheelStyle {
-  skipToContent: NcssProps
+  skipToContent: NcssObjectProps
   wrapper: NcssObjectProps
   container: NcssObjectProps
   brand: {
     segment: BrandNavigationSegmentModelStyle
   }
   menu: {
-    ncss: NcssProps
     segment: NavigationSegmentModelStyle
-  }
+  } & NcssObjectProps
   actions: {
-    ncss: NcssProps
     segment: NavigationSegmentModelStyle
     themeButton: NcssObjectProps
-  }
+  } & NcssObjectProps
   modal: {
-    ncss: NcssProps
     button: NcssObjectProps
     dialog: ModalWheelStyle
-  }
+  } & NcssObjectProps
 }
 
 interface NavigationHeaderWheel extends Wheel {

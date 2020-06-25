@@ -8,7 +8,6 @@ import {
   Fluid,
   Wheel,
   Wrapper,
-  NcssProps,
   NcssObjectProps,
   Sup,
 } from '../../../../src-core'
@@ -17,13 +16,11 @@ export interface LegalFooterWheelStyle {
   wrapper: NcssObjectProps
   container: NcssObjectProps
   legal: {
-    ncss: NcssProps
     promise: {
-      ncss: NcssProps
       link: NcssObjectProps
       sup: NcssObjectProps
-    }
-  }
+    } & NcssObjectProps
+  } & NcssObjectProps
 }
 
 interface LegalWheel extends Wheel {

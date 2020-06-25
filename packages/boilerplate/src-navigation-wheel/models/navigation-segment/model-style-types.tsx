@@ -1,19 +1,14 @@
-import {
-  NcssProps,
-  NcssObjectProps,
-  ActionModelStyle,
-} from '../../../src-core'
+import { NcssObjectProps, ActionModelStyle } from '../../../src-core'
 
-export interface NavigationSegmentModelStyle {
-  ncss?: NcssProps
+export interface NavigationSegmentModelStyle extends NcssObjectProps {
   heading?: NcssObjectProps
-  list?: NcssProps
-  item?: NcssProps
+  list?: NcssObjectProps
+  item?: NcssObjectProps
   action: ActionModelStyle
 }
 
 export interface BrandNavigationSegmentModelStyle {
-  ncss?: NcssProps
-  brand?: NcssProps
+  ncss?: NcssObjectProps
+  brand?: NcssObjectProps
   action: ActionModelStyle
 }

@@ -6,7 +6,7 @@ import {
   Box,
   ParserFunction,
   Wheel,
-  NcssProps,
+  NcssObjectProps,
 } from '../../../src-core'
 import {
   TopicContentActions,
@@ -18,9 +18,7 @@ import {
 } from './topic-content-text'
 import { TopicModelProps } from './model-types'
 
-export interface TopicContentWheelStyle {
-  /** Wrapper around all content including action */
-  ncss: NcssProps
+export interface TopicContentWheelStyle extends NcssObjectProps {
   text: TopicContentTextWheelStyle
   actions: TopicContentActionsWheelStyle
 }

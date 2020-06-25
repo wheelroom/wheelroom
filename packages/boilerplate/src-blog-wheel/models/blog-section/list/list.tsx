@@ -10,7 +10,6 @@ import {
   Heading,
   Image,
   ImageElementStyle,
-  NcssProps,
   Paragraph,
   NcssObjectProps,
   Time,
@@ -19,14 +18,14 @@ import {
 } from '../../../../src-core'
 
 export interface BlogSectionListVariationStyle {
-  link?: NcssProps
-  media?: NcssProps
+  link?: NcssObjectProps
+  media?: NcssObjectProps
   image?: ImageElementStyle
   video?: VideoElementStyle
-  content?: NcssProps
-  date?: NcssProps
-  categories?: NcssProps
-  text?: NcssProps
+  content?: NcssObjectProps
+  date?: NcssObjectProps
+  categories?: NcssObjectProps
+  text?: NcssObjectProps
   heading?: NcssObjectProps
   abstract?: NcssObjectProps
 }

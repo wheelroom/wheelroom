@@ -1,19 +1,20 @@
 import React from 'react'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel, Box, NcssProps, Action, ActionModelProps } from '../../../src-core'
+import {
+  Wheel,
+  Box,
+  Action,
+  ActionModelProps,
+  NcssObjectProps,
+} from '../../../src-core'
 import { TopicModelProps } from './model-types'
 
-export interface TopicContentActionsWheelStyle {
-  /** Styling for this node */
-  ncss: NcssProps
+export interface TopicContentActionsWheelStyle extends NcssObjectProps {
   /** Action link or button style */
   link: {
-    ncss: NcssProps
-    icon: {
-      ncss: NcssProps
-    }
-  }
+    icon: NcssObjectProps
+  } & NcssObjectProps
 }
 
 export interface TopicContentActionsWheel extends Wheel {

@@ -1,25 +1,19 @@
-import {
-  ActionModelStyle,
-  DescriptionListElementStyle,
-  NcssObjectProps,
-  NcssProps,
-  TableElementStyle,
-} from '../../../src-core'
+import { ActionModelStyle, NcssObjectProps } from '../../../src-core'
 import { TopicModelStyle } from '../../../src-topic-wheel'
 
 export interface TableRowModelStyle {
-  th: TableElementStyle
+  th: NcssObjectProps
   ncssSwitch: {
-    trHeader?: NcssProps
-    trBody?: NcssProps
-    trFooter?: NcssProps
+    trHeader?: NcssObjectProps
+    trBody?: NcssObjectProps
+    trFooter?: NcssObjectProps
   }
-  dd?: DescriptionListElementStyle
-  dl?: DescriptionListElementStyle
-  dt?: DescriptionListElementStyle
+  dd?: NcssObjectProps
+  dl?: NcssObjectProps
+  dt?: NcssObjectProps
   icon?: NcssObjectProps
-  actionGroup?: NcssProps
+  actionGroup?: NcssObjectProps
   action: ActionModelStyle
-  cell?: NcssProps
+  cell?: NcssObjectProps
   topic: TopicModelStyle
 }

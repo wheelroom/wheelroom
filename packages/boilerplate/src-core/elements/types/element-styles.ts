@@ -1,7 +1,6 @@
 import { ImageElementStyle } from '../element/image'
 import { VideoElementStyle } from '../element/video'
 import { NcssObjectProps } from '../../lib/ncss'
-import { EmbedModelStyle } from '../../models/embed/model-style-types'
 
 export interface ElementStyles {
   a: NcssObjectProps
@@ -14,7 +13,7 @@ export interface ElementStyles {
   dd: NcssObjectProps
   dl: NcssObjectProps
   dt: NcssObjectProps
-  embed: EmbedModelStyle
+  embed: NcssObjectProps
   featherIcon: NcssObjectProps
   flex: NcssObjectProps
   fluid: NcssObjectProps

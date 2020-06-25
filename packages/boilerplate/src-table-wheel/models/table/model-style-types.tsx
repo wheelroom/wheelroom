@@ -1,22 +1,15 @@
-import {
-  ActionModelStyle,
-  DescriptionListElementStyle,
-  NcssObjectProps,
-  NcssProps,
-  TableElementStyle,
-} from '../../../src-core'
+import { ActionModelStyle, NcssObjectProps } from '../../../src-core'
 import { TableRowModelStyle } from '../table-row/model-style-types'
 
-export interface TableModelStyle {
-  ncss: NcssProps
-  table: TableElementStyle
-  th: TableElementStyle
-  tr: TableElementStyle
-  dd: DescriptionListElementStyle
-  dl: DescriptionListElementStyle
-  dt: DescriptionListElementStyle
+export interface TableModelStyle extends NcssObjectProps {
+  table: NcssObjectProps
+  th: NcssObjectProps
+  tr: NcssObjectProps
+  dd: NcssObjectProps
+  dl: NcssObjectProps
+  dt: NcssObjectProps
   icon: NcssObjectProps
-  actionGroup: NcssProps
+  actionGroup: NcssObjectProps
   action: ActionModelStyle
   row: TableRowModelStyle
 }

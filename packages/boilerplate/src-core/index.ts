@@ -20,7 +20,6 @@ export type { PageProps } from './models/page/model-types'
 export type { ActionModelProps } from './models/action/model-types'
 export type { ActionModelStyle } from './models/action/model-style-types'
 export type { EmbedModelProps } from './models/embed/model-types'
-export type { EmbedModelStyle } from './models/embed/model-style-types'
 export type { MediaBreakpointModelProps } from './models/media-breakpoint/model-types'
 export type { MediaBreakpointModelStyle } from './models/media-breakpoint/model-style-types'
 // Exceptional Elements

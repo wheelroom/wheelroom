@@ -3,30 +3,27 @@ import {
   Box,
   Embed,
   EmbedModelProps,
-  EmbedModelStyle,
   Image,
   ImageElementStyle,
   MediaBreakpoint,
-  MediaBreakpointStyle,
+  MediaBreakpointModelStyle,
   MediaObject,
-  NcssProps,
   Video,
   VideoElementStyle,
   Wheel,
+  NcssObjectProps,
 } from '../../../src-core'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
 import { TopicModelProps } from './model-types'
 
-export interface TopicMediaWheelStyle {
-  /** Styling for this node */
-  ncss: NcssProps
+export interface TopicMediaWheelStyle extends NcssObjectProps {
   /** Video style */
-  embed: EmbedModelStyle
+  embed: NcssObjectProps
   /** Image style */
   image: ImageElementStyle
   /** Media Breakpoint Style */
-  mediaBreakpoint: MediaBreakpointStyle
+  mediaBreakpoint: MediaBreakpointModelStyle
   /** Video style */
   video: VideoElementStyle
 }

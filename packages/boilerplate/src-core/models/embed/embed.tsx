@@ -2,10 +2,10 @@
 import { jsx } from '@emotion/core'
 import { Any } from '../../elements/element/any'
 import { Wheel } from '../../lib/wheel'
-import { EmbedModelStyle } from './model-style-types'
+import { NcssObjectProps } from '../../lib/ncss'
 
 export interface EmbedWheel extends Wheel {
-  style: EmbedModelStyle
+  style: NcssObjectProps
 }
 
 export interface EmbedWheelProps {

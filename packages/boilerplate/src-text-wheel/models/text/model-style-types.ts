@@ -1,30 +1,20 @@
 import {
-  NcssObjectProps,
-  BlockquoteElementStyle,
-  CodeElementStyle,
-  EmbedModelStyle,
-  NcssObjectProps,
-  HrElementStyle,
   ImageElementStyle,
-  ListElementStyle,
-  NcssObjectProps,
-  PreElementStyle,
-  StrongElementStyle,
   VideoElementStyle,
   NcssObjectProps,
 } from '../../../src-core'
 
 export interface TextModelStyle {
   wrapper: NcssObjectProps
-  strong: StrongElementStyle
-  code: CodeElementStyle
-  pre: PreElementStyle
-  hr: HrElementStyle
+  strong: NcssObjectProps
+  code: NcssObjectProps
+  pre: NcssObjectProps
+  hr: NcssObjectProps
   p: NcssObjectProps
-  blockquote: BlockquoteElementStyle
-  ul: ListElementStyle
-  ol: ListElementStyle
-  li: ListElementStyle
+  blockquote: NcssObjectProps
+  ul: NcssObjectProps
+  ol: NcssObjectProps
+  li: NcssObjectProps
   inlinesHyperlink: NcssObjectProps
   entryHyperlink: NcssObjectProps
   h1: NcssObjectProps
@@ -33,7 +23,7 @@ export interface TextModelStyle {
   h4: NcssObjectProps
   h5: NcssObjectProps
   h6: NcssObjectProps
-  embed: EmbedModelStyle
+  embed: NcssObjectProps
   image: ImageElementStyle
   video: VideoElementStyle
 }

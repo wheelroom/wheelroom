@@ -11,7 +11,6 @@ import {
   GlobalsProps,
   Wheel,
   Wrapper,
-  NcssProps,
   NcssObjectProps,
 } from '../../../../src-core'
 import { LegalFooter, LegalFooterWheelStyle } from './legal-footer'
@@ -20,16 +19,13 @@ export interface NavigationFooterWheelStyle {
   wrapper: NcssObjectProps
   container: NcssObjectProps
   section: {
-    ncss: NcssProps
     menu: {
-      ncss: NcssProps
       segment: NavigationSegmentModelStyle
-    }
+    } & NcssObjectProps
     social: {
-      ncss: NcssProps
       segment: NavigationSegmentModelStyle
-    }
-  }
+    } & NcssObjectProps
+  } & NcssObjectProps
   legalFooter: LegalFooterWheelStyle
 }
 
