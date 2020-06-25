@@ -1,5 +1,3 @@
-import { NcssObjectProps } from '../element/a-link'
-import { AnyElementStyle } from '../element/any'
 import {
   BlockquoteElementStyle,
   CodeElementStyle,
@@ -22,7 +20,7 @@ import { EmbedModelStyle } from '../../models/embed/model-style-types'
 
 export interface ElementStyles {
   a: NcssObjectProps
-  any: AnyElementStyle
+  any: NcssObjectProps
   blockquote: BlockquoteElementStyle
   box: NcssObjectProps
   button: ButtonElementStyle

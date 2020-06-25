@@ -8,7 +8,7 @@ export type { MediaBreakpointModelProps } from './models/media-breakpoint/model-
 export type { MediaBreakpointModelStyle } from './models/media-breakpoint/model-style-types'
 
 export type { ALinkElementProps } from './elements/element/a-link'
-export type { AnyProps } from './elements/element/any'
+export type { AnyElementProps } from './elements/element/any'
 export type { BlockquoteElementStyle } from './elements/self/self-styles'
 export type { ButtonElementStyle } from './elements/element/button'
 export type { BlockLevelElementName } from './elements/types/element-names'

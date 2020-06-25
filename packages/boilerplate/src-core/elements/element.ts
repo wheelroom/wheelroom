@@ -1,7 +1,7 @@
 import { NcssProps } from '../lib/ncss'
 import { Wheel } from '../lib/wheel'
 import { ALinkElementProps } from './element/a-link'
-import { AnyProps } from './element/any'
+import { AnyElementProps } from './element/any'
 import { ButtonProps } from './element/button'
 import { GLinkProps } from './element/g-link'
 import { GridProps } from './element/grid'
@@ -36,7 +36,7 @@ export interface ElementProps {
 
 type GetElementAttrsProps =
   | ALinkElementProps
-  | AnyProps
+  | AnyElementProps
   | ButtonProps
   | ElementProps
   | FeatherIconProps

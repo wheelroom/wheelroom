@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
-import { NcssProps } from '../../lib/ncss'
+import { NcssObjectProps } from '../../lib/ncss'
 import {
   BlockLevelElementName,
   InlineElementName,
@@ -11,17 +11,13 @@ import { ElementProps, getElementAttrs } from '../element'
 import { ElementStyles } from '../types/element-styles'
 import { anyResetMap } from './any-reset'
 
-export interface AnyElementStyle {
-  ncss: NcssProps
-}
-
-export const anyPreset: AnyElementStyle = {
+export const anyPreset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
   },
 }
 
-export interface AnyProps extends ElementProps {
+export interface AnyElementProps extends ElementProps {
   /** Aria-modal attribute */
   ariaModal?: boolean
   /** Render as another HTML element */
@@ -36,7 +32,7 @@ export interface AnyProps extends ElementProps {
   dangerouslySetInnerHTML?: any
 }
 
-const getAttrs = (props: AnyProps) => {
+const getAttrs = (props: AnyElementProps) => {
   const attrs = {
     ...getElementAttrs(props),
     'aria-modal': props.ariaModal,
@@ -48,7 +44,7 @@ const getAttrs = (props: AnyProps) => {
 
 type ElementStylesKey = keyof ElementStyles
 
-const getPolyPreset = (props: AnyProps) => {
+const getPolyPreset = (props: AnyElementProps) => {
   const resetMap = anyResetMap as any
   let polyPreset = { ncss: {} }
   if (
@@ -64,7 +60,7 @@ const getPolyPreset = (props: AnyProps) => {
   return polyPreset
 }
 
-export const Any = (props: AnyProps) => {
+export const Any = (props: AnyElementProps) => {
   const label = { ncss: { label: `any-is-${props.is}` } }
   const attrs: any = getAttrs(props)
   const polyPreset = getPolyPreset(props)
