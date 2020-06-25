@@ -1,6 +1,6 @@
-import { ImageElementStyle } from './image'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const imageImgReset: ImageElementStyle = {
+export const imageImgReset: NcssObjectProps = {
   ncss: {
     // Remove the border on images inside links in IE 10.
     borderStyle: 'none',
@@ -11,14 +11,14 @@ export const imageImgReset: ImageElementStyle = {
   },
 }
 
-export const imagePictureReset: ImageElementStyle = {
+export const imagePictureReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     display: 'inline-block',
   },
 }
 
-export const imageFigcaptionReset: ImageElementStyle = {
+export const imageFigcaptionReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

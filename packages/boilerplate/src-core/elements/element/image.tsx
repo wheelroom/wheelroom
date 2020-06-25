@@ -23,7 +23,7 @@ export interface ImageElementStyle {
   }
 }
 
-export interface ImageProps {
+export interface ImageElementProps {
   /** Styling wheel */
   wheel: Wheel
   description?: string
@@ -47,7 +47,7 @@ const defaultMediaObject = {
   title: 'No media title available',
 } as MediaObject
 
-export const Image = (props: ImageProps) => {
+export const Image = (props: ImageElementProps) => {
   const media = props.media || defaultMediaObject
   /** Avoid video media asset */
   if (props.media?.file?.contentType === 'video/mp4') {

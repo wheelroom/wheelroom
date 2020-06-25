@@ -6,7 +6,7 @@ import { ButtonElementProps } from './element/button'
 import { GLinkElementProps } from './element/g-link'
 import { GridElementProps } from './element/grid'
 import { HeadingElementProps } from './element/heading'
-import { FeatherIconProps, TextIconProps } from './element/icon'
+import { FeatherIconElementProps, TextIconElementProps } from './element/icon'
 import { ParagraphElementProps } from './element/paragraph'
 
 export interface ElementProps {
@@ -39,12 +39,12 @@ type GetElementAttrsProps =
   | AnyElementProps
   | ButtonElementProps
   | ElementProps
-  | FeatherIconProps
+  | FeatherIconElementProps
   | GLinkElementProps
   | GridElementProps
   | HeadingElementProps
   | ParagraphElementProps
-  | TextIconProps
+  | TextIconElementProps
 
 export const getElementAttrs = (
   props: GetElementAttrsProps,

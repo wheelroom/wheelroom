@@ -1,20 +1,15 @@
 import React from 'react'
 import { IconMap } from '../../svg/feather/iconMap'
 import { mergeNcss } from '../../lib/merge-ncss'
-import { NcssProps } from '../../lib/ncss'
 import { ElementProps, getElementAttrs } from '../element'
 import { Box } from './grid'
 import { featherIconElementStyle, textIconElementStyle } from './icon-reset'
 
-export interface FeatherIconProps extends ElementProps {
+export interface FeatherIconElementProps extends ElementProps {
   icon: string
 }
 
-export interface IconElementStyle {
-  ncss: NcssProps
-}
-
-export const FeatherIcon = (props: FeatherIconProps) => {
+export const FeatherIcon = (props: FeatherIconElementProps) => {
   if (Object.keys(IconMap).includes(props.icon)) {
     const label = { ncss: { label: 'feather-icon' } }
     /** When a valid feather icon string is passed, return the svg icon */
@@ -34,11 +29,11 @@ export const FeatherIcon = (props: FeatherIconProps) => {
   }
 }
 
-export interface TextIconProps extends ElementProps {
+export interface TextIconElementProps extends ElementProps {
   text: string
 }
 
-export const TextIcon = (props: TextIconProps) => {
+export const TextIcon = (props: TextIconElementProps) => {
   const label = { ncss: { label: 'text-icon' } }
 
   const attrs: any = getElementAttrs(props)

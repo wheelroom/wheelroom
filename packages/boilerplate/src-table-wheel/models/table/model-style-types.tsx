@@ -1,7 +1,7 @@
 import {
   ActionModelStyle,
   DescriptionListElementStyle,
-  IconElementStyle,
+  NcssObjectProps,
   NcssProps,
   TableElementStyle,
 } from '../../../src-core'
@@ -15,7 +15,7 @@ export interface TableModelStyle {
   dd: DescriptionListElementStyle
   dl: DescriptionListElementStyle
   dt: DescriptionListElementStyle
-  icon: IconElementStyle
+  icon: NcssObjectProps
   actionGroup: NcssProps
   action: ActionModelStyle
   row: TableRowModelStyle

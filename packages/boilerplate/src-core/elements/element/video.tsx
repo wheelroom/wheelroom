@@ -13,7 +13,7 @@ export interface VideoElementStyle {
   description?: NcssProps
 }
 
-export interface VideoProps {
+export interface VideoElementProps {
   /** Styling wheel */
   wheel: Wheel
   description?: string
@@ -34,7 +34,7 @@ const defaultMediaObject = {
   title: 'no title available',
 } as MediaObject
 
-export const Video = (props: VideoProps) => {
+export const Video = (props: VideoElementProps) => {
   /** The complete list of file types can be found here:
    * https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers */
   if (

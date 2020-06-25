@@ -1,6 +1,6 @@
-import { IconElementStyle } from './icon'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const featherIconElementStyle: IconElementStyle = {
+export const featherIconElementStyle: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     display: 'inline-flex',
@@ -10,7 +10,7 @@ export const featherIconElementStyle: IconElementStyle = {
   },
 }
 
-export const textIconElementStyle: IconElementStyle = {
+export const textIconElementStyle: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     display: 'inline-flex',
