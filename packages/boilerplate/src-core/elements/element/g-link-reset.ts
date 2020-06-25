@@ -1,6 +1,6 @@
-import { GLinkElementStyle } from './g-link'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const gLinkReset: GLinkElementStyle = {
+export const gLinkReset: NcssObjectProps = {
   ncss: {
     // Remove the gray background on active links in IE 10.
     bg: 'transparent',
