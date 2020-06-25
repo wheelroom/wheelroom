@@ -1,12 +1,12 @@
 import {
   NcssProps,
-  HeadingElementStyle,
+  NcssObjectProps,
   ActionModelStyle,
 } from '../../../src-core'
 
 export interface NavigationSegmentModelStyle {
   ncss?: NcssProps
-  heading?: HeadingElementStyle
+  heading?: NcssObjectProps
   list?: NcssProps
   item?: NcssProps
   action: ActionModelStyle

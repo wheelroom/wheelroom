@@ -2,22 +2,17 @@
 import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
-import { NcssProps } from '../../lib/ncss'
 import { BlockLevelElementName, HeadingName } from '../types/element-names'
 import { ElementProps, getElementAttrs } from '../element'
 import { headingResets } from './heading-reset'
 
-export interface HeadingElementStyle {
-  ncss: NcssProps
-}
-
-export interface HeadingProps extends ElementProps {
+export interface HeadingElementProps extends ElementProps {
   /** Render as another HTML element */
   is?: BlockLevelElementName
 }
 
 // If we have a heading element, apply preset styles
-const getReset = (props: HeadingProps) => {
+const getReset = (props: HeadingElementProps) => {
   let reset = { ncss: {} }
   const is = props.is || 'h1'
   if (Object.keys(headingResets).includes(is)) {
@@ -29,7 +24,7 @@ const getReset = (props: HeadingProps) => {
   return reset
 }
 
-export const Heading = (props: HeadingProps) => {
+export const Heading = (props: HeadingElementProps) => {
   const label = { ncss: { label: 'heading' } }
   const reset = getReset(props)
   const attrs: any = getElementAttrs(props)

@@ -8,7 +8,6 @@ import {
   Flex,
   GLink,
   Heading,
-  HeadingElementStyle,
   Image,
   ImageElementStyle,
   NcssProps,
@@ -28,7 +27,7 @@ export interface BlogSectionListVariationStyle {
   date?: NcssProps
   categories?: NcssProps
   text?: NcssProps
-  heading?: HeadingElementStyle
+  heading?: NcssObjectProps
   abstract?: NcssObjectProps
 }
 

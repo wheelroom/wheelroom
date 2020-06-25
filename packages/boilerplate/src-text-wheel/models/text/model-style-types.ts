@@ -3,7 +3,7 @@ import {
   BlockquoteElementStyle,
   CodeElementStyle,
   EmbedModelStyle,
-  HeadingElementStyle,
+  NcssObjectProps,
   HrElementStyle,
   ImageElementStyle,
   ListElementStyle,
@@ -27,12 +27,12 @@ export interface TextModelStyle {
   li: ListElementStyle
   inlinesHyperlink: NcssObjectProps
   entryHyperlink: NcssObjectProps
-  h1: HeadingElementStyle
-  h2: HeadingElementStyle
-  h3: HeadingElementStyle
-  h4: HeadingElementStyle
-  h5: HeadingElementStyle
-  h6: HeadingElementStyle
+  h1: NcssObjectProps
+  h2: NcssObjectProps
+  h3: NcssObjectProps
+  h4: NcssObjectProps
+  h5: NcssObjectProps
+  h6: NcssObjectProps
   embed: EmbedModelStyle
   image: ImageElementStyle
   video: VideoElementStyle

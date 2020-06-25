@@ -12,7 +12,6 @@ import {
   Time,
   Wheel,
   NcssProps,
-  HeadingElementStyle,
   NcssObjectProps,
   ImageElementStyle,
   VideoElementStyle,
@@ -30,7 +29,7 @@ export interface BlogSectionBlogVariationStyle {
   header?: NcssProps
   categories?: NcssProps
   date?: NcssProps
-  heading?: HeadingElementStyle
+  heading?: NcssObjectProps
   abstract?: NcssObjectProps
   media?: NcssProps
   image?: ImageElementStyle

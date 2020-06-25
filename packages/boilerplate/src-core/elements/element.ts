@@ -5,7 +5,7 @@ import { AnyElementProps } from './element/any'
 import { ButtonElementProps } from './element/button'
 import { GLinkElementProps } from './element/g-link'
 import { GridElementProps } from './element/grid'
-import { HeadingProps } from './element/heading'
+import { HeadingElementProps } from './element/heading'
 import { FeatherIconProps, TextIconProps } from './element/icon'
 import { ParagraphElementProps } from './element/paragraph'
 
@@ -42,7 +42,7 @@ type GetElementAttrsProps =
   | FeatherIconProps
   | GLinkElementProps
   | GridElementProps
-  | HeadingProps
+  | HeadingElementProps
   | ParagraphElementProps
   | TextIconProps
 
