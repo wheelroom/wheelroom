@@ -13,7 +13,7 @@ import {
   ImageElementStyle,
   NcssProps,
   Paragraph,
-  ParagraphElementStyle,
+  NcssObjectProps,
   Time,
   VideoElementStyle,
   Wheel,
@@ -29,7 +29,7 @@ export interface BlogSectionListVariationStyle {
   categories?: NcssProps
   text?: NcssProps
   heading?: HeadingElementStyle
-  abstract?: ParagraphElementStyle
+  abstract?: NcssObjectProps
 }
 
 export interface BlogListWheel extends Wheel {

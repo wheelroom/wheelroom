@@ -16,7 +16,6 @@ import { GLinkElementStyle } from '../element/g-link'
 import { HeadingElementStyle } from '../element/heading'
 import { IconElementStyle } from '../element/icon'
 import { ImageElementStyle } from '../element/image'
-import { ParagraphElementStyle } from '../element/paragraph'
 import { VideoElementStyle } from '../element/video'
 import { NcssObjectProps } from '../../lib/ncss'
 import { EmbedModelStyle } from '../../models/embed/model-style-types'
@@ -49,13 +48,13 @@ export interface ElementStyles {
   li: ListElementStyle
   mediaBreakpoint: ImageElementStyle
   ol: ListElementStyle
-  p: ParagraphElementStyle
+  p: NcssObjectProps
   pre: PreElementStyle
   samp: CodeElementStyle
-  small: ParagraphElementStyle
+  small: NcssObjectProps
   strong: StrongElementStyle
-  sub: ParagraphElementStyle
-  sup: ParagraphElementStyle
+  sub: NcssObjectProps
+  sup: NcssObjectProps
   table: TableElementStyle
   td: TableElementStyle
   th: TableElementStyle

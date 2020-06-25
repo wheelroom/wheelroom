@@ -11,11 +11,8 @@ import {
   NcssProps,
   ALinkElementStyle,
   NcssObjectProps,
-} from '../../../../src-core'
-import {
   Sup,
-  ParagraphElementStyle,
-} from '../../../../src-core/elements/element/paragraph'
+} from '../../../../src-core'
 
 export interface LegalFooterWheelStyle {
   wrapper: NcssObjectProps
@@ -25,7 +22,7 @@ export interface LegalFooterWheelStyle {
     promise: {
       ncss: NcssProps
       link: ALinkElementStyle
-      sup: ParagraphElementStyle
+      sup: NcssObjectProps
     }
   }
 }

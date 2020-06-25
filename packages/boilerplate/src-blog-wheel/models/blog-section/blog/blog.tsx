@@ -13,7 +13,7 @@ import {
   Wheel,
   NcssProps,
   HeadingElementStyle,
-  ParagraphElementStyle,
+  NcssObjectProps,
   ImageElementStyle,
   VideoElementStyle,
 } from '../../../../src-core'
@@ -31,7 +31,7 @@ export interface BlogSectionBlogVariationStyle {
   categories?: NcssProps
   date?: NcssProps
   heading?: HeadingElementStyle
-  abstract?: ParagraphElementStyle
+  abstract?: NcssObjectProps
   media?: NcssProps
   image?: ImageElementStyle
   video?: VideoElementStyle

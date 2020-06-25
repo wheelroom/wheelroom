@@ -7,7 +7,7 @@ import {
   HrElementStyle,
   ImageElementStyle,
   ListElementStyle,
-  ParagraphElementStyle,
+  NcssObjectProps,
   PreElementStyle,
   StrongElementStyle,
   VideoElementStyle,
@@ -20,7 +20,7 @@ export interface TextModelStyle {
   code: CodeElementStyle
   pre: PreElementStyle
   hr: HrElementStyle
-  p: ParagraphElementStyle
+  p: NcssObjectProps
   blockquote: BlockquoteElementStyle
   ul: ListElementStyle
   ol: ListElementStyle

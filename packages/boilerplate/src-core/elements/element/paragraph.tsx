@@ -1,16 +1,11 @@
 /** @jsx jsx */
-import { NcssProps } from '../../lib/ncss'
 import { BlockLevelElementName } from '../types/element-names'
 import { LinkRelationshipAttribute } from '../types/attribute-names'
 import { ElementProps } from '../element'
 import { getSelf } from '../self/self'
 import { paragraphReset } from './paragraph-reset'
 
-export interface ParagraphElementStyle {
-  ncss: NcssProps
-}
-
-export interface ParagraphProps extends ElementProps {
+export interface ParagraphElementProps extends ElementProps {
   /** Render as another HTML element */
   is?: BlockLevelElementName | undefined
   /** Grid role attribute */
@@ -23,7 +18,7 @@ export interface ParagraphProps extends ElementProps {
   onClick?: () => any
 }
 
-const getExtraAttrs = (props: ParagraphProps) => {
+const getExtraAttrs = (props: ParagraphElementProps) => {
   return {
     'aria-modal': props.ariaModal,
     rel: props.rel,
@@ -32,22 +27,22 @@ const getExtraAttrs = (props: ParagraphProps) => {
   }
 }
 
-export const Paragraph = (props: ParagraphProps) => {
+export const Paragraph = (props: ParagraphElementProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(props, paragraphReset, 'p', extraAttrs)
 }
 
-export const Small = (props: ParagraphProps) => {
+export const Small = (props: ParagraphElementProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(props, paragraphReset, 'small', extraAttrs)
 }
 
-export const Sub = (props: ParagraphProps) => {
+export const Sub = (props: ParagraphElementProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(props, paragraphReset, 'sub', extraAttrs)
 }
 
-export const Sup = (props: ParagraphProps) => {
+export const Sup = (props: ParagraphElementProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(props, paragraphReset, 'sup', extraAttrs)
 }
