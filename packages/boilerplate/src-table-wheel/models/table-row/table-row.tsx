@@ -13,6 +13,7 @@ import {
   Wheel,
 } from '../../../src-core'
 import { TopicOptions, TopicModelProps } from '../../../src-topic-wheel'
+import { getNcssSwitch } from '../../../src-core/lib/ncss'
 import { TableRowProps } from './model-types'
 import { TableRowModelStyle } from './model-style-types'
 import { TableRowCell } from './table-row-cell'
@@ -53,18 +54,17 @@ export const TableRow = (props: TableRowWheelProps) => {
     rowHeaderCellStyle.ncss.w = headerCellWidth
   }
 
-  let tableRowStyle = props.wheel.style
-  if (tableRow.variation === 'header' && tableRowStyle.ncssSwitch.trHeader) {
-    tableRowStyle = tableRowStyle.ncssSwitch.trHeader
-  }
-  if (
-    !tableRow.variation ||
-    (tableRow.variation === 'body' && tableRowStyle.ncssSwitch.trBody)
-  ) {
-    tableRowStyle = tableRowStyle.ncssSwitch.trBody
-  }
-  if (tableRow.variation === 'footer' && tableRowStyle.ncssSwitch.trFooter) {
-    tableRowStyle = tableRowStyle.ncssSwitch.trFooter
+  let tableRowStyle
+  switch (tableRow.variation) {
+    case 'header':
+      tableRowStyle = getNcssSwitch(props.wheel.style, 'trHeader')
+      break
+    case 'footer':
+      tableRowStyle = getNcssSwitch(props.wheel.style, 'trFooter')
+      break
+    default:
+      tableRowStyle = getNcssSwitch(props.wheel.style, 'trBody')
+      break
   }
 
   return (

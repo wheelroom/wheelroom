@@ -1,13 +1,9 @@
-import { ActionModelStyle, NcssObjectProps } from '../../../src-core'
+import { ActionModelStyle, NcssObjectProps, NcssProps } from '../../../src-core'
 import { TopicModelStyle } from '../../../src-topic-wheel'
 
 export interface TableRowModelStyle {
   th: NcssObjectProps
-  ncssSwitch: {
-    trHeader?: NcssObjectProps
-    trBody?: NcssObjectProps
-    trFooter?: NcssObjectProps
-  }
+  ncssSwitch: Record<'trHeader' | 'trBody' | 'trFooter', NcssProps>
   dd?: NcssObjectProps
   dl?: NcssObjectProps
   dt?: NcssObjectProps

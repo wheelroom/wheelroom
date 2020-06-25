@@ -5,6 +5,17 @@ import {
 } from '../shared-styles/icon-style'
 import { wrapperStyle } from '../shared-styles/grid-style'
 import { embedStyle } from '../shared-styles/embed-style'
+// import { DeepPartial } from '../../../../../src-core'
+
+// export const partOfTableSectionTableStyle: DeepPartial<TableSectionModelStyle> = {
+//   container: {
+//     ncss: {
+//       label: 'table-container',
+//       px: 3,
+//       overflow: 'hidden',
+//     },
+//   },
+// }
 
 export const tableSectionTableStyle: TableSectionModelStyle = {
   container: {
@@ -87,19 +98,13 @@ export const tableSectionTableStyle: TableSectionModelStyle = {
     row: {
       ncssSwitch: {
         trHeader: {
-          ncss: {
-            label: 'table-row-tr-header',
-          },
+          label: 'table-row-tr-header',
         },
         trBody: {
-          ncss: {
-            label: 'table-row-tr-body',
-          },
+          label: 'table-row-tr-body',
         },
         trFooter: {
-          ncss: {
-            label: 'table-row-tr-footer',
-          },
+          label: 'table-row-tr-footer',
         },
       },
       th: {
@@ -203,9 +208,7 @@ export const tableSectionTableStyle: TableSectionModelStyle = {
             picture: {
               ncss: {},
             },
-            img: {
-              ncss: {},
-            },
+            ncss: {},
             figcaption: {
               ncss: {},
             },
@@ -214,14 +217,10 @@ export const tableSectionTableStyle: TableSectionModelStyle = {
             picture: {
               ncss: {},
             },
-            img: {
-              ncss: {},
-            },
+            ncss: {},
           },
           video: {
-            video: {
-              ncss: {},
-            },
+            ncss: {},
             description: {
               ncss: {},
             },
