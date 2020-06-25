@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel } from '../../lib/wheel'
-import { NcssProps } from '../../lib/ncss'
+import { NcssObjectProps } from '../../lib/ncss'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { MediaObject } from '../types/media'
 import {
@@ -12,15 +12,9 @@ import {
 } from './image-reset'
 
 export interface ImageElementStyle {
-  picture: {
-    ncss: NcssProps
-  }
-  img: {
-    ncss: NcssProps
-  }
-  figcaption?: {
-    ncss: NcssProps
-  }
+  picture: NcssObjectProps
+  img: NcssObjectProps
+  figcaption?: NcssObjectProps
 }
 
 export interface ImageElementProps {

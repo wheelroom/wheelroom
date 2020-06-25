@@ -4,13 +4,13 @@ import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { MediaObject } from '../types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
-import { NcssProps } from '../../lib/ncss'
+import { NcssObjectProps } from '../../lib/ncss'
 import { Wheel } from '../../lib/wheel'
 import { videoDescriptionReset, videoVideoElementStyle } from './video-reset'
 
 export interface VideoElementStyle {
-  video: NcssProps
-  description?: NcssProps
+  video: NcssObjectProps
+  description?: NcssObjectProps
 }
 
 export interface VideoElementProps {
