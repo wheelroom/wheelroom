@@ -1,18 +1,3 @@
-import {
-  BlockquoteElementStyle,
-  CodeElementStyle,
-  DescriptionListElementStyle,
-  HrElementStyle,
-  ListElementStyle,
-  PreElementStyle,
-  StrongElementStyle,
-  TableElementStyle,
-  TimeElementStyle,
-} from '../self/self-styles'
-import { ButtonElementStyle } from '../element/button'
-import { GLinkElementStyle } from '../element/g-link'
-import { HeadingElementStyle } from '../element/heading'
-import { IconElementStyle } from '../element/icon'
 import { ImageElementStyle } from '../element/image'
 import { VideoElementStyle } from '../element/video'
 import { NcssObjectProps } from '../../lib/ncss'
@@ -21,45 +6,45 @@ import { EmbedModelStyle } from '../../models/embed/model-style-types'
 export interface ElementStyles {
   a: NcssObjectProps
   any: NcssObjectProps
-  blockquote: BlockquoteElementStyle
+  blockquote: NcssObjectProps
   box: NcssObjectProps
-  button: ButtonElementStyle
-  code: CodeElementStyle
+  button: NcssObjectProps
+  code: NcssObjectProps
   container: NcssObjectProps
-  dd: DescriptionListElementStyle
-  dl: DescriptionListElementStyle
-  dt: DescriptionListElementStyle
+  dd: NcssObjectProps
+  dl: NcssObjectProps
+  dt: NcssObjectProps
   embed: EmbedModelStyle
-  featherIcon: IconElementStyle
+  featherIcon: NcssObjectProps
   flex: NcssObjectProps
   fluid: NcssObjectProps
-  gLink: GLinkElementStyle
-  h1: HeadingElementStyle
-  h2: HeadingElementStyle
-  h3: HeadingElementStyle
-  h4: HeadingElementStyle
-  h5: HeadingElementStyle
-  h6: HeadingElementStyle
-  hr: HrElementStyle
+  gLink: NcssObjectProps
+  h1: NcssObjectProps
+  h2: NcssObjectProps
+  h3: NcssObjectProps
+  h4: NcssObjectProps
+  h5: NcssObjectProps
+  h6: NcssObjectProps
+  hr: NcssObjectProps
   image: ImageElementStyle
-  kbd: CodeElementStyle
-  li: ListElementStyle
+  kbd: NcssObjectProps
+  li: NcssObjectProps
   mediaBreakpoint: ImageElementStyle
-  ol: ListElementStyle
+  ol: NcssObjectProps
   p: NcssObjectProps
-  pre: PreElementStyle
-  samp: CodeElementStyle
+  pre: NcssObjectProps
+  samp: NcssObjectProps
   small: NcssObjectProps
-  strong: StrongElementStyle
+  strong: NcssObjectProps
   sub: NcssObjectProps
   sup: NcssObjectProps
-  table: TableElementStyle
-  td: TableElementStyle
-  th: TableElementStyle
-  tr: TableElementStyle
-  time: TimeElementStyle
-  textIcon: IconElementStyle
-  ul: ListElementStyle
+  table: NcssObjectProps
+  td: NcssObjectProps
+  th: NcssObjectProps
+  tr: NcssObjectProps
+  time: NcssObjectProps
+  textIcon: NcssObjectProps
+  ul: NcssObjectProps
   video: VideoElementStyle
   wrapper: NcssObjectProps
 }

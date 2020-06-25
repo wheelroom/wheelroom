@@ -10,7 +10,7 @@ import {
   Flex,
   Button,
   NcssProps,
-  ButtonElementStyle,
+  NcssObjectProps,
 } from '../../../../src-core'
 import { FeatherIcon } from '../../../../src-core/elements/element/icon'
 import { ThemeButton } from './theme-button'
@@ -40,7 +40,7 @@ export interface ModalWheelStyle {
     actions: {
       ncss: NcssProps
       segment: NavigationSegmentWheelStyle
-      themeButton: ButtonElementStyle
+      themeButton: NcssObjectProps
     }
   }
 }

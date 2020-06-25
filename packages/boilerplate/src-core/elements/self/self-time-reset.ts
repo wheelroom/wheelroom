@@ -1,6 +1,6 @@
-import { TimeElementStyle } from './self-styles'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const selfTimeReset: TimeElementStyle = {
+export const selfTimeReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

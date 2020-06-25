@@ -1,6 +1,6 @@
-import { ListElementStyle } from './self-styles'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const selfListReset: ListElementStyle = {
+export const selfListReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

@@ -1,6 +1,6 @@
-import { ButtonElementStyle } from '../../../../src-core'
+import { NcssObjectProps } from '../../../../src-core'
 
-const buttonStyle: ButtonElementStyle = {
+const buttonStyle: NcssObjectProps = {
   ncss: {
     display: 'inline-flex',
     justifyContent: 'center',
@@ -19,7 +19,7 @@ const buttonStyle: ButtonElementStyle = {
   },
 }
 
-export const primaryButtonStyle: ButtonElementStyle = {
+export const primaryButtonStyle: NcssObjectProps = {
   ncss: {
     ...buttonStyle.ncss,
     color: 'buttonPrimaryText',
@@ -32,7 +32,7 @@ export const primaryButtonStyle: ButtonElementStyle = {
   },
 }
 
-export const secondaryButtonStyle: ButtonElementStyle = {
+export const secondaryButtonStyle: NcssObjectProps = {
   ncss: {
     ...buttonStyle.ncss,
     color: 'buttonSecondaryText',
@@ -45,7 +45,7 @@ export const secondaryButtonStyle: ButtonElementStyle = {
   },
 }
 
-export const displayButtonStyle: ButtonElementStyle = {
+export const displayButtonStyle: NcssObjectProps = {
   ncss: {
     fontSize: [6, 6, 7],
     px: [4, 4, 5],
@@ -53,7 +53,7 @@ export const displayButtonStyle: ButtonElementStyle = {
   },
 }
 
-export const aLinkButtonStyle: ButtonElementStyle = {
+export const aLinkButtonStyle: NcssObjectProps = {
   ncss: {
     fontSize: 6,
     bg: 'transparent',

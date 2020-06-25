@@ -1,6 +1,6 @@
-import { BlockquoteElementStyle } from './self-styles'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const selfBlockquoteReset: BlockquoteElementStyle = {
+export const selfBlockquoteReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

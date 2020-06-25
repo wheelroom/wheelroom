@@ -1,6 +1,6 @@
-import { StrongElementStyle } from './self-styles'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const selfStrongReset: StrongElementStyle = {
+export const selfStrongReset: NcssObjectProps = {
   ncss: {
     // Add the correct font weight in Chrome, Edge, and Safari.
     fontWeight: 'bolder',

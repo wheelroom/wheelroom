@@ -1,6 +1,6 @@
-import { HrElementStyle } from './self-styles'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const selfHrReset: HrElementStyle = {
+export const selfHrReset: NcssObjectProps = {
   ncss: {
     // 1. Add the correct box sizing in Firefox.
     // 2. Show the overflow in Edge and IE.

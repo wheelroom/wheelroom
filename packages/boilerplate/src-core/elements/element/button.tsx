@@ -1,15 +1,10 @@
 /** @jsx jsx */
 import React from 'react'
-import { NcssProps } from '../../lib/ncss'
 import { ElementProps } from '../element'
 import { getSelf } from '../self/self'
 import { buttonReset } from './button-reset'
 
-export interface ButtonElementStyle {
-  ncss: NcssProps
-}
-
-export interface ButtonProps extends ElementProps {
+export interface ButtonElementProps extends ElementProps {
   /** Button aria-controls attribute */
   ariaControls?: string | undefined
   /** Button aria-expanded attribute */
@@ -30,7 +25,7 @@ export interface ButtonProps extends ElementProps {
   onClick?: () => any
 }
 
-export const Button = React.forwardRef((props: ButtonProps, ref: any) => {
+export const Button = React.forwardRef((props: ButtonElementProps, ref: any) => {
   const extraAttrs: any = {
     'aria-controls': props.ariaControls,
     'aria-expanded': props.ariaExpanded,

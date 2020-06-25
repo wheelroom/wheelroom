@@ -4,16 +4,7 @@ import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from '../element'
 import { ElementStyles } from '../types/element-styles'
-import {
-  ListElementStyle,
-  BlockquoteElementStyle,
-  CodeElementStyle,
-  DescriptionListElementStyle,
-  HrElementStyle,
-  PreElementStyle,
-  StrongElementStyle,
-  TableElementStyle,
-} from './self-styles'
+import { NcssObjectProps } from '../../lib/ncss'
 import { selfBlockquoteReset } from './self-blockquote-reset'
 import { selfCodeReset } from './self-code-reset'
 import { selfDdReset, selfDlReset, selfDtReset } from './self-dl-reset'
@@ -29,15 +20,7 @@ import {
 } from './self-table-reset'
 import { selfTimeReset } from './self-time-reset'
 
-export type SelfReset =
-  | ListElementStyle
-  | BlockquoteElementStyle
-  | CodeElementStyle
-  | DescriptionListElementStyle
-  | HrElementStyle
-  | PreElementStyle
-  | StrongElementStyle
-  | TableElementStyle
+export type SelfReset = NcssObjectProps
 
 export const getSelf = (
   props: ElementProps,

@@ -21,7 +21,6 @@ import {
   Wheel,
   Wrapper,
   NcssProps,
-  ButtonElementStyle,
   NcssObjectProps,
 } from '../../../../src-core'
 import { Modal, ModalWheelStyle } from './modal'
@@ -41,11 +40,11 @@ export interface NavigationHeaderWheelStyle {
   actions: {
     ncss: NcssProps
     segment: NavigationSegmentModelStyle
-    themeButton: ButtonElementStyle
+    themeButton: NcssObjectProps
   }
   modal: {
     ncss: NcssProps
-    button: ButtonElementStyle
+    button: NcssObjectProps
     dialog: ModalWheelStyle
   }
 }

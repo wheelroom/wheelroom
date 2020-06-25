@@ -1,6 +1,6 @@
-import { CodeElementStyle } from './self-styles'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const selfCodeReset: CodeElementStyle = {
+export const selfCodeReset: NcssObjectProps = {
   ncss: {
     // 1. Correct the inheritance and scaling of font size in all browsers.
     // 2. Correct the odd `em` font sizing in all browsers.

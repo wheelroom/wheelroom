@@ -1,27 +1,27 @@
-import { TableElementStyle } from './self-styles'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const selfTableReset: TableElementStyle = {
+export const selfTableReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const selfTdReset: TableElementStyle = {
+export const selfTdReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const selfThReset: TableElementStyle = {
+export const selfThReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const selfTrReset: TableElementStyle = {
+export const selfTrReset: NcssObjectProps = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
