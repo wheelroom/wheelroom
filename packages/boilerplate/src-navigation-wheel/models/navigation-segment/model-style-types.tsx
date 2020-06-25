@@ -7,8 +7,7 @@ export interface NavigationSegmentModelStyle extends NcssObjectProps {
   action: ActionModelStyle
 }
 
-export interface BrandNavigationSegmentModelStyle {
-  ncss?: NcssObjectProps
+export interface BrandNavigationSegmentModelStyle extends NcssObjectProps {
   brand?: NcssObjectProps
   action: ActionModelStyle
 }

@@ -72,11 +72,9 @@ export const topicSectionQuoteStyle: TopicSectionModelStyle = {
       },
       embed: embedStyle,
       image: {
-        img: {
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
-          },
+        ncss: {
+          h: 1,
+          objectFit: 'cover',
         },
         picture: {
           ncss: {
@@ -95,14 +93,10 @@ export const topicSectionQuoteStyle: TopicSectionModelStyle = {
         picture: {
           ncss: {},
         },
-        img: {
-          ncss: {},
-        },
+        ncss: {},
       },
       video: {
-        video: {
-          ncss: {},
-        },
+        ncss: {},
         description: {
           ncss: {},
         },

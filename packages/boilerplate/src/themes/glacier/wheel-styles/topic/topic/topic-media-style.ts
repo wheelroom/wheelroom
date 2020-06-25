@@ -16,14 +16,12 @@ export const topicMediaStyle: TopicMediaWheelStyle = {
     },
   },
   image: {
+    ncss: {
+      label: 'topic-image',
+    },
     picture: {
       ncss: {
         label: 'topic-picture',
-      },
-    },
-    img: {
-      ncss: {
-        label: 'topic-img',
       },
     },
     figcaption: {
@@ -35,24 +33,20 @@ export const topicMediaStyle: TopicMediaWheelStyle = {
   mediaBreakpoint: {
     picture: {
       ncss: {
-        label: 'topic-mb-picture',
+        label: 'topic-media-breakpoint-picture',
       },
     },
-    img: {
-      ncss: {
-        label: 'topic-mb-img',
-      },
+    ncss: {
+      label: 'topic-media-Breakpoint-img',
     },
   },
   video: {
-    video: {
-      ncss: {
-        label: 'topic-video',
-      },
+    ncss: {
+      label: 'topic-video',
     },
     description: {
       ncss: {
-        label: 'topic-description',
+        label: 'topic-video-description',
       },
     },
   },

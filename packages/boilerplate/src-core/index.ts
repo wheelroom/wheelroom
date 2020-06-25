@@ -28,6 +28,7 @@ export type { ImageElementStyle } from './elements/element/image'
 export type { VideoElementStyle } from './elements/element/video'
 export type { VideoElementProps } from './elements/element/video'
 // Elements
+export type { ElementStyles } from './elements/types/element-styles'
 export type { ALinkElementProps } from './elements/element/a-link'
 export type { AnyElementProps } from './elements/element/any'
 export type { BlockLevelElementName } from './elements/types/element-names'

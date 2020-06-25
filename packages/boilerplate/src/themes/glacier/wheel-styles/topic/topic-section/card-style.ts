@@ -70,11 +70,9 @@ export const topicSectionCardStyle: TopicSectionModelStyle = {
         ncss: {},
       },
       image: {
-        img: {
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
-          },
+        ncss: {
+          h: 1,
+          objectFit: 'cover',
         },
         picture: {
           ncss: {
@@ -90,14 +88,10 @@ export const topicSectionCardStyle: TopicSectionModelStyle = {
         picture: {
           ncss: {},
         },
-        img: {
-          ncss: {},
-        },
+        ncss: {},
       },
       video: {
-        video: {
-          ncss: {},
-        },
+        ncss: {},
         description: {
           ncss: {},
         },

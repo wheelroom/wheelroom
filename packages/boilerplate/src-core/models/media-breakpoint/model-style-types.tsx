@@ -1,6 +1,5 @@
 import { NcssObjectProps } from '../../lib/ncss'
 
-export interface MediaBreakpointModelStyle {
-  img: NcssObjectProps
+export interface MediaBreakpointModelStyle extends NcssObjectProps {
   picture: NcssObjectProps
 }

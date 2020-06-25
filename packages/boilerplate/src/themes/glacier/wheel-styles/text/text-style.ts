@@ -67,9 +67,7 @@ export const textSectionTextStyle: TextSectionModelStyle = {
       ncss: {},
     },
     image: {
-      img: {
-        ncss: {},
-      },
+      ncss: {},
       picture: {
         ncss: {
           mt: 3,
@@ -81,11 +79,9 @@ export const textSectionTextStyle: TextSectionModelStyle = {
       },
     },
     video: {
-      video: {
-        ncss: {
-          mt: 3,
-          mb: 5,
-        },
+      ncss: {
+        mt: 3,
+        mb: 5,
       },
       description: {
         ncss: {},

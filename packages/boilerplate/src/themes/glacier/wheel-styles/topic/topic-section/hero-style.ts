@@ -69,11 +69,9 @@ export const topicSectionHeroStyle: TopicSectionModelStyle = {
       },
       embed: embedStyle,
       image: {
-        img: {
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
-          },
+        ncss: {
+          h: 1,
+          objectFit: 'cover',
         },
         picture: {
           ncss: {
@@ -89,15 +87,11 @@ export const topicSectionHeroStyle: TopicSectionModelStyle = {
         picture: {
           ncss: {},
         },
-        img: {
-          ncss: {},
-        },
+        ncss: {},
       },
       video: {
-        video: {
-          ncss: {
-            h: 1,
-          },
+        ncss: {
+          h: 1,
         },
         description: {
           ncss: {},

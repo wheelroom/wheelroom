@@ -37,16 +37,17 @@ export const blogSectionListStyle: BlogSectionListModelStyle = {
           label: 'blog-list-picture',
         },
       },
-      img: {
-        ncss: {
-          label: 'blog-list-img',
-        },
+      ncss: {
+        label: 'blog-list-img',
       },
     },
     video: {
-      video: {
+      ncss: {
+        label: 'blog-list-video',
+      },
+      description: {
         ncss: {
-          label: 'blog-list-video',
+          label: 'blog-list-video-description',
         },
       },
     },

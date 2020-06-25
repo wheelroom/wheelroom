@@ -55,9 +55,7 @@ export const topicSectionHeadlineStyle: TopicSectionModelStyle = {
       ncss: {},
       embed: embedStyle,
       image: {
-        img: {
-          ncss: {},
-        },
+        ncss: {},
         picture: {
           ncss: {},
         },
@@ -69,14 +67,10 @@ export const topicSectionHeadlineStyle: TopicSectionModelStyle = {
         picture: {
           ncss: {},
         },
-        img: {
-          ncss: {},
-        },
+        ncss: {},
       },
       video: {
-        video: {
-          ncss: {},
-        },
+        ncss: {},
         description: {
           ncss: {},
         },

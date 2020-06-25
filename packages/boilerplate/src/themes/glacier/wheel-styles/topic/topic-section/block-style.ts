@@ -62,13 +62,11 @@ export const topicSectionBlockStyle: TopicSectionModelStyle = {
         },
       },
       image: {
-        img: {
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
-            position: 'absolute',
-            w: 1,
-          },
+        ncss: {
+          h: 1,
+          objectFit: 'cover',
+          position: 'absolute',
+          w: 1,
         },
         picture: {
           ncss: {
@@ -86,14 +84,10 @@ export const topicSectionBlockStyle: TopicSectionModelStyle = {
         picture: {
           ncss: {},
         },
-        img: {
-          ncss: {},
-        },
+        ncss: {},
       },
       video: {
-        video: {
-          ncss: {},
-        },
+        ncss: {},
         description: {
           ncss: {},
         },

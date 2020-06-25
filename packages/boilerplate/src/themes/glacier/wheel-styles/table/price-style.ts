@@ -203,9 +203,7 @@ export const tableSectionPriceStyle: TableSectionModelStyle = {
             picture: {
               ncss: {},
             },
-            img: {
-              ncss: {},
-            },
+            ncss: {},
             figcaption: {
               ncss: {},
             },
@@ -214,14 +212,10 @@ export const tableSectionPriceStyle: TableSectionModelStyle = {
             picture: {
               ncss: {},
             },
-            img: {
-              ncss: {},
-            },
+            ncss: {},
           },
           video: {
-            video: {
-              ncss: {},
-            },
+            ncss: {},
             description: {
               ncss: {},
             },

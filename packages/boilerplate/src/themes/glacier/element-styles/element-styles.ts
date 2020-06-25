@@ -107,10 +107,8 @@ export const elementStyles: ElementStyles = {
     ncss: {},
   },
   image: {
+    ncss: {},
     figcaption: {
-      ncss: {},
-    },
-    img: {
       ncss: {},
     },
     picture: {
@@ -121,10 +119,8 @@ export const elementStyles: ElementStyles = {
     ncss: {},
   },
   mediaBreakpoint: {
+    ncss: {},
     picture: {
-      ncss: {},
-    },
-    img: {
       ncss: {},
     },
   },
@@ -181,11 +177,9 @@ export const elementStyles: ElementStyles = {
     description: {
       ncss: {},
     },
-    video: {
-      ncss: {
-        ':focus': {
-          outlineColor: 'outline',
-        },
+    ncss: {
+      ':focus': {
+        outlineColor: 'outline',
       },
     },
   },

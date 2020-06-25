@@ -65,10 +65,8 @@ export const blogSectionBlogStyle: BlogSectionBlogModelStyle = {
           mb: 6,
         },
       },
-      img: {
-        ncss: {
-          label: 'blog-img',
-        },
+      ncss: {
+        label: 'blog-img',
       },
       figcaption: {
         ncss: {
@@ -81,7 +79,8 @@ export const blogSectionBlogStyle: BlogSectionBlogModelStyle = {
       },
     },
     video: {
-      video: {
+      ncss: {},
+      description: {
         ncss: {},
       },
     },
@@ -161,11 +160,9 @@ export const blogSectionBlogStyle: BlogSectionBlogModelStyle = {
             },
           },
           image: {
-            img: {
-              ncss: {
-                h: 1,
-                objectFit: 'cover',
-              },
+            ncss: {
+              h: 1,
+              objectFit: 'cover',
             },
             picture: {
               ncss: {
@@ -188,17 +185,13 @@ export const blogSectionBlogStyle: BlogSectionBlogModelStyle = {
                 borderRadius: '50%',
               },
             },
-            img: {
-              ncss: {
-                h: 1,
-                objectFit: 'cover',
-              },
+            ncss: {
+              h: 1,
+              objectFit: 'cover',
             },
           },
           video: {
-            video: {
-              ncss: {},
-            },
+            ncss: {},
             description: {
               ncss: {},
             },
