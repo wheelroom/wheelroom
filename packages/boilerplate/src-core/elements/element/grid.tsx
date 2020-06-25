@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { NcssProps } from '../../lib/ncss'
 import {
   BlockLevelElementName,
   InlineElementName,
@@ -15,11 +14,7 @@ import {
   wrapperReset,
 } from './grid-reset'
 
-export interface GridElementStyle {
-  ncss: NcssProps
-}
-
-export interface GridProps extends ElementProps {
+export interface GridElementProps extends ElementProps {
   /** Aria-modal attribute */
   ariaModal?: boolean
   /** Render as another HTML element */
@@ -32,7 +27,7 @@ export interface GridProps extends ElementProps {
   onClick?: () => any
 }
 
-const getExtraAttrs = (props: GridProps) => {
+const getExtraAttrs = (props: GridElementProps) => {
   return {
     'aria-modal': props.ariaModal,
     rel: props.rel,
@@ -41,27 +36,27 @@ const getExtraAttrs = (props: GridProps) => {
   }
 }
 
-export const Box = (props: GridProps) => {
+export const Box = (props: GridElementProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(props, boxReset, 'box', extraAttrs, props.is || 'div')
 }
 
-export const Flex = (props: GridProps) => {
+export const Flex = (props: GridElementProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(props, flexReset, 'flex', extraAttrs, props.is || 'div')
 }
 
-export const Wrapper = (props: GridProps) => {
+export const Wrapper = (props: GridElementProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(props, wrapperReset, 'wrapper', extraAttrs, props.is || 'div')
 }
 
-export const Fluid = (props: GridProps) => {
+export const Fluid = (props: GridElementProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(props, fluidReset, 'fluid', extraAttrs, props.is || 'div')
 }
 
-export const Container = (props: GridProps) => {
+export const Container = (props: GridElementProps) => {
   const extraAttrs = getExtraAttrs(props)
   return getSelf(
     props,
