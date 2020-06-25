@@ -1,7 +1,14 @@
 import React from 'react'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { Box, Wheel, Flex, Button, NcssObjectProps } from '../../../../src-core'
+import {
+  Box,
+  Wheel,
+  Flex,
+  Button,
+  NcssObjectProps,
+  NcssProps,
+} from '../../../../src-core'
 import { FeatherIcon } from '../../../../src-core/elements/element/icon'
 import { NavigationSegmentModelStyle } from '../../navigation-segment/model-style-types'
 import { ThemeButton } from './theme-button'
@@ -9,8 +16,9 @@ import { ThemeButton } from './theme-button'
 export interface ModalWheelStyle {
   container: {
     // ncssSwitch: Record<'visible' | 'hidden', any>
-    visible: NcssObjectProps
-    hidden: NcssObjectProps
+    // These are not NcssObjectProps because it is a switch
+    visible: NcssProps
+    hidden: NcssProps
   }
   overlay: {
     visible: NcssObjectProps
