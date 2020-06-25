@@ -9,7 +9,6 @@ import {
   Wheel,
   Wrapper,
   NcssProps,
-  ALinkElementStyle,
   NcssObjectProps,
   Sup,
 } from '../../../../src-core'
@@ -21,7 +20,7 @@ export interface LegalFooterWheelStyle {
     ncss: NcssProps
     promise: {
       ncss: NcssProps
-      link: ALinkElementStyle
+      link: NcssObjectProps
       sup: NcssObjectProps
     }
   }

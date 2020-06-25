@@ -1,15 +1,10 @@
 /** @jsx jsx */
-import { NcssProps } from '../../lib/ncss'
 import { LinkRelationshipAttribute } from '../types/attribute-names'
 import { ElementProps } from '../element'
 import { getSelf } from '../self/self'
 import { aLinkReset } from './a-link-reset'
 
-export interface ALinkElementStyle {
-  ncss: NcssProps
-}
-
-export interface ALinkProps extends ElementProps {
+export interface ALinkElementProps extends ElementProps {
   /** Link download attribute */
   download?: boolean | undefined
   /** Link URL attribute */
@@ -24,7 +19,7 @@ export interface ALinkProps extends ElementProps {
   onClick?: () => any
 }
 
-export const ALink = (props: ALinkProps) => {
+export const ALink = (props: ALinkElementProps) => {
   const extraAttrs = {
     download: props.download,
     href: props.href,

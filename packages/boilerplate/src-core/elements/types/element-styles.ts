@@ -1,4 +1,4 @@
-import { ALinkElementStyle } from '../element/a-link'
+import { NcssObjectProps } from '../element/a-link'
 import { AnyElementStyle } from '../element/any'
 import {
   BlockquoteElementStyle,
@@ -21,7 +21,7 @@ import { NcssObjectProps } from '../../lib/ncss'
 import { EmbedModelStyle } from '../../models/embed/model-style-types'
 
 export interface ElementStyles {
-  a: ALinkElementStyle
+  a: NcssObjectProps
   any: AnyElementStyle
   blockquote: BlockquoteElementStyle
   box: NcssObjectProps

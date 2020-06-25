@@ -1,6 +1,6 @@
-import { ALinkElementStyle } from './a-link'
+import { NcssObjectProps } from '../../lib/ncss'
 
-export const aLinkReset: ALinkElementStyle = {
+export const aLinkReset: NcssObjectProps = {
   ncss: {
     // Remove the gray background on active links in IE 10.
     bg: 'transparent',

@@ -1,5 +1,5 @@
 import {
-  ALinkElementStyle,
+  NcssObjectProps,
   BlockquoteElementStyle,
   CodeElementStyle,
   EmbedModelStyle,
@@ -25,8 +25,8 @@ export interface TextModelStyle {
   ul: ListElementStyle
   ol: ListElementStyle
   li: ListElementStyle
-  inlinesHyperlink: ALinkElementStyle
-  entryHyperlink: ALinkElementStyle
+  inlinesHyperlink: NcssObjectProps
+  entryHyperlink: NcssObjectProps
   h1: HeadingElementStyle
   h2: HeadingElementStyle
   h3: HeadingElementStyle
