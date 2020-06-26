@@ -1,8 +1,5 @@
 import { TableSectionModelNcssTree } from '../../../../../src-table-wheel'
-import {
-  iconSmallTopicNcssNode,
-  iconButtonSmallNcssNode,
-} from '../../shared-ncss/icon-ncss'
+import { iconSmallTopicNcssNode, iconButtonSmallNcssNode } from '../icon-ncss'
 import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { embedNcssNode } from '../embed-ncss'
 import { deepMerge, DeepPartial } from '../../../../../src-core'

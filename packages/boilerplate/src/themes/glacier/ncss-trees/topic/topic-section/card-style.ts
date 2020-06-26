@@ -1,7 +1,7 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
 import { primaryButtonNcssNode } from '../../../element-ncss/button-ncss'
-import { iconTopicNcssNode } from '../../../shared-ncss/icon-ncss'
+import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
 import { deepMerge } from '../../../../../../src-core'
 

@@ -5,7 +5,7 @@ import {
   primaryButtonNcssNode,
   secondaryButtonNcssNode,
 } from '../../../element-ncss/button-ncss'
-import { iconButtonSmallNcssNode } from '../../../shared-ncss/icon-ncss'
+import { iconButtonSmallNcssNode } from '../../icon-ncss'
 import {
   dialogContentIsVisible,
   dialogContent,

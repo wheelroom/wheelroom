@@ -1,7 +1,4 @@
-import {
-  iconSmallTopicNcssNode,
-  iconButtonSmallNcssNode,
-} from '../../shared-ncss/icon-ncss'
+import { iconSmallTopicNcssNode, iconButtonSmallNcssNode } from '../icon-ncss'
 import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { TableSectionModelNcssTree } from '../../../../../src-table-wheel'
 import { embedNcssNode } from '../embed-ncss'

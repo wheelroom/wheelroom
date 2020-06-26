@@ -1,6 +1,6 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import { aLinkButtonNcssNode } from '../../../element-ncss/button-ncss'
-import { iconTopicNcssNode } from '../../../shared-ncss/icon-ncss'
+import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
 import { wrapperNcssNode } from '../../grid-ncss'
 

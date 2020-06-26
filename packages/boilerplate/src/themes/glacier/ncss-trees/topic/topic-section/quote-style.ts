@@ -4,10 +4,7 @@ import {
   displayButtonNcssNode,
   secondaryButtonNcssNode,
 } from '../../../element-ncss/button-ncss'
-import {
-  iconButtonNcssNode,
-  iconTopicNcssNode,
-} from '../../../shared-ncss/icon-ncss'
+import { iconButtonNcssNode, iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
 import { wrapperNcssNode } from '../../grid-ncss'
 import { deepMerge } from '../../../../../../src-core'
