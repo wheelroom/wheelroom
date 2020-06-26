@@ -1,7 +1,7 @@
 import { ActionModelProps } from '../../../src-core'
-import { TableRowProps } from '../table-row/model-types'
+import { TableRowModelProps } from '../table-row/model-types'
 
-export interface TableProps {
+export interface TableModelProps {
   /** Gatsby fetched data */
   __typename: string
   heading?: string
@@ -10,5 +10,5 @@ export interface TableProps {
   }
   icon?: string
   actions?: ActionModelProps[]
-  tableRows?: TableRowProps[]
+  tableRows?: TableRowModelProps[]
 }

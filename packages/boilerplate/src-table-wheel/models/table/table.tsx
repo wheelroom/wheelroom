@@ -17,26 +17,26 @@ import {
 } from '../../../src-core'
 import { TopicOptions } from '../../../src-topic-wheel'
 import { TableRow } from '../table-row/table-row'
-import { TableRowProps } from '../table-row/model-types'
+import { TableRowModelProps } from '../table-row/model-types'
 import { TableModelNcssTree } from './model-style-types'
-import { TableProps } from './model-types'
+import { TableModelProps } from './model-types'
 
 export interface TableWheel extends Wheel {
   style: TableModelNcssTree
 }
 
-export interface TableWheelProps {
+export interface TableProps {
   /** Styling wheel */
   wheel: TableWheel
   /** The topic to render */
-  tables?: TableProps[]
+  tables?: TableModelProps[]
   /** Topic options */
   topicOptions: TopicOptions
   /** Accept max number of topics, ignore all others */
   maxTopics?: number
 }
 
-export const Table = (props: TableWheelProps) => {
+export const Table = (props: TableProps) => {
   const tables = props.tables
   if (!tables) {
     return null
@@ -47,10 +47,10 @@ export const Table = (props: TableWheelProps) => {
         wheel={{ ...props.wheel, style: props.wheel.style.tableElement }}
       >
         <tbody>
-          {tables.map((table: TableProps, index: number) => {
+          {tables.map((table: TableModelProps, index: number) => {
             const tableRows = table.tableRows || []
             let columnCount = 0
-            tableRows.forEach((tableRow: TableRowProps) => {
+            tableRows.forEach((tableRow: TableRowModelProps) => {
               if (tableRow.topics && tableRow.topics.length > columnCount) {
                 columnCount = tableRow.topics.length
               }
@@ -129,7 +129,7 @@ export const Table = (props: TableWheelProps) => {
                   </Tr>
                 )}
                 {table.tableRows?.map(
-                  (tableRow: TableRowProps, index: number) => {
+                  (tableRow: TableRowModelProps, index: number) => {
                     return (
                       <TableRow
                         key={index}

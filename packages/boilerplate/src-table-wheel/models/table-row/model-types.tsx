@@ -1,7 +1,7 @@
 import { ActionModelProps } from '../../../src-core'
 import { TopicModelProps } from '../../../src-topic-wheel'
 
-export interface TableRowProps {
+export interface TableRowModelProps {
   /** Gatsby fetched data */
   __typename: string
   variation?: string

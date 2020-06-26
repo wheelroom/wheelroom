@@ -14,7 +14,7 @@ import {
   getNcssSwitch,
 } from '../../../src-core'
 import { TopicOptions, TopicModelProps } from '../../../src-topic-wheel'
-import { TableRowProps } from './model-types'
+import { TableRowModelProps } from './model-types'
 import { TableRowModelNcssTree } from './model-style-types'
 import { TableRowCell } from './table-row-cell'
 
@@ -22,16 +22,16 @@ export interface TableRowWheel extends Wheel {
   style: TableRowModelNcssTree
 }
 
-export interface TableRowWheelProps {
+export interface TableRowProps {
   /** Styling wheel */
   wheel: TableRowWheel
   /** The topic rows to render */
-  tableRow?: TableRowProps
+  tableRow?: TableRowModelProps
   /** Topic options */
   topicOptions: TopicOptions
 }
 
-export const TableRow = (props: TableRowWheelProps) => {
+export const TableRow = (props: TableRowProps) => {
   const tableRow = props.tableRow
   if (!tableRow) {
     return null
