@@ -1,7 +1,7 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import { aLinkButtonNcssNode } from '../../../element-ncss/button-ncss'
 import { iconTopicNcssNode } from '../../../shared-ncss/icon-ncss'
-import { embedNcssNode } from '../../../shared-ncss/embed-ncss'
+import { embedNcssNode } from '../../embed-ncss'
 import { wrapperNcssNode } from '../../../shared-ncss/grid-ncss'
 
 export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {

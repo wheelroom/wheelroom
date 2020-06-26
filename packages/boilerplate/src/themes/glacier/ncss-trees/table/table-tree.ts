@@ -4,7 +4,7 @@ import {
   iconButtonSmallNcssNode,
 } from '../../shared-ncss/icon-ncss'
 import { containerNcssNode, wrapperNcssNode } from '../../shared-ncss/grid-ncss'
-import { embedNcssNode } from '../../shared-ncss/embed-ncss'
+import { embedNcssNode } from '../embed-ncss'
 import { deepMerge, DeepPartial } from '../../../../../src-core'
 
 export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> = {

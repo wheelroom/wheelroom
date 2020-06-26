@@ -4,7 +4,7 @@ import {
 } from '../../shared-ncss/icon-ncss'
 import { containerNcssNode, wrapperNcssNode } from '../../shared-ncss/grid-ncss'
 import { TableSectionModelNcssTree } from '../../../../../src-table-wheel'
-import { embedNcssNode } from '../../shared-ncss/embed-ncss'
+import { embedNcssNode } from '../embed-ncss'
 import { deepMerge, DeepPartial } from '../../../../../src-core'
 
 export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> = {

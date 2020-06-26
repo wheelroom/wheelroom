@@ -8,7 +8,7 @@ import {
   iconButtonNcssNode,
   iconTopicNcssNode,
 } from '../../../shared-ncss/icon-ncss'
-import { embedNcssNode } from '../../../shared-ncss/embed-ncss'
+import { embedNcssNode } from '../../embed-ncss'
 
 export const topicSectionHeroNcssTree: TopicSectionModelNcssTree = {
   container: {

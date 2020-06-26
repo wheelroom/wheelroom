@@ -5,7 +5,7 @@ import {
 } from '../../../shared-ncss/grid-ncss'
 import { primaryButtonNcssNode } from '../../../element-ncss/button-ncss'
 import { iconTopicNcssNode } from '../../../shared-ncss/icon-ncss'
-import { embedNcssNode } from '../../../shared-ncss/embed-ncss'
+import { embedNcssNode } from '../../embed-ncss'
 import { deepMerge } from '../../../../../../src-core'
 
 export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
