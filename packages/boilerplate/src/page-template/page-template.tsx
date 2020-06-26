@@ -10,7 +10,7 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import {
   classicGlobalReset,
   CoreSiteMetadata,
-  GlobalsProps,
+  GlobalsModelProps,
   htmlReset,
   PageModelProps,
   Seo,
@@ -43,7 +43,7 @@ const PageTemplate = (props: any) => {
     return 'No sections'
   }
 
-  const globals: GlobalsProps = props.data.globals
+  const globals: GlobalsModelProps = props.data.globals
   const blog: BlogProps = props.data.blog
   const allBlog: AllBlogProps = props.data.allBlog
   const locale = props.pageContext.locale

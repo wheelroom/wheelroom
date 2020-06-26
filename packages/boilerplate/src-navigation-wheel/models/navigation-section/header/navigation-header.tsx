@@ -16,7 +16,7 @@ import {
   Container,
   Flex,
   Fluid,
-  GlobalsProps,
+  GlobalsModelProps,
   SectionWheelThemes,
   Wheel,
   Wrapper,
@@ -54,7 +54,7 @@ interface NavigationHeaderWheel extends Wheel {
 export interface NavigationHeaderProps {
   containerStyle: 'container' | 'fluid'
   defaultThemeId: string
-  globals: GlobalsProps
+  globals: GlobalsModelProps
   hideThemeButton?: boolean
   navigation: NavigationModelProps[]
   themes: SectionWheelThemes

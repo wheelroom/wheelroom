@@ -8,7 +8,7 @@ import {
   CoreSiteMetadata,
   Flex,
   Fluid,
-  GlobalsProps,
+  GlobalsModelProps,
   Wheel,
   Wrapper,
   NcssNode,
@@ -35,7 +35,7 @@ interface NavigationFooterWheel extends Wheel {
 
 export interface NavigationFooterProps {
   containerStyle: 'container' | 'fluid'
-  globals: GlobalsProps
+  globals: GlobalsModelProps
   navigation: NavigationModelProps[]
   siteMetaData: CoreSiteMetadata
   wheel: NavigationFooterWheel

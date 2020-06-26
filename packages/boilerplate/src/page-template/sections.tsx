@@ -7,7 +7,7 @@ import { NavigationSection } from '../../src-navigation-wheel'
 import { TableSection } from '../../src-table-wheel'
 import { TopicSection } from '../../src-topic-wheel'
 import {
-  GlobalsProps,
+  GlobalsModelProps,
   CoreSiteMetadata,
   PageModelProps,
   SectionWheels,
@@ -35,7 +35,7 @@ export interface SectionsProps {
   locale: string
   namedPaths: NamedPaths
   activeThemeId: string | undefined
-  globals: GlobalsProps
+  globals: GlobalsModelProps
   blog: BlogProps
   allBlog: AllBlogProps
   page: PageModelProps

@@ -8,7 +8,7 @@
 import { EmbedModelProps } from '../embed/model-types'
 import { MediaObject } from '../../elements/types/media'
 
-export interface GlobalsProps {
+export interface GlobalsModelProps {
   /** Gatsby fetched data */
   __typename: string
   siteAuthor?: string

@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
-import { GlobalsProps } from '../globals/model-types'
+import { GlobalsModelProps } from '../globals/model-types'
 import { EmbedModelProps } from './model-types'
 
 export const useEmbeds = (gatsbyProps: any) => {
@@ -8,7 +8,7 @@ export const useEmbeds = (gatsbyProps: any) => {
 
   // Run embed codes only once
   const [embedsDone, setEmbedsDone] = useState(false)
-  const globals: GlobalsProps = gatsbyProps.data.globals
+  const globals: GlobalsModelProps = gatsbyProps.data.globals
 
   // Run embed code
   if (!embedsDone && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
