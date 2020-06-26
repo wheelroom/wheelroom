@@ -4,7 +4,7 @@ import {
   wrapperNcssNode,
 } from '../../shared-styles/grid-style'
 import { deepMerge, DeepPartial } from '../../../../../../src-core'
-import { navigationSegment } from '../navigation-segment/navigation-segment'
+import { navigationSegmentNcssTree } from '../navigation-segment/navigation-segment'
 
 export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFooterModelNcssTree> = {
   wrapper: deepMerge([
@@ -40,7 +40,7 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
         label: 'menu-navigation',
       },
       segment: deepMerge([
-        navigationSegment,
+        navigationSegmentNcssTree,
         {
           list: {
             ncss: {
@@ -65,7 +65,7 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
         label: 'social-navigation',
       },
       segment: deepMerge([
-        navigationSegment,
+        navigationSegmentNcssTree,
         {
           list: {
             ncss: {

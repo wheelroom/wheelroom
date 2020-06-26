@@ -14,7 +14,7 @@ import {
   dialogOverlayIsVisible,
   dialogOverlay,
 } from '../modal/dialog'
-import { navigationSegment } from '../navigation-segment/navigation-segment'
+import { navigationSegmentNcssTree } from '../navigation-segment/navigation-segment'
 
 export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeaderModelNcssTree> = {
   skipToContent: {
@@ -50,7 +50,6 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
     },
   },
   header: {
-    ncss: {},
     brand: {
       ncss: {
         label: 'brand-navigation',
@@ -91,7 +90,7 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
         display: ['none', 'none', 'flex'],
       },
       segment: deepMerge([
-        navigationSegment,
+        navigationSegmentNcssTree,
         {
           ncss: {
             label: 'menu-navigation-segment',
@@ -117,7 +116,7 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
         mx: -1,
       },
       segment: deepMerge([
-        navigationSegment,
+        navigationSegmentNcssTree,
         {
           ncss: {
             label: 'menu-navigation-actions',
@@ -134,8 +133,8 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
       ]),
       themeButton: {
         ncss: {
-          label: 'actions-theme-button',
           ...secondaryButtonNcssNode.ncss,
+          label: 'actions-theme-button',
           m: 1,
         },
       },
@@ -212,7 +211,7 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
             w: 1,
           },
           segment: deepMerge([
-            navigationSegment,
+            navigationSegmentNcssTree,
             {
               ncss: {
                 label: 'menu-navigation-segment',
@@ -259,7 +258,7 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
             p: 1,
           },
           segment: deepMerge([
-            navigationSegment,
+            navigationSegmentNcssTree,
             {
               list: {
                 ncss: {
@@ -284,8 +283,8 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
           ]),
           themeButton: {
             ncss: {
-              label: 'modal-theme-button',
               ...secondaryButtonNcssNode.ncss,
+              label: 'modal-theme-button',
               m: 1,
             },
           },

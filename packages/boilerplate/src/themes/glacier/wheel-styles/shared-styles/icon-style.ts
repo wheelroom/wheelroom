@@ -10,11 +10,9 @@ const iconLargeNcss = {
   h: ['17px', '17px', '20px'],
 }
 
-const iconSmallNcss = {
-  ncss: {
-    w: '16px',
-    h: '16px',
-  },
+export const iconSmallNcss = {
+  w: '16px',
+  h: '16px',
 }
 
 export const iconButtonSmallNcssNode: NcssNode = {
