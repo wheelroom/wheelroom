@@ -13,7 +13,7 @@ import {
 } from '../../../../src-core'
 import { TopicModelProps, Topic } from '../../../../src-topic-wheel'
 import { Text } from '../../../../src-text-wheel'
-import { BlogSectionBlogVariationNcssTree } from './model-ncss'
+import { BlogSectionBlogVariationNcssTree } from './model-ncss-tree'
 
 interface BlogWheel extends Wheel {
   style: BlogSectionBlogVariationNcssTree

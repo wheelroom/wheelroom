@@ -10,5 +10,5 @@ export type {
   BlogSectionModelProps,
   InjectedBlogSectionModelProps,
 } from './models/blog-section/model-types'
-export type { BlogSectionBlogModelNcssTree } from './models/blog-section/model-style-types'
-export type { BlogSectionListModelNcssTree } from './models/blog-section/model-style-types'
+export type { BlogSectionBlogModelNcssTree } from './models/blog-section/model-ncss-tree'
+export type { BlogSectionListModelNcssTree } from './models/blog-section/model-ncss-tree'

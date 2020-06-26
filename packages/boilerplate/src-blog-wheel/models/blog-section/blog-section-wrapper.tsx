@@ -1,6 +1,6 @@
 import React from 'react'
 import { Wheel, Container, Fluid, Wrapper } from '../../../src-core'
-import { BlogSectionModelNcssTree } from './model-style-types'
+import { BlogSectionModelNcssTree } from './model-ncss-tree'
 
 export interface BlogSectionWheel extends Wheel {
   style: BlogSectionModelNcssTree

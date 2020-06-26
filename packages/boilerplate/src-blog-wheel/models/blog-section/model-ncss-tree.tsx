@@ -1,6 +1,6 @@
 import { NcssNode } from '../../../src-core'
-import { BlogSectionBlogVariationNcssTree } from './blog/model-ncss'
-import { BlogSectionListVariationNcssTree } from './list/model-ncss'
+import { BlogSectionBlogVariationNcssTree } from './blog/model-ncss-tree'
+import { BlogSectionListVariationNcssTree } from './list/model-ncss-tree'
 
 export interface BlogSectionModelNcssTree {
   container: NcssNode
