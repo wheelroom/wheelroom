@@ -1,6 +1,6 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export const selfBlockquoteReset: NcssObjectProps = {
+export const selfBlockquoteReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

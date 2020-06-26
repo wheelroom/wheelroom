@@ -6,8 +6,8 @@ import {
   Wheel,
   Flex,
   Button,
-  NcssObjectProps,
-  NcssProps,
+  NcssNode,
+  Ncss,
   getNcssSwitch,
 } from '../../../../src-core'
 import { FeatherIcon } from '../../../../src-core/elements/element/icon'
@@ -15,23 +15,23 @@ import { NavigationSegmentModelNcssTree } from '../../navigation-segment/model-s
 import { ThemeButton } from './theme-button'
 
 export interface ModalNcssTree {
-  ncssSwitch: Record<'visible' | 'hidden', NcssProps>
+  ncssSwitch: Record<'visible' | 'hidden', Ncss>
   overlay: {
-    ncssSwitch: Record<'visible' | 'hidden', NcssProps>
+    ncssSwitch: Record<'visible' | 'hidden', Ncss>
   }
   document: {
-    ncssSwitch: Record<'visible' | 'hidden', NcssProps>
+    ncssSwitch: Record<'visible' | 'hidden', Ncss>
   }
   closeButton: {
-    icon: NcssObjectProps
-  } & NcssObjectProps
+    icon: NcssNode
+  } & NcssNode
   menu: {
     segment: NavigationSegmentModelNcssTree
-  } & NcssObjectProps
+  } & NcssNode
   actions: {
     segment: NavigationSegmentModelNcssTree
-    themeButton: NcssObjectProps
-  } & NcssObjectProps
+    themeButton: NcssNode
+  } & NcssNode
 }
 
 interface ModalWheel extends Wheel {

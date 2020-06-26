@@ -1,5 +1,5 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export interface MediaBreakpointModelNcssTree extends NcssObjectProps {
-  picture: NcssObjectProps
+export interface MediaBreakpointModelNcssTree extends NcssNode {
+  picture: NcssNode
 }

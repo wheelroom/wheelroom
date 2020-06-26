@@ -1,8 +1,8 @@
 import { TopicModelNcssTree } from '../..'
-import { NcssObjectProps } from '../../../src-core'
+import { NcssNode } from '../../../src-core'
 
 export interface TopicSectionModelNcssTree {
-  container: NcssObjectProps
+  container: NcssNode
   topic: TopicModelNcssTree
-  wrapper: NcssObjectProps
+  wrapper: NcssNode
 }

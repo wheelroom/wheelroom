@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 import {
   BlockLevelElementName,
   InlineElementName,
@@ -11,7 +11,7 @@ import { ElementProps, getElementAttrs } from '../element'
 import { ElementStyles } from '../types/element-styles'
 import { anyResetMap } from './any-reset'
 
-export const anyPreset: NcssObjectProps = {
+export const anyPreset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
   },

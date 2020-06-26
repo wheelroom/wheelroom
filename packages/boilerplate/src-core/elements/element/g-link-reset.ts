@@ -1,6 +1,6 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export const gLinkReset: NcssObjectProps = {
+export const gLinkReset: NcssNode = {
   ncss: {
     // Remove the gray background on active links in IE 10.
     bg: 'transparent',

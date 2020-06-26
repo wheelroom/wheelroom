@@ -1,5 +1,5 @@
 import { mergeNcssTable } from './merge-ncss-table'
-import { NcssObjectProps } from './ncss'
+import { NcssNode } from './ncss'
 
 /**
  *
@@ -14,9 +14,9 @@ import { NcssObjectProps } from './ncss'
  *
  */
 
-export const mergeNcss = (ncssObjects: NcssObjectProps[]): NcssObjectProps => {
+export const mergeNcss = (ncssObjects: NcssNode[]): NcssNode => {
   const result = {}
-  ncssObjects.forEach((ncssObject: NcssObjectProps) => {
+  ncssObjects.forEach((ncssObject: NcssNode) => {
     if (!ncssObject.ncss) {
       return
     }

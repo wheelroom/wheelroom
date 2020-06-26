@@ -1,6 +1,6 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export const selfTimeReset: NcssObjectProps = {
+export const selfTimeReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

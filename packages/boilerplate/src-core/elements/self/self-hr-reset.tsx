@@ -1,6 +1,6 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export const selfHrReset: NcssObjectProps = {
+export const selfHrReset: NcssNode = {
   ncss: {
     // 1. Add the correct box sizing in Firefox.
     // 2. Show the overflow in Edge and IE.

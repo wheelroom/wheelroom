@@ -1,13 +1,13 @@
-import { NcssObjectProps, ActionModelNcssTree } from '../../../src-core'
+import { NcssNode, ActionModelNcssTree } from '../../../src-core'
 
-export interface NavigationSegmentModelNcssTree extends NcssObjectProps {
-  heading: NcssObjectProps
-  list: NcssObjectProps
-  item: NcssObjectProps
+export interface NavigationSegmentModelNcssTree extends NcssNode {
+  heading: NcssNode
+  list: NcssNode
+  item: NcssNode
   action: ActionModelNcssTree
 }
 
-export interface BrandNavigationSegmentModelNcssTree extends NcssObjectProps {
-  branding: NcssObjectProps
+export interface BrandNavigationSegmentModelNcssTree extends NcssNode {
+  branding: NcssNode
   action: ActionModelNcssTree
 }

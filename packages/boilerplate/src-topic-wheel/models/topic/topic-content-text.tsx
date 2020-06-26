@@ -8,14 +8,14 @@ import {
   Icon,
   ParserFunction,
   Wheel,
-  NcssObjectProps,
+  NcssNode,
 } from '../../../src-core'
 import { TopicModelProps } from './model-types'
 
-export interface TopicContentTextWheelStyle extends NcssObjectProps {
-  icon: NcssObjectProps
-  heading: NcssObjectProps
-  abstract: NcssObjectProps
+export interface TopicContentTextWheelStyle extends NcssNode {
+  icon: NcssNode
+  heading: NcssNode
+  abstract: NcssNode
 }
 
 export interface TopicContentTextWheel extends Wheel {

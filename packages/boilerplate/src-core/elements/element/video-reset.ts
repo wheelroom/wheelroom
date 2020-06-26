@@ -1,6 +1,6 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export const videoVideoElementStyle: NcssObjectProps = {
+export const videoVideoElementStyle: NcssNode = {
   ncss: {
     // Video poster need to cover the whole video element
     objectFit: 'cover',
@@ -15,7 +15,7 @@ export const videoVideoElementStyle: NcssObjectProps = {
   },
 }
 
-export const videoDescriptionReset: NcssObjectProps = {
+export const videoDescriptionReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

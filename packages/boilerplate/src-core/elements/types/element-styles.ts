@@ -1,49 +1,49 @@
 import { ImageElementStyle } from '../element/image'
 import { VideoElementStyle } from '../element/video'
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
 export interface ElementStyles {
-  a: NcssObjectProps
-  any: NcssObjectProps
-  blockquote: NcssObjectProps
-  box: NcssObjectProps
-  button: NcssObjectProps
-  code: NcssObjectProps
-  container: NcssObjectProps
-  dd: NcssObjectProps
-  dl: NcssObjectProps
-  dt: NcssObjectProps
-  embed: NcssObjectProps
-  featherIcon: NcssObjectProps
-  flex: NcssObjectProps
-  fluid: NcssObjectProps
-  gLink: NcssObjectProps
-  h1: NcssObjectProps
-  h2: NcssObjectProps
-  h3: NcssObjectProps
-  h4: NcssObjectProps
-  h5: NcssObjectProps
-  h6: NcssObjectProps
-  hr: NcssObjectProps
+  a: NcssNode
+  any: NcssNode
+  blockquote: NcssNode
+  box: NcssNode
+  button: NcssNode
+  code: NcssNode
+  container: NcssNode
+  dd: NcssNode
+  dl: NcssNode
+  dt: NcssNode
+  embed: NcssNode
+  featherIcon: NcssNode
+  flex: NcssNode
+  fluid: NcssNode
+  gLink: NcssNode
+  h1: NcssNode
+  h2: NcssNode
+  h3: NcssNode
+  h4: NcssNode
+  h5: NcssNode
+  h6: NcssNode
+  hr: NcssNode
   image: ImageElementStyle
-  kbd: NcssObjectProps
-  li: NcssObjectProps
+  kbd: NcssNode
+  li: NcssNode
   mediaBreakpoint: ImageElementStyle
-  ol: NcssObjectProps
-  p: NcssObjectProps
-  pre: NcssObjectProps
-  samp: NcssObjectProps
-  small: NcssObjectProps
-  strong: NcssObjectProps
-  sub: NcssObjectProps
-  sup: NcssObjectProps
-  table: NcssObjectProps
-  td: NcssObjectProps
-  th: NcssObjectProps
-  tr: NcssObjectProps
-  time: NcssObjectProps
-  textIcon: NcssObjectProps
-  ul: NcssObjectProps
+  ol: NcssNode
+  p: NcssNode
+  pre: NcssNode
+  samp: NcssNode
+  small: NcssNode
+  strong: NcssNode
+  sub: NcssNode
+  sup: NcssNode
+  table: NcssNode
+  td: NcssNode
+  th: NcssNode
+  tr: NcssNode
+  time: NcssNode
+  textIcon: NcssNode
+  ul: NcssNode
   video: VideoElementStyle
-  wrapper: NcssObjectProps
+  wrapper: NcssNode
 }

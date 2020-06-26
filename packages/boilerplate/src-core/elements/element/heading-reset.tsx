@@ -1,6 +1,6 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export const headingReset: NcssObjectProps = {
+export const headingReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
@@ -8,7 +8,7 @@ export const headingReset: NcssObjectProps = {
 }
 
 // These styles are added to H1, H2, H3, H4, H5 and H6 as presets
-export const heading1Reset: NcssObjectProps = {
+export const heading1Reset: NcssNode = {
   ncss: {
     // Correct the font size and margin on `h1` elements within `section` and
     // `article` contexts in Chrome, Firefox, and Safari.
@@ -19,31 +19,31 @@ export const heading1Reset: NcssObjectProps = {
   },
 }
 
-export const heading2Reset: NcssObjectProps = {
+export const heading2Reset: NcssNode = {
   ncss: {
     ...headingReset.ncss,
   },
 }
 
-export const heading3Reset: NcssObjectProps = {
+export const heading3Reset: NcssNode = {
   ncss: {
     ...headingReset.ncss,
   },
 }
 
-export const heading4Reset: NcssObjectProps = {
+export const heading4Reset: NcssNode = {
   ncss: {
     ...headingReset.ncss,
   },
 }
 
-export const heading5Reset: NcssObjectProps = {
+export const heading5Reset: NcssNode = {
   ncss: {
     ...headingReset.ncss,
   },
 }
 
-export const heading6Reset: NcssObjectProps = {
+export const heading6Reset: NcssNode = {
   ...headingReset.ncss,
 }
 

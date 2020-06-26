@@ -1,6 +1,6 @@
-import { NcssObjectProps } from '../../../../src-core'
+import { NcssNode } from '../../../../src-core'
 
-const buttonStyle: NcssObjectProps = {
+const buttonStyle: NcssNode = {
   ncss: {
     display: 'inline-flex',
     justifyContent: 'center',
@@ -19,7 +19,7 @@ const buttonStyle: NcssObjectProps = {
   },
 }
 
-export const primaryButtonStyle: NcssObjectProps = {
+export const primaryButtonStyle: NcssNode = {
   ncss: {
     ...buttonStyle.ncss,
     color: 'buttonPrimaryText',
@@ -32,7 +32,7 @@ export const primaryButtonStyle: NcssObjectProps = {
   },
 }
 
-export const secondaryButtonStyle: NcssObjectProps = {
+export const secondaryButtonStyle: NcssNode = {
   ncss: {
     ...buttonStyle.ncss,
     color: 'buttonSecondaryText',
@@ -45,7 +45,7 @@ export const secondaryButtonStyle: NcssObjectProps = {
   },
 }
 
-export const displayButtonStyle: NcssObjectProps = {
+export const displayButtonStyle: NcssNode = {
   ncss: {
     fontSize: [6, 6, 7],
     px: [4, 4, 5],
@@ -53,7 +53,7 @@ export const displayButtonStyle: NcssObjectProps = {
   },
 }
 
-export const aLinkButtonStyle: NcssObjectProps = {
+export const aLinkButtonStyle: NcssNode = {
   ncss: {
     fontSize: 6,
     bg: 'transparent',

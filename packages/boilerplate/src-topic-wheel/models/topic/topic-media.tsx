@@ -11,15 +11,15 @@ import {
   Video,
   VideoElementStyle,
   Wheel,
-  NcssObjectProps,
+  NcssNode,
 } from '../../../src-core'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
 import { TopicModelProps } from './model-types'
 
-export interface TopicMediaWheelStyle extends NcssObjectProps {
+export interface TopicMediaWheelStyle extends NcssNode {
   /** Video style */
-  embed: NcssObjectProps
+  embed: NcssNode
   /** Image style */
   image: ImageElementStyle
   /** Media Breakpoint Style */

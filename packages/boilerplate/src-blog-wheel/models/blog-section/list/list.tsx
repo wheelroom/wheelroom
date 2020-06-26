@@ -9,7 +9,7 @@ import {
   Image,
   ImageElementStyle,
   Paragraph,
-  NcssObjectProps,
+  NcssNode,
   Time,
   VideoElementStyle,
   Wheel,
@@ -18,18 +18,18 @@ import {
 } from '../../../../src-core'
 import { BlogProps } from '../../blog/model-types'
 
-export interface BlogSectionListVariationStyle extends NcssObjectProps {
-  item: NcssObjectProps
-  link: NcssObjectProps
-  media: NcssObjectProps
+export interface BlogSectionListVariationStyle extends NcssNode {
+  item: NcssNode
+  link: NcssNode
+  media: NcssNode
   image: ImageElementStyle
   video: VideoElementStyle
-  content: NcssObjectProps
-  date: NcssObjectProps
-  categories: NcssObjectProps
-  text: NcssObjectProps
-  heading: NcssObjectProps
-  abstract: NcssObjectProps
+  content: NcssNode
+  date: NcssNode
+  categories: NcssNode
+  text: NcssNode
+  heading: NcssNode
+  abstract: NcssNode
 }
 
 export interface BlogListWheel extends Wheel {

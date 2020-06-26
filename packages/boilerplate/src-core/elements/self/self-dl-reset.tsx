@@ -1,20 +1,20 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export const selfDdReset: NcssObjectProps = {
+export const selfDdReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const selfDlReset: NcssObjectProps = {
+export const selfDlReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const selfDtReset: NcssObjectProps = {
+export const selfDtReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

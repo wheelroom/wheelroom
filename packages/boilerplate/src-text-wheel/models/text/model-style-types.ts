@@ -1,28 +1,28 @@
 import {
   ImageElementStyle,
   VideoElementStyle,
-  NcssObjectProps,
+  NcssNode,
 } from '../../../src-core'
 
-export interface TextModelNcssTree extends NcssObjectProps {
-  strong: NcssObjectProps
-  code: NcssObjectProps
-  pre: NcssObjectProps
-  hr: NcssObjectProps
-  p: NcssObjectProps
-  blockquote: NcssObjectProps
-  ul: NcssObjectProps
-  ol: NcssObjectProps
-  li: NcssObjectProps
-  inlinesHyperlink: NcssObjectProps
-  entryHyperlink: NcssObjectProps
-  h1: NcssObjectProps
-  h2: NcssObjectProps
-  h3: NcssObjectProps
-  h4: NcssObjectProps
-  h5: NcssObjectProps
-  h6: NcssObjectProps
-  embed: NcssObjectProps
+export interface TextModelNcssTree extends NcssNode {
+  strong: NcssNode
+  code: NcssNode
+  pre: NcssNode
+  hr: NcssNode
+  p: NcssNode
+  blockquote: NcssNode
+  ul: NcssNode
+  ol: NcssNode
+  li: NcssNode
+  inlinesHyperlink: NcssNode
+  entryHyperlink: NcssNode
+  h1: NcssNode
+  h2: NcssNode
+  h3: NcssNode
+  h4: NcssNode
+  h5: NcssNode
+  h6: NcssNode
+  embed: NcssNode
   image: ImageElementStyle
   video: VideoElementStyle
 }

@@ -1,24 +1,17 @@
-export type NcssProps = any
-// export type Ncss = any
+export type Ncss = any
 
-export interface NcssObjectProps {
-  ncss: NcssProps
+export interface NcssNode {
+  ncss: Ncss
 }
-// export interface NcssNode {
-//   ncss: Ncss
-// }
 
-export interface NcssSwitchProps {
-  ncssSwitch: Record<string, NcssProps>
+export interface NcssNodeSwitch {
+  ncssSwitch: Record<string, Ncss>
 }
-// export interface NcssNodeSwitch {
-//   ncssSwitch: Record<string, Ncss>
-// }
 
 export const getNcssSwitch = (
-  style: NcssSwitchProps,
+  style: NcssNodeSwitch,
   switchName: string
-): NcssObjectProps => {
+): NcssNode => {
   const emptyNcss = { ncss: {} }
   if (!style || !switchName) {
     return emptyNcss

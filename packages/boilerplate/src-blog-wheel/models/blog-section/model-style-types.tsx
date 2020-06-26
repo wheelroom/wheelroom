@@ -1,21 +1,21 @@
-import { NcssObjectProps } from '../../../src-core'
+import { NcssNode } from '../../../src-core'
 import { BlogSectionBlogVariationStyle } from './blog/blog'
 import { BlogSectionListVariationStyle } from './list/list'
 
 export interface BlogSectionModelNcssTree {
-  container: NcssObjectProps
+  container: NcssNode
   blog: BlogSectionBlogVariationStyle | BlogSectionListVariationStyle
-  wrapper: NcssObjectProps
+  wrapper: NcssNode
 }
 
 export interface BlogSectionBlogModelNcssTree {
-  container: NcssObjectProps
+  container: NcssNode
   blog: BlogSectionBlogVariationStyle
-  wrapper: NcssObjectProps
+  wrapper: NcssNode
 }
 
 export interface BlogSectionListModelNcssTree {
-  container: NcssObjectProps
+  container: NcssNode
   blog: BlogSectionListVariationStyle
-  wrapper: NcssObjectProps
+  wrapper: NcssNode
 }

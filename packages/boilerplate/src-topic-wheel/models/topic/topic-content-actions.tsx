@@ -6,15 +6,15 @@ import {
   Box,
   Action,
   ActionModelProps,
-  NcssObjectProps,
+  NcssNode,
 } from '../../../src-core'
 import { TopicModelProps } from './model-types'
 
-export interface TopicContentActionsWheelStyle extends NcssObjectProps {
+export interface TopicContentActionsWheelStyle extends NcssNode {
   /** Action link or button style */
   link: {
-    icon: NcssObjectProps
-  } & NcssObjectProps
+    icon: NcssNode
+  } & NcssNode
 }
 
 export interface TopicContentActionsWheel extends Wheel {

@@ -1,6 +1,6 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export const selfPreReset: NcssObjectProps = {
+export const selfPreReset: NcssNode = {
   ncss: {
     // 1. Correct the inheritance and scaling of font size in all browsers.
     // 2. Correct the odd `em` font sizing in all browsers.

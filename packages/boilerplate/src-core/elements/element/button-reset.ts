@@ -1,6 +1,6 @@
-import { NcssObjectProps } from '../..'
+import { NcssNode } from '../..'
 
-export const buttonReset: NcssObjectProps = {
+export const buttonReset: NcssNode = {
   ncss: {
     // Correct the inability to style clickable types in iOS and Safari.
     WebkitAppearance: 'button',

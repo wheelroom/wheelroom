@@ -4,7 +4,7 @@ import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from '../element'
 import { ElementStyles } from '../types/element-styles'
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 import { selfBlockquoteReset } from './self-blockquote-reset'
 import { selfCodeReset } from './self-code-reset'
 import { selfDdReset, selfDlReset, selfDtReset } from './self-dl-reset'
@@ -20,7 +20,7 @@ import {
 } from './self-table-reset'
 import { selfTimeReset } from './self-time-reset'
 
-export type SelfReset = NcssObjectProps
+export type SelfReset = NcssNode
 
 export const getSelf = (
   props: ElementProps,

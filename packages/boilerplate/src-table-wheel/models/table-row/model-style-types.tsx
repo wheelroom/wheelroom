@@ -1,18 +1,18 @@
-import { ActionModelNcssTree, NcssObjectProps, NcssProps } from '../../../src-core'
+import { ActionModelNcssTree, NcssNode, Ncss } from '../../../src-core'
 import { TopicModelNcssTree } from '../../../src-topic-wheel'
 
 export interface TableRowModelNcssTree {
-  th: NcssObjectProps
+  th: NcssNode
   ncssSwitch: Record<
     'headerVariation' | 'bodyVariation' | 'footerVariation',
-    NcssProps
+    Ncss
   >
-  dd: NcssObjectProps
-  dl: NcssObjectProps
-  dt: NcssObjectProps
-  icon: NcssObjectProps
-  actionGroup: NcssObjectProps
+  dd: NcssNode
+  dl: NcssNode
+  dt: NcssNode
+  icon: NcssNode
+  actionGroup: NcssNode
   action: ActionModelNcssTree
-  cell: NcssObjectProps
+  cell: NcssNode
   topic: TopicModelNcssTree
 }

@@ -11,7 +11,7 @@ export type { CoreSectionProps } from './lib/core-section-props'
 export type { CoreSiteMetadata } from './lib/core-site-metadata'
 export type { DeepPartial } from './lib/deep-partial'
 export type { GetWheel } from './lib/get-wheel'
-export type { NcssProps, NcssObjectProps, NcssSwitchProps } from './lib/ncss'
+export type { Ncss, NcssNode, NcssNodeSwitch } from './lib/ncss'
 // Parsers
 export type { ParserFunction, ParserProps } from './parsers/types'
 // Models

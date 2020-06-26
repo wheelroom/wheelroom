@@ -1,4 +1,4 @@
-import { NcssProps } from '../lib/ncss'
+import { Ncss } from '../lib/ncss'
 import { Wheel } from '../lib/wheel'
 import { ALinkElementProps } from './element/a-link'
 import { AnyElementProps } from './element/any'
@@ -21,7 +21,7 @@ export interface ElementProps {
   /** Link ID attribute */
   id?: string | undefined
   /** Nested emotion css styling */
-  ncss?: NcssProps
+  ncss?: Ncss
   /** TabIndex attribute */
   tabIndex?: number | undefined
   /** Link title attribute */

@@ -11,22 +11,22 @@ import {
   GlobalsProps,
   Wheel,
   Wrapper,
-  NcssObjectProps,
+  NcssNode,
 } from '../../../../src-core'
 import { LegalFooter, LegalFooterWheelStyle } from './legal-footer'
 
 export interface NavigationSectionFooterModelNcssTree {
-  container: NcssObjectProps
+  container: NcssNode
   footer: {
     menu: {
       segment: NavigationSegmentModelNcssTree
-    } & NcssObjectProps
+    } & NcssNode
     social: {
       segment: NavigationSegmentModelNcssTree
-    } & NcssObjectProps
-  } & NcssObjectProps
+    } & NcssNode
+  } & NcssNode
   legalFooter: LegalFooterWheelStyle
-  wrapper: NcssObjectProps
+  wrapper: NcssNode
 }
 
 interface NavigationFooterWheel extends Wheel {

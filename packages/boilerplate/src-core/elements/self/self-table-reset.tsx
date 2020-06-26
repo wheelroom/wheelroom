@@ -1,27 +1,27 @@
-import { NcssObjectProps } from '../../lib/ncss'
+import { NcssNode } from '../../lib/ncss'
 
-export const selfTableReset: NcssObjectProps = {
+export const selfTableReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const selfTdReset: NcssObjectProps = {
+export const selfTdReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const selfThReset: NcssObjectProps = {
+export const selfThReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',
   },
 }
 
-export const selfTrReset: NcssObjectProps = {
+export const selfTrReset: NcssNode = {
   ncss: {
     boxSizing: 'border-box',
     fontFamily: 'text',

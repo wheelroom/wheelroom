@@ -1,8 +1,8 @@
 import React from 'react'
-import { Wheel, NcssObjectProps, Button } from '../../../../src-core'
+import { Wheel, NcssNode, Button } from '../../../../src-core'
 
 interface ThemeButtonWheel extends Wheel {
-  style: NcssObjectProps
+  style: NcssNode
 }
 
 export interface ThemeButtonWheelProps {

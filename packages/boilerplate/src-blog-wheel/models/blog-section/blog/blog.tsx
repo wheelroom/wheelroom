@@ -10,7 +10,7 @@ import {
   Paragraph,
   Time,
   Wheel,
-  NcssObjectProps,
+  NcssNode,
   ImageElementStyle,
   VideoElementStyle,
 } from '../../../../src-core'
@@ -19,20 +19,19 @@ import {
   Topic,
   TopicModelNcssTree,
 } from '../../../../src-topic-wheel'
-import { Text } from '../../../../src-text-wheel'
-import { TextModelNcssTree } from '../../../../src-text-wheel/models/text/model-style-types'
+import { Text, TextModelNcssTree } from '../../../../src-text-wheel'
 
-export interface BlogSectionBlogVariationStyle extends NcssObjectProps {
-  header: NcssObjectProps
-  categories: NcssObjectProps
-  date: NcssObjectProps
-  heading: NcssObjectProps
-  abstract: NcssObjectProps
-  media: NcssObjectProps
+export interface BlogSectionBlogVariationStyle extends NcssNode {
+  header: NcssNode
+  categories: NcssNode
+  date: NcssNode
+  heading: NcssNode
+  abstract: NcssNode
+  media: NcssNode
   image: ImageElementStyle
   video: VideoElementStyle
   text: TextModelNcssTree
-  authors: NcssObjectProps
+  authors: NcssNode
   author: TopicModelNcssTree
 }
 
