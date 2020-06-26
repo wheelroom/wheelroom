@@ -16,7 +16,7 @@ import {
   Li,
   Ul,
 } from '../../../../src-core'
-import { BlogProps } from '../../blog/model-types'
+import { BlogModelProps } from '../../blog/model-types'
 
 export interface BlogSectionListVariationStyle extends NcssNode {
   item: NcssNode
@@ -42,7 +42,7 @@ export interface BlogListWheelProps {
   /** Locale needed for rich text render */
   locale: string
   /** List of all blogs to render */
-  blogPosts: BlogProps[]
+  blogPosts: BlogModelProps[]
 }
 
 export const List = (props: BlogListWheelProps) => {
@@ -58,7 +58,7 @@ export const List = (props: BlogListWheelProps) => {
       }}
     >
       {props.blogPosts &&
-        props.blogPosts.map((blog: BlogProps, index: number) => {
+        props.blogPosts.map((blog: BlogModelProps, index: number) => {
           if (!blog) {
             return null
           }

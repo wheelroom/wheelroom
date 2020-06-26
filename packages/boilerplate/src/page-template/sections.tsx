@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { BlogSection, BlogProps, AllBlogProps } from '../../src-blog-wheel'
+import { BlogSection, BlogModelProps, AllBlogProps } from '../../src-blog-wheel'
 import { TextSection } from '../../src-text-wheel'
 import { NavigationSection } from '../../src-navigation-wheel'
 import { TableSection } from '../../src-table-wheel'
@@ -36,7 +36,7 @@ export interface SectionsProps {
   namedPaths: NamedPaths
   activeThemeId: string | undefined
   globals: GlobalsModelProps
-  blog: BlogProps
+  blog: BlogModelProps
   allBlog: AllBlogProps
   page: PageModelProps
   siteMetadata: CoreSiteMetadata

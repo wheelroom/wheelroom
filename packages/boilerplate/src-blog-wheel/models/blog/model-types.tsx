@@ -8,7 +8,7 @@
 import { MediaObject } from '../../../src-core'
 import { TopicModelProps } from '../../../src-topic-wheel'
 
-export interface BlogProps {
+export interface BlogModelProps {
   /** Gatsby fetched data */
   __typename: string
   heading?: string
@@ -31,7 +31,7 @@ export interface BlogProps {
 }
 
 export interface BlogNodeProps {
-  node: BlogProps
+  node: BlogModelProps
 }
 
 export interface AllBlogProps {
