@@ -19,5 +19,3 @@ export interface BlogSectionListModelNcssTree {
   blog: BlogSectionListVariationNcssTree
   wrapper: NcssNode
 }
-
-

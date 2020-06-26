@@ -25,18 +25,20 @@ export interface ButtonElementProps extends ElementProps {
   onClick?: () => any
 }
 
-export const Button = React.forwardRef((props: ButtonElementProps, ref: any) => {
-  const extraAttrs: any = {
-    'aria-controls': props.ariaControls,
-    'aria-expanded': props.ariaExpanded,
-    'aria-label': props.ariaLabel,
-    'aria-pressed': props.ariaPressed,
-    disabled: props.disabled,
-    onClick: props.onClick,
-    role: props.role,
-    type: props.type,
+export const Button = React.forwardRef(
+  (props: ButtonElementProps, ref: any) => {
+    const extraAttrs: any = {
+      'aria-controls': props.ariaControls,
+      'aria-expanded': props.ariaExpanded,
+      'aria-label': props.ariaLabel,
+      'aria-pressed': props.ariaPressed,
+      disabled: props.disabled,
+      onClick: props.onClick,
+      role: props.role,
+      type: props.type,
+    }
+    extraAttrs.ref = ref
+    extraAttrs.value = props.value
+    return getSelf(props, buttonReset, 'button', extraAttrs)
   }
-  extraAttrs.ref = ref
-  extraAttrs.value = props.value
-  return getSelf(props, buttonReset, 'button', extraAttrs)
-})
+)

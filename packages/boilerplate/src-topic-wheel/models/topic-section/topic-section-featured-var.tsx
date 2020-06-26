@@ -27,7 +27,8 @@ export const TopicSectionFeaturedVar = (props: TopicSectionModelProps) => {
   }
 
   const topicsPresent =
-    props.topics && props.topics.filter((topic: TopicModelProps) => topic).length > 1
+    props.topics &&
+    props.topics.filter((topic: TopicModelProps) => topic).length > 1
   const topicHeading = props.index <= 1 && !topicsPresent ? 'h1' : 'h2'
 
   return (

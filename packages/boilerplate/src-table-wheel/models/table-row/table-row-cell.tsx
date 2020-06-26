@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Td } from '../../../src-core/elements/self/self'
-import { TopicOptions } from '../../../src-topic-wheel'
-import { TopicModelProps, Topic } from '../../../src-topic-wheel'
+import { TopicOptions, TopicModelProps, Topic } from '../../../src-topic-wheel'
+
 import { Wheel } from '../../../src-core'
 import { TableRowModelNcssTree } from './model-style-types'
 
