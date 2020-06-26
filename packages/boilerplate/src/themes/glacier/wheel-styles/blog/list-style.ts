@@ -1,59 +1,69 @@
 import { wrapperStyle } from '../shared-styles/grid-style'
-import { BlogSectionListModelStyle } from '../../../../../src-blog-wheel'
+import { BlogSectionListModelNcssTree } from '../../../../../src-blog-wheel'
+import { DeepPartial } from '../../../../../src-core'
 
-export const blogSectionListStyle: BlogSectionListModelStyle = {
+export const blogSectionListNcssTree: DeepPartial<BlogSectionListModelNcssTree> = {
   container: {
     ncss: {
-      label: 'blog-list-container',
+      label: 'blog-section-list-container',
       alignItems: ['center', 'initial'],
       flexDirection: ['column', 'row'],
       flexWrap: 'wrap',
     },
   },
-  section: {
-    link: {
+  blog: {
+    ncss: {
+      label: 'blog-section-list',
+      flexDirection: ['column', 'row'],
+      display: 'flex',
+      p: 0,
+      m: 0,
+      w: 1,
+    },
+    item: {
       ncss: {
-        label: 'blog-link',
-        display: 'flex',
-        flexDirection: 'column',
+        label: 'list-item',
+        listStyleType: 'none',
         maxWidth: '35em',
         p: 3,
+        w: [1, 1 / 2, 1 / 3],
+        mx: ['auto', 'initial'],
+      },
+    },
+    link: {
+      ncss: {
+        label: 'list-link',
         textDecoration: 'none',
-        w: ['auto', 1 / 2, 1 / 3],
-        ':focus': {
-          outlineColor: 'outline',
-          outlineOffset: -2,
-        },
       },
     },
     media: {
       ncss: {
-        label: 'blog-list-media',
+        label: 'list-media',
       },
     },
     image: {
       picture: {
         ncss: {
-          label: 'blog-list-picture',
+          label: 'list-picture',
         },
       },
       ncss: {
-        label: 'blog-list-img',
+        label: 'list-img',
       },
     },
     video: {
       ncss: {
-        label: 'blog-list-video',
+        label: 'list-video',
       },
       description: {
         ncss: {
-          label: 'blog-list-video-description',
+          label: 'list-video-description',
         },
       },
     },
     content: {
       ncss: {
-        label: 'blog-list-content',
+        label: 'list-content',
         flex: 1,
         flexDirection: 'column',
         p: 3,
@@ -61,26 +71,26 @@ export const blogSectionListStyle: BlogSectionListModelStyle = {
     },
     text: {
       ncss: {
-        label: 'blog-list-text',
+        label: 'list-text',
         flex: 1,
       },
     },
     heading: {
       ncss: {
-        label: 'blog-list-heading',
+        label: 'list-heading',
         color: 'sectionText',
         mt: 3,
       },
     },
     abstract: {
       ncss: {
-        label: 'blog-list-abstract',
+        label: 'list-abstract',
         color: 'sectionText',
       },
     },
     categories: {
       ncss: {
-        label: 'blog-list-categories',
+        label: 'list-categories',
         color: 'azure',
         fontFamily: 'text',
         fontSize: 4,
@@ -90,7 +100,7 @@ export const blogSectionListStyle: BlogSectionListModelStyle = {
     },
     date: {
       ncss: {
-        label: 'blog-list-date',
+        label: 'list-date',
         color: 'bullet',
         fontFamily: 'text',
         fontSize: 3,

@@ -17,6 +17,7 @@ import {
   ALink,
   Blockquote,
   Code,
+  Container,
   Embed,
   GLink,
   H1,
@@ -36,14 +37,13 @@ import {
   Ul,
   Video,
   Wheel,
-  Wrapper,
 } from '../../../src-core'
 import { TextModelProps } from './model-types'
 import { getLocalizedValue } from './get-localized-value'
-import { TextModelStyle } from './model-style-types'
+import { TextModelNcssTree } from './model-style-types'
 
 export interface TextWheel extends Wheel {
-  style: TextModelStyle
+  style: TextModelNcssTree
 }
 
 export interface TextWheelProps {
@@ -351,16 +351,16 @@ export const Text = (props: TextWheelProps) => {
   } as Options
 
   return (
-    <Wrapper
+    <Container
       wheel={{
         ...textProps.wheel,
-        style: textProps.wheel.style.wrapper,
+        style: textProps.wheel.style,
       }}
     >
       {documentToReactComponents(
         (props.text.text.json as unknown) as Document,
         options
       )}
-    </Wrapper>
+    </Container>
   )
 }

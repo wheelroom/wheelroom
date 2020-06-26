@@ -17,11 +17,11 @@ import {
   ALink,
   Any,
   ActionModelProps,
-  ActionModelStyle,
+  ActionModelNcssTree,
 } from '../../../src-core'
 
 export interface ActionWheel extends Wheel {
-  style: ActionModelStyle
+  style: ActionModelNcssTree
 }
 
 export interface ActionWheelProps extends ActionModelProps {

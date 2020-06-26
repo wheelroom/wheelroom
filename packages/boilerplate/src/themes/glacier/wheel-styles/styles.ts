@@ -1,53 +1,53 @@
 import { SectionWheelThemeStyles, deepMerge } from '../../../../src-core'
-import { blogSectionBlogStyle } from './blog/blog-style'
-import { blogSectionListStyle } from './blog/list-style'
-import { navigationSectionHeaderStyle } from './navigation/navigation-section/header-style'
-import { navigationSectionFooterStyle } from './navigation/navigation-section/footer-style'
-import { topicSectionBlockStyle } from './topic/topic-section/block-style'
-import { topicSectionCardStyle } from './topic/topic-section/card-style'
-import { topicSectionDividerStyle } from './topic/topic-section/divider-style'
-import { topicSectionFeaturedStyle } from './topic/topic-section/featured-style'
-import { topicSectionGalleryStyle } from './topic/topic-section/gallery-style'
-import { topicSectionHeadlineStyle } from './topic/topic-section/headline-style'
-import { topicSectionHeroStyle } from './topic/topic-section/hero-style'
-import { topicSectionImageStyle } from './topic/topic-section/image-style'
-import { topicSectionQuoteStyle } from './topic/topic-section/quote-style'
-import { topicSectionShowcaseStyle } from './topic/topic-section/showcase-style'
-import { topicSectionVideoStyle } from './topic/topic-section/video-style'
-import { topicStyle } from './topic/topic/topic-style'
-import { textSectionTextStyle } from './text/text-style'
-import { tableSectionTableStyle } from './table/table-style'
-import { tableSectionPriceStyle } from './table/price-style'
+import { blogSectionBlogNcssTree } from './blog/blog-style'
+import { blogSectionListNcssTree } from './blog/list-style'
+import { navigationSectionHeaderNcssTree } from './navigation/navigation-section/header-style'
+import { navigationSectionFooterNcssTree } from './navigation/navigation-section/footer-style'
+import { topicSectionBlockNcssTree } from './topic/topic-section/block-style'
+import { topicSectionCardNcssTree } from './topic/topic-section/card-style'
+import { topicSectionDividerNcssTree } from './topic/topic-section/divider-style'
+import { topicSectionFeaturedNcssTree } from './topic/topic-section/featured-style'
+import { topicSectionGalleryNcssTree } from './topic/topic-section/gallery-style'
+import { topicSectionHeadlineNcssTree } from './topic/topic-section/headline-style'
+import { topicSectionHeroNcssTree } from './topic/topic-section/hero-style'
+import { topicSectionImageNcssTree } from './topic/topic-section/image-style'
+import { topicSectionQuoteNcssTree } from './topic/topic-section/quote-style'
+import { topicSectionShowcaseNcssTree } from './topic/topic-section/showcase-style'
+import { topicSectionVideoNcssTree } from './topic/topic-section/video-style'
+import { topicNcssTree } from './topic/topic/topic-style'
+import { textSectionTextNcssTree } from './text/text-style'
+import { tableSectionTableNcssTree } from './table/table-style'
+import { tableSectionPriceNcssTree } from './table/price-style'
 
-const mergeTopic = (style: any) => deepMerge([{ topic: topicStyle }, style])
+const mergeTopic = (style: any) => deepMerge([{ topic: topicNcssTree }, style])
 
 export const styles: SectionWheelThemeStyles = {
   blogSection: {
-    blog: blogSectionBlogStyle,
-    list: blogSectionListStyle,
+    blog: blogSectionBlogNcssTree,
+    list: blogSectionListNcssTree,
   },
   navigationSection: {
-    header: navigationSectionHeaderStyle,
-    footer: navigationSectionFooterStyle,
+    header: navigationSectionHeaderNcssTree,
+    footer: navigationSectionFooterNcssTree,
   },
   tableSection: {
-    table: tableSectionTableStyle,
-    price: tableSectionPriceStyle,
+    table: tableSectionTableNcssTree,
+    price: tableSectionPriceNcssTree,
   },
   textSection: {
-    text: textSectionTextStyle,
+    text: textSectionTextNcssTree,
   },
   topicSection: {
-    block: mergeTopic(topicSectionBlockStyle),
-    card: mergeTopic(topicSectionCardStyle),
-    divider: mergeTopic(topicSectionDividerStyle),
-    featured: mergeTopic(topicSectionFeaturedStyle),
-    gallery: mergeTopic(topicSectionGalleryStyle),
-    headline: mergeTopic(topicSectionHeadlineStyle),
-    hero: mergeTopic(topicSectionHeroStyle),
-    image: mergeTopic(topicSectionImageStyle),
-    quote: mergeTopic(topicSectionQuoteStyle),
-    showcase: mergeTopic(topicSectionShowcaseStyle),
-    video: mergeTopic(topicSectionVideoStyle),
+    block: mergeTopic(topicSectionBlockNcssTree),
+    card: mergeTopic(topicSectionCardNcssTree),
+    divider: mergeTopic(topicSectionDividerNcssTree),
+    featured: mergeTopic(topicSectionFeaturedNcssTree),
+    gallery: mergeTopic(topicSectionGalleryNcssTree),
+    headline: mergeTopic(topicSectionHeadlineNcssTree),
+    hero: mergeTopic(topicSectionHeroNcssTree),
+    image: mergeTopic(topicSectionImageNcssTree),
+    quote: mergeTopic(topicSectionQuoteNcssTree),
+    showcase: mergeTopic(topicSectionShowcaseNcssTree),
+    video: mergeTopic(topicSectionVideoNcssTree),
   },
 }

@@ -1,4 +1,5 @@
-import { NavigationHeaderWheelStyle } from '../../../../../../src-navigation-wheel'
+import { deepMerge, DeepPartial } from '../../../../../../src-core'
+import { NavigationSectionHeaderModelNcssTree } from '../../../../../../src-navigation-wheel'
 import { wrapperStyle } from '../../shared-styles/grid-style'
 import {
   primaryButtonStyle,
@@ -6,17 +7,16 @@ import {
 } from '../../../element-styles/button-style'
 import { iconButtonSmallStyle } from '../../shared-styles/icon-style'
 import {
-  modalDialogContentOpen,
-  modalDialogContent,
-  modalDialogOpen,
-  modalDialog,
-  modalDialogOverlayOpen,
-  modalDialogOverlay,
-} from '../modal/modal-dialog'
+  dialogContentIsVisible,
+  dialogContent,
+  dialogIsVisible,
+  dialog,
+  dialogOverlayIsVisible,
+  dialogOverlay,
+} from '../modal/dialog'
 import { navigationSegment } from '../navigation-segment/navigation-segment'
-import { deepMerge } from '../../../../../../src-core'
 
-export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
+export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeaderModelNcssTree> = {
   skipToContent: {
     ncss: {
       label: 'skip-to-content',
@@ -41,163 +41,154 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle.ncss,
-      width: 1,
-      height: '70px',
-      borderBottom: '1px solid transparent',
-      borderColor: 'sectionBorder',
-    },
-  },
   container: {
     ncss: {
+      label: 'navigation-header-container',
       height: '100%',
       justifyContent: 'space-between',
       px: 3,
     },
   },
-  brand: {
-    segment: {
+  header: {
+    brand: {
       ncss: {
-        label: 'brand-navigation-segment',
+        label: 'brand-navigation',
         alignItems: 'center',
-        mr: 3,
       },
-      brand: {
+      segment: {
         ncss: {
-          label: 'brand-navigation-segment-brand',
+          label: 'brand-navigation-segment',
+          alignItems: 'center',
+          mr: 3,
         },
-      },
-      action: {
-        ncss: {
-          label: 'brand-navigation-segment-action',
-          display: 'inline-flex',
-          fontFamily: 'branding',
-          fontWeight: 'bold',
-          textDecoration: 'none',
-          color: 'sectionText',
-          ':focus': {
-            outlineColor: 'outline',
-          },
-        },
-        icon: {
+        branding: {
           ncss: {
-            label: 'brand-navigation-segment-action-icon',
-            ...iconButtonSmallStyle.ncss,
+            label: 'brand-navigation-segment-brand',
           },
         },
-      },
-    },
-  },
-  menu: {
-    ncss: {
-      label: 'menu-navigation',
-      flex: '1',
-      alignItems: 'center',
-      display: ['none', 'none', 'flex'],
-    },
-    segment: deepMerge([
-      navigationSegment,
-      {
         action: {
           ncss: {
+            label: 'brand-navigation-segment-action',
+            display: 'inline-flex',
+            fontFamily: 'branding',
+            fontWeight: 'bold',
             textDecoration: 'none',
-            px: 2,
-            py: 3,
-            ':hover, &.active': {
-              textDecoration: 'underline',
+            color: 'sectionText',
+            ':focus': {
+              outlineColor: 'outline',
             },
-          },
-        },
-      },
-    ]),
-  },
-  actions: {
-    ncss: {
-      label: 'actions-navigation',
-      alignItems: 'center',
-      display: ['none', 'none', 'flex'],
-      mx: -1,
-    },
-    segment: deepMerge([
-      navigationSegment,
-      {
-        action: {
-          ncss: {
-            ...primaryButtonStyle.ncss,
-            m: 1,
-            w: 1,
           },
           icon: iconButtonSmallStyle,
         },
       },
-    ]),
-    themeButton: {
+    },
+    menu: {
       ncss: {
-        label: 'actions-theme-button',
-        ...secondaryButtonStyle.ncss,
-        m: 1,
+        label: 'menu-navigation',
+        flex: '1',
+        alignItems: 'center',
+        display: ['none', 'none', 'flex'],
       },
-    },
-  },
-  modal: {
-    ncss: {
-      label: 'modal',
-      display: ['flex', 'flex', 'none'],
-      alignItems: 'center',
-    },
-    button: {
-      ncss: {},
-    },
-    dialog: {
-      container: {
-        visible: {
+      segment: deepMerge([
+        navigationSegment,
+        {
           ncss: {
-            ...modalDialogOpen.ncss,
-            label: 'modal-is-visible',
+            label: 'menu-navigation-segment',
+          },
+          action: {
+            ncss: {
+              textDecoration: 'none',
+              px: 2,
+              py: 3,
+              ':hover, &.active': {
+                textDecoration: 'underline',
+              },
+            },
           },
         },
-        hidden: {
+      ]),
+    },
+    actions: {
+      ncss: {
+        label: 'actions-navigation',
+        alignItems: 'center',
+        display: ['none', 'none', 'flex'],
+        mx: -1,
+      },
+      segment: deepMerge([
+        navigationSegment,
+        {
           ncss: {
-            ...modalDialog.ncss,
+            label: 'menu-navigation-actions',
+          },
+          action: {
+            ncss: {
+              ...primaryButtonStyle.ncss,
+              m: 1,
+              w: 1,
+            },
+            icon: iconButtonSmallStyle,
+          },
+        },
+      ]),
+      themeButton: {
+        ncss: {
+          label: 'actions-theme-button',
+          ...secondaryButtonStyle.ncss,
+          m: 1,
+        },
+      },
+    },
+    modal: {
+      ncss: {
+        label: 'modal',
+        display: ['flex', 'flex', 'none'],
+        alignItems: 'center',
+      },
+      menuButton: {
+        ncss: {},
+      },
+      dialog: {
+        ncssSwitch: {
+          visible: {
+            ...dialogIsVisible.ncss,
+            label: 'modal-is-visible',
+          },
+          hidden: {
+            ...dialog.ncss,
             label: 'modal-is-hidden',
           },
         },
-      },
-      overlay: {
-        visible: {
-          ncss: {
-            ...modalDialogOverlayOpen.ncss,
-            label: 'before-is-visible',
+        overlay: {
+          ncssSwitch: {
+            visible: {
+              ...dialogOverlayIsVisible.ncss,
+              label: 'before-is-visible',
+            },
+            hidden: {
+              ...dialogOverlay.ncss,
+              label: 'before-is-hidden',
+            },
           },
         },
-        hidden: {
-          ncss: {},
-          ...modalDialogOverlay.ncss,
-          label: 'before-is-hidden',
-        },
-      },
-      document: {
-        ncss: {},
-        visible: {
-          ncss: {
-            ...modalDialogContentOpen.ncss,
-            label: 'document-is-visible',
-            bg: 'modalBg',
-            borderColor: 'modalBorder',
-            borderRadius: 4,
-            boxShadow: '0 0 16px',
-            color: 'modalShadow',
+        document: {
+          ncssSwitch: {
+            visible: {
+              ...dialogContentIsVisible.ncss,
+              label: 'document-is-visible',
+              bg: 'modalBg',
+              borderColor: 'modalBorder',
+              borderRadius: 4,
+              boxShadow: '0 0 16px',
+              color: 'modalShadow',
+            },
+            hidden: {
+              ...dialogContent.ncss,
+              label: 'document-is-hidden',
+            },
           },
         },
-        hidden: {
-          ncss: {
-            ...modalDialogContent.ncss,
-            label: 'document-is-hidden',
-          },
-        },
-        closeNavigationButton: {
+        closeButton: {
           ncss: {
             label: 'modal-close-button',
             mt: 3,
@@ -222,6 +213,9 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
           segment: deepMerge([
             navigationSegment,
             {
+              ncss: {
+                label: 'menu-navigation-segment',
+              },
               list: {
                 ncss: {
                   flexDirection: 'column',
@@ -283,11 +277,7 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
                   m: 1,
                   w: 1,
                 },
-                icon: {
-                  ncss: {
-                    ...iconButtonSmallStyle.ncss,
-                  },
-                },
+                icon: iconButtonSmallStyle,
               },
             },
           ]),
@@ -302,4 +292,15 @@ export const navigationSectionHeaderStyle: NavigationHeaderWheelStyle = {
       },
     },
   },
+  wrapper: deepMerge([
+    wrapperStyle,
+    {
+      ncss: {
+        width: 1,
+        height: '70px',
+        borderBottom: '1px solid transparent',
+        borderColor: 'sectionBorder',
+      },
+    },
+  ]),
 }

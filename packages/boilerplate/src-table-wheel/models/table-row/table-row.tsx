@@ -11,15 +11,15 @@ import {
   Th,
   Tr,
   Wheel,
+  getNcssSwitch,
 } from '../../../src-core'
 import { TopicOptions, TopicModelProps } from '../../../src-topic-wheel'
-import { getNcssSwitch } from '../../../src-core/lib/ncss'
 import { TableRowProps } from './model-types'
-import { TableRowModelStyle } from './model-style-types'
+import { TableRowModelNcssTree } from './model-style-types'
 import { TableRowCell } from './table-row-cell'
 
 export interface TableRowWheel extends Wheel {
-  style: TableRowModelStyle
+  style: TableRowModelNcssTree
 }
 
 export interface TableRowWheelProps {
@@ -54,21 +54,17 @@ export const TableRow = (props: TableRowWheelProps) => {
     rowHeaderCellStyle.ncss.w = headerCellWidth
   }
 
-  let tableRowStyle
-  switch (tableRow.variation) {
-    case 'header':
-      tableRowStyle = getNcssSwitch(props.wheel.style, 'trHeader')
-      break
-    case 'footer':
-      tableRowStyle = getNcssSwitch(props.wheel.style, 'trFooter')
-      break
-    default:
-      tableRowStyle = getNcssSwitch(props.wheel.style, 'trBody')
-      break
-  }
+  const switchVariable = tableRow.variation
+    ? tableRow.variation + 'Variation'
+    : 'bodyVariation'
 
   return (
-    <Tr wheel={{ ...props.wheel, style: tableRowStyle }}>
+    <Tr
+      wheel={{
+        ...props.wheel,
+        style: getNcssSwitch(props.wheel.style, switchVariable),
+      }}
+    >
       <Th wheel={{ ...props.wheel, style: rowHeaderCellStyle }}>
         {tableRow.icon && (
           <Icon

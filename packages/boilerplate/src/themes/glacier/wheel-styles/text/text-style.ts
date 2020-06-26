@@ -1,11 +1,18 @@
-import { TextSectionModelStyle } from '../../../../../src-text-wheel'
+import { TextSectionModelNcssTree } from '../../../../../src-text-wheel'
 import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
 import { headingTextStyle } from '../../element-styles/heading-style'
 import { embedStyle } from '../shared-styles/embed-style'
+import { DeepPartial } from '../../../../../src-core'
 
-export const textSectionTextStyle: TextSectionModelStyle = {
+export const textSectionTextNcssTree: DeepPartial<TextSectionModelNcssTree> = {
   container: containerStyle,
-  section: {
+  text: {
+    ncss: {
+      label: 'text-section-text',
+      maxWidth: '712px', // Golden read width ratio
+      mx: 'auto',
+      px: 3,
+    },
     h1: headingTextStyle,
     h2: headingTextStyle,
     h3: headingTextStyle,
@@ -85,14 +92,6 @@ export const textSectionTextStyle: TextSectionModelStyle = {
       },
       description: {
         ncss: {},
-      },
-    },
-    wrapper: {
-      ncss: {
-        label: 'wrapper-text',
-        maxWidth: '712px', // Golden read width ratio
-        mx: 'auto',
-        px: 3,
       },
     },
   },

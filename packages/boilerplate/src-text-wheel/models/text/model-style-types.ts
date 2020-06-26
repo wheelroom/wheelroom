@@ -4,8 +4,7 @@ import {
   NcssObjectProps,
 } from '../../../src-core'
 
-export interface TextModelStyle {
-  wrapper: NcssObjectProps
+export interface TextModelNcssTree extends NcssObjectProps {
   strong: NcssObjectProps
   code: NcssObjectProps
   pre: NcssObjectProps

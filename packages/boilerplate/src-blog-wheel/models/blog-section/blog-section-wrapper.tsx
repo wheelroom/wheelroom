@@ -1,9 +1,9 @@
 import React from 'react'
 import { Wheel, Container, Fluid, Wrapper } from '../../../src-core'
-import { BlogSectionModelStyle } from './model-style-types'
+import { BlogSectionModelNcssTree } from './model-style-types'
 
 export interface BlogSectionWheel extends Wheel {
-  style: BlogSectionModelStyle
+  style: BlogSectionModelNcssTree
 }
 
 export const BlogSectionWrapper = (props: {

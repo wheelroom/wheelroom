@@ -2,10 +2,10 @@ import React, { Fragment } from 'react'
 import { Wheel, Flex, H3 } from '../../../src-core'
 import { NavigationSegmentProps } from './model-types'
 import { NavigationSegmentList } from './navigation-segment-list'
-import { NavigationSegmentModelStyle } from './model-style-types'
+import { NavigationSegmentModelNcssTree } from './model-style-types'
 
 interface NavigationSegmentWheel extends Wheel {
-  style: NavigationSegmentModelStyle
+  style: NavigationSegmentModelNcssTree
 }
 
 interface NavigationSegmentWheelProps {
@@ -46,7 +46,7 @@ export const NavigationSegment = (props: NavigationSegmentWheelProps) => {
                 key={index}
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.container,
+                  style: props.wheel.style,
                 }}
                 is="div"
               >

@@ -1,9 +1,9 @@
-import { TopicSectionModelStyle } from '../../../../../../src-topic-wheel'
+import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import { iconTopicStyle } from '../../shared-styles/icon-style'
 import { embedStyle } from '../../shared-styles/embed-style'
 import { wrapperStyle } from '../../shared-styles/grid-style'
 
-export const topicSectionVideoStyle: TopicSectionModelStyle = {
+export const topicSectionVideoNcssTree: TopicSectionModelNcssTree = {
   container: {
     ncss: {},
   },

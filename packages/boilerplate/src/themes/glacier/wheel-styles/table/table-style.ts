@@ -1,23 +1,13 @@
-import { TableSectionModelStyle } from '../../../../../src-table-wheel'
+import { TableSectionModelNcssTree } from '../../../../../src-table-wheel'
 import {
   iconSmallTopicStyle,
   iconButtonSmallStyle,
 } from '../shared-styles/icon-style'
 import { wrapperStyle } from '../shared-styles/grid-style'
 import { embedStyle } from '../shared-styles/embed-style'
-// import { DeepPartial } from '../../../../../src-core'
+import { DeepPartial } from '../../../../../src-core'
 
-// export const partOfTableSectionTableStyle: DeepPartial<TableSectionModelStyle> = {
-//   container: {
-//     ncss: {
-//       label: 'table-container',
-//       px: 3,
-//       overflow: 'hidden',
-//     },
-//   },
-// }
-
-export const tableSectionTableStyle: TableSectionModelStyle = {
+export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> = {
   container: {
     ncss: {
       label: 'table-container',
@@ -25,13 +15,13 @@ export const tableSectionTableStyle: TableSectionModelStyle = {
       overflow: 'hidden',
     },
   },
-  section: {
+  table: {
     ncss: {
       label: 'table-section-table',
       overflowX: 'auto',
       w: 1,
     },
-    table: {
+    tableElement: {
       ncss: {
         label: 'table',
         fontSize: 4,
@@ -95,15 +85,15 @@ export const tableSectionTableStyle: TableSectionModelStyle = {
         },
       },
     },
-    row: {
+    tableRow: {
       ncssSwitch: {
-        trHeader: {
+        headerVariation: {
           label: 'table-row-tr-header',
         },
-        trBody: {
+        bodyVariation: {
           label: 'table-row-tr-body',
         },
-        trFooter: {
+        footerVariation: {
           label: 'table-row-tr-footer',
         },
       },

@@ -1,4 +1,4 @@
-export const topicSectionDividerStyle = {
+export const topicSectionDividerNcssTree = {
   ncss: {
     my: '1rem',
     color: 'inherit',

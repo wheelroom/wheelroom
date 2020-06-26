@@ -18,11 +18,11 @@ import {
 import { TopicOptions } from '../../../src-topic-wheel'
 import { TableRow } from '../table-row/table-row'
 import { TableRowProps } from '../table-row/model-types'
-import { TableModelStyle } from './model-style-types'
+import { TableModelNcssTree } from './model-style-types'
 import { TableProps } from './model-types'
 
 export interface TableWheel extends Wheel {
-  style: TableModelStyle
+  style: TableModelNcssTree
 }
 
 export interface TableWheelProps {
@@ -43,7 +43,9 @@ export const Table = (props: TableWheelProps) => {
   }
   return (
     <Box wheel={{ ...props.wheel, style: props.wheel.style }}>
-      <TableElement wheel={{ ...props.wheel, style: props.wheel.style.table }}>
+      <TableElement
+        wheel={{ ...props.wheel, style: props.wheel.style.tableElement }}
+      >
         <tbody>
           {tables.map((table: TableProps, index: number) => {
             const tableRows = table.tableRows || []
@@ -133,7 +135,10 @@ export const Table = (props: TableWheelProps) => {
                         key={index}
                         tableRow={tableRow}
                         topicOptions={props.topicOptions}
-                        wheel={{ ...props.wheel, style: props.wheel.style.row }}
+                        wheel={{
+                          ...props.wheel,
+                          style: props.wheel.style.tableRow,
+                        }}
                       />
                     )
                   }

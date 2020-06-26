@@ -1,7 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Fragment } from 'react'
-import { BlogProps } from '../../../../src-blog-wheel/models/blog/model-types'
 import {
   Any,
   Box,
@@ -15,19 +13,23 @@ import {
   Time,
   VideoElementStyle,
   Wheel,
+  Li,
+  Ul,
 } from '../../../../src-core'
+import { BlogProps } from '../../blog/model-types'
 
-export interface BlogSectionListVariationStyle {
-  link?: NcssObjectProps
-  media?: NcssObjectProps
-  image?: ImageElementStyle
-  video?: VideoElementStyle
-  content?: NcssObjectProps
-  date?: NcssObjectProps
-  categories?: NcssObjectProps
-  text?: NcssObjectProps
-  heading?: NcssObjectProps
-  abstract?: NcssObjectProps
+export interface BlogSectionListVariationStyle extends NcssObjectProps {
+  item: NcssObjectProps
+  link: NcssObjectProps
+  media: NcssObjectProps
+  image: ImageElementStyle
+  video: VideoElementStyle
+  content: NcssObjectProps
+  date: NcssObjectProps
+  categories: NcssObjectProps
+  text: NcssObjectProps
+  heading: NcssObjectProps
+  abstract: NcssObjectProps
 }
 
 export interface BlogListWheel extends Wheel {
@@ -49,7 +51,12 @@ export const List = (props: BlogListWheelProps) => {
   }
 
   return (
-    <Fragment>
+    <Ul
+      wheel={{
+        ...props.wheel,
+        style: props.wheel.style,
+      }}
+    >
       {props.blogPosts &&
         props.blogPosts.map((blog: BlogProps, index: number) => {
           if (!blog) {
@@ -76,84 +83,91 @@ export const List = (props: BlogListWheelProps) => {
             categories.length > 0 ? categories.join(', ') : ''
 
           return (
-            <GLink
+            <Li
               key={index}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.link,
+                style: props.wheel.style.item,
               }}
-              to={'/blog/' + blog.slug}
-              ariaLabel={blog.heading + ' - ' + categories + ' - ' + dateTime}
             >
-              <Flex
-                is="div"
+              <GLink
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.media,
+                  style: props.wheel.style.link,
                 }}
+                to={'/blog/' + blog.slug}
+                ariaLabel={blog.heading + ' - ' + categories + ' - ' + dateTime}
               >
-                <Image
-                  media={blog.media}
-                  wheel={{
-                    ...props.wheel,
-                    style: props.wheel.style.image,
-                  }}
-                />
-              </Flex>
-              <Flex
-                is="div"
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.content,
-                }}
-              >
-                <Any
-                  wheel={{
-                    ...props.wheel,
-                    style: props.wheel.style.categories,
-                  }}
-                  is="span"
-                >
-                  {getCategories}
-                </Any>
-                <Box
+                <Flex
                   is="div"
                   wheel={{
                     ...props.wheel,
-                    style: props.wheel.style.text,
+                    style: props.wheel.style.media,
                   }}
                 >
-                  <Heading
-                    is="h3"
+                  <Image
+                    media={blog.media}
                     wheel={{
                       ...props.wheel,
-                      style: props.wheel.style.heading,
+                      style: props.wheel.style.image,
                     }}
-                  >
-                    {blog.heading}
-                  </Heading>
-                  <Paragraph
-                    wheel={{
-                      ...props.wheel,
-                      style: props.wheel.style.abstract,
-                    }}
-                  >
-                    {blog.abstract?.abstract}
-                  </Paragraph>
-                </Box>
-                <Time
+                  />
+                </Flex>
+                <Flex
+                  is="div"
                   wheel={{
                     ...props.wheel,
-                    style: props.wheel.style.date,
+                    style: props.wheel.style.content,
                   }}
-                  datetime={blog.date}
                 >
-                  {dateTime}
-                </Time>
-              </Flex>
-            </GLink>
+                  <Any
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.categories,
+                    }}
+                    is="span"
+                  >
+                    {getCategories}
+                  </Any>
+                  <Box
+                    is="div"
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.text,
+                    }}
+                  >
+                    <Heading
+                      is="h3"
+                      wheel={{
+                        ...props.wheel,
+                        style: props.wheel.style.heading,
+                      }}
+                    >
+                      {blog.heading}
+                    </Heading>
+                    <Paragraph
+                      wheel={{
+                        ...props.wheel,
+                        style: props.wheel.style.abstract,
+                      }}
+                    >
+                      {blog.abstract?.abstract}
+                    </Paragraph>
+                  </Box>
+                  <Time
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.date,
+                    }}
+                    datetime={blog.date}
+                  >
+                    {dateTime}
+                  </Time>
+                </Flex>
+              </GLink>
+            </Li>
           )
         })}
-    </Fragment>
+    </Ul>
   )
 }

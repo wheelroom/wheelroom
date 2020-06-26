@@ -1,9 +1,9 @@
 import React from 'react'
 import { Action, ActionModelProps, Li, Ul, Wheel } from '../../../src-core'
-import { NavigationSegmentModelStyle } from './model-style-types'
+import { NavigationSegmentModelNcssTree } from './model-style-types'
 
 interface NavigationSegmentWheel extends Wheel {
-  style: NavigationSegmentModelStyle
+  style: NavigationSegmentModelNcssTree
 }
 
 interface NavigationSegmentListProps {

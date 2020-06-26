@@ -1,7 +1,7 @@
-import { NavigationSegmentModelStyle } from '../../../../../../src-navigation-wheel'
+import { NavigationSegmentModelNcssTree } from '../../../../../../src-navigation-wheel'
 import { iconButtonSmallStyle } from '../../shared-styles/icon-style'
 
-export const navigationSegment: NavigationSegmentModelStyle = {
+export const navigationSegment: NavigationSegmentModelNcssTree = {
   ncss: {
     label: 'navigation-segment',
   },

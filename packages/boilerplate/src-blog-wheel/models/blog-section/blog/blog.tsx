@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Fragment } from 'react'
 import { BlogProps } from '../../blog/model-types'
 import {
   Any,
@@ -18,24 +17,23 @@ import {
 import {
   TopicModelProps,
   Topic,
-  TopicModelStyle,
+  TopicModelNcssTree,
 } from '../../../../src-topic-wheel'
 import { Text } from '../../../../src-text-wheel'
-import { TextModelStyle } from '../../../../src-text-wheel/models/text/model-style-types'
+import { TextModelNcssTree } from '../../../../src-text-wheel/models/text/model-style-types'
 
-export interface BlogSectionBlogVariationStyle {
-  article?: NcssObjectProps
-  header?: NcssObjectProps
-  categories?: NcssObjectProps
-  date?: NcssObjectProps
-  heading?: NcssObjectProps
-  abstract?: NcssObjectProps
-  media?: NcssObjectProps
-  image?: ImageElementStyle
-  video?: VideoElementStyle
-  text: TextModelStyle
-  authors?: NcssObjectProps
-  author: TopicModelStyle
+export interface BlogSectionBlogVariationStyle extends NcssObjectProps {
+  header: NcssObjectProps
+  categories: NcssObjectProps
+  date: NcssObjectProps
+  heading: NcssObjectProps
+  abstract: NcssObjectProps
+  media: NcssObjectProps
+  image: ImageElementStyle
+  video: VideoElementStyle
+  text: TextModelNcssTree
+  authors: NcssObjectProps
+  author: TopicModelNcssTree
 }
 
 export interface BlogSectionBlogWheel extends Wheel {
@@ -71,83 +69,78 @@ export const Blog = (props: BlogWheelProps) => {
   }
   const getCategories = categories.length > 0 ? categories.join(', ') : ''
   return (
-    <Fragment>
-      <Box
-        is="article"
-        wheel={{ ...props.wheel, style: props.wheel.style.article }}
+    <Box is="article" wheel={{ ...props.wheel, style: props.wheel.style }}>
+      <Flex
+        is="header"
+        wheel={{ ...props.wheel, style: props.wheel.style.header }}
       >
-        <Flex
-          is="header"
-          wheel={{ ...props.wheel, style: props.wheel.style.header }}
+        <Any
+          is="span"
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.categories,
+          }}
         >
-          <Any
-            is="span"
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.categories,
-            }}
-          >
-            {getCategories}
-          </Any>
-          <Time
-            wheel={{ ...props.wheel, style: props.wheel.style.date }}
-            datetime={props.blog.date}
-          >
-            {dateTime}
-          </Time>
-          <Heading
-            is="h1"
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.heading,
-            }}
-          >
-            {props.blog.heading}
-          </Heading>
-          <Paragraph
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.abstract,
-            }}
-          >
-            {props.blog.abstract?.abstract}
-          </Paragraph>
-        </Flex>
-        {props.blog.media && (
-          <Image
-            includeFigcaption={true}
-            media={props.blog.media}
-            wheel={{ ...props.wheel, style: props.wheel.style.image }}
-          />
-        )}
-        <Text
-          locale={props.locale}
-          wheel={{ ...props.wheel, style: props.wheel.style.text }}
-          text={{ text: props.blog.text }}
+          {getCategories}
+        </Any>
+        <Time
+          wheel={{ ...props.wheel, style: props.wheel.style.date }}
+          datetime={props.blog.date}
+        >
+          {dateTime}
+        </Time>
+        <Heading
+          is="h1"
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.heading,
+          }}
+        >
+          {props.blog.heading}
+        </Heading>
+        <Paragraph
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.abstract,
+          }}
+        >
+          {props.blog.abstract?.abstract}
+        </Paragraph>
+      </Flex>
+      {props.blog.media && (
+        <Image
+          includeFigcaption={true}
+          media={props.blog.media}
+          wheel={{ ...props.wheel, style: props.wheel.style.image }}
         />
-        <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
-          {props.blog.authors &&
-            props.blog.authors.map((author: TopicModelProps, index: number) => {
-              return (
-                <Topic
-                  fullTopicAsLink={false}
-                  key={index}
-                  maxActions={2}
-                  topic={author}
-                  topicOptions={{
-                    hideAction: false,
-                    hideIcon: true,
-                  }}
-                  useHeadingElement="p"
-                  wheel={{
-                    ...props.wheel,
-                    style: props.wheel.style.author,
-                  }}
-                />
-              )
-            })}
-        </Flex>
-      </Box>
-    </Fragment>
+      )}
+      <Text
+        locale={props.locale}
+        wheel={{ ...props.wheel, style: props.wheel.style.text }}
+        text={{ text: props.blog.text }}
+      />
+      <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
+        {props.blog.authors &&
+          props.blog.authors.map((author: TopicModelProps, index: number) => {
+            return (
+              <Topic
+                fullTopicAsLink={false}
+                key={index}
+                maxActions={2}
+                topic={author}
+                topicOptions={{
+                  hideAction: false,
+                  hideIcon: true,
+                }}
+                useHeadingElement="p"
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.author,
+                }}
+              />
+            )
+          })}
+      </Flex>
+    </Box>
   )
 }

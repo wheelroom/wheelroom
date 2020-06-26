@@ -4,10 +4,10 @@ import { Td } from '../../../src-core/elements/self/self'
 import { TopicOptions } from '../../../src-topic-wheel'
 import { TopicModelProps, Topic } from '../../../src-topic-wheel'
 import { Wheel } from '../../../src-core'
-import { TableRowModelStyle } from './model-style-types'
+import { TableRowModelNcssTree } from './model-style-types'
 
 export interface TableRowCellWheel extends Wheel {
-  style: TableRowModelStyle
+  style: TableRowModelNcssTree
 }
 
 export interface TableRowCellProps {

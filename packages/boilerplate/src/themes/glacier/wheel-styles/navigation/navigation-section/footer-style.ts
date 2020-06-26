@@ -1,24 +1,26 @@
-import { NavigationFooterWheelStyle } from '../../../../../../src-navigation-wheel'
+import { NavigationSectionFooterModelNcssTree } from '../../../../../../src-navigation-wheel'
 import { wrapperStyle } from '../../shared-styles/grid-style'
-import { deepMerge } from '../../../../../../src-core'
+import { deepMerge, DeepPartial } from '../../../../../../src-core'
 import { navigationSegment } from '../navigation-segment/navigation-segment'
 
-export const navigationSectionFooterStyle: NavigationFooterWheelStyle = {
-  wrapper: {
-    ncss: {
-      ...wrapperStyle.ncss,
-      borderTop: '1px solid transparent',
-      borderColor: 'sectionBorder',
-      py: 0,
+export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFooterModelNcssTree> = {
+  wrapper: deepMerge([
+    wrapperStyle,
+    {
+      ncss: {
+        borderTop: '1px solid transparent',
+        borderColor: 'sectionBorder',
+        py: 0,
+      },
     },
-  },
+  ]),
   container: {
     ncss: {
       minHeight: '84px',
       px: 2,
     },
   },
-  section: {
+  footer: {
     ncss: {
       label: 'navigation-segments',
       alignItems: 'center',
@@ -78,14 +80,16 @@ export const navigationSectionFooterStyle: NavigationFooterWheelStyle = {
     },
   },
   legalFooter: {
-    wrapper: {
-      ncss: {
-        ...wrapperStyle.ncss,
-        borderTop: '1px solid transparent',
-        borderColor: 'sectionBorder',
-        minHeight: '48px',
+    wrapper: deepMerge([
+      wrapperStyle,
+      {
+        ncss: {
+          borderTop: '1px solid transparent',
+          borderColor: 'sectionBorder',
+          minHeight: '48px',
+        },
       },
-    },
+    ]),
     container: {
       ncss: {
         px: 3,

@@ -6,8 +6,8 @@ import { NavigationProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
 import {
-  NavigationSegmentModelStyle,
-  BrandNavigationSegmentModelStyle,
+  NavigationSegmentModelNcssTree,
+  BrandNavigationSegmentModelNcssTree,
 } from '../../navigation-segment/model-style-types'
 import {
   ALink,
@@ -22,31 +22,33 @@ import {
   Wrapper,
   NcssObjectProps,
 } from '../../../../src-core'
-import { Modal, ModalWheelStyle } from './modal'
+import { Modal, ModalNcssTree } from './modal'
 import { ThemeButton } from './theme-button'
 
-export interface NavigationHeaderWheelStyle {
+export interface NavigationSectionHeaderModelNcssTree {
   skipToContent: NcssObjectProps
-  wrapper: NcssObjectProps
   container: NcssObjectProps
-  brand: {
-    segment: BrandNavigationSegmentModelStyle
-  }
-  menu: {
-    segment: NavigationSegmentModelStyle
+  header: {
+    brand: {
+      segment: BrandNavigationSegmentModelNcssTree
+    } & NcssObjectProps
+    menu: {
+      segment: NavigationSegmentModelNcssTree
+    } & NcssObjectProps
+    actions: {
+      segment: NavigationSegmentModelNcssTree
+      themeButton: NcssObjectProps
+    } & NcssObjectProps
+    modal: {
+      menuButton: NcssObjectProps
+      dialog: ModalNcssTree
+    } & NcssObjectProps
   } & NcssObjectProps
-  actions: {
-    segment: NavigationSegmentModelStyle
-    themeButton: NcssObjectProps
-  } & NcssObjectProps
-  modal: {
-    button: NcssObjectProps
-    dialog: ModalWheelStyle
-  } & NcssObjectProps
+  wrapper: NcssObjectProps
 }
 
 interface NavigationHeaderWheel extends Wheel {
-  style: NavigationHeaderWheelStyle
+  style: NavigationSectionHeaderModelNcssTree
 }
 
 export interface NavigationHeaderWheelProps {
@@ -124,18 +126,23 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
         <ContainerType
           wheel={{ ...props.wheel, style: props.wheel.style.container }}
         >
-          <BrandNavigationSegment
-            logoElement={props.useLogoElement}
-            siteHeading={props.globals.siteHeading}
-            navigationSegment={brandSegments}
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.brand.segment,
-            }}
-          />
+          <Flex
+            is="div"
+            wheel={{ ...props.wheel, style: props.wheel.style.header.brand }}
+          >
+            <BrandNavigationSegment
+              logoElement={props.useLogoElement}
+              siteHeading={props.globals.siteHeading}
+              navigationSegment={brandSegments}
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.header.brand.segment,
+              }}
+            />
+          </Flex>
           <Flex
             is={'nav'}
-            wheel={{ ...props.wheel, style: props.wheel.style.menu }}
+            wheel={{ ...props.wheel, style: props.wheel.style.header.menu }}
           >
             <NavigationSegment
               hideActionHeading={false}
@@ -145,13 +152,13 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
               navigationSegment={menuSegments}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.menu.segment,
+                style: props.wheel.style.header.menu.segment,
               }}
             />
           </Flex>
           <Flex
             is="div"
-            wheel={{ ...props.wheel, style: props.wheel.style.actions }}
+            wheel={{ ...props.wheel, style: props.wheel.style.header.actions }}
           >
             <NavigationSegment
               hideActionHeading={false}
@@ -161,13 +168,13 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
               navigationSegment={actionsSegments}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.actions.segment,
+                style: props.wheel.style.header.actions.segment,
               }}
             />
             <ThemeButton
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.actions.themeButton,
+                style: props.wheel.style.header.actions.themeButton,
               }}
               buttonName={props.themes[activeThemeId].themeName}
               hideThemeButton={props.hideThemeButton}
@@ -176,7 +183,7 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
           </Flex>
           <Box
             is="div"
-            wheel={{ ...props.wheel, style: props.wheel.style.modal }}
+            wheel={{ ...props.wheel, style: props.wheel.style.header.modal }}
           >
             <Button
               id="modal-dialog"
@@ -190,7 +197,7 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
               onClick={() => openMenu()}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.modal.button,
+                style: props.wheel.style.header.modal.menuButton,
               }}
             >
               Menu
@@ -204,7 +211,7 @@ export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
               menuVisible={menuVisible}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.modal.dialog,
+                style: props.wheel.style.header.modal.dialog,
               }}
               toggleTheme={toggleTheme}
             />

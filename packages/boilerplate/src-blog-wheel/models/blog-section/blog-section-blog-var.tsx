@@ -28,7 +28,7 @@ export const BlogSectionBlogVar = (props: BlogSectionProps) => {
       <Blog
         locale={props.locale}
         blog={props.blog}
-        wheel={{ ...wheel, style: wheel.style.section }}
+        wheel={{ ...wheel, style: wheel.style.blog }}
       />
     </BlogSectionWrapper>
   )

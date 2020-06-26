@@ -8,43 +8,37 @@ import {
   Button,
   NcssObjectProps,
   NcssProps,
+  getNcssSwitch,
 } from '../../../../src-core'
 import { FeatherIcon } from '../../../../src-core/elements/element/icon'
-import { NavigationSegmentModelStyle } from '../../navigation-segment/model-style-types'
+import { NavigationSegmentModelNcssTree } from '../../navigation-segment/model-style-types'
 import { ThemeButton } from './theme-button'
 
-export interface ModalWheelStyle {
-  container: {
-    // ncssSwitch: Record<'visible' | 'hidden', any>
-    // These are not NcssObjectProps because it is a switch
-    visible: NcssProps
-    hidden: NcssProps
-  }
+export interface ModalNcssTree {
+  ncssSwitch: Record<'visible' | 'hidden', NcssProps>
   overlay: {
-    visible: NcssObjectProps
-    hidden: NcssObjectProps
+    ncssSwitch: Record<'visible' | 'hidden', NcssProps>
   }
   document: {
-    visible: NcssObjectProps
-    hidden: NcssObjectProps
-    closeNavigationButton: {
-      icon: NcssObjectProps
-    } & NcssObjectProps
-    menu: {
-      segment: NavigationSegmentModelStyle
-    } & NcssObjectProps
-    actions: {
-      segment: NavigationSegmentModelStyle
-      themeButton: NcssObjectProps
-    } & NcssObjectProps
+    ncssSwitch: Record<'visible' | 'hidden', NcssProps>
+  }
+  closeButton: {
+    icon: NcssObjectProps
+  } & NcssObjectProps
+  menu: {
+    segment: NavigationSegmentModelNcssTree
+  } & NcssObjectProps
+  actions: {
+    segment: NavigationSegmentModelNcssTree
+    themeButton: NcssObjectProps
   } & NcssObjectProps
 }
 
 interface ModalWheel extends Wheel {
-  style: ModalWheelStyle
+  style: ModalNcssTree
 }
 
-export interface ModalWheelProps {
+export interface ModalProps {
   actionsSegments: NavigationSegmentProps[]
   buttonName?: string
   closeMenu: () => void
@@ -55,7 +49,7 @@ export interface ModalWheelProps {
   wheel: ModalWheel
 }
 
-export const Modal = (props: ModalWheelProps) => {
+export const Modal = (props: ModalProps) => {
   return (
     <Box
       is="div"
@@ -66,9 +60,10 @@ export const Modal = (props: ModalWheelProps) => {
       hidden={!props.menuVisible ? true : undefined}
       wheel={{
         ...props.wheel,
-        style: props.menuVisible
-          ? props.wheel.style.container.visible
-          : props.wheel.style.container.hidden,
+        style: getNcssSwitch(
+          props.wheel.style,
+          props.menuVisible ? 'visible' : 'hidden'
+        ),
       }}
     >
       <Box
@@ -76,9 +71,10 @@ export const Modal = (props: ModalWheelProps) => {
         ariaHidden={true}
         wheel={{
           ...props.wheel,
-          style: props.menuVisible
-            ? props.wheel.style.overlay.visible
-            : props.wheel.style.overlay.hidden,
+          style: getNcssSwitch(
+            props.wheel.style.overlay,
+            props.menuVisible ? 'visible' : 'hidden'
+          ),
         }}
         onClick={() => props.closeMenu()}
       />
@@ -89,9 +85,10 @@ export const Modal = (props: ModalWheelProps) => {
         ariaLabel="Header navigation"
         wheel={{
           ...props.wheel,
-          style: props.menuVisible
-            ? props.wheel.style.document.visible
-            : props.wheel.style.document.hidden,
+          style: getNcssSwitch(
+            props.wheel.style.document,
+            props.menuVisible ? 'visible' : 'hidden'
+          ),
         }}
       >
         <Button
@@ -102,7 +99,7 @@ export const Modal = (props: ModalWheelProps) => {
           onClick={() => props.closeMenu()}
           wheel={{
             ...props.wheel,
-            style: props.wheel.style.document.closeNavigationButton,
+            style: props.wheel.style.closeButton,
           }}
         >
           <Flex ariaHidden={true} wheel={props.wheel}>
@@ -110,14 +107,14 @@ export const Modal = (props: ModalWheelProps) => {
               icon="x"
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.document.closeNavigationButton.icon,
+                style: props.wheel.style.closeButton.icon,
               }}
             />
           </Flex>
         </Button>
         <Flex
           is="nav"
-          wheel={{ ...props.wheel, style: props.wheel.style.document.menu }}
+          wheel={{ ...props.wheel, style: props.wheel.style.menu }}
         >
           <NavigationSegment
             hideActionHeading={false}
@@ -127,13 +124,13 @@ export const Modal = (props: ModalWheelProps) => {
             navigationSegment={props.menuSegments}
             wheel={{
               ...props.wheel,
-              style: props.wheel.style.document.menu.segment,
+              style: props.wheel.style.menu.segment,
             }}
           />
         </Flex>
         <Flex
           is="div"
-          wheel={{ ...props.wheel, style: props.wheel.style.document.actions }}
+          wheel={{ ...props.wheel, style: props.wheel.style.actions }}
         >
           <NavigationSegment
             hideActionHeading={false}
@@ -143,13 +140,13 @@ export const Modal = (props: ModalWheelProps) => {
             navigationSegment={props.actionsSegments}
             wheel={{
               ...props.wheel,
-              style: props.wheel.style.document.actions.segment,
+              style: props.wheel.style.actions.segment,
             }}
           />
           <ThemeButton
             wheel={{
               ...props.wheel,
-              style: props.wheel.style.document.actions.themeButton,
+              style: props.wheel.style.actions.themeButton,
             }}
             buttonName={props.buttonName}
             hideThemeButton={props.hideThemeButton}

@@ -1,8 +1,8 @@
-import { TextModelStyle } from '../text/model-style-types'
+import { TextModelNcssTree } from '../text/model-style-types'
 import { NcssObjectProps } from '../../../src-core'
 
-export interface TextSectionModelStyle {
+export interface TextSectionModelNcssTree {
   container: NcssObjectProps
-  section: TextModelStyle
+  text: TextModelNcssTree
   wrapper: NcssObjectProps
 }

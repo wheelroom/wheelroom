@@ -28,7 +28,7 @@ export const TextSectionTextVar = (props: TextSectionProps) => {
     <TextSectionWrapper containerStyle="fluid" wheel={wheel}>
       <Text
         locale={props.locale}
-        wheel={{ ...wheel, style: wheel.style.section }}
+        wheel={{ ...wheel, style: wheel.style.text }}
         text={props.text}
       />
     </TextSectionWrapper>

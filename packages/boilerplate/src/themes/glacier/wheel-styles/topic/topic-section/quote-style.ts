@@ -1,4 +1,4 @@
-import { TopicSectionModelStyle } from '../../../../../../src-topic-wheel'
+import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import {
   primaryButtonStyle,
   displayButtonStyle,
@@ -7,8 +7,9 @@ import {
 import { iconButtonStyle, iconTopicStyle } from '../../shared-styles/icon-style'
 import { embedStyle } from '../../shared-styles/embed-style'
 import { wrapperStyle } from '../../shared-styles/grid-style'
+import { deepMerge } from '../../../../../../src-core'
 
-export const topicSectionQuoteStyle: TopicSectionModelStyle = {
+export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
   container: {
     ncss: {},
   },
@@ -103,10 +104,12 @@ export const topicSectionQuoteStyle: TopicSectionModelStyle = {
       },
     },
   },
-  wrapper: {
-    ncss: {
-      ...wrapperStyle.ncss,
-      py: 6,
+  wrapper: deepMerge([
+    wrapperStyle,
+    {
+      ncss: {
+        py: 6,
+      },
     },
-  },
+  ]),
 }

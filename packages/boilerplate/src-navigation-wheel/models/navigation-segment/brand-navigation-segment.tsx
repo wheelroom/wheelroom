@@ -1,10 +1,10 @@
 import React from 'react'
-import { Action, Wheel, Flex, Any } from '../../../src-core'
+import { Action, Wheel, Any } from '../../../src-core'
 import { NavigationSegmentProps } from './model-types'
-import { BrandNavigationSegmentModelStyle } from './model-style-types'
+import { BrandNavigationSegmentModelNcssTree } from './model-style-types'
 
 interface BrandNavigationSegmentWheel extends Wheel {
-  style: BrandNavigationSegmentModelStyle
+  style: BrandNavigationSegmentModelNcssTree
 }
 
 interface BrandNavigationSegmentWheelProps {
@@ -33,27 +33,20 @@ export const BrandNavigationSegment = (
   const display = props.logoElement || brandHeading || props.siteHeading
   if (hasBrandAction) {
     return (
-      <Flex is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
-        <Action
-          {...brandAction}
-          wheel={{ ...props.wheel, style: props.wheel.style.action }}
-        >
-          {display}
-        </Action>
-      </Flex>
+      <Action
+        {...brandAction}
+        wheel={{ ...props.wheel, style: props.wheel.style.action }}
+      >
+        {display}
+      </Action>
     )
   } else
     return (
-      <Flex
-        is="div"
-        wheel={{ ...props.wheel, style: props.wheel.style.container }}
+      <Any
+        is="span"
+        wheel={{ ...props.wheel, style: props.wheel.style.branding }}
       >
-        <Any
-          is="span"
-          wheel={{ ...props.wheel, style: props.wheel.style.brand }}
-        >
-          {display}
-        </Any>
-      </Flex>
+        {display}
+      </Any>
     )
 }

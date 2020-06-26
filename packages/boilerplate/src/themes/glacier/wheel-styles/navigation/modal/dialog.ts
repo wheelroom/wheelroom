@@ -1,4 +1,4 @@
-export const modalDialogOverlay = {
+export const dialogOverlay = {
   ncss: {
     content: '""',
     height: 1,
@@ -15,15 +15,15 @@ export const modalDialogOverlay = {
   },
 }
 
-export const modalDialogOverlayOpen = {
+export const dialogOverlayIsVisible = {
   ncss: {
-    ...modalDialogOverlay.ncss,
+    ...dialogOverlay.ncss,
     opacity: 1,
     transition: 'opacity 2s ease',
   },
 }
 
-export const modalDialog = {
+export const dialog = {
   ncss: {
     position: 'fixed',
     display: 'flex',
@@ -39,15 +39,15 @@ export const modalDialog = {
   },
 }
 
-export const modalDialogOpen = {
+export const dialogIsVisible = {
   ncss: {
-    ...modalDialog.ncss,
+    ...dialog.ncss,
     visibility: 'visible',
     overflowY: 'auto',
   },
 }
 
-export const modalDialogContent = {
+export const dialogContent = {
   ncss: {
     w: [1, '360px'],
     m: 3,
@@ -63,9 +63,9 @@ export const modalDialogContent = {
   },
 }
 
-export const modalDialogContentOpen = {
+export const dialogContentIsVisible = {
   ncss: {
-    ...modalDialogContent.ncss,
+    ...dialogContent.ncss,
     transform: 'scale(1)',
     opacity: 1,
     transition:

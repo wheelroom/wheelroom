@@ -6,7 +6,7 @@ import {
   Image,
   ImageElementStyle,
   MediaBreakpoint,
-  MediaBreakpointModelStyle,
+  MediaBreakpointModelNcssTree,
   MediaObject,
   Video,
   VideoElementStyle,
@@ -23,7 +23,7 @@ export interface TopicMediaWheelStyle extends NcssObjectProps {
   /** Image style */
   image: ImageElementStyle
   /** Media Breakpoint Style */
-  mediaBreakpoint: MediaBreakpointModelStyle
+  mediaBreakpoint: MediaBreakpointModelNcssTree
   /** Video style */
   video: VideoElementStyle
 }

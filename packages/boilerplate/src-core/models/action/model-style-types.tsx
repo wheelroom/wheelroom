@@ -1,5 +1,5 @@
 import { NcssObjectProps } from '../../../src-core'
 
-export interface ActionModelStyle extends NcssObjectProps {
-  icon?: NcssObjectProps
+export interface ActionModelNcssTree extends NcssObjectProps {
+  icon: NcssObjectProps
 }

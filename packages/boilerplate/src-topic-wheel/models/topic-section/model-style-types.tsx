@@ -1,8 +1,8 @@
-import { TopicModelStyle } from '../..'
+import { TopicModelNcssTree } from '../..'
 import { NcssObjectProps } from '../../../src-core'
 
-export interface TopicSectionModelStyle {
+export interface TopicSectionModelNcssTree {
   container: NcssObjectProps
-  topic: TopicModelStyle
+  topic: TopicModelNcssTree
   wrapper: NcssObjectProps
 }

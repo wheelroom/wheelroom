@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { NavigationProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentProps } from '../../navigation-segment/model-types'
-import { NavigationSegmentModelStyle } from '../../navigation-segment/model-style-types'
+import { NavigationSegmentModelNcssTree } from '../../navigation-segment/model-style-types'
 import {
   Container,
   CoreSiteMetadata,
@@ -15,22 +15,22 @@ import {
 } from '../../../../src-core'
 import { LegalFooter, LegalFooterWheelStyle } from './legal-footer'
 
-export interface NavigationFooterWheelStyle {
-  wrapper: NcssObjectProps
+export interface NavigationSectionFooterModelNcssTree {
   container: NcssObjectProps
-  section: {
+  footer: {
     menu: {
-      segment: NavigationSegmentModelStyle
+      segment: NavigationSegmentModelNcssTree
     } & NcssObjectProps
     social: {
-      segment: NavigationSegmentModelStyle
+      segment: NavigationSegmentModelNcssTree
     } & NcssObjectProps
   } & NcssObjectProps
   legalFooter: LegalFooterWheelStyle
+  wrapper: NcssObjectProps
 }
 
 interface NavigationFooterWheel extends Wheel {
-  style: NavigationFooterWheelStyle
+  style: NavigationSectionFooterModelNcssTree
 }
 
 export interface NavigationFooterWheelProps {
@@ -69,11 +69,11 @@ export const NavigationFooter = (props: NavigationFooterWheelProps) => {
         >
           <Flex
             is="div"
-            wheel={{ ...props.wheel, style: props.wheel.style.section }}
+            wheel={{ ...props.wheel, style: props.wheel.style.footer }}
           >
             <Flex
               is={'nav'}
-              wheel={{ ...props.wheel, style: props.wheel.style.section.menu }}
+              wheel={{ ...props.wheel, style: props.wheel.style.footer.menu }}
             >
               <NavigationSegment
                 hideActionHeading={false}
@@ -83,7 +83,7 @@ export const NavigationFooter = (props: NavigationFooterWheelProps) => {
                 navigationSegment={menuSegments}
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.section.menu.segment,
+                  style: props.wheel.style.footer.menu.segment,
                 }}
               />
             </Flex>
@@ -91,7 +91,7 @@ export const NavigationFooter = (props: NavigationFooterWheelProps) => {
               is={'div'}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.section.social,
+                style: props.wheel.style.footer.social,
               }}
             >
               <NavigationSegment
@@ -102,7 +102,7 @@ export const NavigationFooter = (props: NavigationFooterWheelProps) => {
                 navigationSegment={socialSegments}
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.section.social.segment,
+                  style: props.wheel.style.footer.social.segment,
                 }}
               />
             </Flex>

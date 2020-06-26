@@ -1,8 +1,8 @@
-import { ActionModelStyle, NcssObjectProps } from '../../../src-core'
-import { TableRowModelStyle } from '../table-row/model-style-types'
+import { ActionModelNcssTree, NcssObjectProps } from '../../../src-core'
+import { TableRowModelNcssTree } from '../table-row/model-style-types'
 
-export interface TableModelStyle extends NcssObjectProps {
-  table: NcssObjectProps
+export interface TableModelNcssTree extends NcssObjectProps {
+  tableElement: NcssObjectProps
   th: NcssObjectProps
   tr: NcssObjectProps
   dd: NcssObjectProps
@@ -10,6 +10,6 @@ export interface TableModelStyle extends NcssObjectProps {
   dt: NcssObjectProps
   icon: NcssObjectProps
   actionGroup: NcssObjectProps
-  action: ActionModelStyle
-  row: TableRowModelStyle
+  action: ActionModelNcssTree
+  tableRow: TableRowModelNcssTree
 }

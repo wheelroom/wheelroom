@@ -8,7 +8,7 @@
 
 import React from 'react'
 import { getWheel } from '../../../src-core'
-import { BlogProps } from '../../../src-blog-wheel/models/blog/model-types'
+import { BlogProps } from '../../models/blog/model-types'
 import { BlogSectionProps } from './model-types'
 import { BlogSectionWrapper } from './blog-section-wrapper'
 import { List } from './list/list'
@@ -32,7 +32,7 @@ export const BlogSectionListVar = (props: BlogSectionProps) => {
       <List
         blogPosts={blogPosts}
         locale={props.locale}
-        wheel={{ ...wheel, style: wheel.style.section }}
+        wheel={{ ...wheel, style: wheel.style.blog }}
       />
     </BlogSectionWrapper>
   )

@@ -1,8 +1,8 @@
-import { TopicModelStyle } from '../../../../../../src-topic-wheel/models/topic/topic'
+import { TopicModelNcssTree } from '../../../../../../src-topic-wheel'
 import { topicMediaStyle } from './topic-media-style'
 import { topicContentStyle } from './topic-content-style'
 
-export const topicStyle: TopicModelStyle = {
+export const topicNcssTree: TopicModelNcssTree = {
   ncss: {
     label: 'topic',
     display: 'flex',

@@ -1,17 +1,15 @@
-import { BlogSectionBlogModelStyle } from '../../../../../src-blog-wheel'
+import { BlogSectionBlogModelNcssTree } from '../../../../../src-blog-wheel'
 import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
-import { deepMerge } from '../../../../../src-core'
-import { textSectionTextStyle } from '../text/text-style'
-import { topicStyle } from '../topic/topic/topic-style'
+import { deepMerge, DeepPartial } from '../../../../../src-core'
+import { topicNcssTree } from '../topic/topic/topic-style'
+import { textSectionTextNcssTree } from '../text/text-style'
 
-export const blogSectionBlogStyle: BlogSectionBlogModelStyle = {
+export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogModelNcssTree> = {
   container: containerStyle,
-  section: {
-    article: {
-      ncss: {
-        label: 'blog-article',
-        w: 1,
-      },
+  blog: {
+    ncss: {
+      label: 'blog-section-blog',
+      w: 1,
     },
     header: {
       ncss: {
@@ -95,7 +93,7 @@ export const blogSectionBlogStyle: BlogSectionBlogModelStyle = {
       },
     },
     author: deepMerge([
-      topicStyle,
+      topicNcssTree,
       {
         ncss: {
           label: 'blog-author',
@@ -199,7 +197,7 @@ export const blogSectionBlogStyle: BlogSectionBlogModelStyle = {
         },
       },
     ]),
-    text: textSectionTextStyle.section,
+    text: textSectionTextNcssTree.text,
   },
   wrapper: wrapperStyle,
 }

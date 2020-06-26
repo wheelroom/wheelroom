@@ -3,10 +3,11 @@ import {
   iconButtonSmallStyle,
 } from '../shared-styles/icon-style'
 import { wrapperStyle } from '../shared-styles/grid-style'
-import { TableSectionModelStyle } from '../../../../../src-table-wheel'
+import { TableSectionModelNcssTree } from '../../../../../src-table-wheel'
 import { embedStyle } from '../shared-styles/embed-style'
+import { DeepPartial } from '../../../../../src-core'
 
-export const tableSectionPriceStyle: TableSectionModelStyle = {
+export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> = {
   container: {
     ncss: {
       label: 'table-container',
@@ -14,13 +15,13 @@ export const tableSectionPriceStyle: TableSectionModelStyle = {
       overflow: 'hidden',
     },
   },
-  section: {
+  table: {
     ncss: {
       label: 'table-section-price',
       overflowX: 'auto',
       w: 1,
     },
-    table: {
+    tableElement: {
       ncss: {
         label: 'table',
         fontSize: 4,
@@ -84,19 +85,19 @@ export const tableSectionPriceStyle: TableSectionModelStyle = {
         },
       },
     },
-    row: {
+    tableRow: {
       ncssSwitch: {
-        trHeader: {
+        headerVariation: {
           ncss: {
             label: 'table-row-tr-header',
           },
         },
-        trBody: {
+        bodyVariation: {
           ncss: {
             label: 'table-row-tr-body',
           },
         },
-        trFooter: {
+        footerVariation: {
           ncss: {
             label: 'table-row-tr-footer',
           },

@@ -8,10 +8,10 @@ import {
   imageImgReset,
   imagePictureReset,
 } from '../../elements/element/image-reset'
-import { MediaBreakpointModelStyle } from './model-style-types'
+import { MediaBreakpointModelNcssTree } from './model-style-types'
 
 interface MediaBreakpointWheelStyle extends Wheel {
-  style: MediaBreakpointModelStyle
+  style: MediaBreakpointModelNcssTree
 }
 
 export interface MediaBreakpointWheelProps {
@@ -96,8 +96,8 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
           mergeNcss([
             imgLabel,
             imageImgReset,
-            media.wheel.elementStyles.mediaBreakpoint.img,
-            media.wheel.style.img,
+            media.wheel.elementStyles.mediaBreakpoint,
+            media.wheel.style,
           ])
         )}
         {...imgAttr}

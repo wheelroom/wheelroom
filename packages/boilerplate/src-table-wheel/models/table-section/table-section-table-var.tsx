@@ -29,7 +29,7 @@ export const TableSectionTableVar = (props: TableSectionProps) => {
       <Table
         tables={props.tables}
         topicOptions={props.topicOptions || {}}
-        wheel={{ ...wheel, style: wheel.style.section }}
+        wheel={{ ...wheel, style: wheel.style.table }}
       />
     </TableSectionWrapper>
   )
