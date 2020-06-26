@@ -1,23 +1,21 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Any } from '../../elements/element/any'
 import { Wheel } from '../../lib/wheel'
-import { NcssNode } from '../../lib/ncss'
+import { Any } from '../../elements/element/any'
+import { EmbedModelNcssTree } from './model-style-types'
 
 export interface EmbedWheel extends Wheel {
-  style: NcssNode
+  style: EmbedModelNcssTree
 }
 
-export interface EmbedWheelProps {
-  /** Styling wheel */
+export interface EmbedProps {
   wheel: EmbedWheel
-  /** Embed props */
   code?: string
   title?: string
   type?: string
 }
 
-export const Embed = (props: EmbedWheelProps) => {
+export const Embed = (props: EmbedProps) => {
   if (!props.type || props.type !== 'html') {
     return null
   }
