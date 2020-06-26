@@ -7,45 +7,29 @@ import {
   GLink,
   Heading,
   Image,
-  ImageElementStyle,
   Paragraph,
-  NcssNode,
   Time,
-  VideoElementStyle,
   Wheel,
   Li,
   Ul,
 } from '../../../../src-core'
 import { BlogModelProps } from '../../blog/model-types'
+import { BlogSectionListVariationNcssTree } from './model-ncss'
 
-export interface BlogSectionListVariationStyle extends NcssNode {
-  item: NcssNode
-  link: NcssNode
-  media: NcssNode
-  image: ImageElementStyle
-  video: VideoElementStyle
-  content: NcssNode
-  date: NcssNode
-  categories: NcssNode
-  text: NcssNode
-  heading: NcssNode
-  abstract: NcssNode
+interface ListWheel extends Wheel {
+  style: BlogSectionListVariationNcssTree
 }
 
-export interface BlogListWheel extends Wheel {
-  style: BlogSectionListVariationStyle
-}
-
-export interface BlogListWheelProps {
+interface ListProps {
   /** Styling wheel */
-  wheel: BlogListWheel
+  wheel: ListWheel
   /** Locale needed for rich text render */
   locale: string
   /** List of all blogs to render */
   blogPosts: BlogModelProps[]
 }
 
-export const List = (props: BlogListWheelProps) => {
+export const List = (props: ListProps) => {
   if (!props.blogPosts) {
     return null
   }

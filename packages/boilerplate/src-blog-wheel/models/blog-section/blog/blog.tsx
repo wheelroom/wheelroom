@@ -10,45 +10,25 @@ import {
   Paragraph,
   Time,
   Wheel,
-  NcssNode,
-  ImageElementStyle,
-  VideoElementStyle,
 } from '../../../../src-core'
-import {
-  TopicModelProps,
-  Topic,
-  TopicModelNcssTree,
-} from '../../../../src-topic-wheel'
-import { Text, TextModelNcssTree } from '../../../../src-text-wheel'
+import { TopicModelProps, Topic } from '../../../../src-topic-wheel'
+import { Text } from '../../../../src-text-wheel'
+import { BlogSectionBlogVariationNcssTree } from './model-ncss'
 
-export interface BlogSectionBlogVariationStyle extends NcssNode {
-  header: NcssNode
-  categories: NcssNode
-  date: NcssNode
-  heading: NcssNode
-  abstract: NcssNode
-  media: NcssNode
-  image: ImageElementStyle
-  video: VideoElementStyle
-  text: TextModelNcssTree
-  authors: NcssNode
-  author: TopicModelNcssTree
+interface BlogWheel extends Wheel {
+  style: BlogSectionBlogVariationNcssTree
 }
 
-export interface BlogSectionBlogWheel extends Wheel {
-  style: BlogSectionBlogVariationStyle
-}
-
-export interface BlogWheelProps {
+interface BlogProps {
   /** Styling wheel */
-  wheel: BlogSectionBlogWheel
+  wheel: BlogWheel
   /** Locale needed for rich text render */
   locale: string
   /** Blog props to render */
   blog: BlogModelProps
 }
 
-export const Blog = (props: BlogWheelProps) => {
+export const Blog = (props: BlogProps) => {
   if (!props.blog) {
     return null
   }
