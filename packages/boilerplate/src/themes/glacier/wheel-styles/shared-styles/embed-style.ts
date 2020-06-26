@@ -1,4 +1,4 @@
-export const embedStyle = {
+export const embedNcss = {
   ncss: {
     position: 'relative',
     h: '0px',

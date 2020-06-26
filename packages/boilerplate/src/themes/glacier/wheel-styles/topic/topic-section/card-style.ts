@@ -1,7 +1,7 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
-import { containerStyle, wrapperStyle } from '../../shared-styles/grid-style'
+import { containerStyle, wrapperNcss } from '../../shared-styles/grid-style'
 import { primaryButtonStyle } from '../../../element-styles/button-style'
-import { iconTopicStyle } from '../../shared-styles/icon-style'
+import { iconTopicNcss } from '../../shared-styles/icon-style'
 
 export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
   container: {
@@ -59,7 +59,7 @@ export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicStyle,
+        icon: iconTopicNcss,
       },
     },
     media: {
@@ -98,7 +98,7 @@ export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperStyle,
+  wrapper: wrapperNcss,
 }
 
 export const pageSectionCardShadowStyle = {

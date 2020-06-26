@@ -4,9 +4,9 @@ import {
   displayButtonStyle,
   secondaryButtonStyle,
 } from '../../../element-styles/button-style'
-import { iconButtonStyle, iconTopicStyle } from '../../shared-styles/icon-style'
-import { embedStyle } from '../../shared-styles/embed-style'
-import { wrapperStyle } from '../../shared-styles/grid-style'
+import { iconButtonStyle, iconTopicNcss } from '../../shared-styles/icon-style'
+import { embedNcss } from '../../shared-styles/embed-style'
+import { wrapperNcss } from '../../shared-styles/grid-style'
 import { deepMerge } from '../../../../../../src-core'
 
 export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
@@ -61,7 +61,7 @@ export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
         },
         icon: {
           ncss: {
-            ...iconTopicStyle.ncss,
+            ...iconTopicNcss.ncss,
             order: '0',
           },
         },
@@ -71,7 +71,7 @@ export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
       ncss: {
         p: 3,
       },
-      embed: embedStyle,
+      embed: embedNcss,
       image: {
         ncss: {
           h: 1,
@@ -105,7 +105,7 @@ export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
     },
   },
   wrapper: deepMerge([
-    wrapperStyle,
+    wrapperNcss,
     {
       ncss: {
         py: 6,

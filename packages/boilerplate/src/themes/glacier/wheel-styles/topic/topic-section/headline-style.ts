@@ -4,9 +4,9 @@ import {
   displayButtonStyle,
   secondaryButtonStyle,
 } from '../../../element-styles/button-style'
-import { iconButtonStyle, iconTopicStyle } from '../../shared-styles/icon-style'
-import { embedStyle } from '../../shared-styles/embed-style'
-import { wrapperStyle } from '../../shared-styles/grid-style'
+import { iconButtonStyle, iconTopicNcss } from '../../shared-styles/icon-style'
+import { embedNcss } from '../../shared-styles/embed-style'
+import { wrapperNcss } from '../../shared-styles/grid-style'
 
 export const topicSectionHeadlineNcssTree: TopicSectionModelNcssTree = {
   container: {
@@ -48,12 +48,12 @@ export const topicSectionHeadlineNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicStyle,
+        icon: iconTopicNcss,
       },
     },
     media: {
       ncss: {},
-      embed: embedStyle,
+      embed: embedNcss,
       image: {
         ncss: {},
         picture: {
@@ -77,5 +77,5 @@ export const topicSectionHeadlineNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperStyle,
+  wrapper: wrapperNcss,
 }

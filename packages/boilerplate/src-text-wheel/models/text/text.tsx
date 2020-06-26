@@ -46,7 +46,7 @@ export interface TextWheel extends Wheel {
   style: TextModelNcssTree
 }
 
-export interface TextWheelProps {
+export interface TextProps {
   /** Locale needed for rendering rich text */
   locale: string
   wheel: TextWheel
@@ -56,7 +56,7 @@ export interface TextWheelProps {
 type Node = any
 type Children = any
 
-export const Text = (props: TextWheelProps) => {
+export const Text = (props: TextProps) => {
   const textProps = props
 
   const options = {

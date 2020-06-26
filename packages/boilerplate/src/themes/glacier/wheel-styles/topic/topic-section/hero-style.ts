@@ -4,8 +4,8 @@ import {
   displayButtonStyle,
   secondaryButtonStyle,
 } from '../../../element-styles/button-style'
-import { iconButtonStyle, iconTopicStyle } from '../../shared-styles/icon-style'
-import { embedStyle } from '../../shared-styles/embed-style'
+import { iconButtonStyle, iconTopicNcss } from '../../shared-styles/icon-style'
+import { embedNcss } from '../../shared-styles/embed-style'
 
 export const topicSectionHeroNcssTree: TopicSectionModelNcssTree = {
   container: {
@@ -54,7 +54,7 @@ export const topicSectionHeroNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicStyle,
+        icon: iconTopicNcss,
       },
     },
     media: {
@@ -67,7 +67,7 @@ export const topicSectionHeroNcssTree: TopicSectionModelNcssTree = {
         zIndex: -1,
         overflow: 'hidden',
       },
-      embed: embedStyle,
+      embed: embedNcss,
       image: {
         ncss: {
           h: 1,

@@ -1,11 +1,11 @@
 import { NavigationSectionFooterModelNcssTree } from '../../../../../../src-navigation-wheel'
-import { wrapperStyle } from '../../shared-styles/grid-style'
+import { wrapperNcss } from '../../shared-styles/grid-style'
 import { deepMerge, DeepPartial } from '../../../../../../src-core'
 import { navigationSegment } from '../navigation-segment/navigation-segment'
 
 export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFooterModelNcssTree> = {
   wrapper: deepMerge([
-    wrapperStyle,
+    wrapperNcss,
     {
       ncss: {
         borderTop: '1px solid transparent',
@@ -81,7 +81,7 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
   },
   legalFooter: {
     wrapper: deepMerge([
-      wrapperStyle,
+      wrapperNcss,
       {
         ncss: {
           borderTop: '1px solid transparent',

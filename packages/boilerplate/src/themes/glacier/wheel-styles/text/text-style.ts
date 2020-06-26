@@ -1,7 +1,7 @@
 import { TextSectionModelNcssTree } from '../../../../../src-text-wheel'
-import { containerStyle, wrapperStyle } from '../shared-styles/grid-style'
+import { containerStyle, wrapperNcss } from '../shared-styles/grid-style'
 import { headingTextStyle } from '../../element-styles/heading-style'
-import { embedStyle } from '../shared-styles/embed-style'
+import { embedNcss } from '../shared-styles/embed-style'
 import { DeepPartial } from '../../../../../src-core'
 
 export const textSectionTextNcssTree: DeepPartial<TextSectionModelNcssTree> = {
@@ -53,7 +53,7 @@ export const textSectionTextNcssTree: DeepPartial<TextSectionModelNcssTree> = {
     },
     embed: {
       ncss: {
-        ...embedStyle.ncss,
+        ...embedNcss.ncss,
         mt: 3,
         mb: 5,
       },
@@ -95,5 +95,5 @@ export const textSectionTextNcssTree: DeepPartial<TextSectionModelNcssTree> = {
       },
     },
   },
-  wrapper: wrapperStyle,
+  wrapper: wrapperNcss,
 }

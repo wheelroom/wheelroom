@@ -1,6 +1,6 @@
 import { deepMerge, DeepPartial } from '../../../../../../src-core'
 import { NavigationSectionHeaderModelNcssTree } from '../../../../../../src-navigation-wheel'
-import { wrapperStyle } from '../../shared-styles/grid-style'
+import { wrapperNcss } from '../../shared-styles/grid-style'
 import {
   primaryButtonStyle,
   secondaryButtonStyle,
@@ -293,7 +293,7 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
     },
   },
   wrapper: deepMerge([
-    wrapperStyle,
+    wrapperNcss,
     {
       ncss: {
         width: 1,

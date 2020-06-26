@@ -4,9 +4,9 @@ import {
   displayButtonStyle,
   secondaryButtonStyle,
 } from '../../../element-styles/button-style'
-import { iconButtonStyle, iconTopicStyle } from '../../shared-styles/icon-style'
-import { embedStyle } from '../../shared-styles/embed-style'
-import { wrapperStyle } from '../../shared-styles/grid-style'
+import { iconButtonStyle, iconTopicNcss } from '../../shared-styles/icon-style'
+import { embedNcss } from '../../shared-styles/embed-style'
+import { wrapperNcss } from '../../shared-styles/grid-style'
 
 export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
   container: {
@@ -57,7 +57,7 @@ export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicStyle,
+        icon: iconTopicNcss,
       },
     },
     media: {
@@ -67,7 +67,7 @@ export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
         maxWidth: ['35em', '35em', '45%'],
         w: 1,
       },
-      embed: embedStyle,
+      embed: embedNcss,
       image: {
         ncss: {},
         picture: {
@@ -91,7 +91,7 @@ export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperStyle,
+  wrapper: wrapperNcss,
 }
 
 export const pageSectionFeaturedReverseStyle = {

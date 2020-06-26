@@ -1,7 +1,7 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
-import { iconTopicStyle } from '../../shared-styles/icon-style'
-import { embedStyle } from '../../shared-styles/embed-style'
-import { wrapperStyle } from '../../shared-styles/grid-style'
+import { iconTopicNcss } from '../../shared-styles/icon-style'
+import { embedNcss } from '../../shared-styles/embed-style'
+import { wrapperNcss } from '../../shared-styles/grid-style'
 
 export const topicSectionGalleryNcssTree: TopicSectionModelNcssTree = {
   container: {
@@ -36,12 +36,12 @@ export const topicSectionGalleryNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicStyle,
+        icon: iconTopicNcss,
       },
     },
     media: {
       ncss: {},
-      embed: embedStyle,
+      embed: embedNcss,
       image: {
         ncss: {},
         picture: {
@@ -67,5 +67,5 @@ export const topicSectionGalleryNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperStyle,
+  wrapper: wrapperNcss,
 }

@@ -4,7 +4,7 @@ export const containerStyle = {
   },
 }
 
-export const wrapperStyle = {
+export const wrapperNcss = {
   ncss: {
     label: 'wrapper',
     bg: 'sectionBg',

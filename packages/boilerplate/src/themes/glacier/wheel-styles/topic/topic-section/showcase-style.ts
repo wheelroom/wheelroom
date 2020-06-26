@@ -1,8 +1,8 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import { aLinkButtonStyle } from '../../../element-styles/button-style'
-import { iconTopicStyle } from '../../shared-styles/icon-style'
-import { embedStyle } from '../../shared-styles/embed-style'
-import { wrapperStyle } from '../../shared-styles/grid-style'
+import { iconTopicNcss } from '../../shared-styles/icon-style'
+import { embedNcss } from '../../shared-styles/embed-style'
+import { wrapperNcss } from '../../shared-styles/grid-style'
 
 export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
   container: {
@@ -44,7 +44,7 @@ export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicStyle,
+        icon: iconTopicNcss,
       },
     },
     media: {
@@ -54,7 +54,7 @@ export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
         maxWidth: '254px',
         w: 1,
       },
-      embed: embedStyle,
+      embed: embedNcss,
       image: {
         ncss: {},
         picture: {
@@ -78,5 +78,5 @@ export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperStyle,
+  wrapper: wrapperNcss,
 }

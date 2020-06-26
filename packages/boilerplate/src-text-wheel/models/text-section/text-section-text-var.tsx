@@ -9,10 +9,10 @@
 import React from 'react'
 import { getWheel } from '../../../src-core'
 import { Text } from '../text/text'
-import { TextSectionProps } from './model-types'
+import { TextSectionModelProps } from './model-types'
 import { TextSectionWrapper } from './text-section-wrapper'
 
-export const TextSectionTextVar = (props: TextSectionProps) => {
+export const TextSectionTextVar = (props: TextSectionModelProps) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
     wheelId: 'textSection',

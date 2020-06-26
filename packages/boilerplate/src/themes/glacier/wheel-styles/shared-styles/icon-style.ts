@@ -34,7 +34,7 @@ export const iconButtonStyle = {
   },
 }
 
-export const iconTopicStyle = {
+export const iconTopicNcss = {
   ncss: {
     ...iconStyle.ncss,
     mb: 2,

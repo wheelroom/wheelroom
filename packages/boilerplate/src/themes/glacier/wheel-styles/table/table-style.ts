@@ -3,8 +3,8 @@ import {
   iconSmallTopicStyle,
   iconButtonSmallStyle,
 } from '../shared-styles/icon-style'
-import { wrapperStyle } from '../shared-styles/grid-style'
-import { embedStyle } from '../shared-styles/embed-style'
+import { wrapperNcss } from '../shared-styles/grid-style'
+import { embedNcss } from '../shared-styles/embed-style'
 import { DeepPartial } from '../../../../../src-core'
 
 export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> = {
@@ -193,7 +193,7 @@ export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> =
           ncss: {
             my: 1,
           },
-          embed: embedStyle,
+          embed: embedNcss,
           image: {
             picture: {
               ncss: {},
@@ -219,5 +219,5 @@ export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> =
       },
     },
   },
-  wrapper: wrapperStyle,
+  wrapper: wrapperNcss,
 }
