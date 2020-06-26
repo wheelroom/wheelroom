@@ -9,11 +9,11 @@
 import React from 'react'
 import { getWheel } from '../../../src-core'
 import { BlogModelProps } from '../../models/blog/model-types'
-import { BlogSectionProps } from './model-types'
+import { BlogSectionModelProps } from './model-types'
 import { BlogSectionWrapper } from './blog-section-wrapper'
 import { List } from './list/list'
 
-export const BlogSectionListVar = (props: BlogSectionProps) => {
+export const BlogSectionListVar = (props: BlogSectionModelProps) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
     wheelId: 'blogSection',
