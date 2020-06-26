@@ -1,7 +1,7 @@
 import { SectionWheelTheme } from '../../../src-core'
 import { wrSystemTheme } from '../wr-system-theme'
-import { elementNcss } from './element-styles/element-styles'
-import { styles } from './wheel-styles/styles'
+import { elementNcss } from './element-ncss/element-ncss'
+import { styles } from './ncss-trees/styles'
 import { dark } from './colors/dark'
 import { light } from './colors/light'
 
