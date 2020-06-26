@@ -1,4 +1,4 @@
-import { wrapperNcssNode } from '../../shared-ncss/grid-ncss'
+import { wrapperNcssNode } from '../grid-ncss'
 import { BlogSectionListModelNcssTree } from '../../../../../src-blog-wheel'
 import { DeepPartial } from '../../../../../src-core'
 

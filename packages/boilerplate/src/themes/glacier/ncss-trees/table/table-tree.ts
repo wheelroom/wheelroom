@@ -3,7 +3,7 @@ import {
   iconSmallTopicNcssNode,
   iconButtonSmallNcssNode,
 } from '../../shared-ncss/icon-ncss'
-import { containerNcssNode, wrapperNcssNode } from '../../shared-ncss/grid-ncss'
+import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { embedNcssNode } from '../embed-ncss'
 import { deepMerge, DeepPartial } from '../../../../../src-core'
 

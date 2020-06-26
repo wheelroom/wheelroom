@@ -1,8 +1,5 @@
 import { NavigationSectionFooterModelNcssTree } from '../../../../../../src-navigation-wheel'
-import {
-  containerNcssNode,
-  wrapperNcssNode,
-} from '../../../shared-ncss/grid-ncss'
+import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
 import { deepMerge, DeepPartial } from '../../../../../../src-core'
 import { navigationSegmentNcssTree } from '../navigation-segment/navigation-segment-tree'
 

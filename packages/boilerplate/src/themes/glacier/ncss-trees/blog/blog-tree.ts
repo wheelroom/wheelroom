@@ -1,5 +1,5 @@
 import { BlogSectionBlogModelNcssTree } from '../../../../../src-blog-wheel'
-import { containerNcssNode, wrapperNcssNode } from '../../shared-ncss/grid-ncss'
+import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { deepMerge, DeepPartial } from '../../../../../src-core'
 import { topicNcssTree } from '../topic/topic/topic-style'
 import { textSectionTextNcssTree } from '../text/text-tree'

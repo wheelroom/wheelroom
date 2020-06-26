@@ -1,6 +1,6 @@
 import { deepMerge, DeepPartial } from '../../../../../../src-core'
 import { NavigationSectionHeaderModelNcssTree } from '../../../../../../src-navigation-wheel'
-import { wrapperNcssNode } from '../../../shared-ncss/grid-ncss'
+import { wrapperNcssNode } from '../../grid-ncss'
 import {
   primaryButtonNcssNode,
   secondaryButtonNcssNode,

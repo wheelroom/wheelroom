@@ -9,7 +9,7 @@ import {
   iconTopicNcssNode,
 } from '../../../shared-ncss/icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
-import { wrapperNcssNode } from '../../../shared-ncss/grid-ncss'
+import { wrapperNcssNode } from '../../grid-ncss'
 import { deepMerge } from '../../../../../../src-core'
 
 export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {

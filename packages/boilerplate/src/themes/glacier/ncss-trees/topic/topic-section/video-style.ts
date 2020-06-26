@@ -1,7 +1,7 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import { iconTopicNcssNode } from '../../../shared-ncss/icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
-import { wrapperNcssNode } from '../../../shared-ncss/grid-ncss'
+import { wrapperNcssNode } from '../../grid-ncss'
 
 export const topicSectionVideoNcssTree: TopicSectionModelNcssTree = {
   container: {

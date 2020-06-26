@@ -1,5 +1,5 @@
 import { TextSectionModelNcssTree } from '../../../../../src-text-wheel'
-import { containerNcssNode, wrapperNcssNode } from '../../shared-ncss/grid-ncss'
+import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { headingTextNcssNode } from '../../element-ncss/heading-ncss'
 import { embedNcssNode } from '../embed-ncss'
 import { DeepPartial } from '../../../../../src-core'
