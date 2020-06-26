@@ -1,5 +1,8 @@
 // Blog
-export type { BlogModelProps, AllBlogProps } from './models/blog/model-types'
+export type {
+  BlogModelProps,
+  AllBlogModelProps,
+} from './models/blog/model-types'
 
 // Blog section
 export { BlogSection } from './models/blog-section/blog-section'

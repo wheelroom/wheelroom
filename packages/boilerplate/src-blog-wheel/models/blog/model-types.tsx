@@ -34,6 +34,6 @@ export interface BlogNodeProps {
   node: BlogModelProps
 }
 
-export interface AllBlogProps {
+export interface AllBlogModelProps {
   edges: BlogNodeProps[]
 }
