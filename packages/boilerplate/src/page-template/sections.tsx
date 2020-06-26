@@ -9,7 +9,7 @@ import { TopicSection } from '../../src-topic-wheel'
 import {
   GlobalsProps,
   CoreSiteMetadata,
-  PageProps,
+  PageModelProps,
   SectionWheels,
   ScrollSpy,
 } from '../../src-core'
@@ -38,7 +38,7 @@ export interface SectionsProps {
   globals: GlobalsProps
   blog: BlogProps
   allBlog: AllBlogProps
-  page: PageProps
+  page: PageModelProps
   siteMetadata: CoreSiteMetadata
   sections: any
   sectionWheels: SectionWheels

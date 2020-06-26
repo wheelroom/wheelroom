@@ -16,7 +16,7 @@ export type { Ncss, NcssNode, NcssNodeSwitch } from './lib/ncss'
 export type { ParserFunction, ParserProps } from './parsers/types'
 // Models
 export type { GlobalsProps } from './models/globals/model-types'
-export type { PageProps } from './models/page/model-types'
+export type { PageModelProps } from './models/page/model-types'
 export type { ActionModelProps } from './models/action/model-types'
 export type { ActionModelNcssTree } from './models/action/model-style-types'
 export type { EmbedModelProps } from './models/embed/model-types'

@@ -7,7 +7,7 @@
 
 import { MediaObject } from '../../elements/types/media'
 
-export interface PageProps {
+export interface PageModelProps {
   /** Gatsby fetched data */
   __typename: string
   path: string

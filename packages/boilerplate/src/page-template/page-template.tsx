@@ -12,7 +12,7 @@ import {
   CoreSiteMetadata,
   GlobalsProps,
   htmlReset,
-  PageProps,
+  PageModelProps,
   Seo,
   SeoProps,
   useEmbeds,
@@ -32,7 +32,7 @@ const PageTemplate = (props: any) => {
   // Page preview admin module
   const [previewPage, setPreviewPage] = useState()
   useFetchPreviewPage(setPreviewPage)
-  const page: PageProps = previewPage || props.data.page
+  const page: PageModelProps = previewPage || props.data.page
 
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)

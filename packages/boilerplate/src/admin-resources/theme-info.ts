@@ -1,9 +1,9 @@
 import { ThemeInfo } from '@wheelroom/admin-theme-switcher'
-import { PageProps } from '../../src-core'
+import { PageModelProps } from '../../src-core'
 import { sectionWheels } from '../page-template/section-wheels'
 
 export const themeInfo = (props: any): ThemeInfo => {
-  const page: PageProps = props && props.data && props.data.page
+  const page: PageModelProps = props && props.data && props.data.page
   const pageThemeId = page && page.theme
 
   const themeIds = Object.keys(sectionWheels.themes)
