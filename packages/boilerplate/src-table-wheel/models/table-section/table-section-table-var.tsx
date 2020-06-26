@@ -9,10 +9,10 @@
 import React from 'react'
 import { getWheel } from '../../../src-core'
 import { Table } from '../table/table'
-import { TableSectionProps } from './model-types'
+import { TableSectionModelProps } from './model-types'
 import { TableSectionWrapper } from './table-section-wrapper'
 
-export const TableSectionTableVar = (props: TableSectionProps) => {
+export const TableSectionTableVar = (props: TableSectionModelProps) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
     wheelId: 'tableSection',

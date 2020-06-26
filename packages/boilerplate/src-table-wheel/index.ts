@@ -10,5 +10,5 @@ export type { TableRowModelNcssTree } from './models/table-row/model-style-types
 
 // Table section
 export { TableSection } from './models/table-section/table-section'
-export type { TableSectionProps } from './models/table-section/model-types'
+export type { TableSectionModelProps } from './models/table-section/model-types'
 export type { TableSectionModelNcssTree } from './models/table-section/model-style-types'

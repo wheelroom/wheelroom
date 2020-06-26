@@ -8,7 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../../src-core'
 import { TableSectionPriceVar } from './table-section-price-var'
-import { TableSectionProps } from './model-types'
+import { TableSectionModelProps } from './model-types'
 import { TableSectionTableVar } from './table-section-table-var'
 
 const componentList = {
@@ -16,7 +16,7 @@ const componentList = {
   ['table']: TableSectionTableVar,
 }
 
-export const TableSection = (props: TableSectionProps) => {
+export const TableSection = (props: TableSectionModelProps) => {
   const Variation = getVariation(props, componentList)
 
   return <Variation {...props} />
