@@ -1,12 +1,15 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import {
-  primaryButtonStyle,
-  displayButtonStyle,
-  secondaryButtonStyle,
+  primaryButtonNcssNode,
+  displayButtonNcssNode,
+  secondaryButtonNcssNode,
 } from '../../../element-styles/button-style'
-import { iconButtonStyle, iconTopicNcss } from '../../shared-styles/icon-style'
-import { embedNcss } from '../../shared-styles/embed-style'
-import { wrapperNcss } from '../../shared-styles/grid-style'
+import {
+  iconButtonNcssNode,
+  iconTopicNcssNode,
+} from '../../shared-styles/icon-style'
+import { embedNcssNode } from '../../shared-styles/embed-style'
+import { wrapperNcssNode } from '../../shared-styles/grid-style'
 
 export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
   container: {
@@ -37,14 +40,14 @@ export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
         },
         link: {
           ncss: {
-            ...primaryButtonStyle.ncss,
-            ...displayButtonStyle.ncss,
+            ...primaryButtonNcssNode.ncss,
+            ...displayButtonNcssNode.ncss,
             ':nth-of-type(2)': {
-              ...secondaryButtonStyle.ncss,
-              ...displayButtonStyle.ncss,
+              ...secondaryButtonNcssNode.ncss,
+              ...displayButtonNcssNode.ncss,
             },
           },
-          icon: iconButtonStyle,
+          icon: iconButtonNcssNode,
         },
       },
       text: {
@@ -57,7 +60,7 @@ export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicNcss,
+        icon: iconTopicNcssNode,
       },
     },
     media: {
@@ -67,7 +70,7 @@ export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
         maxWidth: ['35em', '35em', '45%'],
         w: 1,
       },
-      embed: embedNcss,
+      embed: embedNcssNode,
       image: {
         ncss: {},
         picture: {
@@ -91,7 +94,7 @@ export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperNcss,
+  wrapper: wrapperNcssNode,
 }
 
 export const pageSectionFeaturedReverseStyle = {

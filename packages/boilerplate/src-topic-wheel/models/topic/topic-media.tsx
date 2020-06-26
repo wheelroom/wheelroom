@@ -4,14 +4,15 @@ import {
   Embed,
   EmbedModelProps,
   Image,
-  ImageElementStyle,
+  ImageElementNcssTree,
   MediaBreakpoint,
   MediaBreakpointModelNcssTree,
   MediaObject,
   Video,
-  VideoElementStyle,
+  VideoElementNcssTree,
   Wheel,
   NcssNode,
+  EmbedModelNcssTree,
 } from '../../../src-core'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
@@ -19,13 +20,13 @@ import { TopicModelProps } from './model-types'
 
 export interface TopicMediaWheelStyle extends NcssNode {
   /** Video style */
-  embed: NcssNode
+  embed: EmbedModelNcssTree
   /** Image style */
-  image: ImageElementStyle
+  image: ImageElementNcssTree
   /** Media Breakpoint Style */
   mediaBreakpoint: MediaBreakpointModelNcssTree
   /** Video style */
-  video: VideoElementStyle
+  video: VideoElementNcssTree
 }
 
 export interface TopicMediaWheel extends Wheel {

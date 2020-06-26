@@ -1,11 +1,11 @@
 import { BlogSectionBlogModelNcssTree } from '../../../../../src-blog-wheel'
-import { containerStyle, wrapperNcss } from '../shared-styles/grid-style'
+import { containerNcssNode, wrapperNcssNode } from '../shared-styles/grid-style'
 import { deepMerge, DeepPartial } from '../../../../../src-core'
 import { topicNcssTree } from '../topic/topic/topic-style'
 import { textSectionTextNcssTree } from '../text/text-style'
 
 export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogModelNcssTree> = {
-  container: containerStyle,
+  container: containerNcssNode,
   blog: {
     ncss: {
       label: 'blog-section-blog',
@@ -199,5 +199,5 @@ export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogModelNcssTree> 
     ]),
     text: textSectionTextNcssTree.text,
   },
-  wrapper: wrapperNcss,
+  wrapper: wrapperNcssNode,
 }

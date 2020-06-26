@@ -1,15 +1,15 @@
 import {
-  ImageElementStyle,
+  ImageElementNcssTree,
   NcssNode,
-  VideoElementStyle,
+  VideoElementNcssTree,
 } from '../../../../src-core'
 
 export interface BlogSectionListVariationNcssTree extends NcssNode {
   item: NcssNode
   link: NcssNode
   media: NcssNode
-  image: ImageElementStyle
-  video: VideoElementStyle
+  image: ImageElementNcssTree
+  video: VideoElementNcssTree
   content: NcssNode
   date: NcssNode
   categories: NcssNode

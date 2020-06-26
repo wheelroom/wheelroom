@@ -1,4 +1,6 @@
-export const embedNcss = {
+import { NcssNode } from '../../../../../src-core'
+
+export const embedNcssNode: NcssNode = {
   ncss: {
     position: 'relative',
     h: '0px',

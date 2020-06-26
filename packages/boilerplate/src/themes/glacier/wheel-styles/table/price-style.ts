@@ -1,20 +1,23 @@
 import {
-  iconSmallTopicStyle,
-  iconButtonSmallStyle,
+  iconSmallTopicNcssNode,
+  iconButtonSmallNcssNode,
 } from '../shared-styles/icon-style'
-import { wrapperNcss } from '../shared-styles/grid-style'
+import { containerNcssNode, wrapperNcssNode } from '../shared-styles/grid-style'
 import { TableSectionModelNcssTree } from '../../../../../src-table-wheel'
-import { embedNcss } from '../shared-styles/embed-style'
-import { DeepPartial } from '../../../../../src-core'
+import { embedNcssNode } from '../shared-styles/embed-style'
+import { deepMerge, DeepPartial } from '../../../../../src-core'
 
 export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> = {
-  container: {
-    ncss: {
-      label: 'table-container',
-      px: 3,
-      overflow: 'hidden',
+  container: deepMerge([
+    containerNcssNode,
+    {
+      ncss: {
+        label: 'table-container',
+        px: 3,
+        overflow: 'hidden',
+      },
     },
-  },
+  ]),
   table: {
     ncss: {
       label: 'table-section-price',
@@ -62,7 +65,7 @@ export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> =
     icon: {
       ncss: {
         label: 'table-icon',
-        ...iconSmallTopicStyle.ncss,
+        ...iconSmallTopicNcssNode.ncss,
       },
     },
     actionGroup: {
@@ -81,7 +84,7 @@ export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> =
       icon: {
         ncss: {
           label: 'table-action-icon',
-          ...iconButtonSmallStyle.ncss,
+          ...iconButtonSmallNcssNode.ncss,
         },
       },
     },
@@ -132,7 +135,7 @@ export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> =
       icon: {
         ncss: {
           label: 'table-row-icon',
-          ...iconSmallTopicStyle.ncss,
+          ...iconSmallTopicNcssNode.ncss,
         },
       },
       actionGroup: {
@@ -151,7 +154,7 @@ export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> =
         icon: {
           ncss: {
             label: 'table-row-action-icon',
-            ...iconButtonSmallStyle.ncss,
+            ...iconButtonSmallNcssNode.ncss,
           },
         },
       },
@@ -192,14 +195,14 @@ export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> =
                 fontSize: 4,
               },
             },
-            icon: iconSmallTopicStyle,
+            icon: iconSmallTopicNcssNode,
           },
         },
         media: {
           ncss: {
             my: 1,
           },
-          embed: embedNcss,
+          embed: embedNcssNode,
           image: {
             picture: {
               ncss: {},
@@ -225,5 +228,5 @@ export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> =
       },
     },
   },
-  wrapper: wrapperNcss,
+  wrapper: wrapperNcssNode,
 }

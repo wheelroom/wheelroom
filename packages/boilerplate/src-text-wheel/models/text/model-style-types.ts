@@ -1,8 +1,8 @@
 import {
-  ImageElementStyle,
-  VideoElementStyle,
-  NcssNode,
   EmbedModelNcssTree,
+  ImageElementNcssTree,
+  NcssNode,
+  VideoElementNcssTree,
 } from '../../../src-core'
 
 export interface TextModelNcssTree extends NcssNode {
@@ -24,6 +24,6 @@ export interface TextModelNcssTree extends NcssNode {
   h5: NcssNode
   h6: NcssNode
   embed: EmbedModelNcssTree
-  image: ImageElementStyle
-  video: VideoElementStyle
+  image: ImageElementNcssTree
+  video: VideoElementNcssTree
 }

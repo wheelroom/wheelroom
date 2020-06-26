@@ -1,4 +1,6 @@
-export const paragraphStyle = {
+import { NcssNode } from '../../../../src-core'
+
+export const paragraphNcssNode: NcssNode = {
   ncss: {
     fontSize: 6,
     lineHeight: '1.58',

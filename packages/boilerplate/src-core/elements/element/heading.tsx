@@ -18,7 +18,7 @@ const getReset = (props: HeadingElementProps) => {
   if (Object.keys(headingResets).includes(is)) {
     reset = mergeNcss([
       headingResets[is as HeadingName],
-      props.wheel.elementStyles[is as HeadingName],
+      props.wheel.elementNcss[is as HeadingName],
     ])
   }
   return reset

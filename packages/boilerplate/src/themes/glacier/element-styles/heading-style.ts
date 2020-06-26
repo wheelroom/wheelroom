@@ -1,12 +1,12 @@
-export const headingStyle = {
-  ncss: {
-    fontFamily: 'heading',
-    mb: 3,
-    mt: 0,
-  },
+import { NcssNode } from '../../../../src-core'
+
+export const headingNcss = {
+  fontFamily: 'heading',
+  mb: 3,
+  mt: 0,
 }
 
-export const headingTextStyle = {
+export const headingTextNcssNode: NcssNode = {
   ncss: {
     display: 'inline-block',
     fontFamily: 'heading',

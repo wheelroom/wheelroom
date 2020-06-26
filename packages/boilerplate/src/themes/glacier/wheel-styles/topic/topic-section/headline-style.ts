@@ -1,12 +1,15 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import {
-  primaryButtonStyle,
-  displayButtonStyle,
-  secondaryButtonStyle,
+  primaryButtonNcssNode,
+  displayButtonNcssNode,
+  secondaryButtonNcssNode,
 } from '../../../element-styles/button-style'
-import { iconButtonStyle, iconTopicNcss } from '../../shared-styles/icon-style'
-import { embedNcss } from '../../shared-styles/embed-style'
-import { wrapperNcss } from '../../shared-styles/grid-style'
+import {
+  iconButtonNcssNode,
+  iconTopicNcssNode,
+} from '../../shared-styles/icon-style'
+import { embedNcssNode } from '../../shared-styles/embed-style'
+import { wrapperNcssNode } from '../../shared-styles/grid-style'
 
 export const topicSectionHeadlineNcssTree: TopicSectionModelNcssTree = {
   container: {
@@ -28,14 +31,14 @@ export const topicSectionHeadlineNcssTree: TopicSectionModelNcssTree = {
         },
         link: {
           ncss: {
-            ...primaryButtonStyle.ncss,
-            ...displayButtonStyle.ncss,
+            ...primaryButtonNcssNode.ncss,
+            ...displayButtonNcssNode.ncss,
             ':nth-of-type(2)': {
-              ...secondaryButtonStyle.ncss,
-              ...displayButtonStyle.ncss,
+              ...secondaryButtonNcssNode.ncss,
+              ...displayButtonNcssNode.ncss,
             },
           },
-          icon: iconButtonStyle,
+          icon: iconButtonNcssNode,
         },
       },
       text: {
@@ -48,12 +51,12 @@ export const topicSectionHeadlineNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicNcss,
+        icon: iconTopicNcssNode,
       },
     },
     media: {
       ncss: {},
-      embed: embedNcss,
+      embed: embedNcssNode,
       image: {
         ncss: {},
         picture: {
@@ -77,5 +80,5 @@ export const topicSectionHeadlineNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperNcss,
+  wrapper: wrapperNcssNode,
 }

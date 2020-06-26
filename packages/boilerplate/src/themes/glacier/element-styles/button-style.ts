@@ -1,27 +1,25 @@
 import { NcssNode } from '../../../../src-core'
 
-const buttonStyle: NcssNode = {
-  ncss: {
-    display: 'inline-flex',
-    justifyContent: 'center',
-    fontSize: 5,
-    px: 3,
-    py: 2,
-    userSelect: 'none',
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderRadius: 4,
-    borderColor: 'transparent',
-    textDecoration: 'none',
-    ':focus': {
-      outlineColor: 'outline',
-    },
+const buttonNcss = {
+  display: 'inline-flex',
+  justifyContent: 'center',
+  fontSize: 5,
+  px: 3,
+  py: 2,
+  userSelect: 'none',
+  borderWidth: 1,
+  borderStyle: 'solid',
+  borderRadius: 4,
+  borderColor: 'transparent',
+  textDecoration: 'none',
+  ':focus': {
+    outlineColor: 'outline',
   },
 }
 
-export const primaryButtonStyle: NcssNode = {
+export const primaryButtonNcssNode: NcssNode = {
   ncss: {
-    ...buttonStyle.ncss,
+    ...buttonNcss,
     color: 'buttonPrimaryText',
     bg: 'buttonPrimaryBg',
     borderColor: 'buttonPrimaryBorder',
@@ -32,9 +30,9 @@ export const primaryButtonStyle: NcssNode = {
   },
 }
 
-export const secondaryButtonStyle: NcssNode = {
+export const secondaryButtonNcssNode: NcssNode = {
   ncss: {
-    ...buttonStyle.ncss,
+    ...buttonNcss,
     color: 'buttonSecondaryText',
     bg: 'buttonSecondaryBg',
     borderColor: 'buttonSecondaryBorder',
@@ -45,7 +43,7 @@ export const secondaryButtonStyle: NcssNode = {
   },
 }
 
-export const displayButtonStyle: NcssNode = {
+export const displayButtonNcssNode: NcssNode = {
   ncss: {
     fontSize: [6, 6, 7],
     px: [4, 4, 5],
@@ -53,7 +51,7 @@ export const displayButtonStyle: NcssNode = {
   },
 }
 
-export const aLinkButtonStyle: NcssNode = {
+export const aLinkButtonNcssNode: NcssNode = {
   ncss: {
     fontSize: 6,
     bg: 'transparent',

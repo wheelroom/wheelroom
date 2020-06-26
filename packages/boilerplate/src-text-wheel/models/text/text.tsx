@@ -17,7 +17,6 @@ import {
   ALink,
   Blockquote,
   Code,
-  Container,
   Embed,
   GLink,
   H1,
@@ -37,6 +36,7 @@ import {
   Ul,
   Video,
   Wheel,
+  Box,
 } from '../../../src-core'
 import { TextModelProps } from './model-types'
 import { getLocalizedValue } from './get-localized-value'
@@ -351,7 +351,7 @@ export const Text = (props: TextProps) => {
   } as Options
 
   return (
-    <Container
+    <Box
       wheel={{
         ...textProps.wheel,
         style: textProps.wheel.style,
@@ -361,6 +361,6 @@ export const Text = (props: TextProps) => {
         (props.text.text.json as unknown) as Document,
         options
       )}
-    </Container>
+    </Box>
   )
 }

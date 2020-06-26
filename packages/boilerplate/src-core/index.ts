@@ -25,11 +25,11 @@ export type { MediaBreakpointModelProps } from './models/media-breakpoint/model-
 export type { MediaBreakpointModelNcssTree } from './models/media-breakpoint/model-style-types'
 // Exceptional Elements
 export type { ImageElementProps } from './elements/element/image'
-export type { ImageElementStyle } from './elements/element/image'
-export type { VideoElementStyle } from './elements/element/video'
+export type { ImageElementNcssTree } from './elements/element/image'
 export type { VideoElementProps } from './elements/element/video'
+export type { VideoElementNcssTree } from './elements/element/video'
 // Elements
-export type { ElementStyles } from './elements/types/element-styles'
+export type { ElementNcssTree } from './elements/types/element-ncss-tree'
 export type { ALinkElementProps } from './elements/element/a-link'
 export type { AnyElementProps } from './elements/element/any'
 export type { BlockLevelElementName } from './elements/types/element-names'

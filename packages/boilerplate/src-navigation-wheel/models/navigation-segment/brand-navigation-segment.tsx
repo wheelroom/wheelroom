@@ -1,5 +1,5 @@
 import React from 'react'
-import { Action, Wheel, Any } from '../../../src-core'
+import { Action, Wheel, Any, Box } from '../../../src-core'
 import { NavigationSegmentModelProps } from './model-types'
 import { BrandNavigationSegmentModelNcssTree } from './model-style-types'
 
@@ -31,20 +31,24 @@ export const BrandNavigationSegment = (props: BrandNavigationSegmentProps) => {
   const display = props.logoElement || brandHeading || props.siteHeading
   if (hasBrandAction) {
     return (
-      <Action
-        {...brandAction}
-        wheel={{ ...props.wheel, style: props.wheel.style.action }}
-      >
-        {display}
-      </Action>
+      <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
+        <Action
+          {...brandAction}
+          wheel={{ ...props.wheel, style: props.wheel.style.action }}
+        >
+          {display}
+        </Action>
+      </Box>
     )
   } else
     return (
-      <Any
-        is="span"
-        wheel={{ ...props.wheel, style: props.wheel.style.branding }}
-      >
-        {display}
-      </Any>
+      <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style }}>
+        <Any
+          is="span"
+          wheel={{ ...props.wheel, style: props.wheel.style.branding }}
+        >
+          {display}
+        </Any>
+      </Box>
     )
 }

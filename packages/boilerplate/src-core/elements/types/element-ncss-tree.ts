@@ -1,8 +1,8 @@
-import { ImageElementStyle } from '../element/image'
-import { VideoElementStyle } from '../element/video'
+import { ImageElementNcssTree } from '../element/image'
+import { VideoElementNcssTree } from '../element/video'
 import { NcssNode } from '../../lib/ncss'
 
-export interface ElementStyles {
+export interface ElementNcssTree {
   a: NcssNode
   any: NcssNode
   blockquote: NcssNode
@@ -25,10 +25,10 @@ export interface ElementStyles {
   h5: NcssNode
   h6: NcssNode
   hr: NcssNode
-  image: ImageElementStyle
+  image: ImageElementNcssTree
   kbd: NcssNode
   li: NcssNode
-  mediaBreakpoint: ImageElementStyle
+  mediaBreakpoint: ImageElementNcssTree
   ol: NcssNode
   p: NcssNode
   pre: NcssNode
@@ -44,6 +44,6 @@ export interface ElementStyles {
   time: NcssNode
   textIcon: NcssNode
   ul: NcssNode
-  video: VideoElementStyle
+  video: VideoElementNcssTree
   wrapper: NcssNode
 }

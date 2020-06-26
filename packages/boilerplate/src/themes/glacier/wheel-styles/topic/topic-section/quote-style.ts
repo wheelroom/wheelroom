@@ -1,12 +1,15 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import {
-  primaryButtonStyle,
-  displayButtonStyle,
-  secondaryButtonStyle,
+  primaryButtonNcssNode,
+  displayButtonNcssNode,
+  secondaryButtonNcssNode,
 } from '../../../element-styles/button-style'
-import { iconButtonStyle, iconTopicNcss } from '../../shared-styles/icon-style'
-import { embedNcss } from '../../shared-styles/embed-style'
-import { wrapperNcss } from '../../shared-styles/grid-style'
+import {
+  iconButtonNcssNode,
+  iconTopicNcssNode,
+} from '../../shared-styles/icon-style'
+import { embedNcssNode } from '../../shared-styles/embed-style'
+import { wrapperNcssNode } from '../../shared-styles/grid-style'
 import { deepMerge } from '../../../../../../src-core'
 
 export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
@@ -28,14 +31,14 @@ export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
         },
         link: {
           ncss: {
-            ...primaryButtonStyle.ncss,
-            ...displayButtonStyle.ncss,
+            ...primaryButtonNcssNode.ncss,
+            ...displayButtonNcssNode.ncss,
             ':nth-of-type(2)': {
-              ...secondaryButtonStyle.ncss,
-              ...displayButtonStyle.ncss,
+              ...secondaryButtonNcssNode.ncss,
+              ...displayButtonNcssNode.ncss,
             },
           },
-          icon: iconButtonStyle,
+          icon: iconButtonNcssNode,
         },
       },
       text: {
@@ -61,7 +64,7 @@ export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
         },
         icon: {
           ncss: {
-            ...iconTopicNcss.ncss,
+            ...iconTopicNcssNode.ncss,
             order: '0',
           },
         },
@@ -71,7 +74,7 @@ export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
       ncss: {
         p: 3,
       },
-      embed: embedNcss,
+      embed: embedNcssNode,
       image: {
         ncss: {
           h: 1,
@@ -105,7 +108,7 @@ export const topicSectionQuoteNcssTree: TopicSectionModelNcssTree = {
     },
   },
   wrapper: deepMerge([
-    wrapperNcss,
+    wrapperNcssNode,
     {
       ncss: {
         py: 6,

@@ -1,18 +1,25 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
-import { containerStyle, wrapperNcss } from '../../shared-styles/grid-style'
-import { primaryButtonStyle } from '../../../element-styles/button-style'
-import { iconTopicNcss } from '../../shared-styles/icon-style'
+import {
+  containerNcssNode,
+  wrapperNcssNode,
+} from '../../shared-styles/grid-style'
+import { primaryButtonNcssNode } from '../../../element-styles/button-style'
+import { iconTopicNcssNode } from '../../shared-styles/icon-style'
+import { embedNcssNode } from '../../shared-styles/embed-style'
+import { deepMerge } from '../../../../../../src-core'
 
 export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
-  container: {
-    ncss: {
-      ...containerStyle.ncss,
-      alignItems: 'stretch',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
+  container: deepMerge([
+    containerNcssNode,
+    {
+      ncss: {
+        alignItems: 'stretch',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+      },
     },
-  },
+  ]),
   topic: {
     ncss: {
       maxWidth: '288px',
@@ -40,7 +47,7 @@ export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
           mt: 3,
         },
         link: {
-          ...primaryButtonStyle,
+          ...primaryButtonNcssNode,
           icon: {
             ncss: {},
           },
@@ -59,16 +66,14 @@ export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicNcss,
+        icon: iconTopicNcssNode,
       },
     },
     media: {
       ncss: {
         p: 3,
       },
-      embed: {
-        ncss: {},
-      },
+      embed: embedNcssNode,
       image: {
         ncss: {
           h: 1,
@@ -98,7 +103,7 @@ export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperNcss,
+  wrapper: wrapperNcssNode,
 }
 
 export const pageSectionCardShadowStyle = {

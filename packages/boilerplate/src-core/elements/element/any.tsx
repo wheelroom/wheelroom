@@ -8,7 +8,7 @@ import {
   InlineElementName,
 } from '../types/element-names'
 import { ElementProps, getElementAttrs } from '../element'
-import { ElementStyles } from '../types/element-styles'
+import { ElementNcssTree } from '../types/element-ncss-tree'
 import { anyResetMap } from './any-reset'
 
 export const anyPreset: NcssNode = {
@@ -42,7 +42,7 @@ const getAttrs = (props: AnyElementProps) => {
   return attrs
 }
 
-type ElementStylesKey = keyof ElementStyles
+type ElementStylesKey = keyof ElementNcssTree
 
 const getPolyPreset = (props: AnyElementProps) => {
   const resetMap = anyResetMap as any
@@ -54,7 +54,7 @@ const getPolyPreset = (props: AnyElementProps) => {
   ) {
     polyPreset = mergeNcss([
       resetMap[props.is],
-      props.wheel.elementStyles[props.is as ElementStylesKey],
+      props.wheel.elementNcss[props.is as ElementStylesKey],
     ])
   }
   return polyPreset
@@ -70,7 +70,7 @@ export const Any = (props: AnyElementProps) => {
     mergeNcss([
       label,
       anyPreset,
-      props.wheel.elementStyles.any,
+      props.wheel.elementNcss.any,
       polyPreset,
       props.wheel.style,
       props,

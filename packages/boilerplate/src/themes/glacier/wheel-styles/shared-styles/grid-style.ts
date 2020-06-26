@@ -1,10 +1,12 @@
-export const containerStyle = {
+import { NcssNode } from '../../../../../src-core'
+
+export const containerNcssNode: NcssNode = {
   ncss: {
     label: 'container',
   },
 }
 
-export const wrapperNcss = {
+export const wrapperNcssNode: NcssNode = {
   ncss: {
     label: 'wrapper',
     bg: 'sectionBg',

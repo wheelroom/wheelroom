@@ -18,7 +18,7 @@ export const FeatherIcon = (props: FeatherIconElementProps) => {
     const ncss = mergeNcss([
       label,
       featherIconElementStyle,
-      props.wheel.elementStyles.featherIcon,
+      props.wheel.elementNcss.featherIcon,
       props.wheel.style,
       props,
     ])
@@ -40,7 +40,7 @@ export const TextIcon = (props: TextIconElementProps) => {
   const ncss = mergeNcss([
     label,
     textIconElementStyle,
-    props.wheel.elementStyles.textIcon,
+    props.wheel.elementNcss.textIcon,
     props.wheel.style,
     props,
   ])

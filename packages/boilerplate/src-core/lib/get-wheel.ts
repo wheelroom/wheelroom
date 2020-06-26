@@ -29,7 +29,7 @@ export const getWheel = (params: GetWheel): Wheel | undefined => {
   }
   const wheel: Wheel = {
     style,
-    elementStyles: theme.elementStyles,
+    elementNcss: theme.elementNcss,
     wrSystemTheme: theme.wrSystemTheme,
     wrSystemConfig: params.sectionWheels.wrSystemConfig,
   }

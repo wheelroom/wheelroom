@@ -1,4 +1,4 @@
-import { wrapperNcss } from '../shared-styles/grid-style'
+import { wrapperNcssNode } from '../shared-styles/grid-style'
 import { BlogSectionListModelNcssTree } from '../../../../../src-blog-wheel'
 import { DeepPartial } from '../../../../../src-core'
 
@@ -108,5 +108,5 @@ export const blogSectionListNcssTree: DeepPartial<BlogSectionListModelNcssTree> 
       },
     },
   },
-  wrapper: wrapperNcss,
+  wrapper: wrapperNcssNode,
 }

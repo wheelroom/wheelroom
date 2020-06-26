@@ -1,11 +1,11 @@
 import { TextSectionModelNcssTree } from '../../../../../src-text-wheel'
-import { containerStyle, wrapperNcss } from '../shared-styles/grid-style'
-import { headingTextStyle } from '../../element-styles/heading-style'
-import { embedNcss } from '../shared-styles/embed-style'
+import { containerNcssNode, wrapperNcssNode } from '../shared-styles/grid-style'
+import { headingTextNcssNode } from '../../element-styles/heading-style'
+import { embedNcssNode } from '../shared-styles/embed-style'
 import { DeepPartial } from '../../../../../src-core'
 
 export const textSectionTextNcssTree: DeepPartial<TextSectionModelNcssTree> = {
-  container: containerStyle,
+  container: containerNcssNode,
   text: {
     ncss: {
       label: 'text-section-text',
@@ -13,12 +13,12 @@ export const textSectionTextNcssTree: DeepPartial<TextSectionModelNcssTree> = {
       mx: 'auto',
       px: 3,
     },
-    h1: headingTextStyle,
-    h2: headingTextStyle,
-    h3: headingTextStyle,
-    h4: headingTextStyle,
-    h5: headingTextStyle,
-    h6: headingTextStyle,
+    h1: headingTextNcssNode,
+    h2: headingTextNcssNode,
+    h3: headingTextNcssNode,
+    h4: headingTextNcssNode,
+    h5: headingTextNcssNode,
+    h6: headingTextNcssNode,
     ul: {
       ncss: {
         mt: 0,
@@ -53,7 +53,7 @@ export const textSectionTextNcssTree: DeepPartial<TextSectionModelNcssTree> = {
     },
     embed: {
       ncss: {
-        ...embedNcss.ncss,
+        ...embedNcssNode.ncss,
         mt: 3,
         mb: 5,
       },
@@ -95,5 +95,5 @@ export const textSectionTextNcssTree: DeepPartial<TextSectionModelNcssTree> = {
       },
     },
   },
-  wrapper: wrapperNcss,
+  wrapper: wrapperNcssNode,
 }

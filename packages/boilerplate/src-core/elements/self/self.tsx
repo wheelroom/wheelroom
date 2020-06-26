@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from '../element'
-import { ElementStyles } from '../types/element-styles'
+import { ElementNcssTree } from '../types/element-ncss-tree'
 import { NcssNode } from '../../lib/ncss'
 import { selfBlockquoteReset } from './self-blockquote-reset'
 import { selfCodeReset } from './self-code-reset'
@@ -25,7 +25,7 @@ export type SelfReset = NcssNode
 export const getSelf = (
   props: ElementProps,
   reset: SelfReset,
-  elementName: keyof ElementStyles,
+  elementName: keyof ElementNcssTree,
   extraAttrs: any = {},
   htmlName = ''
 ) => {
@@ -33,7 +33,7 @@ export const getSelf = (
   const ncss = mergeNcss([
     label,
     reset,
-    props.wheel.elementStyles[elementName],
+    props.wheel.elementNcss[elementName],
     props.wheel.style,
     props,
   ])

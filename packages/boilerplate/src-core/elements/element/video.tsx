@@ -8,7 +8,7 @@ import { NcssNode } from '../../lib/ncss'
 import { Wheel } from '../../lib/wheel'
 import { videoDescriptionReset, videoVideoElementStyle } from './video-reset'
 
-export interface VideoElementStyle extends NcssNode {
+export interface VideoElementNcssTree extends NcssNode {
   description?: NcssNode
 }
 
@@ -66,7 +66,7 @@ export const Video = (props: VideoElementProps) => {
           mergeNcss([
             videoLabel,
             videoVideoElementStyle,
-            props.wheel.elementStyles.video,
+            props.wheel.elementNcss.video,
             props.wheel.style,
           ])
         )}
@@ -84,7 +84,7 @@ export const Video = (props: VideoElementProps) => {
             mergeNcss([
               descriptionLabel,
               videoDescriptionReset,
-              props.wheel.elementStyles.video.description,
+              props.wheel.elementNcss.video.description,
               props.wheel.style.description,
             ])
           )}

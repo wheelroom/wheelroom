@@ -1,49 +1,47 @@
-const iconStyle = {
-  ncss: {
-    color: 'iconColor',
-    strokeWidth: '1px',
-  },
+import { NcssNode } from '../../../../../src-core'
+
+const iconNcss = {
+  color: 'iconColor',
+  strokeWidth: '1px',
 }
 
-const iconLargeStyle = {
-  ncss: {
-    w: ['17px', '17px', '20px'],
-    h: ['17px', '17px', '20px'],
-  },
+const iconLargeNcss = {
+  w: ['17px', '17px', '20px'],
+  h: ['17px', '17px', '20px'],
 }
 
-const iconSmallStyle = {
+const iconSmallNcss = {
   ncss: {
     w: '16px',
     h: '16px',
   },
 }
 
-export const iconButtonSmallStyle = {
+export const iconButtonSmallNcssNode: NcssNode = {
   ncss: {
-    ...iconSmallStyle.ncss,
+    ...iconSmallNcss,
     transform: 'translateX(4px)',
   },
 }
 
-export const iconButtonStyle = {
+export const iconButtonNcssNode: NcssNode = {
   ncss: {
-    ...iconStyle.ncss,
-    ...iconLargeStyle.ncss,
+    ...iconNcss,
+    ...iconLargeNcss,
     transform: ['translateX(8px)', 'translateX(8px)', 'translateX(10px)'],
   },
 }
 
-export const iconTopicNcss = {
+export const iconTopicNcssNode: NcssNode = {
   ncss: {
-    ...iconStyle.ncss,
+    ...iconNcss,
     mb: 2,
   },
 }
 
-export const iconSmallTopicStyle = {
+export const iconSmallTopicNcssNode: NcssNode = {
   ncss: {
-    ...iconStyle.ncss,
-    ...iconSmallStyle.ncss,
+    ...iconNcss,
+    ...iconSmallNcss,
   },
 }

@@ -1,8 +1,8 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
-import { aLinkButtonStyle } from '../../../element-styles/button-style'
-import { iconTopicNcss } from '../../shared-styles/icon-style'
-import { embedNcss } from '../../shared-styles/embed-style'
-import { wrapperNcss } from '../../shared-styles/grid-style'
+import { aLinkButtonNcssNode } from '../../../element-styles/button-style'
+import { iconTopicNcssNode } from '../../shared-styles/icon-style'
+import { embedNcssNode } from '../../shared-styles/embed-style'
+import { wrapperNcssNode } from '../../shared-styles/grid-style'
 
 export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
   container: {
@@ -28,7 +28,7 @@ export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
           mt: 3,
         },
         link: {
-          ...aLinkButtonStyle,
+          ...aLinkButtonNcssNode,
           icon: {
             ncss: {},
           },
@@ -44,7 +44,7 @@ export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicNcss,
+        icon: iconTopicNcssNode,
       },
     },
     media: {
@@ -54,7 +54,7 @@ export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
         maxWidth: '254px',
         w: 1,
       },
-      embed: embedNcss,
+      embed: embedNcssNode,
       image: {
         ncss: {},
         picture: {
@@ -78,5 +78,5 @@ export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperNcss,
+  wrapper: wrapperNcssNode,
 }

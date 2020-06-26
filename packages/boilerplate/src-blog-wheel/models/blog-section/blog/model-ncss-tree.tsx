@@ -1,7 +1,7 @@
 import {
-  ImageElementStyle,
+  ImageElementNcssTree,
   NcssNode,
-  VideoElementStyle,
+  VideoElementNcssTree,
 } from '../../../../src-core'
 import { TextModelNcssTree } from '../../../../src-text-wheel'
 import { TopicModelNcssTree } from '../../../../src-topic-wheel'
@@ -13,8 +13,8 @@ export interface BlogSectionBlogVariationNcssTree extends NcssNode {
   heading: NcssNode
   abstract: NcssNode
   media: NcssNode
-  image: ImageElementStyle
-  video: VideoElementStyle
+  image: ImageElementNcssTree
+  video: VideoElementNcssTree
   text: TextModelNcssTree
   authors: NcssNode
   author: TopicModelNcssTree

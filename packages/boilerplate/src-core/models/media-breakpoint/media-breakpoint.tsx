@@ -60,7 +60,7 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
         mergeNcss([
           pictureLabel,
           imagePictureReset,
-          media.wheel.elementStyles.mediaBreakpoint.picture,
+          media.wheel.elementNcss.mediaBreakpoint.picture,
           media.wheel.style.picture,
         ])
       )}
@@ -96,7 +96,7 @@ export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
           mergeNcss([
             imgLabel,
             imageImgReset,
-            media.wheel.elementStyles.mediaBreakpoint,
+            media.wheel.elementNcss.mediaBreakpoint,
             media.wheel.style,
           ])
         )}

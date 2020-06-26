@@ -1,17 +1,24 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
-import { containerStyle, wrapperNcss } from '../../shared-styles/grid-style'
-import { primaryButtonStyle } from '../../../element-styles/button-style'
-import { iconTopicNcss } from '../../shared-styles/icon-style'
+import {
+  containerNcssNode,
+  wrapperNcssNode,
+} from '../../shared-styles/grid-style'
+import { primaryButtonNcssNode } from '../../../element-styles/button-style'
+import { iconTopicNcssNode } from '../../shared-styles/icon-style'
+import { embedNcssNode } from '../../shared-styles/embed-style'
+import { deepMerge } from '../../../../../../src-core'
 
 export const topicSectionBlockNcssTree: TopicSectionModelNcssTree = {
-  container: {
-    ncss: {
-      ...containerStyle,
-      alignItems: ['center', 'initial'],
-      flexDirection: ['column', 'row'],
-      flexWrap: 'wrap',
+  container: deepMerge([
+    containerNcssNode,
+    {
+      ncss: {
+        alignItems: ['center', 'initial'],
+        flexDirection: ['column', 'row'],
+        flexWrap: 'wrap',
+      },
     },
-  },
+  ]),
   topic: {
     ncss: {
       p: 3,
@@ -28,7 +35,7 @@ export const topicSectionBlockNcssTree: TopicSectionModelNcssTree = {
           mt: 3,
         },
         link: {
-          ...primaryButtonStyle,
+          ...primaryButtonNcssNode,
           icon: {
             ncss: {},
           },
@@ -46,21 +53,12 @@ export const topicSectionBlockNcssTree: TopicSectionModelNcssTree = {
         heading: {
           ncss: {},
         },
-        icon: iconTopicNcss,
+        icon: iconTopicNcssNode,
       },
     },
     media: {
       ncss: {},
-      embed: {
-        ncss: {
-          position: 'relative',
-          h: '0px',
-          pb: '56.25%',
-          iframe: {
-            position: 'absolute',
-          },
-        },
-      },
+      embed: embedNcssNode,
       image: {
         ncss: {
           h: 1,
@@ -94,5 +92,5 @@ export const topicSectionBlockNcssTree: TopicSectionModelNcssTree = {
       },
     },
   },
-  wrapper: wrapperNcss,
+  wrapper: wrapperNcssNode,
 }

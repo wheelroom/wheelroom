@@ -1,9 +1,9 @@
-import { ElementStyles } from '../../../../src-core'
-import { headingStyle } from './heading-style'
-import { paragraphStyle } from './paragraph-style'
-import { primaryButtonStyle } from './button-style'
+import { ElementNcssTree } from '../../../../src-core'
+import { headingNcss } from './heading-style'
+import { paragraphNcssNode } from './paragraph-style'
+import { primaryButtonNcssNode } from './button-style'
 
-export const elementStyles: ElementStyles = {
+export const elementNcss: ElementNcssTree = {
   a: {
     ncss: {
       color: 'link',
@@ -29,7 +29,7 @@ export const elementStyles: ElementStyles = {
   box: {
     ncss: {},
   },
-  button: primaryButtonStyle,
+  button: primaryButtonNcssNode,
   code: {
     ncss: {
       whiteSpace: 'pre',
@@ -66,37 +66,37 @@ export const elementStyles: ElementStyles = {
   },
   h1: {
     ncss: {
-      ...headingStyle.ncss,
+      ...headingNcss,
       fontSize: [10, 10, 11, 11],
     },
   },
   h2: {
     ncss: {
-      ...headingStyle.ncss,
+      ...headingNcss,
       fontSize: [9, 9, 10, 10],
     },
   },
   h3: {
     ncss: {
-      ...headingStyle.ncss,
+      ...headingNcss,
       fontSize: [7, 7, 8, 8],
     },
   },
   h4: {
     ncss: {
-      ...headingStyle.ncss,
+      ...headingNcss,
       fontSize: [6, 6, 7, 7],
     },
   },
   h5: {
     ncss: {
-      ...headingStyle.ncss,
+      ...headingNcss,
       fontSize: [6, 6, 7, 7],
     },
   },
   h6: {
     ncss: {
-      ...headingStyle.ncss,
+      ...headingNcss,
       fontSize: [6, 6, 7, 7],
     },
   },
@@ -139,7 +139,7 @@ export const elementStyles: ElementStyles = {
   ol: {
     ncss: {},
   },
-  p: paragraphStyle,
+  p: paragraphNcssNode,
   pre: {
     ncss: {
       bg: 'codeBg',

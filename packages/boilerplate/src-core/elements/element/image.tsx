@@ -15,7 +15,7 @@ interface ImgAttrObjects {
   [key: string]: any
 }
 
-export interface ImageElementStyle extends NcssNode {
+export interface ImageElementNcssTree extends NcssNode {
   picture: NcssNode
   figcaption?: NcssNode
 }
@@ -98,7 +98,7 @@ export const Image = (props: ImageElementProps) => {
         mergeNcss([
           pictureLabel,
           imagePictureReset,
-          props.wheel.elementStyles.image.picture,
+          props.wheel.elementNcss.image.picture,
           props.wheel.style.picture,
         ])
       )}
@@ -111,7 +111,7 @@ export const Image = (props: ImageElementProps) => {
           mergeNcss([
             imgLabel,
             imageImgReset,
-            props.wheel.elementStyles.image,
+            props.wheel.elementNcss.image,
             props.wheel.style,
           ])
         )}
@@ -124,7 +124,7 @@ export const Image = (props: ImageElementProps) => {
             mergeNcss([
               figcaptionLabel,
               imageFigcaptionReset,
-              props.wheel.elementStyles.image.figcaption,
+              props.wheel.elementNcss.image.figcaption,
               props.wheel.style.figcaption,
             ])
           )}

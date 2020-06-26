@@ -1,11 +1,11 @@
 import { deepMerge, DeepPartial } from '../../../../../../src-core'
 import { NavigationSectionHeaderModelNcssTree } from '../../../../../../src-navigation-wheel'
-import { wrapperNcss } from '../../shared-styles/grid-style'
+import { wrapperNcssNode } from '../../shared-styles/grid-style'
 import {
-  primaryButtonStyle,
-  secondaryButtonStyle,
+  primaryButtonNcssNode,
+  secondaryButtonNcssNode,
 } from '../../../element-styles/button-style'
-import { iconButtonSmallStyle } from '../../shared-styles/icon-style'
+import { iconButtonSmallNcssNode } from '../../shared-styles/icon-style'
 import {
   dialogContentIsVisible,
   dialogContent,
@@ -50,6 +50,7 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
     },
   },
   header: {
+    ncss: {},
     brand: {
       ncss: {
         label: 'brand-navigation',
@@ -58,7 +59,7 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
       segment: {
         ncss: {
           label: 'brand-navigation-segment',
-          alignItems: 'center',
+          display: 'inline-flex',
           mr: 3,
         },
         branding: {
@@ -78,7 +79,7 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
               outlineColor: 'outline',
             },
           },
-          icon: iconButtonSmallStyle,
+          icon: iconButtonSmallNcssNode,
         },
       },
     },
@@ -123,18 +124,18 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
           },
           action: {
             ncss: {
-              ...primaryButtonStyle.ncss,
+              ...primaryButtonNcssNode.ncss,
               m: 1,
               w: 1,
             },
-            icon: iconButtonSmallStyle,
+            icon: iconButtonSmallNcssNode,
           },
         },
       ]),
       themeButton: {
         ncss: {
           label: 'actions-theme-button',
-          ...secondaryButtonStyle.ncss,
+          ...secondaryButtonNcssNode.ncss,
           m: 1,
         },
       },
@@ -273,18 +274,18 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
               },
               action: {
                 ncss: {
-                  ...primaryButtonStyle.ncss,
+                  ...primaryButtonNcssNode.ncss,
                   m: 1,
                   w: 1,
                 },
-                icon: iconButtonSmallStyle,
+                icon: iconButtonSmallNcssNode,
               },
             },
           ]),
           themeButton: {
             ncss: {
               label: 'modal-theme-button',
-              ...secondaryButtonStyle.ncss,
+              ...secondaryButtonNcssNode.ncss,
               m: 1,
             },
           },
@@ -293,7 +294,7 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
     },
   },
   wrapper: deepMerge([
-    wrapperNcss,
+    wrapperNcssNode,
     {
       ncss: {
         width: 1,
