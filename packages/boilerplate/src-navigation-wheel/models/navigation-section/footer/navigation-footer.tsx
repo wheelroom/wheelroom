@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import { NavigationProps } from '../../navigation/model-types'
+import { NavigationModelProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentProps } from '../../navigation-segment/model-types'
+import { NavigationSegmentModelProps } from '../../navigation-segment/model-types'
 import { NavigationSegmentModelNcssTree } from '../../navigation-segment/model-style-types'
 import {
   Container,
@@ -13,7 +13,7 @@ import {
   Wrapper,
   NcssNode,
 } from '../../../../src-core'
-import { LegalFooter, LegalFooterWheelStyle } from './legal-footer'
+import { LegalFooter, LegalFooterNcssTree } from './legal-footer'
 
 export interface NavigationSectionFooterModelNcssTree {
   container: NcssNode
@@ -25,7 +25,7 @@ export interface NavigationSectionFooterModelNcssTree {
       segment: NavigationSegmentModelNcssTree
     } & NcssNode
   } & NcssNode
-  legalFooter: LegalFooterWheelStyle
+  legalFooter: LegalFooterNcssTree
   wrapper: NcssNode
 }
 
@@ -33,25 +33,28 @@ interface NavigationFooterWheel extends Wheel {
   style: NavigationSectionFooterModelNcssTree
 }
 
-export interface NavigationFooterWheelProps {
+export interface NavigationFooterProps {
   containerStyle: 'container' | 'fluid'
   globals: GlobalsProps
-  navigation: NavigationProps[]
+  navigation: NavigationModelProps[]
   siteMetaData: CoreSiteMetadata
   wheel: NavigationFooterWheel
 }
 
-const getNavSegments = (navigation: NavigationProps[], variation: string) => {
+const getNavSegments = (
+  navigation: NavigationModelProps[],
+  variation: string
+) => {
   const nav = navigation.find(
-    (nav: NavigationProps) => nav.variation === variation
+    (nav: NavigationModelProps) => nav.variation === variation
   )
   if (!nav || !nav.segments || !Array.isArray(nav.segments)) {
-    return [] as NavigationSegmentProps[]
+    return [] as NavigationSegmentModelProps[]
   }
   return nav.segments
 }
 
-export const NavigationFooter = (props: NavigationFooterWheelProps) => {
+export const NavigationFooter = (props: NavigationFooterProps) => {
   if (!Array.isArray(props.navigation) || props.navigation.length < 1) {
     return null
   }

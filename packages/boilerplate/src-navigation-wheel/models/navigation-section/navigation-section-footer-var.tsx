@@ -9,9 +9,11 @@
 import React from 'react'
 import { getWheel } from '../../../src-core'
 import { NavigationFooter } from './footer/navigation-footer'
-import { NavigationSectionProps } from './model-types'
+import { NavigationSectionModelProps } from './model-types'
 
-export const NavigationSectionFooterVar = (props: NavigationSectionProps) => {
+export const NavigationSectionFooterVar = (
+  props: NavigationSectionModelProps
+) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
     wheelId: 'navigationSection',

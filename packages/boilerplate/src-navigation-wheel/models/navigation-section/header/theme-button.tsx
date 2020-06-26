@@ -5,14 +5,14 @@ interface ThemeButtonWheel extends Wheel {
   style: NcssNode
 }
 
-export interface ThemeButtonWheelProps {
+export interface ThemeButtonProps {
   buttonName?: string
   hideThemeButton?: boolean
   toggleTheme: () => void
   wheel: ThemeButtonWheel
 }
 
-export const ThemeButton = (props: ThemeButtonWheelProps) => {
+export const ThemeButton = (props: ThemeButtonProps) => {
   if (props.hideThemeButton) {
     return null
   }

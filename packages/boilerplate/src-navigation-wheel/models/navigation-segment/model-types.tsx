@@ -6,7 +6,7 @@
  */
 import { ActionModelProps } from '../../../src-core'
 
-export interface NavigationSegmentProps {
+export interface NavigationSegmentModelProps {
   /** Gatsby fetched data */
   __typename: string
   heading?: string

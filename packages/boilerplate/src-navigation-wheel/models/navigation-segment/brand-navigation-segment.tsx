@@ -1,22 +1,20 @@
 import React from 'react'
 import { Action, Wheel, Any } from '../../../src-core'
-import { NavigationSegmentProps } from './model-types'
+import { NavigationSegmentModelProps } from './model-types'
 import { BrandNavigationSegmentModelNcssTree } from './model-style-types'
 
 interface BrandNavigationSegmentWheel extends Wheel {
   style: BrandNavigationSegmentModelNcssTree
 }
 
-interface BrandNavigationSegmentWheelProps {
+interface BrandNavigationSegmentProps {
   logoElement?: JSX.Element
-  navigationSegment: NavigationSegmentProps[]
+  navigationSegment: NavigationSegmentModelProps[]
   siteHeading?: string
   wheel: BrandNavigationSegmentWheel
 }
 
-export const BrandNavigationSegment = (
-  props: BrandNavigationSegmentWheelProps
-) => {
+export const BrandNavigationSegment = (props: BrandNavigationSegmentProps) => {
   const hasSegment = props.navigationSegment.length > 0
   const hasBrandAction =
     hasSegment &&

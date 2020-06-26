@@ -12,8 +12,7 @@ import {
   Sup,
 } from '../../../../src-core'
 
-export interface LegalFooterWheelStyle {
-  wrapper: NcssNode
+export interface LegalFooterNcssTree {
   container: NcssNode
   legal: {
     promise: {
@@ -21,16 +20,17 @@ export interface LegalFooterWheelStyle {
       sup: NcssNode
     } & NcssNode
   } & NcssNode
+  wrapper: NcssNode
 }
 
-interface LegalWheel extends Wheel {
-  style: LegalFooterWheelStyle
+interface LegalFooterWheel extends Wheel {
+  style: LegalFooterNcssTree
 }
 
 export interface LegalFooterProps {
   containerStyle: 'container' | 'fluid'
   siteMetadata: CoreSiteMetadata
-  wheel: LegalWheel
+  wheel: LegalFooterWheel
 }
 
 export const LegalFooter = (props: LegalFooterProps) => {

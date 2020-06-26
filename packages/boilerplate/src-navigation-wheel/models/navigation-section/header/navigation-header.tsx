@@ -2,9 +2,9 @@ import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { BrandNavigationSegment } from '../../navigation-segment/brand-navigation-segment'
-import { NavigationProps } from '../../navigation/model-types'
+import { NavigationModelProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentProps } from '../../navigation-segment/model-types'
+import { NavigationSegmentModelProps } from '../../navigation-segment/model-types'
 import {
   NavigationSegmentModelNcssTree,
   BrandNavigationSegmentModelNcssTree,
@@ -51,23 +51,26 @@ interface NavigationHeaderWheel extends Wheel {
   style: NavigationSectionHeaderModelNcssTree
 }
 
-export interface NavigationHeaderWheelProps {
+export interface NavigationHeaderProps {
   containerStyle: 'container' | 'fluid'
   defaultThemeId: string
   globals: GlobalsProps
   hideThemeButton?: boolean
-  navigation: NavigationProps[]
+  navigation: NavigationModelProps[]
   themes: SectionWheelThemes
   useLogoElement?: JSX.Element
   wheel: NavigationHeaderWheel
 }
 
-const getNavSegments = (navigation: NavigationProps[], variation: string) => {
+const getNavSegments = (
+  navigation: NavigationModelProps[],
+  variation: string
+) => {
   const nav = navigation.find(
-    (nav: NavigationProps) => nav.variation === variation
+    (nav: NavigationModelProps) => nav.variation === variation
   )
   if (!nav || !nav.segments || !Array.isArray(nav.segments)) {
-    return [] as NavigationSegmentProps[]
+    return [] as NavigationSegmentModelProps[]
   }
   return nav.segments
 }
@@ -81,7 +84,7 @@ const getNextKey = (obj: any, key: string): string => {
   return keys[i + 1]
 }
 
-export const NavigationHeader = (props: NavigationHeaderWheelProps) => {
+export const NavigationHeader = (props: NavigationHeaderProps) => {
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
