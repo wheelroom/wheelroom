@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/wheelroom/wheelroom/issues"
   },
-  "description": "Blog wheel for Wheelroom",
+  "description": "Core functionality for Wheelroom wheels",
   "devDependencies": {
     "@types/jest": "25.1.4",
     "@types/node": "13.9.2",
