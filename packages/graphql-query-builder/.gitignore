@@ -1,4 +1,56 @@
+# Redux cache
+reduxcache*
+
+# Wheelroom Compiled Config
+compiled-config/
+
+# Compiled source for NPM
+dist/
+
+# GatsbyJS
+.cache
+public/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Visual Studio Code IDE
+.vscode
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# JetBrains IDEs
+# User-specific stuff
+.idea/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# MacOS
 .DS_Store
-/node_modules
-/dist
-/node_modules
+!/.gitignore
