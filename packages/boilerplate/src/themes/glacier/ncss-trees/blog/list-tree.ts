@@ -33,6 +33,7 @@ export const blogSectionListNcssTree: DeepPartial<BlogSectionListModelNcssTree> 
     link: {
       ncss: {
         label: 'list-link',
+        display: 'block',
         textDecoration: 'none',
       },
     },
