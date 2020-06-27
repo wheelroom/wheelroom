@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.4.1...@wheelroom/boilerplate@3.4.2) (2020-06-27)
+
+
+### Reverts
+
+* Revert "refactor: NcssProps and NcssSwitchProps" ([79bd76c](https://github.com/wheelroom/wheelroom/commit/79bd76c348d3aba4265146acd518950b1ad1d718))
+
+
+
+
+
 ## [3.4.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.4.0...@wheelroom/boilerplate@3.4.1) (2020-06-21)
 
 **Note:** Version bump only for package @wheelroom/boilerplate
