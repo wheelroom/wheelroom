@@ -3,13 +3,16 @@ import { TopicModelNcssTree } from '../../../../../../src-topic-wheel'
 export const topicNcssTree: TopicModelNcssTree = {
   ncssSwitch: {
     container: {
-      label: 'topic-container',
+      label: 'topic',
       display: 'flex',
       flexDirection: 'column',
       w: 1,
     },
     containerAsLink: {
       label: 'topic-as-link',
+      display: 'flex',
+      flexDirection: 'column',
+      w: 1,
     },
   },
   media: {

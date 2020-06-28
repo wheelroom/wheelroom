@@ -38,6 +38,10 @@ export const topicSectionCardNcssTree: DeepPartial<TopicSectionModelNcssTree> = 
         borderColor: 'cardBorder',
         boxShadow: '0 0 16px',
         color: 'cardShadow',
+        transition: 'transform .25s ease',
+        ':hover': {
+          transform: 'translate3d(0, -4px, 0)',
+        },
       },
     },
     content: {
