@@ -5,8 +5,8 @@
  *
  */
 
-import { MediaGatsbyModel } from '../../../src-core'
-import { TopicModel } from '../../../src-topic-wheel'
+import { MediaGatsbyModel } from '@wheelroom/core'
+import { TopicModel } from '@wheelroom/wheel-topic'
 
 export interface BlogModel {
   /** Gatsby fetched data */

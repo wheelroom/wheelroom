@@ -12,7 +12,7 @@ import {
   Wheel,
   Wrapper,
   NcssNode,
-} from '../../../../src-core'
+} from '@wheelroom/core'
 import { LegalFooter, LegalFooterNcssTree } from './legal-footer'
 
 export interface NavigationSectionFooterNcssTree {

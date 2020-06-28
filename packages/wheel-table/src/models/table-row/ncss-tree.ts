@@ -1,5 +1,5 @@
-import { ActionNcssTree, NcssNode, Ncss } from '../../../src-core'
-import { TopicNcssTree } from '../../../src-topic-wheel'
+import { ActionNcssTree, NcssNode, Ncss } from '@wheelroom/core'
+import { TopicNcssTree } from '@wheelroom/wheel-topic'
 
 export interface TableRowNcssTree extends NcssNode {
   tableElement: NcssNode

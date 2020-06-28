@@ -5,7 +5,7 @@ import {
   VideoElementNcssTree,
 } from '@wheelroom/core'
 
-export interface NcssTree extends NcssNode {
+export interface RichTextNcssTree extends NcssNode {
   strong: NcssNode
   code: NcssNode
   pre: NcssNode

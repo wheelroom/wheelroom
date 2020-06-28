@@ -4,7 +4,7 @@
  * Component type: navigationSegment
  *
  */
-import { ActionModel } from '../../../src-core'
+import { ActionModel } from '@wheelroom/core'
 
 export interface NavigationSegmentModel {
   /** Gatsby fetched data */

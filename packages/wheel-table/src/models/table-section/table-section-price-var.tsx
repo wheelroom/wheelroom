@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { getWheel } from '../../../src-core'
+import { getWheel } from '@wheelroom/core'
 import { Table } from './table'
 import { TableSectionModel } from './model'
 import { TableSectionWrapper } from './table-section-wrapper'

@@ -1,4 +1,4 @@
-import { NcssNode } from '../../../src-core'
+import { NcssNode } from '@wheelroom/core'
 import { TableRowNcssTree } from '../table-row/ncss-tree'
 
 export interface TableSectionNcssTree {

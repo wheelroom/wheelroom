@@ -2,7 +2,7 @@ import {
   ImageElementNcssTree,
   NcssNode,
   VideoElementNcssTree,
-} from '../../../../src-core'
+} from '@wheelroom/core'
 
 export interface BlogSectionListVariationNcssTree extends NcssNode {
   item: NcssNode

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Action, ActionModel, Li, Ul, Wheel } from '../../../src-core'
+import { Action, ActionModel, Li, Ul, Wheel } from '@wheelroom/core'
 import { NavigationSegmentNcssTree } from './ncss-tree'
 
 interface NavigationSegmentWheel extends Wheel {

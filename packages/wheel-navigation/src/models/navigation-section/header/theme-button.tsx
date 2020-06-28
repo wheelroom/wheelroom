@@ -1,5 +1,5 @@
 import React from 'react'
-import { Wheel, NcssNode, Button } from '../../../../src-core'
+import { Wheel, NcssNode, Button } from '@wheelroom/core'
 
 interface ThemeButtonWheel extends Wheel {
   style: NcssNode

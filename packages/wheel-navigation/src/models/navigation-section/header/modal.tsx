@@ -9,8 +9,8 @@ import {
   NcssNode,
   Ncss,
   getNcssSwitch,
-} from '../../../../src-core'
-import { FeatherIcon } from '../../../../src-core/elements/icon'
+} from '@wheelroom/core'
+import { FeatherIcon } from '@wheelroom/core'
 import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
 import { ThemeButton } from './theme-button'
 

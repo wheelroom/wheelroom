@@ -28,8 +28,10 @@
     "@typescript-eslint/parser": "3.4.0",
     "@wheelroom/admin-core": "^1.2.3",
     "@wheelroom/admin-page-preview": "^1.5.5",
-    "@wheelroom/core": "^1.0.2",
+    "@wheelroom/admin-theme-switcher": "^2.0.1",
+    "@wheelroom/core": "^1.0.4",
     "@wheelroom/styled-system": "^4.1.3",
+    "@wheelroom/wheel-topic": "^1.0.3",
     "eslint": "7.3.1",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
@@ -88,7 +90,7 @@
     "svgr": "svgr --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/feather src/svg/feather --config-file ./src/svg/feather/svgr.config.js"
   },
   "type": "commonjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "dependencies": {
     "@types/react-helmet": "^6.0.0"
   }

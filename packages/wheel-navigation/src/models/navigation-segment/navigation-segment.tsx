@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Wheel, Flex, H3 } from '../../../src-core'
+import { Wheel, Flex, H3 } from '@wheelroom/core'
 import { NavigationSegmentModel } from './model'
 import { NavigationSegmentList } from './navigation-segment-list'
 import { NavigationSegmentNcssTree } from './ncss-tree'

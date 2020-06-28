@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Td } from '../../../src-core/elements/self'
-import { TopicOptions, TopicModel, Topic } from '../../../src-topic-wheel'
+import { Td } from '@wheelroom/core'
+import { TopicOptions, TopicModel, Topic } from '@wheelroom/wheel-topic'
 
-import { Wheel } from '../../../src-core'
+import { Wheel } from '@wheelroom/core'
 import { TableRowNcssTree } from './ncss-tree'
 
 export interface TableRowCellWheel extends Wheel {

@@ -10,9 +10,9 @@ import {
   Paragraph,
   Time,
   Wheel,
-} from '../../../../src-core'
-import { TopicModel, Topic } from '../../../../src-topic-wheel'
-import { RichText } from '../../../../src-text-wheel'
+} from '@wheelroom/core'
+import { TopicModel, Topic } from '@wheelroom/wheel-topic'
+import { RichText } from '@wheelroom/wheel-text'
 import { BlogSectionBlogVariationNcssTree } from './ncss-tree'
 
 interface BlogWheel extends Wheel {

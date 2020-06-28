@@ -39,10 +39,10 @@ import {
   Box,
 } from '@wheelroom/core'
 import { getLocalizedValue } from './get-localized-value'
-import { NcssTree } from './ncss-tree'
+import { RichTextNcssTree } from './ncss-tree'
 
 export interface RichTextWheel extends Wheel {
-  style: NcssTree
+  style: RichTextNcssTree
 }
 
 export interface RichTextProps {

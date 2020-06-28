@@ -1,4 +1,4 @@
-import { NcssNode, ActionNcssTree } from '../../../src-core'
+import { NcssNode, ActionNcssTree } from '@wheelroom/core'
 
 export interface NavigationSegmentNcssTree extends NcssNode {
   heading: NcssNode

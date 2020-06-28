@@ -2,9 +2,9 @@ import {
   ImageElementNcssTree,
   NcssNode,
   VideoElementNcssTree,
-} from '../../../../src-core'
-import { TopicNcssTree } from '../../../../src-topic-wheel'
-import { NcssTree } from '../../../../src-text-wheel'
+} from '@wheelroom/core'
+import { TopicNcssTree } from '@wheelroom/wheel-topic'
+import { RichTextNcssTree } from '@wheelroom/wheel-text'
 
 export interface BlogSectionBlogVariationNcssTree extends NcssNode {
   header: NcssNode
@@ -15,7 +15,7 @@ export interface BlogSectionBlogVariationNcssTree extends NcssNode {
   media: NcssNode
   image: ImageElementNcssTree
   video: VideoElementNcssTree
-  richText: NcssTree
+  richText: RichTextNcssTree
   authors: NcssNode
   author: TopicNcssTree
 }

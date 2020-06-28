@@ -1,5 +1,5 @@
-import { ActionModel } from '../../../src-core'
-import { TopicModel } from '../../../src-topic-wheel'
+import { ActionModel } from '@wheelroom/core'
+import { TopicModel } from '@wheelroom/wheel-topic'
 
 export interface TableRowModel {
   /** Gatsby fetched data */

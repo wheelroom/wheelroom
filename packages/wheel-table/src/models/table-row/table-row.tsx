@@ -12,8 +12,8 @@ import {
   Tr,
   Wheel,
   getNcssSwitch,
-} from '../../../src-core'
-import { TopicOptions, TopicModel } from '../../../src-topic-wheel'
+} from '@wheelroom/core'
+import { TopicOptions, TopicModel } from '@wheelroom/wheel-topic'
 import { TableRowModel } from './model'
 import { TableRowNcssTree } from './ncss-tree'
 import { TableRowCell } from './table-row-cell'

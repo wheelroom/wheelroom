@@ -1,4 +1,4 @@
-import { NcssNode } from '../../../src-core'
+import { NcssNode } from '@wheelroom/core'
 import { BlogSectionBlogVariationNcssTree } from './blog/ncss-tree'
 import { BlogSectionListVariationNcssTree } from './list/ncss-tree'
 

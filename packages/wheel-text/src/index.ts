@@ -1,6 +1,6 @@
 // RichText
 export { RichText } from './models/text-section/rich-text/rich-text'
-export type { NcssTree } from './models/text-section/rich-text/ncss-tree'
+export type { RichTextNcssTree } from './models/text-section/rich-text/ncss-tree'
 
 // TextSection
 export { TextSection } from './models/text-section/text-section'

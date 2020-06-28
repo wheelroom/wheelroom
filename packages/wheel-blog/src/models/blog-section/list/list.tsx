@@ -12,7 +12,7 @@ import {
   Wheel,
   Li,
   Ul,
-} from '../../../../src-core'
+} from '@wheelroom/core'
 import { BlogModel } from '../../blog/model'
 import { BlogSectionListVariationNcssTree } from './ncss-tree'
 

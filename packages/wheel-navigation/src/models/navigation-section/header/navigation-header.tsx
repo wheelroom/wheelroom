@@ -21,7 +21,7 @@ import {
   Wheel,
   Wrapper,
   NcssNode,
-} from '../../../../src-core'
+} from '@wheelroom/core'
 import { Modal, ModalNcssTree } from './modal'
 import { ThemeButton } from './theme-button'
 

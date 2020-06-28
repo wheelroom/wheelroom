@@ -10,7 +10,7 @@ import {
   Wrapper,
   NcssNode,
   Sup,
-} from '../../../../src-core'
+} from '@wheelroom/core'
 
 export interface LegalFooterNcssTree {
   container: NcssNode

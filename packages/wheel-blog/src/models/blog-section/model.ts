@@ -1,4 +1,4 @@
-import { CoreSectionProps } from '../../../src-core'
+import { CoreSectionProps } from '@wheelroom/core'
 import { BlogModel, AllBlogModel } from '../blog/model'
 
 export interface InjectedBlogSectionModel {

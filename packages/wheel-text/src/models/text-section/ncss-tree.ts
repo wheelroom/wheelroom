@@ -1,8 +1,8 @@
 import { NcssNode } from '@wheelroom/core'
-import { NcssTree } from './rich-text/ncss-tree'
+import { RichTextNcssTree } from './rich-text/ncss-tree'
 
 export interface TextSectionNcssTree {
   container: NcssNode
-  richText: NcssTree
+  richText: RichTextNcssTree
   wrapper: NcssNode
 }

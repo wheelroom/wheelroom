@@ -1,5 +1,5 @@
 import React from 'react'
-import { Action, Wheel, Any, Box } from '../../../src-core'
+import { Action, Wheel, Any, Box } from '@wheelroom/core'
 import { NavigationSegmentModel } from './model'
 import { BrandNavigationSegmentNcssTree } from './ncss-tree'
 

@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { getWheel } from '../../../src-core'
+import { getWheel } from '@wheelroom/core'
 import { Blog } from './blog/blog'
 import { BlogSectionModel } from './model'
 import { BlogSectionWrapper } from './blog-section-wrapper'

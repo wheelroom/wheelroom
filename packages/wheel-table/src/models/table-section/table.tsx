@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Wheel, Box, Table as TableElement } from '../../../src-core'
-import { TopicOptions } from '../../../src-topic-wheel'
+import { Wheel, Box, Table as TableElement } from '@wheelroom/core'
+import { TopicOptions } from '@wheelroom/wheel-topic'
 import { TableRow } from '../table-row/table-row'
 import { TableRowModel } from '../table-row/model'
 import { TableRowNcssTree } from '../table-row/ncss-tree'

@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { getWheel } from '../../../src-core'
+import { getWheel } from '@wheelroom/core'
 import { NavigationFooter } from './footer/navigation-footer'
 import { NavigationSectionModel } from './model'
 
