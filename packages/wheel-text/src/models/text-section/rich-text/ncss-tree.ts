@@ -3,7 +3,7 @@ import {
   EmbedNcssTree,
   ImageElementNcssTree,
   VideoElementNcssTree,
-} from '../../../../src-core'
+} from '@wheelroom/core'
 
 export interface NcssTree extends NcssNode {
   strong: NcssNode

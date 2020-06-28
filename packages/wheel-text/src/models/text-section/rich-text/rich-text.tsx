@@ -37,7 +37,7 @@ import {
   Video,
   Wheel,
   Box,
-} from '../../../../src-core'
+} from '@wheelroom/core'
 import { getLocalizedValue } from './get-localized-value'
 import { NcssTree } from './ncss-tree'
 

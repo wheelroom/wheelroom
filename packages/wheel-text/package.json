@@ -19,6 +19,8 @@
   },
   "description": "Text wheel for Wheelroom",
   "devDependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.1",
+    "@contentful/rich-text-types": "^14.1.1",
     "@emotion/core": "^10.0.28",
     "@svgr/cli": "^5.4.0",
     "@types/jest": "26.0.3",
@@ -28,6 +30,7 @@
     "@typescript-eslint/parser": "3.4.0",
     "@wheelroom/admin-core": "^1.2.3",
     "@wheelroom/admin-page-preview": "^1.5.5",
+    "@wheelroom/core": "^1.0.2",
     "@wheelroom/styled-system": "^4.1.3",
     "eslint": "7.3.1",
     "eslint-config-prettier": "6.11.0",

@@ -1,4 +1,4 @@
-import { CoreSectionProps } from '../../../src-core'
+import { CoreSectionProps } from '@wheelroom/core'
 
 export interface TextSectionModel extends CoreSectionProps {
   /** Gatsby fetched data */

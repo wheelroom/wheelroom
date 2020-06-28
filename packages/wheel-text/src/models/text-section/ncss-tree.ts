@@ -1,4 +1,4 @@
-import { NcssNode } from '../../../src-core'
+import { NcssNode } from '@wheelroom/core'
 import { NcssTree } from './rich-text/ncss-tree'
 
 export interface TextSectionNcssTree {
