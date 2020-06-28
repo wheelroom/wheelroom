@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { getTopicOptions } from '../../lib/get-topic-options'
+import { getTopicOptions, TopicOptions } from '../../lib/get-topic-options'
 import { Topic } from '../topic/topic'
 import { TopicModelProps } from '../topic/model-props'
 import { getWheel, MultiParser } from '../../../src-core'
@@ -27,22 +27,28 @@ export const TopicSectionFeaturedVar = (props: TopicSectionModelProps) => {
   }
 
   const topicsPresent =
-    props.topics &&
     props.topics.filter((topic: TopicModelProps) => topic).length > 1
   const topicHeading = props.index <= 1 && !topicsPresent ? 'h1' : 'h2'
-
+  const topicOptions = getTopicOptions(props.topicOptions || [])
   return (
     <TopicSectionWrapper containerStyle="container" wheel={wheel}>
-      {props.topics.map((topic: TopicModelProps, index: number) => (
-        <Topic
-          key={index}
-          topic={topic}
-          useAbstractParser={MultiParser}
-          useHeadingElement={topicHeading}
-          wheel={{ ...wheel, style: wheel.style.topic }}
-          topicOptions={getTopicOptions(props.topicOptions || [])}
-        />
-      ))}
+      {props.topics.map((topic: TopicModelProps, index: number) => {
+        const oddIndex = index % 2
+        const oddEvenTopicOptions = {
+          ...topicOptions,
+          reverseOrder: topicOptions.reverseOrder ? !oddIndex : !!oddIndex,
+        } as TopicOptions
+        return (
+          <Topic
+            key={index}
+            topic={topic}
+            useAbstractParser={MultiParser}
+            useHeadingElement={topicHeading}
+            wheel={{ ...wheel, style: wheel.style.topic }}
+            topicOptions={oddEvenTopicOptions}
+          />
+        )
+      })}
     </TopicSectionWrapper>
   )
 }
