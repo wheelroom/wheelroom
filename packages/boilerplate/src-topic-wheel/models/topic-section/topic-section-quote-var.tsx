@@ -28,7 +28,7 @@ export const TopicSectionQuoteVar = (props: TopicSectionModelProps) => {
 
   return (
     <TopicSectionWrapper containerStyle="container" wheel={wheel}>
-      {props.topics.slice(0, 2).map((topic: TopicModelProps, index: number) => (
+      {props.topics.slice(0, 1).map((topic: TopicModelProps, index: number) => (
         <Topic
           key={index}
           topic={topic}

@@ -8,29 +8,45 @@ export const TopicBody = (props: TopicProps) => {
   const topicInfo = getTopicInfo(props.topic!)
   const topicOptions = props.topicOptions
   const showMedia = topicInfo.hasMedia && !topicOptions.hideMedia
-  return (
-    <Fragment>
-      {showMedia && (
-        <TopicMedia
-          embed={props.topic!}
-          topic={props.topic!}
-          topicInfo={topicInfo}
-          topicOptions={props.topicOptions}
-          wheel={props.wheel}
-        />
-      )}
-      <TopicContent
-        fullTopicAsLink={props.fullTopicAsLink}
-        maxActions={props.maxActions}
-        topic={props.topic!}
-        topicInfo={topicInfo}
-        topicOptions={props.topicOptions}
-        useAbstractElement={props.useAbstractElement}
-        useAbstractParser={props.useAbstractParser}
-        useHeadingElement={props.useHeadingElement}
-        useHeadingParser={props.useHeadingParser}
-        wheel={props.wheel}
-      />
-    </Fragment>
+
+  const media = (
+    <TopicMedia
+      embed={props.topic!}
+      topic={props.topic!}
+      topicInfo={topicInfo}
+      topicOptions={props.topicOptions}
+      wheel={props.wheel}
+    />
   )
+
+  const content = (
+    <TopicContent
+      fullTopicAsLink={props.fullTopicAsLink}
+      maxActions={props.maxActions}
+      topic={props.topic!}
+      topicInfo={topicInfo}
+      topicOptions={props.topicOptions}
+      useAbstractElement={props.useAbstractElement}
+      useAbstractParser={props.useAbstractParser}
+      useHeadingElement={props.useHeadingElement}
+      useHeadingParser={props.useHeadingParser}
+      wheel={props.wheel}
+    />
+  )
+
+  if (topicOptions.reverseOrder) {
+    return (
+      <Fragment>
+        {content}
+        {showMedia && media}
+      </Fragment>
+    )
+  } else {
+    return (
+      <Fragment>
+        {showMedia && media}
+        {content}
+      </Fragment>
+    )
+  }
 }

@@ -18,24 +18,24 @@ export interface TopicWheel extends Wheel {
 }
 
 export interface TopicProps {
-  /** Styling wheel */
-  wheel: TopicWheel
-  /** The topic to render */
-  topic?: TopicModelProps
-  /** Topic render options */
-  topicOptions: TopicOptions
-  /** Defaults to h3 */
-  useHeadingElement?: BlockLevelElementName
-  /** Defaults to p */
-  useAbstractElement?: BlockLevelElementName
-  /** Defaults to h3 */
-  useHeadingParser?: ParserFunction
-  /** Defaults to p */
-  useAbstractParser?: ParserFunction
   /** Full Topic is wrapped in a link and the inside link becomes a span */
   fullTopicAsLink?: boolean
   /** Accept max number of Actions, ignore all others */
   maxActions?: number
+  /** The topic to render */
+  topic?: TopicModelProps
+  /** Topic render options */
+  topicOptions: TopicOptions
+  /** Defaults to p */
+  useAbstractElement?: BlockLevelElementName
+  /** Defaults to p */
+  useAbstractParser?: ParserFunction
+  /** Defaults to h3 */
+  useHeadingElement?: BlockLevelElementName
+  /** Defaults to h3 */
+  useHeadingParser?: ParserFunction
+  /** Styling wheel */
+  wheel: TopicWheel
 }
 
 export const Topic = (props: TopicProps) => {

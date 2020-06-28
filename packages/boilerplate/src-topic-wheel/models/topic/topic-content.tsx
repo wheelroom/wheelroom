@@ -55,12 +55,7 @@ export const TopicContent = (props: TopicContentProps) => {
   }
 
   return (
-    <Box
-      ncss={{
-        order: topicOptions.reverseOrder ? -1 : null,
-      }}
-      wheel={{ ...props.wheel, style: props.wheel.style.content }}
-    >
+    <Box wheel={{ ...props.wheel, style: props.wheel.style.content }}>
       <TopicContentText
         topic={props.topic}
         topicInfo={topicInfo}
