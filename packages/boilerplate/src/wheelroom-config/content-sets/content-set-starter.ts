@@ -306,7 +306,6 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
         'siteHeader',
         'starterHeadlineSection',
         'starterTextSection',
-        'tableSectionPrice',
         'tableSectionTable',
         'siteFooter',
       ],
@@ -447,6 +446,7 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
   starterTextSection: {
     fields: {
       title: 'Starter content text',
+      variation: 'text',
       text: `## Wheelroom
 
 Everything we produce is open source. Every time we write code, we get to share it with the world.`,
@@ -482,20 +482,12 @@ Everything we produce is open source. Every time we write code, we get to share 
       navigation: ['menuNavigation', 'socialNavigation'],
     },
   },
-  tableSectionPrice: {
-    model: 'tableSection',
-    fields: {
-      title: 'table section (variation: price)',
-      variation: 'price',
-      tableRows: ['tableRowBody', 'tableRowFooter', 'tableRowHeader'],
-    },
-  },
   tableSectionTable: {
     model: 'tableSection',
     fields: {
-      title: 'table section (variation: price)',
+      title: 'table section (variation: table)',
       variation: 'table',
-      tableRows: ['tableRowBody', 'tableRowFooter', 'tableRowHeader'],
+      tableRows: ['tableRowHeader', 'tableRowBody', 'tableRowFooter'],
     },
   },
   tableRowHeader: {
@@ -509,6 +501,7 @@ Everything we produce is open source. Every time we write code, we get to share 
   tableRowBody: {
     fields: {
       title: 'table row body',
+      heading: 'Table row heading',
       topics: ['freeForEveryoneTopic', 'openSourceTopic', 'nonprofitTopic'],
       variation: 'body',
     },

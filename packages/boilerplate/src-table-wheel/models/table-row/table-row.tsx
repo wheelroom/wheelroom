@@ -25,6 +25,8 @@ export interface TableRowWheel extends Wheel {
 export interface TableRowProps {
   /** Styling wheel */
   wheel: TableRowWheel
+  /** The maximum number of topics found on any row */
+  maxRowTopics: number
   /** The topic rows to render */
   tableRow?: TableRowModelProps
   /** Topic options */
@@ -45,10 +47,9 @@ export const TableRow = (props: TableRowProps) => {
   // 4 = 2/6  1/6  1/6  1/6  1/6
   // 5 = 2/7  1/7  1/7  1/7  1/7  1/7
 
-  const topicCount = (tableRow.topics && tableRow.topics.length) || 0
   const rowHeaderCellStyle = props.wheel.style.th
-  const headerCellWidth = topicCount ? 2 / (topicCount + 2) : 1
-  const dataCellWidth = topicCount ? 1 / (topicCount + 2) : 0
+  const headerCellWidth = props.maxRowTopics ? 2 / (props.maxRowTopics + 2) : 1
+  const dataCellWidth = props.maxRowTopics ? 1 / (props.maxRowTopics + 2) : 0
 
   if (!(rowHeaderCellStyle.ncss.w || rowHeaderCellStyle.ncss.width)) {
     rowHeaderCellStyle.ncss.w = headerCellWidth
@@ -58,6 +59,12 @@ export const TableRow = (props: TableRowProps) => {
     ? tableRow.variation + 'Variation'
     : 'bodyVariation'
 
+  let colSpan = {}
+
+  if (tableRow.heading) {
+    colSpan = { colspan: props.maxRowTopics + 1 }
+  }
+
   return (
     <Tr
       wheel={{
@@ -65,7 +72,7 @@ export const TableRow = (props: TableRowProps) => {
         style: getNcssSwitch(props.wheel.style, switchVariable),
       }}
     >
-      <Th wheel={{ ...props.wheel, style: rowHeaderCellStyle }}>
+      <Th {...colSpan} wheel={{ ...props.wheel, style: rowHeaderCellStyle }}>
         {tableRow.icon && (
           <Icon
             icon={tableRow.icon}

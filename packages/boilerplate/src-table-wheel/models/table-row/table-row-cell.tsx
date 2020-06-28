@@ -26,7 +26,7 @@ export const TableRowCell = (props: TableRowCellProps) => {
     return null
   }
 
-  const dataCellStyle = props.wheel.style.cell
+  const dataCellStyle = props.wheel.style.td
 
   if (!(dataCellStyle.ncss.w || dataCellStyle.ncss.width)) {
     dataCellStyle.ncss.w = props.dataCellWidth

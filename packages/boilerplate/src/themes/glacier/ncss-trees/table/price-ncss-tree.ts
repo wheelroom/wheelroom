@@ -97,9 +97,9 @@ export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> =
         },
       },
     },
-    cell: {
+    td: {
       ncss: {
-        label: 'table-row-cell',
+        label: 'table-row-td',
         p: 2,
       },
     },

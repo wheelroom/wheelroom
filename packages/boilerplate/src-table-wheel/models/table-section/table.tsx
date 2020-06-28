@@ -26,16 +26,28 @@ export const Table = (props: TableProps) => {
   if (!tableRows) {
     return null
   }
+  let maxRowTopics = 0
+  tableRows.map((tableRow: TableRowModelProps) => {
+    if (
+      tableRow.topics &&
+      Array.isArray(tableRow.topics) &&
+      tableRow.topics.length > maxRowTopics
+    ) {
+      maxRowTopics = tableRow.topics.length
+    }
+  })
+
   return (
     <Box wheel={{ ...props.wheel, style: props.wheel.style }}>
       <TableElement
         wheel={{ ...props.wheel, style: props.wheel.style.tableElement }}
       >
         <tbody>
-          {tableRows?.map((tableRow: TableRowModelProps, index: number) => {
+          {tableRows.map((tableRow: TableRowModelProps, index: number) => {
             return (
               <TableRow
                 key={index}
+                maxRowTopics={maxRowTopics}
                 tableRow={tableRow}
                 topicOptions={props.topicOptions}
                 wheel={props.wheel}

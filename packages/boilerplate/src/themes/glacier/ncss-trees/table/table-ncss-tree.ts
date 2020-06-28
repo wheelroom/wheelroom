@@ -31,14 +31,14 @@ export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> =
     ncssSwitch: {
       headerVariation: {
         label: 'table-row-tr-header',
-        bg: 'skyBlue',
+        bg: 'skyblue',
       },
       bodyVariation: {
         label: 'table-row-tr-body',
       },
       footerVariation: {
         label: 'table-row-tr-footer',
-        bg: 'metal',
+        bg: 'skyblue',
       },
     },
     th: {
@@ -93,9 +93,9 @@ export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> =
         },
       },
     },
-    cell: {
+    td: {
       ncss: {
-        label: 'table-row-cell',
+        label: 'table-row-td',
         p: 2,
       },
     },

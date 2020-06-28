@@ -12,6 +12,9 @@ export const topicNcssTree: TopicModelNcssTree = {
       label: 'topic-media',
       display: 'flex',
       flexDirection: 'column',
+      ':only-of-type': {
+        backgroundColor: 'green',
+      },
     },
   },
   embed: {
@@ -64,16 +67,21 @@ export const topicNcssTree: TopicModelNcssTree = {
       display: 'flex',
       flexDirection: 'column',
       flex: 1,
+      ':only-of-type': {},
     },
   },
   text: {
     ncss: {
       label: 'topic-text',
+      ':only-of-type': {},
     },
   },
   icon: {
     ncss: {
       label: 'topic-icon',
+      ':first-child': {
+        mb: 4,
+      },
     },
   },
   heading: {
@@ -90,6 +98,7 @@ export const topicNcssTree: TopicModelNcssTree = {
     ncss: {
       label: 'topic-actions',
       mx: -1,
+      ':only-of-type': {},
     },
   },
   action: {

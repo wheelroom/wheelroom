@@ -14,6 +14,6 @@ export interface TableRowModelNcssTree extends NcssNode {
   icon: NcssNode
   actionGroup: NcssNode
   action: ActionModelNcssTree
-  cell: NcssNode
+  td: NcssNode
   topic: TopicModelNcssTree
 }
