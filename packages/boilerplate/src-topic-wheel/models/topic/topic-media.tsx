@@ -32,7 +32,6 @@ export interface TopicMediaProps {
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
-  const topicOptions = props.topicOptions
   const topicInfo = props.topicInfo
   const topic = props.topic
   let Media: any = null

@@ -1,8 +1,5 @@
 /** @jsx jsx */
-import {
-  BlockLevelElementName,
-  InlineElementName,
-} from './element-names'
+import { BlockLevelElementName, InlineElementName } from './element-names'
 import { LinkRelationshipAttribute } from './element-attribute-names'
 import { ElementProps } from './element'
 import { getSelf } from './self'

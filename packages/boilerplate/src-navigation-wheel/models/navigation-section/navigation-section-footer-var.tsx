@@ -11,9 +11,7 @@ import { getWheel } from '../../../src-core'
 import { NavigationFooter } from './footer/navigation-footer'
 import { NavigationSectionModel } from './model'
 
-export const NavigationSectionFooterVar = (
-  props: NavigationSectionModel
-) => {
+export const NavigationSectionFooterVar = (props: NavigationSectionModel) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
     wheelId: 'navigationSection',

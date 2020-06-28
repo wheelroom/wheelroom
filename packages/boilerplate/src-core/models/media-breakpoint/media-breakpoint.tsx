@@ -3,10 +3,7 @@ import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel } from '../../lib/wheel'
 import { mergeNcss } from '../../lib/merge-ncss'
-import {
-  imageImgReset,
-  imagePictureReset,
-} from '../../elements/image-reset'
+import { imageImgReset, imagePictureReset } from '../../elements/image-reset'
 import { MediaGatsbyModel } from './media-gatsby-model'
 import { MediaBreakpointNcssTree } from './ncss-tree'
 

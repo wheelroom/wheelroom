@@ -62,10 +62,7 @@ export interface NavigationHeaderProps {
   wheel: NavigationHeaderWheel
 }
 
-const getNavSegments = (
-  navigation: NavigationModel[],
-  variation: string
-) => {
+const getNavSegments = (navigation: NavigationModel[], variation: string) => {
   const nav = navigation.find(
     (nav: NavigationModel) => nav.variation === variation
   )

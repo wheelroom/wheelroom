@@ -50,7 +50,9 @@ export const Video = (props: VideoElementProps) => {
       (media.file && media.file.contentType) ||
       defaultMediaGatsbyModel.file!.contentType,
     description:
-      media.description || props.description || defaultMediaGatsbyModel.description,
+      media.description ||
+      props.description ||
+      defaultMediaGatsbyModel.description,
   }
 
   const videoLabel = { ncss: { label: 'video' } }

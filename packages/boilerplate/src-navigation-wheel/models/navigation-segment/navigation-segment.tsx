@@ -25,48 +25,46 @@ export const NavigationSegment = (props: NavigationSegmentProps) => {
     <Fragment>
       {props.navigationSegment
         .slice(0, props.maxSegments)
-        .map(
-          (navigationSegment: NavigationSegmentModel, index: number) => {
-            if (!navigationSegment.actions) {
-              return null
-            }
-            const navigationSegmentList = (
-              <NavigationSegmentList
-                actions={navigationSegment.actions}
-                hideActionHeading={props.hideActionHeading}
-                hideActionIcon={props.hideActionIcon}
-                key={index}
-                wheel={props.wheel}
-              />
-            )
-            if (props.hideSegmentHeading) {
-              return navigationSegmentList
-            } else {
-              return (
-                <Flex
-                  key={index}
-                  wheel={{
-                    ...props.wheel,
-                    style: props.wheel.style,
-                  }}
-                  is="div"
-                >
-                  {navigationSegment.heading && (
-                    <H3
-                      wheel={{
-                        ...props.wheel,
-                        style: props.wheel.style.heading,
-                      }}
-                    >
-                      {navigationSegment.heading}
-                    </H3>
-                  )}
-                  {navigationSegmentList}
-                </Flex>
-              )
-            }
+        .map((navigationSegment: NavigationSegmentModel, index: number) => {
+          if (!navigationSegment.actions) {
+            return null
           }
-        )}
+          const navigationSegmentList = (
+            <NavigationSegmentList
+              actions={navigationSegment.actions}
+              hideActionHeading={props.hideActionHeading}
+              hideActionIcon={props.hideActionIcon}
+              key={index}
+              wheel={props.wheel}
+            />
+          )
+          if (props.hideSegmentHeading) {
+            return navigationSegmentList
+          } else {
+            return (
+              <Flex
+                key={index}
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style,
+                }}
+                is="div"
+              >
+                {navigationSegment.heading && (
+                  <H3
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.heading,
+                    }}
+                  >
+                    {navigationSegment.heading}
+                  </H3>
+                )}
+                {navigationSegmentList}
+              </Flex>
+            )
+          }
+        })}
     </Fragment>
   )
 }

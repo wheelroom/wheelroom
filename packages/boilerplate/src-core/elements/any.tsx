@@ -3,10 +3,7 @@ import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../lib/merge-ncss'
 import { NcssNode } from '../lib/ncss'
-import {
-  BlockLevelElementName,
-  InlineElementName,
-} from './element-names'
+import { BlockLevelElementName, InlineElementName } from './element-names'
 import { ElementProps, getElementAttrs } from './element'
 import { ElementResetNcssTree } from './element-reset-ncss-tree'
 import { anyResetMap } from './any-reset'

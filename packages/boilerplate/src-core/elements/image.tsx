@@ -58,13 +58,17 @@ export const Image = (props: ImageElementProps) => {
   /** If includeFigcaption is true use description as figcaption */
   const figcaption = {
     description:
-      media.description || props.description || defaultMediaGatsbyModel.description,
+      media.description ||
+      props.description ||
+      defaultMediaGatsbyModel.description,
   }
 
   let imgElementAttrs: ImgAttrObjects
   const imgAttrs: ImgAttrObjects = {
     alt:
-      media.description || props.description || defaultMediaGatsbyModel.description,
+      media.description ||
+      props.description ||
+      defaultMediaGatsbyModel.description,
     title: media.title || props.title || defaultMediaGatsbyModel.title,
   }
   /** Not all image content types are supporting the attribute src set */

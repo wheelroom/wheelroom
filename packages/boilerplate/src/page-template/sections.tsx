@@ -1,11 +1,7 @@
 import React from 'react'
 
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import {
-  BlogSection,
-  BlogModel,
-  AllBlogModel,
-} from '../../src-blog-wheel'
+import { BlogSection, BlogModel, AllBlogModel } from '../../src-blog-wheel'
 import { TextSection } from '../../src-text-wheel'
 import { NavigationSection } from '../../src-navigation-wheel'
 import { TableSection } from '../../src-table-wheel'

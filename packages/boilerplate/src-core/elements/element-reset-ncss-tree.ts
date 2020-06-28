@@ -1,6 +1,6 @@
+import { NcssNode } from '../lib/ncss'
 import { ImageElementNcssTree } from './image'
 import { VideoElementNcssTree } from './video'
-import { NcssNode } from '../lib/ncss'
 
 export interface ElementResetNcssTree {
   a: NcssNode
