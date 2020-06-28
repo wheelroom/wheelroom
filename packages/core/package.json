@@ -93,7 +93,7 @@
     "svgr": "svgr --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/feather src/svg/feather --config-file ./src/svg/feather/svgr.config.js"
   },
   "type": "commonjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "dependencies": {
     "@types/react-helmet": "^6.0.0"
   }
