@@ -1,6 +1,6 @@
-// import { ContentTypes } from './content-types-starter'
+import { ContentTypes } from './content-types-starter'
 
-export const starter: any = {
+export const starter: ContentTypes = {
   mediaBreakpoint: {
     fields: {
       extraLarge: true,
@@ -306,6 +306,8 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
         'siteHeader',
         'starterHeadlineSection',
         'starterTextSection',
+        'tableSectionPrice',
+        'tableSectionTable',
         'siteFooter',
       ],
       seoDescription:
@@ -480,14 +482,27 @@ Everything we produce is open source. Every time we write code, we get to share 
       navigation: ['menuNavigation', 'socialNavigation'],
     },
   },
-  tableSection: {
+  tableSectionPrice: {
     model: 'tableSection',
+    fields: {
+      title: 'table section (variation: price)',
+      variation: 'price',
+      tableRows: ['tableRowBody', 'tableRowFooter', 'tableRowHeader'],
+    },
+  },
+  tableSectionTable: {
+    model: 'tableSection',
+    fields: {
+      title: 'table section (variation: price)',
+      variation: 'table',
+      tableRows: ['tableRowBody', 'tableRowFooter', 'tableRowHeader'],
+    },
   },
   tableRowHeader: {
     fields: {
       title: 'table row header',
       topics: ['freeForEveryoneTopic', 'openSourceTopic', 'nonprofitTopic'],
-      variant: 'header',
+      variation: 'header',
     },
     model: 'tableRow',
   },
@@ -495,7 +510,7 @@ Everything we produce is open source. Every time we write code, we get to share 
     fields: {
       title: 'table row body',
       topics: ['freeForEveryoneTopic', 'openSourceTopic', 'nonprofitTopic'],
-      variant: 'body',
+      variation: 'body',
     },
     model: 'tableRow',
   },
@@ -503,7 +518,7 @@ Everything we produce is open source. Every time we write code, we get to share 
     fields: {
       title: 'table row footer',
       topics: ['freeForEveryoneTopic', 'openSourceTopic', 'nonprofitTopic'],
-      variant: 'footer',
+      variation: 'footer',
     },
     model: 'tableRow',
   },
