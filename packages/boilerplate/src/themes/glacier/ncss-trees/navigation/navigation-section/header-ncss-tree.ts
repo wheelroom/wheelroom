@@ -14,7 +14,7 @@ import {
   dialogOverlayIsVisible,
   dialogOverlay,
 } from '../modal/dialog-ncss'
-import { navigationSegmentNcssTree } from '../navigation-segment/navigation-segment-tree'
+import { navigationSegmentNcssTree } from '../navigation-segment/navigation-segment-ncss-tree'
 
 export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeaderModelNcssTree> = {
   skipToContent: {
