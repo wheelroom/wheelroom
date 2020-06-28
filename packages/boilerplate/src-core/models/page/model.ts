@@ -5,7 +5,7 @@
  *
  */
 
-import { MediaObject } from '../../elements/types/media'
+import { MediaGatsbyModel } from '../media-breakpoint/media-gatsby-model'
 
 export interface PageModel {
   /** Gatsby fetched data */
@@ -16,5 +16,5 @@ export interface PageModel {
   seoTitle?: string
   seoDescription?: string
   seoKeywords?: string[]
-  seoImage?: MediaObject
+  seoImage?: MediaGatsbyModel
 }

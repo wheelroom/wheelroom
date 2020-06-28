@@ -5,7 +5,7 @@ import {
   EmbedModel,
   Image,
   MediaBreakpoint,
-  MediaObject,
+  MediaGatsbyModel,
   Video,
   Wheel,
 } from '../../../src-core'
@@ -48,7 +48,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
       wheel: { ...props.wheel, style: props.wheel.style.mediaBreakpoint },
     }
   } else if (topicInfo.hasImage && topic.media) {
-    const media: MediaObject = topic.media
+    const media: MediaGatsbyModel = topic.media
     Media = Image
     mediaProps = {
       includeFigcaption: false,
@@ -58,7 +58,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
       title: media.title,
     }
   } else if (topicInfo.hasVideo && topic.media) {
-    const media: MediaObject = topic.media
+    const media: MediaGatsbyModel = topic.media
     Media = Video
     mediaProps = {
       includeTitle: false,

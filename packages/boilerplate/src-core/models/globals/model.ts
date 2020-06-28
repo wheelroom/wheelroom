@@ -6,7 +6,7 @@
  */
 
 import { EmbedModel } from '../embed/model'
-import { MediaObject } from '../../elements/types/media'
+import { MediaGatsbyModel } from '../media-breakpoint/media-gatsby-model'
 
 export interface GlobalsModel {
   /** Gatsby fetched data */
@@ -15,7 +15,7 @@ export interface GlobalsModel {
   siteDescription?: string
   siteHeading?: string
   siteKeywords?: string[]
-  siteImage?: MediaObject
+  siteImage?: MediaGatsbyModel
   siteEmbeds?: EmbedModel[]
   skipToContentHeading?: string
 }

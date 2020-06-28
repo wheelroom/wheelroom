@@ -9,7 +9,7 @@
  */
 
 import React from 'react'
-import { Any } from '../elements/element/any'
+import { Any } from '../elements/any'
 import { ParserProps } from './types'
 import { replaceNewlines } from './parse-new-lines'
 

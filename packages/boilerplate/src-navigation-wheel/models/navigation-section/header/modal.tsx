@@ -10,7 +10,7 @@ import {
   Ncss,
   getNcssSwitch,
 } from '../../../../src-core'
-import { FeatherIcon } from '../../../../src-core/elements/element/icon'
+import { FeatherIcon } from '../../../../src-core/elements/icon'
 import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
 import { ThemeButton } from './theme-button'
 

@@ -5,7 +5,7 @@
  *
  */
 
-import { MediaObject } from '../../../src-core'
+import { MediaGatsbyModel } from '../../../src-core'
 import { TopicModel } from '../../../src-topic-wheel'
 
 export interface BlogModel {
@@ -15,7 +15,7 @@ export interface BlogModel {
   abstract?: {
     abstract: string
   }
-  media?: MediaObject
+  media?: MediaGatsbyModel
   icon?: string
   slug: string
   date: string
@@ -26,7 +26,7 @@ export interface BlogModel {
   authors?: TopicModel[]
   seoTitle?: string
   seoDescription?: string
-  seoImage?: MediaObject
+  seoImage?: MediaGatsbyModel
   seoKeywords?: string[]
 }
 

@@ -1,4 +1,4 @@
-import { ElementNcssTree } from '../elements/types/element-ncss-tree'
+import { ElementResetNcssTree } from '../elements/element-reset-ncss-tree'
 import { WrSystemTheme, WrSystemConfig } from '../theme/types'
 
 /** Set of style trees */
@@ -11,7 +11,7 @@ export interface SectionWheelThemeStyles {
 /** Themes combine element styles, a set of style trees and a styled sytem theme */
 export interface SectionWheelTheme {
   /** Base styling for each element */
-  elementNcss: ElementNcssTree
+  elementNcss: ElementResetNcssTree
   /** Specific styles for each wheel and wheel variations */
   styles: SectionWheelThemeStyles
   /** Public name of this theme */

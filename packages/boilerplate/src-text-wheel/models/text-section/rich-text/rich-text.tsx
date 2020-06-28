@@ -28,7 +28,7 @@ import {
   Hr,
   Image,
   Li,
-  MediaObject,
+  MediaGatsbyModel,
   Ol,
   Paragraph,
   Pre,
@@ -305,7 +305,7 @@ export const RichText = (props: RichTextProps) => {
             fluid: {
               src: localizedFile.url + '?q=75',
             },
-          } as MediaObject
+          } as MediaGatsbyModel
           return (
             <Image
               key={node.data.target.id}
@@ -327,7 +327,7 @@ export const RichText = (props: RichTextProps) => {
               fileName: localizedFile.name,
               contentType: localizedFile.contentType,
             },
-          } as MediaObject
+          } as MediaGatsbyModel
           return (
             <Video
               key={node.data.target.id}

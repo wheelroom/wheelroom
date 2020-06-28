@@ -4,13 +4,13 @@
  * Component type: mediaBreakpoint
  *
  */
-import { MediaObject } from '../../elements/types/media'
+import { MediaGatsbyModel } from './media-gatsby-model'
 
 export interface MediaBreakpointModel {
   /** Gatsby fetched data */
   __typename: string
-  small?: MediaObject
-  medium?: MediaObject
-  large?: MediaObject
-  extraLarge?: MediaObject
+  small?: MediaGatsbyModel
+  medium?: MediaGatsbyModel
+  large?: MediaGatsbyModel
+  extraLarge?: MediaGatsbyModel
 }

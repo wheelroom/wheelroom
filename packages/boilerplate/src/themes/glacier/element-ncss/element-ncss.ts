@@ -1,9 +1,9 @@
-import { ElementNcssTree } from '../../../../src-core'
+import { ElementResetNcssTree } from '../../../../src-core'
 import { headingNcss } from './heading-ncss'
 import { paragraphNcssNode } from './paragraph-ncss'
 import { primaryButtonNcssNode } from './button-ncss'
 
-export const elementNcss: ElementNcssTree = {
+export const elementNcss: ElementResetNcssTree = {
   a: {
     ncss: {
       color: 'link',

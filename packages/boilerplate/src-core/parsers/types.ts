@@ -1,4 +1,4 @@
-import { BlockLevelElementName } from '../elements/types/element-names'
+import { BlockLevelElementName } from '../elements/element-names'
 import { Wheel } from '../lib/wheel'
 import { Ncss } from '../lib/ncss'
 

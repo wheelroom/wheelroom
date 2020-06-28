@@ -2,7 +2,7 @@
 
 /**
  *
- * export const partialStyle: DeepPartial<TopicContentActionsWheelStyle> = {
+ * export const partialStyle: DeepPartial<TopicNcssTree> = {
  *   link: {
  *     ncss: {
  *       label: 'topic-link',

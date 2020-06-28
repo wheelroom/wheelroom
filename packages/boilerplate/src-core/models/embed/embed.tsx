@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Wheel } from '../../lib/wheel'
-import { Any } from '../../elements/element/any'
+import { Any } from '../../elements/any'
 import { EmbedNcssTree } from './ncss-tree'
 
 export interface EmbedWheel extends Wheel {

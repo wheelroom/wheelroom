@@ -10,7 +10,7 @@
 
 import React from 'react'
 import { Wheel } from '../lib/wheel'
-import { Tr, Td } from '../elements/self/self'
+import { Tr, Td } from '../elements/self'
 import { Table } from '..'
 import { ParserProps } from './types'
 

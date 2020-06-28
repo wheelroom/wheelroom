@@ -2,29 +2,29 @@
 import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel } from '../../lib/wheel'
-import { MediaObject } from '../../elements/types/media'
 import { mergeNcss } from '../../lib/merge-ncss'
 import {
   imageImgReset,
   imagePictureReset,
-} from '../../elements/element/image-reset'
+} from '../../elements/image-reset'
+import { MediaGatsbyModel } from './media-gatsby-model'
 import { MediaBreakpointNcssTree } from './ncss-tree'
 
-interface MediaBreakpointWheelStyle extends Wheel {
+interface MediaBreakpointWheel extends Wheel {
   style: MediaBreakpointNcssTree
 }
 
-export interface MediaBreakpointWheelProps {
+export interface MediaBreakpointProps {
   /** Styling wheel */
-  wheel: MediaBreakpointWheelStyle
-  /** MediaObject props */
-  small?: MediaObject
-  medium?: MediaObject
-  large?: MediaObject
-  extraLarge?: MediaObject
+  wheel: MediaBreakpointWheel
+  /** MediaGatsbyModel props */
+  small?: MediaGatsbyModel
+  medium?: MediaGatsbyModel
+  large?: MediaGatsbyModel
+  extraLarge?: MediaGatsbyModel
 }
 
-export const MediaBreakpoint = (media: MediaBreakpointWheelProps) => {
+export const MediaBreakpoint = (media: MediaBreakpointProps) => {
   if (!media.small) {
     return null
   }

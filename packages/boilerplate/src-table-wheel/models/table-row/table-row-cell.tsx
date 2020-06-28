@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Td } from '../../../src-core/elements/self/self'
+import { Td } from '../../../src-core/elements/self'
 import { TopicOptions, TopicModel, Topic } from '../../../src-topic-wheel'
 
 import { Wheel } from '../../../src-core'

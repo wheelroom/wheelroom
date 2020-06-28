@@ -9,7 +9,7 @@ import {
   ActionModel,
   EmbedModel,
   MediaBreakpointModel,
-  MediaObject,
+  MediaGatsbyModel,
 } from '../../../src-core'
 
 export interface TopicModel {
@@ -19,10 +19,10 @@ export interface TopicModel {
   abstract?: {
     abstract: string
   }
-  media?: MediaObject
+  media?: MediaGatsbyModel
   icon?: string | JSX.Element
   actions?: ActionModel[]
-  poster?: MediaObject
+  poster?: MediaGatsbyModel
   mediaEmbed?: EmbedModel
   mediaBreakpoint?: MediaBreakpointModel
 }

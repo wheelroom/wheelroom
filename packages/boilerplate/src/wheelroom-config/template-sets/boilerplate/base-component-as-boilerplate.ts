@@ -8,7 +8,7 @@ export const baseComponentAsBoilerplate = `/**
  */
 
 import React from 'react'
-import { MediaObject } from './media'
+import { MediaGatsbyModel } from './media'
 import { getVariation } from './get-variation'
 %variationImportList%
 

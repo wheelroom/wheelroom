@@ -10,7 +10,7 @@ import React, { useContext } from 'react'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
 import { EmbedModel } from '../embed/model'
-import { FeatherIcon } from '../../../src-core/elements/element/icon'
+import { FeatherIcon } from '../../elements/icon'
 import {
   Wheel,
   GLink,

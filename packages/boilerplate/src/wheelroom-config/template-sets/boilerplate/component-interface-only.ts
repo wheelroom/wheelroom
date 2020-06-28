@@ -7,7 +7,7 @@ export const componentInterfaceOnly = `/**
  *
  */
 
-import { MediaObject } from '../../wheelroom/wheels/element/types/media'
+import { MediaGatsbyModel } from '../../wheelroom/wheels/element/types/media'
 
 export interface %ComponentName%Props {
   /** Gatsby fetched data */

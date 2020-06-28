@@ -6,7 +6,7 @@ export interface TopicSectionWheel extends Wheel {
   style: TopicSectionNcssTree
 }
 
-export interface TopicSectionWheelProps {
+export interface TopicSectionProps {
   /** Styling wheel */
   wheel: TopicSectionWheel
   /** Use a max width or fluid container */
@@ -15,7 +15,7 @@ export interface TopicSectionWheelProps {
   children: any
 }
 
-export const TopicSectionWrapper = (props: TopicSectionWheelProps) => {
+export const TopicSectionWrapper = (props: TopicSectionProps) => {
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
     <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
