@@ -79,15 +79,9 @@ export const example: any = {
     },
     model: 'topicSection',
   },
-  exampleText: {
-    fields: {
-      variation: 'block',
-      title: 'Example (variation: text)',
-    },
-    model: 'topicSection',
-  },
   exampletext: {
     fields: {
+      title: 'Example (variation: text)',
       text: `# Wheelroom
 
 Wheelroom connects your code base within 5 minutes to many services like Contentful and Netlify. The Wheelroom boilerplate includes content models, page sections, wheelroom themes, example content and much more.
@@ -106,7 +100,6 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
 
 - [Jacco Meijer](https://github.com/jaccomeijer)
 - [Thijs Krooswijk](https://github.com/thijskrooswijk)`,
-      title: 'Example (variation: rich text)',
     },
     model: 'textSection',
   },

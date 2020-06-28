@@ -1,7 +1,6 @@
-import { ContentTypes } from './content-types-starter'
+// import { ContentTypes } from './content-types-starter'
 
-// export const starter: any = {
-export const starter: ContentTypes = {
+export const starter: any = {
   mediaBreakpoint: {
     fields: {
       extraLarge: true,
@@ -374,7 +373,7 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
       variation: 'block',
       eventId: 'block',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   starterCardSection: {
     fields: {
@@ -388,7 +387,7 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
       variation: 'card',
       eventId: 'card',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   starterFeaturedSection: {
     fields: {
@@ -397,7 +396,7 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
       variation: 'featured',
       eventId: 'feature',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   starterHeadlineSection: {
     fields: {
@@ -407,7 +406,7 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
       variation: 'headline',
       eventId: 'headline',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   starterHeroSection: {
     fields: {
@@ -417,7 +416,7 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
       variation: 'hero',
       eventId: 'hero',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   starterQuoteSection: {
     fields: {
@@ -426,7 +425,7 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
       variation: 'quote',
       eventId: 'quote',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   starterShowcaseSection: {
     fields: {
@@ -441,24 +440,17 @@ All blogs that I produce are open source. Every time I talk, I get to share it w
       variation: 'showcase',
       eventId: 'showcase',
     },
-    model: 'pageSection',
-  },
-  starterText: {
-    fields: {
-      text: `## Wheelroom
-
-Everything we produce is open source. Every time we write code, we get to share it with the world.`,
-      title: 'Starter content',
-    },
-    model: 'text',
+    model: 'topicSection',
   },
   starterTextSection: {
     fields: {
-      title: 'Starter content (variation: text)',
-      variation: 'block',
+      title: 'Starter content text',
+      text: `## Wheelroom
+
+Everything we produce is open source. Every time we write code, we get to share it with the world.`,
       eventId: 'text',
     },
-    model: 'pageSection',
+    model: 'textSection',
   },
   wheelroomConnectsTopic: {
     fields: {
@@ -487,5 +479,32 @@ Everything we produce is open source. Every time we write code, we get to share 
       variation: 'footer',
       navigation: ['menuNavigation', 'socialNavigation'],
     },
+  },
+  tableSection: {
+    model: 'tableSection',
+  },
+  tableRowHeader: {
+    fields: {
+      title: 'table row header',
+      topics: ['freeForEveryoneTopic', 'openSourceTopic', 'nonprofitTopic'],
+      variant: 'header',
+    },
+    model: 'tableRow',
+  },
+  tableRowBody: {
+    fields: {
+      title: 'table row body',
+      topics: ['freeForEveryoneTopic', 'openSourceTopic', 'nonprofitTopic'],
+      variant: 'body',
+    },
+    model: 'tableRow',
+  },
+  tableRowFooter: {
+    fields: {
+      title: 'table row footer',
+      topics: ['freeForEveryoneTopic', 'openSourceTopic', 'nonprofitTopic'],
+      variant: 'footer',
+    },
+    model: 'tableRow',
   },
 }
