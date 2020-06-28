@@ -84,7 +84,7 @@ type contentfulEmbedCodeTextNode implements Node @dontInfer {
   code: String
 }
 
-type ContentfulEmbed implements Node @derivedTypes @dontInfer {
+type ContentfulEmbed implements Node @derivedTypes {
   title: String
   type: String
   globals: [ContentfulGlobals] @link(by: "id", from: "globals___NODE")
@@ -98,7 +98,7 @@ type ContentfulEmbed implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulGlobals implements Node @derivedTypes @dontInfer {
+type ContentfulGlobals implements Node @derivedTypes {
   title: String
   siteAuthor: String
   siteDescription: String
@@ -115,7 +115,7 @@ type ContentfulGlobals implements Node @derivedTypes @dontInfer {
   siteEmbeds: [ContentfulEmbed] @link(by: "id", from: "siteEmbeds___NODE")
 }
 
-type ContentfulAsset implements Node @derivedTypes @dontInfer {
+type ContentfulAsset implements Node @derivedTypes {
   contentful_id: String
   file: ContentfulAssetFile
   title: String
@@ -156,7 +156,7 @@ type ContentfulGlobalsSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulTopic implements Node @derivedTypes @dontInfer {
+type ContentfulTopic implements Node @derivedTypes {
   title: String
   heading: String
   icon: String
@@ -177,7 +177,7 @@ type ContentfulTopic implements Node @derivedTypes @dontInfer {
   mediaBreakpoint: ContentfulMediaBreakpoint @link(by: "id", from: "mediaBreakpoint___NODE")
 }
 
-type ContentfulAction implements Node @derivedTypes @dontInfer {
+type ContentfulAction implements Node @derivedTypes {
   title: String
   heading: String
   description: String
@@ -198,7 +198,7 @@ type ContentfulAction implements Node @derivedTypes @dontInfer {
   tablerow: [ContentfulTableRow] @link(by: "id", from: "tablerow___NODE")
 }
 
-type ContentfulPage implements Node @derivedTypes @dontInfer {
+type ContentfulPage implements Node @derivedTypes {
   title: String
   path: String
   seoTitle: String
@@ -234,7 +234,7 @@ type ContentfulPageSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulNavigationSegment implements Node @derivedTypes @dontInfer {
+type ContentfulNavigationSegment implements Node @derivedTypes {
   title: String
   actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
   navigation: [ContentfulNavigation] @link(by: "id", from: "navigation___NODE")
@@ -247,7 +247,7 @@ type ContentfulNavigationSegment implements Node @derivedTypes @dontInfer {
   heading: String
 }
 
-type ContentfulNavigation implements Node @derivedTypes @dontInfer {
+type ContentfulNavigation implements Node @derivedTypes {
   title: String
   variation: String
   segments: [ContentfulNavigationSegment] @link(by: "id", from: "segments___NODE")
@@ -260,7 +260,7 @@ type ContentfulNavigation implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulNavigationSection implements Node @derivedTypes @dontInfer {
+type ContentfulNavigationSection implements Node @derivedTypes {
   title: String
   variation: String
   navigation: [ContentfulNavigation] @link(by: "id", from: "navigation___NODE")
@@ -338,7 +338,7 @@ type ContentfulActionSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulTableRow implements Node @derivedTypes @dontInfer {
+type ContentfulTableRow implements Node @derivedTypes {
   title: String
   variation: String
   topics: [ContentfulTopic] @link(by: "id", from: "topics___NODE")
@@ -355,7 +355,7 @@ type ContentfulTableRow implements Node @derivedTypes @dontInfer {
   abstract: contentfulTableRowAbstractTextNode @link(by: "id", from: "abstract___NODE")
 }
 
-type ContentfulTableSection implements Node @derivedTypes @dontInfer {
+type ContentfulTableSection implements Node @derivedTypes {
   title: String
   variation: String
   tableRows: [ContentfulTableRow] @link(by: "id", from: "tableRows___NODE")
@@ -402,7 +402,7 @@ type ContentfulTableRowSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulBlog implements Node @derivedTypes @dontInfer {
+type ContentfulBlog implements Node @derivedTypes {
   title: String
   heading: String
   icon: String
@@ -429,7 +429,7 @@ type contentfulBlogAbstractTextNode implements Node @dontInfer {
   abstract: String
 }
 
-type contentfulBlogTextRichTextNode implements Node @derivedTypes @dontInfer {
+type contentfulBlogTextRichTextNode implements Node @derivedTypes {
   nodeType: String
   content: [contentfulBlogTextRichTextNodeContent]
   text: String
@@ -481,7 +481,7 @@ type ContentfulTopicSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulTopicSection implements Node @derivedTypes @dontInfer {
+type ContentfulTopicSection implements Node @derivedTypes {
   title: String
   variation: String
   topicOptions: [String]
@@ -512,7 +512,7 @@ type ContentfulTopicSectionSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulMediaBreakpoint implements Node @derivedTypes @dontInfer {
+type ContentfulMediaBreakpoint implements Node @derivedTypes {
   title: String
   small: ContentfulAsset @link(by: "id", from: "small___NODE")
   medium: ContentfulAsset @link(by: "id", from: "medium___NODE")
@@ -559,7 +559,7 @@ type ContentfulEmbedSysContentTypeSys {
   contentful_id: String
 }
 
-type contentfulTextSectionTextRichTextNode implements Node @derivedTypes @dontInfer {
+type contentfulTextSectionTextRichTextNode implements Node @derivedTypes {
   nodeType: String
   content: [contentfulTextSectionTextRichTextNodeContent]
   text: String
@@ -575,7 +575,7 @@ type contentfulTextSectionTextRichTextNodeContentContent {
   value: String
 }
 
-type ContentfulTextSection implements Node @derivedTypes @dontInfer {
+type ContentfulTextSection implements Node @derivedTypes {
   title: String
   eventId: String
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
@@ -605,7 +605,7 @@ type ContentfulTextSectionSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulBlogSection implements Node @derivedTypes @dontInfer {
+type ContentfulBlogSection implements Node @derivedTypes {
   title: String
   variation: String
   eventId: String
