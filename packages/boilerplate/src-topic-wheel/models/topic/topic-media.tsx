@@ -79,12 +79,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
   }
 
   return (
-    <Box
-      ncss={{
-        order: topicOptions.reverseOrder ? 0 : null,
-      }}
-      wheel={{ ...props.wheel, style: props.wheel.style.media }}
-    >
+    <Box wheel={{ ...props.wheel, style: props.wheel.style.media }}>
       <Media {...mediaProps} />
     </Box>
   )
