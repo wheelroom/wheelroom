@@ -3,6 +3,7 @@ import { iconSmallTopicNcssNode, iconButtonSmallNcssNode } from '../icon-ncss'
 import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { embedNcssNode } from '../embed-ncss'
 import { deepMerge, DeepPartial } from '../../../../../src-core'
+import { topicNcssTree } from '../topic/topic/topic-ncss-tree'
 
 export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> = {
   container: deepMerge([
@@ -27,135 +28,80 @@ export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> =
         fontSize: 4,
       },
     },
-    th: {
-      ncss: {
-        label: 'table-th',
-        textAlign: 'left',
-        bg: 'skyblue',
-        p: 2,
+    ncssSwitch: {
+      headerVariation: {
+        label: 'table-row-tr-header',
+        bg: 'skyBlue',
+      },
+      bodyVariation: {
+        label: 'table-row-tr-body',
+      },
+      footerVariation: {
+        label: 'table-row-tr-footer',
+        bg: 'metal',
       },
     },
-    tr: {
+    th: {
       ncss: {
-        label: 'table-tr',
+        label: 'table-row-th',
+        textAlign: 'left',
+        p: 2,
       },
     },
     dd: {
       ncss: {
-        label: 'table-description-definition',
+        label: 'table-row-description-definition',
         m: 0,
         fontWeight: 4,
       },
     },
     dl: {
       ncss: {
-        label: 'table-description-list',
+        label: 'table-row-description-list',
         lineHeight: '1.58',
         m: 0,
       },
     },
     dt: {
       ncss: {
-        label: 'table-description-term',
+        label: 'table-row-description-term',
       },
     },
     icon: {
       ncss: {
-        label: 'table-icon',
+        label: 'table-row-icon',
         ...iconSmallTopicNcssNode.ncss,
       },
     },
     actionGroup: {
       ncss: {
-        label: 'table-action-group',
-        mx: -1,
+        label: 'table-row-actions',
       },
     },
     action: {
       ncss: {
-        label: 'table-action',
+        label: 'table-row-action',
         display: 'inline-flex',
         m: 1,
+        mx: -1,
         fontWeight: 4,
       },
       icon: {
         ncss: {
-          label: 'table-action-icon',
+          label: 'table-row-action-icon',
           ...iconButtonSmallNcssNode.ncss,
         },
       },
     },
-    tableRow: {
-      ncssSwitch: {
-        headerVariation: {
-          label: 'table-row-tr-header',
-        },
-        bodyVariation: {
-          label: 'table-row-tr-body',
-        },
-        footerVariation: {
-          label: 'table-row-tr-footer',
-        },
+    cell: {
+      ncss: {
+        label: 'table-row-cell',
+        p: 2,
       },
-      th: {
-        ncss: {
-          label: 'table-row-th',
-          textAlign: 'left',
-          p: 2,
-        },
-      },
-      dd: {
-        ncss: {
-          label: 'table-row-description-definition',
-          m: 0,
-          fontWeight: 4,
-        },
-      },
-      dl: {
-        ncss: {
-          label: 'table-row-description-list',
-          lineHeight: '1.58',
-          m: 0,
-        },
-      },
-      dt: {
-        ncss: {
-          label: 'table-row-description-term',
-        },
-      },
-      icon: {
-        ncss: {
-          label: 'table-row-icon',
-          ...iconSmallTopicNcssNode.ncss,
-        },
-      },
-      actionGroup: {
-        ncss: {
-          label: 'table-row-actions',
-        },
-      },
-      action: {
-        ncss: {
-          label: 'table-row-action',
-          display: 'inline-flex',
-          m: 1,
-          mx: -1,
-          fontWeight: 4,
-        },
-        icon: {
-          ncss: {
-            label: 'table-row-action-icon',
-            ...iconButtonSmallNcssNode.ncss,
-          },
-        },
-      },
-      cell: {
-        ncss: {
-          label: 'table-row-cell',
-          p: 2,
-        },
-      },
-      topic: {
+    },
+    topic: deepMerge([
+      topicNcssTree,
+      {
         content: {
           ncss: {
             textAlign: 'center',
@@ -186,7 +132,7 @@ export const tableSectionTableNcssTree: DeepPartial<TableSectionModelNcssTree> =
         },
         embed: embedNcssNode,
       },
-    },
+    ]),
   },
   wrapper: wrapperNcssNode,
 }
