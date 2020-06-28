@@ -4,10 +4,12 @@ reduxcache*
 # Wheelroom Compiled Config
 compiled-config/
 
+# Compiled source for NPM
+dist/
+
 # GatsbyJS
 .cache
 public/
-dist/
 
 # Logs
 logs
