@@ -22,11 +22,11 @@ prepare_module_folder() {
     mkdir -p packages/admin-page-preview/node_modules/$1
     mkdir -p packages/admin-theme-switcher/node_modules/$1
     mkdir -p packages/core/node_modules/$1
-    mkdir -p packages/blog-wheel/node_modules/$1
-    mkdir -p packages/navigation-wheel/node_modules/$1
-    mkdir -p packages/table-wheel/node_modules/$1
-    mkdir -p packages/text-wheel/node_modules/$1
-    mkdir -p packages/topic-wheel/node_modules/$1
+    mkdir -p packages/wheel-blog/node_modules/$1
+    mkdir -p packages/wheel-navigation/node_modules/$1
+    mkdir -p packages/wheel-table/node_modules/$1
+    mkdir -p packages/wheel-text/node_modules/$1
+    mkdir -p packages/wheel-topic/node_modules/$1
 }
 
 remove_module_folder() {
@@ -43,11 +43,11 @@ remove_module_folder() {
     rm -rf packages/admin-page-preview/node_modules/$1
     rm -rf packages/admin-theme-switcher/node_modules/$1
     rm -rf packages/core/node_modules/$1
-    rm -rf packages/blog-wheel/node_modules/$1
-    rm -rf packages/navigation-wheel/node_modules/$1
-    rm -rf packages/table-wheel/node_modules/$1
-    rm -rf packages/text-wheel/node_modules/$1
-    rm -rf packages/topic-wheel/node_modules/$1
+    rm -rf packages/wheel-blog/node_modules/$1
+    rm -rf packages/wheel-navigation/node_modules/$1
+    rm -rf packages/wheel-table/node_modules/$1
+    rm -rf packages/wheel-text/node_modules/$1
+    rm -rf packages/wheel-topic/node_modules/$1
 
 }
 
@@ -67,11 +67,11 @@ link_module_folder() {
         ln -s $2 packages/admin-page-preview/node_modules/$1
         ln -s $2 packages/admin-theme-switcher/node_modules/$1
         ln -s $2 packages/core/node_modules/$1
-        ln -s $2 packages/blog-wheel/node_modules/$1
-        ln -s $2 packages/navigation-wheel/node_modules/$1
-        ln -s $2 packages/table-wheel/node_modules/$1
-        ln -s $2 packages/text-wheel/node_modules/$1
-        ln -s $2 packages/topic-wheel/node_modules/$1
+        ln -s $2 packages/wheel-blog/node_modules/$1
+        ln -s $2 packages/wheel-navigation/node_modules/$1
+        ln -s $2 packages/wheel-table/node_modules/$1
+        ln -s $2 packages/wheel-text/node_modules/$1
+        ln -s $2 packages/wheel-topic/node_modules/$1
 
     else
         echo "Warning: could not find packages/boilerplate/node_modules/$1"
