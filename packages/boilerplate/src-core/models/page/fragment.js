@@ -17,7 +17,7 @@ export const fragment = graphql`
     path
     sections {
       ... on Node {
-        ...PageSection
+        ...TopicSection
         ...TextSection
         ...NavigationSection
         ...TableSection

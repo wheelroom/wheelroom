@@ -54,3 +54,6 @@ atlassian-ide-plugin.xml
 # MacOS
 .DS_Store
 !/.gitignore
+
+# Ignore copied fragments
+/src/copied-fragments/

@@ -1,5 +1,5 @@
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { PageModelProps } from '../models/page/model-types'
+import { PageModelProps } from '../models/page/model-props'
 import { GlobalsModelProps } from '../models/globals/model-props'
 import { CoreSiteMetadata } from './core-site-metadata'
 import { SectionWheels } from './section-wheels'
