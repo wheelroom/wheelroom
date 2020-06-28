@@ -37,7 +37,7 @@ export interface TopicProps {
   maxActions?: number
 }
 
-export const Topic = (props: TopicProps, wheel: TopicWheel = props.wheel) => {
+export const Topic = (props: TopicProps) => {
   if (!props.topic) {
     return null
   }
