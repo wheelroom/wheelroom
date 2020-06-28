@@ -16,11 +16,13 @@ export const topicSectionFeaturedNcssTree: DeepPartial<TopicSectionModelNcssTree
     },
   },
   topic: {
-    ncss: {
-      flexDirection: ['column', 'column', 'row'],
-      justifyContent: 'space-evenly',
-      py: 3,
-      alignItems: 'center',
+    ncssSwitch: {
+      container: {
+        flexDirection: ['column', 'column', 'row'],
+        justifyContent: 'space-evenly',
+        py: 3,
+        alignItems: 'center',
+      },
     },
     content: {
       ncss: {

@@ -5,6 +5,7 @@ import {
   Action,
   BlockLevelElementName,
   Box,
+  getNcssSwitch,
   ParserFunction,
   Wheel,
 } from '../../../src-core'
@@ -50,18 +51,24 @@ export const Topic = (props: TopicProps) => {
   const action = props.topic.actions && props.topic.actions[0]
   let Element: any
   let elementProps
+  let elementNcssVariable
   if (fullTopicAsLink) {
     Element = Action
     elementProps = { ...action, icon: undefined }
+    elementNcssVariable = 'containerAsLink'
   } else {
     Element = Box
     elementProps = { is: 'div' }
+    elementNcssVariable = 'container'
   }
 
   return (
     <Element
       {...elementProps}
-      wheel={{ ...props.wheel, style: props.wheel.style }}
+      wheel={{
+        ...props.wheel,
+        style: getNcssSwitch(props.wheel.style, elementNcssVariable),
+      }}
     >
       <TopicBody {...props} />
     </Element>

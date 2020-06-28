@@ -12,9 +12,11 @@ import { containerNcssNode } from '../../grid-ncss'
 export const topicSectionHeroNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
   container: containerNcssNode,
   topic: {
-    ncss: {
-      position: 'relative',
-      w: 1,
+    ncssSwitch: {
+      container: {
+        position: 'relative',
+        w: 1,
+      },
     },
     content: {
       ncss: {

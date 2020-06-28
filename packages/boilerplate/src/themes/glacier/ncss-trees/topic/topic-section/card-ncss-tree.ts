@@ -5,6 +5,16 @@ import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
 import { deepMerge, DeepPartial } from '../../../../../../src-core'
 
+const containerNcss = {
+  maxWidth: '288px',
+  minWidth: '288px',
+  m: 3,
+  border: '1px solid transparent',
+  borderColor: 'cardBorder',
+  borderRadius: 4,
+  textDecoration: 'none',
+}
+
 export const topicSectionCardNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
   container: deepMerge([
     containerNcssNode,
@@ -18,16 +28,21 @@ export const topicSectionCardNcssTree: DeepPartial<TopicSectionModelNcssTree> = 
     },
   ]),
   topic: {
-    ncss: {
-      maxWidth: '288px',
-      minWidth: '288px',
-      m: 3,
-      border: '1px solid black',
-      borderRadius: 4,
-      borderColor: 'cardBorder',
-      boxShadow: '0 0 16px',
-      color: 'cardShadow',
-      textDecoration: 'none',
+    ncssSwitch: {
+      container: {
+        ...containerNcss,
+      },
+      containerAsLink: {
+        ...containerNcss,
+        textDecoration: 'none',
+        borderColor: 'cardBorder',
+        boxShadow: '0 0 16px',
+        color: 'cardShadow',
+        transition: 'transform .25s ease',
+        ':hover': {
+          transform: 'translate3d(0, -4px, 0)',
+        },
+      },
     },
     content: {
       ncss: {

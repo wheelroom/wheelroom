@@ -15,9 +15,11 @@ export const topicSectionShowcaseNcssTree: DeepPartial<TopicSectionModelNcssTree
     },
   },
   topic: {
-    ncss: {
-      flexDirection: ['column', 'row'],
-      py: 3,
+    ncssSwitch: {
+      container: {
+        flexDirection: ['column', 'row'],
+        py: 3,
+      },
     },
     content: {
       ncss: {

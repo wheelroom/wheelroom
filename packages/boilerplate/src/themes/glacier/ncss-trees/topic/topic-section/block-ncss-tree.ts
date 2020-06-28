@@ -17,10 +17,12 @@ export const topicSectionBlockNcssTree: DeepPartial<TopicSectionModelNcssTree> =
     },
   ]),
   topic: {
-    ncss: {
-      p: 3,
-      w: [1, 1 / 2, 1 / 3],
-      maxWidth: '35em',
+    ncssSwitch: {
+      container: {
+        p: 3,
+        w: [1, 1 / 2, 1 / 3],
+        maxWidth: '35em',
+      },
     },
     content: {
       ncss: {

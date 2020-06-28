@@ -1,11 +1,19 @@
 import { TopicModelNcssTree } from '../../../../../../src-topic-wheel'
 
 export const topicNcssTree: TopicModelNcssTree = {
-  ncss: {
-    label: 'topic',
-    display: 'flex',
-    flexDirection: 'column',
-    w: 1,
+  ncssSwitch: {
+    container: {
+      label: 'topic',
+      display: 'flex',
+      flexDirection: 'column',
+      w: 1,
+    },
+    containerAsLink: {
+      label: 'topic-as-link',
+      display: 'flex',
+      flexDirection: 'column',
+      w: 1,
+    },
   },
   media: {
     ncss: {
@@ -79,9 +87,6 @@ export const topicNcssTree: TopicModelNcssTree = {
   icon: {
     ncss: {
       label: 'topic-icon',
-      ':first-child': {
-        mb: 4,
-      },
     },
   },
   heading: {
