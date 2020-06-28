@@ -2,11 +2,13 @@ import {
   EmbedModelNcssTree,
   ImageElementNcssTree,
   MediaBreakpointModelNcssTree,
+  Ncss,
   NcssNode,
   VideoElementNcssTree,
 } from '../../../src-core'
 
-export interface TopicModelNcssTree extends NcssNode {
+export interface TopicModelNcssTree {
+  ncssSwitch: Record<'containerAsLink' | 'container', Ncss>
   /** Media */
   media: NcssNode
   /** Video style */

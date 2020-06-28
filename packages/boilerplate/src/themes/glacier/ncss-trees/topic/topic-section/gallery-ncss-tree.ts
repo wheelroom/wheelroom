@@ -13,8 +13,10 @@ export const topicSectionGalleryNcssTree: DeepPartial<TopicSectionModelNcssTree>
     },
   },
   topic: {
-    ncss: {
-      w: 1 / 2,
+    ncssSwitch: {
+      container: {
+        w: 1 / 2,
+      },
     },
     content: {
       ncss: {

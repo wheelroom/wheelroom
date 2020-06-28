@@ -16,13 +16,12 @@ export const topicSectionFeaturedNcssTree: DeepPartial<TopicSectionModelNcssTree
     },
   },
   topic: {
-    ncss: {
-      flexDirection: ['column', 'column', 'row'],
-      justifyContent: 'space-evenly',
-      py: 3,
-      alignItems: 'center',
-      ':nth-of-type(even) > div:nth-of-type(1)': {
-        order: ['0', '0', '1'],
+    ncssSwitch: {
+      container: {
+        flexDirection: ['column', 'column', 'row'],
+        justifyContent: 'space-evenly',
+        py: 3,
+        alignItems: 'center',
       },
     },
     content: {
@@ -66,15 +65,4 @@ export const topicSectionFeaturedNcssTree: DeepPartial<TopicSectionModelNcssTree
     embed: embedNcssNode,
   },
   wrapper: wrapperNcssNode,
-}
-
-export const pageSectionFeaturedReverseNcssTree = {
-  topic: {
-    ncss: {
-      label: 'topic-reverse',
-      ':nth-of-type(even) > div:nth-of-type(1)': {
-        order: ['0', '0', '-2'],
-      },
-    },
-  },
 }
