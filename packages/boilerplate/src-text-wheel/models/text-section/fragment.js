@@ -16,9 +16,7 @@ export const fragment = graphql`
     __typename
     variation
     text {
-      ... on Node {
-        ...Text
-      }
+      json
     }
     eventId
   }

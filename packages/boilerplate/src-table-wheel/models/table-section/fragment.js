@@ -17,9 +17,9 @@ export const fragment = graphql`
     title
     variation
     topicOptions
-    tables {
+    tableRows {
       ... on Node {
-        ...Table
+        ...TableRow
       }
     }
     eventId

@@ -12,7 +12,7 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-  fragment PageSection on ContentfulPageSection {
+  fragment TopicSection on ContentfulTopicSection {
     __typename
     variation
     eventId

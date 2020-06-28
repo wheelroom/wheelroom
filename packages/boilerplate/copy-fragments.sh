@@ -1,4 +1,3 @@
-@echo off
 # Copying fragments from modules to this src folder
 
 mkdir -p src/copied-fragments
