@@ -2,8 +2,9 @@ import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
 import { wrapperNcssNode } from '../../grid-ncss'
+import { DeepPartial } from '../../../../../../src-core'
 
-export const topicSectionGalleryNcssTree: TopicSectionModelNcssTree = {
+export const topicSectionGalleryNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
   container: {
     ncss: {
       flexDirection: 'row',
@@ -19,50 +20,13 @@ export const topicSectionGalleryNcssTree: TopicSectionModelNcssTree = {
       ncss: {
         p: 3,
       },
-      actions: {
-        ncss: {},
-        link: {
-          ncss: {},
-          icon: {
-            ncss: {},
-          },
-        },
-      },
-      text: {
-        ncss: {},
-        abstract: {
-          ncss: {},
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: iconTopicNcssNode,
-      },
     },
-    media: {
-      ncss: {},
-      embed: embedNcssNode,
-      image: {
-        ncss: {},
-        picture: {
-          ncss: {
-            p: 3,
-          },
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        ncss: {},
-      },
-      video: {
-        ncss: {},
-        description: {
-          ncss: {},
+    icon: iconTopicNcssNode,
+    embed: embedNcssNode,
+    image: {
+      picture: {
+        ncss: {
+          p: 3,
         },
       },
     },

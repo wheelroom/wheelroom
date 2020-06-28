@@ -3,6 +3,7 @@ import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { deepMerge, DeepPartial } from '../../../../../src-core'
 import { topicNcssTree } from '../topic/topic/topic-ncss-tree'
 import { textSectionTextNcssTree } from '../text/text-ncss-tree'
+import { embedNcssNode } from '../embed-ncss'
 
 export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogModelNcssTree> = {
   container: containerNcssNode,
@@ -105,40 +106,34 @@ export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogModelNcssTree> 
             flexDirection: 'column',
             p: 3,
           },
-          actions: {
-            ncss: {
-              mt: 1,
-            },
-            link: {
-              ncss: {
-                display: 'inline-flex',
-              },
-              icon: {
-                ncss: {
-                  w: '16px',
-                  h: '16px',
-                  my: 'auto',
-                  transform: 'translateX(4px)',
-                },
-              },
-            },
+        },
+        actionGroup: {
+          ncss: {
+            mt: 1,
           },
-          text: {
-            ncss: {},
-            abstract: {
-              ncss: {
-                mb: 0,
-              },
-            },
-            heading: {
-              ncss: {
-                fontWeight: 'bold',
-                mb: 0,
-              },
-            },
-            icon: {
-              ncss: {},
-            },
+        },
+        action: {
+          ncss: {
+            display: 'inline-flex',
+          },
+        },
+        icon: {
+          ncss: {
+            w: '16px',
+            h: '16px',
+            my: 'auto',
+            transform: 'translateX(4px)',
+          },
+        },
+        abstract: {
+          ncss: {
+            mb: 0,
+          },
+        },
+        heading: {
+          ncss: {
+            fontWeight: 'bold',
+            mb: 0,
           },
         },
         media: {
@@ -146,58 +141,42 @@ export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogModelNcssTree> 
             flexDirection: 'column',
             p: 3,
           },
-          embed: {
+        },
+        embed: embedNcssNode,
+        image: {
+          ncss: {
+            h: 1,
+            objectFit: 'cover',
+          },
+          picture: {
             ncss: {
-              display: 'block',
-              h: '0px',
-              pb: '56.25%',
-              position: 'relative',
-              iframe: {
-                position: 'absolute',
-              },
+              overflow: 'hidden',
+              h: ['60px', '80px'],
+              w: ['60px', '80px'],
+              borderRadius: '50%',
             },
           },
-          image: {
-            ncss: {
-              h: 1,
-              objectFit: 'cover',
-            },
-            picture: {
-              ncss: {
-                overflow: 'hidden',
-                h: ['60px', '80px'],
-                w: ['60px', '80px'],
-                borderRadius: '50%',
-              },
-            },
-            figcaption: {
-              ncss: {},
-            },
-          },
-          mediaBreakpoint: {
-            picture: {
-              ncss: {
-                overflow: 'hidden',
-                h: ['60px', '80px'],
-                w: ['60px', '80px'],
-                borderRadius: '50%',
-              },
-            },
-            ncss: {
-              h: 1,
-              objectFit: 'cover',
-            },
-          },
-          video: {
+          figcaption: {
             ncss: {},
-            description: {
-              ncss: {},
+          },
+        },
+        mediaBreakpoint: {
+          picture: {
+            ncss: {
+              overflow: 'hidden',
+              h: ['60px', '80px'],
+              w: ['60px', '80px'],
+              borderRadius: '50%',
             },
+          },
+          ncss: {
+            h: 1,
+            objectFit: 'cover',
           },
         },
       },
     ]),
-    text: textSectionTextNcssTree.text,
+    richText: textSectionTextNcssTree.richText,
   },
   wrapper: wrapperNcssNode,
 }

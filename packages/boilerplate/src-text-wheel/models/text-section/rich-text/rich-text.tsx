@@ -12,7 +12,7 @@ import {
   Options,
   documentToReactComponents,
 } from '@contentful/rich-text-react-renderer'
-import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types'
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types'
 import {
   ALink,
   Blockquote,
@@ -37,26 +37,25 @@ import {
   Video,
   Wheel,
   Box,
-} from '../../../src-core'
-import { TextModelProps } from './model-types'
+} from '../../../../src-core'
 import { getLocalizedValue } from './get-localized-value'
-import { TextModelNcssTree } from './model-style-types'
+import { RichTextNcssTree } from './rich-text-ncss-tree'
 
-export interface TextWheel extends Wheel {
-  style: TextModelNcssTree
+export interface RichTextWheel extends Wheel {
+  style: RichTextNcssTree
 }
 
-export interface TextProps {
+export interface RichTextProps {
   /** Locale needed for rendering rich text */
   locale: string
-  wheel: TextWheel
-  text: TextModelProps
+  wheel: RichTextWheel
+  textJson: string
 }
 
 type Node = any
 type Children = any
 
-export const Text = (props: TextProps) => {
+export const RichText = (props: RichTextProps) => {
   const textProps = props
 
   const options = {
@@ -304,7 +303,7 @@ export const Text = (props: TextProps) => {
             title: localizedTitle,
             description: localizedDescription,
             fluid: {
-              src: localizedFile.url + '?w=2560&q=75',
+              src: localizedFile.url + '?q=75',
             },
           } as MediaObject
           return (
@@ -357,10 +356,7 @@ export const Text = (props: TextProps) => {
         style: textProps.wheel.style,
       }}
     >
-      {documentToReactComponents(
-        (props.text.text.json as unknown) as Document,
-        options
-      )}
+      {documentToReactComponents(props.textJson as any, options)}
     </Box>
   )
 }

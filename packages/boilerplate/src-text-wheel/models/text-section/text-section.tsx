@@ -8,7 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../../src-core'
 import { TextSectionTextVar } from './text-section-text-var'
-import { TextSectionModelProps } from './model-types'
+import { TextSectionModelProps } from './model-props'
 
 const componentList = {
   ['text']: TextSectionTextVar,

@@ -1,11 +1,11 @@
 import {
+  NcssNode,
   EmbedModelNcssTree,
   ImageElementNcssTree,
-  NcssNode,
   VideoElementNcssTree,
-} from '../../../src-core'
+} from '../../../../src-core'
 
-export interface TextModelNcssTree extends NcssNode {
+export interface RichTextNcssTree extends NcssNode {
   strong: NcssNode
   code: NcssNode
   pre: NcssNode

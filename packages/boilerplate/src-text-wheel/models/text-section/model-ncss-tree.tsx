@@ -1,8 +1,8 @@
-import { TextModelNcssTree } from '../text/model-style-types'
 import { NcssNode } from '../../../src-core'
+import { RichTextNcssTree } from './rich-text/rich-text-ncss-tree'
 
 export interface TextSectionModelNcssTree {
   container: NcssNode
-  text: TextModelNcssTree
+  richText: RichTextNcssTree
   wrapper: NcssNode
 }

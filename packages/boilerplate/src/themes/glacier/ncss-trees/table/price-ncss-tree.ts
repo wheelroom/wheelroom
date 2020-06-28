@@ -162,66 +162,35 @@ export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> =
         },
       },
       topic: {
-        ncss: {},
         content: {
           ncss: {
             textAlign: 'center',
             my: 1,
           },
-          actions: {
-            ncss: {},
-            link: {
-              ncss: {
-                display: 'inline-flex',
-                fontSize: 4,
-              },
-              icon: {
-                ncss: {},
-              },
-            },
-          },
-          text: {
-            ncss: {},
-            abstract: {
-              ncss: {
-                fontSize: 4,
-              },
-            },
-            heading: {
-              ncss: {
-                fontSize: 4,
-              },
-            },
-            icon: iconSmallTopicNcssNode,
+        },
+        action: {
+          ncss: {
+            display: 'inline-flex',
+            fontSize: 4,
           },
         },
+        abstract: {
+          ncss: {
+            fontSize: 4,
+          },
+        },
+        heading: {
+          ncss: {
+            fontSize: 4,
+          },
+        },
+        icon: iconSmallTopicNcssNode,
         media: {
           ncss: {
             my: 1,
           },
-          embed: embedNcssNode,
-          image: {
-            picture: {
-              ncss: {},
-            },
-            ncss: {},
-            figcaption: {
-              ncss: {},
-            },
-          },
-          mediaBreakpoint: {
-            picture: {
-              ncss: {},
-            },
-            ncss: {},
-          },
-          video: {
-            ncss: {},
-            description: {
-              ncss: {},
-            },
-          },
         },
+        embed: embedNcssNode,
       },
     },
   },

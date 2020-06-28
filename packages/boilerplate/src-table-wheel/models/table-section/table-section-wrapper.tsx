@@ -1,6 +1,6 @@
 import React from 'react'
 import { Wheel, Container, Fluid, Wrapper } from '../../../src-core'
-import { TableSectionModelNcssTree } from './model-style-types'
+import { TableSectionModelNcssTree } from './model-ncss-tree'
 
 export interface TableSectionWheel extends Wheel {
   style: TableSectionModelNcssTree

@@ -9,8 +9,8 @@ import {
   Wheel,
 } from '../../../src-core'
 import { TopicBody } from './topic-body'
-import { TopicModelProps } from './model-types'
-import { TopicModelNcssTree } from './model-style-types'
+import { TopicModelProps } from './model-props'
+import { TopicModelNcssTree } from './model-ncss-tree'
 
 export interface TopicWheel extends Wheel {
   style: TopicModelNcssTree
@@ -37,7 +37,7 @@ export interface TopicProps {
   maxActions?: number
 }
 
-export const Topic = (props: TopicProps) => {
+export const Topic = (props: TopicProps, wheel: TopicWheel = props.wheel) => {
   if (!props.topic) {
     return null
   }
@@ -59,7 +59,10 @@ export const Topic = (props: TopicProps) => {
   }
 
   return (
-    <Element {...elementProps} wheel={props.wheel}>
+    <Element
+      {...elementProps}
+      wheel={{ ...props.wheel, style: props.wheel.style }}
+    >
       <TopicBody {...props} />
     </Element>
   )

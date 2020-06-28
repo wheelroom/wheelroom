@@ -6,25 +6,14 @@ import {
   Box,
   ParserFunction,
   Wheel,
-  NcssNode,
 } from '../../../src-core'
-import {
-  TopicContentActions,
-  TopicContentActionsWheelStyle,
-} from './topic-content-actions'
-import {
-  TopicContentText,
-  TopicContentTextWheelStyle,
-} from './topic-content-text'
-import { TopicModelProps } from './model-types'
-
-export interface TopicContentWheelStyle extends NcssNode {
-  text: TopicContentTextWheelStyle
-  actions: TopicContentActionsWheelStyle
-}
+import { TopicContentActions } from './topic-content-actions'
+import { TopicContentText } from './topic-content-text'
+import { TopicModelProps } from './model-props'
+import { TopicModelNcssTree } from './model-ncss-tree'
 
 export interface TopicContentWheel extends Wheel {
-  style: TopicContentWheelStyle
+  style: TopicModelNcssTree
 }
 
 export interface TopicContentProps {
@@ -70,7 +59,7 @@ export const TopicContent = (props: TopicContentProps) => {
       ncss={{
         order: topicOptions.reverseOrder ? -1 : null,
       }}
-      wheel={props.wheel}
+      wheel={{ ...props.wheel, style: props.wheel.style.content }}
     >
       <TopicContentText
         topic={props.topic}
@@ -80,7 +69,7 @@ export const TopicContent = (props: TopicContentProps) => {
         useAbstractParser={props.useAbstractParser}
         useHeadingElement={props.useHeadingElement}
         useHeadingParser={props.useHeadingParser}
-        wheel={{ ...props.wheel, style: props.wheel.style.text }}
+        wheel={props.wheel}
       />
       {showAction && (
         <TopicContentActions
@@ -89,7 +78,7 @@ export const TopicContent = (props: TopicContentProps) => {
           topic={props.topic}
           topicInfo={topicInfo}
           topicOptions={props.topicOptions}
-          wheel={{ ...props.wheel, style: props.wheel.style.actions }}
+          wheel={props.wheel}
         />
       )}
     </Box>

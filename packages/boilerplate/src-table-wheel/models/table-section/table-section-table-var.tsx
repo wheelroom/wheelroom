@@ -8,8 +8,8 @@
 
 import React from 'react'
 import { getWheel } from '../../../src-core'
-import { Table } from '../table/table'
-import { TableSectionModelProps } from './model-types'
+import { Table } from './table'
+import { TableSectionModelProps } from './model-props'
 import { TableSectionWrapper } from './table-section-wrapper'
 
 export const TableSectionTableVar = (props: TableSectionModelProps) => {
@@ -20,14 +20,14 @@ export const TableSectionTableVar = (props: TableSectionModelProps) => {
     variation: 'table',
   })
 
-  if (!wheel || !props.tables) {
+  if (!wheel || !props.tableRows) {
     return null
   }
 
   return (
     <TableSectionWrapper containerStyle="container" wheel={wheel}>
       <Table
-        tables={props.tables}
+        tableRows={props.tableRows}
         topicOptions={props.topicOptions || {}}
         wheel={{ ...wheel, style: wheel.style.table }}
       />

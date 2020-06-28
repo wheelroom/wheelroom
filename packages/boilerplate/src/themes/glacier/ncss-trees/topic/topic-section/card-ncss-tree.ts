@@ -3,9 +3,9 @@ import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
 import { primaryButtonNcssNode } from '../../../element-ncss/button-ncss'
 import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
-import { deepMerge } from '../../../../../../src-core'
+import { deepMerge, DeepPartial } from '../../../../../../src-core'
 
-export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
+export const topicSectionCardNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
   container: deepMerge([
     containerNcssNode,
     {
@@ -38,64 +38,41 @@ export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
         pb: 3,
         color: 'sectionText',
       },
-      actions: {
-        ncss: {
-          flex: '0',
-          mt: 3,
-        },
-        link: {
-          ...primaryButtonNcssNode,
-          icon: {
-            ncss: {},
-          },
-        },
-      },
-      text: {
-        ncss: {
-          display: 'block',
-          flex: '1 1 auto',
-        },
-        abstract: {
-          ncss: {
-            mb: 0,
-          },
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: iconTopicNcssNode,
+    },
+    actionGroup: {
+      ncss: {
+        flex: '0',
+        mt: 3,
       },
     },
+    action: primaryButtonNcssNode,
+    text: {
+      ncss: {
+        display: 'block',
+        flex: '1 1 auto',
+      },
+    },
+    abstract: {
+      ncss: {
+        mb: 0,
+      },
+    },
+    icon: iconTopicNcssNode,
     media: {
       ncss: {
         p: 3,
       },
-      embed: embedNcssNode,
-      image: {
+    },
+    embed: embedNcssNode,
+    image: {
+      ncss: {
+        h: 1,
+        objectFit: 'cover',
+      },
+      picture: {
         ncss: {
-          h: 1,
-          objectFit: 'cover',
-        },
-        picture: {
-          ncss: {
-            display: 'block',
-            h: '178px',
-          },
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        ncss: {},
-      },
-      video: {
-        ncss: {},
-        description: {
-          ncss: {},
+          display: 'block',
+          h: '178px',
         },
       },
     },
@@ -103,7 +80,7 @@ export const topicSectionCardNcssTree: TopicSectionModelNcssTree = {
   wrapper: wrapperNcssNode,
 }
 
-export const pageSectionCardShadowStyle = {
+export const topicAsFullLinkNcssNode = {
   topic: {
     ncss: {
       label: 'topic-card-shadow',

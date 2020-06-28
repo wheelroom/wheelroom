@@ -8,13 +8,21 @@ import { replaceSets } from './replace-sets'
 import { coreModels } from './will-move-a-module/models/core-models'
 import { tableModels } from './will-move-a-module/models/table-models'
 import { blogModels } from './will-move-a-module/models/blog-models'
+import { textModels } from './will-move-a-module/models/text-models'
+import { topicModels } from './will-move-a-module/models/topic-models'
 import { fieldDefautls } from './will-move-a-module/field-defaults'
 import { commonFields } from './will-move-a-module/common-fields'
 import { contentfulFieldDefinitions } from './will-move-a-module/contentful-field-definitions'
 
 export const config: WheelroomConfig = {
   commonFields: commonFields,
-  components: { ...coreModels, ...blogModels, ...tableModels },
+  components: {
+    ...coreModels,
+    ...blogModels,
+    ...tableModels,
+    ...topicModels,
+    ...textModels,
+  },
   fieldDefaults: fieldDefautls,
   plugins: [
     {

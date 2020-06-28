@@ -8,18 +8,12 @@ import {
   Icon,
   ParserFunction,
   Wheel,
-  NcssNode,
 } from '../../../src-core'
-import { TopicModelProps } from './model-types'
-
-export interface TopicContentTextWheelStyle extends NcssNode {
-  icon: NcssNode
-  heading: NcssNode
-  abstract: NcssNode
-}
+import { TopicModelProps } from './model-props'
+import { TopicModelNcssTree } from './model-ncss-tree'
 
 export interface TopicContentTextWheel extends Wheel {
-  style: TopicContentTextWheelStyle
+  style: TopicModelNcssTree
 }
 
 export interface TopicContentTextProps {
@@ -51,7 +45,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const HeadingParser = props.useHeadingParser || Any
 
   return (
-    <Box is="div" wheel={props.wheel}>
+    <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style.text }}>
       {!topicOptions.hideIcon && (
         <Icon
           icon={props.topic.icon || ''}

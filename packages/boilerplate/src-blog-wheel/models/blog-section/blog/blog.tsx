@@ -12,7 +12,7 @@ import {
   Wheel,
 } from '../../../../src-core'
 import { TopicModelProps, Topic } from '../../../../src-topic-wheel'
-import { Text } from '../../../../src-text-wheel'
+import { RichText } from '../../../../src-text-wheel'
 import { BlogSectionBlogVariationNcssTree } from './model-ncss-tree'
 
 interface BlogWheel extends Wheel {
@@ -93,10 +93,10 @@ export const Blog = (props: BlogProps) => {
           wheel={{ ...props.wheel, style: props.wheel.style.image }}
         />
       )}
-      <Text
+      <RichText
         locale={props.locale}
-        wheel={{ ...props.wheel, style: props.wheel.style.text }}
-        text={{ text: props.blog.text }}
+        wheel={{ ...props.wheel, style: props.wheel.style.richText }}
+        textJson={props.blog.text.json}
       />
       <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
         {props.blog.authors &&

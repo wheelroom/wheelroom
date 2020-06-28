@@ -7,8 +7,9 @@ import {
 import { iconButtonNcssNode, iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
 import { wrapperNcssNode } from '../../grid-ncss'
+import { DeepPartial } from '../../../../../../src-core'
 
-export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
+export const topicSectionFeaturedNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
   container: {
     ncss: {
       flexDirection: 'column',
@@ -31,35 +32,29 @@ export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
         maxWidth: ['35em', '35em', '45%'],
         w: 1,
       },
-      actions: {
-        ncss: {
-          mt: [4, 4, 5],
-        },
-        link: {
-          ncss: {
-            ...primaryButtonNcssNode.ncss,
-            ...displayButtonNcssNode.ncss,
-            ':nth-of-type(2)': {
-              ...secondaryButtonNcssNode.ncss,
-              ...displayButtonNcssNode.ncss,
-            },
-          },
-          icon: iconButtonNcssNode,
-        },
-      },
-      text: {
-        ncss: {},
-        abstract: {
-          ncss: {
-            mb: 0,
-          },
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: iconTopicNcssNode,
+    },
+    actionGroup: {
+      ncss: {
+        mt: [4, 4, 5],
       },
     },
+    action: {
+      ncss: {
+        ...primaryButtonNcssNode.ncss,
+        ...displayButtonNcssNode.ncss,
+        ':nth-of-type(2)': {
+          ...secondaryButtonNcssNode.ncss,
+          ...displayButtonNcssNode.ncss,
+        },
+      },
+      icon: iconButtonNcssNode,
+    },
+    abstract: {
+      ncss: {
+        mb: 0,
+      },
+    },
+    icon: iconTopicNcssNode,
     media: {
       ncss: {
         flexDirection: 'column',
@@ -67,34 +62,13 @@ export const topicSectionFeaturedNcssTree: TopicSectionModelNcssTree = {
         maxWidth: ['35em', '35em', '45%'],
         w: 1,
       },
-      embed: embedNcssNode,
-      image: {
-        ncss: {},
-        picture: {
-          ncss: {},
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        ncss: {},
-      },
-      video: {
-        ncss: {},
-        description: {
-          ncss: {},
-        },
-      },
     },
+    embed: embedNcssNode,
   },
   wrapper: wrapperNcssNode,
 }
 
-export const pageSectionFeaturedReverseStyle = {
+export const pageSectionFeaturedReverseNcssTree = {
   topic: {
     ncss: {
       label: 'topic-reverse',

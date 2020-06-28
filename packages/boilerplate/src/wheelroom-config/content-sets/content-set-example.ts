@@ -1,6 +1,6 @@
-import { ContentTypes } from './content-types-example'
+// import { ContentTypes } from './content-types-example'
 
-export const example: ContentTypes = {
+export const example: any = {
   siteGlobals: {
     fields: {
       siteAuthor: 'Wheelroom',
@@ -68,7 +68,7 @@ export const example: ContentTypes = {
       variation: 'hero',
       title: 'Example (variation: hero)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   homeBlock: {
     fields: {
@@ -77,14 +77,14 @@ export const example: ContentTypes = {
       variation: 'block',
       title: 'Example (variation: block)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   exampleText: {
     fields: {
       variation: 'block',
       title: 'Example (variation: text)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   exampletext: {
     fields: {
@@ -108,7 +108,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
 - [Thijs Krooswijk](https://github.com/thijskrooswijk)`,
       title: 'Example (variation: rich text)',
     },
-    model: 'text',
+    model: 'textSection',
   },
   exampleHeadline: {
     fields: {
@@ -117,7 +117,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       variation: 'headline',
       title: 'Example (variation: headline)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   exampleFeatured: {
     fields: {
@@ -125,7 +125,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       variation: 'featured',
       title: 'Example (variation: featured)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   exampleBlock: {
     fields: {
@@ -133,7 +133,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       variation: 'block',
       title: 'Example (variation: block)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   exampleCard: {
     fields: {
@@ -141,7 +141,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       variation: 'card',
       title: 'Example (variation: card)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   exampleGallery: {
     fields: {
@@ -155,7 +155,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       variation: 'gallery',
       title: 'Example (variation: gallery)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   exampleImage: {
     fields: {
@@ -163,7 +163,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       variation: 'image',
       title: 'Example (variation: image)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   exampleQuote: {
     fields: {
@@ -171,7 +171,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       variation: 'quote',
       title: 'Example (variation: quote)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   exampleShowcase: {
     fields: {
@@ -180,7 +180,7 @@ Feel free to contribute to the open source Wheelroom project. Do you have questi
       variation: 'showcase',
       title: 'Example (variation: showcase)',
     },
-    model: 'pageSection',
+    model: 'topicSection',
   },
   promiseTopic: {
     fields: {

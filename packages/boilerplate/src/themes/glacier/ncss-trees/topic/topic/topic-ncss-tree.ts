@@ -13,48 +13,48 @@ export const topicNcssTree: TopicModelNcssTree = {
       display: 'flex',
       flexDirection: 'column',
     },
-    embed: {
-      ncss: {
-        label: 'topic-media-embed',
-        iframe: {
-          h: 1,
-          w: 1,
-        },
+  },
+  embed: {
+    ncss: {
+      label: 'topic-embed',
+      iframe: {
+        h: 1,
+        w: 1,
       },
     },
-    image: {
+  },
+  image: {
+    ncss: {
+      label: 'topic-img',
+    },
+    picture: {
       ncss: {
-        label: 'topic-image',
-      },
-      picture: {
-        ncss: {
-          label: 'topic-picture',
-        },
-      },
-      figcaption: {
-        ncss: {
-          label: 'topic-caption',
-        },
+        label: 'topic-picture',
       },
     },
-    mediaBreakpoint: {
-      picture: {
-        ncss: {
-          label: 'topic-media-breakpoint-picture',
-        },
-      },
+    figcaption: {
       ncss: {
-        label: 'topic-media-Breakpoint-img',
+        label: 'topic-figcaption',
       },
     },
-    video: {
+  },
+  mediaBreakpoint: {
+    ncss: {
+      label: 'topic-media-breakpoint-img',
+    },
+    picture: {
       ncss: {
-        label: 'topic-video',
+        label: 'topic-media-breakpoint-picture',
       },
-      description: {
-        ncss: {
-          label: 'topic-video-description',
-        },
+    },
+  },
+  video: {
+    ncss: {
+      label: 'topic-video',
+    },
+    description: {
+      ncss: {
+        label: 'topic-video-description',
       },
     },
   },
@@ -65,45 +65,45 @@ export const topicNcssTree: TopicModelNcssTree = {
       flexDirection: 'column',
       flex: 1,
     },
-    text: {
-      ncss: {
-        label: 'topic-text',
-      },
-      icon: {
-        ncss: {
-          label: 'topic-icon',
-        },
-      },
-      heading: {
-        ncss: {
-          label: 'topic-heading',
-        },
-      },
-      abstract: {
-        ncss: {
-          label: 'topic-abstract',
-        },
-      },
+  },
+  text: {
+    ncss: {
+      label: 'topic-text',
     },
-    actions: {
+  },
+  icon: {
+    ncss: {
+      label: 'topic-icon',
+    },
+  },
+  heading: {
+    ncss: {
+      label: 'topic-heading',
+    },
+  },
+  abstract: {
+    ncss: {
+      label: 'topic-abstract',
+    },
+  },
+  actionGroup: {
+    ncss: {
+      label: 'topic-actions',
+      mx: -1,
+    },
+  },
+  action: {
+    ncss: {
+      label: 'topic-action',
+      m: 1,
+    },
+    icon: {
       ncss: {
-        label: 'topic-actions',
-        mx: -1,
-      },
-      link: {
-        ncss: {
-          label: 'topic-action',
-          m: 1,
-        },
-        icon: {
-          ncss: {
-            label: 'topic-icon',
-            w: '15px',
-            h: '15px',
-            my: 'auto',
-            transform: 'translateX(4px)',
-          },
-        },
+        label: 'topic-icon',
+        w: '15px',
+        h: '15px',
+        my: 'auto',
+        transform: 'translateX(4px)',
       },
     },
   },

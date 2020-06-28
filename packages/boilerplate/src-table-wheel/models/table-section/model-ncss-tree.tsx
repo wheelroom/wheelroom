@@ -1,8 +1,8 @@
-import { TableModelNcssTree } from '../table/model-style-types'
 import { NcssNode } from '../../../src-core'
+import { TableRowModelNcssTree } from '../table-row/model-ncss-tree'
 
 export interface TableSectionModelNcssTree {
   container: NcssNode
-  table: TableModelNcssTree
+  table: TableRowModelNcssTree
   wrapper: NcssNode
 }

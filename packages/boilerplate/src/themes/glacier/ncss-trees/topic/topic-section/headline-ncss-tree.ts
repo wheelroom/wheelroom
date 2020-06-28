@@ -6,14 +6,12 @@ import {
 } from '../../../element-ncss/button-ncss'
 import { iconButtonNcssNode, iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
-import { wrapperNcssNode } from '../../grid-ncss'
+import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
+import { DeepPartial } from '../../../../../../src-core'
 
-export const topicSectionHeadlineNcssTree: TopicSectionModelNcssTree = {
-  container: {
-    ncss: {},
-  },
+export const topicSectionHeadlineNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
+  container: containerNcssNode,
   topic: {
-    ncss: {},
     content: {
       ncss: {
         textAlign: 'center',
@@ -22,60 +20,30 @@ export const topicSectionHeadlineNcssTree: TopicSectionModelNcssTree = {
         maxWidth: [1, '48em'],
         py: 5,
       },
-      actions: {
-        ncss: {
-          mt: 3,
-        },
-        link: {
-          ncss: {
-            ...primaryButtonNcssNode.ncss,
-            ...displayButtonNcssNode.ncss,
-            ':nth-of-type(2)': {
-              ...secondaryButtonNcssNode.ncss,
-              ...displayButtonNcssNode.ncss,
-            },
-          },
-          icon: iconButtonNcssNode,
-        },
-      },
-      text: {
-        ncss: {},
-        abstract: {
-          ncss: {
-            fontSize: [7, 7, 8, 8],
-          },
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: iconTopicNcssNode,
+    },
+    actionGroup: {
+      ncss: {
+        mt: 3,
       },
     },
-    media: {
-      ncss: {},
-      embed: embedNcssNode,
-      image: {
-        ncss: {},
-        picture: {
-          ncss: {},
-        },
-        figcaption: {
-          ncss: {},
+    action: {
+      ncss: {
+        ...primaryButtonNcssNode.ncss,
+        ...displayButtonNcssNode.ncss,
+        ':nth-of-type(2)': {
+          ...secondaryButtonNcssNode.ncss,
+          ...displayButtonNcssNode.ncss,
         },
       },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        ncss: {},
-      },
-      video: {
-        ncss: {},
-        description: {
-          ncss: {},
-        },
+      icon: iconButtonNcssNode,
+    },
+    abstract: {
+      ncss: {
+        fontSize: [7, 7, 8, 8],
       },
     },
+    icon: iconTopicNcssNode,
+    embed: embedNcssNode,
   },
   wrapper: wrapperNcssNode,
 }

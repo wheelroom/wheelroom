@@ -1,63 +1,19 @@
 import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
 import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
-import { wrapperNcssNode } from '../../grid-ncss'
+import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
+import { DeepPartial } from '../../../../../../src-core'
 
-export const topicSectionVideoNcssTree: TopicSectionModelNcssTree = {
-  container: {
-    ncss: {},
-  },
+export const topicSectionVideoNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
+  container: containerNcssNode,
   topic: {
-    ncss: {},
     content: {
       ncss: {
         p: 3,
       },
-      actions: {
-        ncss: {},
-        link: {
-          ncss: {},
-          icon: {
-            ncss: {},
-          },
-        },
-      },
-      text: {
-        ncss: {},
-        abstract: {
-          ncss: {},
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: iconTopicNcssNode,
-      },
     },
-    media: {
-      ncss: {},
-      embed: embedNcssNode,
-      image: {
-        ncss: {},
-        picture: {
-          ncss: {},
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        ncss: {},
-      },
-      video: {
-        ncss: {},
-        description: {
-          ncss: {},
-        },
-      },
-    },
+    icon: iconTopicNcssNode,
+    embed: embedNcssNode,
   },
   wrapper: wrapperNcssNode,
 }

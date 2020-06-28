@@ -3,9 +3,9 @@ import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
 import { primaryButtonNcssNode } from '../../../element-ncss/button-ncss'
 import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
-import { deepMerge } from '../../../../../../src-core'
+import { deepMerge, DeepPartial } from '../../../../../../src-core'
 
-export const topicSectionBlockNcssTree: TopicSectionModelNcssTree = {
+export const topicSectionBlockNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
   container: deepMerge([
     containerNcssNode,
     {
@@ -26,65 +26,44 @@ export const topicSectionBlockNcssTree: TopicSectionModelNcssTree = {
       ncss: {
         p: 3,
       },
-      actions: {
-        ncss: {
-          flex: '0',
-          mt: 3,
-        },
-        link: {
-          ...primaryButtonNcssNode,
-          icon: {
-            ncss: {},
-          },
-        },
-      },
-      text: {
-        ncss: {
-          flex: '1 1 auto',
-        },
-        abstract: {
-          ncss: {
-            mb: 0,
-          },
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: iconTopicNcssNode,
+    },
+    actionGroup: {
+      ncss: {
+        flex: '0',
+        mt: 3,
       },
     },
-    media: {
-      ncss: {},
-      embed: embedNcssNode,
-      image: {
+    action: {
+      ...primaryButtonNcssNode,
+      icon: {
+        ncss: {},
+      },
+    },
+    text: {
+      ncss: {
+        flex: '1 1 auto',
+      },
+    },
+    abstract: {
+      ncss: {
+        mb: 0,
+      },
+    },
+    icon: iconTopicNcssNode,
+    embed: embedNcssNode,
+    image: {
+      ncss: {
+        h: 1,
+        objectFit: 'cover',
+        position: 'absolute',
+        w: 1,
+      },
+      picture: {
         ncss: {
-          h: 1,
-          objectFit: 'cover',
-          position: 'absolute',
-          w: 1,
-        },
-        picture: {
-          ncss: {
-            display: 'block',
-            h: '0px',
-            pb: '56.25%',
-            position: 'relative',
-          },
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        ncss: {},
-      },
-      video: {
-        ncss: {},
-        description: {
-          ncss: {},
+          display: 'block',
+          h: '0px',
+          pb: '56.25%',
+          position: 'relative',
         },
       },
     },

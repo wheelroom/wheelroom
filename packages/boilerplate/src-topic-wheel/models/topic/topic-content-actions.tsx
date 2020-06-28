@@ -1,24 +1,12 @@
 import React from 'react'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import {
-  Wheel,
-  Box,
-  Action,
-  ActionModelProps,
-  NcssNode,
-} from '../../../src-core'
-import { TopicModelProps } from './model-types'
-
-export interface TopicContentActionsWheelStyle extends NcssNode {
-  /** Action link or button style */
-  link: {
-    icon: NcssNode
-  } & NcssNode
-}
+import { Wheel, Box, Action, ActionModelProps } from '../../../src-core'
+import { TopicModelProps } from './model-props'
+import { TopicModelNcssTree } from './model-ncss-tree'
 
 export interface TopicContentActionsWheel extends Wheel {
-  style: TopicContentActionsWheelStyle
+  style: TopicModelNcssTree
 }
 
 export interface TopicContentActionsProps {
@@ -44,7 +32,10 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
   }
 
   return (
-    <Box is="div" wheel={props.wheel}>
+    <Box
+      is="div"
+      wheel={{ ...props.wheel, style: props.wheel.style.actionGroup }}
+    >
       {actions
         .slice(0, props.maxActions)
         .map((action: ActionModelProps, index: number) => {
@@ -57,7 +48,7 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
           return (
             <Action
               key={index}
-              wheel={{ ...props.wheel, style: props.wheel.style.link }}
+              wheel={{ ...props.wheel, style: props.wheel.style.action }}
               {...modifiedAction}
             />
           )

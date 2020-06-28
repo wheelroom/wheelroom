@@ -1,7 +1,6 @@
-export { Text } from './models/text/text'
+export { RichText } from './models/text-section/rich-text/rich-text'
 export { TextSection } from './models/text-section/text-section'
 
-export type { TextModelProps } from './models/text/model-types'
-export type { TextModelNcssTree } from './models/text/model-style-types'
-export type { TextSectionModelProps } from './models/text-section/model-types'
-export type { TextSectionModelNcssTree } from './models/text-section/model-style-types'
+export type { RichTextNcssTree } from './models/text-section/rich-text/rich-text-ncss-tree'
+export type { TextSectionModelProps } from './models/text-section/model-props'
+export type { TextSectionModelNcssTree } from './models/text-section/model-ncss-tree'

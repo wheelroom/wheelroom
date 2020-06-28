@@ -6,11 +6,11 @@ import {
 } from '../../../element-ncss/button-ncss'
 import { iconButtonNcssNode, iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
+import { DeepPartial } from '../../../../../../src-core'
+import { containerNcssNode } from '../../grid-ncss'
 
-export const topicSectionHeroNcssTree: TopicSectionModelNcssTree = {
-  container: {
-    ncss: {},
-  },
+export const topicSectionHeroNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
+  container: containerNcssNode,
   topic: {
     ncss: {
       position: 'relative',
@@ -24,39 +24,36 @@ export const topicSectionHeroNcssTree: TopicSectionModelNcssTree = {
         py: [7, 8, 10, 12],
         w: 1,
       },
-      actions: {
-        ncss: {
-          maxWidth: '30em',
-          mt: 5,
-        },
-        link: {
-          ncss: {
-            ...primaryButtonNcssNode.ncss,
-            ...displayButtonNcssNode.ncss,
-            ':nth-of-type(2)': {
-              ...secondaryButtonNcssNode.ncss,
-              ...displayButtonNcssNode.ncss,
-            },
-          },
-          icon: iconButtonNcssNode,
-        },
-      },
-      text: {
-        ncss: {
-          maxWidth: '30em',
-        },
-        abstract: {
-          ncss: {
-            fontSize: [7, 7, 8, 8],
-            mb: 0,
-          },
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: iconTopicNcssNode,
+    },
+    actionGroup: {
+      ncss: {
+        maxWidth: '30em',
+        mt: 5,
       },
     },
+    action: {
+      ncss: {
+        ...primaryButtonNcssNode.ncss,
+        ...displayButtonNcssNode.ncss,
+        ':nth-of-type(2)': {
+          ...secondaryButtonNcssNode.ncss,
+          ...displayButtonNcssNode.ncss,
+        },
+      },
+      icon: iconButtonNcssNode,
+    },
+    text: {
+      ncss: {
+        maxWidth: '30em',
+      },
+    },
+    abstract: {
+      ncss: {
+        fontSize: [7, 7, 8, 8],
+        mb: 0,
+      },
+    },
+    icon: iconTopicNcssNode,
     media: {
       ncss: {
         bottom: '0',
@@ -64,44 +61,28 @@ export const topicSectionHeroNcssTree: TopicSectionModelNcssTree = {
         position: 'absolute',
         right: '0',
         top: '0',
-        zIndex: -1,
         overflow: 'hidden',
+        zIndex: -1,
       },
-      embed: embedNcssNode,
-      image: {
+    },
+    embed: embedNcssNode,
+    image: {
+      ncss: {
+        h: 1,
+        objectFit: 'cover',
+      },
+      picture: {
         ncss: {
           h: 1,
-          objectFit: 'cover',
-        },
-        picture: {
-          ncss: {
-            h: 1,
-            w: 1,
-          },
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        ncss: {},
-      },
-      video: {
-        ncss: {
-          h: 1,
-        },
-        description: {
-          ncss: {},
+          w: 1,
         },
       },
     },
-  },
-  wrapper: {
-    ncss: {
-      py: 0,
+    video: {
+      ncss: {
+        h: 1,
+      },
     },
   },
+  wrapper: {},
 }

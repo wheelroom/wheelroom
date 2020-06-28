@@ -4,33 +4,19 @@ import {
   Embed,
   EmbedModelProps,
   Image,
-  ImageElementNcssTree,
   MediaBreakpoint,
-  MediaBreakpointModelNcssTree,
   MediaObject,
   Video,
-  VideoElementNcssTree,
   Wheel,
-  NcssNode,
-  EmbedModelNcssTree,
 } from '../../../src-core'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { TopicModelProps } from './model-types'
+import { TopicModelProps } from './model-props'
+import { TopicModelNcssTree } from './model-ncss-tree'
 
-export interface TopicMediaWheelStyle extends NcssNode {
-  /** Video style */
-  embed: EmbedModelNcssTree
-  /** Image style */
-  image: ImageElementNcssTree
-  /** Media Breakpoint Style */
-  mediaBreakpoint: MediaBreakpointModelNcssTree
-  /** Video style */
-  video: VideoElementNcssTree
-}
 
 export interface TopicMediaWheel extends Wheel {
-  style: TopicMediaWheelStyle
+  style: TopicModelNcssTree
 }
 
 export interface TopicMediaProps {
@@ -98,7 +84,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
       ncss={{
         order: topicOptions.reverseOrder ? 0 : null,
       }}
-      wheel={props.wheel}
+      wheel={{ ...props.wheel, style: props.wheel.style.media }}
     >
       <Media {...mediaProps} />
     </Box>

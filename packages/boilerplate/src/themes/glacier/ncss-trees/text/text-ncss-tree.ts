@@ -6,7 +6,7 @@ import { DeepPartial } from '../../../../../src-core'
 
 export const textSectionTextNcssTree: DeepPartial<TextSectionModelNcssTree> = {
   container: containerNcssNode,
-  text: {
+  richText: {
     ncss: {
       label: 'text-section-text',
       maxWidth: '712px', // Golden read width ratio

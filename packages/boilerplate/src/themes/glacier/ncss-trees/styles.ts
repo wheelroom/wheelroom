@@ -5,7 +5,7 @@ import { navigationSectionHeaderNcssTree } from './navigation/navigation-section
 import { navigationSectionFooterNcssTree } from './navigation/navigation-section/footer-ncss-tree'
 import { topicSectionBlockNcssTree } from './topic/topic-section/block-ncss-tree'
 import { topicSectionCardNcssTree } from './topic/topic-section/card-ncss-tree'
-import { topicSectionDividerNcssTree } from './topic/topic-section/divider-ncss-tree'
+import { topicSectionDividerNcssNode } from './topic/topic-section/divider-ncss'
 import { topicSectionFeaturedNcssTree } from './topic/topic-section/featured-ncss-tree'
 import { topicSectionGalleryNcssTree } from './topic/topic-section/gallery-ncss-tree'
 import { topicSectionHeadlineNcssTree } from './topic/topic-section/headline-ncss-tree'
@@ -40,7 +40,7 @@ export const styles: SectionWheelThemeStyles = {
   topicSection: {
     block: mergeTopic(topicSectionBlockNcssTree),
     card: mergeTopic(topicSectionCardNcssTree),
-    divider: mergeTopic(topicSectionDividerNcssTree),
+    divider: topicSectionDividerNcssNode,
     featured: mergeTopic(topicSectionFeaturedNcssTree),
     gallery: mergeTopic(topicSectionGalleryNcssTree),
     headline: mergeTopic(topicSectionHeadlineNcssTree),

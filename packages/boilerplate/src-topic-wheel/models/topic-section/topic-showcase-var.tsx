@@ -9,9 +9,9 @@
 import React from 'react'
 import { getTopicOptions } from '../../lib/get-topic-options'
 import { Topic } from '../topic/topic'
-import { TopicModelProps } from '../topic/model-types'
+import { TopicModelProps } from '../topic/model-props'
 import { getWheel, MultiParser } from '../../../src-core'
-import { TopicSectionModelProps } from './model-types'
+import { TopicSectionModelProps } from './model-props'
 import { TopicSectionWrapper } from './topic-section-wrapper'
 
 export const TopicSectionShowcaseVar = (props: TopicSectionModelProps) => {

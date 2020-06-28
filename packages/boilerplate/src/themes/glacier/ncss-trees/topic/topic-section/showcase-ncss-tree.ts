@@ -3,8 +3,9 @@ import { aLinkButtonNcssNode } from '../../../element-ncss/button-ncss'
 import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
 import { wrapperNcssNode } from '../../grid-ncss'
+import { DeepPartial } from '../../../../../../src-core'
 
-export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
+export const topicSectionShowcaseNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
   container: {
     ncss: {
       alignItems: ['center', 'baseline'],
@@ -23,30 +24,19 @@ export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
         flexDirection: 'column',
         p: 3,
       },
-      actions: {
-        ncss: {
-          mt: 3,
-        },
-        link: {
-          ...aLinkButtonNcssNode,
-          icon: {
-            ncss: {},
-          },
-        },
-      },
-      text: {
-        ncss: {},
-        abstract: {
-          ncss: {
-            mb: 0,
-          },
-        },
-        heading: {
-          ncss: {},
-        },
-        icon: iconTopicNcssNode,
+    },
+    actionGroup: {
+      ncss: {
+        mt: 3,
       },
     },
+    action: aLinkButtonNcssNode,
+    abstract: {
+      ncss: {
+        mb: 0,
+      },
+    },
+    icon: iconTopicNcssNode,
     media: {
       ncss: {
         flexDirection: 'column',
@@ -54,29 +44,8 @@ export const topicSectionShowcaseNcssTree: TopicSectionModelNcssTree = {
         maxWidth: '254px',
         w: 1,
       },
-      embed: embedNcssNode,
-      image: {
-        ncss: {},
-        picture: {
-          ncss: {},
-        },
-        figcaption: {
-          ncss: {},
-        },
-      },
-      mediaBreakpoint: {
-        picture: {
-          ncss: {},
-        },
-        ncss: {},
-      },
-      video: {
-        ncss: {},
-        description: {
-          ncss: {},
-        },
-      },
     },
+    embed: embedNcssNode,
   },
   wrapper: wrapperNcssNode,
 }
