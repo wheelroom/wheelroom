@@ -1,4 +1,4 @@
-import { NcssNode } from '../../../src-core'
+import { NcssNode } from '../../lib/ncss'
 
 export interface ActionNcssTree extends NcssNode {
   icon: NcssNode

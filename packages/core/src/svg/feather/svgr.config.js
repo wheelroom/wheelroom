@@ -4,7 +4,6 @@ svgrCliUtil = require('@svgr/cli/lib/util')
 module.exports = {
   expandProps: false,
   svgProps: {
-    css: '{css}',
     id: '{componentId}',
     stroke: 'currentColor',
     strokeWidth: '{strokeWidth}',
@@ -18,26 +17,13 @@ module.exports = {
     const typeScriptTpl = template.smart({ plugins: ['typescript'] })
     return typeScriptTpl.ast`
     import React, { SVGProps } from 'react'
-    import { styledSystem } from '@wheelroom/styled-system'
-    import { Wheel } from '../../lib/wheel'
-        export interface IconProps extends SVGProps<SVGSVGElement> {
-      ncss: any
-      wheel: Wheel
-    }
     
     const componentId = '${svgrCliUtil.transformFilename(
       opts.state.componentName,
       'kebab'
     )}';
-    export const ${componentName} = (props: IconProps) => {
+    export const ${componentName} = (props: SVGProps<SVGSVGElement>) => {
       const strokeWidth = props.strokeWidth || 2
-      const css = styledSystem(
-        props.wheel.wrSystemConfig,
-        props.wheel.wrSystemTheme,
-        {
-          ncss: props.ncss,
-        }
-      )
       return ${jsx};
     }
   `

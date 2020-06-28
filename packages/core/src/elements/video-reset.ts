@@ -1,4 +1,4 @@
-import { NcssNode } from '../../lib/ncss'
+import { NcssNode } from '../lib/ncss'
 
 export const videoVideoElementStyle: NcssNode = {
   ncss: {

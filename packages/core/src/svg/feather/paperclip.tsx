@@ -1,20 +1,7 @@
 import React, { SVGProps } from 'react'
-import { styledSystem } from '@wheelroom/styled-system'
-import { Wheel } from '../../lib/wheel'
-export interface IconProps extends SVGProps<SVGSVGElement> {
-  ncss: any
-  wheel: Wheel
-}
 const componentId = 'svg-paperclip'
-export const SvgPaperclip = (props: IconProps) => {
+export const SvgPaperclip = (props: SVGProps<SVGSVGElement>) => {
   const strokeWidth = props.strokeWidth || 2
-  const css = styledSystem(
-    props.wheel.wrSystemConfig,
-    props.wheel.wrSystemTheme,
-    {
-      ncss: props.ncss,
-    }
-  )
   return (
     <svg
       viewBox="0 0 24 24"
@@ -24,7 +11,6 @@ export const SvgPaperclip = (props: IconProps) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="paperclip_svg__feather paperclip_svg__feather-paperclip"
-      css={css}
       id={componentId}
       width="100%"
     >

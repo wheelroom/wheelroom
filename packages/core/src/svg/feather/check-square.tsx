@@ -1,20 +1,7 @@
 import React, { SVGProps } from 'react'
-import { styledSystem } from '@wheelroom/styled-system'
-import { Wheel } from '../../lib/wheel'
-export interface IconProps extends SVGProps<SVGSVGElement> {
-  ncss: any
-  wheel: Wheel
-}
 const componentId = 'svg-check-square'
-export const SvgCheckSquare = (props: IconProps) => {
+export const SvgCheckSquare = (props: SVGProps<SVGSVGElement>) => {
   const strokeWidth = props.strokeWidth || 2
-  const css = styledSystem(
-    props.wheel.wrSystemConfig,
-    props.wheel.wrSystemTheme,
-    {
-      ncss: props.ncss,
-    }
-  )
   return (
     <svg
       viewBox="0 0 24 24"
@@ -24,7 +11,6 @@ export const SvgCheckSquare = (props: IconProps) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="check-square_svg__feather check-square_svg__feather-check-square"
-      css={css}
       id={componentId}
       width="100%"
     >

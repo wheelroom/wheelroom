@@ -7,18 +7,16 @@
  */
 
 import React, { useContext } from 'react'
+import { ActionModel } from './model'
+import { ActionNcssTree } from './ncss-tree'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
-import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
+import { ALink } from '../../elements/a-link'
+import { Any } from '../../elements/any'
 import { EmbedModel } from '../embed/model'
 import { FeatherIcon } from '../../elements/icon'
-import {
-  Wheel,
-  GLink,
-  ALink,
-  Any,
-  ActionModel,
-  ActionNcssTree,
-} from '../../../src-core'
+import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
+import { GLink } from '../../elements/g-link'
+import { Wheel } from '../../lib/wheel'
 
 export interface ActionWheel extends Wheel {
   style: ActionNcssTree

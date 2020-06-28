@@ -1,20 +1,7 @@
 import React, { SVGProps } from 'react'
-import { styledSystem } from '@wheelroom/styled-system'
-import { Wheel } from '../../lib/wheel'
-export interface IconProps extends SVGProps<SVGSVGElement> {
-  ncss: any
-  wheel: Wheel
-}
 const componentId = 'svg-chevrons-down'
-export const SvgChevronsDown = (props: IconProps) => {
+export const SvgChevronsDown = (props: SVGProps<SVGSVGElement>) => {
   const strokeWidth = props.strokeWidth || 2
-  const css = styledSystem(
-    props.wheel.wrSystemConfig,
-    props.wheel.wrSystemTheme,
-    {
-      ncss: props.ncss,
-    }
-  )
   return (
     <svg
       viewBox="0 0 24 24"
@@ -24,7 +11,6 @@ export const SvgChevronsDown = (props: IconProps) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="chevrons-down_svg__feather chevrons-down_svg__feather-chevrons-down"
-      css={css}
       id={componentId}
       width="100%"
     >
