@@ -1,6 +1,9 @@
 # Copying fragments from modules to this src folder
 
+echo "Cleaning up src/copied-fragments"
 mkdir -p src/copied-fragments
+rm -rf src/copied-fragments/*
+
 echo "@wheelroom/blog-wheel"
 cp src-blog-wheel/models/blog/fragment.js src/copied-fragments/blog-fragment.js 
 cp src-blog-wheel/models/blog-section/fragment.js src/copied-fragments/blog-section-fragment.js 
