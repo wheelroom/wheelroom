@@ -4,11 +4,11 @@
  * Component type: navigationSegment
  *
  */
-import { ActionModelProps } from '../../../src-core'
+import { ActionModel } from '../../../src-core'
 
-export interface NavigationSegmentModelProps {
+export interface NavigationSegmentModel {
   /** Gatsby fetched data */
   __typename: string
   heading?: string
-  actions?: ActionModelProps[]
+  actions?: ActionModel[]
 }

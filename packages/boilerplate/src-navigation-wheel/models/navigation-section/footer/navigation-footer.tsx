@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
-import { NavigationModelProps } from '../../navigation/model-types'
+import { NavigationModel } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModelProps } from '../../navigation-segment/model-props'
+import { NavigationSegmentModel } from '../../navigation-segment/model-props'
 import { NavigationSegmentModelNcssTree } from '../../navigation-segment/model-ncss-tree'
 import {
   Container,
   CoreSiteMetadata,
   Flex,
   Fluid,
-  GlobalsModelProps,
+  GlobalsModel,
   Wheel,
   Wrapper,
   NcssNode,
@@ -35,21 +35,21 @@ interface NavigationFooterWheel extends Wheel {
 
 export interface NavigationFooterProps {
   containerStyle: 'container' | 'fluid'
-  globals: GlobalsModelProps
-  navigation: NavigationModelProps[]
+  globals: GlobalsModel
+  navigation: NavigationModel[]
   siteMetaData: CoreSiteMetadata
   wheel: NavigationFooterWheel
 }
 
 const getNavSegments = (
-  navigation: NavigationModelProps[],
+  navigation: NavigationModel[],
   variation: string
 ) => {
   const nav = navigation.find(
-    (nav: NavigationModelProps) => nav.variation === variation
+    (nav: NavigationModel) => nav.variation === variation
   )
   if (!nav || !nav.segments || !Array.isArray(nav.segments)) {
-    return [] as NavigationSegmentModelProps[]
+    return [] as NavigationSegmentModel[]
   }
   return nav.segments
 }

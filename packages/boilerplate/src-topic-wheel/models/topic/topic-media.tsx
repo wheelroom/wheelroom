@@ -2,7 +2,7 @@ import React from 'react'
 import {
   Box,
   Embed,
-  EmbedModelProps,
+  EmbedModel,
   Image,
   MediaBreakpoint,
   MediaObject,
@@ -11,7 +11,7 @@ import {
 } from '../../../src-core'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { TopicModelProps } from './model-props'
+import { TopicModel } from './model-props'
 import { TopicModelNcssTree } from './model-ncss-tree'
 
 export interface TopicMediaWheel extends Wheel {
@@ -22,9 +22,9 @@ export interface TopicMediaProps {
   /** Styling wheel */
   wheel: TopicMediaWheel
   /** All topic props */
-  topic: TopicModelProps
+  topic: TopicModel
   /** All embed props */
-  embed: EmbedModelProps
+  embed: EmbedModel
   /** Topic info object */
   topicInfo: TopicInfo
   /** Topic options */

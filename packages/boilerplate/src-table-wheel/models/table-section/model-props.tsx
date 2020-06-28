@@ -1,12 +1,12 @@
 import { TopicOptions } from '../../../src-topic-wheel'
 import { CoreSectionProps } from '../../../src-core'
-import { TableRowModelProps } from '../table-row/model-props'
+import { TableRowModel } from '../table-row/model-props'
 
-export interface TableSectionModelProps extends CoreSectionProps {
+export interface TableSectionModel extends CoreSectionProps {
   /** Gatsby fetched data */
   __typename: string
   eventId?: string
-  tableRows?: TableRowModelProps[]
+  tableRows?: TableRowModel[]
   topicOptions?: TopicOptions
   variation?: string
 }

@@ -15,7 +15,7 @@ import { TopicSectionGalleryVar } from './topic-section-gallery-var'
 import { TopicSectionHeadlineVar } from './topic-section-headline-var'
 import { TopicSectionHeroVar } from './topic-section-hero-var'
 import { TopicSectionImageVar } from './topic-section-image-var'
-import { TopicSectionModelProps } from './model-props'
+import { TopicSectionModel } from './model-props'
 import { TopicSectionQuoteVar } from './topic-section-quote-var'
 import { TopicSectionShowcaseVar } from './topic-showcase-var'
 import { TopicSectionVideoVar } from './topic-video-var'
@@ -34,7 +34,7 @@ const componentList = {
   ['video']: TopicSectionVideoVar,
 }
 
-export const TopicSection = (props: TopicSectionModelProps) => {
+export const TopicSection = (props: TopicSectionModel) => {
   const Variation = getVariation(props, componentList)
 
   return <Variation {...props} />

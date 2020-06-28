@@ -18,13 +18,13 @@ export type { ParserFunction, ParserProps } from './parsers/types'
 
 // Models
 export type { ActionModelNcssTree } from './models/action/model-ncss-tree'
-export type { ActionModelProps } from './models/action/model-props'
+export type { ActionModel } from './models/action/model-props'
 export type { EmbedModelNcssTree } from './models/embed/model-ncss-tree'
-export type { EmbedModelProps } from './models/embed/model-props'
-export type { GlobalsModelProps } from './models/globals/model-props'
+export type { EmbedModel } from './models/embed/model-props'
+export type { GlobalsModel } from './models/globals/model-props'
 export type { MediaBreakpointModelNcssTree } from './models/media-breakpoint/model-ncss-tree'
-export type { MediaBreakpointModelProps } from './models/media-breakpoint/model-props'
-export type { PageModelProps } from './models/page/model-props'
+export type { MediaBreakpointModel } from './models/media-breakpoint/model-props'
+export type { PageModel } from './models/page/model-props'
 
 // Exceptional Elements
 export type { ImageElementProps } from './elements/element/image'

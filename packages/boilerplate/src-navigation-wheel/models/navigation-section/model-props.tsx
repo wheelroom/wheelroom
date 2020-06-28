@@ -1,10 +1,10 @@
-import { NavigationModelProps } from '../navigation/model-types'
+import { NavigationModel } from '../navigation/model-types'
 import { CoreSectionProps } from '../../../src-core'
 
-export interface NavigationSectionModelProps extends CoreSectionProps {
+export interface NavigationSectionModel extends CoreSectionProps {
   /** Gatsby fetched data */
   __typename: string
   variation?: string
-  navigation?: NavigationModelProps[]
+  navigation?: NavigationModel[]
   eventId?: string
 }

@@ -9,7 +9,7 @@ import {
 } from '../../../src-core'
 import { TopicContentActions } from './topic-content-actions'
 import { TopicContentText } from './topic-content-text'
-import { TopicModelProps } from './model-props'
+import { TopicModel } from './model-props'
 import { TopicModelNcssTree } from './model-ncss-tree'
 
 export interface TopicContentWheel extends Wheel {
@@ -20,7 +20,7 @@ export interface TopicContentProps {
   /** Styling wheel */
   wheel: TopicContentWheel
   /** Topic props */
-  topic: TopicModelProps
+  topic: TopicModel
   /** Topic info object */
   topicInfo: TopicInfo
   /** Topic options */

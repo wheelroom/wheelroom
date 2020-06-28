@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Wheel, Flex, H3 } from '../../../src-core'
-import { NavigationSegmentModelProps } from './model-props'
+import { NavigationSegmentModel } from './model-props'
 import { NavigationSegmentList } from './navigation-segment-list'
 import { NavigationSegmentModelNcssTree } from './model-ncss-tree'
 
@@ -13,7 +13,7 @@ interface NavigationSegmentProps {
   hideActionIcon: boolean
   hideSegmentHeading: boolean
   maxSegments: number
-  navigationSegment: NavigationSegmentModelProps[]
+  navigationSegment: NavigationSegmentModel[]
   wheel: NavigationSegmentWheel
 }
 
@@ -26,7 +26,7 @@ export const NavigationSegment = (props: NavigationSegmentProps) => {
       {props.navigationSegment
         .slice(0, props.maxSegments)
         .map(
-          (navigationSegment: NavigationSegmentModelProps, index: number) => {
+          (navigationSegment: NavigationSegmentModel, index: number) => {
             if (!navigationSegment.actions) {
               return null
             }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Action, ActionModelProps, Li, Ul, Wheel } from '../../../src-core'
+import { Action, ActionModel, Li, Ul, Wheel } from '../../../src-core'
 import { NavigationSegmentModelNcssTree } from './model-ncss-tree'
 
 interface NavigationSegmentWheel extends Wheel {
@@ -7,7 +7,7 @@ interface NavigationSegmentWheel extends Wheel {
 }
 
 interface NavigationSegmentListProps {
-  actions: ActionModelProps[]
+  actions: ActionModel[]
   hideActionHeading: boolean
   hideActionIcon: boolean
   wheel: NavigationSegmentWheel
@@ -19,7 +19,7 @@ export const NavigationSegmentList = (props: NavigationSegmentListProps) => {
   }
   return (
     <Ul wheel={{ ...props.wheel, style: props.wheel.style.list }}>
-      {props.actions.map((action: ActionModelProps, index: number) => (
+      {props.actions.map((action: ActionModel, index: number) => (
         <Li
           key={index}
           wheel={{ ...props.wheel, style: props.wheel.style.item }}

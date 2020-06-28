@@ -11,7 +11,7 @@ import {
   Time,
   Wheel,
 } from '../../../../src-core'
-import { TopicModelProps, Topic } from '../../../../src-topic-wheel'
+import { TopicModel, Topic } from '../../../../src-topic-wheel'
 import { RichText } from '../../../../src-text-wheel'
 import { BlogSectionBlogVariationNcssTree } from './model-ncss-tree'
 
@@ -100,7 +100,7 @@ export const Blog = (props: BlogProps) => {
       />
       <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
         {props.blog.authors &&
-          props.blog.authors.map((author: TopicModelProps, index: number) => {
+          props.blog.authors.map((author: TopicModel, index: number) => {
             return (
               <Topic
                 fullTopicAsLink={false}

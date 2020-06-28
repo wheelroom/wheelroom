@@ -5,10 +5,10 @@
  *
  */
 
-import { EmbedModelProps } from '../embed/model-props'
+import { EmbedModel } from '../embed/model-props'
 import { MediaObject } from '../../elements/types/media'
 
-export interface GlobalsModelProps {
+export interface GlobalsModel {
   /** Gatsby fetched data */
   __typename: string
   siteAuthor?: string
@@ -16,6 +16,6 @@ export interface GlobalsModelProps {
   siteHeading?: string
   siteKeywords?: string[]
   siteImage?: MediaObject
-  siteEmbeds?: EmbedModelProps[]
+  siteEmbeds?: EmbedModel[]
   skipToContentHeading?: string
 }

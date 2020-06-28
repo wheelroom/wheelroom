@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core'
 import { Wheel, Box, Table as TableElement } from '../../../src-core'
 import { TopicOptions } from '../../../src-topic-wheel'
 import { TableRow } from '../table-row/table-row'
-import { TableRowModelProps } from '../table-row/model-props'
+import { TableRowModel } from '../table-row/model-props'
 import { TableRowModelNcssTree } from '../table-row/model-ncss-tree'
 
 export interface TableWheel extends Wheel {
@@ -14,7 +14,7 @@ export interface TableProps {
   /** Styling wheel */
   wheel: TableWheel
   /** The topic to render */
-  tableRows?: TableRowModelProps[]
+  tableRows?: TableRowModel[]
   /** Topic options */
   topicOptions: TopicOptions
   /** Accept max number of topics, ignore all others */
@@ -27,7 +27,7 @@ export const Table = (props: TableProps) => {
     return null
   }
   let maxRowTopics = 0
-  tableRows.map((tableRow: TableRowModelProps) => {
+  tableRows.map((tableRow: TableRowModel) => {
     if (
       tableRow.topics &&
       Array.isArray(tableRow.topics) &&
@@ -43,7 +43,7 @@ export const Table = (props: TableProps) => {
         wheel={{ ...props.wheel, style: props.wheel.style.tableElement }}
       >
         <tbody>
-          {tableRows.map((tableRow: TableRowModelProps, index: number) => {
+          {tableRows.map((tableRow: TableRowModel, index: number) => {
             return (
               <TableRow
                 key={index}

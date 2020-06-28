@@ -10,9 +10,9 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import {
   classicGlobalReset,
   CoreSiteMetadata,
-  GlobalsModelProps,
+  GlobalsModel,
   htmlReset,
-  PageModelProps,
+  PageModel,
   Seo,
   SeoProps,
   useEmbeds,
@@ -32,7 +32,7 @@ const PageTemplate = (props: any) => {
   // Page preview admin module
   const [previewPage, setPreviewPage] = useState()
   useFetchPreviewPage(setPreviewPage)
-  const page: PageModelProps = previewPage || props.data.page
+  const page: PageModel = previewPage || props.data.page
 
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
@@ -43,7 +43,7 @@ const PageTemplate = (props: any) => {
     return 'No sections'
   }
 
-  const globals: GlobalsModelProps = props.data.globals
+  const globals: GlobalsModel = props.data.globals
   const blog: BlogModel = props.data.blog
   const allBlog: AllBlogModel = props.data.allBlog
   const locale = props.pageContext.locale

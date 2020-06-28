@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { Td } from '../../../src-core/elements/self/self'
-import { TopicOptions, TopicModelProps, Topic } from '../../../src-topic-wheel'
+import { TopicOptions, TopicModel, Topic } from '../../../src-topic-wheel'
 
 import { Wheel } from '../../../src-core'
 import { TableRowModelNcssTree } from './model-ncss-tree'
@@ -14,7 +14,7 @@ export interface TableRowCellProps {
   /** Styling wheel */
   wheel: TableRowCellWheel
   /** Topic props */
-  topic: TopicModelProps
+  topic: TopicModel
   /** Percentage */
   dataCellWidth: number
   /** Topic options */

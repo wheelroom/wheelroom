@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavigationSegmentModelProps } from '../../navigation-segment/model-props'
+import { NavigationSegmentModel } from '../../navigation-segment/model-props'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import {
   Box,
@@ -39,11 +39,11 @@ interface ModalWheel extends Wheel {
 }
 
 export interface ModalProps {
-  actionsSegments: NavigationSegmentModelProps[]
+  actionsSegments: NavigationSegmentModel[]
   buttonName?: string
   closeMenu: () => void
   hideThemeButton?: boolean
-  menuSegments: NavigationSegmentModelProps[]
+  menuSegments: NavigationSegmentModel[]
   menuVisible: boolean
   toggleTheme: () => void
   wheel: ModalWheel

@@ -1,11 +1,11 @@
 // Topic
 export { Topic } from './models/topic/topic'
-export type { TopicModelProps } from './models/topic/model-props'
+export type { TopicModel } from './models/topic/model-props'
 export type { TopicModelNcssTree } from './models/topic/model-ncss-tree'
 
 // Topic section
 export { TopicSection } from './models/topic-section/topic-section'
-export type { TopicSectionModelProps } from './models/topic-section/model-props'
+export type { TopicSectionModel } from './models/topic-section/model-props'
 export type { TopicSectionModelNcssTree } from './models/topic-section/model-ncss-tree'
 
 // Topic lib

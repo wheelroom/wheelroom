@@ -11,9 +11,9 @@ import { NavigationSection } from '../../src-navigation-wheel'
 import { TableSection } from '../../src-table-wheel'
 import { TopicSection } from '../../src-topic-wheel'
 import {
-  GlobalsModelProps,
+  GlobalsModel,
   CoreSiteMetadata,
-  PageModelProps,
+  PageModel,
   SectionWheels,
   ScrollSpy,
 } from '../../src-core'
@@ -39,10 +39,10 @@ export interface SectionsProps {
   locale: string
   namedPaths: NamedPaths
   activeThemeId: string | undefined
-  globals: GlobalsModelProps
+  globals: GlobalsModel
   blog: BlogModel
   allBlog: AllBlogModel
-  page: PageModelProps
+  page: PageModel
   siteMetadata: CoreSiteMetadata
   sections: any
   sectionWheels: SectionWheels

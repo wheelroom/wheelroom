@@ -1,6 +1,6 @@
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { PageModelProps } from '../models/page/model-props'
-import { GlobalsModelProps } from '../models/globals/model-props'
+import { PageModel } from '../models/page/model-props'
+import { GlobalsModel } from '../models/globals/model-props'
 import { CoreSiteMetadata } from './core-site-metadata'
 import { SectionWheels } from './section-wheels'
 
@@ -9,9 +9,9 @@ import { SectionWheels } from './section-wheels'
  */
 export interface CoreSectionProps {
   /** Page props */
-  page: PageModelProps
+  page: PageModel
   /** Globals */
-  globals: GlobalsModelProps
+  globals: GlobalsModel
 
   /** Contentful type name */
   __typename: string

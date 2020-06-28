@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import {
   Action,
-  ActionModelProps,
+  ActionModel,
   Any,
   Dd,
   Dl,
@@ -13,8 +13,8 @@ import {
   Wheel,
   getNcssSwitch,
 } from '../../../src-core'
-import { TopicOptions, TopicModelProps } from '../../../src-topic-wheel'
-import { TableRowModelProps } from './model-props'
+import { TopicOptions, TopicModel } from '../../../src-topic-wheel'
+import { TableRowModel } from './model-props'
 import { TableRowModelNcssTree } from './model-ncss-tree'
 import { TableRowCell } from './table-row-cell'
 
@@ -28,7 +28,7 @@ export interface TableRowProps {
   /** The maximum number of topics found on any row */
   maxRowTopics: number
   /** The topic rows to render */
-  tableRow?: TableRowModelProps
+  tableRow?: TableRowModel
   /** Topic options */
   topicOptions: TopicOptions
 }
@@ -97,7 +97,7 @@ export const TableRow = (props: TableRowProps) => {
             role="group"
             wheel={{ ...props.wheel, style: props.wheel.style.actionGroup }}
           >
-            {tableRow.actions.map((action: ActionModelProps, index: number) => (
+            {tableRow.actions.map((action: ActionModel, index: number) => (
               <Action
                 key={index}
                 url={action.url}
@@ -113,7 +113,7 @@ export const TableRow = (props: TableRowProps) => {
           </Any>
         )}
       </Th>
-      {(tableRow.topics || []).map((topic: TopicModelProps, index: number) => {
+      {(tableRow.topics || []).map((topic: TopicModel, index: number) => {
         return (
           <TableRowCell
             dataCellWidth={dataCellWidth}

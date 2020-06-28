@@ -1,8 +1,8 @@
 import React from 'react'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
-import { Wheel, Box, Action, ActionModelProps } from '../../../src-core'
-import { TopicModelProps } from './model-props'
+import { Wheel, Box, Action, ActionModel } from '../../../src-core'
+import { TopicModel } from './model-props'
 import { TopicModelNcssTree } from './model-ncss-tree'
 
 export interface TopicContentActionsWheel extends Wheel {
@@ -17,7 +17,7 @@ export interface TopicContentActionsProps {
   /** Accept max number of Actions, ignore all others */
   maxActions?: number
   /** All topic props */
-  topic: TopicModelProps
+  topic: TopicModel
   /** Topic info object */
   topicInfo: TopicInfo
   /** Topic options */
@@ -38,7 +38,7 @@ export const TopicContentActions = (props: TopicContentActionsProps) => {
     >
       {actions
         .slice(0, props.maxActions)
-        .map((action: ActionModelProps, index: number) => {
+        .map((action: ActionModel, index: number) => {
           const modifiedAction = { ...action }
 
           // If the full topic is a link, the button inside the topic must be span

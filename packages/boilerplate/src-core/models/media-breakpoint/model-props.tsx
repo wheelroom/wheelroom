@@ -6,7 +6,7 @@
  */
 import { MediaObject } from '../../elements/types/media'
 
-export interface MediaBreakpointModelProps {
+export interface MediaBreakpointModel {
   /** Gatsby fetched data */
   __typename: string
   small?: MediaObject

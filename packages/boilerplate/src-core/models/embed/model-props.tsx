@@ -12,7 +12,7 @@ export type EmbedType =
   | 'js-page-section'
   | 'js-page'
 
-export interface EmbedModelProps {
+export interface EmbedModel {
   /** Gatsby fetched data */
   __typename: string
   code?: {

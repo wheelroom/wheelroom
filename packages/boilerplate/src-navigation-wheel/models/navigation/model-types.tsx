@@ -1,8 +1,8 @@
-import { NavigationSegmentModelProps } from '../navigation-segment/model-props'
+import { NavigationSegmentModel } from '../navigation-segment/model-props'
 
-export interface NavigationModelProps {
+export interface NavigationModel {
   /** Gatsby fetched data */
   __typename: string
   variation?: string
-  segments?: NavigationSegmentModelProps[]
+  segments?: NavigationSegmentModel[]
 }

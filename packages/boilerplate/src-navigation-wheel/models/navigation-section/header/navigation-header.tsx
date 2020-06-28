@@ -2,9 +2,9 @@ import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { BrandNavigationSegment } from '../../navigation-segment/brand-navigation-segment'
-import { NavigationModelProps } from '../../navigation/model-types'
+import { NavigationModel } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModelProps } from '../../navigation-segment/model-props'
+import { NavigationSegmentModel } from '../../navigation-segment/model-props'
 import {
   NavigationSegmentModelNcssTree,
   BrandNavigationSegmentModelNcssTree,
@@ -16,7 +16,7 @@ import {
   Container,
   Flex,
   Fluid,
-  GlobalsModelProps,
+  GlobalsModel,
   SectionWheelThemes,
   Wheel,
   Wrapper,
@@ -54,23 +54,23 @@ interface NavigationHeaderWheel extends Wheel {
 export interface NavigationHeaderProps {
   containerStyle: 'container' | 'fluid'
   defaultThemeId: string
-  globals: GlobalsModelProps
+  globals: GlobalsModel
   hideThemeButton?: boolean
-  navigation: NavigationModelProps[]
+  navigation: NavigationModel[]
   themes: SectionWheelThemes
   useLogoElement?: JSX.Element
   wheel: NavigationHeaderWheel
 }
 
 const getNavSegments = (
-  navigation: NavigationModelProps[],
+  navigation: NavigationModel[],
   variation: string
 ) => {
   const nav = navigation.find(
-    (nav: NavigationModelProps) => nav.variation === variation
+    (nav: NavigationModel) => nav.variation === variation
   )
   if (!nav || !nav.segments || !Array.isArray(nav.segments)) {
-    return [] as NavigationSegmentModelProps[]
+    return [] as NavigationSegmentModel[]
   }
   return nav.segments
 }

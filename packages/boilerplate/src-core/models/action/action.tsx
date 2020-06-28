@@ -9,14 +9,14 @@
 import React, { useContext } from 'react'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
-import { EmbedModelProps } from '../embed/model-props'
+import { EmbedModel } from '../embed/model-props'
 import { FeatherIcon } from '../../../src-core/elements/element/icon'
 import {
   Wheel,
   GLink,
   ALink,
   Any,
-  ActionModelProps,
+  ActionModel,
   ActionModelNcssTree,
 } from '../../../src-core'
 
@@ -24,7 +24,7 @@ export interface ActionWheel extends Wheel {
   style: ActionModelNcssTree
 }
 
-export interface ActionWheelProps extends ActionModelProps {
+export interface ActionWheelProps extends ActionModel {
   wheel: ActionWheel
   children?: any
   key?: any
@@ -52,7 +52,7 @@ const onClickHander = (
   const globals =
     adminCoreState.pageProps && adminCoreState.pageProps.data.globals
   if (globals && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
-    globals.siteEmbeds.forEach((embed: EmbedModelProps) => {
+    globals.siteEmbeds.forEach((embed: EmbedModel) => {
       if (embed.code && embed.type === 'js-action') {
         Function(
           'eventId',

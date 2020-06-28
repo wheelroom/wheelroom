@@ -10,7 +10,7 @@ import {
   Wheel,
 } from '../../../src-core'
 import { TopicBody } from './topic-body'
-import { TopicModelProps } from './model-props'
+import { TopicModel } from './model-props'
 import { TopicModelNcssTree } from './model-ncss-tree'
 
 export interface TopicWheel extends Wheel {
@@ -23,7 +23,7 @@ export interface TopicProps {
   /** Accept max number of Actions, ignore all others */
   maxActions?: number
   /** The topic to render */
-  topic?: TopicModelProps
+  topic?: TopicModel
   /** Topic render options */
   topicOptions: TopicOptions
   /** Defaults to p */

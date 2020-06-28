@@ -9,7 +9,7 @@ import {
   ParserFunction,
   Wheel,
 } from '../../../src-core'
-import { TopicModelProps } from './model-props'
+import { TopicModel } from './model-props'
 import { TopicModelNcssTree } from './model-ncss-tree'
 
 export interface TopicContentTextWheel extends Wheel {
@@ -28,7 +28,7 @@ export interface TopicContentTextProps {
   /** Defaults to p */
   useAbstractParser?: ParserFunction
   /** All topic props */
-  topic: TopicModelProps
+  topic: TopicModel
   /** Topic info object */
   topicInfo: TopicInfo
   /** Page section info */
