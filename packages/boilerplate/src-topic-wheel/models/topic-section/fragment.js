@@ -6,7 +6,7 @@
  * by scanning the src folder, then adds the fragments to the main page query.
  *
  *
- * Component: pageSection
+ * Component: topicSection
  */
 
 import { graphql } from 'gatsby'

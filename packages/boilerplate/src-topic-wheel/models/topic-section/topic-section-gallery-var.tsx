@@ -1,7 +1,7 @@
 /**
  * Component variation
  *
- * Component type: pageSection
+ * Component type: topicSection
  * Variation: Gallery
  *
  */

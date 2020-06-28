@@ -1,7 +1,7 @@
 /**
  * Component
  *
- * Component type: pageSection
+ * Component type: topicSection
  *
  */
 
