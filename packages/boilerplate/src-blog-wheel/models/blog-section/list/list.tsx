@@ -13,7 +13,7 @@ import {
   Li,
   Ul,
 } from '../../../../src-core'
-import { BlogModelProps } from '../../blog/model-props'
+import { BlogModel } from '../../blog/model'
 import { BlogSectionListVariationNcssTree } from './model-ncss-tree'
 
 interface ListWheel extends Wheel {
@@ -26,7 +26,7 @@ interface ListProps {
   /** Locale needed for rich text render */
   locale: string
   /** List of all blogs to render */
-  blogPosts: BlogModelProps[]
+  blogPosts: BlogModel[]
 }
 
 export const List = (props: ListProps) => {
@@ -42,7 +42,7 @@ export const List = (props: ListProps) => {
       }}
     >
       {props.blogPosts &&
-        props.blogPosts.map((blog: BlogModelProps, index: number) => {
+        props.blogPosts.map((blog: BlogModel, index: number) => {
           if (!blog) {
             return null
           }

@@ -8,7 +8,7 @@
 import { MediaObject } from '../../../src-core'
 import { TopicModelProps } from '../../../src-topic-wheel'
 
-export interface BlogModelProps {
+export interface BlogModel {
   /** Gatsby fetched data */
   __typename: string
   heading?: string
@@ -30,10 +30,10 @@ export interface BlogModelProps {
   seoKeywords?: string[]
 }
 
-export interface BlogNodeProps {
-  node: BlogModelProps
+export interface BlogNode {
+  node: BlogModel
 }
 
-export interface AllBlogModelProps {
-  edges: BlogNodeProps[]
+export interface AllBlogModel {
+  edges: BlogNode[]
 }

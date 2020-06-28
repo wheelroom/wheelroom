@@ -17,7 +17,7 @@ import {
   SeoProps,
   useEmbeds,
 } from '../../src-core'
-import { BlogModelProps, AllBlogModelProps } from '../../src-blog-wheel'
+import { BlogModel, AllBlogModel } from '../../src-blog-wheel'
 import { Sections, SectionsProps } from './sections'
 import { sectionWheels } from './section-wheels'
 
@@ -44,8 +44,8 @@ const PageTemplate = (props: any) => {
   }
 
   const globals: GlobalsModelProps = props.data.globals
-  const blog: BlogModelProps = props.data.blog
-  const allBlog: AllBlogModelProps = props.data.allBlog
+  const blog: BlogModel = props.data.blog
+  const allBlog: AllBlogModel = props.data.allBlog
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const siteMetadata: CoreSiteMetadata = props.data.site.siteMetadata

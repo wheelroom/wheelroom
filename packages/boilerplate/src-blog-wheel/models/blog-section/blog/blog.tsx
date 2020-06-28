@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { BlogModelProps } from '../../blog/model-props'
+import { BlogModel } from '../../blog/model'
 import {
   Any,
   Box,
@@ -25,7 +25,7 @@ interface BlogProps {
   /** Locale needed for rich text render */
   locale: string
   /** Blog props to render */
-  blog: BlogModelProps
+  blog: BlogModel
 }
 
 export const Blog = (props: BlogProps) => {

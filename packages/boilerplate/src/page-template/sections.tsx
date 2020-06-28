@@ -3,8 +3,8 @@ import React from 'react'
 import { NamedPaths } from 'gatsby-theme-wheelroom'
 import {
   BlogSection,
-  BlogModelProps,
-  AllBlogModelProps,
+  BlogModel,
+  AllBlogModel,
 } from '../../src-blog-wheel'
 import { TextSection } from '../../src-text-wheel'
 import { NavigationSection } from '../../src-navigation-wheel'
@@ -40,8 +40,8 @@ export interface SectionsProps {
   namedPaths: NamedPaths
   activeThemeId: string | undefined
   globals: GlobalsModelProps
-  blog: BlogModelProps
-  allBlog: AllBlogModelProps
+  blog: BlogModel
+  allBlog: AllBlogModel
   page: PageModelProps
   siteMetadata: CoreSiteMetadata
   sections: any

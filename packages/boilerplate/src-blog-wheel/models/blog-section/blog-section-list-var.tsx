@@ -8,12 +8,12 @@
 
 import React from 'react'
 import { getWheel } from '../../../src-core'
-import { BlogModelProps } from '../blog/model-props'
-import { BlogSectionModelProps } from './model-props'
+import { BlogModel } from '../blog/model'
+import { BlogSectionModel } from './model'
 import { BlogSectionWrapper } from './blog-section-wrapper'
 import { List } from './list/list'
 
-export const BlogSectionListVar = (props: BlogSectionModelProps) => {
+export const BlogSectionListVar = (props: BlogSectionModel) => {
   const wheel = getWheel({
     themeId: props.activeThemeId,
     wheelId: 'blogSection',
@@ -24,7 +24,7 @@ export const BlogSectionListVar = (props: BlogSectionModelProps) => {
   if (!wheel || !props.allBlog) {
     return null
   }
-  const blogPosts: BlogModelProps[] = props.allBlog.edges.map(
+  const blogPosts: BlogModel[] = props.allBlog.edges.map(
     (edges: any) => edges.node
   )
   return (
