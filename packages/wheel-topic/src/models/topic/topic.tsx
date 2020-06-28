@@ -1,6 +1,4 @@
 import React from 'react'
-import { getTopicInfo } from '../../lib/get-topic-info'
-import { TopicOptions } from '../../lib/get-topic-options'
 import {
   Action,
   BlockLevelElementName,
@@ -8,10 +6,12 @@ import {
   getNcssSwitch,
   ParserFunction,
   Wheel,
-} from '../../../src-core'
+} from '@wheelroom/core'
+import { getTopicInfo } from '../../lib/get-topic-info'
 import { TopicBody } from './topic-body'
 import { TopicModel } from './model'
 import { TopicNcssTree } from './ncss-tree'
+import { TopicOptions } from '../../lib/get-topic-options'
 
 export interface TopicWheel extends Wheel {
   style: TopicNcssTree

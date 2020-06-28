@@ -5,7 +5,7 @@ import {
   Ncss,
   NcssNode,
   VideoElementNcssTree,
-} from '../../../src-core'
+} from '@wheelroom/core'
 
 export interface TopicNcssTree {
   ncssSwitch: Record<'containerAsLink' | 'container', Ncss>

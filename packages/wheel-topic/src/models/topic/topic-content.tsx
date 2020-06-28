@@ -1,16 +1,16 @@
 import React from 'react'
-import { TopicInfo } from '../../lib/get-topic-info'
-import { TopicOptions } from '../../lib/get-topic-options'
 import {
   BlockLevelElementName,
   Box,
   ParserFunction,
   Wheel,
-} from '../../../src-core'
+} from '@wheelroom/core'
 import { TopicContentActions } from './topic-content-actions'
 import { TopicContentText } from './topic-content-text'
+import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicModel } from './model'
 import { TopicNcssTree } from './ncss-tree'
+import { TopicOptions } from '../../lib/get-topic-options'
 
 export interface TopicContentWheel extends Wheel {
   style: TopicNcssTree

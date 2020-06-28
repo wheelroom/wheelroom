@@ -8,11 +8,11 @@ import {
   MediaGatsbyModel,
   Video,
   Wheel,
-} from '../../../src-core'
+} from '@wheelroom/core'
 import { TopicInfo } from '../../lib/get-topic-info'
-import { TopicOptions } from '../../lib/get-topic-options'
 import { TopicModel } from './model'
 import { TopicNcssTree } from './ncss-tree'
+import { TopicOptions } from '../../lib/get-topic-options'
 
 export interface TopicMediaWheel extends Wheel {
   style: TopicNcssTree

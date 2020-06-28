@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { getWheel, Hr } from '../../../src-core'
+import { getWheel, Hr } from '@wheelroom/core'
 import { TopicSectionModel } from './model'
 
 export const TopicSectionDividerVar = (props: TopicSectionModel) => {

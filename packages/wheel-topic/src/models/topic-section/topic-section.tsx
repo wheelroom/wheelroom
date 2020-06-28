@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { getVariation } from '../../../src-core'
+import { getVariation } from '@wheelroom/core'
 import { TopicSectionBlockVar } from './topic-section-block-var'
 import { TopicSectionCardVar } from './topic-section-card-var'
 import { TopicSectionDividerVar } from './topic-section-divider-var'

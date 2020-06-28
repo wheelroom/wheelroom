@@ -10,7 +10,7 @@ import {
   EmbedModel,
   MediaBreakpointModel,
   MediaGatsbyModel,
-} from '../../../src-core'
+} from '@wheelroom/core'
 
 export interface TopicModel {
   /** Gatsby fetched data */

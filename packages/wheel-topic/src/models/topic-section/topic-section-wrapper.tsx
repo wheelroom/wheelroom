@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Fluid, Wheel, Wrapper } from '../../../src-core'
+import { Container, Fluid, Wheel, Wrapper } from '@wheelroom/core'
 import { TopicSectionNcssTree } from './ncss-tree'
 
 export interface TopicSectionWheel extends Wheel {
