@@ -2,13 +2,13 @@ import React, { Fragment, useContext, useRef, useState } from 'react'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { BrandNavigationSegment } from '../../navigation-segment/brand-navigation-segment'
-import { NavigationModel } from '../../navigation/model-types'
+import { NavigationModel } from '../../navigation/model'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModel } from '../../navigation-segment/model-props'
+import { NavigationSegmentModel } from '../../navigation-segment/model'
 import {
-  NavigationSegmentModelNcssTree,
-  BrandNavigationSegmentModelNcssTree,
-} from '../../navigation-segment/model-ncss-tree'
+  NavigationSegmentNcssTree,
+  BrandNavigationSegmentNcssTree,
+} from '../../navigation-segment/ncss-tree'
 import {
   ALink,
   Box,
@@ -25,18 +25,18 @@ import {
 import { Modal, ModalNcssTree } from './modal'
 import { ThemeButton } from './theme-button'
 
-export interface NavigationSectionHeaderModelNcssTree {
+export interface NavigationSectionHeaderNcssTree {
   skipToContent: NcssNode
   container: NcssNode
   header: {
     brand: {
-      segment: BrandNavigationSegmentModelNcssTree
+      segment: BrandNavigationSegmentNcssTree
     } & NcssNode
     menu: {
-      segment: NavigationSegmentModelNcssTree
+      segment: NavigationSegmentNcssTree
     } & NcssNode
     actions: {
-      segment: NavigationSegmentModelNcssTree
+      segment: NavigationSegmentNcssTree
       themeButton: NcssNode
     } & NcssNode
     modal: {
@@ -48,7 +48,7 @@ export interface NavigationSectionHeaderModelNcssTree {
 }
 
 interface NavigationHeaderWheel extends Wheel {
-  style: NavigationSectionHeaderModelNcssTree
+  style: NavigationSectionHeaderNcssTree
 }
 
 export interface NavigationHeaderProps {

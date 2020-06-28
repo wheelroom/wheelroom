@@ -14,12 +14,12 @@ import {
   getNcssSwitch,
 } from '../../../src-core'
 import { TopicOptions, TopicModel } from '../../../src-topic-wheel'
-import { TableRowModel } from './model-props'
-import { TableRowModelNcssTree } from './model-ncss-tree'
+import { TableRowModel } from './model'
+import { TableRowNcssTree } from './ncss-tree'
 import { TableRowCell } from './table-row-cell'
 
 export interface TableRowWheel extends Wheel {
-  style: TableRowModelNcssTree
+  style: TableRowNcssTree
 }
 
 export interface TableRowProps {

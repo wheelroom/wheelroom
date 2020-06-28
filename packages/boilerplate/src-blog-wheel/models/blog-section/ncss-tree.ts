@@ -1,20 +1,20 @@
 import { NcssNode } from '../../../src-core'
-import { BlogSectionBlogVariationNcssTree } from './blog/model-ncss-tree'
-import { BlogSectionListVariationNcssTree } from './list/model-ncss-tree'
+import { BlogSectionBlogVariationNcssTree } from './blog/ncss-tree'
+import { BlogSectionListVariationNcssTree } from './list/ncss-tree'
 
-export interface BlogSectionModelNcssTree {
+export interface BlogSectionNcssTree {
   container: NcssNode
   blog: BlogSectionBlogVariationNcssTree | BlogSectionListVariationNcssTree
   wrapper: NcssNode
 }
 
-export interface BlogSectionBlogModelNcssTree {
+export interface BlogSectionBlogNcssTree {
   container: NcssNode
   blog: BlogSectionBlogVariationNcssTree
   wrapper: NcssNode
 }
 
-export interface BlogSectionListModelNcssTree {
+export interface BlogSectionListNcssTree {
   container: NcssNode
   blog: BlogSectionListVariationNcssTree
   wrapper: NcssNode

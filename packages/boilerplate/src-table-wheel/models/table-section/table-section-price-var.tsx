@@ -9,7 +9,7 @@
 import React from 'react'
 import { getWheel } from '../../../src-core'
 import { Table } from './table'
-import { TableSectionModel } from './model-props'
+import { TableSectionModel } from './model'
 import { TableSectionWrapper } from './table-section-wrapper'
 
 export const TableSectionPriceVar = (props: TableSectionModel) => {

@@ -1,5 +1,5 @@
 import { deepMerge, DeepPartial } from '../../../../../../src-core'
-import { NavigationSectionHeaderModelNcssTree } from '../../../../../../src-navigation-wheel'
+import { NavigationSectionHeaderNcssTree } from '../../../../../../src-navigation-wheel'
 import { wrapperNcssNode } from '../../grid-ncss'
 import {
   primaryButtonNcssNode,
@@ -16,7 +16,7 @@ import {
 } from '../modal/dialog-ncss'
 import { navigationSegmentNcssTree } from '../navigation-segment/navigation-segment-ncss-tree'
 
-export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeaderModelNcssTree> = {
+export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeaderNcssTree> = {
   skipToContent: {
     ncss: {
       label: 'skip-to-content',

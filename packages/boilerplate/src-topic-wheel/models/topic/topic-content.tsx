@@ -9,11 +9,11 @@ import {
 } from '../../../src-core'
 import { TopicContentActions } from './topic-content-actions'
 import { TopicContentText } from './topic-content-text'
-import { TopicModel } from './model-props'
-import { TopicModelNcssTree } from './model-ncss-tree'
+import { TopicModel } from './model'
+import { TopicNcssTree } from './ncss-tree'
 
 export interface TopicContentWheel extends Wheel {
-  style: TopicModelNcssTree
+  style: TopicNcssTree
 }
 
 export interface TopicContentProps {

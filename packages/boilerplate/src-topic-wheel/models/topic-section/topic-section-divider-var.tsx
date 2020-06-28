@@ -8,7 +8,7 @@
 
 import React from 'react'
 import { getWheel, Hr } from '../../../src-core'
-import { TopicSectionModel } from './model-props'
+import { TopicSectionModel } from './model'
 
 export const TopicSectionDividerVar = (props: TopicSectionModel) => {
   const wheel = getWheel({

@@ -1,5 +1,5 @@
 import { NcssNode } from '../../../src-core'
 
-export interface ActionModelNcssTree extends NcssNode {
+export interface ActionNcssTree extends NcssNode {
   icon: NcssNode
 }

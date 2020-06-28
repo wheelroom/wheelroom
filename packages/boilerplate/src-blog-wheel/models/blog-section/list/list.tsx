@@ -14,7 +14,7 @@ import {
   Ul,
 } from '../../../../src-core'
 import { BlogModel } from '../../blog/model'
-import { BlogSectionListVariationNcssTree } from './model-ncss-tree'
+import { BlogSectionListVariationNcssTree } from './ncss-tree'
 
 interface ListWheel extends Wheel {
   style: BlogSectionListVariationNcssTree

@@ -1,3 +1,3 @@
 import { NcssNode } from '../../lib/ncss'
 
-export type EmbedModelNcssTree = NcssNode
+export type EmbedNcssTree = NcssNode

@@ -17,14 +17,14 @@ export type { Wheel } from './lib/wheel'
 export type { ParserFunction, ParserProps } from './parsers/types'
 
 // Models
-export type { ActionModelNcssTree } from './models/action/model-ncss-tree'
-export type { ActionModel } from './models/action/model-props'
-export type { EmbedModelNcssTree } from './models/embed/model-ncss-tree'
-export type { EmbedModel } from './models/embed/model-props'
-export type { GlobalsModel } from './models/globals/model-props'
-export type { MediaBreakpointModelNcssTree } from './models/media-breakpoint/model-ncss-tree'
-export type { MediaBreakpointModel } from './models/media-breakpoint/model-props'
-export type { PageModel } from './models/page/model-props'
+export type { ActionNcssTree } from './models/action/ncss-tree'
+export type { ActionModel } from './models/action/model'
+export type { EmbedNcssTree } from './models/embed/ncss-tree'
+export type { EmbedModel } from './models/embed/model'
+export type { GlobalsModel } from './models/globals/model'
+export type { MediaBreakpointNcssTree } from './models/media-breakpoint/ncss-tree'
+export type { MediaBreakpointModel } from './models/media-breakpoint/model'
+export type { PageModel } from './models/page/model'
 
 // Exceptional Elements
 export type { ImageElementProps } from './elements/element/image'

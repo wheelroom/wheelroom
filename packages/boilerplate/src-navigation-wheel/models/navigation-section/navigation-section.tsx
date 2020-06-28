@@ -9,7 +9,7 @@ import React from 'react'
 import { getVariation } from '../../../src-core'
 import { NavigationSectionFooterVar } from './navigation-section-footer-var'
 import { NavigationSectionHeaderVar } from './navigation-section-header-var'
-import { NavigationSectionModel } from './model-props'
+import { NavigationSectionModel } from './model'
 
 const componentList = {
   ['header']: NavigationSectionHeaderVar,

@@ -1,12 +1,12 @@
 // Topic
 export { Topic } from './models/topic/topic'
-export type { TopicModel } from './models/topic/model-props'
-export type { TopicModelNcssTree } from './models/topic/model-ncss-tree'
+export type { TopicModel } from './models/topic/model'
+export type { TopicNcssTree } from './models/topic/ncss-tree'
 
 // Topic section
 export { TopicSection } from './models/topic-section/topic-section'
-export type { TopicSectionModel } from './models/topic-section/model-props'
-export type { TopicSectionModelNcssTree } from './models/topic-section/model-ncss-tree'
+export type { TopicSectionModel } from './models/topic-section/model'
+export type { TopicSectionNcssTree } from './models/topic-section/ncss-tree'
 
 // Topic lib
 export { getTopicInfo } from './lib/get-topic-info'

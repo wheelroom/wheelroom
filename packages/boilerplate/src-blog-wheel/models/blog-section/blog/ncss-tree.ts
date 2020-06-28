@@ -3,8 +3,8 @@ import {
   NcssNode,
   VideoElementNcssTree,
 } from '../../../../src-core'
-import { TopicModelNcssTree } from '../../../../src-topic-wheel'
-import { RichTextNcssTree } from '../../../../src-text-wheel'
+import { TopicNcssTree } from '../../../../src-topic-wheel'
+import { NcssTree } from '../../../../src-text-wheel'
 
 export interface BlogSectionBlogVariationNcssTree extends NcssNode {
   header: NcssNode
@@ -15,7 +15,7 @@ export interface BlogSectionBlogVariationNcssTree extends NcssNode {
   media: NcssNode
   image: ImageElementNcssTree
   video: VideoElementNcssTree
-  richText: RichTextNcssTree
+  richText: NcssTree
   authors: NcssNode
-  author: TopicModelNcssTree
+  author: TopicNcssTree
 }

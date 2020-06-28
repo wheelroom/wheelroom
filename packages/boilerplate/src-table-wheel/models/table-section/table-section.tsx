@@ -8,7 +8,7 @@
 import React from 'react'
 import { getVariation } from '../../../src-core'
 import { TableSectionPriceVar } from './table-section-price-var'
-import { TableSectionModel } from './model-props'
+import { TableSectionModel } from './model'
 import { TableSectionTableVar } from './table-section-table-var'
 
 const componentList = {

@@ -9,9 +9,9 @@
 import React from 'react'
 import { getTopicOptions } from '../../lib/get-topic-options'
 import { Topic } from '../topic/topic'
-import { TopicModel } from '../topic/model-props'
+import { TopicModel } from '../topic/model'
 import { getWheel, MultiParser } from '../../../src-core'
-import { TopicSectionModel } from './model-props'
+import { TopicSectionModel } from './model'
 import { TopicSectionWrapper } from './topic-section-wrapper'
 
 export const TopicSectionBlockVar = (props: TopicSectionModel) => {

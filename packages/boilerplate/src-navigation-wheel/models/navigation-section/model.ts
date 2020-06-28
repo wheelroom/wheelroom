@@ -1,4 +1,4 @@
-import { NavigationModel } from '../navigation/model-types'
+import { NavigationModel } from '../navigation/model'
 import { CoreSectionProps } from '../../../src-core'
 
 export interface NavigationSectionModel extends CoreSectionProps {

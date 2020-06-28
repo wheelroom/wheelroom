@@ -3,11 +3,11 @@ import { jsx } from '@emotion/core'
 import { Wheel, Box, Table as TableElement } from '../../../src-core'
 import { TopicOptions } from '../../../src-topic-wheel'
 import { TableRow } from '../table-row/table-row'
-import { TableRowModel } from '../table-row/model-props'
-import { TableRowModelNcssTree } from '../table-row/model-ncss-tree'
+import { TableRowModel } from '../table-row/model'
+import { TableRowNcssTree } from '../table-row/ncss-tree'
 
 export interface TableWheel extends Wheel {
-  style: TableRowModelNcssTree
+  style: TableRowNcssTree
 }
 
 export interface TableProps {

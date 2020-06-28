@@ -9,7 +9,7 @@
 import React, { useContext } from 'react'
 import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
 import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
-import { EmbedModel } from '../embed/model-props'
+import { EmbedModel } from '../embed/model'
 import { FeatherIcon } from '../../../src-core/elements/element/icon'
 import {
   Wheel,
@@ -17,14 +17,14 @@ import {
   ALink,
   Any,
   ActionModel,
-  ActionModelNcssTree,
+  ActionNcssTree,
 } from '../../../src-core'
 
 export interface ActionWheel extends Wheel {
-  style: ActionModelNcssTree
+  style: ActionNcssTree
 }
 
-export interface ActionWheelProps extends ActionModel {
+export interface ActionProps extends ActionModel {
   wheel: ActionWheel
   children?: any
   key?: any
@@ -33,7 +33,7 @@ export interface ActionWheelProps extends ActionModel {
   onClick?: () => any
 }
 
-const createURL = (action: ActionWheelProps, isPreviewMode: boolean) => {
+const createURL = (action: ActionProps, isPreviewMode: boolean) => {
   const hasQuery = action.query || isPreviewMode
   let url: any = action.page ? action.page.path : action.url
   if (hasQuery) {
@@ -69,7 +69,7 @@ const isPreviewMode = (adminCoreState: AdminCoreState): boolean => {
   return !!(store && store.state.inPreviewMode)
 }
 
-const ActionGlink = (props: ActionWheelProps) => {
+const ActionGlink = (props: ActionProps) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   const heading = props.children ? props.children : props.heading
   return (
@@ -93,7 +93,7 @@ const ActionGlink = (props: ActionWheelProps) => {
   )
 }
 
-const ActionAlink = (props: ActionWheelProps) => {
+const ActionAlink = (props: ActionProps) => {
   const { adminCoreState } = useContext(AdminCoreContext)
   const heading = props.children ? props.children : props.heading
   return (
@@ -117,7 +117,7 @@ const ActionAlink = (props: ActionWheelProps) => {
   )
 }
 
-const NoLink = (props: ActionWheelProps) => {
+const NoLink = (props: ActionProps) => {
   const heading = props.children ? props.children : props.heading
   return (
     <Any
@@ -140,7 +140,7 @@ const NoLink = (props: ActionWheelProps) => {
   )
 }
 
-export const Action = (props: ActionWheelProps) => {
+export const Action = (props: ActionProps) => {
   if (props.page) {
     return <ActionGlink {...props} />
   } else if (props.url) {

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { EmbedModel } from '../models/embed/model-props'
+import { EmbedModel } from '../models/embed/model'
 import { CoreSectionProps } from './core-section-props'
 
 interface ScrollSpyProps extends CoreSectionProps {

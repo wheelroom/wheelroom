@@ -10,11 +10,11 @@ import {
   Wheel,
 } from '../../../src-core'
 import { TopicBody } from './topic-body'
-import { TopicModel } from './model-props'
-import { TopicModelNcssTree } from './model-ncss-tree'
+import { TopicModel } from './model'
+import { TopicNcssTree } from './ncss-tree'
 
 export interface TopicWheel extends Wheel {
-  style: TopicModelNcssTree
+  style: TopicNcssTree
 }
 
 export interface TopicProps {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavigationSegmentModel } from '../../navigation-segment/model-props'
+import { NavigationSegmentModel } from '../../navigation-segment/model'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import {
   Box,
@@ -11,7 +11,7 @@ import {
   getNcssSwitch,
 } from '../../../../src-core'
 import { FeatherIcon } from '../../../../src-core/elements/element/icon'
-import { NavigationSegmentModelNcssTree } from '../../navigation-segment/model-ncss-tree'
+import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
 import { ThemeButton } from './theme-button'
 
 export interface ModalNcssTree {
@@ -26,10 +26,10 @@ export interface ModalNcssTree {
     icon: NcssNode
   } & NcssNode
   menu: {
-    segment: NavigationSegmentModelNcssTree
+    segment: NavigationSegmentNcssTree
   } & NcssNode
   actions: {
-    segment: NavigationSegmentModelNcssTree
+    segment: NavigationSegmentNcssTree
     themeButton: NcssNode
   } & NcssNode
 }

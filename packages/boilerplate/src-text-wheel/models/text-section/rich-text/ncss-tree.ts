@@ -1,11 +1,11 @@
 import {
   NcssNode,
-  EmbedModelNcssTree,
+  EmbedNcssTree,
   ImageElementNcssTree,
   VideoElementNcssTree,
 } from '../../../../src-core'
 
-export interface RichTextNcssTree extends NcssNode {
+export interface NcssTree extends NcssNode {
   strong: NcssNode
   code: NcssNode
   pre: NcssNode
@@ -23,7 +23,7 @@ export interface RichTextNcssTree extends NcssNode {
   h4: NcssNode
   h5: NcssNode
   h6: NcssNode
-  embed: EmbedModelNcssTree
+  embed: EmbedNcssTree
   image: ImageElementNcssTree
   video: VideoElementNcssTree
 }

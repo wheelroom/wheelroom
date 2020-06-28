@@ -1,11 +1,11 @@
 import { iconSmallTopicNcssNode, iconButtonSmallNcssNode } from '../icon-ncss'
 import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
-import { TableSectionModelNcssTree } from '../../../../../src-table-wheel'
+import { TableSectionNcssTree } from '../../../../../src-table-wheel'
 import { embedNcssNode } from '../embed-ncss'
 import { deepMerge, DeepPartial } from '../../../../../src-core'
 import { topicNcssTree } from '../topic/topic/topic-ncss-tree'
 
-export const tableSectionPriceNcssTree: DeepPartial<TableSectionModelNcssTree> = {
+export const tableSectionPriceNcssTree: DeepPartial<TableSectionNcssTree> = {
   container: deepMerge([
     containerNcssNode,
     {

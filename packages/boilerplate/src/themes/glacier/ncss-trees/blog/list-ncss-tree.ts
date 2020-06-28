@@ -1,8 +1,8 @@
 import { wrapperNcssNode } from '../grid-ncss'
-import { BlogSectionListModelNcssTree } from '../../../../../src-blog-wheel'
+import { BlogSectionListNcssTree } from '../../../../../src-blog-wheel'
 import { DeepPartial } from '../../../../../src-core'
 
-export const blogSectionListNcssTree: DeepPartial<BlogSectionListModelNcssTree> = {
+export const blogSectionListNcssTree: DeepPartial<BlogSectionListNcssTree> = {
   container: {
     ncss: {
       label: 'blog-section-list-container',

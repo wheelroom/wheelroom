@@ -2,7 +2,7 @@ import {
   TopicOptionString,
   TopicOptionStringNl,
 } from '../../lib/get-topic-options'
-import { TopicModel } from '../topic/model-props'
+import { TopicModel } from '../topic/model'
 import { CoreSectionProps } from '../../../src-core'
 
 export interface TopicSectionModel extends CoreSectionProps {

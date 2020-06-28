@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import { NavigationModel } from '../../navigation/model-types'
+import { NavigationModel } from '../../navigation/model'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModel } from '../../navigation-segment/model-props'
-import { NavigationSegmentModelNcssTree } from '../../navigation-segment/model-ncss-tree'
+import { NavigationSegmentModel } from '../../navigation-segment/model'
+import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
 import {
   Container,
   CoreSiteMetadata,
@@ -15,14 +15,14 @@ import {
 } from '../../../../src-core'
 import { LegalFooter, LegalFooterNcssTree } from './legal-footer'
 
-export interface NavigationSectionFooterModelNcssTree {
+export interface NavigationSectionFooterNcssTree {
   container: NcssNode
   footer: {
     menu: {
-      segment: NavigationSegmentModelNcssTree
+      segment: NavigationSegmentNcssTree
     } & NcssNode
     social: {
-      segment: NavigationSegmentModelNcssTree
+      segment: NavigationSegmentNcssTree
     } & NcssNode
   } & NcssNode
   legalFooter: LegalFooterNcssTree
@@ -30,7 +30,7 @@ export interface NavigationSectionFooterModelNcssTree {
 }
 
 interface NavigationFooterWheel extends Wheel {
-  style: NavigationSectionFooterModelNcssTree
+  style: NavigationSectionFooterNcssTree
 }
 
 export interface NavigationFooterProps {

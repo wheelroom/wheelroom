@@ -1,7 +1,7 @@
-import { NavigationSegmentModelNcssTree } from '../../../../../../src-navigation-wheel'
+import { NavigationSegmentNcssTree } from '../../../../../../src-navigation-wheel'
 import { iconSmallNcss } from '../../icon-ncss'
 
-export const navigationSegmentNcssTree: NavigationSegmentModelNcssTree = {
+export const navigationSegmentNcssTree: NavigationSegmentNcssTree = {
   ncss: {
     label: 'navigation-segment',
   },

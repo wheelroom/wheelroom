@@ -1,10 +1,10 @@
 import React from 'react'
 import { Action, Wheel, Any, Box } from '../../../src-core'
-import { NavigationSegmentModel } from './model-props'
-import { BrandNavigationSegmentModelNcssTree } from './model-ncss-tree'
+import { NavigationSegmentModel } from './model'
+import { BrandNavigationSegmentNcssTree } from './ncss-tree'
 
 interface BrandNavigationSegmentWheel extends Wheel {
-  style: BrandNavigationSegmentModelNcssTree
+  style: BrandNavigationSegmentNcssTree
 }
 
 interface BrandNavigationSegmentProps {

@@ -9,7 +9,7 @@
 import React from 'react'
 import { getWheel } from '../../../src-core'
 import { NavigationHeader } from './header/navigation-header'
-import { NavigationSectionModel } from './model-props'
+import { NavigationSectionModel } from './model'
 
 export const NavigationSectionHeaderVar = (
   props: NavigationSectionModel

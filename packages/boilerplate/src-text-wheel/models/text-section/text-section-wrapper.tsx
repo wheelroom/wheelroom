@@ -1,9 +1,9 @@
 import React from 'react'
 import { Wheel, Container, Fluid, Wrapper } from '../../../src-core'
-import { TextSectionModelNcssTree } from './model-ncss-tree'
+import { TextSectionNcssTree } from './ncss-tree'
 
 export interface TextSectionWheel extends Wheel {
-  style: TextSectionModelNcssTree
+  style: TextSectionNcssTree
 }
 
 export const TextSectionWrapper = (props: {

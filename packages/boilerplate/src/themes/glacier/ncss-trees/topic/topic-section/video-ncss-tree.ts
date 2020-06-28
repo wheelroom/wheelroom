@@ -1,10 +1,10 @@
-import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
+import { TopicSectionNcssTree } from '../../../../../../src-topic-wheel'
 import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
 import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
 import { DeepPartial } from '../../../../../../src-core'
 
-export const topicSectionVideoNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
+export const topicSectionVideoNcssTree: DeepPartial<TopicSectionNcssTree> = {
   container: containerNcssNode,
   topic: {
     content: {

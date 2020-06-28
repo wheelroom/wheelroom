@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { Wheel, Flex, H3 } from '../../../src-core'
-import { NavigationSegmentModel } from './model-props'
+import { NavigationSegmentModel } from './model'
 import { NavigationSegmentList } from './navigation-segment-list'
-import { NavigationSegmentModelNcssTree } from './model-ncss-tree'
+import { NavigationSegmentNcssTree } from './ncss-tree'
 
 interface NavigationSegmentWheel extends Wheel {
-  style: NavigationSegmentModelNcssTree
+  style: NavigationSegmentNcssTree
 }
 
 interface NavigationSegmentProps {

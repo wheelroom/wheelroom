@@ -2,11 +2,11 @@ import React from 'react'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicOptions } from '../../lib/get-topic-options'
 import { Wheel, Box, Action, ActionModel } from '../../../src-core'
-import { TopicModel } from './model-props'
-import { TopicModelNcssTree } from './model-ncss-tree'
+import { TopicModel } from './model'
+import { TopicNcssTree } from './ncss-tree'
 
 export interface TopicContentActionsWheel extends Wheel {
-  style: TopicModelNcssTree
+  style: TopicNcssTree
 }
 
 export interface TopicContentActionsProps {

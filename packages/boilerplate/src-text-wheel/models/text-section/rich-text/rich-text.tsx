@@ -39,10 +39,10 @@ import {
   Box,
 } from '../../../../src-core'
 import { getLocalizedValue } from './get-localized-value'
-import { RichTextNcssTree } from './rich-text-ncss-tree'
+import { NcssTree } from './ncss-tree'
 
 export interface RichTextWheel extends Wheel {
-  style: RichTextNcssTree
+  style: NcssTree
 }
 
 export interface RichTextProps {

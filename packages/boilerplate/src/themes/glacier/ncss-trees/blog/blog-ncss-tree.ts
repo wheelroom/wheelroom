@@ -1,11 +1,11 @@
-import { BlogSectionBlogModelNcssTree } from '../../../../../src-blog-wheel'
+import { BlogSectionBlogNcssTree } from '../../../../../src-blog-wheel'
 import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { deepMerge, DeepPartial } from '../../../../../src-core'
 import { topicNcssTree } from '../topic/topic/topic-ncss-tree'
 import { textSectionTextNcssTree } from '../text/text-ncss-tree'
 import { embedNcssNode } from '../embed-ncss'
 
-export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogModelNcssTree> = {
+export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogNcssTree> = {
   container: containerNcssNode,
   blog: {
     ncss: {

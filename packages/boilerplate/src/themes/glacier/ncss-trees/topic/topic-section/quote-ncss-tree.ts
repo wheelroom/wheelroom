@@ -1,4 +1,4 @@
-import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
+import { TopicSectionNcssTree } from '../../../../../../src-topic-wheel'
 import {
   primaryButtonNcssNode,
   displayButtonNcssNode,
@@ -9,7 +9,7 @@ import { embedNcssNode } from '../../embed-ncss'
 import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
 import { deepMerge, DeepPartial } from '../../../../../../src-core'
 
-export const topicSectionQuoteNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
+export const topicSectionQuoteNcssTree: DeepPartial<TopicSectionNcssTree> = {
   container: containerNcssNode,
   topic: {
     content: {

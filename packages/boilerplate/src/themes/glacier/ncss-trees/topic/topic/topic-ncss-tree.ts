@@ -1,6 +1,6 @@
-import { TopicModelNcssTree } from '../../../../../../src-topic-wheel'
+import { TopicNcssTree } from '../../../../../../src-topic-wheel'
 
-export const topicNcssTree: TopicModelNcssTree = {
+export const topicNcssTree: TopicNcssTree = {
   ncssSwitch: {
     container: {
       label: 'topic',

@@ -1,4 +1,4 @@
-import { TopicSectionModelNcssTree } from '../../../../../../src-topic-wheel'
+import { TopicSectionNcssTree } from '../../../../../../src-topic-wheel'
 import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
 import { primaryButtonNcssNode } from '../../../element-ncss/button-ncss'
 import { iconTopicNcssNode } from '../../icon-ncss'
@@ -15,7 +15,7 @@ const containerNcss = {
   textDecoration: 'none',
 }
 
-export const topicSectionCardNcssTree: DeepPartial<TopicSectionModelNcssTree> = {
+export const topicSectionCardNcssTree: DeepPartial<TopicSectionNcssTree> = {
   container: deepMerge([
     containerNcssNode,
     {
