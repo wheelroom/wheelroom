@@ -14,7 +14,6 @@ import { TopicOptions } from '../../lib/get-topic-options'
 import { TopicModelProps } from './model-props'
 import { TopicModelNcssTree } from './model-ncss-tree'
 
-
 export interface TopicMediaWheel extends Wheel {
   style: TopicModelNcssTree
 }
