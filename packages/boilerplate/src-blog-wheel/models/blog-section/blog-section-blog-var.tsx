@@ -9,7 +9,7 @@
 import React from 'react'
 import { getWheel } from '../../../src-core'
 import { Blog } from './blog/blog'
-import { BlogSectionModelProps } from './model-types'
+import { BlogSectionModelProps } from './model-props'
 import { BlogSectionWrapper } from './blog-section-wrapper'
 
 export const BlogSectionBlogVar = (props: BlogSectionModelProps) => {

@@ -5,7 +5,7 @@
  *
  */
 
-import { EmbedModelProps } from '../embed/model-types'
+import { EmbedModelProps } from '../embed/model-props'
 import { MediaObject } from '../../elements/types/media'
 
 export interface GlobalsModelProps {

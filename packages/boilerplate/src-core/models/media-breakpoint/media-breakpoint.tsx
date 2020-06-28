@@ -8,7 +8,7 @@ import {
   imageImgReset,
   imagePictureReset,
 } from '../../elements/element/image-reset'
-import { MediaBreakpointModelNcssTree } from './model-style-types'
+import { MediaBreakpointModelNcssTree } from './model-ncss-tree'
 
 interface MediaBreakpointWheelStyle extends Wheel {
   style: MediaBreakpointModelNcssTree

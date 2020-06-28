@@ -1,4 +1,4 @@
-import { NavigationSegmentModelProps } from '../navigation-segment/model-types'
+import { NavigationSegmentModelProps } from '../navigation-segment/model-props'
 
 export interface NavigationModelProps {
   /** Gatsby fetched data */

@@ -9,7 +9,7 @@
 import React from 'react'
 import { getWheel } from '../../../src-core'
 import { NavigationFooter } from './footer/navigation-footer'
-import { NavigationSectionModelProps } from './model-types'
+import { NavigationSectionModelProps } from './model-props'
 
 export const NavigationSectionFooterVar = (
   props: NavigationSectionModelProps

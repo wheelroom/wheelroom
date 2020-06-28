@@ -13,7 +13,7 @@ import {
   Li,
   Ul,
 } from '../../../../src-core'
-import { BlogModelProps } from '../../blog/model-types'
+import { BlogModelProps } from '../../blog/model-props'
 import { BlogSectionListVariationNcssTree } from './model-ncss-tree'
 
 interface ListWheel extends Wheel {

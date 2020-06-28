@@ -4,11 +4,11 @@ import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { BrandNavigationSegment } from '../../navigation-segment/brand-navigation-segment'
 import { NavigationModelProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModelProps } from '../../navigation-segment/model-types'
+import { NavigationSegmentModelProps } from '../../navigation-segment/model-props'
 import {
   NavigationSegmentModelNcssTree,
   BrandNavigationSegmentModelNcssTree,
-} from '../../navigation-segment/model-style-types'
+} from '../../navigation-segment/model-ncss-tree'
 import {
   ALink,
   Box,

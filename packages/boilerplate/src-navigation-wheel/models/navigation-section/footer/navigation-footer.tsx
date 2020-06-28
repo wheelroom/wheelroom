@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { NavigationModelProps } from '../../navigation/model-types'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModelProps } from '../../navigation-segment/model-types'
-import { NavigationSegmentModelNcssTree } from '../../navigation-segment/model-style-types'
+import { NavigationSegmentModelProps } from '../../navigation-segment/model-props'
+import { NavigationSegmentModelNcssTree } from '../../navigation-segment/model-ncss-tree'
 import {
   Container,
   CoreSiteMetadata,

@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 import { Wheel } from '../../lib/wheel'
 import { Any } from '../../elements/element/any'
-import { EmbedModelNcssTree } from './model-style-types'
+import { EmbedModelNcssTree } from './model-ncss-tree'
 
 export interface EmbedWheel extends Wheel {
   style: EmbedModelNcssTree

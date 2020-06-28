@@ -8,8 +8,8 @@
 
 import React from 'react'
 import { getWheel } from '../../../src-core'
-import { BlogModelProps } from '../../models/blog/model-types'
-import { BlogSectionModelProps } from './model-types'
+import { BlogModelProps } from '../blog/model-props'
+import { BlogSectionModelProps } from './model-props'
 import { BlogSectionWrapper } from './blog-section-wrapper'
 import { List } from './list/list'
 

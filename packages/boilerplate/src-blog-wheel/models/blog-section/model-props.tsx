@@ -1,5 +1,5 @@
 import { CoreSectionProps } from '../../../src-core'
-import { BlogModelProps, AllBlogModelProps } from '../blog/model-types'
+import { BlogModelProps, AllBlogModelProps } from '../blog/model-props'
 
 export interface InjectedBlogSectionModelProps {
   blog: BlogModelProps

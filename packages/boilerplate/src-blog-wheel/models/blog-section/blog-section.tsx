@@ -9,7 +9,7 @@ import React from 'react'
 import { getVariation } from '../../../src-core'
 import { BlogSectionBlogVar } from './blog-section-blog-var'
 import { BlogSectionListVar } from './blog-section-list-var'
-import { BlogSectionModelProps } from './model-types'
+import { BlogSectionModelProps } from './model-props'
 
 const componentList = {
   ['blog']: BlogSectionBlogVar,

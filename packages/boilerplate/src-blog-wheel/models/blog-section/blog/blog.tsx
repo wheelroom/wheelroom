@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { BlogModelProps } from '../../blog/model-types'
+import { BlogModelProps } from '../../blog/model-props'
 import {
   Any,
   Box,
