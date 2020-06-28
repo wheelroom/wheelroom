@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /**
  * Generates this typescript file:
- * wheelroom-config/content-sets/content-types-${contentSet}.ts
+ * src/wheelroom-config/content-sets/content-types-${contentSet}.ts
  *
  * How it works
  *
@@ -18,7 +18,7 @@
  *
  * Runs like this:
  * - npm run compile-config
- * - node compiled-config/content-types-generator/content-types-generator.js examples <starter|examples>
+ * - node compiled-config/content-types-generator/content-types-generator.js <starter>
  *
  *
  * Note: the script needs a valid content set to generate content types for the
@@ -39,16 +39,24 @@ import { contentSets } from '../content-sets/content-sets'
 import { coreModels } from '../will-move-a-module/models/core-models'
 import { tableModels } from '../will-move-a-module/models/table-models'
 import { blogModels } from '../will-move-a-module/models/blog-models'
+import { textModels } from '../will-move-a-module/models/text-models'
+import { topicModels } from '../will-move-a-module/models/topic-models'
 
-const models = { ...coreModels, ...blogModels, ...tableModels }
+const models = {
+  ...coreModels,
+  ...blogModels,
+  ...tableModels,
+  ...textModels,
+  ...topicModels,
+}
 
-type ContentSetName = 'starter' | 'example'
+type ContentSetName = 'starter'
 
 const contentSet: ContentSetName = process.argv[2] as ContentSetName
 
-if (!['starter', 'example'].includes(contentSet)) {
+if (!['starter'].includes(contentSet)) {
   console.error(`Bad content set: '${contentSet}'
-Available content sets: starter, example`)
+Available content sets: starter`)
   process.exit(1)
 }
 
@@ -169,6 +177,6 @@ export interface ContentTypes {
 `
 
 fse.outputFile(
-  `wheelroom-config/content-sets/content-types-${contentSet}.ts`,
+  `src/wheelroom-config/content-sets/content-types-${contentSet}.ts`,
   content
 )
