@@ -6,8 +6,8 @@ import {
   ShortTextField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIconNames } from '../feather-icon-names'
-import { topicOptions } from './topic-options'
+import { featherIconNames } from '@wheelroom/core'
+import { topicOptions } from '@wheelroom/wheel-topic'
 
 export const tableModels: WheelroomComponents = {
   tableRow: {

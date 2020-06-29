@@ -7,3 +7,6 @@ export type { TableRowNcssTree } from './models/table-row/ncss-tree'
 export { TableSection } from './models/table-section/table-section'
 export type { TableSectionModel } from './models/table-section/model'
 export type { TableSectionNcssTree } from './models/table-section/ncss-tree'
+
+// Table config
+export { tableModels } from './config/table-models'

@@ -8,7 +8,7 @@ import {
   SingleComponentField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIconNames } from '../feather-icon-names'
+import { featherIconNames } from '@wheelroom/core'
 import { topicOptions } from './topic-options'
 
 export const topicModels: WheelroomComponents = {

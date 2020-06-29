@@ -8,3 +8,6 @@ export type { NavigationSectionHeaderNcssTree } from './models/navigation-sectio
 // Navigation Segment
 export type { NavigationSegmentNcssTree } from './models/navigation-segment/ncss-tree'
 export type { BrandNavigationSegmentNcssTree } from './models/navigation-segment/ncss-tree'
+
+// Navigation config
+export { navigationModels } from './config/navigation-models'

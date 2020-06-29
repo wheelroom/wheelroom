@@ -13,3 +13,7 @@ export { getTopicInfo } from './lib/get-topic-info'
 export type { TopicInfo } from './lib/get-topic-info'
 export type { TopicOptions } from './lib/get-topic-options'
 export { getEmptyTopicOptions, getTopicOptions } from './lib/get-topic-options'
+
+// Topic config
+export { topicModels } from './config/topic-models'
+export { topicOptions } from './config/topic-options'

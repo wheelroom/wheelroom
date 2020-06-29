@@ -98,3 +98,10 @@ export { mapsPreset } from './theme/maps-preset'
 export { scalesPreset } from './theme/scales-preset'
 export { supportsDarkMode } from './lib/supports-dark-mode'
 export { wrSystemConfig } from './theme/wr-system-config'
+
+// Config
+export { commonFields } from './config/common-fields'
+export { contentfulFieldDefinitions } from './config/contentful-field-definitions'
+export { coreModels } from './config/core-models'
+export { featherIconNames } from './config/feather-icon-names'
+export { fieldDefautls } from './config/field-defaults'

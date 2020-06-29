@@ -7,7 +7,7 @@ import {
   SingleComponentField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIconNames } from '../feather-icon-names'
+import { featherIconNames } from '@wheelroom/core/dist/src/config/feather-icon-names'
 
 export const docModels: WheelroomComponents = {
   doc: {

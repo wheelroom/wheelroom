@@ -6,3 +6,6 @@ export type { RichTextNcssTree } from './models/text-section/rich-text/ncss-tree
 export { TextSection } from './models/text-section/text-section'
 export type { TextSectionModel } from './models/text-section/model'
 export type { TextSectionNcssTree } from './models/text-section/ncss-tree'
+
+// Topic config
+export { textModels } from './config/text-models'

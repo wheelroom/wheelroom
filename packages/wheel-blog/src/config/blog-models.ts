@@ -9,7 +9,7 @@ import {
   TagsField,
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
-import { featherIconNames } from '../feather-icon-names'
+import { featherIconNames } from '@wheelroom/core'
 
 export const blogModels: WheelroomComponents = {
   blog: {

@@ -9,3 +9,6 @@ export type {
 } from './models/blog-section/model'
 export type { BlogSectionBlogNcssTree } from './models/blog-section/ncss-tree'
 export type { BlogSectionListNcssTree } from './models/blog-section/ncss-tree'
+
+// Blog config
+export { blogModels } from './config/blog-models'
