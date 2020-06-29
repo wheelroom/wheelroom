@@ -3,5 +3,8 @@
   "private": true,
   "devDependencies": {
     "lerna": "3.22.1"
+  },
+  "scripts": {
+    "run-bootstrap": "./bootstrap-packages.sh"
   }
 }
