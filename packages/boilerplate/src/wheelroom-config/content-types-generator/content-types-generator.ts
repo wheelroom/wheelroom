@@ -8,7 +8,7 @@
  * The script imports the content set and models:
  *
  * import { contentSets } from '../content-sets/content-sets'
- * import { coreModels } from '../will-move-to-wr-module/models/core-models'
+ * import { coreModels } from '@wheelroom/core'
  *
  *
  * It then generates interface definitions for each component. The content set
@@ -26,7 +26,6 @@
  * invalid types are generated, the content set is invalid and the generator
  * cannot be used to fix the invalid types.
  *
- *
  */
 
 import {
@@ -36,11 +35,11 @@ import {
 } from '@wheelroom/wheelroom'
 import * as fse from 'fs-extra'
 import { contentSets } from '../content-sets/content-sets'
-import { coreModels } from '../will-move-a-module/models/core-models'
-import { tableModels } from '../will-move-a-module/models/table-models'
-import { blogModels } from '../will-move-a-module/models/blog-models'
-import { textModels } from '../will-move-a-module/models/text-models'
-import { topicModels } from '../will-move-a-module/models/topic-models'
+import { coreModels } from '@wheelroom/core'
+import { tableModels } from '@wheelroom/wheel-table'
+import { blogModels } from '@wheelroom/wheel-blog'
+import { textModels } from '@wheelroom/wheel-text'
+import { topicModels } from '@wheelroom/wheel-topic'
 
 const models = {
   ...coreModels,
