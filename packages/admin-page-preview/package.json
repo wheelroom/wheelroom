@@ -17,8 +17,7 @@
   },
   "description": "Page preview module for WHeelroom admin",
   "dependencies": {
-    "regenerator-runtime": "0.13.5",
-    "@wheelroom/contentful-page-preview": "1.4.4"
+    "regenerator-runtime": "0.13.5"
   },
   "devDependencies": {
     "@types/jest": "25.1.4",
@@ -62,6 +61,9 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@wheelroom/admin-page-preview",
+  "dependencies": {
+    "@wheelroom/contentful-page-preview": "1.4.4"
+  },
   "peerDependencies": {
     "@emotion/core": "10.x",
     "@reach/router": "1.x",
