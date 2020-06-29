@@ -49,15 +49,20 @@
     "node": ">=12.0.0"
   },
   "files": [
-    "dist/index.*",
     "dist/config/*",
     "dist/elements/*",
     "dist/global-reset/*",
+    "dist/index.*",
     "dist/lib/*",
     "dist/models/*",
     "dist/parsers/*",
     "dist/svg/*",
-    "dist/theme/*"
+    "dist/theme/*",
+    "src/models/action/fragment.js",
+    "src/models/embed/fragment.js",
+    "src/models/globals/fragment.js",
+    "src/models/media-breakpoint/fragment.js",
+    "src/models/page/fragment.js"
   ],
   "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [

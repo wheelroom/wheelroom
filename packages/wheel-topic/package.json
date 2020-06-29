@@ -52,7 +52,9 @@
     "dist/index.*",
     "dist/config/*",
     "dist/lib/*",
-    "dist/models/*"
+    "dist/models/*",
+    "src/models/topic/fragment.js",
+    "src/models/topic-section/fragment.js"
   ],
   "homepage": "https://github.com/wheelroom/wheelroom",
   "keywords": [
