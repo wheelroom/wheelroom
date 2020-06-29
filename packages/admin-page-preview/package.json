@@ -16,6 +16,9 @@
     "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "description": "Page preview module for WHeelroom admin",
+  "dependencies": {
+    "regenerator-runtime": "0.13.5"
+  },
   "devDependencies": {
     "@types/jest": "25.1.4",
     "@types/node": "13.9.2",
