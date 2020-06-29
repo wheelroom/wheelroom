@@ -1,80 +1,93 @@
 {
-	"author": {
-		"name": "Wheelroom"
-	},
-	"contributors": [
-		{
-			"name": "Jacco Meijer",
-			"email": "jacco@wheelroom.io",
-			"url": "https://www.jaccomeijer.nl"
-		},
-		{
-			"name": "Thijs Krooswijk",
-			"email": "thijs@wheelroom.io",
-			"url": "https://www.thijskrooswijk.com"
-		}
-	],
-	"bugs": {
-		"url": "https://github.com/wheelroom/wheelroom/issues"
-	},
-	"description": "Navigation wheel for Wheelroom",
-	"devDependencies": {
-		"@emotion/core": "^10.0.28",
-		"@svgr/cli": "^5.4.0",
-		"@types/jest": "26.0.3",
-		"@types/node": "14.0.14",
-		"@types/react-dom": "16.9.8",
-		"@types/react-helmet": "6.0.0",
-		"@typescript-eslint/eslint-plugin": "3.4.0",
-		"@typescript-eslint/parser": "3.4.0",
-		"eslint": "7.3.1",
-		"eslint-config-prettier": "6.11.0",
-		"eslint-plugin-prettier": "3.1.4",
-		"eslint-plugin-react": "7.20.0",
-		"eslint-plugin-react-hooks": "4.0.4",
-		"gatsby": "^2.23.11",
-		"jest": "26.1.0",
-		"npm-install-peers": "1.2.1",
-		"npm-run-all": "4.1.5",
-		"prettier": "2.0.5",
-		"react-helmet": "^6.1.0",
-		"ts-jest": "26.1.1",
-		"typescript": "3.9.5"
-	},
-	"engines": {
-		"node": ">=12.0.0"
-	},
-	"files": [
-		"dist/index.*",
-		"dist/config/*",
-		"dist/models/*"
-	],
-	"homepage": "https://github.com/wheelroom/wheelroom",
-	"keywords": [
-		"contentful",
-		"gatsbyjs",
-		"netlify",
-		"react",
-		"typescript",
-		"wheelroom",
-		"wheel"
-	],
-	"license": "MIT",
-	"main": "dist/index.js",
-	"name": "@wheelroom/wheel-navigation",
-	"peerDependencies": {
-		"@emotion/core": "10.x",
-		"@types/react": "16.x",
-		"react": "16.x",
-		"react-dom": "16.x"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/wheelroom/wheelroom.git"
-	},
-	"type": "commonjs",
-	"version": "1.0.5"
+  "author": {
+    "name": "Wheelroom"
+  },
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@wheelroom.io",
+      "url": "https://www.jaccomeijer.nl"
+    },
+    {
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "description": "Navigation wheel for Wheelroom",
+  "devDependencies": {
+    "@emotion/core": "^10.0.28",
+    "@svgr/cli": "^5.4.0",
+    "@types/jest": "26.0.3",
+    "@types/node": "14.0.14",
+    "@types/react-dom": "16.9.8",
+    "@types/react-helmet": "6.0.0",
+    "@typescript-eslint/eslint-plugin": "3.4.0",
+    "@typescript-eslint/parser": "3.4.0",
+    "@wheelroom/admin-core": "1.2.4",
+    "@wheelroom/admin-page-preview": "1.5.6",
+    "@wheelroom/styled-system": "4.1.4",
+    "@wheelroom/wheelroom": "4.3.4",
+    "@wheelroom/wheelroom-plugin-contentful": "3.4.4",
+    "eslint": "7.3.1",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.20.1",
+    "eslint-plugin-react-hooks": "4.0.4",
+    "gatsby": "^2.23.11",
+    "jest": "26.1.0",
+    "npm-install-peers": "1.2.1",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.0.5",
+    "react-helmet": "^6.1.0",
+    "ts-jest": "26.1.1",
+    "typescript": "3.9.5"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "dist/index.*",
+    "dist/config/*",
+    "dist/models/*"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
+    "wheel"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@wheelroom/wheel-navigation",
+  "peerDependencies": {
+    "@emotion/core": "10.x",
+    "@types/react": "16.x",
+    "react": "16.x",
+    "react-dom": "16.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:compile": "tsc",
+    "build:test": "jest --silent",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
+  },
+  "type": "commonjs",
+  "version": "1.0.5"
 }
