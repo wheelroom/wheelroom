@@ -13,13 +13,13 @@ import {
   GlobalsModel,
   htmlReset,
   PageModel,
-  Seo,
-  SeoProps,
   useEmbeds,
 } from '@wheelroom/core'
 import { BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
 import { Sections, SectionsProps } from './sections'
 import { sectionWheels } from './section-wheels'
+import { SeoProps } from './seo-props'
+import { Seo } from './seo'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
