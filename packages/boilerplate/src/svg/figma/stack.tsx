@@ -1,9 +1,10 @@
 import React, { SVGProps } from 'react'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel } from '@wheelroom/core'
-export interface IconProps extends SVGProps<SVGSVGElement> {
+interface IconProps extends SVGProps<SVGSVGElement> {
   ncss: any
   wheel: Wheel
+  strokeWidth: number
 }
 const componentId = 'svg-stack'
 export const SvgStack = (props: IconProps) => {
