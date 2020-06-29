@@ -4,6 +4,7 @@ import { Wheel } from '../../lib/wheel'
 interface IconProps extends SVGProps<SVGSVGElement> {
   ncss: any
   wheel: Wheel
+  strokeWidth: number
 }
 const componentId = 'svg-volume1'
 export const SvgVolume1 = (props: IconProps) => {

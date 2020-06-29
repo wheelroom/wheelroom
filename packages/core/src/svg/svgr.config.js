@@ -27,6 +27,7 @@ module.exports = {
     interface IconProps extends SVGProps<SVGSVGElement> {
       ncss: any
       wheel: Wheel
+      strokeWidth: number
     }
     
     const componentId = '${svgrCliUtil.transformFilename(

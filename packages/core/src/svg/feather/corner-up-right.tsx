@@ -4,6 +4,7 @@ import { Wheel } from '../../lib/wheel'
 interface IconProps extends SVGProps<SVGSVGElement> {
   ncss: any
   wheel: Wheel
+  strokeWidth: number
 }
 const componentId = 'svg-corner-up-right'
 export const SvgCornerUpRight = (props: IconProps) => {
