@@ -5,7 +5,7 @@ import {
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
 
-export const navigationModels: WheelroomComponents = {
+export const navigationModelConfig: WheelroomComponents = {
   navigation: {
     fields: {
       variation: {

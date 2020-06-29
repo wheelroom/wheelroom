@@ -9,4 +9,4 @@ export type { TableSectionModel } from './models/table-section/model'
 export type { TableSectionNcssTree } from './models/table-section/ncss-tree'
 
 // Table config
-export { tableModels } from './config/table-models'
+export { tableModelConfig } from './config/table-model-config'

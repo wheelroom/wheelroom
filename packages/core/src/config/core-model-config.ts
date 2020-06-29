@@ -10,7 +10,7 @@ import {
 } from '@wheelroom/wheelroom'
 import { featherIconNames } from './feather-icon-names'
 
-export const coreModels: WheelroomComponents = {
+export const coreModelConfig: WheelroomComponents = {
   action: {
     fields: {
       heading: {

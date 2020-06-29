@@ -11,7 +11,7 @@ import {
 import { featherIconNames } from '@wheelroom/core'
 import { topicOptions } from './topic-options'
 
-export const topicModels: WheelroomComponents = {
+export const topicModelConfig: WheelroomComponents = {
   topic: {
     fields: {
       heading: {

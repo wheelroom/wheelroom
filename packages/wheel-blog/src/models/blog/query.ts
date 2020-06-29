@@ -6,8 +6,7 @@
  *
  */
 
-// eslint-disable-next-line no-undef
-module.exports = {
+export const blogQuery = {
   componentName: 'blog',
   query: `
   {

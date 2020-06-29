@@ -11,7 +11,7 @@ import {
 } from '@wheelroom/wheelroom'
 import { featherIconNames } from '@wheelroom/core'
 
-export const blogModels: WheelroomComponents = {
+export const blogModelConfig: WheelroomComponents = {
   blog: {
     fields: {
       heading: {

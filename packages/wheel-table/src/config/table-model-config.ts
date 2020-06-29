@@ -9,7 +9,7 @@ import {
 import { featherIconNames } from '@wheelroom/core'
 import { topicOptions } from '@wheelroom/wheel-topic'
 
-export const tableModels: WheelroomComponents = {
+export const tableModelConfig: WheelroomComponents = {
   tableRow: {
     fields: {
       variation: {

@@ -5,7 +5,7 @@ import {
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
 
-export const textModels: WheelroomComponents = {
+export const textModelConfig: WheelroomComponents = {
   textSection: {
     fields: {
       variation: {

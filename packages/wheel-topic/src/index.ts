@@ -15,5 +15,5 @@ export type { TopicOptions } from './lib/get-topic-options'
 export { getEmptyTopicOptions, getTopicOptions } from './lib/get-topic-options'
 
 // Topic config
-export { topicModels } from './config/topic-models'
+export { topicModelConfig } from './config/topic-model-config'
 export { topicOptions } from './config/topic-options'

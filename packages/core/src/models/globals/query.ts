@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /**
  * Graphql query definition
  *
@@ -7,8 +6,7 @@
  *
  */
 
-// eslint-disable-next-line no-undef
-module.exports = {
+export const globalsQuery = {
   componentName: 'globals',
   query: `
   {

@@ -10,4 +10,4 @@ export type { NavigationSegmentNcssTree } from './models/navigation-segment/ncss
 export type { BrandNavigationSegmentNcssTree } from './models/navigation-segment/ncss-tree'
 
 // Navigation config
-export { navigationModels } from './config/navigation-models'
+export { navigationModelConfig } from './config/navigation-model-config'

@@ -8,4 +8,4 @@ export type { TextSectionModel } from './models/text-section/model'
 export type { TextSectionNcssTree } from './models/text-section/ncss-tree'
 
 // Topic config
-export { textModels } from './config/text-models'
+export { textModelConfig } from './config/text-model-config'
