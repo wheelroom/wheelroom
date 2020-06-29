@@ -24,7 +24,7 @@ module.exports = {
     import React, { SVGProps } from 'react'
     import { styledSystem } from '@wheelroom/styled-system'
     import { Wheel } from '../../lib/wheel'
-        export interface IconProps extends SVGProps<SVGSVGElement> {
+    interface IconProps extends SVGProps<SVGSVGElement> {
       ncss: any
       wheel: Wheel
     }
