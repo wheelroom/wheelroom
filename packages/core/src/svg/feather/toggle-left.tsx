@@ -1,7 +1,20 @@
 import React, { SVGProps } from 'react'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel } from '@wheelroom/core'
+export interface IconProps extends SVGProps<SVGSVGElement> {
+  ncss: any
+  wheel: Wheel
+}
 const componentId = 'svg-toggle-left'
-export const SvgToggleLeft = (props: SVGProps<SVGSVGElement>) => {
+export const SvgToggleLeft = (props: IconProps) => {
   const strokeWidth = props.strokeWidth || 2
+  const css = styledSystem(
+    props.wheel.wrSystemConfig,
+    props.wheel.wrSystemTheme,
+    {
+      ncss: props.ncss,
+    }
+  )
   return (
     <svg
       viewBox="0 0 24 24"
@@ -11,6 +24,7 @@ export const SvgToggleLeft = (props: SVGProps<SVGSVGElement>) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="toggle-left_svg__feather toggle-left_svg__feather-toggle-left"
+      css={css}
       id={componentId}
       width="100%"
     >

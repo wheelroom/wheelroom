@@ -1,7 +1,20 @@
 import React, { SVGProps } from 'react'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel } from '@wheelroom/core'
+export interface IconProps extends SVGProps<SVGSVGElement> {
+  ncss: any
+  wheel: Wheel
+}
 const componentId = 'svg-more-horizontal'
-export const SvgMoreHorizontal = (props: SVGProps<SVGSVGElement>) => {
+export const SvgMoreHorizontal = (props: IconProps) => {
   const strokeWidth = props.strokeWidth || 2
+  const css = styledSystem(
+    props.wheel.wrSystemConfig,
+    props.wheel.wrSystemTheme,
+    {
+      ncss: props.ncss,
+    }
+  )
   return (
     <svg
       viewBox="0 0 24 24"
@@ -11,6 +24,7 @@ export const SvgMoreHorizontal = (props: SVGProps<SVGSVGElement>) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="more-horizontal_svg__feather more-horizontal_svg__feather-more-horizontal"
+      css={css}
       id={componentId}
       width="100%"
     >

@@ -1,7 +1,20 @@
 import React, { SVGProps } from 'react'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel } from '@wheelroom/core'
+export interface IconProps extends SVGProps<SVGSVGElement> {
+  ncss: any
+  wheel: Wheel
+}
 const componentId = 'svg-linkedin'
-export const SvgLinkedin = (props: SVGProps<SVGSVGElement>) => {
+export const SvgLinkedin = (props: IconProps) => {
   const strokeWidth = props.strokeWidth || 2
+  const css = styledSystem(
+    props.wheel.wrSystemConfig,
+    props.wheel.wrSystemTheme,
+    {
+      ncss: props.ncss,
+    }
+  )
   return (
     <svg
       viewBox="0 0 24 24"
@@ -11,6 +24,7 @@ export const SvgLinkedin = (props: SVGProps<SVGSVGElement>) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="linkedin_svg__feather linkedin_svg__feather-linkedin"
+      css={css}
       id={componentId}
       width="100%"
     >

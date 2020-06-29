@@ -1,7 +1,20 @@
 import React, { SVGProps } from 'react'
+import { styledSystem } from '@wheelroom/styled-system'
+import { Wheel } from '@wheelroom/core'
+export interface IconProps extends SVGProps<SVGSVGElement> {
+  ncss: any
+  wheel: Wheel
+}
 const componentId = 'svg-search'
-export const SvgSearch = (props: SVGProps<SVGSVGElement>) => {
+export const SvgSearch = (props: IconProps) => {
   const strokeWidth = props.strokeWidth || 2
+  const css = styledSystem(
+    props.wheel.wrSystemConfig,
+    props.wheel.wrSystemTheme,
+    {
+      ncss: props.ncss,
+    }
+  )
   return (
     <svg
       viewBox="0 0 24 24"
@@ -11,6 +24,7 @@ export const SvgSearch = (props: SVGProps<SVGSVGElement>) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="search_svg__feather search_svg__feather-search"
+      css={css}
       id={componentId}
       width="100%"
     >
