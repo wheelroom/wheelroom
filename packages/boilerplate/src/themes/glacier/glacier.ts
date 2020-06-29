@@ -1,4 +1,4 @@
-import { SectionWheelTheme } from '../../../src-core'
+import { SectionWheelTheme } from '@wheelroom/core'
 import { wrSystemTheme } from '../wr-system-theme'
 import { elementNcss } from './element-ncss/element-ncss'
 import { styles } from './ncss-trees/styles'

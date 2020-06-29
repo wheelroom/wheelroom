@@ -1,4 +1,4 @@
-import { NcssNode } from '../../../../src-core'
+import { NcssNode } from '@wheelroom/core'
 
 export const containerNcssNode: NcssNode = {
   ncss: {

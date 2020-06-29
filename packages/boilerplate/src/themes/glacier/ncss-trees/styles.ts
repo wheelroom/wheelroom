@@ -1,4 +1,4 @@
-import { SectionWheelThemeStyles, deepMerge } from '../../../../src-core'
+import { SectionWheelThemeStyles, deepMerge } from '@wheelroom/core'
 import { blogSectionBlogNcssTree } from './blog/blog-ncss-tree'
 import { blogSectionListNcssTree } from './blog/list-ncss-tree'
 import { navigationSectionHeaderNcssTree } from './navigation/navigation-section/header-ncss-tree'

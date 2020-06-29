@@ -3,7 +3,7 @@ import {
   mapsPreset,
   scalesPreset,
   WrSystemTheme,
-} from '../../src-core'
+} from '@wheelroom/core'
 
 export const wrSystemTheme: WrSystemTheme = {
   ...breakpointsPreset,

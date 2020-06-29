@@ -1,4 +1,5 @@
-import { TopicSectionNcssTree } from '../../../../../../src-topic-wheel'
+import { TopicSectionNcssTree } from '@wheelroom/wheel-topic'
+import { DeepPartial } from '@wheelroom/core'
 import {
   primaryButtonNcssNode,
   displayButtonNcssNode,
@@ -7,7 +8,6 @@ import {
 import { iconButtonNcssNode, iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
 import { wrapperNcssNode } from '../../grid-ncss'
-import { DeepPartial } from '../../../../../../src-core'
 
 export const topicSectionFeaturedNcssTree: DeepPartial<TopicSectionNcssTree> = {
   container: {

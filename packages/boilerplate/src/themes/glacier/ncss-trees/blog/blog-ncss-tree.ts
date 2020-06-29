@@ -1,6 +1,6 @@
-import { BlogSectionBlogNcssTree } from '../../../../../src-blog-wheel'
+import { BlogSectionBlogNcssTree } from '@wheelroom/wheel-blog'
+import { deepMerge, DeepPartial } from '@wheelroom/core'
 import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
-import { deepMerge, DeepPartial } from '../../../../../src-core'
 import { topicNcssTree } from '../topic/topic/topic-ncss-tree'
 import { textSectionTextNcssTree } from '../text/text-ncss-tree'
 import { embedNcssNode } from '../embed-ncss'

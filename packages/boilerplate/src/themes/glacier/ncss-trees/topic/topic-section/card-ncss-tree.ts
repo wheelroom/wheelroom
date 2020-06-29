@@ -1,9 +1,9 @@
-import { TopicSectionNcssTree } from '../../../../../../src-topic-wheel'
+import { TopicSectionNcssTree } from '@wheelroom/wheel-topic'
+import { deepMerge, DeepPartial } from '@wheelroom/core'
 import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
 import { primaryButtonNcssNode } from '../../../element-ncss/button-ncss'
 import { iconTopicNcssNode } from '../../icon-ncss'
 import { embedNcssNode } from '../../embed-ncss'
-import { deepMerge, DeepPartial } from '../../../../../../src-core'
 
 const containerNcss = {
   maxWidth: '288px',

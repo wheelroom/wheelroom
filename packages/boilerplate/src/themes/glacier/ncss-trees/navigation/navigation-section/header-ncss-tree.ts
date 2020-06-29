@@ -1,5 +1,5 @@
-import { deepMerge, DeepPartial } from '../../../../../../src-core'
-import { NavigationSectionHeaderNcssTree } from '../../../../../../src-navigation-wheel'
+import { deepMerge, DeepPartial } from '@wheelroom/core'
+import { NavigationSectionHeaderNcssTree } from '@wheelroom/wheel-navigation'
 import { wrapperNcssNode } from '../../grid-ncss'
 import {
   primaryButtonNcssNode,

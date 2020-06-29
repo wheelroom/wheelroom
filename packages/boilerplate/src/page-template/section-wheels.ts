@@ -1,4 +1,8 @@
-import { wrSystemConfig, SectionWheels, supportsDarkMode } from '../../src-core'
+import {
+  wrSystemConfig,
+  SectionWheels,
+  supportsDarkMode,
+} from '@wheelroom/core'
 import { glacierDark, glacierLight } from '../themes/glacier/glacier'
 
 export const sectionWheels: SectionWheels = {

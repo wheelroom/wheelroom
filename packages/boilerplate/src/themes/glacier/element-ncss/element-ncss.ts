@@ -1,4 +1,4 @@
-import { ElementResetNcssTree } from '../../../../src-core'
+import { ElementResetNcssTree } from '@wheelroom/core'
 import { headingNcss } from './heading-ncss'
 import { paragraphNcssNode } from './paragraph-ncss'
 import { primaryButtonNcssNode } from './button-ncss'

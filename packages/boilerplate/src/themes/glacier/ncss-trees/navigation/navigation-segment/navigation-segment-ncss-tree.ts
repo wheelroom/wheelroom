@@ -1,4 +1,4 @@
-import { NavigationSegmentNcssTree } from '../../../../../../src-navigation-wheel'
+import { NavigationSegmentNcssTree } from '@wheelroom/wheel-navigation'
 import { iconSmallNcss } from '../../icon-ncss'
 
 export const navigationSegmentNcssTree: NavigationSegmentNcssTree = {

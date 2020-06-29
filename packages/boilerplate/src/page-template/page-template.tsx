@@ -16,8 +16,8 @@ import {
   Seo,
   SeoProps,
   useEmbeds,
-} from '../../src-core'
-import { BlogModel, AllBlogModel } from '../../src-blog-wheel'
+} from '@wheelroom/core'
+import { BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
 import { Sections, SectionsProps } from './sections'
 import { sectionWheels } from './section-wheels'
 

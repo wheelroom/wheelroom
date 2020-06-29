@@ -1,5 +1,5 @@
 import { ThemeInfo } from '@wheelroom/admin-theme-switcher'
-import { PageModel } from '../../src-core'
+import { PageModel } from '@wheelroom/core'
 import { sectionWheels } from '../page-template/section-wheels'
 
 export const themeInfo = (props: any): ThemeInfo => {

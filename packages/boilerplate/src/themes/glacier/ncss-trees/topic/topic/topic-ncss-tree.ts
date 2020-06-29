@@ -1,4 +1,4 @@
-import { TopicNcssTree } from '../../../../../../src-topic-wheel'
+import { TopicNcssTree } from '@wheelroom/wheel-topic'
 
 export const topicNcssTree: TopicNcssTree = {
   ncssSwitch: {

@@ -1,6 +1,6 @@
-import { NavigationSectionFooterNcssTree } from '../../../../../../src-navigation-wheel'
+import { NavigationSectionFooterNcssTree } from '@wheelroom/wheel-navigation'
+import { deepMerge, DeepPartial } from '@wheelroom/core'
 import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
-import { deepMerge, DeepPartial } from '../../../../../../src-core'
 import { navigationSegmentNcssTree } from '../navigation-segment/navigation-segment-ncss-tree'
 
 export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFooterNcssTree> = {

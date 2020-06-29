@@ -1,8 +1,8 @@
+import { TableSectionNcssTree } from '@wheelroom/wheel-table'
+import { deepMerge, DeepPartial } from '@wheelroom/core'
 import { iconSmallTopicNcssNode, iconButtonSmallNcssNode } from '../icon-ncss'
 import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
-import { TableSectionNcssTree } from '../../../../../src-table-wheel'
 import { embedNcssNode } from '../embed-ncss'
-import { deepMerge, DeepPartial } from '../../../../../src-core'
 import { topicNcssTree } from '../topic/topic/topic-ncss-tree'
 
 export const tableSectionPriceNcssTree: DeepPartial<TableSectionNcssTree> = {

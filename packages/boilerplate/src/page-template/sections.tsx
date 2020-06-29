@@ -1,18 +1,18 @@
 import React from 'react'
 
 import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { BlogSection, BlogModel, AllBlogModel } from '../../src-blog-wheel'
-import { TextSection } from '../../src-text-wheel'
-import { NavigationSection } from '../../src-navigation-wheel'
-import { TableSection } from '../../src-table-wheel'
-import { TopicSection } from '../../src-topic-wheel'
+import { BlogSection, BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
+import { TextSection } from '@wheelroom/wheel-text'
+import { NavigationSection } from '@wheelroom/wheel-navigation'
+import { TableSection } from '@wheelroom/wheel-table'
+import { TopicSection } from '@wheelroom/wheel-topic'
 import {
   GlobalsModel,
   CoreSiteMetadata,
   PageModel,
   SectionWheels,
   ScrollSpy,
-} from '../../src-core'
+} from '@wheelroom/core'
 import { Landmarks } from './landmarks'
 import { SectionProps } from './section-props'
 

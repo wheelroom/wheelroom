@@ -1,6 +1,6 @@
+import { BlogSectionListNcssTree } from '@wheelroom/wheel-blog'
+import { DeepPartial } from '@wheelroom/core'
 import { wrapperNcssNode } from '../grid-ncss'
-import { BlogSectionListNcssTree } from '../../../../../src-blog-wheel'
-import { DeepPartial } from '../../../../../src-core'
 
 export const blogSectionListNcssTree: DeepPartial<BlogSectionListNcssTree> = {
   container: {

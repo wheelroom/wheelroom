@@ -1,5 +1,5 @@
 import { jsx } from '@emotion/core'
-import { CoreSectionProps } from '../../src-core'
+import { CoreSectionProps } from '@wheelroom/core'
 
 export const getLandmark = (
   pageProps: CoreSectionProps,
