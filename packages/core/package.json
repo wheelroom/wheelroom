@@ -91,10 +91,11 @@
     "build": "npm-run-all build:*",
     "build:compile": "tsc",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "lint-fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
     "install-peers": "npm-install-peers",
     "prepack": "npm run build",
     "test": "npm run build:test",
-    "svgr": "svgr --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/feather src/svg/feather --config-file ./src/svg/feather/svgr.config.js"
+    "svgr": "svgr --typescript --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/feather src/svg/feather --config-file ./src/svg/svgr.config.js"
   },
   "type": "commonjs",
   "version": "1.0.7"
