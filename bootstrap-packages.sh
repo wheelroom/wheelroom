@@ -9,6 +9,7 @@
 # Note: you might want to run 'lerna clean' before using the script
 #
 
+# Make sure base folders for npm modules that are linked are present in these packages
 prepare_module_folder() {
 
     echo "Preparing folder: $1"
@@ -29,6 +30,7 @@ prepare_module_folder() {
     mkdir -p packages/wheel-topic/node_modules/$1
 }
 
+# Remove npm module folders that will be linked for these packages 
 remove_module_folder() {
 
     echo "Removing folder: $1"
@@ -51,6 +53,7 @@ remove_module_folder() {
 
 }
 
+# Symlink npm packages to use npm module from boilerplate for these packages
 link_module_folder() {
 
     if [ -d "packages/boilerplate/node_modules/$1" ]; then
@@ -90,8 +93,6 @@ remove_all_module_folders() {
     remove_module_folder @types/react
     remove_module_folder @emotion/core
     remove_module_folder @wheelroom/admin-core
-    remove_module_folder @wheelroom/core
-    remove_module_folder @wheelroom/wheel-topic
     remove_module_folder @reach/router
     remove_module_folder react
     remove_module_folder react-dom
@@ -102,8 +103,6 @@ link_all_module_folders() {
     link_module_folder @types/react ../../../boilerplate/node_modules/@types/react
     link_module_folder @emotion/core ../../../boilerplate/node_modules/@emotion/core
     link_module_folder @wheelroom/admin-core ../../../boilerplate/node_modules/@wheelroom/admin-core
-    link_module_folder @wheelroom/core ../../../boilerplate/node_modules/@wheelroom/core
-    link_module_folder @wheelroom/wheel-topic ../../../boilerplate/node_modules/@wheelroom/wheel-topic
     link_module_folder @reach/router ../../../boilerplate/node_modules/@reach/router
 
     link_module_folder react ../../boilerplate/node_modules/react

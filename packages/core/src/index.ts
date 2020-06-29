@@ -10,7 +10,6 @@ export type {
   SectionWheelThemes,
   SectionWheelThemeStyles,
 } from './lib/section-wheels'
-export type { SeoProps } from './lib/seo-props'
 export type { Wheel } from './lib/wheel'
 
 // Parsers
@@ -82,7 +81,6 @@ export { ParseNewLines } from './parsers/parse-new-lines'
 export { ParseStarsToBold } from './parsers/parse-stars-to-bold'
 export { ParseTable } from './parsers/parse-table'
 export { ScrollSpy } from './lib/scroll-spy'
-export { Seo } from './lib/seo'
 export { Video } from './elements/video'
 
 // Methods
