@@ -1,14 +1,14 @@
 import { WheelroomConfig } from '@wheelroom/wheelroom'
 import {
   contentfulFieldDefinitions,
-  coreModels,
+  coreModelConfig,
   fieldDefautls,
   commonFields,
 } from '@wheelroom/core'
-import { tableModels } from '@wheelroom/wheel-table'
-import { blogModels } from '@wheelroom/wheel-blog'
-import { textModels } from '@wheelroom/wheel-text'
-import { topicModels } from '@wheelroom/wheel-topic'
+import { tableModelConfig } from '@wheelroom/wheel-table'
+import { blogModelConfig } from '@wheelroom/wheel-blog'
+import { textModelConfig } from '@wheelroom/wheel-text'
+import { topicModelConfig } from '@wheelroom/wheel-topic'
 // The files are in a temp local folder, because of the ts compiler
 import { boilerplateTemplates } from './template-sets/boilerplate/boilerplate-templates'
 import { graphqlTemplates } from './template-sets/graphql/graphql-templates'
@@ -18,11 +18,11 @@ import { replaceSets } from './replace-sets'
 export const config: WheelroomConfig = {
   commonFields: commonFields,
   components: {
-    ...coreModels,
-    ...blogModels,
-    ...tableModels,
-    ...topicModels,
-    ...textModels,
+    ...coreModelConfig,
+    ...blogModelConfig,
+    ...tableModelConfig,
+    ...topicModelConfig,
+    ...textModelConfig,
   },
   fieldDefaults: fieldDefautls,
   plugins: [
