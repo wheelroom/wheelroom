@@ -35,6 +35,7 @@ const getAttrs = (props: AnyElementProps) => {
     'aria-modal': props.ariaModal,
     role: props.role,
     onClick: props.onClick,
+    dangerouslySetInnerHTML: props.dangerouslySetInnerHTML,
   }
   return attrs
 }
