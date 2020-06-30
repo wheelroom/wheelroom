@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@1.0.10...@wheelroom/core@1.0.11) (2020-06-30)
+
+
+### Bug Fixes
+
+* make eventId optional ([a38e3e2](https://github.com/wheelroom/wheelroom/commit/a38e3e21a9545ea6837c2d468dd0a80fde3903e5))
+
+
+
+
+
 ## [1.0.10](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@1.0.9...@wheelroom/core@1.0.10) (2020-06-30)
 
 **Note:** Version bump only for package @wheelroom/core

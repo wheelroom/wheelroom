@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.4.6...@wheelroom/wheelroom-plugin-contentful@3.4.7) (2020-06-30)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful
+
+
+
+
+
 ## [3.4.6](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.4.5...@wheelroom/wheelroom-plugin-contentful@3.4.6) (2020-06-30)
 
 **Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful

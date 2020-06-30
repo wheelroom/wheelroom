@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@4.1.0...@wheelroom/boilerplate@4.1.1) (2020-06-30)
+
+
+### Bug Fixes
+
+* rename pageSection into topicSection ([58a15ce](https://github.com/wheelroom/wheelroom/commit/58a15ce120d891ad1ff8144c4451a7c1d356e51e))
+
+
+
+
+
 # [4.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@4.0.0...@wheelroom/boilerplate@4.1.0) (2020-06-30)
 
 
