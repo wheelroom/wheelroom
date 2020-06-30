@@ -6,7 +6,7 @@ interface ScrollSpyProps extends CoreSectionProps {
   /** The #id added to the div  */
   children: any
   siteEmbeds: EmbedModel[]
-  eventId: string
+  eventId?: string
 }
 
 export const ScrollSpy = (props: ScrollSpyProps) => {
