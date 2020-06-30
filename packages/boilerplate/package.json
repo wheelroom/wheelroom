@@ -111,6 +111,7 @@
   },
   "scripts": {
     "lint-fix": "eslint 'src*/**/*.{js,ts,tsx}' --fix",
+    "build:fragments": "./copy-graphql-fragments.sh",
     "build:gatsby": "gatsby build",
     "netlify": "npm-run-all build:*",
     "compile-config": "tsc --project src/wheelroom-config/tsconfig.json",
