@@ -10,20 +10,23 @@ module.exports = {
     strokeWidth: '{strokeWidth}',
     width: '100%',
   },
-  template(
-    { template },
-    opts,
-    { imports, componentName, props, jsx, exports }
-  ) {
+  template({ template }, opts, { interfaces, componentName, jsx }) {
     const plugins = ['jsx']
+    const preserveComments = true
     if (opts.typescript) {
       plugins.push('typescript')
     }
-    const typeScriptTpl = template.smart({ plugins })
+    const typeScriptTpl = template.smart({
+      plugins,
+      preserveComments,
+    })
     return typeScriptTpl.ast`
-    import React, { SVGProps } from 'react'
+    /** @jsx jsx */
+    import { SVGProps } from 'react'
+    import { jsx } from '@emotion/core'
     import { styledSystem } from '@wheelroom/styled-system'
     import { Wheel } from '@wheelroom/core'
+    ${interfaces}
     interface IconProps extends SVGProps<SVGSVGElement> {
       ncss: any
       wheel: Wheel
@@ -39,9 +42,7 @@ module.exports = {
       const css = styledSystem(
         props.wheel.wrSystemConfig,
         props.wheel.wrSystemTheme,
-        {
-          ncss: props.ncss,
-        }
+        props.ncss
       )
       return ${jsx};
     }
