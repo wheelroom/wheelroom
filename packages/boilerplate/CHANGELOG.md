@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@4.0.0...@wheelroom/boilerplate@4.1.0) (2020-06-30)
+
+
+### Features
+
+* module checks in copy-graphql-fragments.sh ([562ab03](https://github.com/wheelroom/wheelroom/commit/562ab03aaefedfe9b83440635eb2bbbfe95d2fb9))
+
+
+
+
+
 # [4.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.4.6...@wheelroom/boilerplate@4.0.0) (2020-06-30)
 
 
