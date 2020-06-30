@@ -34,19 +34,21 @@ import {
   WheelroomComponent,
 } from '@wheelroom/wheelroom'
 import * as fse from 'fs-extra'
+import { coreModelConfig } from '@wheelroom/core'
+import { navigationModelConfig } from '@wheelroom/wheel-navigation'
+import { tableModelConfig } from '@wheelroom/wheel-table'
+import { blogModelConfig } from '@wheelroom/wheel-blog'
+import { textModelConfig } from '@wheelroom/wheel-text'
+import { topicModelConfig } from '@wheelroom/wheel-topic'
 import { contentSets } from '../content-sets/content-sets'
-import { coreModels } from '@wheelroom/core'
-import { tableModels } from '@wheelroom/wheel-table'
-import { blogModels } from '@wheelroom/wheel-blog'
-import { textModels } from '@wheelroom/wheel-text'
-import { topicModels } from '@wheelroom/wheel-topic'
 
 const models = {
-  ...coreModels,
-  ...blogModels,
-  ...tableModels,
-  ...textModels,
-  ...topicModels,
+  ...coreModelConfig,
+  ...blogModelConfig,
+  ...navigationModelConfig,
+  ...tableModelConfig,
+  ...textModelConfig,
+  ...topicModelConfig,
 }
 
 type ContentSetName = 'starter'
