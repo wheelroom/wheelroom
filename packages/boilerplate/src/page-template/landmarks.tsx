@@ -7,7 +7,7 @@ import { Landmark, getLandmark } from './landmark'
  * Fragment below. As a consequence the order of the sections is bound to the
  * order of the landmarks below.
  *
- * To change this behaviour, change the getLandmark method above.
+ * To change this behaviour, change the getLandmark method in landmark.tsx
  *
  */
 export const Landmarks = (props: any) => {

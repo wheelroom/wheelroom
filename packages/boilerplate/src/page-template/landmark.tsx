@@ -7,8 +7,8 @@ export const getLandmark = (
 ): string => {
   const isNavigationSection =
     pageProps.__typename === 'ContentfulNavigationSection'
-  const isPageSection = pageProps.__typename === 'ContentfulPageSection'
-  const isHero = isPageSection && pageProps.variation === 'hero'
+  const isTopicSection = pageProps.__typename === 'ContentfulTopicSection'
+  const isHero = isTopicSection && pageProps.variation === 'hero'
   if (pageProps.index <= 1 && (isHero || isNavigationSection)) {
     return 'header'
   }
