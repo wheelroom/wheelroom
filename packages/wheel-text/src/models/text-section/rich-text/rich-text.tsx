@@ -267,13 +267,20 @@ export const RichText = (props: RichTextProps) => {
       [BLOCKS.EMBEDDED_ENTRY]: (node: Node) => {
         const fields = node.data.target.fields
         if (!fields) {
+          // eslint-disable-next-line no-undef
+          console.log(
+            'Warning: embedded asset fields not found, try npx gatsby clean'
+          )
           return null
         }
+        const localizedCode = getLocalizedValue(textProps.locale, fields.code)
+        const localizedTitle = getLocalizedValue(textProps.locale, fields.title)
+        const localizedType = getLocalizedValue(textProps.locale, fields.type)
         return (
           <Embed
-            code={fields.code}
-            type={fields.type}
-            title={fields.title}
+            code={localizedCode}
+            type={localizedType}
+            title={localizedTitle}
             wheel={{ ...textProps.wheel, style: textProps.wheel.style.embed }}
           />
         )
