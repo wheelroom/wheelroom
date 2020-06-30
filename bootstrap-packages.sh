@@ -125,5 +125,5 @@ link_all_module_folders
 echo "Restoring sym links to npm packages"
 lerna link
 
-echo "Running typescript compiler for all packages"
-lerna run build:compile
+echo "Running build for all packages"
+lerna run build
