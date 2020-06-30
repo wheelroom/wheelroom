@@ -87,7 +87,7 @@
     "build": "npm-run-all build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "tsc",
-    "build:test": "jest",
+    "build:test": "jest --silent --passWithNoTests",
     "install-peers": "npm-install-peers",
     "prepack": "npm run build",
     "dev": "tsc -w"

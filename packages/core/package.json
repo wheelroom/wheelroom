@@ -95,9 +95,9 @@
     "build:compile": "tsc",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "lint-fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "build:test": "jest --silent --passWithNoTests",
     "install-peers": "npm-install-peers",
     "prepack": "npm run build",
-    "test": "npm run build:test",
     "svgr": "svgr --typescript --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/feather src/svg/feather --config-file ./src/svg/svgr.config.js",
     "dev": "tsc -w"
   },

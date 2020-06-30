@@ -86,7 +86,7 @@
     "build": "npm-run-all build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "tsc",
-    "build:test": "jest --silent",
+    "build:test": "jest --silent --passWithNoTests",
     "prepack": "npm run build",
     "test": "npm run build:test",
     "dev": "tsc -w"
