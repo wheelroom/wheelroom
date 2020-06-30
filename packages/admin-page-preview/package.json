@@ -17,8 +17,8 @@
   },
   "description": "Page preview module for WHeelroom admin",
   "dependencies": {
-    "regenerator-runtime": "0.13.5",
-    "@wheelroom/contentful-page-preview": "1.4.4"
+    "@wheelroom/contentful-page-preview": "1.4.5",
+    "regenerator-runtime": "0.13.5"
   },
   "devDependencies": {
     "@types/jest": "25.1.4",
@@ -88,6 +88,6 @@
     "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }
