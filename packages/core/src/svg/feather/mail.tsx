@@ -1,4 +1,6 @@
-import React, { SVGProps } from 'react'
+/** @jsx jsx */
+import { SVGProps } from 'react'
+import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { Wheel } from '../../lib/wheel'
 interface IconProps extends SVGProps<SVGSVGElement> {
@@ -12,9 +14,7 @@ export const SvgMail = (props: IconProps) => {
   const css = styledSystem(
     props.wheel.wrSystemConfig,
     props.wheel.wrSystemTheme,
-    {
-      ncss: props.ncss,
-    }
+    props.ncss
   )
   return (
     <svg

@@ -23,7 +23,7 @@ export const FeatherIcon = (props: FeatherIconElementProps) => {
       props,
     ])
 
-    return <RenderIcon ncss={ncss.ncss} wheel={props.wheel} />
+    return <RenderIcon ncss={ncss} wheel={props.wheel} />
   } else {
     return <div>Feather icon {props.icon} not found</div>
   }
