@@ -68,7 +68,8 @@
     "build:compile": "tsc",
     "build:test": "jest --silent",
     "prepack": "npm run build",
-    "test": "npm run build:test"
+    "test": "npm run build:test",
+    "dev": "tsc -w"
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",

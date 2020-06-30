@@ -84,7 +84,8 @@
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "install-peers": "npm-install-peers",
     "prepack": "npm run build",
-    "test": "npm run build:test"
+    "test": "npm run build:test",
+    "dev": "tsc -w"
   },
   "type": "commonjs",
   "version": "1.5.6",

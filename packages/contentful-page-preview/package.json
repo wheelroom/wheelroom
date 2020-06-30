@@ -71,7 +71,8 @@
     "build:test": "jest --silent",
     "api-test:create-page": "jest  --testMatch '**/api-test-create-page-preview.ts'",
     "prepack": "npm run build",
-    "test": "npm run build:test"
+    "test": "npm run build:test",
+    "dev": "tsc -w"
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",

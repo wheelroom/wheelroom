@@ -57,7 +57,8 @@
     "build:compile": "tsc",
     "build:test": "jest",
     "install-peers": "npm-install-peers",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "dev": "tsc -w"
   },
   "types": "dist/index.d.ts",
   "version": "4.1.4",

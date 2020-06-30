@@ -84,7 +84,8 @@
     "api-test:dm": "jest ./src/commands/delete-models/delete-models.int.test.ts",
     "api-test:dc": "jest ./src/commands/delete-content/delete-content.int.test.ts",
     "api-test:rc": "jest ./src/commands/replace-content/replace-content.int.test.ts",
-    "test": "npm run build:test"
+    "test": "npm run build:test",
+    "dev": "tsc -w"
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
