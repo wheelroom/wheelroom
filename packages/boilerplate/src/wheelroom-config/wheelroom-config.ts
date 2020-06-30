@@ -7,9 +7,9 @@ import {
 } from '@wheelroom/core'
 import { tableModelConfig } from '@wheelroom/wheel-table'
 import { blogModelConfig } from '@wheelroom/wheel-blog'
+import { navigationModelConfig } from '@wheelroom/wheel-navigation'
 import { textModelConfig } from '@wheelroom/wheel-text'
 import { topicModelConfig } from '@wheelroom/wheel-topic'
-// The files are in a temp local folder, because of the ts compiler
 import { boilerplateTemplates } from './template-sets/boilerplate/boilerplate-templates'
 import { graphqlTemplates } from './template-sets/graphql/graphql-templates'
 import { contentSets } from './content-sets/content-sets'
@@ -20,6 +20,7 @@ export const config: WheelroomConfig = {
   components: {
     ...coreModelConfig,
     ...blogModelConfig,
+    ...navigationModelConfig,
     ...tableModelConfig,
     ...topicModelConfig,
     ...textModelConfig,
