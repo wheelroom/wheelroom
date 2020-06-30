@@ -55,3 +55,6 @@ atlassian-ide-plugin.xml
 
 # MacOS
 .DS_Store
+
+#graphql-fragments
+/packages/boilerplate/src/graphql-fragments/

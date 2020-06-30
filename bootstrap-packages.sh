@@ -9,6 +9,7 @@
 # Note: you might want to run 'lerna clean' before using the script
 #
 
+# Make sure base folders for npm modules that are linked are present in these packages
 prepare_module_folder() {
 
     echo "Preparing folder: $1"
@@ -21,8 +22,15 @@ prepare_module_folder() {
     mkdir -p packages/admin-panel/node_modules/$1
     mkdir -p packages/admin-page-preview/node_modules/$1
     mkdir -p packages/admin-theme-switcher/node_modules/$1
+    mkdir -p packages/core/node_modules/$1
+    mkdir -p packages/wheel-blog/node_modules/$1
+    mkdir -p packages/wheel-navigation/node_modules/$1
+    mkdir -p packages/wheel-table/node_modules/$1
+    mkdir -p packages/wheel-text/node_modules/$1
+    mkdir -p packages/wheel-topic/node_modules/$1
 }
 
+# Remove npm module folders that will be linked for these packages 
 remove_module_folder() {
 
     echo "Removing folder: $1"
@@ -36,8 +44,16 @@ remove_module_folder() {
     rm -rf packages/admin-panel/node_modules/$1
     rm -rf packages/admin-page-preview/node_modules/$1
     rm -rf packages/admin-theme-switcher/node_modules/$1
+    rm -rf packages/core/node_modules/$1
+    rm -rf packages/wheel-blog/node_modules/$1
+    rm -rf packages/wheel-navigation/node_modules/$1
+    rm -rf packages/wheel-table/node_modules/$1
+    rm -rf packages/wheel-text/node_modules/$1
+    rm -rf packages/wheel-topic/node_modules/$1
+
 }
 
+# Symlink npm packages to use npm module from boilerplate for these packages
 link_module_folder() {
 
     if [ -d "packages/boilerplate/node_modules/$1" ]; then
@@ -53,6 +69,12 @@ link_module_folder() {
         ln -s $2 packages/admin-panel/node_modules/$1
         ln -s $2 packages/admin-page-preview/node_modules/$1
         ln -s $2 packages/admin-theme-switcher/node_modules/$1
+        ln -s $2 packages/core/node_modules/$1
+        ln -s $2 packages/wheel-blog/node_modules/$1
+        ln -s $2 packages/wheel-navigation/node_modules/$1
+        ln -s $2 packages/wheel-table/node_modules/$1
+        ln -s $2 packages/wheel-text/node_modules/$1
+        ln -s $2 packages/wheel-topic/node_modules/$1
 
     else
         echo "Warning: could not find packages/boilerplate/node_modules/$1"

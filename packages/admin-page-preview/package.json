@@ -16,6 +16,10 @@
     "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "description": "Page preview module for WHeelroom admin",
+  "dependencies": {
+    "@wheelroom/contentful-page-preview": "1.4.5",
+    "regenerator-runtime": "0.13.5"
+  },
   "devDependencies": {
     "@types/jest": "25.1.4",
     "@types/node": "13.9.2",
@@ -58,9 +62,6 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@wheelroom/admin-page-preview",
-  "dependencies": {
-    "@wheelroom/contentful-page-preview": "1.4.2"
-  },
   "peerDependencies": {
     "@emotion/core": "10.x",
     "@reach/router": "1.x",
@@ -83,9 +84,10 @@
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "install-peers": "npm-install-peers",
     "prepack": "npm run build",
-    "test": "npm run build:test"
+    "test": "npm run build:test",
+    "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "1.5.4",
+  "version": "1.5.7",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

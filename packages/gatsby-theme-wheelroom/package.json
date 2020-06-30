@@ -16,7 +16,7 @@
     "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
-    "@wheelroom/wheelroom": "4.3.2",
+    "@wheelroom/wheelroom": "4.3.5",
     "camelcase": "5.3.1",
     "dotenv": "8.2.0"
   },
@@ -80,9 +80,10 @@
     "build:compile": "tsc",
     "build:test": "jest --silent",
     "prepack": "npm run build",
-    "test": "npm run build:test"
+    "test": "npm run build:test",
+    "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "5.0.5",
+  "version": "5.0.8",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

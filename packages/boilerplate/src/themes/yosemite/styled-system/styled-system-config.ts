@@ -1,1 +1,0 @@
-export { styledSystemConfig } from '../../../wheelroom'

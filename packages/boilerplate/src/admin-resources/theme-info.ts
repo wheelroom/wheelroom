@@ -1,31 +1,22 @@
 import { ThemeInfo } from '@wheelroom/admin-theme-switcher'
-import { PageProps } from '../wheelroom'
-
-export type ThemeId = 'light' | 'dark'
+import { PageModel } from '@wheelroom/core'
+import { sectionWheels } from '../page-template/section-wheels'
 
 export const themeInfo = (props: any): ThemeInfo => {
-  const isServer = typeof window === 'undefined'
-  const supportsDarkMode =
-    !isServer &&
-    // eslint-disable-next-line no-undef
-    window.matchMedia('(prefers-color-scheme: dark)').matches === true
+  const page: PageModel = props && props.data && props.data.page
+  const pageThemeId = page && page.theme
 
-  const defaultTheme = supportsDarkMode ? 'dark' : 'light'
-
-  const page: PageProps = props && props.data && props.data.page
-  const pageTheme = page && page.theme
-
-  return {
-    pageTheme,
-    themeNames: {
-      light: {
-        name: 'Light theme',
-        default: defaultTheme === 'light',
-      },
-      dark: {
-        name: 'Dark theme',
-        default: defaultTheme === 'dark',
-      },
-    },
+  const themeIds = Object.keys(sectionWheels.themes)
+  const themeInfo: ThemeInfo = {
+    defaultThemeId: sectionWheels.defaultThemeId,
+    pageThemeId,
+    themes: {},
   }
+
+  return themeIds.reduce((newThemeInfo: ThemeInfo, themeId: string) => {
+    newThemeInfo.themes[themeId] = {
+      themeName: sectionWheels.themes[themeId].themeName || '',
+    }
+    return newThemeInfo
+  }, themeInfo)
 }
