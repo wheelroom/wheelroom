@@ -20,9 +20,7 @@ export const topicNcssTree: TopicNcssTree = {
       label: 'topic-media',
       display: 'flex',
       flexDirection: 'column',
-      ':only-of-type': {
-        backgroundColor: 'green',
-      },
+      ':only-of-type': {},
     },
   },
   embed: {

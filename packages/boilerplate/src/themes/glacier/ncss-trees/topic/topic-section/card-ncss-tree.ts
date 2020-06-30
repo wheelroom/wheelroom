@@ -13,6 +13,12 @@ const containerNcss = {
   borderColor: 'cardBorder',
   borderRadius: 4,
   textDecoration: 'none',
+  '> div:last-of-type': {
+    pt: 0,
+  },
+  '> div:only-of-type': {
+    pt: 3,
+  },
 }
 
 export const topicSectionCardNcssTree: DeepPartial<TopicSectionNcssTree> = {
@@ -49,9 +55,8 @@ export const topicSectionCardNcssTree: DeepPartial<TopicSectionNcssTree> = {
         display: 'flex',
         flex: '1 1 auto',
         flexDirection: 'column',
-        px: 3,
-        pb: 3,
         color: 'sectionText',
+        p: 3,
       },
     },
     actionGroup: {
