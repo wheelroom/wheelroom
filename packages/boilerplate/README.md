@@ -1,5 +1,19 @@
 # Wheelroom boilerplate
 
+# **NOTICE**
+
+July 2020 all boilerplate functionality was moved into separate node modules.
+This documentation needs to be updated accordingly.
+
+- @wheelroom/core
+- @wheelroom/wheel-blog
+- @wheelroom/wheel-navigation
+- @wheelroom/wheel-table
+- @wheelroom/wheel-text
+- @wheelroom/wheel-topic
+
+## About
+
 Example repo on how to use
 [@wheelroom/wheelroom](https://www.npmjs.com/package/@wheelroom/wheelroom) and
 [gatsby-theme-wheelroom](https://www.npmjs.com/package/gatsby-theme-wheelroom)
