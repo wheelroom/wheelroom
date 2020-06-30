@@ -4,7 +4,7 @@ import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { topicNcssTree } from '../topic/topic/topic-ncss-tree'
 import { textSectionTextNcssTree } from '../text/text-ncss-tree'
 import { embedNcssNode } from '../embed-ncss'
-import { iconSmallNcss } from '../icon-ncss'
+import { iconSmallTopicNcssNode } from '../icon-ncss'
 
 export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogNcssTree> = {
   container: containerNcssNode,
@@ -103,6 +103,7 @@ export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogNcssTree> = {
             flexDirection: ['column', 'row'],
             w: 1,
           },
+          containerAsLink: {},
         },
         content: {
           ncss: {
@@ -123,7 +124,7 @@ export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogNcssTree> = {
             display: 'inline-flex',
           },
         },
-        icon: iconSmallNcss,
+        icon: iconSmallTopicNcssNode,
         abstract: {
           label: 'blog-author-abstract',
           ncss: {
