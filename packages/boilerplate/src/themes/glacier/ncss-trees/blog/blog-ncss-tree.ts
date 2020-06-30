@@ -4,6 +4,7 @@ import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { topicNcssTree } from '../topic/topic/topic-ncss-tree'
 import { textSectionTextNcssTree } from '../text/text-ncss-tree'
 import { embedNcssNode } from '../embed-ncss'
+import { iconSmallNcss } from '../icon-ncss'
 
 export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogNcssTree> = {
   container: containerNcssNode,
@@ -96,48 +97,49 @@ export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogNcssTree> = {
     author: deepMerge([
       topicNcssTree,
       {
-        ncss: {
-          label: 'blog-author',
-          flexDirection: ['column', 'row'],
-          w: 1,
+        ncssSwitch: {
+          container: {
+            label: 'blog-author',
+            flexDirection: ['column', 'row'],
+            w: 1,
+          },
         },
         content: {
           ncss: {
+            label: 'blog-author-content',
             flexDirection: 'column',
             p: 3,
           },
         },
         actionGroup: {
           ncss: {
+            label: 'blog-author-action-group',
             mt: 1,
           },
         },
         action: {
           ncss: {
+            label: 'blog-author-action',
             display: 'inline-flex',
           },
         },
-        icon: {
-          ncss: {
-            w: '16px',
-            h: '16px',
-            my: 'auto',
-            transform: 'translateX(4px)',
-          },
-        },
+        icon: iconSmallNcss,
         abstract: {
+          label: 'blog-author-abstract',
           ncss: {
             mb: 0,
           },
         },
         heading: {
           ncss: {
+            label: 'blog-author-heading',
             fontWeight: 'bold',
             mb: 0,
           },
         },
         media: {
           ncss: {
+            label: 'blog-author-media',
             flexDirection: 'column',
             p: 3,
           },
@@ -145,33 +147,34 @@ export const blogSectionBlogNcssTree: DeepPartial<BlogSectionBlogNcssTree> = {
         embed: embedNcssNode,
         image: {
           ncss: {
+            label: 'blog-author-image',
             h: 1,
             objectFit: 'cover',
           },
           picture: {
             ncss: {
+              label: 'blog-author-picture',
               overflow: 'hidden',
               h: ['60px', '80px'],
               w: ['60px', '80px'],
               borderRadius: '50%',
             },
-          },
-          figcaption: {
-            ncss: {},
           },
         },
         mediaBreakpoint: {
+          ncss: {
+            label: 'blog-author-media-breakpoint',
+            h: 1,
+            objectFit: 'cover',
+          },
           picture: {
             ncss: {
+              label: 'blog-author-media-breakpoint-picture',
               overflow: 'hidden',
               h: ['60px', '80px'],
               w: ['60px', '80px'],
               borderRadius: '50%',
             },
-          },
-          ncss: {
-            h: 1,
-            objectFit: 'cover',
           },
         },
       },
