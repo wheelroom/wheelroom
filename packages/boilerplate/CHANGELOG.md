@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.4.6...@wheelroom/boilerplate@4.0.0) (2020-06-30)
+
+
+### Features
+
+* all new modules! ([cd66d85](https://github.com/wheelroom/wheelroom/commit/cd66d85)), closes [#111](https://github.com/wheelroom/wheelroom/issues/111) [#109](https://github.com/wheelroom/wheelroom/issues/109) [#101](https://github.com/wheelroom/wheelroom/issues/101) [#114](https://github.com/wheelroom/wheelroom/issues/114) [#115](https://github.com/wheelroom/wheelroom/issues/115) [#95](https://github.com/wheelroom/wheelroom/issues/95) [#94](https://github.com/wheelroom/wheelroom/issues/94) [#91](https://github.com/wheelroom/wheelroom/issues/91) [#85](https://github.com/wheelroom/wheelroom/issues/85) [#88](https://github.com/wheelroom/wheelroom/issues/88) [#91](https://github.com/wheelroom/wheelroom/issues/91) [#87](https://github.com/wheelroom/wheelroom/issues/87) [#65](https://github.com/wheelroom/wheelroom/issues/65) [#75](https://github.com/wheelroom/wheelroom/issues/75) [#44](https://github.com/wheelroom/wheelroom/issues/44)
+
+
+### BREAKING CHANGES
+
+* all boilerplate functionality moved into separate node modules:
+
+@wheelroom/core
+@wheelroom/wheel-blog
+@wheelroom/wheel-navigation
+@wheelroom/wheel-table
+@wheelroom/wheel-text
+@wheelroom/wheel-topic
+
+
+
+
+
 ## [3.4.6](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@3.4.5...@wheelroom/boilerplate@3.4.6) (2020-06-30)
 
 **Note:** Version bump only for package @wheelroom/boilerplate

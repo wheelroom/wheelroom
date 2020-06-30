@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.6](https://github.com/wheelroom/wheelroom/compare/@wheelroom/styled-system@4.1.5...@wheelroom/styled-system@4.1.6) (2020-06-30)
+
+**Note:** Version bump only for package @wheelroom/styled-system
+
+
+
+
+
 ## [4.1.5](https://github.com/wheelroom/wheelroom/compare/@wheelroom/styled-system@4.1.4...@wheelroom/styled-system@4.1.5) (2020-06-30)
 
 **Note:** Version bump only for package @wheelroom/styled-system
