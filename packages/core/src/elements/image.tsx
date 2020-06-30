@@ -31,13 +31,13 @@ export interface ImageElementProps {
 const defaultMediaGatsbyModel = {
   description: 'No media description available',
   file: {
-    url: '//placehold.it/320',
+    url: '//placehold.it/2560',
     fileName: 'none',
     contentType: 'image/png',
   },
   fluid: {
     sizes: '(max-width: 2560px, 100vw, 2560px)',
-    src: '//placehold.it/320',
+    src: '//placehold.it/2560',
     srcSet: '',
   },
   title: 'No media title available',
@@ -85,7 +85,10 @@ export const Image = (props: ImageElementProps) => {
     imgElementAttrs = Object.assign(imgAttrs, fluidAttrs)
   } else {
     const fileAttrs: ImgAttrObjects = {
-      src: media.file?.url || defaultMediaGatsbyModel.file?.url,
+      src:
+        media.file?.url ||
+        media.fluid?.src + '&w=2560' ||
+        defaultMediaGatsbyModel.file?.url,
     }
     imgElementAttrs = Object.assign(imgAttrs, fileAttrs)
   }
