@@ -1,16 +1,21 @@
-import React, { SVGProps } from 'react'
+/** @jsx jsx */
+import { SVGProps } from 'react'
+import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
-import { Wheel } from '../../wheelroom'
-export interface IconProps extends SVGProps<SVGSVGElement> {
+import { Wheel } from '@wheelroom/core'
+interface IconProps extends SVGProps<SVGSVGElement> {
   ncss: any
   wheel: Wheel
+  strokeWidth: number
 }
 const componentId = 'svg-stack'
 export const SvgStack = (props: IconProps) => {
   const strokeWidth = props.strokeWidth || 2
-  const css = styledSystem(props.wheel.styledSystemConfig, props.wheel.theme, {
-    ncss: props.ncss,
-  })
+  const css = styledSystem(
+    props.wheel.wrSystemConfig,
+    props.wheel.wrSystemTheme,
+    props.ncss
+  )
   return (
     <svg
       viewBox="0 0 931 1265"

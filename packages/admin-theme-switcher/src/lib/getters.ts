@@ -1,5 +1,5 @@
 import { AdminCoreState } from '@wheelroom/admin-core'
-import { ThemeSwitcherStore, ThemeNames } from './types'
+import { ThemeSwitcherStore } from './types'
 
 export const getThemeSwitcherStore = (
   adminCoreState: AdminCoreState
@@ -12,12 +12,4 @@ export const getThemeSwitcherStore = (
     return
   }
   return themeSwitcher.store
-}
-
-export const getActiveTheme = (themeNames: ThemeNames): string => {
-  return (
-    Object.keys(themeNames).filter(
-      (key: string) => themeNames[key].default
-    )[0] || ''
-  )
 }

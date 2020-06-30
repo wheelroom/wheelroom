@@ -1,8 +1,8 @@
 import { jsx } from '@emotion/core'
-import { PageSectionProps } from '../wheelroom'
+import { CoreSectionProps } from '@wheelroom/core'
 
 export const getLandmark = (
-  pageProps: PageSectionProps,
+  pageProps: CoreSectionProps,
   sectionCount: number
 ): string => {
   const isNavigationSection =

@@ -7,19 +7,19 @@ import {
 } from '@wheelroom/admin-page-preview'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { getTheme } from '../themes/themes'
-import { ThemeId } from '../admin-resources/theme-info'
 import {
-  BlogProps,
   classicGlobalReset,
-  GlobalsProps,
+  CoreSiteMetadata,
+  GlobalsModel,
   htmlReset,
-  PageProps,
-  Seo,
-  SeoProps,
+  PageModel,
   useEmbeds,
-} from '../wheelroom'
-import { Sections } from './sections'
+} from '@wheelroom/core'
+import { BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
+import { Sections, SectionsProps } from './sections'
+import { sectionWheels } from './section-wheels'
+import { SeoProps } from './seo-props'
+import { Seo } from './seo'
 
 // This is the main template used for all pages. Adding a section property here
 // will add the property to all sections. Also, changing SEO options here, will
@@ -32,26 +32,26 @@ const PageTemplate = (props: any) => {
   // Page preview admin module
   const [previewPage, setPreviewPage] = useState()
   useFetchPreviewPage(setPreviewPage)
-  const page: PageProps = previewPage || props.data.page
+  const page: PageModel = previewPage || props.data.page
 
   // Theme switcher admin module
   const { adminCoreState } = useContext(AdminCoreContext)
   const themeSwitcherStore = getThemeSwitcherStore(adminCoreState)
-  const activeThemeId = themeSwitcherStore?.state.activeThemeId as ThemeId
+  const activeThemeId = themeSwitcherStore?.state.activeThemeId
 
   if (!page.sections) {
     return 'No sections'
   }
 
-  const globals: GlobalsProps = props.data.globals
-  const blog: BlogProps = props.data.blog
-  const allBlog: BlogProps[] = props.data.allBlog
+  const globals: GlobalsModel = props.data.globals
+  const blog: BlogModel = props.data.blog
+  const allBlog: AllBlogModel = props.data.allBlog
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
-  const siteMetadata: SiteMetadata = props.data.site.siteMetadata
+  const siteMetadata: CoreSiteMetadata = props.data.site.siteMetadata
   const siteVersion = siteMetadata.siteVersion
   const sections = page.sections
-  const sectionProps = {
+  const sectionProps: SectionsProps = {
     locale,
     namedPaths,
     activeThemeId,
@@ -63,6 +63,7 @@ const PageTemplate = (props: any) => {
     siteMetadata,
 
     sections,
+    sectionWheels,
   }
 
   const pageImageSrc =
@@ -94,7 +95,9 @@ const PageTemplate = (props: any) => {
     siteVersion,
   }
   // Set theme background color
-  const backgroundColor = getTheme(activeThemeId).colorMap.sectionBg
+  const backgroundColor =
+    sectionWheels.themes[activeThemeId || sectionWheels.defaultThemeId]
+      .wrSystemTheme.colorMap.sectionBg
   return (
     <Fragment>
       <Global styles={classicGlobalReset} />
@@ -154,18 +157,3 @@ export const query = graphql`
     }
   }
 `
-
-export interface SiteMetadata {
-  siteVersion: string
-  siteUrl: string
-  legal: {
-    version: string
-    description: string
-    url: string
-  }
-  secrets: {
-    spaceId: string
-    previewToken: string
-    environment: string
-  }
-}

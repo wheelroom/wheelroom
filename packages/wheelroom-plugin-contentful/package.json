@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-from-markdown": "13.4.0",
-    "@wheelroom/wheelroom": "4.3.2",
+    "@wheelroom/wheelroom": "4.3.5",
     "camelcase": "5.3.1",
     "contentful-management": "5.14.0",
     "dotenv": "8.2.0",
@@ -84,10 +84,11 @@
     "api-test:dm": "jest ./src/commands/delete-models/delete-models.int.test.ts",
     "api-test:dc": "jest ./src/commands/delete-content/delete-content.int.test.ts",
     "api-test:rc": "jest ./src/commands/replace-content/replace-content.int.test.ts",
-    "test": "npm run build:test"
+    "test": "npm run build:test",
+    "dev": "tsc -w"
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
-  "version": "3.4.2",
+  "version": "3.4.5",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }
