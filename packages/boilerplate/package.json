@@ -110,7 +110,10 @@
     "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
   "scripts": {
-    "compile-config": "tsc --project src/wheelroom-config/tsconfig.json",
+    "compile-config": "npm-run-all compile:*",
+    "compile:copy-fragments": "npm run copy-fragments",
+    "compile:config": "tsc --project src/wheelroom-config/tsconfig.json",
+    "compile": "npm-run-all compile:*",
     "copy-fragments": "./copy-graphql-fragments.sh",
     "demo-load-env": "export $(grep -v '^#' .env | xargs)",
     "demo-postversion": "git push && git push --tags",
