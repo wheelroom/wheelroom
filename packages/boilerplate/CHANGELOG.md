@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@4.1.1...@wheelroom/boilerplate@5.0.0) (2020-07-01)
+
+
+### Features
+
+* introducing sections data ([a2bc815](https://github.com/wheelroom/wheelroom/commit/a2bc8156909f859215ff528a03e2af7ed9248359))
+
+
+### BREAKING CHANGES
+
+* wheel is changed into const { data, wheel } = wheelSection
+
+
+
+
+
 ## [4.1.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@4.1.0...@wheelroom/boilerplate@4.1.1) (2020-06-30)
 
 

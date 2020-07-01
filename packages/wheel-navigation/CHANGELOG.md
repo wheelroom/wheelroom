@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-navigation@1.0.9...@wheelroom/wheel-navigation@2.0.0) (2020-07-01)
+
+
+### Features
+
+* introducing sections data ([a2bc815](https://github.com/wheelroom/wheelroom/commit/a2bc8156909f859215ff528a03e2af7ed9248359))
+
+
+### BREAKING CHANGES
+
+* wheel is changed into const { data, wheel } = wheelSection
+
+
+
+
+
 ## [1.0.9](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-navigation@1.0.8...@wheelroom/wheel-navigation@1.0.9) (2020-06-30)
 
 **Note:** Version bump only for package @wheelroom/wheel-navigation
