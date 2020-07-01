@@ -1,8 +1,4 @@
 import React, { Fragment } from 'react'
-import { NavigationModel } from '../../navigation/model'
-import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModel } from '../../navigation-segment/model'
-import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
 import {
   Container,
   CoreSiteMetadata,
@@ -13,6 +9,10 @@ import {
   Wrapper,
   NcssNode,
 } from '@wheelroom/core'
+import { NavigationModel } from '../../navigation/model'
+import { NavigationSegment } from '../../navigation-segment/navigation-segment'
+import { NavigationSegmentModel } from '../../navigation-segment/model'
+import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
 import { LegalFooter, LegalFooterNcssTree } from './legal-footer'
 
 export interface NavigationSectionFooterNcssTree {
@@ -36,6 +36,7 @@ interface NavigationFooterWheel extends Wheel {
 export interface NavigationFooterProps {
   containerStyle: 'container' | 'fluid'
   globals: GlobalsModel
+  hideLegalFooter: boolean
   navigation: NavigationModel[]
   siteMetaData: CoreSiteMetadata
   wheel: NavigationFooterWheel
@@ -110,6 +111,7 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
         </ContainerType>
       </Wrapper>
       <LegalFooter
+        hideLegalFooter={props.hideLegalFooter}
         siteMetadata={props.siteMetaData}
         containerStyle={props.containerStyle}
         wheel={{ ...props.wheel, style: props.wheel.style.legalFooter }}

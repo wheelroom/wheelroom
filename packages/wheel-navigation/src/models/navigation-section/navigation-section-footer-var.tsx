@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { getWheel } from '@wheelroom/core'
+import { getWheel, getSectionOptions } from '@wheelroom/core'
 import { NavigationFooter } from './footer/navigation-footer'
 import { NavigationSectionModel } from './model'
 
@@ -18,6 +18,14 @@ export const NavigationSectionFooterVar = (props: NavigationSectionModel) => {
     sectionWheels: props.sectionWheels,
     variation: 'footer',
   })
+
+  const options = getSectionOptions({
+    themeId: props.activeThemeId,
+    wheelId: 'navigationSection',
+    sectionWheels: props.sectionWheels,
+    variation: 'footer',
+  })
+
   if (!wheel) {
     return null
   }
@@ -25,6 +33,7 @@ export const NavigationSectionFooterVar = (props: NavigationSectionModel) => {
     <NavigationFooter
       globals={props.globals}
       siteMetaData={props.siteMetadata}
+      hideLegalFooter={options.footer.hideLegalFooter}
       containerStyle="container"
       navigation={props.navigation || []}
       wheel={wheel}

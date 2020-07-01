@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import { getWheel } from '@wheelroom/core'
+import { getWheel, getSectionOptions } from '@wheelroom/core'
 import { NavigationHeader } from './header/navigation-header'
 import { NavigationSectionModel } from './model'
 
@@ -18,22 +18,29 @@ export const NavigationSectionHeaderVar = (props: NavigationSectionModel) => {
     sectionWheels: props.sectionWheels,
     variation: 'header',
   })
+
+  const options = getSectionOptions({
+    themeId: props.activeThemeId,
+    wheelId: 'navigationSection',
+    sectionWheels: props.sectionWheels,
+    variation: 'header',
+  })
+
   if (!wheel) {
     return null
   }
+
+  console.log('options', options.header)
   return (
     <NavigationHeader
       containerStyle="container"
       defaultThemeId={props.sectionWheels.defaultThemeId}
       globals={props.globals}
-      hideThemeButton={false}
+      hideThemeButton={options.header.hideThemeButton}
       navigation={props.navigation || []}
       themes={props.sectionWheels.themes}
-      useLogoElement={undefined}
       wheel={wheel}
-      // useLogoElement={
-      //   <SvgAirplay ncss={{ color: 'blue', w: '50px' }} wheel={wheel} />
-      // }
+      useLogoElement={options.header.useLogoElement}
     />
   )
 }

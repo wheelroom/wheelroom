@@ -89,6 +89,7 @@ export { breakpointsPreset } from './theme/breakpoints-preset'
 export { classicGlobalReset } from './global-reset/classic-global-reset'
 export { deepMerge } from './lib/deep-merge'
 export { getVariation } from './lib/get-variation'
+export { getSectionOptions } from './lib/get-section-options'
 export { getNcssSwitch } from './lib/ncss'
 export { getWheel } from './lib/get-wheel'
 export { htmlReset } from './global-reset/html-reset'
@@ -100,6 +101,7 @@ export { wrSystemConfig } from './theme/wr-system-config'
 // Core queries
 export { pageQuery } from './models/page/query'
 export { globalsQuery } from './models/globals/query'
+
 // Core config
 export { coreModelConfig } from './config/core-model-config'
 export { commonFields } from './config/common-fields'

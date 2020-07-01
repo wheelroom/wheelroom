@@ -30,10 +30,14 @@ interface LegalFooterWheel extends Wheel {
 export interface LegalFooterProps {
   containerStyle: 'container' | 'fluid'
   siteMetadata: CoreSiteMetadata
+  hideLegalFooter: boolean
   wheel: LegalFooterWheel
 }
 
 export const LegalFooter = (props: LegalFooterProps) => {
+  if (props.hideLegalFooter === true) {
+    return null
+  }
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
     <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>

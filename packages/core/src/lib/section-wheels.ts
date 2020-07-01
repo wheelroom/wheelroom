@@ -8,12 +8,21 @@ export interface SectionWheelThemeStyles {
   }
 }
 
+/** Set of options */
+export interface SectionWheelThemeOptions {
+  [wheelId: string]: {
+    [variation: string]: any
+  }
+}
+
 /** Themes combine element styles, a set of style trees and a styled sytem theme */
 export interface SectionWheelTheme {
   /** Base styling for each element */
   elementNcss: ElementResetNcssTree
   /** Specific styles for each wheel and wheel variations */
   styles: SectionWheelThemeStyles
+  /** Specific options for each wheel and wheel variations */
+  options: SectionWheelThemeOptions
   /** Public name of this theme */
   themeName?: string
   /** Styled system theme with space scales, colors, etc. */
