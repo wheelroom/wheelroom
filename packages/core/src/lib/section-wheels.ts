@@ -1,5 +1,12 @@
 import { ElementResetNcssTree } from '../elements/element-reset-ncss-tree'
 import { WrSystemTheme, WrSystemConfig } from '../theme/types'
+import { Wheel } from './wheel'
+
+/** A single wheel extracted from SectionWheels */
+export interface SectionWheel {
+  data: any
+  wheel: Wheel
+}
 
 /** Set of style trees */
 export interface SectionWheelThemeStyles {
@@ -8,8 +15,8 @@ export interface SectionWheelThemeStyles {
   }
 }
 
-/** Set of options */
-export interface SectionWheelThemeOptions {
+/** Set of data */
+export interface SectionWheelThemeData {
   [wheelId: string]: {
     [variation: string]: any
   }
@@ -21,8 +28,8 @@ export interface SectionWheelTheme {
   elementNcss: ElementResetNcssTree
   /** Specific styles for each wheel and wheel variations */
   styles: SectionWheelThemeStyles
-  /** Specific options for each wheel and wheel variations */
-  options: SectionWheelThemeOptions
+  /** Specific data for each wheel and wheel variations */
+  data: SectionWheelThemeData
   /** Public name of this theme */
   themeName?: string
   /** Styled system theme with space scales, colors, etc. */

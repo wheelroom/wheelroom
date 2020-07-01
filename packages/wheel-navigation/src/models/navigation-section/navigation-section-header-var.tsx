@@ -7,40 +7,31 @@
  */
 
 import React from 'react'
-import { getWheel, getSectionOptions } from '@wheelroom/core'
+import { getSectionWheel } from '@wheelroom/core'
 import { NavigationHeader } from './header/navigation-header'
 import { NavigationSectionModel } from './model'
 
 export const NavigationSectionHeaderVar = (props: NavigationSectionModel) => {
-  const wheel = getWheel({
+  const sectionWheel = getSectionWheel({
     themeId: props.activeThemeId,
     wheelId: 'navigationSection',
     sectionWheels: props.sectionWheels,
     variation: 'header',
   })
-
-  const options = getSectionOptions({
-    themeId: props.activeThemeId,
-    wheelId: 'navigationSection',
-    sectionWheels: props.sectionWheels,
-    variation: 'header',
-  })
-
-  if (!wheel) {
+  if (!sectionWheel) {
     return null
   }
-
-  console.log('options', options.header)
+  const { data, wheel } = sectionWheel
   return (
     <NavigationHeader
       containerStyle="container"
       defaultThemeId={props.sectionWheels.defaultThemeId}
       globals={props.globals}
-      hideThemeButton={options.header.hideThemeButton}
+      hideThemeButton={data.hideThemeButton}
       navigation={props.navigation || []}
       themes={props.sectionWheels.themes}
       wheel={wheel}
-      useLogoElement={options.header.useLogoElement}
+      useLogoElement={data.useLogoElement}
     />
   )
 }

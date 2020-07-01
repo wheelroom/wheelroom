@@ -7,23 +7,22 @@
  */
 
 import React from 'react'
-import { getWheel } from '@wheelroom/core'
+import { getSectionWheel } from '@wheelroom/core'
 import { RichText } from './rich-text/rich-text'
 import { TextSectionModel } from './model'
 import { TextSectionWrapper } from './text-section-wrapper'
 
 export const TextSectionTextVar = (props: TextSectionModel) => {
-  const wheel = getWheel({
+  const sectionWheel = getSectionWheel({
     themeId: props.activeThemeId,
     wheelId: 'textSection',
     sectionWheels: props.sectionWheels,
     variation: 'text',
   })
-
-  if (!wheel || !props.text) {
+  if (!sectionWheel || !props.text) {
     return null
   }
-
+  const { wheel } = sectionWheel
   return (
     <TextSectionWrapper containerStyle="fluid" wheel={wheel}>
       <RichText

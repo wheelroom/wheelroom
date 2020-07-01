@@ -7,20 +7,21 @@
  */
 
 import React from 'react'
-import { getWheel, Hr } from '@wheelroom/core'
+import { getSectionWheel, Hr } from '@wheelroom/core'
 import { TopicSectionModel } from './model'
 
 export const TopicSectionDividerVar = (props: TopicSectionModel) => {
-  const wheel = getWheel({
+  const sectionWheel = getSectionWheel({
     themeId: props.activeThemeId,
     wheelId: 'topicSection',
     sectionWheels: props.sectionWheels,
     variation: 'divider',
   })
 
-  if (!wheel || !props.topics) {
+  if (!sectionWheel) {
     return null
   }
+  const { wheel } = sectionWheel
 
   return <Hr wheel={wheel} />
 }

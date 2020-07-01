@@ -7,23 +7,22 @@
  */
 
 import React from 'react'
-import { getWheel } from '@wheelroom/core'
+import { getSectionWheel } from '@wheelroom/core'
 import { Table } from './table'
 import { TableSectionModel } from './model'
 import { TableSectionWrapper } from './table-section-wrapper'
 
 export const TableSectionTableVar = (props: TableSectionModel) => {
-  const wheel = getWheel({
+  const sectionWheel = getSectionWheel({
     themeId: props.activeThemeId,
     wheelId: 'tableSection',
     sectionWheels: props.sectionWheels,
     variation: 'table',
   })
-
-  if (!wheel || !props.tableRows) {
+  if (!sectionWheel || !props.tableRows) {
     return null
   }
-
+  const { wheel } = sectionWheel
   return (
     <TableSectionWrapper containerStyle="container" wheel={wheel}>
       <Table

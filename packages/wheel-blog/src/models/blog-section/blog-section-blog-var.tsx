@@ -7,22 +7,23 @@
  */
 
 import React from 'react'
-import { getWheel } from '@wheelroom/core'
+import { getSectionWheel } from '@wheelroom/core'
 import { Blog } from './blog/blog'
 import { BlogSectionModel } from './model'
 import { BlogSectionWrapper } from './blog-section-wrapper'
 
 export const BlogSectionBlogVar = (props: BlogSectionModel) => {
-  const wheel = getWheel({
+  const sectionWheel = getSectionWheel({
     themeId: props.activeThemeId,
     wheelId: 'blogSection',
     sectionWheels: props.sectionWheels,
     variation: 'blog',
   })
 
-  if (!wheel || !props.blog) {
+  if (!sectionWheel || !props.blog) {
     return null
   }
+  const { wheel } = sectionWheel
   return (
     <BlogSectionWrapper containerStyle="container" wheel={wheel}>
       <Blog

@@ -6,6 +6,7 @@ export type { TopicNcssTree } from './models/topic/ncss-tree'
 // Topic section
 export { TopicSection } from './models/topic-section/topic-section'
 export type { TopicSectionModel } from './models/topic-section/model'
+export type { TopicSectionData } from './models/topic-section/data'
 export type { TopicSectionNcssTree } from './models/topic-section/ncss-tree'
 
 // Topic lib

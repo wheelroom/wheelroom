@@ -10,21 +10,22 @@ import React from 'react'
 import { getTopicOptions } from '../../lib/get-topic-options'
 import { Topic } from '../topic/topic'
 import { TopicModel } from '../topic/model'
-import { getWheel, MultiParser } from '@wheelroom/core'
+import { getSectionWheel, MultiParser } from '@wheelroom/core'
 import { TopicSectionModel } from './model'
 import { TopicSectionWrapper } from './topic-section-wrapper'
 
 export const TopicSectionHeroVar = (props: TopicSectionModel) => {
-  const wheel = getWheel({
+  const sectionWheel = getSectionWheel({
     themeId: props.activeThemeId,
     wheelId: 'topicSection',
     sectionWheels: props.sectionWheels,
     variation: 'hero',
   })
 
-  if (!wheel || !props.topics) {
+  if (!sectionWheel || !props.topics) {
     return null
   }
+  const { wheel } = sectionWheel
 
   const topicHeading = props.index <= 1 ? 'h1' : 'h2'
   return (

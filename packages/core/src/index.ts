@@ -2,13 +2,14 @@
 export type { CoreSectionProps } from './lib/core-section-props'
 export type { CoreSiteMetadata } from './lib/core-site-metadata'
 export type { DeepPartial } from './lib/deep-partial'
-export type { GetWheel } from './lib/get-wheel'
+export type { GetSectionWheel } from './lib/get-wheel'
 export type { Ncss, NcssNode, NcssNodeSwitch } from './lib/ncss'
 export type {
   SectionWheels,
   SectionWheelTheme,
   SectionWheelThemes,
   SectionWheelThemeStyles,
+  SectionWheelThemeData,
 } from './lib/section-wheels'
 export type { Wheel } from './lib/wheel'
 
@@ -89,9 +90,8 @@ export { breakpointsPreset } from './theme/breakpoints-preset'
 export { classicGlobalReset } from './global-reset/classic-global-reset'
 export { deepMerge } from './lib/deep-merge'
 export { getVariation } from './lib/get-variation'
-export { getSectionOptions } from './lib/get-section-options'
 export { getNcssSwitch } from './lib/ncss'
-export { getWheel } from './lib/get-wheel'
+export { getSectionWheel } from './lib/get-wheel'
 export { htmlReset } from './global-reset/html-reset'
 export { mapsPreset } from './theme/maps-preset'
 export { scalesPreset } from './theme/scales-preset'

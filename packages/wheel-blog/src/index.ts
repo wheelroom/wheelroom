@@ -7,6 +7,7 @@ export type {
   BlogSectionModel,
   InjectedBlogSectionModel,
 } from './models/blog-section/model'
+export type { BlogSectionData } from './models/blog-section/data'
 export type { BlogSectionBlogNcssTree } from './models/blog-section/ncss-tree'
 export type { BlogSectionListNcssTree } from './models/blog-section/ncss-tree'
 

@@ -7,23 +7,24 @@
  */
 
 import React from 'react'
-import { getWheel } from '@wheelroom/core'
+import { getSectionWheel } from '@wheelroom/core'
 import { BlogModel } from '../blog/model'
 import { BlogSectionModel } from './model'
 import { BlogSectionWrapper } from './blog-section-wrapper'
 import { List } from './list/list'
 
 export const BlogSectionListVar = (props: BlogSectionModel) => {
-  const wheel = getWheel({
+  const sectionWheel = getSectionWheel({
     themeId: props.activeThemeId,
     wheelId: 'blogSection',
     sectionWheels: props.sectionWheels,
     variation: 'list',
   })
 
-  if (!wheel || !props.allBlog) {
+  if (!sectionWheel || !props.allBlog) {
     return null
   }
+  const { wheel } = sectionWheel
   const blogPosts: BlogModel[] = props.allBlog.edges.map(
     (edges: any) => edges.node
   )
