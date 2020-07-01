@@ -146,7 +146,6 @@ export const query = graphql`
       ...Blog
     }
     allBlog: allContentfulBlog(
-      filter: { node_locale: { eq: "en-US" } }
       sort: { fields: date, order: DESC }
     ) {
       edges {
