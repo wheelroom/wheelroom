@@ -46,13 +46,13 @@ export const TopicContentText = (props: TopicContentTextProps) => {
 
   return (
     <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style.text }}>
-      {!topicOptions.hideIcon && (
+      {!topicOptions.hideIcon && props.topic.icon && (
         <Icon
           icon={props.topic.icon || ''}
           wheel={{ ...props.wheel, style: props.wheel.style.icon }}
         />
       )}
-      {!topicOptions.hideHeading && (
+      {!topicOptions.hideHeading && props.topic.heading && (
         <HeadingParser
           polyPreset={true}
           is={useHeadingElement}
