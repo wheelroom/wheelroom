@@ -1,4 +1,5 @@
-import { TextSectionNcssTree, DeepPartial } from '@wheelroom/core'
+import { DeepPartial } from '@wheelroom/core'
+import { TextSectionNcssTree } from '@wheelroom/wheel-text'
 import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { headingTextNcssNode } from '../../element-ncss/heading-ncss'
 import { embedNcssNode } from '../embed-ncss'
