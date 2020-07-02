@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-table@2.0.0...@wheelroom/wheel-table@2.0.1) (2020-07-02)
+
+
+### Bug Fixes
+
+* only add an attribute colSpan if topic length is undefined ([5d288ba](https://github.com/wheelroom/wheelroom/commit/5d288ba1e410f8eb8769c3c8dee6efa678b09768))
+
+
+
+
+
 # [2.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-table@1.0.9...@wheelroom/wheel-table@2.0.0) (2020-07-01)
 
 
