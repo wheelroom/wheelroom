@@ -8,7 +8,7 @@
 
 import React from 'react'
 import { getSectionWheel } from '@wheelroom/core'
-import { getTopicOptions } from "@wheelroom/wheel-topic"
+import { getTopicOptions } from '@wheelroom/wheel-topic'
 import { Table } from './table'
 import { TableSectionModel } from './model'
 import { TableSectionWrapper } from './table-section-wrapper'
