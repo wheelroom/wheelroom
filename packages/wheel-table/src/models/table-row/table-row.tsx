@@ -61,7 +61,13 @@ export const TableRow = (props: TableRowProps) => {
 
   let colSpan = {}
 
-  if (tableRow.heading) {
+  if (
+    (tableRow.heading ||
+      tableRow.abstract ||
+      tableRow.actions ||
+      tableRow.icon) &&
+    tableRow.topics?.length === undefined
+  ) {
     colSpan = { colspan: props.maxRowTopics + 1 }
   }
 
