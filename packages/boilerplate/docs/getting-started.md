@@ -39,10 +39,10 @@ tab.
 
 ## Compile wheelroom config
 
-Compile the config from typescript to javascript:
+Compile the config from typescript to javascript and copy fragments from the Wheelroom npm modules:
 
 ```bash
-npm run compile-config
+npm run compile
 ```
 
 ## Test config by listing all models
@@ -81,10 +81,9 @@ npm run wr:dm
 
 ## Create Contentful content set
 
-Wheelroom includes two different Contentful content-sets:
+Wheelroom includes a Contentful content-sets:
 
 - `starter`
-- `examples`
 
 The content-sets contains media (image) placeholder and page-sections with
 example topics. You can create your own content-set by editing the
@@ -114,7 +113,7 @@ npm run wr:dc -- starter
 Start Gatsby and browse to: http://localhost:8000
 
 ```bash
-npm run develop
+npm run dev
 ```
 
 ## Next steps
