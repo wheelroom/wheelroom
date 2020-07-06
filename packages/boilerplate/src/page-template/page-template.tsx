@@ -145,9 +145,7 @@ export const query = graphql`
     blog: contentfulBlog(id: { eq: $blogId }) {
       ...Blog
     }
-    allBlog: allContentfulBlog(
-      sort: { fields: date, order: DESC }
-    ) {
+    allBlog: allContentfulBlog(sort: { fields: date, order: DESC }) {
       edges {
         node {
           ...Blog
