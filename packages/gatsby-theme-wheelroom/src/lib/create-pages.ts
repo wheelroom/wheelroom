@@ -7,7 +7,7 @@ interface CreatePages {
   namedPaths: NamedPaths
   pageTemplate: string
   queryResults: QueryResults
-  createPage(params: object): Promise<any>
+  createPage(params: unknown): Promise<any>
   pathNames: PathNames
 }
 
@@ -15,7 +15,7 @@ export const createPages = (context: CreatePages) => {
   console.log(`Creating pages`)
   Object.entries(context.queryResults.page).forEach(
     ([componentName, pageEdge]: [string, ContentfulEdge[]]) => {
-      pageEdge.forEach(edge => {
+      pageEdge.forEach((edge) => {
         const page = edge.node
         const pathName = context.pathNames[page.path]
         const locale = page.node_locale || context.defaultLocale
