@@ -57,6 +57,7 @@ export type BlockLevelElementName =
   | 'h6'
   | 'header'
   | 'hr'
+  | 'legend'
   | 'li'
   | 'main'
   | 'nav'
