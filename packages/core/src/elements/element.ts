@@ -32,6 +32,8 @@ export interface ElementProps {
   colspan?: number
   /** Time attribute */
   datetime?: string
+  /** For attribute */
+  for?: string
 }
 
 type GetElementAttrsProps =
@@ -52,11 +54,12 @@ export const getElementAttrs = (
 ) => ({
   'aria-hidden': props.ariaHidden,
   'aria-label': props.ariaLabel,
+  'tab-index': props.tabIndex,
   colSpan: props.colspan,
   dateTime: props.datetime,
+  htmlFor: props.for,
   hidden: props.hidden,
   id: props.id,
-  'tab-index': props.tabIndex,
   title: props.title,
   ...extraAttrs,
 })
