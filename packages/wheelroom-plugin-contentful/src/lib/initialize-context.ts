@@ -31,7 +31,7 @@ export const initializeContext = async (argv: PluginArguments) => {
     cfContentSet = getCfContentSet(wheelroomComponents, wrContentSet)
     // Sort content creation so that dependencies get created first
     orderByDependency(cfContentSet)
-    const creationOrder = cfContentSet.map(c => c.componentId).join(' < ')
+    const creationOrder = cfContentSet.map((c) => c.componentId).join(' < ')
     console.log('Dependency order:', creationOrder)
   } else if (['replace-content'].includes(argv._[0])) {
     // We require a Wheelroom replace set by command line option

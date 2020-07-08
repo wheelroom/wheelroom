@@ -37,7 +37,7 @@ export const getReplacedContentData = (
     return replacement
   }
   if (Array.isArray(cfContent)) {
-    const newValue = cfContent.map(item => item.replace(pattern, replacement))
+    const newValue = cfContent.map((item) => item.replace(pattern, replacement))
     console.log(`Replacing field ${fieldId}: /${cfContent}/${newValue}/`)
     return newValue
   }

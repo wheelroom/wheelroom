@@ -1,5 +1,6 @@
 import { ContentfulField } from '../../types/contentful-fields'
 import { Context } from '../../types/context'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const richTextFromMarkdown = require('@contentful/rich-text-from-markdown')
   .richTextFromMarkdown
 /**
