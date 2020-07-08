@@ -36,6 +36,7 @@ const main = async (argv: string[]) => {
 
   const context = {
     components,
+    locale,
     options,
   }
 
