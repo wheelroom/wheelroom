@@ -84,6 +84,6 @@
     "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "5.0.12",
+  "version": "5.0.13",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }
