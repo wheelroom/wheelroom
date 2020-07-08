@@ -22,18 +22,18 @@
     "@contentful/rich-text-types": "14.1.1",
     "@emotion/core": "10.0.28",
     "@reach/router": "1.3.4",
-    "@wheelroom/admin-core": "1.2.7",
-    "@wheelroom/admin-events": "1.0.7",
-    "@wheelroom/admin-page-preview": "1.5.10",
-    "@wheelroom/admin-panel": "1.2.7",
-    "@wheelroom/admin-theme-switcher": "2.0.5",
-    "@wheelroom/core": "2.0.1",
-    "@wheelroom/styled-system": "4.1.7",
-    "@wheelroom/wheel-blog": "2.0.2",
-    "@wheelroom/wheel-navigation": "2.0.1",
-    "@wheelroom/wheel-table": "2.0.3",
-    "@wheelroom/wheel-text": "2.0.1",
-    "@wheelroom/wheel-topic": "2.0.2",
+    "@wheelroom/admin-core": "1.2.8",
+    "@wheelroom/admin-events": "1.0.8",
+    "@wheelroom/admin-page-preview": "1.5.11",
+    "@wheelroom/admin-panel": "1.2.8",
+    "@wheelroom/admin-theme-switcher": "2.0.6",
+    "@wheelroom/core": "2.0.2",
+    "@wheelroom/styled-system": "4.1.8",
+    "@wheelroom/wheel-blog": "2.0.3",
+    "@wheelroom/wheel-navigation": "2.0.2",
+    "@wheelroom/wheel-table": "2.0.4",
+    "@wheelroom/wheel-text": "2.0.2",
+    "@wheelroom/wheel-topic": "2.0.3",
     "@wheelroom/wheelroom": "4.3.8",
     "@wheelroom/wheelroom-plugin-boilerplate": "3.1.12",
     "@wheelroom/wheelroom-plugin-contentful": "3.4.8",
@@ -139,8 +139,8 @@
     "wr:ls": "wheelroom --config compiled-config/wheelroom-config.js list"
   },
   "type": "commonjs",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "wheelroom": {
-    "version": "5.0.3"
+    "version": "5.0.4"
   }
 }
