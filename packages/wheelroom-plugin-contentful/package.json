@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-from-markdown": "13.4.0",
-    "@wheelroom/wheelroom": "4.3.7",
+    "@wheelroom/wheelroom": "4.3.8",
     "camelcase": "5.3.1",
     "contentful-management": "5.14.0",
     "dotenv": "8.2.0",
@@ -89,6 +89,6 @@
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
-  "version": "3.4.7",
+  "version": "3.4.8",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

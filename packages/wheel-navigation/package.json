@@ -29,10 +29,10 @@
     "@wheelroom/admin-core": "1.2.7",
     "@wheelroom/admin-page-preview": "1.5.10",
     "@wheelroom/admin-theme-switcher": "2.0.5",
-    "@wheelroom/core": "2.0.0",
+    "@wheelroom/core": "2.0.1",
     "@wheelroom/styled-system": "4.1.7",
-    "@wheelroom/wheelroom": "4.3.7",
-    "@wheelroom/wheelroom-plugin-contentful": "3.4.7",
+    "@wheelroom/wheelroom": "4.3.8",
+    "@wheelroom/wheelroom-plugin-contentful": "3.4.8",
     "eslint": "7.4.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
@@ -93,5 +93,5 @@
     "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "2.0.0"
+  "version": "2.0.1"
 }

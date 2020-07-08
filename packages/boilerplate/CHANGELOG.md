@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.3](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.0.2...@wheelroom/boilerplate@5.0.3) (2020-07-08)
+
+
+### Bug Fixes
+
+* import TextSectionNcssTree from wheel-text module ([4afb645](https://github.com/wheelroom/wheelroom/commit/4afb645df26079cda6900d64615080a77968c81f))
+
+
+
+
+
 ## [5.0.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.0.1...@wheelroom/boilerplate@5.0.2) (2020-07-02)
 
 **Note:** Version bump only for package @wheelroom/boilerplate
