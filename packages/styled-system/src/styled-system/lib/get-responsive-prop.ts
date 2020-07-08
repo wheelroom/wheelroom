@@ -18,7 +18,7 @@ export const getResponsiveProp = ({
 }: GetResponsiveProps) => {
   const breakPointList = theme.breakpoints as []
   const mediaQuery = facepaint(
-    breakPointList.map(breakPoint => `@media (min-width: ${breakPoint})`)
+    breakPointList.map((breakPoint) => `@media (min-width: ${breakPoint})`)
   )
   return mediaQuery({ [propName]: propValue })[0]
 }
