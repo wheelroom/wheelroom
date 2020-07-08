@@ -34,11 +34,11 @@ export const getFields = async (
         if (!createContentData) {
           return
         }
-        const createdField = await createField(
+        const createdField = await createField({
           context,
           field,
-          createContentData
-        )
+          createContentData,
+        })
         context.contentfulApi.fields[fieldId] = createdField
       }
     )

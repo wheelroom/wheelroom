@@ -10,11 +10,15 @@ const richTextFromMarkdown = require('@contentful/rich-text-from-markdown')
  *
  */
 
-export const createField = async (
-  context: Context,
-  field: ContentfulField,
+export const createField = async ({
+  context,
+  field,
+  createContentData,
+}: {
+  context: Context
+  field: ContentfulField
   createContentData: any
-) => {
+}) => {
   const defaultLocale = context.contentfulApi.defaultLocale.code
   const missingField = {
     [defaultLocale]: 'createField: missing fieldType: ' + field.specs.type,
