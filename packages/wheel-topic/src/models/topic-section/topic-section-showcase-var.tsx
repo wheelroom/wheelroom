@@ -2,7 +2,7 @@
  * Component variation
  *
  * Component type: topicSection
- * Variation: Featured
+ * Variation: Showcase
  *
  */
 

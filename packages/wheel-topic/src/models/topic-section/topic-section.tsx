@@ -17,25 +17,24 @@ import { TopicSectionHeroVar } from './topic-section-hero-var'
 import { TopicSectionImageVar } from './topic-section-image-var'
 import { TopicSectionModel } from './model'
 import { TopicSectionQuoteVar } from './topic-section-quote-var'
-import { TopicSectionShowcaseVar } from './topic-showcase-var'
-import { TopicSectionVideoVar } from './topic-video-var'
+import { TopicSectionShowcaseVar } from './topic-section-showcase-var'
+import { TopicSectionVideoVar } from './topic-section-video-var'
 
 const componentList = {
-  ['block']: TopicSectionBlockVar,
-  ['card']: TopicSectionCardVar,
-  ['divider']: TopicSectionDividerVar,
-  ['featured']: TopicSectionFeaturedVar,
-  ['gallery']: TopicSectionGalleryVar,
-  ['headline']: TopicSectionHeadlineVar,
-  ['hero']: TopicSectionHeroVar,
-  ['image']: TopicSectionImageVar,
-  ['quote']: TopicSectionQuoteVar,
-  ['showcase']: TopicSectionShowcaseVar,
-  ['video']: TopicSectionVideoVar,
+  block: TopicSectionBlockVar,
+  card: TopicSectionCardVar,
+  divider: TopicSectionDividerVar,
+  featured: TopicSectionFeaturedVar,
+  gallery: TopicSectionGalleryVar,
+  headline: TopicSectionHeadlineVar,
+  hero: TopicSectionHeroVar,
+  image: TopicSectionImageVar,
+  quote: TopicSectionQuoteVar,
+  showcase: TopicSectionShowcaseVar,
+  video: TopicSectionVideoVar,
 }
 
 export const TopicSection = (props: TopicSectionModel) => {
   const Variation = getVariation(props, componentList)
-
   return <Variation {...props} />
 }
