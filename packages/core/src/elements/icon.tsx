@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { IconMap } from '../svg/feather/iconMap'
 import { mergeNcss } from '../lib/merge-ncss'
