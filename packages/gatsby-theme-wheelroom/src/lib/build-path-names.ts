@@ -12,13 +12,7 @@ export const pathToCamelCase = (path: string): string => {
   if (path === '/') {
     return 'home'
   }
-  return camelcase(
-    path
-      .split('/')
-      .join('-')
-      .split(':')
-      .join('')
-  )
+  return camelcase(path.split('/').join('-').split(':').join(''))
 }
 
 export const buildPathNames = (context: BuildPathNames): PathNames => {

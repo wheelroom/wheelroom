@@ -27,7 +27,7 @@
     "@typescript-eslint/eslint-plugin": "3.6.0",
     "@typescript-eslint/parser": "3.6.0",
     "@wheelroom/admin-core": "1.2.8",
-    "@wheelroom/admin-page-preview": "1.5.11",
+    "@wheelroom/admin-page-preview": "1.5.12",
     "@wheelroom/styled-system": "4.1.8",
     "@wheelroom/wheelroom": "4.3.8",
     "@wheelroom/wheelroom-plugin-contentful": "3.4.8",
@@ -37,7 +37,7 @@
     "eslint-plugin-react": "7.20.3",
     "eslint-plugin-react-hooks": "4.0.6",
     "gatsby": "2.23.22",
-    "gatsby-theme-wheelroom": "5.0.11",
+    "gatsby-theme-wheelroom": "5.0.12",
     "jest": "26.1.0",
     "npm-install-peers": "1.2.1",
     "npm-run-all": "4.1.5",
@@ -102,5 +102,5 @@
     "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "2.0.2"
+  "version": "2.0.3"
 }
