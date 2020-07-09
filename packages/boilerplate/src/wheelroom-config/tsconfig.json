@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../compiled-config",
+    "rootDir": ".."
   },
-  "include": ["./**/*.ts", "./**/*.tsx"],
+  "include": ["../wheelroom-config/**/*.ts", "../wheelroom-config/**/*.tsx"],
   "exclude": []
 }
