@@ -147,6 +147,12 @@ export const contentfulFieldDefinitions: ContentfulFieldDefinitions = {
       },
       widgetId: 'slugEditor',
     },
+    shortTextObject: {
+      specs: {
+        type: 'Object',
+      },
+      widgetId: 'objectEditor',
+    },
     shortTextCamelCase: {
       specs: {
         type: 'Symbol',
