@@ -20,11 +20,10 @@ export const BlogSectionListVar = (props: BlogSectionModel) => {
     sectionWheels: props.sectionWheels,
     variation: 'list',
   })
-
   if (!sectionWheel || !props.allBlog) {
     return null
   }
-  const { wheel } = sectionWheel
+  const { data, wheel } = sectionWheel
   const blogPosts: BlogModel[] = props.allBlog.edges.map(
     (edges: any) => edges.node
   )
@@ -32,6 +31,7 @@ export const BlogSectionListVar = (props: BlogSectionModel) => {
     <BlogSectionWrapper containerStyle="container" wheel={wheel}>
       <List
         blogPosts={blogPosts}
+        data={data}
         locale={props.locale}
         wheel={{ ...wheel, style: wheel.style.blog }}
       />

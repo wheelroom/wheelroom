@@ -20,6 +20,16 @@ interface ListWheel extends Wheel {
   style: BlogSectionListVariationNcssTree
 }
 
+interface ListData {
+  hideAbstract: boolean
+  hideCategories: boolean
+  hideContent: boolean
+  hideDate: boolean
+  hideHeading: boolean
+  hideMedia: boolean
+  hideText: boolean
+}
+
 interface ListProps {
   /** Styling wheel */
   wheel: ListWheel
@@ -27,13 +37,14 @@ interface ListProps {
   locale: string
   /** List of all blogs to render */
   blogPosts: BlogModel[]
+  /** Data wheel */
+  data: ListData
 }
 
 export const List = (props: ListProps) => {
   if (!props.blogPosts) {
     return null
   }
-
   return (
     <Ul
       wheel={{
@@ -82,72 +93,86 @@ export const List = (props: ListProps) => {
                 to={'/blog/' + blog.slug}
                 ariaLabel={blog.heading + ' - ' + categories + ' - ' + dateTime}
               >
-                <Flex
-                  is="div"
-                  wheel={{
-                    ...props.wheel,
-                    style: props.wheel.style.media,
-                  }}
-                >
-                  <Image
-                    media={blog.media}
-                    wheel={{
-                      ...props.wheel,
-                      style: props.wheel.style.image,
-                    }}
-                  />
-                </Flex>
-                <Flex
-                  is="div"
-                  wheel={{
-                    ...props.wheel,
-                    style: props.wheel.style.content,
-                  }}
-                >
-                  <Any
-                    wheel={{
-                      ...props.wheel,
-                      style: props.wheel.style.categories,
-                    }}
-                    is="span"
-                  >
-                    {getCategories}
-                  </Any>
-                  <Box
+                {!props.data.hideMedia && (
+                  <Flex
                     is="div"
                     wheel={{
                       ...props.wheel,
-                      style: props.wheel.style.text,
+                      style: props.wheel.style.media,
                     }}
                   >
-                    <Heading
-                      is="h3"
+                    <Image
+                      media={blog.media}
                       wheel={{
                         ...props.wheel,
-                        style: props.wheel.style.heading,
+                        style: props.wheel.style.image,
                       }}
-                    >
-                      {blog.heading}
-                    </Heading>
-                    <Paragraph
-                      wheel={{
-                        ...props.wheel,
-                        style: props.wheel.style.abstract,
-                      }}
-                    >
-                      {blog.abstract?.abstract}
-                    </Paragraph>
-                  </Box>
-                  <Time
+                    />
+                  </Flex>
+                )}
+                {!props.data.hideContent && (
+                  <Flex
+                    is="div"
                     wheel={{
                       ...props.wheel,
-                      style: props.wheel.style.date,
+                      style: props.wheel.style.content,
                     }}
-                    datetime={blog.date}
                   >
-                    {dateTime}
-                  </Time>
-                </Flex>
+                    {!props.data.hideCategories && (
+                      <Any
+                        wheel={{
+                          ...props.wheel,
+                          style: props.wheel.style.categories,
+                        }}
+                        is="span"
+                      >
+                        {getCategories}
+                      </Any>
+                    )}
+                    {!props.data.hideText && (
+                      <Box
+                        is="div"
+                        wheel={{
+                          ...props.wheel,
+                          style: props.wheel.style.text,
+                        }}
+                      >
+                        {!props.data.hideHeading && (
+                          <Heading
+                            is="h3"
+                            wheel={{
+                              ...props.wheel,
+                              style: props.wheel.style.heading,
+                            }}
+                          >
+                            {blog.heading}
+                          </Heading>
+                        )}
+                        {!props.data.hideAbstract && (
+                          <Paragraph
+                            wheel={{
+                              ...props.wheel,
+                              style: props.wheel.style.abstract,
+                            }}
+                          >
+                            {blog.abstract?.abstract}
+                          </Paragraph>
+                        )}
+                      </Box>
+                    )}
+                    {!props.data.hideDate && (
+                      <Time
+                        wheel={{
+                          ...props.wheel,
+                          style: props.wheel.style.date,
+                        }}
+                        datetime={blog.date}
+                      >
+                        {dateTime}
+                      </Time>
+                    )}
+                  </Flex>
+                )}
               </GLink>
             </Li>
           )

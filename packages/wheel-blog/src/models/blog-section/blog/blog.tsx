@@ -19,6 +19,17 @@ interface BlogWheel extends Wheel {
   style: BlogSectionBlogVariationNcssTree
 }
 
+interface BlogData {
+  hideAbstract: boolean
+  hideAuthors: boolean
+  hideCategories: boolean
+  hideDate: boolean
+  hideHeader: boolean
+  hideHeading: boolean
+  hideMedia: boolean
+  hideRichText: boolean
+}
+
 interface BlogProps {
   /** Styling wheel */
   wheel: BlogWheel
@@ -26,6 +37,8 @@ interface BlogProps {
   locale: string
   /** Blog props to render */
   blog: BlogModel
+  /** Data wheel */
+  data: BlogData
 }
 
 export const Blog = (props: BlogProps) => {
@@ -49,77 +62,91 @@ export const Blog = (props: BlogProps) => {
   const getCategories = categories.length > 0 ? categories.join(', ') : ''
   return (
     <Box is="article" wheel={{ ...props.wheel, style: props.wheel.style }}>
-      <Flex
-        is="header"
-        wheel={{ ...props.wheel, style: props.wheel.style.header }}
-      >
-        <Any
-          is="span"
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.categories,
-          }}
+      {!props.data.hideHeader && (
+        <Flex
+          is="header"
+          wheel={{ ...props.wheel, style: props.wheel.style.header }}
         >
-          {getCategories}
-        </Any>
-        <Time
-          wheel={{ ...props.wheel, style: props.wheel.style.date }}
-          datetime={props.blog.date}
-        >
-          {dateTime}
-        </Time>
-        <Heading
-          is="h1"
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.heading,
-          }}
-        >
-          {props.blog.heading}
-        </Heading>
-        <Paragraph
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.abstract,
-          }}
-        >
-          {props.blog.abstract?.abstract}
-        </Paragraph>
-      </Flex>
-      {props.blog.media && (
+          {!props.data.hideCategories && (
+            <Any
+              is="span"
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.categories,
+              }}
+            >
+              {getCategories}
+            </Any>
+          )}
+          {!props.data.hideDate && (
+            <Time
+              wheel={{ ...props.wheel, style: props.wheel.style.date }}
+              datetime={props.blog.date}
+            >
+              {dateTime}
+            </Time>
+          )}
+          {!props.data.hideHeading && (
+            <Heading
+              is="h1"
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.heading,
+              }}
+            >
+              {props.blog.heading}
+            </Heading>
+          )}
+          {!props.data.hideAbstract && (
+            <Paragraph
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.abstract,
+              }}
+            >
+              {props.blog.abstract?.abstract}
+            </Paragraph>
+          )}
+        </Flex>
+      )}
+      {!props.data.hideMedia && props.blog.media && (
         <Image
           includeFigcaption={true}
           media={props.blog.media}
           wheel={{ ...props.wheel, style: props.wheel.style.image }}
         />
       )}
-      <RichText
-        locale={props.locale}
-        wheel={{ ...props.wheel, style: props.wheel.style.richText }}
-        textJson={props.blog.text.json}
-      />
-      <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
-        {props.blog.authors &&
-          props.blog.authors.map((author: TopicModel, index: number) => {
-            return (
-              <Topic
-                fullTopicAsLink={false}
-                key={index}
-                maxActions={2}
-                topic={author}
-                topicOptions={{
-                  hideAction: false,
-                  hideIcon: true,
-                }}
-                useHeadingElement="p"
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.author,
-                }}
-              />
-            )
-          })}
-      </Flex>
+      {!props.data.hideRichText && (
+        <RichText
+          locale={props.locale}
+          wheel={{ ...props.wheel, style: props.wheel.style.richText }}
+          textJson={props.blog.text.json}
+        />
+      )}
+      {!props.data.hideAuthors && (
+        <Flex wheel={{ ...props.wheel, style: props.wheel.style.authors }}>
+          {props.blog.authors &&
+            props.blog.authors.map((author: TopicModel, index: number) => {
+              return (
+                <Topic
+                  fullTopicAsLink={false}
+                  key={index}
+                  maxActions={2}
+                  topic={author}
+                  topicOptions={{
+                    hideAction: false,
+                    hideIcon: true,
+                  }}
+                  useHeadingElement="p"
+                  wheel={{
+                    ...props.wheel,
+                    style: props.wheel.style.author,
+                  }}
+                />
+              )
+            })}
+        </Flex>
+      )}
     </Box>
   )
 }

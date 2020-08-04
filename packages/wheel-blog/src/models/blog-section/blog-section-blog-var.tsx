@@ -19,16 +19,16 @@ export const BlogSectionBlogVar = (props: BlogSectionModel) => {
     sectionWheels: props.sectionWheels,
     variation: 'blog',
   })
-
   if (!sectionWheel || !props.blog) {
     return null
   }
-  const { wheel } = sectionWheel
+  const { data, wheel } = sectionWheel
   return (
     <BlogSectionWrapper containerStyle="container" wheel={wheel}>
       <Blog
-        locale={props.locale}
         blog={props.blog}
+        data={data}
+        locale={props.locale}
         wheel={{ ...wheel, style: wheel.style.blog }}
       />
     </BlogSectionWrapper>
