@@ -64,6 +64,9 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
         branding: {
           ncss: {
             label: 'brand-navigation-segment-brand',
+            fontFamily: 'branding',
+            fontWeight: 'bold',
+            color: 'sectionText',
           },
         },
         action: {
