@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@2.0.6...@wheelroom/wheel-topic@2.0.7) (2020-08-05)
+
+**Note:** Version bump only for package @wheelroom/wheel-topic
+
+
+
+
+
 ## [2.0.6](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@2.0.5...@wheelroom/wheel-topic@2.0.6) (2020-07-09)
 
 **Note:** Version bump only for package @wheelroom/wheel-topic

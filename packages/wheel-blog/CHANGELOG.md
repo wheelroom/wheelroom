@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-blog@2.0.6...@wheelroom/wheel-blog@2.1.0) (2020-08-05)
+
+
+### Features
+
+* Extend BlogSection variations with Data options ([d58c704](https://github.com/wheelroom/wheelroom/commit/d58c704130d36ab6a8451657c8ce35d5213eae5f))
+
+
+
+
+
 ## [2.0.6](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-blog@2.0.5...@wheelroom/wheel-blog@2.0.6) (2020-07-09)
 
 **Note:** Version bump only for package @wheelroom/wheel-blog

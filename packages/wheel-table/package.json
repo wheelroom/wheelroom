@@ -24,13 +24,13 @@
     "@types/react-dom": "16.9.8",
     "@typescript-eslint/eslint-plugin": "3.6.0",
     "@typescript-eslint/parser": "3.6.0",
-    "@wheelroom/admin-core": "1.2.8",
-    "@wheelroom/admin-page-preview": "1.5.13",
-    "@wheelroom/core": "2.0.5",
-    "@wheelroom/styled-system": "4.1.8",
-    "@wheelroom/wheel-topic": "2.0.6",
-    "@wheelroom/wheelroom": "4.3.8",
-    "@wheelroom/wheelroom-plugin-contentful": "3.4.9",
+    "@wheelroom/admin-core": "1.2.9",
+    "@wheelroom/admin-page-preview": "1.5.14",
+    "@wheelroom/core": "2.0.6",
+    "@wheelroom/styled-system": "4.1.9",
+    "@wheelroom/wheel-topic": "2.0.7",
+    "@wheelroom/wheelroom": "4.3.9",
+    "@wheelroom/wheelroom-plugin-contentful": "3.4.10",
     "eslint": "7.4.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
@@ -46,7 +46,7 @@
   },
   "engines": {
     "node": ">=12.0.0",
-    "npm" : ">=6.14.6"
+    "npm": ">=6.14.6"
   },
   "files": [
     "dist/index.*",
@@ -91,5 +91,5 @@
     "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "2.0.7"
+  "version": "2.0.8"
 }

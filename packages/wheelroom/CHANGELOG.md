@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.9](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.3.8...@wheelroom/wheelroom@4.3.9) (2020-08-05)
+
+**Note:** Version bump only for package @wheelroom/wheelroom
+
+
+
+
+
 ## [4.3.8](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.3.7...@wheelroom/wheelroom@4.3.8) (2020-07-08)
 
 

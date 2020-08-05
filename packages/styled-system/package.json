@@ -43,7 +43,7 @@
   },
   "engines": {
     "node": ">=12.0.0",
-    "npm" : ">=6.14.6"
+    "npm": ">=6.14.6"
   },
   "files": [
     "dist/*"
@@ -74,6 +74,6 @@
     "dev": "tsc -w"
   },
   "types": "dist/index.d.ts",
-  "version": "4.1.8",
+  "version": "4.1.9",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

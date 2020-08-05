@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-from-markdown": "14.1.1",
-    "@wheelroom/wheelroom": "4.3.8",
+    "@wheelroom/wheelroom": "4.3.9",
     "camelcase": "6.0.0",
     "contentful-management": "5.28.0",
     "dotenv": "8.2.0",
@@ -61,7 +61,7 @@
   },
   "engines": {
     "node": ">=12.0.0",
-    "npm" : ">=6.14.6"
+    "npm": ">=6.14.6"
   },
   "files": [
     "assets/*",
@@ -102,6 +102,6 @@
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
-  "version": "3.4.9",
+  "version": "3.4.10",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

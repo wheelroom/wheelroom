@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.0.7...@wheelroom/boilerplate@5.1.0) (2020-08-05)
+
+
+### Features
+
+* create your own custom-wheel (example code) ([1f48295](https://github.com/wheelroom/wheelroom/commit/1f48295012c9e1209495a8ba0b47829f445379d4))
+* Extend BlogSection variations with Data options ([d58c704](https://github.com/wheelroom/wheelroom/commit/d58c704130d36ab6a8451657c8ce35d5213eae5f))
+
+
+
+
+
 ## [5.0.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.0.6...@wheelroom/boilerplate@5.0.7) (2020-07-09)
 
 **Note:** Version bump only for package @wheelroom/boilerplate

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.15](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@3.1.14...@wheelroom/wheelroom-plugin-graphql@3.1.15) (2020-08-05)
+
+**Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
+
+
+
+
+
 ## [3.1.14](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-graphql@3.1.13...@wheelroom/wheelroom-plugin-graphql@3.1.14) (2020-07-08)
 
 **Note:** Version bump only for package @wheelroom/wheelroom-plugin-graphql
