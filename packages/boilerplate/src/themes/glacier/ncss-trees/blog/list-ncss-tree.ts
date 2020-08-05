@@ -14,10 +14,10 @@ export const blogSectionListNcssTree: DeepPartial<BlogSectionListNcssTree> = {
   blog: {
     ncss: {
       label: 'blog-section-list',
-      flexDirection: ['column', 'row'],
       display: 'flex',
-      p: 0,
+      flexDirection: ['column', 'row'],
       m: 0,
+      p: 0,
       w: 1,
     },
     item: {
@@ -25,15 +25,17 @@ export const blogSectionListNcssTree: DeepPartial<BlogSectionListNcssTree> = {
         label: 'list-item',
         listStyleType: 'none',
         maxWidth: '35em',
+        mx: ['auto', 'initial'],
         p: 3,
         w: [1, 1 / 2, 1 / 3],
-        mx: ['auto', 'initial'],
       },
     },
     link: {
       ncss: {
         label: 'list-link',
-        display: 'block',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
         textDecoration: 'none',
       },
     },
@@ -50,6 +52,8 @@ export const blogSectionListNcssTree: DeepPartial<BlogSectionListNcssTree> = {
       },
       ncss: {
         label: 'list-img',
+        h: 1,
+        objectFit: 'cover',
       },
     },
     video: {
@@ -65,7 +69,7 @@ export const blogSectionListNcssTree: DeepPartial<BlogSectionListNcssTree> = {
     content: {
       ncss: {
         label: 'list-content',
-        flex: 1,
+        flex: '1 1 auto',
         flexDirection: 'column',
         p: 3,
       },
@@ -73,7 +77,7 @@ export const blogSectionListNcssTree: DeepPartial<BlogSectionListNcssTree> = {
     text: {
       ncss: {
         label: 'list-text',
-        flex: 1,
+        flex: '1 1 auto',
       },
     },
     heading: {
@@ -95,7 +99,6 @@ export const blogSectionListNcssTree: DeepPartial<BlogSectionListNcssTree> = {
         color: 'azure',
         fontFamily: 'text',
         fontSize: 4,
-        order: -1,
         textTransform: 'uppercase',
       },
     },
@@ -103,6 +106,7 @@ export const blogSectionListNcssTree: DeepPartial<BlogSectionListNcssTree> = {
       ncss: {
         label: 'list-date',
         color: 'bullet',
+        flex: 0,
         fontFamily: 'text',
         fontSize: 3,
         mt: 1,
