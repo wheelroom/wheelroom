@@ -43,7 +43,7 @@ When the Gatsby development server starts, this is what happens:
 
 ## Wheelroom boilerplate
 
-The Wheelroom boilerplate uses wheels. Proper documentation has not been written. 
+The Wheelroom boilerplate uses wheels. Proper documentation has not been written.
 There is a brief overview of the [core folders](../src/wheelroom/README.md).
 
 ## Styled system
@@ -56,9 +56,9 @@ Styled system itself is based on [System UI Theme
 Specification](https://system-ui.com/theme/).
 
 The config file can be found here:
-[styled-system-config.ts](../src/themes/yosemite/styled-system/styled-system-config.ts).
+[styled-system-config.ts](../src/themes/glacier/styled-system/styled-system-config.ts).
 To configure the theme, look here:
-[yosemite-light.ts](../src/themes/yosemite/yosemite-light.ts)
+[glacier-light.ts](../src/themes/glacier/glacier-light.ts)
 
 ## TOC
 
