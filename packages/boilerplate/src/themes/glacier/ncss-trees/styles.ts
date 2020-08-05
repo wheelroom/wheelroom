@@ -1,8 +1,14 @@
 import { SectionWheelThemeStyles, deepMerge } from '@wheelroom/core'
 import { blogSectionBlogNcssTree } from './blog/blog-ncss-tree'
 import { blogSectionListNcssTree } from './blog/list-ncss-tree'
-import { navigationSectionHeaderNcssTree } from './navigation/navigation-section/header-ncss-tree'
+import { customSectionLargeNcssTree } from './custom/custom-section/large-ncss-tree'
+import { customSectionSmallNcssTree } from './custom/custom-section/small-ncss-tree'
 import { navigationSectionFooterNcssTree } from './navigation/navigation-section/footer-ncss-tree'
+import { navigationSectionHeaderNcssTree } from './navigation/navigation-section/header-ncss-tree'
+import { tableSectionPriceNcssTree } from './table/price-ncss-tree'
+import { tableSectionTableNcssTree } from './table/table-ncss-tree'
+import { textSectionTextNcssTree } from './text/text-ncss-tree'
+import { topicNcssTree } from './topic/topic/topic-ncss-tree'
 import { topicSectionBlockNcssTree } from './topic/topic-section/block-ncss-tree'
 import { topicSectionCardNcssTree } from './topic/topic-section/card-ncss-tree'
 import { topicSectionDividerNcssNode } from './topic/topic-section/divider-ncss'
@@ -14,10 +20,6 @@ import { topicSectionImageNcssTree } from './topic/topic-section/image-ncss-tree
 import { topicSectionQuoteNcssTree } from './topic/topic-section/quote-ncss-tree'
 import { topicSectionShowcaseNcssTree } from './topic/topic-section/showcase-ncss-tree'
 import { topicSectionVideoNcssTree } from './topic/topic-section/video-ncss-tree'
-import { topicNcssTree } from './topic/topic/topic-ncss-tree'
-import { textSectionTextNcssTree } from './text/text-ncss-tree'
-import { tableSectionTableNcssTree } from './table/table-ncss-tree'
-import { tableSectionPriceNcssTree } from './table/price-ncss-tree'
 
 const mergeTopic = (style: any) => deepMerge([{ topic: topicNcssTree }, style])
 
@@ -25,6 +27,10 @@ export const styles: SectionWheelThemeStyles = {
   blogSection: {
     blog: blogSectionBlogNcssTree,
     list: blogSectionListNcssTree,
+  },
+  customSection: {
+    large: customSectionLargeNcssTree,
+    small: customSectionSmallNcssTree,
   },
   navigationSection: {
     header: navigationSectionHeaderNcssTree,

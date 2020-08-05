@@ -13,6 +13,7 @@ import {
   SectionWheels,
   ScrollSpy,
 } from '@wheelroom/core'
+import { CustomSection } from '../custom-wheel/models/custom-section/custom-section'
 import { Landmarks } from './landmarks'
 import { SectionProps } from './section-props'
 
@@ -22,13 +23,11 @@ export interface SectionMap {
 
 const sectionMap: SectionMap = {
   ContentfulBlogSection: BlogSection,
+  ContentfulCustomSection: CustomSection,
   ContentfulNavigationSection: NavigationSection,
-  ContentfulTopicSection: TopicSection,
   ContentfulTableSection: TableSection,
   ContentfulTextSection: TextSection,
-
-  // TODO: Remove this
-  ContentfulPageSection: TopicSection,
+  ContentfulTopicSection: TopicSection,
 }
 
 export interface SectionsProps {

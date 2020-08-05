@@ -10,7 +10,7 @@ if [ -d "node_modules/@wheelroom/core" ]; then
     cp node_modules/@wheelroom/core/src/models/embed/fragment.js src/graphql-fragments/embed-fragment.js
     cp node_modules/@wheelroom/core/src/models/globals/fragment.js src/graphql-fragments/globals-fragment.js
     cp node_modules/@wheelroom/core/src/models/media-breakpoint/fragment.js src/graphql-fragments/media-breakpoint-fragment.js
-    cp node_modules/@wheelroom/core/src/models/page/fragment.js src/graphql-fragments/page-fragment.js
+    # We don't copy the page fragment because it is frequently changed by users - The file is located in ./src/page-template
 fi
 
 if [ -d "node_modules/@wheelroom/wheel-blog" ]; then

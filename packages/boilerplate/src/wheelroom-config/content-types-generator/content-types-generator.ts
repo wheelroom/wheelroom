@@ -34,17 +34,19 @@ import {
   WheelroomComponent,
 } from '@wheelroom/wheelroom'
 import * as fse from 'fs-extra'
+import { blogModelConfig } from '@wheelroom/wheel-blog'
 import { coreModelConfig } from '@wheelroom/core'
 import { navigationModelConfig } from '@wheelroom/wheel-navigation'
 import { tableModelConfig } from '@wheelroom/wheel-table'
-import { blogModelConfig } from '@wheelroom/wheel-blog'
 import { textModelConfig } from '@wheelroom/wheel-text'
 import { topicModelConfig } from '@wheelroom/wheel-topic'
+import { customModelConfig } from '../../custom-wheel/config/custom-model-config'
 import { contentSets } from '../content-sets/content-sets'
 
 const models = {
-  ...coreModelConfig,
   ...blogModelConfig,
+  ...coreModelConfig,
+  ...customModelConfig,
   ...navigationModelConfig,
   ...tableModelConfig,
   ...textModelConfig,
@@ -67,8 +69,8 @@ const wheelroomTypeToTsType: TypeTable = {
   checkbox: 'string[]',
   date: 'string',
   dropdown: '',
-  media: 'boolean',
   longText: 'string',
+  media: 'boolean',
   multipleComponents: 'string[]',
   number: 'number',
   richText: 'string',

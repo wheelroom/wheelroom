@@ -1,6 +1,7 @@
 import { BlogSectionData } from '@wheelroom/wheel-blog'
+import { DeepPartial } from '@wheelroom/core'
 
-export const blogSectionData: BlogSectionData = {
+export const blogSectionData: DeepPartial<BlogSectionData> = {
   blog: {
     hideAbstract: false,
     hideAuthors: false,

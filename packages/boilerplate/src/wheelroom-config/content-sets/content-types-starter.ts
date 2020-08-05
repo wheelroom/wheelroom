@@ -390,7 +390,7 @@ interface PageModel {
       | 'tableSectionPrice'
       | 'tableSectionTable'
     >
-    theme?: 'yosemiteLight' | 'yosemiteDark'
+    theme?: 'glacierLight' | 'glacierDark'
     seoTitle?: string
     seoDescription?: string
     seoImage?: boolean
@@ -714,6 +714,24 @@ interface BlogSectionModel {
     title: string
   }
   model: 'blogSection'
+}
+interface CustomModel {
+  fields: {
+    heading?: string
+    abstract?: string
+    media?: boolean
+    title: string
+  }
+  model: 'custom'
+}
+interface CustomSectionModel {
+  fields: {
+    variation?: 'small' | 'large'
+    eventId?: string
+    section?: any
+    title: string
+  }
+  model: 'customSection'
 }
 interface TableRowModel {
   fields: {
@@ -1400,6 +1418,8 @@ type Model =
   | PageModel
   | BlogModel
   | BlogSectionModel
+  | CustomModel
+  | CustomSectionModel
   | TableRowModel
   | TableSectionModel
   | TextSectionModel
