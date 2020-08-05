@@ -1,6 +1,7 @@
+import { DeepPartial } from '@wheelroom/core'
 import { NavigationSectionData } from '@wheelroom/wheel-navigation'
 
-export const navigationSectionData: NavigationSectionData = {
+export const navigationSectionData: DeepPartial<NavigationSectionData> = {
   header: {
     hideThemeButton: false,
     /**

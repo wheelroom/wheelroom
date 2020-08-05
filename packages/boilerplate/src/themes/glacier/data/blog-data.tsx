@@ -1,5 +1,5 @@
-import { BlogSectionData } from '@wheelroom/wheel-blog'
 import { DeepPartial } from '@wheelroom/core'
+import { BlogSectionData } from '@wheelroom/wheel-blog'
 
 export const blogSectionData: DeepPartial<BlogSectionData> = {
   blog: {

@@ -1,6 +1,7 @@
+import { DeepPartial } from '@wheelroom/core'
 import { TopicSectionData } from '@wheelroom/wheel-topic'
 
-export const topicSectionData: TopicSectionData = {
+export const topicSectionData: DeepPartial<TopicSectionData> = {
   block: {},
   card: {},
   divider: {},
