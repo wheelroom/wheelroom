@@ -96,7 +96,8 @@
     "write-pkg": "4.0.0"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=12.0.0",
+    "npm" : ">=6.14.6"
   },
   "homepage": "https://github.com/wheelroom/wheelroom#readme",
   "license": "MIT",
