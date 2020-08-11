@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@2.0.7...@wheelroom/wheel-topic@2.1.0) (2020-08-11)
+
+
+### Features
+
+* add Author Data in Blog section variations ([ae30266](https://github.com/wheelroom/wheelroom/commit/ae30266f31d1f29f8329c1ceb1ea4bdf54ae8134))
+* add TopicSectionData in topic section variations ([46afce5](https://github.com/wheelroom/wheelroom/commit/46afce5a65f05d06848dc734fe5b7df22d0d6c2b))
+
+
+
+
+
 ## [2.0.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@2.0.6...@wheelroom/wheel-topic@2.0.7) (2020-08-05)
 
 **Note:** Version bump only for package @wheelroom/wheel-topic

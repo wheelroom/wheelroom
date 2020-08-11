@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-table@2.0.8...@wheelroom/wheel-table@2.1.0) (2020-08-11)
+
+
+### Features
+
+* add Topic Table Data in table section variations ([848b536](https://github.com/wheelroom/wheelroom/commit/848b536b8c8a97c3fafcce4bc159d05bfad0d803))
+
+
+
+
+
 ## [2.0.8](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-table@2.0.7...@wheelroom/wheel-table@2.0.8) (2020-08-05)
 
 **Note:** Version bump only for package @wheelroom/wheel-table
