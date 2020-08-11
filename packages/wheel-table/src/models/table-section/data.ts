@@ -1,4 +1,7 @@
+import { PriceData } from './price/data'
+import { TableData } from './table/data'
+
 export interface TableSectionData {
-  table: any
-  price: any
+  table: TableData
+  price: PriceData
 }

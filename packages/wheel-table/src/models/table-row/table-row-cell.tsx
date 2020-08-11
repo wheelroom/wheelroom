@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Td } from '@wheelroom/core'
-import { TopicOptions, TopicModel, Topic } from '@wheelroom/wheel-topic'
-
-import { Wheel } from '@wheelroom/core'
+import { Td, Wheel } from '@wheelroom/core'
+import { Topic, TopicModel, TopicOptions } from '@wheelroom/wheel-topic'
 import { TableRowNcssTree } from './ncss-tree'
+import { TableRowData } from './data'
 
 export interface TableRowCellWheel extends Wheel {
   style: TableRowNcssTree
@@ -13,6 +12,8 @@ export interface TableRowCellWheel extends Wheel {
 export interface TableRowCellProps {
   /** Styling wheel */
   wheel: TableRowCellWheel
+  /** Data wheel */
+  data: TableRowData
   /** Topic props */
   topic: TopicModel
   /** Percentage */
@@ -22,7 +23,7 @@ export interface TableRowCellProps {
 }
 
 export const TableRowCell = (props: TableRowCellProps) => {
-  if (!props.topic) {
+  if (!props.topic && !props.data) {
     return null
   }
 
@@ -35,6 +36,7 @@ export const TableRowCell = (props: TableRowCellProps) => {
   return (
     <Td wheel={{ ...props.wheel, style: dataCellStyle }}>
       <Topic
+        data={props.data.topic}
         topic={props.topic}
         topicOptions={props.topicOptions}
         useHeadingElement="p"

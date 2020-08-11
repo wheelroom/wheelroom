@@ -5,6 +5,7 @@ import { TopicOptions } from '@wheelroom/wheel-topic'
 import { TableRow } from '../table-row/table-row'
 import { TableRowModel } from '../table-row/model'
 import { TableRowNcssTree } from '../table-row/ncss-tree'
+import { TableData } from './table/data'
 
 export interface TableWheel extends Wheel {
   style: TableRowNcssTree
@@ -13,6 +14,8 @@ export interface TableWheel extends Wheel {
 export interface TableProps {
   /** Styling wheel */
   wheel: TableWheel
+  /** Data wheel */
+  data: TableData
   /** The topic to render */
   tableRows?: TableRowModel[]
   /** Topic options */
@@ -46,6 +49,7 @@ export const Table = (props: TableProps) => {
           {tableRows.map((tableRow: TableRowModel, index: number) => {
             return (
               <TableRow
+                data={props.data}
                 key={index}
                 maxRowTopics={maxRowTopics}
                 tableRow={tableRow}

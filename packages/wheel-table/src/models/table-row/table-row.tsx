@@ -14,9 +14,10 @@ import {
   getNcssSwitch,
 } from '@wheelroom/core'
 import { TopicOptions, TopicModel } from '@wheelroom/wheel-topic'
+import { TableRowCell } from './table-row-cell'
+import { TableRowData } from './data'
 import { TableRowModel } from './model'
 import { TableRowNcssTree } from './ncss-tree'
-import { TableRowCell } from './table-row-cell'
 
 export interface TableRowWheel extends Wheel {
   style: TableRowNcssTree
@@ -25,6 +26,8 @@ export interface TableRowWheel extends Wheel {
 export interface TableRowProps {
   /** Styling wheel */
   wheel: TableRowWheel
+  /** Data wheel */
+  data: TableRowData
   /** The maximum number of topics found on any row */
   maxRowTopics: number
   /** The topic rows to render */
@@ -32,7 +35,6 @@ export interface TableRowProps {
   /** Topic options */
   topicOptions: TopicOptions
 }
-
 export const TableRow = (props: TableRowProps) => {
   const tableRow = props.tableRow
   if (!tableRow) {
@@ -122,6 +124,7 @@ export const TableRow = (props: TableRowProps) => {
       {(tableRow.topics || []).map((topic: TopicModel, index: number) => {
         return (
           <TableRowCell
+            data={props.data}
             dataCellWidth={dataCellWidth}
             key={index}
             topic={topic}

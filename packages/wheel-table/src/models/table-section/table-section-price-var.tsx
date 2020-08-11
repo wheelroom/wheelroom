@@ -23,10 +23,11 @@ export const TableSectionPriceVar = (props: TableSectionModel) => {
   if (!sectionWheel || !props.tableRows) {
     return null
   }
-  const { wheel } = sectionWheel
+  const { data, wheel } = sectionWheel
   return (
     <TableSectionWrapper containerStyle="container" wheel={wheel}>
       <Table
+        data={data}
         tableRows={props.tableRows}
         topicOptions={getTopicOptions(props.topicOptions || [])}
         wheel={{ ...wheel, style: wheel.style.table }}
