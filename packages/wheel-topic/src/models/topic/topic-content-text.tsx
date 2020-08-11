@@ -58,15 +58,17 @@ export const TopicContentText = (props: TopicContentTextProps) => {
           wheel={{ ...props.wheel, style: props.wheel.style.icon }}
         />
       )}
-      {!topicOptions.hideHeading && props.topic.heading && !props.data.hideHeading && (
-        <HeadingParser
-          polyPreset={true}
-          is={useHeadingElement}
-          wheel={{ ...props.wheel, style: props.wheel.style.heading }}
-        >
-          {props.topic.heading}
-        </HeadingParser>
-      )}
+      {!topicOptions.hideHeading &&
+        props.topic.heading &&
+        !props.data.hideHeading && (
+          <HeadingParser
+            polyPreset={true}
+            is={useHeadingElement}
+            wheel={{ ...props.wheel, style: props.wheel.style.heading }}
+          >
+            {props.topic.heading}
+          </HeadingParser>
+        )}
       {!topicOptions.hideAbstract &&
         props.topic.abstract &&
         props.topic.abstract.abstract &&

@@ -48,7 +48,8 @@ export const TopicContent = (props: TopicContentProps) => {
   }
   const topicInfo = props.topicInfo
   const topicOptions = props.topicOptions
-  const showAction = topicInfo.hasAction && !topicOptions.hideAction && !props.data.hideActions
+  const showAction =
+    topicInfo.hasAction && !topicOptions.hideAction && !props.data.hideActions
 
   const isEmpty =
     (!topicInfo.hasIcon || topicOptions.hideIcon) &&
