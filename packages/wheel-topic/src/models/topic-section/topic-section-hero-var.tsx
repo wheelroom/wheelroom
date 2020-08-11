@@ -25,19 +25,20 @@ export const TopicSectionHeroVar = (props: TopicSectionModel) => {
   if (!sectionWheel || !props.topics) {
     return null
   }
-  const { wheel } = sectionWheel
+  const { data, wheel } = sectionWheel
 
   const topicHeading = props.index <= 1 ? 'h1' : 'h2'
   return (
     <TopicSectionWrapper containerStyle="fluid" wheel={wheel}>
       {props.topics.slice(0, 1).map((topic: TopicModel, index: number) => (
         <Topic
+          data={data}
           key={index}
           topic={topic}
+          topicOptions={getTopicOptions(props.topicOptions || [])}
           useAbstractParser={MultiParser}
           useHeadingElement={topicHeading}
           wheel={{ ...wheel, style: wheel.style.topic }}
-          topicOptions={getTopicOptions(props.topicOptions || [])}
         />
       ))}
     </TopicSectionWrapper>

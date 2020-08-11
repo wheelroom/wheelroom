@@ -8,9 +8,9 @@ export const TopicBody = (props: TopicProps) => {
   const topicInfo = getTopicInfo(props.topic!)
   const topicOptions = props.topicOptions
   const showMedia = topicInfo.hasMedia && !topicOptions.hideMedia
-
   const media = (
     <TopicMedia
+      data={props.data}
       embed={props.topic!}
       topic={props.topic!}
       topicInfo={topicInfo}
@@ -21,6 +21,7 @@ export const TopicBody = (props: TopicProps) => {
 
   const content = (
     <TopicContent
+      data={props.data}
       fullTopicAsLink={props.fullTopicAsLink}
       maxActions={props.maxActions}
       topic={props.topic!}

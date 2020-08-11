@@ -25,17 +25,18 @@ export const TopicSectionGalleryVar = (props: TopicSectionModel) => {
   if (!sectionWheel || !props.topics) {
     return null
   }
-  const { wheel } = sectionWheel
+  const { data, wheel } = sectionWheel
 
   return (
     <TopicSectionWrapper containerStyle="container" wheel={wheel}>
       {props.topics.map((topic: TopicModel, index: number) => (
         <Topic
+          data={data}
           key={index}
           topic={topic}
+          topicOptions={getTopicOptions(props.topicOptions || [])}
           useAbstractParser={MultiParser}
           wheel={{ ...wheel, style: wheel.style.topic }}
-          topicOptions={getTopicOptions(props.topicOptions || [])}
         />
       ))}
     </TopicSectionWrapper>

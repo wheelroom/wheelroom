@@ -11,6 +11,7 @@ import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicModel } from './model'
 import { TopicNcssTree } from './ncss-tree'
 import { TopicOptions } from '../../lib/get-topic-options'
+import { TopicData } from './data'
 
 export interface TopicContentTextWheel extends Wheel {
   style: TopicNcssTree
@@ -19,6 +20,8 @@ export interface TopicContentTextWheel extends Wheel {
 export interface TopicContentTextProps {
   /** Styling wheel */
   wheel: TopicContentTextWheel
+  /** Data wheel */
+  data: TopicData
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
@@ -36,6 +39,9 @@ export interface TopicContentTextProps {
 }
 
 export const TopicContentText = (props: TopicContentTextProps) => {
+  if (props.data.hideText) {
+    return null
+  }
   const topicOptions = props.topicOptions
 
   const useAbstractElement = props.useAbstractElement || 'p'
@@ -46,13 +52,13 @@ export const TopicContentText = (props: TopicContentTextProps) => {
 
   return (
     <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style.text }}>
-      {!topicOptions.hideIcon && props.topic.icon && (
+      {!topicOptions.hideIcon && props.topic.icon && !props.data.hideIcon && (
         <Icon
           icon={props.topic.icon || ''}
           wheel={{ ...props.wheel, style: props.wheel.style.icon }}
         />
       )}
-      {!topicOptions.hideHeading && props.topic.heading && (
+      {!topicOptions.hideHeading && props.topic.heading && !props.data.hideHeading && (
         <HeadingParser
           polyPreset={true}
           is={useHeadingElement}
@@ -63,7 +69,8 @@ export const TopicContentText = (props: TopicContentTextProps) => {
       )}
       {!topicOptions.hideAbstract &&
         props.topic.abstract &&
-        props.topic.abstract.abstract && (
+        props.topic.abstract.abstract &&
+        !props.data.hideAbstract && (
           <AbstractParser
             polyPreset={true}
             is={useAbstractElement}

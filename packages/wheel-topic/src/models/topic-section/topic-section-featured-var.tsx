@@ -25,7 +25,7 @@ export const TopicSectionFeaturedVar = (props: TopicSectionModel) => {
   if (!sectionWheel || !props.topics) {
     return null
   }
-  const { wheel } = sectionWheel
+  const { data, wheel } = sectionWheel
 
   const topicsPresent =
     props.topics.filter((topic: TopicModel) => topic).length > 1
@@ -41,12 +41,13 @@ export const TopicSectionFeaturedVar = (props: TopicSectionModel) => {
         } as TopicOptions
         return (
           <Topic
+            data={data}
             key={index}
             topic={topic}
+            topicOptions={oddEvenTopicOptions}
             useAbstractParser={MultiParser}
             useHeadingElement={topicHeading}
             wheel={{ ...wheel, style: wheel.style.topic }}
-            topicOptions={oddEvenTopicOptions}
           />
         )
       })}

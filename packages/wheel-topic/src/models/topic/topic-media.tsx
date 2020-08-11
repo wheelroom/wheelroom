@@ -9,6 +9,7 @@ import {
   Video,
   Wheel,
 } from '@wheelroom/core'
+import { TopicData } from './data'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicModel } from './model'
 import { TopicNcssTree } from './ncss-tree'
@@ -21,6 +22,8 @@ export interface TopicMediaWheel extends Wheel {
 export interface TopicMediaProps {
   /** Styling wheel */
   wheel: TopicMediaWheel
+  /** Data wheel */
+  data: TopicData
   /** All topic props */
   topic: TopicModel
   /** All embed props */
@@ -32,6 +35,9 @@ export interface TopicMediaProps {
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
+  if (props.data.hideMedia) {
+    return null
+  }
   const topicInfo = props.topicInfo
   const topic = props.topic
   let Media: any = null

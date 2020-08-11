@@ -9,6 +9,7 @@ import {
 } from '@wheelroom/core'
 import { getTopicInfo } from '../../lib/get-topic-info'
 import { TopicBody } from './topic-body'
+import { TopicData } from './data'
 import { TopicModel } from './model'
 import { TopicNcssTree } from './ncss-tree'
 import { TopicOptions } from '../../lib/get-topic-options'
@@ -36,6 +37,8 @@ export interface TopicProps {
   useHeadingParser?: ParserFunction
   /** Styling wheel */
   wheel: TopicWheel
+  /** Data wheel */
+  data: TopicData
 }
 
 export const Topic = (props: TopicProps) => {

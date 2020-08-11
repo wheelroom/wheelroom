@@ -7,6 +7,7 @@ import {
 } from '@wheelroom/core'
 import { TopicContentActions } from './topic-content-actions'
 import { TopicContentText } from './topic-content-text'
+import { TopicData } from './data'
 import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicModel } from './model'
 import { TopicNcssTree } from './ncss-tree'
@@ -19,6 +20,8 @@ export interface TopicContentWheel extends Wheel {
 export interface TopicContentProps {
   /** Styling wheel */
   wheel: TopicContentWheel
+  /** Data wheel */
+  data: TopicData
   /** Topic props */
   topic: TopicModel
   /** Topic info object */
@@ -40,9 +43,12 @@ export interface TopicContentProps {
 }
 
 export const TopicContent = (props: TopicContentProps) => {
+  if (props.data.hideContent) {
+    return null
+  }
   const topicInfo = props.topicInfo
   const topicOptions = props.topicOptions
-  const showAction = topicInfo.hasAction && !topicOptions.hideAction
+  const showAction = topicInfo.hasAction && !topicOptions.hideAction && !props.data.hideActions
 
   const isEmpty =
     (!topicInfo.hasIcon || topicOptions.hideIcon) &&
@@ -57,6 +63,7 @@ export const TopicContent = (props: TopicContentProps) => {
   return (
     <Box wheel={{ ...props.wheel, style: props.wheel.style.content }}>
       <TopicContentText
+        data={props.data}
         topic={props.topic}
         topicInfo={topicInfo}
         topicOptions={props.topicOptions}
