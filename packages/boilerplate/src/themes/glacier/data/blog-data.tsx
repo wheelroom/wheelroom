@@ -14,9 +14,7 @@ const authorData = {
 
 export const blogSectionData: DeepPartial<BlogSectionData> = {
   blog: {
-    author: {
-      ...authorData,
-    },
+    author: authorData,
     hideAbstract: false,
     hideAuthors: false,
     hideCategories: false,
