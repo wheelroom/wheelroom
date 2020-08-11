@@ -2,7 +2,7 @@ import { DeepPartial } from '@wheelroom/core'
 import { BlogSectionData } from '@wheelroom/wheel-blog'
 
 // Author data is using the Topic data structure
-export const authorData = {
+const authorData = {
   hideAbstract: false,
   hideActions: false,
   hideContent: false,
