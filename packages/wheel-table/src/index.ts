@@ -1,5 +1,6 @@
 // Table row
 export { TableRow } from './models/table-row/table-row'
+export type { TableRowData } from './models/table-row/data'
 export type { TableRowModel } from './models/table-row/model'
 export type { TableRowNcssTree } from './models/table-row/ncss-tree'
 
