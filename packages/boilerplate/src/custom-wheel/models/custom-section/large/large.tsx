@@ -22,7 +22,6 @@ export const Large = (props: LargeProps) => {
   if (!props.model) {
     return null
   }
-  console.log(props.model.media)
   return (
     <Any wheel={{ ...props.wheel, style: props.wheel.style }}>
       <Any is="span" wheel={{ ...props.wheel, style: props.wheel.style.label }}>
