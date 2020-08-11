@@ -1,7 +1,7 @@
 import { DeepPartial } from '@wheelroom/core'
 import { TopicSectionData } from '@wheelroom/wheel-topic'
 
-const topicData = {
+export const topicData = {
   hideAbstract: false,
   hideActions: false,
   hideContent: false,

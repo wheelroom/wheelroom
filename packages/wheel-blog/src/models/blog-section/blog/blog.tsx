@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { BlogModel } from '../../blog/model'
 import {
   Any,
   Box,
@@ -13,21 +12,12 @@ import {
 } from '@wheelroom/core'
 import { TopicModel, Topic } from '@wheelroom/wheel-topic'
 import { RichText } from '@wheelroom/wheel-text'
+import { BlogData } from './data'
+import { BlogModel } from '../../blog/model'
 import { BlogSectionBlogVariationNcssTree } from './ncss-tree'
 
 interface BlogWheel extends Wheel {
   style: BlogSectionBlogVariationNcssTree
-}
-
-interface BlogData {
-  hideAbstract: boolean
-  hideAuthors: boolean
-  hideCategories: boolean
-  hideDate: boolean
-  hideHeader: boolean
-  hideHeading: boolean
-  hideMedia: boolean
-  hideRichText: boolean
 }
 
 interface BlogProps {
@@ -129,13 +119,14 @@ export const Blog = (props: BlogProps) => {
             props.blog.authors.map((author: TopicModel, index: number) => {
               return (
                 <Topic
+                  data={props.data.author}
                   fullTopicAsLink={false}
                   key={index}
                   maxActions={2}
                   topic={author}
                   topicOptions={{
                     hideAction: false,
-                    hideIcon: true,
+                    hideIcon: false,
                   }}
                   useHeadingElement="p"
                   wheel={{

@@ -15,19 +15,10 @@ import {
 } from '@wheelroom/core'
 import { BlogModel } from '../../blog/model'
 import { BlogSectionListVariationNcssTree } from './ncss-tree'
+import { ListData } from './data'
 
 interface ListWheel extends Wheel {
   style: BlogSectionListVariationNcssTree
-}
-
-interface ListData {
-  hideAbstract: boolean
-  hideCategories: boolean
-  hideContent: boolean
-  hideDate: boolean
-  hideHeading: boolean
-  hideMedia: boolean
-  hideText: boolean
 }
 
 interface ListProps {
