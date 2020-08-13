@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.2.0...@wheelroom/boilerplate@5.3.0) (2020-08-13)
+
+
+### Features
+
+* extend NavigationSectionData with hide options ([b02dff7](https://github.com/wheelroom/wheelroom/commit/b02dff73c26fee42b3135a9cd69777cab0d31942))
+
+
+
+
+
 # [5.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.1.0...@wheelroom/boilerplate@5.2.0) (2020-08-11)
 
 
