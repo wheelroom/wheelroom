@@ -25,11 +25,11 @@ export const NavigationSectionFooterVar = (props: NavigationSectionModel) => {
   const { data, wheel } = sectionWheel
   return (
     <NavigationFooter
-      globals={props.globals}
-      siteMetaData={props.siteMetadata}
-      hideLegalFooter={data.hideLegalFooter}
       containerStyle="container"
+      data={data}
+      globals={props.globals}
       navigation={props.navigation || []}
+      siteMetaData={props.siteMetadata}
       wheel={wheel}
     />
   )

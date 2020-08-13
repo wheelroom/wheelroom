@@ -5,15 +5,16 @@ import {
   Flex,
   Fluid,
   GlobalsModel,
+  NcssNode,
   Wheel,
   Wrapper,
-  NcssNode,
 } from '@wheelroom/core'
+import { LegalFooter, LegalFooterNcssTree } from './legal-footer'
 import { NavigationModel } from '../../navigation/model'
+import { NavigationSectionFooterData } from './data'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentModel } from '../../navigation-segment/model'
 import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
-import { LegalFooter, LegalFooterNcssTree } from './legal-footer'
 
 export interface NavigationSectionFooterNcssTree {
   container: NcssNode
@@ -29,17 +30,17 @@ export interface NavigationSectionFooterNcssTree {
   wrapper: NcssNode
 }
 
-interface NavigationFooterWheel extends Wheel {
+interface NavigationSectionFooterWheel extends Wheel {
   style: NavigationSectionFooterNcssTree
 }
 
 export interface NavigationFooterProps {
   containerStyle: 'container' | 'fluid'
+  data: NavigationSectionFooterData
   globals: GlobalsModel
-  hideLegalFooter: boolean
   navigation: NavigationModel[]
   siteMetaData: CoreSiteMetadata
-  wheel: NavigationFooterWheel
+  wheel: NavigationSectionFooterWheel
 }
 
 const getNavSegments = (navigation: NavigationModel[], variation: string) => {
@@ -72,48 +73,52 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
             is="div"
             wheel={{ ...props.wheel, style: props.wheel.style.footer }}
           >
-            <Flex
-              is={'nav'}
-              wheel={{ ...props.wheel, style: props.wheel.style.footer.menu }}
-            >
-              <NavigationSegment
-                hideActionHeading={false}
-                hideActionIcon={false}
-                hideSegmentHeading={true}
-                maxSegments={1}
-                navigationSegment={menuSegments}
+            {!props.data.hideMenu && (
+              <Flex
+                is={'nav'}
+                wheel={{ ...props.wheel, style: props.wheel.style.footer.menu }}
+              >
+                <NavigationSegment
+                  hideActionHeading={false}
+                  hideActionIcon={false}
+                  hideSegmentHeading={true}
+                  maxSegments={1}
+                  navigationSegment={menuSegments}
+                  wheel={{
+                    ...props.wheel,
+                    style: props.wheel.style.footer.menu.segment,
+                  }}
+                />
+              </Flex>
+            )}
+            {!props.data.hideSocial && (
+              <Flex
+                is={'div'}
                 wheel={{
                   ...props.wheel,
-                  style: props.wheel.style.footer.menu.segment,
+                  style: props.wheel.style.footer.social,
                 }}
-              />
-            </Flex>
-            <Flex
-              is={'div'}
-              wheel={{
-                ...props.wheel,
-                style: props.wheel.style.footer.social,
-              }}
-            >
-              <NavigationSegment
-                hideActionHeading={true}
-                hideActionIcon={false}
-                hideSegmentHeading={true}
-                maxSegments={1}
-                navigationSegment={socialSegments}
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.footer.social.segment,
-                }}
-              />
-            </Flex>
+              >
+                <NavigationSegment
+                  hideActionHeading={true}
+                  hideActionIcon={false}
+                  hideSegmentHeading={true}
+                  maxSegments={1}
+                  navigationSegment={socialSegments}
+                  wheel={{
+                    ...props.wheel,
+                    style: props.wheel.style.footer.social.segment,
+                  }}
+                />
+              </Flex>
+            )}
           </Flex>
         </ContainerType>
       </Wrapper>
       <LegalFooter
-        hideLegalFooter={props.hideLegalFooter}
-        siteMetadata={props.siteMetaData}
         containerStyle={props.containerStyle}
+        hideLegalFooter={props.data.hideLegalFooter}
+        siteMetadata={props.siteMetaData}
         wheel={{ ...props.wheel, style: props.wheel.style.legalFooter }}
       />
     </Fragment>

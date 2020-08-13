@@ -12,8 +12,8 @@ import { NavigationSectionHeaderVar } from './navigation-section-header-var'
 import { NavigationSectionModel } from './model'
 
 const componentList = {
-  ['header']: NavigationSectionHeaderVar,
-  ['footer']: NavigationSectionFooterVar,
+  header: NavigationSectionHeaderVar,
+  footer: NavigationSectionFooterVar,
 }
 
 export const NavigationSection = (props: NavigationSectionModel) => {

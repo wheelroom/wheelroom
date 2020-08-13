@@ -3,6 +3,11 @@ import { NavigationSectionData } from '@wheelroom/wheel-navigation'
 
 export const navigationSectionData: DeepPartial<NavigationSectionData> = {
   header: {
+    hideActions: false,
+    hideBranding: false,
+    hideMenu: false,
+    hideModal: false,
+    hideSkipToContent: false,
     hideThemeButton: false,
     /**
      * Example:
@@ -13,5 +18,7 @@ export const navigationSectionData: DeepPartial<NavigationSectionData> = {
   },
   footer: {
     hideLegalFooter: false,
+    hideMenu: false,
+    hideSocial: false,
   },
 }
