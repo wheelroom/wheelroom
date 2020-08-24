@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.3.0...@wheelroom/boilerplate@5.4.0) (2020-08-24)
+
+
+### Features
+
+* add sitemap variation in navigationSection ([f774af5](https://github.com/wheelroom/wheelroom/commit/f774af562c3c21dfc15571f5b35cf73c056cfbdb))
+
+
+
+
+
 # [5.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.2.0...@wheelroom/boilerplate@5.3.0) (2020-08-13)
 
 

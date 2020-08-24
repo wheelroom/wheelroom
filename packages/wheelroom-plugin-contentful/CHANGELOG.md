@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.4.10...@wheelroom/wheelroom-plugin-contentful@3.5.0) (2020-08-24)
+
+
+### Features
+
+* add sitemap variation in navigationSection ([f774af5](https://github.com/wheelroom/wheelroom/commit/f774af562c3c21dfc15571f5b35cf73c056cfbdb))
+
+
+
+
+
 ## [3.4.10](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom-plugin-contentful@3.4.9...@wheelroom/wheelroom-plugin-contentful@3.4.10) (2020-08-05)
 
 **Note:** Version bump only for package @wheelroom/wheelroom-plugin-contentful

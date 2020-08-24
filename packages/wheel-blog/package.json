@@ -26,12 +26,12 @@
     "@typescript-eslint/parser": "3.6.0",
     "@wheelroom/admin-core": "1.2.9",
     "@wheelroom/admin-page-preview": "1.5.14",
-    "@wheelroom/core": "2.0.6",
+    "@wheelroom/core": "2.1.0",
     "@wheelroom/styled-system": "4.1.9",
-    "@wheelroom/wheel-text": "2.0.6",
-    "@wheelroom/wheel-topic": "2.1.0",
+    "@wheelroom/wheel-text": "2.0.7",
+    "@wheelroom/wheel-topic": "2.1.1",
     "@wheelroom/wheelroom": "4.3.9",
-    "@wheelroom/wheelroom-plugin-contentful": "3.4.10",
+    "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
     "eslint": "7.4.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
@@ -92,5 +92,5 @@
     "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "2.2.0"
+  "version": "2.2.1"
 }

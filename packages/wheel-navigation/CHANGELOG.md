@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-navigation@2.1.0...@wheelroom/wheel-navigation@2.2.0) (2020-08-24)
+
+
+### Features
+
+* add sitemap variation in navigationSection ([f774af5](https://github.com/wheelroom/wheelroom/commit/f774af562c3c21dfc15571f5b35cf73c056cfbdb))
+
+
+
+
+
 # [2.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-navigation@2.0.6...@wheelroom/wheel-navigation@2.1.0) (2020-08-13)
 
 
