@@ -117,6 +117,7 @@ export const Modal = (props: ModalProps) => {
           wheel={{ ...props.wheel, style: props.wheel.style.menu }}
         >
           <NavigationSegment
+            headingElementName="h3"
             hideActionHeading={false}
             hideActionIcon={false}
             hideSegmentHeading={true}
@@ -133,6 +134,7 @@ export const Modal = (props: ModalProps) => {
           wheel={{ ...props.wheel, style: props.wheel.style.actions }}
         >
           <NavigationSegment
+            headingElementName="h3"
             hideActionHeading={false}
             hideActionIcon={true}
             hideSegmentHeading={true}

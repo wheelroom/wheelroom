@@ -1,7 +1,9 @@
-import { NavigationSectionHeaderData } from '../navigation-section/header/data'
-import { NavigationSectionFooterData } from '../navigation-section/footer/data'
+import { NavigationSectionFooterData } from './footer/data'
+import { NavigationSectionHeaderData } from './header/data'
+import { NavigationSectionSitemapData } from './sitemap/data'
 
 export interface NavigationSectionData {
   header: NavigationSectionHeaderData
   footer: NavigationSectionFooterData
+  sitemap: NavigationSectionSitemapData
 }

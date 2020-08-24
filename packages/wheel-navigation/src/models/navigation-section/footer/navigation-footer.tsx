@@ -79,6 +79,7 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
                 wheel={{ ...props.wheel, style: props.wheel.style.footer.menu }}
               >
                 <NavigationSegment
+                  headingElementName="h3"
                   hideActionHeading={false}
                   hideActionIcon={false}
                   hideSegmentHeading={true}
@@ -100,6 +101,7 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
                 }}
               >
                 <NavigationSegment
+                  headingElementName="h3"
                   hideActionHeading={true}
                   hideActionIcon={false}
                   hideSegmentHeading={true}
@@ -117,8 +119,11 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
       </Wrapper>
       <LegalFooter
         containerStyle={props.containerStyle}
+        copyright={props.data.copyright}
+        hideCopyright={props.data.hideCopyright}
         hideLegalFooter={props.data.hideLegalFooter}
         siteMetadata={props.siteMetaData}
+        supportWheelroom={props.data.supportWheelroom}
         wheel={{ ...props.wheel, style: props.wheel.style.legalFooter }}
       />
     </Fragment>

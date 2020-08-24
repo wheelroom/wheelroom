@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Wheel, Flex, H3 } from '@wheelroom/core'
+import { Wheel, Flex, Heading, HeadingElementName } from '@wheelroom/core'
 import { NavigationSegmentModel } from './model'
 import { NavigationSegmentList } from './navigation-segment-list'
 import { NavigationSegmentNcssTree } from './ncss-tree'
@@ -9,6 +9,7 @@ interface NavigationSegmentWheel extends Wheel {
 }
 
 interface NavigationSegmentProps {
+  headingElementName: HeadingElementName
   hideActionHeading: boolean
   hideActionIcon: boolean
   hideSegmentHeading: boolean
@@ -51,14 +52,15 @@ export const NavigationSegment = (props: NavigationSegmentProps) => {
                 is="div"
               >
                 {navigationSegment.heading && (
-                  <H3
+                  <Heading
+                    is={props.headingElementName}
                     wheel={{
                       ...props.wheel,
                       style: props.wheel.style.heading,
                     }}
                   >
                     {navigationSegment.heading}
-                  </H3>
+                  </Heading>
                 )}
                 {navigationSegmentList}
               </Flex>

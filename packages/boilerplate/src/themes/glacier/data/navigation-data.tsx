@@ -17,8 +17,17 @@ export const navigationSectionData: DeepPartial<NavigationSectionData> = {
     useLogoElement: undefined,
   },
   footer: {
+    copyright: `© Copyright ${new Date().getFullYear()} Wheelroom Foundation. All rights reserved.`,
+    hideCopyright: false,
     hideLegalFooter: false,
     hideMenu: false,
     hideSocial: false,
+    // Thanks for using Wheelroom! We appreciate your support.
+    supportWheelroom: true,
+  },
+  sitemap: {
+    headingElementName: 'h4',
+    hideMenu: false,
+    hideSegmentHeading: false,
   },
 }

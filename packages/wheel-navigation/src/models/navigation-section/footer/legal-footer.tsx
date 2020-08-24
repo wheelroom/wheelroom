@@ -15,6 +15,7 @@ import {
 export interface LegalFooterNcssTree {
   container: NcssNode
   legal: {
+    copyright: NcssNode
     promise: {
       link: NcssNode
       sup: NcssNode
@@ -29,8 +30,11 @@ interface LegalFooterWheel extends Wheel {
 
 export interface LegalFooterProps {
   containerStyle: 'container' | 'fluid'
-  siteMetadata: CoreSiteMetadata
+  copyright: string
+  hideCopyright: boolean
   hideLegalFooter: boolean
+  siteMetadata: CoreSiteMetadata
+  supportWheelroom: boolean
   wheel: LegalFooterWheel
 }
 
@@ -48,32 +52,46 @@ export const LegalFooter = (props: LegalFooterProps) => {
           is={'div'}
           wheel={{ ...props.wheel, style: props.wheel.style.legal }}
         >
-          <Any
-            is="span"
-            polyPreset={false}
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.legal.promise,
-            }}
-          >
-            <ALink
-              href={props.siteMetadata.legal.url}
+          {!props.hideCopyright && (
+            <Any
+              is="span"
+              polyPreset={false}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.legal.promise.link,
+                style: props.wheel.style.legal.copyright,
               }}
             >
-              {props.siteMetadata.legal.description}
-            </ALink>
-            <Sup
+              {props.copyright}
+            </Any>
+          )}
+          {props.supportWheelroom && (
+            <Any
+              is="span"
+              polyPreset={false}
               wheel={{
                 ...props.wheel,
-                style: props.wheel.style.legal.promise.sup,
+                style: props.wheel.style.legal.promise,
               }}
             >
-              {' ' + props.siteMetadata.legal.version}
-            </Sup>
-          </Any>
+              <ALink
+                href={props.siteMetadata.legal.url}
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.legal.promise.link,
+                }}
+              >
+                {props.siteMetadata.legal.description}
+              </ALink>
+              <Sup
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.legal.promise.sup,
+                }}
+              >
+                {' ' + props.siteMetadata.legal.version}
+              </Sup>
+            </Any>
+          )}
         </Flex>
       </ContainerType>
     </Wrapper>

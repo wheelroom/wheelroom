@@ -5,6 +5,7 @@ import { customSectionLargeNcssTree } from './custom/custom-section/large-ncss-t
 import { customSectionSmallNcssTree } from './custom/custom-section/small-ncss-tree'
 import { navigationSectionFooterNcssTree } from './navigation/navigation-section/footer-ncss-tree'
 import { navigationSectionHeaderNcssTree } from './navigation/navigation-section/header-ncss-tree'
+import { navigationSectionSitemapNcssTree } from './navigation/navigation-section/sitemap-ncss-tree'
 import { tableSectionPriceNcssTree } from './table/price-ncss-tree'
 import { tableSectionTableNcssTree } from './table/table-ncss-tree'
 import { textSectionTextNcssTree } from './text/text-ncss-tree'
@@ -35,6 +36,7 @@ export const styles: SectionWheelThemeStyles = {
   navigationSection: {
     header: navigationSectionHeaderNcssTree,
     footer: navigationSectionFooterNcssTree,
+    sitemap: navigationSectionSitemapNcssTree,
   },
   tableSection: {
     table: tableSectionTableNcssTree,

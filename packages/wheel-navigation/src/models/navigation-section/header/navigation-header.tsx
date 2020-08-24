@@ -150,6 +150,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               wheel={{ ...props.wheel, style: props.wheel.style.header.menu }}
             >
               <NavigationSegment
+                headingElementName="h3"
                 hideActionHeading={false}
                 hideActionIcon={false}
                 hideSegmentHeading={true}
@@ -171,6 +172,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               }}
             >
               <NavigationSegment
+                headingElementName="h3"
                 hideActionHeading={false}
                 hideActionIcon={true}
                 hideSegmentHeading={true}

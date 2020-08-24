@@ -102,8 +102,18 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
       ncss: {
         label: 'legal',
         alignItems: 'center',
-        justifyContent: ['center', 'flex-end'],
+        flexDirection: ['column', 'row'],
+        fontSize: 4,
+        justifyContent: ['center', 'space-between'],
         w: 1,
+      },
+      copyright: {
+        ncss: {
+          label: 'copyright',
+          fontFamily: 'text',
+          textAlign: ['center'],
+          mb: [2, 0],
+        },
       },
       promise: {
         ncss: {
