@@ -24,13 +24,14 @@ prepare_module_folder() {
     mkdir -p packages/admin-theme-switcher/node_modules/$1
     mkdir -p packages/core/node_modules/$1
     mkdir -p packages/wheel-blog/node_modules/$1
+    mkdir -p packages/wheel-doc/node_modules/$1
     mkdir -p packages/wheel-navigation/node_modules/$1
     mkdir -p packages/wheel-table/node_modules/$1
     mkdir -p packages/wheel-text/node_modules/$1
     mkdir -p packages/wheel-topic/node_modules/$1
 }
 
-# Remove npm module folders that will be linked for these packages 
+# Remove npm module folders that will be linked for these packages
 remove_module_folder() {
 
     echo "Removing folder: $1"
@@ -46,6 +47,7 @@ remove_module_folder() {
     rm -rf packages/admin-theme-switcher/node_modules/$1
     rm -rf packages/core/node_modules/$1
     rm -rf packages/wheel-blog/node_modules/$1
+    rm -rf packages/wheel-doc/node_modules/$1
     rm -rf packages/wheel-navigation/node_modules/$1
     rm -rf packages/wheel-table/node_modules/$1
     rm -rf packages/wheel-text/node_modules/$1
@@ -71,6 +73,7 @@ link_module_folder() {
         ln -s $2 packages/admin-theme-switcher/node_modules/$1
         ln -s $2 packages/core/node_modules/$1
         ln -s $2 packages/wheel-blog/node_modules/$1
+        ln -s $2 packages/wheel-doc/node_modules/$1
         ln -s $2 packages/wheel-navigation/node_modules/$1
         ln -s $2 packages/wheel-table/node_modules/$1
         ln -s $2 packages/wheel-text/node_modules/$1
