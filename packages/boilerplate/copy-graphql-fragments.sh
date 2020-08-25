@@ -19,6 +19,12 @@ if [ -d "node_modules/@wheelroom/wheel-blog" ]; then
     cp node_modules/@wheelroom/wheel-blog/src/models/blog-section/fragment.js src/graphql-fragments/blog-section-fragment.js
 fi
 
+if [ -d "node_modules/@wheelroom/wheel-doc" ]; then
+    echo "Copying fragments from @wheelroom/wheel-doc"
+    cp node_modules/@wheelroom/wheel-doc/src/models/doc/fragment.js src/graphql-fragments/doc-fragment.js
+    cp node_modules/@wheelroom/wheel-doc/src/models/doc-section/fragment.js src/graphql-fragments/doc-section-fragment.js
+fi
+
 if [ -d "node_modules/@wheelroom/wheel-navigation" ]; then
     echo "Copying fragments from @wheelroom/wheel-navigation"
     cp node_modules/@wheelroom/wheel-navigation/src/models/navigation/fragment.js src/graphql-fragments/navigation-fragment.js
