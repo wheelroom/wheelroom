@@ -9,14 +9,18 @@ export interface DocModel {
   /** Gatsby fetched data */
   __typename: string
   heading?: string
-  slug?: string
+  slug: string
   text: {
     json: string
   }
-  parent?: {
+  parent: {
     __typename: string
-    heading: string
+    heading?: string
     slug: string
+    text: {
+      json: string
+    }
+    sortOrder?: string
   }
   sortOrder?: string
 }

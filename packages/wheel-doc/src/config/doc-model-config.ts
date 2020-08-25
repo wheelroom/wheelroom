@@ -25,9 +25,10 @@ export const docModelConfig: WheelroomComponents = {
       } as RichTextField,
       parent: {
         allowedComponents: ['doc'],
+        // Limit expanding pages, prevent circ refs
+        expandFragmentRef: true,
         initialContent: undefined,
         type: 'singleComponent',
-        expandFragmentRef: true,
       } as SingleComponentField,
       sortOrder: {
         type: 'shortText',

@@ -12,17 +12,18 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-  fragment Doc on ContentfulDoc {
+fragment Doc on ContentfulDoc {
+  __typename
+  heading
+  slug
+  text {
+    json
+  }
+  parent {
     __typename
     heading
     slug
-    text {
-      json
-    }
-    parent {
-      heading
-      slug
-    }
-    sortOrder
   }
+  sortOrder
+}
 `
