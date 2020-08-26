@@ -8,14 +8,40 @@ export const docsSectionDocsNcssTree: DeepPartial<DocsSectionDocsNcssTree> = {
   docs: {
     ncss: {
       label: 'docs-section-docs',
+      py: 5,
       w: 1,
+    },
+    breadcrumb: {
+      ncss: {
+        label: 'docs-breadcrumb',
+        fontFamily: 'text',
+        fontSize: 5,
+        mb: 5,
+      },
+    },
+    breadcrumbAction: {
+      ncss: {
+        label: 'docs-breadcrumb-action',
+      },
+    },
+    breadcrumbCurrent: {
+      ncss: {
+        label: 'docs-breadcrumb-current',
+        color: 'metal',
+      },
+    },
+    breadcrumbSpacer: {
+      ncss: {
+        label: 'docs-breadcrumb-spacer',
+        mx: 2,
+        color: 'metal',
+      },
     },
     header: {
       ncss: {
         label: 'docs-header',
         flexDirection: 'column',
         px: 3,
-        py: 5,
         maxWidth: '712px',
         mx: 'auto',
       },
@@ -23,7 +49,7 @@ export const docsSectionDocsNcssTree: DeepPartial<DocsSectionDocsNcssTree> = {
     heading: {
       ncss: {
         label: 'docs-heading',
-        mt: 3,
+        mb: 7,
       },
     },
     richText: textSectionTextNcssTree.richText,

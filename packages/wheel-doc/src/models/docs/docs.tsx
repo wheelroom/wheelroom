@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { Box, Flex, Heading, Wheel } from '@wheelroom/core'
+import { Fragment } from 'react'
+import { Action, Box, Flex, Heading, Wheel } from '@wheelroom/core'
 import { RichText } from '@wheelroom/wheel-text'
 import { DocsData } from './data'
 import { DocsModel } from './model'
@@ -32,6 +33,86 @@ export const Docs = (props: DocsProps) => {
           is="header"
           wheel={{ ...props.wheel, style: props.wheel.style.header }}
         >
+          {!props.data.hideBreadcrumb && (
+            <Box
+              is="nav"
+              wheel={{ ...props.wheel, style: props.wheel.style.breadcrumb }}
+            >
+              <Action
+                hideIcon={true}
+                url="/"
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.breadcrumbAction,
+                }}
+              >
+                Home
+              </Action>
+              <Box
+                is="span"
+                role="presentation"
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.breadcrumbSpacer,
+                }}
+              >
+                &rsaquo;
+              </Box>
+              <Action
+                hideIcon={true}
+                url="/docs"
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.breadcrumbAction,
+                }}
+              >
+                Docs
+              </Action>
+              {props.docs.parentDocs && (
+                <Fragment>
+                  <Box
+                    is="span"
+                    role="presentation"
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.breadcrumbSpacer,
+                    }}
+                  >
+                    &rsaquo;
+                  </Box>
+                  <Action
+                    hideIcon={true}
+                    url={`/docs/` + props.docs.parentDocs.slug}
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.breadcrumbAction,
+                    }}
+                  >
+                    {props.docs.parentDocs.heading}
+                  </Action>
+                </Fragment>
+              )}
+              <Box
+                is="span"
+                role="presentation"
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.breadcrumbSpacer,
+                }}
+              >
+                &rsaquo;
+              </Box>
+              <Box
+                is="span"
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.breadcrumbCurrent,
+                }}
+              >
+                {props.docs.heading}
+              </Box>
+            </Box>
+          )}
           {!props.data.hideHeading && (
             <Heading
               is="h1"
