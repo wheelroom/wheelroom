@@ -3,6 +3,7 @@ import { blogSectionBlogNcssTree } from './blog/blog-ncss-tree'
 import { blogSectionListNcssTree } from './blog/list-ncss-tree'
 import { customSectionLargeNcssTree } from './custom/custom-section/large-ncss-tree'
 import { customSectionSmallNcssTree } from './custom/custom-section/small-ncss-tree'
+import { docSectionDocNcssTree } from './doc/doc-ncss-tree'
 import { navigationSectionFooterNcssTree } from './navigation/navigation-section/footer-ncss-tree'
 import { navigationSectionHeaderNcssTree } from './navigation/navigation-section/header-ncss-tree'
 import { navigationSectionSitemapNcssTree } from './navigation/navigation-section/sitemap-ncss-tree'
@@ -32,6 +33,9 @@ export const styles: SectionWheelThemeStyles = {
   customSection: {
     large: customSectionLargeNcssTree,
     small: customSectionSmallNcssTree,
+  },
+  docSection: {
+    doc: docSectionDocNcssTree,
   },
   navigationSection: {
     header: navigationSectionHeaderNcssTree,
