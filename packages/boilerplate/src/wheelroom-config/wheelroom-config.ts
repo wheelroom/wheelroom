@@ -6,6 +6,7 @@ import {
   commonFields,
 } from '@wheelroom/core'
 import { blogModelConfig } from '@wheelroom/wheel-blog'
+import { docModelConfig } from '@wheelroom/wheel-doc'
 import { navigationModelConfig } from '@wheelroom/wheel-navigation'
 import { tableModelConfig } from '@wheelroom/wheel-table'
 import { textModelConfig } from '@wheelroom/wheel-text'
@@ -21,6 +22,7 @@ export const config: WheelroomConfig = {
   components: {
     ...coreModelConfig,
     ...blogModelConfig,
+    ...docModelConfig,
     ...navigationModelConfig,
     ...tableModelConfig,
     ...textModelConfig,

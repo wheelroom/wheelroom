@@ -9,7 +9,7 @@ export type {
 } from './models/doc-section/model'
 export type { DocData } from './models/doc/data'
 export type { DocSectionData } from './models/doc-section/data'
-export type { DocSectionNcssTree } from './models/doc-section/ncss-tree'
+export type { DocSectionDocNcssTree } from './models/doc-section/ncss-tree'
 
 // Doc config
 export { docModelConfig } from './config/doc-model-config'

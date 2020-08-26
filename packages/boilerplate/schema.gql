@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-08-05T07:50:04.383Z ###
+### Type definitions saved at 2020-08-26T09:31:56.119Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -76,6 +76,22 @@ type SitePage implements Node @dontInfer {
   matchPath: String
 }
 
+type contentfulDocTextRichTextNode implements Node @derivedTypes @dontInfer {
+  content: [contentfulDocTextRichTextNodeContent]
+  nodeType: String
+  text: String
+}
+
+type contentfulDocTextRichTextNodeContent @derivedTypes {
+  content: [contentfulDocTextRichTextNodeContentContent]
+  nodeType: String
+}
+
+type contentfulDocTextRichTextNodeContentContent {
+  value: String
+  nodeType: String
+}
+
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
   contentful_id: String
   spaceId: String
@@ -109,73 +125,70 @@ type ContentfulAssetSys {
   revision: Int
 }
 
-type contentfulCustomAbstractTextNode implements Node @dontInfer {
-  abstract: String
-}
-
-type ContentfulCustom implements Node @derivedTypes {
+type ContentfulDoc implements Node @derivedTypes {
   title: String
   heading: String
-  media: ContentfulAsset @link(by: "id", from: "media___NODE")
-  customsection: [ContentfulCustomSection] @link(by: "id", from: "customsection___NODE")
-  abstract: contentfulCustomAbstractTextNode @link(by: "id", from: "abstract___NODE")
+  slug: String
+  sortOrder: String
+  parentDoc: ContentfulDoc @link(by: "id", from: "parentDoc___NODE")
+  text: contentfulDocTextRichTextNode @link(by: "id", from: "text___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
-  sys: ContentfulCustomSys
+  sys: ContentfulDocSys
   node_locale: String
+  doc: [ContentfulDoc] @link(by: "id", from: "doc___NODE")
 }
 
-type ContentfulCustomSection implements Node @derivedTypes @dontInfer {
+type ContentfulDocSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulDocSysContentType
+}
+
+type ContentfulDocSysContentType @derivedTypes {
+  sys: ContentfulDocSysContentTypeSys
+}
+
+type ContentfulDocSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulDocSection implements Node @derivedTypes @dontInfer {
   title: String
   variation: String
   eventId: String
-  section: [ContentfulCustom] @link(by: "id", from: "section___NODE")
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
-  sys: ContentfulCustomSectionSys
+  sys: ContentfulDocSectionSys
   node_locale: String
 }
 
 type ContentfulPage implements Node @derivedTypes @dontInfer {
   title: String
   path: String
-  sections: [ContentfulBlogSectionContentfulCustomSectionContentfulNavigationSectionContentfulTableSectionContentfulTextSectionContentfulTopicSectionUnion] @link(by: "id", from: "sections___NODE")
+  theme: String
+  seoTitle: String
+  seoDescription: String
+  seoKeywords: [String]
+  sections: [ContentfulBlogSectionContentfulCustomSectionContentfulDocSectionContentfulNavigationSectionContentfulTableSectionContentfulTextSectionContentfulTopicSectionUnion] @link(by: "id", from: "sections___NODE")
+  seoImage: ContentfulAsset @link(by: "id", from: "seoImage___NODE")
+  action: [ContentfulAction] @link(by: "id", from: "action___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulPageSys
   node_locale: String
-  theme: String
-  seoTitle: String
-  seoDescription: String
-  seoKeywords: [String]
-  seoImage: ContentfulAsset @link(by: "id", from: "seoImage___NODE")
-  action: [ContentfulAction] @link(by: "id", from: "action___NODE")
 }
 
-union ContentfulBlogSectionContentfulCustomSectionContentfulNavigationSectionContentfulTableSectionContentfulTextSectionContentfulTopicSectionUnion = ContentfulBlogSection | ContentfulCustomSection | ContentfulNavigationSection | ContentfulTableSection | ContentfulTextSection | ContentfulTopicSection
-
-type ContentfulPageSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulPageSysContentType
-}
-
-type ContentfulPageSysContentType @derivedTypes {
-  sys: ContentfulPageSysContentTypeSys
-}
-
-type ContentfulPageSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
+union ContentfulBlogSectionContentfulCustomSectionContentfulDocSectionContentfulNavigationSectionContentfulTableSectionContentfulTextSectionContentfulTopicSectionUnion = ContentfulBlogSection | ContentfulCustomSection | ContentfulDocSection | ContentfulNavigationSection | ContentfulTableSection | ContentfulTextSection | ContentfulTopicSection
 
 type ContentfulAction implements Node @derivedTypes @dontInfer {
   title: String
@@ -186,6 +199,7 @@ type ContentfulAction implements Node @derivedTypes @dontInfer {
   anchor: String
   query: String
   eventId: String
+  page: ContentfulPage @link(by: "id", from: "page___NODE")
   navigationsegment: [ContentfulNavigationSegment] @link(by: "id", from: "navigationsegment___NODE")
   tablerow: [ContentfulTableRow] @link(by: "id", from: "tablerow___NODE")
   topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
@@ -195,7 +209,6 @@ type ContentfulAction implements Node @derivedTypes @dontInfer {
   updatedAt: Date @dateformat
   sys: ContentfulActionSys
   node_locale: String
-  page: ContentfulPage @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulNavigationSegment implements Node @derivedTypes @dontInfer {
@@ -229,13 +242,13 @@ type ContentfulNavigationSection implements Node @derivedTypes @dontInfer {
   variation: String
   eventId: String
   navigation: [ContentfulNavigation] @link(by: "id", from: "navigation___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulNavigationSectionSys
   node_locale: String
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulNavigationSectionSys @derivedTypes {
@@ -327,7 +340,6 @@ type ContentfulTopic implements Node @derivedTypes {
 type ContentfulEmbed implements Node @derivedTypes {
   title: String
   type: String
-  globals: [ContentfulGlobals] @link(by: "id", from: "globals___NODE")
   topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
   code: contentfulEmbedCodeTextNode @link(by: "id", from: "code___NODE")
   spaceId: String
@@ -336,6 +348,27 @@ type ContentfulEmbed implements Node @derivedTypes {
   updatedAt: Date @dateformat
   sys: ContentfulEmbedSys
   node_locale: String
+  globals: [ContentfulGlobals] @link(by: "id", from: "globals___NODE")
+}
+
+type contentfulEmbedCodeTextNode implements Node @dontInfer {
+  code: String
+}
+
+type ContentfulEmbedSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulEmbedSysContentType
+}
+
+type ContentfulEmbedSysContentType @derivedTypes {
+  sys: ContentfulEmbedSysContentTypeSys
+}
+
+type ContentfulEmbedSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
 }
 
 type ContentfulGlobals implements Node @derivedTypes @dontInfer {
@@ -365,26 +398,6 @@ type ContentfulGlobalsSysContentType @derivedTypes {
 }
 
 type ContentfulGlobalsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type contentfulEmbedCodeTextNode implements Node @dontInfer {
-  code: String
-}
-
-type ContentfulEmbedSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulEmbedSysContentType
-}
-
-type ContentfulEmbedSysContentType @derivedTypes {
-  sys: ContentfulEmbedSysContentTypeSys
-}
-
-type ContentfulEmbedSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -487,13 +500,13 @@ type ContentfulTopicSection implements Node @derivedTypes @dontInfer {
   topicOptions: [String]
   eventId: String
   topics: [ContentfulTopic] @link(by: "id", from: "topics___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulTopicSectionSys
   node_locale: String
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulTopicSectionSys @derivedTypes {
@@ -538,13 +551,13 @@ type ContentfulTableSection implements Node @derivedTypes @dontInfer {
   topicOptions: [String]
   eventId: String
   tableRows: [ContentfulTableRow] @link(by: "id", from: "tableRows___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulTableSectionSys
   node_locale: String
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulTableSectionSys @derivedTypes {
@@ -597,6 +610,70 @@ type ContentfulActionSysContentTypeSys {
   linkType: String
   id: String
   contentful_id: String
+}
+
+type ContentfulPageSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulPageSysContentType
+}
+
+type ContentfulPageSysContentType @derivedTypes {
+  sys: ContentfulPageSysContentTypeSys
+}
+
+type ContentfulPageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulDocSectionSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulDocSectionSysContentType
+}
+
+type ContentfulDocSectionSysContentType @derivedTypes {
+  sys: ContentfulDocSectionSysContentTypeSys
+}
+
+type ContentfulDocSectionSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulCustomAbstractTextNode implements Node @dontInfer {
+  abstract: String
+}
+
+type ContentfulCustom implements Node @derivedTypes {
+  title: String
+  heading: String
+  media: ContentfulAsset @link(by: "id", from: "media___NODE")
+  customsection: [ContentfulCustomSection] @link(by: "id", from: "customsection___NODE")
+  abstract: contentfulCustomAbstractTextNode @link(by: "id", from: "abstract___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulCustomSys
+  node_locale: String
+}
+
+type ContentfulCustomSection implements Node @derivedTypes @dontInfer {
+  title: String
+  variation: String
+  eventId: String
+  section: [ContentfulCustom] @link(by: "id", from: "section___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulCustomSectionSys
+  node_locale: String
 }
 
 type ContentfulCustomSectionSys @derivedTypes {
@@ -916,10 +993,15 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle
+  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActions
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -1803,10 +1885,15 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle
+  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActions
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -2118,10 +2205,15 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle
+  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActions
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -4181,10 +4273,15 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle
+  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActions
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -4961,10 +5058,15 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle
+  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActions
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -5317,10 +5419,15 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle
+  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActions
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -6576,6 +6683,7 @@ type ContentfulTextSection implements Node @derivedTypes {
   title: String
   variation: String
   eventId: String
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   text: contentfulTextSectionTextRichTextNode @link(by: "id", from: "text___NODE")
   spaceId: String
   contentful_id: String
@@ -6583,7 +6691,6 @@ type ContentfulTextSection implements Node @derivedTypes {
   updatedAt: Date @dateformat
   sys: ContentfulTextSectionSys
   node_locale: String
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulTextSectionSys @derivedTypes {
@@ -6606,13 +6713,13 @@ type ContentfulBlogSection implements Node @derivedTypes @dontInfer {
   title: String
   variation: String
   eventId: String
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulBlogSectionSys
   node_locale: String
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulBlogSectionSys @derivedTypes {

@@ -2,6 +2,7 @@ import React from 'react'
 
 import { NamedPaths } from 'gatsby-theme-wheelroom'
 import { BlogSection, BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
+import { DocSection, DocModel, AllDocModel } from '@wheelroom/wheel-doc'
 import { TextSection } from '@wheelroom/wheel-text'
 import { NavigationSection } from '@wheelroom/wheel-navigation'
 import { TableSection } from '@wheelroom/wheel-table'
@@ -24,6 +25,7 @@ export interface SectionMap {
 const sectionMap: SectionMap = {
   ContentfulBlogSection: BlogSection,
   ContentfulCustomSection: CustomSection,
+  ContentfulDocSection: DocSection,
   ContentfulNavigationSection: NavigationSection,
   ContentfulTableSection: TableSection,
   ContentfulTextSection: TextSection,
@@ -37,6 +39,8 @@ export interface SectionsProps {
   globals: GlobalsModel
   blog: BlogModel
   allBlog: AllBlogModel
+  doc: DocModel
+  allDoc: AllDocModel
   page: PageModel
   siteMetadata: CoreSiteMetadata
   sections: any
@@ -58,6 +62,10 @@ export const Sections = (props: SectionsProps) => {
 
       allBlog: props.allBlog,
       blog: props.blog,
+
+      allDoc: props.allDoc,
+      doc: props.doc,
+
       globals: props.globals,
       page: props.page,
       siteMetadata: props.siteMetadata,
