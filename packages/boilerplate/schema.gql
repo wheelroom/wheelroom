@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-08-26T09:31:56.119Z ###
+### Type definitions saved at 2020-08-26T14:38:28.118Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -76,20 +76,80 @@ type SitePage implements Node @dontInfer {
   matchPath: String
 }
 
-type contentfulDocTextRichTextNode implements Node @derivedTypes @dontInfer {
-  content: [contentfulDocTextRichTextNodeContent]
+type contentfulDocsTextRichTextNode implements Node @derivedTypes @dontInfer {
+  content: [contentfulDocsTextRichTextNodeContent]
   nodeType: String
   text: String
 }
 
-type contentfulDocTextRichTextNodeContent @derivedTypes {
-  content: [contentfulDocTextRichTextNodeContentContent]
+type contentfulDocsTextRichTextNodeContent @derivedTypes {
+  content: [contentfulDocsTextRichTextNodeContentContent]
   nodeType: String
 }
 
-type contentfulDocTextRichTextNodeContentContent {
+type contentfulDocsTextRichTextNodeContentContent {
   value: String
   nodeType: String
+}
+
+type ContentfulDocsSection implements Node @derivedTypes @dontInfer {
+  title: String
+  variation: String
+  eventId: String
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulDocsSectionSys
+  node_locale: String
+}
+
+type ContentfulDocsSectionSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulDocsSectionSysContentType
+}
+
+type ContentfulDocsSectionSysContentType @derivedTypes {
+  sys: ContentfulDocsSectionSysContentTypeSys
+}
+
+type ContentfulDocsSectionSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulDocs implements Node @derivedTypes {
+  title: String
+  heading: String
+  slug: String
+  sortOrder: String
+  parentDocs: ContentfulDocs @link(by: "id", from: "parentDocs___NODE")
+  text: contentfulDocsTextRichTextNode @link(by: "id", from: "text___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulDocsSys
+  node_locale: String
+  docs: [ContentfulDocs] @link(by: "id", from: "docs___NODE")
+}
+
+type ContentfulDocsSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulDocsSysContentType
+}
+
+type ContentfulDocsSysContentType @derivedTypes {
+  sys: ContentfulDocsSysContentTypeSys
+}
+
+type ContentfulDocsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
 }
 
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
@@ -125,7 +185,23 @@ type ContentfulAssetSys {
   revision: Int
 }
 
-type ContentfulDoc implements Node @derivedTypes {
+type contentfulDocTextRichTextNode implements Node @derivedTypes @dontInfer {
+  content: [contentfulDocTextRichTextNodeContent]
+  nodeType: String
+  text: String
+}
+
+type contentfulDocTextRichTextNodeContent @derivedTypes {
+  content: [contentfulDocTextRichTextNodeContentContent]
+  nodeType: String
+}
+
+type contentfulDocTextRichTextNodeContentContent {
+  value: String
+  nodeType: String
+}
+
+type ContentfulDoc implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   slug: String
@@ -173,22 +249,38 @@ type ContentfulDocSection implements Node @derivedTypes @dontInfer {
 type ContentfulPage implements Node @derivedTypes @dontInfer {
   title: String
   path: String
-  theme: String
-  seoTitle: String
-  seoDescription: String
-  seoKeywords: [String]
   sections: [ContentfulBlogSectionContentfulCustomSectionContentfulDocSectionContentfulNavigationSectionContentfulTableSectionContentfulTextSectionContentfulTopicSectionUnion] @link(by: "id", from: "sections___NODE")
-  seoImage: ContentfulAsset @link(by: "id", from: "seoImage___NODE")
-  action: [ContentfulAction] @link(by: "id", from: "action___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulPageSys
   node_locale: String
+  seoTitle: String
+  seoDescription: String
+  seoKeywords: [String]
+  seoImage: ContentfulAsset @link(by: "id", from: "seoImage___NODE")
+  theme: String
+  action: [ContentfulAction] @link(by: "id", from: "action___NODE")
 }
 
 union ContentfulBlogSectionContentfulCustomSectionContentfulDocSectionContentfulNavigationSectionContentfulTableSectionContentfulTextSectionContentfulTopicSectionUnion = ContentfulBlogSection | ContentfulCustomSection | ContentfulDocSection | ContentfulNavigationSection | ContentfulTableSection | ContentfulTextSection | ContentfulTopicSection
+
+type ContentfulPageSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulPageSysContentType
+}
+
+type ContentfulPageSysContentType @derivedTypes {
+  sys: ContentfulPageSysContentTypeSys
+}
+
+type ContentfulPageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
 
 type ContentfulAction implements Node @derivedTypes @dontInfer {
   title: String
@@ -606,22 +698,6 @@ type ContentfulActionSysContentType @derivedTypes {
 }
 
 type ContentfulActionSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulPageSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulPageSysContentType
-}
-
-type ContentfulPageSysContentType @derivedTypes {
-  sys: ContentfulPageSysContentTypeSys
-}
-
-type ContentfulPageSysContentTypeSys {
   type: String
   linkType: String
   id: String

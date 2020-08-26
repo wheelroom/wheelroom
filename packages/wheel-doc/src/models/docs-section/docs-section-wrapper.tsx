@@ -1,14 +1,14 @@
 import React from 'react'
 import { Wheel, Container, Fluid, Wrapper } from '@wheelroom/core'
-import { DocSectionDocNcssTree } from './ncss-tree'
+import { DocsSectionDocsNcssTree } from './ncss-tree'
 
-export interface DocSectionWheel extends Wheel {
-  style: DocSectionDocNcssTree
+export interface DocsSectionWheel extends Wheel {
+  style: DocsSectionDocsNcssTree
 }
 
 export const DocSectionWrapper = (props: {
   /** Styling wheel */
-  wheel: DocSectionWheel
+  wheel: DocsSectionWheel
   /** Use a max width or fluid container */
   containerStyle: 'container' | 'fluid'
   /** Doc section children */

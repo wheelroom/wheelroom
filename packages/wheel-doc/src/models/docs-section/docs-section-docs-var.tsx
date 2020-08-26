@@ -1,35 +1,35 @@
 /**
  * Component variation
  *
- * Component type: docSection
- * Variation: Doc
+ * Component type: docsSection
+ * Variation: Docs
  *
  */
 
 import React from 'react'
 import { getSectionWheel } from '@wheelroom/core'
-import { Doc } from '../doc/doc'
-import { DocSectionModel } from './model'
-import { DocSectionWrapper } from './doc-section-wrapper'
+import { Docs } from '../docs/docs'
+import { DocsSectionModel } from './model'
+import { DocSectionWrapper } from './docs-section-wrapper'
 
-export const DocSectionDocVar = (props: DocSectionModel) => {
+export const DocsSectionDocsVar = (props: DocsSectionModel) => {
   const sectionWheel = getSectionWheel({
     themeId: props.activeThemeId,
-    wheelId: 'docSection',
+    wheelId: 'docsSection',
     sectionWheels: props.sectionWheels,
-    variation: 'doc',
+    variation: 'docs',
   })
-  if (!sectionWheel || !props.doc) {
+  if (!sectionWheel || !props.docs) {
     return null
   }
   const { data, wheel } = sectionWheel
   return (
     <DocSectionWrapper containerStyle="container" wheel={wheel}>
-      <Doc
+      <Docs
         data={data}
-        doc={props.doc}
+        docs={props.docs}
         locale={props.locale}
-        wheel={{ ...wheel, style: wheel.style.doc }}
+        wheel={{ ...wheel, style: wheel.style.docs }}
       />
     </DocSectionWrapper>
   )

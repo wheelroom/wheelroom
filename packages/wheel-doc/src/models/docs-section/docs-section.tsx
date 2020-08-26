@@ -1,20 +1,20 @@
 /**
  * Component
  *
- * Component type: docSection
+ * Component type: docsSection
  *
  */
 
 import React from 'react'
 import { getVariation } from '@wheelroom/core'
-import { DocSectionDocVar } from './doc-section-doc-var'
-import { DocSectionModel } from './model'
+import { DocsSectionDocsVar } from './docs-section-docs-var'
+import { DocsSectionModel } from './model'
 
 const componentList = {
-  doc: DocSectionDocVar,
+  docs: DocsSectionDocsVar,
 }
 
-export const DocSection = (props: DocSectionModel) => {
+export const DocsSection = (props: DocsSectionModel) => {
   const Variation = getVariation(props, componentList)
 
   return <Variation {...props} />

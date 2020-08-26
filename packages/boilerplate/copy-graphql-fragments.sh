@@ -21,8 +21,8 @@ fi
 
 if [ -d "node_modules/@wheelroom/wheel-doc" ]; then
     echo "Copying fragments from @wheelroom/wheel-doc"
-    cp node_modules/@wheelroom/wheel-doc/src/models/doc/fragment.js src/graphql-fragments/doc-fragment.js
-    cp node_modules/@wheelroom/wheel-doc/src/models/doc-section/fragment.js src/graphql-fragments/doc-section-fragment.js
+    cp node_modules/@wheelroom/wheel-doc/src/models/docs/fragment.js src/graphql-fragments/docs-fragment.js
+    cp node_modules/@wheelroom/wheel-doc/src/models/docs-section/fragment.js src/graphql-fragments/docs-section-fragment.js
 fi
 
 if [ -d "node_modules/@wheelroom/wheel-navigation" ]; then

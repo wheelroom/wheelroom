@@ -1,11 +1,11 @@
 /**
  * Component interface only
  *
- * Component type: doc
+ * Component type: docs
  *
  */
 
-export interface DocModel {
+export interface DocsModel {
   /** Gatsby fetched data */
   __typename: string
   heading?: string
@@ -13,7 +13,7 @@ export interface DocModel {
   text: {
     json: string
   }
-  parentDoc: {
+  parentDocs: {
     __typename: string
     heading?: string
     slug: string
@@ -25,10 +25,10 @@ export interface DocModel {
   sortOrder?: string
 }
 
-export interface DocNode {
-  node: DocModel
+export interface DocsNode {
+  node: DocsModel
 }
 
-export interface AllDocModel {
-  edges: DocNode[]
+export interface AllDocsModel {
+  edges: DocsNode[]
 }

@@ -1,14 +1,14 @@
 import { CoreSectionProps } from '@wheelroom/core'
-import { DocModel, AllDocModel } from '../doc/model'
+import { DocsModel, AllDocsModel } from '../docs/model'
 
-export interface InjectedDocSectionModel {
-  doc: DocModel
-  allDoc: AllDocModel
+export interface InjectedDocsSectionModel {
+  docs: DocsModel
+  allDocs: AllDocsModel
 }
 
-export interface DocSectionModel
+export interface DocsSectionModel
   extends CoreSectionProps,
-    InjectedDocSectionModel {
+    InjectedDocsSectionModel {
   /** Gatsby fetched data */
   __typename: string
   eventId?: string

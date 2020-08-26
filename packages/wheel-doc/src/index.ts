@@ -1,16 +1,14 @@
-// Doc
-export type { DocModel, AllDocModel } from './models/doc/model'
-
-// Doc section
-export { DocSection } from './models/doc-section/doc-section'
+// Docs
+export type { DocsModel, AllDocsModel } from './models/docs/model'
+// Docs section
+export { DocsSection } from './models/docs-section/docs-section'
 export type {
-  DocSectionModel,
-  InjectedDocSectionModel,
-} from './models/doc-section/model'
-export type { DocData } from './models/doc/data'
-export type { DocSectionData } from './models/doc-section/data'
-export type { DocSectionDocNcssTree } from './models/doc-section/ncss-tree'
-
-// Doc config
-export { docModelConfig } from './config/doc-model-config'
-export { docQuery } from './models/doc/query'
+  DocsSectionModel,
+  InjectedDocsSectionModel,
+} from './models/docs-section/model'
+export type { DocsData } from './models/docs/data'
+export type { DocsSectionData } from './models/docs-section/data'
+export type { DocsSectionDocsNcssTree } from './models/docs-section/ncss-tree'
+// Docs config
+export { docsModelConfig } from './config/docs-model-config'
+export { docsQuery } from './models/docs/query'

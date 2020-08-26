@@ -2,27 +2,27 @@
 import { jsx } from '@emotion/core'
 import { Box, Flex, Heading, Wheel } from '@wheelroom/core'
 import { RichText } from '@wheelroom/wheel-text'
-import { DocData } from './data'
-import { DocModel } from './model'
-import { DocSectionDocVariationNcssTree } from './ncss-tree'
+import { DocsData } from './data'
+import { DocsModel } from './model'
+import { DocsSectionDocsVariationNcssTree } from './ncss-tree'
 
-interface DocWheel extends Wheel {
-  style: DocSectionDocVariationNcssTree
+interface DocsWheel extends Wheel {
+  style: DocsSectionDocsVariationNcssTree
 }
 
-interface DocProps {
+interface DocsProps {
   /** Styling wheel */
-  wheel: DocWheel
+  wheel: DocsWheel
   /** Locale needed for rich text render */
   locale: string
-  /** Doc props to render */
-  doc: DocModel
+  /** Docs props to render */
+  docs: DocsModel
   /** Data wheel */
-  data: DocData
+  data: DocsData
 }
 
-export const Doc = (props: DocProps) => {
-  if (!props.doc) {
+export const Docs = (props: DocsProps) => {
+  if (!props.docs) {
     return null
   }
   return (
@@ -40,7 +40,7 @@ export const Doc = (props: DocProps) => {
                 style: props.wheel.style.heading,
               }}
             >
-              {props.doc.heading}
+              {props.docs.heading}
             </Heading>
           )}
         </Flex>
@@ -49,7 +49,7 @@ export const Doc = (props: DocProps) => {
         <RichText
           locale={props.locale}
           wheel={{ ...props.wheel, style: props.wheel.style.richText }}
-          textJson={props.doc.text.json}
+          textJson={props.docs.text.json}
         />
       )}
     </Box>

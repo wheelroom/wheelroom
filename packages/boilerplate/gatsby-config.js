@@ -6,7 +6,7 @@ path = require('path')
 const pageQuery = require('@wheelroom/core').pageQuery
 const globalsQuery = require('@wheelroom/core').globalsQuery
 const blogQuery = require('@wheelroom/wheel-blog').blogQuery
-const docQuery = require('@wheelroom/wheel-doc').docQuery
+const docsQuery = require('@wheelroom/wheel-doc').docsQuery
 
 const dotenv = require('dotenv')
 
@@ -45,7 +45,7 @@ module.exports = {
       options: {
         defaultLocale: 'en-US',
         pageTemplate: path.resolve('./src/page-template/page-template.tsx'),
-        queries: [globalsQuery, pageQuery, blogQuery, docQuery],
+        queries: [globalsQuery, pageQuery, blogQuery, docsQuery],
       },
       resolve: `gatsby-theme-wheelroom`,
     },

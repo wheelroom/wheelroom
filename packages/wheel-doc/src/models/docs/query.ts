@@ -2,15 +2,15 @@
  * Graphql query definition
  *
  * Query type: subPage
- * Component: doc
+ * Component: docs
  *
  */
 
-export const docQuery = {
-  componentName: 'doc',
+export const docsQuery = {
+  componentName: 'docs',
   query: `
   {
-    doc: allContentfulDoc {
+    docs: allContentfulDocs {
       edges {
         node {
           id

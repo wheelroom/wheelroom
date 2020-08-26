@@ -16,7 +16,7 @@ import {
   useEmbeds,
 } from '@wheelroom/core'
 import { BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
-import { DocModel, AllDocModel } from '@wheelroom/wheel-doc'
+import { DocsModel, AllDocsModel } from '@wheelroom/wheel-doc'
 import { Sections, SectionsProps } from './sections'
 import { sectionWheels } from './section-wheels'
 import { SeoProps } from './seo-props'
@@ -47,8 +47,8 @@ const PageTemplate = (props: any) => {
   const globals: GlobalsModel = props.data.globals
   const blog: BlogModel = props.data.blog
   const allBlog: AllBlogModel = props.data.allBlog
-  const doc: DocModel = props.data.doc
-  const allDoc: AllDocModel = props.data.allDoc
+  const docs: DocsModel = props.data.docs
+  const allDocs: AllDocsModel = props.data.allDocs
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const siteMetadata: CoreSiteMetadata = props.data.site.siteMetadata
@@ -62,8 +62,8 @@ const PageTemplate = (props: any) => {
     globals,
     blog,
     allBlog,
-    doc,
-    allDoc,
+    docs,
+    allDocs,
     page,
     siteMetadata,
 
@@ -124,7 +124,7 @@ const PageTemplate = (props: any) => {
 export default PageTemplate
 
 export const query = graphql`
-  query($pageId: String, $globalsId: String, $blogId: String, $docId: String) {
+  query($pageId: String, $globalsId: String, $blogId: String, $docsId: String) {
     site {
       siteMetadata {
         siteVersion
@@ -157,13 +157,13 @@ export const query = graphql`
         }
       }
     }
-    doc: contentfulDoc(id: { eq: $docId }) {
-      ...Doc
+    docs: contentfulDocs(id: { eq: $docsId }) {
+      ...Docs
     }
-    allDoc: allContentfulDoc {
+    allDocs: allContentfulDocs {
       edges {
         node {
-          ...Doc
+          ...Docs
         }
       }
     }

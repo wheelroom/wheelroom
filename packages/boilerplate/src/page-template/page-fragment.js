@@ -19,7 +19,7 @@ export const fragment = graphql`
       ... on Node {
         ...BlogSection
         ...CustomSection
-        ...DocSection
+        ...DocsSection
         ...NavigationSection
         ...TableSection
         ...TextSection

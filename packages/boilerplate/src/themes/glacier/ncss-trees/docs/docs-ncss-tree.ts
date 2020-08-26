@@ -1,18 +1,18 @@
 import { DeepPartial } from '@wheelroom/core'
-import { DocSectionDocNcssTree } from '@wheelroom/wheel-doc'
+import { DocsSectionDocsNcssTree } from '@wheelroom/wheel-doc'
 import { containerNcssNode, wrapperNcssNode } from '../grid-ncss'
 import { textSectionTextNcssTree } from '../text/text-ncss-tree'
 
-export const docSectionDocNcssTree: DeepPartial<DocSectionDocNcssTree> = {
+export const docsSectionDocsNcssTree: DeepPartial<DocsSectionDocsNcssTree> = {
   container: containerNcssNode,
-  doc: {
+  docs: {
     ncss: {
-      label: 'doc-section-doc',
+      label: 'docs-section-docs',
       w: 1,
     },
     header: {
       ncss: {
-        label: 'doc-header',
+        label: 'docs-header',
         flexDirection: 'column',
         px: 3,
         py: 5,
@@ -22,7 +22,7 @@ export const docSectionDocNcssTree: DeepPartial<DocSectionDocNcssTree> = {
     },
     heading: {
       ncss: {
-        label: 'doc-heading',
+        label: 'docs-heading',
         mt: 3,
       },
     },

@@ -6,14 +6,14 @@ import {
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
 
-export const docModelConfig: WheelroomComponents = {
-  doc: {
+export const docsModelConfig: WheelroomComponents = {
+  docs: {
     fields: {
       heading: {
         type: 'shortText',
       } as ShortTextField,
       slug: {
-        initialContent: 'initial-doc-slug',
+        initialContent: 'initial-docs-slug',
         type: 'shortText',
         required: true,
         typePostfix: 'Slug',
@@ -23,8 +23,8 @@ export const docModelConfig: WheelroomComponents = {
         required: true,
         type: 'richText',
       } as RichTextField,
-      parent: {
-        allowedComponents: ['doc'],
+      parentDocs: {
+        allowedComponents: ['docs'],
         // Limit expanding pages, prevent circ refs
         expandFragmentRef: true,
         initialContent: undefined,
@@ -40,15 +40,15 @@ export const docModelConfig: WheelroomComponents = {
       asQuery: 'subPage',
     },
   },
-  docSection: {
+  docsSection: {
     fields: {
       variation: {
-        items: ['doc'],
+        items: ['docs'],
         type: 'dropdown',
       } as DropdownField,
       eventId: {
         type: 'shortText',
-        initialContent: 'initial-content-for-doc-section-event-id',
+        initialContent: 'initial-content-for-docs-section-event-id',
         typePostfix: 'Slug',
         helpText: 'Example: my-event-id',
         unique: true,

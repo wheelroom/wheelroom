@@ -6,24 +6,15 @@
  * by scanning the src folder, then adds the fragments to the main page query.
  *
  *
- * Component: doc
+ * Component: docsSection
  */
 
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-fragment Doc on ContentfulDoc {
-  __typename
-  heading
-  slug
-  text {
-    json
-  }
-  parentDoc {
+  fragment DocsSection on ContentfulDocsSection {
     __typename
-    heading
-    slug
+    variation
+    eventId
   }
-  sortOrder
-}
 `

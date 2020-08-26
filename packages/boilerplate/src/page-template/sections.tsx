@@ -1,12 +1,4 @@
 import React from 'react'
-
-import { NamedPaths } from 'gatsby-theme-wheelroom'
-import { BlogSection, BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
-import { DocSection, DocModel, AllDocModel } from '@wheelroom/wheel-doc'
-import { TextSection } from '@wheelroom/wheel-text'
-import { NavigationSection } from '@wheelroom/wheel-navigation'
-import { TableSection } from '@wheelroom/wheel-table'
-import { TopicSection } from '@wheelroom/wheel-topic'
 import {
   GlobalsModel,
   CoreSiteMetadata,
@@ -14,6 +6,13 @@ import {
   SectionWheels,
   ScrollSpy,
 } from '@wheelroom/core'
+import { NamedPaths } from 'gatsby-theme-wheelroom'
+import { BlogSection, BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
+import { DocsSection, DocsModel, AllDocsModel } from '@wheelroom/wheel-doc'
+import { NavigationSection } from '@wheelroom/wheel-navigation'
+import { TableSection } from '@wheelroom/wheel-table'
+import { TextSection } from '@wheelroom/wheel-text'
+import { TopicSection } from '@wheelroom/wheel-topic'
 import { CustomSection } from '../custom-wheel/models/custom-section/custom-section'
 import { Landmarks } from './landmarks'
 import { SectionProps } from './section-props'
@@ -25,7 +24,7 @@ export interface SectionMap {
 const sectionMap: SectionMap = {
   ContentfulBlogSection: BlogSection,
   ContentfulCustomSection: CustomSection,
-  ContentfulDocSection: DocSection,
+  ContentfulDocsSection: DocsSection,
   ContentfulNavigationSection: NavigationSection,
   ContentfulTableSection: TableSection,
   ContentfulTextSection: TextSection,
@@ -39,8 +38,8 @@ export interface SectionsProps {
   globals: GlobalsModel
   blog: BlogModel
   allBlog: AllBlogModel
-  doc: DocModel
-  allDoc: AllDocModel
+  docs: DocsModel
+  allDocs: AllDocsModel
   page: PageModel
   siteMetadata: CoreSiteMetadata
   sections: any
@@ -63,8 +62,8 @@ export const Sections = (props: SectionsProps) => {
       allBlog: props.allBlog,
       blog: props.blog,
 
-      allDoc: props.allDoc,
-      doc: props.doc,
+      allDocs: props.allDocs,
+      docs: props.docs,
 
       globals: props.globals,
       page: props.page,

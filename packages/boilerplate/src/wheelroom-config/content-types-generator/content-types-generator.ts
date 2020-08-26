@@ -36,7 +36,7 @@ import {
 import * as fse from 'fs-extra'
 import { blogModelConfig } from '@wheelroom/wheel-blog'
 import { coreModelConfig } from '@wheelroom/core'
-import { docModelConfig } from '@wheelroom/wheel-doc'
+import { docsModelConfig } from '@wheelroom/wheel-doc'
 import { navigationModelConfig } from '@wheelroom/wheel-navigation'
 import { tableModelConfig } from '@wheelroom/wheel-table'
 import { textModelConfig } from '@wheelroom/wheel-text'
@@ -47,7 +47,7 @@ import { contentSets } from '../content-sets/content-sets'
 const models = {
   ...blogModelConfig,
   ...coreModelConfig,
-  ...docModelConfig,
+  ...docsModelConfig,
   ...customModelConfig,
   ...navigationModelConfig,
   ...tableModelConfig,
