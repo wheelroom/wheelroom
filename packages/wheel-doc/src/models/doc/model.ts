@@ -13,7 +13,7 @@ export interface DocModel {
   text: {
     json: string
   }
-  parent: {
+  parentDoc: {
     __typename: string
     heading?: string
     slug: string

@@ -19,7 +19,7 @@ fragment Doc on ContentfulDoc {
   text {
     json
   }
-  parent {
+  parentDoc {
     __typename
     heading
     slug
