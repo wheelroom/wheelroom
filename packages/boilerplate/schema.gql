@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-08-25T18:10:14.874Z ###
+### Type definitions saved at 2020-08-26T09:31:56.119Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -76,6 +76,22 @@ type SitePage implements Node @dontInfer {
   matchPath: String
 }
 
+type contentfulDocTextRichTextNode implements Node @derivedTypes @dontInfer {
+  content: [contentfulDocTextRichTextNodeContent]
+  nodeType: String
+  text: String
+}
+
+type contentfulDocTextRichTextNodeContent @derivedTypes {
+  content: [contentfulDocTextRichTextNodeContentContent]
+  nodeType: String
+}
+
+type contentfulDocTextRichTextNodeContentContent {
+  value: String
+  nodeType: String
+}
+
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
   contentful_id: String
   spaceId: String
@@ -109,28 +125,12 @@ type ContentfulAssetSys {
   revision: Int
 }
 
-type contentfulDocTextRichTextNode implements Node @derivedTypes @dontInfer {
-  content: [contentfulDocTextRichTextNodeContent]
-  nodeType: String
-  text: String
-}
-
-type contentfulDocTextRichTextNodeContent @derivedTypes {
-  content: [contentfulDocTextRichTextNodeContentContent]
-  nodeType: String
-}
-
-type contentfulDocTextRichTextNodeContentContent {
-  value: String
-  nodeType: String
-}
-
-type ContentfulDoc implements Node @derivedTypes @dontInfer {
+type ContentfulDoc implements Node @derivedTypes {
   title: String
   heading: String
   slug: String
   sortOrder: String
-  contentfulparent: ContentfulDoc @link(by: "id", from: "contentfulparent___NODE")
+  parentDoc: ContentfulDoc @link(by: "id", from: "parentDoc___NODE")
   text: contentfulDocTextRichTextNode @link(by: "id", from: "text___NODE")
   spaceId: String
   contentful_id: String
@@ -299,7 +299,7 @@ type ContentfulNavigationSegmentSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulTableRow implements Node @derivedTypes @dontInfer {
+type ContentfulTableRow implements Node @derivedTypes {
   title: String
   variation: String
   heading: String
@@ -316,7 +316,7 @@ type ContentfulTableRow implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulTopic implements Node @derivedTypes @dontInfer {
+type ContentfulTopic implements Node @derivedTypes {
   title: String
   heading: String
   icon: String
@@ -337,7 +337,7 @@ type ContentfulTopic implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-type ContentfulEmbed implements Node @derivedTypes @dontInfer {
+type ContentfulEmbed implements Node @derivedTypes {
   title: String
   type: String
   topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
@@ -435,7 +435,7 @@ type ContentfulMediaBreakpointSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulBlog implements Node @derivedTypes @dontInfer {
+type ContentfulBlog implements Node @derivedTypes {
   title: String
   heading: String
   icon: String
@@ -648,7 +648,7 @@ type contentfulCustomAbstractTextNode implements Node @dontInfer {
   abstract: String
 }
 
-type ContentfulCustom implements Node @derivedTypes @dontInfer {
+type ContentfulCustom implements Node @derivedTypes {
   title: String
   heading: String
   media: ContentfulAsset @link(by: "id", from: "media___NODE")
@@ -6679,7 +6679,7 @@ type contentfulTextSectionTextRichTextNodeContentDataTargetFieldsFileEn_USDetail
   height: Int
 }
 
-type ContentfulTextSection implements Node @derivedTypes @dontInfer {
+type ContentfulTextSection implements Node @derivedTypes {
   title: String
   variation: String
   eventId: String
