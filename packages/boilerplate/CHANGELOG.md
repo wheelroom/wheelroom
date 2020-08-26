@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.4.1...@wheelroom/boilerplate@6.0.0) (2020-08-26)
+
+
+* refactor!: URL path changed to /docs/ ([66971bc](https://github.com/wheelroom/wheelroom/commit/66971bcada7fdca3c980db1fabbb9467847a0ea1))
+
+
+### BREAKING CHANGES
+
+* Editors using Contentful need to change the path to /docs/:slug
+
+
+
+
+
 ## [5.4.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@5.4.0...@wheelroom/boilerplate@5.4.1) (2020-08-26)
 
 **Note:** Version bump only for package @wheelroom/boilerplate
