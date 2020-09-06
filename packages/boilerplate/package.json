@@ -129,7 +129,7 @@
     "svgr": "svgr --typescript --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/figma src/svg/figma --config-file ./src/svg/svgr.config.js",
     "type-check": "tsc --noEmit",
     "version": "node sync-wheelroom-version.js",
-    "wr": "wheelroom --config compiled-config/wheelroom-config.js",
+    "wr": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js",
     "wr:cm": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-models",
     "wr:dm": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js delete-models",
     "wr:cc": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-content",
