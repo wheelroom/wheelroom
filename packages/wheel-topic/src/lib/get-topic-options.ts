@@ -49,12 +49,14 @@ export const topicOptionsDutch: TopicOptionsTranslation = {
   previewMode: 'Preview mode',
 }
 
-export const getTopicOptions = (
-  optionStrings: TopicOptionString[],
-  overrideTopicOptions: TopicOptions = {},
-  locale = 'en'
-): TopicOptions => {
-  const optionsStringList = optionStrings || []
+interface GetTopicOptions {
+  optionStrings?: TopicOptionString[]
+  locale?: string
+}
+
+export const getTopicOptions = (params: GetTopicOptions): TopicOptions => {
+  const optionsStringList = params.optionStrings || []
+  const locale = params.locale || 'en'
 
   const language = locale.split('-')[0]
   let translation: TopicOptionsTranslation
@@ -72,9 +74,9 @@ export const getTopicOptions = (
   }
   const result: TopicOptions = {}
   Object.keys(translation).forEach((key) => {
-    const optionSet =
-      optionsStringList.includes(translation[key as TopicOptionsKeys] as any) ||
-      overrideTopicOptions[key as TopicOptionsKeys]
+    const optionSet = optionsStringList.includes(
+      translation[key as TopicOptionsKeys] as any
+    )
     result[key as TopicOptionsKeys] = optionSet
   })
   return result
