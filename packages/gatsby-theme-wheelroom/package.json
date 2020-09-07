@@ -28,7 +28,7 @@
     "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
-    "@wheelroom/wheelroom": "4.3.10",
+    "@wheelroom/wheelroom": "4.3.9",
     "camelcase": "6.0.0",
     "dotenv": "8.2.0"
   },

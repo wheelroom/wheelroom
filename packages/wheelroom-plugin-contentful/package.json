@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-from-markdown": "14.1.1",
-    "@wheelroom/wheelroom": "4.3.10",
+    "@wheelroom/wheelroom": "4.3.9",
     "camelcase": "6.0.0",
     "contentful-management": "5.28.0",
     "dotenv": "8.2.0",
