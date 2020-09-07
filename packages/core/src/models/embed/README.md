@@ -100,3 +100,7 @@ ReactGA.pageview(props.path)
 ### Available variables
 
 - props, all props that are passed to `src/page-template.tsx`.
+
+## youtube
+
+This embeds a pre configured youtube player that uses the code field to play that video.
