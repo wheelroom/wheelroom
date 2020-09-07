@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.4](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.1.0...@wheelroom/boilerplate@6.0.4) (2020-09-07)
+
+
+### Bug Fixes
+
+* restore version numbers ([0401b56](https://github.com/wheelroom/wheelroom/commit/0401b5614780cead6309febf9f02ff8035659708))
+
+
+
+
+
 # [6.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.0.3...@wheelroom/boilerplate@6.1.0) (2020-09-07)
 
 

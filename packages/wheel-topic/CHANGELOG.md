@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@2.2.0...@wheelroom/wheel-topic@3.0.1) (2020-09-07)
+
+
+### Bug Fixes
+
+* restore version numbers ([0401b56](https://github.com/wheelroom/wheelroom/commit/0401b5614780cead6309febf9f02ff8035659708))
+
+
+
+
+
 # [2.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@3.0.0...@wheelroom/wheel-topic@2.2.0) (2020-09-07)
 
 
