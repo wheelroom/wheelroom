@@ -11,6 +11,7 @@ export type EmbedType =
   | 'js-app'
   | 'js-page-section'
   | 'js-page'
+  | 'youtube'
 
 export interface EmbedModel {
   /** Gatsby fetched data */

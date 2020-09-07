@@ -303,7 +303,13 @@ interface ActionModel {
 interface EmbedModel {
   fields: {
     code?: string
-    type?: 'html' | 'js-app' | 'js-page' | 'js-action' | 'js-page-section'
+    type?:
+      | 'html'
+      | 'js-action'
+      | 'js-app'
+      | 'js-page-section'
+      | 'js-page'
+      | 'youtube'
     title: string
   }
   model: 'embed'

@@ -109,7 +109,14 @@ export const coreModelConfig: WheelroomComponents = {
         type: 'longText',
       } as LongTextField,
       type: {
-        items: ['html', 'js-app', 'js-page', 'js-action', 'js-page-section'],
+        items: [
+          'html',
+          'js-action',
+          'js-app',
+          'js-page-section',
+          'js-page',
+          'youtube',
+        ],
         type: 'dropdown',
       } as DropdownField,
     },
