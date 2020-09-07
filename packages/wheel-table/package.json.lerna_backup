@@ -1,0 +1,95 @@
+{
+  "author": "Wheelroom (https://www.wheelroom.io)",
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@wheelroom.io",
+      "url": "https://www.jaccomeijer.nl"
+    },
+    {
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "description": "Table wheel for Wheelroom",
+  "devDependencies": {
+    "@emotion/core": "10.0.28",
+    "@svgr/cli": "5.4.0",
+    "@types/jest": "26.0.4",
+    "@types/node": "14.0.19",
+    "@types/react-dom": "16.9.8",
+    "@typescript-eslint/eslint-plugin": "3.6.0",
+    "@typescript-eslint/parser": "3.6.0",
+    "@wheelroom/admin-core": "1.2.9",
+    "@wheelroom/admin-page-preview": "1.5.14",
+    "@wheelroom/core": "2.1.0",
+    "@wheelroom/styled-system": "4.1.9",
+    "@wheelroom/wheel-topic": "2.1.1",
+    "@wheelroom/wheelroom": "4.3.9",
+    "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
+    "eslint": "7.4.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.20.3",
+    "eslint-plugin-react-hooks": "4.0.6",
+    "gatsby": "2.23.22",
+    "jest": "26.1.0",
+    "npm-install-peers": "1.2.1",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.0.5",
+    "ts-jest": "26.1.1",
+    "typescript": "3.9.6"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.14.6"
+  },
+  "files": [
+    "dist/index.*",
+    "dist/config/*",
+    "dist/models/*",
+    "src/models/table-row/fragment.js",
+    "src/models/table-section/fragment.js"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
+    "wheel"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@wheelroom/wheel-table",
+  "peerDependencies": {
+    "@emotion/core": "10.x",
+    "@types/react": "16.x",
+    "react": "16.x",
+    "react-dom": "16.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:compile": "tsc",
+    "build:test": "jest --silent --passWithNoTests",
+    "prepack": "npm run build",
+    "test": "npm run build:test",
+    "dev": "tsc -w"
+  },
+  "type": "commonjs",
+  "version": "2.1.1"
+}

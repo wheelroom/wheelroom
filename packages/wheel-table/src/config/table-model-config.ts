@@ -7,7 +7,7 @@ import {
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
 import { featherIconNames } from '@wheelroom/core'
-import { topicOptions } from '@wheelroom/wheel-topic'
+import { topicOptionsEnglish, topicOptionsDutch } from '@wheelroom/wheel-topic'
 
 export const tableModelConfig: WheelroomComponents = {
   tableRow: {
@@ -49,7 +49,19 @@ export const tableModelConfig: WheelroomComponents = {
       } as DropdownField,
       topicOptions: {
         initialContent: ['Hide icon'],
-        items: topicOptions.en,
+        items: Object.values(topicOptionsEnglish),
+        translations: {
+          name: {
+            nl: 'Onderwerp opties',
+          },
+          helpText: {
+            nl:
+              'Deze opties passen de weergave van de onderwerpen in de sectie aan.',
+          },
+          items: {
+            nl: Object.values(topicOptionsDutch),
+          },
+        },
         type: 'checkbox',
       } as CheckboxField,
       tableRows: {
