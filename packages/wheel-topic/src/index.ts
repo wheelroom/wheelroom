@@ -13,11 +13,7 @@ export type { TopicSectionNcssTree } from './models/topic-section/ncss-tree'
 // Topic lib
 export { getTopicInfo } from './lib/get-topic-info'
 export type { TopicInfo } from './lib/get-topic-info'
-export type {
-  TopicOptions,
-  TopicOptionString,
-  TopicOptionStringNl,
-} from './lib/get-topic-options'
+export type { TopicOptions, TopicOptionString } from './lib/get-topic-options'
 export { getEmptyTopicOptions, getTopicOptions } from './lib/get-topic-options'
 
 // Topic config

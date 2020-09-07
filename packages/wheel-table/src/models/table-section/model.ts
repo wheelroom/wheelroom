@@ -1,4 +1,4 @@
-import { TopicOptionString, TopicOptionStringNl } from '@wheelroom/wheel-topic'
+import { TopicOptionString } from '@wheelroom/wheel-topic'
 import { CoreSectionProps } from '@wheelroom/core'
 import { TableRowModel } from '../table-row/model'
 
@@ -7,6 +7,6 @@ export interface TableSectionModel extends CoreSectionProps {
   __typename: string
   eventId?: string
   tableRows?: TableRowModel[]
-  topicOptions?: (TopicOptionString | TopicOptionStringNl)[]
+  topicOptions?: TopicOptionString[]
   variation?: string
 }

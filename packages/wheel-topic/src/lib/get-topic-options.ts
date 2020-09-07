@@ -1,4 +1,4 @@
-export type TopicOptionString =
+type TopicOptionStringEn =
   | 'Hide icon'
   | 'Hide media'
   | 'Hide heading'
@@ -7,7 +7,7 @@ export type TopicOptionString =
   | 'Reversed order'
   | 'Preview mode'
 
-export type TopicOptionStringNl =
+type TopicOptionStringNl =
   | 'Verberg icoon'
   | 'Verberg media'
   | 'Verberg titel'
@@ -15,6 +15,8 @@ export type TopicOptionStringNl =
   | 'Verberg actie'
   | 'Draai volgorde om'
   | 'Preview mode'
+
+export type TopicOptionString = TopicOptionStringEn | TopicOptionStringNl
 
 export type TopicOptionsKeys =
   | 'reverseOrder'
@@ -24,6 +26,9 @@ export type TopicOptionsKeys =
   | 'hideAbstract'
   | 'hideAction'
   | 'previewMode'
+
+export type TopicOptions = Partial<Record<TopicOptionsKeys, boolean>>
+type TopicOptionsTranslation = Record<TopicOptionsKeys, string>
 
 export const englishTranslation: TopicOptionsTranslation = {
   reverseOrder: 'Reversed order',
@@ -44,11 +49,8 @@ export const dutchTranslation: TopicOptionsTranslation = {
   previewMode: 'Preview mode',
 }
 
-export type TopicOptions = Partial<Record<TopicOptionsKeys, boolean>>
-type TopicOptionsTranslation = Record<TopicOptionsKeys, string>
-
 export const getTopicOptions = (
-  optionStrings: (TopicOptionString | TopicOptionStringNl)[],
+  optionStrings: TopicOptionString[],
   overrideTopicOptions: TopicOptions = {},
   locale = 'en'
 ): TopicOptions => {
