@@ -30,7 +30,7 @@ export const Embed = (props: EmbedProps) => {
     return (
       <Iframe
         wheel={{ ...props.wheel, style: props.wheel.style.youtube }}
-        src={props.code} // https://www.youtube.com/embed/ALy6e7GbDRQ
+        src={props.code} // Example: https://www.youtube.com/embed/ALy6e7GbDRQ
         allowfullscreen
         width="560"
         height="315"

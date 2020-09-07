@@ -11,6 +11,6 @@ const overwriteMerge = (destinationArray: any, sourceArray: any) => sourceArray
  *
  */
 
-export const deepMerge = <T>(arrayOfObjects: T[]): T => {
+export const deepMerge = (arrayOfObjects: any[]): any => {
   return deepmerge.all(arrayOfObjects, { arrayMerge: overwriteMerge })
 }
