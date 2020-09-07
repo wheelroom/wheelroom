@@ -28,7 +28,7 @@
     "url": "https://github.com/wheelroom/wheelroom/issues"
   },
   "dependencies": {
-    "@wheelroom/wheelroom": "4.3.9",
+    "@wheelroom/wheelroom": "4.3.10",
     "inquirer": "7.3.0",
     "yargs": "15.4.0"
   },
@@ -92,6 +92,6 @@
   },
   "type": "commonjs",
   "types": "dist/index.d.ts",
-  "version": "3.1.14",
+  "version": "3.1.15",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

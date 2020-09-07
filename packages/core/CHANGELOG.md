@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@2.1.1...@wheelroom/core@2.2.0) (2020-09-07)
+
+
+### Bug Fixes
+
+* restore packages ([ec8b4f5](https://github.com/wheelroom/wheelroom/commit/ec8b4f5e3c4bff8edc4a20880b809d73d5b718c6))
+
+
+### Features
+
+* add iframe element and implement youtube player ([1727140](https://github.com/wheelroom/wheelroom/commit/17271403074806257f14449a67486230d1628bbd))
+
+
+
+
+
 ## [2.1.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@2.1.0...@wheelroom/core@2.1.1) (2020-09-07)
 
 **Note:** Version bump only for package @wheelroom/core

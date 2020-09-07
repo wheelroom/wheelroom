@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-blog@2.2.2...@wheelroom/wheel-blog@2.3.0) (2020-09-07)
+
+
+### Bug Fixes
+
+* restore packages ([ec8b4f5](https://github.com/wheelroom/wheelroom/commit/ec8b4f5e3c4bff8edc4a20880b809d73d5b718c6))
+
+
+### Features
+
+* add iframe element and implement youtube player ([1727140](https://github.com/wheelroom/wheelroom/commit/17271403074806257f14449a67486230d1628bbd))
+
+
+
+
+
 ## [2.2.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-blog@2.2.1...@wheelroom/wheel-blog@2.2.2) (2020-09-07)
 
 **Note:** Version bump only for package @wheelroom/wheel-blog
