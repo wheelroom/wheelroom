@@ -26,15 +26,15 @@ export const Embed = (props: EmbedProps) => {
       />
     )
   }
-  if (props.type === 'youtube') {
+  if (props.type === 'youtube' && props.code) {
     return (
       <Iframe
         wheel={{ ...props.wheel, style: props.wheel.style.youtube }}
         src={props.code} // https://www.youtube.com/embed/ALy6e7GbDRQ
         allowfullscreen
-        width="560" 
+        width="560"
         height="315"
-        frameborder="0" 
+        frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       />
     )

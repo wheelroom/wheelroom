@@ -72,11 +72,14 @@ export const Hr = (props: ElementProps) => {
 }
 
 interface IframeProps extends ElementProps {
-  src: string
-  width: string
-  height: string
-  name: string
-  referrerpolicy: string
+  allow?: string
+  allowfullscreen?: boolean
+  frameborder?: string
+  height?: string
+  name?: string
+  referrerpolicy?: string
+  src?: string
+  width?: string
 }
 
 export const Iframe = (props: IframeProps) => {
