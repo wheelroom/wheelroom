@@ -139,8 +139,8 @@
     "wr:ls": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js list"
   },
   "type": "commonjs",
-  "version": "6.1.0",
+  "version": "6.0.3",
   "wheelroom": {
-    "version": "6.1.0"
+    "version": "6.0.3"
   }
 }
