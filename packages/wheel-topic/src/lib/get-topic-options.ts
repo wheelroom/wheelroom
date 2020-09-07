@@ -30,7 +30,7 @@ export type TopicOptionsKeys =
 export type TopicOptions = Partial<Record<TopicOptionsKeys, boolean>>
 type TopicOptionsTranslation = Record<TopicOptionsKeys, string>
 
-export const englishTranslation: TopicOptionsTranslation = {
+export const topicOptionsEnglish: TopicOptionsTranslation = {
   reverseOrder: 'Reversed order',
   hideIcon: 'Hide icon',
   hideMedia: 'Hide media',
@@ -39,7 +39,7 @@ export const englishTranslation: TopicOptionsTranslation = {
   hideAction: 'Hide action',
   previewMode: 'Preview mode',
 }
-export const dutchTranslation: TopicOptionsTranslation = {
+export const topicOptionsDutch: TopicOptionsTranslation = {
   reverseOrder: 'Draai volgorde om',
   hideIcon: 'Verberg icoon',
   hideMedia: 'Verberg media',
@@ -61,13 +61,13 @@ export const getTopicOptions = (
 
   switch (language) {
     case 'en':
-      translation = englishTranslation
+      translation = topicOptionsEnglish
       break
     case 'nl':
-      translation = dutchTranslation
+      translation = topicOptionsDutch
       break
     default:
-      translation = englishTranslation
+      translation = topicOptionsEnglish
       break
   }
   const result: TopicOptions = {}

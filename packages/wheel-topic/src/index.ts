@@ -14,8 +14,8 @@ export type { TopicSectionNcssTree } from './models/topic-section/ncss-tree'
 export { getTopicInfo } from './lib/get-topic-info'
 export type { TopicInfo } from './lib/get-topic-info'
 export type { TopicOptions, TopicOptionString } from './lib/get-topic-options'
+export { topicOptionsEnglish, topicOptionsDutch } from './lib/get-topic-options'
 export { getEmptyTopicOptions, getTopicOptions } from './lib/get-topic-options'
 
 // Topic config
 export { topicModelConfig } from './config/topic-model-config'
-export { topicOptions } from './config/topic-options'

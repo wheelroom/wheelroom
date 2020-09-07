@@ -9,7 +9,10 @@ import {
   WheelroomComponents,
 } from '@wheelroom/wheelroom'
 import { featherIconNames } from '@wheelroom/core'
-import { topicOptions } from './topic-options'
+import {
+  topicOptionsEnglish,
+  topicOptionsDutch,
+} from '../lib/get-topic-options'
 
 export const topicModelConfig: WheelroomComponents = {
   topic: {
@@ -146,7 +149,7 @@ export const topicModelConfig: WheelroomComponents = {
       } as MultipleComponentsField,
       topicOptions: {
         initialContent: ['Hide icon'],
-        items: topicOptions.en,
+        items: Object.values(topicOptionsEnglish),
         translations: {
           name: {
             nl: 'Onderwerp opties',
@@ -156,7 +159,7 @@ export const topicModelConfig: WheelroomComponents = {
               'Deze opties passen de weergave van de onderwerpen in de sectie aan.',
           },
           items: {
-            nl: topicOptions.nl,
+            nl: Object.values(topicOptionsDutch),
           },
         },
         type: 'checkbox',
