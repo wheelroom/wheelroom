@@ -24,11 +24,18 @@ export const topicNcssTree: TopicNcssTree = {
     },
   },
   embed: {
-    ncss: {
-      label: 'topic-embed',
-      iframe: {
-        h: 1,
-        w: 1,
+    html: {
+      ncss: {
+        label: 'topic-embed-html',
+        iframe: {
+          h: 1,
+          w: 1,
+        },
+      },
+    },
+    youtube: {
+      ncss: {
+        label: 'topic-embed-youtube',
       },
     },
   },
