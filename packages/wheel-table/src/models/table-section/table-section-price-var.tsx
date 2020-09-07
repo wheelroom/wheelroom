@@ -29,7 +29,10 @@ export const TableSectionPriceVar = (props: TableSectionModel) => {
       <Table
         data={data}
         tableRows={props.tableRows}
-        topicOptions={getTopicOptions(props.topicOptions || [])}
+        topicOptions={getTopicOptions({
+          optionStrings: props.topicOptions,
+          locale: props.locale,
+        })}
         wheel={{ ...wheel, style: wheel.style.table }}
       />
     </TableSectionWrapper>

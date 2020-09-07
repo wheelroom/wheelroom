@@ -35,7 +35,10 @@ export const TopicSectionHeroVar = (props: TopicSectionModel) => {
           data={data}
           key={index}
           topic={topic}
-          topicOptions={getTopicOptions(props.topicOptions || [])}
+          topicOptions={getTopicOptions({
+            optionStrings: props.topicOptions,
+            locale: props.locale,
+          })}
           useAbstractParser={MultiParser}
           useHeadingElement={topicHeading}
           wheel={{ ...wheel, style: wheel.style.topic }}

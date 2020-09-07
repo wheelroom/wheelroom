@@ -34,7 +34,10 @@ export const TopicSectionShowcaseVar = (props: TopicSectionModel) => {
           data={data}
           key={index}
           topic={topic}
-          topicOptions={getTopicOptions(props.topicOptions || [])}
+          topicOptions={getTopicOptions({
+            optionStrings: props.topicOptions,
+            locale: props.locale,
+          })}
           useAbstractParser={MultiParser}
           useHeadingElement={'h3'}
           wheel={{ ...wheel, style: wheel.style.topic }}

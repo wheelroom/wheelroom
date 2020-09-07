@@ -30,7 +30,10 @@ export const TopicSectionFeaturedVar = (props: TopicSectionModel) => {
   const topicsPresent =
     props.topics.filter((topic: TopicModel) => topic).length > 1
   const topicHeading = props.index <= 1 && !topicsPresent ? 'h1' : 'h2'
-  const topicOptions = getTopicOptions(props.topicOptions || [])
+  const topicOptions = getTopicOptions({
+    optionStrings: props.topicOptions,
+    locale: props.locale,
+  })
   return (
     <TopicSectionWrapper containerStyle="container" wheel={wheel}>
       {props.topics.map((topic: TopicModel, index: number) => {

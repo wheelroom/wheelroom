@@ -34,7 +34,10 @@ export const TopicSectionGalleryVar = (props: TopicSectionModel) => {
           data={data}
           key={index}
           topic={topic}
-          topicOptions={getTopicOptions(props.topicOptions || [])}
+          topicOptions={getTopicOptions({
+            optionStrings: props.topicOptions,
+            locale: props.locale,
+          })}
           useAbstractParser={MultiParser}
           wheel={{ ...wheel, style: wheel.style.topic }}
         />
