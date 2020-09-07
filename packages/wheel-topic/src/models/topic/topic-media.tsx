@@ -75,11 +75,18 @@ export const TopicMedia = (props: TopicMediaProps) => {
     }
   } else if (topicInfo.hasMediaEmbed && topic.mediaEmbed) {
     const embed = props.topic.mediaEmbed
+    let style: string = 'none'
+    if (topic.mediaEmbed.type === 'html') {
+      style = props.wheel.style.embed.html
+    }
+    if (topic.mediaEmbed.type === 'youtube') {
+      style = props.wheel.style.embed.youtube
+    }
     Media = Embed
     mediaProps = {
       code: embed?.code,
       type: embed?.type,
-      wheel: { ...props.wheel, style: props.wheel.style.embed },
+      wheel: { ...props.wheel, style: style },
     }
   }
 
