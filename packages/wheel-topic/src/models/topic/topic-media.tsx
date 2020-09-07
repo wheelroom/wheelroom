@@ -38,13 +38,11 @@ export const TopicMedia = (props: TopicMediaProps) => {
   if (props.data.hideMedia) {
     return null
   }
-  const topicInfo = props.topicInfo
-  const topic = props.topic
   let Media: any = null
   let mediaProps = {}
-  if (topicInfo.hasMediaBreakpoint && topic.mediaBreakpoint) {
+  if (props.topicInfo.hasMediaBreakpoint && props.topic.mediaBreakpoint) {
     Media = MediaBreakpoint
-    const media = topic.mediaBreakpoint
+    const media = props.topic.mediaBreakpoint
     mediaProps = {
       small: media?.small,
       medium: media?.medium,
@@ -52,18 +50,18 @@ export const TopicMedia = (props: TopicMediaProps) => {
       extraLarge: media.extraLarge,
       wheel: { ...props.wheel, style: props.wheel.style.mediaBreakpoint },
     }
-  } else if (topicInfo.hasImage && topic.media) {
-    const media: MediaGatsbyModel = topic.media
+  } else if (props.topicInfo.hasImage && props.topic.media) {
+    const media: MediaGatsbyModel = props.topic.media
     Media = Image
     mediaProps = {
       includeFigcaption: false,
       description: media.description,
-      media: topic.media,
+      media: props.topic.media,
       wheel: { ...props.wheel, style: props.wheel.style.image },
       title: media.title,
     }
-  } else if (topicInfo.hasVideo && topic.media) {
-    const media: MediaGatsbyModel = topic.media
+  } else if (props.topicInfo.hasVideo && props.topic.media) {
+    const media: MediaGatsbyModel = props.topic.media
     Media = Video
     mediaProps = {
       includeTitle: false,
@@ -73,23 +71,14 @@ export const TopicMedia = (props: TopicMediaProps) => {
       wheel: { ...props.wheel, style: props.wheel.style.video },
       title: media.title,
     }
-  } else if (topicInfo.hasMediaEmbed && topic.mediaEmbed) {
-    const embed = props.topic.mediaEmbed
-    let style: string = 'none'
-    if (topic.mediaEmbed.type === 'html') {
-      style = props.wheel.style.embed.html
-    }
-    if (topic.mediaEmbed.type === 'youtube') {
-      style = props.wheel.style.embed.youtube
-    }
+  } else if (props.topicInfo.hasMediaEmbed && props.topic.mediaEmbed) {
     Media = Embed
     mediaProps = {
-      code: embed?.code,
-      type: embed?.type,
-      wheel: { ...props.wheel, style: style },
+      code: props.topic.mediaEmbed.code,
+      type: props.topic.mediaEmbed.type,
+      wheel: { ...props.wheel, style: props.wheel.style.embed },
     }
   }
-
   return (
     <Box wheel={{ ...props.wheel, style: props.wheel.style.media }}>
       <Media {...mediaProps} />

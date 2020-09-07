@@ -52,10 +52,19 @@ export const textSectionTextNcssTree: DeepPartial<TextSectionNcssTree> = {
       ncss: {},
     },
     embed: {
-      ncss: {
-        ...embedNcssNode.ncss,
-        mt: 3,
-        mb: 5,
+      html: {
+        ncss: {
+          ...embedNcssNode.ncss,
+          mt: 3,
+          mb: 5,
+        },
+      },
+      youtube: {
+        ncss: {
+          ...embedNcssNode.ncss,
+          mt: 3,
+          mb: 5,
+        },
       },
     },
     blockquote: {
