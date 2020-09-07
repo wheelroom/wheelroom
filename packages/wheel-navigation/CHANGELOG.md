@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-navigation@2.2.2...@wheelroom/wheel-navigation@2.2.3) (2020-09-07)
+
+**Note:** Version bump only for package @wheelroom/wheel-navigation
+
+
+
+
+
 ## [2.2.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-navigation@2.3.0...@wheelroom/wheel-navigation@2.2.2) (2020-09-07)
 
 
