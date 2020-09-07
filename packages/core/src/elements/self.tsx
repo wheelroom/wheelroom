@@ -9,6 +9,7 @@ import { selfBlockquoteReset } from './self-blockquote-reset'
 import { selfCodeReset } from './self-code-reset'
 import { selfDdReset, selfDlReset, selfDtReset } from './self-dl-reset'
 import { selfHrReset } from './self-hr-reset'
+import { selfIframeReset } from './self-iframe-reset'
 import { selfListReset } from './self-list-reset'
 import { selfPreReset } from './self-pre-reset'
 import { selfStrongReset } from './self-strong-reset'
@@ -68,6 +69,18 @@ export const Dt = (props: ElementProps) => {
 
 export const Hr = (props: ElementProps) => {
   return getSelf(props, selfHrReset, 'hr')
+}
+
+interface IframeProps extends ElementProps {
+  src: string
+  width: string
+  height: string
+  name: string
+  referrerpolicy: string
+}
+
+export const Iframe = (props: IframeProps) => {
+  return getSelf(props, selfIframeReset, 'iframe')
 }
 
 export const Li = (props: ElementProps) => {

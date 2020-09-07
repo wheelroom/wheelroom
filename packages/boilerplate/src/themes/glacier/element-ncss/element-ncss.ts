@@ -103,6 +103,9 @@ export const elementNcss: ElementResetNcssTree = {
   hr: {
     ncss: {},
   },
+  iframe: {
+    ncss: {},
+  },
   embed: {
     ncss: {},
   },

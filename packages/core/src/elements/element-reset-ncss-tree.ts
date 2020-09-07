@@ -25,6 +25,7 @@ export interface ElementResetNcssTree {
   h5: NcssNode
   h6: NcssNode
   hr: NcssNode
+  iframe: NcssNode
   image: ImageElementNcssTree
   kbd: NcssNode
   li: NcssNode

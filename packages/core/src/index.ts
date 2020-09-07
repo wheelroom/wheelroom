@@ -38,14 +38,17 @@ export type { WrSystemTheme, WrSystemConfig } from './theme/types'
 // Elements
 export type { ALinkElementProps } from './elements/a-link'
 export type { AnyElementProps } from './elements/any'
-export type { BlockLevelElementName } from './elements/element-names'
 export type { ButtonElementProps } from './elements/button'
 export type { ElementResetNcssTree } from './elements/element-reset-ncss-tree'
 export type { GridElementProps } from './elements/grid'
-export type { HeadingElementName } from './elements/element-names'
 export type { HeadingElementProps } from './elements/heading'
 export type { IconProps } from './elements/icon'
-export type { InlineElementName } from './elements/element-names'
+export type {
+  BlockLevelElementName,
+  HeadingElementName,
+  InlineElementName,
+  InlineFrameElementName,
+} from './elements/element-names'
 export type { LinkRelationshipAttribute } from './elements/element-attribute-names'
 export type { MediaGatsbyModel } from './models/media-breakpoint/media-gatsby-model'
 export type { ParagraphElementProps } from './elements/paragraph'
@@ -56,14 +59,15 @@ export {
   Dl,
   Dt,
   Hr,
+  Iframe,
   Li,
   Ol,
   Pre,
   Strong,
   Table,
-  Time,
   Td,
   Th,
+  Time,
   Tr,
   Ul,
 } from './elements/self'

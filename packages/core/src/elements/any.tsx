@@ -3,7 +3,11 @@ import { jsx } from '@emotion/core'
 import { styledSystem } from '@wheelroom/styled-system'
 import { mergeNcss } from '../lib/merge-ncss'
 import { NcssNode } from '../lib/ncss'
-import { BlockLevelElementName, InlineElementName } from './element-names'
+import {
+  BlockLevelElementName,
+  InlineElementName,
+  InlineFrameElementName,
+} from './element-names'
 import { ElementProps, getElementAttrs } from './element'
 import { ElementResetNcssTree } from './element-reset-ncss-tree'
 import { anyResetMap } from './any-reset'
@@ -18,7 +22,11 @@ export interface AnyElementProps extends ElementProps {
   /** Aria-modal attribute */
   ariaModal?: boolean
   /** Render as another HTML element */
-  is?: InlineElementName | BlockLevelElementName | undefined
+  is?:
+    | InlineElementName
+    | BlockLevelElementName
+    | InlineFrameElementName
+    | undefined
   /** Apply preset styling for the 'is-element' */
   polyPreset?: boolean
   /** Role attribute */
