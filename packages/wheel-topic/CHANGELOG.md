@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@2.1.1...@wheelroom/wheel-topic@3.0.0) (2020-09-07)
+
+
+### Bug Fixes
+
+* use named arguments for getTopicOptions ([48c91f3](https://github.com/wheelroom/wheelroom/commit/48c91f3))
+
+
+### Features
+
+* add locale to getTopicOptions calls and use the new named arguments ([7864cff](https://github.com/wheelroom/wheelroom/commit/7864cff))
+
+
+### BREAKING CHANGES
+
+* getTopicOptions arguments are now named arguments
+
+
+
+
+
 ## [2.1.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@2.1.0...@wheelroom/wheel-topic@2.1.1) (2020-08-24)
 
 **Note:** Version bump only for package @wheelroom/wheel-topic

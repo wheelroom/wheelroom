@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.3](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.0.2...@wheelroom/boilerplate@6.0.3) (2020-09-07)
+
+
+### Bug Fixes
+
+* bad wr script option in package json ([4ef7386](https://github.com/wheelroom/wheelroom/commit/4ef7386))
+
+
+
+
+
 ## [6.0.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.0.1...@wheelroom/boilerplate@6.0.2) (2020-08-26)
 
 **Note:** Version bump only for package @wheelroom/boilerplate

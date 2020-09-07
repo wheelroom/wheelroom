@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-table@2.1.1...@wheelroom/wheel-table@2.2.0) (2020-09-07)
+
+
+### Features
+
+* add locale to getTopicOptions calls and use the new named arguments ([7864cff](https://github.com/wheelroom/wheelroom/commit/7864cff))
+
+
+
+
+
 ## [2.1.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-table@2.1.0...@wheelroom/wheel-table@2.1.1) (2020-08-24)
 
 **Note:** Version bump only for package @wheelroom/wheel-table
