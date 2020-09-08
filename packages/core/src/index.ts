@@ -59,7 +59,6 @@ export {
   Dl,
   Dt,
   Hr,
-  Iframe,
   Li,
   Ol,
   Pre,
@@ -80,6 +79,7 @@ export { Embed } from './models/embed/embed'
 export { GLink } from './elements/g-link'
 export { Heading, H1, H2, H3, H4, H5, H6 } from './elements/heading'
 export { FeatherIcon, Icon, TextIcon } from './elements/icon'
+export { Iframe } from './elements/iframe'
 export { Image } from './elements/image'
 export { MediaBreakpoint } from './models/media-breakpoint/media-breakpoint'
 export { MultiParser } from './parsers/multi-parser'

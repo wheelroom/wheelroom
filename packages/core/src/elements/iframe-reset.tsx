@@ -1,5 +1,5 @@
 import { NcssNode } from '../lib/ncss'
 
-export const selfIframeReset: NcssNode = {
+export const iframeReset: NcssNode = {
   ncss: {},
 }
