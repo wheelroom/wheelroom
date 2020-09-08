@@ -24,20 +24,7 @@ export const topicNcssTree: TopicNcssTree = {
       ':only-of-type': {},
     },
   },
-  embed: {
-    html: {
-      ncss: {
-        label: 'topic-embed-html',
-        ...embedNcssNode.ncss,
-      },
-    },
-    youtube: {
-      ncss: {
-        label: 'topic-embed-youtube',
-        ...embedNcssNode.ncss,
-      },
-    },
-  },
+  embed: embedNcssNode,
   image: {
     ncss: {
       label: 'topic-img',
