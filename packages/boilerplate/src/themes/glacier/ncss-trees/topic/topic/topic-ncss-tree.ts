@@ -1,4 +1,5 @@
 import { TopicNcssTree } from '@wheelroom/wheel-topic'
+import { embedNcssNode } from '../../embed-ncss'
 
 export const topicNcssTree: TopicNcssTree = {
   ncssSwitch: {
@@ -27,15 +28,13 @@ export const topicNcssTree: TopicNcssTree = {
     html: {
       ncss: {
         label: 'topic-embed-html',
-        iframe: {
-          h: 1,
-          w: 1,
-        },
+        ...embedNcssNode.ncss,
       },
     },
     youtube: {
       ncss: {
         label: 'topic-embed-youtube',
+        ...embedNcssNode.ncss,
       },
     },
   },

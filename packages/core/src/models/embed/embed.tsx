@@ -27,16 +27,21 @@ export const Embed = (props: EmbedProps) => {
   }
   if (props.type === 'youtube' && props.code) {
     return (
-      <Iframe
+      <Any
+        is="div"
         wheel={{ ...props.wheel, style: props.wheel.style.youtube }}
-        iframeProps={{
-          src: props.code.code,
-          allowFullScreen: 'true',
-          frameBorder: '0',
-          allow:
-            'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
-        }}
-      />
+      >
+        <Iframe
+          wheel={{ ...props.wheel }}
+          iframeProps={{
+            src: props.code.code,
+            allowFullScreen: 'true',
+            frameBorder: '0',
+            allow:
+              'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
+          }}
+        />
+      </Any>
     )
   }
   return null
