@@ -35,7 +35,7 @@ export const Embed = (props: EmbedProps) => {
           wheel={{ ...props.wheel }}
           iframeProps={{
             src: props.code.code,
-            allowFullScreen: 'true',
+            allowFullScreen: '1',
             frameBorder: '0',
             allow:
               'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',

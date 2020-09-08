@@ -15,7 +15,7 @@ export type EmbedType =
 
 export interface EmbedModel {
   /** Gatsby fetched data */
-  __typename: string
+  __typename?: string
   code?: {
     code: string
   }

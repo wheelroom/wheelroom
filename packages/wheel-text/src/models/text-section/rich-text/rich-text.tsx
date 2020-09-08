@@ -274,7 +274,7 @@ export const RichText = (props: RichTextProps) => {
           return null
         }
         const embedProps = {
-          code: getLocalizedValue(textProps.locale, fields.code),
+          code: { code: getLocalizedValue(textProps.locale, fields.code) },
           type: getLocalizedValue(textProps.locale, fields.type),
           wheel: { ...textProps.wheel, style: textProps.wheel.style.embed },
         }
