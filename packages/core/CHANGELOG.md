@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@2.1.3...@wheelroom/core@2.1.4) (2020-09-08)
+
+
+### Bug Fixes
+
+* embed issues ([a0afd40](https://github.com/wheelroom/wheelroom/commit/a0afd40))
+* rich text embeds ([fb00dcd](https://github.com/wheelroom/wheelroom/commit/fb00dcd))
+
+
+
+
+
 ## [2.1.3](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@2.1.2...@wheelroom/core@2.1.3) (2020-09-07)
 
 **Note:** Version bump only for package @wheelroom/core

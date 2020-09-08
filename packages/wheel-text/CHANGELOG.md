@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-text@2.0.10...@wheelroom/wheel-text@2.0.11) (2020-09-08)
+
+
+### Bug Fixes
+
+* embed issues ([a0afd40](https://github.com/wheelroom/wheelroom/commit/a0afd40))
+* rich text embeds ([fb00dcd](https://github.com/wheelroom/wheelroom/commit/fb00dcd))
+
+
+
+
+
 ## [2.0.10](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-text@2.0.9...@wheelroom/wheel-text@2.0.10) (2020-09-07)
 
 **Note:** Version bump only for package @wheelroom/wheel-text
