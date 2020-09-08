@@ -30,8 +30,8 @@ export const Embed = (props: EmbedProps) => {
       <Iframe
         wheel={{ ...props.wheel, style: props.wheel.style.youtube }}
         iframeProps={{
-          src: 'https://youtu.be/embed/' + props.code.code,
-          allowFullScreen: true,
+          src: 'https://www.youtube.com/embed/' + props.code.code,
+          allowFullScreen: 'true',
           frameBorder: '0',
           allow:
             'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
