@@ -273,17 +273,12 @@ export const RichText = (props: RichTextProps) => {
           )
           return null
         }
-        const localizedCode = getLocalizedValue(textProps.locale, fields.code)
-        const localizedTitle = getLocalizedValue(textProps.locale, fields.title)
-        const localizedType = getLocalizedValue(textProps.locale, fields.type)
-        return (
-          <Embed
-            code={localizedCode}
-            type={localizedType}
-            title={localizedTitle}
-            wheel={{ ...textProps.wheel, style: textProps.wheel.style.embed }}
-          />
-        )
+        const embedProps = {
+          code: getLocalizedValue(textProps.locale, fields.code),
+          type: getLocalizedValue(textProps.locale, fields.type),
+          wheel: { ...textProps.wheel, style: textProps.wheel.style.embed },
+        }
+        return <Embed {...embedProps} />
       },
       [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
         const fields = node.data.target.fields

@@ -11,7 +11,6 @@ export const TopicBody = (props: TopicProps) => {
   const media = (
     <TopicMedia
       data={props.data}
-      embed={props.topic!}
       topic={props.topic!}
       topicInfo={topicInfo}
       topicOptions={props.topicOptions}

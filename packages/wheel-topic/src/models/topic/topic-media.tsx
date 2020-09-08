@@ -2,7 +2,6 @@ import React from 'react'
 import {
   Box,
   Embed,
-  EmbedModel,
   Image,
   MediaBreakpoint,
   MediaGatsbyModel,
@@ -26,8 +25,6 @@ export interface TopicMediaProps {
   data: TopicData
   /** All topic props */
   topic: TopicModel
-  /** All embed props */
-  embed: EmbedModel
   /** Topic info object */
   topicInfo: TopicInfo
   /** Topic options */
@@ -74,8 +71,7 @@ export const TopicMedia = (props: TopicMediaProps) => {
   } else if (props.topicInfo.hasMediaEmbed && props.topic.mediaEmbed) {
     Media = Embed
     mediaProps = {
-      code: props.topic.mediaEmbed.code,
-      type: props.topic.mediaEmbed.type,
+      ...props.topic.mediaEmbed,
       wheel: { ...props.wheel, style: props.wheel.style.embed },
     }
   }
