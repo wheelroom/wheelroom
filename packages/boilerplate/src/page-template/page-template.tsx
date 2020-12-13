@@ -16,7 +16,6 @@ import {
   useEmbeds,
 } from '@wheelroom/core'
 import { BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
-import { DocsModel, AllDocsModel } from '@wheelroom/wheel-doc'
 import { Sections, SectionsProps } from './sections'
 import { sectionWheels } from './section-wheels'
 import { SeoProps } from './seo-props'
@@ -47,8 +46,6 @@ const PageTemplate = (props: any) => {
   const globals: GlobalsModel = props.data.globals
   const blog: BlogModel = props.data.blog
   const allBlog: AllBlogModel = props.data.allBlog
-  const docs: DocsModel = props.data.docs
-  const allDocs: AllDocsModel = props.data.allDocs
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const siteMetadata: CoreSiteMetadata = props.data.site.siteMetadata
@@ -62,8 +59,6 @@ const PageTemplate = (props: any) => {
     globals,
     blog,
     allBlog,
-    docs,
-    allDocs,
     page,
     siteMetadata,
 
@@ -74,14 +69,16 @@ const PageTemplate = (props: any) => {
   const pageImageSrc =
     (page.seoImage && page.seoImage.fluid && page.seoImage.fluid.src) || ''
   const blogImageSrc =
-    (blog.seoImage && blog.seoImage.fluid && blog.seoImage.fluid.src) || ''
+    (blog && blog.seoImage && blog.seoImage.fluid && blog.seoImage.fluid.src) ||
+    ''
   const siteImageSrc =
     (globals.siteImage &&
       globals.siteImage.fluid &&
       globals.siteImage.fluid.src) ||
     ''
   const blogAuthor =
-    (Array.isArray(blog.authors) &&
+    (blog &&
+      Array.isArray(blog.authors) &&
       blog.authors.length > 0 &&
       blog.authors[0].heading) ||
     ''
@@ -89,7 +86,7 @@ const PageTemplate = (props: any) => {
     authorArray: [blogAuthor, globals.siteAuthor],
     descriptionArray: [
       page.seoDescription,
-      blog.seoDescription,
+      blog && blog.seoDescription,
       globals.siteDescription,
     ],
     headingArray: [page.seoTitle, blog.seoTitle, globals.siteHeading],
@@ -124,7 +121,7 @@ const PageTemplate = (props: any) => {
 export default PageTemplate
 
 export const query = graphql`
-  query($pageId: String, $globalsId: String, $blogId: String, $docsId: String) {
+  query($pageId: String, $globalsId: String, $blogId: String) {
     site {
       siteMetadata {
         siteVersion
@@ -154,16 +151,6 @@ export const query = graphql`
       edges {
         node {
           ...Blog
-        }
-      }
-    }
-    docs: contentfulDocs(id: { eq: $docsId }) {
-      ...Docs
-    }
-    allDocs: allContentfulDocs {
-      edges {
-        node {
-          ...Docs
         }
       }
     }
