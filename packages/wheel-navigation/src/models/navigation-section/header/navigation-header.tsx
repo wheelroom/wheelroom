@@ -36,6 +36,9 @@ export interface NavigationSectionHeaderNcssTree {
     menu: {
       segment: NavigationSegmentNcssTree
     } & NcssNode
+    social: {
+      segment: NavigationSegmentNcssTree
+    } & NcssNode
     actions: {
       segment: NavigationSegmentNcssTree
       themeButton: NcssNode
@@ -98,6 +101,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
   const actionsSegments = getNavSegments(props.navigation, 'actions')
   const brandSegments = getNavSegments(props.navigation, 'brand')
   const menuSegments = getNavSegments(props.navigation, 'menu')
+  const socialSegments = getNavSegments(props.navigation, 'social')
 
   const toggleTheme = () => {
     setActiveTheme(getNextKey(props.themes, activeThemeId))
@@ -153,12 +157,34 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                 headingElementName="h3"
                 hideActionHeading={false}
                 hideActionIcon={false}
-                hideSegmentHeading={true}
-                maxSegments={1}
+                hideSegmentHeading={false}
+                maxSegments={10}
                 navigationSegment={menuSegments}
                 wheel={{
                   ...props.wheel,
                   style: props.wheel.style.header.menu.segment,
+                }}
+              />
+            </Flex>
+          )}
+          {!props.data.hideSocial && (
+            <Flex
+              is={'div'}
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.header.social,
+              }}
+            >
+              <NavigationSegment
+                headingElementName="h3"
+                hideActionHeading={true}
+                hideActionIcon={false}
+                hideSegmentHeading={true}
+                maxSegments={1}
+                navigationSegment={socialSegments}
+                wheel={{
+                  ...props.wheel,
+                  style: props.wheel.style.header.social.segment,
                 }}
               />
             </Flex>
@@ -223,6 +249,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                 hideThemeButton={props.data.hideThemeButton}
                 menuSegments={menuSegments}
                 menuVisible={menuVisible}
+                socialSegments={socialSegments}
                 toggleTheme={toggleTheme}
                 wheel={{
                   ...props.wheel,
