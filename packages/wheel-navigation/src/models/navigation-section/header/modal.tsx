@@ -28,6 +28,9 @@ export interface ModalNcssTree {
   menu: {
     segment: NavigationSegmentNcssTree
   } & NcssNode
+  social: {
+    segment: NavigationSegmentNcssTree
+  } & NcssNode
   actions: {
     segment: NavigationSegmentNcssTree
     themeButton: NcssNode
@@ -45,6 +48,7 @@ export interface ModalProps {
   hideThemeButton?: boolean
   menuSegments: NavigationSegmentModel[]
   menuVisible: boolean
+  socialSegments: NavigationSegmentModel[]
   toggleTheme: () => void
   wheel: ModalWheel
 }
@@ -129,6 +133,24 @@ export const Modal = (props: ModalProps) => {
             }}
           />
         </Flex>
+        <Flex
+          is="div"
+          wheel={{ ...props.wheel, style: props.wheel.style.social }}
+        >
+          <NavigationSegment
+            headingElementName="h3"
+            hideActionHeading={true}
+            hideActionIcon={false}
+            hideSegmentHeading={true}
+            maxSegments={1}
+            navigationSegment={props.socialSegments}
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.social.segment,
+            }}
+          />
+        </Flex>
+
         <Flex
           is="div"
           wheel={{ ...props.wheel, style: props.wheel.style.actions }}

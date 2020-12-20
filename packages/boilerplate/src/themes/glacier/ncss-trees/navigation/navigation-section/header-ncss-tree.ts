@@ -111,6 +111,31 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
         },
       ]),
     },
+    social: {
+      ncss: {
+        label: 'social-navigation',
+        display: ['none', 'none', 'flex'],
+      },
+      segment: deepMerge([
+        navigationSegmentNcssTree,
+        {
+          list: {
+            ncss: {
+              textAlign: 'center',
+            },
+          },
+          action: {
+            ncss: {
+              px: 2,
+              py: 3,
+              ':hover': {
+                color: 'sectionText',
+              },
+            },
+          },
+        },
+      ]),
+    },
     actions: {
       ncss: {
         label: 'actions-navigation',
@@ -248,6 +273,33 @@ export const navigationSectionHeaderNcssTree: DeepPartial<NavigationSectionHeade
                 },
                 icon: {
                   ncss: {},
+                },
+              },
+            },
+          ]),
+        },
+        social: {
+          ncss: {
+            label: 'social-navigation',
+            flexDirection: 'column',
+            w: 1,
+            p: 1,
+          },
+          segment: deepMerge([
+            navigationSegmentNcssTree,
+            {
+              list: {
+                ncss: {
+                  textAlign: 'center',
+                },
+              },
+              action: {
+                ncss: {
+                  px: 2,
+                  py: 3,
+                  ':hover': {
+                    color: 'sectionText',
+                  },
                 },
               },
             },

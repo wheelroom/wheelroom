@@ -7,6 +7,7 @@ export const navigationSectionData: DeepPartial<NavigationSectionData> = {
     hideBranding: false,
     hideMenu: false,
     hideModal: false,
+    hideSocial: false,
     hideSkipToContent: false,
     hideThemeButton: false,
     /**
