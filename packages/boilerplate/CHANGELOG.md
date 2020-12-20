@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.0.7...@wheelroom/boilerplate@6.1.0) (2020-12-20)
+
+
+### Features
+
+* Enable social segment for navigation header ([b6890a5](https://github.com/wheelroom/wheelroom/commit/b6890a564040d5e51c2703d8681d1450f24e9555))
+
+
+
+
+
 ## [6.0.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.0.6...@wheelroom/boilerplate@6.0.7) (2020-09-08)
 
 **Note:** Version bump only for package @wheelroom/boilerplate
