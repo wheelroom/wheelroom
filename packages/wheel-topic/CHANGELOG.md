@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@3.0.4...@wheelroom/wheel-topic@3.0.5) (2021-01-12)
+
+
+### Bug Fixes
+
+* export TopicMedia ([5a5a50d](https://github.com/wheelroom/wheelroom/commit/5a5a50d))
+
+
+
+
+
 ## [3.0.4](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@3.0.3...@wheelroom/wheel-topic@3.0.4) (2020-09-08)
 
 **Note:** Version bump only for package @wheelroom/wheel-topic
