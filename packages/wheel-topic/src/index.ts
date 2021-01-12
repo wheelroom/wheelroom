@@ -1,5 +1,6 @@
 // Topic
 export { Topic } from './models/topic/topic'
+export { TopicMedia } from './models/topic/topic-media'
 export type { TopicModel } from './models/topic/model'
 export type { TopicData } from './models/topic/data'
 export type { TopicNcssTree } from './models/topic/ncss-tree'
