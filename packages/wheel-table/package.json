@@ -26,9 +26,9 @@
     "@typescript-eslint/parser": "3.6.0",
     "@wheelroom/admin-core": "1.2.9",
     "@wheelroom/admin-page-preview": "1.5.14",
-    "@wheelroom/core": "2.2.0",
+    "@wheelroom/core": "2.3.0",
     "@wheelroom/styled-system": "4.1.9",
-    "@wheelroom/wheel-topic": "3.0.6",
+    "@wheelroom/wheel-topic": "3.0.7",
     "@wheelroom/wheelroom": "4.3.9",
     "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
     "eslint": "7.4.0",
@@ -91,5 +91,5 @@
     "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "2.2.6"
+  "version": "2.2.7"
 }

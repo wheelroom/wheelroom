@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@2.1.5...@wheelroom/core@2.3.0) (2021-01-31)
+
+
+### Features
+
+* export mergeNcss ([e1b3dfd](https://github.com/wheelroom/wheelroom/commit/e1b3dfd39e2aa28be0f29ef51d65d632be64cb59))
+
+
+
+
+
 # [2.2.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@2.1.5...@wheelroom/core@2.2.0) (2021-01-31)
 
 
