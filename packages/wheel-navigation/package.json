@@ -27,7 +27,7 @@
     "@wheelroom/admin-core": "1.2.9",
     "@wheelroom/admin-page-preview": "1.5.14",
     "@wheelroom/admin-theme-switcher": "2.0.7",
-    "@wheelroom/core": "2.1.5",
+    "@wheelroom/core": "2.2.0",
     "@wheelroom/styled-system": "4.1.9",
     "@wheelroom/wheelroom": "4.3.9",
     "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
@@ -93,5 +93,5 @@
     "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "2.4.0"
+  "version": "2.4.1"
 }
