@@ -10,7 +10,7 @@ import React from 'react'
 import { getTopicOptions, TopicOptions } from '../../lib/get-topic-options'
 import { Topic } from '../topic/topic'
 import { TopicModel } from '../topic/model'
-import { getSectionWheel, MultiParser } from '@wheelroom/core'
+import { getSectionWheel } from '@wheelroom/core'
 import { TopicSectionModel } from './model'
 import { TopicSectionWrapper } from './topic-section-wrapper'
 
@@ -48,7 +48,6 @@ export const TopicSectionFeaturedVar = (props: TopicSectionModel) => {
             key={index}
             topic={topic}
             topicOptions={oddEvenTopicOptions}
-            useAbstractParser={MultiParser}
             useHeadingElement={topicHeading}
             wheel={{ ...wheel, style: wheel.style.topic }}
           />

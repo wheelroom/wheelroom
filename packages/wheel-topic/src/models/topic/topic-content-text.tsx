@@ -49,8 +49,10 @@ export const TopicContentText = (props: TopicContentTextProps) => {
   const useAbstractElement = props.useAbstractElement || 'p'
   const useHeadingElement = props.useHeadingElement || 'h3'
 
-  const AbstractParser = props.useAbstractParser || Any
-  const HeadingParser = props.useHeadingParser || Any
+  const AbstractParser =
+    props.useAbstractParser || props.data.useAbstractParser || Any
+  const HeadingParser =
+    props.useHeadingParser || props.data.useHeadingParser || Any
 
   return (
     <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style.text }}>

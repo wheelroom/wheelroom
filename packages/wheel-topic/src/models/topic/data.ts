@@ -1,3 +1,5 @@
+import { ParserFunction } from '@wheelroom/core'
+
 export interface TopicData {
   hideAbstract: boolean
   hideActions: boolean
@@ -6,4 +8,6 @@ export interface TopicData {
   hideIcon: boolean
   hideMedia: boolean
   hideText: boolean
+  useAbstractParser: ParserFunction | undefined
+  useHeadingParser: ParserFunction | undefined
 }

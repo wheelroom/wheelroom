@@ -1,4 +1,4 @@
-import { DeepPartial } from '@wheelroom/core'
+import { DeepPartial, MultiParser } from '@wheelroom/core'
 import { TopicSectionData } from '@wheelroom/wheel-topic'
 
 export const topicData = {
@@ -9,6 +9,8 @@ export const topicData = {
   hideIcon: false,
   hideMedia: false,
   hideText: false,
+  useAbstractParser: MultiParser,
+  useHeadingParser: MultiParser,
 }
 
 export const topicSectionData: DeepPartial<TopicSectionData> = {
