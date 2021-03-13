@@ -9,12 +9,19 @@ import {
   getNcssSwitch,
 } from '@wheelroom/core'
 import { FeatherIcon } from '@wheelroom/core'
-import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
-import { ThemeButton } from './theme-button'
 import { NavigationModel } from '../../navigation/model'
-import { ActionsNavigation } from '../../navigation/variants/actions-navigation'
-import { MenuNavigation } from '../../navigation/variants/menu-navigation'
-import { SocialNavigation } from '../../navigation/variants/social-navigation'
+import {
+  ActionsNavigation,
+  ActionsNavigationNcssTree,
+} from '../../navigation/variants/actions-navigation'
+import {
+  MenuNavigation,
+  MenuNavigationNcssTree,
+} from '../../navigation/variants/menu-navigation'
+import {
+  SocialNavigation,
+  SocialNavigationNcssTree,
+} from '../../navigation/variants/social-navigation'
 
 export interface ModalNcssTree {
   ncssSwitch: Record<'visible' | 'hidden', Ncss>
@@ -27,9 +34,9 @@ export interface ModalNcssTree {
   closeButton: {
     icon: NcssNode
   } & NcssNode
-  actions: { segment: NavigationSegmentNcssTree; themeButton: NcssNode }
-  menu: { segment: NavigationSegmentNcssTree }
-  social: { segment: NavigationSegmentNcssTree }
+  actions: ActionsNavigationNcssTree
+  menu: MenuNavigationNcssTree
+  social: SocialNavigationNcssTree
 }
 
 interface ModalWheel extends Wheel {
@@ -39,7 +46,10 @@ interface ModalWheel extends Wheel {
 export interface ModalProps {
   buttonName?: string
   closeMenu: () => void
+  hideActions?: boolean
   hideThemeButton?: boolean
+  hideMenu?: boolean
+  hideSocial?: boolean
   menuVisible: boolean
   navigation: NavigationModel[]
   toggleTheme: () => void
@@ -109,55 +119,36 @@ export const Modal = (props: ModalProps) => {
             />
           </Flex>
         </Button>
-        <Flex
-          is="nav"
-          wheel={{ ...props.wheel, style: props.wheel.style.menu }}
-        >
-          <MenuNavigation
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.menu.segment,
-            }}
-            maxSegments={10}
-            navigation={props.navigation}
-          />
-        </Flex>
-        <Flex
-          is="div"
-          wheel={{ ...props.wheel, style: props.wheel.style.social }}
-        >
-          <SocialNavigation
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.social.segment,
-            }}
-            maxSegments={1}
-            navigation={props.navigation}
-          />
-        </Flex>
-
-        <Flex
-          is="div"
-          wheel={{ ...props.wheel, style: props.wheel.style.actions }}
-        >
-          <ActionsNavigation
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.actions.segment,
-            }}
-            maxSegments={1}
-            navigation={props.navigation}
-          />
-          <ThemeButton
-            wheel={{
-              ...props.wheel,
-              style: props.wheel.style.actions.themeButton,
-            }}
-            buttonName={props.buttonName}
-            hideThemeButton={props.hideThemeButton}
-            toggleTheme={props.toggleTheme}
-          />
-        </Flex>
+        <MenuNavigation
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.menu,
+          }}
+          maxSegments={10}
+          navigation={props.navigation}
+          hideMenu={props.hideMenu}
+        />
+        <SocialNavigation
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.social,
+          }}
+          maxSegments={1}
+          navigation={props.navigation}
+          hideSocial={props.hideSocial}
+        />
+        <ActionsNavigation
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.actions,
+          }}
+          maxSegments={1}
+          navigation={props.navigation}
+          buttonName={props.buttonName}
+          hideActions={props.hideActions}
+          hideThemeButton={props.hideThemeButton}
+          toggleTheme={props.toggleTheme}
+        />
       </Flex>
     </Box>
   )

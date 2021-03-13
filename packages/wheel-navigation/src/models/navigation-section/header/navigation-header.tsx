@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Container,
-  Flex,
   Fluid,
   GlobalsModel,
   NcssNode,
@@ -13,26 +12,35 @@ import {
   Wrapper,
 } from '@wheelroom/core'
 import { AdminCoreContext } from '@wheelroom/admin-core'
-import { BrandNavigationSegmentNcssTree } from '../../navigation-segment/brand-navigation-segment'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { Modal, ModalNcssTree } from './modal'
 import { NavigationModel } from '../../navigation/model'
 import { NavigationSectionHeaderData } from './data'
-import { ThemeButton } from './theme-button'
-import { ActionsNavigation } from '../../navigation/variants/actions-navigation'
-import { NavigationSegmentNcssTree } from '../../..'
-import { BrandNavigation } from '../../navigation/variants/brand-navigation'
-import { MenuNavigation } from '../../navigation/variants/menu-navigation'
-import { SocialNavigation } from '../../navigation/variants/social-navigation'
+import {
+  ActionsNavigation,
+  ActionsNavigationNcssTree,
+} from '../../navigation/variants/actions-navigation'
+import {
+  BrandNavigation,
+  BrandNavigationNcssTree,
+} from '../../navigation/variants/brand-navigation'
+import {
+  MenuNavigation,
+  MenuNavigationNcssTree,
+} from '../../navigation/variants/menu-navigation'
+import {
+  SocialNavigation,
+  SocialNavigationNcssTree,
+} from '../../navigation/variants/social-navigation'
 
 export interface NavigationSectionHeaderNcssTree {
   skipToContent: NcssNode
   container: NcssNode
   header: {
-    actions: { segment: NavigationSegmentNcssTree; themeButton: NcssNode }
-    brand: { segment: BrandNavigationSegmentNcssTree }
-    menu: { segment: NavigationSegmentNcssTree }
-    social: { segment: NavigationSegmentNcssTree }
+    actions: ActionsNavigationNcssTree
+    brand: BrandNavigationNcssTree
+    menu: MenuNavigationNcssTree
+    social: SocialNavigationNcssTree
     modal: {
       menuButton: NcssNode
       dialog: ModalNcssTree
@@ -91,7 +99,6 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
     const element: HTMLElement = buttonRef.current!
     element.focus()
   }
-  console.log('props.data', props.data)
 
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
@@ -108,82 +115,46 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
         <ContainerType
           wheel={{ ...props.wheel, style: props.wheel.style.container }}
         >
-          {!props.data.hideBranding && (
-            <Flex
-              is="div"
-              wheel={{ ...props.wheel, style: props.wheel.style.header.brand }}
-            >
-              <BrandNavigation
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.header.brand.segment,
-                }}
-                navigation={props.navigation}
-                logoElement={props.data.useLogoElement}
-                siteHeading={props.globals.siteHeading}
-              />
-            </Flex>
-          )}
-          {!props.data.hideMenu && (
-            <Flex
-              is={'nav'}
-              wheel={{ ...props.wheel, style: props.wheel.style.header.menu }}
-            >
-              <MenuNavigation
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.header.menu.segment,
-                }}
-                maxSegments={10}
-                navigation={props.navigation}
-              />
-            </Flex>
-          )}
-          {!props.data.hideSocial && (
-            <Flex
-              is={'div'}
-              wheel={{
-                ...props.wheel,
-                style: props.wheel.style.header.social,
-              }}
-            >
-              <SocialNavigation
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.header.social.segment,
-                }}
-                maxSegments={1}
-                navigation={props.navigation}
-              />
-            </Flex>
-          )}
-          {!props.data.hideActions && (
-            <Flex
-              is="div"
-              wheel={{
-                ...props.wheel,
-                style: props.wheel.style.header.actions,
-              }}
-            >
-              <ActionsNavigation
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.header.actions.segment,
-                }}
-                maxSegments={1}
-                navigation={props.navigation}
-              />
-              <ThemeButton
-                buttonName={props.themes[activeThemeId].themeName}
-                hideThemeButton={props.data.hideThemeButton}
-                toggleTheme={toggleTheme}
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.header.actions.themeButton,
-                }}
-              />
-            </Flex>
-          )}
+          <BrandNavigation
+            hideBranding={props.data.hideBranding}
+            logoElement={props.data.useLogoElement}
+            navigation={props.navigation}
+            siteHeading={props.globals.siteHeading}
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.header.brand,
+            }}
+          />
+          <MenuNavigation
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.header.menu,
+            }}
+            maxSegments={10}
+            navigation={props.navigation}
+            hideMenu={props.data.hideMenu}
+          />
+          <SocialNavigation
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.header.social,
+            }}
+            maxSegments={1}
+            navigation={props.navigation}
+            hideSocial={props.data.hideSocial}
+          />
+          <ActionsNavigation
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.header.actions,
+            }}
+            maxSegments={1}
+            navigation={props.navigation}
+            buttonName={props.themes[activeThemeId].themeName}
+            hideActions={props.data.hideActions}
+            hideThemeButton={props.data.hideThemeButton}
+            toggleTheme={toggleTheme}
+          />
           {!props.data.hideModal && (
             <Box
               is="div"
@@ -209,7 +180,10 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               <Modal
                 buttonName={props.themes[activeThemeId].themeName}
                 closeMenu={closeMenu}
+                hideActions={props.data.hideActions}
                 hideThemeButton={props.data.hideThemeButton}
+                hideMenu={props.data.hideMenu}
+                hideSocial={props.data.hideSocial}
                 menuVisible={menuVisible}
                 navigation={props.navigation}
                 toggleTheme={toggleTheme}

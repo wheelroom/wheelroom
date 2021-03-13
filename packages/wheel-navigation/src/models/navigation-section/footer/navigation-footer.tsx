@@ -12,15 +12,20 @@ import {
 import { LegalFooter, LegalFooterNcssTree } from './legal-footer'
 import { NavigationModel } from '../../navigation/model'
 import { NavigationSectionFooterData } from './data'
-import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
-import { MenuNavigation } from '../../navigation/variants/menu-navigation'
-import { SocialNavigation } from '../../navigation/variants/social-navigation'
+import {
+  MenuNavigation,
+  MenuNavigationNcssTree,
+} from '../../navigation/variants/menu-navigation'
+import {
+  SocialNavigation,
+  SocialNavigationNcssTree,
+} from '../../navigation/variants/social-navigation'
 
 export interface NavigationSectionFooterNcssTree {
   container: NcssNode
   footer: {
-    menu: { segment: NavigationSegmentNcssTree }
-    social: { segment: NavigationSegmentNcssTree }
+    menu: MenuNavigationNcssTree
+    social: SocialNavigationNcssTree
   } & NcssNode
   legalFooter: LegalFooterNcssTree
   wrapper: NcssNode
@@ -55,39 +60,24 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
             is="div"
             wheel={{ ...props.wheel, style: props.wheel.style.footer }}
           >
-            {!props.data.hideMenu && (
-              <Flex
-                is={'nav'}
-                wheel={{ ...props.wheel, style: props.wheel.style.footer.menu }}
-              >
-                <MenuNavigation
-                  wheel={{
-                    ...props.wheel,
-                    style: props.wheel.style.footer.menu.segment,
-                  }}
-                  maxSegments={1}
-                  navigation={props.navigation}
-                />
-              </Flex>
-            )}
-            {!props.data.hideSocial && (
-              <Flex
-                is={'div'}
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.footer.social,
-                }}
-              >
-                <SocialNavigation
-                  wheel={{
-                    ...props.wheel,
-                    style: props.wheel.style.footer.social.segment,
-                  }}
-                  maxSegments={1}
-                  navigation={props.navigation}
-                />
-              </Flex>
-            )}
+            <MenuNavigation
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.footer.menu,
+              }}
+              maxSegments={1}
+              navigation={props.navigation}
+              hideMenu={props.data.hideMenu}
+            />
+            <SocialNavigation
+              wheel={{
+                ...props.wheel,
+                style: props.wheel.style.footer.social,
+              }}
+              maxSegments={1}
+              navigation={props.navigation}
+              hideSocial={props.data.hideSocial}
+            />
           </Flex>
         </ContainerType>
       </Wrapper>

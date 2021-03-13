@@ -1,5 +1,5 @@
 import React from 'react'
-import { Wheel } from '@wheelroom/core'
+import { Flex, NcssNode, Wheel } from '@wheelroom/core'
 import {
   BrandNavigationSegment,
   BrandNavigationSegmentNcssTree,
@@ -7,26 +7,36 @@ import {
 import { getNavSegments } from '../get-nav-segments'
 import { NavigationModel } from '../model'
 
+export interface BrandNavigationNcssTree extends NcssNode {
+  segment: BrandNavigationSegmentNcssTree
+}
+
 export interface BrandNavigationWheel extends Wheel {
-  style: BrandNavigationSegmentNcssTree
+  style: BrandNavigationNcssTree
 }
 
 export interface BrandNavigationProps {
-  wheel: BrandNavigationWheel
-  navigation: NavigationModel[]
+  hideBranding?: boolean
   logoElement: JSX.Element | undefined
+  navigation: NavigationModel[]
   siteHeading: string | undefined
+  wheel: BrandNavigationWheel
 }
 
 export const BrandNavigation = (props: BrandNavigationProps) => {
+  if (props.hideBranding) {
+    return null
+  }
   const brandSegments = getNavSegments(props.navigation, 'brand')
 
   return (
-    <BrandNavigationSegment
-      logoElement={props.logoElement}
-      navigationSegment={brandSegments}
-      siteHeading={props.siteHeading}
-      wheel={props.wheel}
-    />
+    <Flex is="div" wheel={props.wheel}>
+      <BrandNavigationSegment
+        logoElement={props.logoElement}
+        navigationSegment={brandSegments}
+        siteHeading={props.siteHeading}
+        wheel={{ ...props.wheel, style: props.wheel.style.segment }}
+      />
+    </Flex>
   )
 }
