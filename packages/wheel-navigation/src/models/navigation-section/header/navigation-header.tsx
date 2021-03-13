@@ -33,7 +33,7 @@ import {
   SocialNavigationNcssTree,
 } from '../../navigation/variants/social-navigation'
 
-export interface NavigationSectionHeaderNcssTree {
+export interface NavigationSectionHeaderNcssTree extends NcssNode {
   skipToContent: NcssNode
   container: NcssNode
   header: {

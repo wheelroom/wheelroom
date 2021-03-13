@@ -1,6 +1,6 @@
 export interface NavigationSectionFooterData {
   copyright: string
-  hideCard: boolean
+  hideCardFooter: boolean
   hideCopyright: boolean
   hideLegalFooter: boolean
   hideMenu: boolean

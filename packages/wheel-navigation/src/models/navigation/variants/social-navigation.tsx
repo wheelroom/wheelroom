@@ -25,7 +25,7 @@ export const SocialNavigation = (props: SocialNavigationProps) => {
     return null
   }
 
-  const socialSegments = getNavSegments(props.navigation, 'social')
+  const segments = getNavSegments(props.navigation, 'social')
 
   return (
     <Flex is={'div'} wheel={props.wheel}>
@@ -36,11 +36,8 @@ export const SocialNavigation = (props: SocialNavigationProps) => {
         hideSegmentAbstract={true}
         hideSegmentHeading={true}
         maxSegments={props.maxSegments}
-        navigationSegment={socialSegments}
-        wheel={{
-          ...props.wheel,
-          style: props.wheel.style.segment,
-        }}
+        navigationSegment={segments}
+        wheel={{ ...props.wheel, style: props.wheel.style.segment }}
       />
     </Flex>
   )

@@ -12,7 +12,7 @@ import {
   Sup,
 } from '@wheelroom/core'
 
-export interface LegalFooterNcssTree {
+export interface FooterLegalNcssTree {
   container: NcssNode
   legal: {
     copyright: NcssNode
@@ -24,22 +24,22 @@ export interface LegalFooterNcssTree {
   wrapper: NcssNode
 }
 
-interface LegalFooterWheel extends Wheel {
-  style: LegalFooterNcssTree
+interface FooterLegalWheel extends Wheel {
+  style: FooterLegalNcssTree
 }
 
-export interface LegalFooterProps {
+export interface FooterLegalProps {
   containerStyle: 'container' | 'fluid'
   copyright: string
   hideCopyright: boolean
-  hideLegalFooter: boolean
+  hideFooterLegal: boolean
   siteMetadata: CoreSiteMetadata
   supportWheelroom: boolean
-  wheel: LegalFooterWheel
+  wheel: FooterLegalWheel
 }
 
-export const LegalFooter = (props: LegalFooterProps) => {
-  if (props.hideLegalFooter === true) {
+export const FooterLegal = (props: FooterLegalProps) => {
+  if (props.hideFooterLegal === true) {
     return null
   }
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid

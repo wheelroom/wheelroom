@@ -5,35 +5,37 @@ import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { getNavSegments } from '../get-nav-segments'
 import { NavigationModel } from '../model'
 
-export interface MenuNavigationNcssTree extends NcssNode {
+export interface CardNavigationNcssTree extends NcssNode {
   segment: NavigationSegmentNcssTree
 }
 
-export interface MenuNavigationWheel extends Wheel {
-  style: MenuNavigationNcssTree
+export interface CardNavigationWheel extends Wheel {
+  style: CardNavigationNcssTree
 }
 
-export interface MenuNavigationProps {
-  wheel: MenuNavigationWheel
+export interface CardNavigationProps {
+  wheel: CardNavigationWheel
   maxSegments: number
   navigation: NavigationModel[]
-  hideMenu?: boolean
+  hideCard?: boolean
 }
 
-export const MenuNavigation = (props: MenuNavigationProps) => {
-  if (props.hideMenu) {
+export const CardNavigation = (props: CardNavigationProps) => {
+  console.log('props', props)
+  if (props.hideCard) {
     return null
   }
 
-  const segments = getNavSegments(props.navigation, 'menu')
+  const segments = getNavSegments(props.navigation, 'card')
+  console.log('segments', segments)
 
   return (
     <Flex is={'nav'} wheel={props.wheel}>
       <NavigationSegment
-        headingElementName="h3"
+        headingElementName="h4"
         hideActionHeading={false}
         hideActionIcon={false}
-        hideSegmentAbstract={true}
+        hideSegmentAbstract={false}
         hideSegmentHeading={false}
         maxSegments={props.maxSegments}
         navigationSegment={segments}

@@ -7,7 +7,7 @@ interface NavigationSegmentWheel extends Wheel {
 }
 
 interface NavigationSegmentListProps {
-  actions: ActionModel[]
+  actions: ActionModel[] | undefined
   hideActionHeading: boolean
   hideActionIcon: boolean
   wheel: NavigationSegmentWheel

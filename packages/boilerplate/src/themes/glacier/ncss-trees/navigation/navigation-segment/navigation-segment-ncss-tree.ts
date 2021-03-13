@@ -10,6 +10,11 @@ export const navigationSegmentNcssTree: NavigationSegmentNcssTree = {
       label: 'navigation-segment-heading',
     },
   },
+  abstract: {
+    ncss: {
+      label: 'navigation-segment-abstract',
+    },
+  },
   list: {
     ncss: {
       label: 'navigation-segment-list',

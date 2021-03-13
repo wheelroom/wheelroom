@@ -141,4 +141,52 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
       },
     },
   },
+  cardFooter: {
+    wrapper: deepMerge([
+      wrapperNcssNode,
+      {
+        ncss: {
+          borderTop: '1px solid transparent',
+          borderColor: 'sectionBorder',
+          minHeight: '48px',
+        },
+      },
+    ]),
+    container: {
+      ncss: {
+        px: 0,
+        justifyContent: 'center',
+      },
+    },
+    card: {
+      ncss: {
+        justifyContent: 'space-evenly',
+        label: 'card-navigation',
+        w: 1,
+      },
+      segment: deepMerge([
+        navigationSegmentNcssTree,
+        {
+          ncss: {
+            flexDirection: 'column',
+          },
+          list: {
+            ncss: {
+              textAlign: 'center',
+            },
+          },
+          action: {
+            ncss: {
+              textDecoration: 'none',
+              px: 2,
+              py: 3,
+              ':hover, &.active': {
+                textDecoration: 'underline',
+              },
+            },
+          },
+        },
+      ]),
+    },
+  },
 }

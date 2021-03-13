@@ -4,7 +4,7 @@ import {
   Flex,
   Heading,
   HeadingElementName,
-  Paragraph,
+  MultiParser,
 } from '@wheelroom/core'
 import { NavigationSegmentModel } from './model'
 import { NavigationSegmentList } from './navigation-segment-list'
@@ -34,9 +34,6 @@ export const NavigationSegment = (props: NavigationSegmentProps) => {
       {props.navigationSegment
         .slice(0, props.maxSegments)
         .map((navigationSegment: NavigationSegmentModel, index: number) => {
-          if (!navigationSegment.actions) {
-            return null
-          }
           const navigationSegmentList = (
             <NavigationSegmentList
               actions={navigationSegment.actions}
@@ -70,14 +67,16 @@ export const NavigationSegment = (props: NavigationSegmentProps) => {
                   </Heading>
                 )}
                 {!props.hideSegmentAbstract && navigationSegment.abstract && (
-                  <Paragraph
+                  <MultiParser
+                    is="p"
                     wheel={{
                       ...props.wheel,
                       style: props.wheel.style.abstract,
                     }}
                   >
-                    {navigationSegment.abstract}
-                  </Paragraph>
+                    {navigationSegment.abstract &&
+                      navigationSegment.abstract.abstract}
+                  </MultiParser>
                 )}
                 {navigationSegmentList}
               </Flex>
