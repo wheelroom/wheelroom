@@ -15,6 +15,9 @@ export const fragment = graphql`
   fragment NavigationSegment on ContentfulNavigationSegment {
     __typename
     heading
+    abstract {
+      abstract
+    }
     actions {
       ... on Node {
         ...Action

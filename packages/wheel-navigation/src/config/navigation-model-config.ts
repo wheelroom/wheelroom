@@ -1,5 +1,6 @@
 import {
   DropdownField,
+  LongTextField,
   MultipleComponentsField,
   ShortTextField,
   WheelroomComponents,
@@ -9,7 +10,7 @@ export const navigationModelConfig: WheelroomComponents = {
   navigation: {
     fields: {
       variation: {
-        items: ['menu', 'list', 'actions', 'social', 'brand', 'legal'],
+        items: ['actions', 'brand', 'card', 'legal', 'list', 'menu', 'social'],
         type: 'dropdown',
       } as DropdownField,
       segments: {
@@ -46,6 +47,17 @@ export const navigationModelConfig: WheelroomComponents = {
         },
         type: 'shortText',
       } as ShortTextField,
+      abstract: {
+        translations: {
+          name: {
+            nl: 'Segment tekst',
+          },
+          helpText: {
+            nl: 'Tekst voor dit menu segment',
+          },
+        },
+        type: 'longText',
+      } as LongTextField,
       actions: {
         allowedComponents: ['action'],
         translations: {
