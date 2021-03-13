@@ -16,7 +16,7 @@ import { TopicSectionWrapper } from './topic-section-wrapper'
 
 export const TopicSectionBlockVar = (props: TopicSectionModel) => {
   const sectionWheel = getSectionWheel({
-    themeId: props.activeThemeId,
+    themeId: props.theme || props.activeThemeId,
     wheelId: 'topicSection',
     sectionWheels: props.sectionWheels,
     variation: 'block',

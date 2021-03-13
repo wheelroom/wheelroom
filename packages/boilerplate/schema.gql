@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-08-26T16:04:29.342Z ###
+### Type definitions saved at 2021-03-13T15:26:05.243Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -76,6 +76,38 @@ type SitePage implements Node @dontInfer {
   matchPath: String
 }
 
+type contentfulCustomAbstractTextNode implements Node @dontInfer {
+  abstract: String
+}
+
+type ContentfulCustomSection implements Node @derivedTypes @dontInfer {
+  title: String
+  variation: String
+  eventId: String
+  section: [ContentfulCustom] @link(by: "id", from: "section___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulCustomSectionSys
+  node_locale: String
+}
+
+type ContentfulCustom implements Node @derivedTypes @dontInfer {
+  title: String
+  heading: String
+  media: ContentfulAsset @link(by: "id", from: "media___NODE")
+  customsection: [ContentfulCustomSection] @link(by: "id", from: "customsection___NODE")
+  abstract: contentfulCustomAbstractTextNode @link(by: "id", from: "abstract___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulCustomSys
+  node_locale: String
+}
+
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
   contentful_id: String
   spaceId: String
@@ -109,35 +141,38 @@ type ContentfulAssetSys {
   revision: Int
 }
 
-type ContentfulDocsSection implements Node @derivedTypes @dontInfer {
-  title: String
-  variation: String
-  eventId: String
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
+type ContentfulCustomSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulCustomSysContentType
+}
+
+type ContentfulCustomSysContentType @derivedTypes {
+  sys: ContentfulCustomSysContentTypeSys
+}
+
+type ContentfulCustomSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
   contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulDocsSectionSys
-  node_locale: String
 }
 
 type ContentfulPage implements Node @derivedTypes @dontInfer {
   title: String
   path: String
+  seoTitle: String
+  seoDescription: String
+  seoKeywords: [String]
   sections: [ContentfulBlogSectionContentfulCustomSectionContentfulDocsSectionContentfulNavigationSectionContentfulTableSectionContentfulTextSectionContentfulTopicSectionUnion] @link(by: "id", from: "sections___NODE")
+  seoImage: ContentfulAsset @link(by: "id", from: "seoImage___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulPageSys
   node_locale: String
-  theme: String
-  seoTitle: String
-  seoDescription: String
-  seoKeywords: [String]
-  seoImage: ContentfulAsset @link(by: "id", from: "seoImage___NODE")
   action: [ContentfulAction] @link(by: "id", from: "action___NODE")
+  theme: String
 }
 
 union ContentfulBlogSectionContentfulCustomSectionContentfulDocsSectionContentfulNavigationSectionContentfulTableSectionContentfulTextSectionContentfulTopicSectionUnion = ContentfulBlogSection | ContentfulCustomSection | ContentfulDocsSection | ContentfulNavigationSection | ContentfulTableSection | ContentfulTextSection | ContentfulTopicSection
@@ -162,26 +197,25 @@ type ContentfulAction implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   description: String
-  icon: String
-  url: String
-  anchor: String
-  query: String
   eventId: String
   page: ContentfulPage @link(by: "id", from: "page___NODE")
   navigationsegment: [ContentfulNavigationSegment] @link(by: "id", from: "navigationsegment___NODE")
-  tablerow: [ContentfulTableRow] @link(by: "id", from: "tablerow___NODE")
-  topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulActionSys
   node_locale: String
+  topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
+  icon: String
+  url: String
+  tablerow: [ContentfulTableRow] @link(by: "id", from: "tablerow___NODE")
+  anchor: String
+  query: String
 }
 
 type ContentfulNavigationSegment implements Node @derivedTypes @dontInfer {
   title: String
-  heading: String
   actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
   navigation: [ContentfulNavigation] @link(by: "id", from: "navigation___NODE")
   spaceId: String
@@ -190,6 +224,7 @@ type ContentfulNavigationSegment implements Node @derivedTypes @dontInfer {
   updatedAt: Date @dateformat
   sys: ContentfulNavigationSegmentSys
   node_locale: String
+  heading: String
 }
 
 type ContentfulNavigation implements Node @derivedTypes @dontInfer {
@@ -208,7 +243,6 @@ type ContentfulNavigation implements Node @derivedTypes @dontInfer {
 type ContentfulNavigationSection implements Node @derivedTypes @dontInfer {
   title: String
   variation: String
-  eventId: String
   navigation: [ContentfulNavigation] @link(by: "id", from: "navigation___NODE")
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
@@ -217,6 +251,7 @@ type ContentfulNavigationSection implements Node @derivedTypes @dontInfer {
   updatedAt: Date @dateformat
   sys: ContentfulNavigationSectionSys
   node_locale: String
+  eventId: String
 }
 
 type ContentfulNavigationSectionSys @derivedTypes {
@@ -267,33 +302,28 @@ type ContentfulNavigationSegmentSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulTableRow implements Node @derivedTypes {
-  title: String
-  variation: String
-  heading: String
-  icon: String
-  actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
-  topics: [ContentfulTopic] @link(by: "id", from: "topics___NODE")
-  tablesection: [ContentfulTableSection] @link(by: "id", from: "tablesection___NODE")
-  abstract: contentfulTableRowAbstractTextNode @link(by: "id", from: "abstract___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulTableRowSys
-  node_locale: String
+type ContentfulActionSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulActionSysContentType
 }
 
-type ContentfulTopic implements Node @derivedTypes {
+type ContentfulActionSysContentType @derivedTypes {
+  sys: ContentfulActionSysContentTypeSys
+}
+
+type ContentfulActionSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulTopic implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   icon: String
-  media: ContentfulAsset @link(by: "id", from: "media___NODE")
   actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
-  poster: ContentfulAsset @link(by: "id", from: "poster___NODE")
   mediaEmbed: ContentfulEmbed @link(by: "id", from: "mediaEmbed___NODE")
-  mediaBreakpoint: ContentfulMediaBreakpoint @link(by: "id", from: "mediaBreakpoint___NODE")
-  blog: [ContentfulBlog] @link(by: "id", from: "blog___NODE")
   tablerow: [ContentfulTableRow] @link(by: "id", from: "tablerow___NODE")
   topicsection: [ContentfulTopicSection] @link(by: "id", from: "topicsection___NODE")
   abstract: contentfulTopicAbstractTextNode @link(by: "id", from: "abstract___NODE")
@@ -303,9 +333,13 @@ type ContentfulTopic implements Node @derivedTypes {
   updatedAt: Date @dateformat
   sys: ContentfulTopicSys
   node_locale: String
+  media: ContentfulAsset @link(by: "id", from: "media___NODE")
+  blog: [ContentfulBlog] @link(by: "id", from: "blog___NODE")
+  poster: ContentfulAsset @link(by: "id", from: "poster___NODE")
+  mediaBreakpoint: ContentfulMediaBreakpoint @link(by: "id", from: "mediaBreakpoint___NODE")
 }
 
-type ContentfulEmbed implements Node @derivedTypes {
+type ContentfulEmbed implements Node @derivedTypes @dontInfer {
   title: String
   type: String
   topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
@@ -372,94 +406,72 @@ type ContentfulGlobalsSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulMediaBreakpoint implements Node @derivedTypes @dontInfer {
+type ContentfulTableRow implements Node @derivedTypes @dontInfer {
   title: String
-  small: ContentfulAsset @link(by: "id", from: "small___NODE")
-  medium: ContentfulAsset @link(by: "id", from: "medium___NODE")
-  large: ContentfulAsset @link(by: "id", from: "large___NODE")
-  extraLarge: ContentfulAsset @link(by: "id", from: "extraLarge___NODE")
-  topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulMediaBreakpointSys
-  node_locale: String
-}
-
-type ContentfulMediaBreakpointSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulMediaBreakpointSysContentType
-}
-
-type ContentfulMediaBreakpointSysContentType @derivedTypes {
-  sys: ContentfulMediaBreakpointSysContentTypeSys
-}
-
-type ContentfulMediaBreakpointSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulBlog implements Node @derivedTypes {
-  title: String
-  heading: String
   icon: String
-  slug: String
-  date: Date @dateformat
-  categories: [String]
-  seoTitle: String
-  seoDescription: String
-  seoKeywords: [String]
-  media: ContentfulAsset @link(by: "id", from: "media___NODE")
-  authors: [ContentfulTopic] @link(by: "id", from: "authors___NODE")
-  seoImage: ContentfulAsset @link(by: "id", from: "seoImage___NODE")
-  abstract: contentfulBlogAbstractTextNode @link(by: "id", from: "abstract___NODE")
-  text: contentfulBlogTextRichTextNode @link(by: "id", from: "text___NODE")
+  actions: [ContentfulAction] @link(by: "id", from: "actions___NODE")
+  topics: [ContentfulTopic] @link(by: "id", from: "topics___NODE")
+  tablesection: [ContentfulTableSection] @link(by: "id", from: "tablesection___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
-  sys: ContentfulBlogSys
+  sys: ContentfulTableRowSys
   node_locale: String
+  variation: String
+  heading: String
+  abstract: contentfulTableRowAbstractTextNode @link(by: "id", from: "abstract___NODE")
 }
 
-type contentfulBlogAbstractTextNode implements Node @dontInfer {
-  abstract: String
+type ContentfulTableSection implements Node @derivedTypes @dontInfer {
+  title: String
+  variation: String
+  eventId: String
+  tableRows: [ContentfulTableRow] @link(by: "id", from: "tableRows___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulTableSectionSys
+  node_locale: String
+  topicOptions: [String]
 }
 
-type contentfulBlogTextRichTextNode implements Node @derivedTypes @dontInfer {
-  nodeType: String
-  content: [contentfulBlogTextRichTextNodeContent]
-  text: String
-}
-
-type contentfulBlogTextRichTextNodeContent @derivedTypes {
-  nodeType: String
-  content: [contentfulBlogTextRichTextNodeContentContent]
-}
-
-type contentfulBlogTextRichTextNodeContentContent {
-  nodeType: String
-  value: String
-}
-
-type ContentfulBlogSys @derivedTypes {
+type ContentfulTableSectionSys @derivedTypes {
   revision: Int
-  contentType: ContentfulBlogSysContentType
+  contentType: ContentfulTableSectionSysContentType
 }
 
-type ContentfulBlogSysContentType @derivedTypes {
-  sys: ContentfulBlogSysContentTypeSys
+type ContentfulTableSectionSysContentType @derivedTypes {
+  sys: ContentfulTableSectionSysContentTypeSys
 }
 
-type ContentfulBlogSysContentTypeSys {
+type ContentfulTableSectionSysContentTypeSys {
   type: String
   linkType: String
   id: String
   contentful_id: String
+}
+
+type ContentfulTableRowSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulTableRowSysContentType
+}
+
+type ContentfulTableRowSysContentType @derivedTypes {
+  sys: ContentfulTableRowSysContentTypeSys
+}
+
+type ContentfulTableRowSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTableRowAbstractTextNode implements Node @dontInfer {
+  abstract: String
 }
 
 type ContentfulTopicSection implements Node @derivedTypes @dontInfer {
@@ -475,6 +487,7 @@ type ContentfulTopicSection implements Node @derivedTypes @dontInfer {
   updatedAt: Date @dateformat
   sys: ContentfulTopicSectionSys
   node_locale: String
+  theme: String
 }
 
 type ContentfulTopicSectionSys @derivedTypes {
@@ -513,71 +526,196 @@ type ContentfulTopicSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulTableSection implements Node @derivedTypes @dontInfer {
+type ContentfulBlog implements Node @derivedTypes @dontInfer {
+  title: String
+  heading: String
+  icon: String
+  slug: String
+  date: Date @dateformat
+  categories: [String]
+  seoTitle: String
+  seoDescription: String
+  media: ContentfulAsset @link(by: "id", from: "media___NODE")
+  authors: [ContentfulTopic] @link(by: "id", from: "authors___NODE")
+  seoImage: ContentfulAsset @link(by: "id", from: "seoImage___NODE")
+  abstract: contentfulBlogAbstractTextNode @link(by: "id", from: "abstract___NODE")
+  text: contentfulBlogTextRichTextNode @link(by: "id", from: "text___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulBlogSys
+  node_locale: String
+  seoKeywords: [String]
+}
+
+type contentfulBlogAbstractTextNode implements Node @dontInfer {
+  abstract: String
+}
+
+type contentfulBlogTextRichTextNode implements Node @derivedTypes @dontInfer {
+  nodeType: String
+  content: [contentfulBlogTextRichTextNodeContent]
+  text: String
+}
+
+type contentfulBlogTextRichTextNodeContent @derivedTypes {
+  nodeType: String
+  content: [contentfulBlogTextRichTextNodeContentContent]
+  data: contentfulBlogTextRichTextNodeContentData
+}
+
+type contentfulBlogTextRichTextNodeContentContent {
+  nodeType: String
+  value: String
+}
+
+type contentfulBlogTextRichTextNodeContentData @derivedTypes {
+  target: contentfulBlogTextRichTextNodeContentDataTarget
+}
+
+type contentfulBlogTextRichTextNodeContentDataTarget @derivedTypes {
+  sys: contentfulBlogTextRichTextNodeContentDataTargetSys
+  fields: contentfulBlogTextRichTextNodeContentDataTargetFields
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetSys @derivedTypes {
+  space: contentfulBlogTextRichTextNodeContentDataTargetSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulBlogTextRichTextNodeContentDataTargetSysEnvironment
+  revision: Int
+  contentType: contentfulBlogTextRichTextNodeContentDataTargetSysContentType
+  contentful_id: String
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetSysSpace @derivedTypes {
+  sys: contentfulBlogTextRichTextNodeContentDataTargetSysSpaceSys
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetSysEnvironment @derivedTypes {
+  sys: contentfulBlogTextRichTextNodeContentDataTargetSysEnvironmentSys
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetSysContentType @derivedTypes {
+  sys: contentfulBlogTextRichTextNodeContentDataTargetSysContentTypeSys
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetFields @derivedTypes {
+  title: contentfulBlogTextRichTextNodeContentDataTargetFieldsTitle
+  code: contentfulBlogTextRichTextNodeContentDataTargetFieldsCode
+  type: contentfulBlogTextRichTextNodeContentDataTargetFieldsType
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulBlogTextRichTextNodeContentDataTargetFieldsType {
+  en_US: String @proxy(from: "en-US")
+}
+
+type ContentfulBlogSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulBlogSysContentType
+}
+
+type ContentfulBlogSysContentType @derivedTypes {
+  sys: ContentfulBlogSysContentTypeSys
+}
+
+type ContentfulBlogSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulMediaBreakpoint implements Node @derivedTypes @dontInfer {
+  title: String
+  small: ContentfulAsset @link(by: "id", from: "small___NODE")
+  medium: ContentfulAsset @link(by: "id", from: "medium___NODE")
+  large: ContentfulAsset @link(by: "id", from: "large___NODE")
+  extraLarge: ContentfulAsset @link(by: "id", from: "extraLarge___NODE")
+  topic: [ContentfulTopic] @link(by: "id", from: "topic___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulMediaBreakpointSys
+  node_locale: String
+}
+
+type ContentfulMediaBreakpointSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulMediaBreakpointSysContentType
+}
+
+type ContentfulMediaBreakpointSysContentType @derivedTypes {
+  sys: ContentfulMediaBreakpointSysContentTypeSys
+}
+
+type ContentfulMediaBreakpointSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulCustomSectionSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulCustomSectionSysContentType
+}
+
+type ContentfulCustomSectionSysContentType @derivedTypes {
+  sys: ContentfulCustomSectionSysContentTypeSys
+}
+
+type ContentfulCustomSectionSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulDocsSection implements Node @derivedTypes @dontInfer {
   title: String
   variation: String
-  topicOptions: [String]
   eventId: String
-  tableRows: [ContentfulTableRow] @link(by: "id", from: "tableRows___NODE")
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
-  sys: ContentfulTableSectionSys
+  sys: ContentfulDocsSectionSys
   node_locale: String
-}
-
-type ContentfulTableSectionSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulTableSectionSysContentType
-}
-
-type ContentfulTableSectionSysContentType @derivedTypes {
-  sys: ContentfulTableSectionSysContentTypeSys
-}
-
-type ContentfulTableSectionSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type contentfulTableRowAbstractTextNode implements Node @dontInfer {
-  abstract: String
-}
-
-type ContentfulTableRowSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulTableRowSysContentType
-}
-
-type ContentfulTableRowSysContentType @derivedTypes {
-  sys: ContentfulTableRowSysContentTypeSys
-}
-
-type ContentfulTableRowSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulActionSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulActionSysContentType
-}
-
-type ContentfulActionSysContentType @derivedTypes {
-  sys: ContentfulActionSysContentTypeSys
-}
-
-type ContentfulActionSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
 }
 
 type ContentfulDocsSectionSys @derivedTypes {
@@ -607,17 +745,28 @@ type contentfulDocsTextRichTextNodeContent @derivedTypes {
   content: [contentfulDocsTextRichTextNodeContentContent]
 }
 
-type contentfulDocsTextRichTextNodeContentContent {
+type contentfulDocsTextRichTextNodeContentContent @derivedTypes {
+  nodeType: String
+  value: String
+  data: contentfulDocsTextRichTextNodeContentContentData
+  content: [contentfulDocsTextRichTextNodeContentContentContent]
+}
+
+type contentfulDocsTextRichTextNodeContentContentData {
+  uri: String
+}
+
+type contentfulDocsTextRichTextNodeContentContentContent {
   nodeType: String
   value: String
 }
 
-type ContentfulDocs implements Node @derivedTypes {
+type ContentfulDocs implements Node @derivedTypes @dontInfer {
   title: String
   heading: String
   slug: String
   sortOrder: String
-  parentDocs: ContentfulDocs @link(by: "id", from: "parentDocs___NODE")
+  docs: [ContentfulDocs] @link(by: "id", from: "docs___NODE")
   text: contentfulDocsTextRichTextNode @link(by: "id", from: "text___NODE")
   spaceId: String
   contentful_id: String
@@ -625,7 +774,6 @@ type ContentfulDocs implements Node @derivedTypes {
   updatedAt: Date @dateformat
   sys: ContentfulDocsSys
   node_locale: String
-  docs: [ContentfulDocs] @link(by: "id", from: "docs___NODE")
 }
 
 type ContentfulDocsSys @derivedTypes {
@@ -638,70 +786,6 @@ type ContentfulDocsSysContentType @derivedTypes {
 }
 
 type ContentfulDocsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type contentfulCustomAbstractTextNode implements Node @dontInfer {
-  abstract: String
-}
-
-type ContentfulCustom implements Node @derivedTypes {
-  title: String
-  heading: String
-  media: ContentfulAsset @link(by: "id", from: "media___NODE")
-  customsection: [ContentfulCustomSection] @link(by: "id", from: "customsection___NODE")
-  abstract: contentfulCustomAbstractTextNode @link(by: "id", from: "abstract___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulCustomSys
-  node_locale: String
-}
-
-type ContentfulCustomSection implements Node @derivedTypes @dontInfer {
-  title: String
-  variation: String
-  eventId: String
-  section: [ContentfulCustom] @link(by: "id", from: "section___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulCustomSectionSys
-  node_locale: String
-}
-
-type ContentfulCustomSectionSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulCustomSectionSysContentType
-}
-
-type ContentfulCustomSectionSysContentType @derivedTypes {
-  sys: ContentfulCustomSectionSysContentTypeSys
-}
-
-type ContentfulCustomSectionSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulCustomSys @derivedTypes {
-  revision: Int
-  contentType: ContentfulCustomSysContentType
-}
-
-type ContentfulCustomSysContentType @derivedTypes {
-  sys: ContentfulCustomSysContentTypeSys
-}
-
-type ContentfulCustomSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -723,8 +807,13 @@ type contentfulTextSectionTextRichTextNodeContent @derivedTypes {
 type contentfulTextSectionTextRichTextNodeContentContent @derivedTypes {
   nodeType: String
   value: String
+  marks: [contentfulTextSectionTextRichTextNodeContentContentMarks]
   data: contentfulTextSectionTextRichTextNodeContentContentData
   content: [contentfulTextSectionTextRichTextNodeContentContentContent]
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentMarks {
+  type: String
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentData @derivedTypes {
@@ -993,15 +1082,11 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle
-  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActions
+  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -1284,9 +1369,10 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle
   heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsHeading
   abstract: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsAbstract
-  media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
   icon: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActions
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed
+  media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -1299,83 +1385,6 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsAbstract {
   en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia @derivedTypes {
-  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_US @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_US @derivedTypes {
-  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSys
-  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFields
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSys @derivedTypes {
-  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysSpace
-  id: String
-  type: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysEnvironment
-  revision: Int
-  contentful_id: String
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysSpace @derivedTypes {
-  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysSpaceSys
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysSpaceSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysEnvironment @derivedTypes {
-  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysEnvironmentSys
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysEnvironmentSys {
-  id: String
-  type: String
-  linkType: String
-  contentful_id: String
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFields @derivedTypes {
-  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsTitle
-  description: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsDescription
-  file: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFile
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsTitle {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsDescription {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFile @derivedTypes {
-  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_US @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_US @derivedTypes {
-  url: String
-  details: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetails
-  fileName: String
-  contentType: String
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetails @derivedTypes {
-  size: Int
-  image: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetailsImage
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetailsImage {
-  width: Int
-  height: Int
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon {
@@ -1656,8 +1665,9 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle
   heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsHeading
   abstract: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsAbstract
-  media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
   icon: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed
+  media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -1669,6 +1679,82 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsAbstract {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -1747,10 +1833,6 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetailsImage {
   width: Int
   height: Int
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon {
-  en_US: String @proxy(from: "en-US")
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicOptions {
@@ -2071,6 +2153,155 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsEventId {
   en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysEnvironment
+  revision: Int
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsTitle
+  description: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsDescription
+  file: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFile
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsDescription {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFile @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_US @derivedTypes {
+  url: String
+  details: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetails
+  fileName: String
+  contentType: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetails @derivedTypes {
+  size: Int
+  image: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetailsImage
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetailsImage {
+  width: Int
+  height: Int
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicOptions {
@@ -2514,6 +2745,7 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
   icon: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsActions
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -2686,6 +2918,78 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   en_US: String @proxy(from: "en-US")
 }
 
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
+  en_US: String @proxy(from: "en-US")
+}
+
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicOptions {
   en_US: [String] @proxy(from: "en-US")
 }
@@ -2738,7 +3042,6 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   updatedAt: Date @dateformat
   environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysEnvironment
   revision: Int
-  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentType
   contentful_id: String
 }
 
@@ -2764,34 +3067,13 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   contentful_id: String
 }
 
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentType @derivedTypes {
-  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentTypeSys
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsTitle
-  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsCode
-  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsType
   description: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsDescription
   file: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsFile
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsTitle {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsCode {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsType {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -3052,6 +3334,7 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsHeading
   media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMedia
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActions
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbed
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -3224,6 +3507,78 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   en_US: String @proxy(from: "en-US")
 }
 
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
+  en_US: String @proxy(from: "en-US")
+}
+
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSeoTitle {
   en_US: String @proxy(from: "en-US")
 }
@@ -3361,7 +3716,6 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   updatedAt: Date @dateformat
   environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysEnvironment
   revision: Int
-  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentType
   contentful_id: String
 }
 
@@ -3387,34 +3741,13 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   contentful_id: String
 }
 
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentType @derivedTypes {
-  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentTypeSys
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsTitle
-  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsCode
-  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsType
   description: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsDescription
   file: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsFile
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsTitle {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsCode {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsType {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -3675,6 +4008,7 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsHeading
   media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMedia
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActions
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbed
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -4044,8 +4378,9 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle
   heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsHeading
   abstract: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsAbstract
-  media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
   icon: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed
+  media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -4057,6 +4392,82 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsAbstract {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -4135,10 +4546,6 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetailsImage {
   width: Int
   height: Int
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon {
-  en_US: String @proxy(from: "en-US")
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicOptions {
@@ -4461,6 +4868,78 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   en_US: String @proxy(from: "en-US")
 }
 
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
+  en_US: String @proxy(from: "en-US")
+}
+
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSeoTitle {
   en_US: String @proxy(from: "en-US")
 }
@@ -4562,6 +5041,10 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   en_US: String @proxy(from: "en-US")
 }
 
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
+  en_US: String @proxy(from: "en-US")
+}
+
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopics @derivedTypes {
   en_US: [contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_US] @proxy(from: "en-US")
 }
@@ -4623,6 +5106,7 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
   icon: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActions
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -5058,15 +5542,11 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle
-  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
   actions: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActions
+  heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsTitle {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -5578,6 +6058,7 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   abstract: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsAbstract
   media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
   icon: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -5673,6 +6154,78 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   en_US: String @proxy(from: "en-US")
 }
 
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
+  en_US: String @proxy(from: "en-US")
+}
+
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicOptions {
   en_US: [String] @proxy(from: "en-US")
 }
@@ -5725,7 +6278,6 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   updatedAt: Date @dateformat
   environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysEnvironment
   revision: Int
-  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentType
   contentful_id: String
 }
 
@@ -5751,34 +6303,13 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   contentful_id: String
 }
 
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentType @derivedTypes {
-  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentTypeSys
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsTitle
-  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsCode
-  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsType
   description: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsDescription
   file: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsFile
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsTitle {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsCode {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTextEn_USContentDataTargetFieldsType {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -6038,6 +6569,7 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   icon: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsIcon
   heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsHeading
   media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMedia
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbed
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -6131,6 +6663,78 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetailsImage {
   width: Int
   height: Int
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTableRowsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
+  en_US: String @proxy(from: "en-US")
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSeoTitle {
@@ -6234,6 +6838,10 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   en_US: String @proxy(from: "en-US")
 }
 
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsNavigationEn_USFieldsSegmentsEn_USFieldsHeading {
+  en_US: String @proxy(from: "en-US")
+}
+
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopics @derivedTypes {
   en_US: [contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_US] @proxy(from: "en-US")
 }
@@ -6292,8 +6900,9 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle
   heading: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsHeading
   abstract: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsAbstract
-  media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
   icon: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon
+  mediaEmbed: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed
+  media: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMedia
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsTitle {
@@ -6305,6 +6914,82 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsAbstract {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -6383,10 +7068,6 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEn_USFieldsFileEn_USDetailsImage {
   width: Int
   height: Int
-}
-
-type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicsEn_USFieldsIcon {
-  en_US: String @proxy(from: "en-US")
 }
 
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsActionsEn_USFieldsPageEn_USFieldsSectionsEn_USFieldsTopicOptions {
@@ -6486,6 +7167,78 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSections
   en_US: String @proxy(from: "en-US")
 }
 
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbed @derivedTypes {
+  en_US: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_US @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys
+  fields: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSys @derivedTypes {
+  space: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace
+  id: String
+  type: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  environment: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment
+  revision: Int
+  contentType: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpace @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysSpaceSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironment @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysEnvironmentSys {
+  id: String
+  type: String
+  linkType: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentType @derivedTypes {
+  sys: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFields @derivedTypes {
+  title: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle
+  code: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode
+  type: contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsTitle {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsCode {
+  en_US: String @proxy(from: "en-US")
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsTopicsEn_USFieldsMediaEmbedEn_USFieldsType {
+  en_US: String @proxy(from: "en-US")
+}
+
 type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSectionsEn_USFieldsEventId {
   en_US: String @proxy(from: "en-US")
 }
@@ -6575,9 +7328,26 @@ type contentfulTextSectionTextRichTextNodeContentContentDataTargetFieldsSeoImage
   height: Int
 }
 
-type contentfulTextSectionTextRichTextNodeContentContentContent {
+type contentfulTextSectionTextRichTextNodeContentContentContent @derivedTypes {
   nodeType: String
   value: String
+  content: [contentfulTextSectionTextRichTextNodeContentContentContentContent]
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentContentContent @derivedTypes {
+  data: contentfulTextSectionTextRichTextNodeContentContentContentContentData
+  value: String
+  nodeType: String
+  content: [contentfulTextSectionTextRichTextNodeContentContentContentContentContent]
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentContentContentData {
+  uri: String
+}
+
+type contentfulTextSectionTextRichTextNodeContentContentContentContentContent {
+  value: String
+  nodeType: String
 }
 
 type contentfulTextSectionTextRichTextNodeContentData @derivedTypes {
@@ -6597,7 +7367,6 @@ type contentfulTextSectionTextRichTextNodeContentDataTargetSys @derivedTypes {
   updatedAt: Date @dateformat
   environment: contentfulTextSectionTextRichTextNodeContentDataTargetSysEnvironment
   revision: Int
-  contentType: contentfulTextSectionTextRichTextNodeContentDataTargetSysContentType
   contentful_id: String
 }
 
@@ -6623,34 +7392,13 @@ type contentfulTextSectionTextRichTextNodeContentDataTargetSysEnvironmentSys {
   contentful_id: String
 }
 
-type contentfulTextSectionTextRichTextNodeContentDataTargetSysContentType @derivedTypes {
-  sys: contentfulTextSectionTextRichTextNodeContentDataTargetSysContentTypeSys
-}
-
-type contentfulTextSectionTextRichTextNodeContentDataTargetSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
 type contentfulTextSectionTextRichTextNodeContentDataTargetFields @derivedTypes {
   title: contentfulTextSectionTextRichTextNodeContentDataTargetFieldsTitle
-  code: contentfulTextSectionTextRichTextNodeContentDataTargetFieldsCode
-  type: contentfulTextSectionTextRichTextNodeContentDataTargetFieldsType
   description: contentfulTextSectionTextRichTextNodeContentDataTargetFieldsDescription
   file: contentfulTextSectionTextRichTextNodeContentDataTargetFieldsFile
 }
 
 type contentfulTextSectionTextRichTextNodeContentDataTargetFieldsTitle {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentDataTargetFieldsCode {
-  en_US: String @proxy(from: "en-US")
-}
-
-type contentfulTextSectionTextRichTextNodeContentDataTargetFieldsType {
   en_US: String @proxy(from: "en-US")
 }
 
@@ -6679,7 +7427,7 @@ type contentfulTextSectionTextRichTextNodeContentDataTargetFieldsFileEn_USDetail
   height: Int
 }
 
-type ContentfulTextSection implements Node @derivedTypes {
+type ContentfulTextSection implements Node @derivedTypes @dontInfer {
   title: String
   variation: String
   eventId: String

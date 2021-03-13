@@ -12,7 +12,7 @@ import { TopicSectionModel } from './model'
 
 export const TopicSectionDividerVar = (props: TopicSectionModel) => {
   const sectionWheel = getSectionWheel({
-    themeId: props.activeThemeId,
+    themeId: props.theme || props.activeThemeId,
     wheelId: 'topicSection',
     sectionWheels: props.sectionWheels,
     variation: 'divider',

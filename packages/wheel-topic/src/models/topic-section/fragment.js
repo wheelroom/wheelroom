@@ -16,6 +16,7 @@ export const fragment = graphql`
     __typename
     variation
     eventId
+    theme
     topics {
       ... on Node {
         ...Topic

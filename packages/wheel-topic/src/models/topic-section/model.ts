@@ -6,6 +6,7 @@ export interface TopicSectionModel extends CoreSectionProps {
   /** Gatsby fetched data */
   __typename: string
   eventId?: string
+  theme?: string
   topicOptions?: TopicOptionString[]
   topics?: TopicModel[]
   variation?: string

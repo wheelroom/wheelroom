@@ -176,6 +176,18 @@ export const topicModelConfig: WheelroomComponents = {
         typePostfix: 'Slug',
         unique: true,
       } as ShortTextField,
+      theme: {
+        items: ['glacierLight', 'glacierDark'],
+        translations: {
+          name: {
+            nl: 'Sectie thema',
+          },
+          helpText: {
+            nl: 'Kies het thema voor deze sectie',
+          },
+        },
+        type: 'dropdown',
+      } as DropdownField,
     },
     modelVersion: '1.0.0',
     settings: {
