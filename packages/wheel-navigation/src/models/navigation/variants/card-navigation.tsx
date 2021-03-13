@@ -26,7 +26,6 @@ export const CardNavigation = (props: CardNavigationProps) => {
   }
 
   const segments = getNavSegments(props.navigation, 'card')
-  console.log('segments', segments)
 
   return (
     <Flex is={'nav'} wheel={props.wheel}>
