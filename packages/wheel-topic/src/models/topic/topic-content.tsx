@@ -22,6 +22,8 @@ export interface TopicContentProps {
   wheel: TopicContentWheel
   /** Data wheel */
   data: TopicData
+  /** Use this element instead of the Icon element. NOTE: This is an element, not a string */
+  useIconElement?: JSX.Element | undefined
   /** Topic props */
   topic: TopicModel
   /** Topic info object */
@@ -68,6 +70,7 @@ export const TopicContent = (props: TopicContentProps) => {
         topic={props.topic}
         topicInfo={topicInfo}
         topicOptions={props.topicOptions}
+        useIconElement={props.useIconElement}
         useAbstractElement={props.useAbstractElement}
         useAbstractParser={props.useAbstractParser}
         useHeadingElement={props.useHeadingElement}

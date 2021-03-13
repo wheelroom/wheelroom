@@ -27,6 +27,8 @@ export interface TopicProps {
   topic?: TopicModel
   /** Topic render options */
   topicOptions: TopicOptions
+  /** Use this element instead of the Icon element. NOTE: This is an element, not a string */
+  useIconElement?: JSX.Element | undefined
   /** Defaults to p */
   useAbstractElement?: BlockLevelElementName
   /** Defaults to p */

@@ -22,6 +22,8 @@ export interface TopicContentTextProps {
   wheel: TopicContentTextWheel
   /** Data wheel */
   data: TopicData
+  /** Use this element instead of the Icon element. NOTE: This is an element, not a string */
+  useIconElement?: JSX.Element | undefined
   /** Defaults to h3 */
   useHeadingElement?: BlockLevelElementName
   /** Defaults to p */
@@ -52,12 +54,17 @@ export const TopicContentText = (props: TopicContentTextProps) => {
 
   return (
     <Box is="div" wheel={{ ...props.wheel, style: props.wheel.style.text }}>
-      {!topicOptions.hideIcon && props.topic.icon && !props.data.hideIcon && (
-        <Icon
-          icon={props.topic.icon || ''}
-          wheel={{ ...props.wheel, style: props.wheel.style.icon }}
-        />
-      )}
+      {!topicOptions.hideIcon &&
+        props.topic.icon &&
+        !props.data.hideIcon &&
+        (props.useIconElement ? (
+          props.useIconElement
+        ) : (
+          <Icon
+            icon={props.topic.icon || ''}
+            wheel={{ ...props.wheel, style: props.wheel.style.icon }}
+          />
+        ))}
       {!topicOptions.hideHeading &&
         props.topic.heading &&
         !props.data.hideHeading && (

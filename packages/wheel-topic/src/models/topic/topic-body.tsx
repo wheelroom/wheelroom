@@ -26,6 +26,7 @@ export const TopicBody = (props: TopicProps) => {
       topic={props.topic!}
       topicInfo={topicInfo}
       topicOptions={props.topicOptions}
+      useIconElement={props.useIconElement}
       useAbstractElement={props.useAbstractElement}
       useAbstractParser={props.useAbstractParser}
       useHeadingElement={props.useHeadingElement}
