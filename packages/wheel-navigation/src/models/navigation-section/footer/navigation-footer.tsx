@@ -12,19 +12,15 @@ import {
 import { LegalFooter, LegalFooterNcssTree } from './legal-footer'
 import { NavigationModel } from '../../navigation/model'
 import { NavigationSectionFooterData } from './data'
-import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModel } from '../../navigation-segment/model'
 import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
+import { MenuNavigation } from '../../navigation/variants/menu-navigation'
+import { SocialNavigation } from '../../navigation/variants/social-navigation'
 
 export interface NavigationSectionFooterNcssTree {
   container: NcssNode
   footer: {
-    menu: {
-      segment: NavigationSegmentNcssTree
-    } & NcssNode
-    social: {
-      segment: NavigationSegmentNcssTree
-    } & NcssNode
+    menu: { segment: NavigationSegmentNcssTree }
+    social: { segment: NavigationSegmentNcssTree }
   } & NcssNode
   legalFooter: LegalFooterNcssTree
   wrapper: NcssNode
@@ -43,24 +39,10 @@ export interface NavigationFooterProps {
   wheel: NavigationSectionFooterWheel
 }
 
-const getNavSegments = (navigation: NavigationModel[], variation: string) => {
-  const nav = navigation.find(
-    (nav: NavigationModel) => nav.variation === variation
-  )
-  if (!nav || !nav.segments || !Array.isArray(nav.segments)) {
-    return [] as NavigationSegmentModel[]
-  }
-  return nav.segments
-}
-
 export const NavigationFooter = (props: NavigationFooterProps) => {
   if (!Array.isArray(props.navigation) || props.navigation.length < 1) {
     return null
   }
-
-  const menuSegments = getNavSegments(props.navigation, 'menu')
-  const socialSegments = getNavSegments(props.navigation, 'social')
-
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
 
   return (
@@ -78,17 +60,13 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
                 is={'nav'}
                 wheel={{ ...props.wheel, style: props.wheel.style.footer.menu }}
               >
-                <NavigationSegment
-                  headingElementName="h3"
-                  hideActionHeading={false}
-                  hideActionIcon={false}
-                  hideSegmentHeading={true}
-                  maxSegments={1}
-                  navigationSegment={menuSegments}
+                <MenuNavigation
                   wheel={{
                     ...props.wheel,
                     style: props.wheel.style.footer.menu.segment,
                   }}
+                  maxSegments={1}
+                  navigation={props.navigation}
                 />
               </Flex>
             )}
@@ -100,17 +78,13 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
                   style: props.wheel.style.footer.social,
                 }}
               >
-                <NavigationSegment
-                  headingElementName="h3"
-                  hideActionHeading={true}
-                  hideActionIcon={false}
-                  hideSegmentHeading={true}
-                  maxSegments={1}
-                  navigationSegment={socialSegments}
+                <SocialNavigation
                   wheel={{
                     ...props.wheel,
                     style: props.wheel.style.footer.social.segment,
                   }}
+                  maxSegments={1}
+                  navigation={props.navigation}
                 />
               </Flex>
             )}

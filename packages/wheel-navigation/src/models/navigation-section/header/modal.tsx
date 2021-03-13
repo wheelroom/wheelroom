@@ -1,6 +1,4 @@
 import React from 'react'
-import { NavigationSegmentModel } from '../../navigation-segment/model'
-import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import {
   Box,
   Wheel,
@@ -13,6 +11,10 @@ import {
 import { FeatherIcon } from '@wheelroom/core'
 import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
 import { ThemeButton } from './theme-button'
+import { NavigationModel } from '../../navigation/model'
+import { ActionsNavigation } from '../../navigation/variants/actions-navigation'
+import { MenuNavigation } from '../../navigation/variants/menu-navigation'
+import { SocialNavigation } from '../../navigation/variants/social-navigation'
 
 export interface ModalNcssTree {
   ncssSwitch: Record<'visible' | 'hidden', Ncss>
@@ -25,16 +27,9 @@ export interface ModalNcssTree {
   closeButton: {
     icon: NcssNode
   } & NcssNode
-  menu: {
-    segment: NavigationSegmentNcssTree
-  } & NcssNode
-  social: {
-    segment: NavigationSegmentNcssTree
-  } & NcssNode
-  actions: {
-    segment: NavigationSegmentNcssTree
-    themeButton: NcssNode
-  } & NcssNode
+  actions: { segment: NavigationSegmentNcssTree; themeButton: NcssNode }
+  menu: { segment: NavigationSegmentNcssTree }
+  social: { segment: NavigationSegmentNcssTree }
 }
 
 interface ModalWheel extends Wheel {
@@ -42,13 +37,11 @@ interface ModalWheel extends Wheel {
 }
 
 export interface ModalProps {
-  actionsSegments: NavigationSegmentModel[]
   buttonName?: string
   closeMenu: () => void
   hideThemeButton?: boolean
-  menuSegments: NavigationSegmentModel[]
   menuVisible: boolean
-  socialSegments: NavigationSegmentModel[]
+  navigation: NavigationModel[]
   toggleTheme: () => void
   wheel: ModalWheel
 }
@@ -120,34 +113,26 @@ export const Modal = (props: ModalProps) => {
           is="nav"
           wheel={{ ...props.wheel, style: props.wheel.style.menu }}
         >
-          <NavigationSegment
-            headingElementName="h3"
-            hideActionHeading={false}
-            hideActionIcon={false}
-            hideSegmentHeading={true}
-            maxSegments={1}
-            navigationSegment={props.menuSegments}
+          <MenuNavigation
             wheel={{
               ...props.wheel,
               style: props.wheel.style.menu.segment,
             }}
+            maxSegments={10}
+            navigation={props.navigation}
           />
         </Flex>
         <Flex
           is="div"
           wheel={{ ...props.wheel, style: props.wheel.style.social }}
         >
-          <NavigationSegment
-            headingElementName="h3"
-            hideActionHeading={true}
-            hideActionIcon={false}
-            hideSegmentHeading={true}
-            maxSegments={1}
-            navigationSegment={props.socialSegments}
+          <SocialNavigation
             wheel={{
               ...props.wheel,
               style: props.wheel.style.social.segment,
             }}
+            maxSegments={1}
+            navigation={props.navigation}
           />
         </Flex>
 
@@ -155,17 +140,13 @@ export const Modal = (props: ModalProps) => {
           is="div"
           wheel={{ ...props.wheel, style: props.wheel.style.actions }}
         >
-          <NavigationSegment
-            headingElementName="h3"
-            hideActionHeading={false}
-            hideActionIcon={true}
-            hideSegmentHeading={true}
-            maxSegments={1}
-            navigationSegment={props.actionsSegments}
+          <ActionsNavigation
             wheel={{
               ...props.wheel,
               style: props.wheel.style.actions.segment,
             }}
+            maxSegments={1}
+            navigation={props.navigation}
           />
           <ThemeButton
             wheel={{

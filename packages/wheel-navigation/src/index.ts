@@ -9,6 +9,6 @@ export type { NavigationSectionHeaderNcssTree } from './models/navigation-sectio
 export type { NavigationSectionSitemapNcssTree } from './models/navigation-section/sitemap/navigation-sitemap'
 // Navigation Segment
 export type { NavigationSegmentNcssTree } from './models/navigation-segment/ncss-tree'
-export type { BrandNavigationSegmentNcssTree } from './models/navigation-segment/ncss-tree'
+export type { BrandNavigationSegmentNcssTree } from './models/navigation-segment/brand-navigation-segment'
 // Navigation config
 export { navigationModelConfig } from './config/navigation-model-config'

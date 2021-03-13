@@ -12,8 +12,8 @@ import {
 import { NavigationModel } from '../../navigation/model'
 import { NavigationSectionSitemapData } from './data'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModel } from '../../navigation-segment/model'
 import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
+import { getNavSegments } from '../../navigation/get-nav-segments'
 
 export interface NavigationSectionSitemapNcssTree {
   container: NcssNode
@@ -36,16 +36,6 @@ export interface NavigationSitemapProps {
   navigation: NavigationModel[]
   siteMetaData: CoreSiteMetadata
   wheel: NavigationSectionSitemapWheel
-}
-
-const getNavSegments = (navigation: NavigationModel[], variation: string) => {
-  const nav = navigation.find(
-    (nav: NavigationModel) => nav.variation === variation
-  )
-  if (!nav || !nav.segments || !Array.isArray(nav.segments)) {
-    return [] as NavigationSegmentModel[]
-  }
-  return nav.segments
 }
 
 export const NavigationSitemap = (props: NavigationSitemapProps) => {
@@ -78,6 +68,7 @@ export const NavigationSitemap = (props: NavigationSitemapProps) => {
                   headingElementName={props.data.headingElementName || 'h3'}
                   hideActionHeading={false}
                   hideActionIcon={false}
+                  hideSegmentAbstract={true}
                   hideSegmentHeading={props.data.hideSegmentHeading}
                   maxSegments={props.data.maxSegments || 16}
                   navigationSegment={menuSegments}

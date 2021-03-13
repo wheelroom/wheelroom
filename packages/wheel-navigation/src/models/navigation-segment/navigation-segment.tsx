@@ -1,5 +1,11 @@
 import React, { Fragment } from 'react'
-import { Wheel, Flex, Heading, HeadingElementName } from '@wheelroom/core'
+import {
+  Wheel,
+  Flex,
+  Heading,
+  HeadingElementName,
+  Paragraph,
+} from '@wheelroom/core'
 import { NavigationSegmentModel } from './model'
 import { NavigationSegmentList } from './navigation-segment-list'
 import { NavigationSegmentNcssTree } from './ncss-tree'
@@ -11,6 +17,7 @@ interface NavigationSegmentWheel extends Wheel {
 interface NavigationSegmentProps {
   headingElementName: HeadingElementName
   hideActionHeading: boolean
+  hideSegmentAbstract: boolean
   hideActionIcon: boolean
   hideSegmentHeading: boolean
   maxSegments: number
@@ -39,7 +46,7 @@ export const NavigationSegment = (props: NavigationSegmentProps) => {
               wheel={props.wheel}
             />
           )
-          if (props.hideSegmentHeading) {
+          if (props.hideSegmentHeading && props.hideSegmentAbstract) {
             return navigationSegmentList
           } else {
             return (
@@ -51,7 +58,7 @@ export const NavigationSegment = (props: NavigationSegmentProps) => {
                 }}
                 is="div"
               >
-                {navigationSegment.heading && (
+                {!props.hideSegmentHeading && navigationSegment.heading && (
                   <Heading
                     is={props.headingElementName}
                     wheel={{
@@ -61,6 +68,16 @@ export const NavigationSegment = (props: NavigationSegmentProps) => {
                   >
                     {navigationSegment.heading}
                   </Heading>
+                )}
+                {!props.hideSegmentAbstract && navigationSegment.abstract && (
+                  <Paragraph
+                    wheel={{
+                      ...props.wheel,
+                      style: props.wheel.style.abstract,
+                    }}
+                  >
+                    {navigationSegment.abstract}
+                  </Paragraph>
                 )}
                 {navigationSegmentList}
               </Flex>

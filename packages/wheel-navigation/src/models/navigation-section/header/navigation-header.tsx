@@ -12,37 +12,27 @@ import {
   Wheel,
   Wrapper,
 } from '@wheelroom/core'
-import {
-  NavigationSegmentNcssTree,
-  BrandNavigationSegmentNcssTree,
-} from '../../navigation-segment/ncss-tree'
 import { AdminCoreContext } from '@wheelroom/admin-core'
-import { BrandNavigationSegment } from '../../navigation-segment/brand-navigation-segment'
+import { BrandNavigationSegmentNcssTree } from '../../navigation-segment/brand-navigation-segment'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
 import { Modal, ModalNcssTree } from './modal'
 import { NavigationModel } from '../../navigation/model'
 import { NavigationSectionHeaderData } from './data'
-import { NavigationSegment } from '../../navigation-segment/navigation-segment'
-import { NavigationSegmentModel } from '../../navigation-segment/model'
 import { ThemeButton } from './theme-button'
+import { ActionsNavigation } from '../../navigation/variants/actions-navigation'
+import { NavigationSegmentNcssTree } from '../../..'
+import { BrandNavigation } from '../../navigation/variants/brand-navigation'
+import { MenuNavigation } from '../../navigation/variants/menu-navigation'
+import { SocialNavigation } from '../../navigation/variants/social-navigation'
 
 export interface NavigationSectionHeaderNcssTree {
   skipToContent: NcssNode
   container: NcssNode
   header: {
-    brand: {
-      segment: BrandNavigationSegmentNcssTree
-    } & NcssNode
-    menu: {
-      segment: NavigationSegmentNcssTree
-    } & NcssNode
-    social: {
-      segment: NavigationSegmentNcssTree
-    } & NcssNode
-    actions: {
-      segment: NavigationSegmentNcssTree
-      themeButton: NcssNode
-    } & NcssNode
+    actions: { segment: NavigationSegmentNcssTree; themeButton: NcssNode }
+    brand: { segment: BrandNavigationSegmentNcssTree }
+    menu: { segment: NavigationSegmentNcssTree }
+    social: { segment: NavigationSegmentNcssTree }
     modal: {
       menuButton: NcssNode
       dialog: ModalNcssTree
@@ -63,16 +53,6 @@ export interface NavigationHeaderProps {
   navigation: NavigationModel[]
   themes: SectionWheelThemes
   wheel: NavigationSectionHeaderWheel
-}
-
-const getNavSegments = (navigation: NavigationModel[], variation: string) => {
-  const nav = navigation.find(
-    (nav: NavigationModel) => nav.variation === variation
-  )
-  if (!nav || !nav.segments || !Array.isArray(nav.segments)) {
-    return [] as NavigationSegmentModel[]
-  }
-  return nav.segments
 }
 
 const getNextKey = (obj: any, key: string): string => {
@@ -98,11 +78,6 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
     return null
   }
 
-  const actionsSegments = getNavSegments(props.navigation, 'actions')
-  const brandSegments = getNavSegments(props.navigation, 'brand')
-  const menuSegments = getNavSegments(props.navigation, 'menu')
-  const socialSegments = getNavSegments(props.navigation, 'social')
-
   const toggleTheme = () => {
     setActiveTheme(getNextKey(props.themes, activeThemeId))
   }
@@ -116,6 +91,7 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
     const element: HTMLElement = buttonRef.current!
     element.focus()
   }
+  console.log('props.data', props.data)
 
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
@@ -137,14 +113,14 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               is="div"
               wheel={{ ...props.wheel, style: props.wheel.style.header.brand }}
             >
-              <BrandNavigationSegment
-                logoElement={props.data.useLogoElement}
-                navigationSegment={brandSegments}
-                siteHeading={props.globals.siteHeading}
+              <BrandNavigation
                 wheel={{
                   ...props.wheel,
                   style: props.wheel.style.header.brand.segment,
                 }}
+                navigation={props.navigation}
+                logoElement={props.data.useLogoElement}
+                siteHeading={props.globals.siteHeading}
               />
             </Flex>
           )}
@@ -153,17 +129,13 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
               is={'nav'}
               wheel={{ ...props.wheel, style: props.wheel.style.header.menu }}
             >
-              <NavigationSegment
-                headingElementName="h3"
-                hideActionHeading={false}
-                hideActionIcon={false}
-                hideSegmentHeading={false}
-                maxSegments={10}
-                navigationSegment={menuSegments}
+              <MenuNavigation
                 wheel={{
                   ...props.wheel,
                   style: props.wheel.style.header.menu.segment,
                 }}
+                maxSegments={10}
+                navigation={props.navigation}
               />
             </Flex>
           )}
@@ -175,17 +147,13 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                 style: props.wheel.style.header.social,
               }}
             >
-              <NavigationSegment
-                headingElementName="h3"
-                hideActionHeading={true}
-                hideActionIcon={false}
-                hideSegmentHeading={true}
-                maxSegments={1}
-                navigationSegment={socialSegments}
+              <SocialNavigation
                 wheel={{
                   ...props.wheel,
                   style: props.wheel.style.header.social.segment,
                 }}
+                maxSegments={1}
+                navigation={props.navigation}
               />
             </Flex>
           )}
@@ -197,17 +165,13 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                 style: props.wheel.style.header.actions,
               }}
             >
-              <NavigationSegment
-                headingElementName="h3"
-                hideActionHeading={false}
-                hideActionIcon={true}
-                hideSegmentHeading={true}
-                maxSegments={1}
-                navigationSegment={actionsSegments}
+              <ActionsNavigation
                 wheel={{
                   ...props.wheel,
                   style: props.wheel.style.header.actions.segment,
                 }}
+                maxSegments={1}
+                navigation={props.navigation}
               />
               <ThemeButton
                 buttonName={props.themes[activeThemeId].themeName}
@@ -243,13 +207,11 @@ export const NavigationHeader = (props: NavigationHeaderProps) => {
                 Menu
               </Button>
               <Modal
-                actionsSegments={actionsSegments}
                 buttonName={props.themes[activeThemeId].themeName}
                 closeMenu={closeMenu}
                 hideThemeButton={props.data.hideThemeButton}
-                menuSegments={menuSegments}
                 menuVisible={menuVisible}
-                socialSegments={socialSegments}
+                navigation={props.navigation}
                 toggleTheme={toggleTheme}
                 wheel={{
                   ...props.wheel,

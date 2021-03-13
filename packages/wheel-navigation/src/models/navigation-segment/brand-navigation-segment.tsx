@@ -1,7 +1,18 @@
 import React from 'react'
-import { Action, Wheel, Any, Box } from '@wheelroom/core'
+import {
+  Action,
+  Wheel,
+  Any,
+  Box,
+  NcssNode,
+  ActionNcssTree,
+} from '@wheelroom/core'
 import { NavigationSegmentModel } from './model'
-import { BrandNavigationSegmentNcssTree } from './ncss-tree'
+
+export interface BrandNavigationSegmentNcssTree extends NcssNode {
+  branding: NcssNode
+  action: ActionNcssTree
+}
 
 interface BrandNavigationSegmentWheel extends Wheel {
   style: BrandNavigationSegmentNcssTree
