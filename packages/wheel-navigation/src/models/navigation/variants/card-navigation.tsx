@@ -21,7 +21,6 @@ export interface CardNavigationProps {
 }
 
 export const CardNavigation = (props: CardNavigationProps) => {
-  console.log('props', props)
   if (props.hideCard) {
     return null
   }
