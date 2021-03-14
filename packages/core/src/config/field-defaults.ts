@@ -26,7 +26,7 @@ const commonFieldDefaults: CommonField = {
   required: false,
 }
 const checkbox: CheckboxField = {
-  initialContent: ['check'],
+  initialContent: ['%firstItem%'],
   items: ['check', 'box'],
   type: 'checkbox',
 }
