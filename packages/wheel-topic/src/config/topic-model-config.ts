@@ -148,7 +148,7 @@ export const topicModelConfig: WheelroomComponents = {
         type: 'multipleComponents',
       } as MultipleComponentsField,
       topicOptions: {
-        initialContent: ['Hide icon'],
+        initialContent: [],
         items: Object.values(topicOptionsEnglish),
         translations: {
           name: {
