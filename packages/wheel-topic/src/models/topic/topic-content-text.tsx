@@ -63,6 +63,7 @@ export const TopicContentText = (props: TopicContentTextProps) => {
           props.useIconElement
         ) : (
           <Icon
+            customIconMap={props.data.customIconMap}
             icon={props.topic.icon || ''}
             wheel={{ ...props.wheel, style: props.wheel.style.icon }}
           />

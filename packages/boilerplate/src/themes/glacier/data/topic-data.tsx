@@ -11,6 +11,7 @@ export const topicData = {
   hideText: false,
   useAbstractParser: MultiParser,
   useHeadingParser: MultiParser,
+  customIconMap: {},
 }
 
 export const topicSectionData: DeepPartial<TopicSectionData> = {

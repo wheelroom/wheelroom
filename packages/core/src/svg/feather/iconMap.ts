@@ -283,7 +283,11 @@ import {
   SvgZoomOut,
 } from './index'
 
-export const IconMap: any = {
+export type IconMapType = {
+  [iconId: string]: any
+}
+
+export const IconMap: IconMapType = {
   activity: SvgActivity,
   airplay: SvgAirplay,
   'alert-circle': SvgAlertCircle,

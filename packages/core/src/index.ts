@@ -43,6 +43,7 @@ export type { ElementResetNcssTree } from './elements/element-reset-ncss-tree'
 export type { GridElementProps } from './elements/grid'
 export type { HeadingElementProps } from './elements/heading'
 export type { IconProps } from './elements/icon'
+export type { IconMapType } from './svg/feather/iconMap'
 export type {
   BlockLevelElementName,
   HeadingElementName,

@@ -1,4 +1,4 @@
-import { ParserFunction } from '@wheelroom/core'
+import { ParserFunction, IconMapType } from '@wheelroom/core'
 
 export interface TopicData {
   hideAbstract: boolean
@@ -10,4 +10,5 @@ export interface TopicData {
   hideText: boolean
   useAbstractParser: ParserFunction | undefined
   useHeadingParser: ParserFunction | undefined
+  customIconMap: IconMapType | undefined
 }

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { IconMap } from '../svg/feather/iconMap'
+import { IconMap, IconMapType } from '../svg/feather/iconMap'
 import { mergeNcss } from '../lib/merge-ncss'
 import { ElementProps, getElementAttrs } from './element'
 import { Box } from './grid'
@@ -8,13 +8,15 @@ import { featherIconElementStyle, textIconElementStyle } from './icon-reset'
 
 export interface FeatherIconElementProps extends ElementProps {
   icon: string
+  iconMap?: IconMapType
 }
 
 export const FeatherIcon = (props: FeatherIconElementProps) => {
-  if (Object.keys(IconMap).includes(props.icon)) {
+  const iconMap = props.iconMap || IconMap
+  if (Object.keys(iconMap).includes(props.icon)) {
     const label = { ncss: { label: 'feather-icon' } }
     /** When a valid feather icon string is passed, return the svg icon */
-    const RenderIcon = IconMap[props.icon]
+    const RenderIcon = iconMap[props.icon]
 
     const ncss = mergeNcss([
       label,
@@ -55,6 +57,7 @@ export const TextIcon = (props: TextIconElementProps) => {
 
 export interface IconProps extends ElementProps {
   icon: string | JSX.Element
+  customIconMap?: IconMapType
 }
 
 export const Icon = (props: IconProps) => {
@@ -62,10 +65,15 @@ export const Icon = (props: IconProps) => {
   if (React.isValidElement(props.icon)) {
     return props.icon
   }
+  const iconMap = props.customIconMap
+    ? { ...IconMap, ...props.customIconMap }
+    : IconMap
   if (typeof props.icon === 'string') {
-    if (Object.keys(IconMap).includes(props.icon)) {
+    if (Object.keys(iconMap).includes(props.icon)) {
       // When a valid feather icon string is passed, return the svg icon
-      return <FeatherIcon icon={props.icon} wheel={props.wheel} />
+      return (
+        <FeatherIcon iconMap={iconMap} icon={props.icon} wheel={props.wheel} />
+      )
     } else {
       // When a non feather icon string is passed, return the string
       return <TextIcon text={props.icon} wheel={props.wheel} />
