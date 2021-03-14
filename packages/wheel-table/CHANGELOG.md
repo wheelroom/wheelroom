@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.11](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-table@2.2.10...@wheelroom/wheel-table@2.2.11) (2021-03-14)
+
+
+### Bug Fixes
+
+* [#141](https://github.com/wheelroom/wheelroom/issues/141) ([c050fb6](https://github.com/wheelroom/wheelroom/commit/c050fb6f9299e0628eafcc2e342a48db091565ce))
+
+
+
+
+
 ## [2.2.10](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-table@2.2.9...@wheelroom/wheel-table@2.2.10) (2021-03-14)
 
 **Note:** Version bump only for package @wheelroom/wheel-table
