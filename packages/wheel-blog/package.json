@@ -29,7 +29,7 @@
     "@wheelroom/core": "2.4.0",
     "@wheelroom/styled-system": "4.1.9",
     "@wheelroom/wheel-text": "2.0.15",
-    "@wheelroom/wheel-topic": "3.1.0",
+    "@wheelroom/wheel-topic": "3.1.1",
     "@wheelroom/wheelroom": "4.3.9",
     "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
     "eslint": "7.4.0",
@@ -92,5 +92,5 @@
     "dev": "tsc -w"
   },
   "type": "commonjs",
-  "version": "2.2.10"
+  "version": "2.2.11"
 }
