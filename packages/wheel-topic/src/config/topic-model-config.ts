@@ -148,7 +148,6 @@ export const topicModelConfig: WheelroomComponents = {
         type: 'multipleComponents',
       } as MultipleComponentsField,
       topicOptions: {
-        initialContent: [],
         items: Object.values(topicOptionsEnglish),
         translations: {
           name: {

@@ -14,4 +14,7 @@ describe('The parser should parse', () => {
       'This is the test case for my-field-name and my-demo-component'
     )
   })
+  test('with locale set on replace vars', () => {
+    expect(parser._replaceVars.locale).toEqual('nl')
+  })
 })

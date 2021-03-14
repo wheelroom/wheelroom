@@ -41,6 +41,7 @@ export interface ReplaceVars {
   field?: FieldType
   fieldName?: string
   fieldType?: string
+  locale?: string
 }
 
 export interface ReplaceParams {

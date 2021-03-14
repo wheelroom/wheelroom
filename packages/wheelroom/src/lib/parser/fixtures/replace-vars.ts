@@ -23,6 +23,11 @@ const component: WheelroomComponent = {
       initialContent: ['check A'],
       items: ['check A', 'check B'],
       type: 'checkbox',
+      translations: {
+        nl: {
+          items: ['dutch check A', 'dutch check B'],
+        },
+      },
     } as CheckboxField,
     dateField: {
       initialContent: '2020-03-02T04:05+01:00',
@@ -32,6 +37,11 @@ const component: WheelroomComponent = {
       initialContent: 'drop A',
       items: ['drop A', 'drop B'],
       type: 'dropdown',
+      translations: {
+        nl: {
+          items: ['dutch drop A', 'dutch drop B'],
+        },
+      },
     } as DropdownField,
     longTextField: {
       initialContent: 'My long text',
@@ -85,4 +95,5 @@ export const replaceVars = {
   },
   fieldName,
   fieldType,
+  locale: 'nl',
 }

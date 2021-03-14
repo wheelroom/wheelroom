@@ -22,6 +22,7 @@ export const getComponents = async (wheelroomConfig: WheelroomConfig) => {
   // Create a parser
   const parser = createParser({
     components: wheelroomConfig.components,
+    locale: wheelroomConfig.locale,
   } as ReplaceVars)
   parser.addReplaceFunctions(replaceFunctions)
 
