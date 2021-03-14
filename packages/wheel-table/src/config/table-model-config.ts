@@ -48,7 +48,6 @@ export const tableModelConfig: WheelroomComponents = {
         type: 'dropdown',
       } as DropdownField,
       topicOptions: {
-        initialContent: ['Hide icon'],
         items: Object.values(topicOptionsEnglish),
         translations: {
           name: {

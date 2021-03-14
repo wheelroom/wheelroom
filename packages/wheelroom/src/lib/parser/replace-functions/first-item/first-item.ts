@@ -25,11 +25,12 @@ export const firstItemFunc: ReplaceFunctionsList = [
       // If we have a locale, translations and items, use that value instead
       if (
         vars.locale &&
-        typeof vars.field?.translations === 'object' &&
-        vars.field?.translations[vars.locale] &&
-        vars.field?.translations[vars.locale].items
+        vars.field &&
+        vars.field.translations &&
+        vars.field.translations.items &&
+        vars.field?.translations.items[vars.locale]
       ) {
-        value = vars.field?.translations[vars.locale].items[0]
+        value = vars.field?.translations.items[vars.locale][0]
       }
       return value
     },
