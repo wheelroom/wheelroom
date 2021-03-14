@@ -2,6 +2,7 @@ import { NavigationSectionFooterNcssTree } from '@wheelroom/wheel-navigation'
 import { deepMerge, DeepPartial } from '@wheelroom/core'
 import { containerNcssNode, wrapperNcssNode } from '../../grid-ncss'
 import { navigationSegmentNcssTree } from '../navigation-segment/navigation-segment-ncss-tree'
+import { iconButtonSmallNcssNode } from '../../icon-ncss'
 
 export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFooterNcssTree> = {
   wrapper: deepMerge([
@@ -15,6 +16,99 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
       },
     },
   ]),
+  footerBrand: {
+    ncss: {
+      label: 'footer-brand',
+    },
+    container: deepMerge([
+      containerNcssNode,
+      {
+        ncss: {
+          label: 'footer-brand-container',
+          pt: 5,
+          justifyContent: 'center',
+        },
+      },
+    ]),
+    brandNavigation: {
+      segment: {
+        ncss: {
+          label: 'brand-navigation-segment',
+          display: 'inline-flex',
+          mr: 3,
+        },
+        branding: {
+          ncss: {
+            label: 'brand-navigation-segment-brand',
+            fontFamily: 'branding',
+            fontWeight: 'bold',
+            color: 'sectionText',
+          },
+        },
+        action: {
+          ncss: {
+            label: 'brand-navigation-segment-action',
+            display: 'inline-flex',
+            fontFamily: 'branding',
+            fontWeight: 'bold',
+            fontSize: 'xx-large',
+            textDecoration: 'none',
+            color: 'sectionText',
+            ':focus': {
+              outlineColor: 'outline',
+            },
+          },
+          icon: iconButtonSmallNcssNode,
+        },
+      },
+    },
+  },
+  footerCard: {
+    ncss: {
+      label: 'footer-card',
+    },
+    container: deepMerge([
+      containerNcssNode,
+      {
+        ncss: {
+          label: 'footer-card-container',
+          pt: 5,
+          justifyContent: 'center',
+        },
+      },
+    ]),
+
+    cardNavigation: {
+      ncss: {
+        justifyContent: 'space-evenly',
+        label: 'card-navigation',
+        w: 1,
+      },
+      segment: deepMerge([
+        navigationSegmentNcssTree,
+        {
+          ncss: {
+            flexDirection: 'column',
+          },
+          list: {
+            ncss: {
+              textAlign: 'center',
+            },
+          },
+          action: {
+            ncss: {
+              textDecoration: 'none',
+              px: 2,
+              py: 3,
+              ':hover, &.active': {
+                textDecoration: 'underline',
+              },
+            },
+          },
+        },
+      ]),
+    },
+  },
   footerMenu: {
     ncss: {
       label: 'footer-menu',
@@ -141,52 +235,6 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
           },
         },
       },
-    },
-  },
-  footerCard: {
-    ncss: {
-      label: 'footer-card',
-    },
-    container: deepMerge([
-      containerNcssNode,
-      {
-        ncss: {
-          label: 'footer-card-container',
-          pt: 5,
-          justifyContent: 'center',
-        },
-      },
-    ]),
-
-    cardNavigation: {
-      ncss: {
-        justifyContent: 'space-evenly',
-        label: 'card-navigation',
-        w: 1,
-      },
-      segment: deepMerge([
-        navigationSegmentNcssTree,
-        {
-          ncss: {
-            flexDirection: 'column',
-          },
-          list: {
-            ncss: {
-              textAlign: 'center',
-            },
-          },
-          action: {
-            ncss: {
-              textDecoration: 'none',
-              px: 2,
-              py: 3,
-              ':hover, &.active': {
-                textDecoration: 'underline',
-              },
-            },
-          },
-        },
-      ]),
     },
   },
 }

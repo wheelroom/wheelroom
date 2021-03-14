@@ -11,11 +11,13 @@ import { NavigationModel } from '../../navigation/model'
 import { NavigationSectionFooterData } from './data'
 import { FooterMenu, FooterMenuNcssTree } from './footer-menu'
 import { FooterCard, FooterCardNcssTree } from './footer-card'
+import { FooterBrand, FooterBrandNcssTree } from './footer-brand'
 
 export interface NavigationSectionFooterNcssTree extends NcssNode {
-  footerMenu: FooterMenuNcssTree
-  footerLegal: FooterLegalNcssTree
+  footerBrand: FooterBrandNcssTree
   footerCard: FooterCardNcssTree
+  footerLegal: FooterLegalNcssTree
+  footerMenu: FooterMenuNcssTree
   wrapper: NcssNode
 }
 
@@ -39,6 +41,15 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
 
   return (
     <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
+      <FooterBrand
+        containerStyle={props.containerStyle}
+        hideBrand={props.data.hideBrand}
+        logoElement={props.data.useLogoElement}
+        navigation={props.navigation}
+        siteHeading={props.globals.siteHeading}
+        wheel={{ ...props.wheel, style: props.wheel.style.footerBrand }}
+      />
+
       <FooterCard
         containerStyle={props.containerStyle}
         hideCard={props.data.hideCard}
