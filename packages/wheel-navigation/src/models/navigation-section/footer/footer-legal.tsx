@@ -1,27 +1,19 @@
 import React from 'react'
 import {
-  ALink,
-  Any,
   Container,
   CoreSiteMetadata,
-  Flex,
   Fluid,
   Wheel,
-  Wrapper,
   NcssNode,
-  Sup,
 } from '@wheelroom/core'
+import {
+  LegalNavigation,
+  LegalNavigationNcssTree,
+} from '../../navigation/variants/legal-navigation'
 
-export interface FooterLegalNcssTree {
+export interface FooterLegalNcssTree extends NcssNode {
   container: NcssNode
-  legal: {
-    copyright: NcssNode
-    promise: {
-      link: NcssNode
-      sup: NcssNode
-    } & NcssNode
-  } & NcssNode
-  wrapper: NcssNode
+  legalNavigation: LegalNavigationNcssTree
 }
 
 interface FooterLegalWheel extends Wheel {
@@ -32,68 +24,29 @@ export interface FooterLegalProps {
   containerStyle: 'container' | 'fluid'
   copyright: string
   hideCopyright: boolean
-  hideFooterLegal: boolean
+  hideLegal: boolean
   siteMetadata: CoreSiteMetadata
   supportWheelroom: boolean
   wheel: FooterLegalWheel
 }
 
 export const FooterLegal = (props: FooterLegalProps) => {
-  if (props.hideFooterLegal === true) {
+  if (props.hideLegal === true) {
     return null
   }
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
-    <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
-      <ContainerType
-        wheel={{ ...props.wheel, style: props.wheel.style.container }}
-      >
-        <Flex
-          is={'div'}
-          wheel={{ ...props.wheel, style: props.wheel.style.legal }}
-        >
-          {!props.hideCopyright && (
-            <Any
-              is="span"
-              polyPreset={false}
-              wheel={{
-                ...props.wheel,
-                style: props.wheel.style.legal.copyright,
-              }}
-            >
-              {props.copyright}
-            </Any>
-          )}
-          {props.supportWheelroom && (
-            <Any
-              is="span"
-              polyPreset={false}
-              wheel={{
-                ...props.wheel,
-                style: props.wheel.style.legal.promise,
-              }}
-            >
-              <ALink
-                href={props.siteMetadata.legal.url}
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.legal.promise.link,
-                }}
-              >
-                {props.siteMetadata.legal.description}
-              </ALink>
-              <Sup
-                wheel={{
-                  ...props.wheel,
-                  style: props.wheel.style.legal.promise.sup,
-                }}
-              >
-                {' ' + props.siteMetadata.legal.version}
-              </Sup>
-            </Any>
-          )}
-        </Flex>
-      </ContainerType>
-    </Wrapper>
+    <ContainerType
+      wheel={{ ...props.wheel, style: props.wheel.style.container }}
+    >
+      <LegalNavigation
+        copyright={props.copyright}
+        hideCopyright={props.hideCopyright}
+        hideLegal={props.hideLegal}
+        siteMetadata={props.siteMetadata}
+        supportWheelroom={props.supportWheelroom}
+        wheel={{ ...props.wheel, style: props.wheel.style.legalNavigation }}
+      />
+    </ContainerType>
   )
 }

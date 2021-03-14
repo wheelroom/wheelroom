@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, NcssNode, Wheel } from '@wheelroom/core'
+import { Container, Flex, Fluid, NcssNode, Wheel } from '@wheelroom/core'
 import { NavigationModel } from '../../navigation/model'
 import {
   MenuNavigation,
@@ -11,8 +11,9 @@ import {
 } from '../../navigation/variants/social-navigation'
 
 export interface FooterMenuNcssTree extends NcssNode {
-  menu: MenuNavigationNcssTree
-  social: SocialNavigationNcssTree
+  container: NcssNode
+  menuNavigation: MenuNavigationNcssTree
+  socialNavigation: SocialNavigationNcssTree
 }
 
 interface FooterMenuWheel extends Wheel {
@@ -28,26 +29,31 @@ export interface FooterMenuProps {
 }
 
 export const FooterMenu = (props: FooterMenuProps) => {
+  const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
-    <Flex is="div" wheel={props.wheel}>
-      <MenuNavigation
-        wheel={{
-          ...props.wheel,
-          style: props.wheel.style.menu,
-        }}
-        maxSegments={1}
-        navigation={props.navigation}
-        hideMenu={props.hideMenu}
-      />
-      <SocialNavigation
-        wheel={{
-          ...props.wheel,
-          style: props.wheel.style.social,
-        }}
-        maxSegments={1}
-        navigation={props.navigation}
-        hideSocial={props.hideSocial}
-      />
-    </Flex>
+    <ContainerType
+      wheel={{ ...props.wheel, style: props.wheel.style.container }}
+    >
+      <Flex is="div" wheel={props.wheel}>
+        <MenuNavigation
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.menuNavigation,
+          }}
+          maxSegments={1}
+          navigation={props.navigation}
+          hideMenu={props.hideMenu}
+        />
+        <SocialNavigation
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.socialNavigation,
+          }}
+          maxSegments={1}
+          navigation={props.navigation}
+          hideSocial={props.hideSocial}
+        />
+      </Flex>
+    </ContainerType>
   )
 }

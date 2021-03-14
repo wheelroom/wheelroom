@@ -8,31 +8,33 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
     wrapperNcssNode,
     {
       ncss: {
+        label: 'navigation-footer',
         borderTop: '1px solid transparent',
         borderColor: 'sectionBorder',
         py: 0,
       },
     },
   ]),
-  container: deepMerge([
-    containerNcssNode,
-    {
-      ncss: {
-        minHeight: '84px',
-        px: 2,
-      },
-    },
-  ]),
-  footer: {
+  footerMenu: {
     ncss: {
-      label: 'navigation-segments',
+      label: 'footer-menu',
       alignItems: 'center',
       flexDirection: ['column', 'row'],
       justifyContent: ['space-between'],
       mx: 'auto',
       w: 1,
     },
-    menu: {
+    container: deepMerge([
+      containerNcssNode,
+      {
+        ncss: {
+          label: 'footer-menu-container',
+          minHeight: '84px',
+          px: 2,
+        },
+      },
+    ]),
+    menuNavigation: {
       ncss: {
         label: 'menu-navigation',
       },
@@ -57,7 +59,7 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
         },
       ]),
     },
-    social: {
+    socialNavigation: {
       ncss: {
         label: 'social-navigation',
       },
@@ -82,25 +84,25 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
       ]),
     },
   },
-  legalFooter: {
-    wrapper: deepMerge([
-      wrapperNcssNode,
+  footerLegal: {
+    ncss: {
+      label: 'footer-legal',
+    },
+    container: deepMerge([
+      containerNcssNode,
       {
         ncss: {
+          label: 'footer-legal-container',
           borderTop: '1px solid transparent',
           borderColor: 'sectionBorder',
           minHeight: '48px',
+          px: 3,
         },
       },
     ]),
-    container: {
+    legalNavigation: {
       ncss: {
-        px: 3,
-      },
-    },
-    legal: {
-      ncss: {
-        label: 'legal',
+        label: 'legal-navigation',
         alignItems: 'center',
         flexDirection: ['column', 'row'],
         fontSize: 4,
@@ -141,24 +143,22 @@ export const navigationSectionFooterNcssTree: DeepPartial<NavigationSectionFoote
       },
     },
   },
-  cardFooter: {
-    wrapper: deepMerge([
-      wrapperNcssNode,
+  footerCard: {
+    ncss: {
+      label: 'footer-card',
+    },
+    container: deepMerge([
+      containerNcssNode,
       {
         ncss: {
-          borderTop: '1px solid transparent',
-          borderColor: 'sectionBorder',
-          minHeight: '48px',
+          label: 'footer-card-container',
+          pt: 5,
+          justifyContent: 'center',
         },
       },
     ]),
-    container: {
-      ncss: {
-        px: 0,
-        justifyContent: 'center',
-      },
-    },
-    card: {
+
+    cardNavigation: {
       ncss: {
         justifyContent: 'space-evenly',
         label: 'card-navigation',

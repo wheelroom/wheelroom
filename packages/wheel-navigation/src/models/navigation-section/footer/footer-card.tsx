@@ -1,15 +1,14 @@
 import React from 'react'
-import { Container, Fluid, Wheel, Wrapper, NcssNode } from '@wheelroom/core'
+import { Container, Fluid, Wheel, NcssNode } from '@wheelroom/core'
 import { NavigationModel } from '../../navigation/model'
 import {
   CardNavigation,
   CardNavigationNcssTree,
 } from '../../navigation/variants/card-navigation'
 
-export interface FooterCardNcssTree {
+export interface FooterCardNcssTree extends NcssNode {
   container: NcssNode
-  card: CardNavigationNcssTree
-  wrapper: NcssNode
+  cardNavigation: CardNavigationNcssTree
 }
 
 interface FooterCardWheel extends Wheel {
@@ -18,31 +17,29 @@ interface FooterCardWheel extends Wheel {
 
 export interface FooterCardProps {
   containerStyle: 'container' | 'fluid'
-  hideFooterCard: boolean
+  hideCard: boolean
   navigation: NavigationModel[]
   wheel: FooterCardWheel
 }
 
 export const FooterCard = (props: FooterCardProps) => {
-  if (props.hideFooterCard === true) {
+  if (props.hideCard === true) {
     return null
   }
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
-    <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
-      <ContainerType
-        wheel={{ ...props.wheel, style: props.wheel.style.container }}
-      >
-        <CardNavigation
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.card,
-          }}
-          maxSegments={10}
-          navigation={props.navigation}
-          hideCard={props.hideFooterCard}
-        />
-      </ContainerType>
-    </Wrapper>
+    <ContainerType
+      wheel={{ ...props.wheel, style: props.wheel.style.container }}
+    >
+      <CardNavigation
+        wheel={{
+          ...props.wheel,
+          style: props.wheel.style.cardNavigation,
+        }}
+        maxSegments={10}
+        navigation={props.navigation}
+        hideCard={props.hideCard}
+      />
+    </ContainerType>
   )
 }

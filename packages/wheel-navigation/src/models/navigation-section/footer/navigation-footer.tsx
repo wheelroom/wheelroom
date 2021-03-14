@@ -1,8 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import {
-  Container,
   CoreSiteMetadata,
-  Fluid,
   GlobalsModel,
   NcssNode,
   Wheel,
@@ -15,10 +13,9 @@ import { FooterMenu, FooterMenuNcssTree } from './footer-menu'
 import { FooterCard, FooterCardNcssTree } from './footer-card'
 
 export interface NavigationSectionFooterNcssTree extends NcssNode {
-  container: NcssNode
-  footer: FooterMenuNcssTree
-  legalFooter: FooterLegalNcssTree
-  cardFooter: FooterCardNcssTree
+  footerMenu: FooterMenuNcssTree
+  footerLegal: FooterLegalNcssTree
+  footerCard: FooterCardNcssTree
   wrapper: NcssNode
 }
 
@@ -40,40 +37,32 @@ export const NavigationFooter = (props: NavigationFooterProps) => {
     return null
   }
 
-  const ContainerType = props.containerStyle === 'container' ? Container : Fluid
-
   return (
-    <Fragment>
+    <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
       <FooterCard
         containerStyle={props.containerStyle}
-        hideFooterCard={props.data.hideCardFooter}
+        hideCard={props.data.hideCard}
         navigation={props.navigation}
-        wheel={{ ...props.wheel, style: props.wheel.style.cardFooter }}
+        wheel={{ ...props.wheel, style: props.wheel.style.footerCard }}
       />
 
-      <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
-        <ContainerType
-          wheel={{ ...props.wheel, style: props.wheel.style.container }}
-        >
-          <FooterMenu
-            containerStyle={props.containerStyle}
-            wheel={{ ...props.wheel, style: props.wheel.style.footer }}
-            navigation={props.navigation}
-            hideMenu={props.data.hideMenu}
-            hideSocial={props.data.hideSocial}
-          />
-        </ContainerType>
-      </Wrapper>
+      <FooterMenu
+        containerStyle={props.containerStyle}
+        hideMenu={props.data.hideMenu}
+        hideSocial={props.data.hideSocial}
+        navigation={props.navigation}
+        wheel={{ ...props.wheel, style: props.wheel.style.footerMenu }}
+      />
 
       <FooterLegal
         containerStyle={props.containerStyle}
         copyright={props.data.copyright}
         hideCopyright={props.data.hideCopyright}
-        hideFooterLegal={props.data.hideLegalFooter}
+        hideLegal={props.data.hideLegal}
         siteMetadata={props.siteMetaData}
         supportWheelroom={props.data.supportWheelroom}
-        wheel={{ ...props.wheel, style: props.wheel.style.legalFooter }}
+        wheel={{ ...props.wheel, style: props.wheel.style.footerLegal }}
       />
-    </Fragment>
+    </Wrapper>
   )
 }

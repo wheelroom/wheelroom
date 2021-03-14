@@ -1,9 +1,11 @@
 export interface NavigationSectionFooterData {
   copyright: string
-  hideCardFooter: boolean
+  hideBrand: boolean
+  hideCard: boolean
   hideCopyright: boolean
-  hideLegalFooter: boolean
+  hideLegal: boolean
   hideMenu: boolean
   hideSocial: boolean
   supportWheelroom: boolean
+  useLogoElement: JSX.Element | undefined
 }
