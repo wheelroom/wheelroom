@@ -24,8 +24,8 @@ const component: WheelroomComponent = {
       items: ['check A', 'check B'],
       type: 'checkbox',
       translations: {
-        nl: {
-          items: ['dutch check A', 'dutch check B'],
+        items: {
+          nl: ['dutch check A', 'dutch check B'],
         },
       },
     } as CheckboxField,
@@ -38,8 +38,8 @@ const component: WheelroomComponent = {
       items: ['drop A', 'drop B'],
       type: 'dropdown',
       translations: {
-        nl: {
-          items: ['dutch drop A', 'dutch drop B'],
+        items: {
+          nl: ['dutch drop A', 'dutch drop B'],
         },
       },
     } as DropdownField,
