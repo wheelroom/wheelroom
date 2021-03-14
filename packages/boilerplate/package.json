@@ -26,14 +26,14 @@
     "@wheelroom/admin-page-preview": "1.5.14",
     "@wheelroom/admin-panel": "1.2.9",
     "@wheelroom/admin-theme-switcher": "2.0.7",
-    "@wheelroom/core": "2.4.0",
+    "@wheelroom/core": "2.4.1",
     "@wheelroom/styled-system": "4.1.9",
-    "@wheelroom/wheel-blog": "2.2.12",
-    "@wheelroom/wheel-doc": "2.0.13",
-    "@wheelroom/wheel-navigation": "2.5.1",
-    "@wheelroom/wheel-table": "2.2.11",
-    "@wheelroom/wheel-text": "2.0.15",
-    "@wheelroom/wheel-topic": "3.1.2",
+    "@wheelroom/wheel-blog": "2.2.13",
+    "@wheelroom/wheel-doc": "2.0.14",
+    "@wheelroom/wheel-navigation": "2.5.2",
+    "@wheelroom/wheel-table": "2.2.12",
+    "@wheelroom/wheel-text": "2.0.16",
+    "@wheelroom/wheel-topic": "3.1.3",
     "@wheelroom/wheelroom": "4.3.9",
     "@wheelroom/wheelroom-plugin-boilerplate": "3.1.17",
     "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
@@ -141,8 +141,8 @@
     "wr:ls": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js list"
   },
   "type": "commonjs",
-  "version": "6.3.4",
+  "version": "6.3.5",
   "wheelroom": {
-    "version": "6.3.4"
+    "version": "6.3.5"
   }
 }

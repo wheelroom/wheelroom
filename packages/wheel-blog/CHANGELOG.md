@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.13](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-blog@2.2.12...@wheelroom/wheel-blog@2.2.13) (2021-03-14)
+
+**Note:** Version bump only for package @wheelroom/wheel-blog
+
+
+
+
+
 ## [2.2.12](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-blog@2.2.11...@wheelroom/wheel-blog@2.2.12) (2021-03-14)
 
 **Note:** Version bump only for package @wheelroom/wheel-blog

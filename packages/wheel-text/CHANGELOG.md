@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.16](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-text@2.0.15...@wheelroom/wheel-text@2.0.16) (2021-03-14)
+
+**Note:** Version bump only for package @wheelroom/wheel-text
+
+
+
+
+
 ## [2.0.15](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-text@2.0.14...@wheelroom/wheel-text@2.0.15) (2021-03-14)
 
 **Note:** Version bump only for package @wheelroom/wheel-text
