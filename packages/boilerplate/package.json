@@ -30,7 +30,7 @@
     "@wheelroom/styled-system": "4.1.9",
     "@wheelroom/wheel-blog": "2.2.10",
     "@wheelroom/wheel-doc": "2.0.11",
-    "@wheelroom/wheel-navigation": "2.5.0",
+    "@wheelroom/wheel-navigation": "2.5.1",
     "@wheelroom/wheel-table": "2.2.8",
     "@wheelroom/wheel-text": "2.0.15",
     "@wheelroom/wheel-topic": "3.1.0",
@@ -141,8 +141,8 @@
     "wr:ls": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js list"
   },
   "type": "commonjs",
-  "version": "6.3.0",
+  "version": "6.3.1",
   "wheelroom": {
-    "version": "6.3.0"
+    "version": "6.3.1"
   }
 }

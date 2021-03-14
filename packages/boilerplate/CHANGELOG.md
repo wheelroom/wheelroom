@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.3.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.3.0...@wheelroom/boilerplate@6.3.1) (2021-03-14)
+
+
+### Bug Fixes
+
+* [#147](https://github.com/wheelroom/wheelroom/issues/147) ([89cc69e](https://github.com/wheelroom/wheelroom/commit/89cc69e02ed77b8eab75a6dc6733ee3969726319))
+
+
+
+
+
 # [6.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.2.3...@wheelroom/boilerplate@6.3.0) (2021-03-14)
 
 
