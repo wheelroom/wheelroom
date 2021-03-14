@@ -5,6 +5,7 @@ import {
   Fluid,
   Wheel,
   NcssNode,
+  Wrapper,
 } from '@wheelroom/core'
 import {
   LegalNavigation,
@@ -14,6 +15,7 @@ import {
 export interface FooterLegalNcssTree extends NcssNode {
   container: NcssNode
   legalNavigation: LegalNavigationNcssTree
+  wrapper: NcssNode
 }
 
 interface FooterLegalWheel extends Wheel {
@@ -36,17 +38,19 @@ export const FooterLegal = (props: FooterLegalProps) => {
   }
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
-    <ContainerType
-      wheel={{ ...props.wheel, style: props.wheel.style.container }}
-    >
-      <LegalNavigation
-        copyright={props.copyright}
-        hideCopyright={props.hideCopyright}
-        hideLegal={props.hideLegal}
-        siteMetadata={props.siteMetadata}
-        supportWheelroom={props.supportWheelroom}
-        wheel={{ ...props.wheel, style: props.wheel.style.legalNavigation }}
-      />
-    </ContainerType>
+    <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
+      <ContainerType
+        wheel={{ ...props.wheel, style: props.wheel.style.container }}
+      >
+        <LegalNavigation
+          copyright={props.copyright}
+          hideCopyright={props.hideCopyright}
+          hideLegal={props.hideLegal}
+          siteMetadata={props.siteMetadata}
+          supportWheelroom={props.supportWheelroom}
+          wheel={{ ...props.wheel, style: props.wheel.style.legalNavigation }}
+        />
+      </ContainerType>
+    </Wrapper>
   )
 }

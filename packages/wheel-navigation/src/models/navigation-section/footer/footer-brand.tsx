@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Fluid, Wheel, NcssNode } from '@wheelroom/core'
+import { Container, Fluid, Wheel, NcssNode, Wrapper } from '@wheelroom/core'
 import { NavigationModel } from '../../navigation/model'
 import {
   BrandNavigation,
@@ -9,6 +9,7 @@ import {
 export interface FooterBrandNcssTree extends NcssNode {
   container: NcssNode
   brandNavigation: BrandNavigationNcssTree
+  wrapper: NcssNode
 }
 
 interface FooterBrandWheel extends Wheel {
@@ -30,19 +31,21 @@ export const FooterBrand = (props: FooterBrandProps) => {
   }
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
-    <ContainerType
-      wheel={{ ...props.wheel, style: props.wheel.style.container }}
-    >
-      <BrandNavigation
-        hideBranding={props.hideBrand}
-        logoElement={props.logoElement}
-        navigation={props.navigation}
-        siteHeading={props.siteHeading}
-        wheel={{
-          ...props.wheel,
-          style: props.wheel.style.brandNavigation,
-        }}
-      />
-    </ContainerType>
+    <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
+      <ContainerType
+        wheel={{ ...props.wheel, style: props.wheel.style.container }}
+      >
+        <BrandNavigation
+          hideBranding={props.hideBrand}
+          logoElement={props.logoElement}
+          navigation={props.navigation}
+          siteHeading={props.siteHeading}
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.brandNavigation,
+          }}
+        />
+      </ContainerType>
+    </Wrapper>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Fluid, Wheel, NcssNode } from '@wheelroom/core'
+import { Container, Fluid, Wheel, NcssNode, Wrapper } from '@wheelroom/core'
 import { NavigationModel } from '../../navigation/model'
 import {
   CardNavigation,
@@ -9,6 +9,7 @@ import {
 export interface FooterCardNcssTree extends NcssNode {
   container: NcssNode
   cardNavigation: CardNavigationNcssTree
+  wrapper: NcssNode
 }
 
 interface FooterCardWheel extends Wheel {
@@ -28,18 +29,20 @@ export const FooterCard = (props: FooterCardProps) => {
   }
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
-    <ContainerType
-      wheel={{ ...props.wheel, style: props.wheel.style.container }}
-    >
-      <CardNavigation
-        wheel={{
-          ...props.wheel,
-          style: props.wheel.style.cardNavigation,
-        }}
-        maxSegments={10}
-        navigation={props.navigation}
-        hideCard={props.hideCard}
-      />
-    </ContainerType>
+    <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
+      <ContainerType
+        wheel={{ ...props.wheel, style: props.wheel.style.container }}
+      >
+        <CardNavigation
+          wheel={{
+            ...props.wheel,
+            style: props.wheel.style.cardNavigation,
+          }}
+          maxSegments={10}
+          navigation={props.navigation}
+          hideCard={props.hideCard}
+        />
+      </ContainerType>
+    </Wrapper>
   )
 }

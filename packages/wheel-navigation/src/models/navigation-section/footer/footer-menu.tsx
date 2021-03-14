@@ -1,5 +1,12 @@
 import React from 'react'
-import { Container, Flex, Fluid, NcssNode, Wheel } from '@wheelroom/core'
+import {
+  Container,
+  Flex,
+  Fluid,
+  NcssNode,
+  Wheel,
+  Wrapper,
+} from '@wheelroom/core'
 import { NavigationModel } from '../../navigation/model'
 import {
   MenuNavigation,
@@ -14,6 +21,7 @@ export interface FooterMenuNcssTree extends NcssNode {
   container: NcssNode
   menuNavigation: MenuNavigationNcssTree
   socialNavigation: SocialNavigationNcssTree
+  wrapper: NcssNode
 }
 
 interface FooterMenuWheel extends Wheel {
@@ -31,29 +39,31 @@ export interface FooterMenuProps {
 export const FooterMenu = (props: FooterMenuProps) => {
   const ContainerType = props.containerStyle === 'container' ? Container : Fluid
   return (
-    <ContainerType
-      wheel={{ ...props.wheel, style: props.wheel.style.container }}
-    >
-      <Flex is="div" wheel={props.wheel}>
-        <MenuNavigation
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.menuNavigation,
-          }}
-          maxSegments={1}
-          navigation={props.navigation}
-          hideMenu={props.hideMenu}
-        />
-        <SocialNavigation
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.socialNavigation,
-          }}
-          maxSegments={1}
-          navigation={props.navigation}
-          hideSocial={props.hideSocial}
-        />
-      </Flex>
-    </ContainerType>
+    <Wrapper wheel={{ ...props.wheel, style: props.wheel.style.wrapper }}>
+      <ContainerType
+        wheel={{ ...props.wheel, style: props.wheel.style.container }}
+      >
+        <Flex is="div" wheel={props.wheel}>
+          <MenuNavigation
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.menuNavigation,
+            }}
+            maxSegments={1}
+            navigation={props.navigation}
+            hideMenu={props.hideMenu}
+          />
+          <SocialNavigation
+            wheel={{
+              ...props.wheel,
+              style: props.wheel.style.socialNavigation,
+            }}
+            maxSegments={1}
+            navigation={props.navigation}
+            hideSocial={props.hideSocial}
+          />
+        </Flex>
+      </ContainerType>
+    </Wrapper>
   )
 }
