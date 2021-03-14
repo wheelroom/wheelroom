@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.11](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.3.10...@wheelroom/wheelroom@4.3.11) (2021-03-14)
+
+
+### Bug Fixes
+
+* 141 ([cd43b77](https://github.com/wheelroom/wheelroom/commit/cd43b77c1de874ab92f1b7430a5512cac433b9f8))
+
+
+
+
+
 ## [4.3.10](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheelroom@4.3.9...@wheelroom/wheelroom@4.3.10) (2020-09-07)
 
 
