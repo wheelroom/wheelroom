@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@3.0.7...@wheelroom/wheel-topic@3.1.0) (2021-03-14)
+
+
+### Bug Fixes
+
+* [#143](https://github.com/wheelroom/wheelroom/issues/143) ([c171e6e](https://github.com/wheelroom/wheelroom/commit/c171e6ee09fb819eb1e7e1d5e3e33694bc00c316))
+* [#144](https://github.com/wheelroom/wheelroom/issues/144) ([c3f4236](https://github.com/wheelroom/wheelroom/commit/c3f4236bb6d2cfcd250c28754db742bf6f01d4a6))
+* [#146](https://github.com/wheelroom/wheelroom/issues/146) ([6fc477b](https://github.com/wheelroom/wheelroom/commit/6fc477b0dc0b05430f123a6e35b6fb663d57c652))
+
+
+### Features
+
+* [#146](https://github.com/wheelroom/wheelroom/issues/146) ([ab30370](https://github.com/wheelroom/wheelroom/commit/ab30370a1c09593ebf01f88aaf14723ffc8593d4))
+
+
+
+
+
 ## [3.0.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-topic@3.0.5...@wheelroom/wheel-topic@3.0.7) (2021-01-31)
 
 **Note:** Version bump only for package @wheelroom/wheel-topic

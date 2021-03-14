@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.2.3...@wheelroom/boilerplate@6.3.0) (2021-03-14)
+
+
+### Bug Fixes
+
+* [#143](https://github.com/wheelroom/wheelroom/issues/143) ([c171e6e](https://github.com/wheelroom/wheelroom/commit/c171e6ee09fb819eb1e7e1d5e3e33694bc00c316))
+* [#144](https://github.com/wheelroom/wheelroom/issues/144) ([c3f4236](https://github.com/wheelroom/wheelroom/commit/c3f4236bb6d2cfcd250c28754db742bf6f01d4a6))
+* [#147](https://github.com/wheelroom/wheelroom/issues/147) ([ebad7f9](https://github.com/wheelroom/wheelroom/commit/ebad7f955b30e84f95461536927f38ce60f30f6f))
+* [#148](https://github.com/wheelroom/wheelroom/issues/148) ([8ba5058](https://github.com/wheelroom/wheelroom/commit/8ba5058d0b2e0809dbddd52e5edefeb359476472))
+
+
+### Features
+
+* [#146](https://github.com/wheelroom/wheelroom/issues/146) ([ab30370](https://github.com/wheelroom/wheelroom/commit/ab30370a1c09593ebf01f88aaf14723ffc8593d4))
+* footer navigation cards ([f774df1](https://github.com/wheelroom/wheelroom/commit/f774df1da5463a8b779f770a76a4e922e47e438b))
+
+
+
+
+
 ## [6.2.3](https://github.com/wheelroom/wheelroom/compare/@wheelroom/boilerplate@6.2.1...@wheelroom/boilerplate@6.2.3) (2021-01-31)
 
 **Note:** Version bump only for package @wheelroom/boilerplate

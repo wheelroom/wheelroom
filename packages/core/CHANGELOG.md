@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@2.3.0...@wheelroom/core@2.4.0) (2021-03-14)
+
+
+### Features
+
+* [#146](https://github.com/wheelroom/wheelroom/issues/146) ([ab30370](https://github.com/wheelroom/wheelroom/commit/ab30370a1c09593ebf01f88aaf14723ffc8593d4))
+
+
+
+
+
 # [2.3.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/core@2.1.5...@wheelroom/core@2.3.0) (2021-01-31)
 
 

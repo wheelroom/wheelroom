@@ -26,14 +26,14 @@
     "@wheelroom/admin-page-preview": "1.5.14",
     "@wheelroom/admin-panel": "1.2.9",
     "@wheelroom/admin-theme-switcher": "2.0.7",
-    "@wheelroom/core": "2.3.0",
+    "@wheelroom/core": "2.4.0",
     "@wheelroom/styled-system": "4.1.9",
-    "@wheelroom/wheel-blog": "2.2.9",
-    "@wheelroom/wheel-doc": "2.0.10",
-    "@wheelroom/wheel-navigation": "2.4.2",
-    "@wheelroom/wheel-table": "2.2.7",
-    "@wheelroom/wheel-text": "2.0.14",
-    "@wheelroom/wheel-topic": "3.0.7",
+    "@wheelroom/wheel-blog": "2.2.10",
+    "@wheelroom/wheel-doc": "2.0.11",
+    "@wheelroom/wheel-navigation": "2.5.0",
+    "@wheelroom/wheel-table": "2.2.8",
+    "@wheelroom/wheel-text": "2.0.15",
+    "@wheelroom/wheel-topic": "3.1.0",
     "@wheelroom/wheelroom": "4.3.9",
     "@wheelroom/wheelroom-plugin-boilerplate": "3.1.17",
     "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
@@ -94,8 +94,8 @@
     "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
     "read-pkg": "5.2.0",
-    "typescript": "3.9.7",
     "smoothscroll-polyfill": "0.4.4",
+    "typescript": "3.9.7",
     "write-pkg": "4.0.0"
   },
   "engines": {
@@ -141,8 +141,8 @@
     "wr:ls": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js list"
   },
   "type": "commonjs",
-  "version": "6.2.3",
+  "version": "6.3.0",
   "wheelroom": {
-    "version": "6.2.3"
+    "version": "6.3.0"
   }
 }

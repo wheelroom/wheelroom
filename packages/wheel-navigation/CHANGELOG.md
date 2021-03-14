@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-navigation@2.4.2...@wheelroom/wheel-navigation@2.5.0) (2021-03-14)
+
+
+### Bug Fixes
+
+* [#147](https://github.com/wheelroom/wheelroom/issues/147) ([ebad7f9](https://github.com/wheelroom/wheelroom/commit/ebad7f955b30e84f95461536927f38ce60f30f6f))
+* [#148](https://github.com/wheelroom/wheelroom/issues/148) ([8ba5058](https://github.com/wheelroom/wheelroom/commit/8ba5058d0b2e0809dbddd52e5edefeb359476472))
+* console.log ([eeb7350](https://github.com/wheelroom/wheelroom/commit/eeb735081da67ca2749c3dca529e2408d3765dcb))
+
+
+### Features
+
+* footer navigation cards ([f774df1](https://github.com/wheelroom/wheelroom/commit/f774df1da5463a8b779f770a76a4e922e47e438b))
+
+
+
+
+
 ## [2.4.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/wheel-navigation@2.4.0...@wheelroom/wheel-navigation@2.4.2) (2021-01-31)
 
 **Note:** Version bump only for package @wheelroom/wheel-navigation
