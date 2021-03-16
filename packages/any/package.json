@@ -1,0 +1,55 @@
+{
+  "name": "@wheelroom/any",
+  "version": "1.0.0",
+  "description": "Any component with CSS element reset and CSS Emotion props",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "rimraf build && tsc -w",
+    "dev": "tsc -w",
+    "format": "prettier src --write",
+    "render": "node --trace-warnings src/lib/render-any-components.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "keywords": [
+    "any",
+    "react",
+    "component",
+    "wheelroom"
+  ],
+  "author": "Wheelroom (https://www.wheelroom.io)",
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@wheelroom.io",
+      "url": "https://www.jaccomeijer.nl"
+    },
+    {
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "dependencies": {
+    "@emotion/react": "^11.1.5",
+    "@types/react": "17.0.3",
+    "prettier": "2.2.1",
+    "react": "^17.0.1",
+    "rimraf": "3.0.2",
+    "typescript": "4.2.3"
+  },
+  "engines": {
+    "node": "15.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": ["dom", "es2018"],
+    "module": "commonjs",
+    "outDir": "build",
+    "target": "es2018"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/lib"]
+}
