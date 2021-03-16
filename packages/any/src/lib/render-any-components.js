@@ -187,7 +187,7 @@ const RenderAnyComponents = (elements) => {
   return elements.map((element) => {
     const jsxComponentName = element[0].toUpperCase() + element.slice(1)
     return console.log(
-      `export const ${jsxComponentName}: React.FC<JSX.IntrinsicElements['${element}'] | AnyProperties> = (props) => (
+      `export const ${jsxComponentName}: React.FC<Omit<JSX.IntrinsicElements['${element}'], 'is'> | AnyProperties> = (props) => (
   <Any is="${element}" {...props} />
 )`
     )
