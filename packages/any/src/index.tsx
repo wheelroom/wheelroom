@@ -352,3 +352,177 @@ export const Wbr: React.FC<JSX.IntrinsicElements['wbr'] | AnyProperties> = (prop
 export const Webview: React.FC<JSX.IntrinsicElements['webview'] | AnyProperties> = (props) => (
   <Any is="webview" {...props} />
 )
+export const Svg: React.FC<JSX.IntrinsicElements['svg'] | AnyProperties> = (props) => (
+  <Any is="svg" {...props} />
+)
+export const Animate: React.FC<JSX.IntrinsicElements['animate'] | AnyProperties> = (props) => (
+  <Any is="animate" {...props} />
+)
+export const AnimateMotion: React.FC<JSX.IntrinsicElements['animateMotion'] | AnyProperties> = (props) => (
+  <Any is="animateMotion" {...props} />
+)
+export const AnimateTransform: React.FC<JSX.IntrinsicElements['animateTransform'] | AnyProperties> = (props) => (
+  <Any is="animateTransform" {...props} />
+)
+export const Circle: React.FC<JSX.IntrinsicElements['circle'] | AnyProperties> = (props) => (
+  <Any is="circle" {...props} />
+)
+export const ClipPath: React.FC<JSX.IntrinsicElements['clipPath'] | AnyProperties> = (props) => (
+  <Any is="clipPath" {...props} />
+)
+export const Defs: React.FC<JSX.IntrinsicElements['defs'] | AnyProperties> = (props) => (
+  <Any is="defs" {...props} />
+)
+export const Desc: React.FC<JSX.IntrinsicElements['desc'] | AnyProperties> = (props) => (
+  <Any is="desc" {...props} />
+)
+export const Ellipse: React.FC<JSX.IntrinsicElements['ellipse'] | AnyProperties> = (props) => (
+  <Any is="ellipse" {...props} />
+)
+export const FeBlend: React.FC<JSX.IntrinsicElements['feBlend'] | AnyProperties> = (props) => (
+  <Any is="feBlend" {...props} />
+)
+export const FeColorMatrix: React.FC<JSX.IntrinsicElements['feColorMatrix'] | AnyProperties> = (props) => (
+  <Any is="feColorMatrix" {...props} />
+)
+export const FeComponentTransfer: React.FC<JSX.IntrinsicElements['feComponentTransfer'] | AnyProperties> = (props) => (
+  <Any is="feComponentTransfer" {...props} />
+)
+export const FeComposite: React.FC<JSX.IntrinsicElements['feComposite'] | AnyProperties> = (props) => (
+  <Any is="feComposite" {...props} />
+)
+export const FeConvolveMatrix: React.FC<JSX.IntrinsicElements['feConvolveMatrix'] | AnyProperties> = (props) => (
+  <Any is="feConvolveMatrix" {...props} />
+)
+export const FeDiffuseLighting: React.FC<JSX.IntrinsicElements['feDiffuseLighting'] | AnyProperties> = (props) => (
+  <Any is="feDiffuseLighting" {...props} />
+)
+export const FeDisplacementMap: React.FC<JSX.IntrinsicElements['feDisplacementMap'] | AnyProperties> = (props) => (
+  <Any is="feDisplacementMap" {...props} />
+)
+export const FeDistantLight: React.FC<JSX.IntrinsicElements['feDistantLight'] | AnyProperties> = (props) => (
+  <Any is="feDistantLight" {...props} />
+)
+export const FeDropShadow: React.FC<JSX.IntrinsicElements['feDropShadow'] | AnyProperties> = (props) => (
+  <Any is="feDropShadow" {...props} />
+)
+export const FeFlood: React.FC<JSX.IntrinsicElements['feFlood'] | AnyProperties> = (props) => (
+  <Any is="feFlood" {...props} />
+)
+export const FeFuncA: React.FC<JSX.IntrinsicElements['feFuncA'] | AnyProperties> = (props) => (
+  <Any is="feFuncA" {...props} />
+)
+export const FeFuncB: React.FC<JSX.IntrinsicElements['feFuncB'] | AnyProperties> = (props) => (
+  <Any is="feFuncB" {...props} />
+)
+export const FeFuncG: React.FC<JSX.IntrinsicElements['feFuncG'] | AnyProperties> = (props) => (
+  <Any is="feFuncG" {...props} />
+)
+export const FeFuncR: React.FC<JSX.IntrinsicElements['feFuncR'] | AnyProperties> = (props) => (
+  <Any is="feFuncR" {...props} />
+)
+export const FeGaussianBlur: React.FC<JSX.IntrinsicElements['feGaussianBlur'] | AnyProperties> = (props) => (
+  <Any is="feGaussianBlur" {...props} />
+)
+export const FeImage: React.FC<JSX.IntrinsicElements['feImage'] | AnyProperties> = (props) => (
+  <Any is="feImage" {...props} />
+)
+export const FeMerge: React.FC<JSX.IntrinsicElements['feMerge'] | AnyProperties> = (props) => (
+  <Any is="feMerge" {...props} />
+)
+export const FeMergeNode: React.FC<JSX.IntrinsicElements['feMergeNode'] | AnyProperties> = (props) => (
+  <Any is="feMergeNode" {...props} />
+)
+export const FeMorphology: React.FC<JSX.IntrinsicElements['feMorphology'] | AnyProperties> = (props) => (
+  <Any is="feMorphology" {...props} />
+)
+export const FeOffset: React.FC<JSX.IntrinsicElements['feOffset'] | AnyProperties> = (props) => (
+  <Any is="feOffset" {...props} />
+)
+export const FePointLight: React.FC<JSX.IntrinsicElements['fePointLight'] | AnyProperties> = (props) => (
+  <Any is="fePointLight" {...props} />
+)
+export const FeSpecularLighting: React.FC<JSX.IntrinsicElements['feSpecularLighting'] | AnyProperties> = (props) => (
+  <Any is="feSpecularLighting" {...props} />
+)
+export const FeSpotLight: React.FC<JSX.IntrinsicElements['feSpotLight'] | AnyProperties> = (props) => (
+  <Any is="feSpotLight" {...props} />
+)
+export const FeTile: React.FC<JSX.IntrinsicElements['feTile'] | AnyProperties> = (props) => (
+  <Any is="feTile" {...props} />
+)
+export const FeTurbulence: React.FC<JSX.IntrinsicElements['feTurbulence'] | AnyProperties> = (props) => (
+  <Any is="feTurbulence" {...props} />
+)
+export const Filter: React.FC<JSX.IntrinsicElements['filter'] | AnyProperties> = (props) => (
+  <Any is="filter" {...props} />
+)
+export const ForeignObject: React.FC<JSX.IntrinsicElements['foreignObject'] | AnyProperties> = (props) => (
+  <Any is="foreignObject" {...props} />
+)
+export const G: React.FC<JSX.IntrinsicElements['g'] | AnyProperties> = (props) => (
+  <Any is="g" {...props} />
+)
+export const Image: React.FC<JSX.IntrinsicElements['image'] | AnyProperties> = (props) => (
+  <Any is="image" {...props} />
+)
+export const Line: React.FC<JSX.IntrinsicElements['line'] | AnyProperties> = (props) => (
+  <Any is="line" {...props} />
+)
+export const LinearGradient: React.FC<JSX.IntrinsicElements['linearGradient'] | AnyProperties> = (props) => (
+  <Any is="linearGradient" {...props} />
+)
+export const Marker: React.FC<JSX.IntrinsicElements['marker'] | AnyProperties> = (props) => (
+  <Any is="marker" {...props} />
+)
+export const Mask: React.FC<JSX.IntrinsicElements['mask'] | AnyProperties> = (props) => (
+  <Any is="mask" {...props} />
+)
+export const Metadata: React.FC<JSX.IntrinsicElements['metadata'] | AnyProperties> = (props) => (
+  <Any is="metadata" {...props} />
+)
+export const Mpath: React.FC<JSX.IntrinsicElements['mpath'] | AnyProperties> = (props) => (
+  <Any is="mpath" {...props} />
+)
+export const Path: React.FC<JSX.IntrinsicElements['path'] | AnyProperties> = (props) => (
+  <Any is="path" {...props} />
+)
+export const Pattern: React.FC<JSX.IntrinsicElements['pattern'] | AnyProperties> = (props) => (
+  <Any is="pattern" {...props} />
+)
+export const Polygon: React.FC<JSX.IntrinsicElements['polygon'] | AnyProperties> = (props) => (
+  <Any is="polygon" {...props} />
+)
+export const Polyline: React.FC<JSX.IntrinsicElements['polyline'] | AnyProperties> = (props) => (
+  <Any is="polyline" {...props} />
+)
+export const RadialGradient: React.FC<JSX.IntrinsicElements['radialGradient'] | AnyProperties> = (props) => (
+  <Any is="radialGradient" {...props} />
+)
+export const Rect: React.FC<JSX.IntrinsicElements['rect'] | AnyProperties> = (props) => (
+  <Any is="rect" {...props} />
+)
+export const Stop: React.FC<JSX.IntrinsicElements['stop'] | AnyProperties> = (props) => (
+  <Any is="stop" {...props} />
+)
+export const Switch: React.FC<JSX.IntrinsicElements['switch'] | AnyProperties> = (props) => (
+  <Any is="switch" {...props} />
+)
+export const Symbol: React.FC<JSX.IntrinsicElements['symbol'] | AnyProperties> = (props) => (
+  <Any is="symbol" {...props} />
+)
+export const Text: React.FC<JSX.IntrinsicElements['text'] | AnyProperties> = (props) => (
+  <Any is="text" {...props} />
+)
+export const TextPath: React.FC<JSX.IntrinsicElements['textPath'] | AnyProperties> = (props) => (
+  <Any is="textPath" {...props} />
+)
+export const Tspan: React.FC<JSX.IntrinsicElements['tspan'] | AnyProperties> = (props) => (
+  <Any is="tspan" {...props} />
+)
+export const Use: React.FC<JSX.IntrinsicElements['use'] | AnyProperties> = (props) => (
+  <Any is="use" {...props} />
+)
+export const View: React.FC<JSX.IntrinsicElements['view'] | AnyProperties> = (props) => (
+  <Any is="view" {...props} />
+)
