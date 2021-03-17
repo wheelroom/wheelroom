@@ -3,7 +3,7 @@
  * TODO: Convert console output in an AST template file or write file with Node
  */
 
-const intrinsicElements = [
+export const intrinsicElements: string[] = [
   // HTML
   'a',
   'abbr',
