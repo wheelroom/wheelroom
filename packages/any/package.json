@@ -5,7 +5,6 @@
   "main": "build/index.js",
   "scripts": {
     "build": "npm-run-all build:*",
-    "buikd:clean": "rimraf build",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "tsc",
     "build:render": "node --trace-warnings src/lib/render-any-components.js",
