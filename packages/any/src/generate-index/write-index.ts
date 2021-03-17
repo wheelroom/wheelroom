@@ -1,19 +1,21 @@
-import { intrinsicElements } from "./intrinsic-elements"
+import fs from 'fs'
+import path from 'path'
 
-const writeIndex = (elements: string[]) => {
+const FOLDER = 'src'
+const FILE = 'index.ts'
 
+export const writeIndex = (elements: string[]) => {
+  const folder = FOLDER
+  fs.mkdirSync(folder, { recursive: true })
 
-  // import React from 'react'
-  // import { Any, AnyProps } from './Any'
-  
+  let data = `import React from 'react'
+import { Any, AnyProps } from './Any'
+`
   elements.forEach((element) => {
     const jsxComponentName = element[0].toUpperCase() + element.slice(1)
-    return console.log(
-      `export const ${jsxComponentName}: React.FC<AnyProps['${element}']> = (props) => (
-  <Any is="${element}" {...props} />
-)`
-    )
+    data += `export const ${jsxComponentName}: React.FC<AnyProps['${element}']> = (props) => <Any is="${element}" {...props} />
+`
   })
+  const file = path.join(FOLDER, FILE)
+  fs.writeFileSync(file, data)
 }
-
-writeIndex(intrinsicElements)
