@@ -3,6 +3,9 @@
  * @see https://css-tricks.com/box-sizing/
  */
 
-export const anyReset = {
+import { Interpolation, Theme } from '@emotion/react'
+export type AnyReset = Interpolation<Theme>
+
+export const anyReset: AnyReset = {
   boxSizing: 'border-box',
 }
