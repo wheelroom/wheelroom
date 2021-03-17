@@ -19,7 +19,7 @@ export type AnyProps = {
   }
 }
 
-export const generateAny = (anyReset: any, elementResetMap: any) => (props: any) => {
+export const Any: React.FC<any> = (props) => {
   const elementName = props.is || 'div'
   const attr = Object.assign({}, props)
   delete attr.is
@@ -29,5 +29,3 @@ export const generateAny = (anyReset: any, elementResetMap: any) => (props: any)
   attr.css = css([anyReset, elementResetMap[elementName]])
   return jsx(elementName, attr, props.children)
 }
-
-export const Any: React.FC<any> = generateAny(anyReset, elementResetMap)
