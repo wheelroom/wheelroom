@@ -9,7 +9,7 @@
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "tsc",
     "build:render": "node --trace-warnings src/lib/render-any-components.js",
-    "build:test": "jest --silent",
+    "build:test": "jest --silent --passWithNoTests",
     "format": "prettier src --write",
     "prepack": "npm run build",
     "test": "npm run build:test",
