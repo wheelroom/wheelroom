@@ -1,7 +1,7 @@
 import React from 'react'
 import { Interpolation, Theme, css, jsx } from '@emotion/react'
-import { anyReset, elementReset } from './resets'
-
+import { anyReset } from './any-reset'
+import { elementReset } from './element-reset'
 /**
  * Extend JSX.IntrinsicElements with AnyProps: `is` and `css`
  */

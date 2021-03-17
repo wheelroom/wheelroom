@@ -1,24 +1,15 @@
-import { css } from '@emotion/react'
+/**
+ * Global reset
+ */
 
-export const globalReset = css({
-  /**
-   * 1. Correct the line height in all browsers.
-   * 2. Prevent adjustments of font size after orientation changes in iOS.
-   */
+import { htmlReset, bodyReset, hiddenReset } from './element-reset'
+
+export const globalReset = {
   html: {
-    lineHeight: 1.15,
-    WebkitTextSizeAdjust: '100%',
+    ...htmlReset,
   },
-  /**
-   * Remove the margin in all browsers.
-   */
   body: {
-    margin: 0,
+    ...bodyReset,
   },
-  /**
-   * Add the correct display in IE 10.
-   */
-  '[hidden]': {
-    display: 'none',
-  },
-})
+  ...hiddenReset,
+}

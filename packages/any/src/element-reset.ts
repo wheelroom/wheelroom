@@ -15,7 +15,7 @@
 /* Document
    ========================================================================== */
 
-const htmlReset = {
+export const htmlReset = {
   /**
    * 1. Correct the line height in all browsers.
    * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -27,7 +27,7 @@ const htmlReset = {
 /* Sections
    ========================================================================== */
 
-const bodyReset = {
+export const bodyReset = {
   /**
    * Remove the margin in all browsers.
    */
@@ -321,7 +321,7 @@ const templateReset = {
   display: 'none',
 }
 
-const hiddenReset = {
+export const hiddenReset = {
   /**
    * Add the correct display in IE 10.
    */
@@ -363,27 +363,4 @@ export const elementReset: any = {
   sup: supReset,
   template: templateReset,
   textarea: textareaReset,
-}
-
-/**
- * Any reset is replacing the Universal Box Sizing `*, *:before, *:after`
- * @see https://css-tricks.com/box-sizing/
- */
-
-export const anyReset = {
-  boxSizing: 'border-box',
-}
-
-/**
- * Global reset
- */
-
-export const globalReset = {
-  html: {
-    ...htmlReset,
-  },
-  body: {
-    ...bodyReset,
-  },
-  ...hiddenReset,
 }
