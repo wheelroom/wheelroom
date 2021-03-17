@@ -15,7 +15,7 @@ export type AnyProps = {
     /**
      * CSS interpolation from @emotion/react
      */
-    css?: Interpolation<Theme> | Object
+    css?: Interpolation<Theme> | Record<string, any>
   }
 }
 
