@@ -23,7 +23,9 @@ export const Any: React.FC<any> = (props) => {
   const elementName = props.is || 'div'
   const attr = Object.assign({}, props)
   delete attr.is
-  attr.className = props.className // This is where the magic happens!
+  // Copy className to new element. This allows for creating components that
+  // inherit styling from the base component.
+  attr.className = props.className
   attr.css = css([anyReset, elementReset[elementName]])
   return jsx(elementName, attr, props.children)
 }
