@@ -1,14 +1,28 @@
 {
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "declaration": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "lib": ["dom", "es2018"],
+    "lib": ["es2015", "es2017", "dom"],
     "module": "commonjs",
-    "outDir": "build",
-    "target": "es2018"
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitUseStrict": true,
+    "noUnusedLocals": true,
+    "outDir": "dist",
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "target": "es2015",
+    "types": ["react", "node", "jest"]
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/lib"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": []
 }
