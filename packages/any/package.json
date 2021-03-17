@@ -4,11 +4,16 @@
   "description": "Any component with CSS element reset and CSS Emotion props",
   "main": "build/index.js",
   "scripts": {
-    "build": "rimraf build && tsc -w",
-    "dev": "tsc -w",
+    "build": "npm-run-all build:*",
+    "buikd:clean": "rimraf build",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:compile": "tsc",
+    "build:render": "node --trace-warnings src/lib/render-any-components.js",
+    "build:test": "jest --silent",
     "format": "prettier src --write",
-    "render": "node --trace-warnings src/lib/render-any-components.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepack": "npm run build",
+    "test": "npm run build:test",
+    "dev": "tsc --watch"
   },
   "repository": {
     "type": "git",
@@ -41,6 +46,15 @@
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@types/react": "17.0.3",
+    "@typescript-eslint/eslint-plugin": "2.24.0",
+    "@typescript-eslint/parser": "2.24.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react-hooks": "2.5.0",
+    "eslint-plugin-react": "7.19.0",
+    "eslint": "6.8.0",
+    "jest": "26.6.3",
+    "npm-run-all": "4.1.5",
     "prettier": "2.2.1",
     "react": "^17.0.1",
     "rimraf": "3.0.2",
