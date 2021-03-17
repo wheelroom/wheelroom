@@ -1,7 +1,7 @@
 import React from 'react'
-import { Any, AnyProps } from './Any'
+import { Any, AnyComponent, AnyProps } from './Any'
 
-export { Any }
+export { Any, AnyComponent }
 export type { AnyProps }
 
 export { anyReset } from './resets/any-reset'
