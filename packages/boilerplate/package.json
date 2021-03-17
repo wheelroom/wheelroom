@@ -26,6 +26,7 @@
     "@wheelroom/admin-page-preview": "1.5.14",
     "@wheelroom/admin-panel": "1.2.9",
     "@wheelroom/admin-theme-switcher": "2.0.7",
+    "@wheelroom/any": "1.0.0",
     "@wheelroom/core": "2.4.1",
     "@wheelroom/styled-system": "4.1.9",
     "@wheelroom/wheel-blog": "2.2.13",
