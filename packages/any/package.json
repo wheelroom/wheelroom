@@ -2,7 +2,7 @@
   "name": "@wheelroom/any",
   "version": "1.0.0",
   "description": "Any component with CSS element reset and CSS Emotion props",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npm-run-all build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
