@@ -334,7 +334,7 @@ export const hiddenReset = {
  * Element reset
  */
 
-export const elementReset: any = {
+export const elementResetMap: any = {
   a: aReset,
   abbr: abbrReset,
   b: strongReset,

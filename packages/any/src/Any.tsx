@@ -1,7 +1,7 @@
 import React from 'react'
 import { Interpolation, Theme, css, jsx } from '@emotion/react'
-import { anyReset } from './any-reset'
-import { elementReset } from './element-reset'
+import { anyReset } from './resets/any-reset'
+import { elementResetMap } from './resets/element-reset-map'
 /**
  * Extend JSX.IntrinsicElements with AnyProps: `is` and `css`
  */
@@ -30,4 +30,4 @@ export const generateAny = (anyReset: any, elementResetMap: any) => (props: any)
   return jsx(elementName, attr, props.children)
 }
 
-export const Any: React.FC<any> = generateAny(anyReset, elementReset)
+export const Any: React.FC<any> = generateAny(anyReset, elementResetMap)
