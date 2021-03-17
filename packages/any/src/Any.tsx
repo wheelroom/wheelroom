@@ -29,6 +29,6 @@ export const AnyComponent: React.FC<any> = (props) => {
   return jsx(elementName, attr, props.children)
 }
 
-export const Any = (props: any) => (
-  <AnyComponent {...props} css={css([anyReset, elementResetMap[props.is]], props.css)} />
+export const Any: React.FC<any> = (props) => (
+  <AnyComponent {...props} css={css([anyReset, elementResetMap[props.is]])} />
 )
