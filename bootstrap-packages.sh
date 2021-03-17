@@ -17,6 +17,7 @@ prepare_module_folder() {
         echo "No argument supplied"
         return
     fi
+    mkdir -p packages/any/node_modules/$1
     mkdir -p packages/admin-core/node_modules/$1
     mkdir -p packages/admin-events/node_modules/$1
     mkdir -p packages/admin-panel/node_modules/$1
@@ -40,6 +41,7 @@ remove_module_folder() {
         return
     fi
 
+    rm -rf packages/any/node_modules/$1
     rm -rf packages/admin-core/node_modules/$1
     rm -rf packages/admin-events/node_modules/$1
     rm -rf packages/admin-panel/node_modules/$1
@@ -66,6 +68,7 @@ link_module_folder() {
             return
         fi
 
+        ln -s $2 packages/any/node_modules/$1
         ln -s $2 packages/admin-core/node_modules/$1
         ln -s $2 packages/admin-events/node_modules/$1
         ln -s $2 packages/admin-panel/node_modules/$1
@@ -85,6 +88,7 @@ link_module_folder() {
 
 }
 
+# Make sure these node_module folders exist for all packages
 prepare_all_module_folders() {
     prepare_module_folder @types
     prepare_module_folder @emotion
@@ -92,6 +96,7 @@ prepare_all_module_folders() {
     prepare_module_folder @reach
 }
 
+# Remove these node_module folders for all packages
 remove_all_module_folders() {
     remove_module_folder @types/react
     remove_module_folder @emotion/core
@@ -102,6 +107,7 @@ remove_all_module_folders() {
     remove_module_folder query-string
 }
 
+# Link these node_module folders for all packages
 link_all_module_folders() {
     link_module_folder @types/react ../../../boilerplate/node_modules/@types/react
     link_module_folder @emotion/core ../../../boilerplate/node_modules/@emotion/core
