@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const FOLDER = 'src'
-const FILE = 'index.ts'
+const FILE = 'index.tsx'
 
 export const writeIndex = (elements: string[]) => {
   const folder = FOLDER
