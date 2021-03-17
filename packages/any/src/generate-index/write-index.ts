@@ -14,9 +14,9 @@ import { Any, AnyProps } from './Any'
 export { Any }
 export type { AnyProps }
 
-export { anyReset } from './any-reset'
-export { elementReset } from './element-reset'
-export { globalReset } from './global-reset'
+export { anyReset } from './resets/any-reset'
+export { elementResetMap } from './resets/element-reset-map'
+export { globalReset } from './resets/global-reset'
 
 `
   elements.forEach((element) => {

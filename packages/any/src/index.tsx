@@ -4,9 +4,9 @@ import { Any, AnyProps } from './Any'
 export { Any }
 export type { AnyProps }
 
-export { anyReset } from './any-reset'
-export { elementReset } from './element-reset'
-export { globalReset } from './global-reset'
+export { anyReset } from './resets/any-reset'
+export { elementResetMap } from './resets/element-reset-map'
+export { globalReset } from './resets/global-reset'
 
 export const A: React.FC<AnyProps['a']> = (props) => <Any is="a" {...props} />
 export const Abbr: React.FC<AnyProps['abbr']> = (props) => <Any is="abbr" {...props} />
