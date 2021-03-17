@@ -10,6 +10,14 @@ export const writeIndex = (elements: string[]) => {
 
   let data = `import React from 'react'
 import { Any, AnyProps } from './Any'
+
+export { Any }
+export type { AnyProps }
+
+export { anyReset } from './any-reset'
+export { elementReset } from './element-reset'
+export { globalReset } from './global-reset'
+
 `
   elements.forEach((element) => {
     const jsxComponentName = element[0].toUpperCase() + element.slice(1)
