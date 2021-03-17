@@ -1,5 +1,5 @@
 import React from 'react'
-import { Interpolation, Theme, jsx } from '@emotion/react'
+import { Interpolation, Theme, jsx, css } from '@emotion/react'
 import { anyReset } from './resets/any-reset'
 import { elementResetMap } from './resets/element-reset-map'
 /**
@@ -30,5 +30,5 @@ export const AnyComponent: React.FC<any> = (props) => {
 }
 
 export const Any = (props: any) => (
-  <AnyComponent {...props} css={[anyReset, elementResetMap[props.is]]} />
+  <AnyComponent {...props} css={css([anyReset, elementResetMap[props.is]], props.css)} />
 )
