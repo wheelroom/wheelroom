@@ -6,4 +6,3 @@
 export const anyReset = {
   boxSizing: 'border-box',
 }
-
