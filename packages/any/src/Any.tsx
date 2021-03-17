@@ -1,5 +1,5 @@
 import React from 'react'
-import { Interpolation, Theme, css, jsx } from '@emotion/react'
+import { Interpolation, Theme, jsx } from '@emotion/react'
 import { anyReset } from './resets/any-reset'
 import { elementResetMap } from './resets/element-reset-map'
 /**
