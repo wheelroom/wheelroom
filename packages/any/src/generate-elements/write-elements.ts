@@ -2,9 +2,9 @@ import fs from 'fs'
 import path from 'path'
 
 const FOLDER = 'src'
-const FILE = 'index.tsx'
+const FILE = 'elements.tsx'
 
-export const writeIndex = (elements: string[]) => {
+export const writeElements = (elements: string[]) => {
   const folder = FOLDER
   fs.mkdirSync(folder, { recursive: true })
 

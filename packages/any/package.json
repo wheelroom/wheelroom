@@ -31,13 +31,12 @@
     }
   ],
   "type": "commonjs",
-  "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist/index.*",
-    "dist/Any.*",
-    "dist/resets/*"
-  ],
+  "exports": {
+    ".": "dist/elements.js",
+    "any": "dist/Any.js",
+    "resets": "dist/resets.js",
+  },
   "scripts": {
     "build": "npm-run-all build:*",
     "build:compile": "tsc",
