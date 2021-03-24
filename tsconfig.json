@@ -8,8 +8,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "lib": ["es2017", "dom"],
-    "module": "commonjs",
+    "lib": ["dom", "es6"],
+    "module": "es6",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
@@ -17,6 +17,6 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es2015"
+    "target": "es3"
   }
 }

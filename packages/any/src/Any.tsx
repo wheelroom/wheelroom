@@ -35,5 +35,10 @@ export const AnyComponent: React.FC<any> = (props) => {
 export const Any: React.FC<any> = (props: any) => {
   const elementName: ElementResetName = props.is || 'div'
   const elementReset: AnyReset = elementResetMap[elementName]
-  return <AnyComponent {...props} css={css([anyReset as any, elementReset])} />
+  return (
+    <AnyComponent
+      {...props}
+      css={css([anyReset as any, elementReset, props.css])}
+    />
+  )
 }
