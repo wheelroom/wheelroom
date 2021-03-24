@@ -30,15 +30,14 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "type": "commonjs",
   "exports": {
     ".": "./build/elements.js",
     "./any": "./build/Any.js",
     "./resets": "./build/resets.js"
   },
-  "types": "build/index.d.ts",
   "scripts": {
     "build": "npm-run-all build:*",
+    "build:clean": "rimraf build",
     "build:compile": "tsc",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
@@ -51,10 +50,26 @@
     "prepack": "npm run build",
     "test": "npm run build:test"
   },
+  "dependencies": {
+    "rimraf": "3.0.2"
+  },
   "engines": {
     "node": "15.x"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "typesVersions": {
+    ">=4.0": {
+      ".": [
+        "build/elements.d.ts"
+      ],
+      "any": [
+        "build/Any.d.ts"
+      ],
+      "resets": [
+        "resets/resets.d.ts"
+      ]
+    }
   }
 }

@@ -8,6 +8,7 @@ compiled-config/
 .cache
 dist/
 build/
+public/
 
 # Logs
 logs
