@@ -32,11 +32,11 @@
   ],
   "type": "commonjs",
   "exports": {
-    ".": "./dist/elements.js",
-    "any": "./dist/Any.js",
-    "resets": "./dist/resets.js"
+    ".": "./build/elements.js",
+    "./any": "./build/Any.js",
+    "./resets": "./build/resets.js"
   },
-  "types": "dist/index.d.ts",
+  "types": "build/index.d.ts",
   "scripts": {
     "build": "npm-run-all build:*",
     "build:compile": "tsc",
@@ -46,8 +46,8 @@
     "format": "prettier src --write",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc",
-    "generate:update": "node build/generate-elements/generate-elements.js",
     "generate:lint-fix": "eslint 'src/elements.tsx' --fix",
+    "generate:update": "node build/generate-elements/generate-elements.js",
     "prepack": "npm run build",
     "test": "npm run build:test"
   },
