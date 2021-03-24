@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@wheelroom/*": ["packages/wheelroom/src/*"]
+    },
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,8 +18,5 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2015"
-  },
-  "paths": {
-    "@wheelroom/any/*": ["./packages/any/*"]
   }
 }
