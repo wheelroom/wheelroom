@@ -1,3 +1,0 @@
-# @wheelroom/wheel-topic
-
-TBW

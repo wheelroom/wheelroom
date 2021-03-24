@@ -1,3 +1,0 @@
-# @wheelroom/core
-
-TBW

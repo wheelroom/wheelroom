@@ -1,3 +1,0 @@
-# @wheelroom/admin-panel
-
-TBW

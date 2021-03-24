@@ -1,3 +1,0 @@
-# @wheelroom/wheel-doc
-
-TBW
