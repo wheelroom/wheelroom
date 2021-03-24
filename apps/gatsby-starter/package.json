@@ -46,7 +46,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "gatsby": "3.1.2"
+    "gatsby": "3.1.2",
+    "@wheelroom/any": "1.0.0"
   },
   "engines": {
     "node": ">=15.0.0",
