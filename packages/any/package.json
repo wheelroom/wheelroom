@@ -37,7 +37,7 @@
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:clean": "rimraf build",
+    "build:clean": "rimraf build/*",
     "build:compile": "tsc",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",

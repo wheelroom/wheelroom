@@ -9,7 +9,6 @@
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "outDir": "build",
     "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,
@@ -17,6 +16,6 @@
     "target": "es2015"
   },
   "paths": {
-    "@wheelroom/any/*": ["./packages/any/src/*"]
+    "@wheelroom/any/*": ["./packages/any/*"]
   }
 }
