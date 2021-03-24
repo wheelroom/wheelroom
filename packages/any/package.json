@@ -31,7 +31,7 @@
     }
   ],
   "exports": {
-    ".": "./build/elements.js",
+    "./elements": "./build/elements.js",
     "./any": "./build/Any.js",
     "./resets": "./build/resets.js"
   },

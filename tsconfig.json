@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@wheelroom/*": ["packages/wheelroom/src/*"]
+      "@wheelroom/any/*": ["packages/any/src/*"]
     },
     "declaration": true,
     "esModuleInterop": true,

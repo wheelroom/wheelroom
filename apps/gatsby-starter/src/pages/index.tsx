@@ -1,6 +1,6 @@
 import React from 'react'
 import { PageProps } from 'gatsby'
-import { Ul, Li } from '@wheelroom/any'
+import { Ul, Li } from '@wheelroom/any/elements'
 
 const Home = (props: PageProps) => {
   console.log(props.data)
