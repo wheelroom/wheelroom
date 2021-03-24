@@ -30,7 +30,6 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "type": "commonjs",
   "exports": {
     ".": "./build/elements.js",
     "./any": "./build/Any.js",
@@ -51,9 +50,6 @@
     "prepack": "npm run build",
     "test": "npm run build:test"
   },
-  "dependencies": {
-    "rimraf": "3.0.2"
-  },
   "engines": {
     "node": "15.x"
   },
@@ -61,7 +57,7 @@
     "access": "public"
   },
   "typesVersions": {
-    ">=4.0": {
+    ">=3.0": {
       ".": [
         "build/elements.d.ts"
       ],

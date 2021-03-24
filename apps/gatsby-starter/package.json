@@ -34,8 +34,6 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "type": "commonjs",
-  "main": "index.js",
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
