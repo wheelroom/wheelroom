@@ -30,6 +30,7 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
+  "type": "commonjs",
   "exports": {
     ".": "./build/elements.js",
     "./any": "./build/Any.js",
