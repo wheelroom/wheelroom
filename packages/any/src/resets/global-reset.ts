@@ -6,10 +6,10 @@ import { htmlReset, bodyReset, hiddenReset } from './element-reset-map'
 
 export const globalReset = {
   html: {
-    ...(htmlReset as object),
+    ...(htmlReset as Record<string, string>),
   },
   body: {
-    ...(bodyReset as object),
+    ...(bodyReset as Record<string, string>),
   },
-  ...(hiddenReset as object),
+  ...(hiddenReset as Record<string, string>),
 }

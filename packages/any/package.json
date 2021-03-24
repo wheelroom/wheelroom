@@ -46,8 +46,8 @@
     "format": "prettier src --write",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc",
-    "generate:lint-fix": "eslint 'src/elements.tsx' --fix",
     "generate:update": "node build/generate-elements/generate-elements.js",
+    "generate:lint-fix": "eslint 'src/elements.tsx' --fix",
     "prepack": "npm run build",
     "test": "npm run build:test"
   },
