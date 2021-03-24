@@ -32,7 +32,7 @@
   ],
   "exports": {
     "./elements": "./build/elements.js",
-    "./any": "./build/Any.js",
+    "./Any": "./build/Any.js",
     "./resets": "./build/resets.js"
   },
   "scripts": {
