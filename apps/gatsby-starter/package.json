@@ -36,9 +36,6 @@
   ],
   "type": "commonjs",
   "main": "index.js",
-  "dependencies": {
-    "@wheelroom/any": "1.0.0"
-  },
   "engines": {
     "node": ">=15.0.0",
     "npm": ">=7.0.0"
