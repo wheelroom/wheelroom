@@ -1,5 +1,5 @@
 {
-  "name": "@wheelroom/boilerplate",
+  "name": "@wheelroom/gatsby-starter",
   "version": "6.3.5",
   "private": true,
   "description": "A JAMstack boilerplate for services, like Gatsby, Contentful, Netlify and much more",
@@ -36,11 +36,11 @@
   ],
   "type": "commonjs",
   "main": "index.js",
+  "dependencies": {
+    "@wheelroom/any": "1.0.0"
+  },
   "engines": {
     "node": ">=15.0.0",
     "npm": ">=7.0.0"
-  },
-  "wheelroom": {
-    "version": "7.0.0"
   }
 }
