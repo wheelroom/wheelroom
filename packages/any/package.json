@@ -1,0 +1,80 @@
+{
+  "name": "@wheelroom/any",
+  "version": "1.0.0",
+  "description": "Any component with CSS element reset and CSS Emotion props",
+  "keywords": [
+    "any",
+    "react",
+    "component",
+    "wheelroom"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
+  "author": "Wheelroom (https://www.wheelroom.io)",
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@wheelroom.io",
+      "url": "https://www.jaccomeijer.nl"
+    },
+    {
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
+    }
+  ],
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/index.*",
+    "dist/Any.*",
+    "dist/resets/*"
+  ],
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "dev": "tsc --watch",
+    "format": "prettier src --write",
+    "generate": "npm-run-all generate:*",
+    "generate:compile": "tsc",
+    "generate:lint-fix": "eslint 'src/index.tsx' --fix",
+    "generate:update": "node dist/generate-index/generate-index.js",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
+  },
+  "dependencies": {
+    "@emotion/react": "11.1.5",
+    "@types/react": "16.9.49",
+    "@types/react-dom": "16.9.8",
+    "@typescript-eslint/eslint-plugin": "2.24.0",
+    "@typescript-eslint/parser": "2.24.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-react-hooks": "2.5.0",
+    "jest": "26.6.3",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.2.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "rimraf": "3.0.2",
+    "typescript": "3.9.7"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
