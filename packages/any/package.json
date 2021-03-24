@@ -33,9 +33,9 @@
   "type": "commonjs",
   "types": "dist/index.d.ts",
   "exports": {
-    ".": "dist/elements.js",
-    "any": "dist/Any.js",
-    "resets": "dist/resets.js",
+    ".": "./dist/elements.js",
+    "any": "./dist/Any.js",
+    "resets": "./dist/resets.js"
   },
   "scripts": {
     "build": "npm-run-all build:*",
