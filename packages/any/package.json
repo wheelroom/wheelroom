@@ -33,7 +33,7 @@
   "exports": {
     "./elements": "./build/elements.js",
     "./Any": "./build/Any.js",
-    "./resets": "./build/resets.js"
+    "./resets/*": "./build/resets/*.js"
   },
   "scripts": {
     "build": "npm-run-all build:*",
