@@ -41,8 +41,6 @@
     "build:compile": "tsc",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
-    "dev": "tsc --watch",
-    "format": "prettier src --write",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc",
     "generate:lint-fix": "eslint 'src/elements.tsx' --fix",
