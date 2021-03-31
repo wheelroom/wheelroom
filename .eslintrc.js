@@ -22,6 +22,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/camelcase': 0,
+    'react/react-in-jsx-scope': 0,
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 1,
     'import/order': 2,
