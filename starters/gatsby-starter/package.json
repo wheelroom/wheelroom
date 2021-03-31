@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "gatsby": "3.1.2",
-    "@wheelroom/any": "1.0.0"
+    "@wheelroom/any": "7.0.0"
   }
 }
