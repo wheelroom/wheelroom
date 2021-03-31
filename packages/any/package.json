@@ -3,16 +3,16 @@
   "version": "7.0.0",
   "description": "Any component with CSS element reset and CSS Emotion props",
   "exports": {
-    "./elements": "./build/elements.js",
     "./Any": "./build/Any.js",
+    "./elements": "./build/elements.js",
     "./resets/*": "./build/resets/*.js"
   },
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:clean": "rimraf build/*",
     "build:compile": "tsc",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
+    "clean": "rimraf build/*",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc",
     "generate:lint-fix": "eslint 'src/elements.tsx' --fix",
