@@ -4,6 +4,7 @@ import { globalReset } from '@wheelroom/any/resets/global-reset'
 
 const Home = (props: PageProps) => {
   console.log('global resets', globalReset)
+  console.log('props', props)
   return (
     <Ul css={{ backgroundColor: 'lightblue' }}>
       <Li css={{ color: 'red' }}>Hello from a typescript world!</Li>
