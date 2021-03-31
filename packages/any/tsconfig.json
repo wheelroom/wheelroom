@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "jsx": "react",
-    "jsxImportSource": "",
     "outDir": "build"
   },
   "extends": "../../tsconfig.json",
