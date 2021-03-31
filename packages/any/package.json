@@ -8,7 +8,7 @@
     "./resets/*": "./build/resets/*.js"
   },
   "scripts": {
-    "build": "npm-run-all build:*",
+    "build": "npm-run-all clean build:*",
     "build:compile": "tsc",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",

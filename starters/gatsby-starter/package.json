@@ -4,7 +4,7 @@
   "private": false,
   "description": "A JAMstack boilerplate for services, like Gatsby, Contentful, Netlify and much more",
   "scripts": {
-    "build": "npm-run-all build:*",
+    "build": "npm-run-all clean build:*",
     "build:compile": "gatsby build",
     "build:lint": "eslint 'src/**/*.{ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
