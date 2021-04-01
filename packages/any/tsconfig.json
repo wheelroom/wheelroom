@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["es6", "dom"],
+    "lib": ["es5", "dom"],
     "module": "commonjs",
     "outDir": "build",
-    "target": "es6"
   },
   "extends": "../../tsconfig.base.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]
