@@ -1,6 +1,6 @@
-import React from 'react'
-import { css, Interpolation, jsx, Theme } from '@emotion/react'
-import { AnyReset, anyReset } from './resets/any-reset'
+import { Interpolation, jsx, Theme } from '@emotion/react'
+import { AnyStyle } from './elements'
+import { anyReset } from './resets/any-reset'
 import { elementResetMap, ElementResetName } from './resets/element-reset-map'
 
 type JSXIntrElName = keyof JSX.IntrinsicElements
@@ -34,11 +34,6 @@ export const AnyComponent: React.FC<any> = (props) => {
 
 export const Any: React.FC<any> = (props: any) => {
   const elementName: ElementResetName = props.is || 'div'
-  const elementReset: AnyReset = elementResetMap[elementName]
-  return (
-    <AnyComponent
-      {...props}
-      css={css([anyReset as any, elementReset, props.css])}
-    />
-  )
+  const elementReset: AnyStyle = elementResetMap[elementName]
+  return <AnyComponent {...props} css={[anyReset, elementReset, props.css]} />
 }
