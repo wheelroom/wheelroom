@@ -45,7 +45,8 @@
     "build:compile": "npm run build:compile --workspaces",
     "build:lint": "npm run build:lint --workspaces",
     "build:test": "npm run build:test --workspaces",
-    "clean": "npm run clean --workspaces"
+    "clean": "npm run clean --workspaces",
+    "release": "standard-version -t \"@wheelroom/any@\""
   },
   "dependencies": {
     "@babel/core": "7.13.14",

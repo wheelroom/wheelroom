@@ -1,9 +1,14 @@
-const tracker = {
-  filename: 'package.json',
+const rootPackage = {
+    filename: 'package.json',
+    updater: require('./version-updater'),
+  }
+  
+const anyPackage = {
+  filename: 'packages/any/package.json',
   updater: require('./version-updater'),
 }
 
 module.exports = {
-  bumpFiles: [tracker],
-  packageFiles: [tracker],
+  bumpFiles: [anyPackage],
+  packageFiles: [rootPackage],
 }
