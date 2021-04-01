@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/any",
-  "version": "6.3.6",
+  "version": "6.3.8",
   "description": "Any component with CSS element reset and CSS Emotion props",
   "exports": {
     "./Any": "./build/Any.js",
@@ -33,5 +33,45 @@
         "resets/resets.d.ts"
       ]
     }
+  },
+  "keywords": [
+    "any",
+    "cli",
+    "component",
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
+  "author": "Wheelroom (https://www.wheelroom.io)",
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@wheelroom.io",
+      "url": "https://www.jaccomeijer.nl"
+    },
+    {
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
+    }
+  ],
+  "engines": {
+    "node": ">=15",
+    "npm": ">=7.7.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
