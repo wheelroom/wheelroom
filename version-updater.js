@@ -1,14 +1,15 @@
 // version-updater.js
-const stringifyPackage = require('stringify-package')
-const detectIndent = require('detect-indent')
-const detectNewline = require('detect-newline')
-let metaData = require('./package.json')
+import stringifyPackage from 'stringify-package'
+import detectIndent from 'detect-indent'
+import detectNewline from 'detect-newline'
 
-module.exports.readVersion = function (contents) {
+import metaData from './package.json'
+
+export const readVersion = function (contents) {
   return JSON.parse(contents).version
 }
 
-module.exports.writeVersion = function (contents, version) {
+export const writeVersion = function (contents, version) {
   const json = JSON.parse(contents)
   let indent = detectIndent(contents).indent
   let newline = detectNewline(contents)
@@ -22,7 +23,6 @@ module.exports.writeVersion = function (contents, version) {
   json.contributors = metaData.contributors
   json.engines = metaData.engines
   json.publishConfig = metaData.publishConfig
-
 
   return stringifyPackage(json, indent, newline)
 }
