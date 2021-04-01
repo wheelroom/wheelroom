@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": ["es6", "dom"],
-    "module": "es6",
+    "module": "commonjs",
     "outDir": "build",
     "target": "es6"
   },

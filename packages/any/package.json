@@ -35,7 +35,6 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "type": "module",
   "exports": {
     "./Any": "./build/Any.js",
     "./elements": "./build/elements.js",
