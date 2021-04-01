@@ -2,38 +2,6 @@
   "name": "@wheelroom/any",
   "version": "6.3.14",
   "description": "Any component with CSS element reset and CSS Emotion props",
-  "exports": {
-    "./Any": "./build/Any.js",
-    "./elements": "./build/elements.js",
-    "./resets/*": "./build/resets/*.js"
-  },
-  "scripts": {
-    "build": "npm-run-all clean build:*",
-    "build:compile": "tsc",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:test": "jest --silent --passWithNoTests",
-    "clean": "rimraf build/*",
-    "generate": "npm-run-all generate:*",
-    "generate:compile": "tsc -p tsconfig.node10.json",
-    "generate:update": "node build/generate-elements/generate-elements.js",
-    "generate:update-lint-fix": "eslint 'src/elements.tsx' --fix",
-    "prepack": "npm run build",
-    "release": "standard-version --tag-prefix @wheelroom/any@ --path packages/any",
-    "test": "npm run build:test"
-  },
-  "typesVersions": {
-    ">=3.0": {
-      ".": [
-        "build/elements.d.ts"
-      ],
-      "any": [
-        "build/Any.d.ts"
-      ],
-      "resets": [
-        "resets/resets.d.ts"
-      ]
-    }
-  },
   "keywords": [
     "any",
     "cli",
@@ -67,11 +35,44 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
+  "type": "module",
+  "exports": {
+    "./Any": "./build/Any.js",
+    "./elements": "./build/elements.js",
+    "./resets/*": "./build/resets/*.js"
+  },
+  "scripts": {
+    "build": "npm-run-all clean build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "clean": "rimraf build/*",
+    "generate": "npm-run-all generate:*",
+    "generate:compile": "tsc -p tsconfig.node10.json",
+    "generate:update": "node build/generate-elements/generate-elements.js",
+    "generate:update-lint-fix": "eslint 'src/elements.tsx' --fix",
+    "prepack": "npm run build",
+    "release": "standard-version --tag-prefix @wheelroom/any@ --path packages/any",
+    "test": "npm run build:test"
+  },
   "engines": {
     "node": ">=15",
     "npm": ">=7.7.6"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "typesVersions": {
+    ">=3.0": {
+      ".": [
+        "build/elements.d.ts"
+      ],
+      "any": [
+        "build/Any.d.ts"
+      ],
+      "resets": [
+        "resets/resets.d.ts"
+      ]
+    }
   }
 }
