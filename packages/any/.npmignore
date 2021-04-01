@@ -1,3 +1,2 @@
-# Source
-src/
-dist/generate-elements
+src
+build/generate-elements

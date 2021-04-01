@@ -1,7 +1,6 @@
 {
   "name": "wheelroom",
   "version": "6.3.7",
-  "private": true,
   "description": "Wheelroom npm 7 workspaces",
   "workspaces": [
     "./apps/*",
