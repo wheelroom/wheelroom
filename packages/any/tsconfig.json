@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "module": "es2015",
+    "jsx": "react-jsx",
+    "module": "commonjs",
     "outDir": "build",
-    "jsx": "react-jsx"
+    "target": "es2015"    
   },
   "extends": "../../tsconfig.base.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]
