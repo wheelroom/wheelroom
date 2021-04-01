@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "module": "es2015",
     "outDir": "build",
     "jsx": "react-jsx"
   },
