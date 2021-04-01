@@ -1,7 +1,41 @@
 {
   "name": "wheelroom",
   "version": "6.3.7",
+  "private": true,
   "description": "Wheelroom npm 7 workspaces",
+  "keywords": [
+    "any",
+    "cli",
+    "component",
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
+  "author": "Wheelroom (https://www.wheelroom.io)",
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@wheelroom.io",
+      "url": "https://www.jaccomeijer.nl"
+    },
+    {
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
+    }
+  ],
   "workspaces": [
     "./apps/*",
     "./packages/*",
@@ -48,5 +82,12 @@
     "webpack": "5.28.0",
     "webpack-cli": "4.6.0",
     "webpack-dev-server": "3.11.2"
+  },
+  "engines": {
+    "node": ">=15",
+    "npm": ">=7.7.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

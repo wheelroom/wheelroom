@@ -2,10 +2,9 @@
 const stringifyPackage = require('stringify-package')
 const detectIndent = require('detect-indent')
 const detectNewline = require('detect-newline')
-let metaData
+let metaData = require('./package.json')
 
 module.exports.readVersion = function (contents) {
-  metaData = contents
   return JSON.parse(contents).version
 }
 
