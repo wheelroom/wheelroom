@@ -18,7 +18,7 @@
     "generate:lint-fix": "eslint 'src/elements.tsx' --fix",
     "generate:update": "node build/generate-elements/generate-elements.js",
     "prepack": "npm run build",
-    "release": "standard-version -t \"@wheelroom/any@\"",
+    "release": "standard-version --tag-prefix @wheelroom/any@ --path packages/any",
     "test": "npm run build:test"
   },
   "typesVersions": {

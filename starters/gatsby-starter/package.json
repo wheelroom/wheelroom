@@ -10,10 +10,11 @@
     "build:test": "jest --silent --passWithNoTests",
     "clean": "gatsby clean",
     "dev": "gatsby develop",
+    "release": "standard-version --tag-prefix @wheelroom/gatsby-starter@ --path starters/gatsby-starter",
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "gatsby": "3.1.2",
-    "@wheelroom/any": "7.0.0"
+    "@wheelroom/any": "7.0.0",
+    "gatsby": "3.1.2"
   }
 }
