@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": ["es5", "dom"],
-    "module": "es5",
+    "module": "es2015",
     "outDir": "build"
   },
   "extends": "../../tsconfig.base.json",
