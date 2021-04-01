@@ -1,6 +1,6 @@
 {
   "name": "wheelroom",
-  "version": "7.0.0",
+  "version": "6.3.5",
   "private": true,
   "description": "Wheelroom npm 7 workspaces",
   "keywords": [
@@ -45,8 +45,7 @@
     "build:compile": "npm run build:compile --workspaces",
     "build:lint": "npm run build:lint --workspaces",
     "build:test": "npm run build:test --workspaces",
-    "clean": "npm run clean --workspaces",
-    "release": "standard-version -t \"@wheelroom/any@\""
+    "clean": "npm run clean --workspaces"
   },
   "dependencies": {
     "@babel/core": "7.13.14",

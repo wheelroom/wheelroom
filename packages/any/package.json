@@ -17,11 +17,8 @@
     "generate:compile": "tsc",
     "generate:lint-fix": "eslint 'src/elements.tsx' --fix",
     "generate:update": "node build/generate-elements/generate-elements.js",
-    "release:dry-run": "npm run release -- --dry-run",
-    "version:patch": "npm run release -- --release-as patch",
-    "version:minor": "npm run release -- --release-as minor",
-    "version:major": "npm run release -- --release-as major",
     "prepack": "npm run build",
+    "release": "standard-version -t \"@wheelroom/any@\"",
     "test": "npm run build:test"
   },
   "typesVersions": {
