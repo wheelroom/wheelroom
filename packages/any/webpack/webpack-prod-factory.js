@@ -4,7 +4,6 @@ const path = require('path')
 module.exports = ({ entry }) => {
   return {
     mode: 'production',
-    devtool: 'source-map',
     output: {
       path: path.join(__dirname, '../build'),
       filename: `${entry.name}.js`,
