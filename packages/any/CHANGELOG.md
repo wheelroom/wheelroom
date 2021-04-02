@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.3.27](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.26...@wheelroom/any@6.3.27) (2021-04-02)
+
+
+### Commits
+
+* change into umd ([218a9fc](https://github.com/wheelroom/wheelroom/commit/218a9fc0d20d293ef9a1521fed34d1fa607c0be0))
+
 ### [6.3.26](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.25...@wheelroom/any@6.3.26) (2021-04-02)
 
 
