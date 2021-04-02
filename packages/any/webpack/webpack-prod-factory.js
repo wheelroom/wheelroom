@@ -7,7 +7,7 @@ module.exports = ({ entry }) => {
     devtool: 'source-map',
     output: {
       path: path.join(__dirname, '../build'),
-      filename: `${entry}.[fullhash].js`,
+      filename: `${entry}.js`,
     },
   }
 }

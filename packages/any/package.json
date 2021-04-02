@@ -46,7 +46,6 @@
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
     "clean": "rimraf build/*",
-    "dev": "NODE_ENV=development webpack serve --mode development --port 5000 --hot --config webpack/webpack.dev.js",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc -p tsconfig.node10.json",
     "generate:update": "node build/generate-elements/generate-elements.js",
