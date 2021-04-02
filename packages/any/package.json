@@ -36,15 +36,15 @@
     }
   ],
   "exports": {
-    "./Any": "./build/Any.js",
-    "./elements": "./build/elements.js",
-    "./resets/*": "./build/resets/*.js"
+    "./Any": "./build/cjs/Any.js",
+    "./elements": "./build/cjs/elements.js",
+    "./resets/*": "./build/cjs/resets/*.js"
   },
   "main": "build/cjs",
   "umd:main": "build/umd",
   "module": "build/esm",
   "browser": {
-    "./cjs": "./build/umd",
+    "./cjs": "./build/cjs",
     "./esm": "./build/esm"
   },
   "scripts": {

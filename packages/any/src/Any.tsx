@@ -23,6 +23,7 @@ export type AnyProps = {
 }
 
 export const AnyComponent: React.FC<any> = (props) => {
+  console.log('SRC')
   const elementName: ElementResetName = props.is || 'div'
   const attr = Object.assign({}, props)
   delete attr.is
@@ -33,6 +34,7 @@ export const AnyComponent: React.FC<any> = (props) => {
 }
 
 export const Any: React.FC<any> = (props: any) => {
+  console.log('SRC')
   const elementName: ElementResetName = props.is || 'div'
   const elementReset: AnyStyle = elementResetMap[elementName]
   return <AnyComponent {...props} css={[anyReset, elementReset, props.css]} />

@@ -7,10 +7,8 @@ const HomePage = (props: PageProps) => {
   console.log('global resets', globalReset)
   console.log('props', props)
   return (
-    <Ul css={{ label: 'Ul', backgroundColor: 'lightblue' }}>
-      <Li css={{ label: 'Li', color: 'red' }}>
-        Hello from a typescript world!
-      </Li>
+    <Ul css={{ backgroundColor: 'lightblue' }}>
+      <Li css={{ color: 'red' }}>Hello from a typescript world!</Li>
     </Ul>
   )
 }
