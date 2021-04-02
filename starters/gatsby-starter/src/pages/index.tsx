@@ -1,8 +1,9 @@
+import React from 'react'
 import { PageProps } from 'gatsby'
 import { Ul, Li } from '@wheelroom/any/elements'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
 
-const Home = (props: PageProps) => {
+const HomePage = (props: PageProps) => {
   console.log('global resets', globalReset)
   console.log('props', props)
   return (
@@ -14,4 +15,4 @@ const Home = (props: PageProps) => {
   )
 }
 
-export default Home
+export default HomePage
