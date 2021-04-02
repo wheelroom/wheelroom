@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["es5", "dom"],
-    "module": "es2015",
-    "outDir": "build",
+    "lib": ["es6", "dom"],
+    "module": "es6",
+    "outDir": "build/esm",
   },
   "extends": "../../tsconfig.base.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]
