@@ -10,12 +10,12 @@ module.exports = {
   entry: {
     Any: path.join(__dirname, 'src/Any.tsx'),
     elements: path.join(__dirname, 'src/elements.tsx'),
-    'any-reset': path.join(__dirname, 'src/resets/any-reset.ts'),
-    'element-reset-map': path.join(
+    'resets/any-reset': path.join(__dirname, 'src/resets/any-reset.ts'),
+    'resets/element-reset-map': path.join(
       __dirname,
       'src/resets/element-reset-map.ts'
     ),
-    'global-reset': path.join(__dirname, 'src/resets/global-reset.ts'),
+    'resets/global-reset': path.join(__dirname, 'src/resets/global-reset.ts'),
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],

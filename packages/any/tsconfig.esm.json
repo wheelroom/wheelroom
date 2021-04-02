@@ -4,7 +4,7 @@
     "jsx": "react-jsx",
     "lib": ["es6", "dom"],
     "module": "es6",
-    "outDir": "build/styles",
+    "outDir": "build/esm",
   },
   "extends": "../../tsconfig.base.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]

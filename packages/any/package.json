@@ -48,7 +48,7 @@
     "build:module:cjs": "tsc -p tsconfig.cjs.json",
     "build:module:esm": "tsc -p tsconfig.esm.json",
     "build:module:umd": "webpack --mode production --config webpack-umd.js",
-    "clean": "rimraf cjs/* esm/* umd/* styles/*",
+    "clean": "rimraf build/*",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc -p tsconfig.generate.json",
     "generate:update": "node build/generate-elements/generate-elements.js",
