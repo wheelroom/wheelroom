@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.3.26](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.25...@wheelroom/any@6.3.26) (2021-04-02)
+
+
+### Commits
+
+* remove console log ([2bc51ab](https://github.com/wheelroom/wheelroom/commit/2bc51ab7771bcbd72dce392bd02d2b39bd9cbe4d))
+
 ### [6.3.25](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.24...@wheelroom/any@6.3.25) (2021-04-02)
 
 
