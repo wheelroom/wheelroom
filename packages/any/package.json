@@ -65,8 +65,8 @@
   "typesVersions": {
     "*": {
       "*": [
-        "build/*",
-        "build/resets/*"
+        "./build/*",
+        "./build/resets/*"
       ]
     }
   }
