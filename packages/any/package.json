@@ -36,9 +36,9 @@
     }
   ],
   "exports": {
-    "./Any": "./build/cjs/Any.js",
-    "./elements": "./build/cjs/elements.js",
-    "./resets/*": "./build/cjs/resets/*.js"
+    "./Any": "./build/esm/Any.js",
+    "./elements": "./build/esm/elements.js",
+    "./resets/*": "./build/esm/resets/*.js"
   },
   "main": "build/cjs/elements.js",
   "umd:main": "build/umd/elements.js",
