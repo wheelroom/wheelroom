@@ -1,4 +1,4 @@
-import updater from '../../version-updater'
+const updater = require('../../version-updater')
 
 const rootPackage = {
   filename: '../../package.json',
@@ -10,10 +10,9 @@ const anyPackage = {
   updater,
 }
 
-export const bumpFiles = [anyPackage, rootPackage]
-export const packageFiles = [rootPackage]
-
-export const types = [
+module.exports.bumpFiles = [anyPackage, rootPackage]
+module.exports.packageFiles = [rootPackage]
+module.exports.types = [
   { type: 'feat', section: 'Features' },
   { type: 'fix', section: 'Bug Fixes' },
   { type: 'chore', section: 'Commits' },
