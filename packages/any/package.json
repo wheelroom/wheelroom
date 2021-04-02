@@ -46,7 +46,7 @@
     "build:test": "jest --silent --passWithNoTests",
     "build:module:cjs": "tsc -p tsconfig.cjs.json",
     "build:module:esm": "tsc -p tsconfig.esm.json",
-    "build:module:umd-browser": "webpack --mode production --config webpack-umd-browser.js",
+    "build:module:umd": "webpack --mode production --config webpack-umd.js",
     "clean": "rimraf build-cjs/* build-esm/* build-esm-browser/* build-umd-browser/*",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc -p tsconfig.generate.json",

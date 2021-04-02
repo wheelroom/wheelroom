@@ -4,7 +4,7 @@ const webpack = require('webpack')
 module.exports = {
   mode: 'production',
   output: {
-    path: path.join(__dirname, './build/umd-browser'),
+    path: path.join(__dirname, './build/umd'),
     filename: `[name].js`,
   },
   entry: {
