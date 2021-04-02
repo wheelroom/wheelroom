@@ -12,9 +12,23 @@ services and renders a data driven client side interface. Check for more
 information the plugins or start building your own project with the Wheelroom
 boilerplate.
 
-## Monorepo
+## About this repo
 
-This is a monorepo.
+This is a monorepo with javascript/typescript projects that share types and
+libraries.
+
+## Apps
+
+- None yet
+
+## Starters
+
+- [gatsby-starter](./starters/gatsby-starter/README.md)
+- [nextjs-starter](./starters/nextjs-starter/README.md)
+
+## Packages
+
+- [any](./packages/any/README.md)
 
 ## Contributors
 
@@ -23,3 +37,30 @@ question or a feature request, please read our [contributing guidelines](./CONTR
 
 - [Jacco Meijer](https://github.com/jaccomeijer)
 - [Thijs Krooswijk](https://github.com/thijskrooswijk)
+
+## Root packages
+
+- babel
+- dotenv
+- emotion
+- eslint (import, prettier, react, react-hooks)
+- jest
+- node types
+- npm script helpers (npm-run-all, rimraf)
+- prettier
+- react
+- typescript
+- webpack (cli, dev-server, html-webpack-plugin)
+
+## Known issues
+
+### Vscode React import
+
+React 17 introduced a new JSX transform which does not require react to be
+imported in every file. Support for this was added in TypeScript 4.1. However
+vscode is still suggesting/requiring the react import before other JSX import
+fixes are suggested.
+
+Typescript 4.3 should solve this.
+
+See: https://github.com/microsoft/TypeScript/issues/41762

@@ -1,0 +1,20 @@
+{
+  "name": "@wheelroom/nextjs-starter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Next.js starter",
+  "author": "wheelroom",
+  "scripts": {
+    "build": "npm-run-all clean build:*",
+    "build:compile": "next build",
+    "build:lint": "eslint 'src/**/*.{ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "clean": "rimraf .next public",
+    "dev": "next dev",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@wheelroom/any": "6.3.18",
+    "next": "10.1.2"
+  }
+}

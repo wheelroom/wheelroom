@@ -1,3 +1,3 @@
-# Wheelroom boilerplate
+# Wheelroom gatsby-starter
 
 TBW

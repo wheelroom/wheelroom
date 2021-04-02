@@ -1,0 +1,13 @@
+name: node-js-ci
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: npm run start
+      env:
+        CI: true
