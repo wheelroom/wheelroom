@@ -1,4 +1,3 @@
-import React from 'react'
 import { PageProps } from 'gatsby'
 import { Div, H1 } from '@wheelroom/any/elements'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
