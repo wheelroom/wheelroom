@@ -1,7 +1,7 @@
 module.exports = [
-  'Any.tsx',
-  'elements.tsx',
-  'resets/any-reset.ts',
-  'resets/element-reset-map.ts',
-  'resets/global-reset.ts',
+  { name: 'Any', extension: 'tsx' },
+  { name: 'elements', extension: 'tsx' },
+  { name: 'resets/any-reset', extension: 'ts' },
+  { name: 'resets/element-reset-map', extension: 'ts' },
+  { name: 'resets/global-reset', extension: 'ts' },
 ]

@@ -4,7 +4,7 @@ const webpack = require('webpack')
 // Generate the webpack config we need for generating a apge
 module.exports = ({ entry }) => {
   return {
-    entry: [path.join(__dirname, `../src/${entry}`)],
+    entry: [path.join(__dirname, `../src/${entry.name}.${entry.extension}`)],
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
     },
