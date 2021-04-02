@@ -63,15 +63,10 @@
     "access": "public"
   },
   "typesVersions": {
-    ">=3.0": {
-      ".": [
-        "build/elements.d.ts"
-      ],
-      "any": [
-        "build/Any.d.ts"
-      ],
-      "resets": [
-        "resets/resets.d.ts"
+    "*": {
+      "*": [
+        "build/*",
+        "build/resets/*"
       ]
     }
   }
