@@ -1,1 +1,4 @@
 src
+build/cjs/generate-elements
+build/esm/generate-elements
+build/umd/generate-elements

@@ -40,14 +40,21 @@
     "./elements": "./build/elements.js",
     "./resets/*": "./build/resets/*.js"
   },
+  "main": "build/cjs",
+  "umd:main": "build/umd",
+  "module": "build/esm",
+  "browser": {
+    "./cjs": "./build/umd",
+    "./esm": "./build/esm"
+  },
   "scripts": {
     "build": "npm-run-all clean build:* build:module:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:test": "jest --silent --passWithNoTests",
-    "build:module:styles": "tsc -p tsconfig.styles.json --emitDeclarationOnly",
     "build:module:cjs": "tsc -p tsconfig.cjs.json",
     "build:module:esm": "tsc -p tsconfig.esm.json",
+    "build:module:styles": "tsc -p tsconfig.styles.json --emitDeclarationOnly",
     "build:module:umd": "webpack --mode production --config webpack-umd.js",
+    "build:test": "jest --silent --passWithNoTests",
     "clean": "rimraf build/*",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc -p tsconfig.generate.json",
@@ -64,12 +71,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./build/*",
-        "./build/resets/*"
-      ]
-    }
-  }
+  "styles": "build/styles"
 }
