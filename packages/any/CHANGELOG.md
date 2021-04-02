@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.3.24](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.23...@wheelroom/any@6.3.24) (2021-04-02)
+
+
+### Bug Fixes
+
+* build folder ([07192ff](https://github.com/wheelroom/wheelroom/commit/07192ff64a6a78173cea6c162835958e5248068d))
+
+
+### Commits
+
+* remove cjs-browser ([659c10b](https://github.com/wheelroom/wheelroom/commit/659c10b888b13b8b56e52417beefab8a5297dc05))
+* rename umd-browser to umd ([27405fc](https://github.com/wheelroom/wheelroom/commit/27405fc726181c41edbb0325f6aa0f2e327b3da4))
+* separate styles ([033c3f9](https://github.com/wheelroom/wheelroom/commit/033c3f96ccf142f8837178bb17923c1812b95632))
+* setup webpack browser bundles ([6d3505f](https://github.com/wheelroom/wheelroom/commit/6d3505f291c67f85bb3822b382070e0bb39abcd6))
+* update package ([3636505](https://github.com/wheelroom/wheelroom/commit/3636505016028cb52ac2f260a0c5ddc02540db5f))
+
 ### [6.3.23](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.22...@wheelroom/any@6.3.23) (2021-04-02)
 
 ### [6.3.22](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.18...@wheelroom/any@6.3.22) (2021-04-02)
