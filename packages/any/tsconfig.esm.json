@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "declaration": false,
     "jsx": "react-jsx",
     "lib": ["es6", "dom"],
     "module": "es6",
-    "outDir": "build/esm",
+    "outDir": "build/styles",
   },
   "extends": "../../tsconfig.base.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]
