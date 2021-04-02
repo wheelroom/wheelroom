@@ -43,6 +43,7 @@
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:compile": "webpack --mode production --config webpack/webpack.prod.js",
+    "build:types": "tsc --emitDeclarationOnly",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
     "clean": "rimraf build/*",
