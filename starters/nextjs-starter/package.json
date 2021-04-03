@@ -9,7 +9,7 @@
     "build:compile": "next build",
     "build:lint": "eslint 'src/**/*.{ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
-    "clean": "rimraf .next public",
+    "clean": "rimraf .next",
     "dev": "next dev",
     "start": "next start"
   },
