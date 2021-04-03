@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.3.30](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.29...@wheelroom/any@6.3.30) (2021-04-03)
+
+
+### Commits
+
+* all modules as exports/define externals ([1640415](https://github.com/wheelroom/wheelroom/commit/164041518320947e3375f111fc6ce64d9fcb80f3))
+
 ### [6.3.29](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.28...@wheelroom/any@6.3.29) (2021-04-03)
 
 
