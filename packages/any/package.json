@@ -59,8 +59,8 @@
   "scripts": {
     "build": "npm-run-all clean build:* build:module:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:module:cjs-umd": "webpack --mode production --config webpack-cjs-umd.js",
-    "build:module:esm": "tsc -p tsconfig.esm.json",
+    "build:module:es5": "webpack --mode production --config webpack-es5.js",
+    "build:module:es6": "webpack --mode production --config webpack-es6.js",
     "build:module:types": "tsc -p tsconfig.types.json --emitDeclarationOnly",
     "build:test": "jest --silent --passWithNoTests",
     "clean": "rimraf build/*",
