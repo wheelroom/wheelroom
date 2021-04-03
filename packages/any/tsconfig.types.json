@@ -3,7 +3,7 @@
     "jsx": "react-jsx",
     "lib": ["es6", "dom"],
     "module": "es6",
-    "outDir": "build/styles",
+    "outDir": "build/types",
   },
   "extends": "../../tsconfig.base.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]
