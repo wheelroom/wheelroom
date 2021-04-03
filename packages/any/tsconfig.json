@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["es6", "dom"],
-    "module": "es6",
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
     "outDir": "build/types",
+    "target": "esnext"
   },
   "extends": "../../tsconfig.base.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]

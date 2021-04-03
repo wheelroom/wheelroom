@@ -7,7 +7,7 @@ import * as path from 'path'
 import pkg from './package.json'
 
 const moduleName = pkg.name.replace(/^@.*\//, '')
-const inputFileName = 'src/index.ts'
+const inputFileName = 'src/elements.tsx'
 const author = pkg.author
 const banner = `
   /**
@@ -66,8 +66,7 @@ export default [
       },
     ],
     external: [
-      ...Object.keys(pkg.dependencies || {}),
-      ...Object.keys(pkg.devDependencies || {}),
+      ...Object.keys(pkg.peerDependencies || {}),
     ],
     plugins: [
       pluginTypescript(),
@@ -93,12 +92,11 @@ export default [
         format: 'cjs',
         sourcemap: 'inline',
         banner,
-        exports: 'default',
+        exports: 'named',
       },
     ],
     external: [
-      ...Object.keys(pkg.dependencies || {}),
-      ...Object.keys(pkg.devDependencies || {}),
+      ...Object.keys(pkg.peerDependencies || {}),
     ],
     plugins: [
       pluginTypescript(),
