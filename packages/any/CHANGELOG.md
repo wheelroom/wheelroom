@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.3.29](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.28...@wheelroom/any@6.3.29) (2021-04-03)
+
+
+### Commits
+
+* add webpack configs ([1fc1b58](https://github.com/wheelroom/wheelroom/commit/1fc1b58bfcd54fb31951a4f9603d6d6e081f2108))
+* cjs and umd from one webpack config ([b76835e](https://github.com/wheelroom/wheelroom/commit/b76835eb80b536f6cfbd77e26707f3305964313d))
+* update npm ignore ([a3b28e9](https://github.com/wheelroom/wheelroom/commit/a3b28e9030f70725e00729844f64224958e16f11))
+
 ### [6.3.28](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.27...@wheelroom/any@6.3.28) (2021-04-03)
 
 
