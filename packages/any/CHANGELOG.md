@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.3.28](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.27...@wheelroom/any@6.3.28) (2021-04-03)
+
+
+### Commits
+
+* styles into types/export all modules/main to cjs ([f7ec3df](https://github.com/wheelroom/wheelroom/commit/f7ec3df0d7b40dd1c3aaadd65744e06a7a7da139))
+
 ### [6.3.27](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.3.26...@wheelroom/any@6.3.27) (2021-04-02)
 
 
