@@ -3,7 +3,8 @@
     "jsx": "react-jsx",
     "lib": ["esnext", "dom"],
     "module": "esnext",
-    "target": "esnext"
+    "target": "esnext",
+    "declarationDir": "build/types"
   },
   "extends": "../../tsconfig.base.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]

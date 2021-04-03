@@ -18,8 +18,15 @@ const banner = `
    */
 `
 
+const globals = {
+  react: 'React',
+  'react-dom': 'ReactDOM',
+  '@emotion/react': ['Interpolation', 'jsx', 'Theme'],
+}
+
 export default [
   {
+    external: ['react', 'react-dom', '@emotion/css', '@emotion/react'],
     input: inputFileName,
     output: [
       {
@@ -28,6 +35,7 @@ export default [
         format: 'iife',
         sourcemap: 'inline',
         banner,
+        globals,
       },
       {
         name: moduleName,
@@ -36,6 +44,7 @@ export default [
         sourcemap: 'inline',
         banner,
         plugins: [terser()],
+        globals,
       },
     ],
     plugins: [
@@ -63,10 +72,8 @@ export default [
         sourcemap: 'inline',
         banner,
         exports: 'named',
+        globals,
       },
-    ],
-    external: [
-      ...Object.keys(pkg.peerDependencies || {}),
     ],
     plugins: [
       pluginTypescript(),
@@ -93,10 +100,8 @@ export default [
         sourcemap: 'inline',
         banner,
         exports: 'named',
+        globals,
       },
-    ],
-    external: [
-      ...Object.keys(pkg.peerDependencies || {}),
     ],
     plugins: [
       pluginTypescript(),
