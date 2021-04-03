@@ -4,12 +4,15 @@ const webpack = require('webpack')
 module.exports = {
   mode: 'production',
   target: 'es5',
-  experiments: {
-    outputModule: true,
-  },
   output: {
     path: path.join(__dirname, './build'),
     // filename: `[name].js`,
+  },
+  externals: {
+    react: 'react',
+    reactDOM: 'react-dom',
+    emotionCss: '@emotion/css',
+    emotionReact: '@emotion/react',
   },
   entry: {
     'umd/Any': {

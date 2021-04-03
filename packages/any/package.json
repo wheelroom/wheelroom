@@ -36,18 +36,21 @@
     }
   ],
   "exports": {
-    "./Any": "./build/cjs/Any.js",
-    "./cjs/Any": "./build/cjs/Any.js",
-    "./cjs/elements": "./build/cjs/elements.js",
-    "./cjs/resets/*": "./build/cjs/resets/*.js",
-    "./elements": "./build/cjs/elements.js",
-    "./esm/Any": "./build/esm/Any.js",
-    "./esm/elements": "./build/esm/elements.js",
-    "./esm/resets/*": "./build/esm/resets/*.js",
-    "./resets/*": "./build/cjs/resets/*.js",
-    "./umd/Any": "./build/umd/Any.js",
-    "./umd/elements": "./build/umd/elements.js",
-    "./umd/resets/*": "./build/umd/resets/*.js"
+    "./Any": [
+      "./build/esm/Any.js",
+      "./build/cjs/Any.js",
+      "./build/umd/Any.js"
+    ],
+    "./elements": [
+      "./build/esm/elements.js",
+      "./build/cjs/elements.js",
+      "./build/umd/elements.js"
+    ],
+    "./resets/*": [
+      "./build/esm/resets/*.js",
+      "./build/cjs/resets/*.js",
+      "./build/umd/resets/*.js"
+    ]
   },
   "main": "build/cjs/elements.js",
   "module": "build/esm/elements.js",
