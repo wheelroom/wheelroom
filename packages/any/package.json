@@ -56,8 +56,9 @@
   "scripts": {
     "build": "npm-run-all clean build:* build:module:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:module:cjs": "tsc -p tsconfig.cjs.json",
-    "build:module:esm": "tsc -p tsconfig.esm.json",
+    "build:module:all": "webpack --mode production --config webpack.js",
+    "build:module:cjs": "webpack --mode production --config webpack-cjs.js",
+    "build:module:esm": "webpack --mode production --config webpack-esm.js",
     "build:module:types": "tsc -p tsconfig.types.json --emitDeclarationOnly",
     "build:module:umd": "webpack --mode production --config webpack-umd.js",
     "build:test": "jest --silent --passWithNoTests",

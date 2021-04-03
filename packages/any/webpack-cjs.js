@@ -3,9 +3,9 @@ const webpack = require('webpack')
 
 module.exports = {
   mode: 'production',
-  target: 'web',
+  target: 'node',
   output: {
-    path: path.join(__dirname, './build/umd'),
+    path: path.join(__dirname, './build/cjs'),
     filename: `[name].js`,
   },
   entry: {
@@ -40,7 +40,7 @@ module.exports = {
             plugins: [
               '@emotion/babel-plugin',
               '@babel/plugin-transform-runtime',
-              '@babel/plugin-transform-modules-umd',
+              '@babel/plugin-transform-modules-commonjs',
             ],
           },
         },
