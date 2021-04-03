@@ -36,23 +36,29 @@
     }
   ],
   "exports": {
-    "./Any": "./build/umd/Any.js",
-    "./elements": "./build/umd/elements.js",
-    "./resets/*": "./build/umd/resets/*.js"
+    "./Any": "./build/cjs/Any.js",
+    "./cjs/Any": "./build/cjs/Any.js",
+    "./cjs/elements": "./build/cjs/elements.js",
+    "./cjs/resets/*": "./build/cjs/resets/*.js",
+    "./elements": "./build/cjs/elements.js",
+    "./esm/Any": "./build/esm/Any.js",
+    "./esm/elements": "./build/esm/elements.js",
+    "./esm/resets/*": "./build/esm/resets/*.js",
+    "./resets/*": "./build/cjs/resets/*.js",
+    "./umd/Any": "./build/umd/Any.js",
+    "./umd/elements": "./build/umd/elements.js",
+    "./umd/resets/*": "./build/umd/resets/*.js"
   },
-  "main": "build/umd/elements.js",
-  "umd:main": "build/umd/elements.js",
+  "main": "build/cjs/elements.js",
   "module": "build/esm/elements.js",
-  "browser": {
-    "./build/umd/elements.js": "./build/umd/elements.js",
-    "./build/esm/elements.js": "./build/esm/elements.js"
-  },
+  "browser": "build/umd/elements.js",
+  "types": "build/types",
   "scripts": {
     "build": "npm-run-all clean build:* build:module:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:module:cjs": "tsc -p tsconfig.cjs.json",
     "build:module:esm": "tsc -p tsconfig.esm.json",
-    "build:module:styles": "tsc -p tsconfig.styles.json --emitDeclarationOnly",
+    "build:module:types": "tsc -p tsconfig.types.json --emitDeclarationOnly",
     "build:module:umd": "webpack --mode production --config webpack-umd.js",
     "build:test": "jest --silent --passWithNoTests",
     "clean": "rimraf build/*",
@@ -64,12 +70,18 @@
     "release": "standard-version --tag-prefix @wheelroom/any@ --path .",
     "test": "npm run build:test"
   },
+  "browserslist": "> 0.25%, not dead",
+  "peerDependencies": {
+    "@emotion/css": "11.1.3",
+    "@emotion/react": "11.1.5",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
   "engines": {
     "node": ">=15",
     "npm": ">=7.7.6"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "styles": "build/styles"
+  }
 }
