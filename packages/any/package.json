@@ -44,12 +44,12 @@
       },
       "default": "./build/Any.mjs"
     },
-    "./exports": {
+    "./elements": {
       "node": {
-        "import": "./build/exports.mjs",
-        "require": "./build/exports.cjs"
+        "import": "./build/elements.mjs",
+        "require": "./build/elements.cjs"
       },
-      "default": "./build/exports.mjs"
+      "default": "./build/elements.mjs"
     },
     "./resets/*": {
       "node": {
@@ -64,6 +64,7 @@
     "build": "npm-run-all clean build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:module": "rollup -c",
+    "build:types": "tsc -p tsconfig.types.json",
     "build:test": "jest --silent --passWithNoTests",
     "clean": "rimraf build/*",
     "generate": "npm-run-all generate:*",
