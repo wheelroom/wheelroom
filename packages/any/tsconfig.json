@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
+    "declarationDir": "build/types",
     "jsx": "react-jsx",
     "lib": ["esnext", "dom"],
     "module": "esnext",
-    "target": "esnext",
-    "declarationDir": "build/types"
+    "sourceMap": false,
+    "target": "esnext"
   },
   "extends": "../../tsconfig.base.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]

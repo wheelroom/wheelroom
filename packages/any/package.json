@@ -35,32 +35,35 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
+  "type": "module",
   "exports": {
-    "./Any": [
-      "./build/esm/Any.js",
-      "./build/cjs/Any.js",
-      "./build/umd/Any.js"
-    ],
-    "./elements": [
-      "./build/esm/elements.js",
-      "./build/cjs/elements.js",
-      "./build/umd/elements.js"
-    ],
-    "./resets/*": [
-      "./build/esm/resets/*.js",
-      "./build/cjs/resets/*.js",
-      "./build/umd/resets/*.js"
-    ]
+    "./Any": {
+      "node": {
+        "import": "./build/Any.mjs",
+        "require": "./build/Any.cjs"
+      },
+      "default": "./build/Any.mjs"
+    },
+    "./exports": {
+      "node": {
+        "import": "./build/exports.mjs",
+        "require": "./build/exports.cjs"
+      },
+      "default": "./build/exports.mjs"
+    },
+    "./resets/*": {
+      "node": {
+        "import": "./build/resets/*.mjs",
+        "require": "./build/resets/*.cjs"
+      },
+      "default": "./build/resets/*.mjs"
+    }
   },
-  "main": "build/cjs/elements.js",
-  "module": "build/esm/elements.js",
-  "browser": "build/umd/elements.js",
   "types": "build/types",
   "scripts": {
-    "build": "npm-run-all clean build:* build:module:*",
+    "build": "npm-run-all clean build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:module:es6": "rollup -c",
-    "build:module:types": "tsc -p tsconfig.types.json --emitDeclarationOnly",
+    "build:module": "rollup -c",
     "build:test": "jest --silent --passWithNoTests",
     "clean": "rimraf build/*",
     "generate": "npm-run-all generate:*",
