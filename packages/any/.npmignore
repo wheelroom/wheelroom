@@ -1,4 +1,7 @@
-src
+.babelrc*
+.versionrc*
 **/generate-elements
+rollup*
+src
 tsconfig*
 webpack*
