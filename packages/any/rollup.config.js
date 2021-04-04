@@ -7,7 +7,6 @@ import pkg from './package.json'
 // import { terser } from 'rollup-plugin-terser'
 
 const moduleName = pkg.name.replace(/^@.*\//, '')
-const dir = './build'
 const author = pkg.author
 const banner = `
   /**
@@ -24,50 +23,49 @@ const external = [
   '@emotion/react',
   'react/jsx-runtime',
 ]
-
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
   '@emotion/react': ['Interpolation', 'jsx', 'Theme'],
 }
-
-export default [
-  {
-    input: {
-      Any: 'src/Any.tsx',
-      elements: 'src/elements.tsx',
-      'resets/any-reset': 'src/resets/any-reset.ts',
-      'resets/element-reset-map': 'src/resets/element-reset-map.ts',
-      'resets/global-reset': 'src/resets/global-reset.ts',
-    },
-    output: [
-      {
-        entryFileNames: '[name].mjs',
-        dir,
-        format: 'es',
-        banner,
-        exports: 'named',
-        globals,
-      },
-      {
-        entryFileNames: '[name].cjs',
-        dir,
-        format: 'cjs',
-        sourcemap: 'inline',
-        banner,
-        exports: 'named',
-        globals,
-      },
-    ],
-    plugins: [
-      pluginTypescript(),
-      pluginCommonjs({
-        extensions: ['.js', '.ts'],
-      }),
-      babel({
-        babelHelpers: 'bundled',
-        configFile: path.resolve(__dirname, '.babelrc.js'),
-      }),
-    ],
-  },
+const inputFiles = [
+  { name: 'Any', ext: 'tsx' },
+  { name: 'elements', ext: 'tsx' },
+  { name: 'resets/any-reset', ext: 'ts' },
+  { name: 'resets/element-reset-map', ext: 'ts' },
+  { name: 'resets/global-reset', ext: 'ts' },
 ]
+
+export default inputFiles.map((file) => ({
+  external,
+  input: `./src/${file.name}.${file.ext}`,
+  output: [
+    {
+      banner,
+      exports: 'named',
+      file: `./build/${file.name}.mjs`,
+      format: 'es',
+      globals,
+      sourcemap: false,
+    },
+    {
+      banner,
+      exports: 'named',
+      file: `./build/${file.name}.cjs`,
+      format: 'cjs',
+      globals,
+      sourcemap: 'inline',
+      sourcemap: false,
+    },
+  ],
+  plugins: [
+    pluginTypescript(),
+    pluginCommonjs({
+      extensions: ['.js', '.ts'],
+    }),
+    babel({
+      babelHelpers: 'bundled',
+      configFile: path.resolve(__dirname, '.babelrc.js'),
+    }),
+  ],
+}))
