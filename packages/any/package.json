@@ -36,11 +36,11 @@
     }
   ],
   "scripts": {
-    "build": "npm-run-all clean build:*",
+    "build": "npm-run-all clean build:* copy",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:module": "rollup -c",
     "build:test": "jest --silent --passWithNoTests",
-    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build/types",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build",
     "clean": "rimraf build/*",
     "copy": "npm-run-all copy:*",
     "copy:package": "cp package.json build/",
@@ -51,7 +51,7 @@
     "generate:update": "node build/generate-elements/generate-elements.js",
     "generate:update-lint-fix": "eslint 'src/elements.tsx' --fix",
     "check": "[[ \"${PWD##*/} \" =~ build ]]",
-    "prepack": "npm-run-all check build copy",
+    "prepack": "npm-run-all check",
     "release": "standard-version --tag-prefix @wheelroom/any@ --path .",
     "test": "npm run build:test"
   },
