@@ -1,21 +1,17 @@
+/**
+ * Rollup build package
+ * See: https://github.com/rollup/rollup-starter-lib
+ *
+ */
 import pluginTypescript from '@rollup/plugin-typescript'
 import pluginCommonjs from '@rollup/plugin-commonjs'
-import { babel } from '@rollup/plugin-babel'
-import * as path from 'path'
+import pluginNodeResolve from '@rollup/plugin-node-resolve'
 import pkg from './package.json'
+// import { babel } from '@rollup/plugin-babel'
 // import { terser } from 'rollup-plugin-terser'
-// import pluginNodeResolve from '@rollup/plugin-node-resolve'
 
 const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = pkg.author
-const banner = `
-  /**
-   * @license
-   * author: ${author}
-   * ${moduleName}.js v${pkg.version}
-   * Released under the ${pkg.license} license.
-   */
-`
 const external = [
   'react',
   'react-dom',
@@ -26,7 +22,7 @@ const external = [
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  '@emotion/react': ['Interpolation', 'jsx', 'Theme'],
+  '@emotion/react': 'Interpolation, jsx. Theme',
   'react/jsx-runtime': 'jsx',
 }
 const inputFiles = [
@@ -37,44 +33,58 @@ const inputFiles = [
   { name: 'resets/global-reset', ext: 'ts', id: 'globalReset' },
 ]
 
-export default inputFiles.map((file) => ({
-  external,
-  input: `./src/${file.name}.${file.ext}`,
-  output: [
-    {
-      banner,
-      exports: 'named',
-      file: `./build/${file.name}.mjs`,
-      format: 'es',
-      globals,
-      sourcemap: false,
-    },
-    {
-      banner,
-      exports: 'named',
-      file: `./build/${file.name}.cjs`,
-      format: 'cjs',
-      globals,
-      sourcemap: false,
-    },
-    {
-      banner,
-      exports: 'named',
-      file: `./build/${file.name}.iife.js`,
-      format: 'iife',
-      globals,
-      name: file.id,
-      sourcemap: false,
-    },
-  ],
-  plugins: [
-    pluginTypescript(),
-    pluginCommonjs({
-      extensions: ['.js', '.ts'],
-    }),
-    babel({
-      babelHelpers: 'bundled',
-      configFile: path.resolve(__dirname, '.babelrc.js'),
-    }),
-  ],
-}))
+export default inputFiles.map((file) => {
+  const banner = `
+  /**
+   * @license
+   * author: ${author}
+   * ${moduleName}/${file.name} v${pkg.version}
+   * Released under the ${pkg.license} license.
+   */
+`
+
+  return {
+    external,
+    input: `./src/${file.name}.${file.ext}`,
+    output: [
+      {
+        banner,
+        exports: 'named',
+        file: `./build/${file.name}.mjs`,
+        format: 'es',
+        globals,
+        sourcemap: false,
+      },
+      {
+        banner,
+        exports: 'named',
+        file: `./build/${file.name}.js`,
+        format: 'cjs',
+        globals,
+        sourcemap: false,
+      },
+      {
+        banner,
+        exports: 'named',
+        file: `./build/${file.name}.umd.js`,
+        format: 'umd',
+        globals,
+        name: file.id,
+        sourcemap: false,
+      },
+    ],
+    plugins: [
+      // so Rollup can find node modules
+      pluginNodeResolve(),
+      // so Rollup can convert node modules to ES modules
+      pluginCommonjs({
+        extensions: ['.js', '.ts'],
+      }),
+      // so Rollup can convert TypeScript to JavaScript
+      pluginTypescript(),
+      // babel({
+      //   babelHelpers: 'bundled',
+      // }),
+    ],
+  }
+})

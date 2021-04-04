@@ -35,34 +35,6 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "type": "module",
-  "exports": {
-    "./Any": {
-      "node": {
-        "import": "./build/Any.mjs",
-        "require": "./build/Any.cjs"
-      },
-      "default": "./build/Any.mjs"
-    },
-    "./elements": {
-      "node": {
-        "import": "./build/elements.mjs",
-        "require": "./build/elements.cjs"
-      },
-      "default": "./build/elements.mjs"
-    },
-    "./resets/*": {
-      "node": {
-        "import": "./build/resets/*.mjs",
-        "require": "./build/resets/*.cjs"
-      },
-      "default": "./build/resets/*.mjs"
-    }
-  },
-  "main": "build/elements.cjs",
-  "module": "build/elements.mjs",
-  "browser": "build/elements.iife.js",
-  "types": "build/types",
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
@@ -70,11 +42,16 @@
     "build:test": "jest --silent --passWithNoTests",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build/types",
     "clean": "rimraf build/*",
+    "copy": "npm-run-all copy:*",
+    "copy:package": "cp package.json build/", 
+    "copy:changelog": "cp CHANGELOG.md build/", 
+    "copy:readme": "cp README.md build/", 
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc -p tsconfig.generate.json",
     "generate:update": "node build/generate-elements/generate-elements.js",
     "generate:update-lint-fix": "eslint 'src/elements.tsx' --fix",
-    "prepack": "npm run build",
+    "prepublish": "[[ \"${PWD##*/} \" =~ build ]]",
+    "prepack": "npm-run-all build copy",
     "release": "standard-version --tag-prefix @wheelroom/any@ --path .",
     "test": "npm run build:test"
   },
