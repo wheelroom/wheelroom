@@ -3,8 +3,8 @@ import pluginCommonjs from '@rollup/plugin-commonjs'
 import { babel } from '@rollup/plugin-babel'
 import * as path from 'path'
 import pkg from './package.json'
-// import pluginNodeResolve from '@rollup/plugin-node-resolve'
 // import { terser } from 'rollup-plugin-terser'
+// import pluginNodeResolve from '@rollup/plugin-node-resolve'
 
 const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = pkg.author
@@ -27,13 +27,14 @@ const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
   '@emotion/react': ['Interpolation', 'jsx', 'Theme'],
+  'react/jsx-runtime': 'jsx',
 }
 const inputFiles = [
-  { name: 'Any', ext: 'tsx' },
-  { name: 'elements', ext: 'tsx' },
-  { name: 'resets/any-reset', ext: 'ts' },
-  { name: 'resets/element-reset-map', ext: 'ts' },
-  { name: 'resets/global-reset', ext: 'ts' },
+  { name: 'Any', ext: 'tsx', id: 'Any' },
+  { name: 'elements', ext: 'tsx', id: 'elements' },
+  { name: 'resets/any-reset', ext: 'ts', id: 'anyReset' },
+  { name: 'resets/element-reset-map', ext: 'ts', id: 'elementResetMap' },
+  { name: 'resets/global-reset', ext: 'ts', id: 'globalReset' },
 ]
 
 export default inputFiles.map((file) => ({
@@ -54,7 +55,15 @@ export default inputFiles.map((file) => ({
       file: `./build/${file.name}.cjs`,
       format: 'cjs',
       globals,
-      sourcemap: 'inline',
+      sourcemap: false,
+    },
+    {
+      banner,
+      exports: 'named',
+      file: `./build/${file.name}.iife.js`,
+      format: 'iife',
+      globals,
+      name: file.id,
       sourcemap: false,
     },
   ],

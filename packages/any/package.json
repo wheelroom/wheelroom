@@ -59,13 +59,16 @@
       "default": "./build/resets/*.mjs"
     }
   },
+  "main": "build/elements.cjs",
+  "module": "build/elements.mjs",
+  "browser": "build/elements.iife.js",
   "types": "build/types",
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:module": "rollup -c",
-    "build:types": "tsc -p tsconfig.types.json",
     "build:test": "jest --silent --passWithNoTests",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build/types",
     "clean": "rimraf build/*",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc -p tsconfig.generate.json",
