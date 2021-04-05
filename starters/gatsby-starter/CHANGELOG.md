@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.4.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/gatsby-starter@6.4.6...@wheelroom/gatsby-starter@6.4.7) (2021-04-05)
+
 ### [6.4.6](https://github.com/wheelroom/wheelroom/compare/@wheelroom/gatsby-starter@6.4.5...@wheelroom/gatsby-starter@6.4.6) (2021-04-05)
 
 ### [6.4.5](https://github.com/wheelroom/wheelroom/compare/@wheelroom/gatsby-starter@6.4.4...@wheelroom/gatsby-starter@6.4.5) (2021-04-05)
