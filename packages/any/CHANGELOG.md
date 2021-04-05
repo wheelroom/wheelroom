@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.4.5](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.4.4...@wheelroom/any@6.4.5) (2021-04-05)
+
+
+### Commits
+
+* **release:** 6.4.4 ([50c7b0c](https://github.com/wheelroom/wheelroom/commit/50c7b0c2b4654949b5d67a9aa8d5ae7d1217a667))
+
 ### [6.4.4](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.4.4...@wheelroom/any@6.4.4) (2021-04-05)
 
 ### [6.4.4](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.4.3...@wheelroom/any@6.4.4) (2021-04-05)
