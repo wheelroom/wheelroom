@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/nextjs-starter",
-  "version": "1.0.0",
+  "version": "6.4.4",
   "private": true,
   "description": "Next.js starter",
   "author": "wheelroom",
@@ -11,6 +11,7 @@
     "build:test": "jest --silent --passWithNoTests",
     "clean": "rimraf .next",
     "dev": "next dev",
+    "release": "standard-version",
     "start": "next start"
   },
   "dependencies": {
