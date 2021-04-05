@@ -44,9 +44,9 @@ const publish = async ({ packageName }) => {
   const targetPkg = readPackageSync({ node: targetNode })
 
   console.log(
-    `Setting other packages to target package version ${targetPkg.version}`
+    `Releasing (not publishing) all packages to same version: ${targetPkg.version}`
   )
-  for (const node of nodes) {
+  for (const node of [rootNode, ...nodes]) {
     await buildTask({
       cmd: 'npm',
       args: ['run', 'release', '--', '--release-as', targetPkg.version],
