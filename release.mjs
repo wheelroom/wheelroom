@@ -7,6 +7,8 @@
  */
 import { spawn } from 'child_process'
 import fs from 'fs'
+import Arborist from '@npmcli/arborist'
+import yargs from 'yargs'
 
 const logStream = async ({ stream }) => {
   for await (const data of stream) {
@@ -52,30 +54,60 @@ const copyFilesSync = async ({ fromPath, toPath }) => {
   fs.copyFileSync(`${fromPath}/${fileName}`, `${toPath}/${fileName}`)
 }
 
-const main = async () => {
-  console.log('Releasing root package')
+const publish = async ({ packageName }) => {
+  const arb = new Arborist({ path: '.' })
+  const tree = await arb.loadActual()
+  const nodes = Array.from(tree.fsChildren)
+  const nodeNames = nodes.map((child) => child.name)
+  const node = nodes.find((child) => child.name === packageName)
+  if (!node) {
+    console.log(
+      `Package ${packageName} not found, please choose from: ${nodeNames.join(
+        ', '
+      )}`
+    )
+    process.exit(0)
+  }
+  console.log('Releasing root package', node)
+
   await buildTask({ cmd: 'npm', args: ['run', 'release'], cwd: '.' })
   console.log('Updating package with root package')
   const rootPkg = readPackageSync({ file: './package.json' })
-  const destPkg = readPackageSync({ file: './packages/any/package.json' })
+  const destPkg = readPackageSync({ file: `${node.path}/package.json` })
   const newDestPkg = updatePackage({ rootPkg, destPkg })
   writePackageSync({ pkg: newDestPkg })
   console.log('Releasing package with version', rootPkg.version)
   await buildTask({
     cmd: 'npm',
     args: ['run', 'release', '--', '--release-as', rootPkg.version],
-    cwd: './packages/any',
+    cwd: node.path,
   })
   console.log('Building package')
-  await buildTask({ cmd: 'npm', args: ['run', 'build'], cwd: './packages/any' })
+  await buildTask({ cmd: 'npm', args: ['run', 'build'], cwd: node.path })
   console.log('Copying files')
-  copyFilesSync({ fromPath: './packages/any', toPath: './packages/any/build' })
+  copyFilesSync({ fromPath: node.path, toPath: `${node.path}/build` })
   console.log('Publishing package')
   await buildTask({
     cmd: 'npm',
     args: ['publish'],
-    cwd: './packages/any/build',
+    cwd: `${node.path}/build`,
   })
 }
 
-main()
+yargs
+  .scriptName('release')
+  .usage('$0 <cmd> [args]')
+  .command(
+    'publish [package]',
+    'build, bump and publish to npm',
+    (yargs) => {
+      yargs.positional('package', {
+        type: 'string',
+        describe: 'package name without organisation',
+      })
+    },
+    function (argv) {
+      publish({ packageName: argv.package })
+    }
+  )
+  .help().argv
