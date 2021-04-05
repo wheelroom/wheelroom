@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.4.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom6.3.41...@wheelroom6.4.0) (2021-04-05)
+
+
+### Features
+
+* draft node publish script ([d7ca945](https://github.com/wheelroom/wheelroom/commit/d7ca9459dc3bae24b072b5425e61f8f0209b9ba5))
+
+
+### Commits
+
+* **release:** 6.3.41 ([551cb41](https://github.com/wheelroom/wheelroom/commit/551cb41493d1257414463e4877198acea6152846))
+
 ### [6.3.41](https://github.com/wheelroom/wheelroom/compare/@wheelroom6.3.40...@wheelroom6.3.41) (2021-04-05)
 
 
