@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.4.8](https://github.com/wheelroom/wheelroom/compare/@wheelroom/nextjs-starter@6.4.7...@wheelroom/nextjs-starter@6.4.8) (2021-04-05)
+
+
+### Commits
+
+* move lib functions to lib ([74f5e25](https://github.com/wheelroom/wheelroom/commit/74f5e25322985b6840a77c95211e1afca183d565))
+
 ### [6.4.7](https://github.com/wheelroom/wheelroom/compare/@wheelroom/nextjs-starter@6.4.6...@wheelroom/nextjs-starter@6.4.7) (2021-04-05)
 
 ### [6.4.6](https://github.com/wheelroom/wheelroom/compare/@wheelroom/nextjs-starter@6.4.5...@wheelroom/nextjs-starter@6.4.6) (2021-04-05)
