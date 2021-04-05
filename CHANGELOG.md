@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.4.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom6.4.0...@wheelroom6.4.2) (2021-04-05)
+
+
+### Code Refactoring
+
+* rename publish to release/ use Arborist ([630ebdb](https://github.com/wheelroom/wheelroom/commit/630ebdbdc2652e8b2540de0abca2af0400ec0b93))
+
+
+### Commits
+
+* **release:** 6.4.0 ([6de31ec](https://github.com/wheelroom/wheelroom/commit/6de31ec71972b845283785905c05682400087e89))
+* **release:** 6.4.1 ([e4ea626](https://github.com/wheelroom/wheelroom/commit/e4ea626c15d16665df92e024a93e1b40ce5dcd88))
+* **release:** 6.4.2 ([449bb35](https://github.com/wheelroom/wheelroom/commit/449bb3596eb148e3799d68387417e9ab247fe86c))
+* add todo's ([1845f07](https://github.com/wheelroom/wheelroom/commit/1845f07268d630f10c101640fe04dc4acfe4b609))
+
 ## [6.4.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom6.3.41...@wheelroom6.4.0) (2021-04-05)
 
 
