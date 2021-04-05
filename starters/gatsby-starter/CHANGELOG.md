@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.4.9](https://github.com/wheelroom/wheelroom/compare/@wheelroom/gatsby-starter@6.4.8...@wheelroom/gatsby-starter@6.4.9) (2021-04-05)
+
+
+### Commits
+
+* also bump root package ([7d56065](https://github.com/wheelroom/wheelroom/commit/7d5606509673345090f494ca7b4a03775fedee0a))
+
 ### [6.4.8](https://github.com/wheelroom/wheelroom/compare/@wheelroom/gatsby-starter@6.4.7...@wheelroom/gatsby-starter@6.4.8) (2021-04-05)
 
 
