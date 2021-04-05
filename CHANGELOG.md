@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [6.4.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom6.4.2...@wheelroom6.4.2) (2021-04-05)
 
+
+### Commits
+
+* **release:** 6.4.2 ([8269061](https://github.com/wheelroom/wheelroom/commit/82690613286626b9b77b785b1b80df04a59001b1))
+
+### [6.4.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom6.4.2...@wheelroom6.4.2) (2021-04-05)
+
 ### [6.4.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom6.4.0...@wheelroom6.4.2) (2021-04-05)
 
 
