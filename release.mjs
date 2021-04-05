@@ -1,72 +1,32 @@
 /**
- * - Bump version of root
+ * - Bump version of package
  * - Sync versions of all packages
  * - Update all dependencies that use the packages
  * - Copy files to build folder
- * -
+ * - Extend package.json fields in build folder
+ * - Publish to npm
+ *
  */
 
-// TODO: Don't pollute package.json of pacakge
-// TODO: Update all dependencies that use the packages
-// TODO: Sync versions of all packages
-// TODO: Keep pipeline in release script, move other code into lib
-
-import { spawn } from 'child_process'
-import fs from 'fs'
 import Arborist from '@npmcli/arborist'
 import yargs from 'yargs'
-
-const logStream = async ({ stream }) => {
-  for await (const data of stream) {
-    process.stdout.write(data)
-  }
-}
-const readPackageSync = ({ file }) => {
-  const data = fs.readFileSync(file, 'utf8')
-  return JSON.parse(data)
-}
-const writePackageSync = ({ pkg }) => {
-  const data = JSON.stringify(pkg, null, 2)
-  fs.writeFileSync('./user.json', data, 'utf8')
-}
-const buildTask = async ({ cmd, args, cwd }) => {
-  console.log(`==> (${cwd}) ${cmd} ${args.join(' ')}`)
-  const child = spawn(cmd, args, { cwd })
-  await Promise.all([
-    logStream({ stream: child.stdout }),
-    logStream({ stream: child.stderr }),
-  ])
-}
-const updatePackage = ({ rootPkg, destPkg }) => {
-  const result = Object.assign({}, destPkg)
-  destPkg.keywords = rootPkg.keywords
-  destPkg.homepage = rootPkg.homepage
-  destPkg.bugs = rootPkg.bugs
-  destPkg.repository = rootPkg.repository
-  destPkg.license = rootPkg.license
-  destPkg.author = rootPkg.author
-  destPkg.contributors = rootPkg.contributors
-  destPkg.engines = rootPkg.engines
-  destPkg.publishConfig = rootPkg.publishConfig
-  return result
-}
-const copyFilesSync = async ({ fromPath, toPath }) => {
-  let fileName
-  fileName = 'package.json'
-  fs.copyFileSync(`${fromPath}/${fileName}`, `${toPath}/${fileName}`)
-  fileName = 'CHANGELOG.md'
-  fs.copyFileSync(`${fromPath}/${fileName}`, `${toPath}/${fileName}`)
-  fileName = 'README.md'
-  fs.copyFileSync(`${fromPath}/${fileName}`, `${toPath}/${fileName}`)
-}
+import {
+  buildTask,
+  cloneToDirSync,
+  getDependencyList,
+  readPackageSync,
+  updateClonedPackage,
+  updateDependencyVersions,
+} from './release-lib.mjs'
 
 const publish = async ({ packageName }) => {
-  const arb = new Arborist({ path: '.' })
-  const tree = await arb.loadActual()
-  const nodes = Array.from(tree.fsChildren)
-  const nodeNames = nodes.map((child) => child.name)
-  const node = nodes.find((child) => child.name === packageName)
-  if (!node) {
+  const arborist = new Arborist({ path: '.' })
+  const rootNode = await arborist.loadActual()
+  const nodes = Array.from(rootNode.fsChildren)
+  const nodeNames = nodes.map((child) => child.package.name)
+  const targetNode = nodes.find((child) => child.package.name === packageName)
+
+  if (!targetNode) {
     console.log(
       `Package ${packageName} not found, please choose from: ${nodeNames.join(
         ', '
@@ -74,30 +34,59 @@ const publish = async ({ packageName }) => {
     )
     process.exit(0)
   }
-  console.log('Releasing root package', node)
-
-  await buildTask({ cmd: 'npm', args: ['run', 'release'], cwd: '.' })
-  console.log('Updating package with root package')
-  const rootPkg = readPackageSync({ file: './package.json' })
-  const destPkg = readPackageSync({ file: `${node.path}/package.json` })
-  const newDestPkg = updatePackage({ rootPkg, destPkg })
-  writePackageSync({ pkg: newDestPkg })
-  console.log('Releasing package with version', rootPkg.version)
+  console.log(`Bumping target package ${targetNode.package.name}`)
   await buildTask({
     cmd: 'npm',
-    args: ['run', 'release', '--', '--release-as', rootPkg.version],
-    cwd: node.path,
+    args: ['run', 'release'],
+    cwd: targetNode.path,
   })
-  console.log('Building package')
-  await buildTask({ cmd: 'npm', args: ['run', 'build'], cwd: node.path })
-  console.log('Copying files')
-  copyFilesSync({ fromPath: node.path, toPath: `${node.path}/build` })
-  console.log('Publishing package')
+
+  const targetPkg = readPackageSync({ node: targetNode })
+
+  console.log(
+    `Setting other packages to target package version ${targetPkg.version}`
+  )
+  for (const node of nodes) {
+    await buildTask({
+      cmd: 'npm',
+      args: ['run', 'release', '--', '--release-as', targetPkg.version],
+      cwd: node.path,
+    })
+  }
+
+  console.log(`Updating packages that depend on ${targetNode.package.name}`)
+  const dependencyList = getDependencyList({ nodes, targetNode })
+  updateDependencyVersions({ dependencyList, version: targetPkg.version })
+
+  console.log(`Clone and publish target package ${targetNode.package.name}`)
+  await buildTask({ cmd: 'npm', args: ['run', 'build'], cwd: targetNode.path })
+  cloneToDirSync({
+    node: targetNode,
+    cloneDir: 'build',
+    fileNameList: ['package.json', 'CHANGELOG.md', 'README.md'],
+  })
+  const rootPkg = readPackageSync({ node: rootNode })
+  updateClonedPackage({
+    node: targetNode,
+    cloneDir: 'build',
+    json: {
+      keywords: rootPkg.keywords,
+      homepage: rootPkg.homepage,
+      bugs: rootPkg.bugs,
+      repository: rootPkg.repository,
+      license: rootPkg.license,
+      author: rootPkg.author,
+      contributors: rootPkg.contributors,
+      engines: rootPkg.engines,
+      publishConfig: rootPkg.publishConfig,
+    },
+  })
   await buildTask({
     cmd: 'npm',
     args: ['publish'],
-    cwd: `${node.path}/build`,
+    cwd: `${targetNode.path}/build`,
   })
+  console.log('git push --follow-tags origin next')
 }
 
 yargs
@@ -109,11 +98,12 @@ yargs
     (yargs) => {
       yargs.positional('package', {
         type: 'string',
-        describe: 'package name without organisation',
+        describe: 'full package name with organisation',
       })
     },
     function (argv) {
       publish({ packageName: argv.package })
     }
   )
+  .demandCommand()
   .help().argv
