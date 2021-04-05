@@ -5,6 +5,12 @@
  * - Copy files to build folder
  * -
  */
+
+// TODO: Don't pollute package.json of pacakge
+// TODO: Update all dependencies that use the packages
+// TODO: Sync versions of all packages
+// TODO: Keep pipeline in release script, move other code into lib
+
 import { spawn } from 'child_process'
 import fs from 'fs'
 import Arborist from '@npmcli/arborist'
