@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.4.8](https://github.com/wheelroom/wheelroom/compare/@wheelroom6.4.2...@wheelroom6.4.8) (2021-04-05)
+
+
+### Commits
+
+* **release:** 6.4.8 ([54eb172](https://github.com/wheelroom/wheelroom/commit/54eb17207e2188f857bd9ac6832313814d0bf8fc))
+* move lib functions to lib ([74f5e25](https://github.com/wheelroom/wheelroom/commit/74f5e25322985b6840a77c95211e1afca183d565))
+* **release:** 6.4.2 ([bcd9ec3](https://github.com/wheelroom/wheelroom/commit/bcd9ec3230a7e17b3ca8f423983fc99c7b52eb7b))
+* **release:** 6.4.2 ([8269061](https://github.com/wheelroom/wheelroom/commit/82690613286626b9b77b785b1b80df04a59001b1))
+* **release:** 6.4.3 ([c9c0fbe](https://github.com/wheelroom/wheelroom/commit/c9c0fbe578218f788bd67d0fb2f2f9f09146d2c9))
+* **release:** 6.4.3 ([a5bacbe](https://github.com/wheelroom/wheelroom/commit/a5bacbed36a739011ff44163f656b1755f6e0cea))
+* **release:** 6.4.3 ([57dc34b](https://github.com/wheelroom/wheelroom/commit/57dc34b88e105f7be22b98463ad79fd3a0e44902))
+* **release:** 6.4.4 ([a39f69c](https://github.com/wheelroom/wheelroom/commit/a39f69c9402256b427dcf134520845893bb997d9))
+* **release:** 6.4.4 ([50c7b0c](https://github.com/wheelroom/wheelroom/commit/50c7b0c2b4654949b5d67a9aa8d5ae7d1217a667))
+* **release:** 6.4.4 ([1e22c91](https://github.com/wheelroom/wheelroom/commit/1e22c916b9deca82825939dc14286724d9b28017))
+* **release:** 6.4.4 ([36ab649](https://github.com/wheelroom/wheelroom/commit/36ab64964cafbe2e886582bf4d01e9e340af5e06))
+* **release:** 6.4.5 ([6ecc209](https://github.com/wheelroom/wheelroom/commit/6ecc20930abd23dd7c6ad33e6f03f077578da3c6))
+* **release:** 6.4.5 ([6386da7](https://github.com/wheelroom/wheelroom/commit/6386da79efe39cb88adf660309d3816adfd7ee5a))
+* **release:** 6.4.5 ([4d5621c](https://github.com/wheelroom/wheelroom/commit/4d5621cf104ebbd67edf899e9aa7d277cc50b600))
+* **release:** 6.4.5 ([67d2291](https://github.com/wheelroom/wheelroom/commit/67d2291e6070806d7838343b25f948376b0534f2))
+* **release:** 6.4.6 ([b831ec8](https://github.com/wheelroom/wheelroom/commit/b831ec8f1c742dea30757fa03d01b8823eb59efd))
+* **release:** 6.4.6 ([96449a3](https://github.com/wheelroom/wheelroom/commit/96449a39361b5a71e29944912ea3c52d470cd0e2))
+* **release:** 6.4.6 ([ed39ce9](https://github.com/wheelroom/wheelroom/commit/ed39ce96781d8fd893aaf4e7d1a28b65344e7718))
+* **release:** 6.4.6 ([f2ce700](https://github.com/wheelroom/wheelroom/commit/f2ce70049f7dee5b2e3e427ea1a539dd2897da26))
+* **release:** 6.4.7 ([71f41e0](https://github.com/wheelroom/wheelroom/commit/71f41e05dbebad41ea059b7c4d94b7a2290aa840))
+* **release:** 6.4.7 ([89361c2](https://github.com/wheelroom/wheelroom/commit/89361c24b3836fbf993d5f9d4fdbb1599376beb0))
+* **release:** 6.4.7 ([f188a14](https://github.com/wheelroom/wheelroom/commit/f188a14a05f9a131fc91568b851df8bb62d6df18))
+* **release:** 6.4.7 ([6c3dfbe](https://github.com/wheelroom/wheelroom/commit/6c3dfbe051e68d3aa0ff0e816ced49deac73d9b2))
+
 ### [6.4.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom6.4.2...@wheelroom6.4.2) (2021-04-05)
 
 
