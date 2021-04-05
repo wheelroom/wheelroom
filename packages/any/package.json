@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/any",
-  "version": "6.3.36",
+  "version": "6.3.37",
   "description": "Any component with CSS element reset and CSS Emotion props",
   "keywords": [
     "any",
@@ -41,20 +41,12 @@
     "build:module": "rollup -c",
     "build:test": "jest --silent --passWithNoTests",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build",
-    "check": "[[ \"${PWD##*/} \" =~ build ]]",
     "clean": "rimraf build/*",
-    "copy": "npm-run-all copy:*",
-    "copy:changelog": "cp CHANGELOG.md build/",
-    "copy:package": "cp package.json build/",
-    "copy:readme": "cp README.md build/",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc -p tsconfig.generate.json",
     "generate:update": "node build/generate-elements/generate-elements.js",
     "generate:update-lint-fix": "eslint 'src/elements.tsx' --fix",
-    "prepack": "npm-run-all check",
-    "release": "npm-run-all build release:bump copy",
-    "release:bump": "standard-version --tag-prefix @wheelroom/any@ --path .",
-    "test": "npm run build:test"
+    "release": "standard-version"
   },
   "browserslist": "> 0.25%, not dead",
   "peerDependencies": {
