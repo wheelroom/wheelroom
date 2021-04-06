@@ -15,7 +15,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@wheelroom/any": "6.4.9",
+    "@wheelroom/any": "6.4.10",
     "next": "10.1.2"
   }
 }
