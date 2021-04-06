@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.4.10](https://github.com/wheelroom/wheelroom/compare/@wheelroom/nextjs-starter@6.4.9...@wheelroom/nextjs-starter@6.4.10) (2021-04-06)
+
+
+### Commits
+
+* commit deps ([9cbeda5](https://github.com/wheelroom/wheelroom/commit/9cbeda582a3fed63e1ab50f00f9133ff5b7e1661))
+
 ### [6.4.9](https://github.com/wheelroom/wheelroom/compare/@wheelroom/nextjs-starter@6.4.8...@wheelroom/nextjs-starter@6.4.9) (2021-04-05)
 
 
