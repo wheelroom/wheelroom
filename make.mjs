@@ -19,7 +19,7 @@ import {
   readPackageSync,
   updateClonedPackage,
   updateDependencyVersions,
-} from './release-lib.mjs'
+} from './packages/make/build/npm.js'
 
 const publish = async ({ packageName }) => {
   const arborist = new Arborist({ path: '.' })
@@ -92,7 +92,7 @@ const publish = async ({ packageName }) => {
 }
 
 yargs
-  .scriptName('release')
+  .scriptName('make')
   .usage('$0 <cmd> [args]')
   .command(
     'publish [package]',

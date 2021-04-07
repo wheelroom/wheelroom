@@ -13,7 +13,8 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "paths": {
-      "@wheelroom/any/*": ["packages/any/src/*"]
+      "@wheelroom/any/*": ["packages/any/src/*"],
+      "@wheelroom/make/*": ["packages/make/src/*"]
     },
     "removeComments": true,
     "resolveJsonModule": true,
