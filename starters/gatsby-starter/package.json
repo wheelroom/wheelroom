@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/gatsby-starter",
-  "version": "6.7.6",
+  "version": "6.7.7",
   "description": "A JAMstack boilerplate for services, like Gatsby, Contentful, Netlify and much more",
   "scripts": {
     "build": "npm-run-all clean build:*",
@@ -12,7 +12,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@wheelroom/any": "6.7.6",
+    "@wheelroom/any": "6.7.7",
     "gatsby": "3.1.2"
   },
   "keywords": [
