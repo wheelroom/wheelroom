@@ -59,7 +59,7 @@ const publish = async ({ packageName }) => {
   process.chdir(targetNode.path)
   await standardVersion({
     // TODO: Check if this filters the path correctly
-    path: targetNode.path,
+    path: '.',
     tagPrefix: targetNode.package.name,
     types: commitTypes,
   })
