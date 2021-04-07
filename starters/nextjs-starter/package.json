@@ -11,7 +11,6 @@
     "build:test": "jest --silent --passWithNoTests",
     "clean": "rimraf .next",
     "dev": "next dev",
-    "release": "standard-version",
     "start": "next start"
   },
   "dependencies": {

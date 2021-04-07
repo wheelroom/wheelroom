@@ -11,6 +11,7 @@
 // TODO: Commit changes to packages that depend on target
 
 import Arborist from '@npmcli/arborist'
+import standardVersion from 'standard-version'
 import yargs from 'yargs'
 import {
   buildTask,
@@ -21,16 +22,23 @@ import {
   updateDependencyVersions,
 } from './packages/make/build/npm.js'
 
+const commitTypes = [
+  { type: 'feat', section: 'Features' },
+  { type: 'fix', section: 'Bug Fixes' },
+  { type: 'chore', section: 'Commits' },
+  { type: 'docs', section: 'Documentation' },
+  { type: 'style', section: 'Styling' },
+  { type: 'refactor', section: 'Code Refactoring' },
+  { type: 'perf', hidden: true },
+  { type: 'test', hidden: true },
+]
+
 const publish = async ({ packageName }) => {
   const arborist = new Arborist({ path: '.' })
   const rootNode = await arborist.loadActual()
   const nodes = Array.from(rootNode.fsChildren)
   const nodeNames = nodes.map((child) => child.package.name)
   const targetNode = nodes.find((child) => child.package.name === packageName)
-
-  // tagPrefix: '@wheelroom',
-  // path: '.',
-  // silent: true,
 
   if (!targetNode) {
     console.log(
@@ -40,7 +48,17 @@ const publish = async ({ packageName }) => {
     )
     process.exit(0)
   }
-  console.log(`Bumping package ${targetNode.package.name}`)
+  console.log(`Bumping root package`)
+  process.chdir(targetNode.path)
+  await standardVersion({
+    bumpFiles: [`${rootNode.path}/package.json`],
+    path: targetNode.path,
+    tagPrefix: '@wheelroom/any',
+    types: commitTypes,
+  })
+  console.log('done')
+  process.exit(1)
+
   await buildTask({
     cmd: 'npm',
     args: ['run', 'release'],

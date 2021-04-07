@@ -12,8 +12,7 @@
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc -p tsconfig.generate.json",
     "generate:update": "node build/generate-elements/generate-elements.js",
-    "generate:update-lint-fix": "eslint 'src/elements.tsx' --fix",
-    "release": "standard-version"
+    "generate:update-lint-fix": "eslint 'src/elements.tsx' --fix"
   },
   "peerDependencies": {
     "@emotion/css": "11.1.3",

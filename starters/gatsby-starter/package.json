@@ -9,7 +9,6 @@
     "build:test": "jest --silent --passWithNoTests",
     "clean": "gatsby clean",
     "dev": "gatsby develop",
-    "release": "standard-version",
     "serve": "gatsby serve"
   },
   "dependencies": {

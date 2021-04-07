@@ -8,7 +8,6 @@
     "build:module": "rollup -c",
     "build:test": "jest --silent --passWithNoTests",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build",
-    "clean": "rimraf build/*",
-    "release": "standard-version"
+    "clean": "rimraf build/*"
   }
 }
