@@ -1,0 +1,14 @@
+{
+  "name": "@wheelroom/make",
+  "version": "1.0.1",
+  "description": "Make library for use with NPM 7 and @npmcli/arborist ",
+  "scripts": {
+    "build": "npm-run-all clean build:*",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:module": "rollup -c",
+    "build:test": "jest --silent --passWithNoTests",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build",
+    "clean": "rimraf build/*",
+    "release": "standard-version"
+  }
+}
