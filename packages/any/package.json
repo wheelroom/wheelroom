@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/any",
-  "version": "6.8.0",
+  "version": "6.7.1",
   "description": "Any component with CSS element reset and CSS Emotion props",
   "scripts": {
     "build": "npm-run-all clean build:*",

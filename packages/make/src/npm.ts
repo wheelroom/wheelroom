@@ -44,10 +44,14 @@ export const readPackageSync = ({ node }: ReadPackageSync) => {
 }
 export interface WritePackageSync {
   node: Node
-  json: Package
+  packageObject: Package
 }
-export const writePackageSync = ({ node, json }: WritePackageSync) => {
-  fs.writeFileSync(packagePath(node), JSON.stringify(json, null, 2), 'utf8')
+export const writePackageSync = ({ node, packageObject }: WritePackageSync) => {
+  fs.writeFileSync(
+    packagePath(node),
+    JSON.stringify(packageObject, null, 2),
+    'utf8'
+  )
 }
 export interface BuildTask {
   cmd: string
@@ -62,24 +66,27 @@ export const buildTask = async ({ cmd, args, cwd }: BuildTask) => {
     logStream({ stream: child.stderr }),
   ])
 }
-export interface UpdateClonedPackage {
+export interface updatePackage {
   node: Node
-  cloneDir: string
-  json: Package
+  cloneDir?: string
+  packageObject: Package
 }
-export const updateClonedPackage = ({
+export const updatePackage = ({
   node,
   cloneDir,
-  json,
-}: UpdateClonedPackage) => {
+  packageObject,
+}: updatePackage) => {
   const cloneNode = {
-    path: `${node.path}/${cloneDir}`,
+    path: cloneDir ? `${node.path}/${cloneDir}` : node.path,
   }
-  const jsonCopy = Object.assign({}, readPackageSync({ node: cloneNode }))
-  for (const key in json) {
-    jsonCopy[key] = json[key]
+  const packageObjectCopy = Object.assign(
+    {},
+    readPackageSync({ node: cloneNode })
+  )
+  for (const key in packageObject) {
+    packageObjectCopy[key] = packageObject[key]
   }
-  writePackageSync({ node: cloneNode, json: jsonCopy })
+  writePackageSync({ node: cloneNode, packageObject: packageObjectCopy })
 }
 export interface CloneToDirSync {
   node: Node
@@ -101,7 +108,6 @@ export const cloneToDirSync = async ({
 export interface GetDependencyList {
   targetNode: Node
   nodes: Node[]
-  fileNameList: string[]
 }
 export type Dependency = {
   node: Node
@@ -121,6 +127,26 @@ export const getDependencyList = ({ targetNode, nodes }: GetDependencyList) => {
   }
   return list
 }
+export interface GetRecursiveDependencyList {
+  targetNode: Node
+  nodes: Node[]
+  dependencyList: Dependency[]
+}
+export const getRecursiveDependencyList = ({
+  targetNode,
+  nodes,
+  dependencyList,
+}: GetRecursiveDependencyList) => {
+  const depList = getDependencyList({ targetNode, nodes })
+  dependencyList.push(...depList)
+  dependencyList.forEach((dep) => {
+    getRecursiveDependencyList({
+      targetNode: dep.node,
+      nodes,
+      dependencyList,
+    })
+  })
+}
 export interface UpdateDependencyVersions {
   dependencyList: Dependency[]
   version: string
@@ -136,9 +162,9 @@ export const updateDependencyVersions = ({
     dev: 'devDependencies',
   }
   for (const dep of dependencyList) {
-    const json = readPackageSync({ node: dep.node })
-    json[depMap[dep.edge.type]][dep.edge.name] = version
-    writePackageSync({ node: dep.node, json })
+    const packageObject = readPackageSync({ node: dep.node })
+    packageObject[depMap[dep.edge.type]][dep.edge.name] = version
+    writePackageSync({ node: dep.node, packageObject })
     console.log(`- Updated package ${dep.node.package!.name}`)
   }
 }

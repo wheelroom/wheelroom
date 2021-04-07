@@ -17,9 +17,10 @@ import {
   buildTask,
   cloneToDirSync,
   getDependencyList,
+  getRecursiveDependencyList,
   readPackageSync,
-  updateClonedPackage,
   updateDependencyVersions,
+  updatePackage,
 } from './packages/make/build/npm.js'
 
 const commitTypes = [
@@ -48,37 +49,48 @@ const publish = async ({ packageName }) => {
     )
     process.exit(0)
   }
-  console.log(`Bumping root package`)
+
+  console.log(`Bumping package ${targetNode.package.name}`)
+  const rootPkg = readPackageSync({ node: rootNode })
+  updatePackage({
+    node: targetNode,
+    packageObject: { version: rootPkg.version },
+  })
   process.chdir(targetNode.path)
   await standardVersion({
-    bumpFiles: [`${rootNode.path}/package.json`],
+    // TODO: Check if this filters the path correctly
     path: targetNode.path,
-    tagPrefix: '@wheelroom/any',
+    tagPrefix: targetNode.package.name,
     types: commitTypes,
   })
-  console.log('done')
-  process.exit(1)
-
-  await buildTask({
-    cmd: 'npm',
-    args: ['run', 'release'],
-    cwd: targetNode.path,
-  })
-
   const targetPkg = readPackageSync({ node: targetNode })
 
+  console.log(`Updating root package to version ${targetPkg.version}`)
+  updatePackage({
+    node: rootNode,
+    packageObject: { version: targetPkg.version },
+  })
+
   console.log(
-    `Releasing (not publishing) all packages to same version: ${targetPkg.version}`
+    `Setting all packages that use ${targetPkg.package.name} to version ${targetPkg.version}`
   )
-  for (const node of [rootNode, ...nodes]) {
-    await buildTask({
-      cmd: 'npm',
-      args: ['run', 'release', '--', '--release-as', targetPkg.version],
-      cwd: node.path,
+  const recursiveDependencyList = []
+  getRecursiveDependencyList({
+    targetNode,
+    nodes,
+    dependencyList: recursiveDependencyList,
+  })
+  for (const dep of recursiveDependencyList) {
+    updatePackage({
+      node: dep.node,
+      packageObject: { version: targetPkg.version },
     })
+    console.log(`Package ${dep.node.package.name} set to ${targetPkg.version}`)
   }
 
-  console.log(`Updating packages that depend on ${targetNode.package.name}`)
+  console.log(
+    `Updating all packages that use ${targetNode.package.name} to use the new version ${targetPkg.version}`
+  )
   const dependencyList = getDependencyList({ nodes, targetNode })
   updateDependencyVersions({ dependencyList, version: targetPkg.version })
 
@@ -89,8 +101,7 @@ const publish = async ({ packageName }) => {
     cloneDir: 'build',
     fileNameList: ['package.json', 'CHANGELOG.md', 'README.md'],
   })
-  const rootPkg = readPackageSync({ node: rootNode })
-  updateClonedPackage({
+  updatePackage({
     node: targetNode,
     cloneDir: 'build',
     json: {
