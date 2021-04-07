@@ -60,6 +60,7 @@ const publish = async ({ packageName }) => {
   await standardVersion({
     // TODO: Check if this filters the path correctly
     path: '.',
+    skip: { commit: true },
     tagPrefix: targetNode.package.name,
     types: commitTypes,
   })
