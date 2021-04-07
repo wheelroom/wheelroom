@@ -93,7 +93,6 @@ const publish = async ({ packageName }) => {
   )
   const dependencyList = getDependencyList({ nodes, targetNode })
   updateDependencyVersions({ dependencyList, version: targetPkg.version })
-
   console.log(`Clone and publish target package ${targetPkg.name}`)
   await buildTask({ cmd: 'npm', args: ['run', 'build'], cwd: targetNode.path })
   cloneToDirSync({

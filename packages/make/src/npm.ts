@@ -116,14 +116,14 @@ export type Dependency = {
 export const getDependencyList = ({ targetNode, nodes }: GetDependencyList) => {
   const list: Dependency[] = []
   for (const node of nodes) {
-    for (const edge of node.edgesOut) {
-      if (edge[0] === targetNode.package!.name) {
+    node.edgesOut.forEach((edge: any) => {
+      if (edge.name === targetNode.package!.name) {
         list.push({
           node,
-          edge: edge[1],
+          edge,
         })
       }
-    }
+    })
   }
   return list
 }
@@ -138,14 +138,14 @@ export const getRecursiveDependencyList = ({
   dependencyList,
 }: GetRecursiveDependencyList) => {
   const depList = getDependencyList({ targetNode, nodes })
-  dependencyList.push(...depList)
-  dependencyList.forEach((dep) => {
+  depList.forEach((dep) => {
     getRecursiveDependencyList({
       targetNode: dep.node,
       nodes,
       dependencyList,
     })
   })
+  dependencyList.push(...depList)
 }
 export interface UpdateDependencyVersions {
   dependencyList: Dependency[]
