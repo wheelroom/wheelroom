@@ -28,6 +28,10 @@ const publish = async ({ packageName }) => {
   const nodeNames = nodes.map((child) => child.package.name)
   const targetNode = nodes.find((child) => child.package.name === packageName)
 
+  // tagPrefix: '@wheelroom',
+  // path: '.',
+  // silent: true,
+
   if (!targetNode) {
     console.log(
       `Package ${packageName} not found, please choose from: ${nodeNames.join(
@@ -36,7 +40,7 @@ const publish = async ({ packageName }) => {
     )
     process.exit(0)
   }
-  console.log(`Bumping target package ${targetNode.package.name}`)
+  console.log(`Bumping package ${targetNode.package.name}`)
   await buildTask({
     cmd: 'npm',
     args: ['run', 'release'],

@@ -1,7 +1,4 @@
 module.exports = {
-  tagPrefix: '@wheelroom/nextjs-starter@',
-  path: '.',
-  silent: true,
   types: [
     { type: 'feat', section: 'Features' },
     { type: 'fix', section: 'Bug Fixes' },
