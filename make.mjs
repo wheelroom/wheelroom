@@ -72,7 +72,7 @@ const publish = async ({ packageName }) => {
   })
 
   console.log(
-    `Setting all packages that use ${targetPkg.package.name} to version ${targetPkg.version}`
+    `Setting all packages that use ${targetPkg.name} to version ${targetPkg.version}`
   )
   const recursiveDependencyList = []
   getRecursiveDependencyList({
@@ -89,12 +89,12 @@ const publish = async ({ packageName }) => {
   }
 
   console.log(
-    `Updating all packages that use ${targetNode.package.name} to use the new version ${targetPkg.version}`
+    `Updating all packages that use ${targetPkg.name} to use the new version ${targetPkg.version}`
   )
   const dependencyList = getDependencyList({ nodes, targetNode })
   updateDependencyVersions({ dependencyList, version: targetPkg.version })
 
-  console.log(`Clone and publish target package ${targetNode.package.name}`)
+  console.log(`Clone and publish target package ${targetPkg.name}`)
   await buildTask({ cmd: 'npm', args: ['run', 'build'], cwd: targetNode.path })
   cloneToDirSync({
     node: targetNode,
