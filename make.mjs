@@ -8,8 +8,7 @@
  *
  */
 
-// TODO: Commit changes to packages that depend on target
-
+import { mkdir } from 'fs/promises'
 import Arborist from '@npmcli/arborist'
 import standardVersion from 'standard-version'
 import yargs from 'yargs'
@@ -33,6 +32,17 @@ const commitTypes = [
   { type: 'perf', hidden: true },
   { type: 'test', hidden: true },
 ]
+
+const updatePackagesToUseNewVersion = ({ nodes, targetNode }) => {
+  console.log(
+    `Updating all packages that use ${targetNode.package.name} to use the new version ${targetNode.package.version}`
+  )
+  const dependencyList = getDependencyList({ nodes, targetNode })
+  updateDependencyVersions({
+    dependencyList,
+    version: targetNode.package.version,
+  })
+}
 
 const publish = async ({ packageName }) => {
   const arborist = new Arborist({ path: '.' })
@@ -58,22 +68,22 @@ const publish = async ({ packageName }) => {
   })
   process.chdir(targetNode.path)
   await standardVersion({
-    // TODO: Check if this filters the path correctly
     path: '.',
     skip: { commit: true },
     tagPrefix: targetNode.package.name,
     types: commitTypes,
   })
   const targetPkg = readPackageSync({ node: targetNode })
+  targetNode.package.version = targetPkg.version
 
-  console.log(`Updating root package to version ${targetPkg.version}`)
+  console.log(`Updating root package to version ${targetNode.package.version}`)
   updatePackage({
     node: rootNode,
-    packageObject: { version: targetPkg.version },
+    packageObject: { version: targetNode.package.version },
   })
 
   console.log(
-    `Setting all packages that use ${targetPkg.name} to version ${targetPkg.version}`
+    `Setting all packages that use ${targetNode.package.name} to version ${targetNode.package.version}`
   )
   const recursiveDependencyList = []
   getRecursiveDependencyList({
@@ -84,21 +94,24 @@ const publish = async ({ packageName }) => {
   for (const dep of recursiveDependencyList) {
     updatePackage({
       node: dep.node,
-      packageObject: { version: targetPkg.version },
+      packageObject: { version: targetNode.package.version },
     })
-    console.log(`Package ${dep.node.package.name} set to ${targetPkg.version}`)
+    console.log(
+      `Package ${dep.node.package.name} set to ${targetNode.package.version}`
+    )
+    dep.node.package.version = targetNode.package.version
+    updatePackagesToUseNewVersion({ nodes, targetNode: dep.node })
   }
 
-  console.log(
-    `Updating all packages that use ${targetPkg.name} to use the new version ${targetPkg.version}`
-  )
-  const dependencyList = getDependencyList({ nodes, targetNode })
-  updateDependencyVersions({ dependencyList, version: targetPkg.version })
-  console.log(`Clone and publish target package ${targetPkg.name}`)
+  updatePackagesToUseNewVersion({ nodes, targetNode })
+
+  console.log(`Clone and release target package ${targetNode.package.name}`)
+  const cloneDir = 'build'
+  await mkdir(`${targetNode.path}/${cloneDir}`, { recursive: true })
   await buildTask({ cmd: 'npm', args: ['run', 'build'], cwd: targetNode.path })
   cloneToDirSync({
     node: targetNode,
-    cloneDir: 'build',
+    cloneDir,
     fileNameList: ['package.json', 'CHANGELOG.md', 'README.md'],
   })
   updatePackage({
