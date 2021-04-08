@@ -117,7 +117,7 @@ const publish = async ({ packageName }) => {
   updatePackage({
     node: targetNode,
     cloneDir: 'build',
-    json: {
+    packageObject: {
       keywords: rootPkg.keywords,
       homepage: rootPkg.homepage,
       bugs: rootPkg.bugs,
