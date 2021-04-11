@@ -16,6 +16,11 @@ export const depTypeToKey = {
   dev: 'devDependencies',
 }
 
+export type EdgeOut = {
+  name: string
+  type: keyof typeof depTypeToKey
+}
+
 type Edge = {
   name: string
   type: keyof typeof depTypeToKey
@@ -147,11 +152,14 @@ export interface GetEdgesOut {
 }
 // Edges out are packages that depend on packageName
 export const getEdgesOut = ({ packageName, allNodes }: GetEdgesOut) => {
-  const edgesOut: Edge[] = []
-  for (const aNode of allNodes) {
-    aNode.edgesOut.forEach((edgeOut: Edge) => {
+  const edgesOut: EdgeOut[] = []
+  for (const node of allNodes) {
+    node.edgesOut.forEach((edgeOut: Edge) => {
       if (edgeOut.name === packageName) {
-        edgesOut.push(edgeOut)
+        edgesOut.push({
+          name: node.package!.name,
+          type: edgeOut.type,
+        })
       }
     })
   }

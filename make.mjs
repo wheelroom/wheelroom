@@ -29,6 +29,7 @@ import {
   cloneToDirSync,
   commitTypes,
   deepMerge,
+  getRecursEdgesOut,
   getSyncedNodes,
   npmRun,
   updateEdgesOut,
@@ -39,9 +40,9 @@ const runCommand = async ({ packageName, command }) => {
   const arborist = new Arborist({ path: '.' })
   let rootNode = await arborist.loadActual()
   let allNodes = Array.from(rootNode.fsChildren)
-  let targetNode = allNodes.find((child) => child.package.name === packageName)
+  let targetNode = allNodes.find((node) => node.package.name === packageName)
 
-  const nodeNames = allNodes.map((child) => child.package.name)
+  const nodeNames = allNodes.map((node) => node.package.name)
 
   if (!targetNode) {
     console.log(
@@ -51,11 +52,12 @@ const runCommand = async ({ packageName, command }) => {
     )
     process.exit(0)
   }
+
   if (['release', 'publish'].includes(command)) {
     // Copy root version to target package and release with standard-version
     deepMerge({
       target: targetNode.package,
-      source: { version: rootNode.packager.version },
+      source: { version: rootNode.package.version },
     })
     writeNodeSync({ node: targetNode })
     process.chdir(targetNode.path)
@@ -70,17 +72,17 @@ const runCommand = async ({ packageName, command }) => {
   // Refresh allNodes now that package is released
   rootNode = await arborist.loadActual()
   allNodes = Array.from(rootNode.fsChildren)
-  targetNode = allNodes.find((child) => child.package.name === packageName)
+  targetNode = allNodes.find((node) => node.package.name === packageName)
 
   // Update root package version with released target
   deepMerge({
     target: rootNode.package,
-    source: { version: targetNode.packager.version },
+    source: { version: targetNode.package.version },
   })
 
   const cloneDir = 'build'
   const syncedNodes = getSyncedNodes({ node: targetNode, allNodes })
-  const buildNodes = [...targetNode, syncedNodes]
+  const buildNodes = [targetNode, ...syncedNodes]
   const clonedNodes = []
   for (const buildNode of buildNodes) {
     await npmRun({ args: ['build'], node: buildNode })
