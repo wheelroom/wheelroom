@@ -89,12 +89,13 @@ export const writeNodeSync = ({
   cloneDir,
   packageObject,
 }: WriteNodeSync) => {
-  let pkgObjToSave = node.package
+  let pkgObjToSave = node.package!
   if (packageObject) {
     pkgObjToSave = {}
     deepMerge({ target: pkgObjToSave, source: node.package! })
     deepMerge({ target: pkgObjToSave, source: packageObject })
   }
+  delete pkgObjToSave._id
   fs.writeFileSync(
     packagePath(node, cloneDir),
     JSON.stringify(pkgObjToSave, null, 2),
@@ -198,6 +199,11 @@ export const updateEdgesOut = ({ allNodes, node }: UpdateEdgesOut) => {
   })
   for (const edgeOut of edgesOut) {
     const depNode = allNodes.find((node) => node.package!.name === edgeOut.name)
+    console.log('SOURCES', {
+      [depTypeToKey[edgeOut.type]]: {
+        [edgeOut.name]: node.package!.version,
+      },
+    })
     deepMerge({
       target: depNode!.package!,
       source: {
