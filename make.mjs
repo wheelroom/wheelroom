@@ -29,7 +29,6 @@ import {
   cloneToDirSync,
   commitTypes,
   deepMerge,
-  getRecursEdgesOut,
   getSyncedNodes,
   npmRun,
   updateEdgesOut,
@@ -107,18 +106,16 @@ const runCommand = async ({ packageName, command }) => {
       updateEdgesOut({ node: buildNode, allNodes })
     }
   }
-  if (['release', 'publish'].includes(command)) {
-    // Write all changes to all nodes
-    allNodes.forEach((node) => writeNodeSync({ node }))
-    // Create cloned package.json's in cloneDirs
-    clonedNodes.forEach((clone) =>
-      writeNodeSync({
-        node: clone.node,
-        cloneDir: clone.cloneDir,
-        packageObject: clone.packageObject,
-      })
-    )
-  }
+  // Write all changes to all nodes
+  allNodes.forEach((node) => writeNodeSync({ node }))
+  // Create cloned package.json's in cloneDirs
+  clonedNodes.forEach((clone) =>
+    writeNodeSync({
+      node: clone.node,
+      cloneDir: clone.cloneDir,
+      packageObject: clone.packageObject,
+    })
+  )
   if (command === 'publish') {
     for (const publishNode of buildNodes) {
       await npmRun({

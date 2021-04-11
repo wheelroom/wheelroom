@@ -58,14 +58,16 @@ export interface DeepMerge {
   source: Package
 }
 export const deepMerge = ({ target, source }: DeepMerge) => {
-  for (const key of Object.keys(source)) {
-    if (source[key] instanceof Object)
+  Object.assign(target, source)
+  for (const key in source) {
+    if (source[key] instanceof Object) {
       Object.assign(
-        source[key],
+        target[key],
         deepMerge({ target: target[key], source: source[key] })
       )
+    }
   }
-  Object.assign(target || {}, source)
+  Object.assign(target, source)
   return target
 }
 
@@ -118,15 +120,15 @@ export interface NpmRun {
   node: Node
 }
 export const npmRun = async ({ args, cloneDir, node }: NpmRun) => {
-  cmdRun({
+  await cmdRun({
     cmd: 'npm',
     args: ['run', ...args],
     cwd: cloneDir ? `${node.path}/${cloneDir}` : node.path,
   })
 }
 export interface updatePackage {
-  node: Node
   cloneDir?: string
+  node: Node
   packageObject: Package
 }
 export interface CloneToDirSync {
