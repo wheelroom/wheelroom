@@ -8,118 +8,56 @@
  *
  */
 
+/**
+ * A note on removing the 'exports' key in the 'updatePackage' before
+ * publishing. In the package folder we use a package.json with:
+ * ```
+ *  "exports": {
+ *    "./*": "./build/*.js"
+ *  },
+ * ```
+ * When we publish from the build folder the exported files are in the root and
+ * we do not need this mapping anymore.
+ *
+ */
+
 import { mkdir } from 'fs/promises'
 import Arborist from '@npmcli/arborist'
 import standardVersion from 'standard-version'
 import yargs from 'yargs'
 import {
-  buildTask,
   cloneToDirSync,
-  getDependencyList,
-  getRecursiveDependencyList,
-  readPackageSync,
-  updateDependencyVersions,
-  updatePackage,
+  commitTypes,
+  deepMerge,
+  getSyncedNodes,
+  npmRun,
+  updateEdgesOut,
+  writeNodeSync,
 } from './packages/make/build/npm.js'
-
-const commitTypes = [
-  { type: 'feat', section: 'Features' },
-  { type: 'fix', section: 'Bug Fixes' },
-  { type: 'chore', section: 'Commits' },
-  { type: 'docs', section: 'Documentation' },
-  { type: 'style', section: 'Styling' },
-  { type: 'refactor', section: 'Code Refactoring' },
-  { type: 'perf', hidden: true },
-  { type: 'test', hidden: true },
-]
-
-const updatePackagesToUseNewVersion = ({ nodes, targetNode }) => {
-  console.log(
-    `Updating all packages that use ${targetNode.package.name} to use the new version ${targetNode.package.version}`
-  )
-  const dependencyList = getDependencyList({ nodes, targetNode })
-  updateDependencyVersions({
-    dependencyList,
-    version: targetNode.package.version,
-  })
-}
-
-const publishPackage = async ({ args, command }) => {
-  const { nodes, targetNode, rootPkg } = args
-  console.log(
-    `\n=======> Building and cloning package ${targetNode.package.name} ${targetNode.package.version}`
-  )
-  if (['release', 'publish'].includes(command)) {
-    updatePackagesToUseNewVersion({ nodes, targetNode })
-  }
-  await buildTask({ cmd: 'npm', args: ['run', 'build'], cwd: targetNode.path })
-
-  const cloneDir = 'build'
-  await mkdir(`${targetNode.path}/${cloneDir}`, { recursive: true })
-  cloneToDirSync({
-    node: targetNode,
-    cloneDir,
-    fileNameList: ['package.json', 'CHANGELOG.md', 'README.md'],
-  })
-  /**
-   * A small note on removing the 'exports' key in the 'updatePackage' function
-   * below. In the package folder we use a package.json with:
-   * ```
-   *  "exports": {
-   *    "./*": "./build/*.js"
-   *  },
-   * ```
-   * When we publish from the build folder the exported files are in the root
-   * and we do not need this mapping anymore.
-   *
-   */
-  updatePackage({
-    node: targetNode,
-    cloneDir: 'build',
-    packageObject: {
-      author: rootPkg.author,
-      engines: rootPkg.engines,
-      exports: undefined,
-      repository: rootPkg.repository,
-      publishConfig: rootPkg.publishConfig,
-    },
-  })
-  if (command === 'publish') {
-    console.log(
-      `Publishing ${targetNode.package.name} ${targetNode.package.version}`
-    )
-    await buildTask({
-      cmd: 'npm',
-      args: ['publish'],
-      cwd: `${targetNode.path}/build`,
-    })
-  }
-}
 
 const runCommand = async ({ packageName, command }) => {
   const arborist = new Arborist({ path: '.' })
-  const rootNode = await arborist.loadActual()
-  const nodes = Array.from(rootNode.fsChildren)
-  const nodeNames = nodes.map((child) => child.package.name)
-  const targetNode = nodes.find((child) => child.package.name === packageName)
-  const publishList = []
+  let rootNode = await arborist.loadActual()
+  let allNodes = Array.from(rootNode.fsChildren)
+  let targetNode = allNodes.find((child) => child.package.name === packageName)
+
+  const nodeNames = allNodes.map((child) => child.package.name)
 
   if (!targetNode) {
     console.log(
-      `Package ${packageName} not found, please choose from: ${nodeNames.join(
-        ', '
-      )}`
+      `Package ${
+        packageName || 'parameter'
+      } not found, please choose from: ${nodeNames.join(', ')}`
     )
     process.exit(0)
   }
-
-  const rootPkg = readPackageSync({ node: rootNode })
   if (['release', 'publish'].includes(command)) {
-    console.log(`Bumping package ${targetNode.package.name}`)
-    updatePackage({
-      node: targetNode,
-      packageObject: { version: rootPkg.version },
+    // Copy root version to target package and release with standard-version
+    deepMerge({
+      target: targetNode.package,
+      source: { version: rootNode.packager.version },
     })
+    writeNodeSync({ node: targetNode })
     process.chdir(targetNode.path)
     await standardVersion({
       path: '.',
@@ -127,52 +65,74 @@ const runCommand = async ({ packageName, command }) => {
       tagPrefix: targetNode.package.name,
       types: commitTypes,
     })
-    const targetPkg = readPackageSync({ node: targetNode })
-    targetNode.package.version = targetPkg.version
-    console.log(
-      `\nUpdating root package to version ${targetNode.package.version}`
-    )
-    updatePackage({
-      node: rootNode,
-      packageObject: { version: targetNode.package.version },
+  }
+
+  // Refresh allNodes now that package is released
+  rootNode = await arborist.loadActual()
+  allNodes = Array.from(rootNode.fsChildren)
+  targetNode = allNodes.find((child) => child.package.name === packageName)
+
+  // Update root package version with released target
+  deepMerge({
+    target: rootNode.package,
+    source: { version: targetNode.packager.version },
+  })
+
+  const cloneDir = 'build'
+  const syncedNodes = getSyncedNodes({ node: targetNode, allNodes })
+  const buildNodes = [...targetNode, syncedNodes]
+  const clonedNodes = []
+  for (const buildNode of buildNodes) {
+    await npmRun({ args: ['build'], node: buildNode })
+    await mkdir(`${buildNode.path}/${cloneDir}`, { recursive: true })
+    cloneToDirSync({
+      node: buildNode,
+      cloneDir,
+      fileNameList: ['CHANGELOG.md', 'README.md'],
     })
-    console.log(
-      `\nSetting all packages that use ${targetNode.package.name} to version ${targetNode.package.version}`
-    )
-    const recursiveDependencyList = []
-    getRecursiveDependencyList({
-      targetNode,
-      nodes,
-      dependencyList: recursiveDependencyList,
+    clonedNodes.push({
+      cloneDir,
+      node: buildNode,
+      packageObject: {
+        author: rootNode.package.author,
+        engines: rootNode.package.engines,
+        exports: undefined,
+        repository: rootNode.package.repository,
+        publishConfig: rootNode.package.publishConfig,
+      },
     })
-    for (const dep of recursiveDependencyList) {
-      updatePackage({
-        node: dep.node,
-        packageObject: { version: targetNode.package.version },
-      })
-      console.log(
-        `Package ${dep.node.package.name} set to ${targetNode.package.version}. Will publish this package later.`
-      )
-      dep.node.package.version = targetNode.package.version
-      publishList.push({ nodes, targetNode: dep.node, rootPkg })
+    if (['release', 'publish'].includes(command)) {
+      updateEdgesOut({ node: buildNode, allNodes })
     }
   }
-  if (command === 'publish') {
-    console.log(`\nBuilding and publishing all packages to registry`)
-  }
-  if (command === 'build') {
-    console.log(`\nBuilding all packages`)
-  }
-
-  publishList.push({ nodes, targetNode, rootPkg })
-  for (const publishArg of publishList) {
-    await publishPackage({ args: publishArg, command })
-  }
-
   if (['release', 'publish'].includes(command)) {
+    // Write all changes to all nodes
+    allNodes.forEach((node) => writeNodeSync({ node }))
+    // Create cloned package.json's in cloneDirs
+    clonedNodes.forEach((clone) =>
+      writeNodeSync({
+        node: clone.node,
+        cloneDir: clone.cloneDir,
+        packageObject: clone.packageObject,
+      })
+    )
+  }
+  if (command === 'publish') {
+    for (const publishNode of buildNodes) {
+      await npmRun({
+        args: ['publish'],
+        cloneDir,
+        node: publishNode,
+      })
+    }
     console.log(`\ngit push --follow-tags origin next`)
   }
 }
+
+/**
+ *
+ * Command line parameter defs below
+ */
 const packagePositional = (yargs) => {
   yargs.positional('package', {
     type: 'string',

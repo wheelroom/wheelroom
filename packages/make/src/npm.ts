@@ -9,18 +9,16 @@ type Node = {
   package?: Package
 }
 
-type DepMap = {
-  optional: 'optionalDependencies'
-  prod: 'dependencies'
-  peer: 'peerDependencies'
-  dev: 'devDependencies'
+export const depTypeToKey = {
+  optional: 'optionalDependencies',
+  prod: 'dependencies',
+  peer: 'peerDependencies',
+  dev: 'devDependencies',
 }
-type DepType = keyof DepMap
 
-// TODO: Fix proper type
 type Edge = {
   name: string
-  type: DepType
+  type: keyof typeof depTypeToKey
 }
 
 // TODO: Fix proper type
@@ -29,36 +27,79 @@ type Stream = any
 export interface LogStream {
   stream: Stream
 }
-export const packagePath = (node: Node) => `${node.path}/package.json`
+
+export const packagePath = (node: Node, cloneDir?: string) =>
+  cloneDir
+    ? `${node.path}/${cloneDir}/package.json`
+    : `${node.path}/package.json`
+
 export const logStream = async ({ stream }: LogStream) => {
   for await (const data of stream) {
     process.stdout.write(data)
   }
 }
-export interface ReadPackageSync {
-  node: Node
+export const commitTypes = [
+  { type: 'feat', section: 'Features' },
+  { type: 'fix', section: 'Bug Fixes' },
+  { type: 'chore', section: 'Commits' },
+  { type: 'docs', section: 'Documentation' },
+  { type: 'style', section: 'Styling' },
+  { type: 'refactor', section: 'Code Refactoring' },
+  { type: 'perf', hidden: true },
+  { type: 'test', hidden: true },
+]
+export interface DeepMerge {
+  target: Package
+  source: Package
 }
-export const readPackageSync = ({ node }: ReadPackageSync) => {
-  const data = fs.readFileSync(packagePath(node), 'utf8')
+export const deepMerge = ({ target, source }: DeepMerge) => {
+  for (const key of Object.keys(source)) {
+    if (source[key] instanceof Object)
+      Object.assign(
+        source[key],
+        deepMerge({ target: target[key], source: source[key] })
+      )
+  }
+  Object.assign(target || {}, source)
+  return target
+}
+
+export interface ReadNodeSync {
+  node: Node
+  cloneDir?: string
+}
+export const readNodeSync = ({ node, cloneDir }: ReadNodeSync) => {
+  const data = fs.readFileSync(packagePath(node, cloneDir), 'utf8')
   return JSON.parse(data)
 }
-export interface WritePackageSync {
+export interface WriteNodeSync {
+  cloneDir?: string
   node: Node
   packageObject: Package
 }
-export const writePackageSync = ({ node, packageObject }: WritePackageSync) => {
+export const writeNodeSync = ({
+  node,
+  cloneDir,
+  packageObject,
+}: WriteNodeSync) => {
+  let pkgObjToSave = node.package
+  if (packageObject) {
+    pkgObjToSave = {}
+    deepMerge({ target: pkgObjToSave, source: node.package! })
+    deepMerge({ target: pkgObjToSave, source: packageObject })
+  }
   fs.writeFileSync(
-    packagePath(node),
-    JSON.stringify(packageObject, null, 2),
+    packagePath(node, cloneDir),
+    JSON.stringify(pkgObjToSave, null, 2),
     'utf8'
   )
 }
-export interface BuildTask {
+export interface CmdRun {
   cmd: string
   args: string[]
   cwd: string
 }
-export const buildTask = async ({ cmd, args, cwd }: BuildTask) => {
+export const cmdRun = async ({ cmd, args, cwd }: CmdRun) => {
   console.log(`==> (${cwd}) ${cmd} ${args.join(' ')}`)
   const child = spawn(cmd, args, { cwd })
   await Promise.all([
@@ -66,27 +107,22 @@ export const buildTask = async ({ cmd, args, cwd }: BuildTask) => {
     logStream({ stream: child.stderr }),
   ])
 }
+export interface NpmRun {
+  args: string[]
+  cloneDir?: string
+  node: Node
+}
+export const npmRun = async ({ args, cloneDir, node }: NpmRun) => {
+  cmdRun({
+    cmd: 'npm',
+    args: ['run', ...args],
+    cwd: cloneDir ? `${node.path}/${cloneDir}` : node.path,
+  })
+}
 export interface updatePackage {
   node: Node
   cloneDir?: string
   packageObject: Package
-}
-export const updatePackage = ({
-  node,
-  cloneDir,
-  packageObject,
-}: updatePackage) => {
-  const cloneNode = {
-    path: cloneDir ? `${node.path}/${cloneDir}` : node.path,
-  }
-  const packageObjectCopy = Object.assign(
-    {},
-    readPackageSync({ node: cloneNode })
-  )
-  for (const key in packageObject) {
-    packageObjectCopy[key] = packageObject[key]
-  }
-  writePackageSync({ node: cloneNode, packageObject: packageObjectCopy })
 }
 export interface CloneToDirSync {
   node: Node
@@ -105,66 +141,82 @@ export const cloneToDirSync = async ({
     )
   }
 }
-export interface GetDependencyList {
-  targetNode: Node
-  nodes: Node[]
+export interface GetEdgesOut {
+  packageName: string
+  allNodes: Node[]
 }
-export type Dependency = {
-  node: Node
-  edge: Edge
-}
-export const getDependencyList = ({ targetNode, nodes }: GetDependencyList) => {
-  const list: Dependency[] = []
-  for (const node of nodes) {
-    node.edgesOut.forEach((edge: any) => {
-      if (edge.name === targetNode.package!.name) {
-        list.push({
-          node,
-          edge,
-        })
+// Edges out are packages that depend on packageName
+export const getEdgesOut = ({ packageName, allNodes }: GetEdgesOut) => {
+  const edgesOut: Edge[] = []
+  for (const aNode of allNodes) {
+    aNode.edgesOut.forEach((edgeOut: Edge) => {
+      if (edgeOut.name === packageName) {
+        edgesOut.push(edgeOut)
       }
     })
   }
-  return list
+  return edgesOut
 }
-export interface GetRecursiveDependencyList {
-  targetNode: Node
-  nodes: Node[]
-  dependencyList: Dependency[]
+export interface GetRecursEdgesOut {
+  packageName: string
+  allNodes: Node[]
 }
-export const getRecursiveDependencyList = ({
-  targetNode,
-  nodes,
-  dependencyList,
-}: GetRecursiveDependencyList) => {
-  const depList = getDependencyList({ targetNode, nodes })
-  depList.forEach((dep) => {
-    getRecursiveDependencyList({
-      targetNode: dep.node,
-      nodes,
-      dependencyList,
+// Recursive ddges out are packages that depend on packageName and the packages
+// that depend on these
+export const getRecursEdgesOut = ({
+  packageName,
+  allNodes,
+}: GetRecursEdgesOut) => {
+  const edgesOut = getEdgesOut({ packageName, allNodes })
+  edgesOut.forEach((edgeOut) => {
+    const recursEdgesOut = getRecursEdgesOut({
+      packageName: edgeOut.name,
+      allNodes,
     })
+    edgesOut.push(...recursEdgesOut)
   })
-  dependencyList.push(...depList)
+  return edgesOut
 }
-export interface UpdateDependencyVersions {
-  dependencyList: Dependency[]
-  version: string
+export interface UpdateEdgesOut {
+  node: Node
+  allNodes: Node[]
 }
-export const updateDependencyVersions = ({
-  dependencyList,
-  version,
-}: UpdateDependencyVersions) => {
-  const depMap: DepMap = {
-    optional: 'optionalDependencies',
-    prod: 'dependencies',
-    peer: 'peerDependencies',
-    dev: 'devDependencies',
+export const updateEdgesOut = ({ allNodes, node }: UpdateEdgesOut) => {
+  const edgesOut = getEdgesOut({
+    allNodes,
+    packageName: node.package!.name,
+  })
+  for (const edgeOut of edgesOut) {
+    const depNode = allNodes.find((node) => node.package!.name === edgeOut.name)
+    deepMerge({
+      target: depNode!.package!,
+      source: {
+        [depTypeToKey[edgeOut.type]]: {
+          [edgeOut.name]: node.package!.version,
+        },
+      },
+    })
   }
-  for (const dep of dependencyList) {
-    const packageObject = readPackageSync({ node: dep.node })
-    packageObject[depMap[dep.edge.type]][dep.edge.name] = version
-    writePackageSync({ node: dep.node, packageObject })
-    console.log(`- Updated package ${dep.node.package!.name}`)
+}
+export interface GetNodesToPublish {
+  node: Node
+  allNodes: Node[]
+}
+
+export const getSyncedNodes = ({ allNodes, node }: GetNodesToPublish) => {
+  // Sync all packages that use node to the node version version
+  const edgesOut = getRecursEdgesOut({
+    packageName: node.package!.name,
+    allNodes,
+  })
+  const syncedNodes = []
+  for (const edgeOut of edgesOut) {
+    const depNode = allNodes.find((node) => node.package!.name === edgeOut.name)
+    deepMerge({
+      target: depNode!.package!,
+      source: { version: node.package!.version },
+    })
+    syncedNodes.push(depNode)
   }
+  return syncedNodes
 }
