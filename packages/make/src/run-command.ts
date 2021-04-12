@@ -85,17 +85,17 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
   const cloneDir = 'build'
   const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })
   const buildNodes = [targetNode, ...syncedNodes]
-  const clonedNodes = []
-  for (const buildNode of buildNodes) {
-    await mkdir(`${buildNode.path}/${cloneDir}`, { recursive: true })
+  for (const prepareBuildNode of buildNodes) {
+    await mkdir(`${prepareBuildNode.path}/${cloneDir}`, { recursive: true })
     cloneToDirSync({
-      node: buildNode,
+      node: prepareBuildNode,
       cloneDir,
       fileNameList: ['CHANGELOG.md', 'README.md'],
     })
-    clonedNodes.push({
+    // Write package.json copy to cloneDir
+    writeNodeSync({
+      node: prepareBuildNode,
       cloneDir,
-      node: buildNode,
       packageObject: {
         author: rootNode.package.author,
         bugs: rootNode.package.bugs,
@@ -109,6 +109,9 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
         repository: rootNode.package.repository,
       },
     })
+  }
+  // Make packages depend on new version of package
+  for (const buildNode of buildNodes) {
     if (['release', 'publish'].includes(command)) {
       updateEdgesOut({ node: buildNode, fsChildren })
     }
@@ -116,14 +119,6 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
   // Write all changes to all nodes
   writeNodeSync({ node: rootNode })
   fsChildren.forEach((node: Node) => writeNodeSync({ node }))
-  // Create cloned package.json's in cloneDirs
-  clonedNodes.forEach((clone) =>
-    writeNodeSync({
-      node: clone.node,
-      cloneDir: clone.cloneDir,
-      packageObject: clone.packageObject,
-    })
-  )
   await cmdRun({ cmd: 'npm', args: ['install'], node: rootNode })
   for (const buildNode of buildNodes) {
     await npmRun({ args: ['build'], node: buildNode })
