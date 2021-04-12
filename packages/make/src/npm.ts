@@ -201,8 +201,14 @@ export const updateEdgesOut = ({ fsChildren, node }: UpdateEdgesOut) => {
   })
   for (const edgeOut of edgesOut) {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
-    depNode.package[depTypeToKey[edgeOut.type]][node.package.name] =
-      node.package.version
+    depNode.package = deepmerge.all([
+      depNode.package,
+      {
+        [depTypeToKey[edgeOut.type]]: {
+          [node.package.name]: node.package.version,
+        },
+      },
+    ])
   }
 }
 export interface GetNodesToPublish {
