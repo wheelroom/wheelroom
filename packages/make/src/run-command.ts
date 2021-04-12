@@ -86,7 +86,6 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
   const buildNodes = [targetNode, ...syncedNodes]
   const clonedNodes = []
   for (const buildNode of buildNodes) {
-    await npmRun({ args: ['build'], node: buildNode })
     await mkdir(`${buildNode.path}/${cloneDir}`, { recursive: true })
     cloneToDirSync({
       node: buildNode,
@@ -124,6 +123,10 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       packageObject: clone.packageObject,
     })
   )
+  for (const buildNode of buildNodes) {
+    await npmRun({ args: ['build'], node: buildNode })
+  }
+  await npmRun({ args: ['install'], node: rootNode })
   if (command === 'publish') {
     for (const publishNode of buildNodes) {
       await npmRun({
