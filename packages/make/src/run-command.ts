@@ -114,8 +114,8 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     }
   }
   // Write all changes to all nodes
-  const writeNodes = [rootNode, ...fsChildren]
-  writeNodes.forEach((node: Node) => writeNodeSync({ node }))
+  writeNodeSync({ node: rootNode })
+  fsChildren.forEach((node: Node) => writeNodeSync({ node }))
   // Create cloned package.json's in cloneDirs
   clonedNodes.forEach((clone) =>
     writeNodeSync({
