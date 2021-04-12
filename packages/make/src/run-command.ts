@@ -34,6 +34,7 @@ import {
   npmRun,
   updateEdgesOut,
   writeNodeSync,
+  cmdRun,
 } from './npm'
 
 interface RunCommand {
@@ -123,10 +124,10 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       packageObject: clone.packageObject,
     })
   )
+  await cmdRun({ cmd: 'npm', args: ['install'], node: rootNode })
   for (const buildNode of buildNodes) {
     await npmRun({ args: ['build'], node: buildNode })
   }
-  await npmRun({ args: ['install'], node: rootNode })
   if (command === 'publish') {
     for (const publishNode of buildNodes) {
       await npmRun({
