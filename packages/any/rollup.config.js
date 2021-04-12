@@ -11,19 +11,15 @@ import rootPkg from '../../package.json'
 
 const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = rootPkg.author
-const external = [
-  'react',
-  'react-dom',
-  '@emotion/css',
-  '@emotion/react',
-  'react/jsx-runtime',
-]
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
+  '@emotion/css': 'css',
   '@emotion/react': 'Interpolation, jsx. Theme',
   'react/jsx-runtime': 'jsx',
 }
+const external = Object.keys(globals)
+
 const inputFiles = [
   { name: 'Any', ext: 'tsx', id: 'Any' },
   { name: 'elements', ext: 'tsx', id: 'elements' },
