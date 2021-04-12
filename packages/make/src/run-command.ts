@@ -71,22 +71,16 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       skip: { commit: true },
       tagPrefix: `${targetNode.package.name}@`,
       types: commitTypes,
+      // dryRun: true,
     })
   }
 
   // Refresh fsChildren now that package is released
   process.chdir(rootNode.path)
   arborist = new Arborist({ path: '.' })
-  console.log('new arborist', arborist)
   rootNode = await arborist.loadActual()
-  console.log('new rootNode', rootNode)
   fsChildren = rootNode.fsChildren
-  console.log('new fsChildren', fsChildren)
   targetNode = getFsChild({ fsChildren, packageName })
-  console.log('new targetNode', targetNode)
-
-  console.log('targetNode name', targetNode.package.name)
-  console.log('targetNode version', targetNode.package.version)
   if (targetNode.package.version) {
     process.exit(0)
   }
