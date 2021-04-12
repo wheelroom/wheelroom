@@ -9,15 +9,19 @@ import pluginNodeResolve from '@rollup/plugin-node-resolve'
 import pkg from './package.json'
 import rootPkg from '../../package.json'
 
+
+import standardVersion from 'standard-version'
+
 const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = rootPkg.author
-const external = ['@npmcli/arborist', 'child_process', 'fs', 'fs/promises']
 const globals = {
   '@npmcli/arborist': 'Arborist',
+  'standard-version': 'standardVersion',
   'fs/promises': 'mkdir',
   child_process: 'child_process',
   fs: 'fs',
 }
+const external = Object.keys(globals)
 
 const inputFiles = [
   { name: 'npm', ext: 'ts', id: 'npm' },
