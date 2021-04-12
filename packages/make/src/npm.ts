@@ -200,12 +200,11 @@ export const updateEdgesOut = ({ fsChildren, node }: UpdateEdgesOut) => {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
     console.log('BAD SOURCES!', {
       [depTypeToKey[edgeOut.type]]: {
-        [edgeOut.name]: node.package!.version,
+        [node.package.name]: node.package!.version,
       },
     })
-    depNode.package[depTypeToKey[edgeOut.type]][
-      edgeOut.name
-    ] = node.package!.version
+    depNode.package[depTypeToKey[edgeOut.type]][node.package.name] =
+      node.package.version
   }
 }
 export interface GetNodesToPublish {
