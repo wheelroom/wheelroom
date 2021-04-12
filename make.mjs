@@ -97,10 +97,15 @@ const runCommand = async ({ packageName, command }) => {
       node: buildNode,
       packageObject: {
         author: rootNode.package.author,
+        bugs: rootNode.package.bugs,
+        contributors: rootNode.package.contributors,
         engines: rootNode.package.engines,
         exports: undefined,
-        repository: rootNode.package.repository,
+        homepage: rootNode.package.homepage,
+        keywords: rootNode.package.keywords,
+        license: rootNode.package.license,
         publishConfig: rootNode.package.publishConfig,
+        repository: rootNode.package.repository,
       },
     })
     if (['release', 'publish'].includes(command)) {
