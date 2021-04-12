@@ -67,9 +67,9 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     writeNodeSync({ node: targetNode })
     process.chdir(targetNode.path)
     await standardVersion({
-      path: '.',
+      path: targetNode.path,
       skip: { commit: true },
-      tagPrefix: targetNode.package.name,
+      tagPrefix: `${targetNode.package.name}@`,
       types: commitTypes,
     })
   }
