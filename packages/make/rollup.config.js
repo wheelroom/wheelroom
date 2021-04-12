@@ -18,9 +18,7 @@ const globals = {
   child_process: 'child_process',
   fs: 'fs',
 }
-const external = Object.keys(globals).filter(
-  (ext) => ext !== 'standard-version'
-)
+const external = Object.keys(globals)
 
 const inputFiles = [
   { name: 'npm', ext: 'ts', id: 'npm' },
