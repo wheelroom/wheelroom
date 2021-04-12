@@ -43,7 +43,7 @@ interface RunCommand {
 }
 
 export const runCommand = async ({ packageName, command }: RunCommand) => {
-  const arborist = new Arborist({ path: '.' })
+  let arborist = new Arborist({ path: '.' })
   let rootNode = await arborist.loadActual()
   let fsChildren = rootNode.fsChildren
   let targetNode = getFsChild({ fsChildren, packageName })
@@ -75,9 +75,21 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
   }
 
   // Refresh fsChildren now that package is released
+  process.chdir(rootNode.path)
+  arborist = new Arborist({ path: '.' })
+  console.log('new arborist', arborist)
   rootNode = await arborist.loadActual()
+  console.log('new rootNode', rootNode)
   fsChildren = rootNode.fsChildren
+  console.log('new fsChildren', fsChildren)
   targetNode = getFsChild({ fsChildren, packageName })
+  console.log('new targetNode', targetNode)
+
+  console.log('targetNode name', targetNode.package.name)
+  console.log('targetNode version', targetNode.package.version)
+  if (targetNode.package.version) {
+    process.exit(0)
+  }
 
   // Update root package version with released target
   deepMerge({
