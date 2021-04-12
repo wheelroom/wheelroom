@@ -82,9 +82,15 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
   // Update root package version with released target
   rootNode.package.version = targetNode.package.version
 
-  const cloneDir = 'build'
   const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })
   const buildNodes = [targetNode, ...syncedNodes]
+  // Make packages depend on new version of package
+  if (['release', 'publish'].includes(command)) {
+    for (const buildNode of buildNodes) {
+      updateEdgesOut({ node: buildNode, fsChildren })
+    }
+  }
+  const cloneDir = 'build'
   for (const prepareBuildNode of buildNodes) {
     await mkdir(`${prepareBuildNode.path}/${cloneDir}`, { recursive: true })
     cloneToDirSync({
@@ -109,12 +115,6 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
         repository: rootNode.package.repository,
       },
     })
-  }
-  // Make packages depend on new version of package
-  if (['release', 'publish'].includes(command)) {
-    for (const buildNode of buildNodes) {
-      updateEdgesOut({ node: buildNode, fsChildren })
-    }
   }
   // Write all changes to all nodes
   writeNodeSync({ node: rootNode })
