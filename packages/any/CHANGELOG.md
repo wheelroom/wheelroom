@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.8.4](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@1.0.1...@wheelroom/any@6.8.4) (2021-04-12)
+
+
+### Commits
+
+* add @wheelroom/make ([1a8df44](https://github.com/wheelroom/wheelroom/commit/1a8df448eed7e1c6879775311f6a07f9d5dbe90a))
+* add root to children ([02372bd](https://github.com/wheelroom/wheelroom/commit/02372bd19cb7249b739a90c2bff3dea5749827bc))
+* better make file ([c64a968](https://github.com/wheelroom/wheelroom/commit/c64a9685367e0702427829a1aa48c59706922728))
+* cleanup versionrcjs ([6a8a2e6](https://github.com/wheelroom/wheelroom/commit/6a8a2e6e58a8460458ecdece71d9e909eb93cab3))
+* don't build ([32de68d](https://github.com/wheelroom/wheelroom/commit/32de68d9f25d7d8caf2e4475dd5af500adca519a))
+* improved rollup any config ([da70999](https://github.com/wheelroom/wheelroom/commit/da7099913947d769dd25a09ef0383434fc05c3e3))
+* sort package.json ([dc06a0c](https://github.com/wheelroom/wheelroom/commit/dc06a0c316a71eb950b186cea9a35181e7880983))
+* testing release (6.8.2) ([85c1a1c](https://github.com/wheelroom/wheelroom/commit/85c1a1c418c52684bfb4e1d0a669a29b5adc447f))
+* **release:** 6.7.2 ([f5a122f](https://github.com/wheelroom/wheelroom/commit/f5a122f865ed0b683f8a7a93af56716d53e73f62))
+* **release:** 6.7.5 ([3bd62ba](https://github.com/wheelroom/wheelroom/commit/3bd62ba91c7f9f7d4803ad3f5fc93c73129a3955))
+* **release:** 6.7.6 ([efbc159](https://github.com/wheelroom/wheelroom/commit/efbc1591ab6610ceaff3b30eeb68d417bbbe9cae))
+* **release:** 6.7.7 ([ae5d231](https://github.com/wheelroom/wheelroom/commit/ae5d231f197a84ea6dcca9eadd4a7d6f6bfd9b79))
+* **release:** 6.8.0 ([e1f4d6d](https://github.com/wheelroom/wheelroom/commit/e1f4d6d9f6ddd46eb454d0caf415b2301da123d2))
+
 ### [6.8.3](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@1.0.1...@wheelroom/any@6.8.3) (2021-04-12)
 
 
