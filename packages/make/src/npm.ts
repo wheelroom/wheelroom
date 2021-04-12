@@ -102,11 +102,13 @@ export const writeNodeSync = ({
   )
 }
 export interface CmdRun {
-  cmd: string
   args: string[]
-  cwd: string
+  cloneDir?: string
+  cmd: string
+  node: Node
 }
-export const cmdRun = async ({ cmd, args, cwd }: CmdRun) => {
+export const cmdRun = async ({ cmd, args, node, cloneDir }: CmdRun) => {
+  const cwd = cloneDir ? `${node.path}/${cloneDir}` : node.path
   console.log(`==> (${cwd}) ${cmd} ${args.join(' ')}`)
   const child = spawn(cmd, args, { cwd })
   await Promise.all([
@@ -123,7 +125,8 @@ export const npmRun = async ({ args, cloneDir, node }: NpmRun) => {
   await cmdRun({
     cmd: 'npm',
     args: ['run', ...args],
-    cwd: cloneDir ? `${node.path}/${cloneDir}` : node.path,
+    node,
+    cloneDir,
   })
 }
 export interface updatePackage {
