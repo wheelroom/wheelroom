@@ -28,7 +28,6 @@ import {
   Node,
   cloneToDirSync,
   commitTypes,
-  deepMerge,
   getFsChild,
   getFsChildPackageNames,
   getSyncedNodes,
@@ -60,10 +59,7 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
 
   if (['release', 'publish'].includes(command)) {
     // Copy root version to target package and release with standard-version
-    deepMerge({
-      target: targetNode.package,
-      source: { version: rootNode.package.version },
-    })
+    targetNode.package.version = rootNode.package.version
     writeNodeSync({ node: targetNode })
     process.chdir(targetNode.path)
     await standardVersion({
@@ -83,10 +79,7 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
   targetNode = getFsChild({ fsChildren, packageName })
 
   // Update root package version with released target
-  deepMerge({
-    target: rootNode.package,
-    source: { version: targetNode.package.version },
-  })
+  rootNode.package.version = targetNode.package.version
 
   const cloneDir = 'build'
   const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })

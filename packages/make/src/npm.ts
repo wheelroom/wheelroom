@@ -1,5 +1,6 @@
 import { spawn } from 'child_process'
 import fs from 'fs'
+import deepmerge from 'deepmerge'
 
 type Package = Record<string, any>
 
@@ -54,19 +55,6 @@ export interface DeepMerge {
   target: Package
   source: Package
 }
-export const deepMerge = ({ target, source }: DeepMerge) => {
-  for (const key in source) {
-    if (source[key] instanceof Object) {
-      Object.assign(
-        target[key],
-        deepMerge({ target: target[key], source: source[key] })
-      )
-    } else {
-      target[key] = source[key]
-    }
-  }
-  return target
-}
 export interface GetFsChild {
   fsChildren: Set<Node>
   packageName: string
@@ -101,12 +89,11 @@ export const writeNodeSync = ({
   cloneDir,
   packageObject,
 }: WriteNodeSync) => {
-  let pkgObjToSave = node.package!
-  if (packageObject) {
-    pkgObjToSave = {}
-    deepMerge({ target: pkgObjToSave, source: node.package! })
-    deepMerge({ target: pkgObjToSave, source: packageObject })
-  }
+  const pkgObjToSave = deepmerge.all([
+    {},
+    node.package!,
+    packageObject || {},
+  ]) as any
   delete pkgObjToSave._id
   fs.writeFileSync(
     packagePath(node, cloneDir),
@@ -211,19 +198,14 @@ export const updateEdgesOut = ({ fsChildren, node }: UpdateEdgesOut) => {
   })
   for (const edgeOut of edgesOut) {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
-    console.log('SOURCES', {
+    console.log('BAD SOURCES!', {
       [depTypeToKey[edgeOut.type]]: {
         [edgeOut.name]: node.package!.version,
       },
     })
-    deepMerge({
-      target: depNode!.package!,
-      source: {
-        [depTypeToKey[edgeOut.type]]: {
-          [edgeOut.name]: node.package!.version,
-        },
-      },
-    })
+    depNode.package[depTypeToKey[edgeOut.type]][
+      edgeOut.name
+    ] = node.package!.version
   }
 }
 export interface GetNodesToPublish {
@@ -240,10 +222,7 @@ export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {
   const syncedNodes = []
   for (const edgeOut of edgesOut) {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
-    deepMerge({
-      target: depNode!.package!,
-      source: { version: node.package!.version },
-    })
+    depNode.package.version = node.package!.version
     syncedNodes.push(depNode)
   }
   return syncedNodes
