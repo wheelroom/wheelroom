@@ -90,6 +90,7 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       updateEdgesOut({ node: buildNode, fsChildren })
     }
   }
+  // Write package.json copy to cloneDir
   const cloneDir = 'build'
   for (const prepareBuildNode of buildNodes) {
     await mkdir(`${prepareBuildNode.path}/${cloneDir}`, { recursive: true })
@@ -98,7 +99,6 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       cloneDir,
       fileNameList: ['CHANGELOG.md', 'README.md'],
     })
-    // Write package.json copy to cloneDir
     writeNodeSync({
       node: prepareBuildNode,
       cloneDir,
