@@ -11,10 +11,12 @@ import rootPkg from '../../package.json'
 
 const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = rootPkg.author
-const external = []
+const external = ['@npmcli/arborist', 'child_process', 'fs']
 const globals = {
-  fs: 'fs',
+  '@npmcli/arborist': 'Arborist',
   child_process: 'child_process',
+  fs: 'fs',
+  fs: 'fs/promises',
 }
 
 const inputFiles = [
