@@ -5,10 +5,12 @@ import deepmerge from 'deepmerge'
 type Package = Record<string, any>
 
 export const depTypeToKey = {
-  optional: 'optionalDependencies',
-  prod: 'dependencies',
-  peer: 'peerDependencies',
   dev: 'devDependencies',
+  optional: 'optionalDependencies',
+  peer: 'peerDependencies',
+  peerOptional: 'peerOptionalDependencies',
+  prod: 'dependencies',
+  workspace: 'workspaceDependencies',
 }
 
 type Edge = {
