@@ -14,11 +14,14 @@ type Edge = {
   name: string
   type: keyof typeof depTypeToKey
 }
-type Node = {
+export type EdgeOut = {
+  name: string
+  type: keyof typeof depTypeToKey
+}
+export type Node = {
   path: string
-  // TODO: Fix proper type
-  edgesOut?: any
-  package?: Package
+  edgesOut: Set<EdgeOut>
+  package: Package
 }
 
 // TODO: Fix proper type
@@ -69,7 +72,9 @@ export interface GetFsChild {
   packageName: string
 }
 export const getFsChild = ({ fsChildren, packageName }: GetFsChild) =>
-  Array.from(fsChildren).find((node) => node.package!.name === packageName)
+  Array.from(fsChildren).find(
+    (node) => node.package!.name === packageName
+  ) as Node
 export interface GetFsChildPackageNames {
   fsChildren: Set<Node>
 }
@@ -89,7 +94,7 @@ export const readNodeSync = ({ node, cloneDir }: ReadNodeSync) => {
 export interface WriteNodeSync {
   cloneDir?: string
   node: Node
-  packageObject: Package
+  packageObject?: Package
 }
 export const writeNodeSync = ({
   node,
@@ -155,10 +160,6 @@ export const cloneToDirSync = async ({
       `${node.path}/${cloneDir}/${fileName}`
     )
   }
-}
-export type EdgeOut = {
-  name: string
-  type: keyof typeof depTypeToKey
 }
 export interface GetEdgesOut {
   packageName: string

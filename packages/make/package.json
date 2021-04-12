@@ -9,5 +9,12 @@
     "build:test": "jest --silent --passWithNoTests",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build",
     "clean": "rimraf build/*"
+  },
+  "dependencies": {
+    "@npmcli/arborist": "2.3.0",
+    "standard-version": "9.1.1"
+  },
+  "devDependencies": {
+    "@types/standard-version": "7.0.0"
   }
 }
