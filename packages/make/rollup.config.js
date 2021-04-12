@@ -12,11 +12,12 @@ import rootPkg from '../../package.json'
 const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = rootPkg.author
 const external = []
-const globals = {}
+const globals = {
+  fs: 'fs',
+  child_process: 'child_process',
+}
 
-const inputFiles = [
-  { name: 'npm', ext: 'ts', id: 'npm' },
-]
+const inputFiles = [{ name: 'npm', ext: 'ts', id: 'npm' }]
 
 export default inputFiles.map((file) => {
   const banner = `
