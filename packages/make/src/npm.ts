@@ -10,7 +10,7 @@ export const depTypeToKey = {
   peer: 'peerDependencies',
   peerOptional: 'peerOptionalDependencies',
   prod: 'dependencies',
-  workspace: 'workspaceDependencies',
+  workspace: 'workspace',
 }
 
 type Edge = {
@@ -203,14 +203,16 @@ export const updateEdgesOut = ({ fsChildren, node }: UpdateEdgesOut) => {
   })
   for (const edgeOut of edgesOut) {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
-    depNode.package = deepmerge.all([
-      depNode.package,
-      {
-        [depTypeToKey[edgeOut.type]]: {
-          [node.package.name]: node.package.version,
+    if (edgeOut.type !== 'workspace') {
+      depNode.package = deepmerge.all([
+        depNode.package,
+        {
+          [depTypeToKey[edgeOut.type]]: {
+            [node.package.name]: node.package.version,
+          },
         },
-      },
-    ])
+      ])
+    }
   }
 }
 export interface GetNodesToPublish {
