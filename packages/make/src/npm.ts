@@ -3,13 +3,6 @@ import fs from 'fs'
 
 type Package = Record<string, any>
 
-type Node = {
-  path: string
-  // TODO: Fix proper type
-  edgesOut?: any
-  package?: Package
-}
-
 export const depTypeToKey = {
   optional: 'optionalDependencies',
   prod: 'dependencies',
@@ -17,14 +10,15 @@ export const depTypeToKey = {
   dev: 'devDependencies',
 }
 
-export type EdgeOut = {
-  name: string
-  type: keyof typeof depTypeToKey
-}
-
 type Edge = {
   name: string
   type: keyof typeof depTypeToKey
+}
+type Node = {
+  path: string
+  // TODO: Fix proper type
+  edgesOut?: any
+  package?: Package
 }
 
 // TODO: Fix proper type
@@ -33,7 +27,6 @@ type Stream = any
 export interface LogStream {
   stream: Stream
 }
-
 export const packagePath = (node: Node, cloneDir?: string) =>
   cloneDir
     ? `${node.path}/${cloneDir}/package.json`
@@ -162,6 +155,10 @@ export const cloneToDirSync = async ({
       `${node.path}/${cloneDir}/${fileName}`
     )
   }
+}
+export type EdgeOut = {
+  name: string
+  type: keyof typeof depTypeToKey
 }
 export interface GetEdgesOut {
   packageName: string
