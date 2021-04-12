@@ -126,7 +126,8 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
   }
   if (command === 'publish') {
     for (const publishNode of buildNodes) {
-      await npmRun({
+      await cmdRun({
+        cmd: 'npm',
         args: ['publish'],
         cloneDir,
         node: publishNode,
