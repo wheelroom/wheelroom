@@ -13,9 +13,10 @@ const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = rootPkg.author
 const globals = {
   '@npmcli/arborist': 'Arborist',
-  'standard-version': 'standardVersion',
   'fs/promises': 'mkdir',
+  'standard-version': 'standardVersion',
   child_process: 'child_process',
+  deepmerge: 'deepmerge',
   fs: 'fs',
 }
 const external = Object.keys(globals)
