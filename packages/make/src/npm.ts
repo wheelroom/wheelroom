@@ -61,7 +61,7 @@ export interface GetFsChild {
 }
 export const getFsChild = ({ fsChildren, packageName }: GetFsChild) =>
   Array.from(fsChildren).find(
-    (node) => node.package!.name === packageName
+    (node) => node.package.name === packageName
   ) as Node
 export interface GetFsChildPackageNames {
   fsChildren: Set<Node>
@@ -69,7 +69,7 @@ export interface GetFsChildPackageNames {
 export const getFsChildPackageNames = ({
   fsChildren,
 }: GetFsChildPackageNames) =>
-  Array.from(fsChildren).map((node) => node.package!.name)
+  Array.from(fsChildren).map((node) => node.package.name)
 
 export interface ReadNodeSync {
   node: Node
@@ -91,7 +91,7 @@ export const writeNodeSync = ({
 }: WriteNodeSync) => {
   const pkgObjToSave = deepmerge.all([
     {},
-    node.package!,
+    node.package,
     packageObject || {},
   ]) as any
   delete pkgObjToSave._id
@@ -159,7 +159,7 @@ export const getEdgesOut = ({ packageName, fsChildren }: GetEdgesOut) => {
     node.edgesOut.forEach((edgeOut: Edge) => {
       if (edgeOut.name === packageName) {
         edgesOut.push({
-          name: node.package!.name,
+          name: node.package.name,
           type: edgeOut.type,
         })
       }
@@ -194,15 +194,10 @@ export interface UpdateEdgesOut {
 export const updateEdgesOut = ({ fsChildren, node }: UpdateEdgesOut) => {
   const edgesOut = getEdgesOut({
     fsChildren,
-    packageName: node.package!.name,
+    packageName: node.package.name,
   })
   for (const edgeOut of edgesOut) {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
-    console.log('BAD SOURCES!', {
-      [depTypeToKey[edgeOut.type]]: {
-        [node.package.name]: node.package!.version,
-      },
-    })
     depNode.package[depTypeToKey[edgeOut.type]][node.package.name] =
       node.package.version
   }
@@ -215,13 +210,13 @@ export interface GetNodesToPublish {
 export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {
   // Sync all packages that use node to the node version version
   const edgesOut = getRecursEdgesOut({
-    packageName: node.package!.name,
+    packageName: node.package.name,
     fsChildren,
   })
   const syncedNodes = []
   for (const edgeOut of edgesOut) {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
-    depNode.package.version = node.package!.version
+    depNode.package.version = node.package.version
     syncedNodes.push(depNode)
   }
   return syncedNodes
