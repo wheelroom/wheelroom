@@ -27,6 +27,7 @@ import standardVersion from 'standard-version'
 import {
   Node,
   cloneToDirSync,
+  cmdRun,
   commitTypes,
   getFsChild,
   getFsChildPackageNames,
@@ -34,7 +35,6 @@ import {
   npmRun,
   updateEdgesOut,
   writeNodeSync,
-  cmdRun,
 } from './npm'
 
 interface RunCommand {
