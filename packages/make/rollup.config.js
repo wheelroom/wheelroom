@@ -17,7 +17,10 @@ const globals = {
   child_process: 'child_process',
 }
 
-const inputFiles = [{ name: 'npm', ext: 'ts', id: 'npm' }]
+const inputFiles = [
+  { name: 'npm', ext: 'ts', id: 'npm' },
+  { name: 'run-command', ext: 'ts', id: 'runCommand' },
+]
 
 export default inputFiles.map((file) => {
   const banner = `
