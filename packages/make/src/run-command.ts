@@ -126,12 +126,14 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
   }
   if (command === 'publish') {
     for (const publishNode of buildNodes) {
-      await cmdRun({
-        cmd: 'npm',
-        args: ['publish'],
-        cloneDir,
-        node: publishNode,
-      })
+      if (!publishNode.package.private) {
+        await cmdRun({
+          cmd: 'npm',
+          args: ['publish'],
+          cloneDir,
+          node: publishNode,
+        })
+      }
     }
     console.log(`\ngit push --follow-tags origin next`)
   }
