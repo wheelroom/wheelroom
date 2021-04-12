@@ -111,8 +111,8 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     })
   }
   // Make packages depend on new version of package
-  for (const buildNode of buildNodes) {
-    if (['release', 'publish'].includes(command)) {
+  if (['release', 'publish'].includes(command)) {
+    for (const buildNode of buildNodes) {
       updateEdgesOut({ node: buildNode, fsChildren })
     }
   }
