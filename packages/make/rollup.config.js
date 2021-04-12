@@ -9,9 +9,6 @@ import pluginNodeResolve from '@rollup/plugin-node-resolve'
 import pkg from './package.json'
 import rootPkg from '../../package.json'
 
-
-import standardVersion from 'standard-version'
-
 const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = rootPkg.author
 const globals = {
@@ -21,7 +18,9 @@ const globals = {
   child_process: 'child_process',
   fs: 'fs',
 }
-const external = Object.keys(globals)
+const external = Object.keys(globals).filter(
+  (ext) => ext !== 'standard-version'
+)
 
 const inputFiles = [
   { name: 'npm', ext: 'ts', id: 'npm' },
