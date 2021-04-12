@@ -3,7 +3,6 @@
   "version": "6.8.3",
   "private": true,
   "description": "Next.js starter",
-  "author": "wheelroom",
   "scripts": {
     "build": "npm-run-all clean",
     "build:compile": "next build",
