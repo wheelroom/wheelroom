@@ -55,16 +55,16 @@ export interface DeepMerge {
   source: Package
 }
 export const deepMerge = ({ target, source }: DeepMerge) => {
-  Object.assign(target, source)
   for (const key in source) {
     if (source[key] instanceof Object) {
       Object.assign(
         target[key],
         deepMerge({ target: target[key], source: source[key] })
       )
+    } else {
+      target[key] = source[key]
     }
   }
-  Object.assign(target, source)
   return target
 }
 export interface GetFsChild {
