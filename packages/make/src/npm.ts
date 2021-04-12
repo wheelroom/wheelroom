@@ -5,6 +5,7 @@ type Package = Record<string, any>
 
 type Node = {
   path: string
+  // TODO: Fix proper type
   edgesOut?: any
   package?: Package
 }
@@ -70,6 +71,19 @@ export const deepMerge = ({ target, source }: DeepMerge) => {
   Object.assign(target, source)
   return target
 }
+export interface GetFsChild {
+  fsChildren: Set<Node>
+  packageName: string
+}
+export const getFsChild = ({ fsChildren, packageName }: GetFsChild) =>
+  Array.from(fsChildren).find((node) => node.package!.name === packageName)
+export interface GetFsChildPackageNames {
+  fsChildren: Set<Node>
+}
+export const getFsChildPackageNames = ({
+  fsChildren,
+}: GetFsChildPackageNames) =>
+  Array.from(fsChildren).map((node) => node.package!.name)
 
 export interface ReadNodeSync {
   node: Node
@@ -151,12 +165,12 @@ export const cloneToDirSync = async ({
 }
 export interface GetEdgesOut {
   packageName: string
-  allNodes: Node[]
+  fsChildren: Set<Node>
 }
 // Edges out are packages that depend on packageName
-export const getEdgesOut = ({ packageName, allNodes }: GetEdgesOut) => {
+export const getEdgesOut = ({ packageName, fsChildren }: GetEdgesOut) => {
   const edgesOut: EdgeOut[] = []
-  for (const node of allNodes) {
+  fsChildren.forEach((node) => {
     node.edgesOut.forEach((edgeOut: Edge) => {
       if (edgeOut.name === packageName) {
         edgesOut.push({
@@ -165,24 +179,24 @@ export const getEdgesOut = ({ packageName, allNodes }: GetEdgesOut) => {
         })
       }
     })
-  }
+  })
   return edgesOut
 }
 export interface GetRecursEdgesOut {
   packageName: string
-  allNodes: Node[]
+  fsChildren: Set<Node>
 }
 // Recursive ddges out are packages that depend on packageName and the packages
 // that depend on these
 export const getRecursEdgesOut = ({
   packageName,
-  allNodes,
+  fsChildren,
 }: GetRecursEdgesOut) => {
-  const edgesOut = getEdgesOut({ packageName, allNodes })
+  const edgesOut = getEdgesOut({ packageName, fsChildren })
   edgesOut.forEach((edgeOut) => {
     const recursEdgesOut = getRecursEdgesOut({
       packageName: edgeOut.name,
-      allNodes,
+      fsChildren,
     })
     edgesOut.push(...recursEdgesOut)
   })
@@ -190,15 +204,15 @@ export const getRecursEdgesOut = ({
 }
 export interface UpdateEdgesOut {
   node: Node
-  allNodes: Node[]
+  fsChildren: Set<Node>
 }
-export const updateEdgesOut = ({ allNodes, node }: UpdateEdgesOut) => {
+export const updateEdgesOut = ({ fsChildren, node }: UpdateEdgesOut) => {
   const edgesOut = getEdgesOut({
-    allNodes,
+    fsChildren,
     packageName: node.package!.name,
   })
   for (const edgeOut of edgesOut) {
-    const depNode = allNodes.find((node) => node.package!.name === edgeOut.name)
+    const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
     console.log('SOURCES', {
       [depTypeToKey[edgeOut.type]]: {
         [edgeOut.name]: node.package!.version,
@@ -216,18 +230,18 @@ export const updateEdgesOut = ({ allNodes, node }: UpdateEdgesOut) => {
 }
 export interface GetNodesToPublish {
   node: Node
-  allNodes: Node[]
+  fsChildren: Set<Node>
 }
 
-export const getSyncedNodes = ({ allNodes, node }: GetNodesToPublish) => {
+export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {
   // Sync all packages that use node to the node version version
   const edgesOut = getRecursEdgesOut({
     packageName: node.package!.name,
-    allNodes,
+    fsChildren,
   })
   const syncedNodes = []
   for (const edgeOut of edgesOut) {
-    const depNode = allNodes.find((node) => node.package!.name === edgeOut.name)
+    const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
     deepMerge({
       target: depNode!.package!,
       source: { version: node.package!.version },

@@ -29,6 +29,8 @@ import {
   cloneToDirSync,
   commitTypes,
   deepMerge,
+  getFsChild,
+  getFsChildPackageNames,
   getSyncedNodes,
   npmRun,
   updateEdgesOut,
@@ -38,16 +40,15 @@ import {
 const runCommand = async ({ packageName, command }) => {
   const arborist = new Arborist({ path: '.' })
   let rootNode = await arborist.loadActual()
-  let allNodes = Array.from(rootNode.fsChildren)
-  let targetNode = allNodes.find((node) => node.package.name === packageName)
-
-  const nodeNames = allNodes.map((node) => node.package.name)
+  let fsChildren = rootNode.fsChildren
+  let targetNode = getFsChild({ fsChildren, packageName })
+  const packageNames = getFsChildPackageNames({ fsChildren })
 
   if (!targetNode) {
     console.log(
       `Package ${
         packageName || 'parameter'
-      } not found, please choose from: ${nodeNames.join(', ')}`
+      } not found, please choose from: ${packageNames.join(', ')}`
     )
     process.exit(0)
   }
@@ -68,10 +69,10 @@ const runCommand = async ({ packageName, command }) => {
     })
   }
 
-  // Refresh allNodes now that package is released
+  // Refresh fsChildren now that package is released
   rootNode = await arborist.loadActual()
-  allNodes = Array.from(rootNode.fsChildren)
-  targetNode = allNodes.find((node) => node.package.name === packageName)
+  fsChildren = rootNode.fsChildren
+  targetNode = getFsChild({ fsChildren, packageName })
 
   // Update root package version with released target
   deepMerge({
@@ -80,7 +81,7 @@ const runCommand = async ({ packageName, command }) => {
   })
 
   const cloneDir = 'build'
-  const syncedNodes = getSyncedNodes({ node: targetNode, allNodes })
+  const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })
   const buildNodes = [targetNode, ...syncedNodes]
   const clonedNodes = []
   for (const buildNode of buildNodes) {
@@ -103,11 +104,11 @@ const runCommand = async ({ packageName, command }) => {
       },
     })
     if (['release', 'publish'].includes(command)) {
-      updateEdgesOut({ node: buildNode, allNodes })
+      updateEdgesOut({ node: buildNode, fsChildren })
     }
   }
   // Write all changes to all nodes
-  allNodes.forEach((node) => writeNodeSync({ node }))
+  fsChildren.forEach((node) => writeNodeSync({ node }))
   // Create cloned package.json's in cloneDirs
   clonedNodes.forEach((clone) =>
     writeNodeSync({
