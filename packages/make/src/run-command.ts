@@ -58,8 +58,8 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     process.exit(0)
   }
 
+  // Copy root version to target package and release with standard-version
   if (['release', 'publish'].includes(command)) {
-    // Copy root version to target package and release with standard-version
     targetNode.package.version = rootNode.package.version
     writeNodeSync({ node: targetNode })
     process.chdir(targetNode.path)
@@ -92,17 +92,29 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       updateEdgesOut({ node: buildNode, fsChildren: fsChildrenPlusRoot })
     }
   }
+
+  // Write all changes to all nodes
+  fsChildrenPlusRoot.forEach((node: Node) => writeNodeSync({ node }))
+
+  // Update package-lock.json
+  await cmdRun({ cmd: 'npm', args: ['install'], node: rootNode })
+
+  // Build all nodes
+  for (const buildNode of buildNodes) {
+    await npmRun({ args: ['build'], node: buildNode })
+  }
+
   // Write package.json copy to cloneDir
   const cloneDir = 'build'
-  for (const prepareBuildNode of buildNodes) {
-    await mkdir(`${prepareBuildNode.path}/${cloneDir}`, { recursive: true })
+  for (const preparePublishNodes of buildNodes) {
+    await mkdir(`${preparePublishNodes.path}/${cloneDir}`, { recursive: true })
     cloneToDirSync({
-      node: prepareBuildNode,
+      node: preparePublishNodes,
       cloneDir,
       fileNameList: ['CHANGELOG.md', 'README.md'],
     })
     writeNodeSync({
-      node: prepareBuildNode,
+      node: preparePublishNodes,
       cloneDir,
       packageObject: {
         author: rootNode.package.author,
@@ -118,12 +130,8 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       },
     })
   }
-  // Write all changes to all nodes
-  fsChildrenPlusRoot.forEach((node: Node) => writeNodeSync({ node }))
-  await cmdRun({ cmd: 'npm', args: ['install'], node: rootNode })
-  for (const buildNode of buildNodes) {
-    await npmRun({ args: ['build'], node: buildNode })
-  }
+
+  // Publish cloneDir
   if (command === 'publish') {
     for (const publishNode of buildNodes) {
       if (!publishNode.package.private) {
