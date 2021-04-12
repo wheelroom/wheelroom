@@ -82,14 +82,14 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
   // Update root package version with released target
   rootNode.package.version = targetNode.package.version
   const fsChildrenPlusRoot = new Set(fsChildren) as Set<Node>
-  fsChildrenPlusRoot.add(rootNode)
+  fsChildrenPlusRoot.add(rootNode as Node)
 
   const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })
   const buildNodes = [targetNode, ...syncedNodes]
   // Make packages depend on new version of package
   if (['release', 'publish'].includes(command)) {
     for (const buildNode of buildNodes) {
-      updateEdgesOut({ node: buildNode, fsChildrenPlusRoot })
+      updateEdgesOut({ node: buildNode, fsChildren: fsChildrenPlusRoot })
     }
   }
   // Write package.json copy to cloneDir
@@ -119,7 +119,6 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     })
   }
   // Write all changes to all nodes
-  writeNodeSync({ node: rootNode })
   fsChildrenPlusRoot.forEach((node: Node) => writeNodeSync({ node }))
   await cmdRun({ cmd: 'npm', args: ['install'], node: rootNode })
   for (const buildNode of buildNodes) {
