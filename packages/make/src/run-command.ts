@@ -12,7 +12,7 @@ import Arborist from '@npmcli/arborist'
 import { buildCloneDir, buildPackage } from './build'
 import { getFsChild, getFsChildPackageNames, getSyncedNodes } from './npm'
 import { publish } from './publish'
-import { version } from './version'
+import { versionTarget, versionDependencies } from './version'
 
 export type Command = 'build' | 'version' | 'publish' | 'release'
 
@@ -48,7 +48,8 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       break
     case 'version':
       await buildCloneDir({ rootNode, buildNodes, cloneDir })
-      await version({ rootNode, targetNode, buildNodes })
+      await versionTarget({ rootNode, targetNode })
+      await versionDependencies({ rootNode, targetNode, buildNodes })
       break
     case 'publish':
       await publish({ buildNodes, cloneDir })
@@ -56,7 +57,8 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     case 'release':
       await buildPackage({ buildNodes })
       await buildCloneDir({ rootNode, buildNodes, cloneDir })
-      await version({ rootNode, targetNode, buildNodes })
+      await versionTarget({ rootNode, targetNode })
+      await versionDependencies({ rootNode, targetNode, buildNodes })
       await publish({ buildNodes, cloneDir })
       break
   }

@@ -7,17 +7,15 @@ import {
   cmdRun,
 } from './npm'
 
-export interface Version {
+export interface VersionTarget {
   rootNode: any
   targetNode: any
-  buildNodes: any
 }
 
-export const version = async ({
+export const versionTarget = async ({
   rootNode,
   targetNode,
-  buildNodes,
-}: Version) => {
+}: VersionTarget) => {
   // Copy root version to target package and release with standard-version
   targetNode.package.version = rootNode.package.version
   writeNodeSync({ node: targetNode })
@@ -30,7 +28,19 @@ export const version = async ({
     // dryRun: true,
   })
   process.chdir(rootNode.path)
+}
 
+export interface VersionDependencies {
+  rootNode: any
+  targetNode: any
+  buildNodes: any
+}
+
+export const versionDependencies = async ({
+  rootNode,
+  targetNode,
+  buildNodes,
+}: VersionDependencies) => {
   // Update root package version with released target
   rootNode.package.version = targetNode.package.version
   const fsChildrenPlusRoot = new Set(rootNode.fsChildren) as Set<ArboristNode>
