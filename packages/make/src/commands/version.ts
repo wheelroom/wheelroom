@@ -1,12 +1,12 @@
 import standardVersion from 'standard-version'
-import { MakeContext } from './get-make-context'
+import { MakeContext } from '../get-make-context'
 import {
   ArboristNode,
   writeNodeSync,
   commitTypes,
   updateEdgesOut,
   cmdRun,
-} from './npm'
+} from '../npm'
 
 export interface VersionMakeContext {
   makeContext: MakeContext

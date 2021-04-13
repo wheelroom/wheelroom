@@ -8,9 +8,9 @@
  *
  */
 
+import { getMakeContext } from '../get-make-context'
+import { getFsChildPackageNames } from '../npm'
 import { buildCloneDir, buildPackage } from './build'
-import { getMakeContext } from './get-make-context'
-import { getFsChildPackageNames } from './npm'
 import { publish } from './publish'
 import { versionTarget, versionDependencies } from './version'
 

@@ -23,8 +23,8 @@ const external = Object.keys(globals)
 
 const inputFiles = [
   { name: 'npm', ext: 'ts', id: 'npm' },
-  { name: 'run-command', ext: 'ts', id: 'runCommand' },
-  { name: 'link-command', ext: 'ts', id: 'linkCommand' },
+  { name: 'commands/run-command', ext: 'ts', id: 'runCommand' },
+  { name: 'commands/link-command', ext: 'ts', id: 'linkCommand' },
 ]
 
 export default inputFiles.map((file) => {

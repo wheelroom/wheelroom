@@ -9,8 +9,8 @@
  */
 
 import yargs from 'yargs'
-import { runCommand } from './packages/make/build/run-command.js'
-import { linkCommand } from './packages/make/build/link-command.js'
+import { runCommand } from './packages/make/build/commands/run-command.js'
+import { linkCommand } from './packages/make/build/commands/link-command.js'
 
 const packagePositional = (yargs) => {
   yargs.positional('package', {

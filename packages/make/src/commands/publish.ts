@@ -1,5 +1,5 @@
-import { MakeContext } from './get-make-context'
-import { cmdRun } from './npm'
+import { MakeContext } from '../get-make-context'
+import { cmdRun } from '../npm'
 
 export interface PublishMakeContext {
   makeContext: MakeContext
