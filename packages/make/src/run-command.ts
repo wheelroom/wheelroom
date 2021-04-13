@@ -10,6 +10,7 @@
 
 import { buildCloneDir, buildPackage } from './build'
 import { getArborist } from './get-arborist'
+import { getFsChildPackageNames } from './npm'
 import { publish } from './publish'
 import { versionTarget, versionDependencies } from './version'
 
@@ -21,14 +22,12 @@ export interface RunCommand {
 }
 
 export const runCommand = async ({ packageName, command }: RunCommand) => {
-  const arboristInfo = await getArborist({
+  let { rootNode, targetNode, buildNodes } = await getArborist({
     packageName,
   })
-
-  const rootNode = arboristInfo.rootNode
-  const targetNode = arboristInfo.targetNode
-  const buildNodes = arboristInfo.buildNodes
-  const packageNames = arboristInfo.packageNames
+  const packageNames = getFsChildPackageNames({
+    fsChildren: rootNode.fsChildren,
+  })
 
   if (!targetNode) {
     console.log(
@@ -49,6 +48,9 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     case 'version':
       await buildCloneDir({ rootNode, buildNodes, cloneDir })
       await versionTarget({ rootNode, targetNode })
+      ;({ rootNode, targetNode, buildNodes } = await getArborist({
+        packageName,
+      }))
       await versionDependencies({ rootNode, targetNode, buildNodes })
       break
     case 'publish':
@@ -58,6 +60,9 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       await buildPackage({ buildNodes })
       await buildCloneDir({ rootNode, buildNodes, cloneDir })
       await versionTarget({ rootNode, targetNode })
+      ;({ rootNode, targetNode, buildNodes } = await getArborist({
+        packageName,
+      }))
       await versionDependencies({ rootNode, targetNode, buildNodes })
       await publish({ buildNodes, cloneDir })
       break
