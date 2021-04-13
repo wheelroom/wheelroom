@@ -17,11 +17,13 @@ type Edge = {
   name: string
   type: keyof typeof depTypeToKey
 }
+
 export type EdgeOut = {
   name: string
   type: keyof typeof depTypeToKey
 }
-export type Node = {
+
+export type ArboristNode = {
   path: string
   edgesOut: Set<EdgeOut>
   package: Package
@@ -33,7 +35,8 @@ type Stream = any
 export interface LogStream {
   stream: Stream
 }
-export const packagePath = (node: Node, cloneDir?: string) =>
+
+export const packagePath = (node: ArboristNode, cloneDir?: string) =>
   cloneDir
     ? `${node.path}/${cloneDir}/package.json`
     : `${node.path}/package.json`
@@ -43,6 +46,7 @@ export const logStream = async ({ stream }: LogStream) => {
     process.stdout.write(data)
   }
 }
+
 export const commitTypes = [
   { type: 'feat', section: 'Features' },
   { type: 'fix', section: 'Bug Fixes' },
@@ -53,39 +57,47 @@ export const commitTypes = [
   { type: 'perf', hidden: true },
   { type: 'test', hidden: true },
 ]
+
 export interface DeepMerge {
   target: Package
   source: Package
 }
+
 export interface GetFsChild {
-  fsChildren: Set<Node>
+  fsChildren: Set<ArboristNode>
   packageName: string
 }
+
 export const getFsChild = ({ fsChildren, packageName }: GetFsChild) =>
   Array.from(fsChildren).find(
     (node) => node.package.name === packageName
-  ) as Node
+  ) as ArboristNode
+
 export interface GetFsChildPackageNames {
-  fsChildren: Set<Node>
+  fsChildren: Set<ArboristNode>
 }
+
 export const getFsChildPackageNames = ({
   fsChildren,
 }: GetFsChildPackageNames) =>
   Array.from(fsChildren).map((node) => node.package.name)
 
 export interface ReadNodeSync {
-  node: Node
+  node: ArboristNode
   cloneDir?: string
 }
+
 export const readNodeSync = ({ node, cloneDir }: ReadNodeSync) => {
   const data = fs.readFileSync(packagePath(node, cloneDir), 'utf8')
   return JSON.parse(data)
 }
+
 export interface WriteNodeSync {
   cloneDir?: string
-  node: Node
+  node: ArboristNode
   packageObject?: Package
 }
+
 export const writeNodeSync = ({
   node,
   cloneDir,
@@ -103,12 +115,14 @@ export const writeNodeSync = ({
     'utf8'
   )
 }
+
 export interface CmdRun {
   args: string[]
   cloneDir?: string
   cmd: string
-  node: Node
+  node: ArboristNode
 }
+
 export const cmdRun = async ({ cmd, args, node, cloneDir }: CmdRun) => {
   const cwd = cloneDir ? `${node.path}/${cloneDir}` : node.path
   console.log(`==> (${cwd}) ${cmd} ${args.join(' ')}`)
@@ -118,11 +132,13 @@ export const cmdRun = async ({ cmd, args, node, cloneDir }: CmdRun) => {
     logStream({ stream: child.stderr }),
   ])
 }
+
 export interface NpmRun {
   args: string[]
   cloneDir?: string
-  node: Node
+  node: ArboristNode
 }
+
 export const npmRun = async ({ args, cloneDir, node }: NpmRun) => {
   await cmdRun({
     cmd: 'npm',
@@ -131,16 +147,19 @@ export const npmRun = async ({ args, cloneDir, node }: NpmRun) => {
     cloneDir,
   })
 }
+
 export interface updatePackage {
   cloneDir?: string
-  node: Node
+  node: ArboristNode
   packageObject: Package
 }
+
 export interface CloneToDirSync {
-  node: Node
+  node: ArboristNode
   cloneDir: string
   fileNameList: string[]
 }
+
 export const cloneToDirSync = async ({
   node,
   cloneDir,
@@ -153,9 +172,10 @@ export const cloneToDirSync = async ({
     )
   }
 }
+
 export interface GetEdgesOut {
   packageName: string
-  fsChildren: Set<Node>
+  fsChildren: Set<ArboristNode>
 }
 // Edges out are packages that depend on packageName
 export const getEdgesOut = ({ packageName, fsChildren }: GetEdgesOut) => {
@@ -172,9 +192,10 @@ export const getEdgesOut = ({ packageName, fsChildren }: GetEdgesOut) => {
   })
   return edgesOut
 }
+
 export interface GetRecursEdgesOut {
   packageName: string
-  fsChildren: Set<Node>
+  fsChildren: Set<ArboristNode>
 }
 // Recursive ddges out are packages that depend on packageName and the packages
 // that depend on these
@@ -192,10 +213,12 @@ export const getRecursEdgesOut = ({
   })
   return edgesOut
 }
+
 export interface UpdateEdgesOut {
-  node: Node
-  fsChildren: Set<Node>
+  node: ArboristNode
+  fsChildren: Set<ArboristNode>
 }
+
 export const updateEdgesOut = ({ fsChildren, node }: UpdateEdgesOut) => {
   const edgesOut = getEdgesOut({
     fsChildren,
@@ -215,9 +238,10 @@ export const updateEdgesOut = ({ fsChildren, node }: UpdateEdgesOut) => {
     }
   }
 }
+
 export interface GetNodesToPublish {
-  node: Node
-  fsChildren: Set<Node>
+  node: ArboristNode
+  fsChildren: Set<ArboristNode>
 }
 
 export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {

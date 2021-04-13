@@ -8,45 +8,24 @@
  *
  */
 
-/**
- * A note on removing the 'exports' key in the 'updatePackage' before
- * publishing. In the package folder we use a package.json with:
- * ```
- *  "exports": {
- *    "./*": "./build/*.js"
- *  },
- * ```
- * When we publish from the build folder the exported files are in the root and
- * we do not need this mapping anymore.
- *
- */
-
-import { mkdir } from 'fs/promises'
 import Arborist from '@npmcli/arborist'
-import standardVersion from 'standard-version'
-import {
-  Node,
-  cloneToDirSync,
-  cmdRun,
-  commitTypes,
-  getFsChild,
-  getFsChildPackageNames,
-  getSyncedNodes,
-  npmRun,
-  updateEdgesOut,
-  writeNodeSync,
-} from './npm'
+import { buildCloneDir, buildPackage } from './build'
+import { getFsChild, getFsChildPackageNames, getSyncedNodes } from './npm'
+import { publish } from './publish'
+import { version } from './version'
 
-interface RunCommand {
+export type Command = 'build' | 'version' | 'publish' | 'release'
+
+export interface RunCommand {
   packageName: string
-  command: string
+  command: Command
 }
 
 export const runCommand = async ({ packageName, command }: RunCommand) => {
-  let arborist = new Arborist({ path: process.cwd() })
-  let rootNode = await arborist.loadActual()
-  let fsChildren = rootNode.fsChildren
-  let targetNode = getFsChild({ fsChildren, packageName })
+  const arborist = new Arborist({ path: process.cwd() })
+  const rootNode = await arborist.loadActual()
+  const fsChildren = rootNode.fsChildren
+  const targetNode = getFsChild({ fsChildren, packageName })
   const packageNames = getFsChildPackageNames({ fsChildren })
 
   if (!targetNode) {
@@ -58,91 +37,27 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     process.exit(0)
   }
 
-  // Copy root version to target package and release with standard-version
-  if (['release', 'publish'].includes(command)) {
-    targetNode.package.version = rootNode.package.version
-    writeNodeSync({ node: targetNode })
-    process.chdir(targetNode.path)
-    await standardVersion({
-      path: targetNode.path,
-      skip: { commit: true },
-      tagPrefix: `${targetNode.package.name}@`,
-      types: commitTypes,
-      // dryRun: true,
-    })
-    process.chdir(rootNode.path)
-  }
-
-  // Refresh fsChildren now that package is released
-  arborist = new Arborist({ path: process.cwd() })
-  rootNode = await arborist.loadActual()
-  fsChildren = rootNode.fsChildren
-  targetNode = getFsChild({ fsChildren, packageName })
-
-  // Update root package version with released target
-  rootNode.package.version = targetNode.package.version
-  const fsChildrenPlusRoot = new Set(fsChildren) as Set<Node>
-  fsChildrenPlusRoot.add(rootNode as Node)
-
   const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })
   const buildNodes = [targetNode, ...syncedNodes]
-  // Make packages depend on new version of package
-  if (['release', 'publish'].includes(command)) {
-    for (const buildNode of buildNodes) {
-      updateEdgesOut({ node: buildNode, fsChildren: fsChildrenPlusRoot })
-    }
-  }
-
-  // Write all changes to all nodes
-  fsChildrenPlusRoot.forEach((node: Node) => writeNodeSync({ node }))
-
-  // Update package-lock.json
-  await cmdRun({ cmd: 'npm', args: ['install'], node: rootNode })
-
-  // Build all nodes
-  for (const buildNode of buildNodes) {
-    await npmRun({ args: ['build'], node: buildNode })
-  }
-
-  // Write package.json copy to cloneDir
   const cloneDir = 'build'
-  for (const preparePublishNodes of buildNodes) {
-    await mkdir(`${preparePublishNodes.path}/${cloneDir}`, { recursive: true })
-    cloneToDirSync({
-      node: preparePublishNodes,
-      cloneDir,
-      fileNameList: ['CHANGELOG.md', 'README.md'],
-    })
-    writeNodeSync({
-      node: preparePublishNodes,
-      cloneDir,
-      packageObject: {
-        author: rootNode.package.author,
-        bugs: rootNode.package.bugs,
-        contributors: rootNode.package.contributors,
-        engines: rootNode.package.engines,
-        exports: undefined,
-        homepage: rootNode.package.homepage,
-        keywords: rootNode.package.keywords,
-        license: rootNode.package.license,
-        publishConfig: rootNode.package.publishConfig,
-        repository: rootNode.package.repository,
-      },
-    })
-  }
 
-  // Publish cloneDir
-  if (command === 'publish') {
-    for (const publishNode of buildNodes) {
-      if (!publishNode.package.private) {
-        await cmdRun({
-          cmd: 'npm',
-          args: ['publish'],
-          cloneDir,
-          node: publishNode,
-        })
-      }
-    }
-    console.log(`\ngit push --follow-tags origin next`)
+  switch (command) {
+    case 'build':
+      await buildPackage({ buildNodes })
+      await buildCloneDir({ rootNode, buildNodes, cloneDir })
+      break
+    case 'version':
+      await buildCloneDir({ rootNode, buildNodes, cloneDir })
+      await version({ rootNode, targetNode, buildNodes })
+      break
+    case 'publish':
+      await publish({ buildNodes, cloneDir })
+      break
+    case 'release':
+      await buildPackage({ buildNodes })
+      await buildCloneDir({ rootNode, buildNodes, cloneDir })
+      await version({ rootNode, targetNode, buildNodes })
+      await publish({ buildNodes, cloneDir })
+      break
   }
 }
