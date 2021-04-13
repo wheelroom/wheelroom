@@ -8,9 +8,8 @@
  *
  */
 
-import Arborist from '@npmcli/arborist'
 import { buildCloneDir, buildPackage } from './build'
-import { getFsChild, getFsChildPackageNames, getSyncedNodes } from './npm'
+import { getArborist } from './get-arborist'
 import { publish } from './publish'
 import { versionTarget, versionDependencies } from './version'
 
@@ -21,31 +20,15 @@ export interface RunCommand {
   command: Command
 }
 
-interface GetArborist {
-  packageName: string
-}
-
-const getArborist = async ({ packageName }: GetArborist) => {
-  const arborist = new Arborist({ path: process.cwd() })
-  const rootNode = await arborist.loadActual()
-  const fsChildren = rootNode.fsChildren
-  const targetNode = getFsChild({ fsChildren, packageName })
-  const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })
-  const buildNodes = [targetNode, ...syncedNodes]
-  const packageNames = getFsChildPackageNames({ fsChildren })
-
-  return { rootNode, targetNode, buildNodes, packageNames }
-}
-
 export const runCommand = async ({ packageName, command }: RunCommand) => {
   const arboristInfo = await getArborist({
     packageName,
   })
 
-  let rootNode = arboristInfo.rootNode
-  let targetNode = arboristInfo.targetNode
-  let buildNodes = arboristInfo.buildNodes
-  let packageNames = arboristInfo.packageNames
+  const rootNode = arboristInfo.rootNode
+  const targetNode = arboristInfo.targetNode
+  const buildNodes = arboristInfo.buildNodes
+  const packageNames = arboristInfo.packageNames
 
   if (!targetNode) {
     console.log(
