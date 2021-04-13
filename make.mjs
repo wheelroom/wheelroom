@@ -30,19 +30,27 @@ yargs
     }
   )
   .command(
-    'release [package]',
-    'build and release a package (set a new version but do not publish)',
+    'version [package]',
+    'bumps package and related packages to their new versions',
     packagePositional,
     function (argv) {
-      runCommand({ packageName: argv.package, command: 'release' })
+      runCommand({ packageName: argv.package, command: 'version' })
     }
   )
   .command(
     'publish [package]',
-    'build, release and publish a package (set a new version and publish to registry)',
+    'publish package to package repository and commit/push to git repository',
     packagePositional,
     function (argv) {
       runCommand({ packageName: argv.package, command: 'publish' })
+    }
+  )
+  .command(
+    'release [package]',
+    'runn all three: build, version and publish',
+    packagePositional,
+    function (argv) {
+      runCommand({ packageName: argv.package, command: 'release' })
     }
   )
   .demandCommand()
