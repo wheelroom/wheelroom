@@ -38,9 +38,14 @@ const getArborist = async ({ packageName }: GetArborist) => {
 }
 
 export const runCommand = async ({ packageName, command }: RunCommand) => {
-  const { rootNode, targetNode, buildNodes, packageNames } = await getArborist({
+  const arboristInfo = await getArborist({
     packageName,
   })
+
+  let rootNode = arboristInfo.rootNode
+  let targetNode = arboristInfo.targetNode
+  let buildNodes = arboristInfo.buildNodes
+  let packageNames = arboristInfo.packageNames
 
   if (!targetNode) {
     console.log(
