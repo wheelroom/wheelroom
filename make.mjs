@@ -10,11 +10,18 @@
 
 import yargs from 'yargs'
 import { runCommand } from './packages/make/build/run-command.js'
+import { linkCommand } from './packages/make/build/link-command.js'
 
 const packagePositional = (yargs) => {
   yargs.positional('package', {
     type: 'string',
     describe: 'full package name with organisation',
+  })
+}
+const pathPositional = (yargs) => {
+  yargs.positional('path', {
+    type: 'string',
+    describe: 'path to npm 7 monorepo',
   })
 }
 
@@ -47,10 +54,18 @@ yargs
   )
   .command(
     'release [package]',
-    'runn all three: build, version and publish',
+    'run all three: build, version and publish',
     packagePositional,
     function (argv) {
       runCommand({ packageName: argv.package, command: 'release' })
+    }
+  )
+  .command(
+    'link [path]',
+    'create links to monorepo in node_modules',
+    pathPositional,
+    function (argv) {
+      linkCommand({ monoRepoPath: argv.path })
     }
   )
   .demandCommand()
