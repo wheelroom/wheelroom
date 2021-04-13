@@ -21,12 +21,26 @@ export interface RunCommand {
   command: Command
 }
 
-export const runCommand = async ({ packageName, command }: RunCommand) => {
+interface GetArborist {
+  packageName: string
+}
+
+const getArborist = async ({ packageName }: GetArborist) => {
   const arborist = new Arborist({ path: process.cwd() })
   const rootNode = await arborist.loadActual()
   const fsChildren = rootNode.fsChildren
   const targetNode = getFsChild({ fsChildren, packageName })
+  const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })
+  const buildNodes = [targetNode, ...syncedNodes]
   const packageNames = getFsChildPackageNames({ fsChildren })
+
+  return { rootNode, targetNode, buildNodes, packageNames }
+}
+
+export const runCommand = async ({ packageName, command }: RunCommand) => {
+  const { rootNode, targetNode, buildNodes, packageNames } = await getArborist({
+    packageName,
+  })
 
   if (!targetNode) {
     console.log(
@@ -37,8 +51,6 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     process.exit(0)
   }
 
-  const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })
-  const buildNodes = [targetNode, ...syncedNodes]
   const cloneDir = 'build'
 
   switch (command) {
