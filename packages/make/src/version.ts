@@ -1,4 +1,5 @@
 import standardVersion from 'standard-version'
+import { MakeContext } from './get-make-context'
 import {
   ArboristNode,
   writeNodeSync,
@@ -7,15 +8,12 @@ import {
   cmdRun,
 } from './npm'
 
-export interface VersionTarget {
-  rootNode: any
-  targetNode: any
+export interface VersionMakeContext {
+  makeContext: MakeContext
 }
 
-export const versionTarget = async ({
-  rootNode,
-  targetNode,
-}: VersionTarget) => {
+export const versionTarget = async ({ makeContext }: VersionMakeContext) => {
+  const { rootNode, targetNode } = makeContext
   // Copy root version to target package and release with standard-version
   targetNode.package.version = rootNode.package.version
   writeNodeSync({ node: targetNode })
@@ -30,17 +28,10 @@ export const versionTarget = async ({
   process.chdir(rootNode.path)
 }
 
-export interface VersionDependencies {
-  rootNode: any
-  targetNode: any
-  buildNodes: any
-}
-
 export const versionDependencies = async ({
-  rootNode,
-  targetNode,
-  buildNodes,
-}: VersionDependencies) => {
+  makeContext,
+}: VersionMakeContext) => {
+  const { rootNode, targetNode, buildNodes } = makeContext
   // Update root package version with released target
   rootNode.package.version = targetNode.package.version
   const fsChildrenPlusRoot = new Set(rootNode.fsChildren) as Set<ArboristNode>

@@ -13,7 +13,7 @@ export const depTypeToKey = {
   workspace: 'workspace',
 }
 
-type Edge = {
+export type Edge = {
   name: string
   type: keyof typeof depTypeToKey
 }

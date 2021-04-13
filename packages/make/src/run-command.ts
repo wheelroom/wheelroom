@@ -9,7 +9,7 @@
  */
 
 import { buildCloneDir, buildPackage } from './build'
-import { getArborist } from './get-arborist'
+import { getMakeContext } from './get-make-context'
 import { getFsChildPackageNames } from './npm'
 import { publish } from './publish'
 import { versionTarget, versionDependencies } from './version'
@@ -22,14 +22,13 @@ export interface RunCommand {
 }
 
 export const runCommand = async ({ packageName, command }: RunCommand) => {
-  let { rootNode, targetNode, buildNodes } = await getArborist({
-    packageName,
-  })
+  const cloneDir = 'build'
+  let makeContext = await getMakeContext({ packageName, cloneDir })
   const packageNames = getFsChildPackageNames({
-    fsChildren: rootNode.fsChildren,
+    fsChildren: makeContext.rootNode.fsChildren,
   })
 
-  if (!targetNode) {
+  if (!makeContext.targetNode) {
     console.log(
       `Package ${
         packageName || 'parameter'
@@ -38,33 +37,27 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     process.exit(0)
   }
 
-  const cloneDir = 'build'
-
   switch (command) {
     case 'build':
-      await buildPackage({ buildNodes })
-      await buildCloneDir({ rootNode, buildNodes, cloneDir })
+      await buildPackage({ makeContext })
+      await buildCloneDir({ makeContext })
       break
     case 'version':
-      await buildCloneDir({ rootNode, buildNodes, cloneDir })
-      await versionTarget({ rootNode, targetNode })
-      ;({ rootNode, targetNode, buildNodes } = await getArborist({
-        packageName,
-      }))
-      await versionDependencies({ rootNode, targetNode, buildNodes })
+      await buildCloneDir({ makeContext })
+      await versionTarget({ makeContext })
+      makeContext = await getMakeContext({ packageName, cloneDir })
+      await versionDependencies({ makeContext })
       break
     case 'publish':
-      await publish({ buildNodes, cloneDir })
+      await publish({ makeContext })
       break
     case 'release':
-      await buildPackage({ buildNodes })
-      await buildCloneDir({ rootNode, buildNodes, cloneDir })
-      await versionTarget({ rootNode, targetNode })
-      ;({ rootNode, targetNode, buildNodes } = await getArborist({
-        packageName,
-      }))
-      await versionDependencies({ rootNode, targetNode, buildNodes })
-      await publish({ buildNodes, cloneDir })
+      await buildPackage({ makeContext })
+      await buildCloneDir({ makeContext })
+      await versionTarget({ makeContext })
+      makeContext = await getMakeContext({ packageName, cloneDir })
+      await versionDependencies({ makeContext })
+      await publish({ makeContext })
       break
   }
 }

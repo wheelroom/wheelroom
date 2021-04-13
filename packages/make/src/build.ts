@@ -12,30 +12,22 @@
  */
 
 import { mkdir } from 'fs/promises'
+import { MakeContext } from './get-make-context'
 import { cloneToDirSync, npmRun, writeNodeSync } from './npm'
 
-export interface BuildPackage {
-  buildNodes: any
+export interface BuildMakeContext {
+  makeContext: MakeContext
 }
 
-export const buildPackage = async ({ buildNodes }: BuildPackage) => {
+export const buildPackage = async ({ makeContext }: BuildMakeContext) => {
   // Build all nodes
-  for (const buildNode of buildNodes) {
+  for (const buildNode of makeContext.buildNodes) {
     await npmRun({ args: ['build'], node: buildNode })
   }
 }
 
-export interface BuildCloneDir {
-  buildNodes: any
-  cloneDir: string
-  rootNode: any
-}
-
-export const buildCloneDir = async ({
-  rootNode,
-  buildNodes,
-  cloneDir,
-}: BuildCloneDir) => {
+export const buildCloneDir = async ({ makeContext }: BuildMakeContext) => {
+  const { rootNode, buildNodes, cloneDir } = makeContext
   // Write package.json copy to cloneDir
   for (const preparePublishNodes of buildNodes) {
     await mkdir(`${preparePublishNodes.path}/${cloneDir}`, { recursive: true })
