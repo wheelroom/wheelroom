@@ -3,6 +3,15 @@
 ## [6.18.6](https://github.com/wheelroom/wheelroom/compare/6.18.5...6.18.6) (2021-04-14)
 
 
+### Bug Fixes
+
+* rootNode version ([dc2b1bc](https://github.com/wheelroom/wheelroom/commit/dc2b1bcb29bcf9c88c408183b55ccc04d63f336f))
+
+
+
+## [6.18.6](https://github.com/wheelroom/wheelroom/compare/6.18.5...6.18.6) (2021-04-14)
+
+
 
 ## [6.18.5](https://github.com/wheelroom/wheelroom/compare/6.18.4...6.18.5) (2021-04-14)
 
