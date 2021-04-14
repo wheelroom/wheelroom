@@ -24,7 +24,7 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   }
   const tagPrefix = `${makeContext.targetNode.package.name}@`
   const fullVersion = `${tagPrefix}${rootNode.package.version}`
-  // const releaseMessage = `# ${fullVersion}\n\n${makeContext.newChangeLog}`
+  const releaseMessage = `# ${fullVersion}\n\n${makeContext.newChangeLog}`
   const cmd = 'git'
 
   let args
@@ -34,7 +34,14 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   args = ['commit', '-m', `v${fullVersion}`, ...gitAddFiles]
   await cmdRun({ cmd, args, node: rootNode })
 
-  args = ['tag', '-m', `v${fullVersion}`, fullVersion]
+  args = [
+    'tag',
+    '-m',
+    `v${fullVersion}`,
+    '-m',
+    `"${releaseMessage}"`,
+    fullVersion,
+  ]
   await cmdRun({ cmd, args, node: rootNode })
 
   args = ['push', '--follow-tags']
