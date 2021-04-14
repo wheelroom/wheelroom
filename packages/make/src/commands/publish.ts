@@ -1,3 +1,4 @@
+import path from 'path'
 import { MakeContext } from '../get-make-context'
 // import { cmdRun } from '../npm'
 
@@ -17,9 +18,15 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   //     })
   //   }
   // }
+  const { buildNodes } = makeContext
+  const gitAddFiles = []
+  for (const publishNode of buildNodes) {
+    gitAddFiles.push(path.relative(process.cwd(), publishNode.path))
+  }
+
   const cmd = 'git'
   let args
-  args = ['add']
+  args = ['add', ...gitAddFiles]
   console.log(cmd, args)
 
   args = ['commit']
