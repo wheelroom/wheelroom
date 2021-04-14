@@ -23,12 +23,12 @@ export type Command = 'build' | 'version' | 'publish' | 'release'
 
 export interface RunCommand {
   packageName: string
-  subCcommand?: Command
+  subCommand?: Command
 }
 
 export const releaseCommand = async ({
   packageName,
-  subCcommand,
+  subCommand,
 }: RunCommand) => {
   const cloneDir = 'build'
   const makeContext = await getMakeContext({ packageName, cloneDir })
@@ -45,7 +45,7 @@ export const releaseCommand = async ({
     process.exit(0)
   }
 
-  switch (subCcommand) {
+  switch (subCommand) {
     case 'build':
       await buildPackage({ makeContext })
       await buildCloneDir({ makeContext })
