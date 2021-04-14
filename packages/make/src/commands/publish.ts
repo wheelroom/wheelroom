@@ -22,19 +22,19 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   for (const publishNode of buildNodes) {
     gitAddFiles.push(path.relative(process.cwd(), publishNode.path))
   }
-  const version = `v${rootNode.package.version}`
-
-  // const releaseMessage = `# ${version}\n\n${makeContext.newChangeLog}`
+  const tagPrefix = `${makeContext.targetNode.package.name}@`
+  const fullVersion = `${tagPrefix}${rootNode.package.version}}`
+  // const releaseMessage = `# ${fullVersion}\n\n${makeContext.newChangeLog}`
   const cmd = 'git'
 
   let args
   args = ['add', ...gitAddFiles]
   await cmdRun({ cmd, args, node: rootNode })
 
-  args = ['commit', '-m', version, ...gitAddFiles]
+  args = ['commit', '-m', `v${fullVersion}`, ...gitAddFiles]
   await cmdRun({ cmd, args, node: rootNode })
 
-  args = ['tag', '-m', version, version]
+  args = ['tag', '-m', `v${fullVersion}`, fullVersion]
   await cmdRun({ cmd, args, node: rootNode })
 
   args = ['push', '--follow-tags']
