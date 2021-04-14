@@ -43,9 +43,9 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       await buildCloneDir({ makeContext })
       break
     case 'version':
-      await buildCloneDir({ makeContext })
       await versionTarget({ makeContext })
       makeContext = await getMakeContext({ packageName, cloneDir })
+      await buildCloneDir({ makeContext })
       await versionDependencies({ makeContext })
       break
     case 'publish':
@@ -53,9 +53,9 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       break
     case 'release':
       await buildPackage({ makeContext })
-      await buildCloneDir({ makeContext })
       await versionTarget({ makeContext })
       makeContext = await getMakeContext({ packageName, cloneDir })
+      await buildCloneDir({ makeContext })
       await versionDependencies({ makeContext })
       await publish({ makeContext })
       break
