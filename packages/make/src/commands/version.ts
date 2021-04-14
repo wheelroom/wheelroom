@@ -13,17 +13,17 @@ import {
 
 interface BumpVersion {
   path: string
-  tagPrefix: string
+  // tagPrefix: string
 }
 
 const bumpVersion = ({
   path,
-  tagPrefix,
-}: BumpVersion): Promise<conventionalRecommendedBump.Callback.Recommendation> => {
+}: // tagPrefix,
+BumpVersion): Promise<conventionalRecommendedBump.Callback.Recommendation> => {
   return new Promise((resolve, reject) => {
     const options = {
       preset: 'angular',
-      tagPrefix,
+      // tagPrefix,
       path,
     } as conventionalRecommendedBump.Options
     conventionalRecommendedBump(options, (error, release) => {
@@ -36,18 +36,18 @@ const bumpVersion = ({
 interface GetNewChangelog {
   newVersion: string
   path: string
-  tagPrefix: string
+  // tagPrefix: string
 }
 
 const callConventionalChangelog = ({
   newVersion,
   path,
-  tagPrefix,
-}: GetNewChangelog): Promise<string> => {
+}: // tagPrefix,
+GetNewChangelog): Promise<string> => {
   return new Promise((resolve, reject) => {
     let newChangelog = ''
     const changelogStream = conventionalChangelog(
-      { preset: 'angular', tagPrefix },
+      { preset: 'angular' /** tagPrefix */ },
       { version: newVersion },
       { merges: null, path }
     )
@@ -69,9 +69,9 @@ export interface VersionMakeContext {
 
 export const versionTarget = async ({ makeContext }: VersionMakeContext) => {
   const { rootNode, targetNode } = makeContext
-  const tagPrefix = `${targetNode.package.name}@`
+  // const tagPrefix = `${targetNode.package.name}@`
   const path = targetNode.path
-  const recommendation = await bumpVersion({ tagPrefix, path })
+  const recommendation = await bumpVersion({ /** tagPrefix */ path })
   const { releaseType } = recommendation
   const newVersion = semver.inc(
     rootNode.package.version,
@@ -86,13 +86,13 @@ export const versionTarget = async ({ makeContext }: VersionMakeContext) => {
 
 export const getNewChangelog = async ({ makeContext }: VersionMakeContext) => {
   const { targetNode } = makeContext
-  const tagPrefix = `${targetNode.package.name}@`
+  // const tagPrefix = `${targetNode.package.name}@`
   const path = targetNode.path
   const newVersion = targetNode.package.version
   makeContext.newChangeLog = await callConventionalChangelog({
     path,
     newVersion,
-    tagPrefix,
+    // tagPrefix,
   })
 }
 

@@ -22,10 +22,10 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   for (const publishNode of buildNodes) {
     gitAddFiles.push(path.relative(process.cwd(), publishNode.path))
   }
-  const tagPrefix = `${makeContext.targetNode.package.name}@`
+  // const tagPrefix = `${makeContext.targetNode.package.name}@`
   const version = rootNode.package.version
-  const versionWithPrefix = `${tagPrefix}${version}`
-  // const releaseMessage = `# ${versionWithPrefix}\n\n${makeContext.newChangeLog}`
+  // const versionWithPrefix = `${tagPrefix}${version}`
+  // const releaseMessage = `# ${version}\n\n${makeContext.newChangeLog}`
   const cmd = 'git'
 
   let args
@@ -35,7 +35,7 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   args = ['commit', '-m', version, ...gitAddFiles]
   await cmdRun({ cmd, args, node: rootNode })
 
-  args = ['tag', '-m', version, versionWithPrefix]
+  args = ['tag', '-m', version, version]
   await cmdRun({ cmd, args, node: rootNode })
 
   const branch = await getBranch()

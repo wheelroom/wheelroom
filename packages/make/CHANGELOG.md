@@ -1,5 +1,15 @@
 # Changelog
 
+## [6.17.4](https://github.com/wheelroom/wheelroom/compare/v6.15.0...v6.17.4) (2021-04-14)
+
+
+### Bug Fixes
+
+* typo ([7007ed2](https://github.com/wheelroom/wheelroom/commit/7007ed2783f5c8a7033fe1107d7c6e67bd38426b))
+* use tag/version prefix ([b0c5b05](https://github.com/wheelroom/wheelroom/commit/b0c5b05073bba9314eaa4476bfe8688cab02c643))
+
+
+
 ## [6.17.3](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.17.2...@wheelroom/make@6.17.3) (2021-04-14)
 
 
