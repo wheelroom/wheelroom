@@ -21,8 +21,14 @@ export const getMakeContext = async ({
   const rootNode = await arborist.loadActual()
   const fsChildren = rootNode.fsChildren
   const targetNode = getFsChild({ fsChildren, packageName })
-  const syncedNodes = getSyncedNodes({ node: targetNode, fsChildren })
-  const buildNodes = [targetNode, ...syncedNodes]
+
+  let buildNodes = [] as ArboristNode[]
+  if (targetNode) {
+    buildNodes = [
+      targetNode,
+      ...getSyncedNodes({ node: targetNode, fsChildren }),
+    ]
+  }
 
   return { rootNode, targetNode, buildNodes, cloneDir } as MakeContext
 }
