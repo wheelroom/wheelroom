@@ -20,7 +20,7 @@ export const versionTarget = async ({ makeContext }: VersionMakeContext) => {
     rootNode.package.version,
     releaseType as semver.ReleaseType
   )
-  console.log(`${recommendation.releaseType}: ${recommendation.reason}`)
+  console.log(`${recommendation.reason} => ${recommendation.releaseType}`)
   console.log(
     `root:${rootNode.package.version}/package:${targetNode.package.version} => ${newVersion}`
   )

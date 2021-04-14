@@ -9,7 +9,7 @@
  */
 
 import yargs from 'yargs'
-import { runCommand } from './packages/make/build/commands/run-command.js'
+import { releaseCommand } from './packages/make/build/commands/release-command.js'
 import { linkCommand } from './packages/make/build/commands/link-command.js'
 
 const packagePositional = (yargs) => {
@@ -33,7 +33,7 @@ yargs
     'build a package',
     packagePositional,
     function (argv) {
-      runCommand({ packageName: argv.package, command: 'build' })
+      releaseCommand({ packageName: argv.package, subCommand: 'build' })
     }
   )
   .command(
@@ -41,7 +41,7 @@ yargs
     'bumps package and related packages to their new versions',
     packagePositional,
     function (argv) {
-      runCommand({ packageName: argv.package, command: 'version' })
+      releaseCommand({ packageName: argv.package, subCommand: 'version' })
     }
   )
   .command(
@@ -49,7 +49,7 @@ yargs
     'publish package to package repository and commit/push to git repository',
     packagePositional,
     function (argv) {
-      runCommand({ packageName: argv.package, command: 'publish' })
+      releaseCommand({ packageName: argv.package, subCommand: 'publish' })
     }
   )
   .command(
@@ -57,7 +57,7 @@ yargs
     'run all three: build, version and publish',
     packagePositional,
     function (argv) {
-      runCommand({ packageName: argv.package, command: 'release' })
+      releaseCommand({ packageName: argv.package })
     }
   )
   .command(
