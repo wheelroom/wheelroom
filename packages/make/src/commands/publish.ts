@@ -32,10 +32,10 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   args = ['add', ...gitAddFiles]
   await cmdRun({ cmd, args, node: rootNode })
 
-  args = ['commit', '-m', `v${versionWithPrefix}`, ...gitAddFiles]
+  args = ['commit', '-m', `v${version}`, ...gitAddFiles]
   await cmdRun({ cmd, args, node: rootNode })
 
-  args = ['tag', '-m', versionWithPrefix, `v${version}`]
+  args = ['tag', '-m', `v${version}`, versionWithPrefix]
   await cmdRun({ cmd, args, node: rootNode })
 
   const branch = await getBranch()
