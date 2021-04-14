@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/nextjs-starter",
-  "version": "6.10.2",
+  "version": "6.18.5",
   "private": true,
   "description": "Next.js starter",
   "scripts": {
