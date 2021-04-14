@@ -12,7 +12,12 @@ import { getMakeContext } from '../get-make-context'
 import { getFsChildPackageNames } from '../npm'
 import { buildCloneDir, buildPackage } from './build'
 import { publish } from './publish'
-import { versionTarget, versionDependencies, updateChangelog } from './version'
+import {
+  versionTarget,
+  versionDependencies,
+  getNewChangelog,
+  writeNewChangelog,
+} from './version'
 
 export type Command = 'build' | 'version' | 'publish' | 'release'
 
@@ -44,16 +49,20 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       break
     case 'version':
       await versionTarget({ makeContext })
-      await updateChangelog({ makeContext })
+      await getNewChangelog({ makeContext })
+      await writeNewChangelog({ makeContext })
       await buildCloneDir({ makeContext })
       await versionDependencies({ makeContext })
       break
     case 'publish':
+      await getNewChangelog({ makeContext })
       await publish({ makeContext })
       break
     case 'release':
       await buildPackage({ makeContext })
       await versionTarget({ makeContext })
+      await getNewChangelog({ makeContext })
+      await writeNewChangelog({ makeContext })
       await buildCloneDir({ makeContext })
       await versionDependencies({ makeContext })
       await publish({ makeContext })

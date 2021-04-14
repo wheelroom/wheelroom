@@ -39,7 +39,7 @@ interface GetNewChangelog {
   tagPrefix: string
 }
 
-const getNewChangelog = ({
+const callConventionalChangelog = ({
   newVersion,
   path,
   tagPrefix,
@@ -84,7 +84,21 @@ export const versionTarget = async ({ makeContext }: VersionMakeContext) => {
   targetNode.package.version = newVersion
 }
 
-export const updateChangelog = async ({ makeContext }: VersionMakeContext) => {
+export const getNewChangelog = async ({ makeContext }: VersionMakeContext) => {
+  const { targetNode } = makeContext
+  const tagPrefix = `${targetNode.package.name}@`
+  const path = targetNode.path
+  const newVersion = targetNode.package.version
+  makeContext.newChangeLog = await callConventionalChangelog({
+    path,
+    newVersion,
+    tagPrefix,
+  })
+}
+
+export const writeNewChangelog = async ({
+  makeContext,
+}: VersionMakeContext) => {
   const { targetNode } = makeContext
   const changelogFile = `${targetNode.path}/CHANGELOG.md`
   if (!existsSync(changelogFile)) {
@@ -95,15 +109,9 @@ export const updateChangelog = async ({ makeContext }: VersionMakeContext) => {
     /(^#+ \[?[0-9]+\.[0-9]+\.[0-9]+)/m
   )
   const existingChangelog = changelogContent.substring(headerLength)
-  const tagPrefix = `${targetNode.package.name}@`
-  const path = targetNode.path
-  const newVersion = targetNode.package.version
-  const newChangelog = await getNewChangelog({ path, newVersion, tagPrefix })
-
-  makeContext.newChangeLog = newChangelog
   writeFileSync(
     changelogFile,
-    `# Changelog\n\n${newChangelog}${existingChangelog}`,
+    `# Changelog\n\n${makeContext.newChangeLog}${existingChangelog}`,
     'utf8'
   )
 }
