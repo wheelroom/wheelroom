@@ -1,5 +1,14 @@
 # Changelog
 
+# [6.12.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.10.1...@wheelroom/make@6.12.0) (2021-04-14)
+
+
+### Features
+
+* save new part of changelog ([6aa67cc](https://github.com/wheelroom/wheelroom/commit/6aa67ccab66bf71a29f340a5243e13759c9e2947))
+
+
+
 # [6.11.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.10.1...@wheelroom/make@6.11.0) (2021-04-14)
 
 
