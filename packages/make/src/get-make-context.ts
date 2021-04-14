@@ -4,6 +4,7 @@ import { ArboristNode, getFsChild, getSyncedNodes } from './npm'
 export interface MakeContext {
   buildNodes: ArboristNode[]
   cloneDir: string
+  newChangeLog?: string
   rootNode: any
   targetNode: ArboristNode
 }

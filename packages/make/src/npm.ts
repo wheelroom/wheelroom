@@ -1,5 +1,5 @@
 import { spawn } from 'child_process'
-import fs from 'fs'
+import { copyFileSync, readFileSync, writeFileSync } from 'fs'
 import deepmerge from 'deepmerge'
 
 type Package = Record<string, any>
@@ -88,7 +88,7 @@ export interface ReadNodeSync {
 }
 
 export const readNodeSync = ({ node, cloneDir }: ReadNodeSync) => {
-  const data = fs.readFileSync(packagePath(node, cloneDir), 'utf8')
+  const data = readFileSync(packagePath(node, cloneDir), 'utf8')
   return JSON.parse(data)
 }
 
@@ -109,7 +109,7 @@ export const writeNodeSync = ({
     packageObject || {},
   ]) as any
   delete pkgObjToSave._id
-  fs.writeFileSync(
+  writeFileSync(
     packagePath(node, cloneDir),
     JSON.stringify(pkgObjToSave, null, 2),
     'utf8'
@@ -166,7 +166,7 @@ export const cloneToDirSync = async ({
   fileNameList,
 }: CloneToDirSync) => {
   for (const fileName of fileNameList) {
-    fs.copyFileSync(
+    copyFileSync(
       `${node.path}/${fileName}`,
       `${node.path}/${cloneDir}/${fileName}`
     )

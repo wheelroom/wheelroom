@@ -13,8 +13,11 @@ const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = rootPkg.author
 const globals = {
   '@npmcli/arborist': 'Arborist',
+  'conventional-changelog': 'conventionalChangelog',
+  'conventional-recommended-bump': 'conventionalRecommendedBump',
   'fs/promises': 'mkdir',
   'standard-version': 'standardVersion',
+  'path': 'path',
   child_process: 'child_process',
   deepmerge: 'deepmerge',
   fs: 'fs',
@@ -55,15 +58,6 @@ export default inputFiles.map((file) => {
         file: `./build/${file.name}.js`,
         format: 'cjs',
         globals,
-        sourcemap: false,
-      },
-      {
-        banner,
-        exports: 'named',
-        file: `./build/${file.name}.umd.js`,
-        format: 'umd',
-        globals,
-        name: file.id,
         sourcemap: false,
       },
     ],

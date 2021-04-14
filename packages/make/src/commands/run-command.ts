@@ -12,7 +12,7 @@ import { getMakeContext } from '../get-make-context'
 import { getFsChildPackageNames } from '../npm'
 import { buildCloneDir, buildPackage } from './build'
 import { publish } from './publish'
-import { versionTarget, versionDependencies } from './version'
+import { versionTarget, versionDependencies, updateChangelog } from './version'
 
 export type Command = 'build' | 'version' | 'publish' | 'release'
 
@@ -23,7 +23,7 @@ export interface RunCommand {
 
 export const runCommand = async ({ packageName, command }: RunCommand) => {
   const cloneDir = 'build'
-  let makeContext = await getMakeContext({ packageName, cloneDir })
+  const makeContext = await getMakeContext({ packageName, cloneDir })
   const packageNames = getFsChildPackageNames({
     fsChildren: makeContext.rootNode.fsChildren,
   })
@@ -44,7 +44,7 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       break
     case 'version':
       await versionTarget({ makeContext })
-      makeContext = await getMakeContext({ packageName, cloneDir })
+      await updateChangelog({ makeContext })
       await buildCloneDir({ makeContext })
       await versionDependencies({ makeContext })
       break
@@ -54,7 +54,6 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     case 'release':
       await buildPackage({ makeContext })
       await versionTarget({ makeContext })
-      makeContext = await getMakeContext({ packageName, cloneDir })
       await buildCloneDir({ makeContext })
       await versionDependencies({ makeContext })
       await publish({ makeContext })

@@ -11,8 +11,7 @@
     "clean": "rimraf build/*"
   },
   "dependencies": {
-    "@npmcli/arborist": "2.3.0",
-    "standard-version": "9.1.1"
+    "@npmcli/arborist": "2.3.0"
   },
   "devDependencies": {
     "@types/standard-version": "7.0.0"
