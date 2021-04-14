@@ -1,6 +1,6 @@
 import path from 'path'
 import { MakeContext } from '../get-make-context'
-import { cmdRun } from '../npm'
+import { cmdRun, getBranch } from '../npm'
 
 export interface PublishMakeContext {
   makeContext: MakeContext
@@ -24,7 +24,7 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   }
   const version = `v${rootNode.package.version}`
 
-  // const tagMessage = `# ${version}\n\n${makeContext.newChangeLog}`
+  // const releaseMessage = `# ${version}\n\n${makeContext.newChangeLog}`
   const cmd = 'git'
 
   let args
@@ -36,6 +36,9 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
 
   args = ['tag', '-m', version, version]
   cmdRun({ cmd, args, node: rootNode })
+
+  const branch = await getBranch()
+  console.log('branch:', branch)
 
   args = ['push', '--follow-tags']
   cmdRun({ cmd, args, node: rootNode })

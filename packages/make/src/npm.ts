@@ -1,4 +1,4 @@
-import { spawn } from 'child_process'
+import { spawn, exec } from 'child_process'
 import { copyFileSync, readFileSync, writeFileSync } from 'fs'
 import deepmerge from 'deepmerge'
 
@@ -257,4 +257,16 @@ export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {
     syncedNodes.push(depNode)
   }
   return syncedNodes
+}
+
+export const getBranch = (): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    exec('git rev-parse --abbrev-ref HEAD', (error, stdout) => {
+      if (error) {
+        return reject('')
+      }
+      const branch = stdout.trim()
+      return resolve(branch)
+    })
+  })
 }
