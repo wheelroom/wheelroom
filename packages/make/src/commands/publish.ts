@@ -18,7 +18,7 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   //     })
   //   }
   // }
-  const { buildNodes } = makeContext
+  const { buildNodes, rootNode } = makeContext
   const gitAddFiles = []
   for (const publishNode of buildNodes) {
     gitAddFiles.push(path.relative(process.cwd(), publishNode.path))
@@ -29,7 +29,7 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   args = ['add', ...gitAddFiles]
   console.log(cmd, args)
 
-  args = ['commit']
+  args = ['commit', '-m', rootNode.package.version]
   console.log(cmd, args)
 
   args = ['tag']
