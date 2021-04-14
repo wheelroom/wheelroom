@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.10.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.10.0...@wheelroom/make@6.10.1) (2021-04-14)
+
+
+### Commits
+
+* fix get make context when targetNode is empty ([b697f3f](https://github.com/wheelroom/wheelroom/commit/b697f3fbcbdc87c970f351338009ccfac0aa90b2))
+
 ## [6.10.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@1.0.1...@wheelroom/make@6.10.0) (2021-04-14)
 
 
