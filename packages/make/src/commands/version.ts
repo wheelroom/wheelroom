@@ -26,6 +26,28 @@ export const versionTarget = async ({ makeContext }: VersionMakeContext) => {
   targetNode.package.version = newVersion
 }
 
+export const versionDependencies = async ({
+  makeContext,
+}: VersionMakeContext) => {
+  const { rootNode, targetNode, buildNodes } = makeContext
+  const fsChildrenPlusRoot = new Set(rootNode.fsChildren) as Set<ArboristNode>
+  fsChildrenPlusRoot.add(rootNode as ArboristNode)
+
+  // Update packages with target node version
+  fsChildrenPlusRoot.forEach(
+    (node: ArboristNode) => (node.package.version = targetNode.package.version)
+  )
+  // Make packages depend on new version of package
+  for (const buildNode of buildNodes) {
+    updateEdgesOut({ node: buildNode, fsChildren: fsChildrenPlusRoot })
+  }
+  // Write all changes to all nodes
+  fsChildrenPlusRoot.forEach((node: ArboristNode) => writeNodeSync({ node }))
+
+  // Update package-lock.json
+  await cmdRun({ cmd: 'npm', args: ['install'], node: rootNode })
+}
+
 export const getNewChangelog = async ({ makeContext }: VersionMakeContext) => {
   const { targetNode } = makeContext
   const path = targetNode.path
@@ -54,25 +76,4 @@ export const writeNewChangelog = async ({
     `# Changelog\n\n${makeContext.newChangeLog}${existingChangelog}`,
     'utf8'
   )
-}
-
-export const versionDependencies = async ({
-  makeContext,
-}: VersionMakeContext) => {
-  const { rootNode, targetNode, buildNodes } = makeContext
-  // Update root package version with released target
-  rootNode.package.version = targetNode.package.version
-  const fsChildrenPlusRoot = new Set(rootNode.fsChildren) as Set<ArboristNode>
-  fsChildrenPlusRoot.add(rootNode as ArboristNode)
-
-  // Make packages depend on new version of package
-  for (const buildNode of buildNodes) {
-    updateEdgesOut({ node: buildNode, fsChildren: fsChildrenPlusRoot })
-  }
-
-  // Write all changes to all nodes
-  fsChildrenPlusRoot.forEach((node: ArboristNode) => writeNodeSync({ node }))
-
-  // Update package-lock.json
-  await cmdRun({ cmd: 'npm', args: ['install'], node: rootNode })
 }

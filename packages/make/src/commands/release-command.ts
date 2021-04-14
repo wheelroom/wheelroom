@@ -52,10 +52,10 @@ export const releaseCommand = async ({
       break
     case 'version':
       await versionTarget({ makeContext })
+      await versionDependencies({ makeContext })
       await getNewChangelog({ makeContext })
       await writeNewChangelog({ makeContext })
       await buildCloneDir({ makeContext })
-      await versionDependencies({ makeContext })
       break
     case 'publish':
       await getNewChangelog({ makeContext })
@@ -64,10 +64,10 @@ export const releaseCommand = async ({
     default:
       await buildPackage({ makeContext })
       await versionTarget({ makeContext })
+      await versionDependencies({ makeContext })
       await getNewChangelog({ makeContext })
       await writeNewChangelog({ makeContext })
       await buildCloneDir({ makeContext })
-      await versionDependencies({ makeContext })
       await publish({ makeContext })
       break
   }
