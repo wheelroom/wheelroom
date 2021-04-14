@@ -1,5 +1,21 @@
 # Changelog
 
+# [6.16.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.10.1...@wheelroom/make@6.16.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* also commit package(-lock).json of root package ([0ca9929](https://github.com/wheelroom/wheelroom/commit/0ca9929a7106008359e3e4132347ab2af9e1b451))
+* awaits in publish step ([016c4c6](https://github.com/wheelroom/wheelroom/commit/016c4c66520eaa8665edc59cde5e4103488bb090))
+* use tag/version prefix ([b0c5b05](https://github.com/wheelroom/wheelroom/commit/b0c5b05073bba9314eaa4476bfe8688cab02c643))
+
+
+### Features
+
+* save new part of changelog ([6aa67cc](https://github.com/wheelroom/wheelroom/commit/6aa67ccab66bf71a29f340a5243e13759c9e2947))
+
+
+
 # [6.15.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.10.1...@wheelroom/make@6.15.0) (2021-04-14)
 
 
