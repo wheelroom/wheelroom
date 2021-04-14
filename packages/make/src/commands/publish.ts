@@ -29,17 +29,20 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
 
   let args
   args = ['add', ...gitAddFiles]
-  cmdRun({ cmd, args, node: rootNode })
+  await cmdRun({ cmd, args, node: rootNode })
 
   args = ['commit', '-m', version, ...gitAddFiles]
-  cmdRun({ cmd, args, node: rootNode })
+  await cmdRun({ cmd, args, node: rootNode })
 
   args = ['tag', '-m', version, version]
-  cmdRun({ cmd, args, node: rootNode })
-
-  const branch = await getBranch()
-  console.log('branch:', branch)
+  await cmdRun({ cmd, args, node: rootNode })
 
   args = ['push', '--follow-tags']
-  cmdRun({ cmd, args, node: rootNode })
+  await cmdRun({ cmd, args, node: rootNode })
+
+  const branch = await getBranch()
+  console.log(
+    'Yes, all done! By the way, I did not use this yet but your branch is:',
+    branch
+  )
 }
