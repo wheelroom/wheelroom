@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.10.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@6.8.4...@wheelroom/any@6.10.2) (2021-04-14)
+
+
+### Code Refactoring
+
+* run-command into separate steps ([b963fd4](https://github.com/wheelroom/wheelroom/commit/b963fd4400e61ea94fce6fc169ca7c709d26f1c7))
+
+
+### Commits
+
+* drop year licence ([3771bf8](https://github.com/wheelroom/wheelroom/commit/3771bf89f056c3964ebe6315a73154f4e7ce83c0))
+* turn any build back on ([e65ea02](https://github.com/wheelroom/wheelroom/commit/e65ea027dfebaacdff940fd3a44af63afc88489c))
+* **release:** any@6.8.4 ([7b77aed](https://github.com/wheelroom/wheelroom/commit/7b77aed1f80b262e9cbc36a8245e1f538e9d9bdc))
+
 ### [6.8.4](https://github.com/wheelroom/wheelroom/compare/@wheelroom/any@1.0.1...@wheelroom/any@6.8.4) (2021-04-12)
 
 
