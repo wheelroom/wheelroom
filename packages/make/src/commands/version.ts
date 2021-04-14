@@ -1,6 +1,4 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs'
-import conventionalRecommendedBump from 'conventional-recommended-bump'
-import conventionalChangelog from 'conventional-changelog'
 import semver from 'semver'
 import { MakeContext } from '../get-make-context'
 import {
@@ -9,59 +7,9 @@ import {
   // commitTypes,
   updateEdgesOut,
   cmdRun,
+  bumpVersion,
+  callConventionalChangelog,
 } from '../npm'
-
-interface BumpVersion {
-  path: string
-  // tagPrefix: string
-}
-
-const bumpVersion = ({
-  path,
-}: // tagPrefix,
-BumpVersion): Promise<conventionalRecommendedBump.Callback.Recommendation> => {
-  return new Promise((resolve, reject) => {
-    const options = {
-      preset: 'angular',
-      // tagPrefix,
-      path,
-    } as conventionalRecommendedBump.Options
-    conventionalRecommendedBump(options, (error, release) => {
-      if (error) return reject(error)
-      return resolve(release)
-    })
-  })
-}
-
-interface GetNewChangelog {
-  newVersion: string
-  path: string
-  // tagPrefix: string
-}
-
-const callConventionalChangelog = ({
-  newVersion,
-  path,
-}: // tagPrefix,
-GetNewChangelog): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    let newChangelog = ''
-    const changelogStream = conventionalChangelog(
-      { preset: 'angular' /** tagPrefix */ },
-      { version: newVersion },
-      { merges: null, path }
-    )
-    changelogStream.on('error', (error) => {
-      return reject(error)
-    })
-    changelogStream.on('data', (buffer) => {
-      newChangelog += buffer.toString()
-    })
-    changelogStream.on('end', function () {
-      return resolve(newChangelog)
-    })
-  })
-}
 
 export interface VersionMakeContext {
   makeContext: MakeContext
