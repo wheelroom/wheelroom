@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.17.2](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.17.1...@wheelroom/make@6.17.2) (2021-04-14)
+
+
+
 ## [6.17.1](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.17.0...@wheelroom/make@6.17.1) (2021-04-14)
 
 
