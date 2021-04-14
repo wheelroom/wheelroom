@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/make",
-  "version": "6.10.1",
+  "version": "6.11.0",
   "description": "Make library for use with NPM 7 and @npmcli/arborist ",
   "scripts": {
     "build": "npm-run-all clean build:*",

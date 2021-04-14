@@ -25,8 +25,8 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   }
 
   const tagMessage = `# ${rootNode.package.version}
-
-- Some message here
+  
+${makeContext.newChangeLog}
 `
   const cmd = 'git'
   let args
