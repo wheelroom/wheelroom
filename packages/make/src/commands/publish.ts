@@ -29,7 +29,7 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   args = ['add', ...gitAddFiles]
   console.log(cmd, args)
 
-  args = ['commit', '-m', rootNode.package.version]
+  args = ['commit', '-m', `v${rootNode.package.version}`]
   console.log(cmd, args)
 
   args = ['tag']
