@@ -14,17 +14,14 @@ export const commitTypes = [
 
 export interface BumpVersion {
   path: string
-  // tagPrefix: string
 }
 
 export const bumpVersion = ({
   path,
-}: // tagPrefix,
-BumpVersion): Promise<conventionalRecommendedBump.Callback.Recommendation> => {
+}: BumpVersion): Promise<conventionalRecommendedBump.Callback.Recommendation> => {
   return new Promise((resolve, reject) => {
     const options = {
       preset: 'angular',
-      // tagPrefix,
       path,
     } as conventionalRecommendedBump.Options
     conventionalRecommendedBump(options, (error, release) => {
@@ -37,18 +34,16 @@ BumpVersion): Promise<conventionalRecommendedBump.Callback.Recommendation> => {
 export interface GetNewChangelog {
   newVersion: string
   path: string
-  // tagPrefix: string
 }
 
 export const callConventionalChangelog = ({
   newVersion,
   path,
-}: // tagPrefix,
-GetNewChangelog): Promise<string> => {
+}: GetNewChangelog): Promise<string> => {
   return new Promise((resolve, reject) => {
     let newChangelog = ''
     const changelogStream = conventionalChangelog(
-      { preset: 'angular' /** tagPrefix */ },
+      { preset: 'angular' },
       { version: newVersion },
       { merges: null, path }
     )

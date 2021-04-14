@@ -22,10 +22,7 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   for (const publishNode of buildNodes) {
     gitAddFiles.push(path.relative(process.cwd(), publishNode.path))
   }
-  // const tagPrefix = `${makeContext.targetNode.package.name}@`
   const version = rootNode.package.version
-  // const versionWithPrefix = `${tagPrefix}${version}`
-  // const releaseMessage = `# ${version}\n\n${makeContext.newChangeLog}`
   const cmd = 'git'
 
   let args

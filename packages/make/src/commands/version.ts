@@ -12,9 +12,8 @@ export interface VersionMakeContext {
 
 export const versionTarget = async ({ makeContext }: VersionMakeContext) => {
   const { rootNode, targetNode } = makeContext
-  // const tagPrefix = `${targetNode.package.name}@`
   const path = targetNode.path
-  const recommendation = await bumpVersion({ /** tagPrefix */ path })
+  const recommendation = await bumpVersion({ path })
   const { releaseType } = recommendation
   const newVersion = semver.inc(
     rootNode.package.version,
@@ -29,13 +28,11 @@ export const versionTarget = async ({ makeContext }: VersionMakeContext) => {
 
 export const getNewChangelog = async ({ makeContext }: VersionMakeContext) => {
   const { targetNode } = makeContext
-  // const tagPrefix = `${targetNode.package.name}@`
   const path = targetNode.path
   const newVersion = targetNode.package.version
   makeContext.newChangeLog = await callConventionalChangelog({
     path,
     newVersion,
-    // tagPrefix,
   })
 }
 
