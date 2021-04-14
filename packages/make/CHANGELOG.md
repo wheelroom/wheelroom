@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.18.5](https://github.com/wheelroom/wheelroom/compare/6.18.4...6.18.5) (2021-04-14)
+
+
+### Bug Fixes
+
+* command bug ([5044677](https://github.com/wheelroom/wheelroom/commit/5044677ddf3fb52e3005179200396ba2e372ba1c))
+
+
+
 ## [6.18.4](https://github.com/wheelroom/wheelroom/compare/6.18.3...6.18.4) (2021-04-14)
 
 
