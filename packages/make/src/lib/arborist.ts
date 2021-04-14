@@ -81,8 +81,8 @@ export interface GetRecursEdgesOut {
   packageName: string
   fsChildren: Set<ArboristNode>
 }
-// Recursive ddges out are packages that depend on packageName and the packages
-// that depend on these
+// Recursive edges out are packages that depend on packageName and the packages
+// that depend on these packages
 export const getRecursEdgesOut = ({
   packageName,
   fsChildren,
@@ -129,7 +129,7 @@ export interface GetNodesToPublish {
 }
 
 export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {
-  // Sync all packages that use node to the node version version
+  // Get all packages that use node and the packages that use those packages
   const edgesOut = getRecursEdgesOut({
     packageName: node.package.name,
     fsChildren,
@@ -137,7 +137,6 @@ export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {
   const syncedNodes = []
   for (const edgeOut of edgesOut) {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
-    depNode.package.version = node.package.version
     syncedNodes.push(depNode)
   }
   return syncedNodes
