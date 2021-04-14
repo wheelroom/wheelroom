@@ -5,10 +5,11 @@
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:module": "rollup -c",
+    "build:module": "rollup --config",
     "build:test": "jest --silent --passWithNoTests",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build",
     "clean": "rimraf build/*",
+    "dev": "rollup --config --watch",
     "generate": "npm-run-all generate:*",
     "generate:compile": "tsc -p tsconfig.generate.json",
     "generate:update": "node build/generate-elements/generate-elements.js",

@@ -88,7 +88,7 @@ export const updateChangelog = async ({ makeContext }: VersionMakeContext) => {
   const { targetNode } = makeContext
   const changelogFile = `${targetNode.path}/CHANGELOG.md`
   if (!existsSync(changelogFile)) {
-    writeFileSync(changelogFile, '\n\n', 'utf8')
+    writeFileSync(changelogFile, '\n', 'utf8')
   }
   const changelogContent = readFileSync(changelogFile, 'utf-8')
   const headerLength = changelogContent.search(
@@ -103,7 +103,7 @@ export const updateChangelog = async ({ makeContext }: VersionMakeContext) => {
   makeContext.newChangeLog = newChangelog
   writeFileSync(
     changelogFile,
-    `# Changelog\n${newChangelog}${existingChangelog}`,
+    `# Changelog\n\n${newChangelog}${existingChangelog}`,
     'utf8'
   )
 }
