@@ -38,12 +38,7 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   args = ['tag', '-m', versionWithPrefix, `v${version}`]
   await cmdRun({ cmd, args, node: rootNode })
 
-  args = ['push', '--follow-tags']
-  await cmdRun({ cmd, args, node: rootNode })
-
   const branch = await getBranch()
-  console.log(
-    'Yes, all done! By the way, I did not use this yet but your branch is:',
-    branch
-  )
+  args = ['push', 'origin', branch, '--follow-tags']
+  await cmdRun({ cmd, args, node: rootNode })
 }
