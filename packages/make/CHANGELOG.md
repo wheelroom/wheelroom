@@ -1,5 +1,19 @@
 # Changelog
 
+# [6.14.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.10.1...@wheelroom/make@6.14.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* awaits in publish step ([016c4c6](https://github.com/wheelroom/wheelroom/commit/016c4c66520eaa8665edc59cde5e4103488bb090))
+
+
+### Features
+
+* save new part of changelog ([6aa67cc](https://github.com/wheelroom/wheelroom/commit/6aa67ccab66bf71a29f340a5243e13759c9e2947))
+
+
+
 # [6.13.0](https://github.com/wheelroom/wheelroom/compare/@wheelroom/make@6.10.1...@wheelroom/make@6.13.0) (2021-04-14)
 
 
