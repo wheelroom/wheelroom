@@ -1,5 +1,5 @@
 import Arborist from '@npmcli/arborist'
-import { ArboristNode, getFsChild, getSyncedNodes } from './npm'
+import { ArboristNode, getFsChild, getSyncedNodes } from './arborist'
 
 export interface MakeContext {
   buildNodes: ArboristNode[]

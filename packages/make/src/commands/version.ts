@@ -1,15 +1,10 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs'
 import semver from 'semver'
-import { MakeContext } from '../get-make-context'
-import {
-  ArboristNode,
-  writeNodeSync,
-  // commitTypes,
-  updateEdgesOut,
-  cmdRun,
-  bumpVersion,
-  callConventionalChangelog,
-} from '../npm'
+import { MakeContext } from '../lib/get-make-context'
+import { ArboristNode, updateEdgesOut } from '../lib/arborist'
+import { bumpVersion, callConventionalChangelog } from '../lib/conventional'
+import { writeNodeSync } from '../lib/filesystem'
+import { cmdRun } from '../lib/child-process'
 
 export interface VersionMakeContext {
   makeContext: MakeContext

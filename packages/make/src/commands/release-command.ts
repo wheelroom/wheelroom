@@ -8,8 +8,8 @@
  *
  */
 
-import { getMakeContext } from '../get-make-context'
-import { getFsChildPackageNames } from '../npm'
+import { getMakeContext } from '../lib/get-make-context'
+import { getFsChildPackageNames } from '../lib/arborist'
 import { buildCloneDir, buildPackage } from './build'
 import { publish } from './publish'
 import {
@@ -23,10 +23,13 @@ export type Command = 'build' | 'version' | 'publish' | 'release'
 
 export interface RunCommand {
   packageName: string
-  command: Command
+  subCcommand?: Command
 }
 
-export const runCommand = async ({ packageName, command }: RunCommand) => {
+export const releaseCommand = async ({
+  packageName,
+  subCcommand,
+}: RunCommand) => {
   const cloneDir = 'build'
   const makeContext = await getMakeContext({ packageName, cloneDir })
   const packageNames = getFsChildPackageNames({
@@ -42,7 +45,7 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
     process.exit(0)
   }
 
-  switch (command) {
+  switch (subCcommand) {
     case 'build':
       await buildPackage({ makeContext })
       await buildCloneDir({ makeContext })
@@ -58,7 +61,7 @@ export const runCommand = async ({ packageName, command }: RunCommand) => {
       await getNewChangelog({ makeContext })
       await publish({ makeContext })
       break
-    case 'release':
+    default:
       await buildPackage({ makeContext })
       await versionTarget({ makeContext })
       await getNewChangelog({ makeContext })

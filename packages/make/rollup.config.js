@@ -25,8 +25,7 @@ const globals = {
 const external = Object.keys(globals)
 
 const inputFiles = [
-  { name: 'npm', ext: 'ts', id: 'npm' },
-  { name: 'commands/run-command', ext: 'ts', id: 'runCommand' },
+  { name: 'commands/release-command', ext: 'ts', id: 'releaseCommand' },
   { name: 'commands/link-command', ext: 'ts', id: 'linkCommand' },
 ]
 

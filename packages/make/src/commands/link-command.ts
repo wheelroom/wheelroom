@@ -6,7 +6,7 @@
 import { mkdir, symlink } from 'fs/promises'
 import { existsSync } from 'fs'
 import Arborist from '@npmcli/arborist'
-import { ArboristNode } from '../npm'
+import { ArboristNode } from '../lib/arborist'
 
 export interface LinkCommand {
   monoRepoPath: string
