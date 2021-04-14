@@ -20,7 +20,7 @@ export const versionTarget = async ({ makeContext }: VersionMakeContext) => {
   process.chdir(targetNode.path)
   await standardVersion({
     path: targetNode.path,
-    skip: { commit: true },
+    skip: { commit: true, tag: true },
     tagPrefix: `${targetNode.package.name}@`,
     types: commitTypes,
     // dryRun: true,
