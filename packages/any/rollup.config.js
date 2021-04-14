@@ -58,15 +58,6 @@ export default inputFiles.map((file) => {
         globals,
         sourcemap: false,
       },
-      {
-        banner,
-        exports: 'named',
-        file: `./build/${file.name}.umd.js`,
-        format: 'umd',
-        globals,
-        name: file.id,
-        sourcemap: false,
-      },
     ],
     plugins: [
       // so Rollup can find node modules
