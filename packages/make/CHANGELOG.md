@@ -18,6 +18,3 @@
 * link command for creating linked node_modules outside monorepo ([d8e025f](https://github.com/wheelroom/wheelroom/commit/d8e025fd49b96c3bcd4c25e62818000de75a0b3f))
 * save new part of changelog ([6aa67cc](https://github.com/wheelroom/wheelroom/commit/6aa67ccab66bf71a29f340a5243e13759c9e2947))
 
-
-
-# Changelog
