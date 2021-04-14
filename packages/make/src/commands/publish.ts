@@ -7,7 +7,7 @@ export interface PublishMakeContext {
 }
 
 export const publish = async ({ makeContext }: PublishMakeContext) => {
-  const { buildNodes, rootNode, cloneDir } = makeContext
+  const { buildNodes, rootNode, targetNode, cloneDir } = makeContext
   for (const publishNode of buildNodes) {
     if (!publishNode.package.private) {
       await cmdRun({
@@ -22,7 +22,7 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   for (const publishNode of buildNodes) {
     gitAddFiles.push(path.relative(process.cwd(), publishNode.path))
   }
-  const version = rootNode.package.version
+  const version = targetNode.package.version
   const cmd = 'git'
 
   let args

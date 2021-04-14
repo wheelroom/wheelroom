@@ -34,9 +34,9 @@ export const versionDependencies = async ({
   fsChildrenPlusRoot.add(rootNode as ArboristNode)
 
   // Update packages with target node version
-  fsChildrenPlusRoot.forEach(
-    (node: ArboristNode) => (node.package.version = targetNode.package.version)
-  )
+  for (const buildNode of [rootNode, ...buildNodes]) {
+    buildNode.package.version = targetNode.package.version
+  }
   // Make packages depend on new version of package
   for (const buildNode of buildNodes) {
     updateEdgesOut({ node: buildNode, fsChildren: fsChildrenPlusRoot })
