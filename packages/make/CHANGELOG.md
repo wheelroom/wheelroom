@@ -1,5 +1,14 @@
 # Changelog
 
+# [6.19.0](https://github.com/wheelroom/wheelroom/compare/6.18.12...6.19.0) (2021-04-16)
+
+
+### Features
+
+* list command ([884e007](https://github.com/wheelroom/wheelroom/commit/884e007e395f3dd4da3903cc0565677c61ed9f20))
+
+
+
 ## [6.18.12](https://github.com/wheelroom/wheelroom/compare/6.18.11...6.18.12) (2021-04-16)
 
 
