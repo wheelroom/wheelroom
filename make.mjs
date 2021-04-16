@@ -11,6 +11,7 @@
 import yargs from 'yargs'
 import { releaseCommand } from './packages/make/build/commands/release-command.js'
 import { linkCommand } from './packages/make/build/commands/link-command.js'
+import { listCommand } from './packages/make/build/commands/list-command.js'
 
 const packagePositional = (yargs) => {
   yargs.positional('package', {
@@ -66,6 +67,14 @@ yargs
     pathPositional,
     function (argv) {
       linkCommand({ monoRepoPath: argv.path })
+    }
+  )
+  .command(
+    'list [path]',
+    'list packages in monorepo',
+    pathPositional,
+    function (argv) {
+      listCommand({ monoRepoPath: argv.path })
     }
   )
   .demandCommand()
