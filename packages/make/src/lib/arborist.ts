@@ -93,7 +93,7 @@ export const getRecursEdgesOut = ({
       packageName: edgeOut.name,
       fsChildren,
     })
-    edgesOut.unshift(...recursEdgesOut)
+    edgesOut.push(...recursEdgesOut)
   })
   return edgesOut
 }
@@ -141,5 +141,5 @@ export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {
   }
   // Remove duplicates
   const syncedNodesSet = Array.from(new Set(syncedNodes))
-  return syncedNodesSet
+  return syncedNodesSet.reverse()
 }
