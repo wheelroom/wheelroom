@@ -67,7 +67,7 @@ export const getEdgesOut = ({ packageName, fsChildren }: GetEdgesOut) => {
   fsChildren.forEach((node) => {
     node.edgesOut.forEach((edgeOut: Edge) => {
       if (edgeOut.name === packageName) {
-        edgesOut.unshift({
+        edgesOut.push({
           name: node.package.name,
           type: edgeOut.type,
         })
