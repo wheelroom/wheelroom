@@ -26,8 +26,8 @@ export const getMakeContext = async ({
   let buildNodes = [] as ArboristNode[]
   if (targetNode) {
     buildNodes = [
-      targetNode,
       ...getSyncedNodes({ node: targetNode, fsChildren }),
+      targetNode,
     ]
   }
 
