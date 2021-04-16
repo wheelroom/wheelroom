@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.18.12](https://github.com/wheelroom/wheelroom/compare/6.18.11...6.18.12) (2021-04-16)
+
+
+### Bug Fixes
+
+* reverse package order ([8174703](https://github.com/wheelroom/wheelroom/commit/8174703fee767d240ba55978f0e97705995ede65))
+
+
+
 ## [6.18.11](https://github.com/wheelroom/wheelroom/compare/6.18.10...6.18.11) (2021-04-16)
 
 
