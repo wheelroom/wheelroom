@@ -67,7 +67,7 @@ export const getEdgesOut = ({ packageName, fsChildren }: GetEdgesOut) => {
   fsChildren.forEach((node) => {
     node.edgesOut.forEach((edgeOut: Edge) => {
       if (edgeOut.name === packageName) {
-        edgesOut.push({
+        edgesOut.unshift({
           name: node.package.name,
           type: edgeOut.type,
         })
@@ -93,7 +93,7 @@ export const getRecursEdgesOut = ({
       packageName: edgeOut.name,
       fsChildren,
     })
-    edgesOut.push(...recursEdgesOut)
+    edgesOut.unshift(...recursEdgesOut)
   })
   return edgesOut
 }
@@ -139,8 +139,7 @@ export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
     syncedNodes.push(depNode)
   }
-  // Remove duplicates and reverse (packages should be build in reverse order)
+  // Remove duplicates
   const syncedNodesSet = Array.from(new Set(syncedNodes))
-  const result = syncedNodesSet.reverse()
-  return result
+  return syncedNodesSet
 }
