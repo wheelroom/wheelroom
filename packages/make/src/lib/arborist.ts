@@ -139,5 +139,8 @@ export const getSyncedNodes = ({ fsChildren, node }: GetNodesToPublish) => {
     const depNode = getFsChild({ fsChildren, packageName: edgeOut.name })
     syncedNodes.push(depNode)
   }
-  return syncedNodes
+  // Remove duplicates and reverse (packages should be build in reverse order)
+  const syncedNodesSet = Array.from(new Set(syncedNodes))
+  const result = syncedNodesSet.reverse()
+  return result
 }
