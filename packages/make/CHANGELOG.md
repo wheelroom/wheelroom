@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.18.11](https://github.com/wheelroom/wheelroom/compare/6.18.10...6.18.11) (2021-04-16)
+
+
+### Bug Fixes
+
+* move targetNode last ([6090fe6](https://github.com/wheelroom/wheelroom/commit/6090fe638125e1c24d6ffe052902a8a1e6ca188e))
+
+
+
 ## [6.18.10](https://github.com/wheelroom/wheelroom/compare/6.18.9...6.18.10) (2021-04-16)
 
 
