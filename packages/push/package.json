@@ -1,0 +1,14 @@
+{
+  "name": "@wheelroom/push",
+  "version": "1.0.0",
+  "description": "Push Typescript models to a content platform",
+  "scripts": {
+    "build": "npm-run-all clean build:*",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:module": "rollup --config",
+    "build:test": "jest --silent --passWithNoTests",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build",
+    "clean": "rimraf build/*",
+    "dev": "rollup --config --watch"
+  }
+}
