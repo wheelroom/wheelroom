@@ -4,64 +4,41 @@
  *
  */
 
-import {
-  createPrinter,
-  createProgram,
-  EmitHint,
-  forEachChild,
-  isFunctionDeclaration,
-  isInterfaceDeclaration,
-  isVariableStatement,
-  NewLineKind,
-  Node,
-  SourceFile,
-  SyntaxKind,
-} from 'typescript'
+import { createProgram, Node, SourceFile, SyntaxKind } from 'typescript'
+
+type Crumb = {
+  kind: string
+  text: string
+}
+
+interface PrintNode {
+  trail: Crumb[]
+  node: Node
+  sourceFile: SourceFile
+}
+
+const printNode = ({ node, trail, sourceFile }: PrintNode) => {
+  trail.push({
+    kind: SyntaxKind[node.kind],
+    text: node.getText(sourceFile),
+  })
+  node
+    .getChildren(sourceFile)
+    .forEach((child) => printNode({ node: child, trail, sourceFile }))
+  if (trail.slice(-1)[0].kind === 'JSDocComment') {
+    console.log(
+      '>',
+      trail.map((crumb: Crumb) => crumb.text)
+    )
+  }
+}
 
 const main = () => {
   const file = 'src/source.ts'
   const program = createProgram([file], { allowJs: true })
   const sourceFile = program.getSourceFile(file) as SourceFile
-  const printer = createPrinter({ newLine: NewLineKind.LineFeed })
 
-  forEachChild(sourceFile, (node: Node) => {
-    printer.printNode(EmitHint.Unspecified, node, sourceFile)
-    if (isFunctionDeclaration(node)) {
-      console.log('node', node)
-    } else if (isVariableStatement(node)) {
-      const text = node.declarationList.declarations[0].name.getText(sourceFile)
-      console.log('node', node)
-      console.log('text', text)
-    } else if (isInterfaceDeclaration(node)) {
-      const text = node.name.text
-      console.log('text', text)
-    }
-  })
-
-  const printRecursiveFrom = (
-    node: Node,
-    indentLevel: number,
-    sourceFile: SourceFile
-  ) => {
-    const indentation = '-'.repeat(indentLevel)
-    const syntaxKind = SyntaxKind[node.kind]
-    const nodeText = node.getText(sourceFile)
-    console.log(`${indentation}${syntaxKind}: ${nodeText}`)
-
-    // Tree mode: node.forEachChild
-    // node.forEachChild((child) =>
-    //   printRecursiveFrom(child, indentLevel + 1, sourceFile)
-    // )
-
-    // Tree mode: node.getChildren
-    node
-      .getChildren(sourceFile)
-      .forEach((child) =>
-        printRecursiveFrom(child, indentLevel + 1, sourceFile)
-      )
-  }
-
-  printRecursiveFrom(sourceFile, 0, sourceFile)
+  printNode({ node: sourceFile, trail: [], sourceFile })
 }
 
 main()
