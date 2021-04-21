@@ -1,64 +1,108 @@
-/**
- *
- * @see https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API
- *
- */
+import util from 'util'
+import ts from 'typescript'
 
-import { createProgram, Node, SourceFile, SyntaxKind } from 'typescript'
-
-interface ShowNode {
-  trail: Node[]
-  sourceFile: SourceFile
+interface DocEntry {
+  name?: string
+  documentation?: string
+  type?: string
+  constructors?: DocEntry[]
+  parameters?: DocEntry[]
+  returnType?: string
 }
-const showNode = ({ trail, sourceFile }: ShowNode) => {
-  const lastNode = trail.slice(-1)[0]
-  const beforeLastNode = trail.slice(-2, -1)[0]
-  // const lastNodeKind= SyntaxKind[lastNode.kind]
-  const lastNodeText = lastNode.getText(sourceFile)
-  const beforeLastNodeKind = SyntaxKind[beforeLastNode.kind]
-  // const beforeLastNodeText = beforeLastNode.getText(sourceFile)
-  const regExp = /\{([^}]+)\}/
 
-  let docTag, platformFieldType, propertyId
-  switch (beforeLastNodeKind) {
-    case 'InterfaceDeclaration':
-      docTag = lastNode.getChildAt(0).getText(sourceFile)
-      if (docTag.trim() === '@platform') {
-        console.log(`Found platform:`, lastNodeText)
-      }
-      break
-    case 'PropertySignature':
-      platformFieldType = lastNodeText.match(regExp)![1]
-      propertyId = beforeLastNode.getChildAt(1).getText(sourceFile)
-      console.log(
-        `Found field '${propertyId}' with platform type '${platformFieldType}'`
-      )
-      break
-
-    default:
-      break
+interface Visit {
+  node: ts.Node
+  output: DocEntry[]
+  checker: ts.TypeChecker
+}
+const visit = ({ node, checker, output }: Visit) => {
+  if (!isNodeExported({ node })) {
+    return
+  }
+  if (ts.isInterfaceDeclaration(node) && node.name) {
+    const symbol = checker.getSymbolAtLocation(node.name)
+    if (symbol) {
+      output.push(serializeInterface({ symbol, checker }))
+    }
   }
 }
 
-interface PrintNode {
-  trail: Node[]
-  node: Node
-  sourceFile: SourceFile
+interface SerializeInterface {
+  symbol: ts.Symbol
+  checker: ts.TypeChecker
+}
+const serializeInterface = ({ symbol, checker }: SerializeInterface) => {
+  const details = serializeSymbol({ symbol, checker })
+  const interfaceType = checker.getTypeOfSymbolAtLocation(
+    symbol,
+    symbol.valueDeclaration!
+  )
+  details.constructors = interfaceType
+    .getConstructSignatures()
+    .map((signature) => serializeSignature({ signature, checker }))
+  return details
 }
 
-const printNode = ({ node, trail, sourceFile }: PrintNode) => {
-  trail.push(node)
-  if (SyntaxKind[node.kind] === 'JSDocComment') showNode({ trail, sourceFile })
-  node
-    .getChildren(sourceFile)
-    .forEach((child) => printNode({ node: child, trail, sourceFile }))
+interface SerializeSymbol {
+  symbol: ts.Symbol
+  checker: ts.TypeChecker
+}
+const serializeSymbol = ({ symbol, checker }: SerializeSymbol): DocEntry => {
+  return {
+    name: symbol.getName(),
+    documentation: ts.displayPartsToString(
+      symbol.getDocumentationComment(checker)
+    ),
+    type: checker.typeToString(
+      checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!)
+    ),
+  }
 }
 
-const main = () => {
-  const file = 'src/source.ts'
-  const program = createProgram([file], { allowJs: true })
-  const sourceFile = program.getSourceFile(file) as SourceFile
-  printNode({ node: sourceFile, trail: [], sourceFile })
+interface SerializeSignature {
+  signature: ts.Signature
+  checker: ts.TypeChecker
+}
+const serializeSignature = ({ signature, checker }: SerializeSignature) => {
+  return {
+    parameters: signature.parameters.map((symbol) =>
+      serializeSymbol({ symbol, checker })
+    ),
+    returnType: checker.typeToString(signature.getReturnType()),
+    documentation: ts.displayPartsToString(
+      signature.getDocumentationComment(checker)
+    ),
+  }
 }
 
-main()
+interface IsNodeExported {
+  node: ts.Node
+}
+const isNodeExported = ({ node }: IsNodeExported): boolean => {
+  return (
+    (ts.getCombinedModifierFlags(node as ts.Declaration) &
+      ts.ModifierFlags.Export) !==
+      0 ||
+    (!!node.parent && node.parent.kind === ts.SyntaxKind.SourceFile)
+  )
+}
+
+const generateDocumentation = () => {
+  const program = ts.createProgram(['src/source.ts'], {
+    target: ts.ScriptTarget.ES5,
+    module: ts.ModuleKind.CommonJS,
+  })
+  const checker = program.getTypeChecker()
+  const output: DocEntry[] = []
+  for (const sourceFile of program.getSourceFiles()) {
+    if (!sourceFile.isDeclarationFile) {
+      ts.forEachChild(sourceFile, (node: ts.Node) => {
+        visit({ node, checker, output })
+      })
+    }
+  }
+  const inspect = util.inspect(output, false, 10, true)
+  console.log(inspect)
+}
+
+generateDocumentation()
