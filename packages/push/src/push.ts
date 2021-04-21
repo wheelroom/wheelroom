@@ -3,11 +3,9 @@ import ts from 'typescript'
 
 interface DocEntry {
   name?: string
-  documentation?: string
+  docs?: unknown
   type?: string
-  constructors?: DocEntry[]
-  parameters?: DocEntry[]
-  returnType?: string
+  properties?: DocEntry[]
 }
 
 interface Visit {
@@ -20,27 +18,37 @@ const visit = ({ node, checker, output }: Visit) => {
     return
   }
   if (ts.isInterfaceDeclaration(node) && node.name) {
-    const symbol = checker.getSymbolAtLocation(node.name)
-    if (symbol) {
-      output.push(serializeInterface({ symbol, checker }))
+    const type = checker.getTypeAtLocation(node)
+    if (type) {
+      output.push(serializeInterface({ type, checker }))
     }
   }
 }
 
 interface SerializeInterface {
-  symbol: ts.Symbol
+  type: ts.Type
   checker: ts.TypeChecker
 }
-const serializeInterface = ({ symbol, checker }: SerializeInterface) => {
-  const details = serializeSymbol({ symbol, checker })
-  const interfaceType = checker.getTypeOfSymbolAtLocation(
-    symbol,
-    symbol.valueDeclaration!
+const serializeInterface = ({ type, checker }: SerializeInterface) => {
+  const details = serializeType({ type, checker })
+  const properties = type.getProperties()
+  details.properties = properties.map((symbol) =>
+    serializeSymbol({ symbol, checker })
   )
-  details.constructors = interfaceType
-    .getConstructSignatures()
-    .map((signature) => serializeSignature({ signature, checker }))
   return details
+}
+
+interface SerializeType {
+  type: ts.Type
+  checker: ts.TypeChecker
+}
+const serializeType = ({ type, checker }: SerializeType): DocEntry => {
+  const symbol = type.getSymbol()
+  return {
+    name: symbol!.getName(),
+    docs: symbol!.getJsDocTags(),
+    type: checker.typeToString(type),
+  }
 }
 
 interface SerializeSymbol {
@@ -50,27 +58,9 @@ interface SerializeSymbol {
 const serializeSymbol = ({ symbol, checker }: SerializeSymbol): DocEntry => {
   return {
     name: symbol.getName(),
-    documentation: ts.displayPartsToString(
-      symbol.getDocumentationComment(checker)
-    ),
+    docs: symbol.getDocumentationComment(checker),
     type: checker.typeToString(
       checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!)
-    ),
-  }
-}
-
-interface SerializeSignature {
-  signature: ts.Signature
-  checker: ts.TypeChecker
-}
-const serializeSignature = ({ signature, checker }: SerializeSignature) => {
-  return {
-    parameters: signature.parameters.map((symbol) =>
-      serializeSymbol({ symbol, checker })
-    ),
-    returnType: checker.typeToString(signature.getReturnType()),
-    documentation: ts.displayPartsToString(
-      signature.getDocumentationComment(checker)
     ),
   }
 }

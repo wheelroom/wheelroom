@@ -1,4 +1,4 @@
-/** platform contentful */
+/** @platform contentful */
 export interface Topic {
   /** {shortString} Topic heading */
   heading: string
