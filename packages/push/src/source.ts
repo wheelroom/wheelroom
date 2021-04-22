@@ -1,5 +1,5 @@
 // @see https://github.com/contentful/contentful-management.js/blob/master/lib/entities/field-type.ts
-export type FieldType =
+type FieldType =
   | { type: 'Symbol' }
   | { type: 'Text' }
   | { type: 'RichText' }
@@ -22,7 +22,7 @@ interface Item {
   // validations?: ContentTypeFieldValidation[]
 }
 
-export interface ContentFields extends Item {
+interface ContentFields extends Item {
   id: string
   name: string
   required: boolean
@@ -38,12 +38,32 @@ export type Variant = 'external 1' | 'external 2' | 'external 3'
 
 /** @platform contentful */
 export interface Topic {
-  /** {shortString} Topic heading */
+  /** @platformType Symbol - Topic heading */
   heading: string
-  /** {longString} Topic abstract */
+  /** @platformType Text - Topic heading */
   abstract: string
-  /** {arrayType} Topic variant */
+  /**
+   * Topic variant
+   * @platformType Symbol - what happens
+   */
   variant: Variant
-  /** {anotherType} Topic variant */
+  /** @platformType Symbol - Another variant */
   otherVariant: 'variant 1' | 'variant 2' | 'variant 3'
+}
+
+const defaultTopic: Topic = {
+  heading: 'default heading',
+  abstract: 'default abstract',
+  variant: 'external 1',
+  otherVariant: 'variant 1',
+}
+
+// Where to define the editor config for each field?
+const contentFieldsTopicHeading: ContentFields = {
+  id: 'heading',
+  type: 'Symbol',
+  name: 'heading',
+  required: false,
+  localized: false,
+  items: { type: 'Symbol' }, // Where to put the actual drop down items?
 }

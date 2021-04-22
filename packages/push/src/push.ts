@@ -3,7 +3,8 @@ import ts from 'typescript'
 
 interface DocEntry {
   name?: string
-  docs?: unknown
+  docComment?: unknown
+  docTags?: unknown
   type?: string
   properties?: DocEntry[]
 }
@@ -16,8 +17,7 @@ interface Visit {
 const visit = ({ node, checker, output }: Visit) => {
   if (!isNodeExported({ node })) {
     return
-  }
-  if (ts.isInterfaceDeclaration(node) && node.name) {
+  } else if (ts.isInterfaceDeclaration(node) && node.name) {
     const type = checker.getTypeAtLocation(node)
     if (type) {
       output.push(serializeInterface({ type, checker }))
@@ -46,7 +46,8 @@ const serializeType = ({ type, checker }: SerializeType): DocEntry => {
   const symbol = type.getSymbol()
   return {
     name: symbol!.getName(),
-    docs: symbol!.getJsDocTags(),
+    docTags: symbol!.getJsDocTags(),
+    docComment: symbol!.getDocumentationComment(checker),
     type: checker.typeToString(type),
   }
 }
@@ -58,7 +59,8 @@ interface SerializeSymbol {
 const serializeSymbol = ({ symbol, checker }: SerializeSymbol): DocEntry => {
   return {
     name: symbol.getName(),
-    docs: symbol.getDocumentationComment(checker),
+    docTags: symbol!.getJsDocTags(),
+    docComment: symbol.getDocumentationComment(checker),
     type: checker.typeToString(
       checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!)
     ),
