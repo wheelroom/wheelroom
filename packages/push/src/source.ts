@@ -36,9 +36,17 @@ interface ContentFields extends Item {
 
 export type Variant = 'external 1' | 'external 2' | 'external 3'
 
-/** @platform contentful */
+/**
+ * Something about this model
+ * @platform contentful
+ * @plaformDefaults defaultTopic
+ */
 export interface Topic {
-  /** @platformType Symbol - Topic heading */
+  /**
+   * This is the heading
+   * @platformType Symbol
+   * @platformContentFields contentFieldsTopicHeading
+   */
   heading: string
   /** @platformType Text - Topic heading */
   abstract: string
