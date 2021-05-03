@@ -17,7 +17,7 @@ const globals = {
   'conventional-recommended-bump': 'conventionalRecommendedBump',
   'fs/promises': 'mkdir',
   'standard-version': 'standardVersion',
-  'path': 'path',
+  path: 'path',
   child_process: 'child_process',
   deepmerge: 'deepmerge',
   fs: 'fs',
@@ -28,6 +28,7 @@ const inputFiles = [
   { name: 'commands/release-command', ext: 'ts', id: 'releaseCommand' },
   { name: 'commands/link-command', ext: 'ts', id: 'linkCommand' },
   { name: 'commands/list-command', ext: 'ts', id: 'listCommand' },
+  { name: 'lib/github-release', ext: 'ts', id: 'githubRelease' },
 ]
 
 export default inputFiles.map((file) => {
@@ -63,7 +64,7 @@ export default inputFiles.map((file) => {
     ],
     plugins: [
       // so Rollup can find node modules
-      pluginNodeResolve(),
+      pluginNodeResolve({ preferBuiltins: false }),
       // so Rollup can convert node modules to ES modules
       pluginCommonjs({
         extensions: ['.js', '.ts'],

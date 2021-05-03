@@ -12,7 +12,8 @@
     "dev": "rollup --config --watch"
   },
   "dependencies": {
-    "@npmcli/arborist": "2.3.0"
+    "@npmcli/arborist": "2.3.0",
+    "@octokit/rest": "18.5.3"
   },
   "devDependencies": {
     "@types/standard-version": "7.0.0"
