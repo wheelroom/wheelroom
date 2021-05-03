@@ -91,8 +91,8 @@
     "yargs": "15.4.1"
   },
   "engines": {
-    "node": ">=15.14.0",
-    "npm": ">=7.9.0"
+    "node": ">=16.0.0",
+    "npm": ">=7.11.1"
   },
   "publishConfig": {
     "access": "public"
