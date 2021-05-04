@@ -15,8 +15,8 @@ import { publish } from '../lib/publish'
 import {
   versionTarget,
   versionDependencies,
-  getNewChangelog,
-  writeNewChangelog,
+  getNewChangelogs,
+  writeNewChangelogs,
 } from '../lib/version'
 import { getConfirmation } from '../lib/get-confirmation'
 
@@ -32,7 +32,10 @@ export const releaseCommand = async ({
   subCommand,
 }: RunCommand) => {
   const cloneDir = 'build'
-  const makeContext = await getMakeContext({ packageName, cloneDir })
+  const makeContext = await getMakeContext({
+    targetPackageName: packageName,
+    cloneDir,
+  })
   const packageNames = getFsChildPackageNames({
     fsChildren: makeContext.rootNode.fsChildren,
   })
@@ -56,20 +59,20 @@ export const releaseCommand = async ({
     case 'version':
       await versionTarget({ makeContext })
       await versionDependencies({ makeContext })
-      await getNewChangelog({ makeContext })
-      await writeNewChangelog({ makeContext })
+      await getNewChangelogs({ makeContext })
+      await writeNewChangelogs({ makeContext })
       await buildCloneDir({ makeContext })
       break
     case 'publish':
-      await getNewChangelog({ makeContext })
+      await getNewChangelogs({ makeContext })
       await publish({ makeContext })
       break
     default:
       await buildPackage({ makeContext })
       await versionTarget({ makeContext })
       await versionDependencies({ makeContext })
-      await getNewChangelog({ makeContext })
-      await writeNewChangelog({ makeContext })
+      await getNewChangelogs({ makeContext })
+      await writeNewChangelogs({ makeContext })
       await buildCloneDir({ makeContext })
       await publish({ makeContext })
       break

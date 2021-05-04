@@ -48,32 +48,39 @@ export const versionDependencies = async ({
   await cmdRun({ cmd: 'npm', args: ['install'], node: rootNode })
 }
 
-export const getNewChangelog = async ({ makeContext }: VersionMakeContext) => {
-  const { targetNode } = makeContext
-  const path = targetNode.path
-  const newVersion = targetNode.package.version
-  makeContext.newChangeLog = await callConventionalChangelog({
-    path,
-    newVersion,
-  })
+export const getNewChangelogs = async ({ makeContext }: VersionMakeContext) => {
+  const { buildNodes } = makeContext
+  for (const buildNode of buildNodes) {
+    const path = buildNode.path
+    // Package version must have been set to new version
+    const newVersion = buildNode.package.version
+    const packageName = buildNode.package.name
+    makeContext.newChangeLogs[packageName] = await callConventionalChangelog({
+      path,
+      newVersion,
+    })
+  }
 }
 
-export const writeNewChangelog = async ({
+export const writeNewChangelogs = async ({
   makeContext,
 }: VersionMakeContext) => {
-  const { targetNode } = makeContext
-  const changelogFile = `${targetNode.path}/CHANGELOG.md`
-  if (!existsSync(changelogFile)) {
-    writeFileSync(changelogFile, '\n', 'utf8')
+  const { buildNodes } = makeContext
+  for (const buildNode of buildNodes) {
+    const changelogFile = `${buildNode.path}/CHANGELOG.md`
+    if (!existsSync(changelogFile)) {
+      writeFileSync(changelogFile, '\n', 'utf8')
+    }
+    const changelogContent = readFileSync(changelogFile, 'utf-8')
+    const headerLength = changelogContent.search(
+      /(^#+ \[?[0-9]+\.[0-9]+\.[0-9]+)/m
+    )
+    const existingChangelog = changelogContent.substring(headerLength)
+    const packageName = buildNode.package.name
+    writeFileSync(
+      changelogFile,
+      `# Changelog\n\n${makeContext.newChangeLogs[packageName]}${existingChangelog}`,
+      'utf8'
+    )
   }
-  const changelogContent = readFileSync(changelogFile, 'utf-8')
-  const headerLength = changelogContent.search(
-    /(^#+ \[?[0-9]+\.[0-9]+\.[0-9]+)/m
-  )
-  const existingChangelog = changelogContent.substring(headerLength)
-  writeFileSync(
-    changelogFile,
-    `# Changelog\n\n${makeContext.newChangeLog}${existingChangelog}`,
-    'utf8'
-  )
 }
