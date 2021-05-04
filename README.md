@@ -29,6 +29,7 @@ libraries.
 ## Packages
 
 - [any](./packages/any/README.md)
+- [make](./packages/make/README.md)
 
 ## Contributors
 
