@@ -10,14 +10,14 @@
 
 import { getMakeContext } from '../lib/get-make-context'
 import { getFsChildPackageNames } from '../lib/arborist'
-import { buildCloneDir, buildPackage } from './build'
-import { publish } from './publish'
+import { buildCloneDir, buildPackage } from '../lib/build'
+import { publish } from '../lib/publish'
 import {
   versionTarget,
   versionDependencies,
   getNewChangelog,
   writeNewChangelog,
-} from './version'
+} from '../lib/version'
 
 export type Command = 'build' | 'version' | 'publish' | 'release'
 

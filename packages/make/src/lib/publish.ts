@@ -1,6 +1,6 @@
 import path from 'path'
-import { MakeContext } from '../lib/get-make-context'
-import { cmdRun, getBranch } from '../lib/child-process'
+import { MakeContext } from './get-make-context'
+import { cmdRun, getBranch } from './child-process'
 
 export interface PublishMakeContext {
   makeContext: MakeContext
