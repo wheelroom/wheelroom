@@ -96,7 +96,7 @@ export const writeRootRelease = async ({ makeContext }: VersionMakeContext) => {
   createFileIfNotExists(rootReleaseFile)
   const packageChanges = buildNodes.map(
     (buildNode) =>
-      `## ${buildNode.package.name}\n\n${
+      `## ${buildNode.package.name} ${buildNode.package.version}\n\n${
         newChangeLogs[buildNode.package.name]
       }\n`
   )
@@ -115,9 +115,7 @@ export const writeRootChangelog = async ({
   createFileIfNotExists(rootChangelogFile)
   const changelogContent = readFileSync(rootChangelogFile, 'utf-8')
   const releaseContent = readFileSync(releaseFile, 'utf-8')
-  const headerLength = changelogContent.search(
-    /(^#+ \[?[0-9]+\.[0-9]+\.[0-9]+)/m
-  )
+  const headerLength = changelogContent.search(/(^# Release)/m)
   const existingChangelog = changelogContent.substring(headerLength)
   writeFileSync(
     rootChangelogFile,
