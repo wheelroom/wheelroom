@@ -20,7 +20,8 @@ import {
   writeRootRelease,
   writeRootChangelog,
 } from '../lib/version'
-import { getConfirmation } from '../lib/get-confirmation'
+import { getIsConfirmed } from '../lib/get-is-confirmed'
+import { getHasValidToken } from '../lib/get-has-valid-token'
 
 export type Command = 'build' | 'version' | 'publish' | 'release'
 
@@ -51,7 +52,16 @@ export const releaseCommand = async ({
     process.exit(0)
   }
 
-  await getConfirmation({ subCommand, buildNodes: makeContext.buildNodes })
+  const hasValidToken = getHasValidToken({ subCommand })
+  if (!hasValidToken) {
+    console.log("GITHUB_TOKEN needs to be set for 'publish' command")
+    process.exit(0)
+  }
+  const isConfirmed = await getIsConfirmed({
+    subCommand,
+    buildNodes: makeContext.buildNodes,
+  })
+  if (!isConfirmed) process.exit(0)
 
   switch (subCommand) {
     case 'build':

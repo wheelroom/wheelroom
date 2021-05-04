@@ -2,15 +2,15 @@ import inquirer from 'inquirer'
 import { ArboristNode } from './arborist'
 import { questions } from './get-confirmation-questions'
 
-interface GetConfirmation {
+interface GetIsConfirmed {
   subCommand?: string
   buildNodes: ArboristNode[]
 }
 
-export const getConfirmation = async ({
+export const getIsConfirmed = async ({
   subCommand,
   buildNodes,
-}: GetConfirmation) => {
+}: GetIsConfirmed) => {
   console.log(
     `This will ${subCommand || 'build, version and publish'} ${
       buildNodes.length === 1 ? 'this package' : 'these packages'
@@ -18,7 +18,5 @@ export const getConfirmation = async ({
   )
   console.log(`${buildNodes.map((node) => node.package.name).join('\n')}`)
   const answers = await inquirer.prompt(questions)
-  if (answers.policy !== 'y') {
-    process.exit(0)
-  }
+  return answers.policy === 'y'
 }
