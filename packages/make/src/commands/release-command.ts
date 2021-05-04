@@ -51,7 +51,7 @@ export const releaseCommand = async ({
     process.exit(0)
   }
 
-  await getConfirmation({ subCommand, packageNames })
+  await getConfirmation({ subCommand, buildNodes: makeContext.buildNodes })
 
   switch (subCommand) {
     case 'build':
