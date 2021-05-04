@@ -17,7 +17,7 @@ export const questions = [
         value: 'q',
       },
     ],
-    default: 'n',
+    default: 'y',
     message: 'Continue?`:',
     name: 'policy',
     type: 'expand',
