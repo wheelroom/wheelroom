@@ -19,10 +19,6 @@
     "deepmerge": "4.2.2",
     "inquirer": "8.0.0",
     "semver": "7.3.5",
-    "standard-version": "9.3.0",
     "yargs": "17.0.1"
-  },
-  "devDependencies": {
-    "@types/standard-version": "7.0.0"
   }
 }

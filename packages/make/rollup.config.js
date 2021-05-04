@@ -17,7 +17,6 @@ const globals = {
   'conventional-changelog': 'conventionalChangelog',
   'conventional-recommended-bump': 'conventionalRecommendedBump',
   'fs/promises': 'mkdir',
-  'standard-version': 'standardVersion',
   child_process: 'child_process',
   deepmerge: 'deepmerge',
   fs: 'fs',
