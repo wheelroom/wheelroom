@@ -100,10 +100,7 @@ export const writeRootRelease = async ({ makeContext }: VersionMakeContext) => {
         newChangeLogs[buildNode.package.name]
       }\n`
   )
-  const newContent = `# Release ${
-    rootNode.package.version
-  }\n\n${packageChanges.join('\n')}`
-  writeFileSync(rootReleaseFile, newContent, 'utf8')
+  writeFileSync(rootReleaseFile, packageChanges.join('\n'), 'utf8')
 }
 
 export const writeRootChangelog = async ({
@@ -119,7 +116,7 @@ export const writeRootChangelog = async ({
   const existingChangelog = changelogContent.substring(headerLength)
   writeFileSync(
     rootChangelogFile,
-    `# Changelog\n\n${releaseContent}${existingChangelog}`,
+    `# Changelog\n\n# Release ${rootNode.package.version}\n\n${releaseContent}${existingChangelog}`,
     'utf8'
   )
 }
