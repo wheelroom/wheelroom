@@ -19,7 +19,12 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
       })
     }
   }
-  const gitAddFiles = ['package.json', 'package-lock.json']
+  const gitAddFiles = [
+    'CHANGELOG.md',
+    'package-lock.json',
+    'package.json',
+    'RELEASE.md',
+  ]
   for (const publishNode of buildNodes) {
     gitAddFiles.push(path.relative(process.cwd(), publishNode.path))
   }
