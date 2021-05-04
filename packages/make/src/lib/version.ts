@@ -62,25 +62,66 @@ export const getNewChangelogs = async ({ makeContext }: VersionMakeContext) => {
   }
 }
 
+const createFileIfNotExists = (fileName: string) => {
+  if (!existsSync(fileName)) {
+    writeFileSync(fileName, '\n', 'utf8')
+  }
+}
+
 export const writeNewChangelogs = async ({
   makeContext,
 }: VersionMakeContext) => {
   const { buildNodes } = makeContext
   for (const buildNode of buildNodes) {
     const changelogFile = `${buildNode.path}/CHANGELOG.md`
-    if (!existsSync(changelogFile)) {
-      writeFileSync(changelogFile, '\n', 'utf8')
-    }
+    createFileIfNotExists(changelogFile)
     const changelogContent = readFileSync(changelogFile, 'utf-8')
     const headerLength = changelogContent.search(
       /(^#+ \[?[0-9]+\.[0-9]+\.[0-9]+)/m
     )
     const existingChangelog = changelogContent.substring(headerLength)
-    const packageName = buildNode.package.name
     writeFileSync(
       changelogFile,
-      `# Changelog\n\n${makeContext.newChangeLogs[packageName]}${existingChangelog}`,
+      `# Changelog\n\n${
+        makeContext.newChangeLogs[buildNode.package.name]
+      }${existingChangelog}`,
       'utf8'
     )
   }
+}
+
+export const writeRootRelease = async ({ makeContext }: VersionMakeContext) => {
+  const { rootNode, buildNodes, newChangeLogs } = makeContext
+  const rootReleaseFile = `${rootNode.path}/RELEASE.md`
+  createFileIfNotExists(rootReleaseFile)
+  const packageChanges = buildNodes.map(
+    (buildNode) =>
+      `## ${buildNode.package.name}\n\n${
+        newChangeLogs[buildNode.package.name]
+      }\n`
+  )
+  const newContent = `# Release ${
+    rootNode.package.version
+  }\n\n${packageChanges.join('\n')}`
+  writeFileSync(rootReleaseFile, newContent, 'utf8')
+}
+
+export const writeRootChangelog = async ({
+  makeContext,
+}: VersionMakeContext) => {
+  const { rootNode } = makeContext
+  const rootChangelogFile = `${rootNode.path}/CHANGELOG.md`
+  const releaseFile = `${rootNode.path}/RELEASE.md`
+  createFileIfNotExists(rootChangelogFile)
+  const changelogContent = readFileSync(rootChangelogFile, 'utf-8')
+  const releaseContent = readFileSync(releaseFile, 'utf-8')
+  const headerLength = changelogContent.search(
+    /(^#+ \[?[0-9]+\.[0-9]+\.[0-9]+)/m
+  )
+  const existingChangelog = changelogContent.substring(headerLength)
+  writeFileSync(
+    rootChangelogFile,
+    `# Changelog\n\n${releaseContent}${existingChangelog}`,
+    'utf8'
+  )
 }

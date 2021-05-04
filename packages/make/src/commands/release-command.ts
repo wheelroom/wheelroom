@@ -13,10 +13,12 @@ import { getFsChildPackageNames } from '../lib/arborist'
 import { buildCloneDir, buildPackage } from '../lib/build'
 import { publish } from '../lib/publish'
 import {
-  versionTarget,
-  versionDependencies,
   getNewChangelogs,
+  versionDependencies,
+  versionTarget,
   writeNewChangelogs,
+  writeRootRelease,
+  writeRootChangelog,
 } from '../lib/version'
 import { getConfirmation } from '../lib/get-confirmation'
 
@@ -61,6 +63,8 @@ export const releaseCommand = async ({
       await versionDependencies({ makeContext })
       await getNewChangelogs({ makeContext })
       await writeNewChangelogs({ makeContext })
+      await writeRootRelease({ makeContext })
+      await writeRootChangelog({ makeContext })
       await buildCloneDir({ makeContext })
       break
     case 'publish':
@@ -73,6 +77,8 @@ export const releaseCommand = async ({
       await versionDependencies({ makeContext })
       await getNewChangelogs({ makeContext })
       await writeNewChangelogs({ makeContext })
+      await writeRootRelease({ makeContext })
+      await writeRootChangelog({ makeContext })
       await buildCloneDir({ makeContext })
       await publish({ makeContext })
       break
