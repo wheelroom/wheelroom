@@ -1,6 +1,7 @@
 import path from 'path'
 import { MakeContext } from './get-make-context'
 import { cmdRun, getBranch } from './child-process'
+import { githubRelease } from './github-release'
 
 export interface PublishMakeContext {
   makeContext: MakeContext
@@ -38,4 +39,13 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   const branch = await getBranch()
   args = ['push', 'origin', branch, '--follow-tags']
   await cmdRun({ cmd, args, node: rootNode })
+
+  await githubRelease({
+    //TODO: How to get the owner and reponame?
+    owner: 'wheelroom',
+    repo: 'wheelroom',
+    rootNode,
+    tag: version,
+    token: process.env.GITHUB_TOKEN || '',
+  })
 }
