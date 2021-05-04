@@ -32,7 +32,6 @@ const inputFiles = [
   { name: 'commands/release-command', ext: 'ts', id: 'releaseCommand' },
   { name: 'commands/link-command', ext: 'ts', id: 'linkCommand' },
   { name: 'commands/list-command', ext: 'ts', id: 'listCommand' },
-  { name: 'lib/github-release', ext: 'ts', id: 'githubRelease' },
 ]
 
 export default inputFiles.map((file) => {
