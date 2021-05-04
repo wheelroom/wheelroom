@@ -18,6 +18,7 @@ import {
   getNewChangelog,
   writeNewChangelog,
 } from '../lib/version'
+import { getConfirmation } from '../lib/get-confirmation'
 
 export type Command = 'build' | 'version' | 'publish' | 'release'
 
@@ -44,6 +45,8 @@ export const releaseCommand = async ({
     )
     process.exit(0)
   }
+
+  await getConfirmation({ subCommand, packageNames })
 
   switch (subCommand) {
     case 'build':
