@@ -39,8 +39,8 @@ export const releaseCommand = async ({
   if (!makeContext.targetNode) {
     console.log(
       `Package ${
-        packageName || 'parameter'
-      } not found, please choose from: ${packageNames.join(', ')}`
+        packageName || '<none>'
+      } not found, please choose from:\n${packageNames.join('\n')}`
     )
     process.exit(0)
   }

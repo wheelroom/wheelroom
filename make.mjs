@@ -9,6 +9,7 @@
  */
 
 import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
 import { releaseCommand } from './packages/make/build/commands/release-command.js'
 import { linkCommand } from './packages/make/build/commands/link-command.js'
 import { listCommand } from './packages/make/build/commands/list-command.js'
@@ -26,7 +27,7 @@ const pathPositional = (yargs) => {
   })
 }
 
-yargs
+yargs(hideBin(process.argv))
   .scriptName('make')
   .usage('$0 <cmd> [args]')
   .command(
