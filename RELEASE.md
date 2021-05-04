@@ -1,11 +1,11 @@
-## @wheelroom/make 6.20.1
+## @wheelroom/make 6.20.2
 
-## [6.20.1](https://github.com/wheelroom/wheelroom/compare/6.20.0...6.20.1) (2021-05-04)
+## [6.20.2](https://github.com/wheelroom/wheelroom/compare/6.20.1...6.20.2) (2021-05-04)
 
 
 ### Bug Fixes
 
-* commit root changelog and release ([d99dccb](https://github.com/wheelroom/wheelroom/commit/d99dccbbafda3e95886e2dd75d4195eda5d51ba3))
+* add npm dependencies for make ([312c772](https://github.com/wheelroom/wheelroom/commit/312c77210396f6a4e50a0a8657f87159c89957a2))
 
 
 
