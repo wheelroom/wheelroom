@@ -1,18 +1,18 @@
-import { Ul, Li } from '@wheelroom/any/elements'
-import { globalReset } from '@wheelroom/any/resets/global-reset'
+import { AnyStyle, Div } from '@wheelroom/any/elements'
 
-const IndexPage = () => {
-  console.log('global resets', globalReset)
+const objectStyles: AnyStyle = {
+  fontFamily: `-apple-system, BlinkMacSystemFont,
+  “Segoe UI”, “Roboto”, “Oxygen”,
+  “Ubuntu”, “Cantarell”, “Fira Sans”,
+  “Droid Sans”, “Helvetica Neue”, sans-serif`,
+  padding: 16,
+  fontSize: 24,
+}
+
+const HomePage = () => {
   return (
-    <>
-      <h1>nextjs-starter</h1>
-      <Ul css={{ label: 'Ul', backgroundColor: 'lightblue' }}>
-        <Li css={{ label: 'Li', color: 'red' }}>
-          Hello from a typescript world!
-        </Li>
-      </Ul>
-    </>
+    <Div css={objectStyles}>Next + TypeScript + Emotion + Normalize.css</Div>
   )
 }
 
-export default IndexPage
+export default HomePage

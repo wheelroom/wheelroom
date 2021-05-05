@@ -2,14 +2,10 @@ module.exports = {
   future: {
     webpack5: true,
   },
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
   // Compile external modules
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  webpack: (config, { defaultLoaders }) => {
     config.module.rules.push({
-      test: /\.tsx?|\.ts?$/,
+      test: /\.+(tsx|ts)?$/,
       use: [defaultLoaders.babel],
     })
     return config
