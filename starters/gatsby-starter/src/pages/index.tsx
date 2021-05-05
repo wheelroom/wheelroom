@@ -1,15 +1,26 @@
-import React from 'react'
 import { PageProps } from 'gatsby'
-import { Ul, Li } from '@wheelroom/any/elements'
+import { AnyStyle, Button, Div } from '@wheelroom/any/elements'
+import { Global } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
 
+const objectStyles = {
+  fontFamily: `-apple-system, BlinkMacSystemFont,
+  “Segoe UI”, “Roboto”, “Oxygen”,
+  “Ubuntu”, “Cantarell”, “Fira Sans”,
+  “Droid Sans”, “Helvetica Neue”, sans-serif`,
+  padding: 16,
+  fontSize: 32,
+}
+
 const HomePage = (props: PageProps) => {
-  console.log('global resets', globalReset)
-  console.log('props', props)
+  console.log('Page props', props)
   return (
-    <Ul css={{ backgroundColor: 'lightblue' }}>
-      <Li css={{ color: 'red' }}>Hello from a typescript world!</Li>
-    </Ul>
+    <>
+      <Global styles={globalReset} />
+      <Div css={objectStyles}>
+        Gatsby + TypeScript + Emotion + Normalize.css
+      </Div>
+    </>
   )
 }
 
