@@ -37,9 +37,7 @@
     }
   ],
   "workspaces": [
-    "./apps/*",
-    "./packages/*",
-    "./starters/*"
+    "./packages/*"
   ],
   "dependencies": {
     "@babel/core": "7.14.0",
