@@ -3,8 +3,8 @@
  * @see https://css-tricks.com/box-sizing/
  */
 
-import { AnyStyle } from '../elements'
+import { CSSObject } from '@emotion/react'
 
-export const anyReset: AnyStyle = {
+export const anyReset: CSSObject = {
   boxSizing: 'border-box',
 }

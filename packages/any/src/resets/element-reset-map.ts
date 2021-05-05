@@ -12,12 +12,12 @@
  * - Opera
  */
 
-import { AnyStyle } from '../elements'
+import { CSSObject } from '@emotion/react'
 
 /* Document
    ========================================================================== */
 
-export const htmlReset: AnyStyle = {
+export const htmlReset = {
   /**
    * 1. Correct the line height in all browsers.
    * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -29,21 +29,21 @@ export const htmlReset: AnyStyle = {
 /* Sections
    ========================================================================== */
 
-export const bodyReset: AnyStyle = {
+export const bodyReset = {
   /**
    * Remove the margin in all browsers.
    */
   margin: 0,
 }
 
-const mainReset: AnyStyle = {
+const mainReset: CSSObject = {
   /**
    * Render the `main` element consistently in IE.
    */
   display: 'block',
 }
 
-const h1Reset: AnyStyle = {
+const h1Reset: CSSObject = {
   /**
    * Correct the font size and margin on `h1` elements within `section` and
    * `article` contexts in Chrome, Firefox, and Safari.
@@ -55,7 +55,7 @@ const h1Reset: AnyStyle = {
 /* Grouping content
    ========================================================================== */
 
-const hrReset: AnyStyle = {
+const hrReset: CSSObject = {
   /**
    * 1. Add the correct box sizing in Firefox.
    * 2. Show the overflow in Edge and IE.
@@ -65,7 +65,7 @@ const hrReset: AnyStyle = {
   overflow: 'visible' /* 2 */,
 }
 
-const preReset: AnyStyle = {
+const preReset: CSSObject = {
   /**
    * 1. Correct the inheritance and scaling of font size in all browsers.
    * 2. Correct the odd `em` font sizing in all browsers.
@@ -77,14 +77,14 @@ const preReset: AnyStyle = {
 /* Text-level semantics
    ========================================================================== */
 
-const aReset: AnyStyle = {
+const aReset: CSSObject = {
   /**
    * Remove the gray background on active links in IE 10.
    */
   backgroundColor: 'transparent',
 }
 
-const abbrReset: AnyStyle = {
+const abbrReset: CSSObject = {
   /**
    * 1. Remove the bottom border in Chrome 57-
    * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -95,14 +95,14 @@ const abbrReset: AnyStyle = {
   },
 }
 
-const strongReset: AnyStyle = {
+const strongReset: CSSObject = {
   /**
    * Add the correct font weight in Chrome, Edge, and Safari.
    */
   fontWeight: 'bolder',
 }
 
-const codeReset: AnyStyle = {
+const codeReset: CSSObject = {
   /**
    * 1. Correct the inheritance and scaling of font size in all browsers.
    * 2. Correct the odd `em` font sizing in all browsers.
@@ -115,14 +115,14 @@ const codeReset: AnyStyle = {
   fontSize: '1em' /* 2 */,
 }
 
-const smallReset: AnyStyle = {
+const smallReset: CSSObject = {
   /**
    * Add the correct font size in all browsers.
    */
   fontSize: '80%',
 }
 
-const subSupReset: AnyStyle = {
+const subSupReset: CSSObject = {
   /**
    * Prevent `sub` and `sup` elements from affecting the line height in
    * all browsers.
@@ -133,12 +133,12 @@ const subSupReset: AnyStyle = {
   verticalAlign: 'baseline',
 }
 
-const subReset: AnyStyle = {
+const subReset: CSSObject = {
   ...subSupReset,
   bottom: '-0.25em',
 }
 
-const supReset: AnyStyle = {
+const supReset: CSSObject = {
   ...subSupReset,
   top: '-0.5em',
 }
@@ -146,7 +146,7 @@ const supReset: AnyStyle = {
 /* Embedded content
    ========================================================================== */
 
-const imgReset: AnyStyle = {
+const imgReset: CSSObject = {
   /**
    * Remove the border on images inside links in IE 10.
    */
@@ -156,7 +156,7 @@ const imgReset: AnyStyle = {
 /* Forms
    ========================================================================== */
 
-const formsReset: AnyStyle = {
+const formsReset: CSSObject = {
   /**
    * 1. Change the font styles in all browsers.
    * 2. Remove the margin in Firefox and Safari.
@@ -173,7 +173,7 @@ const formsReset: AnyStyle = {
   margin: 0 /* 2 */,
 }
 
-const buttonReset: AnyStyle = {
+const buttonReset: CSSObject = {
   ...formsReset,
   /**
    * Show the overflow in IE.
@@ -205,7 +205,7 @@ const buttonReset: AnyStyle = {
   },
 }
 
-const inputReset: AnyStyle = {
+const inputReset: CSSObject = {
   ...formsReset,
   /**
    * Show the overflow in IE.
@@ -250,7 +250,7 @@ const inputReset: AnyStyle = {
   },
 }
 
-const selectReset: AnyStyle = {
+const selectReset: CSSObject = {
   ...formsReset,
   /**
    * Remove the inheritance of text transform in Edge, Firefox, and IE.
@@ -259,14 +259,14 @@ const selectReset: AnyStyle = {
   textTransform: 'none' /* 1 */,
 }
 
-const fieldsetReset: AnyStyle = {
+const fieldsetReset: CSSObject = {
   /**
    * Correct the padding in Firefox.
    */
   padding: '0.35em 0.75em 0.625em',
 }
 
-const legendReset: AnyStyle = {
+const legendReset: CSSObject = {
   /**
    * 1. Correct the text wrapping in Edge and IE.
    * 2. Correct the color inheritance from `fieldset` elements in IE.
@@ -281,14 +281,14 @@ const legendReset: AnyStyle = {
   whiteSpace: 'normal' /* 1 */,
 }
 
-const progressReset: AnyStyle = {
+const progressReset: CSSObject = {
   /**
    * Add the correct vertical alignment in Chrome, Firefox, and Opera.
    */
   verticalAlign: 'baseline',
 }
 
-const textareaReset: AnyStyle = {
+const textareaReset: CSSObject = {
   ...formsReset,
   /**
    * Remove the default vertical scrollbar in IE 10+.
@@ -299,14 +299,14 @@ const textareaReset: AnyStyle = {
 /* Interactive
    ========================================================================== */
 
-const detailsReset: AnyStyle = {
+const detailsReset: CSSObject = {
   /*
    * Add the correct display in Edge, IE 10+, and Firefox.
    */
   display: 'block',
 }
 
-const summaryReset: AnyStyle = {
+const summaryReset: CSSObject = {
   /*
    * Add the correct display in all browsers.
    */
@@ -316,20 +316,18 @@ const summaryReset: AnyStyle = {
 /* Misc
    ========================================================================== */
 
-const templateReset: AnyStyle = {
+const templateReset: CSSObject = {
   /**
    * Add the correct display in IE 10+.
    */
   display: 'none',
 }
 
-export const hiddenReset: AnyStyle = {
+export const hiddenReset = {
   /**
    * Add the correct display in IE 10.
    */
-  '[hidden]': {
-    display: 'none',
-  },
+  display: 'none',
 }
 
 /**
@@ -337,34 +335,34 @@ export const hiddenReset: AnyStyle = {
  */
 
 export type ElementResetMap = {
-  a: AnyStyle
-  abbr: AnyStyle
-  b: AnyStyle
-  body: AnyStyle
-  button: AnyStyle
-  code: AnyStyle
-  details: AnyStyle
-  fieldset: AnyStyle
-  h1: AnyStyle
-  hr: AnyStyle
-  html: AnyStyle
-  img: AnyStyle
-  input: AnyStyle
-  kbd: AnyStyle
-  legend: AnyStyle
-  main: AnyStyle
-  optgroup: AnyStyle
-  pre: AnyStyle
-  progress: AnyStyle
-  samp: AnyStyle
-  select: AnyStyle
-  small: AnyStyle
-  strong: AnyStyle
-  sub: AnyStyle
-  summary: AnyStyle
-  sup: AnyStyle
-  template: AnyStyle
-  textarea: AnyStyle
+  a: CSSObject
+  abbr: CSSObject
+  b: CSSObject
+  body: CSSObject
+  button: CSSObject
+  code: CSSObject
+  details: CSSObject
+  fieldset: CSSObject
+  h1: CSSObject
+  hr: CSSObject
+  html: CSSObject
+  img: CSSObject
+  input: CSSObject
+  kbd: CSSObject
+  legend: CSSObject
+  main: CSSObject
+  optgroup: CSSObject
+  pre: CSSObject
+  progress: CSSObject
+  samp: CSSObject
+  select: CSSObject
+  small: CSSObject
+  strong: CSSObject
+  sub: CSSObject
+  summary: CSSObject
+  sup: CSSObject
+  template: CSSObject
+  textarea: CSSObject
 }
 
 export type ElementResetName = keyof ElementResetMap

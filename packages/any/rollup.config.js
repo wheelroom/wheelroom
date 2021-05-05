@@ -14,7 +14,6 @@ const author = rootPkg.author
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  '@emotion/css': 'css',
   '@emotion/react': 'Interpolation, jsx. Theme',
   'react/jsx-runtime': 'jsx',
 }
