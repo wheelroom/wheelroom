@@ -4,6 +4,7 @@
     "module": "esnext",
     "noEmit": true,
   },
-  "extends": "../../tsconfig.base.json",
+  "exclude": ["node_modules"],
+  "extends": "../tsconfig.packages.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
