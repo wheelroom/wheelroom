@@ -66,7 +66,7 @@ export default inputFiles.map((file) => {
         extensions: ['.js', '.ts'],
       }),
       // so Rollup can convert TypeScript to JavaScript
-      pluginTypescript(),
+      pluginTypescript({ tsconfig: 'tsconfig.packages.json' }),
     ],
   }
 })
