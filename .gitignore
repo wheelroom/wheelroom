@@ -4,7 +4,7 @@
 .next
 build/
 dist/
-starters/gatsby-starter/public/*
+packages/gatsby-starter/public/*
 reduxcache*
 
 # Node, npm and yarn
