@@ -1,4 +1,5 @@
 // @see https://github.com/contentful/contentful-management.js/blob/master/lib/entities/field-type.ts
+// @ts-expect-error Test
 type FieldType =
   | { type: 'Symbol' }
   | { type: 'Text' }
@@ -59,6 +60,7 @@ export interface Topic {
   otherVariant: 'variant 1' | 'variant 2' | 'variant 3'
 }
 
+// @ts-expect-error Test
 const defaultTopic: Topic = {
   heading: 'default heading',
   abstract: 'default abstract',
@@ -67,6 +69,7 @@ const defaultTopic: Topic = {
 }
 
 // Where to define the editor config for each field?
+// @ts-expect-error Test
 const contentFieldsTopicHeading: ContentFields = {
   id: 'heading',
   type: 'Symbol',
