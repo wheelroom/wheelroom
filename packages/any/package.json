@@ -7,7 +7,7 @@
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:module": "rollup --config",
     "build:test": "jest --silent --passWithNoTests",
-    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir build",
+    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
     "clean": "rimraf build/*",
     "dev": "rollup --config --watch",
     "generate": "npm-run-all generate:*",
