@@ -4,7 +4,7 @@
 .next
 build/
 dist/
-packages/gatsby-starter/public/*
+gatsby-starter/public/
 reduxcache*
 
 # Node, npm and yarn
@@ -35,3 +35,4 @@ atlassian-ide-plugin.xml
 # Certificates
 *.jwk
 *.pem
+*.map
