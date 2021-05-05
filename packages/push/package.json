@@ -2,6 +2,16 @@
   "name": "@wheelroom/push",
   "version": "1.0.0",
   "description": "Push Typescript models to a content platform",
+  "exports": {
+    "./*": "./build/*.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "build/*"
+      ]
+    }
+  },
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",

@@ -2,6 +2,16 @@
   "name": "@wheelroom/make",
   "version": "6.20.2",
   "description": "Make library for use with NPM 7 and @npmcli/arborist ",
+  "exports": {
+    "./*": "./build/*.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "build/*"
+      ]
+    }
+  },
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
