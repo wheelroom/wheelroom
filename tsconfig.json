@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@health-train/oauth2-forms/*": [
+        "packages/oauth2-forms/src/*"
+      ],
+      "@health-train/oauth2-lib/*": [
+        "packages/oauth2-lib/src/*"
+      ],
+      "@health-train/ui-lib/*": [
+        "packages/ui-lib/src/*"
+      ],
+      "@health-train/typescript-oauth2-server/*": [
+        "packages/typescript-oauth2-server/src/*"
+      ]
+    },
+  },
+  "extends": "./packages/tsconfig.packages.json",
+}

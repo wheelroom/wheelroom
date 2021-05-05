@@ -3,6 +3,6 @@
     "declaration": false,
     "sourceMap": false,
   },
-  "extends": "../../tsconfig.base.json",
+  "extends": "../tsconfig.packages.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
