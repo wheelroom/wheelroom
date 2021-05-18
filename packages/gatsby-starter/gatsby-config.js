@@ -1,13 +1,18 @@
 module.exports = {
-  flags: {
-    FAST_REFRESH: true,
-  },
   siteMetadata: {
     siteName: `Gatsby starter`,
   },
   plugins: [
-    // `gatsby-plugin-typescript` is automatically included in gatsby
-    // You only need to explicitly define it here if you need to configure
-    // specific options in it
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `Contentful`,
+        fieldName: `contentful`,
+        url: `${process.env.GATSBY_CONTENTFUL_GRAPHQL_ENDPOINT}/spaces/${process.env.GATSBY_CONTENTFUL_SPACE_ID}`,
+        headers: {
+          Authorization: `Bearer ${process.env.GATSBY_CONTENTFUL_DELIVERY_TOKEN}`,
+        },
+      },
+    },
   ],
 }
