@@ -1,14 +1,15 @@
 import { PageProps } from 'gatsby'
-import { Div } from '@wheelroom/any/elements'
+import { AnyStyle, Div } from '@wheelroom/any/elements'
 import { Global } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
 import GraphqlBuildTime from '../components/graphql-build-time'
 
-const objectStyles = {
+export const objectStyles: AnyStyle = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
   “Segoe UI”, “Roboto”, “Oxygen”,
   “Ubuntu”, “Cantarell”, “Fira Sans”,
   “Droid Sans”, “Helvetica Neue”, sans-serif`,
+  fontWeight: 'normal',
   padding: 16,
   fontSize: 32,
 }
