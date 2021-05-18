@@ -1,10 +1,14 @@
+import { H2 } from '@wheelroom/any/elements'
 import { graphql, useStaticQuery } from 'gatsby'
 import { DataBlock } from './data-block'
 
 const dataId = graphql`
   query buildTime {
     contentful {
-      test {
+      testCollection {
+        items {
+          heading
+        }
       }
     }
   }
@@ -12,10 +16,9 @@ const dataId = graphql`
 
 const GraphqlBuildTime = () => {
   const data = useStaticQuery(dataId)
-
   return (
     <>
-      <h2>Fetched @build-time (graphql temlate)</h2>
+      <H2>Fetched @build-time (graphql template)</H2>
       <DataBlock data={data} />
     </>
   )
