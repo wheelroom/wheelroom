@@ -1,7 +1,8 @@
 import { PageProps } from 'gatsby'
-import { AnyStyle, Button, Div } from '@wheelroom/any/elements'
+import { Div } from '@wheelroom/any/elements'
 import { Global } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
+import GraphqlBuildTime from '../components/graphql-build-time'
 
 const objectStyles = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
@@ -20,6 +21,7 @@ const HomePage = (props: PageProps) => {
       <Div css={objectStyles}>
         Gatsby + TypeScript + Emotion + Normalize.css
       </Div>
+      <GraphqlBuildTime />
     </>
   )
 }
