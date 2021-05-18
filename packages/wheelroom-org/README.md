@@ -1,3 +1,0 @@
-# Wheelroom gatsby-starter
-
-TBW
