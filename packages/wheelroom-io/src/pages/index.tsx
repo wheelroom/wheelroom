@@ -19,7 +19,7 @@ const HomePage = (props: PageProps) => {
     <>
       <Global styles={globalReset} />
       <Div css={objectStyles}>
-        Gatsby + TypeScript + Emotion + Normalize.css
+        Gatsby + TypeScript + Any (emotion/normalize.css)
       </Div>
       <GraphqlBuildTime />
     </>
