@@ -5,11 +5,10 @@ import { DataBlock } from './data-block'
 
 const dataId = graphql`
   query buildTime {
-    allContentfulTest {
-      edges {
-        node {
+    contentful {
+      testCollection {
+        items {
           heading
-          id
         }
       }
     }
