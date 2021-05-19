@@ -15,6 +15,7 @@
   "dependencies": {
     "@wheelroom/any": "6.18.7",
     "gatsby-source-graphql": "3.5.0",
+    "gatsby-source-contentful": "5.5.0",
     "gatsby": "3.4.1"
   }
 }

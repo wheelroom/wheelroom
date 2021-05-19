@@ -1,4 +1,3 @@
-import { PageProps } from 'gatsby'
 import { AnyStyle, Div } from '@wheelroom/any/elements'
 import { Global } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
@@ -14,8 +13,7 @@ export const objectStyles: AnyStyle = {
   fontSize: 32,
 }
 
-const HomePage = (props: PageProps) => {
-  console.log('Page props', props)
+const HomePage = () => {
   return (
     <>
       <Global styles={globalReset} />

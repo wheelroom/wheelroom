@@ -1,6 +1,7 @@
 import { Pre } from '@wheelroom/any/elements'
 
 export const preStyle = {
+  display: 'flex',
   padding: 8,
   backgroundColor: '#eee',
   overflow: 'scroll',
