@@ -1,17 +1,17 @@
 import { AnyStyle, Div } from '@wheelroom/any/elements'
 
-const objectStyles: AnyStyle = {
+const objectStyle: AnyStyle = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
   “Segoe UI”, “Roboto”, “Oxygen”,
   “Ubuntu”, “Cantarell”, “Fira Sans”,
   “Droid Sans”, “Helvetica Neue”, sans-serif`,
   padding: 16,
-  fontSize: 24,
+  fontSize: 16,
 }
 
 const HomePage = () => {
   return (
-    <Div css={objectStyles}>Next + TypeScript + Emotion + Normalize.css</Div>
+    <Div css={objectStyle}>Next + TypeScript + Emotion + Normalize.css</Div>
   )
 }
 
