@@ -20,10 +20,7 @@ const globals = {
 const external = Object.keys(globals)
 
 const inputFiles = [
-  { name: 'camel-to-dash', ext: 'ts', id: 'camelToDash' },
-  { name: 'css-obj-to-vars', ext: 'ts', id: 'cssObjToVars' },
-  { name: 'style-element', ext: 'tsx', id: 'styleElement' },
-  { name: 'set-css-vars', ext: 'ts', id: 'setCssVars' },
+  { name: 'static/set-css-vars', ext: 'ts', id: 'setCssVars' },
 ]
 
 export default inputFiles.map((file) => {
@@ -43,16 +40,8 @@ export default inputFiles.map((file) => {
       {
         banner,
         exports: 'named',
-        file: `./build/${file.name}.mjs`,
-        format: 'es',
-        globals,
-        sourcemap: false,
-      },
-      {
-        banner,
-        exports: 'named',
-        file: `./build/${file.name}.js`,
-        format: 'cjs',
+        file: `./${file.name}.js`,
+        format: 'umd',
         globals,
         sourcemap: false,
       },
@@ -65,7 +54,7 @@ export default inputFiles.map((file) => {
         extensions: ['.js', '.ts'],
       }),
       // so Rollup can convert TypeScript to JavaScript
-      pluginTypescript({ tsconfig: 'tsconfig.packages.json' }),
+      pluginTypescript({ tsconfig: 'tsconfig.static.json' }),
     ],
   }
 })

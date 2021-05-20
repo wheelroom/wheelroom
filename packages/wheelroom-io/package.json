@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npm-run-all clean",
     "build:compile": "gatsby build",
+    "build:static": "rollup --config",
     "build:lint": "eslint 'src/**/*.{ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
     "clean": "gatsby clean",
