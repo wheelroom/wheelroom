@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "jsx": "react-jsx",
+    "sourceMap": false,
+  },
+  "extends": "../tsconfig.packages.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}

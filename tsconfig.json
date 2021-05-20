@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@wheelroom/any/*": ["packages/any/src/*"],
-      "@wheelroom/make/*": ["packages/make/src/*"]
+      "@wheelroom/make/*": ["packages/make/src/*"],
+      "@wheelroom/css-theme/*": ["packages/css-theme/src/*"]
     }
   },
   "extends": "./packages/tsconfig.packages.json"
