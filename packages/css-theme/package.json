@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/css-theme",
-  "version": "1.0.0",
+  "version": "6.20.3",
   "description": "Library for working with css theme variables",
   "exports": {
     "./*": "./build/*.js"
