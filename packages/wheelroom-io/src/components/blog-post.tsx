@@ -1,5 +1,6 @@
 import { H1, P } from '@wheelroom/any/elements'
 import { graphql, PageProps } from 'gatsby'
+import { fontStyle } from '../pages/index'
 import { DataBlock } from './data-block'
 
 interface BlogQuery {
@@ -24,11 +25,10 @@ type BlogProps = PageProps<BlogQuery, BlogPageContext>
 
 const Blog = (props: BlogProps) => {
   const blog = props.data.contentful.blog
-
   return (
     <>
-      <H1>{props.pageContext.blogTitle}</H1>
-      <P>{blog.abstract}</P>
+      <H1 css={fontStyle}>{props.pageContext.blogTitle}</H1>
+      <P css={fontStyle}>{blog.abstract}</P>
       <DataBlock data={blog} />
     </>
   )
