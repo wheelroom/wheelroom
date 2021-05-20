@@ -1,12 +1,34 @@
-import { graphql } from 'gatsby'
+import { H1, P } from '@wheelroom/any/elements'
+import { graphql, PageProps } from 'gatsby'
 import { DataBlock } from './data-block'
 
-const Blog = (props: any) => {
+interface BlogQuery {
+  contentful: {
+    blog: {
+      title: string
+      heading: string
+      slug: string
+      abstract: string
+      jacco: unknown
+    }
+  }
+}
+
+interface BlogPageContext {
+  /** Yaay! 🎉 We can include TypeScript comments ... */
+  blogTitle: string
+}
+
+/** BlogProps is adding types, like GraphQL Query and PageContext */
+type BlogProps = PageProps<BlogQuery, BlogPageContext>
+
+const Blog = (props: BlogProps) => {
   const blog = props.data.contentful.blog
 
   return (
     <>
-      <h1>{props.pageContext.blogTitle}</h1>
+      <H1>{props.pageContext.blogTitle}</H1>
+      <P>{blog.abstract}</P>
       <DataBlock data={blog} />
     </>
   )
