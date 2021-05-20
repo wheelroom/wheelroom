@@ -1,31 +1,46 @@
-import { AnyStyle, Div } from '@wheelroom/any/elements'
-import { Global } from '@emotion/react'
+import { AnyStyle, Div, H1 } from '@wheelroom/any/elements'
+import { Global, Interpolation } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
-import React from 'react'
 import GraphqlBuildTime from '../components/graphql-build-time'
 
-export const objectStyles: AnyStyle = {
+export const fontStyle: AnyStyle = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
   “Segoe UI”, “Roboto”, “Oxygen”,
   “Ubuntu”, “Cantarell”, “Fira Sans”,
   “Droid Sans”, “Helvetica Neue”, sans-serif`,
-  fontWeight: 'normal',
-  padding: 16,
-  fontSize: 16,
 }
 
-const Block = (props: any) => (
-  <Div css={{ width: '350px', height: '30px' }} {...props} />
+const blockStyle: AnyStyle = [
+  fontStyle,
+  {
+    width: 350,
+    height: 30,
+  },
+]
+
+interface BlockProps {
+  children?: React.ReactNode
+  css?: Interpolation<unknown>
+}
+
+const Block = ({ children, ...props }: BlockProps) => (
+  <Div css={blockStyle} {...props}>
+    {children}
+  </Div>
 )
 
 const HomePage = () => {
   return (
     <>
       <Global styles={globalReset} />
-      <Div css={objectStyles}>
-        <h1>Gatsby + TypeScript + Any (emotion/normalize.css)</h1>
+      <Div css={{ padding: 16 }}>
+        <H1 css={fontStyle}>
+          Gatsby + TypeScript + Any (emotion/normalize.css)
+        </H1>
         <GraphqlBuildTime />
-        <Block css={{ backgroundColor: 'var(--colors-berry)' }} />
+        <Block css={{ backgroundColor: 'var(--colors-berry)' }}>
+          Taste the rainbow!
+        </Block>
         <Block css={{ backgroundColor: 'var(--colors-orange)' }} />
         <Block css={{ backgroundColor: 'var(--colors-mango)' }} />
         <Block css={{ backgroundColor: 'var(--colors-banana)' }} />
