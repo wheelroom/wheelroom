@@ -10,7 +10,7 @@ export const objectStyles: AnyStyle = {
   “Droid Sans”, “Helvetica Neue”, sans-serif`,
   fontWeight: 'normal',
   padding: 16,
-  fontSize: 32,
+  fontSize: 16,
 }
 
 const HomePage = () => {
@@ -18,9 +18,9 @@ const HomePage = () => {
     <>
       <Global styles={globalReset} />
       <Div css={objectStyles}>
-        Gatsby + TypeScript + Any (emotion/normalize.css)
+        <h1>Gatsby + TypeScript + Any (emotion/normalize.css)</h1>
+        <GraphqlBuildTime />
       </Div>
-      <GraphqlBuildTime />
     </>
   )
 }
