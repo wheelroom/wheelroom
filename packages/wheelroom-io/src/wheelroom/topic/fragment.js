@@ -21,9 +21,6 @@ export const fragment = graphql`
     media {
       title
       description
-      fluid {
-        ...GatsbyContentfulFluid
-      }
       file {
         url
         fileName
@@ -45,9 +42,6 @@ export const fragment = graphql`
     poster {
       title
       description
-      fluid {
-        ...GatsbyContentfulFluid
-      }
       file {
         url
         fileName

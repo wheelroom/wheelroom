@@ -44,21 +44,17 @@ const PageTemplate = (props: any) => {
   }
 
   const globals: GlobalsModel = props.data.globals
-  const blog: BlogModel = props.data.blog
-  const allBlog: AllBlogModel = props.data.allBlog
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const siteMetadata: CoreSiteMetadata = props.data.site.siteMetadata
   const siteVersion = siteMetadata.siteVersion
   const sections = page.sections
-  const sectionProps: SectionsProps = {
+  const sectionProps: any = {
     locale,
     namedPaths,
     activeThemeId,
 
     globals,
-    blog,
-    allBlog,
     page,
     siteMetadata,
 
@@ -68,30 +64,17 @@ const PageTemplate = (props: any) => {
 
   const pageImageSrc =
     (page.seoImage && page.seoImage.fluid && page.seoImage.fluid.src) || ''
-  const blogImageSrc =
-    (blog && blog.seoImage && blog.seoImage.fluid && blog.seoImage.fluid.src) ||
-    ''
   const siteImageSrc =
     (globals.siteImage &&
       globals.siteImage.fluid &&
       globals.siteImage.fluid.src) ||
     ''
-  const blogAuthor =
-    (blog &&
-      Array.isArray(blog.authors) &&
-      blog.authors.length > 0 &&
-      blog.authors[0].heading) ||
-    ''
   const seoProps: SeoProps = {
-    authorArray: [blogAuthor, globals.siteAuthor],
-    descriptionArray: [
-      page.seoDescription,
-      blog && blog.seoDescription,
-      globals.siteDescription,
-    ],
-    headingArray: [page.seoTitle, blog.seoTitle, globals.siteHeading],
-    imageSrcArray: [pageImageSrc, blogImageSrc, siteImageSrc],
-    keywordsArray: [page.seoKeywords, blog.seoKeywords, globals.siteKeywords],
+    authorArray: [globals.siteAuthor],
+    descriptionArray: [page.seoDescription, globals.siteDescription],
+    headingArray: [page.seoTitle, globals.siteHeading],
+    imageSrcArray: [pageImageSrc, siteImageSrc],
+    keywordsArray: [page.seoKeywords, globals.siteKeywords],
     locale,
     meta: [],
     siteVersion,
@@ -120,39 +103,29 @@ const PageTemplate = (props: any) => {
 
 export default PageTemplate
 
-export const query = graphql`
-  query($pageId: String, $globalsId: String, $blogId: String) {
-    site {
-      siteMetadata {
-        siteVersion
-        siteUrl
-        legal {
-          version
-          description
-          url
-        }
-        secrets {
-          spaceId
-          previewToken
-          environment
-        }
-      }
-    }
-    page: contentfulPage(id: { eq: $pageId }) {
-      ...Page
-    }
-    globals: contentfulGlobals(id: { eq: $globalsId }) {
-      ...Globals
-    }
-    blog: contentfulBlog(id: { eq: $blogId }) {
-      ...Blog
-    }
-    allBlog: allContentfulBlog(sort: { fields: date, order: DESC }) {
-      edges {
-        node {
-          ...Blog
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query($pageId: String, $globalsId: String) {
+//     site {
+//       siteMetadata {
+//         siteVersion
+//         siteUrl
+//         legal {
+//           version
+//           description
+//           url
+//         }
+//         secrets {
+//           spaceId
+//           previewToken
+//           environment
+//         }
+//       }
+//     }
+//     page: contentfulPage(id: { eq: $pageId }) {
+//       ...Page
+//     }
+//     globals: contentfulGlobals(id: { eq: $globalsId }) {
+//       ...Globals
+//     }
+//   }
+// `

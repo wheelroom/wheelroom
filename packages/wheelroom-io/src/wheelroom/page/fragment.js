@@ -1,14 +1,3 @@
-/* eslint-disable prettier/prettier */
-/**
- * Graphql fragment definition
- *
- * These fragments define the component fields. Gatsby resolves this file
- * by scanning the src folder, then adds the fragments to the main page query.
- *
- *
- * Component: page
- */
-
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
@@ -21,7 +10,6 @@ export const fragment = graphql`
         ...TextSection
         ...NavigationSection
         ...TableSection
-        ...BlogSection
       }
     }
     theme
@@ -30,9 +18,6 @@ export const fragment = graphql`
     seoImage {
       title
       description
-      fluid {
-        ...GatsbyContentfulFluid
-      }
       file {
         url
         fileName

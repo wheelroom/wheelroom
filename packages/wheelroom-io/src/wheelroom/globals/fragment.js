@@ -21,9 +21,6 @@ export const fragment = graphql`
     siteImage {
       title
       description
-      fluid {
-        ...GatsbyContentfulFluid
-      }
       file {
         url
         fileName

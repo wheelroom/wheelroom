@@ -17,9 +17,6 @@ export const fragment = graphql`
     small {
       title
       description
-      fluid {
-        ...GatsbyContentfulFluid
-      }
       file {
         url
         fileName
@@ -35,9 +32,6 @@ export const fragment = graphql`
     medium {
       title
       description
-      fluid {
-        ...GatsbyContentfulFluid
-      }
       file {
         url
         fileName
@@ -53,9 +47,6 @@ export const fragment = graphql`
     large {
       title
       description
-      fluid {
-        ...GatsbyContentfulFluid
-      }
       file {
         url
         fileName
@@ -71,9 +62,6 @@ export const fragment = graphql`
     extraLarge {
       title
       description
-      fluid {
-        ...GatsbyContentfulFluid
-      }
       file {
         url
         fileName
