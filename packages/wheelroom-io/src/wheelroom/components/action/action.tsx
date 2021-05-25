@@ -82,7 +82,6 @@ const ActionGlink = (props: ActionProps) => {
 // TODO: Add icon styling
 const ActionAlink = (props: ActionProps) => {
   const globals: any = useGlobals()
-  console.log(globals)
   const heading = props.children ? props.children : props.node.heading
   return (
     <A
