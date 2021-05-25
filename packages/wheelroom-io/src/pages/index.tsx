@@ -1,7 +1,9 @@
 import { AnyStyle, Div, H1 } from '@wheelroom/any/elements'
 import { Global, Interpolation } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
+import React from 'react'
 import GraphqlBuildTime from '../components/graphql-build-time'
+import { FeatherIcon } from '../components/feather-icon'
 
 export const fontStyle: AnyStyle = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
@@ -29,6 +31,8 @@ const Block = ({ children, ...props }: BlockProps) => (
   </Div>
 )
 
+const iconAttrs = { width: 50, height: 50 }
+
 const HomePage = () => {
   return (
     <>
@@ -47,6 +51,32 @@ const HomePage = () => {
         <Block css={{ backgroundColor: 'var(--colors-kiwi)' }} />
         <Block css={{ backgroundColor: 'var(--colors-apple)' }} />
         <Block css={{ backgroundColor: 'var(--colors-melon)' }} />
+      </Div>
+      <Div>
+        <FeatherIcon
+          name="arrow-right-circle"
+          attrs={{ ...iconAttrs, color: 'var(--colors-orange)' }}
+        />
+        <FeatherIcon
+          name="arrow-right-circle"
+          attrs={{ ...iconAttrs, color: 'var(--colors-mango)' }}
+        />
+        <FeatherIcon
+          name="arrow-right-circle"
+          attrs={{ ...iconAttrs, color: 'var(--colors-banana)' }}
+        />
+        <FeatherIcon
+          name="arrow-right-circle"
+          attrs={{ ...iconAttrs, color: 'var(--colors-kiwi)' }}
+        />
+        <FeatherIcon
+          name="arrow-right-circle"
+          attrs={{ ...iconAttrs, color: 'var(--colors-apple)' }}
+        />
+        <FeatherIcon
+          name="arrow-right-circle"
+          attrs={{ ...iconAttrs, color: 'var(--colors-melon)' }}
+        />
       </Div>
     </>
   )

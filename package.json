@@ -90,5 +90,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@types/feather-icons": "4.7.0"
   }
 }
