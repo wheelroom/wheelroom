@@ -1,25 +1,17 @@
-/**
- * Component variation
- *
- * Component type: action
- * Variation: Single
- *
- */
-
 import React, { useContext } from 'react'
-import { ActionModel } from './model'
-import { ActionNcssTree } from './ncss-tree'
-import { AdminCoreContext, AdminCoreState } from '@wheelroom/admin-core'
-import { ALink } from '../../elements/a-link'
-import { Any } from '../../elements/any'
-import { EmbedModel } from '../embed/model'
-import { FeatherIcon } from '../../elements/icon'
-import { getPreviewPageStore } from '@wheelroom/admin-page-preview'
-import { GLink } from '../../elements/g-link'
-import { Wheel } from '../../lib/wheel'
+import { Any } from '@wheelroom/any/Any'
+import { A } from '@wheelroom/any/elements'
 
-export interface ActionWheel extends Wheel {
-  style: ActionNcssTree
+export interface ActionModel {
+  __typename?: string
+  anchor?: string
+  description?: string
+  eventId?: string
+  heading?: string
+  icon?: string
+  page?: any
+  query?: string
+  url?: any
 }
 
 export interface ActionProps extends ActionModel {
