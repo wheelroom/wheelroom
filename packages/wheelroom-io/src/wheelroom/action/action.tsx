@@ -1,6 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Any } from '@wheelroom/any/Any'
 import { A } from '@wheelroom/any/elements'
+import { Link } from 'gatsby'
+import { EmbedModel } from '../embed/embed'
+import { FeatherIcon } from '../../components/feather-icon'
 
 export interface ActionModel {
   __typename?: string
@@ -15,7 +18,6 @@ export interface ActionModel {
 }
 
 export interface ActionProps extends ActionModel {
-  wheel: ActionWheel
   children?: any
   key?: any
   hideIcon?: boolean
@@ -35,97 +37,58 @@ const createURL = (action: ActionProps, isPreviewMode: boolean) => {
   return url
 }
 
-const onClickHander = (
-  eventId: string | undefined,
-  adminCoreState: AdminCoreState
-) => {
-  const globals =
-    adminCoreState.pageProps && adminCoreState.pageProps.data.globals
-  if (globals && globals.siteEmbeds && Array.isArray(globals.siteEmbeds)) {
-    globals.siteEmbeds.forEach((embed: EmbedModel) => {
-      if (embed.code && embed.type === 'js-action') {
-        Function(
-          'eventId',
-          'props',
-          embed.code.code
-        )(eventId, adminCoreState.pageProps)
-      }
-    })
-  }
+const onClickHander = (eventId: string | undefined) => {
+  // TODO: Where to get global site embeds and page props?
+  const siteEmbeds = [] as any[]
+  const pageProps = {}
+
+  siteEmbeds.forEach((embed: EmbedModel) => {
+    if (embed.code && embed.type === 'js-action') {
+      Function('eventId', 'props', embed.code.code)(eventId, pageProps)
+    }
+  })
 }
 
-const isPreviewMode = (adminCoreState: AdminCoreState): boolean => {
-  const store = getPreviewPageStore(adminCoreState)
-  return !!(store && store.state.inPreviewMode)
-}
+// TODO: Where to get previewMode?
+const isPreviewMode = false
 
+// TODO: Add icon styling
 const ActionGlink = (props: ActionProps) => {
-  const { adminCoreState } = useContext(AdminCoreContext)
   const heading = props.children ? props.children : props.heading
   return (
-    <GLink
-      ariaLabel={props.description}
-      onClick={() => onClickHander(props.eventId, adminCoreState)}
-      to={createURL(props, isPreviewMode(adminCoreState))}
-      wheel={props.wheel}
+    <Link
+      // ariaLabel={props.description}
+      onClick={() => onClickHander(props.eventId)}
+      to={createURL(props, isPreviewMode)}
     >
       {!props.hideHeading && heading}
-      {props.icon && !props.hideIcon && (
-        <FeatherIcon
-          icon={props.icon}
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.icon,
-          }}
-        />
-      )}
-    </GLink>
+      {props.icon && !props.hideIcon && <FeatherIcon name={props.icon} />}
+    </Link>
   )
 }
 
+// TODO: Add icon styling
 const ActionAlink = (props: ActionProps) => {
-  const { adminCoreState } = useContext(AdminCoreContext)
   const heading = props.children ? props.children : props.heading
   return (
-    <ALink
-      ariaLabel={props.description}
-      href={createURL(props, isPreviewMode(adminCoreState))}
-      onClick={() => onClickHander(props.eventId, adminCoreState)}
-      wheel={props.wheel}
+    <A
+      // ariaLabel={props.description}
+      href={createURL(props, isPreviewMode)}
+      onClick={() => onClickHander(props.eventId)}
     >
       {!props.hideHeading && heading}
-      {props.icon && !props.hideIcon && (
-        <FeatherIcon
-          icon={props.icon}
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.icon,
-          }}
-        />
-      )}
-    </ALink>
+      {props.icon && !props.hideIcon && <FeatherIcon name={props.icon} />}
+    </A>
   )
 }
 
+// TODO: Add icon styling
 const NoLink = (props: ActionProps) => {
   const heading = props.children ? props.children : props.heading
   return (
-    <Any
-      is="span"
-      wheel={props.wheel}
-      ariaLabel={props.description}
-      polyPreset={true}
-    >
+    <Any is="span" ariaLabel={props.description} polyPreset={true}>
       {!props.hideHeading && heading}
-      {props.icon && !props.hideIcon && (
-        <FeatherIcon
-          icon={props.icon}
-          wheel={{
-            ...props.wheel,
-            style: props.wheel.style.icon,
-          }}
-        />
-      )}
+      {props.icon && !props.hideIcon && <FeatherIcon name={props.icon} />}
     </Any>
   )
 }
