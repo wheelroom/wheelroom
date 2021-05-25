@@ -7,17 +7,19 @@ export type EmbedType =
   | 'js-page-section'
   | 'js-page'
 
-export interface EmbedModel {
+export type EmbedNode = {
   code?: {
     code: string
   }
   type?: EmbedType
 }
-export type EmbedProps = EmbedModel
+export interface EmbedProps {
+  node: EmbedNode
+}
 
 export const Embed = (props: EmbedProps) => {
-  const __html = (props.code && props.code.code) || ''
-  if (props.type === 'html') {
+  const __html = (props.node.code && props.node.code.code) || ''
+  if (props.node.type === 'html') {
     return <Any is="div" dangerouslySetInnerHTML={{ __html }} />
   }
   return null

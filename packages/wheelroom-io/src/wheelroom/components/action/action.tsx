@@ -2,7 +2,7 @@ import React from 'react'
 import { Any } from '@wheelroom/any/Any'
 import { A } from '@wheelroom/any/elements'
 import { Link } from 'gatsby'
-import { EmbedModel } from '../embed/embed'
+import { EmbedNode } from '../embed/embed'
 import { FeatherIcon } from '../feather-icon'
 import { useGlobals } from '../../lib/globals-provider'
 
@@ -44,7 +44,7 @@ const onClickHander = (eventId: string | undefined) => {
   const siteEmbeds = [] as any[]
   const pageProps = {}
 
-  siteEmbeds.forEach((embed: EmbedModel) => {
+  siteEmbeds.forEach((embed: EmbedNode) => {
     if (embed.code && embed.type === 'js-action') {
       Function('eventId', 'props', embed.code.code)(eventId, pageProps)
     }
