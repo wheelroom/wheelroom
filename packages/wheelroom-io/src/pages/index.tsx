@@ -5,6 +5,7 @@ import React from 'react'
 import GraphqlBuildTime from '../components/graphql-build-time'
 import { FeatherIcon } from '../wheelroom/components/feather-icon'
 import { GlobalsProvider } from '../wheelroom/lib/globals-provider'
+import { Action } from '../wheelroom/components/action/action'
 
 export const fontStyle: AnyStyle = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
@@ -83,6 +84,9 @@ const HomePage = () => {
           name="arrow-right-circle"
           attrs={{ ...iconAttrs, color: 'var(--colors-melon)' }}
         />
+      </Div>
+      <Div>
+        <Action node={{ url: '//wheelroom.io', heading: 'Action me'  }} />
       </Div>
     </GlobalsProvider>
   )

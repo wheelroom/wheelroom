@@ -27,43 +27,49 @@ export interface ActionProps {
   onClick?: () => any
 }
 
-const createURL = (action: ActionProps, isPreviewMode: boolean) => {
-  const hasQuery = action.node.query || isPreviewMode
-  let url: any = action.node.page ? action.node.page.path : action.node.url
+interface CreateURL {
+  action: ActionNode
+  isPreviewMode: boolean
+}
+
+const createURL = ({ action, isPreviewMode }: CreateURL) => {
+  const hasQuery = action.query || isPreviewMode
+  let url: any = action.page ? action.page.path : action.url
   if (hasQuery) {
     url += '?'
     url += isPreviewMode ? '&preview=true' : ''
-    url += action.node.query || ''
+    url += action.query || ''
   }
-  url += action.node.anchor ? '#' + action.node.anchor : ''
+  url += action.anchor ? '#' + action.anchor : ''
   return url
 }
 
-const onClickHander = (eventId: string | undefined) => {
-  // TODO: Where to get global site embeds and page props?
-  const siteEmbeds = [] as any[]
-  const pageProps = {}
+interface OnClickHander {
+  eventId: string | undefined
+  globals: any
+}
 
+const onClickHander = ({ eventId, globals }: OnClickHander) => {
+  const siteEmbeds = globals.siteEmbeds || []
   siteEmbeds.forEach((embed: EmbedNode) => {
     if (embed.code && embed.type === 'js-action') {
-      Function('eventId', 'props', embed.code.code)(eventId, pageProps)
+      Function('eventId', 'props', embed.code.code)(eventId, globals)
     }
   })
 }
 
-// TODO: Where to get previewMode?
-const isPreviewMode = false
-
 // TODO: Add icon styling
 const ActionGlink = (props: ActionProps) => {
-  const globals = useGlobals()
-  console.log(globals)
+  const globals: any = useGlobals()
   const heading = props.children ? props.children : props.node.heading
   return (
     <Link
       // ariaLabel={props.description}
-      onClick={() => onClickHander(props.node.eventId)}
-      to={createURL(props, isPreviewMode)}
+      onClick={() => onClickHander({ eventId: props.node.eventId, globals })}
+      to={createURL({
+        action: props.node,
+        isPreviewMode: globals.isPreviewMode,
+      })}
     >
       {!props.hideHeading && heading}
       {props.node.icon && !props.hideIcon && (
@@ -75,12 +81,17 @@ const ActionGlink = (props: ActionProps) => {
 
 // TODO: Add icon styling
 const ActionAlink = (props: ActionProps) => {
+  const globals: any = useGlobals()
+  console.log(globals)
   const heading = props.children ? props.children : props.node.heading
   return (
     <A
       // ariaLabel={props.description}
-      href={createURL(props, isPreviewMode)}
-      onClick={() => onClickHander(props.node.eventId)}
+      href={createURL({
+        action: props.node,
+        isPreviewMode: globals.isPreviewMode,
+      })}
+      onClick={() => onClickHander({ eventId: props.node.eventId, globals })}
     >
       {!props.hideHeading && heading}
       {props.node.icon && !props.hideIcon && (
