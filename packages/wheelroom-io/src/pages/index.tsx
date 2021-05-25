@@ -86,7 +86,7 @@ const HomePage = () => {
         />
       </Div>
       <Div>
-        <Action node={{ url: '//wheelroom.io', heading: 'Action me'  }} />
+        <Action node={{ url: '//wheelroom.io', heading: 'Action me' }} />
       </Div>
     </GlobalsProvider>
   )
