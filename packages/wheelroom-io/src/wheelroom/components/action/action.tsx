@@ -3,9 +3,10 @@ import { Any } from '@wheelroom/any/Any'
 import { A } from '@wheelroom/any/elements'
 import { Link } from 'gatsby'
 import { EmbedModel } from '../embed/embed'
-import { FeatherIcon } from '../../components/feather-icon'
+import { FeatherIcon } from '../feather-icon'
+import { useGlobals } from '../../lib/globals-provider'
 
-export interface ActionModel {
+export interface ActionNode {
   __typename?: string
   anchor?: string
   description?: string
@@ -17,23 +18,24 @@ export interface ActionModel {
   url?: any
 }
 
-export interface ActionProps extends ActionModel {
+export interface ActionProps {
   children?: any
-  key?: any
-  hideIcon?: boolean
   hideHeading?: boolean
+  hideIcon?: boolean
+  key?: any
+  node: ActionNode
   onClick?: () => any
 }
 
 const createURL = (action: ActionProps, isPreviewMode: boolean) => {
-  const hasQuery = action.query || isPreviewMode
-  let url: any = action.page ? action.page.path : action.url
+  const hasQuery = action.node.query || isPreviewMode
+  let url: any = action.node.page ? action.node.page.path : action.node.url
   if (hasQuery) {
     url += '?'
     url += isPreviewMode ? '&preview=true' : ''
-    url += action.query || ''
+    url += action.node.query || ''
   }
-  url += action.anchor ? '#' + action.anchor : ''
+  url += action.node.anchor ? '#' + action.node.anchor : ''
   return url
 }
 
@@ -54,49 +56,57 @@ const isPreviewMode = false
 
 // TODO: Add icon styling
 const ActionGlink = (props: ActionProps) => {
-  const heading = props.children ? props.children : props.heading
+  const globals = useGlobals()
+  console.log(globals)
+  const heading = props.children ? props.children : props.node.heading
   return (
     <Link
       // ariaLabel={props.description}
-      onClick={() => onClickHander(props.eventId)}
+      onClick={() => onClickHander(props.node.eventId)}
       to={createURL(props, isPreviewMode)}
     >
       {!props.hideHeading && heading}
-      {props.icon && !props.hideIcon && <FeatherIcon name={props.icon} />}
+      {props.node.icon && !props.hideIcon && (
+        <FeatherIcon name={props.node.icon} />
+      )}
     </Link>
   )
 }
 
 // TODO: Add icon styling
 const ActionAlink = (props: ActionProps) => {
-  const heading = props.children ? props.children : props.heading
+  const heading = props.children ? props.children : props.node.heading
   return (
     <A
       // ariaLabel={props.description}
       href={createURL(props, isPreviewMode)}
-      onClick={() => onClickHander(props.eventId)}
+      onClick={() => onClickHander(props.node.eventId)}
     >
       {!props.hideHeading && heading}
-      {props.icon && !props.hideIcon && <FeatherIcon name={props.icon} />}
+      {props.node.icon && !props.hideIcon && (
+        <FeatherIcon name={props.node.icon} />
+      )}
     </A>
   )
 }
 
 // TODO: Add icon styling
 const NoLink = (props: ActionProps) => {
-  const heading = props.children ? props.children : props.heading
+  const heading = props.children ? props.children : props.node.heading
   return (
-    <Any is="span" ariaLabel={props.description} polyPreset={true}>
+    <Any is="span" ariaLabel={props.node.description} polyPreset={true}>
       {!props.hideHeading && heading}
-      {props.icon && !props.hideIcon && <FeatherIcon name={props.icon} />}
+      {props.node.icon && !props.hideIcon && (
+        <FeatherIcon name={props.node.icon} />
+      )}
     </Any>
   )
 }
 
 export const Action = (props: ActionProps) => {
-  if (props.page) {
+  if (props.node.page) {
     return <ActionGlink {...props} />
-  } else if (props.url) {
+  } else if (props.node.url) {
     return <ActionAlink {...props} />
   } else {
     return <NoLink {...props} />

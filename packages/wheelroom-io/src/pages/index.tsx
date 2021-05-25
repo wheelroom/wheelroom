@@ -3,7 +3,8 @@ import { Global, Interpolation } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
 import React from 'react'
 import GraphqlBuildTime from '../components/graphql-build-time'
-import { FeatherIcon } from '../components/feather-icon'
+import { FeatherIcon } from '../wheelroom/components/feather-icon'
+import { GlobalsProvider } from '../wheelroom/lib/globals-provider'
 
 export const fontStyle: AnyStyle = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
@@ -33,9 +34,14 @@ const Block = ({ children, ...props }: BlockProps) => (
 
 const iconAttrs = { width: 50, height: 50 }
 
+const globals = {
+  usePreview: false,
+  testString: 'test-success',
+}
+
 const HomePage = () => {
   return (
-    <>
+    <GlobalsProvider value={globals}>
       <Global styles={globalReset} />
       <Div css={{ padding: 16 }}>
         <H1 css={fontStyle}>
@@ -78,7 +84,7 @@ const HomePage = () => {
           attrs={{ ...iconAttrs, color: 'var(--colors-melon)' }}
         />
       </Div>
-    </>
+    </GlobalsProvider>
   )
 }
 
