@@ -12,6 +12,10 @@ export const getHasValidToken = async ({ subCommand }: GetHasValidToken) => {
   const username = await githubUserName({
     token: process.env.GITHUB_TOKEN || '',
   })
+  if (username === 'none') {
+    console.log('Could not authenticate with Github')
+    return false
+  }
   console.log(`Checking token permissions level for Github user ${username}`)
 
   const remoteOriginUrl = <string>await getGit({ key: 'remoteOriginUrl' })

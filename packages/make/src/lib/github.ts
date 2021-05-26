@@ -46,13 +46,19 @@ export const githubCollaboratorPermissionLevel = async ({
   owner,
   repo,
 }: GithubAccess) => {
-  const octokit = new Octokit({ auth: token })
-  const result = await octokit.rest.repos.getCollaboratorPermissionLevel({
-    owner,
-    repo,
-    username,
-  })
-  const level = (result && result.data && result.data.permission) || 'none'
+  let response
+  try {
+    const octokit = new Octokit({ auth: token })
+    response = await octokit.rest.repos.getCollaboratorPermissionLevel({
+      owner,
+      repo,
+      username,
+    })
+  } catch (e) {
+    console.log('Invalid github token')
+  }
+  const level =
+    (response && response.data && response.data.permission) || 'none'
   return level as PermissionLevel
 }
 
@@ -61,7 +67,12 @@ interface GithubUserName {
 }
 
 export const githubUserName = async ({ token }: GithubUserName) => {
-  const octokit = new Octokit({ auth: token })
-  const result = await octokit.rest.users.getAuthenticated()
-  return (result && result.data && result.data.login) || 'none'
+  let response
+  try {
+    const octokit = new Octokit({ auth: token })
+    response = await octokit.rest.users.getAuthenticated()
+  } catch (e) {
+    console.log('Invalid github token')
+  }
+  return (response && response.data && response.data.login) || 'none'
 }
