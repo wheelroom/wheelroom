@@ -8,6 +8,13 @@
  *
  */
 
+import dotenv from 'dotenv'
+
+// Will read GITHUB_TOKEN from .env.developemnt
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`,
+})
+
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import { releaseCommand } from './packages/make/build/commands/release-command.js'
