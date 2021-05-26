@@ -1,10 +1,13 @@
 /**
- * A note on removing the 'exports' key in the 'updatePackage' before
+ * A note on removing the 'exports' & 'typesVersions' key in the 'updatePackage' before
  * publishing. In the package folder we use a package.json with:
  * ```
  *  "exports": {
  *    "./*": "./build/*.js"
  *  },
+ *  "typesVersions" {
+ *    "./*": './build/*'
+ *  }
  * ```
  * When we publish from the build folder the exported files are in the root and
  * we do not need this mapping anymore.
@@ -51,6 +54,7 @@ export const buildCloneDir = async ({ makeContext }: BuildMakeContext) => {
         license: rootNode.package.license,
         publishConfig: rootNode.package.publishConfig,
         repository: rootNode.package.repository,
+        typesVersions: undefined,
       },
     })
   }
