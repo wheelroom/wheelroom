@@ -30,3 +30,38 @@ export const githubRelease = async ({
     tag_name: tag,
   })
 }
+
+interface GithubAccess {
+  token: string
+  username: string
+  owner: string
+  repo: string
+}
+
+export type PermissionLevel = 'admin' | 'write' | 'read' | 'none'
+
+export const githubCollaboratorPermissionLevel = async ({
+  token,
+  username,
+  owner,
+  repo,
+}: GithubAccess) => {
+  const octokit = new Octokit({ auth: token })
+  const result = await octokit.rest.repos.getCollaboratorPermissionLevel({
+    owner,
+    repo,
+    username,
+  })
+  const level = (result && result.data && result.data.permission) || 'none'
+  return level as PermissionLevel
+}
+
+interface GithubUserName {
+  token: string
+}
+
+export const githubUserName = async ({ token }: GithubUserName) => {
+  const octokit = new Octokit({ auth: token })
+  const result = await octokit.rest.users.getAuthenticated()
+  return (result && result.data && result.data.login) || 'none'
+}

@@ -52,7 +52,7 @@ export const releaseCommand = async ({
     process.exit(0)
   }
 
-  const hasValidToken = getHasValidToken({ subCommand })
+  const hasValidToken = await getHasValidToken({ subCommand })
   if (!hasValidToken) {
     console.log("GITHUB_TOKEN needs to be set for 'publish' command")
     process.exit(0)
