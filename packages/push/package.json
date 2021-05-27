@@ -15,7 +15,7 @@
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:module": "rollup --config",
+    "build:compile": "rollup --config",
     "build:test": "jest --silent --passWithNoTests",
     "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
     "clean": "rimraf build/*",
