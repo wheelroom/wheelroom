@@ -23,6 +23,7 @@
   },
   "peerDependencies": {
     "react": "16.x || 17.x",
-    "react-dom": "16.x || 17.x"
+    "react-dom": "16.x || 17.x",
+    "tslib": "2.2.0"
   }
 }

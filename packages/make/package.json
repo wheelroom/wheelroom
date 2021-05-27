@@ -29,6 +29,7 @@
     "deepmerge": "4.2.2",
     "inquirer": "8.0.0",
     "semver": "7.3.5",
+    "tslib": "2.2.0",
     "yargs": "17.0.1"
   }
 }
