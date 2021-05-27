@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/css-theme",
-  "version": "6.20.3",
+  "version": "6.21.2",
   "description": "Library for working with css theme variables",
   "exports": {
     "./*": "./build/*.js"
@@ -22,7 +22,7 @@
     "dev": "rollup --config --watch"
   },
   "peerDependencies": {
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react": "16.x || 17.x",
+    "react-dom": "16.x || 17.x"
   }
 }
