@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/make",
-  "version": "6.21.1",
+  "version": "6.21.3",
   "description": "Make library for use with NPM 7 and @npmcli/arborist ",
   "exports": {
     "./*": "./build/*"
