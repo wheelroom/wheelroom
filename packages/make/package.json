@@ -3,7 +3,7 @@
   "version": "6.21.1",
   "description": "Make library for use with NPM 7 and @npmcli/arborist ",
   "exports": {
-    "./*": "./build/*.js"
+    "./*": "./build/*"
   },
   "typesVersions": {
     "*": {

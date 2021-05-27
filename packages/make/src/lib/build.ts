@@ -3,7 +3,7 @@
  * publishing. In the package folder we use a package.json with:
  * ```
  *  "exports": {
- *    "./*": "./build/*.js"
+ *    "./*": "./build/*"
  *  },
  *  "typesVersions" {
  *    "./*": './build/*'

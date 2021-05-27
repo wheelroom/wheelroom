@@ -3,7 +3,7 @@
   "version": "6.21.2",
   "description": "Library for working with css theme variables",
   "exports": {
-    "./*": "./build/*.js"
+    "./*": "./build/*"
   },
   "typesVersions": {
     "*": {

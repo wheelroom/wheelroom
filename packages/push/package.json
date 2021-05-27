@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Push Typescript models to a content platform",
   "exports": {
-    "./*": "./build/*.js"
+    "./*": "./build/*"
   },
   "typesVersions": {
     "*": {
