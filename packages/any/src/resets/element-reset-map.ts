@@ -193,16 +193,18 @@ const buttonReset: CSSObject = {
   /**
    * Remove the inner border and padding in Firefox.
    */
-  '&::-moz-focus-inner, &[type="button"]::-moz-focus-inner, &[type="reset"]::-moz-focus-inner, &[type="submit"]::-moz-focus-inner': {
-    borderStyle: 'none',
-    padding: 0,
-  },
+  '&::-moz-focus-inner, &[type="button"]::-moz-focus-inner, &[type="reset"]::-moz-focus-inner, &[type="submit"]::-moz-focus-inner':
+    {
+      borderStyle: 'none',
+      padding: 0,
+    },
   /**
    * Restore the focus styles unset by the previous rule.
    */
-  '&:-moz-focusring, &[type="button"]:-moz-focusring, &[type="reset"]:-moz-focusring, &[type="submit"]:-moz-focusring': {
-    outline: '1px dotted ButtonText',
-  },
+  '&:-moz-focusring, &[type="button"]:-moz-focusring, &[type="reset"]:-moz-focusring, &[type="submit"]:-moz-focusring':
+    {
+      outline: '1px dotted ButtonText',
+    },
 }
 
 const inputReset: CSSObject = {
@@ -223,9 +225,10 @@ const inputReset: CSSObject = {
   /**
    * Correct the cursor style of increment and decrement buttons in Chrome.
    */
-  '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button': {
-    height: 'auto',
-  },
+  '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
+    {
+      height: 'auto',
+    },
   /**
    * 1. Correct the odd appearance in Chrome and Safari.
    * 2. Correct the outline style in Safari.
