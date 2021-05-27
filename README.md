@@ -41,16 +41,22 @@ question or a feature request, please read our [contributing guidelines](./CONTR
 
 ## Root packages
 
+The root repo contains only packages needed for development. These are packages
+used by the IDE, linters, transpilers, test suits, etc. Packages used by the
+packages in this repo live in the package.json that is shipped with the actual
+package itself.
+
+E.g. React and Emotion should be dependencies of the actual package. This way
+every package in the mono repo can choose which version of React to use. Notable
+use case is Storybook which refuses to work with React 17.
+
 - babel
 - dotenv
-- emotion
 - eslint (import, prettier, react, react-hooks)
 - jest
-- node types
 - npm script helpers (npm-run-all, rimraf)
 - prettier
-- react
-- typescript
+- typescript and type packages
 - webpack (cli, dev-server, html-webpack-plugin)
 
 ## Known issues
