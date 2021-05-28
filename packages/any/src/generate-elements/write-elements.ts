@@ -8,9 +8,7 @@ export const writeElements = (elements: string[]) => {
   const folder = FOLDER
   fs.mkdirSync(folder, { recursive: true })
 
-  let data = `import { Interpolation, Theme } from '@emotion/react'
-import { Any, AnyProps } from './Any'
-export type AnyStyle = Interpolation<Theme>
+  let data = `import { Any, AnyProps } from './Any'
 
 `
   elements.forEach((element) => {

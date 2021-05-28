@@ -1,5 +1,4 @@
-import { Interpolation, jsx, Theme } from '@emotion/react'
-import { AnyStyle } from './elements'
+import { CSSObject, Interpolation, jsx, Theme } from '@emotion/react'
 import { anyReset } from './resets/any-reset'
 import { elementResetMap, ElementResetName } from './resets/element-reset-map'
 
@@ -34,6 +33,6 @@ export const AnyComponent: React.FC<any> = (props) => {
 
 export const Any: React.FC<any> = (props: any) => {
   const elementName: ElementResetName = props.is || 'div'
-  const elementReset: AnyStyle = elementResetMap[elementName]
+  const elementReset: CSSObject = elementResetMap[elementName]
   return <AnyComponent {...props} css={[anyReset, elementReset, props.css]} />
 }

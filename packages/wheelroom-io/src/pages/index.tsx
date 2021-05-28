@@ -1,5 +1,5 @@
-import { AnyStyle, Div, H1 } from '@wheelroom/any/elements'
-import { Global, Interpolation } from '@emotion/react'
+import { Div, H1 } from '@wheelroom/any/elements'
+import { CSSObject, Global, Interpolation } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
 import React from 'react'
 import GraphqlBuildTime from '../components/graphql-build-time'
@@ -7,14 +7,14 @@ import { FeatherIcon } from '../wheelroom/components/feather-icon'
 import { GlobalsProvider } from '../wheelroom/lib/globals-provider'
 import { Action } from '../wheelroom/components/action/action'
 
-export const fontStyle: AnyStyle = {
+export const fontStyle: CSSObject = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
   “Segoe UI”, “Roboto”, “Oxygen”,
   “Ubuntu”, “Cantarell”, “Fira Sans”,
   “Droid Sans”, “Helvetica Neue”, sans-serif`,
 }
 
-const blockStyle: AnyStyle = [
+const blockStyle: CSSObject[] = [
   fontStyle,
   {
     width: 350,

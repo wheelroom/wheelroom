@@ -1,6 +1,4 @@
-import { Interpolation, Theme } from '@emotion/react'
 import { Any, AnyProps } from './Any'
-export type AnyStyle = Interpolation<Theme>
 
 export const A: React.FC<AnyProps['a']> = (props) => (
   <Any is="a" css={{ label: 'a' }} {...props} />

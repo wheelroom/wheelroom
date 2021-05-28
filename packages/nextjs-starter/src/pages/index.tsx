@@ -1,6 +1,7 @@
-import { AnyStyle, Div } from '@wheelroom/any/elements'
+import { CSSObject } from '@emotion/react'
+import { Div } from '@wheelroom/any/elements'
 
-const objectStyle: AnyStyle = {
+const objectStyle: CSSObject = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
   “Segoe UI”, “Roboto”, “Oxygen”,
   “Ubuntu”, “Cantarell”, “Fira Sans”,
