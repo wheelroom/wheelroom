@@ -1,11 +1,12 @@
 import { Div, H1 } from '@wheelroom/any/elements'
-import { CSSObject, Global, Interpolation } from '@emotion/react'
+import { CSSObject, Global } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
 import React from 'react'
 import GraphqlBuildTime from '../components/graphql-build-time'
 import { FeatherIcon } from '../wheelroom/components/feather-icon'
 import { GlobalsProvider } from '../wheelroom/lib/globals-provider'
 import { Action } from '../wheelroom/components/action/action'
+import { AnyElement } from '../components/any-element'
 
 export const fontStyle: CSSObject = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
@@ -24,7 +25,7 @@ const blockStyle: CSSObject[] = [
 
 interface BlockProps {
   children?: React.ReactNode
-  css?: Interpolation<unknown>
+  css?: CSSObject
 }
 
 const Block = ({ children, ...props }: BlockProps) => (
@@ -33,7 +34,7 @@ const Block = ({ children, ...props }: BlockProps) => (
   </Div>
 )
 
-const iconAttrs = { width: 50, height: 50 }
+const iconAttrs: CSSObject = { width: 50, height: 50 }
 
 const globals = {
   usePreview: false,
@@ -48,6 +49,7 @@ const HomePage = () => {
         <H1 css={fontStyle}>
           Gatsby + TypeScript + Any (emotion/normalize.css)
         </H1>
+        <AnyElement status="active" />
         <GraphqlBuildTime />
         <Block css={{ backgroundColor: 'var(--colors-berry)' }}>
           Taste the rainbow!
