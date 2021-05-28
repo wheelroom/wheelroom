@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/wheelroom-io",
-  "version": "6.21.8",
+  "version": "6.21.9",
   "private": true,
   "description": "https://www.wheelroom.io",
   "scripts": {
@@ -14,7 +14,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@wheelroom/any": "6.21.8",
+    "@wheelroom/any": "6.21.9",
     "feather-icons": "4.28.0",
     "gatsby": "3.4.1",
     "gatsby-source-graphql": "3.5.0"

@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/any",
-  "version": "6.21.8",
+  "version": "6.21.9",
   "description": "Any component with CSS element reset and CSS Emotion props",
   "exports": {
     "./*": "./build/*"
