@@ -3,8 +3,8 @@
     "jsx": "react-jsx",
     "module": "commonjs",
     "outDir": "build",
-    "target": "es2015"    
+    "target": "es2015"
   },
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
