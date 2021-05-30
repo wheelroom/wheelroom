@@ -14,17 +14,17 @@ const author = rootPkg.author
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  '@emotion/react': 'Interpolation, jsx. Theme',
+  '@emotion/react': 'CSSObject, jsx',
   'react/jsx-runtime': 'jsx',
 }
 const external = Object.keys(globals)
 
 const inputFiles = [
-  { name: 'Any', ext: 'tsx', id: 'Any' },
-  { name: 'elements', ext: 'tsx', id: 'elements' },
-  { name: 'resets/any-reset', ext: 'ts', id: 'anyReset' },
-  { name: 'resets/element-reset-map', ext: 'ts', id: 'elementResetMap' },
-  { name: 'resets/global-reset', ext: 'ts', id: 'globalReset' },
+  { name: 'Any', ext: 'tsx' },
+  { name: 'elements', ext: 'tsx' },
+  { name: 'resets/any-reset', ext: 'ts' },
+  { name: 'resets/element-reset-map', ext: 'ts' },
+  { name: 'resets/global-reset', ext: 'ts' },
 ]
 
 export default inputFiles.map((file) => {

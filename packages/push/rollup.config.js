@@ -16,9 +16,7 @@ const globals = {
 }
 const external = Object.keys(globals)
 
-const inputFiles = [
-  { name: 'push', ext: 'ts', id: 'push' },
-]
+const inputFiles = [{ name: 'push', ext: 'ts' }]
 
 export default inputFiles.map((file) => {
   const banner = `

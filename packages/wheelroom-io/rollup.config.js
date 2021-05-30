@@ -14,14 +14,12 @@ const author = rootPkg.author
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  '@emotion/react': 'Interpolation, jsx. Theme',
+  '@emotion/react': 'CSSObject, jsx',
   'react/jsx-runtime': 'jsx',
 }
 const external = Object.keys(globals)
 
-const inputFiles = [
-  { name: 'static/set-css-vars', ext: 'ts', id: 'setCssVars' },
-]
+const inputFiles = [{ name: 'static/set-css-vars', ext: 'ts' }]
 
 export default inputFiles.map((file) => {
   const banner = `

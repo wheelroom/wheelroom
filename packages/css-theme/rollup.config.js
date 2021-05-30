@@ -14,16 +14,16 @@ const author = rootPkg.author
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  '@emotion/react': 'Interpolation, jsx. Theme',
+  '@emotion/react': 'CSSObject, jsx',
   'react/jsx-runtime': 'jsx',
 }
 const external = Object.keys(globals)
 
 const inputFiles = [
-  { name: 'camel-to-dash', ext: 'ts', id: 'camelToDash' },
-  { name: 'css-obj-to-vars', ext: 'ts', id: 'cssObjToVars' },
-  { name: 'style-element', ext: 'tsx', id: 'styleElement' },
-  { name: 'set-css-vars', ext: 'ts', id: 'setCssVars' },
+  { name: 'camel-to-dash', ext: 'ts' },
+  { name: 'css-obj-to-vars', ext: 'ts' },
+  { name: 'style-element', ext: 'tsx' },
+  { name: 'set-css-vars', ext: 'ts' },
 ]
 
 export default inputFiles.map((file) => {
