@@ -10,7 +10,11 @@ export interface PublishMakeContext {
 export const publish = async ({ makeContext }: PublishMakeContext) => {
   const { buildNodes, rootNode, targetNode, cloneDir } = makeContext
   for (const publishNode of buildNodes) {
-    if (!publishNode.package.private) {
+    if (publishNode.package.private) {
+      console.log(
+        `X=> Will not publish private package ${publishNode.package.name}`
+      )
+    } else {
       await cmdRun({
         cmd: 'npm',
         args: ['publish'],
