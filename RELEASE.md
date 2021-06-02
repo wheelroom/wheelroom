@@ -1,32 +1,12 @@
-## @wheelroom/wheelroom-io 6.21.10
+## @wheelroom/make 6.21.11
 
-## [6.21.10](https://github.com/wheelroom/wheelroom/compare/6.21.9...6.21.10) (2021-05-30)
-
-
-### Bug Fixes
-
-* rollup config ([dd9acfd](https://github.com/wheelroom/wheelroom/commit/dd9acfdfe20edb6daa0da996fa2b9b24fd87d0f8))
-
-
-
-
-
-## @wheelroom/nextjs-starter 6.21.10
-
-## [6.21.10](https://github.com/wheelroom/wheelroom/compare/6.21.9...6.21.10) (2021-05-30)
-
-
-
-
-
-## @wheelroom/any 6.21.10
-
-## [6.21.10](https://github.com/wheelroom/wheelroom/compare/6.21.9...6.21.10) (2021-05-30)
+## [6.21.11](https://github.com/wheelroom/wheelroom/compare/6.21.10...6.21.11) (2021-06-02)
 
 
 ### Bug Fixes
 
-* rollup config ([dd9acfd](https://github.com/wheelroom/wheelroom/commit/dd9acfdfe20edb6daa0da996fa2b9b24fd87d0f8))
+* Add 'will not publish private package' message ([df47644](https://github.com/wheelroom/wheelroom/commit/df476441e8a0c0413106730b635678d92e389077))
+* remove tslib peer dependency ([7638fb3](https://github.com/wheelroom/wheelroom/commit/7638fb33f05c300b421c8b523105a3188d262da4))
 
 
 
