@@ -2,7 +2,7 @@
   /**
    * @license
    * author: Wheelroom (https://www.wheelroom.io)
-   * wheelroom-io/static/set-css-vars v6.18.7
+   * wheelroom-io/static/set-css-vars v6.21.10
    * Released under the MIT license.
    */
 
@@ -11,14 +11,9 @@
   factory();
 }((function () { 'use strict';
 
-  /**
-     * @license
-     * author: Wheelroom (https://www.wheelroom.io)
-     * css-theme/set-css-vars v1.0.0
-     * Released under the MIT license.
-     */
+  var setCssVars$1 = {};
 
-
+  Object.defineProperty(setCssVars$1, '__esModule', { value: true });
 
   var camelToDash = function (str) {
       return str
@@ -56,7 +51,7 @@
       });
   };
 
-  var setCssVars_2 = setCssVars;
+  var setCssVars_2 = setCssVars$1.setCssVars = setCssVars;
 
   var theme = {
       colors: {

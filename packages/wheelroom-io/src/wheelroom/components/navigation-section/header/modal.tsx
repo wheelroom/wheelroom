@@ -7,8 +7,9 @@ import {
   NcssNode,
   Ncss,
   getNcssSwitch,
+  FeatherIcon,
 } from '@wheelroom/core'
-import { FeatherIcon } from '@wheelroom/core'
+
 import { NavigationModel } from '../../navigation/model'
 import {
   ActionsNavigation,

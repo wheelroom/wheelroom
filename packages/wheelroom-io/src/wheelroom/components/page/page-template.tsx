@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useState } from 'react'
 import { Global } from '@emotion/core'
-import { graphql } from 'gatsby'
+// import { graphql } from 'gatsby'
 import {
   PreviewUpdateButton,
   useFetchPreviewPage,
@@ -15,8 +15,7 @@ import {
   PageModel,
   useEmbeds,
 } from '@wheelroom/core'
-import { BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
-import { Sections, SectionsProps } from './sections'
+import { Sections } from './sections'
 import { sectionWheels } from './section-wheels'
 import { SeoProps } from './seo-props'
 import { Seo } from './seo'

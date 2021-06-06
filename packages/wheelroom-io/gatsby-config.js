@@ -1,6 +1,13 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
+const envPath = `.env.${process.env.NODE_ENV}`
+require(`dotenv`).config({
+  path: envPath,
 })
+const graphqEndpoint = process.env.GATSBY_CONTENTFUL_GRAPHQL_ENDPOINT
+
+if (process.env.NODE_ENV === 'production' && !graphqEndpoint) {
+  console.log(`Could not find a valid graphq endpoint, did you configure one in ${envPath}?`)
+  process.exit(1)
+}
 
 module.exports = {
   siteMetadata: {
@@ -12,7 +19,7 @@ module.exports = {
       options: {
         typeName: `Contentful`,
         fieldName: `contentful`,
-        url: `${process.env.GATSBY_CONTENTFUL_GRAPHQL_ENDPOINT}/spaces/${process.env.GATSBY_CONTENTFUL_SPACE_ID}`,
+        url: `${graphqEndpoint}`,
         headers: {
           Authorization: `Bearer ${process.env.GATSBY_CONTENTFUL_DELIVERY_TOKEN}`,
         },

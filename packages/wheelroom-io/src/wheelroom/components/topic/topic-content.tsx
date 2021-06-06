@@ -5,13 +5,13 @@ import {
   ParserFunction,
   Wheel,
 } from '@wheelroom/core'
+import { TopicInfo } from '../../lib/get-topic-info'
+import { TopicOptions } from '../../lib/get-topic-options'
 import { TopicContentActions } from './topic-content-actions'
 import { TopicContentText } from './topic-content-text'
 import { TopicData } from './data'
-import { TopicInfo } from '../../lib/get-topic-info'
 import { TopicModel } from './model'
 import { TopicNcssTree } from './ncss-tree'
-import { TopicOptions } from '../../lib/get-topic-options'
 
 export interface TopicContentWheel extends Wheel {
   style: TopicNcssTree

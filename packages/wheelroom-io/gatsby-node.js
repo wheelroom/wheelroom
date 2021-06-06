@@ -2,28 +2,27 @@ const path = require(`path`)
 
 exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
-    query {
-      contentful {
-        blogCollection {
-          items {
-            slug
-            title
-            sys {
-              id
-            }
+  query {
+    contentful {
+      pageCollection {
+        items {
+          sys {
+            id
           }
+          path
         }
       }
     }
-  `)
+  }
+`)
 
-  data.contentful.blogCollection.items.forEach((blog) => {
+  data.contentful.pageCollection.items.forEach((page) => {
     actions.createPage({
-      path: `/blog/${blog.slug}`,
-      component: path.resolve(`./src/components/blog-post.tsx`),
+      path: `${page.path}`,
+      component: path.resolve(`./src/components/page.tsx`),
       context: {
-        blogId: blog.sys.id,
-        blogTitle: blog.title,
+        pageId: page.sys.id,
+        pagePath: page.path,
       },
     })
   })

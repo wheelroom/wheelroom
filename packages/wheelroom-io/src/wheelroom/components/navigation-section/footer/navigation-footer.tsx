@@ -6,8 +6,8 @@ import {
   Wheel,
   Wrapper,
 } from '@wheelroom/core'
-import { FooterLegal, FooterLegalNcssTree } from './footer-legal'
 import { NavigationModel } from '../../navigation/model'
+import { FooterLegal, FooterLegalNcssTree } from './footer-legal'
 import { NavigationSectionFooterData } from './data'
 import { FooterMenu, FooterMenuNcssTree } from './footer-menu'
 import { FooterCard, FooterCardNcssTree } from './footer-card'

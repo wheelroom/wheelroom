@@ -13,9 +13,7 @@ import {
 } from '@wheelroom/core'
 import { AdminCoreContext } from '@wheelroom/admin-core'
 import { getThemeSwitcherStore } from '@wheelroom/admin-theme-switcher'
-import { Modal, ModalNcssTree } from './modal'
 import { NavigationModel } from '../../navigation/model'
-import { NavigationSectionHeaderData } from './data'
 import {
   ActionsNavigation,
   ActionsNavigationNcssTree,
@@ -32,6 +30,8 @@ import {
   SocialNavigation,
   SocialNavigationNcssTree,
 } from '../../navigation/variants/social-navigation'
+import { NavigationSectionHeaderData } from './data'
+import { Modal, ModalNcssTree } from './modal'
 
 export interface NavigationSectionHeaderNcssTree extends NcssNode {
   skipToContent: NcssNode

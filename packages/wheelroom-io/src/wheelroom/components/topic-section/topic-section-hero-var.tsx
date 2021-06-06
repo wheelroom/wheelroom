@@ -7,10 +7,10 @@
  */
 
 import React from 'react'
+import { getSectionWheel } from '@wheelroom/core'
 import { getTopicOptions } from '../../lib/get-topic-options'
 import { Topic } from '../topic/topic'
 import { TopicModel } from '../topic/model'
-import { getSectionWheel } from '@wheelroom/core'
 import { TopicSectionModel } from './model'
 import { TopicSectionWrapper } from './topic-section-wrapper'
 

@@ -13,10 +13,11 @@
     "dev": "NODE_ENV=development gatsby develop",
     "dev-ssl": "NODE_ENV=development gatsby develop --https",
     "serve": "gatsby serve",
-    "static-css-vars": "rollup --config rollup.static.config"
+    "static-css-vars": "rollup --config rollup.static.config.js"
   },
   "dependencies": {
     "@wheelroom/any": "6.21.10",
+    "@wheelroom/css-theme": "6.21.5",
     "feather-icons": "4.28.0",
     "gatsby": "3.4.1",
     "gatsby-source-graphql": "3.5.0"

@@ -10,10 +10,10 @@ import {
   Wrapper,
 } from '@wheelroom/core'
 import { NavigationModel } from '../../navigation/model'
-import { NavigationSectionSitemapData } from './data'
 import { NavigationSegment } from '../../navigation-segment/navigation-segment'
 import { NavigationSegmentNcssTree } from '../../navigation-segment/ncss-tree'
 import { getNavSegments } from '../../navigation/get-nav-segments'
+import { NavigationSectionSitemapData } from './data'
 
 export interface NavigationSectionSitemapNcssTree {
   container: NcssNode
