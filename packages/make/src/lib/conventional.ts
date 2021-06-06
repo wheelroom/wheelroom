@@ -53,7 +53,7 @@ export const callConventionalChangelog = ({
     changelogStream.on('data', (buffer) => {
       newChangelog += buffer.toString()
     })
-    changelogStream.on('end', function () {
+    changelogStream.on('end', () => {
       return resolve(newChangelog)
     })
   })
