@@ -1,16 +1,19 @@
 import conventionalRecommendedBump from 'conventional-recommended-bump'
 import conventionalChangelog from 'conventional-changelog'
+import createConfig from 'conventional-changelog-conventionalcommits'
 
-export const commitTypes = [
-  { type: 'feat', section: 'Features' },
-  { type: 'fix', section: 'Bug Fixes' },
-  { type: 'chore', section: 'Commits' },
-  { type: 'docs', section: 'Documentation' },
-  { type: 'style', section: 'Styling' },
-  { type: 'refactor', section: 'Code Refactoring' },
-  { type: 'perf', hidden: true },
-  { type: 'test', hidden: true },
-]
+const config = createConfig({
+  types: [
+    { type: 'feat', section: 'Features' },
+    { type: 'fix', section: 'Bug Fixes' },
+    { type: 'chore', section: 'Commits' },
+    { type: 'docs', section: 'Documentation' },
+    { type: 'style', section: 'Styling' },
+    { type: 'refactor', section: 'Code Refactoring' },
+    { type: 'perf', hidden: true },
+    { type: 'test', hidden: true },
+  ],
+})
 
 export interface BumpVersion {
   path: string
@@ -21,7 +24,7 @@ export const bumpVersion = ({
 }: BumpVersion): Promise<conventionalRecommendedBump.Callback.Recommendation> => {
   return new Promise((resolve, reject) => {
     const options = {
-      preset: 'angular',
+      config,
       path,
     } as conventionalRecommendedBump.Options
     conventionalRecommendedBump(options, (error, release) => {
@@ -43,7 +46,7 @@ export const callConventionalChangelog = ({
   return new Promise((resolve, reject) => {
     let newChangelog = ''
     const changelogStream = conventionalChangelog(
-      { preset: 'angular' },
+      { config },
       { version: newVersion },
       { merges: null, path }
     )
