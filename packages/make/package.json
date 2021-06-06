@@ -25,6 +25,7 @@
     "@npmcli/arborist": "2.3.0",
     "@octokit/rest": "18.5.3",
     "conventional-changelog": "3.1.24",
+    "conventional-changelog-conventionalcommits": "4.6.0",
     "conventional-recommended-bump": "6.1.0",
     "deepmerge": "4.2.2",
     "inquirer": "8.0.0",
