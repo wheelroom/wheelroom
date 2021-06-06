@@ -1,3 +1,4 @@
+const packageJson = require('./package.json')
 const envPath = `.env.${process.env.NODE_ENV}`
 require(`dotenv`).config({
   path: envPath,
@@ -5,13 +6,21 @@ require(`dotenv`).config({
 const graphqEndpoint = process.env.GATSBY_CONTENTFUL_GRAPHQL_ENDPOINT
 
 if (process.env.NODE_ENV === 'production' && !graphqEndpoint) {
-  console.log(`Could not find a valid graphq endpoint, did you configure one in ${envPath}?`)
+  console.log(
+    `Could not find a valid graphq endpoint, did you configure one in ${envPath}?`
+  )
   process.exit(1)
 }
 
 module.exports = {
   siteMetadata: {
-    siteName: `Wheelroom io`,
+    siteVersion: packageJson.version,
+    siteUrl: 'https://www.wheelroom.io',
+    legal: {
+      version: packageJson.wheelroom.version,
+      description: 'Made with Wheelroom',
+      url: 'https://www.wheelroom.io',
+    },
   },
   plugins: [
     {

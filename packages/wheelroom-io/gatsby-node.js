@@ -12,6 +12,13 @@ exports.createPages = async ({ actions, graphql }) => {
           path
         }
       }
+      globalsCollection {
+        items {
+          sys {
+            id
+          }
+        }
+      }
     }
   }
 `)
@@ -19,10 +26,10 @@ exports.createPages = async ({ actions, graphql }) => {
   data.contentful.pageCollection.items.forEach((page) => {
     actions.createPage({
       path: `${page.path}`,
-      component: path.resolve(`./src/components/page.tsx`),
+      component: path.resolve(`./src/components/page/page-template.tsx`),
       context: {
         pageId: page.sys.id,
-        pagePath: page.path,
+        globalsId: data.contentful.globalsCollection.items[0].sys.id,
       },
     })
   })
