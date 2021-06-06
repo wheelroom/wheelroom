@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/make",
-  "version": "6.21.11",
+  "version": "6.23.0",
   "description": "Make library for use with NPM 7 and @npmcli/arborist ",
   "exports": {
     "./*": "./build/*"
@@ -13,11 +13,12 @@
     }
   },
   "scripts": {
-    "build": "npm-run-all clean build:*",
+    "build": "npm-run-all clean build:* copy-templates",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "rollup --config",
     "build:test": "jest --silent --passWithNoTests",
     "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
+    "copy-templates": "cp -r src/commands/templates build/commands",
     "clean": "rimraf build/*",
     "dev": "rollup --config --watch"
   },
