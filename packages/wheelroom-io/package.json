@@ -4,14 +4,16 @@
   "private": true,
   "description": "https://www.wheelroom.io",
   "scripts": {
-    "build": "npm-run-all clean",
-    "build:compile": "gatsby build",
-    "build:static": "rollup --config",
+    "build": "npm-run-all clean static-css-vars build:* copy-static-public",
+    "build:compile": "NODE_ENV=production gatsby build",
     "build:lint": "eslint 'src/**/*.{ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
-    "clean": "gatsby clean",
-    "dev": "gatsby develop",
-    "serve": "gatsby serve"
+    "clean": "gatsby clean && rimraf build/*",
+    "copy-static-public": "cp -r public build",
+    "dev": "NODE_ENV=development gatsby develop",
+    "dev-ssl": "NODE_ENV=development gatsby develop --https",
+    "serve": "gatsby serve",
+    "static-css-vars": "rollup --config rollup.static.config"
   },
   "dependencies": {
     "@wheelroom/any": "6.21.10",
