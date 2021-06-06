@@ -26,15 +26,13 @@ export const makeContextFactory = async ({
   const fsChildren = rootNode.fsChildren
   let targetNode = getFsChild({ fsChildren, packageName: targetPackageName })
 
-  if (!targetNode) {
+  if (!targetNode && targetPackageName) {
     // Try prefixing the packageName with the owner
     const remoteOriginUrl = <string>await getGitKey({ key: 'remoteOriginUrl' })
     const { owner } = parseOriginUrl({ remoteOriginUrl })
     const prefixedTargetPackageName = `@${owner}/${targetPackageName}`
     console.log(
-      `Package ${
-        targetPackageName || '<none>'
-      } not found, prefixing owner: ${prefixedTargetPackageName}`
+      `Package ${targetPackageName} not found, prefixing owner: ${prefixedTargetPackageName}`
     )
     targetNode = getFsChild({
       fsChildren,
