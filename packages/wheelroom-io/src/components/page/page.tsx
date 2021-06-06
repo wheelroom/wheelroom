@@ -1,11 +1,28 @@
-import { Div, H1, P } from '@wheelroom/any/elements'
-import { graphql, PageProps } from 'gatsby'
+import { Div } from '@wheelroom/any/elements'
 import { CSSObject, Global } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets/global-reset'
 import React from 'react'
+import { graphql, PageProps } from 'gatsby'
 import { GlobalsProvider } from '../../lib/globals-provider'
-import { PageQuery } from './page-model'
+import { TopicSection } from '../topic-section/topic-section'
 import { Sections } from './sections'
+
+export type Page = {
+  sectionsCollection: {
+    items: TopicSection[]
+  }
+}
+
+export const fragment = graphql`
+  fragment Page on Contentful_Page {
+    __typename
+    sectionsCollection {
+      items {
+        ...TopicSection
+      }
+    }
+  }
+`
 
 export const fontStyle: CSSObject = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
@@ -14,12 +31,20 @@ export const fontStyle: CSSObject = {
   “Droid Sans”, “Helvetica Neue”, sans-serif`,
 }
 
-interface PageContext {
+export type PageQuery = {
+  contentful: {
+    page: Page
+    globals: any
+  }
+  site: any
+}
+
+export interface PageContext {
   pageId: string
   pagePath: string
 }
 
-const PageTemplate = (props: PageProps<PageQuery, PageContext>) => {
+const Page = (props: PageProps<PageQuery, PageContext>) => {
   const page = props.data.contentful.page
   const globals = props.data.contentful.globals
   const site = props.data.site
@@ -32,7 +57,7 @@ const PageTemplate = (props: PageProps<PageQuery, PageContext>) => {
     </GlobalsProvider>
   )
 }
-export default PageTemplate
+export default Page
 
 export const queryId = graphql`
   query ($pageId: String!, $globalsId: String!) {

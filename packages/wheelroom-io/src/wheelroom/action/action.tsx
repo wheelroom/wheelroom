@@ -3,8 +3,8 @@ import { Any } from '@wheelroom/any/Any'
 import { A } from '@wheelroom/any/elements'
 import { Link } from 'gatsby'
 import { EmbedNode } from '../embed/embed'
-import { FeatherIcon } from '../feather-icon'
-import { useGlobals } from '../../../lib/globals-provider'
+import { FeatherIcon } from '../../lib/feather-icon'
+import { useGlobals } from '../../lib/globals-provider'
 
 export interface ActionNode {
   __typename?: string
