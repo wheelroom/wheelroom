@@ -15,9 +15,9 @@
  */
 
 import { mkdir } from 'fs/promises'
-import { MakeContext } from './get-make-context'
-import { cloneToDirSync, writeNodeSync } from './filesystem'
-import { npmRun } from './child-process'
+import { MakeContext } from '../lib/make-context-factory'
+import { cloneToDirSync, writeNodeSync } from '../lib/read-write-node'
+import { npmRun } from '../lib/run'
 
 export interface BuildMakeContext {
   makeContext: MakeContext

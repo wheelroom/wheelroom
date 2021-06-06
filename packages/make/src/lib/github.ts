@@ -1,6 +1,50 @@
 import { readFileSync } from 'fs'
+import { exec } from 'child_process'
 import { Octokit } from '@octokit/rest'
 import { ArboristNode } from './arborist'
+
+export const gitKeys = {
+  branch: ['rev-parse', '--abbrev-ref', 'HEAD'],
+  sha: ['rev-parse', 'HEAD'],
+  shortSha: ['rev-parse', '--short', 'HEAD'],
+  currentUser: ['config', '--global', 'user.name'],
+  lastCommitTime: ['log', '--format="%ci"', '-n1', 'HEAD'],
+  lastCommitMessage: ['log', '--format="%B"', '-n1', 'HEAD'],
+  lastCommitAuthor: ['log', '--format="%cN"', '-n1', 'HEAD'],
+  lastCommitNumber: ['rev-list', '--count', 'HEAD'],
+  remoteOriginUrl: ['config', '--get', 'remote.origin.url'],
+}
+
+export type GitKey = keyof typeof gitKeys
+interface GetGitKey {
+  key: GitKey
+}
+
+export const getGitKey = ({ key }: GetGitKey) => {
+  const args = gitKeys[key]
+  return new Promise((resolve, reject) => {
+    exec(`git ${args.join(' ')}`, (error, stdout) => {
+      if (error) {
+        return reject('')
+      }
+      return resolve(stdout.trim())
+    })
+  })
+}
+
+interface ParseOriginUrl {
+  remoteOriginUrl: string
+}
+
+export const parseOriginUrl = ({ remoteOriginUrl }: ParseOriginUrl) => {
+  const parts = remoteOriginUrl.split('github.com')
+  if (parts.length !== 2) return { owner: 'none', repo: 'none' }
+  const endsOk = parts[1].slice(-4) === '.git'
+  const startsOk = parts[1][0] === ':' || parts[1][0] === '/'
+  if (!startsOk || !endsOk) return { owner: 'none', repo: 'none' }
+  const ownerRepo = parts[1].slice(1, -4).split('/')
+  return { owner: ownerRepo[0], repo: ownerRepo[1] }
+}
 
 interface GithubRelease {
   owner: string

@@ -8,10 +8,10 @@
  *
  */
 
-import { getMakeContext } from '../lib/get-make-context'
+import { makeContextFactory } from '../lib/make-context-factory'
 import { getFsChildPackageNames } from '../lib/arborist'
-import { buildCloneDir, buildPackage } from '../lib/build'
-import { publish } from '../lib/publish'
+import { confirm } from '../lib/confirm'
+import { validateToken } from '../lib/validate-token'
 import {
   getNewChangelogs,
   versionDependencies,
@@ -19,9 +19,9 @@ import {
   writeNewChangelogs,
   writeRootRelease,
   writeRootChangelog,
-} from '../lib/version'
-import { getIsConfirmed } from '../lib/get-is-confirmed'
-import { getHasValidToken } from '../lib/get-has-valid-token'
+} from '../release-command/version'
+import { publish } from '../release-command/publish'
+import { buildCloneDir, buildPackage } from '../release-command/build'
 
 export type Command = 'build' | 'version' | 'publish' | 'release'
 
@@ -35,7 +35,7 @@ export const releaseCommand = async ({
   subCommand,
 }: RunCommand) => {
   const cloneDir = 'build'
-  const makeContext = await getMakeContext({
+  const makeContext = await makeContextFactory({
     targetPackageName: packageName,
     cloneDir,
   })
@@ -52,12 +52,12 @@ export const releaseCommand = async ({
     process.exit(0)
   }
 
-  const hasValidToken = await getHasValidToken({ subCommand })
-  if (!hasValidToken) {
+  const isValidToken = await validateToken({ subCommand })
+  if (!isValidToken) {
     console.log("A valid GITHUB_TOKEN needs to be set for 'publish' command")
     process.exit(0)
   }
-  const isConfirmed = await getIsConfirmed({
+  const isConfirmed = await confirm({
     subCommand,
     buildNodes: makeContext.buildNodes,
   })

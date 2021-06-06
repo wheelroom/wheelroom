@@ -1,7 +1,7 @@
 import path from 'path'
-import { MakeContext } from './get-make-context'
-import { cmdRun, getGit, parseOriginUrl } from './child-process'
-import { githubRelease } from './github'
+import { MakeContext } from '../../lib/make-context-factory'
+import { cmdRun } from '../../lib/run'
+import { getGitKey, parseOriginUrl, githubRelease } from '../../lib/github'
 
 export interface PublishMakeContext {
   makeContext: MakeContext
@@ -45,11 +45,11 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
   args = ['tag', '-m', version, version]
   await cmdRun({ cmd, args, node: rootNode })
 
-  const branch = <string>await getGit({ key: 'branch' })
+  const branch = <string>await getGitKey({ key: 'branch' })
   args = ['push', 'origin', branch, '--follow-tags']
   await cmdRun({ cmd, args, node: rootNode })
 
-  const remoteOriginUrl = <string>await getGit({ key: 'remoteOriginUrl' })
+  const remoteOriginUrl = <string>await getGitKey({ key: 'remoteOriginUrl' })
   const { owner, repo } = parseOriginUrl({ remoteOriginUrl })
   await githubRelease({
     owner,

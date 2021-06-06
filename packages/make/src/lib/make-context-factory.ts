@@ -1,4 +1,5 @@
 import Arborist from '@npmcli/arborist'
+import { getGitKey, parseOriginUrl } from '../lib/github'
 import { ArboristNode, getFsChild, getSyncedNodes } from './arborist'
 
 export interface MakeContext {
@@ -16,14 +17,30 @@ export interface GetMakeContext {
   cloneDir: string
 }
 
-export const getMakeContext = async ({
+export const makeContextFactory = async ({
   cloneDir,
   targetPackageName,
 }: GetMakeContext) => {
   const arborist = new Arborist({ path: process.cwd() })
   const rootNode = await arborist.loadActual()
   const fsChildren = rootNode.fsChildren
-  const targetNode = getFsChild({ fsChildren, packageName: targetPackageName })
+  let targetNode = getFsChild({ fsChildren, packageName: targetPackageName })
+
+  if (!targetNode) {
+    // Try prefixing the packageName with the owner
+    const remoteOriginUrl = <string>await getGitKey({ key: 'remoteOriginUrl' })
+    const { owner } = parseOriginUrl({ remoteOriginUrl })
+    const prefixedTargetPackageName = `@${owner}/${targetPackageName}`
+    console.log(
+      `Package ${
+        targetPackageName || '<none>'
+      } not found, prefixing owner: ${prefixedTargetPackageName}`
+    )
+    targetNode = getFsChild({
+      fsChildren,
+      packageName: prefixedTargetPackageName,
+    })
+  }
 
   let buildNodes = [] as ArboristNode[]
   if (targetNode) {
