@@ -20,10 +20,11 @@ export interface TopicProps {
 export const Topic = (props: TopicProps) => {
   return (
     <Div css={topicVariantStyle({ VariantMap: props.variantMap })}>
-      <>
+      <Div css={{ label: 'media' }}></Div>
+      <Div css={{ label: 'content' }}>
         <H1>{props.model.heading}</H1>
         <P>{props.model.abstract}</P>
-      </>
+      </Div>
     </Div>
   )
 }
