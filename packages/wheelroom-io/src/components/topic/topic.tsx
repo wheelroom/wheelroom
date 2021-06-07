@@ -1,7 +1,10 @@
 import { Div, H1, P } from '@wheelroom/any/elements'
 import { graphql } from 'gatsby'
-import { topicVariantProps } from './topic-variant-props'
-import { topicVariantStyle } from './topic-variant-style'
+import {
+  getTopicVariantProps,
+  TopicVariantProps,
+} from './get-topic-variant-props'
+import { getTopicVariantStyle } from './get-topic-variant-style'
 import { TopicVariantMap } from './topic-variants'
 
 export type Topic = {
@@ -26,14 +29,33 @@ export type TopicOptions = Partial<Record<Option, boolean>>
 
 export interface TopicProps {
   model: Topic
-  variantMap: TopicVariantMap
-  topicIndex: number
-  topicOptions: TopicOptions
+  /** Index of the rendered section */
   sectionIndex: number
+  /** Index of the rendered topic */
+  topicIndex: number
+  /** Topic render options */
+  topicOptions: TopicOptions
+  variantMap: TopicVariantMap
 }
 
+const NormalOrder = (props: TopicProps & TopicVariantProps) => (
+  <>
+    <H1>{props.model.heading}</H1>
+    <P>{props.model.abstract}</P>
+    <P>{props.useHeadingElement}</P>
+  </>
+)
+
+const ReversedOrder = (props: TopicProps & TopicVariantProps) => (
+  <>
+    <P>{props.model.abstract}</P>
+    <P>{props.useHeadingElement}</P>
+    <H1>{props.model.heading}</H1>
+  </>
+)
+
 export const Topic = (props: TopicProps) => {
-  const topicProps = topicVariantProps({
+  const topicVariantProps = getTopicVariantProps({
     variantMap: props.variantMap,
     topicIndex: props.topicIndex,
     sectionIndex: props.sectionIndex,
@@ -41,10 +63,12 @@ export const Topic = (props: TopicProps) => {
   })
 
   return (
-    <Div css={topicVariantStyle({ VariantMap: props.variantMap })}>
-      <H1>{props.model.heading}</H1>
-      <P>{props.model.abstract}</P>
-      <P>{topicProps.useHeadingElement}</P>
+    <Div css={getTopicVariantStyle({ VariantMap: props.variantMap })}>
+      {topicVariantProps.topicOptions.reversedOrder ? (
+        <ReversedOrder {...props} {...topicVariantProps} />
+      ) : (
+        <NormalOrder {...props} {...topicVariantProps} />
+      )}
     </Div>
   )
 }

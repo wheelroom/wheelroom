@@ -1,7 +1,7 @@
-import { mediaQuery } from "../../lib/media-query"
-import { TopicVariantMap } from "./topic-variants"
+import { mediaQuery } from '../../lib/media-query'
+import { TopicVariantMap } from './topic-variants'
 
-export interface TopicVariantStyle {
+export interface GetTopicVariantStyle {
   VariantMap: TopicVariantMap
 }
 
@@ -14,7 +14,7 @@ const baseStyle = {
   width: '100%',
 }
 
-export const topicVariantStyle = (args: TopicVariantStyle) => {
+export const getTopicVariantStyle = (args: GetTopicVariantStyle) => {
   let style = {}
   switch (args.VariantMap.topic) {
     case 'block':

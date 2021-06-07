@@ -1,18 +1,28 @@
-import { TopicOptions } from "./topic"
-import { TopicVariantMap } from "./topic-variants"
+import { TopicOptions } from './topic'
+import { TopicVariantMap } from './topic-variants'
 
-export interface TopicVariantProps {
+export interface GetTopicVariantProps {
   sectionIndex: number
   topicIndex: number
   topicOptions: TopicOptions
   variantMap: TopicVariantMap
 }
 
-export const topicVariantProps = (args: TopicVariantProps) => {
+export type TopicVariantProps = {
+  fullTopicAsLink: boolean
+  useHeadingElement: string
+  topicOptions: TopicOptions
+}
+
+export const getTopicVariantProps = (args: GetTopicVariantProps) => {
   let useHeadingElement
+  let fullTopicAsLink = false
   const topicOptions: TopicOptions = { ...args.topicOptions }
 
   switch (args.variantMap.topic) {
+    case 'card':
+      fullTopicAsLink = true
+      break
     case 'featured':
       useHeadingElement = args.sectionIndex <= 1 ? 'h1' : 'h2'
       topicOptions.reversedOrder = args.topicOptions.reversedOrder
@@ -34,5 +44,9 @@ export const topicVariantProps = (args: TopicVariantProps) => {
     default:
       break
   }
-  return { useHeadingElement, topicOptions }
+  return {
+    fullTopicAsLink,
+    useHeadingElement,
+    topicOptions,
+  } as TopicVariantProps
 }

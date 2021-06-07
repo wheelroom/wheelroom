@@ -18,7 +18,7 @@ const maxWidthStyle = {
   marginRight: 'auto',
 }
 
-export const topicSectionVariantStyle = (args: TopicSectionVariantStyle) => {
+export const getTopicSectionVariantStyle = (args: TopicSectionVariantStyle) => {
   let style = {}
   switch (args.variantMap.topic) {
     case 'block':

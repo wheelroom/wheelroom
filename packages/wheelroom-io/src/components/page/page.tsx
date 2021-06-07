@@ -48,6 +48,7 @@ const Page = (props: PageProps<PageQuery, PageContext>) => {
   const page = props.data.contentful.page
   const globals = props.data.contentful.globals
   const site = props.data.site
+  console.log('pageId', props.pageContext.pageId)
   return (
     <GlobalsProvider value={{ globals, site }}>
       <Global styles={globalReset} />

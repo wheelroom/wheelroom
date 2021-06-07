@@ -3,7 +3,7 @@ import { Div, Hr } from '@wheelroom/any/elements'
 import React from 'react'
 import { options, Option, Topic, TopicOptions } from '../topic/topic'
 import { TopicVariant } from '../topic/topic-variants'
-import { topicSectionVariantStyle } from './topic-section-variant-style'
+import { getTopicSectionVariantStyle } from './getTopic-section-variant-style'
 
 export type TopicSection = TopicOptions & {
   __typename: string
@@ -30,7 +30,11 @@ export const TopicSection = (props: TopicSectionProps) => {
 
   return (
     <Div css={{ width: '100%', label: 'wrapper' }}>
-      <Div css={topicSectionVariantStyle({ variantMap: { topic: props.model.variant } })}>
+      <Div
+        css={getTopicSectionVariantStyle({
+          variantMap: { topic: props.model.variant },
+        })}
+      >
         {props.model.topicsCollection.items.map(
           (topic: Topic, topicIndex: number) => (
             <Topic
