@@ -14,7 +14,7 @@ const baseStyle = {
   width: '100%',
 }
 
-export const getTopicVariantStyle = (args: GetTopicVariantStyle) => {
+export const topicVariantStyle = (args: GetTopicVariantStyle) => {
   let style = {}
   switch (args.VariantMap.topic) {
     case 'block':

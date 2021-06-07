@@ -35,18 +35,14 @@ export const TopicSection = (props: TopicSectionProps) => {
           variantMap: { topic: props.model.variant },
         })}
       >
-        {props.model.topicsCollection.items.map(
-          (topic: Topic, topicIndex: number) => (
-            <Topic
-              key={topic.sys.id}
-              sectionIndex={props.sectionIndex}
-              model={topic}
-              topicOptions={topicOptions}
-              topicIndex={topicIndex}
-              variantMap={{ topic: props.model.variant }}
-            />
-          )
-        )}
+        {props.model.topicsCollection.items.map((topic: Topic) => (
+          <Topic
+            key={topic.sys.id}
+            model={topic}
+            topicOptions={topicOptions}
+            variantMap={{ topic: props.model.variant }}
+          />
+        ))}
       </Div>
     </Div>
   )
