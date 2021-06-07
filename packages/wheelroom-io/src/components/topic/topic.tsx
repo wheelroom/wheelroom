@@ -1,5 +1,6 @@
 import { Div, H1, P } from '@wheelroom/any/elements'
 import { graphql } from 'gatsby'
+import { TopicOptions } from './topic-options'
 import { topicVariantStyle } from './topic-variant-style'
 import { TopicVariantMap } from './topic-variants'
 
@@ -12,20 +13,9 @@ export type Topic = {
   }
 }
 
-export const options = [
-  'reversedOrder',
-  'hideIcon',
-  'hideMedia',
-  'hideHeading',
-  'hideAbstract',
-  'hideAction',
-] as const
-export type Option = typeof options[number]
-export type TopicOptions = Partial<Record<Option, boolean>>
-
 export interface TopicProps {
   model: Topic
-  topicOptions: TopicOptions
+  options: TopicOptions
   variantMap: TopicVariantMap
 }
 

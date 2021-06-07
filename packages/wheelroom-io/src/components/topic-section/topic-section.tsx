@@ -1,8 +1,9 @@
 import { graphql } from 'gatsby'
 import { Div, Hr } from '@wheelroom/any/elements'
 import React from 'react'
-import { options, Option, Topic, TopicOptions } from '../topic/topic'
 import { TopicVariant } from '../topic/topic-variants'
+import { Topic } from '../topic/topic'
+import { TopicOption, topicOptions, TopicOptions } from '../topic/topic-options'
 import { getTopicSectionVariantStyle } from './getTopic-section-variant-style'
 
 export type TopicSection = TopicOptions & {
@@ -25,8 +26,10 @@ export const TopicSection = (props: TopicSectionProps) => {
   if (props.model.variant === 'divider') {
     return <Hr />
   }
-  const topicOptions: TopicOptions = {}
-  options.forEach((key: Option) => (topicOptions[key] = props.model[key]))
+
+  // Isolate topic options from topic section model
+  const options: TopicOptions = {}
+  topicOptions.forEach((key: TopicOption) => (options[key] = props.model[key]))
 
   return (
     <Div css={{ width: '100%', label: 'wrapper' }}>
@@ -39,7 +42,7 @@ export const TopicSection = (props: TopicSectionProps) => {
           <Topic
             key={topic.sys.id}
             model={topic}
-            topicOptions={topicOptions}
+            options={options}
             variantMap={{ topic: props.model.variant }}
           />
         ))}
