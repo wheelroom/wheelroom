@@ -18,6 +18,7 @@
   "dependencies": {
     "@wheelroom/any": "6.21.10",
     "@wheelroom/css-theme": "6.21.5",
+    "facepaint": "1.2.1",
     "feather-icons": "4.28.0",
     "gatsby": "3.4.1",
     "gatsby-source-graphql": "3.5.0"

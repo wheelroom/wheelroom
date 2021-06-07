@@ -55,6 +55,7 @@
     "@rollup/plugin-typescript": "8.2.1",
     "@types/conventional-changelog": "3.1.0",
     "@types/conventional-recommended-bump": "6.0.0",
+    "@types/facepaint": "1.2.1",
     "@types/feather-icons": "4.7.0",
     "@types/inquirer": "7.3.1",
     "@types/node": "15.6.1",

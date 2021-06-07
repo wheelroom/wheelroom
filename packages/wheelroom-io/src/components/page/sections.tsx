@@ -8,8 +8,12 @@ export interface SectionsProps {
 
 export const Sections = (props: SectionsProps) => (
   <>
-    {props.sections.map((section: TopicSection) => (
-      <TopicSection key={section.sys.id} section={section} />
+    {props.sections.map((section: TopicSection, sectionIndex: number) => (
+      <TopicSection
+        key={section.sys.id}
+        section={section}
+        sectionIndex={sectionIndex}
+      />
     ))}
   </>
 )
