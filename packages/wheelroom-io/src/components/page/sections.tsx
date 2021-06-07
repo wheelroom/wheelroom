@@ -3,15 +3,15 @@ import { TopicSection } from '../topic-section/topic-section'
 export type Sections = TopicSection
 
 export interface SectionsProps {
-  sections: Sections[]
+  models: Sections[]
 }
 
 export const Sections = (props: SectionsProps) => (
   <>
-    {props.sections.map((section: TopicSection, sectionIndex: number) => (
+    {props.models.map((model: TopicSection, sectionIndex: number) => (
       <TopicSection
-        key={section.sys.id}
-        section={section}
+        key={model.sys.id}
+        model={model}
         sectionIndex={sectionIndex}
       />
     ))}

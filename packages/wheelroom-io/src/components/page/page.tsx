@@ -52,7 +52,7 @@ const Page = (props: PageProps<PageQuery, PageContext>) => {
     <GlobalsProvider value={{ globals, site }}>
       <Global styles={globalReset} />
       <Div css={fontStyle}>
-        <Sections sections={page.sectionsCollection.items} />
+        <Sections models={page.sectionsCollection.items} />
       </Div>
     </GlobalsProvider>
   )

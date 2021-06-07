@@ -1,17 +1,18 @@
-import { Variant, TopicOptions } from './topic'
+import { TopicOptions } from "./topic"
+import { TopicVariantMap } from "./topic-variants"
 
-export interface TopicPropsFactory {
+export interface TopicVariantProps {
   sectionIndex: number
   topicIndex: number
   topicOptions: TopicOptions
-  variant: Variant
+  variantMap: TopicVariantMap
 }
 
-export const topicPropsFactory = (args: TopicPropsFactory) => {
+export const topicVariantProps = (args: TopicVariantProps) => {
   let useHeadingElement
   const topicOptions: TopicOptions = { ...args.topicOptions }
 
-  switch (args.variant) {
+  switch (args.variantMap.topic) {
     case 'featured':
       useHeadingElement = args.sectionIndex <= 1 ? 'h1' : 'h2'
       topicOptions.reversedOrder = args.topicOptions.reversedOrder

@@ -1,12 +1,13 @@
 import { graphql } from 'gatsby'
 import { Div, Hr } from '@wheelroom/any/elements'
 import React from 'react'
-import { options, Option, Topic, TopicOptions, Variant } from '../topic/topic'
-import { topicSectionStyleFactory } from './topic-section-style-factory'
+import { options, Option, Topic, TopicOptions } from '../topic/topic'
+import { TopicVariant } from '../topic/topic-variants'
+import { topicSectionVariantStyle } from './topic-section-variant-style'
 
 export type TopicSection = TopicOptions & {
   __typename: string
-  variant: Variant
+  variant: TopicVariant
   topicsCollection: {
     items: Topic[]
   }
@@ -17,28 +18,28 @@ export type TopicSection = TopicOptions & {
 
 export interface TopicSectionProps {
   sectionIndex: number
-  section: TopicSection
+  model: TopicSection
 }
 
 export const TopicSection = (props: TopicSectionProps) => {
-  if (props.section.variant === 'divider') {
+  if (props.model.variant === 'divider') {
     return <Hr />
   }
   const topicOptions: TopicOptions = {}
-  options.forEach((key: Option) => (topicOptions[key] = props.section[key]))
+  options.forEach((key: Option) => (topicOptions[key] = props.model[key]))
 
   return (
     <Div css={{ width: '100%', label: 'wrapper' }}>
-      <Div css={topicSectionStyleFactory({ variant: props.section.variant })}>
-        {props.section.topicsCollection.items.map(
+      <Div css={topicSectionVariantStyle({ variantMap: { topic: props.model.variant } })}>
+        {props.model.topicsCollection.items.map(
           (topic: Topic, topicIndex: number) => (
             <Topic
               key={topic.sys.id}
               sectionIndex={props.sectionIndex}
-              topic={topic}
+              model={topic}
               topicOptions={topicOptions}
               topicIndex={topicIndex}
-              variant={props.section.variant}
+              variantMap={{ topic: props.model.variant }}
             />
           )
         )}

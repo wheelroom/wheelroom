@@ -1,8 +1,8 @@
-import { Variant } from '../topic/topic'
 import { mediaQuery } from '../../lib/media-query'
+import { TopicVariantMap } from '../topic/topic-variants'
 
-export interface TopicSectionStyleFactory {
-  variant: Variant
+export interface TopicSectionVariantStyle {
+  variantMap: TopicVariantMap
 }
 
 const baseStyle = {
@@ -18,9 +18,9 @@ const maxWidthStyle = {
   marginRight: 'auto',
 }
 
-export const topicSectionStyleFactory = (args: TopicSectionStyleFactory) => {
+export const topicSectionVariantStyle = (args: TopicSectionVariantStyle) => {
   let style = {}
-  switch (args.variant) {
+  switch (args.variantMap.topic) {
     case 'block':
       style = {
         ...maxWidthStyle,
