@@ -2,7 +2,7 @@ import { mediaQuery } from '../../../../lib/media-query'
 import { TopicActionsVariant } from './topic-actions-variants'
 
 export interface GetTopicVariantStyle {
-  variant: TopicActionsVariant
+  variant?: TopicActionsVariant
 }
 
 const baseStyle = {

@@ -2,7 +2,7 @@ import { mediaQuery } from '../../lib/media-query'
 import { TopicVariant } from './topic-variants'
 
 export interface GetTopicVariantStyle {
-  variant: TopicVariant
+  variant?: TopicVariant
 }
 
 // 1:4, 2:8, 3:16, 4:24, 5:32, 6:40, 7:48, 8:60, 9: 72, 10:84

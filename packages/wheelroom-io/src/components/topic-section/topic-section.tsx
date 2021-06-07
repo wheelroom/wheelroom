@@ -64,7 +64,7 @@ export const fragment = graphql`
     hideHeading
     hideAbstract
     hideAction
-    topicsCollection {
+    topicsCollection(limit: 10) {
       items {
         ...Topic
       }

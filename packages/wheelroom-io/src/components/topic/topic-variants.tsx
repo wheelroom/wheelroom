@@ -21,7 +21,7 @@ export const topicVariants = [
 
 export type TopicVariant = typeof topicVariants[number]
 
-export type TopicVariantMap = Record<'topic', TopicVariant> &
+export type TopicVariantMap = Partial<Record<'topic', TopicVariant>> &
   TopicMediaVariantMap &
   TopicContentVariantMap &
   TopicTextVariantMap &

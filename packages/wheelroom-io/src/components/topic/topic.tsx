@@ -39,13 +39,90 @@ export const Topic = (props: TopicProps) => {
   )
 }
 
-export const fragment = graphql`
+export const actionFragment = graphql`
+  fragment Action on Contentful_Action {
+    sys {
+      id
+    }
+    description
+    anchor
+    eventId
+    heading
+    icon
+    query
+    url
+  }
+`
+
+export const mediaFragment = graphql`
+  fragment Media on Contentful_Asset {
+    sys {
+      id
+    }
+    description
+    fileName
+    height
+    size
+    title
+    url
+    width
+  }
+`
+
+export const mediaBreakpointFragment = graphql`
+  fragment MediaBreakpoint on Contentful_MediaBreakpoint {
+    sys {
+      id
+    }
+    extraLarge {
+      ...Media
+    }
+    large {
+      ...Media
+    }
+    medium {
+      ...Media
+    }
+    small {
+      ...Media
+    }
+  }
+`
+
+export const mediaEmbed = graphql`
+  fragment Embed on Contentful_Embed {
+    sys {
+      id
+    }
+    type
+    code
+  }
+`
+
+export const topicFragment = graphql`
   fragment Topic on Contentful_Topic {
     sys {
       id
     }
-    abstract
     heading
+    abstract
     icon
+    actionsCollection(limit: 1) {
+      items {
+        ...Action
+      }
+    }
+    media {
+      ...Media
+    }
+    mediaBreakpoint {
+      ...MediaBreakpoint
+    }
+    mediaEmbed {
+      ...Embed
+    }
+    poster {
+      ...Media
+    }
   }
 `
