@@ -11,7 +11,7 @@ const baseStyle = {
   label: 'topicSection',
   flexDirection: 'column',
 }
-const containerStyle = {
+const maxWidthStyle = {
   ...baseStyle,
   maxWidth: '1280px',
   marginLeft: 'auto',
@@ -23,7 +23,7 @@ export const topicSectionStyleFactory = (args: TopicSectionStyleFactory) => {
   switch (args.variant) {
     case 'block':
       style = {
-        ...containerStyle,
+        ...maxWidthStyle,
         alignItems: ['center', 'initial'],
         flexDirection: ['column', 'row'],
         flexWrap: 'wrap',
@@ -31,7 +31,7 @@ export const topicSectionStyleFactory = (args: TopicSectionStyleFactory) => {
       break
     case 'card':
       style = {
-        ...containerStyle,
+        ...maxWidthStyle,
         alignItems: 'stretch',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -40,7 +40,7 @@ export const topicSectionStyleFactory = (args: TopicSectionStyleFactory) => {
       break
     case 'divider':
       style = {
-        ...containerStyle,
+        ...maxWidthStyle,
         my: '1rem',
         color: 'inherit',
         backgroundColor: 'dividerBg',
@@ -51,7 +51,7 @@ export const topicSectionStyleFactory = (args: TopicSectionStyleFactory) => {
       break
     case 'gallery':
       style = {
-        ...containerStyle,
+        ...maxWidthStyle,
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'center',
@@ -62,20 +62,20 @@ export const topicSectionStyleFactory = (args: TopicSectionStyleFactory) => {
       break
     case 'image':
       style = {
-        ...containerStyle,
+        ...maxWidthStyle,
         flexDirection: ['column', 'row'],
       }
       break
     case 'showcase':
       style = {
-        ...containerStyle,
+        ...maxWidthStyle,
         alignItems: ['center', 'baseline'],
         justifyContent: 'center',
         maxWidth: ['35em', '54rem'],
       }
       break
     default:
-      style = containerStyle
+      style = maxWidthStyle
       break
   }
   return mediaQuery(style)

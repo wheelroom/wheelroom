@@ -16,8 +16,6 @@ export type TopicSection = TopicOptions & {
 }
 
 export interface TopicSectionProps {
-  /** Use a max width or fluid container */
-  containerStyle?: 'container' | 'fluid'
   sectionIndex: number
   section: TopicSection
 }
