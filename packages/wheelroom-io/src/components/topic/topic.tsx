@@ -1,5 +1,8 @@
 import { Div, H1, P } from '@wheelroom/any/elements'
 import { graphql } from 'gatsby'
+import React from 'react'
+import { TopicContent } from './topic-content/topic-content'
+import { TopicMedia } from './topic-media/topic-media'
 import { TopicOptions } from './topic-options'
 import { topicVariantStyle } from './topic-variant-style'
 import { TopicVariantMap } from './topic-variants'
@@ -21,12 +24,17 @@ export interface TopicProps {
 
 export const Topic = (props: TopicProps) => {
   return (
-    <Div css={topicVariantStyle({ VariantMap: props.variantMap })}>
-      <Div css={{ label: 'media' }}></Div>
-      <Div css={{ label: 'content' }}>
-        <H1>{props.model.heading}</H1>
-        <P>{props.model.abstract}</P>
-      </Div>
+    <Div css={topicVariantStyle({ variant: props.variantMap.topic })}>
+      <TopicMedia
+        variantMap={{ topicMedia: 'myVar' }}
+        model={props.model}
+        options={{ myOption: true }}
+      />
+      <TopicContent
+        variantMap={{ topicContent: 'myVar' }}
+        model={props.model}
+        options={{ myOption: true }}
+      />
     </Div>
   )
 }

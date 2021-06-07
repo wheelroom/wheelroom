@@ -4,7 +4,7 @@ import React from 'react'
 import { TopicVariant } from '../topic/topic-variants'
 import { Topic } from '../topic/topic'
 import { TopicOption, topicOptions, TopicOptions } from '../topic/topic-options'
-import { getTopicSectionVariantStyle } from './getTopic-section-variant-style'
+import { getTopicSectionVariantStyle } from './topic-section-variant-style'
 
 export type TopicSection = TopicOptions & {
   __typename: string
@@ -35,7 +35,7 @@ export const TopicSection = (props: TopicSectionProps) => {
     <Div css={{ width: '100%', label: 'wrapper' }}>
       <Div
         css={getTopicSectionVariantStyle({
-          variantMap: { topic: props.model.variant },
+          variant: props.model.variant,
         })}
       >
         {props.model.topicsCollection.items.map((topic: Topic) => (
