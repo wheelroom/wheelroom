@@ -1,9 +1,6 @@
 import { Div, H1, P } from '@wheelroom/any/elements'
 import { graphql } from 'gatsby'
-import {
-  getTopicVariantProps,
-  TopicVariantProps,
-} from './get-topic-variant-props'
+import { getTopicVariantProps } from './get-topic-variant-props'
 import { getTopicVariantStyle } from './get-topic-variant-style'
 import { TopicVariantMap } from './topic-variants'
 
@@ -38,22 +35,6 @@ export interface TopicProps {
   variantMap: TopicVariantMap
 }
 
-const NormalOrder = (props: TopicProps & TopicVariantProps) => (
-  <>
-    <H1>{props.model.heading}</H1>
-    <P>{props.model.abstract}</P>
-    <P>{props.useHeadingElement}</P>
-  </>
-)
-
-const ReversedOrder = (props: TopicProps & TopicVariantProps) => (
-  <>
-    <P>{props.model.abstract}</P>
-    <P>{props.useHeadingElement}</P>
-    <H1>{props.model.heading}</H1>
-  </>
-)
-
 export const Topic = (props: TopicProps) => {
   const topicVariantProps = getTopicVariantProps({
     variantMap: props.variantMap,
@@ -64,11 +45,11 @@ export const Topic = (props: TopicProps) => {
 
   return (
     <Div css={getTopicVariantStyle({ VariantMap: props.variantMap })}>
-      {topicVariantProps.topicOptions.reversedOrder ? (
-        <ReversedOrder {...props} {...topicVariantProps} />
-      ) : (
-        <NormalOrder {...props} {...topicVariantProps} />
-      )}
+      <>
+        <H1>{props.model.heading}</H1>
+        <P>{props.model.abstract}</P>
+        <P>{topicVariantProps.useHeadingElement}</P>
+      </>
     </Div>
   )
 }
