@@ -12,20 +12,8 @@ export type Topic = {
   }
 }
 
-export const options = [
-  'reversedOrder',
-  'hideIcon',
-  'hideMedia',
-  'hideHeading',
-  'hideAbstract',
-  'hideAction',
-] as const
-export type Option = typeof options[number]
-export type TopicOptions = Partial<Record<Option, boolean>>
-
 export interface TopicProps {
   model: Topic
-  topicOptions: TopicOptions
   variantMap: TopicVariantMap
 }
 
