@@ -21,6 +21,14 @@ export const topicTextVariantStyle = (args: TopicVariantStyle) => {
         },
       }
       break
+    case 'headline':
+      style = {
+        ...baseStyle,
+        p: {
+          fontSize: ['20px', '20px', '24px', '24px'],
+        },
+      }
+      break
     default:
       style = baseStyle
       break

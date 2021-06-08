@@ -24,6 +24,7 @@ export const topicMediaVariantStyle = (args: TopicVariantStyle) => {
           paddingBottom: '56.25%',
           position: 'relative',
           img: {
+            display: 'block',
             height: '100%',
             objectFit: 'cover',
             position: 'absolute',
@@ -31,10 +32,18 @@ export const topicMediaVariantStyle = (args: TopicVariantStyle) => {
           },
         },
       }
-
       break
     default:
-      style = baseStyle
+      style = {
+        ...baseStyle,
+        picture: {
+          img: {
+            display: 'block',
+            height: 'auto',
+            width: '100%',
+          },
+        },
+      }
       break
   }
   return mediaQuery(style)

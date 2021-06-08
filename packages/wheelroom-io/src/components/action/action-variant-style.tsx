@@ -27,36 +27,41 @@ const baseStyle = {
   },
 }
 
+const primaryStyle = {
+  ...baseStyle,
+  color: 'white',
+  backgroundColor: 'blue',
+  borderColor: 'black',
+  transition: 'background-color .25s ease',
+  ':hover, :focus': {
+    backgroundColor: 'darkblue',
+  },
+}
+
+const secondaryStyle = {
+  ...baseStyle,
+  color: 'white',
+  backgroundColor: 'red',
+  borderColor: 'black',
+  transition: 'border-color .25s ease',
+  ':hover, :focus': {
+    borderColor: 'darkred',
+  },
+}
+
 export const actionVariantStyle = (args: ActionVariantStyle) => {
   let style = {}
   switch (args.variant) {
     case 'primary':
-      style = {
-        ...baseStyle,
-        color: 'white',
-        backgroundColor: 'blue',
-        borderColor: 'black',
-        transition: 'background-color .25s ease',
-        ':hover, :focus': {
-          backgroundColor: 'darkblue',
-        },
-      }
+      style = primaryStyle
       break
     case 'secondary':
-      style = {
-        ...baseStyle,
-        color: 'white',
-        backgroundColor: 'red',
-        borderColor: 'black',
-        transition: 'border-color .25s ease',
-        ':hover, :focus': {
-          borderColor: 'darkred',
-        },
-      }
+      style = secondaryStyle
       break
     case 'display':
       style = {
         ...baseStyle,
+        ...primaryStyle,
         fontSize: ['27px', '27px', '33px'],
         padding: ['24px 16px', '24px 16px', '32px 16px'],
       }
@@ -66,7 +71,7 @@ export const actionVariantStyle = (args: ActionVariantStyle) => {
         ...baseStyle,
         fontSize: '27px',
         backgroundColor: 'transparent',
-        color: 'link',
+        color: 'grey',
         border: '0',
         padding: 0,
         textDecoration: 'underline',

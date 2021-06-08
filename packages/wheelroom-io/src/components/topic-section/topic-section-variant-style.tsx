@@ -10,6 +10,7 @@ const baseStyle = {
   width: '100%',
   label: 'topicSection',
   flexDirection: 'column',
+  paddingBottom: '16px',
 }
 const maxWidthStyle = {
   ...baseStyle,
@@ -57,12 +58,17 @@ export const getTopicSectionVariantStyle = (args: TopicSectionVariantStyle) => {
       }
       break
     case 'hero':
-      style = baseStyle
+      style = { ...baseStyle, paddingBottom: '0' }
       break
     case 'image':
       style = {
         ...maxWidthStyle,
         flexDirection: ['column', 'row'],
+      }
+      break
+    case 'quote':
+      style = {
+        paddingBottom: '40px',
       }
       break
     case 'showcase':
