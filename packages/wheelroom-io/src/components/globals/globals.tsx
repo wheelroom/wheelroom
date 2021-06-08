@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import { Embed } from '../embed/embed'
+import { Embed } from '../media/embed'
 import { Asset } from '../media/asset'
 
 export type Globals = {

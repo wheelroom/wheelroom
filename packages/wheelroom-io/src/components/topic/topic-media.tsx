@@ -1,7 +1,7 @@
 import { Div } from '@wheelroom/any/elements'
-import { Media } from '../../media/media'
-import { TopicOptions } from '../topic-options'
-import { TopicVariantMap } from '../topic-variants'
+import { Media } from '../media/media'
+import { TopicOptions } from './topic-options'
+import { TopicVariantMap } from './topic-variants'
 import { topicMediaVariantStyle } from './topic-media-variant-style'
 
 export interface TopicMediaProps {

@@ -1,5 +1,5 @@
-import { mediaQuery } from '../../../lib/media-query'
-import { TopicVariant } from '../topic-variants'
+import { mediaQuery } from '../../lib/media-query'
+import { TopicVariant } from './topic-variants'
 
 export interface TopicVariantStyle {
   variant?: TopicVariant

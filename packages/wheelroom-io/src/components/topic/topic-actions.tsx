@@ -1,8 +1,8 @@
 import { Div } from '@wheelroom/any/elements'
 import React from 'react'
-import { Action } from '../../../action/action'
-import { TopicOptions } from '../../topic-options'
-import { TopicVariantMap } from '../../topic-variants'
+import { Action } from '../action/action'
+import { TopicOptions } from './topic-options'
+import { TopicVariantMap } from './topic-variants'
 import { topicActionsVariantStyle } from './topic-actions-variant-style'
 
 export type TopicActions = {

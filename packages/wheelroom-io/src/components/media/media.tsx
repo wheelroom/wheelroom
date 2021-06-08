@@ -1,6 +1,6 @@
 import React from 'react'
-import { MediaBreakpoint } from '../media-breakpoint/mediaBreakpoint'
-import { Embed } from '../embed/embed'
+import { MediaBreakpoint } from './mediaBreakpoint'
+import { Embed } from './embed'
 import { Asset } from './asset'
 
 export type Media = {

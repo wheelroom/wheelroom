@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import { Asset } from '../media/asset'
+import { Asset } from './asset'
 
 export type MediaBreakpoint = {
   small: Asset

@@ -1,6 +1,6 @@
 import { Div, H3, P } from '@wheelroom/any/elements'
-import { TopicOptions } from '../../topic-options'
-import { TopicVariantMap } from '../../topic-variants'
+import { TopicOptions } from './topic-options'
+import { TopicVariantMap } from './topic-variants'
 import { topicTextVariantStyle } from './topic-text-variant-style'
 
 export type TopicText = {
