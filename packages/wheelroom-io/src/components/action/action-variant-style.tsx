@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react'
 import { mediaQuery } from '../../lib/media-query'
 import { ActionVariant } from './action-variants'
 
