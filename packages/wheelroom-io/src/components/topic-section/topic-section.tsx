@@ -4,6 +4,7 @@ import React from 'react'
 import { TopicVariant } from '../topic/topic-variants'
 import { Topic } from '../topic/topic'
 import { TopicOption, topicOptions, TopicOptions } from '../topic/topic-options'
+import { topicVariantStyle } from '../topic/topic-variant-style'
 import { getTopicSectionVariantStyle } from './topic-section-variant-style'
 
 export type TopicSection = TopicOptions & {
@@ -24,7 +25,7 @@ export interface TopicSectionProps {
 
 export const TopicSection = (props: TopicSectionProps) => {
   if (props.model.variant === 'divider') {
-    return <Hr />
+    return <Hr css={topicVariantStyle({ variant: props.model.variant })} />
   }
 
   // Isolate topic options from topic section model

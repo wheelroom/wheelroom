@@ -5,7 +5,8 @@ export interface TopicVariantStyle {
   variant?: TopicVariant
 }
 
-// 1:4, 2:8, 3:16, 4:24, 5:32, 6:40, 7:48, 8:60, 9: 72, 10:84
+// spaceScale: [0, 1:4, 2:8, 3:16, 4:24, 5:32, 6:40, 7:48, 8:56, 9:64, 10:72, 11:80, 12:88, 13:96],
+// fontSizeScale: [0, 1:8, 2:10, 3:12, 4:14, 5:16, 6:18, 7:20, 8:24, 9:32, 10:42, 11:56, 12:72]
 
 const baseStyle = {
   label: 'topic',
@@ -42,10 +43,10 @@ export const topicVariantStyle = (args: TopicVariantStyle) => {
       style = {
         margin: '1rem 0',
         color: 'inherit',
-        backgroundColor: 'dividerBg',
+        backgroundColor: 'grey',
         border: 0,
         opacity: '0.25',
-        h: '1px',
+        height: '1px',
       }
       break
     case 'featured':

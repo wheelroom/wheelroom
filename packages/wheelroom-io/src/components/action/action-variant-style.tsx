@@ -5,9 +5,6 @@ export interface ActionVariantStyle {
   variant?: ActionVariant
 }
 
-// Size   1:4, 2:8, 3:16, 4:24, 5:32, 6:40, 7:48, 8:60, 9: 72, 10:84
-// Font   1:12, 2:13, 3:15, 4:18, 5:22, 6:27, 7:33, 8:40, 9:48, 10:57, 11:67, 12:78, 13:90
-
 const baseStyle = {
   display: 'inline-flex',
   justifyContent: 'center',

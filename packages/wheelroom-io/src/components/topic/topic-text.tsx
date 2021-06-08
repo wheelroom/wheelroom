@@ -1,6 +1,6 @@
-import { Div, H3, P } from '@wheelroom/any/elements'
+import { Div } from '@wheelroom/any/elements'
 import { Abstract } from '../typography/abstract'
-import { Heading } from '../typography/heading'
+import { H3 } from '../typography/heading'
 import { TopicOptions } from './topic-options'
 import { TopicVariantMap } from './topic-variants'
 import { topicTextVariantStyle } from './topic-text-variant-style'
@@ -19,7 +19,7 @@ export interface TopicTextProps {
 export const TopicText = (props: TopicTextProps) => {
   return (
     <Div css={topicTextVariantStyle({ variant: props.variantMap.topicText })}>
-      <Heading>{props.model.heading}</Heading>
+      <H3>{props.model.heading}</H3>
       <Abstract>{props.model.abstract}</Abstract>
     </Div>
   )

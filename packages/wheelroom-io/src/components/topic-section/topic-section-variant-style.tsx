@@ -14,8 +14,7 @@ const baseStyle = {
 const maxWidthStyle = {
   ...baseStyle,
   maxWidth: '1280px',
-  marginLeft: 'auto',
-  marginRight: 'auto',
+  margin: '0 auto',
 }
 
 export const getTopicSectionVariantStyle = (args: TopicSectionVariantStyle) => {
@@ -41,12 +40,12 @@ export const getTopicSectionVariantStyle = (args: TopicSectionVariantStyle) => {
     case 'divider':
       style = {
         ...maxWidthStyle,
-        my: '1rem',
+        margin: '1rem 0',
         color: 'inherit',
-        backgroundColor: 'dividerBg',
+        backgroundColor: 'grey',
         border: 0,
         opacity: '0.25',
-        h: '1px',
+        height: '1px',
       }
       break
     case 'gallery':
