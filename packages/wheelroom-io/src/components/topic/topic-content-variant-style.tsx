@@ -6,7 +6,6 @@ export interface TopicVariantStyle {
 }
 
 const baseStyle = {
-  label: 'topic-content',
   display: 'flex',
   flex: '1',
   flexDirection: 'column',
@@ -28,6 +27,13 @@ export const topicContentVariantStyle = (args: TopicVariantStyle) => {
         flex: '1 1 auto',
         color: 'grey',
         padding: '16px',
+      }
+      break
+    case 'featured':
+      style = {
+        padding: '16px',
+        maxWidth: ['35em', '35em', '45%'],
+        width: '100',
       }
       break
     case 'headline':

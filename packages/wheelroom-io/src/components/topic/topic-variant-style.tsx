@@ -9,7 +9,6 @@ export interface TopicVariantStyle {
 // fontSizeScale: [0, 1:8, 2:10, 3:12, 4:14, 5:16, 6:18, 7:20, 8:24, 9:32, 10:42, 11:56, 12:72]
 
 const baseStyle = {
-  label: 'topic',
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
@@ -62,6 +61,7 @@ export const topicVariantStyle = (args: TopicVariantStyle) => {
       break
     case 'featured':
       style = {
+        ...baseStyle,
         flexDirection: ['column', 'column', 'row'],
         justifyContent: 'space-evenly',
         padding: '16x 0',

@@ -62,8 +62,8 @@ export const actionVariantStyle = (args: ActionVariantStyle) => {
       style = {
         ...baseStyle,
         ...primaryStyle,
-        fontSize: ['27px', '27px', '33px'],
-        padding: ['24px 16px', '24px 16px', '32px 16px'],
+        fontSize: ['18px', '18px', '20px'],
+        padding: ['16px 24px', '16px 24px', '16px 32px'],
       }
       break
     case 'link':

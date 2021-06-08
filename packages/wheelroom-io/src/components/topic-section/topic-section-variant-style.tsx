@@ -15,7 +15,7 @@ const baseStyle = {
 const maxWidthStyle = {
   ...baseStyle,
   maxWidth: '1280px',
-  margin: 'auto 0',
+  margin: '0 auto',
 }
 
 export const getTopicSectionVariantStyle = (args: TopicSectionVariantStyle) => {

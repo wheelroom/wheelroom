@@ -6,7 +6,6 @@ export interface TopicVariantStyle {
 }
 
 const baseStyle = {
-  label: 'topic-media',
   display: 'flex',
   flexDirection: 'column',
   ':only-of-type': {},
@@ -41,8 +40,24 @@ export const topicMediaVariantStyle = (args: TopicVariantStyle) => {
           display: 'block',
           height: '178px',
           img: {
+            display: 'block',
             height: '100%',
+            width: '100%',
             objectFit: 'cover',
+          },
+        },
+      }
+      break
+    case 'featured':
+      style = {
+        ...baseStyle,
+        padding: '16px',
+        maxWidth: ['35em', '35em', '45%'],
+        width: '100%',
+        picture: {
+          img: {
+            display: 'block',
+            height: 'auto',
             width: '100%',
           },
         },

@@ -24,7 +24,13 @@ export const TopicActions = (props: TopicActionsProps) => {
         <Action
           key={action.sys.id}
           model={action}
-          variantMap={{ action: 'primary' }}
+          variantMap={{
+            action: ['featured', 'headline', 'hero', 'quuote'].includes(
+              props.variantMap.topicActions
+            )
+              ? 'display'
+              : 'primary',
+          }}
         />
       ))}
     </Div>
