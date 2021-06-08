@@ -1,16 +1,16 @@
 import { AnyProps } from '@wheelroom/any/Any'
 import { Video as AnyVideo, Source, P, B } from '@wheelroom/any/elements'
-import { Media } from './media'
+import { Asset } from './asset'
 
 export interface VideoProps {
-  media?: Media
+  asset?: Asset
   poster?: string
   showCaption?: boolean
 }
 
-const defaultMedia: Media = {
+const defaultAsset: Asset = {
   sys: {
-    id: 'default-media',
+    id: 'default-asset',
   },
   contentType: 'video/mp4',
   description: 'No media description available',
@@ -23,19 +23,19 @@ const defaultMedia: Media = {
 }
 
 export const Video = (props: VideoProps) => {
-  const media = props.media || defaultMedia
+  const asset = props.asset || defaultAsset
 
-  if (['image/jpeg', 'image/webp', 'image/png'].includes(media.contentType)) {
+  if (['image/jpeg', 'image/webp', 'image/png'].includes(asset.contentType)) {
     return null
   }
 
   const videoProps: AnyProps['video'] = {
     poster: props.poster,
-    title: media.title,
+    title: asset.title,
   }
   const sourceProps: AnyProps['source'] = {
-    src: media.url,
-    type: media.contentType,
+    src: asset.url,
+    type: asset.contentType,
   }
 
   return (
@@ -46,8 +46,8 @@ export const Video = (props: VideoProps) => {
       </AnyVideo>
       {props.showCaption && (
         <P>
-          <B>{media.title}</B>
-          {media.description}
+          <B>{asset.title}</B>
+          {asset.description}
         </P>
       )}
     </>

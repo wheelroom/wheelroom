@@ -39,51 +39,6 @@ export const Topic = (props: TopicProps) => {
   )
 }
 
-export const actionFragment = graphql`
-  fragment Action on Contentful_Action {
-    sys {
-      id
-    }
-    description
-    anchor
-    eventId
-    heading
-    icon
-    query
-    url
-  }
-`
-
-export const mediaBreakpointFragment = graphql`
-  fragment MediaBreakpoint on Contentful_MediaBreakpoint {
-    sys {
-      id
-    }
-    extraLarge {
-      ...Media
-    }
-    large {
-      ...Media
-    }
-    medium {
-      ...Media
-    }
-    small {
-      ...Media
-    }
-  }
-`
-
-export const mediaEmbedFragment = graphql`
-  fragment Embed on Contentful_Embed {
-    sys {
-      id
-    }
-    type
-    code
-  }
-`
-
 export const topicFragment = graphql`
   fragment Topic on Contentful_Topic {
     sys {
@@ -98,7 +53,7 @@ export const topicFragment = graphql`
       }
     }
     media {
-      ...Media
+      ...Asset
     }
     mediaBreakpoint {
       ...MediaBreakpoint
@@ -107,7 +62,7 @@ export const topicFragment = graphql`
       ...Embed
     }
     poster {
-      ...Media
+      ...Asset
     }
   }
 `

@@ -1,15 +1,15 @@
 import { AnyProps } from '@wheelroom/any/Any'
 import { Img, Picture, Figcaption } from '@wheelroom/any/elements'
-import { Media } from './media'
+import { Asset } from './asset'
 
 export interface ImageProps {
-  media?: Media
+  asset?: Asset
   showCaption?: boolean
 }
 
-const defaultMedia: Media = {
+const defaultAsset: Asset = {
   sys: {
-    id: 'default-media',
+    id: 'default-asset',
   },
   contentType: 'image/png',
   description: 'No media description available',
@@ -22,34 +22,34 @@ const defaultMedia: Media = {
 }
 
 export const Image = (props: ImageProps) => {
-  const media = props.media || defaultMedia
+  const asset = props.asset || defaultAsset
   /**
-   * Avoid video media asset
+   * Avoid video asset media
    * The complete list of file types can be found here:
    * https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers
    */
 
-  if (['video/ogg', 'video/mp4', 'video/webm'].includes(media.contentType)) {
+  if (['video/ogg', 'video/mp4', 'video/webm'].includes(asset.contentType)) {
     return null
   }
 
   const imgProps: AnyProps['img'] = {
-    alt: media.description,
-    title: media.title,
+    alt: asset.description,
+    title: asset.title,
   }
 
   // Not all image content types are supporting the attribute src set
-  if (['image/jpeg', 'image/webp', 'image/png'].includes(media.contentType)) {
+  if (['image/jpeg', 'image/webp', 'image/png'].includes(asset.contentType)) {
     //TODO: Implement src set
-    imgProps.src = media.url
+    imgProps.src = asset.url
   } else {
-    imgProps.src = media.url
+    imgProps.src = asset.url
   }
 
   return (
     <Picture>
       <Img {...imgProps} />
-      {props.showCaption && <Figcaption>{media.description}</Figcaption>}
+      {props.showCaption && <Figcaption>{asset.description}</Figcaption>}
     </Picture>
   )
 }

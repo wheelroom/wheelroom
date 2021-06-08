@@ -1,50 +1,25 @@
-import { Div } from '@wheelroom/any/elements'
-import { graphql } from 'gatsby'
 import React from 'react'
-import { MediaOptions } from './media-options'
-import { mediaVariantStyle } from './media-variant-style'
-import { MediaVariantMap } from './media-variants'
+import { MediaBreakpoint } from '../media-breakpoint/mediaBreakpoint'
+import { Embed } from '../embed/embed'
+import { Asset } from './asset'
 
 export type Media = {
-  sys: {
-    id: string
-  }
-  contentType: string
-  description: string
-  fileName: string
-  height: number
-  size: number
-  title: string
-  url: string
-  width: number
+  asset: Asset
+  mediaBreakpoint: MediaBreakpoint
+  embed: Embed
 }
 
 export interface MediaProps {
   model: Media
-  options: MediaOptions
-  variantMap: MediaVariantMap
 }
 
 export const Media = (props: MediaProps) => {
-  return (
-    <Div css={mediaVariantStyle({ variant: props.variantMap.media })}>
-      Media here
-    </Div>
-  )
-}
-
-export const mediaFragment = graphql`
-  fragment Media on Contentful_Asset {
-    sys {
-      id
-    }
-    contentType
-    description
-    fileName
-    height
-    size
-    title
-    url
-    width
+  if (props.model.mediaBreakpoint) {
+    return <MediaBreakpoint model={props.model.mediaBreakpoint} />
+  } else if (props.model.asset) {
+    return <Asset model={props.model.asset} />
+  } else if (props.model.embed) {
+    return <Embed model={props.model.embed} />
   }
-`
+  return null
+}
