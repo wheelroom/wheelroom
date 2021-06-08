@@ -22,6 +22,14 @@ export const topicContentVariantStyle = (args: TopicVariantStyle) => {
         padding: '16px',
       }
       break
+    case 'card':
+      style = {
+        ...baseStyle,
+        flex: '1 1 auto',
+        color: 'grey',
+        padding: '16px',
+      }
+      break
     case 'headline':
       style = {
         textAlign: 'center',

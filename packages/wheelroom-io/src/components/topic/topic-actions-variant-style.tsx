@@ -19,6 +19,12 @@ export const topicActionsVariantStyle = (args: TopicVariantStyle) => {
         marginTop: '16px',
       }
       break
+    case 'card':
+      style = {
+        ...baseStyle,
+        marginTop: '16px',
+      }
+      break
     case 'headline':
       style = {
         ...baseStyle,

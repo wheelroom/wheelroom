@@ -21,6 +21,16 @@ export const topicTextVariantStyle = (args: TopicVariantStyle) => {
         },
       }
       break
+    case 'card':
+      style = {
+        ...baseStyle,
+        display: 'block',
+        flex: '1 1 auto',
+        p: {
+          marginBottom: 0,
+        },
+      }
+      break
     case 'headline':
       style = {
         ...baseStyle,

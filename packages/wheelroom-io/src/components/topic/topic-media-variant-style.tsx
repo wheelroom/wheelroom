@@ -33,6 +33,21 @@ export const topicMediaVariantStyle = (args: TopicVariantStyle) => {
         },
       }
       break
+    case 'card':
+      style = {
+        ...baseStyle,
+        margin: '16px',
+        picture: {
+          display: 'block',
+          height: '178px',
+          img: {
+            height: '100%',
+            objectFit: 'cover',
+            width: '100%',
+          },
+        },
+      }
+      break
     default:
       style = {
         ...baseStyle,

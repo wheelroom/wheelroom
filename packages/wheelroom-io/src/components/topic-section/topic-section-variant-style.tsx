@@ -15,7 +15,7 @@ const baseStyle = {
 const maxWidthStyle = {
   ...baseStyle,
   maxWidth: '1280px',
-  margin: '0 auto',
+  margin: 'auto 0',
 }
 
 export const getTopicSectionVariantStyle = (args: TopicSectionVariantStyle) => {
@@ -34,6 +34,7 @@ export const getTopicSectionVariantStyle = (args: TopicSectionVariantStyle) => {
         ...maxWidthStyle,
         alignItems: 'stretch',
         flexDirection: 'row',
+        flexFlow: 'row wrap',
         flexWrap: 'wrap',
         justifyContent: 'center',
       }

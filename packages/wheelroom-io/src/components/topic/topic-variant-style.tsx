@@ -29,10 +29,21 @@ export const topicVariantStyle = (args: TopicVariantStyle) => {
     case 'card':
       style = {
         ...baseStyle,
-        borderColor: 'cardBorder',
+        border: '1px solid transparent',
+        borderColor: 'lightgrey',
+        borderRadius: '4px',
         boxShadow: '0 0 16px',
-        color: 'cardShadow',
+        color: 'lightgrey',
+        margin: '16px',
+        maxWidth: '288px',
+        minWidth: '288px',
         textDecoration: 'none',
+        '> div:last-of-type': {
+          paddingTop: 0,
+        },
+        '> div:only-of-type': {
+          paddingTop: '16px',
+        },
         transition: 'transform .25s ease',
         ':hover': {
           transform: 'translate3d(0, -4px, 0)',
