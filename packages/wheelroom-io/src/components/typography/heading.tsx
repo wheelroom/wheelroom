@@ -24,7 +24,7 @@ export const H1 = (props: AnyProps['h1']) => (
     {props.children}
   </AnyH1>
 )
-export const H2 = (props: AnyProps['h1']) => (
+export const H2 = (props: AnyProps['h2']) => (
   <AnyH2
     css={mediaQuery({
       ...headingStyle,
@@ -34,7 +34,7 @@ export const H2 = (props: AnyProps['h1']) => (
     {props.children}
   </AnyH2>
 )
-export const H3 = (props: AnyProps['h1']) => (
+export const H3 = (props: AnyProps['h3']) => (
   <AnyH3
     css={mediaQuery({
       ...headingStyle,
@@ -45,7 +45,7 @@ export const H3 = (props: AnyProps['h1']) => (
   </AnyH3>
 )
 
-export const H4 = (props: AnyProps['h1']) => (
+export const H4 = (props: AnyProps['h4']) => (
   <AnyH4
     css={mediaQuery({
       ...headingStyle,
@@ -56,7 +56,7 @@ export const H4 = (props: AnyProps['h1']) => (
   </AnyH4>
 )
 
-export const H5 = (props: AnyProps['h1']) => (
+export const H5 = (props: AnyProps['h5']) => (
   <AnyH5
     css={mediaQuery({
       ...headingStyle,
@@ -67,7 +67,7 @@ export const H5 = (props: AnyProps['h1']) => (
   </AnyH5>
 )
 
-export const H6 = (props: AnyProps['h1']) => (
+export const H6 = (props: AnyProps['h6']) => (
   <AnyH6
     css={mediaQuery({
       ...headingStyle,
