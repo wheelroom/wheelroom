@@ -7,6 +7,10 @@ export interface TopicVariantStyle {
 
 const baseStyle = {
   label: 'topic-content',
+  display: 'flex',
+  flex: '1',
+  flexDirection: 'column',
+  ':only-of-type': {},
 }
 
 export const topicContentVariantStyle = (args: TopicVariantStyle) => {

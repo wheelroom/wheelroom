@@ -1,9 +1,12 @@
 import React from 'react'
 import { A, Span } from '@wheelroom/any/elements'
 import { graphql, Link } from 'gatsby'
+import { css } from '@emotion/css'
 import { Embed } from '../embed/embed'
 import { FeatherIcon } from '../../lib/feather-icon'
 import { useGlobals } from '../../lib/globals-provider'
+import { ActionVariantMap } from './action-variants'
+import { actionVariantStyle } from './action-variant-style'
 
 export type Action = {
   sys: {
@@ -25,17 +28,18 @@ export interface ActionProps {
   hideIcon?: boolean
   key?: any
   model: Action
+  variantMap: ActionVariantMap
   onClick?: () => any
 }
 
 interface CreateURL {
   action: Action
   isPreviewMode: boolean
+  url: string
 }
 
-const createURL = ({ action, isPreviewMode }: CreateURL) => {
+const createURL = ({ url, action, isPreviewMode }: CreateURL) => {
   const hasQuery = action.query || isPreviewMode
-  let url: any = action.page ? action.page.path : action.url
   if (hasQuery) {
     url += '?'
     url += isPreviewMode ? '&preview=true' : ''
@@ -64,11 +68,13 @@ const ActionGlink = (props: ActionProps) => {
   const heading = props.children ? props.children : props.model.heading
   return (
     <Link
+      className={css(actionVariantStyle({ variant: props.variantMap.action }))}
       aria-label={props.model.description}
       onClick={() => onClickHander({ eventId: props.model.eventId, globals })}
       to={createURL({
         action: props.model,
         isPreviewMode: globals.isPreviewMode,
+        url: props.model.page.path,
       })}
     >
       {!props.hideHeading && heading}
@@ -84,10 +90,12 @@ const ActionAlink = (props: ActionProps) => {
   const heading = props.children ? props.children : props.model.heading
   return (
     <A
+      css={actionVariantStyle({ variant: props.variantMap.action })}
       aria-label={props.model.description}
       href={createURL({
         action: props.model,
         isPreviewMode: globals.isPreviewMode,
+        url: props.model.url,
       })}
       onClick={() => onClickHander({ eventId: props.model.eventId, globals })}
     >
@@ -112,6 +120,7 @@ const NoLink = (props: ActionProps) => {
 }
 
 export const Action = (props: ActionProps) => {
+  console.log(props)
   if (props.model.page) {
     return <ActionGlink {...props} />
   } else if (props.model.url) {
@@ -131,6 +140,9 @@ export const actionFragment = graphql`
     eventId
     heading
     icon
+    page {
+      path
+    }
     query
     url
   }

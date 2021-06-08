@@ -1,4 +1,5 @@
 import { Div } from '@wheelroom/any/elements'
+import React from 'react'
 import { Action } from '../../../action/action'
 import { TopicOptions } from '../../topic-options'
 import { TopicVariantMap } from '../../topic-variants'
@@ -20,7 +21,11 @@ export const TopicActions = (props: TopicActionsProps) => {
       css={topicActionsVariantStyle({ variant: props.variantMap.topicActions })}
     >
       {props.model.actions.map((action: Action) => (
-        <Div key={action.sys.id}>{action.heading}</Div>
+        <Action
+          key={action.sys.id}
+          model={action}
+          variantMap={{ action: 'primary' }}
+        />
       ))}
     </Div>
   )

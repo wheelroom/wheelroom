@@ -13,16 +13,6 @@ export type Page = {
   }
 }
 
-export const fragment = graphql`
-  fragment Page on Contentful_Page {
-    sectionsCollection(limit: 10) {
-      items {
-        ...TopicSection
-      }
-    }
-  }
-`
-
 export const fontStyle: CSSObject = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
   “Segoe UI”, “Roboto”, “Oxygen”,
@@ -71,6 +61,16 @@ export const queryId = graphql`
     }
     site {
       ...GatsbySite
+    }
+  }
+`
+
+export const pageFragment = graphql`
+  fragment Page on Contentful_Page {
+    sectionsCollection(limit: 10) {
+      items {
+        ...TopicSection
+      }
     }
   }
 `

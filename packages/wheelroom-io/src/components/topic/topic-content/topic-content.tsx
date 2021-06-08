@@ -25,12 +25,12 @@ export const TopicContent = (props: TopicContentProps) => {
       css={topicContentVariantStyle({ variant: props.variantMap.topicContent })}
     >
       <TopicText
-        variantMap={{ topicText: props.variantMap.topic }}
+        variantMap={{ topicText: props.variantMap.topicContent }}
         model={props.model}
         options={{}}
       />
       <TopicActions
-        variantMap={{ topicActions: props.variantMap.topic }}
+        variantMap={{ topicActions: props.variantMap.topicContent }}
         model={props.model}
         options={{}}
       />

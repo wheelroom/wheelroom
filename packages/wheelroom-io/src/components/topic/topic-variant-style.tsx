@@ -40,7 +40,7 @@ export const topicVariantStyle = (args: TopicVariantStyle) => {
       break
     case 'divider':
       style = {
-        margin: '0 1rem',
+        margin: '1rem 0',
         color: 'inherit',
         backgroundColor: 'dividerBg',
         border: 0,
@@ -52,7 +52,7 @@ export const topicVariantStyle = (args: TopicVariantStyle) => {
       style = {
         flexDirection: ['column', 'column', 'row'],
         justifyContent: 'space-evenly',
-        padding: '0 16x',
+        padding: '16x 0',
         alignItems: 'center',
       }
       break
@@ -69,7 +69,7 @@ export const topicVariantStyle = (args: TopicVariantStyle) => {
     case 'showcase':
       style = {
         flexDirection: ['column', 'row'],
-        padding: '0 16px',
+        padding: '16px 0',
       }
       break
     default:

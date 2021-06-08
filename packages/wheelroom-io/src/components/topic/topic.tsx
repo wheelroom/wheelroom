@@ -16,7 +16,9 @@ export type Topic = {
     id: string
   }
   abstract: string
-  actionsCollection: Action[]
+  actionsCollection: {
+    items: Action[]
+  }
   heading: string
   icon: string
   media: Asset
@@ -43,7 +45,7 @@ export const Topic = (props: TopicProps) => {
         variantMap={{ topicContent: props.variantMap.topic }}
         model={{
           abstract: props.model.abstract,
-          actions: props.model.actionsCollection,
+          actions: props.model.actionsCollection.items,
           heading: props.model.heading,
         }}
         options={{}}
