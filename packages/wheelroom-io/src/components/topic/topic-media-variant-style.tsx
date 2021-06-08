@@ -63,6 +63,19 @@ export const topicMediaVariantStyle = (args: TopicVariantStyle) => {
         },
       }
       break
+    case 'gallery':
+      style = {
+        ...baseStyle,
+        picture: {
+          padding: '16px',
+          img: {
+            display: 'block',
+            height: 'auto',
+            width: '100%',
+          },
+        },
+      }
+      break
     default:
       style = {
         ...baseStyle,

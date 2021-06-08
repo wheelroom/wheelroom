@@ -44,6 +44,11 @@ export const topicContentVariantStyle = (args: TopicVariantStyle) => {
         maxWidth: ['100%', '48em'],
       }
       break
+    case 'gallery':
+      style = {
+        padding: '16px',
+      }
+      break
     default:
       style = baseStyle
       break
