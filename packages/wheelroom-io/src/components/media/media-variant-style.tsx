@@ -1,15 +1,15 @@
-import { mediaQuery } from '../../../lib/media-query'
-import { TopicMediaVariant } from './topic-media-variants'
+import { mediaQuery } from '../../lib/media-query'
+import { MediaVariant } from './media-variants'
 
-export interface TopicVariantStyle {
-  variant?: TopicMediaVariant
+export interface VariantStyle {
+  variant?: MediaVariant
 }
 
 const baseStyle = {
   label: 'topic-media',
 }
 
-export const topicMediaVariantStyle = (args: TopicVariantStyle) => {
+export const mediaVariantStyle = (args: VariantStyle) => {
   let style = {}
   switch (args.variant) {
     case 'myVar':

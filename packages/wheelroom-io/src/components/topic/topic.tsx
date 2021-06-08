@@ -54,21 +54,6 @@ export const actionFragment = graphql`
   }
 `
 
-export const mediaFragment = graphql`
-  fragment Media on Contentful_Asset {
-    sys {
-      id
-    }
-    description
-    fileName
-    height
-    size
-    title
-    url
-    width
-  }
-`
-
 export const mediaBreakpointFragment = graphql`
   fragment MediaBreakpoint on Contentful_MediaBreakpoint {
     sys {
@@ -89,7 +74,7 @@ export const mediaBreakpointFragment = graphql`
   }
 `
 
-export const mediaEmbed = graphql`
+export const mediaEmbedFragment = graphql`
   fragment Embed on Contentful_Embed {
     sys {
       id

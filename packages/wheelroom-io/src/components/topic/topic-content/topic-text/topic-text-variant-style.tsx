@@ -1,7 +1,7 @@
 import { mediaQuery } from '../../../../lib/media-query'
 import { TopicTextVariant } from './topic-text-variants'
 
-export interface GetTopicVariantStyle {
+export interface TopicVariantStyle {
   variant?: TopicTextVariant
 }
 
@@ -9,7 +9,7 @@ const baseStyle = {
   label: 'topic-text',
 }
 
-export const topicTextVariantStyle = (args: GetTopicVariantStyle) => {
+export const topicTextVariantStyle = (args: TopicVariantStyle) => {
   let style = {}
   switch (args.variant) {
     case 'myVar':
