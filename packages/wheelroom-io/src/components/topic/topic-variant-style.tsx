@@ -80,6 +80,7 @@ export const topicVariantStyle = (args: TopicVariantStyle) => {
       break
     case 'showcase':
       style = {
+        ...baseStyle,
         flexDirection: ['column', 'row'],
         padding: '16px 0',
       }

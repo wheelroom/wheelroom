@@ -67,7 +67,7 @@ export const queryId = graphql`
 
 export const pageFragment = graphql`
   fragment Page on Contentful_Page {
-    sectionsCollection(limit: 10) {
+    sectionsCollection(limit: 20) {
       items {
         ...TopicSection
       }

@@ -29,6 +29,22 @@ export const topicActionsVariantStyle = (args: TopicVariantStyle) => {
         marginTop: '16px',
       }
       break
+    case 'hero':
+      style = {
+        marginTop: '32px',
+        maxWidth: '30em',
+      }
+      break
+    case 'quote':
+      style = {
+        marginTop: '64px',
+      }
+      break
+    case 'showcase':
+      style = {
+        marginTop: '16px',
+      }
+      break
     default:
       break
   }

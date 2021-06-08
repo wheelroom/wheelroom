@@ -21,16 +21,14 @@ export interface TopicContentProps {
 
 export const TopicContent = (props: TopicContentProps) => {
   return (
-    <Div
-      css={topicContentVariantStyle({ variant: props.variantMap.topicContent })}
-    >
+    <Div css={topicContentVariantStyle({ variant: props.variantMap.topic })}>
       <TopicText
-        variantMap={{ topicText: props.variantMap.topicContent }}
+        variantMap={props.variantMap}
         model={props.model}
         options={{}}
       />
       <TopicActions
-        variantMap={{ topicActions: props.variantMap.topicContent }}
+        variantMap={props.variantMap}
         model={props.model}
         options={{}}
       />

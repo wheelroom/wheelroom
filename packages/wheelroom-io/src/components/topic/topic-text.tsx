@@ -17,9 +17,12 @@ export interface TopicTextProps {
 }
 
 export const TopicText = (props: TopicTextProps) => {
+  const isLarge = ['featured', 'headline', 'hero', 'quote'].includes(
+    props.variantMap.topic || ''
+  )
   return (
-    <Div css={topicTextVariantStyle({ variant: props.variantMap.topicText })}>
-      <Heading is="h3">{props.model.heading}</Heading>
+    <Div css={topicTextVariantStyle({ variant: props.variantMap.topic })}>
+      <Heading is={isLarge ? 'h1' : 'h3'}>{props.model.heading}</Heading>
       <Abstract>{props.model.abstract}</Abstract>
     </Div>
   )

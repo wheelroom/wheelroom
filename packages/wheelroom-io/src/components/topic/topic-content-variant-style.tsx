@@ -33,7 +33,7 @@ export const topicContentVariantStyle = (args: TopicVariantStyle) => {
       style = {
         padding: '16px',
         maxWidth: ['35em', '35em', '45%'],
-        width: '100',
+        width: '100%',
       }
       break
     case 'headline':
@@ -46,6 +46,34 @@ export const topicContentVariantStyle = (args: TopicVariantStyle) => {
       break
     case 'gallery':
       style = {
+        padding: '16px',
+      }
+      break
+    case 'hero':
+      style = {
+        maxWidth: '80em',
+        margin: '0 auto',
+        padding: ['48px 24px', '56px 32px', '72px 40px', '88px 40px'],
+        width: '100%',
+      }
+      break
+    case 'quote':
+      style = {
+        textAlign: 'center',
+        padding: '16px',
+        maxWidth: ['100%', '60em', '68em'],
+        margin: '0 auto',
+      }
+      break
+    case 'showcase':
+      style = {
+        ...baseStyle,
+        padding: '16px',
+      }
+      break
+    case 'video':
+      style = {
+        ...baseStyle,
         padding: '16px',
       }
       break

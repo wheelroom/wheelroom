@@ -12,7 +12,7 @@ export interface TopicMediaProps {
 
 export const TopicMedia = (props: TopicMediaProps) => {
   return (
-    <Div css={topicMediaVariantStyle({ variant: props.variantMap.topicMedia })}>
+    <Div css={topicMediaVariantStyle({ variant: props.variantMap.topic })}>
       <Media model={props.model} />
     </Div>
   )

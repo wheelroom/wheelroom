@@ -69,9 +69,9 @@ export const actionVariantStyle = (args: ActionVariantStyle) => {
     case 'link':
       style = {
         ...baseStyle,
-        fontSize: '27px',
+        fontSize: '18px',
         backgroundColor: 'transparent',
-        color: 'grey',
+        color: 'blue',
         border: '0',
         padding: 0,
         textDecoration: 'underline',

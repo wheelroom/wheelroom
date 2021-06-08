@@ -16,20 +16,20 @@ export interface TopicActionsProps {
 }
 
 export const TopicActions = (props: TopicActionsProps) => {
+  const isLarge = ['featured', 'headline', 'hero', 'quote'].includes(
+    props.variantMap.topic || ''
+  )
+  const isMedium = ['gallery', 'image', 'showcase'].includes(
+    props.variantMap.topic || ''
+  )
   return (
-    <Div
-      css={topicActionsVariantStyle({ variant: props.variantMap.topicActions })}
-    >
+    <Div css={topicActionsVariantStyle({ variant: props.variantMap.topic })}>
       {props.model.actions.map((action: Action) => (
         <Action
           key={action.sys.id}
           model={action}
           variantMap={{
-            action: ['featured', 'headline', 'hero', 'quuote'].includes(
-              props.variantMap.topicActions
-            )
-              ? 'display'
-              : 'primary',
+            action: isLarge ? 'display' : isMedium ? 'link' : 'primary',
           }}
         />
       ))}

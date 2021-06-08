@@ -37,12 +37,12 @@ export const Topic = (props: TopicProps) => {
   return (
     <Div css={topicVariantStyle({ variant: props.variantMap.topic })}>
       <TopicMedia
-        variantMap={{ topicMedia: props.variantMap.topic }}
+        variantMap={props.variantMap}
         model={{ asset: props.model.media }}
         options={{}}
       />
       <TopicContent
-        variantMap={{ topicContent: props.variantMap.topic }}
+        variantMap={props.variantMap}
         model={{
           abstract: props.model.abstract,
           actions: props.model.actionsCollection.items,
