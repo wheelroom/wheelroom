@@ -1,7 +1,7 @@
-import { Div, H1, P } from '@wheelroom/any/elements'
-import { TopicTextOptions } from './topic-text-options'
+import { Div, H3, P } from '@wheelroom/any/elements'
+import { TopicOptions } from '../../topic-options'
+import { TopicVariantMap } from '../../topic-variants'
 import { topicTextVariantStyle } from './topic-text-variant-style'
-import { TopicTextVariantMap } from './topic-text-variants'
 
 export type TopicText = {
   abstract: string
@@ -10,14 +10,14 @@ export type TopicText = {
 
 export interface TopicTextProps {
   model: TopicText
-  options: TopicTextOptions
-  variantMap: TopicTextVariantMap
+  options: TopicOptions
+  variantMap: TopicVariantMap
 }
 
 export const TopicText = (props: TopicTextProps) => {
   return (
     <Div css={topicTextVariantStyle({ variant: props.variantMap.topicText })}>
-      <H1>{props.model.heading}</H1>
+      <H3>{props.model.heading}</H3>
       <P>{props.model.abstract}</P>
     </Div>
   )

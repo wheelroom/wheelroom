@@ -1,8 +1,8 @@
 import { mediaQuery } from '../../../../lib/media-query'
-import { TopicTextVariant } from './topic-text-variants'
+import { TopicVariant } from '../../topic-variants'
 
 export interface TopicVariantStyle {
-  variant?: TopicTextVariant
+  variant?: TopicVariant
 }
 
 const baseStyle = {
@@ -12,9 +12,13 @@ const baseStyle = {
 export const topicTextVariantStyle = (args: TopicVariantStyle) => {
   let style = {}
   switch (args.variant) {
-    case 'myVar':
+    case 'block':
       style = {
         ...baseStyle,
+        flex: '1 1 auto',
+        p: {
+          marginBottom: 0,
+        },
       }
       break
     default:

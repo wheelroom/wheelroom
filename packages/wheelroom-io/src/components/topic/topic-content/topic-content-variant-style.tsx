@@ -1,20 +1,21 @@
 import { mediaQuery } from '../../../lib/media-query'
-import { TopicContentVariant } from './topic-content-variants'
+import { TopicVariant } from '../topic-variants'
 
 export interface TopicVariantStyle {
-  variant?: TopicContentVariant
+  variant?: TopicVariant
 }
 
 const baseStyle = {
-  label: 'topic-actions',
+  label: 'topic-content',
 }
 
 export const topicContentVariantStyle = (args: TopicVariantStyle) => {
   let style = {}
   switch (args.variant) {
-    case 'myVar':
+    case 'block':
       style = {
         ...baseStyle,
+        padding: '16px',
       }
       break
     default:

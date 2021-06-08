@@ -1,17 +1,17 @@
 import { Div } from '@wheelroom/any/elements'
-import { TopicActionsOptions } from './topic-actions-options'
+import { Action } from '../../../action/action'
+import { TopicOptions } from '../../topic-options'
+import { TopicVariantMap } from '../../topic-variants'
 import { topicActionsVariantStyle } from './topic-actions-variant-style'
-import { TopicActionsVariantMap } from './topic-actions-variants'
 
 export type TopicActions = {
-  abstract: string
-  heading: string
+  actions: Action[]
 }
 
 export interface TopicActionsProps {
   model: TopicActions
-  options: TopicActionsOptions
-  variantMap: TopicActionsVariantMap
+  options: TopicOptions
+  variantMap: TopicVariantMap
 }
 
 export const TopicActions = (props: TopicActionsProps) => {
@@ -19,7 +19,9 @@ export const TopicActions = (props: TopicActionsProps) => {
     <Div
       css={topicActionsVariantStyle({ variant: props.variantMap.topicActions })}
     >
-      <Div css={{ label: 'actions' }} />
+      {props.model.actions.map((action: Action) => (
+        <Div key={action.sys.id}>{action.heading}</Div>
+      ))}
     </Div>
   )
 }

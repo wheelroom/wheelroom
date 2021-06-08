@@ -1,13 +1,14 @@
 import React from 'react'
-import { Any } from '@wheelroom/any/Any'
-import { A } from '@wheelroom/any/elements'
+import { A, Span } from '@wheelroom/any/elements'
 import { graphql, Link } from 'gatsby'
 import { Embed } from '../embed/embed'
 import { FeatherIcon } from '../../lib/feather-icon'
 import { useGlobals } from '../../lib/globals-provider'
 
 export type Action = {
-  __typename: string
+  sys: {
+    id: string
+  }
   anchor: string
   description: string
   eventId: string
@@ -58,13 +59,12 @@ const onClickHander = ({ eventId, globals }: OnClickHander) => {
   })
 }
 
-// TODO: Add icon styling
 const ActionGlink = (props: ActionProps) => {
   const globals: any = useGlobals()
   const heading = props.children ? props.children : props.model.heading
   return (
     <Link
-      // ariaLabel={props.description}
+      aria-label={props.model.description}
       onClick={() => onClickHander({ eventId: props.model.eventId, globals })}
       to={createURL({
         action: props.model,
@@ -79,13 +79,12 @@ const ActionGlink = (props: ActionProps) => {
   )
 }
 
-// TODO: Add icon styling
 const ActionAlink = (props: ActionProps) => {
   const globals: any = useGlobals()
   const heading = props.children ? props.children : props.model.heading
   return (
     <A
-      // ariaLabel={props.description}
+      aria-label={props.model.description}
       href={createURL({
         action: props.model,
         isPreviewMode: globals.isPreviewMode,
@@ -100,16 +99,15 @@ const ActionAlink = (props: ActionProps) => {
   )
 }
 
-// TODO: Add icon styling
 const NoLink = (props: ActionProps) => {
   const heading = props.children ? props.children : props.model.heading
   return (
-    <Any is="span" ariaLabel={props.model.description} polyPreset={true}>
+    <Span aria-label={props.model.description}>
       {!props.hideHeading && heading}
       {props.model.icon && !props.hideIcon && (
         <FeatherIcon name={props.model.icon} />
       )}
-    </Any>
+    </Span>
   )
 }
 

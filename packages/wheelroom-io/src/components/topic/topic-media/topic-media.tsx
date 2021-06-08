@@ -1,23 +1,19 @@
 import { Div } from '@wheelroom/any/elements'
-import { TopicMediaOptions } from './topic-media-options'
+import { Media } from '../../media/media'
+import { TopicOptions } from '../topic-options'
+import { TopicVariantMap } from '../topic-variants'
 import { topicMediaVariantStyle } from './topic-media-variant-style'
-import { TopicMediaVariantMap } from './topic-media-variants'
-
-export type TopicMedia = {
-  abstract: string
-  heading: string
-}
 
 export interface TopicMediaProps {
-  model: TopicMedia
-  options: TopicMediaOptions
-  variantMap: TopicMediaVariantMap
+  model: Media
+  options: TopicOptions
+  variantMap: TopicVariantMap
 }
 
 export const TopicMedia = (props: TopicMediaProps) => {
   return (
     <Div css={topicMediaVariantStyle({ variant: props.variantMap.topicMedia })}>
-      <Div css={{ label: 'media' }} />
+      <Media model={props.model} />
     </Div>
   )
 }

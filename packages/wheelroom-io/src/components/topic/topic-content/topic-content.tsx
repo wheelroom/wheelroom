@@ -1,20 +1,22 @@
 import { Div } from '@wheelroom/any/elements'
 import React from 'react'
+import { Action } from '../../action/action'
+import { TopicOptions } from '../topic-options'
+import { TopicVariantMap } from '../topic-variants'
 import { TopicActions } from './topic-actions/topic-actions'
-import { TopicContentOptions } from './topic-content-options'
 import { topicContentVariantStyle } from './topic-content-variant-style'
-import { TopicContentVariantMap } from './topic-content-variants'
 import { TopicText } from './topic-text/topic-text'
 
 export type TopicContent = {
+  actions: Action[]
   abstract: string
   heading: string
 }
 
 export interface TopicContentProps {
   model: TopicContent
-  options: TopicContentOptions
-  variantMap: TopicContentVariantMap
+  options: TopicOptions
+  variantMap: TopicVariantMap
 }
 
 export const TopicContent = (props: TopicContentProps) => {
@@ -23,14 +25,14 @@ export const TopicContent = (props: TopicContentProps) => {
       css={topicContentVariantStyle({ variant: props.variantMap.topicContent })}
     >
       <TopicText
-        variantMap={{ topicText: 'myVar' }}
+        variantMap={{ topicText: props.variantMap.topic }}
         model={props.model}
-        options={{ myOption: true }}
+        options={{}}
       />
       <TopicActions
-        variantMap={{ topicActions: 'myVar' }}
+        variantMap={{ topicActions: props.variantMap.topic }}
         model={props.model}
-        options={{ myOption: true }}
+        options={{}}
       />
     </Div>
   )

@@ -19,19 +19,18 @@ export type Asset = {
 
 export interface AssetProps {
   model: Asset
+  poster?: Asset
 }
 
 export const Asset = (props: AssetProps) => {
-  let Element: typeof Image | typeof Video = () => null
   const mediaType = props.model.contentType.split('/')
   if (mediaType[0] === 'image') {
-    Element = Image
+    return <Image asset={props.model} />
   }
   if (mediaType[0] === 'video') {
-    Element = Video
+    return <Video asset={props.model} poster={props.poster} />
   }
-
-  return <Element asset={props.model} />
+  return null
 }
 
 export const assetFragment = graphql`

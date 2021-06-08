@@ -15,7 +15,6 @@ export type Page = {
 
 export const fragment = graphql`
   fragment Page on Contentful_Page {
-    __typename
     sectionsCollection(limit: 10) {
       items {
         ...TopicSection

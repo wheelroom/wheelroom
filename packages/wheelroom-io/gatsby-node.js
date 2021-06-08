@@ -22,7 +22,10 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   }
 `)
-
+  if (!(data && data.contentful && data.contentful.pageCollection)) {
+    console.log(`Could not connect to ${process.env.GATSBY_CONTENTFUL_GRAPHQL_ENDPOINT}`)
+    process.exit(1)
+  }
   data.contentful.pageCollection.items.forEach((page) => {
     actions.createPage({
       path: `${page.path}`,

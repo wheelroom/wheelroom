@@ -4,7 +4,7 @@ import { Asset } from './asset'
 
 export interface VideoProps {
   asset?: Asset
-  poster?: string
+  poster?: Asset
   showCaption?: boolean
 }
 
@@ -30,7 +30,7 @@ export const Video = (props: VideoProps) => {
   }
 
   const videoProps: AnyProps['video'] = {
-    poster: props.poster,
+    poster: props.poster?.url,
     title: asset.title,
   }
   const sourceProps: AnyProps['source'] = {
