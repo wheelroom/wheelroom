@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.24.2](https://github.com/wheelroom/wheelroom/compare/6.24.1...6.24.2) (2021-06-10)
+
+
+### Commits
+
+* only allow react v17 ([2714826](https://github.com/wheelroom/wheelroom/commit/2714826a0de046e3501370b08c7f8edd9993bbea))
+
 ## [6.21.10](https://github.com/wheelroom/wheelroom/compare/6.21.9...6.21.10) (2021-05-30)
 
 
