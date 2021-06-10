@@ -5,24 +5,25 @@
   "exports": {
     "./*": "./build/*"
   },
+  "scripts": {
+    "build": "npm-run-all clean build:*",
+    "build:compile": "rollup --config",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
+    "clean": "rimraf build/*",
+    "clean-npm": "find . -name node_modules | xargs rm -rf && find . -name package-lock.json | xargs rm -rf",
+    "dev": "rollup --config --watch"
+  },
+  "peerDependencies": {
+    "react": "17.x",
+    "react-dom": "17.x"
+  },
   "typesVersions": {
     "*": {
       "*": [
         "build/*"
       ]
     }
-  },
-  "scripts": {
-    "build": "npm-run-all clean build:*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:compile": "rollup --config",
-    "build:test": "jest --silent --passWithNoTests",
-    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
-    "clean": "rimraf build/*",
-    "dev": "rollup --config --watch"
-  },
-  "peerDependencies": {
-    "react": "16.x || 17.x",
-    "react-dom": "16.x || 17.x"
   }
 }
