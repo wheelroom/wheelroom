@@ -1,14 +1,14 @@
 import path from 'path'
-import { MakeContext } from '../lib/make-context-factory'
-import { cmdRun } from '../lib/run'
-import { getGitKey, parseOriginUrl, githubRelease } from '../lib/github'
+import { cmdRun } from '../../lib/run'
+import { getGitKey, parseOriginUrl, githubRelease } from '../../lib/github'
+import { MakeContext } from './make-context-factory'
 
 export interface PublishMakeContext {
   makeContext: MakeContext
 }
 
 export const publish = async ({ makeContext }: PublishMakeContext) => {
-  const { buildNodes, rootNode, targetNode, cloneDir } = makeContext
+  const { buildNodes, rootNode, targetNode } = makeContext
   for (const publishNode of buildNodes) {
     if (publishNode.package.private) {
       console.log(
@@ -18,7 +18,6 @@ export const publish = async ({ makeContext }: PublishMakeContext) => {
       await cmdRun({
         cmd: 'npm',
         args: ['publish'],
-        cloneDir,
         node: publishNode,
       })
     }

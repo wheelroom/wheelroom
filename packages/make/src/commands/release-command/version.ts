@@ -1,13 +1,13 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs'
 import semver from 'semver'
-import { MakeContext } from '../lib/make-context-factory'
-import { ArboristNode, updateEdgesOut } from '../lib/arborist'
+import { ArboristNode, updateEdgesOut } from '../../lib/arborist'
+import { writeNodeSync } from '../../lib/read-write-node'
+import { cmdRun } from '../../lib/run'
 import {
   bumpVersion,
   callConventionalChangelog,
-} from '../lib/conventional-changelog'
-import { writeNodeSync } from '../lib/read-write-node'
-import { cmdRun } from '../lib/run'
+} from './conventional-changelog'
+import { MakeContext } from './make-context-factory'
 
 export interface VersionMakeContext {
   makeContext: MakeContext

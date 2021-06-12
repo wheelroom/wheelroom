@@ -8,10 +8,10 @@
  *
  */
 
-import { makeContextFactory } from '../lib/make-context-factory'
-import { getFsChildPackageNames } from '../lib/arborist'
-import { confirm } from '../lib/confirm'
-import { validateToken } from '../lib/validate-token'
+import { getFsChildPackageNames } from '../../lib/arborist'
+import { validateToken } from '../../lib/validate-token'
+import { makeContextFactory } from './make-context-factory'
+import { confirm } from './confirm'
 import {
   getNewChangelogs,
   versionDependencies,
@@ -19,9 +19,9 @@ import {
   writeNewChangelogs,
   writeRootRelease,
   writeRootChangelog,
-} from '../release-command/version'
-import { publish } from '../release-command/publish'
-import { buildCloneDir, buildPackage } from '../release-command/build'
+} from './version'
+import { publish } from './publish'
+import { buildPackage } from './build'
 
 export type Command = 'build' | 'version' | 'publish' | 'release'
 
@@ -34,10 +34,8 @@ export const releaseCommand = async ({
   packageName,
   subCommand,
 }: RunCommand) => {
-  const cloneDir = 'build'
   const makeContext = await makeContextFactory({
     targetPackageName: packageName,
-    cloneDir,
   })
   const packageNames = getFsChildPackageNames({
     fsChildren: makeContext.rootNode.fsChildren,
@@ -66,7 +64,6 @@ export const releaseCommand = async ({
   switch (subCommand) {
     case 'build':
       await buildPackage({ makeContext })
-      await buildCloneDir({ makeContext })
       break
     case 'version':
       await versionTarget({ makeContext })
@@ -75,7 +72,6 @@ export const releaseCommand = async ({
       await writeNewChangelogs({ makeContext })
       await writeRootRelease({ makeContext })
       await writeRootChangelog({ makeContext })
-      await buildCloneDir({ makeContext })
       break
     case 'publish':
       await getNewChangelogs({ makeContext })
@@ -89,7 +85,6 @@ export const releaseCommand = async ({
       await writeNewChangelogs({ makeContext })
       await writeRootRelease({ makeContext })
       await writeRootChangelog({ makeContext })
-      await buildCloneDir({ makeContext })
       await publish({ makeContext })
       break
   }

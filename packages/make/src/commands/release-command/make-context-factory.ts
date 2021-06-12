@@ -1,10 +1,9 @@
 import Arborist from '@npmcli/arborist'
-import { getGitKey, parseOriginUrl } from '../lib/github'
-import { ArboristNode, getFsChild, getSyncedNodes } from './arborist'
+import { getGitKey, parseOriginUrl } from '../../lib/github'
+import { ArboristNode, getFsChild, getSyncedNodes } from '../../lib/arborist'
 
 export interface MakeContext {
   buildNodes: ArboristNode[]
-  cloneDir: string
   newChangeLogs: {
     [packageName: string]: string
   }
@@ -14,11 +13,9 @@ export interface MakeContext {
 
 export interface GetMakeContext {
   targetPackageName: string
-  cloneDir: string
 }
 
 export const makeContextFactory = async ({
-  cloneDir,
   targetPackageName,
 }: GetMakeContext) => {
   const arborist = new Arborist({ path: process.cwd() })
@@ -50,7 +47,6 @@ export const makeContextFactory = async ({
 
   return {
     buildNodes,
-    cloneDir,
     newChangeLogs: {},
     rootNode,
     targetNode,

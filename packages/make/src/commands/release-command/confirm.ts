@@ -1,6 +1,6 @@
 import inquirer from 'inquirer'
-import { ArboristNode } from './arborist'
-import { confirmQuestions } from './confirm-questions'
+import { ArboristNode } from '../../lib/arborist'
+import { confirmQuestions } from '../../lib/confirm-questions'
 
 interface GetIsConfirmed {
   subCommand?: string

@@ -27,10 +27,7 @@ export type ArboristNode = {
   package: ArboristPackage
 }
 
-export const packagePath = (node: ArboristNode, cloneDir?: string) =>
-  cloneDir
-    ? `${node.path}/${cloneDir}/package.json`
-    : `${node.path}/package.json`
+export const packagePath = (node: ArboristNode) => `${node.path}/package.json`
 
 export interface GetFsChild {
   fsChildren: Set<ArboristNode>
@@ -52,7 +49,6 @@ export const getFsChildPackageNames = ({
   Array.from(fsChildren).map((node) => node.package.name)
 
 export interface updatePackage {
-  cloneDir?: string
   node: ArboristNode
   packageObject: ArboristPackage
 }

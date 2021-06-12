@@ -16,13 +16,12 @@ export const logStream = async ({ stream }: LogStream) => {
 
 export interface CmdRun {
   args: string[]
-  cloneDir?: string
   cmd: string
   node: ArboristNode
 }
 
-export const cmdRun = async ({ cmd, args, node, cloneDir }: CmdRun) => {
-  const cwd = cloneDir ? `${node.path}/${cloneDir}` : node.path
+export const cmdRun = async ({ cmd, args, node }: CmdRun) => {
+  const cwd = node.path
   console.log(`==> (${cwd}) ${cmd} ${args.join(' ')}`)
   const child = spawn(cmd, args, { cwd })
   await Promise.all([
@@ -33,15 +32,13 @@ export const cmdRun = async ({ cmd, args, node, cloneDir }: CmdRun) => {
 
 export interface NpmRun {
   args: string[]
-  cloneDir?: string
   node: ArboristNode
 }
 
-export const npmRun = async ({ args, cloneDir, node }: NpmRun) => {
+export const npmRun = async ({ args, node }: NpmRun) => {
   await cmdRun({
     cmd: 'npm',
     args: ['run', ...args],
     node,
-    cloneDir,
   })
 }

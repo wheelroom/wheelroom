@@ -21,6 +21,7 @@ import {
   releaseCommand,
   linkCommand,
   listCommand,
+  syncCommand,
 } from '@wheelroom/make/commands'
 
 const packagePositional = (yargs) => {
@@ -77,6 +78,13 @@ yargs(hideBin(process.argv))
     pathPositional,
     function (argv) {
       linkCommand({ monoRepoPath: argv.path })
+    }
+  )
+  .command(
+    'sync [path]',
+    'sync root package.json values to all packages in monorepo',
+    function (argv) {
+      syncCommand({ monoRepoPath: argv.path })
     }
   )
   .command(

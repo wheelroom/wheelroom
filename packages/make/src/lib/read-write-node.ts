@@ -1,28 +1,22 @@
-import { copyFileSync, readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import deepmerge from 'deepmerge'
 import { ArboristNode, ArboristPackage, packagePath } from './arborist'
 
 export interface ReadNodeSync {
   node: ArboristNode
-  cloneDir?: string
 }
 
-export const readNodeSync = ({ node, cloneDir }: ReadNodeSync) => {
-  const data = readFileSync(packagePath(node, cloneDir), 'utf8')
+export const readNodeSync = ({ node }: ReadNodeSync) => {
+  const data = readFileSync(packagePath(node), 'utf8')
   return JSON.parse(data)
 }
 
 export interface WriteNodeSync {
-  cloneDir?: string
   node: ArboristNode
   packageObject?: ArboristPackage
 }
 
-export const writeNodeSync = ({
-  node,
-  cloneDir,
-  packageObject,
-}: WriteNodeSync) => {
+export const writeNodeSync = ({ node, packageObject }: WriteNodeSync) => {
   const pkgObjToSave = deepmerge.all([
     {},
     node.package,
@@ -30,7 +24,7 @@ export const writeNodeSync = ({
   ]) as any
   delete pkgObjToSave._id
   writeFileSync(
-    packagePath(node, cloneDir),
+    packagePath(node),
     JSON.stringify(pkgObjToSave, null, 2),
     'utf8'
   )
