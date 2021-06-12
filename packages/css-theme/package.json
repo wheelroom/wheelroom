@@ -2,20 +2,20 @@
   "name": "@wheelroom/css-theme",
   "version": "6.24.3",
   "description": "Library for working with css theme variables",
+  "exports": {
+    "./elements": {
+      "require": "./build/elements.cjs",
+      "import": "./build/elements.mjs"
+    },
+    "./vars": {
+      "require": "./build/vars.cjs",
+      "import": "./build/vars.mjs"
+    }
+  },
   "files": [
     "CHANGELOG.md",
     "build"
   ],
-  "exports": {
-    "./vars": {
-      "require": "./build/vars.cjs",
-      "import": "./build/vars.mjs"
-    },
-    "./elements": {
-      "require": "./build/elements.cjs",
-      "import": "./build/elements.mjs"
-    }
-  },
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:compile": "rollup --config",

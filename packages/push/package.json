@@ -3,7 +3,23 @@
   "version": "1.0.0",
   "description": "Push Typescript models to a content platform",
   "exports": {
-    "./*": "./build/*"
+    "./push": {
+      "import": "./build/push.mjs",
+      "require": "./build/push.cjs"
+    }
+  },
+  "files": [
+    "CHANGELOG.md",
+    "build"
+  ],
+  "scripts": {
+    "build": "npm-run-all clean build:*",
+    "build:compile": "rollup --config",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
+    "clean": "rimraf build/*",
+    "dev": "rollup --config --watch"
   },
   "typesVersions": {
     "*": {
@@ -11,14 +27,5 @@
         "build/*"
       ]
     }
-  },
-  "scripts": {
-    "build": "npm-run-all clean build:*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:compile": "rollup --config",
-    "build:test": "jest --silent --passWithNoTests",
-    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
-    "clean": "rimraf build/*",
-    "dev": "rollup --config --watch"
   }
 }
