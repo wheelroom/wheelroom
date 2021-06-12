@@ -3,23 +3,23 @@
   "version": "6.24.1",
   "description": "Make library for use with NPM 7 and @npmcli/arborist ",
   "exports": {
-    "./*": "./build/*"
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "build/*"
-      ]
+    "./commands": {
+      "import": "./build/commands.mjs",
+      "require": "./build/commands.cjs"
     }
   },
+  "files": [
+    "CHANGELOG.md",
+    "build"
+  ],
   "scripts": {
     "build": "npm-run-all clean build:* copy-templates",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:compile": "rollup --config",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
     "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
-    "copy-templates": "cp -r src/commands/templates build/commands",
     "clean": "rimraf build/*",
+    "copy-templates": "cp -r src/commands/templates build/commands",
     "dev": "rollup --config --watch"
   },
   "dependencies": {
@@ -32,5 +32,12 @@
     "inquirer": "8.0.0",
     "semver": "7.3.5",
     "yargs": "17.0.1"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "build/*"
+      ]
+    }
   }
 }

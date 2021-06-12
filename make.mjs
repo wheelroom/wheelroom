@@ -17,9 +17,11 @@ dotenv.config({
 
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { releaseCommand } from '@wheelroom/make/commands/release-command.js'
-import { linkCommand } from '@wheelroom/make/commands/link-command.js'
-import { listCommand } from '@wheelroom/make/commands/list-command.js'
+import {
+  releaseCommand,
+  linkCommand,
+  listCommand,
+} from '@wheelroom/make/commands'
 
 const packagePositional = (yargs) => {
   yargs.positional('package', {

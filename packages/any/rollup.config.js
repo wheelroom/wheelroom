@@ -44,7 +44,7 @@ export default inputFiles.map((file) => {
       {
         banner,
         exports: 'named',
-        file: `./build/${file.name}.mjs`,
+        file: `./build/${file.name}.esm.js`,
         format: 'es',
         globals,
         sourcemap: false,
@@ -52,7 +52,7 @@ export default inputFiles.map((file) => {
       {
         banner,
         exports: 'named',
-        file: `./build/${file.name}.js`,
+        file: `./build/${file.name}.cjs.js`,
         format: 'cjs',
         globals,
         sourcemap: false,

@@ -2,8 +2,31 @@
   "name": "@wheelroom/any",
   "version": "6.24.2",
   "description": "Any component with CSS element reset and CSS Emotion props",
+  "files": [
+    "CHANGELOG.md",
+    "build"
+  ],
   "exports": {
-    "./*": "./build/*"
+    "./Any.js": {
+      "require": "./build/Any.cjs.js",
+      "import": "./build/Any.esm.js"
+    },
+    "./elements.js": {
+      "require": "./build/elements.cjs.js",
+      "import": "./build/elements.esm.js"
+    },
+    "./resets/any-reset.js": {
+      "require": "./build/resets/any-reset.cjs.js",
+      "import": "./build/resets/any-reset.esm.js"
+    },
+    "./resets/element-reset-map.js": {
+      "require": "./build/resets/element-reset-map.cjs.js",
+      "import": "./build/resets/element-reset-map.esm.js"
+    },
+    "./resets/global-reset.js": {
+      "require": "./build/resets/global-reset.cjs.js",
+      "import": "./build/resets/global-reset.esm.js"
+    }
   },
   "typesVersions": {
     "*": {
