@@ -1,4 +1,3 @@
-import React from 'react'
 import { MediaBreakpoint } from './breakpoint'
 import { Embed } from './embed'
 import { Asset } from './asset'

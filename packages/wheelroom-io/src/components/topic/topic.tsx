@@ -1,6 +1,5 @@
 import { Div } from '@wheelroom/any/elements'
 import { graphql } from 'gatsby'
-import React from 'react'
 import { Action } from '../action/action'
 import { Embed } from '../media/embed'
 import { MediaBreakpoint } from '../media/breakpoint'

@@ -1,6 +1,5 @@
 import { Div } from '@wheelroom/any/elements'
 import { graphql } from 'gatsby'
-import React from 'react'
 
 export type EmbedType =
   | 'html'

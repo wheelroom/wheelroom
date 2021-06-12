@@ -1,4 +1,4 @@
-import { AnyProps } from '@wheelroom/any/elements'
+import { AnyProps } from '@wheelroom/any/any'
 import { Img, Picture, Figcaption } from '@wheelroom/any/elements'
 import { Asset } from './asset'
 

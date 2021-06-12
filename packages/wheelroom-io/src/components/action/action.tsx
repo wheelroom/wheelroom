@@ -1,4 +1,3 @@
-import React from 'react'
 import { A, Span } from '@wheelroom/any/elements'
 import { graphql, Link } from 'gatsby'
 import { css } from '@emotion/css'

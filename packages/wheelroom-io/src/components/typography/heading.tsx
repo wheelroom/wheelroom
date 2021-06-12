@@ -1,4 +1,4 @@
-import { Any, AnyProps } from '@wheelroom/any/elements'
+import { Any, AnyProps } from '@wheelroom/any/any'
 import { mediaQuery } from '../../lib/media-query'
 
 const headingStyle = {

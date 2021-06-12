@@ -1,5 +1,4 @@
 import { graphql } from 'gatsby'
-import React from 'react'
 import { Image } from './image'
 import { Video } from './video'
 

@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby'
 import { Div, Hr } from '@wheelroom/any/elements'
-import React from 'react'
 import { TopicVariant } from '../topic/topic-variants'
 import { Topic } from '../topic/topic'
 import { TopicOption, topicOptions, TopicOptions } from '../topic/topic-options'

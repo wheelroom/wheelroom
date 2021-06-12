@@ -1,7 +1,6 @@
 import { Div } from '@wheelroom/any/elements'
 import { CSSObject, Global } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets'
-import React from 'react'
 import { graphql, PageProps } from 'gatsby'
 import { GlobalsProvider } from '../../lib/globals-provider'
 import { TopicSection } from '../topic-section/topic-section'
