@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/wheelroom-io",
-  "version": "6.24.4",
+  "version": "6.24.5",
   "private": true,
   "description": "https://www.wheelroom.io",
   "keywords": [
@@ -51,7 +51,7 @@
   "dependencies": {
     "@emotion/css": "11.1.3",
     "@wheelroom/any": "6.24.4",
-    "@wheelroom/css-theme": "6.24.3",
+    "@wheelroom/css-theme": "6.24.5",
     "facepaint": "1.2.1",
     "feather-icons": "4.28.0",
     "gatsby": "3.4.1",
