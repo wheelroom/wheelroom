@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
 import { Global } from '@emotion/react'
-import { globalReset } from '@wheelroom/any/resets/global-reset'
+import { globalReset } from '@wheelroom/any/resets'
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
