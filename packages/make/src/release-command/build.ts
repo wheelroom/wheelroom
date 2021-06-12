@@ -16,7 +16,7 @@
 
 import { mkdir } from 'fs/promises'
 import { MakeContext } from '../lib/make-context-factory'
-import { cloneToDirSync, writeNodeSync } from '../lib/read-write-node'
+import { writeNodeSync } from '../lib/read-write-node'
 import { npmRun } from '../lib/run'
 
 export interface BuildMakeContext {
@@ -35,11 +35,6 @@ export const buildCloneDir = async ({ makeContext }: BuildMakeContext) => {
   // Write package.json copy to cloneDir
   for (const preparePublishNodes of buildNodes) {
     await mkdir(`${preparePublishNodes.path}/${cloneDir}`, { recursive: true })
-    cloneToDirSync({
-      node: preparePublishNodes,
-      cloneDir,
-      fileNameList: ['CHANGELOG.md', 'README.md', 'LICENSE'],
-    })
     writeNodeSync({
       node: preparePublishNodes,
       cloneDir,

@@ -35,22 +35,3 @@ export const writeNodeSync = ({
     'utf8'
   )
 }
-
-export interface CloneToDirSync {
-  node: ArboristNode
-  cloneDir: string
-  fileNameList: string[]
-}
-
-export const cloneToDirSync = async ({
-  node,
-  cloneDir,
-  fileNameList,
-}: CloneToDirSync) => {
-  for (const fileName of fileNameList) {
-    copyFileSync(
-      `${node.path}/${fileName}`,
-      `${node.path}/${cloneDir}/${fileName}`
-    )
-  }
-}
