@@ -2,6 +2,39 @@
   "name": "@wheelroom/css-theme",
   "version": "6.24.3",
   "description": "Library for working with css theme variables",
+  "keywords": [
+    "any",
+    "cli",
+    "component",
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
+  "author": "Wheelroom (https://www.wheelroom.io)",
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@wheelroom.io",
+      "url": "https://www.jaccomeijer.nl"
+    },
+    {
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
+    }
+  ],
   "exports": {
     "./elements": {
       "require": "./build/elements.cjs",
@@ -30,51 +63,18 @@
     "react": "17.x",
     "react-dom": "17.x"
   },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.11.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "typesVersions": {
     "*": {
       "*": [
         "build/*"
       ]
     }
-  },
-  "author": "Wheelroom (https://www.wheelroom.io)",
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
-  "contributors": [
-    {
-      "name": "Jacco Meijer",
-      "email": "jacco@wheelroom.io",
-      "url": "https://www.jaccomeijer.nl"
-    },
-    {
-      "name": "Thijs Krooswijk",
-      "email": "thijs@wheelroom.io",
-      "url": "https://www.thijskrooswijk.com"
-    }
-  ],
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.11.1"
-  },
-  "homepage": "https://github.com/wheelroom/wheelroom#readme",
-  "keywords": [
-    "any",
-    "cli",
-    "component",
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom"
-  ],
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
   }
 }

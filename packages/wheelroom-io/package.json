@@ -3,6 +3,39 @@
   "version": "6.24.3",
   "private": true,
   "description": "https://www.wheelroom.io",
+  "keywords": [
+    "any",
+    "cli",
+    "component",
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
+  "author": "Wheelroom (https://www.wheelroom.io)",
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@wheelroom.io",
+      "url": "https://www.jaccomeijer.nl"
+    },
+    {
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
+    }
+  ],
   "scripts": {
     "build": "npm-run-all clean static-css-vars build:* copy-static-public",
     "build:compile": "NODE_ENV=production gatsby build",
@@ -24,47 +57,14 @@
     "gatsby": "3.4.1",
     "gatsby-source-graphql": "3.5.0"
   },
-  "wheelroom": {
-    "version": "7.0.0"
-  },
-  "author": "Wheelroom (https://www.wheelroom.io)",
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
-  "contributors": [
-    {
-      "name": "Jacco Meijer",
-      "email": "jacco@wheelroom.io",
-      "url": "https://www.jaccomeijer.nl"
-    },
-    {
-      "name": "Thijs Krooswijk",
-      "email": "thijs@wheelroom.io",
-      "url": "https://www.thijskrooswijk.com"
-    }
-  ],
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.11.1"
   },
-  "homepage": "https://github.com/wheelroom/wheelroom#readme",
-  "keywords": [
-    "any",
-    "cli",
-    "component",
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom"
-  ],
-  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  "wheelroom": {
+    "version": "7.0.0"
   }
 }
