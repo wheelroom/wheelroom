@@ -6,11 +6,11 @@
 import Arborist from '@npmcli/arborist'
 import { ArboristNode } from '../lib/arborist'
 
-export interface LinkCommand {
+export interface ListCommand {
   monoRepoPath: string
 }
 
-export const listCommand = async ({ monoRepoPath }: LinkCommand) => {
+export const listCommand = async ({ monoRepoPath }: ListCommand) => {
   const arborist = new Arborist({ path: monoRepoPath })
   const rootNode = await arborist.loadActual()
   const fsChildrenArray = Array.from(rootNode.fsChildren) as ArboristNode[]
