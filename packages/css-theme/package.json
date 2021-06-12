@@ -7,17 +7,13 @@
     "build"
   ],
   "exports": {
-    "./commands/release-command.js": {
-      "require": "./build/commands/release-command.cjs.js",
-      "import": "./build/commands/release-command.esm.js"
+    "./vars": {
+      "require": "./build/vars.cjs",
+      "import": "./build/vars.mjs"
     },
-    "./commands/link-command.js": {
-      "require": "./build/commands/link-command.cjs.js",
-      "import": "./build/commands/link-command.esm.js"
-    },
-    "./commands/list-command.js": {
-      "require": "./build/commands/list-command.cjs.js",
-      "import": "./build/commands/list-command.esm.js"
+    "./elements": {
+      "require": "./build/elements.cjs",
+      "import": "./build/elements.mjs"
     }
   },
   "scripts": {

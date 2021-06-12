@@ -1,4 +1,4 @@
-import { AnyProps } from '@wheelroom/any/Any'
+import { AnyProps } from '@wheelroom/any/elements'
 import { Video as AnyVideo, Source, P, B } from '@wheelroom/any/elements'
 import { Asset } from './asset'
 

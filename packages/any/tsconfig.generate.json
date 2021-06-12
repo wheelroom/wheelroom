@@ -5,6 +5,6 @@
     "outDir": "build",
     "target": "es2015"
   },
-  "extends": "../../tsconfig.json",
+  "extends": "../tsconfig.packages.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

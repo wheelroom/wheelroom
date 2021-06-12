@@ -8,7 +8,7 @@ export const writeElements = (elements: string[]) => {
   const folder = FOLDER
   fs.mkdirSync(folder, { recursive: true })
 
-  let data = `import { Any, AnyProps } from './Any'
+  let data = `import { Any, AnyProps } from './any'
 
 `
   elements.forEach((element) => {

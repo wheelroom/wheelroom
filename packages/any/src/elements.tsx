@@ -1,4 +1,4 @@
-import { Any, AnyProps } from './Any'
+import { Any, AnyProps } from './any'
 
 export const A: React.FC<AnyProps['a']> = (props) => (
   <Any is="a" css={{ label: 'a' }} {...props} />
