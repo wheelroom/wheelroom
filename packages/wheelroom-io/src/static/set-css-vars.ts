@@ -1,4 +1,4 @@
-import { setCssVars } from '@wheelroom/css-theme/set-css-vars.js'
+import { setCssVars } from '@wheelroom/css-theme/vars'
 import { theme } from '../lib/theme'
 
 setCssVars({ theme })
