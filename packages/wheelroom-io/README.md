@@ -108,6 +108,6 @@ TODO: use model prop for sections?
 <TextSection model="{textSection}" />
 <NavigationSection model="{navigationSection}" />
 <TopicSection>
-  <TopicSection> <TopicSection> </TopicSection> </TopicSection
-></TopicSection>
+  <Topic><Topic>
+</TopicSection>
 ```
