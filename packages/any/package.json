@@ -38,23 +38,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "npm-run-all clean build:*",
-    "build:compile": "rollup --config",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:test": "jest --silent --passWithNoTests",
-    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
-    "clean": "rimraf build/*",
-    "dev": "rollup --config --watch",
-    "generate": "npm-run-all generate:*",
-    "generate:compile": "tsc -p tsconfig.generate.json",
-    "generate:update": "node build/generate-elements/generate-elements.js",
-    "generate:update-lint-fix": "eslint 'src/elements.tsx' --fix"
-  },
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.11.1"
-  },
   "exports": {
     "./any": {
       "import": "./build/any.mjs",
@@ -69,20 +52,37 @@
       "require": "./build/resets.cjs"
     }
   },
-  "files": [
-    "CHANGELOG.md",
-    "build"
-  ],
-  "peerDependencies": {
-    "@emotion/react": "11.x",
-    "react": "17.x",
-    "react-dom": "17.x"
-  },
   "typesVersions": {
     "*": {
       "*": [
         "build/*"
       ]
     }
-  }
+  },
+  "scripts": {
+    "build": "npm-run-all clean build:*",
+    "build:compile": "rollup --config",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
+    "clean": "rimraf build/*",
+    "dev": "rollup --config --watch",
+    "generate": "npm-run-all generate:*",
+    "generate:compile": "tsc -p tsconfig.generate.json",
+    "generate:update": "node build/generate-elements/generate-elements.js",
+    "generate:update-lint-fix": "eslint 'src/elements.tsx' --fix"
+  },
+  "peerDependencies": {
+    "@emotion/react": "11.x",
+    "react": "17.x",
+    "react-dom": "17.x"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.11.1"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "build"
+  ]
 }

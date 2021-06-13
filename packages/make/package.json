@@ -38,6 +38,19 @@
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    "./commands": {
+      "import": "./build/commands.mjs",
+      "require": "./build/commands.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "build/*"
+      ]
+    }
+  },
   "scripts": {
     "build": "npm-run-all clean build:* copy-templates",
     "build:compile": "rollup --config",
@@ -63,21 +76,8 @@
     "node": ">=16.0.0",
     "npm": ">=7.11.1"
   },
-  "exports": {
-    "./commands": {
-      "import": "./build/commands.mjs",
-      "require": "./build/commands.cjs"
-    }
-  },
   "files": [
     "CHANGELOG.md",
     "build"
-  ],
-  "typesVersions": {
-    "*": {
-      "*": [
-        "build/*"
-      ]
-    }
-  }
+  ]
 }
