@@ -11,7 +11,6 @@
 - `MyCompProps.variant?`: without variant a default is returned
 - `MyCompProps.events?`: events are optional
 
-
 ## Component variant styling
 
 - Export a `myCompStyleFactory` factory function that returns a style object
@@ -49,7 +48,13 @@ export interface MyCompProps extends AnyDivProps {
   events?: MyCompEvents
 }
 
-export const MyCom = ({ model, children, options, variant, ...props }: MyCompProps) => {
+export const MyCom = ({
+  model,
+  children,
+  options,
+  variant,
+  ...props
+}: MyCompProps) => {
   const css: any = cardStyleFactory({
     options,
     variant,
@@ -57,7 +62,7 @@ export const MyCom = ({ model, children, options, variant, ...props }: MyCompPro
   model = model || {}
 
   return (
-    <Div css={css} {...props} >
+    <Div css={css} {...props}>
       <H1>{model.heading}</H1>
       {children}
     </Div>
@@ -78,7 +83,7 @@ expexts the data. Examples:
 ```html
 <Heading>data</Heading>
 <Abstract>data</Abstract>
-<Img src="https://url" />
+<img src="https://url" />
 ```
 
 ### Models
@@ -87,10 +92,10 @@ Models contain elements. This is the level where visual components meet data
 models. The `models` props passes the data. Examples:
 
 ```html
-<Topic model={topic} />
-<Navigation model={navigation} />
-<Action model={action} />
-<Image model={image} />
+<Topic model="{topic}" />
+<Navigation model="{navigation}" />
+<Action model="{action}" />
+<image model="{image}" />
 ```
 
 ### Sections
@@ -100,10 +105,9 @@ Sections contain models. Examples:
 TODO: use model prop for sections?
 
 ```html
-<TextSection model={textSection} />
-<NavigationSection model={navigationSection} />
+<TextSection model="{textSection}" />
+<NavigationSection model="{navigationSection}" />
 <TopicSection>
-  <TopicSection>
-  <TopicSection>
-</TopicSection> 
+  <TopicSection> <TopicSection> </TopicSection> </TopicSection
+></TopicSection>
 ```
