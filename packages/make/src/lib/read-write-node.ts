@@ -13,14 +13,14 @@ export const readNodeSync = ({ node }: ReadNodeSync) => {
 
 export interface WriteNodeSync {
   node: ArboristNode
-  packageObject?: ArboristPackage
+  mergeToPackage?: ArboristPackage
 }
 
-export const writeNodeSync = ({ node, packageObject }: WriteNodeSync) => {
+export const writeNodeSync = ({ node, mergeToPackage }: WriteNodeSync) => {
   const pkgObjToSave = deepmerge.all([
     {},
     node.package,
-    packageObject || {},
+    mergeToPackage || {},
   ]) as any
   delete pkgObjToSave._id
   writeFileSync(

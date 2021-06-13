@@ -5,6 +5,7 @@
 
 import { ArboristNode } from '../../lib/arborist'
 import { writeNodeSync } from '../../lib/read-write-node'
+import { sortPackage } from './sort-package'
 
 export interface LinkNodes {
   fsChildrenArray: ArboristNode[]
@@ -35,11 +36,11 @@ export const syncNodes = async ({
     syncFields.forEach(
       (field) => (packageObject[field] = rootNode.package[field])
     )
+    const sortedPackage = sortPackage({ packageObject: rootNode.package })
+    node.package = sortedPackage
+
     if (!dryRun) {
-      writeNodeSync({
-        node,
-        packageObject,
-      })
+      writeNodeSync({ node })
     }
     console.log(`${dryRun ? 'Will sync' : 'Synced'} to: ${node.package.name}`)
   }
