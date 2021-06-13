@@ -32,28 +32,28 @@ const packageOrderFn = (a: string, b: string) => {
 }
 
 interface SortObject {
-  packageObject?: ArboristPackage
+  obj: Record<string, any>
   compareFn?: (a: string, b: string) => number
 }
 
-const sortObject = ({ packageObject, compareFn }: SortObject) => {
-  const result = Object.keys(packageObject)
+const sortObject = ({ obj, compareFn }: SortObject): Record<string, any> => {
+  const result = Object.keys(obj)
     .sort(compareFn)
     .reduce((result, key) => {
-      result[key] = packageObject[key]
+      result[key] = obj[key]
       return result
-    }, {})
+    }, <Record<string, any>>{})
   return result
 }
 
 interface SortPackage {
-  packageObject?: ArboristPackage
+  packageObject: ArboristPackage
 }
 
 export const sortPackage = ({ packageObject }: SortPackage) => {
   // Sort main object
   const mainSorted = sortObject({
-    packageObject,
+    obj: packageObject,
     compareFn: packageOrderFn,
   })
 
@@ -62,12 +62,12 @@ export const sortPackage = ({ packageObject }: SortPackage) => {
     if (Array.isArray(mainSorted[key])) {
       result[key] = mainSorted[key].sort()
     } else if (typeof mainSorted[key] === 'object') {
-      result[key] = sortObject({ packageObject: mainSorted[key] })
+      result[key] = sortObject({ obj: mainSorted[key] })
     } else {
       result[key] = mainSorted[key]
     }
     return result
-  }, {})
+  }, <Record<string, any>>{})
 
   return subsSorted
 }
