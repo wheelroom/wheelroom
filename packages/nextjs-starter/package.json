@@ -1,8 +1,8 @@
 {
   "name": "@wheelroom/nextjs-starter",
   "version": "6.24.4",
-  "private": true,
   "description": "Next.js starter",
+  "license": "MIT",
   "keywords": [
     "any",
     "cli",
@@ -14,15 +14,6 @@
     "typescript",
     "wheelroom"
   ],
-  "homepage": "https://github.com/wheelroom/wheelroom#readme",
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -36,6 +27,18 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "npm-run-all clean",
     "build:compile": "next build",
@@ -52,8 +55,5 @@
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.11.1"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

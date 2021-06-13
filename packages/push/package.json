@@ -2,6 +2,7 @@
   "name": "@wheelroom/push",
   "version": "1.0.0",
   "description": "Push Typescript models to a content platform",
+  "license": "MIT",
   "keywords": [
     "any",
     "cli",
@@ -13,15 +14,6 @@
     "typescript",
     "wheelroom"
   ],
-  "homepage": "https://github.com/wheelroom/wheelroom#readme",
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -35,16 +27,17 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "exports": {
-    "./push": {
-      "import": "./build/push.mjs",
-      "require": "./build/push.cjs"
-    }
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
-  "files": [
-    "CHANGELOG.md",
-    "build"
-  ],
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:compile": "rollup --config",
@@ -58,9 +51,16 @@
     "node": ">=16.0.0",
     "npm": ">=7.11.1"
   },
-  "publishConfig": {
-    "access": "public"
+  "exports": {
+    "./push": {
+      "import": "./build/push.mjs",
+      "require": "./build/push.cjs"
+    }
   },
+  "files": [
+    "CHANGELOG.md",
+    "build"
+  ],
   "typesVersions": {
     "*": {
       "*": [

@@ -2,6 +2,7 @@
   "name": "@wheelroom/make",
   "version": "6.24.6",
   "description": "Make library for use with NPM 7 and @npmcli/arborist ",
+  "license": "MIT",
   "keywords": [
     "any",
     "cli",
@@ -13,15 +14,6 @@
     "typescript",
     "wheelroom"
   ],
-  "homepage": "https://github.com/wheelroom/wheelroom#readme",
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -35,16 +27,17 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "exports": {
-    "./commands": {
-      "import": "./build/commands.mjs",
-      "require": "./build/commands.cjs"
-    }
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
   },
-  "files": [
-    "CHANGELOG.md",
-    "build"
-  ],
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "npm-run-all clean build:* copy-templates",
     "build:compile": "rollup --config",
@@ -70,9 +63,16 @@
     "node": ">=16.0.0",
     "npm": ">=7.11.1"
   },
-  "publishConfig": {
-    "access": "public"
+  "exports": {
+    "./commands": {
+      "import": "./build/commands.mjs",
+      "require": "./build/commands.cjs"
+    }
   },
+  "files": [
+    "CHANGELOG.md",
+    "build"
+  ],
   "typesVersions": {
     "*": {
       "*": [

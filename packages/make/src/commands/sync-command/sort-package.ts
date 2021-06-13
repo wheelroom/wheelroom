@@ -16,9 +16,12 @@ const packageOrder = [
   'private',
   'publishConfig',
   'workspaces',
+  'exports',
+  'typesVersions',
   'scripts',
   'dependencies',
   'devDependencies',
+  'peerDependencies',
   'engines',
   'browserslist',
 ]
