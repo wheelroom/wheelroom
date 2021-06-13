@@ -1,8 +1,8 @@
 {
   "name": "@wheelroom/wheelroom-io",
   "version": "6.24.5",
+  "private": true,
   "description": "https://www.wheelroom.io",
-  "license": "MIT",
   "keywords": [
     "any",
     "cli",
@@ -14,6 +14,15 @@
     "typescript",
     "wheelroom"
   ],
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -27,15 +36,6 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "homepage": "https://github.com/wheelroom/wheelroom#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
-  "private": true,
   "publishConfig": {
     "access": "public"
   },
