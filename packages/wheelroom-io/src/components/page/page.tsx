@@ -8,7 +8,8 @@ import { Sections } from './sections'
 
 export type Page = {
   sectionsCollection: {
-    items: TopicSection[]
+    items?: TopicSection[]
+    path?: string
   }
 }
 
@@ -41,7 +42,7 @@ const Page = (props: PageProps<PageQuery, PageContext>) => {
     <GlobalsProvider value={{ globals, site }}>
       <Global styles={globalReset} />
       <Div css={fontStyle}>
-        <Sections models={page.sectionsCollection.items} />
+        <Sections models={page.sectionsCollection.items || []} />
       </Div>
     </GlobalsProvider>
   )

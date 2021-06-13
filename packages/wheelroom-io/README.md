@@ -2,7 +2,6 @@
 
 ## Component props interface
 
-- See code example below
 - Changing a library that many apps depend on has great impact
 - To minimize the impact all components use the same interface
 - Prevent breaking changes and do not use any other props
@@ -10,9 +9,6 @@
 - `MyCompProps.options?`: options are optional booleans
 - `MyCompProps.variant?`: without variant a default is returned
 - `MyCompProps.events?`: events are optional
-
-## Component variant styling
-
 - Export a `myCompStyleFactory` factory function that returns a style object
 
 ## Code example
@@ -48,14 +44,14 @@ export interface MyCompProps extends AnyDivProps {
   events?: MyCompEvents
 }
 
-export const MyCom = ({
+export const MyComp = ({
   model,
   children,
   options,
   variant,
   ...props
 }: MyCompProps) => {
-  const css: any = cardStyleFactory({
+  const css: any = myCompStyleFactory({
     options,
     variant,
   })
@@ -102,12 +98,8 @@ models. The `models` props passes the data. Examples:
 
 Sections contain models. Examples:
 
-TODO: use model prop for sections?
-
 ```html
 <TextSection model="{textSection}" />
 <NavigationSection model="{navigationSection}" />
-<TopicSection>
-  <Topic><Topic>
-</TopicSection>
+<TopicSection model="{topicSection} ">
 ```

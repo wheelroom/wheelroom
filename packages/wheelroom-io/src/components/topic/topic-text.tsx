@@ -1,29 +1,103 @@
+import { AnyProps } from '@wheelroom/any/any'
 import { Div } from '@wheelroom/any/elements'
+import { mediaQuery } from '../../lib/media-query'
 import { Abstract } from '../typography/abstract'
 import { Heading } from '../typography/heading'
-import { TopicOptions } from './topic-options'
-import { TopicVariantMap } from './topic-variants'
-import { topicTextVariantStyle } from './topic-text-variant-style'
+import { TopicOptions, TopicVariant } from './topic'
 
 export type TopicText = {
-  abstract: string
-  heading: string
+  abstract?: string
+  heading?: string
 }
 
-export interface TopicTextProps {
-  model: TopicText
-  options: TopicOptions
-  variantMap: TopicVariantMap
+const styleMap: Partial<Record<TopicVariant, any>> = {
+  block: {
+    flex: '1 1 auto',
+    p: { marginBottom: 0 },
+  },
+  card: {
+    display: 'block',
+    flex: '1 1 auto',
+    p: {
+      marginBottom: 0,
+    },
+  },
+  featured: {
+    p: {
+      marginBottom: 0,
+    },
+  },
+  headline: {
+    p: {
+      fontSize: ['20px', '20px', '24px', '24px'],
+    },
+  },
+  hero: {
+    maxWidth: '30em',
+    p: {
+      fontSize: ['20px', '20px', '24px', '24px'],
+      mb: 0,
+    },
+  },
+  quote: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    p: {
+      order: '2',
+      fontSize: ['24px', '32px', '42px'],
+      fontStyle: 'italic',
+      lineHeight: 1.25,
+      margin: 0,
+      padding: 0,
+    },
+    h1: {
+      order: '1',
+    },
+  },
+  showcase: {
+    p: {
+      marginBottom: 0,
+    },
+  },
 }
 
-export const TopicText = (props: TopicTextProps) => {
+export const topicTextStyleFactory = (args: {
+  variant?: TopicVariant
+  options?: TopicOptions
+}) => {
+  const useVariant = args.variant || 'block'
+  const baseStyle = styleMap[useVariant]
+  return mediaQuery(baseStyle)
+}
+
+type AnyDivProps = AnyProps['div']
+export interface TopicTextProps extends AnyDivProps {
+  model?: TopicText
+  options?: TopicOptions
+  variant?: TopicVariant
+}
+
+export const TopicText = ({
+  model,
+  options,
+  variant,
+  ...props
+}: TopicTextProps) => {
   const isLarge = ['featured', 'headline', 'hero', 'quote'].includes(
-    props.variantMap.topic || ''
+    variant || 'block'
   )
+
+  const css: any = topicTextStyleFactory({
+    options,
+    variant,
+  })
+  model = model || {}
+
   return (
-    <Div css={topicTextVariantStyle({ variant: props.variantMap.topic })}>
-      <Heading is={isLarge ? 'h1' : 'h3'}>{props.model.heading}</Heading>
-      <Abstract>{props.model.abstract}</Abstract>
+    <Div css={css} {...props}>
+      <Heading is={isLarge ? 'h1' : 'h3'}>{model.heading}</Heading>
+      <Abstract>{model.abstract}</Abstract>
     </Div>
   )
 }

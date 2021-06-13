@@ -1,34 +1,105 @@
+import { AnyProps } from '@wheelroom/any/any'
 import { A, Span } from '@wheelroom/any/elements'
 import { graphql, Link } from 'gatsby'
 import { css } from '@emotion/css'
 import { Embed } from '../media/embed'
 import { FeatherIcon } from '../../lib/feather-icon'
 import { useGlobals } from '../../lib/globals-provider'
-import { ActionVariantMap } from './action-variants'
-import { actionVariantStyle } from './action-variant-style'
+import { Page } from '../page/page'
+import { mediaQuery } from '../../lib/media-query'
 
 export type Action = {
-  sys: {
+  sys?: {
     id: string
   }
-  anchor: string
-  description: string
-  eventId: string
-  heading: string
-  icon: string
-  page: any
-  query: string
-  url: any
+  anchor?: string
+  description?: string
+  eventId?: string
+  heading?: string
+  icon?: string
+  page?: Page
+  query?: string
+  url?: string
+}
+export type ActionVariant = 'primary' | 'secondary' | 'display' | 'link'
+export type ActionOption = 'hideIcon' | 'hideHeading'
+export type ActionOptions = Partial<Record<ActionOption, boolean>>
+
+const baseStyle = {
+  display: 'inline-flex',
+  justifyContent: 'center',
+  fontSize: '16px',
+  padding: '8px 16px',
+  userSelect: 'none',
+  borderWidth: '1px',
+  borderStyle: 'solid',
+  borderRadius: '4px',
+  borderColor: 'transparent',
+  textDecoration: 'none',
+  ':focus': {
+    outlineColor: 'outline',
+  },
+  svg: {
+    width: '15px',
+    height: '15px',
+    margin: '0 auto',
+    transform: 'translateX(4px)',
+  },
 }
 
-export interface ActionProps {
-  children?: any
-  hideHeading?: boolean
-  hideIcon?: boolean
-  key?: any
-  model: Action
-  variantMap: ActionVariantMap
-  onClick?: () => any
+const primaryStyle = {
+  ...baseStyle,
+  color: 'white',
+  backgroundColor: 'blue',
+  borderColor: 'black',
+  transition: 'background-color .25s ease',
+  ':hover, :focus': {
+    backgroundColor: 'darkblue',
+  },
+}
+
+const styleMap: Partial<Record<ActionVariant, any>> = {
+  primary: primaryStyle,
+  secondary: {
+    ...baseStyle,
+    color: 'white',
+    backgroundColor: 'red',
+    borderColor: 'black',
+    transition: 'border-color .25s ease',
+    ':hover, :focus': {
+      borderColor: 'darkred',
+    },
+  },
+  display: {
+    ...primaryStyle,
+    fontSize: ['18px', '18px', '20px'],
+    padding: ['16px 24px', '16px 24px', '16px 32px'],
+  },
+  link: {
+    ...baseStyle,
+    fontSize: '18px',
+    backgroundColor: 'transparent',
+    color: 'blue',
+    border: '0',
+    padding: 0,
+    textDecoration: 'underline',
+  },
+}
+
+export const actionStyleFactory = (args: {
+  variant?: ActionVariant
+  options?: any
+}) => {
+  const useVariant = args.variant || 'primary'
+  const baseStyle = styleMap[useVariant]
+  return mediaQuery([baseStyle])
+}
+
+type AnyDivProps = AnyProps['div']
+export interface ActionProps extends AnyDivProps {
+  model?: Action
+  options?: ActionOptions
+  variant?: ActionVariant
 }
 
 interface CreateURL {
@@ -62,67 +133,79 @@ const onClickHander = ({ eventId, globals }: OnClickHander) => {
   })
 }
 
-const ActionGlink = (props: ActionProps) => {
+const ActionGlink = ({
+  model,
+  children,
+  options,
+  variant,
+  ...props
+}: ActionProps) => {
   const globals: any = useGlobals()
-  const heading = props.children ? props.children : props.model.heading
+  model = model || {}
+
+  const heading = children ? children : model.heading
   return (
     <Link
-      className={css(actionVariantStyle({ variant: props.variantMap.action }))}
-      aria-label={props.model.description}
-      onClick={() => onClickHander({ eventId: props.model.eventId, globals })}
+      className={css(actionStyleFactory({ options, variant }))}
+      aria-label={model?.description}
+      onClick={() => onClickHander({ eventId: model?.eventId, globals })}
       to={createURL({
-        action: props.model,
+        action: model,
         isPreviewMode: globals.isPreviewMode,
-        url: props.model.page.path,
+        url: model.page?.path,
       })}
+      {...props}
     >
-      {!props.hideHeading && heading}
-      {props.model.icon && !props.hideIcon && (
-        <FeatherIcon name={props.model.icon} />
-      )}
+      {!options?.hideHeading && heading}
+      {model.icon && !options?.hideIcon && <FeatherIcon name={model.icon} />}
     </Link>
   )
 }
 
-const ActionAlink = (props: ActionProps) => {
+const ActionAlink = ({
+  model,
+  children,
+  options,
+  variant,
+  ...props
+}: ActionProps) => {
   const globals: any = useGlobals()
-  const heading = props.children ? props.children : props.model.heading
+  const css: any = actionStyleFactory({ options, variant })
+  model = model || {}
+  const heading = children ? children : model?.heading
   return (
     <A
-      css={actionVariantStyle({ variant: props.variantMap.action })}
-      aria-label={props.model.description}
+      css={css}
+      aria-label={model?.description}
       href={createURL({
-        action: props.model,
+        action: model,
         isPreviewMode: globals.isPreviewMode,
-        url: props.model.url,
+        url: model.url || '',
       })}
-      onClick={() => onClickHander({ eventId: props.model.eventId, globals })}
+      onClick={() => onClickHander({ eventId: model?.eventId, globals })}
+      {...props}
     >
-      {!props.hideHeading && heading}
-      {props.model.icon && !props.hideIcon && (
-        <FeatherIcon name={props.model.icon} />
-      )}
+      {!options?.hideHeading && heading}
+      {model?.icon && !options?.hideIcon && <FeatherIcon name={model?.icon} />}
     </A>
   )
 }
 
-const NoLink = (props: ActionProps) => {
-  const heading = props.children ? props.children : props.model.heading
+const NoLink = ({ model, children, options, ...props }: ActionProps) => {
+  model = model || {}
+  const heading = children ? children : model?.heading
   return (
-    <Span aria-label={props.model.description}>
-      {!props.hideHeading && heading}
-      {props.model.icon && !props.hideIcon && (
-        <FeatherIcon name={props.model.icon} />
-      )}
+    <Span aria-label={model?.description} {...props}>
+      {!options?.hideHeading && heading}
+      {model?.icon && !options?.hideIcon && <FeatherIcon name={model?.icon} />}
     </Span>
   )
 }
 
 export const Action = (props: ActionProps) => {
-  console.log(props)
-  if (props.model.page) {
+  if (props.model?.page) {
     return <ActionGlink {...props} />
-  } else if (props.model.url) {
+  } else if (props.model?.url) {
     return <ActionAlink {...props} />
   } else {
     return <NoLink {...props} />
