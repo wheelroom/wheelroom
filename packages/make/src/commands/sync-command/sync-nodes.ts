@@ -32,12 +32,10 @@ export const syncNodes = async ({
 }: LinkNodes) => {
   console.log(`Fields: ${syncFields.join(', ')}`)
   for (const node of fsChildrenArray) {
-    const packageObject = {} as Record<string, string>
     syncFields.forEach(
-      (field) => (packageObject[field] = rootNode.package[field])
+      (field) => (node.package[field] = rootNode.package[field])
     )
-    const sortedPackage = sortPackage({ packageObject: rootNode.package })
-    node.package = sortedPackage
+    node.package = sortPackage({ packageObject: node.package })
 
     if (!dryRun) {
       writeNodeSync({ node })
