@@ -70,7 +70,6 @@ export const TopicActions = ({
     variant,
   })
   model = model || {}
-  console.log(model)
 
   return (
     <Div css={css} {...props}>
