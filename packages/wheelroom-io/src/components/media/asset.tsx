@@ -17,6 +17,7 @@ export type ContentfulAsset = {
 }
 
 export type Asset = Image | Video
+export type AssetProps = ImageProps | VideoProps
 
 export const Asset = (props: ImageProps | VideoProps) => {
   const mediaType = (props.model?.asset?.contentType || '').split('/')

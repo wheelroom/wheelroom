@@ -1,20 +1,17 @@
-import { MediaBreakpoint } from './breakpoint'
-import { Embed } from './embed'
-import { Asset } from './asset'
+import { MediaBreakpoint, MediaBreakpointProps } from './breakpoint'
+import { Embed, EmbedProps } from './embed'
+import { Asset, AssetProps } from './asset'
 
-export type Media = Asset | MediaBreakpoint
+export type Media = Asset | MediaBreakpoint | Embed
+export type MediaProps = AssetProps | MediaBreakpointProps | EmbedProps
 
-export interface MediaProps {
-  model: Media
-}
-
-export const Media = ({ model, ...props }: MediaProps) => {
-  model = model || {}
+export const Media = (props: MediaProps) => {
+  const model = props.model || {}
   if ('asset' in model) {
-    return <Asset {...props} />
+    return <Asset {...(props as AssetProps)} />
   } else if ('code' in model) {
-    return <Embed {...props} />
+    return <Embed {...(props as EmbedProps)} />
   } else {
-    return <MediaBreakpoint {...props} />
+    return <MediaBreakpoint {...(props as MediaBreakpointProps)} />
   }
 }

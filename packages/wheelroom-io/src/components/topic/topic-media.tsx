@@ -1,6 +1,7 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
+import { Asset } from '../media/asset'
 import { Media } from '../media/media'
 import { TopicOptions, TopicVariant } from './topic'
 
@@ -144,7 +145,7 @@ export const TopicMedia = ({
 
   return (
     <Div css={css} {...props}>
-      <Media model={model} />
+      <Media model={model as Asset} />
     </Div>
   )
 }

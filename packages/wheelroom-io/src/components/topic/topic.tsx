@@ -148,7 +148,7 @@ export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
 
   return (
     <Div css={css} {...props}>
-      <TopicMedia model={{ asset: model.media }} />
+      <TopicMedia model={{ asset: model.media } as Asset} />
       <TopicContent
         model={{
           abstract: model.abstract,

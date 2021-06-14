@@ -36,7 +36,9 @@ export const Embed = ({ model, ...props }: EmbedProps) => {
   model = model || {}
   const __html = (model.code && model.code) || ''
   if (model.type === 'html') {
-    return <Div css={embedStyle} dangerouslySetInnerHTML={{ __html }} />
+    return (
+      <Div css={embedStyle} dangerouslySetInnerHTML={{ __html }} {...props} />
+    )
   }
   return null
 }
