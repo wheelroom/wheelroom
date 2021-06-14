@@ -2,11 +2,11 @@ import { AnyProps } from '@wheelroom/any/any'
 import { A, Span } from '@wheelroom/any/elements'
 import { graphql, Link } from 'gatsby'
 import { css } from '@emotion/css'
-import { Alarm } from 'react-bootstrap-icons'
 import { Embed } from '../media/embed'
 import { useGlobals } from '../../lib/globals-provider'
 import { Page } from '../page/page'
 import { mediaQuery } from '../../lib/media-query'
+import { Icon, IconVariant } from '../icon/icon'
 
 export type Action = {
   sys?: {
@@ -16,7 +16,7 @@ export type Action = {
   description?: string
   eventId?: string
   heading?: string
-  icon?: string
+  icon?: IconVariant
   page?: Page
   query?: string
   url?: string
@@ -158,7 +158,7 @@ const ActionGlink = ({
       {...linkProps}
     >
       {!options?.hideHeading && heading}
-      {model.icon && !options?.hideIcon && <Alarm />}
+      {model.icon && !options?.hideIcon && <Icon variant={model.icon} />}
     </Link>
   )
 }
@@ -187,7 +187,7 @@ const ActionAlink = ({
       {...props}
     >
       {!options?.hideHeading && heading}
-      {model?.icon && !options?.hideIcon && <Alarm />}
+      {model?.icon && !options?.hideIcon && <Icon variant={model.icon} />}
     </A>
   )
 }
@@ -198,7 +198,7 @@ const NoLink = ({ model, children, options, ...props }: ActionProps) => {
   return (
     <Span aria-label={model?.description} {...props}>
       {!options?.hideHeading && heading}
-      {model?.icon && !options?.hideIcon && <Alarm />}
+      {model?.icon && !options?.hideIcon && <Icon variant={model.icon} />}
     </Span>
   )
 }

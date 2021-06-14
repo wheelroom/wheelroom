@@ -2,7 +2,7 @@
   /**
    * @license
    * author: Wheelroom (https://www.wheelroom.io)
-   * wheelroom-io/static/set-css-vars v6.24.4
+   * wheelroom-io/static/set-css-vars v6.24.5
    * Released under the MIT license.
    */
 
