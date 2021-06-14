@@ -124,6 +124,7 @@ const styleMap: Partial<Record<TopicVariant, any>> = {
       },
     },
   },
+  video: baseStyle,
 }
 
 export const topicMediaStyleFactory = (args: {

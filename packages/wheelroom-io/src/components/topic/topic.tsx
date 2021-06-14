@@ -113,6 +113,7 @@ const styleMap: Partial<Record<TopicVariant, any>> = {
     flexDirection: ['column', 'row'],
     padding: '16px 0',
   },
+  video: baseStyle,
 }
 
 const reversedOrderOptionStyle = {}

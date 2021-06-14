@@ -62,6 +62,7 @@ const styleMap: Partial<Record<TopicVariant, any>> = {
     ...maxWidthStyle,
     flexDirection: ['column', 'row'],
   },
+  video: baseStyle,
   quote: {
     paddingBottom: '40px',
   },
