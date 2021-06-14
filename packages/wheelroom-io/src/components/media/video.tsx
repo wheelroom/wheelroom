@@ -1,6 +1,6 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Video as AnyVideo, Source, P, B } from '@wheelroom/any/elements'
-import { ContentfulAsset } from './asset'
+import { ContentfulAsset } from './contentful-asset'
 
 export interface Video {
   asset?: ContentfulAsset

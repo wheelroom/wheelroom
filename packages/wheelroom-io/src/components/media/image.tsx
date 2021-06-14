@@ -1,6 +1,6 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Img, Picture, Figcaption } from '@wheelroom/any/elements'
-import { ContentfulAsset } from './asset'
+import { ContentfulAsset } from './contentful-asset'
 
 export interface Image {
   asset?: ContentfulAsset
