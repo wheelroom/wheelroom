@@ -11,7 +11,7 @@ const baseStyle = {
   ':only-of-type': {},
 }
 
-const styleMap: Partial<Record<TopicVariant | 'default', any>> = {
+const styleMap: Partial<Record<TopicVariant, any>> = {
   block: {
     ...baseStyle,
     picture: {
@@ -66,6 +66,16 @@ const styleMap: Partial<Record<TopicVariant | 'default', any>> = {
       },
     },
   },
+  headline: {
+    ...baseStyle,
+    picture: {
+      img: {
+        display: 'block',
+        height: '100%',
+        width: '100%',
+      },
+    },
+  },
   hero: {
     ...baseStyle,
     bottom: '0',
@@ -114,23 +124,13 @@ const styleMap: Partial<Record<TopicVariant | 'default', any>> = {
       },
     },
   },
-  default: {
-    ...baseStyle,
-    picture: {
-      img: {
-        display: 'block',
-        height: '100%',
-        width: '100%',
-      },
-    },
-  },
 }
 
 export const topicMediaStyleFactory = (args: {
   variant?: TopicVariant
   options?: TopicOptions
 }) => {
-  const useVariant = args.variant || 'default'
+  const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])
 }
