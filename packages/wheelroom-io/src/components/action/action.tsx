@@ -95,13 +95,6 @@ export const actionStyleFactory = (args: {
   return mediaQuery([baseStyle])
 }
 
-type AnyDivProps = AnyProps['div']
-export interface ActionProps extends AnyDivProps {
-  model?: Action
-  options?: ActionOptions
-  variant?: ActionVariant
-}
-
 interface CreateURL {
   action: Action
   isPreviewMode: boolean
@@ -133,6 +126,13 @@ const onClickHander = ({ eventId, globals }: OnClickHander) => {
   })
 }
 
+type AnyAProps = AnyProps['a']
+export interface ActionProps extends AnyAProps {
+  model?: Action
+  options?: ActionOptions
+  variant?: ActionVariant
+}
+
 const ActionGlink = ({
   model,
   children,
@@ -144,6 +144,7 @@ const ActionGlink = ({
   model = model || {}
 
   const heading = children ? children : model.heading
+  const linkProps = { ...props } as typeof Link
   return (
     <Link
       className={css(actionStyleFactory({ options, variant }))}
@@ -152,9 +153,9 @@ const ActionGlink = ({
       to={createURL({
         action: model,
         isPreviewMode: globals.isPreviewMode,
-        url: model.page?.path,
+        url: model.page?.path || '',
       })}
-      {...props}
+      {...linkProps}
     >
       {!options?.hideHeading && heading}
       {model.icon && !options?.hideIcon && <FeatherIcon name={model.icon} />}

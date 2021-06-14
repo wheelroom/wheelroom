@@ -9,8 +9,8 @@ import { Sections } from './sections'
 export type Page = {
   sectionsCollection: {
     items?: TopicSection[]
-    path?: string
   }
+  path?: string
 }
 
 export const fontStyle: CSSObject = {
