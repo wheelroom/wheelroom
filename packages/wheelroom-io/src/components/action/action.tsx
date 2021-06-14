@@ -2,8 +2,8 @@ import { AnyProps } from '@wheelroom/any/any'
 import { A, Span } from '@wheelroom/any/elements'
 import { graphql, Link } from 'gatsby'
 import { css } from '@emotion/css'
+import { Alarm } from 'react-bootstrap-icons'
 import { Embed } from '../media/embed'
-import { FeatherIcon } from '../../lib/feather-icon'
 import { useGlobals } from '../../lib/globals-provider'
 import { Page } from '../page/page'
 import { mediaQuery } from '../../lib/media-query'
@@ -158,7 +158,7 @@ const ActionGlink = ({
       {...linkProps}
     >
       {!options?.hideHeading && heading}
-      {model.icon && !options?.hideIcon && <FeatherIcon name={model.icon} />}
+      {model.icon && !options?.hideIcon && <Alarm />}
     </Link>
   )
 }
@@ -187,7 +187,7 @@ const ActionAlink = ({
       {...props}
     >
       {!options?.hideHeading && heading}
-      {model?.icon && !options?.hideIcon && <FeatherIcon name={model?.icon} />}
+      {model?.icon && !options?.hideIcon && <Alarm />}
     </A>
   )
 }
@@ -198,7 +198,7 @@ const NoLink = ({ model, children, options, ...props }: ActionProps) => {
   return (
     <Span aria-label={model?.description} {...props}>
       {!options?.hideHeading && heading}
-      {model?.icon && !options?.hideIcon && <FeatherIcon name={model?.icon} />}
+      {model?.icon && !options?.hideIcon && <Alarm />}
     </Span>
   )
 }
