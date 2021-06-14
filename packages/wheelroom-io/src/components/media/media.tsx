@@ -2,24 +2,19 @@ import { MediaBreakpoint } from './breakpoint'
 import { Embed } from './embed'
 import { Asset } from './asset'
 
-export type Media = {
-  asset?: Asset
-  mediaBreakpoint?: MediaBreakpoint
-  embed?: Embed
-  poster?: Asset
-}
+export type Media = Asset | MediaBreakpoint
 
 export interface MediaProps {
   model: Media
 }
 
-export const Media = (props: MediaProps) => {
-  if (props.model.mediaBreakpoint) {
-    return <MediaBreakpoint model={props.model.mediaBreakpoint} />
-  } else if (props.model.asset) {
-    return <Asset model={props.model.asset} poster={props.model.poster} />
-  } else if (props.model.embed) {
-    return <Embed model={props.model.embed} />
+export const Media = ({ model, ...props }: MediaProps) => {
+  model = model || {}
+  if ('asset' in model) {
+    return <Asset {...props} />
+  } else if ('code' in model) {
+    return <Embed {...props} />
+  } else {
+    return <MediaBreakpoint {...props} />
   }
-  return null
 }

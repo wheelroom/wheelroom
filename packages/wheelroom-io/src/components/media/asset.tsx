@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby'
-import { Image } from './image'
-import { Video } from './video'
+import { Image, ImageProps } from './image'
+import { Video, VideoProps } from './video'
 
-export type Asset = {
+export type ContentfulAsset = {
   sys: {
     id: string
   }
@@ -16,18 +16,15 @@ export type Asset = {
   width: number
 }
 
-export interface AssetProps {
-  model: Asset
-  poster?: Asset
-}
+export type Asset = Image | Video
 
-export const Asset = (props: AssetProps) => {
-  const mediaType = props.model.contentType.split('/')
+export const Asset = (props: ImageProps | VideoProps) => {
+  const mediaType = (props.model?.asset?.contentType || '').split('/')
   if (mediaType[0] === 'image') {
-    return <Image asset={props.model} />
+    return <Image model={props.model} />
   }
   if (mediaType[0] === 'video') {
-    return <Video asset={props.model} poster={props.poster} />
+    return <Video model={props.model} />
   }
   return null
 }

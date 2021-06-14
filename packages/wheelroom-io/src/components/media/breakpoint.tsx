@@ -2,14 +2,14 @@ import { graphql } from 'gatsby'
 import { Asset } from './asset'
 
 export type MediaBreakpoint = {
-  small: Asset
-  medium: Asset
-  large: Asset
-  extraLarge: Asset
+  small?: Asset
+  medium?: Asset
+  large?: Asset
+  extraLarge?: Asset
 }
 
 export interface MediaBreakpointProps {
-  model: MediaBreakpoint
+  model?: MediaBreakpoint
 }
 
 export const MediaBreakpoint = (props: MediaBreakpointProps) => {

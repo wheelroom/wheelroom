@@ -1,13 +1,21 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Img, Picture, Figcaption } from '@wheelroom/any/elements'
-import { Asset } from './asset'
+import { ContentfulAsset } from './asset'
 
-export interface ImageProps {
-  asset?: Asset
-  showCaption?: boolean
+export interface Image {
+  asset?: ContentfulAsset
 }
 
-const defaultAsset: Asset = {
+export type ImageOption = 'showCaption'
+export type ImageOptions = Partial<Record<ImageOption, boolean>>
+
+type AnyPictureProps = AnyProps['picture']
+export interface ImageProps extends AnyPictureProps {
+  model?: Image
+  options?: ImageOptions
+}
+
+const defaultAsset: ContentfulAsset = {
   sys: {
     id: 'default-asset',
   },
@@ -21,8 +29,9 @@ const defaultAsset: Asset = {
   width: 2560,
 }
 
-export const Image = (props: ImageProps) => {
-  const asset = props.asset || defaultAsset
+export const Image = ({ model, options, ...props }: ImageProps) => {
+  const asset = model?.asset || defaultAsset
+  options = options || {}
   /**
    * Avoid video asset media
    * The complete list of file types can be found here:
@@ -47,9 +56,9 @@ export const Image = (props: ImageProps) => {
   }
 
   return (
-    <Picture>
+    <Picture {...props}>
       <Img {...imgProps} />
-      {props.showCaption && <Figcaption>{asset.description}</Figcaption>}
+      {options.showCaption && <Figcaption>{asset.description}</Figcaption>}
     </Picture>
   )
 }

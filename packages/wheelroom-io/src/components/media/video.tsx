@@ -1,14 +1,22 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Video as AnyVideo, Source, P, B } from '@wheelroom/any/elements'
-import { Asset } from './asset'
+import { ContentfulAsset } from './asset'
 
-export interface VideoProps {
-  asset?: Asset
-  poster?: Asset
-  showCaption?: boolean
+export interface Video {
+  asset?: ContentfulAsset
+  poster?: ContentfulAsset
 }
 
-const defaultAsset: Asset = {
+export type VideoOption = 'showCaption'
+export type VideoOptions = Partial<Record<VideoOption, boolean>>
+
+type AnyVideoProps = AnyProps['video']
+export interface VideoProps extends AnyVideoProps {
+  model?: Video
+  options?: VideoOptions
+}
+
+const defaultAsset: ContentfulAsset = {
   sys: {
     id: 'default-asset',
   },
@@ -22,15 +30,17 @@ const defaultAsset: Asset = {
   width: 2560,
 }
 
-export const Video = (props: VideoProps) => {
-  const asset = props.asset || defaultAsset
+export const Video = ({ model, options, ...props }: VideoProps) => {
+  const asset = model?.asset || defaultAsset
+  options = options || {}
+  model = model || {}
 
   if (['image/jpeg', 'image/webp', 'image/png'].includes(asset.contentType)) {
     return null
   }
 
   const videoProps: AnyProps['video'] = {
-    poster: props.poster?.url,
+    poster: model.poster?.url,
     title: asset.title,
   }
   const sourceProps: AnyProps['source'] = {
@@ -44,7 +54,7 @@ export const Video = (props: VideoProps) => {
         <Source {...sourceProps} />
         Your browser does not support the video tag.
       </AnyVideo>
-      {props.showCaption && (
+      {options.showCaption && (
         <P>
           <B>{asset.title}</B>
           {asset.description}
