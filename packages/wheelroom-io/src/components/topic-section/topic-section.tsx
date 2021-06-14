@@ -44,7 +44,6 @@ const styleMap: Partial<Record<TopicVariant, any>> = {
     justifyContent: 'center',
   },
   divider: {
-    ...maxWidthStyle,
     margin: '1rem 0',
     color: 'inherit',
     backgroundColor: 'grey',
