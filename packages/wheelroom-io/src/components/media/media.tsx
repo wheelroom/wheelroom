@@ -6,7 +6,7 @@ export type Media = Asset | MediaBreakpoint | Embed
 export type MediaProps = AssetProps | MediaBreakpointProps | EmbedProps
 
 export const Media = (props: MediaProps) => {
-  const model = props.model || {}
+  const model = props || {}
   if ('asset' in model) {
     return <Asset {...(props as AssetProps)} />
   } else if ('code' in model) {

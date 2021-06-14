@@ -5,7 +5,7 @@ export type Asset = Image | Video
 export type AssetProps = ImageProps | VideoProps
 
 export const Asset = (props: ImageProps | VideoProps) => {
-  const mediaType = (props.model?.asset?.contentType || '').split('/')
+  const mediaType = (props.model?.item?.contentType || '').split('/')
   if (mediaType[0] === 'image') {
     return <Image model={props.model} />
   }
