@@ -1,14 +1,14 @@
 import { graphql } from 'gatsby'
-import { Embed } from '../media/embed'
-import { Asset } from '../media/asset'
+import { ContentfulAsset } from '../media/contentful-asset'
+import { ContentfulEmbed } from '../media/contentful-embed'
 
 export type ContentfulGlobals = {
   siteAuthor: string
   siteDescription: string
   siteHeading: string
   siteKeywords: string[]
-  siteImage: Asset
-  siteEmbeds: Embed[]
+  siteImage: ContentfulAsset
+  siteEmbeds: ContentfulEmbed[]
   skipToContentHeading: string
 }
 

@@ -2,18 +2,25 @@ import { AnyProps } from '@wheelroom/any/any'
 import { A, Span } from '@wheelroom/any/elements'
 import { Link } from 'gatsby'
 import { css } from '@emotion/css'
-import { Embed } from '../media/embed'
 import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
 import { Icon } from '../icon/icon'
+import { ContentfulEmbed } from '../media/contentful-embed'
 import { ContentfulAction } from './contentful-action'
 
 export type Action = {
-  action?: ContentfulAction
+  item?: ContentfulAction
 }
 export type ActionVariant = 'primary' | 'secondary' | 'display' | 'link'
 export type ActionOption = 'hideIcon' | 'hideHeading'
 export type ActionOptions = Partial<Record<ActionOption, boolean>>
+
+type AnyAProps = AnyProps['a']
+export interface ActionProps extends AnyAProps {
+  model?: Action
+  options?: ActionOptions
+  variant?: ActionVariant
+}
 
 const baseStyle = {
   display: 'inline-flex',
@@ -109,18 +116,11 @@ interface OnClickHander {
 
 const onClickHander = ({ eventId, globals }: OnClickHander) => {
   const siteEmbeds = globals.siteEmbeds || []
-  siteEmbeds.forEach((embed: Embed) => {
+  siteEmbeds.forEach((embed: ContentfulEmbed) => {
     if (embed.code && embed.type === 'js-action') {
       Function('eventId', 'props', embed.code)(eventId, globals)
     }
   })
-}
-
-type AnyAProps = AnyProps['a']
-export interface ActionProps extends AnyAProps {
-  model?: Action
-  options?: ActionOptions
-  variant?: ActionVariant
 }
 
 const ActionGlink = ({
@@ -132,7 +132,7 @@ const ActionGlink = ({
 }: ActionProps) => {
   const globals: any = useGlobals()
   model = model || {}
-  const action = model.action || {}
+  const action = model.item || {}
 
   const heading = children ? children : action.heading
   const linkProps = { ...props } as typeof Link
@@ -164,7 +164,7 @@ const ActionAlink = ({
   const globals: any = useGlobals()
   const css: any = actionStyleFactory({ options, variant })
   model = model || {}
-  const action = model.action || {}
+  const action = model.item || {}
   const heading = children ? children : action.heading
   return (
     <A
@@ -186,7 +186,7 @@ const ActionAlink = ({
 
 const NoLink = ({ model, children, options, ...props }: ActionProps) => {
   model = model || {}
-  const action = model.action || {}
+  const action = model.item || {}
   const heading = children ? children : action.heading
   return (
     <Span aria-label={action.description} {...props}>
@@ -197,7 +197,7 @@ const NoLink = ({ model, children, options, ...props }: ActionProps) => {
 }
 
 export const Action = (props: ActionProps) => {
-  const action = props.model?.action || {}
+  const action = props.model?.item || {}
   if (action.page) {
     return <ActionGlink {...props} />
   } else if (action.url) {

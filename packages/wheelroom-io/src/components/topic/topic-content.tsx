@@ -84,7 +84,11 @@ export const TopicContent = ({
   return (
     <Div css={css} {...props}>
       <TopicText variant={variant} model={model} options={options} />
-      <TopicActions variant={variant} model={model} options={options} />
+      <TopicActions
+        variant={variant}
+        model={{ items: model.actions }}
+        options={options}
+      />
     </Div>
   )
 }

@@ -9,7 +9,7 @@ import {
 } from '../topic-section/contentful-topic-section'
 
 export type TopicActions = {
-  actions?: ContentfulAction[]
+  items?: ContentfulAction[]
 }
 
 type AnyDivProps = AnyProps['div']
@@ -70,13 +70,14 @@ export const TopicActions = ({
     variant,
   })
   model = model || {}
+  console.log(model)
 
   return (
     <Div css={css} {...props}>
-      {model.actions?.map((action: Action) => (
+      {model.items?.map((action: ContentfulAction) => (
         <Action
-          key={action.sys.id}
-          model={action.action}
+          key={action.sys?.id}
+          model={{ item: action }}
           variant={isDisplay ? 'display' : isLink ? 'link' : 'primary'}
         />
       ))}

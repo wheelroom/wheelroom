@@ -3,7 +3,10 @@ import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
 import { Abstract } from '../typography/abstract'
 import { Heading } from '../typography/heading'
-import { TopicSectionOptions, TopicSectionVariant } from './topic'
+import {
+  TopicSectionOptions,
+  TopicSectionVariant,
+} from '../topic-section/contentful-topic-section'
 
 export type TopicText = {
   abstract?: string
