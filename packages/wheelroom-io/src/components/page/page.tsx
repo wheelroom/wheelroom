@@ -3,15 +3,13 @@ import { CSSObject, Global } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/resets'
 import { graphql, PageProps } from 'gatsby'
 import { GlobalsProvider } from '../../lib/globals-provider'
-import { TopicSection } from '../topic-section/topic-section'
+import { ContentfulGlobals } from '../globals/contentful-globals'
 import { Sections } from './sections'
+import { ContentfulPage } from './contentful-page'
 
-export type Page = {
-  sectionsCollection: {
-    items?: TopicSection[]
-  }
-  path?: string
-}
+// export type Page = {
+//   item: ContentfulPage
+// }
 
 export const fontStyle: CSSObject = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
@@ -22,8 +20,8 @@ export const fontStyle: CSSObject = {
 
 export type PageQuery = {
   contentful: {
-    page: Page
-    globals: any
+    page: ContentfulPage
+    globals: ContentfulGlobals
   }
   site: any
 }
@@ -42,7 +40,7 @@ const Page = (props: PageProps<PageQuery, PageContext>) => {
     <GlobalsProvider value={{ globals, site }}>
       <Global styles={globalReset} />
       <Div css={fontStyle}>
-        <Sections models={page.sectionsCollection.items || []} />
+        <Sections model={{ items: page.sectionsCollection.items }} />
       </Div>
     </GlobalsProvider>
   )
@@ -61,16 +59,6 @@ export const queryId = graphql`
     }
     site {
       ...GatsbySite
-    }
-  }
-`
-
-export const pageFragment = graphql`
-  fragment Page on Contentful_Page {
-    sectionsCollection(limit: 20) {
-      items {
-        ...TopicSection
-      }
     }
   }
 `

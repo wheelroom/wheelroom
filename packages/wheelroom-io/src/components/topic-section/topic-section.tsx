@@ -1,18 +1,24 @@
 import { AnyProps } from '@wheelroom/any/any'
-import { graphql } from 'gatsby'
 import { Div, Hr } from '@wheelroom/any/elements'
-import { Topic, TopicOption, TopicOptions, TopicVariant } from '../topic/topic'
 import { mediaQuery } from '../../lib/media-query'
+import { ContentfulTopic } from '../topic/contentful-topc'
+import { Topic } from '../topic/topic'
+import {
+  ContentfulTopicSection,
+  TopicSectionOption,
+  TopicSectionOptions,
+  TopicSectionVariant,
+} from './contentful-topic-section'
 
-export interface TopicSection extends TopicOptions {
-  sys?: {
-    id: string
-  }
-  __typename?: string
-  variant?: TopicVariant
-  topicsCollection?: {
-    items: Topic[]
-  }
+export interface TopicSection {
+  item?: ContentfulTopicSection
+}
+
+type AnyDivProps = AnyProps['div']
+export interface TopicSectionProps extends AnyDivProps {
+  model?: TopicSection
+  options?: TopicSectionOptions
+  variant?: TopicSectionVariant
 }
 
 const baseStyle = {
@@ -28,7 +34,7 @@ const maxWidthStyle = {
   margin: '0 auto',
 }
 
-const styleMap: Partial<Record<TopicVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   block: {
     ...maxWidthStyle,
     alignItems: ['center', 'initial'],
@@ -75,30 +81,24 @@ const styleMap: Partial<Record<TopicVariant, any>> = {
 }
 
 export const topicSectionStyleFactory = (args: {
-  variant?: TopicVariant
-  options?: TopicOptions
+  variant?: TopicSectionVariant
+  options?: TopicSectionOptions
 }) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])
 }
 
-type AnyDivProps = AnyProps['div']
-export interface TopicSectionProps extends AnyDivProps {
-  model?: TopicSection
-  options?: Topic
-  variant?: TopicVariant
-}
-
 export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
   model = model || {}
-  const variant = model.variant
+  const item = model.item || {}
+  const variant = item.variant
   if (variant === 'divider') {
     return <Hr css={topicSectionStyleFactory({ variant })} />
   }
   // Isolate topic options from topic section model
-  const options: TopicOptions = {}
-  const optionKeys: TopicOption[] = [
+  const options: TopicSectionOptions = {}
+  const optionKeys: TopicSectionOption[] = [
     'reversedOrder',
     'hideIcon',
     'hideMedia',
@@ -106,7 +106,7 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
     'hideAbstract',
     'hideAction',
   ]
-  optionKeys.forEach((key: TopicOption) => (options[key] = model![key]))
+  optionKeys.forEach((key: TopicSectionOption) => (options[key] = item[key]))
 
   const css: any = topicSectionStyleFactory({
     options,
@@ -116,36 +116,17 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
   return (
     <Div css={{ width: '100%', label: 'wrapper' }}>
       <Div css={css} {...props}>
-        {model.topicsCollection?.items.map((topic: Topic, index) => (
-          <Topic
-            key={'id-' + topic.sys?.id + index}
-            model={topic}
-            options={options}
-            variant={variant}
-          />
-        ))}
+        {model.item?.topicsCollection?.items.map(
+          (topic: ContentfulTopic, index) => (
+            <Topic
+              key={'id-' + topic.sys?.id + index}
+              model={{ item: topic }}
+              options={options}
+              variant={variant}
+            />
+          )
+        )}
       </Div>
     </Div>
   )
 }
-
-export const fragment = graphql`
-  fragment TopicSection on Contentful_TopicSection {
-    __typename
-    sys {
-      id
-    }
-    variant
-    reversedOrder
-    hideIcon
-    hideMedia
-    hideHeading
-    hideAbstract
-    hideAction
-    topicsCollection(limit: 20) {
-      items {
-        ...Topic
-      }
-    }
-  }
-`

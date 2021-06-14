@@ -3,7 +3,7 @@ import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
 import { Asset } from '../media/asset'
 import { Media } from '../media/media'
-import { TopicOptions, TopicVariant } from './topic'
+import { TopicSectionOptions, TopicSectionVariant } from './topic'
 
 const baseStyle = {
   display: 'flex',
@@ -11,7 +11,7 @@ const baseStyle = {
   ':only-of-type': {},
 }
 
-const styleMap: Partial<Record<TopicVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   block: {
     ...baseStyle,
     picture: {
@@ -128,8 +128,8 @@ const styleMap: Partial<Record<TopicVariant, any>> = {
 }
 
 export const topicMediaStyleFactory = (args: {
-  variant?: TopicVariant
-  options?: TopicOptions
+  variant?: TopicSectionVariant
+  options?: TopicSectionOptions
 }) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
@@ -139,8 +139,8 @@ export const topicMediaStyleFactory = (args: {
 type AnyDivProps = AnyProps['div']
 export interface TopicMediaProps extends AnyDivProps {
   model?: Media
-  // options?: TopicOptions
-  variant?: TopicVariant
+  // options?: TopicSectionOptions
+  variant?: TopicSectionVariant
 }
 
 export const TopicMedia = ({

@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import { Embed } from '../media/embed'
 import { Asset } from '../media/asset'
 
-export type Globals = {
+export type ContentfulGlobals = {
   siteAuthor: string
   siteDescription: string
   siteHeading: string

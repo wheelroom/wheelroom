@@ -2,13 +2,14 @@ import { AnyProps } from '@wheelroom/any/any'
 import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
 import { Action } from '../action/action'
-import { TopicOptions, TopicVariant } from './topic'
+import { ContentfulAction } from '../action/contentful-action'
+import { TopicSectionOptions, TopicSectionVariant } from './topic'
 
 export type TopicActions = {
-  actions?: Action[]
+  actions?: ContentfulAction[]
 }
 
-const styleMap: Partial<Record<TopicVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   block: {
     flex: '0',
     marginTop: '16px',
@@ -35,8 +36,8 @@ const styleMap: Partial<Record<TopicVariant, any>> = {
 }
 
 export const myCompStyleFactory = (args: {
-  variant?: TopicVariant
-  options?: TopicOptions
+  variant?: TopicSectionVariant
+  options?: TopicSectionOptions
 }) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
@@ -46,8 +47,8 @@ export const myCompStyleFactory = (args: {
 type AnyDivProps = AnyProps['div']
 export interface TopicActionsProps extends AnyDivProps {
   model?: TopicActions
-  options?: TopicOptions
-  variant?: TopicVariant
+  options?: TopicSectionOptions
+  variant?: TopicSectionVariant
 }
 
 export const TopicActions = ({
@@ -71,8 +72,8 @@ export const TopicActions = ({
     <Div css={css} {...props}>
       {model.actions?.map((action: Action) => (
         <Action
-          key={action.sys?.id}
-          model={action}
+          key={action.sys.id}
+          model={action.action}
           variant={isDisplay ? 'display' : isLink ? 'link' : 'primary'}
         />
       ))}

@@ -3,14 +3,14 @@ import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
 import { Abstract } from '../typography/abstract'
 import { Heading } from '../typography/heading'
-import { TopicOptions, TopicVariant } from './topic'
+import { TopicSectionOptions, TopicSectionVariant } from './topic'
 
 export type TopicText = {
   abstract?: string
   heading?: string
 }
 
-const styleMap: Partial<Record<TopicVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   block: {
     flex: '1 1 auto',
     p: { marginBottom: 0 },
@@ -63,8 +63,8 @@ const styleMap: Partial<Record<TopicVariant, any>> = {
 }
 
 export const topicTextStyleFactory = (args: {
-  variant?: TopicVariant
-  options?: TopicOptions
+  variant?: TopicSectionVariant
+  options?: TopicSectionOptions
 }) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
@@ -74,8 +74,8 @@ export const topicTextStyleFactory = (args: {
 type AnyDivProps = AnyProps['div']
 export interface TopicTextProps extends AnyDivProps {
   model?: TopicText
-  options?: TopicOptions
-  variant?: TopicVariant
+  options?: TopicSectionOptions
+  variant?: TopicSectionVariant
 }
 
 export const TopicText = ({

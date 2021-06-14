@@ -2,7 +2,7 @@ import { AnyProps } from '@wheelroom/any/any'
 import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
 import { Action } from '../action/action'
-import { TopicOptions, TopicVariant } from './topic'
+import { TopicSectionOptions, TopicSectionVariant } from './topic'
 import { TopicActions } from './topic-actions'
 import { TopicText } from './topic-text'
 
@@ -19,7 +19,7 @@ const baseStyle = {
   ':only-of-type': {},
 }
 
-const styleMap: Partial<Record<TopicVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   block: { ...baseStyle, padding: '16px' },
   card: { ...baseStyle, flex: '1 1 auto', color: 'grey', padding: '16px' },
   featured: {
@@ -51,8 +51,8 @@ const styleMap: Partial<Record<TopicVariant, any>> = {
 }
 
 export const topicContentStyleFactory = (args: {
-  variant?: TopicVariant
-  options?: TopicOptions
+  variant?: TopicSectionVariant
+  options?: TopicSectionOptions
 }) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
@@ -62,8 +62,8 @@ export const topicContentStyleFactory = (args: {
 type AnyDivProps = AnyProps['div']
 export interface TopicContentProps extends AnyDivProps {
   model?: TopicContent
-  options?: TopicOptions
-  variant?: TopicVariant
+  options?: TopicSectionOptions
+  variant?: TopicSectionVariant
 }
 
 export const TopicContent = ({

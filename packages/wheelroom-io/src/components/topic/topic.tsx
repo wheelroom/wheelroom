@@ -1,56 +1,21 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Div } from '@wheelroom/any/elements'
-import { graphql } from 'gatsby'
-import { Action } from '../action/action'
-import { Embed } from '../media/embed'
-import { MediaBreakpoint } from '../media/breakpoint'
 import { Asset } from '../media/asset'
 import { mediaQuery } from '../../lib/media-query'
+import {
+  TopicSectionOptions,
+  TopicSectionVariant,
+} from '../topic-section/contentful-topic-section'
 import { TopicContent } from './topic-content'
 import { TopicMedia } from './topic-media'
+import { ContentfulTopic } from './contentful-topc'
 
 // spaceScale: [0, 1:4, 2:8, 3:16, 4:24, 5:32, 6:40, 7:48, 8:56, 9:64, 10:72, 11:80, 12:88, 13:96],
 // fontSizeScale: [0, 1:8, 2:10, 3:12, 4:14, 5:16, 6:18, 7:20, 8:24, 9:32, 10:42, 11:56, 12:72]
 
 export type Topic = {
-  sys?: {
-    id: string
-  }
-  abstract?: string
-  actionsCollection?: {
-    items: Action[]
-  }
-  heading?: string
-  icon?: string
-  media?: Asset
-  mediaBreakpoint?: MediaBreakpoint
-  mediaEmbed?: Embed
-  poster?: Asset
+  item?: ContentfulTopic
 }
-export type TopicVariant =
-  | 'block'
-  | 'card'
-  | 'divider'
-  | 'featured'
-  | 'gallery'
-  | 'headline'
-  | 'hero'
-  | 'image'
-  | 'navigation'
-  | 'quote'
-  | 'showcase'
-  | 'text'
-  | 'video'
-
-export type TopicOption =
-  | 'reversedOrder'
-  | 'hideIcon'
-  | 'hideMedia'
-  | 'hideHeading'
-  | 'hideAbstract'
-  | 'hideAction'
-
-export type TopicOptions = Partial<Record<TopicOption, boolean>>
 
 const baseStyle = {
   display: 'flex',
@@ -58,7 +23,7 @@ const baseStyle = {
   width: '100%',
 }
 
-const styleMap: Partial<Record<TopicVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   block: {
     ...baseStyle,
     padding: '16px',
@@ -121,8 +86,8 @@ const reversedOrderOptionStyle = {}
 const hideMediaOptionStyle = {}
 
 export const topicStyleFactory = (args: {
-  variant?: TopicVariant
-  options?: TopicOptions
+  variant?: TopicSectionVariant
+  options?: TopicSectionOptions
 }) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
@@ -136,8 +101,8 @@ export const topicStyleFactory = (args: {
 type AnyDivProps = AnyProps['div']
 export interface TopicProps extends AnyDivProps {
   model?: Topic
-  options?: TopicOptions
-  variant?: TopicVariant
+  options?: TopicSectionOptions
+  variant?: TopicSectionVariant
 }
 
 export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
@@ -149,44 +114,19 @@ export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
 
   return (
     <Div css={css} {...props}>
-      <TopicMedia variant={variant} model={{ asset: model.media } as Asset} />
+      <TopicMedia
+        variant={variant}
+        model={{ asset: model.item?.media } as Asset}
+      />
       <TopicContent
         variant={variant}
         model={{
-          abstract: model.abstract,
-          actions: model.actionsCollection?.items,
-          heading: model.heading,
+          abstract: model.item?.abstract,
+          actions: model.item?.actionsCollection?.items,
+          heading: model.item?.heading,
         }}
         options={options}
       />
     </Div>
   )
 }
-
-export const topicFragment = graphql`
-  fragment Topic on Contentful_Topic {
-    sys {
-      id
-    }
-    heading
-    abstract
-    icon
-    actionsCollection(limit: 1) {
-      items {
-        ...Action
-      }
-    }
-    media {
-      ...Asset
-    }
-    mediaBreakpoint {
-      ...MediaBreakpoint
-    }
-    mediaEmbed {
-      ...Embed
-    }
-    poster {
-      ...Asset
-    }
-  }
-`
