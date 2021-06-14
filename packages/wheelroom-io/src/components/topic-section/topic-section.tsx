@@ -93,7 +93,6 @@ export interface TopicSectionProps extends AnyDivProps {
 export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
   model = model || {}
   const variant = model.variant
-  console.log('variant', variant)
   if (variant === 'divider') {
     return <Hr css={topicSectionStyleFactory({ variant })} />
   }
@@ -117,9 +116,9 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
   return (
     <Div css={{ width: '100%', label: 'wrapper' }}>
       <Div css={css} {...props}>
-        {model.topicsCollection?.items.map((topic: Topic) => (
+        {model.topicsCollection?.items.map((topic: Topic, index) => (
           <Topic
-            key={topic.sys?.id}
+            key={'id-' + topic.sys?.id + index}
             model={topic}
             options={options}
             variant={variant}
