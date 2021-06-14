@@ -3,10 +3,20 @@ import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
 import { Action } from '../action/action'
 import { ContentfulAction } from '../action/contentful-action'
-import { TopicSectionOptions, TopicSectionVariant } from './topic'
+import {
+  TopicSectionOptions,
+  TopicSectionVariant,
+} from '../topic-section/contentful-topic-section'
 
 export type TopicActions = {
   actions?: ContentfulAction[]
+}
+
+type AnyDivProps = AnyProps['div']
+export interface TopicActionsProps extends AnyDivProps {
+  model?: TopicActions
+  options?: TopicSectionOptions
+  variant?: TopicSectionVariant
 }
 
 const styleMap: Partial<Record<TopicSectionVariant, any>> = {
@@ -42,13 +52,6 @@ export const myCompStyleFactory = (args: {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])
-}
-
-type AnyDivProps = AnyProps['div']
-export interface TopicActionsProps extends AnyDivProps {
-  model?: TopicActions
-  options?: TopicSectionOptions
-  variant?: TopicSectionVariant
 }
 
 export const TopicActions = ({

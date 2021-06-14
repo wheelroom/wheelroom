@@ -1,15 +1,25 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
-import { Action } from '../action/action'
-import { TopicSectionOptions, TopicSectionVariant } from './topic'
+import { ContentfulAction } from '../action/contentful-action'
+import {
+  TopicSectionOptions,
+  TopicSectionVariant,
+} from '../topic-section/contentful-topic-section'
 import { TopicActions } from './topic-actions'
 import { TopicText } from './topic-text'
 
 export type TopicContent = {
-  actions?: Action[]
+  actions?: ContentfulAction[]
   abstract?: string
   heading?: string
+}
+
+type AnyDivProps = AnyProps['div']
+export interface TopicContentProps extends AnyDivProps {
+  model?: TopicContent
+  options?: TopicSectionOptions
+  variant?: TopicSectionVariant
 }
 
 const baseStyle = {
@@ -57,13 +67,6 @@ export const topicContentStyleFactory = (args: {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])
-}
-
-type AnyDivProps = AnyProps['div']
-export interface TopicContentProps extends AnyDivProps {
-  model?: TopicContent
-  options?: TopicSectionOptions
-  variant?: TopicSectionVariant
 }
 
 export const TopicContent = ({

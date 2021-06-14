@@ -10,6 +10,13 @@ export type TopicText = {
   heading?: string
 }
 
+type AnyDivProps = AnyProps['div']
+export interface TopicTextProps extends AnyDivProps {
+  model?: TopicText
+  options?: TopicSectionOptions
+  variant?: TopicSectionVariant
+}
+
 const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   block: {
     flex: '1 1 auto',
@@ -69,13 +76,6 @@ export const topicTextStyleFactory = (args: {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery(baseStyle)
-}
-
-type AnyDivProps = AnyProps['div']
-export interface TopicTextProps extends AnyDivProps {
-  model?: TopicText
-  options?: TopicSectionOptions
-  variant?: TopicSectionVariant
 }
 
 export const TopicText = ({

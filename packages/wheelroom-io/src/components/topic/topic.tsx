@@ -1,6 +1,5 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Div } from '@wheelroom/any/elements'
-import { Asset } from '../media/asset'
 import { mediaQuery } from '../../lib/media-query'
 import {
   TopicSectionOptions,
@@ -10,11 +9,15 @@ import { TopicContent } from './topic-content'
 import { TopicMedia } from './topic-media'
 import { ContentfulTopic } from './contentful-topc'
 
-// spaceScale: [0, 1:4, 2:8, 3:16, 4:24, 5:32, 6:40, 7:48, 8:56, 9:64, 10:72, 11:80, 12:88, 13:96],
-// fontSizeScale: [0, 1:8, 2:10, 3:12, 4:14, 5:16, 6:18, 7:20, 8:24, 9:32, 10:42, 11:56, 12:72]
-
 export type Topic = {
   item?: ContentfulTopic
+}
+
+type AnyDivProps = AnyProps['div']
+export interface TopicProps extends AnyDivProps {
+  model?: Topic
+  options?: TopicSectionOptions
+  variant?: TopicSectionVariant
 }
 
 const baseStyle = {
@@ -98,13 +101,6 @@ export const topicStyleFactory = (args: {
   ])
 }
 
-type AnyDivProps = AnyProps['div']
-export interface TopicProps extends AnyDivProps {
-  model?: Topic
-  options?: TopicSectionOptions
-  variant?: TopicSectionVariant
-}
-
 export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
   const css: any = topicStyleFactory({
     options,
@@ -114,10 +110,7 @@ export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
 
   return (
     <Div css={css} {...props}>
-      <TopicMedia
-        variant={variant}
-        model={{ asset: model.item?.media } as Asset}
-      />
+      <TopicMedia variant={variant} model={{ item: model.item?.media }} />
       <TopicContent
         variant={variant}
         model={{

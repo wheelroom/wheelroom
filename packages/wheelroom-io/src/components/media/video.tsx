@@ -3,7 +3,7 @@ import { Video as AnyVideo, Source, P, B } from '@wheelroom/any/elements'
 import { ContentfulAsset } from './contentful-asset'
 
 export interface Video {
-  asset?: ContentfulAsset
+  item?: ContentfulAsset
   poster?: ContentfulAsset
 }
 
@@ -31,7 +31,7 @@ const defaultAsset: ContentfulAsset = {
 }
 
 export const Video = ({ model, options, ...props }: VideoProps) => {
-  const asset = model?.asset || defaultAsset
+  const asset = model?.item || defaultAsset
   options = options || {}
   model = model || {}
 
@@ -50,7 +50,7 @@ export const Video = ({ model, options, ...props }: VideoProps) => {
 
   return (
     <>
-      <AnyVideo {...videoProps} controls playsInline>
+      <AnyVideo {...videoProps} {...props} controls playsInline>
         <Source {...sourceProps} />
         Your browser does not support the video tag.
       </AnyVideo>

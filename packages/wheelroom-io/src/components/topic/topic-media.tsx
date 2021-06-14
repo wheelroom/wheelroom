@@ -3,7 +3,20 @@ import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
 import { Asset } from '../media/asset'
 import { Media } from '../media/media'
-import { TopicSectionOptions, TopicSectionVariant } from './topic'
+import {
+  TopicSectionOptions,
+  TopicSectionVariant,
+} from '../topic-section/contentful-topic-section'
+
+type TopicMedia = {
+  item?: Media
+}
+
+type AnyDivProps = AnyProps['div']
+export interface TopicMediaProps extends AnyDivProps {
+  model?: TopicMedia
+  variant?: TopicSectionVariant
+}
 
 const baseStyle = {
   display: 'flex',
@@ -136,13 +149,6 @@ export const topicMediaStyleFactory = (args: {
   return mediaQuery([baseStyle])
 }
 
-type AnyDivProps = AnyProps['div']
-export interface TopicMediaProps extends AnyDivProps {
-  model?: Media
-  // options?: TopicSectionOptions
-  variant?: TopicSectionVariant
-}
-
 export const TopicMedia = ({
   model,
   // options,
@@ -156,7 +162,7 @@ export const TopicMedia = ({
 
   return (
     <Div css={css} {...props}>
-      <Media model={model as Asset} />
+      <Media model={model.item as Asset} />
     </Div>
   )
 }

@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
-import { Page } from '../page/page'
 import { IconVariant } from '../icon/icon'
+import { ContentfulPage } from '../page/contentful-page'
 
 export type ContentfulAction = {
   sys?: {
@@ -11,7 +11,7 @@ export type ContentfulAction = {
   eventId?: string
   heading?: string
   icon?: IconVariant
-  page?: Page
+  page?: ContentfulPage
   query?: string
   url?: string
 }
