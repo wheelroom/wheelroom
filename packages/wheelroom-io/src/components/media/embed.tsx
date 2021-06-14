@@ -1,17 +1,9 @@
 import { Div } from '@wheelroom/any/elements'
-import { graphql } from 'gatsby'
 import { AnyProps } from '@wheelroom/any/any'
-
-export type EmbedType =
-  | 'html'
-  | 'js-action'
-  | 'js-app'
-  | 'js-page-section'
-  | 'js-page'
+import { ContentfulEmbed } from './contentful-embed'
 
 export type Embed = {
-  code?: string
-  type?: EmbedType
+  item?: ContentfulEmbed
 }
 
 type AnyDivProps = AnyProps['div']
@@ -34,21 +26,12 @@ const embedStyle = {
 
 export const Embed = ({ model, ...props }: EmbedProps) => {
   model = model || {}
-  const __html = (model.code && model.code) || ''
-  if (model.type === 'html') {
+  const item = model.item || {}
+  const __html = (item.code && item.code) || ''
+  if (item.type === 'html') {
     return (
       <Div css={embedStyle} dangerouslySetInnerHTML={{ __html }} {...props} />
     )
   }
   return null
 }
-
-export const embedFragment = graphql`
-  fragment Embed on Contentful_Embed {
-    sys {
-      id
-    }
-    type
-    code
-  }
-`

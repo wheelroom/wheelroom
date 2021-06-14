@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby'
 import { Embed } from '../media/embed'
-import { MediaBreakpoint } from '../media/breakpoint'
-import { Asset } from '../media/asset'
 import { ContentfulAction } from '../action/contentful-action'
+import { ContentfulMediaBreakpoint } from '../media/contentful-media-breakpoint'
+import { ContentfulAsset } from '../media/contentful-asset'
 
 export type ContentfulTopic = {
   sys?: {
@@ -14,10 +14,10 @@ export type ContentfulTopic = {
   }
   heading?: string
   icon?: string
-  media?: Asset
-  mediaBreakpoint?: MediaBreakpoint
+  media?: ContentfulAsset
+  mediaBreakpoint?: ContentfulMediaBreakpoint
   mediaEmbed?: Embed
-  poster?: Asset
+  poster?: ContentfulAsset
 }
 
 export const topicFragment = graphql`

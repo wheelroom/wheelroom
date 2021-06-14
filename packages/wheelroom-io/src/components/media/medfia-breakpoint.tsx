@@ -1,11 +1,8 @@
 import { graphql } from 'gatsby'
-import { Asset } from './asset'
+import { ContentfulMediaBreakpoint } from './contentful-media-breakpoint'
 
 export type MediaBreakpoint = {
-  small?: Asset
-  medium?: Asset
-  large?: Asset
-  extraLarge?: Asset
+  item?: ContentfulMediaBreakpoint
 }
 
 export interface MediaBreakpointProps {
