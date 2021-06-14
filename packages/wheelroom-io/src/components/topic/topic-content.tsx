@@ -80,8 +80,8 @@ export const TopicContent = ({
 
   return (
     <Div css={css} {...props}>
-      <TopicText model={model} options={options} />
-      <TopicActions model={model} options={options} />
+      <TopicText variant={variant} model={model} options={options} />
+      <TopicActions variant={variant} model={model} options={options} />
     </Div>
   )
 }

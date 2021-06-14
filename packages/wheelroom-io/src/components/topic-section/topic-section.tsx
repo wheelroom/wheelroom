@@ -90,11 +90,10 @@ export interface TopicSectionProps extends AnyDivProps {
   variant?: TopicVariant
 }
 
-export const TopicSection = ({
-  model,
-  variant,
-  ...props
-}: TopicSectionProps) => {
+export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
+  model = model || {}
+  const variant = model.variant
+  console.log('variant', variant)
   if (variant === 'divider') {
     return <Hr css={topicSectionStyleFactory({ variant })} />
   }
@@ -108,7 +107,6 @@ export const TopicSection = ({
     'hideAbstract',
     'hideAction',
   ]
-  model = model || {}
   optionKeys.forEach((key: TopicOption) => (options[key] = model![key]))
 
   const css: any = topicSectionStyleFactory({
