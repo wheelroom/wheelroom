@@ -77,21 +77,21 @@ Elements are the smallest components. Data is added in the way the html element
 expexts the data. Examples:
 
 ```html
-<Heading>data</Heading>
-<Abstract>data</Abstract>
-<img src="https://url" />
+<Heading>{data.heading}</Heading>
+<Abstract>{data.abstract}</Abstract>
+<img src={url} />
 ```
 
 ### Models
 
 Models contain elements. This is the level where visual components meet data
-models. The `models` props passes the data. Examples:
+models. The `model` props passes the data. Examples:
 
 ```html
-<Topic model="{topic}" />
-<Navigation model="{navigation}" />
-<Action model="{action}" />
-<image model="{image}" />
+<Topic model={topic} />
+<Navigation model={navigation} />
+<Action model={action} />
+<image model={image} />
 ```
 
 ### Sections
@@ -99,7 +99,7 @@ models. The `models` props passes the data. Examples:
 Sections contain models. Examples:
 
 ```html
-<TextSection model="{textSection}" />
-<NavigationSection model="{navigationSection}" />
-<TopicSection model="{topicSection} ">
+<TextSection model={textSection} />
+<NavigationSection model={navigationSection} />
+<TopicSection model={topicSection} >
 ```
