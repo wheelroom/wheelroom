@@ -62,7 +62,7 @@
     "build:test": "jest --silent --passWithNoTests",
     "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
     "clean": "rimraf build/*",
-    "copy-templates": "cp -r src/commands/templates build/commands",
+    "copy-templates": "cp -r src/commands/release-command/templates build/commands",
     "dev": "rollup --config --watch"
   },
   "dependencies": {
