@@ -1,25 +1,15 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { A, Span } from '@wheelroom/any/elements'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import { css } from '@emotion/css'
 import { Embed } from '../media/embed'
 import { useGlobals } from '../../lib/globals-provider'
-import { Page } from '../page/page'
 import { mediaQuery } from '../../lib/media-query'
-import { Icon, IconVariant } from '../icon/icon'
+import { Icon } from '../icon/icon'
+import { ContentfulAction } from './contentful-action'
 
 export type Action = {
-  sys?: {
-    id: string
-  }
-  anchor?: string
-  description?: string
-  eventId?: string
-  heading?: string
-  icon?: IconVariant
-  page?: Page
-  query?: string
-  url?: string
+  action?: ContentfulAction
 }
 export type ActionVariant = 'primary' | 'secondary' | 'display' | 'link'
 export type ActionOption = 'hideIcon' | 'hideHeading'
@@ -96,7 +86,7 @@ export const actionStyleFactory = (args: {
 }
 
 interface CreateURL {
-  action: Action
+  action: ContentfulAction
   isPreviewMode: boolean
   url: string
 }
@@ -142,23 +132,24 @@ const ActionGlink = ({
 }: ActionProps) => {
   const globals: any = useGlobals()
   model = model || {}
+  const action = model.action || {}
 
-  const heading = children ? children : model.heading
+  const heading = children ? children : action.heading
   const linkProps = { ...props } as typeof Link
   return (
     <Link
       className={css(actionStyleFactory({ options, variant }))}
-      aria-label={model?.description}
-      onClick={() => onClickHander({ eventId: model?.eventId, globals })}
+      aria-label={action.description}
+      onClick={() => onClickHander({ eventId: action.eventId, globals })}
       to={createURL({
-        action: model,
+        action,
         isPreviewMode: globals.isPreviewMode,
-        url: model.page?.path || '',
+        url: action.page?.path || '',
       })}
       {...linkProps}
     >
       {!options?.hideHeading && heading}
-      {model.icon && !options?.hideIcon && <Icon variant={model.icon} />}
+      {action.icon && !options?.hideIcon && <Icon variant={action.icon} />}
     </Link>
   )
 }
@@ -173,60 +164,45 @@ const ActionAlink = ({
   const globals: any = useGlobals()
   const css: any = actionStyleFactory({ options, variant })
   model = model || {}
-  const heading = children ? children : model?.heading
+  const action = model.action || {}
+  const heading = children ? children : action.heading
   return (
     <A
       css={css}
-      aria-label={model?.description}
+      aria-label={action.description}
       href={createURL({
-        action: model,
+        action,
         isPreviewMode: globals.isPreviewMode,
-        url: model.url || '',
+        url: action.url || '',
       })}
-      onClick={() => onClickHander({ eventId: model?.eventId, globals })}
+      onClick={() => onClickHander({ eventId: action.eventId, globals })}
       {...props}
     >
       {!options?.hideHeading && heading}
-      {model?.icon && !options?.hideIcon && <Icon variant={model.icon} />}
+      {action.icon && !options?.hideIcon && <Icon variant={action.icon} />}
     </A>
   )
 }
 
 const NoLink = ({ model, children, options, ...props }: ActionProps) => {
   model = model || {}
-  const heading = children ? children : model?.heading
+  const action = model.action || {}
+  const heading = children ? children : action.heading
   return (
-    <Span aria-label={model?.description} {...props}>
+    <Span aria-label={action.description} {...props}>
       {!options?.hideHeading && heading}
-      {model?.icon && !options?.hideIcon && <Icon variant={model.icon} />}
+      {action.icon && !options?.hideIcon && <Icon variant={action.icon} />}
     </Span>
   )
 }
 
 export const Action = (props: ActionProps) => {
-  if (props.model?.page) {
+  const action = props.model?.action || {}
+  if (action.page) {
     return <ActionGlink {...props} />
-  } else if (props.model?.url) {
+  } else if (action.url) {
     return <ActionAlink {...props} />
   } else {
     return <NoLink {...props} />
   }
 }
-
-export const actionFragment = graphql`
-  fragment Action on Contentful_Action {
-    sys {
-      id
-    }
-    description
-    anchor
-    eventId
-    heading
-    icon
-    page {
-      path
-    }
-    query
-    url
-  }
-`
