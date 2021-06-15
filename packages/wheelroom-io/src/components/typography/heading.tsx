@@ -2,7 +2,7 @@ import { Any, AnyProps } from '@wheelroom/any/any'
 import { mediaQuery } from '../../lib/media-query'
 
 const headingStyle = {
-  marginBottom: '16px',
+  marginBottom: 16,
   marginTop: 0,
 }
 

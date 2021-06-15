@@ -4,11 +4,11 @@ import { P } from '@wheelroom/any/elements'
 export const Abstract = (props: AnyProps['p']) => (
   <P
     css={{
-      fontSize: '18px',
-      lineHeight: '1.58',
+      fontSize: 18,
+      lineHeight: 1.58,
       fontWeight: 400,
       marginTop: 0,
-      marginBottom: '16px',
+      marginBottom: 16,
     }}
   >
     {props.children}
