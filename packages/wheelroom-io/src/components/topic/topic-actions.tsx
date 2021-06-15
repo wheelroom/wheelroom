@@ -76,7 +76,7 @@ export const TopicActions = ({
       {model.items?.map((action: ContentfulAction) => (
         <Action
           key={action.sys?.id}
-          model={{ item: action }}
+          model={{ contentfulAction: action }}
           variant={isDisplay ? 'display' : isLink ? 'link' : 'primary'}
         />
       ))}
