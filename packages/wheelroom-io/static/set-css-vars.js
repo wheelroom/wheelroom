@@ -17,7 +17,7 @@
        * css-theme v6.24.3
        * Released under the MIT license.
        */
-      
+
    var camelToDash = function (str) {
        return str
            .replace(/\W+/g, '-')
@@ -56,13 +56,8 @@
 
    var theme = {
        colors: {
-           berry: '#FF8582',
-           orange: '#FF9858',
-           mango: '#FFAC31',
-           banana: '#FFBF00',
-           kiwi: '#D5CF00',
-           apple: '#A4DB2A',
-           melon: '#66E355',
+           azure: '#06C',
+           ocean: '#0051A3',
        },
    };
 

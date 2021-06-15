@@ -47,11 +47,11 @@ const baseStyle = {
 const primaryStyle = {
   ...baseStyle,
   color: 'white',
-  backgroundColor: 'blue',
-  borderColor: 'black',
+  backgroundColor: 'var(--colors-azure)',
+  borderColor: 'var(--colors-azure)',
   transition: 'background-color .25s ease',
   ':hover, :focus': {
-    backgroundColor: 'darkblue',
+    backgroundColor: 'var(--colors-ocean)',
   },
 }
 
@@ -59,12 +59,12 @@ const styleMap: Partial<Record<ActionVariant, any>> = {
   primary: primaryStyle,
   secondary: {
     ...baseStyle,
-    color: 'white',
-    backgroundColor: 'red',
-    borderColor: 'black',
+    color: 'black',
+    backgroundColor: 'white',
+    borderColor: 'var(--colors-azure)',
     transition: 'border-color .25s ease',
     ':hover, :focus': {
-      borderColor: 'darkred',
+      borderColor: 'var(--colors-ocean)',
     },
   },
   display: {
