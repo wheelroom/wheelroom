@@ -24,7 +24,6 @@ export interface TopicSectionProps extends AnyDivProps {
 const baseStyle = {
   display: 'flex',
   width: '100%',
-  label: 'topicSection',
   flexDirection: 'column',
   paddingBottom: 16,
 }
@@ -108,19 +107,19 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
   ]
   optionKeys.forEach((key: TopicSectionOption) => (options[key] = section[key]))
 
-  const css: any = topicSectionStyleFactory({
+  const css = topicSectionStyleFactory({
     options,
     variant,
   })
 
   return (
-    <Div css={{ width: '100%', label: 'wrapper' }}>
+    <Div css={{ label: 'Wrapper' }}>
       <Div css={css} {...props}>
         {model.contentfulTopicSection?.topicsCollection?.items.map(
-          (topic: ContentfulTopic, index) => (
+          (contentfulTopic: ContentfulTopic, index) => (
             <Topic
-              key={'id-' + topic.sys?.id + index}
-              model={{ contentfulTopic: topic }}
+              key={'id-' + contentfulTopic.sys?.id + index}
+              model={{ contentfulTopic }}
               options={options}
               variant={variant}
             />
