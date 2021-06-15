@@ -31,8 +31,10 @@ export const topicFragment = graphql`
         ...Action
       }
     }
-    media {
-      ...Asset
+    mediaCollection(limit: 4) {
+      items {
+        ...Asset
+      }
     }
     mediaEmbed {
       ...Embed
