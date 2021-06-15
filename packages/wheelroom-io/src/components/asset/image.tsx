@@ -3,7 +3,7 @@ import { Img, Picture, Figcaption } from '@wheelroom/any/elements'
 import { ContentfulAsset } from './contentful-asset'
 
 export interface Image {
-  item?: ContentfulAsset
+  contentfulAsset?: ContentfulAsset
 }
 
 export type ImageOption = 'showCaption'
@@ -30,7 +30,7 @@ const defaultAsset: ContentfulAsset = {
 }
 
 export const Image = ({ model, options, ...props }: ImageProps) => {
-  const asset = model?.item || defaultAsset
+  const asset = model?.contentfulAsset || defaultAsset
   options = options || {}
   /**
    * Avoid video asset media

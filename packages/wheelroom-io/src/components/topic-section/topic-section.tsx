@@ -11,7 +11,7 @@ import {
 } from './contentful-topic-section'
 
 export interface TopicSection {
-  item?: ContentfulTopicSection
+  contentfulTopicSection?: ContentfulTopicSection
 }
 
 type AnyDivProps = AnyProps['div']
@@ -91,8 +91,8 @@ export const topicSectionStyleFactory = (args: {
 
 export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
   model = model || {}
-  const item = model.item || {}
-  const variant = item.variant
+  const section = model.contentfulTopicSection || {}
+  const variant = section.variant
   if (variant === 'divider') {
     return <Hr css={topicSectionStyleFactory({ variant })} />
   }
@@ -106,7 +106,7 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
     'hideAbstract',
     'hideAction',
   ]
-  optionKeys.forEach((key: TopicSectionOption) => (options[key] = item[key]))
+  optionKeys.forEach((key: TopicSectionOption) => (options[key] = section[key]))
 
   const css: any = topicSectionStyleFactory({
     options,
@@ -116,11 +116,11 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
   return (
     <Div css={{ width: '100%', label: 'wrapper' }}>
       <Div css={css} {...props}>
-        {model.item?.topicsCollection?.items.map(
+        {model.contentfulTopicSection?.topicsCollection?.items.map(
           (topic: ContentfulTopic, index) => (
             <Topic
               key={'id-' + topic.sys?.id + index}
-              model={{ item: topic }}
+              model={{ contentfulTopic: topic }}
               options={options}
               variant={variant}
             />
