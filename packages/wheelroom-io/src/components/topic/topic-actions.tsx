@@ -21,27 +21,27 @@ export interface TopicActionsProps extends AnyDivProps {
 
 const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
   block: {
-    flex: '0',
-    marginTop: '16px',
+    flex: 0,
+    marginTop: 16,
   },
   card: {
-    marginTop: '16px',
+    marginTop: 16,
   },
   featured: {
     marginTop: ['24px', '24px', '32px'],
   },
   headline: {
-    marginTop: '16px',
+    marginTop: 16,
   },
   hero: {
-    marginTop: '32px',
+    marginTop: 32,
     maxWidth: '30em',
   },
   quote: {
-    marginTop: '64px',
+    marginTop: 64,
   },
   showcase: {
-    marginTop: '16px',
+    marginTop: 16,
   },
 }
 
