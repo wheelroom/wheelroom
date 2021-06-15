@@ -1,14 +1,9 @@
 import { Image, ImageProps } from './image'
 import { Video, VideoProps } from './video'
-import { MediaBreakpoint, MediaBreakpointProps } from './medfia-breakpoint'
 import { Embed, EmbedProps } from './embed'
 
-export type Media = Image | Video | MediaBreakpoint | Embed
-export type MediaProps =
-  | ImageProps
-  | VideoProps
-  | MediaBreakpointProps
-  | EmbedProps
+export type Media = Image | Video | Embed
+export type MediaProps = ImageProps | VideoProps | EmbedProps
 
 export const Media = (props: MediaProps) => {
   const imageOrVideoProps = props as ImageProps | VideoProps
@@ -28,11 +23,6 @@ export const Media = (props: MediaProps) => {
   const embedProps = props as EmbedProps
   if (embedProps.model?.item?.code) {
     return <Embed {...embedProps} />
-  }
-  const mediaBreakpointdProps = props as MediaBreakpointProps
-  const item = mediaBreakpointdProps.model?.item || {}
-  if (item.extraLarge || item.large || item.medium || item.small) {
-    return <MediaBreakpoint {...mediaBreakpointdProps} />
   }
   return null
 }
