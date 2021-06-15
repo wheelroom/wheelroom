@@ -3,7 +3,7 @@ import { AnyProps } from '@wheelroom/any/any'
 import { ContentfulEmbed } from './contentful-embed'
 
 export type Embed = {
-  item?: ContentfulEmbed
+  contentfulEmbed?: ContentfulEmbed
 }
 
 type AnyDivProps = AnyProps['div']

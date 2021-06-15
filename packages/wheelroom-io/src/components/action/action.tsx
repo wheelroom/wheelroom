@@ -5,11 +5,11 @@ import { css } from '@emotion/css'
 import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
 import { Icon } from '../icon/icon'
-import { ContentfulEmbed } from '../media/contentful-embed'
+import { ContentfulEmbed } from '../embed/contentful-embed'
 import { ContentfulAction } from './contentful-action'
 
 export type Action = {
-  item?: ContentfulAction
+  contentfulAction?: ContentfulAction
 }
 export type ActionVariant = 'primary' | 'secondary' | 'display' | 'link'
 export type ActionOption = 'hideIcon' | 'hideHeading'
@@ -132,7 +132,7 @@ const ActionGlink = ({
 }: ActionProps) => {
   const globals: any = useGlobals()
   model = model || {}
-  const action = model.item || {}
+  const action = model.contentfulAction || {}
 
   const heading = children ? children : action.heading
   const linkProps = { ...props } as typeof Link
@@ -164,7 +164,7 @@ const ActionAlink = ({
   const globals: any = useGlobals()
   const css: any = actionStyleFactory({ options, variant })
   model = model || {}
-  const action = model.item || {}
+  const action = model.contentfulAction || {}
   const heading = children ? children : action.heading
   return (
     <A
@@ -186,7 +186,7 @@ const ActionAlink = ({
 
 const NoLink = ({ model, children, options, ...props }: ActionProps) => {
   model = model || {}
-  const action = model.item || {}
+  const action = model.contentfulAction || {}
   const heading = children ? children : action.heading
   return (
     <Span aria-label={action.description} {...props}>
@@ -197,7 +197,7 @@ const NoLink = ({ model, children, options, ...props }: ActionProps) => {
 }
 
 export const Action = (props: ActionProps) => {
-  const action = props.model?.item || {}
+  const action = props.model?.contentfulAction || {}
   if (action.page) {
     return <ActionGlink {...props} />
   } else if (action.url) {

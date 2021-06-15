@@ -10,7 +10,7 @@ import { TopicMedia } from './topic-media'
 import { ContentfulTopic } from './contentful-topic'
 
 export type Topic = {
-  item?: ContentfulTopic
+  contentfulTopic?: ContentfulTopic
 }
 
 type AnyDivProps = AnyProps['div']
@@ -110,13 +110,16 @@ export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
 
   return (
     <Div css={css} {...props}>
-      <TopicMedia variant={variant} model={{ item: model.item?.media }} />
+      <TopicMedia
+        variant={variant}
+        model={{ item: model.contentfulTopic?.media }}
+      />
       <TopicContent
         variant={variant}
         model={{
-          abstract: model.item?.abstract,
-          actions: model.item?.actionsCollection?.items,
-          heading: model.item?.heading,
+          abstract: model.contentfulTopic?.abstract,
+          actions: model.contentfulTopic?.actionsCollection?.items,
+          heading: model.contentfulTopic?.heading,
         }}
         options={options}
       />

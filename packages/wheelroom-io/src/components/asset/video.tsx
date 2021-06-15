@@ -3,8 +3,8 @@ import { Video as AnyVideo, Source, P, B } from '@wheelroom/any/elements'
 import { ContentfulAsset } from './contentful-asset'
 
 export interface Video {
-  item?: ContentfulAsset
-  poster?: ContentfulAsset
+  contentfulVideoAsset?: ContentfulAsset
+  contentfulPostAsset?: ContentfulAsset
 }
 
 export type VideoOption = 'showCaption'
@@ -31,7 +31,7 @@ const defaultAsset: ContentfulAsset = {
 }
 
 export const Video = ({ model, options, ...props }: VideoProps) => {
-  const asset = model?.item || defaultAsset
+  const asset = model?.contentfulVideoAsset || defaultAsset
   options = options || {}
   model = model || {}
 
@@ -40,7 +40,7 @@ export const Video = ({ model, options, ...props }: VideoProps) => {
   }
 
   const videoProps: AnyProps['video'] = {
-    poster: model.poster?.url,
+    poster: model.contentfulPostAsset?.url,
     title: asset.title,
   }
   const sourceProps: AnyProps['source'] = {

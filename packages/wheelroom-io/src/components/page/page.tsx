@@ -8,7 +8,7 @@ import { Sections } from './sections'
 import { ContentfulPage } from './contentful-page'
 
 // export type Page = {
-//   item: ContentfulPage
+//   page?: ContentfulPage
 // }
 
 export const fontStyle: CSSObject = {
