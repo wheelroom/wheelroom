@@ -26,11 +26,11 @@ const baseStyle = {
   width: '100%',
   label: 'topicSection',
   flexDirection: 'column',
-  paddingBottom: '16px',
+  paddingBottom: 16,
 }
 const maxWidthStyle = {
   ...baseStyle,
-  maxWidth: '1280px',
+  maxWidth: 1280,
   margin: '0 auto',
 }
 
@@ -54,8 +54,8 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
     color: 'inherit',
     backgroundColor: 'grey',
     border: 0,
-    opacity: '0.25',
-    height: '1px',
+    opacity: 0.25,
+    height: 1,
   },
   gallery: {
     ...maxWidthStyle,
@@ -63,14 +63,14 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
     flexWrap: 'wrap',
     alignItems: 'center',
   },
-  hero: { ...baseStyle, paddingBottom: '0' },
+  hero: { ...baseStyle, paddingBottom: 0 },
   image: {
     ...maxWidthStyle,
     flexDirection: ['column', 'row'],
   },
   video: baseStyle,
   quote: {
-    paddingBottom: '40px',
+    paddingBottom: 40,
   },
   showcase: {
     ...maxWidthStyle,

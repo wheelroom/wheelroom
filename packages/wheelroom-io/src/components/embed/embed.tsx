@@ -1,5 +1,6 @@
 import { Div } from '@wheelroom/any/elements'
 import { AnyProps } from '@wheelroom/any/any'
+import { CSSObject } from '@emotion/react'
 import { ContentfulEmbed } from './contentful-embed'
 
 export type Embed = {
@@ -11,18 +12,17 @@ export interface EmbedProps extends AnyDivProps {
   model?: Embed
 }
 
-const embedStyle = {
-  margin: '0px',
+const embedStyle: CSSObject = {
+  margin: 0,
   position: 'relative',
-  height: '0px',
+  height: 0,
   paddingBottom: '56.25%',
   iframe: {
     position: 'absolute',
     height: '100%',
     width: '100%',
   },
-  // TODO: Without 'as any', postion must be with a capital P (which is invalid css)
-} as any
+}
 
 export const Embed = ({ model, ...props }: EmbedProps) => {
   model = model || {}
