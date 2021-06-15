@@ -1,8 +1,10 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Div } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
-import { ContentfulAsset } from '../media/contentful-asset'
-import { Media } from '../media/media'
+import { ContentfulAsset } from '../asset/contentful-asset'
+import { Image, ImageProps } from '../asset/image'
+import { Video, VideoProps } from '../asset/video'
+import { Embed, EmbedProps } from '../embed/embed'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
@@ -147,6 +149,32 @@ export const topicMediaStyleFactory = (args: {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])
+}
+
+// TODO: Temp fix. Refactor Media component
+export type Media = Image | Video | Embed
+export type MediaProps = ImageProps | VideoProps | EmbedProps
+
+export const Media = (props: MediaProps) => {
+  const imageOrVideoProps = props as ImageProps | VideoProps
+  if (imageOrVideoProps.model?.item?.contentType) {
+    const mediaType = (imageOrVideoProps.model.item.contentType || '').split(
+      '/'
+    )
+    if (mediaType[0] === 'image') {
+      const imageProps = props as ImageProps
+      return <Image {...imageProps} />
+    }
+    if (mediaType[0] === 'video') {
+      const videoProps = props as VideoProps
+      return <Video {...videoProps} />
+    }
+  }
+  const embedProps = props as EmbedProps
+  if (embedProps.model?.item?.code) {
+    return <Embed {...embedProps} />
+  }
+  return null
 }
 
 export const TopicMedia = ({
