@@ -26,15 +26,14 @@ export interface TopicMediaProps extends AnyDivProps {
 const baseStyle = {
   display: 'flex',
   flexDirection: 'column',
-  ':only-of-type': {},
 }
 
-const styleMap: Partial<Record<TopicSectionVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
   block: {
     ...baseStyle,
     picture: {
       display: 'block',
-      height: '0px',
+      height: 0,
       paddingBottom: '56.25%',
       position: 'relative',
       img: {
@@ -48,10 +47,10 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   },
   card: {
     ...baseStyle,
-    margin: '16px',
+    margin: 16,
     picture: {
       display: 'block',
-      height: '178px',
+      height: 178,
       img: {
         display: 'block',
         height: '100%',
@@ -62,7 +61,7 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   },
   featured: {
     ...baseStyle,
-    padding: '16px',
+    padding: 16,
     maxWidth: ['35em', '35em', '45%'],
     width: '100%',
     picture: {
@@ -76,7 +75,7 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   gallery: {
     ...baseStyle,
     picture: {
-      padding: '16px',
+      padding: 16,
       img: {
         display: 'block',
         height: 'auto',
@@ -96,11 +95,11 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   },
   hero: {
     ...baseStyle,
-    bottom: '0',
-    left: '0',
+    bottom: 0,
+    left: 0,
     position: 'absolute',
-    right: '0',
-    top: '0',
+    right: 0,
+    top: 0,
     overflow: 'hidden',
     zIndex: -1,
     picture: {
@@ -114,12 +113,12 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   },
   quote: {
     ...baseStyle,
-    padding: '16px',
+    padding: 16,
     picture: {
       overflow: 'hidden',
-      height: '200px',
-      width: '200px',
-      borderRadius: '100px',
+      height: 200,
+      width: 200,
+      borderRadius: 100,
       margin: '0 auto',
       img: {
         display: 'block',
@@ -131,8 +130,8 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   },
   showcase: {
     ...baseStyle,
-    padding: '16px',
-    maxWidth: '254px',
+    padding: 16,
+    maxWidth: 254,
     width: '100%',
     picture: {
       img: {
@@ -155,7 +154,7 @@ export const topicMediaStyleFactory = (args: {
 }
 
 export const TopicMedia = ({ model, variant, ...props }: TopicMediaProps) => {
-  const css: any = topicMediaStyleFactory({
+  const css = topicMediaStyleFactory({
     variant,
   })
   model = model || {}

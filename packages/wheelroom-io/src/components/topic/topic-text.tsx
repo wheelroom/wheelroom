@@ -20,7 +20,7 @@ export interface TopicTextProps extends AnyDivProps {
   variant?: TopicSectionVariant
 }
 
-const styleMap: Partial<Record<TopicSectionVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
   block: {
     flex: '1 1 auto',
     p: { marginBottom: 0 },
@@ -78,7 +78,7 @@ export const topicTextStyleFactory = (args: {
 }) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
-  return mediaQuery(baseStyle)
+  return mediaQuery([baseStyle])
 }
 
 export const TopicText = ({
@@ -91,7 +91,7 @@ export const TopicText = ({
     variant || 'block'
   )
 
-  const css: any = topicTextStyleFactory({
+  const css = topicTextStyleFactory({
     options,
     variant,
   })

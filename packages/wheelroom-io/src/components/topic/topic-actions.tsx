@@ -9,7 +9,7 @@ import {
 } from '../topic-section/contentful-topic-section'
 
 export type TopicActions = {
-  items?: ContentfulAction[]
+  contentfulActions?: ContentfulAction[]
 }
 
 type AnyDivProps = AnyProps['div']
@@ -19,7 +19,7 @@ export interface TopicActionsProps extends AnyDivProps {
   variant?: TopicSectionVariant
 }
 
-const styleMap: Partial<Record<TopicSectionVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
   block: {
     flex: '0',
     marginTop: '16px',
@@ -45,7 +45,7 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   },
 }
 
-export const myCompStyleFactory = (args: {
+export const topicActionsStyleFactory = (args: {
   variant?: TopicSectionVariant
   options?: TopicSectionOptions
 }) => {
@@ -65,7 +65,7 @@ export const TopicActions = ({
   )
   const isLink = ['gallery', 'image', 'showcase'].includes(variant || 'block')
 
-  const css: any = myCompStyleFactory({
+  const css = topicActionsStyleFactory({
     options,
     variant,
   })
@@ -73,10 +73,10 @@ export const TopicActions = ({
 
   return (
     <Div css={css} {...props}>
-      {model.items?.map((action: ContentfulAction) => (
+      {model.contentfulActions?.map((contentfulAction: ContentfulAction) => (
         <Action
-          key={action.sys?.id}
-          model={{ contentfulAction: action }}
+          key={contentfulAction.sys?.id}
+          model={{ contentfulAction }}
           variant={isDisplay ? 'display' : isLink ? 'link' : 'primary'}
         />
       ))}

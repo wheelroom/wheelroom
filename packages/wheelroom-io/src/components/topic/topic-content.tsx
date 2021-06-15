@@ -10,7 +10,7 @@ import { TopicActions } from './topic-actions'
 import { TopicText } from './topic-text'
 
 export type TopicContent = {
-  actions?: ContentfulAction[]
+  contentfulActions?: ContentfulAction[]
   abstract?: string
   heading?: string
 }
@@ -86,7 +86,7 @@ export const TopicContent = ({
       <TopicText variant={variant} model={model} options={options} />
       <TopicActions
         variant={variant}
-        model={{ items: model.actions }}
+        model={{ contentfulActions: model.contentfulActions }}
         options={options}
       />
     </Div>

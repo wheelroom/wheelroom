@@ -26,10 +26,10 @@ const baseStyle = {
   width: '100%',
 }
 
-const styleMap: Partial<Record<TopicSectionVariant, any>> = {
+const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
   block: {
     ...baseStyle,
-    padding: '16px',
+    padding: 16,
     width: ['100%', '50%', '33.33%'],
     maxWidth: '35em',
   },
@@ -37,18 +37,18 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
     ...baseStyle,
     border: '1px solid transparent',
     borderColor: 'lightgrey',
-    borderRadius: '4px',
+    borderRadius: 4,
     boxShadow: '0 0 16px',
     color: 'lightgrey',
-    margin: '16px',
-    maxWidth: '288px',
-    minWidth: '288px',
+    margin: 16,
+    maxWidth: 288,
+    minWidth: 288,
     textDecoration: 'none',
     '> div:last-of-type': {
       paddingTop: 0,
     },
     '> div:only-of-type': {
-      paddingTop: '16px',
+      paddingTop: 16,
     },
     transition: 'transform .25s ease',
     ':hover': {
@@ -60,8 +60,8 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
     color: 'inherit',
     backgroundColor: 'grey',
     border: 0,
-    opacity: '0.25',
-    height: '1px',
+    opacity: 0.25,
+    height: 1,
   },
   featured: {
     ...baseStyle,
@@ -102,7 +102,7 @@ export const topicStyleFactory = (args: {
 }
 
 export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
-  const css: any = topicStyleFactory({
+  const css = topicStyleFactory({
     options,
     variant,
   })
@@ -122,7 +122,7 @@ export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
         variant={variant}
         model={{
           abstract: model.contentfulTopic?.abstract,
-          actions: model.contentfulTopic?.actionsCollection?.items,
+          contentfulActions: model.contentfulTopic?.actionsCollection?.items,
           heading: model.contentfulTopic?.heading,
         }}
         options={options}
