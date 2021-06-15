@@ -112,7 +112,11 @@ export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
     <Div css={css} {...props}>
       <TopicMedia
         variant={variant}
-        model={{ media: model.contentfulTopic?.mediaCollection?.items }}
+        model={{
+          contentfulAssets: model.contentfulTopic?.mediaCollection?.items,
+          contentfulEmbed: model.contentfulTopic?.mediaEmbed,
+          contentfulPosterAsset: model.contentfulTopic?.poster,
+        }}
       />
       <TopicContent
         variant={variant}

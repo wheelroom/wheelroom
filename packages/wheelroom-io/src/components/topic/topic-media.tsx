@@ -4,6 +4,7 @@ import { mediaQuery } from '../../lib/media-query'
 import { ContentfulAsset } from '../asset/contentful-asset'
 import { Image, ImageProps } from '../asset/image'
 import { Video, VideoProps } from '../asset/video'
+import { ContentfulEmbed } from '../embed/contentful-embed'
 import { Embed, EmbedProps } from '../embed/embed'
 import {
   TopicSectionOptions,
@@ -11,7 +12,9 @@ import {
 } from '../topic-section/contentful-topic-section'
 
 type TopicMedia = {
-  media?: Media
+  contentfulAssets?: ContentfulAsset[]
+  contentfulPosterAsset?: ContentfulAsset
+  contentfulEmbed?: ContentfulEmbed
 }
 
 type AnyDivProps = AnyProps['div']
@@ -151,46 +154,43 @@ export const topicMediaStyleFactory = (args: {
   return mediaQuery([baseStyle])
 }
 
-// TODO: Temp fix. Refactor Media component
-export type Media = Image | Video | Embed
-export type MediaProps = ImageProps | VideoProps | EmbedProps
-
-export const Media = (props: MediaProps) => {
-  const imageOrVideoProps = props as ImageProps | VideoProps
-  if (imageOrVideoProps.model?.item?.contentType) {
-    const mediaType = (imageOrVideoProps.model.item.contentType || '').split(
-      '/'
-    )
-    if (mediaType[0] === 'image') {
-      const imageProps = props as ImageProps
-      return <Image {...imageProps} />
-    }
-    if (mediaType[0] === 'video') {
-      const videoProps = props as VideoProps
-      return <Video {...videoProps} />
-    }
-  }
-  const embedProps = props as EmbedProps
-  if (embedProps.model?.item?.code) {
-    return <Embed {...embedProps} />
-  }
-  return null
-}
-
-export const TopicMedia = ({
-  model,
-  // options,
-  variant,
-  ...props
-}: TopicMediaProps) => {
+export const TopicMedia = ({ model, variant, ...props }: TopicMediaProps) => {
   const css: any = topicMediaStyleFactory({
     variant,
   })
   model = model || {}
 
+  let mediaElement = null
+  if (model.contentfulAssets?.length) {
+    const mediaType = (model.contentfulAssets[0].contentType || '').split('/')
+    if (mediaType[0] === 'image') {
+      const imageProps = props as ImageProps
+      mediaElement = (
+        <Image
+          model={{ contentfulAsset: model.contentfulAssets[0] }}
+          {...imageProps}
+        />
+      )
+    } else if (mediaType[0] === 'video') {
+      const videoProps = props as VideoProps
+      mediaElement = (
+        <Video
+          model={{
+            contentfulAsset: model.contentfulAssets[0],
+            contentfulPosterAsset: model.contentfulPosterAsset,
+          }}
+          {...videoProps}
+        />
+      )
+    }
+  } else if (model.contentfulEmbed) {
+    const embedProps = props as EmbedProps
+    mediaElement = <Embed {...embedProps} />
+  }
+
   return (
     <Div css={css} {...props}>
-      <Media model={{ item: model.item as ContentfulAsset }} />
+      {mediaElement}
     </Div>
   )
 }

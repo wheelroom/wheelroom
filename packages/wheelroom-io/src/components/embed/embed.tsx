@@ -26,7 +26,7 @@ const embedStyle = {
 
 export const Embed = ({ model, ...props }: EmbedProps) => {
   model = model || {}
-  const item = model.item || {}
+  const item = model.contentfulEmbed || {}
   const __html = (item.code && item.code) || ''
   if (item.type === 'html') {
     return (

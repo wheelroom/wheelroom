@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
-import { Embed } from '../embed/embed'
 import { ContentfulAction } from '../action/contentful-action'
 import { ContentfulAsset } from '../asset/contentful-asset'
+import { ContentfulEmbed } from '../embed/contentful-embed'
 
 export type ContentfulTopic = {
   sys?: {
@@ -13,8 +13,10 @@ export type ContentfulTopic = {
   }
   heading?: string
   icon?: string
-  media?: ContentfulAsset
-  mediaEmbed?: Embed
+  mediaCollection?: {
+    items: ContentfulAsset[]
+  }
+  mediaEmbed?: ContentfulEmbed
   poster?: ContentfulAsset
 }
 
