@@ -7,7 +7,7 @@ import {
 } from '../topic-section/contentful-topic-section'
 import { TopicContent } from './topic-content'
 import { TopicMedia } from './topic-media'
-import { ContentfulTopic } from './contentful-topc'
+import { ContentfulTopic } from './contentful-topic'
 
 export type Topic = {
   item?: ContentfulTopic

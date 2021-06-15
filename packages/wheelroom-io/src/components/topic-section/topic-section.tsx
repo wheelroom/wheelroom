@@ -1,7 +1,7 @@
 import { AnyProps } from '@wheelroom/any/any'
 import { Div, Hr } from '@wheelroom/any/elements'
 import { mediaQuery } from '../../lib/media-query'
-import { ContentfulTopic } from '../topic/contentful-topc'
+import { ContentfulTopic } from '../topic/contentful-topic'
 import { Topic } from '../topic/topic'
 import {
   ContentfulTopicSection,
