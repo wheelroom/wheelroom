@@ -11,7 +11,7 @@ import {
 } from '../topic-section/contentful-topic-section'
 
 type TopicMedia = {
-  item?: Media
+  media?: Media
 }
 
 type AnyDivProps = AnyProps['div']
