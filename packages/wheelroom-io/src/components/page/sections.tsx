@@ -2,7 +2,7 @@ import { ContentfulTopicSection } from '../topic-section/contentful-topic-sectio
 import { TopicSection } from '../topic-section/topic-section'
 
 export type Sections = {
-  items?: ContentfulTopicSection[]
+  sections?: ContentfulTopicSection[]
 }
 
 export interface SectionsProps {
@@ -11,7 +11,7 @@ export interface SectionsProps {
 
 export const Sections = (props: SectionsProps) => (
   <>
-    {props.model?.items?.map((section: ContentfulTopicSection, index) => (
+    {props.model?.sections?.map((section: ContentfulTopicSection, index) => (
       <TopicSection
         key={'id-' + section.sys?.id + index}
         model={{ contentfulTopicSection: section }}

@@ -23,7 +23,7 @@ export type PageQuery = {
     page: ContentfulPage
     globals: ContentfulGlobals
   }
-  site: any
+  site: unknown
 }
 
 export interface PageContext {
@@ -40,7 +40,7 @@ const Page = (props: PageProps<PageQuery, PageContext>) => {
     <GlobalsProvider value={{ globals, site }}>
       <Global styles={globalReset} />
       <Div css={fontStyle}>
-        <Sections model={{ items: page.sectionsCollection.items }} />
+        <Sections model={{ sections: page.sectionsCollection.items }} />
       </Div>
     </GlobalsProvider>
   )
