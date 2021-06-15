@@ -14,7 +14,7 @@ export const Sections = (props: SectionsProps) => (
     {props.model?.items?.map((section: ContentfulTopicSection, index) => (
       <TopicSection
         key={'id-' + section.sys?.id + index}
-        model={{ item: section }}
+        model={{ contentfulTopicSection: section }}
       />
     ))}
   </>
