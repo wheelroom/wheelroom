@@ -1,5 +1,5 @@
 import { CSSObject } from '@emotion/react'
-import { Div } from '@wheelroom/any/elements'
+import { Div } from '@wheelroom/any/react'
 
 const objectStyle: CSSObject = {
   fontFamily: `-apple-system, BlinkMacSystemFont,
