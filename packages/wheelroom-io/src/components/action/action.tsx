@@ -25,20 +25,20 @@ export interface ActionProps extends AnyAProps {
 const baseStyle = {
   display: 'inline-flex',
   justifyContent: 'center',
-  fontSize: '16px',
+  fontSize: 16,
   padding: '8px 16px',
   userSelect: 'none',
-  borderWidth: '1px',
+  borderWidth: 1,
   borderStyle: 'solid',
-  borderRadius: '4px',
+  borderRadius: 4,
   borderColor: 'transparent',
   textDecoration: 'none',
   ':focus': {
     outlineColor: 'outline',
   },
   svg: {
-    width: '15px',
-    height: '15px',
+    width: 15,
+    height: 15,
     margin: '0 auto',
     transform: 'translateX(4px)',
   },
@@ -74,10 +74,10 @@ const styleMap: Partial<Record<ActionVariant, any>> = {
   },
   link: {
     ...baseStyle,
-    fontSize: '18px',
+    fontSize: 18,
     backgroundColor: 'transparent',
-    color: 'blue',
-    border: '0',
+    color: 'var(--colors-azure)',
+    border: 0,
     padding: 0,
     textDecoration: 'underline',
   },
@@ -162,7 +162,7 @@ const ActionAlink = ({
   ...props
 }: ActionProps) => {
   const globals: any = useGlobals()
-  const css: any = actionStyleFactory({ options, variant })
+  const css = actionStyleFactory({ options, variant })
   model = model || {}
   const action = model.contentfulAction || {}
   const heading = children ? children : action.heading
