@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/css-theme",
-  "version": "6.24.5",
+  "version": "6.25.3",
   "description": "Library for working with css theme variables",
   "keywords": [
     "any",
