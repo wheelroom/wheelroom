@@ -36,17 +36,9 @@
     }
   ],
   "exports": {
-    "./any": {
-      "import": "./build/any.mjs",
-      "require": "./build/any.cjs"
-    },
-    "./elements": {
-      "import": "./build/elements.mjs",
-      "require": "./build/elements.cjs"
-    },
-    "./resets": {
-      "import": "./build/resets.mjs",
-      "require": "./build/resets.cjs"
+    "./react": {
+      "import": "./build/react.mjs",
+      "require": "./build/react.cjs"
     }
   },
   "typesVersions": {
