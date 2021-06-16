@@ -1,5 +1,7 @@
 # Changelog
 
+### [6.25.4](https://github.com/wheelroom/wheelroom/compare/6.25.3...6.25.4) (2021-06-16)
+
 ### [6.24.4](https://github.com/wheelroom/wheelroom/compare/6.24.3...6.24.4) (2021-06-12)
 
 
