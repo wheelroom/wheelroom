@@ -1,5 +1,4 @@
-import { AnyProps } from '@wheelroom/any/any'
-import { Div } from '@wheelroom/any/elements'
+import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
 import { Action } from '../action/action'
 import { ContentfulAction } from '../action/contentful-action'

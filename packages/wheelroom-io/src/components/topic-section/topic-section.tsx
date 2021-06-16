@@ -1,5 +1,4 @@
-import { AnyProps } from '@wheelroom/any/any'
-import { Div, Hr } from '@wheelroom/any/elements'
+import { AnyProps, Div, Hr } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
 import { ContentfulTopic } from '../topic/contentful-topic'
 import { Topic } from '../topic/topic'

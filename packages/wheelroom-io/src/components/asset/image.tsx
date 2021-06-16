@@ -1,5 +1,4 @@
-import { AnyProps } from '@wheelroom/any/any'
-import { Img, Picture, Figcaption } from '@wheelroom/any/elements'
+import { AnyProps, Figcaption, Img, Picture } from '@wheelroom/any/react'
 import { ContentfulAsset } from './contentful-asset'
 
 export interface Image {

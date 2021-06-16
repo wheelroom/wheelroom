@@ -1,5 +1,4 @@
-import { Div } from '@wheelroom/any/elements'
-import { AnyProps } from '@wheelroom/any/any'
+import { AnyProps, Div } from '@wheelroom/any/react'
 import { CSSObject } from '@emotion/react'
 import { ContentfulEmbed } from './contentful-embed'
 

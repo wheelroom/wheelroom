@@ -1,5 +1,4 @@
-import { AnyProps } from '@wheelroom/any/any'
-import { P } from '@wheelroom/any/elements'
+import { AnyProps, P } from '@wheelroom/any/react'
 
 export const Abstract = (props: AnyProps['p']) => (
   <P

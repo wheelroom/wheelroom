@@ -1,5 +1,5 @@
 import { Global } from '@emotion/react'
-import { globalReset } from '@wheelroom/any/resets'
+import { globalReset } from '@wheelroom/any/react'
 import { graphql, PageProps } from 'gatsby'
 import { GlobalsProvider } from '../../lib/globals-provider'
 import { ContentfulGlobals } from '../globals/contentful-globals'

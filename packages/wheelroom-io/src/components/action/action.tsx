@@ -1,5 +1,4 @@
-import { AnyProps } from '@wheelroom/any/any'
-import { A, Span } from '@wheelroom/any/elements'
+import { AnyProps, A, Span } from '@wheelroom/any/react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/css'
 import { useGlobals } from '../../lib/globals-provider'

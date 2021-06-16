@@ -1,5 +1,4 @@
-import { AnyProps } from '@wheelroom/any/any'
-import { Div, H1 } from '@wheelroom/any/elements'
+import { AnyProps, Div, H1 } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
 import { NavigationVariant } from '../navigation/navigation'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'

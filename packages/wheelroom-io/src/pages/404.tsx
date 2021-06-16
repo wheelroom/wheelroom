@@ -1,4 +1,4 @@
-import { Div, H1 } from '@wheelroom/any/elements'
+import { Div, H1 } from '@wheelroom/any/react'
 
 const ErrorPage = () => {
   return (
