@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/push",
-  "version": "1.0.0",
+  "version": "6.25.2",
   "description": "Push Typescript models to a content platform",
   "keywords": [
     "any",

@@ -1,5 +1,12 @@
 # Changelog
 
+# Release 6.25.2
+
+## @wheelroom/push 6.25.2
+
+### [6.25.2](https://github.com/wheelroom/wheelroom/compare/6.25.1...6.25.2) (2021-06-16)
+
+
 # Release 6.25.1
 
 ## @wheelroom/make 6.25.1
