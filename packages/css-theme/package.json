@@ -36,13 +36,13 @@
     }
   ],
   "exports": {
-    "./elements": {
-      "require": "./build/elements.cjs",
-      "import": "./build/elements.mjs"
+    "./react": {
+      "require": "./build/react.cjs",
+      "import": "./build/react.mjs"
     },
-    "./vars": {
-      "require": "./build/vars.cjs",
-      "import": "./build/vars.mjs"
+    "./plain": {
+      "require": "./build/plain.cjs",
+      "import": "./build/plain.mjs"
     }
   },
   "typesVersions": {
