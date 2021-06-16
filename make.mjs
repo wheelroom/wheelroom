@@ -22,7 +22,7 @@ import {
   linkCommand,
   listCommand,
   syncCommand,
-} from '@wheelroom/make/commands'
+} from '@wheelroom/make/plain'
 
 const packagePositional = (yargs) => {
   yargs.positional('package', {
