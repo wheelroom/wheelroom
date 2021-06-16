@@ -36,9 +36,9 @@
     }
   ],
   "exports": {
-    "./commands": {
-      "import": "./build/commands.mjs",
-      "require": "./build/commands.cjs"
+    "./plain": {
+      "import": "./build/plain.mjs",
+      "require": "./build/plain.cjs"
     }
   },
   "typesVersions": {
