@@ -6,7 +6,6 @@
 import pluginTypescript from '@rollup/plugin-typescript'
 import pluginCommonjs from '@rollup/plugin-commonjs'
 import pluginNodeResolve from '@rollup/plugin-node-resolve'
-import multi from '@rollup/plugin-multi-entry'
 import json from '@rollup/plugin-json'
 import pkg from './package.json'
 import rootPkg from '../../package.json'
@@ -20,8 +19,6 @@ const globals = {
 }
 
 const external = Object.keys(globals)
-
-const pushInputFiles = ['push.ts']
 
 const banner = `
   /**
@@ -43,21 +40,18 @@ const plugins = [
   }),
   // so Rollup can convert TypeScript to JavaScript
   pluginTypescript({ tsconfig: 'tsconfig.packages.json' }),
-  // Using multiple input files as entry points will yield a bundle with
-  // exports for each
-  multi(),
   json(),
 ]
 
 export default [
   {
     external,
-    input: pushInputFiles.map((file) => `./src/${file}`),
+    input: './src/plain.ts',
     output: [
       {
         banner,
         exports: 'named',
-        file: `./build/push.mjs`,
+        file: `./build/plain.mjs`,
         format: 'es',
         globals,
         sourcemap: false,
@@ -65,7 +59,7 @@ export default [
       {
         banner,
         exports: 'named',
-        file: `./build/push.cjs`,
+        file: `./build/plain.cjs`,
         format: 'cjs',
         globals,
         sourcemap: false,

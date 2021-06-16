@@ -36,9 +36,9 @@
     }
   ],
   "exports": {
-    "./push": {
-      "import": "./build/push.mjs",
-      "require": "./build/push.cjs"
+    "./plain": {
+      "import": "./build/plain.mjs",
+      "require": "./build/plain.cjs"
     }
   },
   "typesVersions": {
