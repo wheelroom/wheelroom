@@ -40,7 +40,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm-run-all clean static-css-vars build:* copy-static-public",
+    "build": "npm-run-all clean build:* copy-static-public",
     "build:compile": "NODE_ENV=production gatsby build",
     "build:lint": "eslint 'src/**/*.{ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
