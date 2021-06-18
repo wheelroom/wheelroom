@@ -1,17 +1,10 @@
-## @wheelroom/nextjs-starter 6.25.4
+## @wheelroom/make 6.25.5
 
-### [6.25.4](https://github.com/wheelroom/wheelroom/compare/6.25.3...6.25.4) (2021-06-16)
-
-
-
-## @wheelroom/wheelroom-io 6.25.4
-
-### [6.25.4](https://github.com/wheelroom/wheelroom/compare/6.25.3...6.25.4) (2021-06-16)
+### [6.25.5](https://github.com/wheelroom/wheelroom/compare/6.25.4...6.25.5) (2021-06-18)
 
 
+### Bug Fixes
 
-## @wheelroom/any 6.25.4
-
-### [6.25.4](https://github.com/wheelroom/wheelroom/compare/6.25.3...6.25.4) (2021-06-16)
+* make targetNode node build first ([6401f16](https://github.com/wheelroom/wheelroom/commit/6401f1623939577af367e3db051136fc612b3a78))
 
 
