@@ -40,8 +40,8 @@ export const makeContextFactory = async ({
   let buildNodes = [] as ArboristNode[]
   if (targetNode) {
     buildNodes = [
-      ...getSyncedNodes({ node: targetNode, fsChildren }),
       targetNode,
+      ...getSyncedNodes({ node: targetNode, fsChildren }),
     ]
   }
 
