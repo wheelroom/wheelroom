@@ -1,4 +1,4 @@
-import { AnyProps, Div, H3 } from '@wheelroom/any/react'
+import { AnyProps, Div, H3, H4 } from '@wheelroom/any/react'
 import { NavigationSegment } from '../navigation-segment/navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 
@@ -35,10 +35,16 @@ export const NavigationHeader = ({
           contentfulNavigationSegment: section?.headerCollection?.items[0],
         }}
       />
-      <H3>Navigation Actions</H3>
+      <H4>Navigation Actions</H4>
       <NavigationSegment
         model={{
           contentfulNavigationSegment: section?.actions,
+        }}
+      />
+      <H4>Navigation Social</H4>
+      <NavigationSegment
+        model={{
+          contentfulNavigationSegment: section?.social,
         }}
       />
     </Div>
