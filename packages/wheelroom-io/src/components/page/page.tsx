@@ -3,7 +3,7 @@ import { globalReset } from '@wheelroom/any/react'
 import { graphql, PageProps } from 'gatsby'
 import { GlobalsProvider } from '../../lib/globals-provider'
 import { ContentfulGlobals } from '../globals/contentful-globals'
-import { Sections } from './sections'
+import { PageSection } from './page-section'
 import { ContentfulPage } from './contentful-page'
 
 export const fontStyle = {
@@ -36,7 +36,9 @@ const Page = (props: PageProps<PageQuery, PageContext>) => {
   return (
     <GlobalsProvider value={{ globals, site }}>
       <Global styles={[globalReset, fontStyle]} />
-      <Sections model={{ sections: page.sectionsCollection.items }} />
+      <PageSection
+        model={{ contentfulPageSections: page.sectionsCollection.items }}
+      />
     </GlobalsProvider>
   )
 }

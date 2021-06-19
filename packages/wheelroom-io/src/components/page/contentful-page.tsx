@@ -1,10 +1,9 @@
 import { graphql } from 'gatsby'
-import { ContentfulNavigationSection } from '../navigation-section/contentful-navigation-section'
-import { ContentfulTopicSection } from '../topic-section/contentful-topic-section'
+import { ContentfulPageSection } from './page-section'
 
 export type ContentfulPage = {
   sectionsCollection: {
-    items?: ContentfulTopicSection[] | ContentfulNavigationSection[]
+    items?: ContentfulPageSection[]
   }
   path?: string
 }
@@ -15,6 +14,7 @@ export const pageFragment = graphql`
       items {
         ...TopicSection
         ...NavigationSection
+        ...TextSection
       }
     }
   }
