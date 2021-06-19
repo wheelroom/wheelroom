@@ -35,6 +35,12 @@ export const NavigationFooter = ({
           contentfulNavigationSegment: section?.footerCollection?.items[0],
         }}
       />
+      <H3>Navigation Actions</H3>
+      <NavigationSegment
+        model={{
+          contentfulNavigationSegment: section?.actions,
+        }}
+      />
     </Div>
   )
 }

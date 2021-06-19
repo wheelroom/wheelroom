@@ -35,6 +35,12 @@ export const NavigationHeader = ({
           contentfulNavigationSegment: section?.headerCollection?.items[0],
         }}
       />
+      <H3>Navigation Actions</H3>
+      <NavigationSegment
+        model={{
+          contentfulNavigationSegment: section?.actions,
+        }}
+      />
     </Div>
   )
 }
