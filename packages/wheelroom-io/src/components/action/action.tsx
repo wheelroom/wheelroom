@@ -45,7 +45,6 @@ const baseStyle = {
 
 const primaryStyle = {
   ...baseStyle,
-  color: 'white',
   backgroundColor: 'var(--colors-azure)',
   borderColor: 'var(--colors-azure)',
   transition: 'background-color .25s ease',

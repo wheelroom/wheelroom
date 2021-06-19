@@ -1,4 +1,6 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
+import { Action } from '../action/action'
+import { ContentfulAction } from '../action/contentful-action'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export interface NavigationSegment {
@@ -15,7 +17,7 @@ export const navigationSegmentStyleFactory = (args: {
   variant?: any
   options?: any
 }) => {
-  return {}
+  return { color: 'blue' }
 }
 
 export const NavigationSegment = ({
@@ -24,11 +26,14 @@ export const NavigationSegment = ({
 }: NavigationSegmentProps) => {
   if (!model?.contentfulNavigationSegment?.actionsCollection?.items?.length)
     return null
+  const actions = model.contentfulNavigationSegment.actionsCollection.items
   const css = navigationSegmentStyleFactory({})
 
   return (
     <Div css={css} {...props}>
-      Navigation Segment Hoi
+      {actions.map((contentfulAction: ContentfulAction) => (
+        <Action key={contentfulAction.sys?.id} model={{ contentfulAction }} />
+      ))}
     </Div>
   )
 }

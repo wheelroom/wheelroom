@@ -1,4 +1,4 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
+import { AnyProps, Div, H3 } from '@wheelroom/any/react'
 import { NavigationSegment } from '../navigation-segment/navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 
@@ -26,7 +26,7 @@ export const NavigationLegal = ({ model, ...props }: NavigationLegalProps) => {
 
   return (
     <Div css={css} {...props}>
-      Navigation Legal Hoi
+      <H3>Navigation Legal</H3>
       <NavigationSegment
         model={{
           contentfulNavigationSegment: section?.legal,
