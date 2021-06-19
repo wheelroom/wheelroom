@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby'
+import { Document } from '@contentful/rich-text-types'
 
 export type ContentfulTextSection = {
   __typename?: string
@@ -7,7 +8,7 @@ export type ContentfulTextSection = {
   }
   variant?: string
   text?: {
-    json?: string
+    json?: Document
   }
 }
 
