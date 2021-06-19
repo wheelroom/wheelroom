@@ -1,25 +1,16 @@
 import { graphql } from 'gatsby'
-import { ContentfulAction } from '../action/contentful-action'
 
 export type ContentfulNavigationSegment = {
-  /** Gatsby fetched data */
-  __typename: string
-  abstract?: {
-    abstract?: string
-  }
-  heading?: string
-  actions?: ContentfulAction[]
+  heading: string
+  abstract: string
 }
 
 export const fragment = graphql`
-  fragment NavigationSegment on ContentfulNavigationSegment {
-    __typename
+  fragment NavigationSegment on Contentful_NavigationSegment {
     heading
-    abstract {
-      abstract
-    }
-    actions {
-      ... on Node {
+    abstract
+    actionsCollection(limit: 5) {
+      items {
         ...Action
       }
     }

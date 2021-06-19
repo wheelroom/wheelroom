@@ -28,7 +28,7 @@ export const topicFragment = graphql`
     heading
     abstract
     icon
-    actionsCollection(limit: 1) {
+    actionsCollection(limit: 5) {
       items {
         ...Action
       }

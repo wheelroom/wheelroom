@@ -1,23 +1,22 @@
 import { graphql } from 'gatsby'
-import { ContentfulNavigation } from '../navigation/contentful-navigation'
+import { ContentfulNavigationSegment } from '../navigation-segment/contentful-navigation-segment'
 
 export type ContentfulNavigationSection = {
-  /** Gatsby fetched data */
   __typename: string
-  variation?: string
-  navigation?: ContentfulNavigation[]
-  eventId?: string
+  actions: ContentfulNavigationSegment
 }
 
 export const fragment = graphql`
-  fragment NavigationSection on ContentfulNavigationSection {
+  fragment NavigationSection on Contentful_NavigationSection {
     __typename
-    variation
-    navigation {
-      ... on Node {
-        ...Navigation
+    title
+    actions {
+      ...NavigationSegment
+    }
+    headerCollection(limit: 5) {
+      items {
+        ...NavigationSegment
       }
     }
-    eventId
   }
 `
