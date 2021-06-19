@@ -1,5 +1,10 @@
-import { AnyProps, Div, Hr } from '@wheelroom/any/react'
+import { AnyProps, Div } from '@wheelroom/any/react'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
+import { NavigationFooter } from './navigation-footer'
+import { NavigationHeader } from './navigation-header'
+import { NavigationInformation } from './navigation-information'
+import { NavigationLegal } from './navigation-legal'
+import { NavigationSitemap } from './navigation-sitemap'
 
 export interface NavigationSection {
   contentfulNavigationSection?: ContentfulNavigationSection
@@ -18,19 +23,16 @@ export const navigationSectionStyleFactory = (args: {
   return {}
 }
 
-export const NavigationSection = ({
-  model,
-  ...props
-}: NavigationSectionProps) => {
-  model = model || {}
-  const section = model.contentfulNavigationSection || {}
-  console.log('section', section)
-
+export const NavigationSection = (props: NavigationSectionProps) => {
   const css = navigationSectionStyleFactory({})
 
   return (
     <Div css={css} {...props}>
-      Navigation Section Hoi
+      <NavigationHeader {...props} />
+      <NavigationInformation {...props} />
+      <NavigationSitemap {...props} />
+      <NavigationFooter {...props} />
+      <NavigationLegal {...props} />
     </Div>
   )
 }
