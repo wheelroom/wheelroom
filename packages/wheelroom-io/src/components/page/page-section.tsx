@@ -39,7 +39,7 @@ export const PageSection = (props: SectionsProps) => {
   return (
     <>
       {props.model?.contentfulPageSections?.map(
-        (section: ContentfulTopicSection, index) => {
+        (section: ContentfulPageSection, index) => {
           const sectionType = section.__typename as SectionType
           if (!(sectionType in sectionMap))
             return <>Section {sectionType} not found</>

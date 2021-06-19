@@ -5,6 +5,9 @@ import { ContentfulNavigationSegment } from '../navigation-segment/contentful-na
 
 export type ContentfulNavigationSection = {
   __typename: string
+  sys?: {
+    id: string
+  }
   actions: ContentfulNavigationSegment
   footerCollection: {
     items: ContentfulNavigationSegment[]
@@ -27,6 +30,9 @@ export type ContentfulNavigationSection = {
 export const fragment = graphql`
   fragment NavigationSection on Contentful_NavigationSection {
     __typename
+    sys {
+      id
+    }
     title
     actions {
       ...NavigationSegment
