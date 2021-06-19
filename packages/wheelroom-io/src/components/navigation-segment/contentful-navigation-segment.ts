@@ -4,7 +4,7 @@ import { ContentfulAction } from '../action/contentful-action'
 export type ContentfulNavigationSegment = {
   heading: string
   abstract: string
-  actions: {
+  actionsCollection: {
     items: ContentfulAction[]
   }
 }

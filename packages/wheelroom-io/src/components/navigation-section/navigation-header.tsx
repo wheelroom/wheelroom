@@ -1,5 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { NavigationSegment } from '../navigation-old/navigation-segment'
+import { NavigationSegment } from '../navigation-segment/navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 
 export interface NavigationHeader {

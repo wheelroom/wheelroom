@@ -22,7 +22,8 @@ export const NavigationSegment = ({
   model,
   ...props
 }: NavigationSegmentProps) => {
-  if (!model?.contentfulNavigationSegment?.actions?.items?.length) return null
+  if (!model?.contentfulNavigationSegment?.actionsCollection?.items?.length)
+    return null
   const css = navigationSegmentStyleFactory({})
 
   return (
