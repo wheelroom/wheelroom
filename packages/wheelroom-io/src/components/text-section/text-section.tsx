@@ -21,6 +21,7 @@ export const textSectionStyleFactory = (args: {
 export const TextSection = ({ model, ...props }: TextSectionProps) => {
   if (!model?.contentfulTextSection) return null
   const css = textSectionStyleFactory({})
+  console.log(model.contentfulTextSection.text?.json)
 
   return (
     <Div css={css} {...props}>

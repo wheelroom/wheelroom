@@ -5,6 +5,10 @@ export type ContentfulTextSection = {
   sys?: {
     id: string
   }
+  variant?: string
+  text?: {
+    json?: string
+  }
 }
 
 export const actionFragment = graphql`
@@ -12,6 +16,10 @@ export const actionFragment = graphql`
     __typename
     sys {
       id
+    }
+    variant
+    text {
+      json
     }
   }
 `
