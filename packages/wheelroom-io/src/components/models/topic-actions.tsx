@@ -1,7 +1,7 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { Action } from '../models/action'
-import { ContentfulAction } from '../models/contentful-action'
+import { Action } from './action'
+import { ContentfulAction } from './contentful-action'
 import {
   TopicSectionOptions,
   TopicSectionVariant,

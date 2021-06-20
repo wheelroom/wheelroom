@@ -1,207 +1,64 @@
-import { AnyProps, A, Span } from '@wheelroom/any/react'
 import { Link } from 'gatsby'
-import { css } from '@emotion/css'
-import { useGlobals } from '../../lib/globals-provider'
-import { mediaQuery } from '../../lib/media-query'
-import { Icon } from '../elements/icon'
-import { ContentfulEmbed } from './contentful-embed'
+import {
+  Button,
+  ButtonOptions,
+  ButtonProps,
+  ButtonVariant,
+} from '../elements/button'
+import { Anchor, AnchorProps, AnchorVariant } from '../elements/anchor'
 import { ContentfulAction } from './contentful-action'
 
-export type Action = {
+export type ActionVariant = ButtonVariant | AnchorVariant
+export type ActionOptions = ButtonOptions
+
+export interface Action {
   contentfulAction?: ContentfulAction
 }
-export type ActionVariant = 'primary' | 'secondary' | 'display' | 'link'
-export type ActionOption = 'hideIcon' | 'hideHeading'
-export type ActionOptions = Partial<Record<ActionOption, boolean>>
 
-type AnyAProps = AnyProps['a']
-export interface ActionProps extends AnyAProps {
+export type ActionProps<T> = T & {
   model?: Action
   options?: ActionOptions
   variant?: ActionVariant
 }
 
-const baseStyle = {
-  color: 'white',
-  display: 'inline-flex',
-  justifyContent: 'center',
-  fontSize: 16,
-  padding: '8px 16px',
-  userSelect: 'none',
-  borderWidth: 1,
-  borderStyle: 'solid',
-  borderRadius: 4,
-  borderColor: 'transparent',
-  textDecoration: 'none',
-  ':focus': {
-    outlineColor: 'outline',
-  },
-  svg: {
-    width: 15,
-    height: 15,
-    margin: '0 auto',
-    transform: 'translateX(4px)',
-  },
-}
+// const onClickHander = ({ eventId, globals }: OnClickHander) => {
+//   const siteEmbeds = globals.siteEmbeds || []
+//   siteEmbeds.forEach((embed: ContentfulEmbed) => {
+//     if (embed.code && embed.type === 'js-action') {
+//       Function('eventId', 'props', embed.code)(eventId, globals)
+//     }
+//   })
+// }
 
-const primaryStyle = {
-  ...baseStyle,
-  backgroundColor: 'var(--colors-azure)',
-  borderColor: 'var(--colors-azure)',
-  transition: 'background-color .25s ease',
-  ':hover, :focus': {
-    backgroundColor: 'var(--colors-ocean)',
-  },
-}
-
-const styleMap: Partial<Record<ActionVariant, any>> = {
-  primary: primaryStyle,
-  secondary: {
-    ...baseStyle,
-    color: 'black',
-    backgroundColor: 'white',
-    borderColor: 'var(--colors-azure)',
-    transition: 'border-color .25s ease',
-    ':hover, :focus': {
-      borderColor: 'var(--colors-ocean)',
-    },
-  },
-  display: {
-    ...primaryStyle,
-    fontSize: ['18px', '18px', '20px'],
-    padding: ['16px 24px', '16px 24px', '16px 32px'],
-  },
-  link: {
-    ...baseStyle,
-    fontSize: 18,
-    backgroundColor: 'transparent',
-    color: 'var(--colors-azure)',
-    border: 0,
-    padding: 0,
-    textDecoration: 'underline',
-  },
-}
-
-export const actionStyleFactory = (args: {
-  variant?: ActionVariant
-  options?: any
-}) => {
-  const useVariant = args.variant || 'primary'
-  const baseStyle = styleMap[useVariant]
-  return mediaQuery([baseStyle])
-}
-
-interface CreateURL {
-  action: ContentfulAction
-  isPreviewMode: boolean
-  url: string
-}
-
-const createURL = ({ url, action, isPreviewMode }: CreateURL) => {
-  const hasQuery = action.query || isPreviewMode
-  if (hasQuery) {
-    url += '?'
-    url += isPreviewMode ? '&preview=true' : ''
-    url += action.query || ''
-  }
-  url += action.anchor ? '#' + action.anchor : ''
-  return url
-}
-
-interface OnClickHander {
-  eventId: string | undefined
-  globals: any
-}
-
-const onClickHander = ({ eventId, globals }: OnClickHander) => {
-  const siteEmbeds = globals.siteEmbeds || []
-  siteEmbeds.forEach((embed: ContentfulEmbed) => {
-    if (embed.code && embed.type === 'js-action') {
-      Function('eventId', 'props', embed.code)(eventId, globals)
+export const Action = ({
+  variant,
+  model,
+  options,
+  ...props
+}: ActionProps<ButtonProps | AnchorProps>) => {
+  const action = model?.contentfulAction
+  const path = action?.page?.path
+  const url = action?.url
+  const heading = action?.heading
+  if (variant === 'link') {
+    if (path) {
+      // TODO: What about GatsbyLinkProps<any>
+      return <Link to={path}>{heading}</Link>
+    } else {
+      const anchorProps = {
+        ...props,
+        href: url,
+      } as AnchorProps
+      return <Anchor {...anchorProps}>{heading}</Anchor>
     }
-  })
-}
-
-const ActionGlink = ({
-  model,
-  children,
-  options,
-  variant,
-  ...props
-}: ActionProps) => {
-  const globals: any = useGlobals()
-  model = model || {}
-  const action = model.contentfulAction || {}
-
-  const heading = children ? children : action.heading
-  const linkProps = { ...props } as typeof Link
-  return (
-    <Link
-      className={css(actionStyleFactory({ options, variant }))}
-      aria-label={action.description}
-      onClick={() => onClickHander({ eventId: action.eventId, globals })}
-      to={createURL({
-        action,
-        isPreviewMode: globals.isPreviewMode,
-        url: action.page?.path || '',
-      })}
-      {...linkProps}
-    >
-      {!options?.hideHeading && heading}
-      {action.icon && !options?.hideIcon && <Icon variant={action.icon} />}
-    </Link>
-  )
-}
-
-const ActionAlink = ({
-  model,
-  children,
-  options,
-  variant,
-  ...props
-}: ActionProps) => {
-  const globals: any = useGlobals()
-  const css = actionStyleFactory({ options, variant })
-  model = model || {}
-  const action = model.contentfulAction || {}
-  const heading = children ? children : action.heading
-  return (
-    <A
-      css={css}
-      aria-label={action.description}
-      href={createURL({
-        action,
-        isPreviewMode: globals.isPreviewMode,
-        url: action.url || '',
-      })}
-      onClick={() => onClickHander({ eventId: action.eventId, globals })}
-      {...props}
-    >
-      {!options?.hideHeading && heading}
-      {action.icon && !options?.hideIcon && <Icon variant={action.icon} />}
-    </A>
-  )
-}
-
-const NoLink = ({ model, children, options, ...props }: ActionProps) => {
-  model = model || {}
-  const action = model.contentfulAction || {}
-  const heading = children ? children : action.heading
-  return (
-    <Span aria-label={action.description} {...props}>
-      {!options?.hideHeading && heading}
-      {action.icon && !options?.hideIcon && <Icon variant={action.icon} />}
-    </Span>
-  )
-}
-
-export const Action = (props: ActionProps) => {
-  const action = props.model?.contentfulAction || {}
-  if (action.page) {
-    return <ActionGlink {...props} />
-  } else if (action.url) {
-    return <ActionAlink {...props} />
   } else {
-    return <NoLink {...props} />
+    if (path) {
+      //TODO: Apply button styling
+      return <Link to={path}>{heading}</Link>
+    } else {
+      //TODO: Add onClick hander? Or use Link element?
+      const buttonProps = { ...props, variant, options } as ButtonProps
+      return <Button {...buttonProps}>{heading}</Button>
+    }
   }
 }

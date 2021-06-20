@@ -1,5 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { CSSObject } from '@emotion/react'
+import { mediaQuery } from '../../lib/media-query'
 import { ContentfulEmbed } from './contentful-embed'
 
 export type Embed = {
@@ -11,7 +11,7 @@ export interface EmbedProps extends AnyDivProps {
   model?: Embed
 }
 
-const embedStyle: CSSObject = {
+const baseStyle = {
   margin: 0,
   position: 'relative',
   height: 0,
@@ -23,14 +23,18 @@ const embedStyle: CSSObject = {
   },
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const embedStyleFactory = (args: { variant?: any; options?: any }) => {
+  return mediaQuery([baseStyle])
+}
+
 export const Embed = ({ model, ...props }: EmbedProps) => {
+  const css: any = embedStyleFactory({})
   model = model || {}
   const item = model.contentfulEmbed || {}
   const __html = (item.code && item.code) || ''
   if (item.type === 'html') {
-    return (
-      <Div css={embedStyle} dangerouslySetInnerHTML={{ __html }} {...props} />
-    )
+    return <Div css={css} dangerouslySetInnerHTML={{ __html }} {...props} />
   }
   return null
 }
