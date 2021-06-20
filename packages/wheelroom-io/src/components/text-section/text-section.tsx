@@ -1,10 +1,10 @@
 /* eslint-disable react/display-name */
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
+import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { AnyProps, Div, B, P } from '@wheelroom/any/react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { ContentfulPageSection, PageSection } from '../page/page-section'
-import { Image } from '../asset/image'
 import { ContentfulAsset } from '../asset/contentful-asset'
+import { Asset } from '../asset/asset'
 import { ContentfulTextSection } from './contentful-text-section'
 
 export interface TextSection {
@@ -21,7 +21,7 @@ export const textSectionStyleFactory = (args: {
   variant?: any
   options?: any
 }) => {
-  return { color: 'blue' }
+  return {}
 }
 
 export const TextSection = ({ model, ...props }: TextSectionProps) => {
@@ -42,20 +42,13 @@ export const TextSection = ({ model, ...props }: TextSectionProps) => {
         ) as ContentfulPageSection
         return <PageSection model={{ contentfulPageSections: [entry] }} />
       },
-      // [INLINES.EMBEDDED_ENTRY]: (node: any) => {
-      //   const entry = links?.entries.block.find(
-      //     (entry) => entry.sys?.id === node.data.target.sys.id
-      //   ) as ContentfulPageSection
-      //   return <PageSection model={{ contentfulPageSections: [entry] }} />
-      // },
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-        const asset = links?.entries.block.find(
-          (entry) => entry.sys?.id === node.data.target.sys.id
+        const asset = links?.assets.block.find(
+          (asset) => asset.sys?.id === node.data.target.sys.id
         ) as ContentfulAsset
-        return <Image model={{ contentfulAsset: asset }} />
+        return <Asset model={{ contentfulAsset: asset }} />
       },
     },
-    renderText: (text: any) => text.replace('!', '?'),
   }
 
   return (

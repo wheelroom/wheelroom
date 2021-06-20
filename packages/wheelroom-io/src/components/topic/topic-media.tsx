@@ -1,8 +1,7 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
+import { Asset, AssetProps } from '../asset/asset'
 import { ContentfulAsset } from '../asset/contentful-asset'
-import { Image, ImageProps } from '../asset/image'
-import { Video, VideoProps } from '../asset/video'
 import { ContentfulEmbed } from '../embed/contentful-embed'
 import { Embed, EmbedProps } from '../embed/embed'
 import {
@@ -160,27 +159,14 @@ export const TopicMedia = ({ model, variant, ...props }: TopicMediaProps) => {
 
   let mediaElement = null
   if (model.contentfulAssets?.length) {
-    const mediaType = (model.contentfulAssets[0].contentType || '').split('/')
-    if (mediaType[0] === 'image') {
-      const imageProps = props as ImageProps
-      mediaElement = (
-        <Image
-          model={{ contentfulAsset: model.contentfulAssets[0] }}
-          {...imageProps}
-        />
-      )
-    } else if (mediaType[0] === 'video') {
-      const videoProps = props as VideoProps
-      mediaElement = (
-        <Video
-          model={{
-            contentfulAsset: model.contentfulAssets[0],
-            contentfulPosterAsset: model.contentfulPosterAsset,
-          }}
-          {...videoProps}
-        />
-      )
-    }
+    const assetProps = {
+      model: {
+        contentfulAsset: model.contentfulAssets[0],
+        contentfulPosterAsset: model.contentfulPosterAsset,
+      },
+      ...props,
+    } as AssetProps
+    mediaElement = <Asset {...assetProps} />
   } else if (model.contentfulEmbed) {
     const embedProps = props as EmbedProps
     mediaElement = <Embed {...embedProps} />

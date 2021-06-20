@@ -22,6 +22,7 @@ export interface ActionProps extends AnyAProps {
 }
 
 const baseStyle = {
+  color: 'white',
   display: 'inline-flex',
   justifyContent: 'center',
   fontSize: 16,
