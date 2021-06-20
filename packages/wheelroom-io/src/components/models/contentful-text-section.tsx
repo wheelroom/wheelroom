@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import { Document } from '@contentful/rich-text-types'
-import { ContentfulTopicSection } from '../topic/contentful-topic-section'
+import { ContentfulTopicSection } from './contentful-topic-section'
 import { ContentfulAsset } from './contentful-asset'
 import { ContentfulPage } from './contentful-page'
 

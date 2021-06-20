@@ -1,7 +1,7 @@
-import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
-import { ContentfulTopicSection } from '../topic/contentful-topic-section'
-import { TopicSection } from '../topic/topic-section'
-import { NavigationSection } from '../navigation/navigation-section'
+import { NavigationSection } from './navigation-section'
+import { ContentfulNavigationSection } from './contentful-navigation-section'
+import { TopicSection } from './topic-section'
+import { ContentfulTopicSection } from './contentful-topic-section'
 import { TextSection } from './text-section'
 import { ContentfulTextSection } from './contentful-text-section'
 
