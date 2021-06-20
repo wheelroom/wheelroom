@@ -29,7 +29,7 @@ exports.createPages = async ({ actions, graphql }) => {
   data.contentful.pageCollection.items.forEach((page) => {
     actions.createPage({
       path: `${page.path}`,
-      component: path.resolve(`./src/components/page/page.tsx`),
+      component: path.resolve(`./src/components/models/page.tsx`),
       context: {
         pageId: page.sys.id,
         globalsId: data.contentful.globalsCollection.items[0].sys.id,

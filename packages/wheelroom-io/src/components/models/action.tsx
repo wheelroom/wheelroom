@@ -3,8 +3,8 @@ import { Link } from 'gatsby'
 import { css } from '@emotion/css'
 import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
-import { Icon } from '../icon/icon'
-import { ContentfulEmbed } from '../embed/contentful-embed'
+import { Icon } from '../elements/icon'
+import { ContentfulEmbed } from './contentful-embed'
 import { ContentfulAction } from './contentful-action'
 
 export type Action = {

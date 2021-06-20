@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
-import { ContentfulAsset } from '../media/contentful-asset'
-import { ContentfulEmbed } from '../media/contentful-embed'
+import { ContentfulAsset } from './contentful-asset'
+import { ContentfulEmbed } from './contentful-embed'
 
 export type ContentfulGlobals = {
   siteAuthor: string

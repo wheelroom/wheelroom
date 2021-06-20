@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
-import { ContentfulAction } from '../action/contentful-action'
-import { ContentfulAsset } from '../asset/contentful-asset'
-import { ContentfulNavigationSegment } from '../navigation-segment/contentful-navigation-segment'
+import { ContentfulAction } from '../models/contentful-action'
+import { ContentfulAsset } from '../models/contentful-asset'
+import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type ContentfulNavigationSection = {
   __typename: string

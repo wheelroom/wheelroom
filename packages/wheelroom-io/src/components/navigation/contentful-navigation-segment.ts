@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import { ContentfulAction } from '../action/contentful-action'
+import { ContentfulAction } from '../models/contentful-action'
 
 export type ContentfulNavigationSegment = {
   heading: string

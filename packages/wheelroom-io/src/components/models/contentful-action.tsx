@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import { IconVariant } from '../icon/icon'
+import { IconVariant } from '../elements/icon'
 import { ContentfulPage } from '../page/contentful-page'
 
 export type ContentfulAction = {

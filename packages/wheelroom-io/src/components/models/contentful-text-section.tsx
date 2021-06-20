@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby'
 import { Document } from '@contentful/rich-text-types'
-import { ContentfulAsset } from '../asset/contentful-asset'
-import { ContentfulPage } from '../page/contentful-page'
-import { ContentfulTopicSection } from '../topic-section/contentful-topic-section'
+import { ContentfulTopicSection } from '../topic/contentful-topic-section'
+import { ContentfulAsset } from './contentful-asset'
+import { ContentfulPage } from './contentful-page'
 
 export type ContentfulTextEntry = ContentfulPage | ContentfulTopicSection
 

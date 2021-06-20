@@ -1,6 +1,6 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { Action } from '../action/action'
-import { ContentfulAction } from '../action/contentful-action'
+import { Action } from '../models/action'
+import { ContentfulAction } from '../models/contentful-action'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export interface NavigationSegment {

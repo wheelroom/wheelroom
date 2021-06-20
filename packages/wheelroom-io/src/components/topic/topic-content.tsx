@@ -1,10 +1,10 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { ContentfulAction } from '../action/contentful-action'
+import { ContentfulAction } from '../models/contentful-action'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
-} from '../topic-section/contentful-topic-section'
+} from './contentful-topic-section'
 import { TopicActions } from './topic-actions'
 import { TopicText } from './topic-text'
 

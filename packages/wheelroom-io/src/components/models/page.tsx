@@ -2,7 +2,7 @@ import { Global } from '@emotion/react'
 import { globalReset } from '@wheelroom/any/react'
 import { graphql, PageProps } from 'gatsby'
 import { GlobalsProvider } from '../../lib/globals-provider'
-import { ContentfulGlobals } from '../globals/contentful-globals'
+import { ContentfulGlobals } from './contentful-globals'
 import { PageSection } from './page-section'
 import { ContentfulPage } from './contentful-page'
 

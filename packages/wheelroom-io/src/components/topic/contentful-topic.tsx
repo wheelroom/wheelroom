@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
-import { ContentfulAction } from '../action/contentful-action'
-import { ContentfulAsset } from '../asset/contentful-asset'
-import { ContentfulEmbed } from '../embed/contentful-embed'
+import { ContentfulAction } from '../models/contentful-action'
+import { ContentfulAsset } from '../models/contentful-asset'
+import { ContentfulEmbed } from '../models/contentful-embed'
 
 export type ContentfulTopic = {
   sys?: {

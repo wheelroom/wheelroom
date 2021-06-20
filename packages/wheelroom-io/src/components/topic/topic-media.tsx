@@ -1,13 +1,13 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { Asset, AssetProps } from '../asset/asset'
-import { ContentfulAsset } from '../asset/contentful-asset'
-import { ContentfulEmbed } from '../embed/contentful-embed'
-import { Embed, EmbedProps } from '../embed/embed'
+import { Asset, AssetProps } from '../models/asset'
+import { ContentfulAsset } from '../models/contentful-asset'
+import { ContentfulEmbed } from '../models/contentful-embed'
+import { Embed, EmbedProps } from '../models/embed'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
-} from '../topic-section/contentful-topic-section'
+} from './contentful-topic-section'
 
 type TopicMedia = {
   contentfulAssets?: ContentfulAsset[]

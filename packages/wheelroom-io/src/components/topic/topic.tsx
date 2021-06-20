@@ -3,7 +3,7 @@ import { mediaQuery } from '../../lib/media-query'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
-} from '../topic-section/contentful-topic-section'
+} from './contentful-topic-section'
 import { TopicContent } from './topic-content'
 import { TopicMedia } from './topic-media'
 import { ContentfulTopic } from './contentful-topic'

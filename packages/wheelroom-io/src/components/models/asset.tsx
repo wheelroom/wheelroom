@@ -1,6 +1,6 @@
 import { mediaQuery } from '../../lib/media-query'
-import { Image, ImageProps } from './image'
-import { Video, VideoProps } from './video'
+import { Image, ImageProps } from '../elements/image'
+import { Video, VideoProps } from '../elements/video'
 
 export type AssetVariant = 'fluid' | 'fixedWidth'
 

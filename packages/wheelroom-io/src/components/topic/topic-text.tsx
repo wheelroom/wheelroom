@@ -1,11 +1,11 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { Text } from '../text/text'
-import { Heading } from '../heading/heading'
+import { Text } from '../elements/text'
+import { Heading } from '../elements/heading'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
-} from '../topic-section/contentful-topic-section'
+} from './contentful-topic-section'
 
 export type TopicText = {
   abstractString?: string

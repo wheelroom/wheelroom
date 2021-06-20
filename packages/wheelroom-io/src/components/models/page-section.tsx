@@ -1,9 +1,9 @@
-import { ContentfulNavigationSection } from '../navigation-section/contentful-navigation-section'
-import { ContentfulTopicSection } from '../topic-section/contentful-topic-section'
-import { ContentfulTextSection } from '../text-section/contentful-text-section'
-import { TopicSection } from '../topic-section/topic-section'
-import { NavigationSection } from '../navigation-section/navigation-section'
-import { TextSection } from '../text-section/text-section'
+import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
+import { ContentfulTopicSection } from '../topic/contentful-topic-section'
+import { TopicSection } from '../topic/topic-section'
+import { NavigationSection } from '../navigation/navigation-section'
+import { TextSection } from './text-section'
+import { ContentfulTextSection } from './contentful-text-section'
 
 const sectionMap = {
   Contentful_TopicSection: {
