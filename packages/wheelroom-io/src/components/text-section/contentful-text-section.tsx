@@ -49,6 +49,9 @@ export const textSectionFragment = graphql`
         entries {
           block {
             ... on Contentful_Page {
+              sys {
+                id
+              }
               title
               path
             }
@@ -56,6 +59,9 @@ export const textSectionFragment = graphql`
           }
           hyperlink {
             ... on Contentful_Page {
+              sys {
+                id
+              }
               title
               path
             }
@@ -63,6 +69,9 @@ export const textSectionFragment = graphql`
           }
           inline {
             ... on Contentful_Page {
+              sys {
+                id
+              }
               title
               path
             }

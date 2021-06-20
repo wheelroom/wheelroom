@@ -1,16 +1,18 @@
 /* eslint-disable react/display-name */
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
-import { AnyProps, Div, B, U, I, Code } from '@wheelroom/any/react'
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
+import { AnyProps, Div, B, U, I, Code, A } from '@wheelroom/any/react'
 import {
   documentToReactComponents,
   Options,
 } from '@contentful/rich-text-react-renderer'
 import { ReactNode } from 'react'
+import { Link } from 'gatsby'
 import { ContentfulPageSection, PageSection } from '../page/page-section'
 import { ContentfulAsset } from '../asset/contentful-asset'
 import { Asset } from '../asset/asset'
 import { Text } from '../text/text'
 import { H1, H2, H3, H4, H5, H6 } from '../heading/heading'
+import { ContentfulPage } from '../page/contentful-page'
 import { ContentfulTextSection } from './contentful-text-section'
 
 export interface TextSection {
@@ -38,10 +40,10 @@ export const TextSection = ({ model, ...props }: TextSectionProps) => {
 
   const options: Options = {
     renderMark: {
-      [MARKS.BOLD]: (text: ReactNode) => <B>{text}</B>,
-      [MARKS.CODE]: (text: ReactNode) => <Code>{text}</Code>,
-      [MARKS.ITALIC]: (text: ReactNode) => <I>{text}</I>,
-      [MARKS.UNDERLINE]: (text: ReactNode) => <U>{text}</U>,
+      [MARKS.BOLD]: (children: ReactNode) => <B>{children}</B>,
+      [MARKS.CODE]: (children: ReactNode) => <Code>{children}</Code>,
+      [MARKS.ITALIC]: (children: ReactNode) => <I>{children}</I>,
+      [MARKS.UNDERLINE]: (children: ReactNode) => <U>{children}</U>,
     },
     renderNode: {
       [BLOCKS.HEADING_1]: (node, children) => <H1>{children}</H1>,
@@ -60,8 +62,28 @@ export const TextSection = ({ model, ...props }: TextSectionProps) => {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const asset = links?.assets.block.find(
           (asset) => asset.sys?.id === node.data.target.sys.id
-        ) as ContentfulAsset
+        )
         return <Asset model={{ contentfulAsset: asset }} />
+      },
+      [INLINES.ASSET_HYPERLINK]: (node) => {
+        const asset = links?.assets.hyperlink.find(
+          (asset) => asset.sys?.id === node.data.target.sys.id
+        ) as ContentfulAsset
+        return (
+          <A title={asset.description} href={asset.url}>
+            {asset.title}
+          </A>
+        )
+      },
+      [INLINES.ENTRY_HYPERLINK]: (node) => {
+        const entry = links?.entries.hyperlink.find(
+          (entry) => entry.sys?.id === node.data.target.sys.id
+        ) as ContentfulPage
+        const path = entry.path || 'no-path'
+        return <Link to={path}>{path}</Link>
+      },
+      [INLINES.HYPERLINK]: (node, children) => {
+        return <A href={node.data.uri}>{children}</A>
       },
     },
   }
