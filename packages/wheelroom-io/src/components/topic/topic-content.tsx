@@ -10,8 +10,8 @@ import { TopicText } from './topic-text'
 
 export type TopicContent = {
   contentfulActions?: ContentfulAction[]
-  abstract?: string
-  heading?: string
+  abstractString?: string
+  headingString?: string
 }
 
 type AnyDivProps = AnyProps['div']

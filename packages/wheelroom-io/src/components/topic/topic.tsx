@@ -120,9 +120,9 @@ export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
       <TopicContent
         variant={variant}
         model={{
-          abstract: model.contentfulTopic?.abstract,
+          abstractString: model.contentfulTopic?.abstract,
           contentfulActions: model.contentfulTopic?.actionsCollection?.items,
-          heading: model.contentfulTopic?.heading,
+          headingString: model.contentfulTopic?.heading,
         }}
         options={options}
       />

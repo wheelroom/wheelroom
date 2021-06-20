@@ -1,15 +1,15 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { Abstract } from '../typography/abstract'
-import { Heading } from '../typography/heading'
+import { Text } from '../text/text'
+import { Heading } from '../heading/heading'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
 } from '../topic-section/contentful-topic-section'
 
 export type TopicText = {
-  abstract?: string
-  heading?: string
+  abstractString?: string
+  headingString?: string
 }
 
 type AnyDivProps = AnyProps['div']
@@ -98,8 +98,8 @@ export const TopicText = ({
 
   return (
     <Div css={css} {...props}>
-      <Heading is={isLarge ? 'h1' : 'h3'}>{model.heading}</Heading>
-      <Abstract>{model.abstract}</Abstract>
+      <Heading variant={isLarge ? 'h1' : 'h3'}>{model.headingString}</Heading>
+      <Text>{model.abstractString}</Text>
     </Div>
   )
 }
