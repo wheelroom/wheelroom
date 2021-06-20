@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
-import { AnyProps, Div, B } from '@wheelroom/any/react'
+import { AnyProps, Div, B, U, I, Code } from '@wheelroom/any/react'
 import {
   documentToReactComponents,
   Options,
@@ -39,6 +39,9 @@ export const TextSection = ({ model, ...props }: TextSectionProps) => {
   const options: Options = {
     renderMark: {
       [MARKS.BOLD]: (text: ReactNode) => <B>{text}</B>,
+      [MARKS.CODE]: (text: ReactNode) => <Code>{text}</Code>,
+      [MARKS.ITALIC]: (text: ReactNode) => <I>{text}</I>,
+      [MARKS.UNDERLINE]: (text: ReactNode) => <U>{text}</U>,
     },
     renderNode: {
       [BLOCKS.HEADING_1]: (node, children) => <H1>{children}</H1>,
