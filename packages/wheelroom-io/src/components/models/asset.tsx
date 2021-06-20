@@ -1,42 +1,10 @@
-import { mediaQuery } from '../../lib/media-query'
 import { Image, ImageProps } from '../elements/image'
 import { Video, VideoProps } from '../elements/video'
 
-export type AssetVariant = 'fluid' | 'fixedWidth'
-
 export type Asset = Image | Video
-export type AssetProps = (ImageProps | VideoProps) & {
-  variant?: AssetVariant
-}
+export type AssetProps = ImageProps | VideoProps
 
-const baseStyle = {
-  img: {
-    display: 'block',
-    width: '100%',
-  },
-}
-
-const styleMap: Partial<Record<AssetVariant, any>> = {
-  fluid: {
-    ...baseStyle,
-  },
-  fixedWidth: {
-    ...baseStyle,
-  },
-}
-
-export const assetStyleFactory = (args: {
-  variant?: AssetVariant
-  options?: any
-}) => {
-  const useVariant = args.variant || 'fluid'
-  const baseStyle = styleMap[useVariant]
-  return mediaQuery([baseStyle])
-}
-
-export const Asset = ({ model, variant, ...props }: AssetProps) => {
-  const css = assetStyleFactory({ variant })
-
+export const Asset = ({ model, ...props }: AssetProps) => {
   let mediaElement = null
   const mediaType = (model?.contentfulAsset?.contentType || '').split('/')
   if (mediaType[0] === 'image') {
@@ -44,7 +12,6 @@ export const Asset = ({ model, variant, ...props }: AssetProps) => {
     const imageProps = props as ImageProps
     mediaElement = (
       <Image
-        css={css}
         model={{ contentfulAsset: imageModel.contentfulAsset }}
         {...imageProps}
       />
@@ -54,7 +21,6 @@ export const Asset = ({ model, variant, ...props }: AssetProps) => {
     const videoProps = props as VideoProps
     mediaElement = (
       <Video
-        css={css}
         model={{
           contentfulAsset: videoModel.contentfulAsset,
           contentfulPosterAsset: videoModel.contentfulPosterAsset,

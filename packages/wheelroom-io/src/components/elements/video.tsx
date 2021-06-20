@@ -1,5 +1,8 @@
 import { AnyProps, Video as AnyVideo, Source, P, B } from '@wheelroom/any/react'
+import { mediaQuery } from '../../lib/media-query'
 import { ContentfulAsset } from '../models/contentful-asset'
+
+export type VideoVariant = 'fluid'
 
 export interface Video {
   contentfulAsset?: ContentfulAsset
@@ -13,6 +16,7 @@ type AnyVideoProps = AnyProps['video']
 export interface VideoProps extends AnyVideoProps {
   model?: Video
   options?: VideoOptions
+  variant?: VideoVariant
 }
 
 const defaultAsset: ContentfulAsset = {
@@ -27,6 +31,19 @@ const defaultAsset: ContentfulAsset = {
   title: 'Dummy video',
   url: '',
   width: 2560,
+}
+
+const fluidVideoStyle = {
+  display: 'block',
+  width: '100%',
+}
+
+export const VideoStyleFactory = (args: {
+  variant?: VideoVariant
+  options?: VideoOptions
+}) => {
+  const baseStyle = {}
+  return mediaQuery([baseStyle, args.variant === 'fluid' && fluidVideoStyle])
 }
 
 export const Video = ({ model, options, ...props }: VideoProps) => {

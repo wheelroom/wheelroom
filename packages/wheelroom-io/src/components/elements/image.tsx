@@ -1,5 +1,8 @@
 import { AnyProps, Figcaption, Img, Picture } from '@wheelroom/any/react'
+import { mediaQuery } from '../../lib/media-query'
 import { ContentfulAsset } from '../models/contentful-asset'
+
+export type ImageVariant = 'fluid'
 
 export interface Image {
   contentfulAsset?: ContentfulAsset
@@ -12,6 +15,7 @@ type AnyPictureProps = AnyProps['picture']
 export interface ImageProps extends AnyPictureProps {
   model?: Image
   options?: ImageOptions
+  variant?: ImageVariant
 }
 
 const defaultAsset: ContentfulAsset = {
@@ -28,7 +32,22 @@ const defaultAsset: ContentfulAsset = {
   width: 2560,
 }
 
-export const Image = ({ model, options, ...props }: ImageProps) => {
+const fluidImageStyle = {
+  img: {
+    display: 'block',
+    width: '100%',
+  },
+}
+
+export const imageStyleFactory = (args: {
+  variant?: ImageVariant
+  options?: ImageOptions
+}) => {
+  const baseStyle = {}
+  return mediaQuery([baseStyle, args.variant === 'fluid' && fluidImageStyle])
+}
+
+export const Image = ({ model, options, variant, ...props }: ImageProps) => {
   const asset = model?.contentfulAsset || defaultAsset
   options = options || {}
   /**
@@ -54,8 +73,13 @@ export const Image = ({ model, options, ...props }: ImageProps) => {
     imgProps.src = asset.url
   }
 
+  const css: any = imageStyleFactory({
+    variant,
+    options,
+  })
+
   return (
-    <Picture {...props}>
+    <Picture css={css} {...props}>
       <Img {...imgProps} />
       {options.showCaption && <Figcaption>{asset.description}</Figcaption>}
     </Picture>

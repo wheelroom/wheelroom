@@ -86,7 +86,7 @@ export const TextSection = ({ model, ...props }: TextSectionProps) => {
         const asset = links?.assets.block.find(
           (asset) => asset.sys?.id === node.data.target.sys.id
         )
-        return <Asset model={{ contentfulAsset: asset }} />
+        return <Asset model={{ contentfulAsset: asset }} variant="fluid" />
       },
       [INLINES.ASSET_HYPERLINK]: (node) => {
         const asset = links?.assets.hyperlink.find(
