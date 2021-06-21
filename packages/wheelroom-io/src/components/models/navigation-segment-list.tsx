@@ -3,7 +3,7 @@ import { ContentfulAction } from './contentful-action'
 import { Action } from './action'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
-export type NavigationSegmentListVariant = 'actions'
+export type NavigationSegmentListVariant = 'header' | 'footer' | 'sitemap'
 
 export interface NavigationSegmentList {
   contentfulNavigationSegment?: ContentfulNavigationSegment
@@ -25,6 +25,7 @@ export const navigationSegmentListStyleFactory = (args: {
 
 export const NavigationSegmentList = ({
   model,
+  variant,
   ...props
 }: NavigationSegmentListProps) => {
   if (!model?.contentfulNavigationSegment?.actionsCollection?.items?.length)
@@ -36,7 +37,7 @@ export const NavigationSegmentList = ({
     <Ul css={css} {...props}>
       {actions.map((contentfulAction: ContentfulAction) => (
         <Li key={contentfulAction.sys?.id}>
-          <Action model={{ contentfulAction }} variant="link" />
+          <Action model={{ contentfulAction }} variant={{ variant }} />
         </Li>
       ))}
     </Ul>
