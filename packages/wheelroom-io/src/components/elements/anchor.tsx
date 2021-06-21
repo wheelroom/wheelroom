@@ -2,12 +2,9 @@ import { AnyProps, A as AnyA } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
 
 export type AnchorVariant = 'link' | 'header' | 'footer' | 'sitemap'
-export type AnchorOption = ''
-export type AnchorOptions = Partial<Record<AnchorOption, boolean>>
 
 type AnyAProps = AnyProps['a']
 export interface AnchorProps extends AnyAProps {
-  options?: AnchorOptions
   variant?: AnchorVariant
 }
 
@@ -29,17 +26,16 @@ const styleMap: Partial<Record<AnchorVariant, any>> = {
 
 export const anchorStyleFactory = (args: {
   variant?: AnchorVariant
-  options?: AnchorOptions
+  options?: any
 }) => {
   const useVariant = args.variant || 'link'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])
 }
 
-export const Anchor = ({ variant, options, ...props }: AnchorProps) => {
+export const Anchor = ({ variant, ...props }: AnchorProps) => {
   const css = anchorStyleFactory({
     variant,
-    options,
   })
   return <AnyA css={css as any} {...props} />
 }
