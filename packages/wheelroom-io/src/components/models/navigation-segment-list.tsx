@@ -20,7 +20,7 @@ export const navigationSegmentListStyleFactory = (args: {
   variant?: any
   options?: any
 }) => {
-  return { color: 'blue' }
+  return {}
 }
 
 export const NavigationSegmentList = ({

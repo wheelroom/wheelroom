@@ -26,7 +26,10 @@ export const NavigationMenu = ({ model, ...props }: NavigationMenuProps) => {
   return (
     <Div css={css} {...props}>
       <H3>Navigation Menu</H3>
-      <NavigationSegmentList model={{ contentfulNavigationSegment }} />
+      <NavigationSegmentList
+        model={{ contentfulNavigationSegment }}
+        variant="header"
+      />
     </Div>
   )
 }

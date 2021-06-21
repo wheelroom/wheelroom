@@ -1,6 +1,12 @@
 import { Link, GatsbyLinkProps } from 'gatsby'
+import { css } from '@emotion/css'
 import { ButtonProps } from '../elements/button'
-import { Anchor, AnchorProps, AnchorVariant } from '../elements/anchor'
+import {
+  Anchor,
+  AnchorProps,
+  anchorStyleFactory,
+  AnchorVariant,
+} from '../elements/anchor'
 import { ContentfulAction } from './contentful-action'
 
 export type ActionLinkVariant = AnchorVariant
@@ -17,6 +23,7 @@ export type ActionLinkProps<T> = T & {
 type LinkProps = Omit<GatsbyLinkProps<any>, 'ref'>
 export const ActionLink = ({
   model,
+  variant,
   ...props
 }: ActionLinkProps<ButtonProps | AnchorProps | LinkProps>) => {
   const action = model?.contentfulAction
@@ -26,8 +33,13 @@ export const ActionLink = ({
 
   if (path) {
     // Use Gatsby Link Element that routes with the router
+    const anchorStyle = anchorStyleFactory({ variant })
     const linkProps = { ...props, to: path } as LinkProps
-    return <Link {...linkProps}>{heading}</Link>
+    return (
+      <Link className={css(anchorStyle)} {...linkProps}>
+        {heading}
+      </Link>
+    )
   } else {
     // Use Anchor element for external urls
     const anchorProps = {

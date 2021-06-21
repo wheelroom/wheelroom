@@ -35,10 +35,7 @@ export const ActionButton = ({
   const heading = action?.heading
 
   // Render as a button
-  const buttonStyle = buttonStyleFactory({
-    variant: variant as ButtonVariant,
-    options,
-  })
+  const buttonStyle = buttonStyleFactory({ variant, options })
   if (path) {
     // Use Gatsby Link Element that routes with the router
     const linkProps = { ...props, to: path } as LinkProps
