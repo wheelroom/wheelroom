@@ -1,4 +1,4 @@
-import { AnyProps, Ul } from '@wheelroom/any/react'
+import { AnyProps, Li, Ul } from '@wheelroom/any/react'
 import { ContentfulAction } from './contentful-action'
 import { Action } from './action'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
@@ -25,7 +25,6 @@ export const navigationSegmentListStyleFactory = (args: {
 
 export const NavigationSegmentList = ({
   model,
-  variant,
   ...props
 }: NavigationSegmentListProps) => {
   if (!model?.contentfulNavigationSegment?.actionsCollection?.items?.length)
@@ -36,11 +35,9 @@ export const NavigationSegmentList = ({
   return (
     <Ul css={css} {...props}>
       {actions.map((contentfulAction: ContentfulAction) => (
-        <Action
-          key={contentfulAction.sys?.id}
-          model={{ contentfulAction }}
-          variant={variant === 'actions' ? 'primary' : 'link'}
-        />
+        <Li key={contentfulAction.sys?.id}>
+          <Action model={{ contentfulAction }} variant="link" />
+        </Li>
       ))}
     </Ul>
   )
