@@ -1,4 +1,4 @@
-import { AnyProps, Div, H3, H4 } from '@wheelroom/any/react'
+import { AnyProps, Div } from '@wheelroom/any/react'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 
@@ -16,7 +16,11 @@ export const navigationHeaderStyleFactory = (args: {
   variant?: any
   options?: any
 }) => {
-  return {}
+  return {
+    backgroundColor: 'yellow',
+    color: 'red',
+    div: { backgroundColor: 'red' },
+  }
 }
 
 export const NavigationHeader = ({
