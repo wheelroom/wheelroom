@@ -16,14 +16,7 @@ export const navigationHeaderStyleFactory = (args: {
   variant?: any
   options?: any
 }) => {
-  return {
-    first: {
-      div: { backgroundColor: 'yellow' },
-    },
-    second: {
-      div: { backgroundColor: 'red' },
-    },
-  }
+  return {}
 }
 
 export const NavigationHeader = ({
@@ -35,15 +28,15 @@ export const NavigationHeader = ({
   const css = navigationHeaderStyleFactory({})
 
   return (
-    <Div {...props}>
-      <Div css={css.first}>
+    <Div css={css} {...props}>
+      <Div>
         <NavigationSegment
           model={{
             contentfulNavigationSegment: section?.headerCollection?.items[0],
           }}
         />
       </Div>
-      <Div css={css.second}>
+      <Div>
         <NavigationSegment
           model={{
             contentfulNavigationSegment: section?.actions,
