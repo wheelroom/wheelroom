@@ -1,6 +1,6 @@
 import { AnyProps, A as AnyA } from '@wheelroom/any/react'
 
-export type AnchorVariant = 'link'
+export type AnchorVariant = 'link' | 'header' | 'footer' | 'sitemap'
 
 type AnyAProps = AnyProps['a']
 export type AnchorProps = AnyAProps
