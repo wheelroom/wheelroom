@@ -29,7 +29,10 @@ export const NavigationActions = ({
   return (
     <Div css={css} {...props}>
       <H3>Navigation Actions</H3>
-      <NavigationSegment model={{ contentfulNavigationSegment }} />
+      <NavigationSegment
+        model={{ contentfulNavigationSegment }}
+        variant="actions"
+      />
     </Div>
   )
 }
