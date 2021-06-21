@@ -65,7 +65,7 @@ const styleMap: Partial<Record<ButtonVariant, any>> = {
 
 export const buttonStyleFactory = (args: {
   variant?: ButtonVariant
-  options?: any
+  options?: ButtonOptions
 }) => {
   const useVariant = args.variant || 'primary'
   const baseStyle = styleMap[useVariant]
@@ -73,7 +73,7 @@ export const buttonStyleFactory = (args: {
 }
 
 export const Button = ({ variant, options, ...props }: ButtonProps) => {
-  const css: any = buttonStyleFactory({
+  const css = buttonStyleFactory({
     variant,
     options,
   })
