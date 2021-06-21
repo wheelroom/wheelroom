@@ -1,6 +1,7 @@
 import { AnyProps, Div, H3, H4 } from '@wheelroom/any/react'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
+import { NavigationSegmentList } from './navigation-segment-list'
 
 export interface NavigationFooter {
   contentfulNavigationSection?: ContentfulNavigationSection
@@ -30,7 +31,7 @@ export const NavigationFooter = ({
   return (
     <Div css={css} {...props}>
       <H3>Navigation Footer</H3>
-      <NavigationSegment
+      <NavigationSegmentList
         model={{
           contentfulNavigationSegment: section?.footerCollection?.items[0],
         }}

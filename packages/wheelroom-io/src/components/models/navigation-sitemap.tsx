@@ -1,6 +1,6 @@
 import { AnyProps, Div, H3 } from '@wheelroom/any/react'
-import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
+import { NavigationSegmentList } from './navigation-segment-list'
 
 export interface NavigationSitemap {
   contentfulNavigationSection?: ContentfulNavigationSection
@@ -30,7 +30,7 @@ export const NavigationSitemap = ({
   return (
     <Div css={css} {...props}>
       <H3>Navigation Sitemap</H3>
-      <NavigationSegment
+      <NavigationSegmentList
         model={{
           contentfulNavigationSegment: section?.sitemapCollection?.items[0],
         }}
