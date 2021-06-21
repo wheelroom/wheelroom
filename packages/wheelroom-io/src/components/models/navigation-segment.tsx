@@ -1,6 +1,6 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { ContentfulAction } from '../models/contentful-action'
-import { Action } from './action'
+import { ActionButton } from './action-button'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type NavigationSegmentVariant = 'actions'
@@ -25,7 +25,6 @@ export const navigationSegmentStyleFactory = (args: {
 
 export const NavigationSegment = ({
   model,
-  variant,
   ...props
 }: NavigationSegmentProps) => {
   if (!model?.contentfulNavigationSegment?.actionsCollection?.items?.length)
@@ -36,10 +35,10 @@ export const NavigationSegment = ({
   return (
     <Div css={css} {...props}>
       {actions.map((contentfulAction: ContentfulAction) => (
-        <Action
+        <ActionButton
           key={contentfulAction.sys?.id}
           model={{ contentfulAction }}
-          variant={variant === 'actions' ? 'primary' : 'link'}
+          variant="primary"
         />
       ))}
     </Div>

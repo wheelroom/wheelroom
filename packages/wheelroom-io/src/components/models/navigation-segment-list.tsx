@@ -1,6 +1,6 @@
 import { AnyProps, Li, Ul } from '@wheelroom/any/react'
 import { ContentfulAction } from './contentful-action'
-import { Action } from './action'
+import { ActionLink } from './action-link'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type NavigationSegmentListVariant = 'header' | 'footer' | 'sitemap'
@@ -37,7 +37,7 @@ export const NavigationSegmentList = ({
     <Ul css={css} {...props}>
       {actions.map((contentfulAction: ContentfulAction) => (
         <Li key={contentfulAction.sys?.id}>
-          <Action model={{ contentfulAction }} variant={{ variant }} />
+          <ActionLink model={{ contentfulAction }} variant={variant} />
         </Li>
       ))}
     </Ul>

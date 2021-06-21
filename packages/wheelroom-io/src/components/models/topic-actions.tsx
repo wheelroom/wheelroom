@@ -1,6 +1,7 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { Action } from './action'
+import { ActionButton } from './action-button'
+import { ActionLink } from './action-link'
 import { ContentfulAction } from './contentful-action'
 import {
   TopicSectionOptions,
@@ -72,13 +73,21 @@ export const TopicActions = ({
 
   return (
     <Div css={css} {...props}>
-      {model.contentfulActions?.map((contentfulAction: ContentfulAction) => (
-        <Action
-          key={contentfulAction.sys?.id}
-          model={{ contentfulAction }}
-          variant={isDisplay ? 'display' : isLink ? 'link' : 'primary'}
-        />
-      ))}
+      {model.contentfulActions?.map((contentfulAction: ContentfulAction) =>
+        isLink ? (
+          <ActionLink
+            key={contentfulAction.sys?.id}
+            model={{ contentfulAction }}
+            variant="link"
+          />
+        ) : (
+          <ActionButton
+            key={contentfulAction.sys?.id}
+            model={{ contentfulAction }}
+            variant={isDisplay ? 'display' : 'primary'}
+          />
+        )
+      )}
     </Div>
   )
 }
