@@ -22,14 +22,6 @@ export type ActionProps<T> = T & {
   variant?: ActionVariant
 }
 
-// const onClickHander = ({ eventId, globals }: OnClickHander) => {
-//   const siteEmbeds = globals.siteEmbeds || []
-//   siteEmbeds.forEach((embed: ContentfulEmbed) => {
-//     if (embed.code && embed.type === 'js-action') {
-//       Function('eventId', 'props', embed.code)(eventId, globals)
-//     }
-//   })
-// }
 type LinkProps = Omit<GatsbyLinkProps<any>, 'ref'>
 export const Action = ({
   variant,
@@ -46,9 +38,11 @@ export const Action = ({
   if (renderAsLink) {
     // Render as a anchor text link
     if (path) {
+      // Use Gatsby Link Element that routes with the router
       const linkProps = { ...props, to: path } as LinkProps
       return <Link {...linkProps}>{heading}</Link>
     } else {
+      // Use Anchor element for external urls
       const anchorProps = {
         ...props,
         href: url,
@@ -62,6 +56,7 @@ export const Action = ({
       options,
     })
     if (path) {
+      // Use Gatsby Link Element that routes with the router
       const linkProps = { ...props, to: path } as LinkProps
       return (
         <Link className={css(buttonStyle)} {...linkProps}>
@@ -69,6 +64,7 @@ export const Action = ({
         </Link>
       )
     } else {
+      // Use Anchor element for external urls
       const anchorProps = {
         ...props,
         href: url,
