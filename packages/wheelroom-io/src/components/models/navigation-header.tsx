@@ -1,6 +1,7 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
+import { NavigationMenu } from './navigation-menu'
 
 export interface NavigationHeader {
   contentfulNavigationSection?: ContentfulNavigationSection
@@ -29,13 +30,11 @@ export const NavigationHeader = ({
 
   return (
     <Div css={css} {...props}>
-      <Div>
-        <NavigationSegment
-          model={{
-            contentfulNavigationSegment: section?.headerCollection?.items[0],
-          }}
-        />
-      </Div>
+      <NavigationMenu
+        model={{
+          contentfulNavigationSegment: section?.headerCollection?.items[0],
+        }}
+      />
       <Div>
         <NavigationSegment
           model={{
