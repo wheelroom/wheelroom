@@ -1,9 +1,9 @@
 import { AnyProps, Div, H3 } from '@wheelroom/any/react'
 import { NavigationSegment } from './navigation-segment'
-import { ContentfulNavigationSection } from './contentful-navigation-section'
+import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export interface NavigationSocial {
-  contentfulNavigationSection?: ContentfulNavigationSection
+  contentfulNavigationSegment?: ContentfulNavigationSegment
 }
 
 type AnyDivProps = AnyProps['div']
@@ -23,18 +23,13 @@ export const NavigationSocial = ({
   model,
   ...props
 }: NavigationSocialProps) => {
-  const section = model?.contentfulNavigationSection
-  if (!section?.legal) return null
+  const contentfulNavigationSegment = model?.contentfulNavigationSection
   const css = navigationSocialStyleFactory({})
 
   return (
     <Div css={css} {...props}>
       <H3>Navigation Social</H3>
-      <NavigationSegment
-        model={{
-          contentfulNavigationSegment: section?.legal,
-        }}
-      />
+      <NavigationSegment model={{ contentfulNavigationSegment }} />
     </Div>
   )
 }
