@@ -28,6 +28,7 @@ import { Asset } from '../models/asset'
 import { Text } from '../elements/text'
 import { H1, H2, H3, H4, H5, H6 } from '../elements/heading'
 import { ContentfulPage } from '../models/contentful-page'
+import { StyleFactory } from '../../lib/style-factory'
 import { ContentfulTextSection } from './contentful-text-section'
 
 export interface TextSection {
@@ -40,10 +41,7 @@ export interface TextSectionProps extends AnyDivProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const textSectionStyleFactory = (args: {
-  variant?: any
-  options?: any
-}) => {
+export const textSectionStyleFactory: StyleFactory = (args) => {
   return {}
 }
 

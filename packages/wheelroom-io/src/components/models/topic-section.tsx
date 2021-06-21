@@ -1,5 +1,6 @@
 import { AnyProps, Div, Hr } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
+import { StyleFactory } from '../../lib/style-factory'
 import { ContentfulTopic } from './contentful-topic'
 import { Topic } from './topic'
 import {
@@ -78,10 +79,10 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   },
 }
 
-export const topicSectionStyleFactory = (args: {
-  variant?: TopicSectionVariant
-  options?: TopicSectionOptions
-}) => {
+export const topicSectionStyleFactory: StyleFactory<
+  TopicSectionVariant,
+  TopicSectionOptions
+> = (args) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])

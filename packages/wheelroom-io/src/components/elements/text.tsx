@@ -1,4 +1,5 @@
 import { AnyProps, P as AnyP } from '@wheelroom/any/react'
+import { StyleFactory } from '../../lib/style-factory'
 
 export type TextVariant = 'lead'
 export type TextOption = 'noMargin'
@@ -27,10 +28,9 @@ const noMarginOptionStyle = {
   marin: 0,
 }
 
-export const textStyleFactory = (args: {
-  variant?: TextVariant
-  options?: TextOptions
-}) => {
+export const textStyleFactory: StyleFactory<TextVariant, TextOptions> = (
+  args
+) => {
   const baseStyle = {
     ...baseTextStyle,
   }

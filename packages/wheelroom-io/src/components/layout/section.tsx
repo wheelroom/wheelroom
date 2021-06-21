@@ -1,4 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
+import { StyleFactory } from '../../lib/style-factory'
 
 export type SectionOption = 'noMargin'
 export type SectionOptions = Partial<Record<SectionOption, boolean>>
@@ -25,17 +26,15 @@ const baseStyle = {
   width: '100%',
 }
 
-export const sectionStyleFactory = (args: {
-  variant?: SectionVariant
-  options?: SectionOptions
-}) => {
-  return [
-    baseStyle,
-    args.variant === 'button' && buttonVariantStyle,
-    args.variant === 'topic' && topicVariantStyle,
-    { marginBottom: args.options?.noMargin ? 0 : 4 },
-  ]
-}
+export const sectionStyleFactory: StyleFactory<SectionVariant, SectionOptions> =
+  (args) => {
+    return [
+      baseStyle,
+      args.variant === 'button' && buttonVariantStyle,
+      args.variant === 'topic' && topicVariantStyle,
+      { marginBottom: args.options?.noMargin ? 0 : 4 },
+    ]
+  }
 
 export const Section = ({ variant, options, ...props }: SectionProps) => {
   const css = sectionStyleFactory({

@@ -1,5 +1,6 @@
 import { AnyProps, Video as AnyVideo, Source, P, B } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
+import { StyleFactory } from '../../lib/style-factory'
 import { ContentfulAsset } from './contentful-asset'
 
 export type VideoVariant = 'fluid'
@@ -38,10 +39,9 @@ const fluidVideoStyle = {
   width: '100%',
 }
 
-export const VideoStyleFactory = (args: {
-  variant?: VideoVariant
-  options?: VideoOptions
-}) => {
+export const VideoStyleFactory: StyleFactory<VideoVariant, VideoOptions> = (
+  args
+) => {
   const baseStyle = {}
   return mediaQuery([baseStyle, args.variant === 'fluid' && fluidVideoStyle])
 }

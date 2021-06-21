@@ -1,5 +1,6 @@
 import { AnyProps, Figcaption, Img, Picture } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
+import { StyleFactory } from '../../lib/style-factory'
 import { ContentfulAsset } from '../models/contentful-asset'
 
 export type ImageVariant = 'fluid'
@@ -39,10 +40,9 @@ const fluidImageStyle = {
   },
 }
 
-export const imageStyleFactory = (args: {
-  variant?: ImageVariant
-  options?: ImageOptions
-}) => {
+export const imageStyleFactory: StyleFactory<ImageVariant, ImageOptions> = (
+  args
+) => {
   const baseStyle = {}
   return mediaQuery([baseStyle, args.variant === 'fluid' && fluidImageStyle])
 }

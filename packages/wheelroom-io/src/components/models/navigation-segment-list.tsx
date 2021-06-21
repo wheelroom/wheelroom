@@ -1,4 +1,5 @@
 import { AnyProps, Li, Ul } from '@wheelroom/any/react'
+import { StyleFactory } from '../../lib/style-factory'
 import { ContentfulAction } from './contentful-action'
 import { ActionLink, ActionLinkVariant } from './action-link'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
@@ -15,11 +16,7 @@ export interface NavigationSegmentListProps extends AnyDivProps {
   variant?: NavigationSegmentListVariant
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const navigationSegmentListStyleFactory = (args: {
-  variant?: any
-  options?: any
-}) => {
+export const navigationSegmentListStyleFactory: StyleFactory = () => {
   return {}
 }
 

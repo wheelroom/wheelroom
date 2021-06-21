@@ -1,4 +1,5 @@
 import { Any, AnyProps } from '@wheelroom/any/react'
+import { StyleFactory } from '../../lib/style-factory'
 
 const headingStyle = {
   marginBottom: 16,
@@ -56,18 +57,16 @@ export interface HeadingProps extends AnyButtonProps {
   variant?: HeadingVariant
 }
 
-export const headingStyleFactory = (args: {
-  variant?: HeadingVariant
-  options?: HeadingOptions
-}) => {
-  const useVariant = args.variant || 'h1'
-  const baseStyle = styleMap[useVariant]
-  return [
-    baseStyle,
-    args.options?.noMargin && noMarginOptionStyle,
-    args.options?.display && displayOptionStyle,
-  ]
-}
+export const headingStyleFactory: StyleFactory<HeadingVariant, HeadingOptions> =
+  (args) => {
+    const useVariant = args.variant || 'h1'
+    const baseStyle = styleMap[useVariant]
+    return [
+      baseStyle,
+      args.options?.noMargin && noMarginOptionStyle,
+      args.options?.display && displayOptionStyle,
+    ]
+  }
 
 export const Heading = ({ variant, options, ...props }: HeadingProps) => {
   const css: any = headingStyleFactory({

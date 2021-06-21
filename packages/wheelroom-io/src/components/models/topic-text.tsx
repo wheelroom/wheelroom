@@ -2,6 +2,7 @@ import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
 import { Text } from '../elements/text'
 import { Heading } from '../elements/heading'
+import { StyleFactory } from '../../lib/style-factory'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
@@ -71,10 +72,10 @@ const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
   },
 }
 
-export const topicTextStyleFactory = (args: {
-  variant?: TopicSectionVariant
-  options?: TopicSectionOptions
-}) => {
+export const topicTextStyleFactory: StyleFactory<
+  TopicSectionVariant,
+  TopicSectionOptions
+> = (args) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])

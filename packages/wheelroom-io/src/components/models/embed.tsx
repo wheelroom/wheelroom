@@ -1,5 +1,6 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
+import { StyleFactory } from '../../lib/style-factory'
 import { ContentfulEmbed } from './contentful-embed'
 
 export type Embed = {
@@ -23,8 +24,7 @@ const baseStyle = {
   },
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const embedStyleFactory = (args: { variant?: any; options?: any }) => {
+export const embedStyleFactory: StyleFactory = () => {
   return mediaQuery([baseStyle])
 }
 

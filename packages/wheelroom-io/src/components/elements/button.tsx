@@ -1,5 +1,6 @@
 import { AnyProps, Button as AnyButton } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
+import { StyleFactory } from '../../lib/style-factory'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'display'
 export type ButtonOption = 'hideHeading'
@@ -63,10 +64,9 @@ const styleMap: Partial<Record<ButtonVariant, any>> = {
   },
 }
 
-export const buttonStyleFactory = (args: {
-  variant?: ButtonVariant
-  options?: ButtonOptions
-}) => {
+export const buttonStyleFactory: StyleFactory<ButtonVariant, ButtonOptions> = (
+  args
+) => {
   const useVariant = args.variant || 'primary'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])

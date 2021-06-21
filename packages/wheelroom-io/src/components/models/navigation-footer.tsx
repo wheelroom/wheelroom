@@ -1,4 +1,5 @@
 import { AnyProps, Div, H3, H4 } from '@wheelroom/any/react'
+import { StyleFactory } from '../../lib/style-factory'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegmentList } from './navigation-segment-list'
@@ -12,11 +13,7 @@ export interface NavigationFooterProps extends AnyDivProps {
   model?: NavigationFooter
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const navigationFooterStyleFactory = (args: {
-  variant?: any
-  options?: any
-}) => {
+export const navigationFooterStyleFactory: StyleFactory = () => {
   return {}
 }
 

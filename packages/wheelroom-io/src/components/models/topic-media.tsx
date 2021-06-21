@@ -1,5 +1,6 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
+import { StyleFactory } from '../../lib/style-factory'
 import { Asset, AssetProps } from '../models/asset'
 import { ContentfulAsset } from '../models/contentful-asset'
 import { ContentfulEmbed } from '../models/contentful-embed'
@@ -142,10 +143,10 @@ const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
   video: baseStyle,
 }
 
-export const topicMediaStyleFactory = (args: {
-  variant?: TopicSectionVariant
-  options?: TopicSectionOptions
-}) => {
+export const topicMediaStyleFactory: StyleFactory<
+  TopicSectionVariant,
+  TopicSectionOptions
+> = (args) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])

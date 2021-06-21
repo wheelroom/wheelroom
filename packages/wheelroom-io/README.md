@@ -23,10 +23,7 @@ export type MyCompOption = 'reversedOrder' | 'hideMedia'
 export type MyCompOptions = Partial<Record<MyCompOption, boolean>>
 export type MyCompEvents = { handleClick: () => void }
 
-export const myCompStyleFactory = (args: {
-  variant?: MyCompVariant
-  options?: MyCompOptions
-}) => {
+export const myCompStyleFactory: StyleFactory<MyCompVariant, MyCompOptions> = (args) => {
   const useVariant = args.variant || 'primary'
   const baseStyle = styleMap[useVariant]
   return [

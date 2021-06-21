@@ -1,5 +1,6 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
+import { StyleFactory } from '../../lib/style-factory'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
@@ -87,10 +88,10 @@ const reversedOrderOptionStyle = {}
 
 const hideMediaOptionStyle = {}
 
-export const topicStyleFactory = (args: {
-  variant?: TopicSectionVariant
-  options?: TopicSectionOptions
-}) => {
+export const topicStyleFactory: StyleFactory<
+  TopicSectionVariant,
+  TopicSectionOptions
+> = (args) => {
   const useVariant = args.variant || 'block'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([

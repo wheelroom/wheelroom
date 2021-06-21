@@ -1,4 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
+import { StyleFactory } from '../../lib/style-factory'
 
 type GridVariant = 'header' | 'pancake' | 'sidebar'
 
@@ -26,10 +27,7 @@ const sidebarVariantStyle = {
   gridTemplateColumns: 'auto 1fr',
 }
 
-export const gridStyleFactory = (args: {
-  variant?: GridVariant
-  options?: any
-}) => {
+export const gridStyleFactory: StyleFactory<GridVariant> = (args) => {
   return [
     baseGridStyle,
     args.variant === 'header' && headerVariantStyle,

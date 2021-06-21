@@ -1,5 +1,6 @@
 import { AnyProps, A as AnyA } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
+import { StyleFactory } from '../../lib/style-factory'
 
 export type AnchorVariant = 'link' | 'header' | 'footer' | 'sitemap'
 
@@ -24,10 +25,7 @@ const styleMap: Partial<Record<AnchorVariant, any>> = {
   sitemap: baseStyle,
 }
 
-export const anchorStyleFactory = (args: {
-  variant?: AnchorVariant
-  options?: any
-}) => {
+export const anchorStyleFactory: StyleFactory<AnchorVariant> = (args) => {
   const useVariant = args.variant || 'link'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])

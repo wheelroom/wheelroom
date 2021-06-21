@@ -1,4 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
+import { StyleFactory } from '../../lib/style-factory'
 import { ContentfulAction } from '../models/contentful-action'
 import { ActionButton } from './action-button'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
@@ -15,12 +16,8 @@ export interface NavigationSegmentProps extends AnyDivProps {
   variant?: NavigationSegmentVariant
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const navigationSegmentStyleFactory = (args: {
-  variant?: any
-  options?: any
-}) => {
-  return { color: 'blue' }
+export const navigationSegmentStyleFactory: StyleFactory = () => {
+  return {}
 }
 
 export const NavigationSegment = ({

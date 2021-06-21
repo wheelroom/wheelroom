@@ -1,4 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
+import { StyleFactory } from '../../lib/style-factory'
 
 export type WrapperOption = 'noMargin' | 'useMaxWidth'
 export type WrapperOptions = Partial<Record<WrapperOption, boolean>>
@@ -16,10 +17,9 @@ const baseStyle = {
   maxWidth: 992,
 }
 
-export const wrapperStyleFactory = (args: {
-  variant?: any
-  options?: WrapperOptions
-}) => {
+export const wrapperStyleFactory: StyleFactory<any, WrapperOptions> = (
+  args
+) => {
   return [baseStyle, { marginBottom: args.options?.noMargin ? 0 : 4 }]
 }
 
