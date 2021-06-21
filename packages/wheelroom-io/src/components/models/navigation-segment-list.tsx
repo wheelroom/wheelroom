@@ -1,9 +1,9 @@
 import { AnyProps, Li, Ul } from '@wheelroom/any/react'
 import { ContentfulAction } from './contentful-action'
-import { ActionLink } from './action-link'
+import { ActionLink, ActionLinkVariant } from './action-link'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
-export type NavigationSegmentListVariant = 'header' | 'footer' | 'sitemap'
+export type NavigationSegmentListVariant = ActionLinkVariant
 
 export interface NavigationSegmentList {
   contentfulNavigationSegment?: ContentfulNavigationSegment
