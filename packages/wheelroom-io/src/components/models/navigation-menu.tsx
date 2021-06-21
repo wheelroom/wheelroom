@@ -1,6 +1,6 @@
 import { AnyProps, Div, H3 } from '@wheelroom/any/react'
-import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
+import { NavigationSegmentList } from './navigation-segment-list'
 
 export interface NavigationMenu {
   contentfulNavigationSegment?: ContentfulNavigationSegment
@@ -26,7 +26,7 @@ export const NavigationMenu = ({ model, ...props }: NavigationMenuProps) => {
   return (
     <Div css={css} {...props}>
       <H3>Navigation Menu</H3>
-      <NavigationSegment model={{ contentfulNavigationSegment }} />
+      <NavigationSegmentList model={{ contentfulNavigationSegment }} />
     </Div>
   )
 }
