@@ -41,7 +41,9 @@ export const Action = ({
   const path = action?.page?.path
   const url = action?.url
   const heading = action?.heading
-  if (!variant || variant === 'link') {
+  variant = variant || 'link'
+  const renderAsLink = ['link', 'header', 'footer', 'sitemap'].includes(variant)
+  if (renderAsLink) {
     // Render as a anchor text link
     if (path) {
       const linkProps = { ...props, to: path } as LinkProps
@@ -55,7 +57,10 @@ export const Action = ({
     }
   } else {
     // Render as a button
-    const buttonStyle = buttonStyleFactory({ variant, options })
+    const buttonStyle = buttonStyleFactory({
+      variant: variant as ButtonVariant,
+      options,
+    })
     if (path) {
       const linkProps = { ...props, to: path } as LinkProps
       return (
