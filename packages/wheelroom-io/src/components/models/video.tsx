@@ -1,6 +1,6 @@
 import { AnyProps, Video as AnyVideo, Source, P, B } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { ContentfulAsset } from '../models/contentful-asset'
+import { ContentfulAsset } from './contentful-asset'
 
 export type VideoVariant = 'fluid'
 

@@ -1,5 +1,5 @@
-import { Image, ImageProps } from '../elements/image'
-import { Video, VideoProps } from '../elements/video'
+import { Image, ImageProps } from './image'
+import { Video, VideoProps } from './video'
 
 export type Asset = Image | Video
 export type AssetProps = ImageProps | VideoProps
