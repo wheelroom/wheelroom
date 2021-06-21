@@ -29,25 +29,28 @@ export const NavigationHeader = ({
 
   return (
     <Div css={css} {...props}>
-      <H3>Navigation Header</H3>
-      <NavigationSegment
-        model={{
-          contentfulNavigationSegment: section?.headerCollection?.items[0],
-        }}
-      />
-      <H4>Navigation Actions</H4>
-      <NavigationSegment
-        model={{
-          contentfulNavigationSegment: section?.actions,
-        }}
-        variant="actions"
-      />
-      <H4>Navigation Social</H4>
-      <NavigationSegment
-        model={{
-          contentfulNavigationSegment: section?.social,
-        }}
-      />
+      <Div>
+        <NavigationSegment
+          model={{
+            contentfulNavigationSegment: section?.headerCollection?.items[0],
+          }}
+        />
+      </Div>
+      <Div>
+        <NavigationSegment
+          model={{
+            contentfulNavigationSegment: section?.actions,
+          }}
+          variant="actions"
+        />
+      </Div>
+      <Div>
+        <NavigationSegment
+          model={{
+            contentfulNavigationSegment: section?.social,
+          }}
+        />
+      </Div>
     </Div>
   )
 }
