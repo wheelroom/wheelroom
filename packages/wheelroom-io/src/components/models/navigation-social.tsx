@@ -23,7 +23,7 @@ export const NavigationSocial = ({
   model,
   ...props
 }: NavigationSocialProps) => {
-  const contentfulNavigationSegment = model?.contentfulNavigationSection
+  const contentfulNavigationSegment = model?.contentfulNavigationSegment
   const css = navigationSocialStyleFactory({})
 
   return (
