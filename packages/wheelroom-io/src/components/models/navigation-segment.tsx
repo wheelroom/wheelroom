@@ -3,6 +3,8 @@ import { ContentfulAction } from '../models/contentful-action'
 import { Action } from './action'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
+export type NavigationSegmentVariant = 'actions'
+
 export interface NavigationSegment {
   contentfulNavigationSegment?: ContentfulNavigationSegment
 }
@@ -10,6 +12,7 @@ export interface NavigationSegment {
 type AnyDivProps = AnyProps['div']
 export interface NavigationSegmentProps extends AnyDivProps {
   model?: NavigationSegment
+  variant?: NavigationSegmentVariant
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -22,6 +25,7 @@ export const navigationSegmentStyleFactory = (args: {
 
 export const NavigationSegment = ({
   model,
+  variant,
   ...props
 }: NavigationSegmentProps) => {
   if (!model?.contentfulNavigationSegment?.actionsCollection?.items?.length)
@@ -32,7 +36,11 @@ export const NavigationSegment = ({
   return (
     <Div css={css} {...props}>
       {actions.map((contentfulAction: ContentfulAction) => (
-        <Action key={contentfulAction.sys?.id} model={{ contentfulAction }} />
+        <Action
+          key={contentfulAction.sys?.id}
+          model={{ contentfulAction }}
+          variant={variant === 'actions' ? 'primary' : 'link'}
+        />
       ))}
     </Div>
   )

@@ -40,6 +40,7 @@ export const NavigationFooter = ({
         model={{
           contentfulNavigationSegment: section?.actions,
         }}
+        variant="actions"
       />
       <H4>Navigation Social</H4>
       <NavigationSegment
