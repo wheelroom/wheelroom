@@ -19,7 +19,7 @@ export type Variant = 'external 1' | 'external 2' | 'external 3'
  *
  * @remarks
  * What are you doing
- *
+ * @some-value here
  * @wheelroom bizar @platform contentful
  * @see https://www.wheelroom.io
  * @defaultValue 'Default heading' @some thing
