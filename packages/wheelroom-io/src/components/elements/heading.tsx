@@ -8,7 +8,11 @@ import {
 
 export type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 export type HeadingOptions = ComponentOptions<'noMargin' | 'display'>
-export type HeadingProps = ComponentProps<HeadingOptions, HeadingVariant>['h1']
+export type HeadingProps = ComponentProps<
+  undefined,
+  HeadingVariant,
+  HeadingOptions
+>['h1']
 
 const headingStyle = {
   marginBottom: 16,

@@ -1,15 +1,15 @@
 import { Fragment } from 'react'
 import * as BootstrapIcon from 'react-bootstrap-icons'
 import { Props as BootstrapIconProps } from 'react-bootstrap-icons'
-import { ComponentOptions } from '../../lib/component-styles'
+import { ComponentOptions, ComponentProps } from '../../lib/component-styles'
 
 export type IconVariant = keyof typeof BootstrapIcon
 export type IconOptions = ComponentOptions<'medium' | 'large'>
-
-export interface IconProps extends BootstrapIconProps {
-  options?: IconOptions
-  variant?: IconVariant
-}
+export type IconProps = ComponentProps<
+  BootstrapIconProps,
+  IconVariant,
+  IconOptions
+>['svg']
 
 export const Icon = ({ options, variant, ...props }: IconProps) => {
   options = options || {}

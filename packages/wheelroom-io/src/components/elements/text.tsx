@@ -1,14 +1,13 @@
-import { AnyProps, P as AnyP } from '@wheelroom/any/react'
-import { ComponentOptions, StyleFactory } from '../../lib/component-styles'
+import { P as AnyP } from '@wheelroom/any/react'
+import {
+  ComponentOptions,
+  ComponentProps,
+  StyleFactory,
+} from '../../lib/component-styles'
 
 export type TextVariant = 'lead'
 export type TextOptions = ComponentOptions<'noMargin'>
-
-type AnyPProps = AnyProps['p']
-export interface TextProps extends AnyPProps {
-  options?: TextOptions
-  variant?: TextVariant
-}
+export type TextProps = ComponentProps<undefined, TextVariant, TextOptions>['p']
 
 const baseTextStyle = {
   fontSize: 18,
