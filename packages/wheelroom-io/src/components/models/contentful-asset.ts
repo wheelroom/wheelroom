@@ -15,7 +15,7 @@ export type ContentfulAsset = {
 }
 
 export const assetFragment = graphql`
-  fragment Asset on Contentful_Asset {
+  fragment Wheelroom_Asset on Contentful_Asset {
     sys {
       id
     }

@@ -13,7 +13,7 @@ export type ContentfulGlobals = {
 }
 
 export const fragment = graphql`
-  fragment Globals on Contentful_Globals {
+  fragment Wheelroom_Globals on Contentful_Globals {
     siteAuthor
     siteKeywords
     skipToContentHeading

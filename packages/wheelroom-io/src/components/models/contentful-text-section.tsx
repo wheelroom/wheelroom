@@ -29,7 +29,7 @@ export type ContentfulTextSection = {
 }
 
 export const textSectionFragment = graphql`
-  fragment TextSection on Contentful_TextSection {
+  fragment Wheelroom_TextSection on Contentful_TextSection {
     __typename
     sys {
       id
@@ -40,10 +40,10 @@ export const textSectionFragment = graphql`
       links {
         assets {
           hyperlink {
-            ...Asset
+            ...Wheelroom_Asset
           }
           block {
-            ...Asset
+            ...Wheelroom_Asset
           }
         }
         entries {
@@ -55,7 +55,7 @@ export const textSectionFragment = graphql`
               title
               path
             }
-            ...TopicSection
+            ...Wheelroom_TopicSection
           }
           hyperlink {
             ... on Contentful_Page {
@@ -65,7 +65,7 @@ export const textSectionFragment = graphql`
               title
               path
             }
-            ...TopicSection
+            ...Wheelroom_TopicSection
           }
           inline {
             ... on Contentful_Page {
@@ -75,7 +75,7 @@ export const textSectionFragment = graphql`
               title
               path
             }
-            ...TopicSection
+            ...Wheelroom_TopicSection
           }
         }
       }

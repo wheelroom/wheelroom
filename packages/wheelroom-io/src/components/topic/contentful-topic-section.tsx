@@ -38,7 +38,7 @@ export type ContentfulTopicSection = TopicSectionOptions & {
 }
 
 export const fragment = graphql`
-  fragment TopicSection on Contentful_TopicSection {
+  fragment Wheelroom_TopicSection on Contentful_TopicSection {
     __typename
     sys {
       id
@@ -52,7 +52,7 @@ export const fragment = graphql`
     hideAction
     topicsCollection(limit: 20) {
       items {
-        ...Topic
+        ...Wheelroom_Topic
       }
     }
   }

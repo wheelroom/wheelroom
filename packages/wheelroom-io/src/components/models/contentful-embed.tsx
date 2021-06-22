@@ -13,7 +13,7 @@ export type ContentfulEmbed = {
 }
 
 export const embedFragment = graphql`
-  fragment Embed on Contentful_Embed {
+  fragment Wheelroom_Embed on Contentful_Embed {
     sys {
       id
     }

@@ -13,16 +13,16 @@ export type ContentfulPage = {
 }
 
 export const pageFragment = graphql`
-  fragment Page on Contentful_Page {
+  fragment Wheelroom_Page on Contentful_Page {
     __typename
     sys {
       id
     }
     sectionsCollection(limit: 5) {
       items {
-        ...TopicSection
-        ...NavigationSection
-        ...TextSection
+        ...Wheelroom_TopicSection
+        ...Wheelroom_NavigationSection
+        ...Wheelroom_TextSection
       }
     }
   }

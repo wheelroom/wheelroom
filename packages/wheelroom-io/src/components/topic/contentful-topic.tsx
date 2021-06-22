@@ -21,7 +21,7 @@ export type ContentfulTopic = {
 }
 
 export const topicFragment = graphql`
-  fragment Topic on Contentful_Topic {
+  fragment Wheelroom_Topic on Contentful_Topic {
     sys {
       id
     }
@@ -30,19 +30,19 @@ export const topicFragment = graphql`
     icon
     actionsCollection(limit: 5) {
       items {
-        ...Action
+        ...Wheelroom_Action
       }
     }
     mediaCollection(limit: 4) {
       items {
-        ...Asset
+        ...Wheelroom_Asset
       }
     }
     mediaEmbed {
-      ...Embed
+      ...Wheelroom_Embed
     }
     poster {
-      ...Asset
+      ...Wheelroom_Asset
     }
   }
 `

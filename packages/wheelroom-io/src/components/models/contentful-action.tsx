@@ -17,7 +17,7 @@ export type ContentfulAction = {
 }
 
 export const actionFragment = graphql`
-  fragment Action on Contentful_Action {
+  fragment Wheelroom_Action on Contentful_Action {
     sys {
       id
     }
