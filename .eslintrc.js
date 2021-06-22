@@ -12,7 +12,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['react-hooks'],
+  plugins: ['react-hooks', 'eslint-plugin-tsdoc'],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
@@ -31,6 +31,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 1,
     'import/order': 2,
     'import/no-unresolved': 0,
+    "tsdoc/syntax": "warn",
   },
   settings: {
     react: {
