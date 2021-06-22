@@ -7,7 +7,7 @@ import {
 } from '../../lib/component-styles'
 import { ContentfulAsset } from '../models/contentful-asset'
 
-export interface Image {
+export type Image = {
   contentfulAsset?: ContentfulAsset
 }
 export type ImageVariant = 'fluid'

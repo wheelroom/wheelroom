@@ -23,7 +23,7 @@ export type PageQuery = {
   site: unknown
 }
 
-export interface PageContext {
+export type PageContext = {
   pageId: string
   pagePath: string
 }

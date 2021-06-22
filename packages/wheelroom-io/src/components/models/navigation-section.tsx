@@ -7,12 +7,12 @@ import { NavigationInformation } from './navigation-information'
 import { NavigationLegal } from './navigation-legal'
 import { NavigationSitemap } from './navigation-sitemap'
 
-export interface NavigationSection {
+export type NavigationSection = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
 
 type AnyDivProps = AnyProps['div']
-export interface NavigationSectionProps extends AnyDivProps {
+export type NavigationSectionProps extends AnyDivProps = {
   model?: NavigationSection
 }
 

@@ -31,7 +31,7 @@ export type PageSection = {
   contentfulPageSections?: ContentfulPageSection[]
 }
 
-export interface SectionsProps {
+export type SectionsProps = {
   model?: PageSection
 }
 

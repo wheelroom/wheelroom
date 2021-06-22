@@ -7,7 +7,7 @@ import {
 import { mediaQuery } from '../../lib/media-query'
 import { ContentfulAsset } from './contentful-asset'
 
-export interface Video {
+export type Video = {
   contentfulAsset?: ContentfulAsset
   contentfulPosterAsset?: ContentfulAsset
 }

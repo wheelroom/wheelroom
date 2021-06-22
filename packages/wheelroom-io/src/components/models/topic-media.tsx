@@ -17,7 +17,7 @@ type TopicMedia = {
 }
 
 type AnyDivProps = AnyProps['div']
-export interface TopicMediaProps extends AnyDivProps {
+export type TopicMediaProps extends AnyDivProps = {
   model?: TopicMedia
   variant?: TopicSectionVariant
 }

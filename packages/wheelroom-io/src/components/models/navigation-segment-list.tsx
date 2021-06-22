@@ -6,12 +6,12 @@ import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type NavigationSegmentListVariant = ActionLinkVariant
 
-export interface NavigationSegmentList {
+export type NavigationSegmentList = {
   contentfulNavigationSegment?: ContentfulNavigationSegment
 }
 
 type AnyDivProps = AnyProps['ul']
-export interface NavigationSegmentListProps extends AnyDivProps {
+export type NavigationSegmentListProps extends AnyDivProps = {
   model?: NavigationSegmentList
   variant?: NavigationSegmentListVariant
 }

@@ -26,7 +26,7 @@ export type TopicSectionOptions = ComponentOptions<
   | 'hideAction'
 >
 
-export interface ContentfulTopicSection extends TopicSectionOptions {
+export type ContentfulTopicSection extends TopicSectionOptions = {
   sys?: {
     id: string
   }

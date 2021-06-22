@@ -9,12 +9,12 @@ import {
   TopicSectionVariant,
 } from './contentful-topic-section'
 
-export interface TopicSection {
+export type TopicSection = {
   contentfulTopicSection?: ContentfulTopicSection
 }
 
 type AnyDivProps = AnyProps['div']
-export interface TopicSectionProps extends AnyDivProps {
+export type TopicSectionProps extends AnyDivProps = {
   model?: TopicSection
   options?: TopicSectionOptions
   variant?: TopicSectionVariant

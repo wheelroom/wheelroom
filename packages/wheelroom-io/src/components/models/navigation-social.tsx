@@ -3,12 +3,12 @@ import { StyleFactory } from '../../lib/component-styles'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
-export interface NavigationSocial {
+export type NavigationSocial = {
   contentfulNavigationSegment?: ContentfulNavigationSegment
 }
 
 type AnyDivProps = AnyProps['div']
-export interface NavigationSocialProps extends AnyDivProps {
+export type NavigationSocialProps extends AnyDivProps = {
   model?: NavigationSocial
 }
 

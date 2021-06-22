@@ -31,12 +31,12 @@ import { ContentfulPage } from '../models/contentful-page'
 import { StyleFactory } from '../../lib/component-styles'
 import { ContentfulTextSection } from './contentful-text-section'
 
-export interface TextSection {
+export type TextSection = {
   contentfulTextSection?: ContentfulTextSection
 }
 
 type AnyDivProps = AnyProps['div']
-export interface TextSectionProps extends AnyDivProps {
+export type TextSectionProps extends AnyDivProps = {
   model?: TextSection
 }
 

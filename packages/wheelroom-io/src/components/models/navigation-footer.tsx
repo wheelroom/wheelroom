@@ -4,12 +4,12 @@ import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegmentList } from './navigation-segment-list'
 
-export interface NavigationFooter {
+export type NavigationFooter = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
 
 type AnyDivProps = AnyProps['div']
-export interface NavigationFooterProps extends AnyDivProps {
+export type NavigationFooterProps extends AnyDivProps = {
   model?: NavigationFooter
 }
 

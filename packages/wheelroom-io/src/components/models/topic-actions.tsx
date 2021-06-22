@@ -14,7 +14,7 @@ export type TopicActions = {
 }
 
 type AnyDivProps = AnyProps['div']
-export interface TopicActionsProps extends AnyDivProps {
+export type TopicActionsProps extends AnyDivProps = {
   model?: TopicActions
   options?: TopicSectionOptions
   variant?: TopicSectionVariant

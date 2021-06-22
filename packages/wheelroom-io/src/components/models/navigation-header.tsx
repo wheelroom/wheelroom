@@ -5,12 +5,12 @@ import { NavigationActions } from './navigation-actions'
 import { NavigationMenu } from './navigation-menu'
 import { NavigationSocial } from './navigation-social'
 
-export interface NavigationHeader {
+export type NavigationHeader = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
 
 type AnyDivProps = AnyProps['div']
-export interface NavigationHeaderProps extends AnyDivProps {
+export type NavigationHeaderProps extends AnyDivProps = {
   model?: NavigationHeader
 }
 

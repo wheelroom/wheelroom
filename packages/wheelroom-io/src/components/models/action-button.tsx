@@ -13,7 +13,7 @@ import { ContentfulAction } from './contentful-action'
  * either a Link or a Anchor element and uses Button variant styling
  */
 
-export interface ActionButton {
+export type ActionButton = {
   contentfulAction?: ContentfulAction
 }
 

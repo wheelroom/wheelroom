@@ -6,12 +6,12 @@ import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type NavigationSegmentVariant = 'actions'
 
-export interface NavigationSegment {
+export type NavigationSegment = {
   contentfulNavigationSegment?: ContentfulNavigationSegment
 }
 
 type AnyDivProps = AnyProps['div']
-export interface NavigationSegmentProps extends AnyDivProps {
+export type NavigationSegmentProps extends AnyDivProps = {
   model?: NavigationSegment
   variant?: NavigationSegmentVariant
 }
