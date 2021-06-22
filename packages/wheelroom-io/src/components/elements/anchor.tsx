@@ -10,17 +10,21 @@ export type AnchorVariant = 'link' | 'menu' | 'sitemap'
 export type AnchorProps = ComponentProps<undefined, AnchorVariant>['a']
 
 const baseStyle = {
-  fontSize: 18,
   backgroundColor: 'transparent',
-  color: 'var(--colors-azure)',
   border: 0,
+  color: 'var(--colors-azure)',
+  fontSize: 18,
   padding: 0,
   textDecoration: 'underline',
 }
 
 const styleMap: StyleMap<AnchorVariant> = {
   link: baseStyle,
-  menu: baseStyle,
+  menu: {
+    ...baseStyle,
+    display: 'inline-block',
+    padding: '16px 8px',
+  },
   sitemap: baseStyle,
 }
 

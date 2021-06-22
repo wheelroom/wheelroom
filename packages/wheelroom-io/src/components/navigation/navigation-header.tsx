@@ -7,11 +7,8 @@ import {
 import { mediaQuery } from '../../lib/media-query'
 import { Anchor } from '../elements/anchor'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
-import { NavigationActions } from './navigation-actions'
-import { NavigationMenu } from './navigation-menu'
 import { NavigationSegment } from './navigation-segment'
 import { NavigationSegmentList } from './navigation-segment-list'
-import { NavigationSocial } from './navigation-social'
 
 export type NavigationHeaderVariant = 'fixed' | 'fluid'
 export type NavigationHeaderModel = {
