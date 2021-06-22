@@ -13,9 +13,10 @@ import rootPkg from '../../package.json'
 const moduleName = pkg.name.replace(/^@.*\//, '')
 const author = rootPkg.author
 const globals = {
-  fs: 'fs',
-  path: 'path',
+  fs: '*',
+  path: '*',
   typescript: 'ts',
+  '@microsoft/tsdoc': '*',
 }
 
 const external = Object.keys(globals)
