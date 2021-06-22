@@ -16,8 +16,17 @@ export type Variant = 'external 1' | 'external 2' | 'external 3'
 
 /**
  * Something about this model
- * @platform contentful
- * @plaformDefaults defaultTopic
+ *
+ * @remarks
+ * What are you doing
+ *
+ * @wheelroom bizar @platform contentful
+ * @see https://www.wheelroom.io
+ * @defaultValue 'Default heading' @some thing
+ * ```ts
+ * const a = 3
+ * ```
+ *
  */
 export interface Topic {
   /**
@@ -35,13 +44,6 @@ export interface Topic {
   variant: Variant
   /** @platformType Symbol - Another variant */
   otherVariant: 'variant 1' | 'variant 2' | 'variant 3'
-}
-
-const defaultTopic: Topic = {
-  heading: 'default heading',
-  abstract: 'default abstract',
-  variant: 'external 1',
-  otherVariant: 'variant 1',
 }
 
 const basicSys: BasicMetaSysProps = {
@@ -89,7 +91,7 @@ const headingField: ContentFields & FieldType = {
   initialValue: { key: 'value' },
 }
 
-const contentType: ContentTypeProps = {
+export const contentType: ContentTypeProps = {
   sys,
   name: 'Topic',
   description: 'This is a topic type',
@@ -128,9 +130,7 @@ const editor: Editor = {
   widgetNamespace: 'Single line',
 }
 
-const editorInterface: EditorInterfaceProps = {
+export const editorInterface: EditorInterfaceProps = {
   sys,
   editor,
 }
-
-console.log(defaultTopic, contentType, editorInterface)
