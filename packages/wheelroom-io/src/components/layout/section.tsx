@@ -1,5 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 
 export type SectionOption = 'noMargin'
 export type SectionOptions = Partial<Record<SectionOption, boolean>>

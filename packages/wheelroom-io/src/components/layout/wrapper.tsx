@@ -1,5 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 
 export type WrapperOption = 'noMargin' | 'useMaxWidth'
 export type WrapperOptions = Partial<Record<WrapperOption, boolean>>

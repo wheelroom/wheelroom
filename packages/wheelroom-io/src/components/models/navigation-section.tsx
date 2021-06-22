@@ -1,5 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationFooter } from './navigation-footer'
 import { NavigationHeader } from './navigation-header'

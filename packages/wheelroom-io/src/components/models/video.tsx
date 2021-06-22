@@ -1,24 +1,23 @@
 import { AnyProps, Video as AnyVideo, Source, P, B } from '@wheelroom/any/react'
+import {
+  ComponentOptions,
+  ComponentProps,
+  StyleFactory,
+} from '../../lib/component-styles'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/style-factory'
 import { ContentfulAsset } from './contentful-asset'
-
-export type VideoVariant = 'fluid'
 
 export interface Video {
   contentfulAsset?: ContentfulAsset
   contentfulPosterAsset?: ContentfulAsset
 }
-
-export type VideoOption = 'showCaption'
-export type VideoOptions = Partial<Record<VideoOption, boolean>>
-
-type AnyVideoProps = AnyProps['video']
-export interface VideoProps extends AnyVideoProps {
-  model?: Video
-  options?: VideoOptions
-  variant?: VideoVariant
-}
+export type VideoVariant = 'fluid'
+export type VideoOptions = ComponentOptions<'showCaption'>
+export type VideoProps = ComponentProps<
+  Video,
+  VideoVariant,
+  VideoOptions
+>['video']
 
 const defaultAsset: ContentfulAsset = {
   sys: {

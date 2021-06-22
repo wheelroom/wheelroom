@@ -1,6 +1,6 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 import { ActionButton } from './action-button'
 import { ActionLink } from './action-link'
 import { ContentfulAction } from './contentful-action'

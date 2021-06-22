@@ -28,7 +28,7 @@ import { Asset } from '../models/asset'
 import { Text } from '../elements/text'
 import { H1, H2, H3, H4, H5, H6 } from '../elements/heading'
 import { ContentfulPage } from '../models/contentful-page'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 import { ContentfulTextSection } from './contentful-text-section'
 
 export interface TextSection {

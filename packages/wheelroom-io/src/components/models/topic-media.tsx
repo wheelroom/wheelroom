@@ -1,6 +1,6 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 import { Asset, AssetProps } from '../models/asset'
 import { ContentfulAsset } from '../models/contentful-asset'
 import { ContentfulEmbed } from '../models/contentful-embed'

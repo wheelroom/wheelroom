@@ -1,5 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 import { ContentfulAction } from '../models/contentful-action'
 import { ActionButton } from './action-button'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'

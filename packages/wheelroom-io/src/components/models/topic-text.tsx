@@ -2,7 +2,7 @@ import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
 import { Text } from '../elements/text'
 import { Heading } from '../elements/heading'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 import {
   TopicSectionOptions,
   TopicSectionVariant,

@@ -1,13 +1,9 @@
-import { AnyProps, A as AnyA } from '@wheelroom/any/react'
+import { A as AnyA } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/style-factory'
+import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 
 export type AnchorVariant = 'link' | 'header' | 'footer' | 'sitemap'
-
-type AnyAProps = AnyProps['a']
-export interface AnchorProps extends AnyAProps {
-  variant?: AnchorVariant
-}
+export type AnchorProps = ComponentProps<undefined, AnchorVariant>['a']
 
 const baseStyle = {
   fontSize: 18,

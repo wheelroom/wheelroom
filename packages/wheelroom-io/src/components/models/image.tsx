@@ -1,6 +1,6 @@
 import { AnyProps, Figcaption, Img, Picture } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 import { ContentfulAsset } from '../models/contentful-asset'
 
 export type ImageVariant = 'fluid'

@@ -1,5 +1,5 @@
 import { Any, AnyProps } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 
 const headingStyle = {
   marginBottom: 16,

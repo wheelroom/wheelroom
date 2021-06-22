@@ -1,5 +1,5 @@
 import { AnyProps, P as AnyP } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 
 export type TextVariant = 'lead'
 export type TextOption = 'noMargin'

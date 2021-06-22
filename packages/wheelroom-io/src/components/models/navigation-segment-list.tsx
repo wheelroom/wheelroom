@@ -1,5 +1,5 @@
 import { AnyProps, Li, Ul } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/style-factory'
+import { StyleFactory } from '../../lib/component-styles'
 import { ContentfulAction } from './contentful-action'
 import { ActionLink, ActionLinkVariant } from './action-link'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
