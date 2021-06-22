@@ -1,4 +1,4 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
+import { Div } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationActions } from './navigation-actions'

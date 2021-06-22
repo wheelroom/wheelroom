@@ -1,20 +1,17 @@
-import { AnyProps, Li, Ul } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { Li, Ul } from '@wheelroom/any/react'
+import { ComponentProps, StyleFactory } from '../../lib/component-styles'
+import { AnchorVariant } from '../elements/anchor'
 import { ContentfulAction } from './contentful-action'
-import { ActionLink, ActionLinkVariant } from './action-link'
+import { ActionLink } from './action-link'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
-
-export type NavigationSegmentListVariant = ActionLinkVariant
 
 export type NavigationSegmentList = {
   contentfulNavigationSegment?: ContentfulNavigationSegment
 }
-
-type AnyDivProps = AnyProps['ul']
-export type NavigationSegmentListProps extends AnyDivProps = {
-  model?: NavigationSegmentList
-  variant?: NavigationSegmentListVariant
-}
+export type NavigationSegmentListProps = ComponentProps<
+  NavigationSegmentList,
+  AnchorVariant
+>['ul']
 
 export const navigationSegmentListStyleFactory: StyleFactory = () => {
   return {}

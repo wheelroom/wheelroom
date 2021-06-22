@@ -1,4 +1,4 @@
-import { AnyProps, Div, H3 } from '@wheelroom/any/react'
+import { Div, H3 } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'

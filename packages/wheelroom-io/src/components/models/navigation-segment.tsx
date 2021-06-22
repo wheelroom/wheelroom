@@ -1,5 +1,6 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { Div } from '@wheelroom/any/react'
+import { ComponentProps, StyleFactory } from '../../lib/component-styles'
+import { ButtonVariant } from '../elements/button'
 import { ContentfulAction } from '../models/contentful-action'
 import { ActionButton } from './action-button'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
@@ -9,12 +10,10 @@ export type NavigationSegmentVariant = 'actions'
 export type NavigationSegment = {
   contentfulNavigationSegment?: ContentfulNavigationSegment
 }
-
-type AnyDivProps = AnyProps['div']
-export type NavigationSegmentProps extends AnyDivProps = {
-  model?: NavigationSegment
-  variant?: NavigationSegmentVariant
-}
+export type NavigationSegmentProps = ComponentProps<
+  NavigationSegment,
+  ButtonVariant
+>['div']
 
 export const navigationSegmentStyleFactory: StyleFactory = () => {
   return {}
