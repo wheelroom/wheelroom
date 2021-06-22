@@ -1,4 +1,4 @@
-import { Div, Section, Strong } from '@wheelroom/any/react'
+import { Div, Nav, Section, Strong } from '@wheelroom/any/react'
 import {
   ComponentProps,
   StyleFactory,
@@ -7,9 +7,8 @@ import {
 import { mediaQuery } from '../../lib/media-query'
 import { Anchor } from '../elements/anchor'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
-import { NavigationActions } from './navigation-actions'
-import { NavigationMenu } from './navigation-menu'
-import { NavigationSocial } from './navigation-social'
+import { NavigationSegment } from './navigation-segment'
+import { NavigationSegmentList } from './navigation-segment-list'
 
 export type NavigationHeaderVariant = 'fixed' | 'fluid'
 export type NavigationHeaderModel = {
@@ -24,6 +23,8 @@ export type NavigationHeaderProps = ComponentProps<
 const navigationHeaderBaseStyle = {
   display: 'flex',
   padding: '0 16px',
+  justifyContent: 'space-between',
+  width: '100%',
 }
 
 const styleMap: StyleMap<NavigationHeaderVariant> = {
@@ -58,7 +59,7 @@ export const NavigationHeader = ({
   })
 
   return (
-    <Section css={{ display: 'block' }} {...props}>
+    <Section {...props}>
       {/* TODO: refactor SkipToContent component. This is made for styling purposes only.  */}
       <Anchor
         css={{
@@ -79,7 +80,7 @@ export const NavigationHeader = ({
       >
         Skip to Wheelroom content
       </Anchor>
-      {/* TODO: Give Wrapper element position Fixed or undefined variants */}
+      {/* Wrapper element needs position Fixed or undefined variants */}
       <Div
         css={{
           label: 'wrapper',
@@ -102,21 +103,31 @@ export const NavigationHeader = ({
               <Strong>Wheelroom</Strong>
             </Anchor>
           </Div>
-          <NavigationMenu
-            model={{
-              contentfulNavigationSegment: section?.headerCollection?.items[0],
+          {/* Wrap all segments within nav element for accessibility and responsive styling reasons */}
+          <Nav
+            css={{
+              display: 'flex',
+              flex: '1 1 0%',
+              alignItems: 'center',
             }}
-          />
-          <NavigationActions
-            model={{
-              contentfulNavigationSegment: section?.actions,
-            }}
-          />
-          <NavigationSocial
-            model={{
-              contentfulNavigationSegment: section?.social,
-            }}
-          />
+          >
+            {/* Before NavigationMenu, etc... We don't need an extra container, please use NavigationSegment and –List instead. */}
+            <NavigationSegmentList
+              model={{
+                contentfulNavigationSegment:
+                  section?.headerCollection?.items[0],
+              }}
+              variant="menu"
+            />
+            <NavigationSegment
+              model={{ contentfulNavigationSegment: section?.actions }}
+              variant="primary"
+            />
+            <NavigationSegment
+              model={{ contentfulNavigationSegment: section?.social }}
+              variant="secondary"
+            />
+          </Nav>
         </Div>
       </Div>
     </Section>
