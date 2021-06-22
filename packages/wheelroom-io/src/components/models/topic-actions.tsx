@@ -1,6 +1,10 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
+import { Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/component-styles'
+import {
+  ComponentProps,
+  StyleFactory,
+  StyleMap,
+} from '../../lib/component-styles'
 import { ActionButton } from './action-button'
 import { ActionLink } from './action-link'
 import { ContentfulAction } from './contentful-action'
@@ -12,15 +16,13 @@ import {
 export type TopicActions = {
   contentfulActions?: ContentfulAction[]
 }
+export type TopicActionsProps = ComponentProps<
+  TopicActions,
+  TopicSectionVariant,
+  TopicSectionOptions
+>['div']
 
-type AnyDivProps = AnyProps['div']
-export type TopicActionsProps extends AnyDivProps = {
-  model?: TopicActions
-  options?: TopicSectionOptions
-  variant?: TopicSectionVariant
-}
-
-const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
+const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
     flex: 0,
     marginTop: 16,
@@ -44,6 +46,12 @@ const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
   showcase: {
     marginTop: 16,
   },
+  divider: {},
+  gallery: {},
+  image: {},
+  navigation: {},
+  text: {},
+  video: {},
 }
 
 export const topicActionsStyleFactory: StyleFactory<

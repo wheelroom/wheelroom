@@ -2,7 +2,6 @@
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 import {
   A,
-  AnyProps,
   B,
   Blockquote,
   Code,
@@ -28,17 +27,13 @@ import { Asset } from '../models/asset'
 import { Text } from '../elements/text'
 import { H1, H2, H3, H4, H5, H6 } from '../elements/heading'
 import { ContentfulPage } from '../models/contentful-page'
-import { StyleFactory } from '../../lib/component-styles'
+import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { ContentfulTextSection } from './contentful-text-section'
 
 export type TextSection = {
   contentfulTextSection?: ContentfulTextSection
 }
-
-type AnyDivProps = AnyProps['div']
-export type TextSectionProps extends AnyDivProps = {
-  model?: TextSection
-}
+export type TextSectionProps = ComponentProps<TextSection>['div']
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const textSectionStyleFactory: StyleFactory = (args) => {
