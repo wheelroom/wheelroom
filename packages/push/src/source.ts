@@ -1,39 +1,15 @@
-// @see https://github.com/contentful/contentful-management.js/blob/master/lib/entities/field-type.ts
-// @ts-expect-error Test
-type FieldType =
-  | { type: 'Symbol' }
-  | { type: 'Text' }
-  | { type: 'RichText' }
-  | { type: 'Integer' }
-  | { type: 'Number' }
-  | { type: 'Date' }
-  | { type: 'Boolean' }
-  | { type: 'Object' }
-  | { type: 'Location' }
-  | { type: 'Link'; linkType: 'Asset' }
-  | { type: 'Link'; linkType: 'Entry' }
-  | { type: 'Array'; items: { type: 'Symbol' } }
-  | { type: 'Array'; items: { type: 'Link'; linkType: 'Entry' } }
-  | { type: 'Array'; items: { type: 'Link'; linkType: 'Asset' } }
-
 // @see https://github.com/contentful/contentful-management.js/blob/master/lib/entities/content-type-fields.ts
-interface Item {
-  type: string
-  linkType?: string
-  // validations?: ContentTypeFieldValidation[]
-}
+// @see https://github.com/contentful/contentful-management.js/blob/master/lib/entities/field-type.ts
 
-interface ContentFields extends Item {
-  id: string
-  name: string
-  required: boolean
-  localized: boolean
-  disabled?: boolean
-  omitted?: boolean
-  deleted?: boolean
-  items?: Item
-  apiName?: string
-}
+import {
+  BasicMetaSysProps,
+  ContentFields,
+  ContentTypeFieldValidation,
+  ContentTypeProps,
+  Editor,
+  EditorInterfaceProps,
+  SysLink,
+} from 'contentful-management/types'
 
 export type Variant = 'external 1' | 'external 2' | 'external 3'
 
@@ -60,7 +36,6 @@ export interface Topic {
   otherVariant: 'variant 1' | 'variant 2' | 'variant 3'
 }
 
-// @ts-expect-error Test
 const defaultTopic: Topic = {
   heading: 'default heading',
   abstract: 'default abstract',
@@ -68,13 +43,65 @@ const defaultTopic: Topic = {
   otherVariant: 'variant 1',
 }
 
-// Where to define the editor config for each field?
-// @ts-expect-error Test
-const contentFieldsTopicHeading: ContentFields = {
+const basicSys: BasicMetaSysProps = {
+  type: '',
+  id: '',
+  version: 0,
+  createdAt: '',
+  updatedAt: '',
+}
+
+const sysLink: SysLink = {
+  sys: {
+    type: '',
+    linkType: '',
+    id: '',
+  },
+}
+
+const sys = {
+  ...basicSys,
+  space: sysLink,
+  environment: sysLink,
+  contentType: sysLink,
+}
+
+const headingField: ContentFields = {
   id: 'heading',
   type: 'Symbol',
   name: 'heading',
   required: false,
   localized: false,
-  items: { type: 'Symbol' }, // Where to put the actual drop down items?
+  items: { type: 'Symbol' },
 }
+
+const contentType: ContentTypeProps = {
+  sys,
+  name: 'Topic',
+  description: 'This is a topic type',
+  displayField: 'Topic',
+  fields: [headingField],
+}
+
+const editor: Editor = {
+  widgetId: 'widget',
+  widgetNamespace: 'widget name',
+}
+
+const editorInterface: EditorInterfaceProps = {
+  sys,
+  editor,
+}
+
+const validation: ContentTypeFieldValidation = {
+  linkContentType: ['type1', 'type2'],
+  in: ['in1', 'in2'],
+  linkMimetypeGroup: ['group1', 'group2'],
+  enabledNodeTypes: ['node1', 'node2'],
+  enabledMarks: ['marks1', 'marks2'],
+  unique: true,
+  size: { min: 1, max: 2 },
+  range: { min: 1, max: 2 },
+}
+
+console.log(defaultTopic, contentType, editorInterface, validation)
