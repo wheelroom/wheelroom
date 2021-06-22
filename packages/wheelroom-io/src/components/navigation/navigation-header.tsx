@@ -59,7 +59,7 @@ export const NavigationHeader = ({
   })
 
   return (
-    <Section css={{ display: 'block' }} {...props}>
+    <Section {...props}>
       {/* TODO: refactor SkipToContent component. This is made for styling purposes only.  */}
       <Anchor
         css={{
