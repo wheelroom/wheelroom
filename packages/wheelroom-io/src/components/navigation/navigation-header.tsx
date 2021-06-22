@@ -4,6 +4,7 @@ import {
   StyleFactory,
   StyleMap,
 } from '../../lib/component-styles'
+import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
 import { Anchor } from '../elements/anchor'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
@@ -53,13 +54,13 @@ export const NavigationHeader = ({
   model,
   ...props
 }: NavigationHeaderProps) => {
+  const context = useGlobals()
   const section = model?.contentfulNavigationSection
   if (!section?.headerCollection?.items?.length) return null
   const css = navigationHeaderStyleFactory({
     variant,
     options,
   })
-
   return (
     <Section {...props}>
       {/* TODO: refactor SkipToContent component. This is made for styling purposes only.  */}
@@ -81,7 +82,7 @@ export const NavigationHeader = ({
         }}
         href="#content"
       >
-        Skip to Wheelroom content
+        {context.globals.skipToContentHeading}
       </Anchor>
       {/* Wrapper element needs position Fixed or undefined variants */}
       <Div
@@ -103,7 +104,7 @@ export const NavigationHeader = ({
             }}
           >
             <Anchor href="./">
-              <Strong>Wheelroom</Strong>
+              <Strong>{context.globals.siteHeading}</Strong>
             </Anchor>
           </Div>
           {/* Wrap all segments within nav element for accessibility and responsive styling reasons */}

@@ -1,7 +1,13 @@
 import React, { useContext } from 'react'
+import { ContentfulGlobals } from '../components/models/contentful-globals'
 
-export const GlobalsContext = React.createContext({})
+export type UseGlobalsProps = () => {
+  globals: ContentfulGlobals
+  site: unknown
+}
+
+export const GlobalsContext: any = React.createContext({})
 
 export const GlobalsProvider = GlobalsContext.Provider
 
-export const useGlobals = () => useContext(GlobalsContext)
+export const useGlobals: UseGlobalsProps = () => useContext(GlobalsContext)
