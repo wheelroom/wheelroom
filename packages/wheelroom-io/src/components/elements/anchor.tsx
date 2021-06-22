@@ -22,8 +22,14 @@ const styleMap: StyleMap<AnchorVariant> = {
   link: baseStyle,
   menu: {
     ...baseStyle,
+    fontSize: 16,
     display: 'inline-block',
     padding: '16px 8px',
+    textDecoration: 'none',
+    // Gastby adds class name `.active` on current page link
+    ':hover, &.active': {
+      textDecoration: 'underline',
+    },
   },
   sitemap: baseStyle,
 }
