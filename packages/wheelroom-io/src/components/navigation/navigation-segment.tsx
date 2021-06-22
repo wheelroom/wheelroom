@@ -3,7 +3,7 @@ import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { ButtonVariant } from '../elements/button'
 import { ContentfulAction } from '../models/contentful-action'
 import { ActionButton } from '../models/action-button'
-import { ContentfulNavigationSegment } from '../models/contentful-navigation-segment'
+import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type NavigationSegmentVariant = 'actions'
 

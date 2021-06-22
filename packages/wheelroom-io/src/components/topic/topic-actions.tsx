@@ -11,7 +11,7 @@ import { ContentfulAction } from '../models/contentful-action'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
-} from '../models/contentful-topic-section'
+} from './contentful-topic-section'
 
 export type TopicActions = {
   contentfulActions?: ContentfulAction[]

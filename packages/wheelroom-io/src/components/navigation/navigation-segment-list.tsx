@@ -3,7 +3,7 @@ import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { AnchorVariant } from '../elements/anchor'
 import { ContentfulAction } from '../models/contentful-action'
 import { ActionLink } from '../models/action-link'
-import { ContentfulNavigationSegment } from '../models/contentful-navigation-segment'
+import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type NavigationSegmentList = {
   contentfulNavigationSegment?: ContentfulNavigationSegment
