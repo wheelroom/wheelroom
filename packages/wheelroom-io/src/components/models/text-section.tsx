@@ -38,7 +38,9 @@ export type TextSectionProps = ComponentProps<TextSection>['div']
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const textSectionStyleFactory: StyleFactory = (args) => {
-  return {}
+  return {
+    padding: '32px 0',
+  }
 }
 
 export const TextSection = ({ model, ...props }: TextSectionProps) => {
