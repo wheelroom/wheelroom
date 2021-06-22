@@ -21,6 +21,7 @@ export const navigationSegmentStyleFactory: StyleFactory = () => {
 
 export const NavigationSegment = ({
   model,
+  variant,
   ...props
 }: NavigationSegmentProps) => {
   if (!model?.contentfulNavigationSegment?.actionsCollection?.items?.length)
@@ -34,7 +35,7 @@ export const NavigationSegment = ({
         <ActionButton
           key={contentfulAction.sys?.id}
           model={{ contentfulAction }}
-          variant="primary"
+          variant={variant}
         />
       ))}
     </Div>

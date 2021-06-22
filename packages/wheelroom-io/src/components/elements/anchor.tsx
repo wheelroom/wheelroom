@@ -6,7 +6,7 @@ import {
   StyleMap,
 } from '../../lib/component-styles'
 
-export type AnchorVariant = 'link' | 'header' | 'footer' | 'sitemap'
+export type AnchorVariant = 'link' | 'menu' | 'sitemap'
 export type AnchorProps = ComponentProps<undefined, AnchorVariant>['a']
 
 const baseStyle = {
@@ -20,8 +20,7 @@ const baseStyle = {
 
 const styleMap: StyleMap<AnchorVariant> = {
   link: baseStyle,
-  header: baseStyle,
-  footer: baseStyle,
+  menu: baseStyle,
   sitemap: baseStyle,
 }
 
