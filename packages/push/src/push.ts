@@ -22,6 +22,14 @@ const visit = ({ node, checker, output }: Visit) => {
     if (type) {
       output.push(serializeInterface({ type, checker }))
     }
+  } else {
+    const type = checker.getTypeAtLocation(node)
+    const name = checker.typeToString(type)
+    const properties = type.getProperties()
+    console.log('name', name)
+    // console.log('properties', properties)
+    const details = properties.map((symbol) => symbol.escapedName)
+    console.log('details', details)
   }
 }
 
@@ -62,7 +70,10 @@ const serializeSymbol = ({ symbol, checker }: SerializeSymbol): DocEntry => {
     docTags: symbol?.getJsDocTags(),
     docComment: symbol.getDocumentationComment(checker),
     type: checker.typeToString(
-      checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration)
+      checker.getTypeOfSymbolAtLocation(
+        symbol,
+        symbol.valueDeclaration || ({} as ts.Node)
+      )
     ),
   }
 }

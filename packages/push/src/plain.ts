@@ -1,1 +1,1 @@
-export * from './push2'
+export * from './push'

@@ -1,26 +1,3 @@
-/**
- * This API calculates the average of a list of numbers.
- *
- * @param list - the array of input numbers
- * @returns the arithmetic mean, or 0 if `list` is an empty array
- *
- * @internal
- */
-
-/**
- * @internalDefault
- */
-
-/**
- * For more information, please contact support@internalwebsite.com.
- */
-
-/**
- * https://github.com/contentful/contentful-management.js/blob/master/lib/entities/content-type-fields.ts
- * https://github.com/contentful/contentful-management.js/blob/master/lib/entities/field-type.ts
- *
- */
-
 import {
   BasicMetaSysProps,
   ContentFields,
