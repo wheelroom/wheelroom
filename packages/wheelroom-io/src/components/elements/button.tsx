@@ -3,6 +3,7 @@ import {
   ComponentOptions,
   ComponentProps,
   StyleFactory,
+  StyleMap,
 } from '../../lib/component-styles'
 import { mediaQuery } from '../../lib/media-query'
 
@@ -43,7 +44,7 @@ const primaryStyle = {
   },
 }
 
-const styleMap: Partial<Record<ButtonVariant, any>> = {
+const styleMap: StyleMap<ButtonVariant> = {
   primary: primaryStyle,
   secondary: {
     ...baseStyle,

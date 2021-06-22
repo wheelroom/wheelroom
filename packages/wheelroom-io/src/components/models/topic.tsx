@@ -24,7 +24,7 @@ const baseStyle = {
   width: '100%',
 }
 
-const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
+const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
   block: {
     ...baseStyle,
     padding: 16,

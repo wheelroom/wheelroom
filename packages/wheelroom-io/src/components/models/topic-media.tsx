@@ -27,7 +27,7 @@ const baseStyle = {
   flexDirection: 'column',
 }
 
-const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
+const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
   block: {
     ...baseStyle,
     picture: {

@@ -20,7 +20,7 @@ export interface TopicTextProps extends AnyDivProps {
   variant?: TopicSectionVariant
 }
 
-const styleMap: Partial<Record<TopicSectionVariant, unknown>> = {
+const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
   block: {
     flex: '1 1 auto',
     p: { marginBottom: 0 },

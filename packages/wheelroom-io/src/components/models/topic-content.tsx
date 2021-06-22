@@ -1,6 +1,6 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/component-styles'
+import { StyleFactory, StyleMap } from '../../lib/component-styles'
 import { ContentfulAction } from '../models/contentful-action'
 import {
   TopicSectionOptions,
@@ -29,7 +29,7 @@ const baseStyle = {
   ':only-of-type': {},
 }
 
-const styleMap: Partial<Record<TopicSectionVariant, any>> = {
+const styleMap: StyleMap<TopicSectionVariant> = {
   block: { ...baseStyle, padding: '16px' },
   card: { ...baseStyle, flex: '1 1 auto', color: 'grey', padding: '16px' },
   featured: {
@@ -58,6 +58,10 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
   },
   showcase: { ...baseStyle, padding: '16px' },
   video: { ...baseStyle, padding: '16px' },
+  image: {},
+  text: {},
+  divider: {},
+  navigation: {},
 }
 
 export const topicContentStyleFactory: StyleFactory<

@@ -1,11 +1,10 @@
 import { AnyProps, Div, Hr } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/component-styles'
+import { StyleFactory, StyleMap } from '../../lib/component-styles'
 import { ContentfulTopic } from './contentful-topic'
 import { Topic } from './topic'
 import {
   ContentfulTopicSection,
-  TopicSectionOption,
   TopicSectionOptions,
   TopicSectionVariant,
 } from './contentful-topic-section'
@@ -33,7 +32,7 @@ const maxWidthStyle = {
   margin: '0 auto',
 }
 
-const styleMap: Partial<Record<TopicSectionVariant, any>> = {
+const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
     ...maxWidthStyle,
     alignItems: ['center', 'initial'],
@@ -77,6 +76,10 @@ const styleMap: Partial<Record<TopicSectionVariant, any>> = {
     justifyContent: 'center',
     maxWidth: ['35em', '54rem'],
   },
+  text: {},
+  featured: {},
+  headline: {},
+  navigation: {},
 }
 
 export const topicSectionStyleFactory: StyleFactory<
@@ -97,7 +100,7 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
   }
   // Isolate topic options from topic section model
   const options: TopicSectionOptions = {}
-  const optionKeys: TopicSectionOption[] = [
+  const optionKeys: (keyof TopicSectionOptions)[] = [
     'reversedOrder',
     'hideIcon',
     'hideMedia',
@@ -105,7 +108,9 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
     'hideAbstract',
     'hideAction',
   ]
-  optionKeys.forEach((key: TopicSectionOption) => (options[key] = section[key]))
+  optionKeys.forEach(
+    (key: keyof TopicSectionOptions) => (options[key] = section[key])
+  )
 
   const css = topicSectionStyleFactory({
     options,
