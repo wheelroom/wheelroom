@@ -1,4 +1,4 @@
-import { Div } from '@wheelroom/any/react'
+import { Section } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationActions } from './navigation-actions'
@@ -23,7 +23,7 @@ export const NavigationHeader = ({
   const css = navigationHeaderStyleFactory({})
 
   return (
-    <Div css={css} {...props}>
+    <Section css={css} {...props}>
       <NavigationMenu
         model={{
           contentfulNavigationSegment: section?.headerCollection?.items[0],
@@ -39,6 +39,6 @@ export const NavigationHeader = ({
           contentfulNavigationSegment: section?.social,
         }}
       />
-    </Div>
+    </Section>
   )
 }

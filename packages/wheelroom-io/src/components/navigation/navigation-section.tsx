@@ -18,9 +18,11 @@ export const navigationSectionStyleFactory: StyleFactory = () => {
 
 export const NavigationSection = (props: NavigationSectionProps) => {
   const css = navigationSectionStyleFactory({})
-
+  // TODO: Switch from <header /> to <footer /> depending on the position in our Page model component
+  const isHeaderOrFooter = 'header'
+  const isBannerOrContentinfo = 'banner'
   return (
-    <Div css={css} {...props}>
+    <Div is={isHeaderOrFooter} role={isBannerOrContentinfo} css={css}>
       <NavigationHeader {...props} />
       <NavigationInformation {...props} />
       <NavigationSitemap {...props} />
