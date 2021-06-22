@@ -36,8 +36,7 @@ export type TextSection = {
 }
 export type TextSectionProps = ComponentProps<TextSection>['div']
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const textSectionStyleFactory: StyleFactory = (args) => {
+export const textSectionStyleFactory: StyleFactory = () => {
   return {
     padding: '32px 0',
   }
@@ -116,13 +115,15 @@ export const TextSection = ({ model, ...props }: TextSectionProps) => {
 
   return (
     <Section css={css} {...props}>
-      <Div css={{
-        label: 'TextSectionContainer',
-        margin: '0 auto',
-        maxWidth: 712,
-        padding: '0 16px',
-        width: '100%',
-      }}>
+      <Div
+        css={{
+          label: 'TextSectionContainer',
+          margin: '0 auto',
+          maxWidth: 712,
+          padding: '0 16px',
+          width: '100%',
+        }}
+      >
         {document && documentToReactComponents(document, options)}
       </Div>
     </Section>
