@@ -1,10 +1,14 @@
 import { Li, Ul } from '@wheelroom/any/react'
-import { ComponentProps, StyleFactory, StyleMap } from '../../lib/component-styles'
+import {
+  ComponentProps,
+  StyleFactory,
+  StyleMap,
+} from '../../lib/component-styles'
 import { AnchorVariant } from '../elements/anchor'
 import { ContentfulAction } from '../models/contentful-action'
 import { ActionLink } from '../models/action-link'
-import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 import { mediaQuery } from '../../lib/media-query'
+import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type NavigationSegmentList = {
   contentfulNavigationSegment?: ContentfulNavigationSegment
@@ -24,12 +28,14 @@ const styleMap: StyleMap<AnchorVariant> = {
     padding: 0,
     li: {
       listStyle: 'none',
-    }
+    },
   },
-  sitemap: {}
+  sitemap: {},
 }
 
-export const navigationSegmentListStyleFactory: StyleFactory<AnchorVariant, undefined> = (args) => {
+export const navigationSegmentListStyleFactory: StyleFactory<AnchorVariant> = (
+  args
+) => {
   const useVariant = args.variant || 'menu'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])

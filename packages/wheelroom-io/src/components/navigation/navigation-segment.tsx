@@ -1,10 +1,14 @@
 import { Div } from '@wheelroom/any/react'
-import { ComponentProps, StyleFactory, StyleMap } from '../../lib/component-styles'
+import {
+  ComponentProps,
+  StyleFactory,
+  StyleMap,
+} from '../../lib/component-styles'
 import { ButtonVariant } from '../elements/button'
 import { ContentfulAction } from '../models/contentful-action'
 import { ActionButton } from '../models/action-button'
-import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 import { mediaQuery } from '../../lib/media-query'
+import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type NavigationSegmentVariant = 'actions'
 
@@ -21,7 +25,7 @@ const buttonGroupStyle = {
   margin: -4,
   a: {
     margin: 4,
-  }
+  },
 }
 
 const styleMap: StyleMap<ButtonVariant> = {
@@ -30,7 +34,9 @@ const styleMap: StyleMap<ButtonVariant> = {
   display: {},
 }
 
-export const navigationSegmentStyleFactory: StyleFactory<ButtonVariant, undefined> = (args) => {
+export const navigationSegmentStyleFactory: StyleFactory<ButtonVariant> = (
+  args
+) => {
   const useVariant = args.variant || 'primary'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])
