@@ -9,7 +9,11 @@ import { mediaQuery } from '../../lib/media-query'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'display'
 export type ButtonOptions = ComponentOptions<'hideHeading'>
-export type ButtonProps = ComponentProps<ButtonOptions, ButtonVariant>['button']
+export type ButtonProps = ComponentProps<
+  undefined,
+  ButtonVariant,
+  ButtonOptions
+>['button']
 
 const baseStyle = {
   color: 'white',
