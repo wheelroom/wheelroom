@@ -8,6 +8,7 @@ import {
   ContentTypeProps,
   Editor,
   EditorInterfaceProps,
+  FieldType,
   SysLink,
 } from 'contentful-management/types'
 
@@ -66,34 +67,7 @@ const sys = {
   contentType: sysLink,
 }
 
-const headingField: ContentFields = {
-  id: 'heading',
-  type: 'Symbol',
-  name: 'heading',
-  required: false,
-  localized: false,
-  items: { type: 'Symbol' },
-}
-
-const contentType: ContentTypeProps = {
-  sys,
-  name: 'Topic',
-  description: 'This is a topic type',
-  displayField: 'Topic',
-  fields: [headingField],
-}
-
-const editor: Editor = {
-  widgetId: 'widget',
-  widgetNamespace: 'widget name',
-}
-
-const editorInterface: EditorInterfaceProps = {
-  sys,
-  editor,
-}
-
-const validation: ContentTypeFieldValidation = {
+const fieldValidation: ContentTypeFieldValidation = {
   linkContentType: ['type1', 'type2'],
   in: ['in1', 'in2'],
   linkMimetypeGroup: ['group1', 'group2'],
@@ -104,4 +78,59 @@ const validation: ContentTypeFieldValidation = {
   range: { min: 1, max: 2 },
 }
 
-console.log(defaultTopic, contentType, editorInterface, validation)
+const headingField: ContentFields & FieldType = {
+  id: 'heading',
+  type: 'Symbol',
+  name: 'heading',
+  required: false,
+  localized: false,
+  items: { type: 'Symbol' } as FieldType,
+  validations: [fieldValidation],
+  initialValue: { key: 'value' },
+}
+
+const contentType: ContentTypeProps = {
+  sys,
+  name: 'Topic',
+  description: 'This is a topic type',
+  displayField: 'Topic',
+  fields: [headingField],
+}
+
+export type WidgetID =
+  | 'assetLinkEditor'
+  | 'assetLinksEditor'
+  | 'assetGalleryEditor'
+  | 'boolean'
+  | 'datePicker'
+  | 'entryLinkEditor'
+  | 'entryLinksEditor'
+  | 'entryCardEditor'
+  | 'entryCardsEditor'
+  | 'numberEditor'
+  | 'rating'
+  | 'locationEditor'
+  | 'objectEditor'
+  | 'urlEditor'
+  | 'slugEditor'
+  | 'listInput'
+  | 'checkbox'
+  | 'tagEditor'
+  | 'multipleLine'
+  | 'markdown'
+  | 'singleLine'
+  | 'dropdown'
+  | 'radio'
+  | 'richTextEditor'
+
+const editor: Editor = {
+  widgetId: 'singleLine' as WidgetID,
+  widgetNamespace: 'Single line',
+}
+
+const editorInterface: EditorInterfaceProps = {
+  sys,
+  editor,
+}
+
+console.log(defaultTopic, contentType, editorInterface)
