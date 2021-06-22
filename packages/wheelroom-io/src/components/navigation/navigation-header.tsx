@@ -21,17 +21,19 @@ export type NavigationHeaderProps = ComponentProps<
 >['section']
 
 const navigationHeaderBaseStyle = {
+  label: 'NavigationHeaderContainer',
   display: 'flex',
-  padding: '0 16px',
+  height: '100%',
   justifyContent: 'space-between',
+  padding: '0 16px',
   width: '100%',
 }
 
 const styleMap: StyleMap<NavigationHeaderVariant> = {
   fixed: {
     ...navigationHeaderBaseStyle,
-    maxWidth: 1280,
     margin: '0 auto',
+    maxWidth: 1280,
   },
   fluid: navigationHeaderBaseStyle,
 }
@@ -63,6 +65,7 @@ export const NavigationHeader = ({
       {/* TODO: refactor SkipToContent component. This is made for styling purposes only.  */}
       <Anchor
         css={{
+          label: 'SkipToContent',
           left: '-100%',
           position: 'absolute',
           ':focus': {
@@ -83,7 +86,7 @@ export const NavigationHeader = ({
       {/* Wrapper element needs position Fixed or undefined variants */}
       <Div
         css={{
-          label: 'wrapper',
+          label: 'NavigationHeaderWrapper',
           height: 70,
           borderBottom: '1px solid black',
         }}
@@ -105,11 +108,11 @@ export const NavigationHeader = ({
           </Div>
           {/* Wrap all segments within nav element for accessibility and responsive styling reasons */}
           <Nav
-            css={{
-              display: 'flex',
+            css={mediaQuery({
+              display: ['none', 'none', 'flex'],
               flex: '1 1 0%',
               alignItems: 'center',
-            }}
+            })}
           >
             {/* Before NavigationMenu, etc... We don't need an extra container, please use NavigationSegment and –List instead. */}
             <NavigationSegmentList
@@ -124,6 +127,7 @@ export const NavigationHeader = ({
               variant="primary"
             />
             <NavigationSegment
+              css={{ paddingLeft: 8 }}
               model={{ contentfulNavigationSegment: section?.social }}
               variant="secondary"
             />
