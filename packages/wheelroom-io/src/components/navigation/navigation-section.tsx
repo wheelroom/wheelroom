@@ -1,6 +1,6 @@
 import { Div } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
-import { ContentfulNavigationSection } from '../models/contentful-navigation-section'
+import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationFooter } from './navigation-footer'
 import { NavigationHeader } from './navigation-header'
 import { NavigationInformation } from './navigation-information'
