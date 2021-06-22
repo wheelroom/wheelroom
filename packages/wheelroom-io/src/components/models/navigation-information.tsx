@@ -1,16 +1,13 @@
 import { AnyProps, Div, H3 } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 
 export type NavigationInformation = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
-
-type AnyDivProps = AnyProps['div']
-export type NavigationInformationProps extends AnyDivProps = {
-  model?: NavigationInformation
-}
+export type NavigationInformationProps =
+  ComponentProps<NavigationInformation>['div']
 
 export const navigationInformationStyleFactory: StyleFactory = () => {
   return {}

@@ -1,5 +1,5 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationActions } from './navigation-actions'
 import { NavigationMenu } from './navigation-menu'
@@ -8,11 +8,7 @@ import { NavigationSocial } from './navigation-social'
 export type NavigationHeader = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
-
-type AnyDivProps = AnyProps['div']
-export type NavigationHeaderProps extends AnyDivProps = {
-  model?: NavigationHeader
-}
+export type NavigationHeaderProps = ComponentProps<NavigationHeader>['div']
 
 export const navigationHeaderStyleFactory: StyleFactory = () => {
   return {}

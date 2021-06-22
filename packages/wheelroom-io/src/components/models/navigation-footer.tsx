@@ -1,5 +1,5 @@
 import { AnyProps, Div, H3, H4 } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegmentList } from './navigation-segment-list'
@@ -7,11 +7,7 @@ import { NavigationSegmentList } from './navigation-segment-list'
 export type NavigationFooter = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
-
-type AnyDivProps = AnyProps['div']
-export type NavigationFooterProps extends AnyDivProps = {
-  model?: NavigationFooter
-}
+export type NavigationFooterProps = ComponentProps<NavigationFooter>['div']
 
 export const navigationFooterStyleFactory: StyleFactory = () => {
   return {}
