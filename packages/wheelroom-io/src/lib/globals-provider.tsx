@@ -1,13 +1,7 @@
 import React, { useContext } from 'react'
-import { ContentfulGlobals } from '../components/models/contentful-globals'
-
-export type UseGlobalsProps = () => {
-  globals: ContentfulGlobals
-  site: unknown
-}
 
 export const GlobalsContext: any = React.createContext({})
-
 export const GlobalsProvider = GlobalsContext.Provider
 
-export const useGlobals: UseGlobalsProps = () => useContext(GlobalsContext)
+// Provide Context type externally so that we can reuse this libary
+export const useGlobals = <Context,>(): Context => useContext(GlobalsContext)

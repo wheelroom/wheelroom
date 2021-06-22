@@ -7,6 +7,7 @@ import {
 import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
 import { Anchor } from '../elements/anchor'
+import { ContentfulGlobals } from '../models/contentful-globals'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegment } from './navigation-segment'
 import { NavigationSegmentList } from './navigation-segment-list'
@@ -54,7 +55,8 @@ export const NavigationHeader = ({
   model,
   ...props
 }: NavigationHeaderProps) => {
-  const context = useGlobals()
+  type Context = { globals: ContentfulGlobals }
+  const { globals } = useGlobals<Context>()
   const section = model?.contentfulNavigationSection
   if (!section?.headerCollection?.items?.length) return null
   const css = navigationHeaderStyleFactory({
@@ -82,7 +84,7 @@ export const NavigationHeader = ({
         }}
         href="#content"
       >
-        {context.globals.skipToContentHeading}
+        {globals.skipToContentHeading}
       </Anchor>
       {/* Wrapper element needs position Fixed or undefined variants */}
       <Div
@@ -104,7 +106,7 @@ export const NavigationHeader = ({
             }}
           >
             <Anchor href="./">
-              <Strong>{context.globals.siteHeading}</Strong>
+              <Strong>{globals.siteHeading}</Strong>
             </Anchor>
           </Div>
           {/* Wrap all segments within nav element for accessibility and responsive styling reasons */}
