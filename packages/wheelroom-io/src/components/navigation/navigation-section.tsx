@@ -23,7 +23,7 @@ export const NavigationSection = (props: NavigationSectionProps) => {
   const isBannerOrContentinfo = 'banner'
   return (
     <Div is={isHeaderOrFooter} role={isBannerOrContentinfo} css={css}>
-      <NavigationHeader {...props} />
+      <NavigationHeader variant="fixed" {...props} />
       <NavigationInformation {...props} />
       <NavigationSitemap {...props} />
       <NavigationFooter {...props} />
