@@ -1,6 +1,6 @@
 import { Div, H3 } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
-import { ContentfulNavigationSegment } from '../models/contentful-navigation-segment'
+import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 import { NavigationSegment } from './navigation-segment'
 
 export type NavigationActions = {
