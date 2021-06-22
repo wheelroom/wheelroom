@@ -1,8 +1,7 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { ComponentOptions, StyleFactory } from '../../lib/component-styles'
 
-export type WrapperOption = 'noMargin' | 'useMaxWidth'
-export type WrapperOptions = Partial<Record<WrapperOption, boolean>>
+export type WrapperOptions = ComponentOptions<'noMargin' | 'useMaxWidth'>
 
 type AnyDivProps = AnyProps['div']
 export interface WrapperProps extends AnyDivProps {

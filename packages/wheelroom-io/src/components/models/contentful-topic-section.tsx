@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby'
+import { ComponentOptions } from '../../lib/component-styles'
 import { ContentfulTopic } from './contentful-topic'
 
 export type TopicSectionVariant =
@@ -16,15 +17,14 @@ export type TopicSectionVariant =
   | 'text'
   | 'video'
 
-export type TopicSectionOption =
+export type TopicSectionOptions = ComponentOptions<
   | 'reversedOrder'
   | 'hideIcon'
   | 'hideMedia'
   | 'hideHeading'
   | 'hideAbstract'
   | 'hideAction'
-
-export type TopicSectionOptions = Partial<Record<TopicSectionOption, boolean>>
+>
 
 export interface ContentfulTopicSection extends TopicSectionOptions {
   sys?: {

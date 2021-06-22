@@ -1,10 +1,10 @@
 import { Fragment } from 'react'
 import * as BootstrapIcon from 'react-bootstrap-icons'
 import { Props as BootstrapIconProps } from 'react-bootstrap-icons'
+import { ComponentOptions } from '../../lib/component-styles'
 
 export type IconVariant = keyof typeof BootstrapIcon
-export type IconOption = 'medium' | 'large'
-export type IconOptions = Partial<Record<IconOption, boolean>>
+export type IconOptions = ComponentOptions<'medium' | 'large'>
 
 export interface IconProps extends BootstrapIconProps {
   options?: IconOptions

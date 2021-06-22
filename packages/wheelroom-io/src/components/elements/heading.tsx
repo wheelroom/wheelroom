@@ -1,12 +1,21 @@
-import { Any, AnyProps } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { Any } from '@wheelroom/any/react'
+import {
+  ComponentOptions,
+  ComponentProps,
+  StyleFactory,
+  StyleMap,
+} from '../../lib/component-styles'
+
+export type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+export type HeadingOptions = ComponentOptions<'noMargin' | 'display'>
+export type HeadingProps = ComponentProps<HeadingOptions, HeadingVariant>['h1']
 
 const headingStyle = {
   marginBottom: 16,
   marginTop: 0,
 }
 
-const styleMap = {
+const styleMap: StyleMap<HeadingVariant> = {
   h1: {
     ...headingStyle,
     fontSize: ['42px', '42px', '56px', '56px'],
@@ -45,16 +54,6 @@ const displayOptionStyle = {
     'linear-gradient(90deg, var(--color-secondary-500) 0%, var(--color-primary-500) 100%)',
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
-}
-
-export type HeadingVariant = keyof typeof styleMap
-export type HeadingOption = 'noMargin' | 'display'
-export type HeadingOptions = Partial<Record<HeadingOption, boolean>>
-
-type AnyButtonProps = AnyProps['h1']
-export interface HeadingProps extends AnyButtonProps {
-  options?: HeadingOptions
-  variant?: HeadingVariant
 }
 
 export const headingStyleFactory: StyleFactory<HeadingVariant, HeadingOptions> =

@@ -20,3 +20,5 @@ export type StyleFactory<Variant = undefined, Options = undefined> = (args: {
   variant?: Variant
   options?: Options
 }) => any
+
+export type StyleMap<Variant extends string> = Record<Variant, unknown>

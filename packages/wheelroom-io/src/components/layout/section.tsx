@@ -1,8 +1,7 @@
 import { AnyProps, Div } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { ComponentOptions, StyleFactory } from '../../lib/component-styles'
 
-export type SectionOption = 'noMargin'
-export type SectionOptions = Partial<Record<SectionOption, boolean>>
+export type SectionOptions = ComponentOptions<'noMargin'>
 
 type SectionVariant = 'button' | 'topic'
 

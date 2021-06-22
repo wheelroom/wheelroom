@@ -1,23 +1,19 @@
 import { AnyProps, Figcaption, Img, Picture } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/component-styles'
+import {
+  ComponentOptions,
+  ComponentProps,
+  StyleFactory,
+} from '../../lib/component-styles'
 import { ContentfulAsset } from '../models/contentful-asset'
-
-export type ImageVariant = 'fluid'
 
 export interface Image {
   contentfulAsset?: ContentfulAsset
 }
+export type ImageVariant = 'fluid'
+export type ImageOptions = ComponentOptions<'showCaption'>
 
-export type ImageOption = 'showCaption'
-export type ImageOptions = Partial<Record<ImageOption, boolean>>
-
-type AnyPictureProps = AnyProps['picture']
-export interface ImageProps extends AnyPictureProps {
-  model?: Image
-  options?: ImageOptions
-  variant?: ImageVariant
-}
+type ImageProps = ComponentProps<Image, ImageVariant, ImageOptions>['picture']
 
 const defaultAsset: ContentfulAsset = {
   sys: {

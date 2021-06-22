@@ -19,9 +19,9 @@ export type MyComp = {
   abstract?: string
 }
 export type MyCompVariant = 'primary' | 'secondary'
-export type MyCompOption = 'reversedOrder' | 'hideMedia'
-export type MyCompOptions = Partial<Record<MyCompOption, boolean>>
+export type MyCompOptions = ComponentOptions<'reversedOrder' | 'hideMedia'> 
 export type MyCompEvents = { handleClick: () => void }
+export type MyCompProps = ComponentProps<MyComp, MyCompVariant, MyCompOptions>['div']
 
 export const myCompStyleFactory: StyleFactory<MyCompVariant, MyCompOptions> = (args) => {
   const useVariant = args.variant || 'primary'
@@ -31,14 +31,6 @@ export const myCompStyleFactory: StyleFactory<MyCompVariant, MyCompOptions> = (a
     args.options?.reversedOrder && reversedOrderOptionStyle,
     args.options?.hideMedia && hideMediaOptionStyle,
   ]
-}
-
-type AnyDivProps = AnyProps['div']
-export interface MyCompProps extends AnyDivProps {
-  model?: MyComp
-  options?: MyCompOptions
-  variant?: MyCompVariant
-  events?: MyCompEvents
 }
 
 export const MyComp = ({

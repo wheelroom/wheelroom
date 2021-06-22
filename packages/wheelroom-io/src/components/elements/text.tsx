@@ -1,9 +1,8 @@
 import { AnyProps, P as AnyP } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { ComponentOptions, StyleFactory } from '../../lib/component-styles'
 
 export type TextVariant = 'lead'
-export type TextOption = 'noMargin'
-export type TextOptions = Partial<Record<TextOption, boolean>>
+export type TextOptions = ComponentOptions<'noMargin'>
 
 type AnyPProps = AnyProps['p']
 export interface TextProps extends AnyPProps {

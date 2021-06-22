@@ -1,16 +1,12 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
+import { Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/component-styles'
+import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { ContentfulEmbed } from './contentful-embed'
 
 export type Embed = {
   contentfulEmbed?: ContentfulEmbed
 }
-
-type AnyDivProps = AnyProps['div']
-export interface EmbedProps extends AnyDivProps {
-  model?: Embed
-}
+export type EmbedProps = ComponentProps<Embed>['div']
 
 const baseStyle = {
   margin: 0,

@@ -1,6 +1,10 @@
 import { A as AnyA } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { ComponentProps, StyleFactory } from '../../lib/component-styles'
+import {
+  ComponentProps,
+  StyleFactory,
+  StyleMap,
+} from '../../lib/component-styles'
 
 export type AnchorVariant = 'link' | 'header' | 'footer' | 'sitemap'
 export type AnchorProps = ComponentProps<undefined, AnchorVariant>['a']
@@ -14,7 +18,7 @@ const baseStyle = {
   textDecoration: 'underline',
 }
 
-const styleMap: Partial<Record<AnchorVariant, any>> = {
+const styleMap: StyleMap<AnchorVariant> = {
   link: baseStyle,
   header: baseStyle,
   footer: baseStyle,

@@ -1,11 +1,13 @@
 import { Button as AnyButton } from '@wheelroom/any/react'
-import { ComponentProps, StyleFactory } from '../../lib/component-styles'
+import {
+  ComponentOptions,
+  ComponentProps,
+  StyleFactory,
+} from '../../lib/component-styles'
 import { mediaQuery } from '../../lib/media-query'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'display'
-export type ButtonOption = 'hideHeading'
-export type ButtonOptions = Partial<Record<ButtonOption, boolean>>
-
+export type ButtonOptions = ComponentOptions<'hideHeading'>
 export type ButtonProps = ComponentProps<ButtonOptions, ButtonVariant>['button']
 
 const baseStyle = {
