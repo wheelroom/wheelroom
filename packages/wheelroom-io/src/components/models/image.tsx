@@ -12,8 +12,11 @@ export type Image = {
 }
 export type ImageVariant = 'fluid'
 export type ImageOptions = ComponentOptions<'showCaption'>
-
-type ImageProps = ComponentProps<Image, ImageVariant, ImageOptions>['picture']
+export type ImageProps = ComponentProps<
+  Image,
+  ImageVariant,
+  ImageOptions
+>['picture']
 
 const defaultAsset: ContentfulAsset = {
   sys: {

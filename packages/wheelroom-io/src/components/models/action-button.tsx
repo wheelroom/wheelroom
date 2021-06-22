@@ -6,6 +6,7 @@ import {
   ButtonVariant,
 } from '../elements/button'
 import { Anchor, AnchorProps } from '../elements/anchor'
+import { ComponentProps } from '../../lib/component-styles'
 import { ContentfulAction } from './contentful-action'
 
 /**
@@ -16,12 +17,11 @@ import { ContentfulAction } from './contentful-action'
 export type ActionButton = {
   contentfulAction?: ContentfulAction
 }
-
-export type ActionButtonProps<T> = T & {
-  model?: ActionButton
-  variant?: ButtonVariant
-  options?: ButtonOptions
-}
+export type ActionButtonProps = ComponentProps<
+  ActionButton,
+  ButtonVariant,
+  ButtonOptions
+>['a']
 
 type LinkProps = Omit<GatsbyLinkProps<any>, 'ref'>
 export const ActionButton = ({
@@ -29,7 +29,7 @@ export const ActionButton = ({
   model,
   options,
   ...props
-}: ActionButtonProps<AnchorProps | LinkProps>) => {
+}: ActionButtonProps) => {
   const action = model?.contentfulAction
   const path = action?.page?.path
   const url = action?.url

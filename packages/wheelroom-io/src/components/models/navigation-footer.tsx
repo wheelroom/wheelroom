@@ -34,7 +34,7 @@ export const NavigationFooter = ({
         model={{
           contentfulNavigationSegment: section?.actions,
         }}
-        variant="actions"
+        variant="primary"
       />
       <H4>Navigation Social</H4>
       <NavigationSegment

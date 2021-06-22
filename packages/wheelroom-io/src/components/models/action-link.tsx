@@ -1,12 +1,12 @@
 import { Link, GatsbyLinkProps } from 'gatsby'
 import { css } from '@emotion/css'
-import { ButtonProps } from '../elements/button'
 import {
   Anchor,
   AnchorProps,
   anchorStyleFactory,
   AnchorVariant,
 } from '../elements/anchor'
+import { ComponentProps } from '../../lib/component-styles'
 import { ContentfulAction } from './contentful-action'
 
 /**
@@ -17,18 +17,10 @@ import { ContentfulAction } from './contentful-action'
 export type ActionLink = {
   contentfulAction?: ContentfulAction
 }
-
-export type ActionLinkProps<T> = T & {
-  model?: ActionLink
-  variant?: AnchorVariant
-}
+export type ActionLinkProps = ComponentProps<ActionLink, AnchorVariant>['a']
 
 type LinkProps = Omit<GatsbyLinkProps<any>, 'ref'>
-export const ActionLink = ({
-  model,
-  variant,
-  ...props
-}: ActionLinkProps<ButtonProps | AnchorProps | LinkProps>) => {
+export const ActionLink = ({ model, variant, ...props }: ActionLinkProps) => {
   const action = model?.contentfulAction
   const path = action?.page?.path
   const url = action?.url

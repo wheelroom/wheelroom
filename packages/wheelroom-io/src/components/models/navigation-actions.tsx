@@ -24,7 +24,7 @@ export const NavigationActions = ({
       <H3>Navigation Actions</H3>
       <NavigationSegment
         model={{ contentfulNavigationSegment }}
-        variant="actions"
+        variant="primary"
       />
     </Div>
   )
