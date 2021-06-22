@@ -1,3 +1,4 @@
+import { CSSObject } from '@emotion/react'
 import { AnyProps } from '@wheelroom/any/react'
 
 export type ComponentProps<
@@ -21,4 +22,4 @@ export type StyleFactory<Variant = undefined, Options = undefined> = (args: {
   options?: Options
 }) => any
 
-export type StyleMap<Variant extends string> = Record<Variant, unknown>
+export type StyleMap<Variant extends string> = Record<Variant, CSSObject | CSSObject[]>
