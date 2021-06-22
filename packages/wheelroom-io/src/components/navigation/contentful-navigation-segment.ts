@@ -10,12 +10,12 @@ export type ContentfulNavigationSegment = {
 }
 
 export const fragment = graphql`
-  fragment NavigationSegment on Contentful_NavigationSegment {
+  fragment Wheelroom_NavigationSegment on Contentful_NavigationSegment {
     heading
     abstract
     actionsCollection(limit: 5) {
       items {
-        ...Action
+        ...Wheelroom_Action
       }
     }
   }

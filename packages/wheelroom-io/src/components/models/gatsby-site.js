@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 
 export const fragment = graphql`
-  fragment GatsbySite on Site {
+  fragment Gatsby_Site on Site {
     siteMetadata {
       siteVersion
       siteUrl

@@ -48,14 +48,14 @@ export const queryId = graphql`
   query ($pageId: String!, $globalsId: String!) {
     contentful {
       page(id: $pageId) {
-        ...Page
+        ...Wheelroom_Page
       }
       globals(id: $globalsId) {
-        ...Globals
+        ...Wheelroom_Globals
       }
     }
     site {
-      ...GatsbySite
+      ...Gatsby_Site
     }
   }
 `

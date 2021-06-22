@@ -28,46 +28,46 @@ export type ContentfulNavigationSection = {
 }
 
 export const fragment = graphql`
-  fragment NavigationSection on Contentful_NavigationSection {
+  fragment Wheelroom_NavigationSection on Contentful_NavigationSection {
     __typename
     sys {
       id
     }
     title
     actions {
-      ...NavigationSegment
+      ...Wheelroom_NavigationSegment
     }
     footerCollection(limit: 5) {
       items {
-        ...NavigationSegment
+        ...Wheelroom_NavigationSegment
       }
     }
     headerCollection(limit: 5) {
       items {
-        ...NavigationSegment
+        ...Wheelroom_NavigationSegment
       }
     }
     informationCollection(limit: 5) {
       items {
-        ...NavigationSegment
+        ...Wheelroom_NavigationSegment
       }
     }
     legal {
-      ...NavigationSegment
+      ...Wheelroom_NavigationSegment
     }
     logo {
-      ...Asset
+      ...Wheelroom_Asset
     }
     logoAction {
-      ...Action
+      ...Wheelroom_Action
     }
     sitemapCollection(limit: 5) {
       items {
-        ...NavigationSegment
+        ...Wheelroom_NavigationSegment
       }
     }
     social {
-      ...NavigationSegment
+      ...Wheelroom_NavigationSegment
     }
   }
 `
