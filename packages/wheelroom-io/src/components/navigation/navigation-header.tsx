@@ -1,10 +1,11 @@
-import { Section } from '@wheelroom/any/react'
+import { Div, Section, Strong } from '@wheelroom/any/react'
 import {
   ComponentProps,
   StyleFactory,
   StyleMap,
 } from '../../lib/component-styles'
 import { mediaQuery } from '../../lib/media-query'
+import { Anchor } from '../elements/anchor'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationActions } from './navigation-actions'
 import { NavigationMenu } from './navigation-menu'
@@ -21,7 +22,8 @@ export type NavigationHeaderProps = ComponentProps<
 >['section']
 
 const navigationHeaderBaseStyle = {
-  display: 'block',
+  display: 'flex',
+  padding: '0 16px',
 }
 
 const styleMap: StyleMap<NavigationHeaderVariant> = {
@@ -56,22 +58,67 @@ export const NavigationHeader = ({
   })
 
   return (
-    <Section css={css} {...props}>
-      <NavigationMenu
-        model={{
-          contentfulNavigationSegment: section?.headerCollection?.items[0],
+    <Section css={{ display: 'block' }} {...props}>
+      {/* TODO: refactor SkipToContent component. This is made for styling purposes only.  */}
+      <Anchor
+        css={{
+          left: '-100%',
+          position: 'absolute',
+          ':focus': {
+            backgroundColor: 'white',
+            left: 0,
+            padding: 16,
+            right: 0,
+            textAlign: 'center',
+            top: 0,
+            width: '100%',
+            zIndex: 1002,
+          },
         }}
-      />
-      <NavigationActions
-        model={{
-          contentfulNavigationSegment: section?.actions,
+        href="#content"
+      >
+        Skip to Wheelroom content
+      </Anchor>
+      {/* TODO: Give Wrapper element position Fixed or undefined variants */}
+      <Div
+        css={{
+          label: 'wrapper',
+          height: 70,
+          borderBottom: '1px solid black',
         }}
-      />
-      <NavigationSocial
-        model={{
-          contentfulNavigationSegment: section?.social,
-        }}
-      />
+      >
+        {/* Note: Here starts the NavigationHeader with fixed and fluid variants */}
+        <Div css={css}>
+          {/* TODO: refactor NavigationBranding model component. This is made for styling purposes only.  */}
+          <Div
+            css={{
+              label: 'NavigationBranding',
+              alignItems: 'center',
+              display: 'flex',
+              marginRight: 16,
+            }}
+          >
+            <Anchor href="./">
+              <Strong>Wheelroom</Strong>
+            </Anchor>
+          </Div>
+          <NavigationMenu
+            model={{
+              contentfulNavigationSegment: section?.headerCollection?.items[0],
+            }}
+          />
+          <NavigationActions
+            model={{
+              contentfulNavigationSegment: section?.actions,
+            }}
+          />
+          <NavigationSocial
+            model={{
+              contentfulNavigationSegment: section?.social,
+            }}
+          />
+        </Div>
+      </Div>
     </Section>
   )
 }
