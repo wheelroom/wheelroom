@@ -1,5 +1,25 @@
-// @see https://github.com/contentful/contentful-management.js/blob/master/lib/entities/content-type-fields.ts
-// @see https://github.com/contentful/contentful-management.js/blob/master/lib/entities/field-type.ts
+/**
+ * This API calculates the average of a list of numbers.
+ *
+ * @param list - the array of input numbers
+ * @returns the arithmetic mean, or 0 if `list` is an empty array
+ *
+ * @internal
+ */
+
+/**
+ * @internalDefault
+ */
+
+/**
+ * For more information, please contact support@internalwebsite.com.
+ */
+
+/**
+ * https://github.com/contentful/contentful-management.js/blob/master/lib/entities/content-type-fields.ts
+ * https://github.com/contentful/contentful-management.js/blob/master/lib/entities/field-type.ts
+ *
+ */
 
 import {
   BasicMetaSysProps,
@@ -19,31 +39,27 @@ export type Variant = 'external 1' | 'external 2' | 'external 3'
  *
  * @remarks
  * What are you doing
- * @some-value here
- * @wheelroom bizar @platform contentful
+ *
+ * @wheelroom platform:contentful
  * @see https://www.wheelroom.io
- * @defaultValue 'Default heading' @some thing
- * ```ts
- * const a = 3
- * ```
  *
  */
 export interface Topic {
   /**
    * This is the heading
-   * @platformType Symbol
-   * @platformContentFields contentFieldsTopicHeading
+   * @wheelroom field:Symbol
    */
   heading: string
-  /** @platformType Text - Topic heading */
+  /**
+   * This is the abstract
+   * @wheelroom field:Symbol
+   */
   abstract: string
   /**
-   * Topic variant
-   * @platformType Symbol - what happens
+   * This is the variant
+   * @wheelroom field:Symbol[]
    */
   variant: Variant
-  /** @platformType Symbol - Another variant */
-  otherVariant: 'variant 1' | 'variant 2' | 'variant 3'
 }
 
 const basicSys: BasicMetaSysProps = {
