@@ -1,9 +1,10 @@
 import { Div } from '@wheelroom/any/react'
-import { ComponentProps, StyleFactory } from '../../lib/component-styles'
+import { ComponentProps, StyleFactory, StyleMap } from '../../lib/component-styles'
 import { ButtonVariant } from '../elements/button'
 import { ContentfulAction } from '../models/contentful-action'
 import { ActionButton } from '../models/action-button'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
+import { mediaQuery } from '../../lib/media-query'
 
 export type NavigationSegmentVariant = 'actions'
 
@@ -15,8 +16,24 @@ export type NavigationSegmentProps = ComponentProps<
   ButtonVariant
 >['div']
 
-export const navigationSegmentStyleFactory: StyleFactory = () => {
-  return {}
+const buttonGroupStyle = {
+  // Adding space between the Button(s). The Button container will remove / eliminate the margin that is added by the Button(s).
+  margin: -4,
+  a: {
+    margin: 4,
+  }
+}
+
+const styleMap: StyleMap<ButtonVariant> = {
+  primary: buttonGroupStyle,
+  secondary: buttonGroupStyle,
+  display: {},
+}
+
+export const navigationSegmentStyleFactory: StyleFactory<ButtonVariant, undefined> = (args) => {
+  const useVariant = args.variant || 'primary'
+  const baseStyle = styleMap[useVariant]
+  return mediaQuery([baseStyle])
 }
 
 export const NavigationSegment = ({
@@ -27,7 +44,9 @@ export const NavigationSegment = ({
   if (!model?.contentfulNavigationSegment?.actionsCollection?.items?.length)
     return null
   const actions = model.contentfulNavigationSegment.actionsCollection.items
-  const css = navigationSegmentStyleFactory({})
+  const css = navigationSegmentStyleFactory({
+    variant,
+  })
 
   return (
     <Div css={css} {...props}>

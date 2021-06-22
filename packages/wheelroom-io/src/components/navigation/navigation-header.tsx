@@ -127,6 +127,7 @@ export const NavigationHeader = ({
               variant="primary"
             />
             <NavigationSegment
+              css={{ paddingLeft: 8 }}
               model={{ contentfulNavigationSegment: section?.social }}
               variant="secondary"
             />
