@@ -45,9 +45,9 @@ interface SerializeType {
 const serializeType = ({ type, checker }: SerializeType): DocEntry => {
   const symbol = type.getSymbol()
   return {
-    name: symbol!.getName(),
-    docTags: symbol!.getJsDocTags(),
-    docComment: symbol!.getDocumentationComment(checker),
+    name: symbol?.getName(),
+    docTags: symbol?.getJsDocTags(),
+    docComment: symbol?.getDocumentationComment(checker),
     type: checker.typeToString(type),
   }
 }
@@ -59,10 +59,10 @@ interface SerializeSymbol {
 const serializeSymbol = ({ symbol, checker }: SerializeSymbol): DocEntry => {
   return {
     name: symbol.getName(),
-    docTags: symbol!.getJsDocTags(),
+    docTags: symbol?.getJsDocTags(),
     docComment: symbol.getDocumentationComment(checker),
     type: checker.typeToString(
-      checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!)
+      checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration)
     ),
   }
 }
