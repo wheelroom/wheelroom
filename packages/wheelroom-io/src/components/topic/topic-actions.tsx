@@ -5,13 +5,13 @@ import {
   StyleFactory,
   StyleMap,
 } from '../../lib/component-styles'
-import { ActionButton } from './action-button'
-import { ActionLink } from './action-link'
-import { ContentfulAction } from './contentful-action'
+import { ActionButton } from '../models/action-button'
+import { ActionLink } from '../models/action-link'
+import { ContentfulAction } from '../models/contentful-action'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
-} from './contentful-topic-section'
+} from '../models/contentful-topic-section'
 
 export type TopicActions = {
   contentfulActions?: ContentfulAction[]
