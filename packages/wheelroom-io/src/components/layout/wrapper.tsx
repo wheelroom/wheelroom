@@ -1,13 +1,16 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
-import { ComponentOptions, StyleFactory } from '../../lib/component-styles'
+import { Div } from '@wheelroom/any/react'
+import {
+  ComponentOptions,
+  ComponentProps,
+  StyleFactory,
+} from '../../lib/component-styles'
 
 export type WrapperOptions = ComponentOptions<'noMargin' | 'useMaxWidth'>
-
-type AnyDivProps = AnyProps['div']
-export interface WrapperProps extends AnyDivProps {
-  options?: WrapperOptions
-  variant?: any
-}
+export type WrapperProps = ComponentProps<
+  undefined,
+  undefined,
+  WrapperOptions
+>['div']
 
 const baseStyle = {
   margin: '0 auto',

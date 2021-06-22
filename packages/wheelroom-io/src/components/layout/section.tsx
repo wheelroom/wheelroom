@@ -1,15 +1,17 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
-import { ComponentOptions, StyleFactory } from '../../lib/component-styles'
+import { Div } from '@wheelroom/any/react'
+import {
+  ComponentOptions,
+  ComponentProps,
+  StyleFactory,
+} from '../../lib/component-styles'
 
+export type SectionVariant = 'button' | 'topic'
 export type SectionOptions = ComponentOptions<'noMargin'>
-
-type SectionVariant = 'button' | 'topic'
-
-type AnyDivProps = AnyProps['div']
-export interface SectionProps extends AnyDivProps {
-  options?: SectionOptions
-  variant?: SectionVariant
-}
+export type SectionProps = ComponentProps<
+  undefined,
+  SectionVariant,
+  SectionOptions
+>['div']
 
 const buttonVariantStyle = {
   color: 'black',

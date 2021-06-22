@@ -1,12 +1,8 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
-import { StyleFactory } from '../../lib/component-styles'
+import { Div } from '@wheelroom/any/react'
+import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 
-type GridVariant = 'header' | 'pancake' | 'sidebar'
-
-type AnyDivProps = AnyProps['div']
-export interface GridProps extends AnyDivProps {
-  variant?: GridVariant
-}
+export type GridVariant = 'header' | 'pancake' | 'sidebar'
+export type GridProps = ComponentProps<undefined, GridVariant>['h1']
 
 const baseGridStyle = {
   display: 'grid',
