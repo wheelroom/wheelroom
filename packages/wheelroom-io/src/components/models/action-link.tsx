@@ -9,7 +9,10 @@ import {
 } from '../elements/anchor'
 import { ContentfulAction } from './contentful-action'
 
-export type ActionLinkVariant = AnchorVariant
+/**
+ * This is an in-between component without styling. This component returnes
+ * either a Link or a Anchor element and uses Anchor variant styling
+ */
 
 export interface ActionLink {
   contentfulAction?: ContentfulAction
@@ -17,7 +20,7 @@ export interface ActionLink {
 
 export type ActionLinkProps<T> = T & {
   model?: ActionLink
-  variant?: ActionLinkVariant
+  variant?: AnchorVariant
 }
 
 type LinkProps = Omit<GatsbyLinkProps<any>, 'ref'>

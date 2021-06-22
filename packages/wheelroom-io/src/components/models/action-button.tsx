@@ -2,15 +2,16 @@ import { Link, GatsbyLinkProps } from 'gatsby'
 import { css } from '@emotion/css'
 import {
   ButtonOptions,
-  ButtonProps,
   buttonStyleFactory,
   ButtonVariant,
 } from '../elements/button'
 import { Anchor, AnchorProps } from '../elements/anchor'
 import { ContentfulAction } from './contentful-action'
 
-export type ActionButtonVariant = ButtonVariant
-export type ActionButtonOptions = ButtonOptions
+/**
+ * This is an in-between component without styling. This component returnes
+ * either a Link or a Anchor element and uses Button variant styling
+ */
 
 export interface ActionButton {
   contentfulAction?: ContentfulAction
@@ -18,8 +19,8 @@ export interface ActionButton {
 
 export type ActionButtonProps<T> = T & {
   model?: ActionButton
-  options?: ActionButtonOptions
-  variant?: ActionButtonVariant
+  variant?: ButtonVariant
+  options?: ButtonOptions
 }
 
 type LinkProps = Omit<GatsbyLinkProps<any>, 'ref'>
@@ -28,7 +29,7 @@ export const ActionButton = ({
   model,
   options,
   ...props
-}: ActionButtonProps<ButtonProps | AnchorProps | LinkProps>) => {
+}: ActionButtonProps<AnchorProps | LinkProps>) => {
   const action = model?.contentfulAction
   const path = action?.page?.path
   const url = action?.url
