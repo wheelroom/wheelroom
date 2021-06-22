@@ -10,6 +10,7 @@ import {
   I,
   Li,
   Ol,
+  Section,
   Td,
   Tr,
   U,
@@ -112,8 +113,16 @@ export const TextSection = ({ model, ...props }: TextSectionProps) => {
   }
 
   return (
-    <Div css={css} {...props}>
-      {document && documentToReactComponents(document, options)}
-    </Div>
+    <Section css={css} {...props}>
+      <Div css={{
+        label: 'TextSectionContainer',
+        margin: '0 auto',
+        maxWidth: 712,
+        padding: '0 16px',
+        width: '100%',
+      }}>
+        {document && documentToReactComponents(document, options)}
+      </Div>
+    </Section>
   )
 }
