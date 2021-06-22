@@ -1,6 +1,10 @@
 import { Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { ComponentProps, StyleFactory } from '../../lib/component-styles'
+import {
+  ComponentProps,
+  StyleFactory,
+  StyleMap,
+} from '../../lib/component-styles'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
@@ -24,7 +28,7 @@ const baseStyle = {
   width: '100%',
 }
 
-const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
+const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
     ...baseStyle,
     padding: 16,
@@ -80,6 +84,11 @@ const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
     padding: '16px 0',
   },
   video: baseStyle,
+  headline: {},
+  image: {},
+  navigation: {},
+  quote: {},
+  text: {},
 }
 
 const reversedOrderOptionStyle = {}

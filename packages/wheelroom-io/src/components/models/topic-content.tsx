@@ -1,6 +1,10 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
+import { Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory, StyleMap } from '../../lib/component-styles'
+import {
+  ComponentProps,
+  StyleFactory,
+  StyleMap,
+} from '../../lib/component-styles'
 import { ContentfulAction } from '../models/contentful-action'
 import {
   TopicSectionOptions,
@@ -14,13 +18,11 @@ export type TopicContent = {
   abstractString?: string
   headingString?: string
 }
-
-type AnyDivProps = AnyProps['div']
-export type TopicContentProps extends AnyDivProps = {
-  model?: TopicContent
-  options?: TopicSectionOptions
-  variant?: TopicSectionVariant
-}
+export type TopicContentProps = ComponentProps<
+  TopicContent,
+  TopicSectionVariant,
+  TopicSectionOptions
+>['div']
 
 const baseStyle = {
   display: 'flex',

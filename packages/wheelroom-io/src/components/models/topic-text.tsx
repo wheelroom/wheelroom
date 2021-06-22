@@ -1,8 +1,12 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
+import { Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
 import { Text } from '../elements/text'
 import { Heading } from '../elements/heading'
-import { StyleFactory } from '../../lib/component-styles'
+import {
+  ComponentProps,
+  StyleFactory,
+  StyleMap,
+} from '../../lib/component-styles'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
@@ -12,15 +16,13 @@ export type TopicText = {
   abstractString?: string
   headingString?: string
 }
+export type TopicTextProps = ComponentProps<
+  TopicText,
+  TopicSectionVariant,
+  TopicSectionOptions
+>['div']
 
-type AnyDivProps = AnyProps['div']
-export type TopicTextProps extends AnyDivProps = {
-  model?: TopicText
-  options?: TopicSectionOptions
-  variant?: TopicSectionVariant
-}
-
-const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
+const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
     flex: '1 1 auto',
     p: { marginBottom: 0 },
@@ -70,6 +72,12 @@ const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
       marginBottom: 0,
     },
   },
+  divider: {},
+  gallery: {},
+  image: {},
+  navigation: {},
+  text: {},
+  video: {},
 }
 
 export const topicTextStyleFactory: StyleFactory<

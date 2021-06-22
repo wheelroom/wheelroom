@@ -1,6 +1,10 @@
-import { AnyProps, Div } from '@wheelroom/any/react'
+import { Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
-import { StyleFactory } from '../../lib/component-styles'
+import {
+  ComponentProps,
+  StyleFactory,
+  StyleMap,
+} from '../../lib/component-styles'
 import { Asset, AssetProps } from '../models/asset'
 import { ContentfulAsset } from '../models/contentful-asset'
 import { ContentfulEmbed } from '../models/contentful-embed'
@@ -15,19 +19,18 @@ type TopicMedia = {
   contentfulPosterAsset?: ContentfulAsset
   contentfulEmbed?: ContentfulEmbed
 }
-
-type AnyDivProps = AnyProps['div']
-export type TopicMediaProps extends AnyDivProps = {
-  model?: TopicMedia
-  variant?: TopicSectionVariant
-}
+export type TopicMediaProps = ComponentProps<
+  TopicMedia,
+  TopicSectionVariant,
+  TopicSectionOptions
+>['div']
 
 const baseStyle = {
   display: 'flex',
   flexDirection: 'column',
 }
 
-const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
+const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
     ...baseStyle,
     picture: {
@@ -141,6 +144,10 @@ const styleMap: StyleMap<TopicSectionVariant, unknown>> = {
     },
   },
   video: baseStyle,
+  divider: {},
+  image: {},
+  navigation: {},
+  text: {},
 }
 
 export const topicMediaStyleFactory: StyleFactory<
