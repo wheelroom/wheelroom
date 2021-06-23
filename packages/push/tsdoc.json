@@ -2,67 +2,57 @@
   "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
   "tagDefinitions": [
     {
-      "tagName": "@contentfulType",
+      "tagName": "@wheelroom",
       "syntaxKind": "block",
       "allowMultiple": false
     },
     {
-      "tagName": "@Symbol",
+      "tagName": "@platform",
       "syntaxKind": "inline",
       "allowMultiple": false
     },
     {
-      "tagName": "@Text",
+      "tagName": "@type",
       "syntaxKind": "inline",
       "allowMultiple": false
     },
     {
-      "tagName": "@RichText",
+      "tagName": "@arrayType",
       "syntaxKind": "inline",
       "allowMultiple": false
     },
     {
-      "tagName": "@Integer",
+      "tagName": "@linkType",
       "syntaxKind": "inline",
       "allowMultiple": false
     },
     {
-      "tagName": "@Number",
+      "tagName": "@localized",
       "syntaxKind": "inline",
       "allowMultiple": false
     },
     {
-      "tagName": "@Date",
+      "tagName": "@required",
       "syntaxKind": "inline",
       "allowMultiple": false
     },
     {
-      "tagName": "@Boolean",
+      "tagName": "@validation",
+      "syntaxKind": "inline",
+      "allowMultiple": true
+    },
+    {
+      "tagName": "@name",
       "syntaxKind": "inline",
       "allowMultiple": false
     },
     {
-      "tagName": "@Object",
+      "tagName": "@helpText",
       "syntaxKind": "inline",
       "allowMultiple": false
     },
     {
-      "tagName": "@Location",
-      "syntaxKind": "inline",
-      "allowMultiple": false
-    },
-    {
-      "tagName": "@AssetLink",
-      "syntaxKind": "inline",
-      "allowMultiple": false
-    },
-    {
-      "tagName": "@EntryLink",
-      "syntaxKind": "inline",
-      "allowMultiple": false
-    },
-    {
-      "tagName": "@Array",
+      "tagName": "@widget",
       "syntaxKind": "inline",
       "allowMultiple": false
     }

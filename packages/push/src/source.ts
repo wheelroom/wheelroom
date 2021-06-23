@@ -14,30 +14,30 @@ export type Variant = 'external 1' | 'external 2' | 'external 3'
 type FieldName = FieldType['type']
 
 /**
- * Something about this model
- *
- * @remarks
- * What are you doing
+ * Something about this model, used as model description
  * @wheelroom {@platform contentful}
- *
  * @see https://www.wheelroom.io
- *
  */
 export interface Topic {
   /**
-   * This is the heading
-   * @wheelroom {@Symbol required localized}
-   * @wheelroom {@WidgetId singleLine}
+   * Some text here that we do nothing with
+   * @wheelroom
+   *   {@name Heading}
+   *   {@type Symbol}
+   *   {@widget singleLine}
+   *   {@required} {@localized}
+   *   {@validation unique}
+   *   {@helpText The topic heading}
+   * @defaultValue Default heading
+   *
    */
   heading: string
   /**
    * This is the abstract
-   * @contentfulType {@Symbol}
    */
   abstract: string
   /**
    * This is the variant
-   * @contentfulType {@Array} {@Symbol}
    */
   variant: Variant
 }
