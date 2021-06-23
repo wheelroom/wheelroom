@@ -22,7 +22,7 @@ export const makeContextFactory = async ({
   const rootNode = await arborist.loadActual()
   const fsChildren = rootNode.fsChildren
   let buildNodes = [] as ArboristNode[]
-  let targetNode: ArboristNode
+  let targetNode = undefined as ArboristNode | undefined
 
   if (!targetPackageName) {
     console.log(`No package name, using all packages`)
