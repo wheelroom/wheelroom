@@ -52,11 +52,11 @@ export const processMainProperty = ({
   const tags = getInlineTags({ search: text })
   const platform = tags['@platform']
 
+  console.log('==============')
   if (!platform) {
     console.log(`Could not find @platform inline for ${docProperty.name}`)
     return
   }
-  console.log('==============')
   console.log(`Sending ${docProperty.name} to ${platform}`)
   const description = getTextSymbol({
     symbols: docProperty.documentationComment,
