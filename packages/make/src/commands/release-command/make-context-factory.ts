@@ -21,7 +21,16 @@ export const makeContextFactory = async ({
   const arborist = new Arborist({ path: process.cwd() })
   const rootNode = await arborist.loadActual()
   const fsChildren = rootNode.fsChildren
-  let targetNode = getFsChild({ fsChildren, packageName: targetPackageName })
+  let buildNodes = [] as ArboristNode[]
+  let targetNode: ArboristNode
+
+  if (!targetPackageName) {
+    console.log(`No package name, using all packages`)
+    buildNodes = fsChildren
+  }
+  if (buildNodes.length === 0) {
+    targetNode = getFsChild({ fsChildren, packageName: targetPackageName })
+  }
 
   if (!targetNode && targetPackageName) {
     // Try prefixing the packageName with the owner
@@ -37,7 +46,6 @@ export const makeContextFactory = async ({
     })
   }
 
-  let buildNodes = [] as ArboristNode[]
   if (targetNode) {
     buildNodes = [
       targetNode,
