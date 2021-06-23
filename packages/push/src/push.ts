@@ -1,10 +1,10 @@
-import util from 'util'
-import ts from 'typescript'
+import ts, { JSDocTagInfo, SymbolDisplayPart } from 'typescript'
+import { sendToPlatform } from './send-to-platform'
 
-interface DocEntry {
+export interface DocEntry {
   name?: string
-  docComment?: unknown
-  docTags?: unknown
+  documentationComment?: SymbolDisplayPart[]
+  jSDocTags?: JSDocTagInfo[]
   type?: string
   properties?: DocEntry[]
 }
@@ -22,14 +22,6 @@ const visit = ({ node, checker, output }: Visit) => {
     if (type) {
       output.push(serializeInterface({ type, checker }))
     }
-  } else {
-    const type = checker.getTypeAtLocation(node)
-    const name = checker.typeToString(type)
-    const properties = type.getProperties()
-    console.log('name', name)
-    // console.log('properties', properties)
-    const details = properties.map((symbol) => symbol.escapedName)
-    console.log('details', details)
   }
 }
 
@@ -54,8 +46,8 @@ const serializeType = ({ type, checker }: SerializeType): DocEntry => {
   const symbol = type.getSymbol()
   return {
     name: symbol?.getName(),
-    docTags: symbol?.getJsDocTags(),
-    docComment: symbol?.getDocumentationComment(checker),
+    jSDocTags: symbol?.getJsDocTags(),
+    documentationComment: symbol?.getDocumentationComment(checker),
     type: checker.typeToString(type),
   }
 }
@@ -67,8 +59,8 @@ interface SerializeSymbol {
 const serializeSymbol = ({ symbol, checker }: SerializeSymbol): DocEntry => {
   return {
     name: symbol.getName(),
-    docTags: symbol?.getJsDocTags(),
-    docComment: symbol.getDocumentationComment(checker),
+    jSDocTags: symbol?.getJsDocTags(),
+    documentationComment: symbol.getDocumentationComment(checker),
     type: checker.typeToString(
       checker.getTypeOfSymbolAtLocation(
         symbol,
@@ -91,7 +83,7 @@ const isNodeExported = ({ node }: IsNodeExported): boolean => {
 }
 
 const generateDocumentation = () => {
-  const program = ts.createProgram(['src/source.ts'], {
+  const program = ts.createProgram(['src/source2.tsx'], {
     target: ts.ScriptTarget.ES5,
     module: ts.ModuleKind.CommonJS,
   })
@@ -104,8 +96,7 @@ const generateDocumentation = () => {
       })
     }
   }
-  const inspect = util.inspect(output, false, 10, true)
-  console.log(inspect)
+  sendToPlatform(output)
 }
 
 generateDocumentation()

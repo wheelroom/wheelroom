@@ -11,7 +11,7 @@ import {
 
 export type Variant = 'external 1' | 'external 2' | 'external 3'
 
-type FieldName = FieldType['type']
+export type FieldName = FieldType['type']
 
 /**
  * Something about this model, used as model description

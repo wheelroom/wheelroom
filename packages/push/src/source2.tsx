@@ -2,7 +2,7 @@
  * Action model, used to render links and buttons
  * @wheelroom {@platform contentful}
  */
-export type ContentfulAction = {
+export interface ContentfulAction {
   sys?: {
     id: string
   }
@@ -28,7 +28,7 @@ export type ContentfulAction = {
   url?: string
 }
 
-export type ContentfulAsset = {
+export interface ContentfulAsset {
   sys: {
     id: string
   }
@@ -42,7 +42,11 @@ export type ContentfulAsset = {
   width: number
 }
 
-export type ContentfulTopic = {
+/**
+ * Topic model, a heading, an abstract and a call to action
+ * @wheelroom {@platform contentful}
+ */
+export interface ContentfulTopic {
   sys?: {
     id: string
   }
