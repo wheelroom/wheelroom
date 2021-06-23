@@ -36,6 +36,7 @@ export const processMainProperty = ({
   docProperty: DocProperty
 }) => {
   if (!docProperty.name) return
+  console.log('==============')
   if (!docProperty.jSDocTags?.length) {
     console.log(`Could not find js doc tags for ${docProperty.name}`)
     return
@@ -52,7 +53,6 @@ export const processMainProperty = ({
   const tags = getInlineTags({ search: text })
   const platform = tags['@platform']
 
-  console.log('==============')
   if (!platform) {
     console.log(`Could not find @platform inline for ${docProperty.name}`)
     return
