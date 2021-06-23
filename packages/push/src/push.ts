@@ -1,26 +1,26 @@
 import ts, { JSDocTagInfo, SymbolDisplayPart } from 'typescript'
 import { sendToPlatform } from './send-to-platform'
 
-export interface DocEntry {
+export interface DocProperty {
   name?: string
   documentationComment?: SymbolDisplayPart[]
   jSDocTags?: JSDocTagInfo[]
   type?: string
-  properties?: DocEntry[]
+  docProperties?: DocProperty[]
 }
 
 interface Visit {
   node: ts.Node
-  output: DocEntry[]
+  docProperties: DocProperty[]
   checker: ts.TypeChecker
 }
-const visit = ({ node, checker, output }: Visit) => {
+const visit = ({ node, checker, docProperties }: Visit) => {
   if (!isNodeExported({ node })) {
     return
   } else if (ts.isInterfaceDeclaration(node) && node.name) {
     const type = checker.getTypeAtLocation(node)
     if (type) {
-      output.push(serializeInterface({ type, checker }))
+      docProperties.push(serializeInterface({ type, checker }))
     }
   }
 }
@@ -31,8 +31,8 @@ interface SerializeInterface {
 }
 const serializeInterface = ({ type, checker }: SerializeInterface) => {
   const details = serializeType({ type, checker })
-  const properties = type.getProperties()
-  details.properties = properties.map((symbol) =>
+  const docProperties = type.getProperties()
+  details.docProperties = docProperties.map((symbol) =>
     serializeSymbol({ symbol, checker })
   )
   return details
@@ -42,7 +42,7 @@ interface SerializeType {
   type: ts.Type
   checker: ts.TypeChecker
 }
-const serializeType = ({ type, checker }: SerializeType): DocEntry => {
+const serializeType = ({ type, checker }: SerializeType): DocProperty => {
   const symbol = type.getSymbol()
   return {
     name: symbol?.getName(),
@@ -56,7 +56,7 @@ interface SerializeSymbol {
   symbol: ts.Symbol
   checker: ts.TypeChecker
 }
-const serializeSymbol = ({ symbol, checker }: SerializeSymbol): DocEntry => {
+const serializeSymbol = ({ symbol, checker }: SerializeSymbol): DocProperty => {
   return {
     name: symbol.getName(),
     jSDocTags: symbol?.getJsDocTags(),
@@ -88,15 +88,15 @@ const generateDocumentation = () => {
     module: ts.ModuleKind.CommonJS,
   })
   const checker = program.getTypeChecker()
-  const output: DocEntry[] = []
+  const docProperties: DocProperty[] = []
   for (const sourceFile of program.getSourceFiles()) {
     if (!sourceFile.isDeclarationFile) {
       ts.forEachChild(sourceFile, (node: ts.Node) => {
-        visit({ node, checker, output })
+        visit({ node, checker, docProperties })
       })
     }
   }
-  sendToPlatform(output)
+  sendToPlatform({ docProperties })
 }
 
 generateDocumentation()
