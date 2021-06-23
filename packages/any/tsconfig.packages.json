@@ -4,6 +4,6 @@
     "jsx": "react-jsx",
     "sourceMap": false,
   },
-  "extends": "../tsconfig.packages.json",
+  "extends": "../../tsconfig.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

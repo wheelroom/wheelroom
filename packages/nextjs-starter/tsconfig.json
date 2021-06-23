@@ -5,6 +5,6 @@
     "noEmit": true,
   },
   "exclude": ["node_modules"],
-  "extends": "../tsconfig.packages.json",
+  "extends": "../../tsconfig.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
