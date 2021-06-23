@@ -2,8 +2,68 @@
   "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
   "tagDefinitions": [
     {
-      "tagName": "@wheelroom",
+      "tagName": "@contentfulType",
       "syntaxKind": "block",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@Symbol",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@Text",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@RichText",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@Integer",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@Number",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@Date",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@Boolean",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@Object",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@Location",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@AssetLink",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@EntryLink",
+      "syntaxKind": "inline",
+      "allowMultiple": false
+    },
+    {
+      "tagName": "@Array",
+      "syntaxKind": "inline",
       "allowMultiple": false
     }
   ]

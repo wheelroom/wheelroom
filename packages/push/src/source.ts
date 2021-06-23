@@ -11,30 +11,33 @@ import {
 
 export type Variant = 'external 1' | 'external 2' | 'external 3'
 
+type FieldName = FieldType['type']
+
 /**
  * Something about this model
  *
  * @remarks
  * What are you doing
+ * @wheelroom {@platform contentful}
  *
- * @wheelroom platform:contentful
  * @see https://www.wheelroom.io
  *
  */
 export interface Topic {
   /**
    * This is the heading
-   * @wheelroom field:Symbol
+   * @wheelroom {@Symbol required localized}
+   * @wheelroom {@WidgetId singleLine}
    */
   heading: string
   /**
    * This is the abstract
-   * @wheelroom field:Symbol
+   * @contentfulType {@Symbol}
    */
   abstract: string
   /**
    * This is the variant
-   * @wheelroom field:Symbol[]
+   * @contentfulType {@Array} {@Symbol}
    */
   variant: Variant
 }
