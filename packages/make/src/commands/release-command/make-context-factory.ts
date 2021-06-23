@@ -26,7 +26,7 @@ export const makeContextFactory = async ({
 
   if (!targetPackageName) {
     console.log(`No package name, using all packages`)
-    buildNodes = fsChildren
+    buildNodes = Array.from(fsChildren)
   }
   if (buildNodes.length === 0) {
     targetNode = getFsChild({ fsChildren, packageName: targetPackageName })
@@ -52,7 +52,6 @@ export const makeContextFactory = async ({
       ...getSyncedNodes({ node: targetNode, fsChildren }),
     ]
   }
-
   return {
     buildNodes,
     newChangeLogs: {},

@@ -41,7 +41,7 @@ export const releaseCommand = async ({
     fsChildren: makeContext.rootNode.fsChildren,
   })
 
-  if (!makeContext.targetNode) {
+  if (makeContext.buildNodes.length === 0) {
     console.log(
       `Package ${
         packageName || '<none>'
