@@ -1,5 +1,5 @@
 import ts, { JSDocTagInfo, SymbolDisplayPart } from 'typescript'
-import { sendToPlatform } from './send-to-platform'
+import { processDocProperty } from './process-doc-property'
 
 export interface DocProperty {
   name?: string
@@ -11,16 +11,21 @@ export interface DocProperty {
 
 interface Visit {
   node: ts.Node
-  docProperties: DocProperty[]
+  printer: ts.Printer
   checker: ts.TypeChecker
+  sourceFile: ts.SourceFile
 }
-const visit = ({ node, checker, docProperties }: Visit) => {
+const visit = ({ node, checker, printer, sourceFile }: Visit) => {
+  const printThis = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile)
+  console.log(printThis)
+
   if (!isNodeExported({ node })) {
     return
   } else if (ts.isInterfaceDeclaration(node) && node.name) {
     const type = checker.getTypeAtLocation(node)
     if (type) {
-      docProperties.push(serializeInterface({ type, checker }))
+      const docProperty = serializeInterface({ type, checker })
+      processDocProperty({ docProperty })
     }
   }
 }
@@ -83,20 +88,35 @@ const isNodeExported = ({ node }: IsNodeExported): boolean => {
 }
 
 const generateDocumentation = () => {
-  const program = ts.createProgram(['src/topic/topic.tsx'], {
-    target: ts.ScriptTarget.ES5,
-    module: ts.ModuleKind.CommonJS,
-  })
+  const configFileName = ts.findConfigFile(
+    './',
+    ts.sys.fileExists,
+    'tsconfig.packages.json'
+  )
+  const configFile = ts.readConfigFile(configFileName || '', ts.sys.readFile)
+  const compilerOptions = ts.parseJsonConfigFileContent(
+    configFile.config,
+    ts.sys,
+    './'
+  )
+
+  const program = ts.createProgram(
+    ['src/topic-source-test/topic.tsx'],
+    compilerOptions.options
+  )
   const checker = program.getTypeChecker()
-  const docProperties: DocProperty[] = []
+  const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed })
+
   for (const sourceFile of program.getSourceFiles()) {
     if (!sourceFile.isDeclarationFile) {
+      if (sourceFile.fileName.includes('topic')) {
+        console.log('----> source:', sourceFile.fileName)
+      }
       ts.forEachChild(sourceFile, (node: ts.Node) => {
-        visit({ node, checker, docProperties })
+        visit({ node, checker, printer, sourceFile })
       })
     }
   }
-  sendToPlatform({ docProperties })
 }
 
 generateDocumentation()

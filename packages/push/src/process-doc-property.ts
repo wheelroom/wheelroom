@@ -30,7 +30,7 @@ const getTagByName = ({ tags, name }: GetTagByName) => {
   return tags.find((tag) => tag.name === name)
 }
 
-export const processMainProperty = ({
+export const processDocProperty = ({
   docProperty,
 }: {
   docProperty: DocProperty
@@ -74,17 +74,5 @@ export const processMainProperty = ({
     } else {
       console.log(`Could not find @wheelroom for field ${docProperty.name}`)
     }
-  })
-}
-
-export const sendToPlatform = ({
-  docProperties,
-}: {
-  docProperties: DocProperty[]
-}) => {
-  // const inspect = util.inspect(docProperties, false, 10, true)
-  // console.log(inspect)
-  docProperties.forEach((prop: DocProperty) => {
-    processMainProperty({ docProperty: prop })
   })
 }
