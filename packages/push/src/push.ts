@@ -83,7 +83,7 @@ const isNodeExported = ({ node }: IsNodeExported): boolean => {
 }
 
 const generateDocumentation = () => {
-  const program = ts.createProgram(['src/source2.tsx'], {
+  const program = ts.createProgram(['src/topic/topic.tsx'], {
     target: ts.ScriptTarget.ES5,
     module: ts.ModuleKind.CommonJS,
   })

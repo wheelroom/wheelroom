@@ -15,7 +15,7 @@ const author = rootPkg.author
 const globals = {
   fs: '*',
   path: '*',
-  typescript: 'ts',
+  typescript: '*',
   '@microsoft/tsdoc': '*',
 }
 

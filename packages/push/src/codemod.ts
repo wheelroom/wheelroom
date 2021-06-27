@@ -23,7 +23,7 @@ const visit = ({ node, checker, printer, sourceFile }: Visit) => {
 }
 
 const generateDocumentation = () => {
-  const file = 'src/source2.tsx'
+  const file = 'src/topic/topic.tsx'
   const program = ts.createProgram([file], {
     target: ts.ScriptTarget.ES5,
     module: ts.ModuleKind.CommonJS,
