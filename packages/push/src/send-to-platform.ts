@@ -7,7 +7,7 @@ const getInlineTags = ({
 }: {
   search: string
 }): Record<string, string> => {
-  const matches = search.matchAll(/{(@[a-zA-z]+) ([^{]*)}/g)
+  const matches = search.matchAll(/{.*(@[a-zA-z0-9]+) +([^{}]*).*}/g)
   return Array.from(matches).reduce(
     (result, match) => ({ ...result, [match[1]]: match[2] }),
     {}
