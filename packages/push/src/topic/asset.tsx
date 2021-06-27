@@ -11,3 +11,5 @@ export interface ContentfulAsset {
   url: string
   width: number
 }
+
+export const refA = 'a'

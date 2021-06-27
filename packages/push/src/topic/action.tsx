@@ -27,3 +27,5 @@ export interface ContentfulAction {
   /** @wheelroom {@type Symbol} */
   url?: string
 }
+
+export const refB = 'b'

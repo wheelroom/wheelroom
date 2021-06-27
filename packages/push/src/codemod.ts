@@ -23,15 +23,13 @@ const visit = ({ node, checker, printer, sourceFile }: Visit) => {
 }
 
 const generateDocumentation = () => {
-  const file = './topic.tsx'
-  const program = ts.createProgram([file], {
-    target: ts.ScriptTarget.ESNext,
-    module: ts.ModuleKind.ESNext,
-  })
+  const file = './src/topic/topic.tsx'
+  const program = ts.createProgram([file], {})
   //   const sourceFile = program.getSourceFile(file)
   const checker = program.getTypeChecker()
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed })
   const docProperties: DocProperty[] = []
+  console.log('starting')
   for (const sourceFile of program.getSourceFiles()) {
     if (sourceFile.fileName.includes('topic')) {
       console.log('----> source:', sourceFile.fileName)

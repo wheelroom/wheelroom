@@ -1,6 +1,7 @@
-import { ContentfulAction } from './action'
-import { ContentfulAsset } from './asset'
+import { ContentfulAction, refB } from './action'
+import { ContentfulAsset, refA } from './asset'
 
+console.log(refA, refB)
 /**
  * Topic model, a heading, an abstract and a call to action
  * @wheelroom {@platform contentful}
