@@ -17,6 +17,7 @@ const globals = {
   path: '*',
   typescript: '*',
   '@microsoft/tsdoc': '*',
+  yargs: '*',
 }
 
 const external = Object.keys(globals)
@@ -61,6 +62,29 @@ export default [
         banner,
         exports: 'named',
         file: `./build/plain.cjs`,
+        format: 'cjs',
+        globals,
+        sourcemap: false,
+      },
+    ],
+    plugins,
+  },
+  {
+    external,
+    input: './src/cli.ts',
+    output: [
+      {
+        banner,
+        exports: 'named',
+        file: `./build/cli.mjs`,
+        format: 'es',
+        globals,
+        sourcemap: false,
+      },
+      {
+        banner,
+        exports: 'named',
+        file: `./build/cli.cjs`,
         format: 'cjs',
         globals,
         sourcemap: false,
