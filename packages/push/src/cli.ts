@@ -1,15 +1,3 @@
-#!/usr/bin/env node
-
-/**
- * - Bump version of package
- * - Sync versions of all packages
- * - Update all dependencies that use the packages
- * - Copy files to build folder
- * - Extend package.json fields in build folder
- * - Publish all packages that changed to npm
- *
- */
-
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
@@ -17,25 +5,24 @@ const pushCommand = ({ argv }: { argv: yargs.Arguments }) => {
   console.log('push command running', argv)
 }
 
-const contentSourceFilePositional = (yargs: yargs.Argv<any>) => {
-  yargs.positional('contentSourceFile', {
-    type: 'string',
-    describe: 'contentSourceFile to npm 7 monorepo',
-  })
-}
-
 const options: { [option: string]: yargs.Options } = {
   filter: {
     alias: 'f',
-    describe: 'Filter by componentType',
+    describe: 'Filter by type value @wheelroom {@type value}',
     requiresArg: true,
     type: 'string',
   },
   locale: {
     alias: 'l',
-    describe: 'Override locale in config',
+    describe: 'Override @wheelroom {@locale}',
     requiresArg: true,
     type: 'string',
+  },
+  outside: {
+    alias: 'o',
+    describe: 'Follow imports outside folder where source file is in',
+    requiresArg: false,
+    type: 'boolean',
   },
   yes: {
     alias: 'y',
@@ -53,11 +40,41 @@ yargs(hideBin(process.argv))
   .strict()
   .alias('h', 'help')
   .alias('v', 'version')
-  .wrap(yargs.terminalWidth())
+  .wrap(null)
   .command(
-    'push [contentSourceFile]',
+    'push <target> <sourceFile>',
     'push models or content to content platform',
-    contentSourceFilePositional,
+    (yargs: yargs.Argv<any>) => {
+      yargs
+        .positional('target', {
+          type: 'string',
+          describe: 'push models',
+          choices: ['models', 'content'],
+        })
+        .positional('sourceFile', {
+          type: 'string',
+          describe: 'path to sourceFile',
+        })
+    },
+    function (argv: yargs.Arguments) {
+      pushCommand({ argv })
+    }
+  )
+  .command(
+    'push <target> <sourceFile>',
+    'push models or content to content platform',
+    (yargs: yargs.Argv<any>) => {
+      yargs
+        .positional('target', {
+          type: 'string',
+          describe: 'push models',
+          choices: ['models', 'content'],
+        })
+        .positional('sourceFile', {
+          type: 'string',
+          describe: 'path to sourceFile',
+        })
+    },
     function (argv: yargs.Arguments) {
       pushCommand({ argv })
     }
