@@ -74,7 +74,7 @@ export default [
     input: './src/cli.ts',
     output: [
       {
-        banner: `#!/usr/bin/env node\n\n${banner}`,
+        banner: `#!/usr/bin/env node\n${banner}`,
         exports: 'named',
         file: `./build/cli.mjs`,
         format: 'es',
@@ -82,7 +82,7 @@ export default [
         sourcemap: false,
       },
       {
-        banner: `#!/usr/bin/env node\n\n${banner}`,
+        banner: `#!/usr/bin/env node\n${banner}`,
         exports: 'named',
         file: `./build/cli.cjs`,
         format: 'cjs',

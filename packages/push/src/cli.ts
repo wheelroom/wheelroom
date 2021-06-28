@@ -1,11 +1,32 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-const pushCommand = ({ argv }: { argv: yargs.Arguments }) => {
-  console.log('push command running', argv)
+type PushArgv = {
+  type: 'content' | 'models'
+  file: string
 }
 
-const options: { [option: string]: yargs.Options } = {
+const pushCommand = ({ argv }: { argv: yargs.Arguments<PushArgv> }) => {
+  console.log(`push/${argv.type} file:${argv.file}`)
+}
+
+type PullArgv = {
+  type: 'content' | 'models'
+  file: string
+}
+
+const pullCommand = ({ argv }: { argv: yargs.Arguments<PullArgv> }) => {
+  console.log(`pull/${argv.type} path:${argv.path}`)
+}
+
+type WheelroomOptions = {
+  filter: yargs.Options
+  locale: yargs.Options
+  outside: yargs.Options
+  yes: yargs.Options
+}
+
+const options: WheelroomOptions = {
   filter: {
     alias: 'f',
     describe: 'Filter by type value @wheelroom {@type value}',
@@ -20,7 +41,7 @@ const options: { [option: string]: yargs.Options } = {
   },
   outside: {
     alias: 'o',
-    describe: 'Follow imports outside folder where source file is in',
+    describe: 'Follow imports outside file folder',
     requiresArg: false,
     type: 'boolean',
   },
@@ -42,41 +63,41 @@ yargs(hideBin(process.argv))
   .alias('v', 'version')
   .wrap(null)
   .command(
-    'push <target> <sourceFile>',
+    'push <type> <file>',
     'push models or content to content platform',
-    (yargs: yargs.Argv<any>) => {
+    (yargs) => {
       yargs
-        .positional('target', {
+        .positional('type', {
           type: 'string',
-          describe: 'push models',
+          describe: 'push models or content',
           choices: ['models', 'content'],
         })
-        .positional('sourceFile', {
+        .positional('file', {
           type: 'string',
-          describe: 'path to sourceFile',
+          describe: 'path to source file',
         })
     },
-    function (argv: yargs.Arguments) {
+    (argv: yargs.Arguments<PushArgv>) => {
       pushCommand({ argv })
     }
   )
   .command(
-    'push <target> <sourceFile>',
-    'push models or content to content platform',
+    'pull <type> <path>',
+    'pull models or content from content platform',
     (yargs: yargs.Argv<any>) => {
       yargs
-        .positional('target', {
+        .positional('type', {
           type: 'string',
-          describe: 'push models',
+          describe: 'pull models or content',
           choices: ['models', 'content'],
         })
-        .positional('sourceFile', {
+        .positional('path', {
           type: 'string',
-          describe: 'path to sourceFile',
+          describe: 'path where source files are created',
         })
     },
-    function (argv: yargs.Arguments) {
-      pushCommand({ argv })
+    (argv: yargs.Arguments<PullArgv>) => {
+      pullCommand({ argv })
     }
   )
   .options(options)
