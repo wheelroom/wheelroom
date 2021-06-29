@@ -37,7 +37,7 @@ const Page = (props: PageProps<PageQuery, PageContext>) => {
     <GlobalsProvider value={{ globals, site }}>
       <Global styles={[globalReset, fontStyle]} />
       <PageSection
-        model={{ contentfulPageSections: page.sectionsCollection.items }}
+        model={{ contentfulPageSections: page.sectionsCollection?.items }}
       />
     </GlobalsProvider>
   )
