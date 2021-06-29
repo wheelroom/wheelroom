@@ -4,13 +4,13 @@ import { interfaceToDocProperty } from './lib/interface-to-doc-property'
 import { isExportedNode } from './lib/is-exported-node'
 import { parseWheelroomTags } from './lib/process-doc-property'
 
-interface Visit {
+interface PrintNode {
   node: ts.Node
   printer: ts.Printer
   checker: ts.TypeChecker
   sourceFile: ts.SourceFile
 }
-const visit = ({ node, checker, printer, sourceFile }: Visit) => {
+const printNode = ({ node, checker, printer, sourceFile }: PrintNode) => {
   if (
     !isExportedNode({ node }) ||
     !ts.isInterfaceDeclaration(node) ||
@@ -27,7 +27,7 @@ const visit = ({ node, checker, printer, sourceFile }: Visit) => {
   console.log(tags)
 }
 
-const generateDocumentation = () => {
+const runPoc = () => {
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram(
     ['src/fixtures/topic.tsx'],
@@ -40,9 +40,9 @@ const generateDocumentation = () => {
     if (sourceFile.isDeclarationFile) continue
     console.log('----> source:', sourceFile.fileName)
     ts.forEachChild(sourceFile, (node: ts.Node) => {
-      visit({ node, checker, printer, sourceFile })
+      printNode({ node, checker, printer, sourceFile })
     })
   }
 }
 
-generateDocumentation()
+runPoc()
