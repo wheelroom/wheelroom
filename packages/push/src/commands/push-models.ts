@@ -4,40 +4,37 @@ import { interfaceToDocProperty } from '../lib/interface-to-doc-property'
 import { isExportedNode } from '../lib/is-exported-node'
 import { parseWheelroomTags } from '../lib/parse-wheelroom-tags'
 import { callPushHandler } from '../lib/call-push-handler'
+import { WheelroomTags } from '../../build/plain'
 
 export interface PushModels {
   file: string
 }
 
-export const pushModels = ({ file }: PushModels) => {
+export const pushModels = async ({ file }: PushModels) => {
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram([file], compilerOptions.options)
   const checker = program.getTypeChecker()
 
   for (const sourceFile of program.getSourceFiles()) {
     if (sourceFile.isDeclarationFile) continue
+    const tagsList: WheelroomTags[] = []
     console.log('===\nSource:', sourceFile.fileName)
     ts.forEachChild(sourceFile, (node: ts.Node) => {
-      pushNode({ node, checker })
+      if (
+        !isExportedNode({ node }) ||
+        !ts.isInterfaceDeclaration(node) ||
+        !node.name
+      )
+        return
+      const type = checker.getTypeAtLocation(node)
+      if (!type) return
+      const docProperty = interfaceToDocProperty({ type, checker })
+      const tags = parseWheelroomTags({ docProperty })
+      if (!tags) return
+      tagsList.push(tags)
     })
+    for (const tags of tagsList) {
+      await callPushHandler({ wheelroomTags: tags })
+    }
   }
-}
-
-interface PushNode {
-  node: ts.Node
-  checker: ts.TypeChecker
-}
-const pushNode = ({ node, checker }: PushNode) => {
-  if (
-    !isExportedNode({ node }) ||
-    !ts.isInterfaceDeclaration(node) ||
-    !node.name
-  )
-    return
-  const type = checker.getTypeAtLocation(node)
-  if (!type) return
-  const docProperty = interfaceToDocProperty({ type, checker })
-  const tags = parseWheelroomTags({ docProperty })
-  if (!tags) return
-  callPushHandler({ wheelroomTags: tags })
 }
