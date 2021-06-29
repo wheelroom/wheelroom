@@ -1,4 +1,5 @@
 import ts from 'typescript'
+import { getCompilerOptions } from './lib/get-compiler-options'
 import { interfaceToDocProperty } from './lib/interface-to-doc-property'
 import { isExportedNode } from './lib/is-exported-node'
 import { parseWheelroomTags } from './lib/process-doc-property'
@@ -28,21 +29,6 @@ const visit = ({ node, checker, printer, sourceFile }: Visit) => {
       }
     }
   }
-}
-
-const getCompilerOptions = () => {
-  const configFileName = ts.findConfigFile(
-    './',
-    ts.sys.fileExists,
-    'tsconfig.packages.json'
-  )
-  const configFile = ts.readConfigFile(configFileName || '', ts.sys.readFile)
-  const compilerOptions = ts.parseJsonConfigFileContent(
-    configFile.config,
-    ts.sys,
-    './'
-  )
-  return compilerOptions
 }
 
 const generateDocumentation = () => {
