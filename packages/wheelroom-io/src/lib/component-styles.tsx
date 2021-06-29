@@ -22,6 +22,6 @@ export type StyleFactory<Variant = undefined, Options = undefined> = (args: {
   options?: Options
 }) => any
 
-export type CSSProperties = CSSObject | CSSObject[]
+export type StyleObject = CSSObject | CSSObject[]
 
-export type StyleMap<Variant extends string> = Record<Variant, CSSProperties>
+export type StyleMap<Variant extends string> = Record<Variant, StyleObject>

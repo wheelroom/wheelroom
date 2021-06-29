@@ -4,6 +4,7 @@ import {
   ComponentProps,
   StyleFactory,
   StyleMap,
+  StyleObject,
 } from '../../lib/component-styles'
 import { mediaQuery } from '../../lib/media-query'
 
@@ -15,7 +16,7 @@ export type ButtonProps = ComponentProps<
   ButtonOptions
 >['button']
 
-const baseStyle = {
+const buttonStyle: StyleObject = {
   color: 'white',
   display: 'inline-flex',
   justifyContent: 'center',
@@ -38,8 +39,8 @@ const baseStyle = {
   },
 }
 
-const primaryStyle = {
-  ...baseStyle,
+const primaryVariantStyle: StyleObject = {
+  ...buttonStyle,
   backgroundColor: 'var(--colors-azure)',
   borderColor: 'var(--colors-azure)',
   transition: 'background-color .25s ease',
@@ -48,31 +49,35 @@ const primaryStyle = {
   },
 }
 
+const secondaryVariantStyle: StyleObject = {
+  ...buttonStyle,
+  color: 'black',
+  backgroundColor: 'white',
+  borderColor: 'var(--colors-metal)',
+  transition: 'border-color .25s ease',
+  ':hover, :focus': {
+    borderColor: 'var(--colors-bullet)',
+  },
+}
+
+const displayVariantStyle: StyleObject = {
+  ...primaryVariantStyle,
+  fontSize: ['18px', '18px', '20px'],
+  padding: ['16px 24px', '16px 24px', '16px 32px'],
+}
+
 const styleMap: StyleMap<ButtonVariant> = {
-  primary: primaryStyle,
-  secondary: {
-    ...baseStyle,
-    color: 'black',
-    backgroundColor: 'white',
-    borderColor: 'var(--colors-azure)',
-    transition: 'border-color .25s ease',
-    ':hover, :focus': {
-      borderColor: 'var(--colors-ocean)',
-    },
-  },
-  display: {
-    ...primaryStyle,
-    fontSize: ['18px', '18px', '20px'],
-    padding: ['16px 24px', '16px 24px', '16px 32px'],
-  },
+  primary: primaryVariantStyle,
+  secondary: secondaryVariantStyle,
+  display: displayVariantStyle,
 }
 
 export const buttonStyleFactory: StyleFactory<ButtonVariant, ButtonOptions> = (
   args
 ) => {
   const useVariant = args.variant || 'primary'
-  const baseStyle = styleMap[useVariant]
-  return mediaQuery([baseStyle])
+  const baseButtonStyle = styleMap[useVariant]
+  return mediaQuery([baseButtonStyle])
 }
 
 export const Button = ({ variant, options, ...props }: ButtonProps) => {
@@ -80,5 +85,5 @@ export const Button = ({ variant, options, ...props }: ButtonProps) => {
     variant,
     options,
   })
-  return <AnyButton css={css as any} {...props} />
+  return <AnyButton css={css} {...props} />
 }
