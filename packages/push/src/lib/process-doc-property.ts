@@ -1,6 +1,15 @@
 // import util from 'util'
 import { JSDocTagInfo, SymbolDisplayPart } from 'typescript'
-import { DocProperty } from './push'
+import { DocProperty } from './interface-to-doc-property'
+
+type WheelroomTags = {
+  description?: string
+  platform?: string
+  fields?: {
+    [fieldName: string]: Record<string, string>
+  }
+  typeName?: string
+}
 
 const getInlineTags = ({
   search,
@@ -30,15 +39,18 @@ const getTagByName = ({ tags, name }: GetTagByName) => {
   return tags.find((tag) => tag.name === name)
 }
 
-export const processDocProperty = ({
-  docProperty,
-}: {
+export interface ParseWheelroomTags {
   docProperty: DocProperty
-}) => {
+}
+
+export const parseWheelroomTags = ({
+  docProperty,
+}: ParseWheelroomTags): WheelroomTags | undefined => {
+  const result: WheelroomTags = {}
   if (!docProperty.name) return
-  console.log('==============')
+  result.typeName = docProperty.name
   if (!docProperty.jSDocTags?.length) {
-    console.log(`Could not find js doc tags for ${docProperty.name}`)
+    console.log(`${result.typeName} - Skipping, no TSDoc tags`)
     return
   }
   const wheelroomTag = getTagByName({
@@ -46,7 +58,7 @@ export const processDocProperty = ({
     name: 'wheelroom',
   })
   if (!wheelroomTag) {
-    console.log(`Could not find @wheelroom for ${docProperty.name}`)
+    console.log(`${result.typeName} - Skipping, no @wheelroom block tag`)
     return
   }
   const text = getTextSymbol({ symbols: wheelroomTag.text })
@@ -54,14 +66,16 @@ export const processDocProperty = ({
   const platform = tags['@platform']
 
   if (!platform) {
-    console.log(`Could not find @platform inline for ${docProperty.name}`)
+    console.log(`${result.typeName} - Skipping, no @platform inline tag`)
     return
   }
-  console.log(`Sending ${docProperty.name} to ${platform}`)
+  result.platform = platform
+
   const description = getTextSymbol({
     symbols: docProperty.documentationComment,
   })
-  console.log(description)
+  result.description = description
+  result.fields = {}
   docProperty.docProperties?.forEach((docProperty: DocProperty) => {
     const wheelroomTag = getTagByName({
       tags: docProperty.jSDocTags,
@@ -70,9 +84,12 @@ export const processDocProperty = ({
     if (wheelroomTag) {
       const text = getTextSymbol({ symbols: wheelroomTag.text })
       const tags = getInlineTags({ search: text })
-      console.log(`Found field ${docProperty.name} with tags:`, tags)
+      result.fields![docProperty.name || 'unknown'] = tags
     } else {
-      console.log(`Could not find @wheelroom for field ${docProperty.name}`)
+      console.log(
+        `${result.typeName}/${docProperty.name} - Skipping, no @wheelroom block tag`
+      )
     }
   })
+  return result
 }
