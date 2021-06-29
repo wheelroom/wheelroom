@@ -52,6 +52,9 @@
     "CHANGELOG.md",
     "build"
   ],
+  "bin": {
+    "wheelroom": "build/cli.mjs"
+  },
   "publishConfig": {
     "access": "public"
   },
