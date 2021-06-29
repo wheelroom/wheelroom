@@ -3,8 +3,8 @@ import { TopicSection } from '../topic/topic-section'
 import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
 import { ContentfulTopicSection } from '../topic/contentful-topic-section'
 import { Landmarks } from '../page/landmarks'
-import { TextSection } from './text-section'
-import { ContentfulTextSection } from './contentful-text-section'
+import { TextSection } from '../models/text-section'
+import { ContentfulTextSection } from '../models/contentful-text-section'
 
 export const sectionMap = {
   Contentful_TopicSection: {

@@ -22,12 +22,12 @@ import {
 } from '@contentful/rich-text-react-renderer'
 import { ReactNode } from 'react'
 import { Link } from 'gatsby'
-import { ContentfulPageSection, PageSection } from '../models/page-section'
+import { ContentfulPageSection, PageSection } from '../page/page-section'
 import { ContentfulAsset } from '../models/contentful-asset'
 import { Asset } from '../models/asset'
 import { Text } from '../elements/text'
 import { H1, H2, H3, H4, H5, H6 } from '../elements/heading'
-import { ContentfulPage } from '../models/contentful-page'
+import { ContentfulPage } from '../page/contentful-page'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { ContentfulTextSection } from './contentful-text-section'
 
@@ -38,7 +38,9 @@ export type TextSectionProps = ComponentProps<TextSection>['div']
 
 export const textSectionStyleFactory: StyleFactory = () => {
   return {
-    padding: '32px 0',
+    label: 'wrapper',
+    width: '100%',
+    padding: 16,
   }
 }
 
@@ -117,10 +119,9 @@ export const TextSection = ({ model, ...props }: TextSectionProps) => {
     <Section css={css} {...props}>
       <Div
         css={{
-          label: 'TextSectionContainer',
+          label: 'container',
           margin: '0 auto',
           maxWidth: 712,
-          padding: '0 16px',
           width: '100%',
         }}
       >

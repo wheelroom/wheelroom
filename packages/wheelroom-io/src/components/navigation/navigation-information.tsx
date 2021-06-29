@@ -1,4 +1,4 @@
-import { Div, H3 } from '@wheelroom/any/react'
+import { Section, H3 } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
@@ -6,8 +6,11 @@ import { ContentfulNavigationSection } from './contentful-navigation-section'
 export type NavigationInformation = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
-export type NavigationInformationProps =
-  ComponentProps<NavigationInformation>['div']
+export type NavigationInformationProps = ComponentProps<
+  NavigationInformation,
+  undefined,
+  undefined
+>['section']
 
 export const navigationInformationStyleFactory: StyleFactory = () => {
   return {}
@@ -22,13 +25,12 @@ export const NavigationInformation = ({
   const css = navigationInformationStyleFactory({})
 
   return (
-    <Div css={css} {...props}>
-      <H3>Navigation Information</H3>
+    <Section css={css} {...props}>
       <NavigationSegment
         model={{
           contentfulNavigationSegment: section?.informationCollection?.items[0],
         }}
       />
-    </Div>
+    </Section>
   )
 }

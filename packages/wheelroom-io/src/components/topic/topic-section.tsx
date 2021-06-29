@@ -1,9 +1,10 @@
-import { Div, Hr } from '@wheelroom/any/react'
+import { Div, Hr, Main } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
 import {
   ComponentProps,
   StyleFactory,
   StyleMap,
+  StyleObject,
 } from '../../lib/component-styles'
 import { ContentfulTopic } from './contentful-topic'
 import { Topic } from './topic'
@@ -22,13 +23,13 @@ export type TopicSectionProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
-const baseStyle = {
+const baseStyle: StyleObject = {
   display: 'flex',
   width: '100%',
   flexDirection: 'column',
   paddingBottom: 16,
 }
-const maxWidthStyle = {
+const maxWidthStyle: StyleObject = {
   ...baseStyle,
   maxWidth: 1280,
   margin: '0 auto',
@@ -120,7 +121,7 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
   })
 
   return (
-    <Div css={{ label: 'Wrapper' }}>
+    <Main role="main">
       <Div css={css} {...props}>
         {model.contentfulTopicSection?.topicsCollection?.items.map(
           (contentfulTopic: ContentfulTopic, index: number) => (
@@ -133,6 +134,6 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
           )
         )}
       </Div>
-    </Div>
+    </Main>
   )
 }

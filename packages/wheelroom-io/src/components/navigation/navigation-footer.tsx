@@ -7,7 +7,11 @@ import { NavigationSegmentList } from './navigation-segment-list'
 export type NavigationFooter = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
-export type NavigationFooterProps = ComponentProps<NavigationFooter>['div']
+export type NavigationFooterProps = ComponentProps<
+  NavigationFooter,
+  undefined,
+  undefined
+>['div']
 
 export const navigationFooterStyleFactory: StyleFactory = () => {
   return {}

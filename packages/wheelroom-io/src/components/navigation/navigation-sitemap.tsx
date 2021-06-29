@@ -1,4 +1,4 @@
-import { Div, H3 } from '@wheelroom/any/react'
+import { Nav } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegmentList } from './navigation-segment-list'
@@ -6,7 +6,7 @@ import { NavigationSegmentList } from './navigation-segment-list'
 export type NavigationSitemap = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
-export type NavigationSitemapProps = ComponentProps<NavigationSitemap>['div']
+export type NavigationSitemapProps = ComponentProps<NavigationSitemap>['nav']
 
 export const navigationSitemapStyleFactory: StyleFactory = () => {
   return {}
@@ -21,13 +21,12 @@ export const NavigationSitemap = ({
   const css = navigationSitemapStyleFactory({})
 
   return (
-    <Div css={css} {...props}>
-      <H3>Navigation Sitemap</H3>
+    <Nav css={css} role="navigation" {...props}>
       <NavigationSegmentList
         model={{
           contentfulNavigationSegment: section?.sitemapCollection?.items[0],
         }}
       />
-    </Div>
+    </Nav>
   )
 }

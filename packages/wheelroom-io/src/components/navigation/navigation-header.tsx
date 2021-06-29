@@ -1,4 +1,4 @@
-import { Div, Nav, Section, Strong } from '@wheelroom/any/react'
+import { Div, Nav, Strong } from '@wheelroom/any/react'
 import {
   ComponentProps,
   StyleFactory,
@@ -7,7 +7,7 @@ import {
 import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
 import { Anchor } from '../elements/anchor'
-import { ContentfulGlobals } from '../models/contentful-globals'
+import { ContentfulGlobals } from '../page/contentful-globals'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegment } from './navigation-segment'
 import { NavigationSegmentList } from './navigation-segment-list'
@@ -20,7 +20,7 @@ export type NavigationHeaderProps = ComponentProps<
   NavigationHeaderModel,
   NavigationHeaderVariant,
   undefined
->['section']
+>['div']
 
 const navigationHeaderBaseStyle = {
   label: 'NavigationHeaderContainer',
@@ -64,7 +64,7 @@ export const NavigationHeader = ({
     options,
   })
   return (
-    <Section {...props}>
+    <Div {...props}>
       {/* TODO: refactor SkipToContent component. This is made for styling purposes only.  */}
       <Anchor
         css={{
@@ -137,6 +137,6 @@ export const NavigationHeader = ({
           </Nav>
         </Div>
       </Div>
-    </Section>
+    </Div>
   )
 }

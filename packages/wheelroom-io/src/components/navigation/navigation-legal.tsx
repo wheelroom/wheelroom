@@ -6,7 +6,11 @@ import { ContentfulNavigationSection } from './contentful-navigation-section'
 export type NavigationLegal = {
   contentfulNavigationSection?: ContentfulNavigationSection
 }
-export type NavigationLegalProps = ComponentProps<NavigationLegal>['div']
+export type NavigationLegalProps = ComponentProps<
+  NavigationLegal,
+  undefined,
+  undefined
+>['div']
 
 export const navigationLegalStyleFactory: StyleFactory = () => {
   return {}
