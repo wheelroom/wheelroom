@@ -17,6 +17,7 @@ const packageOrder = [
   'typesVersions',
   'main',
   'files',
+  'bin',
   'publishConfig',
   'workspaces',
   'scripts',
