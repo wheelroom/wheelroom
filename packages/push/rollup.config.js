@@ -48,12 +48,12 @@ const plugins = [
 export default [
   {
     external,
-    input: './src/poc.ts',
+    input: './src/plain.ts',
     output: [
       {
         banner,
         exports: 'named',
-        file: `./build/poc.mjs`,
+        file: `./build/plain.mjs`,
         format: 'es',
         globals,
         sourcemap: false,
@@ -61,7 +61,7 @@ export default [
       {
         banner,
         exports: 'named',
-        file: `./build/poc.cjs`,
+        file: `./build/plain.cjs`,
         format: 'cjs',
         globals,
         sourcemap: false,

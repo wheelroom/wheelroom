@@ -2,7 +2,7 @@ import ts from 'typescript'
 import { getCompilerOptions } from '../lib/get-compiler-options'
 import { interfaceToDocProperty } from '../lib/interface-to-doc-property'
 import { isExportedNode } from '../lib/is-exported-node'
-import { parseWheelroomTags } from '../lib/process-doc-property'
+import { parseWheelroomTags } from '../lib/parse-wheelroom-tags'
 
 export interface PushModels {
   file: string
