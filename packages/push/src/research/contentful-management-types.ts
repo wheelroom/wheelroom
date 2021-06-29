@@ -9,39 +9,6 @@ import {
   SysLink,
 } from 'contentful-management/types'
 
-export type Variant = 'external 1' | 'external 2' | 'external 3'
-
-export type FieldName = FieldType['type']
-
-/**
- * Something about this model, used as model description
- * @wheelroom {@platform contentful}
- * @see https://www.wheelroom.io
- */
-export interface Topic {
-  /**
-   * Some text here that we do nothing with
-   * @wheelroom
-   *   {@name Heading}
-   *   {@type Symbol}
-   *   {@widget singleLine}
-   *   {@required} {@localized}
-   *   {@validation unique}
-   *   {@helpText The topic heading}
-   * @defaultValue Default heading
-   *
-   */
-  heading: string
-  /**
-   * This is the abstract
-   */
-  abstract: string
-  /**
-   * This is the variant
-   */
-  variant: Variant
-}
-
 const basicSys: BasicMetaSysProps = {
   type: '',
   id: '',
