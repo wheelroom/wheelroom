@@ -4,10 +4,10 @@ import {
   StyleFactory,
   StyleMap,
 } from '../../lib/component-styles'
-import { ButtonVariant } from '../elements/button'
-import { ContentfulAction } from '../models/contentful-action'
-import { ActionButton } from '../models/action-button'
 import { mediaQuery } from '../../lib/media-query'
+import { ButtonOptions, ButtonVariant } from '../elements/button'
+import { ActionButton } from '../models/action-button'
+import { ContentfulAction } from '../models/contentful-action'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type NavigationSegmentVariant = 'actions'
@@ -17,7 +17,8 @@ export type NavigationSegment = {
 }
 export type NavigationSegmentProps = ComponentProps<
   NavigationSegment,
-  ButtonVariant
+  ButtonVariant,
+  ButtonOptions
 >['div']
 
 const buttonGroupStyle = {
@@ -34,9 +35,10 @@ const styleMap: StyleMap<ButtonVariant> = {
   display: {},
 }
 
-export const navigationSegmentStyleFactory: StyleFactory<ButtonVariant> = (
-  args
-) => {
+export const navigationSegmentStyleFactory: StyleFactory<
+  ButtonVariant,
+  ButtonOptions
+> = (args) => {
   const useVariant = args.variant || 'primary'
   const baseStyle = styleMap[useVariant]
   return mediaQuery([baseStyle])
@@ -45,6 +47,7 @@ export const navigationSegmentStyleFactory: StyleFactory<ButtonVariant> = (
 export const NavigationSegment = ({
   model,
   variant,
+  options,
   ...props
 }: NavigationSegmentProps) => {
   if (!model?.contentfulNavigationSegment?.actionsCollection?.items?.length)
@@ -52,6 +55,7 @@ export const NavigationSegment = ({
   const actions = model.contentfulNavigationSegment.actionsCollection.items
   const css = navigationSegmentStyleFactory({
     variant,
+    options,
   })
 
   return (
@@ -61,6 +65,7 @@ export const NavigationSegment = ({
           key={contentfulAction.sys?.id}
           model={{ contentfulAction }}
           variant={variant}
+          options={options}
         />
       ))}
     </Div>

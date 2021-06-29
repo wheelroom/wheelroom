@@ -1,6 +1,8 @@
-import { Nav } from '@wheelroom/any/react'
+import { Div, Nav } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
+import { mediaQuery } from '../../lib/media-query'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
+import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 import { NavigationSegmentList } from './navigation-segment-list'
 
 export type NavigationSitemap = {
@@ -9,7 +11,10 @@ export type NavigationSitemap = {
 export type NavigationSitemapProps = ComponentProps<NavigationSitemap>['nav']
 
 export const navigationSitemapStyleFactory: StyleFactory = () => {
-  return {}
+  return mediaQuery({
+    label: 'wrapper',
+    // Note: Padding applied on the sitemap segments
+  })
 }
 
 export const NavigationSitemap = ({
@@ -18,15 +23,36 @@ export const NavigationSitemap = ({
 }: NavigationSitemapProps) => {
   const section = model?.contentfulNavigationSection
   if (!section?.sitemapCollection?.items?.length) return null
+  const segments = section?.sitemapCollection.items
   const css = navigationSitemapStyleFactory({})
 
   return (
     <Nav css={css} role="navigation" {...props}>
-      <NavigationSegmentList
-        model={{
-          contentfulNavigationSegment: section?.sitemapCollection?.items[0],
+      <Div
+        css={{
+          label: 'container',
+          maxWidth: 1280 + 32,
+          margin: '0 auto',
+          display: 'flex',
+          flexWrap: 'wrap',
         }}
-      />
+      >
+        {segments.map(
+          (contentfulNavigationSegment: ContentfulNavigationSegment, index) => (
+            <NavigationSegmentList
+              key={index + `-` + contentfulNavigationSegment.sys?.id}
+              model={{
+                contentfulNavigationSegment,
+              }}
+              variant="sitemap"
+              options={{
+                heading: true,
+                abstract: true,
+              }}
+            />
+          )
+        )}
+      </Div>
     </Nav>
   )
 }

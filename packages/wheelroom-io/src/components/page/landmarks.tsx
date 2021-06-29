@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Aside, Footer, Header, Main, Section } from '@wheelroom/any/react'
+import { Aside, Footer, Header, Main } from '@wheelroom/any/react'
 import { ContentfulTopicSection } from '../topic/contentful-topic-section'
 import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
 import { ContentfulTextSection } from '../models/contentful-text-section'
@@ -61,7 +61,7 @@ export const Landmarks = (props: any) => {
         sectionCount: React.Children.count(props.children),
         sectionIndex,
       })
-    ].push(<Section key={`section-${sectionIndex}`}>{child}</Section>)
+    ].push(<Fragment key={`section-${sectionIndex}`}>{child}</Fragment>)
   })
 
   return (

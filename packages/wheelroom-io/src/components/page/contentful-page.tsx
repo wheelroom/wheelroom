@@ -6,8 +6,8 @@ export type ContentfulPage = {
   sys?: {
     id: string
   }
-  sectionsCollection: {
-    items?: ContentfulPageSection[]
+  sectionsCollection?: {
+    items: ContentfulPageSection[]
   }
   path?: string
 }

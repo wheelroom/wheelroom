@@ -31,7 +31,11 @@ export const ActionLink = ({ model, variant, ...props }: ActionLinkProps) => {
     const anchorStyle = anchorStyleFactory({ variant })
     const linkProps = { ...props, to: path } as LinkProps
     return (
-      <Link className={css(anchorStyle)} activeClassName="active" {...linkProps}>
+      <Link
+        className={css(anchorStyle)}
+        activeClassName="active"
+        {...linkProps}
+      >
         {heading}
       </Link>
     )

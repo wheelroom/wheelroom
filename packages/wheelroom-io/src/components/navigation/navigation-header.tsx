@@ -1,9 +1,11 @@
-import { Div, Nav, Strong } from '@wheelroom/any/react'
+import { Div, Nav, Section, Strong } from '@wheelroom/any/react'
 import {
   ComponentProps,
   StyleFactory,
   StyleMap,
+  StyleObject,
 } from '../../lib/component-styles'
+import { ActionLink } from '../models/action-link'
 import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
 import { Anchor } from '../elements/anchor'
@@ -11,6 +13,7 @@ import { ContentfulGlobals } from '../page/contentful-globals'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegment } from './navigation-segment'
 import { NavigationSegmentList } from './navigation-segment-list'
+import path from 'path/posix'
 
 export type NavigationHeaderVariant = 'fixed' | 'fluid'
 export type NavigationHeaderModel = {
@@ -22,8 +25,7 @@ export type NavigationHeaderProps = ComponentProps<
   undefined
 >['div']
 
-const navigationHeaderBaseStyle = {
-  label: 'NavigationHeaderContainer',
+const navigationHeaderStyle: StyleObject = {
   display: 'flex',
   height: '100%',
   justifyContent: 'space-between',
@@ -33,11 +35,11 @@ const navigationHeaderBaseStyle = {
 
 const styleMap: StyleMap<NavigationHeaderVariant> = {
   fixed: {
-    ...navigationHeaderBaseStyle,
+    ...navigationHeaderStyle,
     margin: '0 auto',
     maxWidth: 1280,
   },
-  fluid: navigationHeaderBaseStyle,
+  fluid: navigationHeaderStyle,
 }
 
 export const navigationHeaderStyleFactory: StyleFactory<
@@ -64,7 +66,7 @@ export const NavigationHeader = ({
     options,
   })
   return (
-    <Div {...props}>
+    <>
       {/* TODO: refactor SkipToContent component. This is made for styling purposes only.  */}
       <Anchor
         css={{
@@ -86,16 +88,15 @@ export const NavigationHeader = ({
       >
         {globals.skipToContentHeading}
       </Anchor>
-      {/* Wrapper element needs position Fixed or undefined variants */}
-      <Div
+      {/* Section element needs position Fixed or undefined variants */}
+      <Section
         css={{
-          label: 'NavigationHeaderWrapper',
           height: 70,
-          borderBottom: '1px solid black',
+          borderBottom: '1px solid var(--colors-grey)',
         }}
       >
         {/* Note: Here starts the NavigationHeader with fixed and fluid variants */}
-        <Div css={css}>
+        <Div css={css} {...props}>
           {/* TODO: refactor NavigationBranding model component. This is made for styling purposes only.  */}
           <Div
             css={{
@@ -105,9 +106,17 @@ export const NavigationHeader = ({
               marginRight: 16,
             }}
           >
-            <Anchor href="./">
-              <Strong>{globals.siteHeading}</Strong>
-            </Anchor>
+            <ActionLink
+              variant="branding"
+              model={{
+                contentfulAction: {
+                  page: {
+                    path: '/',
+                  },
+                  heading: globals.siteHeading,
+                },
+              }}
+            />
           </Div>
           {/* Wrap all segments within nav element for accessibility and responsive styling reasons */}
           <Nav
@@ -128,15 +137,13 @@ export const NavigationHeader = ({
             <NavigationSegment
               model={{ contentfulNavigationSegment: section?.actions }}
               variant="primary"
-            />
-            <NavigationSegment
-              css={{ paddingLeft: 8 }}
-              model={{ contentfulNavigationSegment: section?.social }}
-              variant="secondary"
+              options={{
+                hideIcon: true,
+              }}
             />
           </Nav>
         </Div>
-      </Div>
-    </Div>
+      </Section>
+    </>
   )
 }

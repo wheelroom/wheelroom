@@ -21,7 +21,6 @@ export const NavigationSocial = ({
 
   return (
     <Div css={css} {...props}>
-      <H3>Navigation Social</H3>
       <NavigationSegment model={{ contentfulNavigationSegment }} />
     </Div>
   )

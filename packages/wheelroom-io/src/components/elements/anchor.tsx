@@ -7,7 +7,7 @@ import {
 } from '../../lib/component-styles'
 import { mediaQuery } from '../../lib/media-query'
 
-export type AnchorVariant = 'link' | 'menu' | 'sitemap'
+export type AnchorVariant = 'branding' | 'link' | 'menu' | 'sitemap'
 export type AnchorProps = ComponentProps<
   undefined,
   AnchorVariant,
@@ -25,6 +25,13 @@ const anchorStyle: StyleObject = {
 
 const linkVariantStyle: StyleObject = anchorStyle
 
+const brandingVariantStyle: StyleObject = {
+  ...anchorStyle,
+  color: 'var(--colors-black)',
+  fontWeight: 'bold',
+  textDecoration: 'none',
+}
+
 const menuVariantStyle: StyleObject = {
   ...anchorStyle,
   fontSize: 16,
@@ -40,6 +47,7 @@ const menuVariantStyle: StyleObject = {
 const sitemapVariantStyle: StyleObject = anchorStyle
 
 const styleMap: StyleMap<AnchorVariant> = {
+  branding: brandingVariantStyle,
   link: linkVariantStyle,
   menu: menuVariantStyle,
   sitemap: sitemapVariantStyle,

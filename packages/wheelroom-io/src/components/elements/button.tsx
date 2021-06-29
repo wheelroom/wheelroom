@@ -9,7 +9,7 @@ import {
 import { mediaQuery } from '../../lib/media-query'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'display'
-export type ButtonOptions = ComponentOptions<'hideHeading'>
+export type ButtonOptions = ComponentOptions<'hideHeading' | 'hideIcon'>
 export type ButtonProps = ComponentProps<
   undefined,
   ButtonVariant,
@@ -36,6 +36,7 @@ const buttonStyle: StyleObject = {
     height: 15,
     margin: '0 auto',
     transform: 'translateX(4px)',
+    alignSelf: 'center',
   },
 }
 
@@ -72,12 +73,23 @@ const styleMap: StyleMap<ButtonVariant> = {
   display: displayVariantStyle,
 }
 
+const hideHeadingOptionStyle: StyleObject = {
+  padding: 8,
+  borderColor: 'transparent',
+  svg: {
+    transform: 'translateX(0)',
+  },
+}
+
 export const buttonStyleFactory: StyleFactory<ButtonVariant, ButtonOptions> = (
   args
 ) => {
   const useVariant = args.variant || 'primary'
   const baseButtonStyle = styleMap[useVariant]
-  return mediaQuery([baseButtonStyle])
+  return mediaQuery([
+    baseButtonStyle,
+    args.options?.hideHeading && hideHeadingOptionStyle,
+  ])
 }
 
 export const Button = ({ variant, options, ...props }: ButtonProps) => {
