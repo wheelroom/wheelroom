@@ -1,6 +1,6 @@
 /**
  * Something about this model, used as model description
- * @wheelroom {@platform contentful}
+ * @wheelroom {@plugin contentful}
  * @see https://www.wheelroom.io
  */
 export interface Topic {

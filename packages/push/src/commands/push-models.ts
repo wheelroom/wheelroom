@@ -8,7 +8,7 @@ export interface PushModels {
   file: string
 }
 
-export const pushModels = ({ file }: PushModels) => {
+export const pushModels = async ({ file }: PushModels) => {
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram([file], compilerOptions.options)
   const checker = program.getTypeChecker()
@@ -20,6 +20,8 @@ export const pushModels = ({ file }: PushModels) => {
       pushNode({ node, checker })
     })
   }
+  const module = await import('@wheelroom/plugin-contentful/plain')
+  console.log('module', module.test)
 }
 
 interface PushNode {

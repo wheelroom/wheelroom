@@ -7,7 +7,7 @@
       "allowMultiple": false
     },
     {
-      "tagName": "@platform",
+      "tagName": "@plugin",
       "syntaxKind": "inline",
       "allowMultiple": false
     },

@@ -4,7 +4,7 @@ import { ContentfulAsset, refA } from './asset'
 console.log(refA, refB)
 /**
  * Topic model, a heading, an abstract and a call to action
- * @wheelroom {@platform contentful}
+ * @wheelroom {@plugin contentful}
  */
 export interface ContentfulTopic {
   sys?: {
