@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     node: true,
   },
+  ignorePatterns: ['/**/node_modules/*', '/**/*.js', '/**/build/*'],
   parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
@@ -31,7 +32,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 1,
     'import/order': 2,
     'import/no-unresolved': 0,
-    "tsdoc/syntax": "warn",
+    'tsdoc/syntax': 'warn',
   },
   settings: {
     react: {
