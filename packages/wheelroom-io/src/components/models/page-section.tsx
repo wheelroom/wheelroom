@@ -2,10 +2,11 @@ import { NavigationSection } from '../navigation/navigation-section'
 import { TopicSection } from '../topic/topic-section'
 import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
 import { ContentfulTopicSection } from '../topic/contentful-topic-section'
+import { Landmarks } from '../page/landmarks'
 import { TextSection } from './text-section'
 import { ContentfulTextSection } from './contentful-text-section'
 
-const sectionMap = {
+export const sectionMap = {
   Contentful_TopicSection: {
     component: TopicSection,
     propName: 'contentfulTopicSection',
@@ -20,7 +21,7 @@ const sectionMap = {
   },
 }
 
-type SectionType = keyof typeof sectionMap
+export type SectionType = keyof typeof sectionMap
 
 export type ContentfulPageSection =
   | ContentfulTopicSection
@@ -37,7 +38,7 @@ export type SectionsProps = {
 
 export const PageSection = (props: SectionsProps) => {
   return (
-    <>
+    <Landmarks>
       {props.model?.contentfulPageSections?.map(
         (section: ContentfulPageSection, index) => {
           const sectionType = section.__typename as SectionType
@@ -48,6 +49,6 @@ export const PageSection = (props: SectionsProps) => {
           return <Section key={'id-' + section.sys?.id + index} model={model} />
         }
       )}
-    </>
+    </Landmarks>
   )
 }
