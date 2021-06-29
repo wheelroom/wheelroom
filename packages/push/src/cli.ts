@@ -1,22 +1,16 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
+import { pullCommand } from './commands/pull'
+import { pushCommand } from './commands/push'
 
-type PushArgv = {
+export type PushArgv = {
   type: 'content' | 'models'
   file: string
 }
 
-const pushCommand = ({ argv }: { argv: yargs.Arguments<PushArgv> }) => {
-  console.log(`push/${argv.type} file:${argv.file}`)
-}
-
-type PullArgv = {
+export type PullArgv = {
   type: 'content' | 'models'
-  file: string
-}
-
-const pullCommand = ({ argv }: { argv: yargs.Arguments<PullArgv> }) => {
-  console.log(`pull/${argv.type} path:${argv.path}`)
+  path: string
 }
 
 type WheelroomOptions = {
