@@ -28,9 +28,10 @@ const printNode = ({ node, checker, printer, sourceFile }: PrintNode) => {
 }
 
 const runPoc = () => {
+  console.log('Starting Proof Of Concept')
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram(
-    ['src/fixtures/topic.tsx'],
+    ['./src/fixtures/topic.tsx'],
     compilerOptions.options
   )
   const checker = program.getTypeChecker()

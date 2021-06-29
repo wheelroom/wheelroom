@@ -9,7 +9,7 @@ export interface PushModels {
   file: string
 }
 
-export const pushModels = async ({ file }: PushModels) => {
+export const pushModels = ({ file }: PushModels) => {
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram([file], compilerOptions.options)
   const checker = program.getTypeChecker()
@@ -17,8 +17,8 @@ export const pushModels = async ({ file }: PushModels) => {
   for (const sourceFile of program.getSourceFiles()) {
     if (sourceFile.isDeclarationFile) continue
     console.log('===\nSource:', sourceFile.fileName)
-    await ts.forEachChild(sourceFile, async (node: ts.Node) => {
-      await pushNode({ node, checker })
+    ts.forEachChild(sourceFile, (node: ts.Node) => {
+      pushNode({ node, checker })
     })
   }
 }
@@ -27,7 +27,7 @@ interface PushNode {
   node: ts.Node
   checker: ts.TypeChecker
 }
-const pushNode = async ({ node, checker }: PushNode) => {
+const pushNode = ({ node, checker }: PushNode) => {
   if (
     !isExportedNode({ node }) ||
     !ts.isInterfaceDeclaration(node) ||
@@ -39,5 +39,5 @@ const pushNode = async ({ node, checker }: PushNode) => {
   const docProperty = interfaceToDocProperty({ type, checker })
   const tags = parseWheelroomTags({ docProperty })
   if (!tags) return
-  await callPushHandler({ wheelroomTags: tags })
+  callPushHandler({ wheelroomTags: tags })
 }

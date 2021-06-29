@@ -7,11 +7,11 @@ export interface PullCommand {
   argv: yargs.Arguments<PullArgv>
 }
 
-export const pullCommand = ({ argv }: PullCommand) => {
+export const pullCommand = async ({ argv }: PullCommand) => {
   if (argv.type === 'content') {
-    pullContent({ path: argv.path })
+    await pullContent({ path: argv.path })
   }
   if (argv.type === 'models') {
-    pullModels({ path: argv.path })
+    await pullModels({ path: argv.path })
   }
 }
