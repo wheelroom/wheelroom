@@ -5,6 +5,7 @@ import {
   StyleMap,
   StyleObject,
 } from '../../lib/component-styles'
+import { ActionLink } from '../models/action-link'
 import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
 import { Anchor } from '../elements/anchor'
@@ -12,6 +13,7 @@ import { ContentfulGlobals } from '../page/contentful-globals'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegment } from './navigation-segment'
 import { NavigationSegmentList } from './navigation-segment-list'
+import path from 'path/posix'
 
 export type NavigationHeaderVariant = 'fixed' | 'fluid'
 export type NavigationHeaderModel = {
@@ -104,9 +106,17 @@ export const NavigationHeader = ({
               marginRight: 16,
             }}
           >
-            <Anchor href="./">
-              <Strong>{globals.siteHeading}</Strong>
-            </Anchor>
+            <ActionLink
+              variant="branding"
+              model={{
+                contentfulAction: {
+                  page: {
+                    path: '/',
+                  },
+                  heading: globals.siteHeading,
+                },
+              }}
+            />
           </Div>
           {/* Wrap all segments within nav element for accessibility and responsive styling reasons */}
           <Nav
