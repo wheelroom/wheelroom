@@ -53,7 +53,6 @@ const primaryVariantStyle: StyleObject = {
 const secondaryVariantStyle: StyleObject = {
   ...buttonStyle,
   color: 'black',
-  backgroundColor: 'white',
   borderColor: 'var(--colors-metal)',
   transition: 'border-color .25s ease',
   ':hover, :focus': {
