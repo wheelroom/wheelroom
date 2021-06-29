@@ -4,7 +4,7 @@ import { DocProperty } from './interface-to-doc-property'
 
 type WheelroomTags = {
   description?: string
-  platform?: string
+  plugin?: string
   fields?: {
     [fieldName: string]: Record<string, string>
   }
@@ -63,13 +63,13 @@ export const parseWheelroomTags = ({
   }
   const text = getTextSymbol({ symbols: wheelroomTag.text })
   const tags = getInlineTags({ search: text })
-  const platform = tags['@platform']
+  const plugin = tags['@plugin']
 
-  if (!platform) {
-    console.log(`${result.typeName} - Skipping model, no @platform inline tag`)
+  if (!plugin) {
+    console.log(`${result.typeName} - Skipping model, no @plugin inline tag`)
     return
   }
-  result.platform = platform
+  result.plugin = plugin
 
   const description = getTextSymbol({
     symbols: docProperty.documentationComment,
