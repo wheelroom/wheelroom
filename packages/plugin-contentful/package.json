@@ -1,0 +1,71 @@
+{
+  "name": "@wheelroom/plugin-contentful",
+  "version": "6.25.2",
+  "description": "Contentful plugin for Wheelroom push",
+  "keywords": [
+    "any",
+    "cli",
+    "component",
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
+  "author": "Wheelroom (https://www.wheelroom.io)",
+  "contributors": [
+    {
+      "name": "Jacco Meijer",
+      "email": "jacco@wheelroom.io",
+      "url": "https://www.jaccomeijer.nl"
+    },
+    {
+      "name": "Thijs Krooswijk",
+      "email": "thijs@wheelroom.io",
+      "url": "https://www.thijskrooswijk.com"
+    }
+  ],
+  "exports": {
+    "./plain": {
+      "import": "./build/plain.mjs",
+      "require": "./build/plain.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "build/*"
+      ]
+    }
+  },
+  "files": [
+    "CHANGELOG.md",
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "npm-run-all clean build:*",
+    "build:compile": "rollup --config",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
+    "clean": "rimraf build/*",
+    "dev": "rollup --config --watch"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.11.1"
+  }
+}
