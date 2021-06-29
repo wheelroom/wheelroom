@@ -48,6 +48,7 @@ const plugins = [
 export default [
   {
     external,
+    inlineDynamicImports: true,
     input: './src/plain.ts',
     output: [
       {

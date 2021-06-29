@@ -2,7 +2,7 @@
 import { JSDocTagInfo, SymbolDisplayPart } from 'typescript'
 import { DocProperty } from './interface-to-doc-property'
 
-type WheelroomTags = {
+export type WheelroomTags = {
   description?: string
   plugin?: string
   fields?: {
