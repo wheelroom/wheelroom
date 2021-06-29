@@ -56,7 +56,7 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     flexDirection: 'column',
     alignItems: 'center',
     p: {
-      order: '2',
+      order: 2,
       fontSize: ['24px', '32px', '42px'],
       fontStyle: 'italic',
       lineHeight: 1.25,
@@ -64,7 +64,7 @@ const styleMap: StyleMap<TopicSectionVariant> = {
       padding: 0,
     },
     h1: {
-      order: '1',
+      order: 1,
     },
   },
   showcase: {
@@ -107,7 +107,7 @@ export const TopicText = ({
 
   return (
     <Div css={css} {...props}>
-      <Heading variant={isLarge ? 'h1' : 'h3'}>{model.headingString}</Heading>
+      <Heading variant={isLarge ? 'h2' : 'h3'}>{model.headingString}</Heading>
       <Text>{model.abstractString}</Text>
     </Div>
   )

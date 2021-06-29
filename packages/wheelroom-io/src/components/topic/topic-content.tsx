@@ -4,6 +4,7 @@ import {
   ComponentProps,
   StyleFactory,
   StyleMap,
+  StyleObject,
 } from '../../lib/component-styles'
 import { ContentfulAction } from '../models/contentful-action'
 import {
@@ -24,7 +25,7 @@ export type TopicContentProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
-const baseStyle = {
+const baseStyle: StyleObject = {
   display: 'flex',
   flex: '1',
   flexDirection: 'column',
@@ -81,7 +82,7 @@ export const TopicContent = ({
   variant,
   ...props
 }: TopicContentProps) => {
-  const css: any = topicContentStyleFactory({
+  const css = topicContentStyleFactory({
     options,
     variant,
   })

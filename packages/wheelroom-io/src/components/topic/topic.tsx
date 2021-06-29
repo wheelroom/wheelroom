@@ -4,6 +4,7 @@ import {
   ComponentProps,
   StyleFactory,
   StyleMap,
+  StyleObject,
 } from '../../lib/component-styles'
 import {
   TopicSectionOptions,
@@ -22,7 +23,7 @@ export type TopicProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
-const baseStyle = {
+const baseStyle: StyleObject = {
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
