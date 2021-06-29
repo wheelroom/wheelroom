@@ -1,6 +1,6 @@
-import { Div, H3 } from '@wheelroom/any/react'
+import { A, Div, Section, Span, Sup } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
-import { NavigationSegment } from './navigation-segment'
+import { mediaQuery } from '../../lib/media-query'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 
 export type NavigationLegal = {
@@ -10,10 +10,15 @@ export type NavigationLegalProps = ComponentProps<
   NavigationLegal,
   undefined,
   undefined
->['div']
+>['section']
 
 export const navigationLegalStyleFactory: StyleFactory = () => {
-  return {}
+  return mediaQuery({
+    label: 'wrapper',
+    width: '100%',
+    padding: 16,
+    borderTop: '1px solid var(--colors-grey)',
+  })
 }
 
 export const NavigationLegal = ({ model, ...props }: NavigationLegalProps) => {
@@ -22,13 +27,26 @@ export const NavigationLegal = ({ model, ...props }: NavigationLegalProps) => {
   const css = navigationLegalStyleFactory({})
 
   return (
-    <Div css={css} {...props}>
-      <H3>Navigation Legal</H3>
-      <NavigationSegment
-        model={{
-          contentfulNavigationSegment: section?.legal,
-        }}
-      />
-    </Div>
+    <Section css={css} {...props}>
+      <Div
+        css={mediaQuery({
+          label: 'container',
+          display: 'flex',
+          alignItems: 'center',
+          fontSize: 14,
+          flexDirection: ['column', 'row'],
+          justifyContent: 'space-between',
+          maxWidth: 1280,
+          margin: '0 auto',
+        })}
+      >
+        <Span css={{ marginBottom: 8 }}>© Copyright 2021 Wheelroom</Span>
+        <Span css={{ marginBottom: 8 }}>
+          <A href="https://www.wheelroom.io">Made with Wheelroom</A>
+          {` `}
+          <Sup>6.2.3</Sup>
+        </Span>
+      </Div>
+    </Section>
   )
 }

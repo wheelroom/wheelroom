@@ -1,5 +1,6 @@
-import { Div, H3, H4 } from '@wheelroom/any/react'
+import { Div, Section } from '@wheelroom/any/react'
 import { ComponentProps, StyleFactory } from '../../lib/component-styles'
+import { mediaQuery } from '../../lib/media-query'
 import { NavigationSegment } from './navigation-segment'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegmentList } from './navigation-segment-list'
@@ -11,10 +12,15 @@ export type NavigationFooterProps = ComponentProps<
   NavigationFooter,
   undefined,
   undefined
->['div']
+>['section']
 
 export const navigationFooterStyleFactory: StyleFactory = () => {
-  return {}
+  return mediaQuery({
+    label: 'wrapper',
+    width: '100%',
+    padding: 16,
+    borderTop: '1px solid var(--colors-grey)',
+  })
 }
 
 export const NavigationFooter = ({
@@ -24,28 +30,34 @@ export const NavigationFooter = ({
   const section = model?.contentfulNavigationSection
   if (!section?.footerCollection?.items?.length) return null
   const css = navigationFooterStyleFactory({})
-
   return (
-    <Div css={css} {...props}>
-      <H3>Navigation Footer</H3>
-      <NavigationSegmentList
-        model={{
-          contentfulNavigationSegment: section?.footerCollection?.items[0],
-        }}
-      />
-      <H4>Navigation Actions</H4>
-      <NavigationSegment
-        model={{
-          contentfulNavigationSegment: section?.actions,
-        }}
-        variant="primary"
-      />
-      <H4>Navigation Social</H4>
-      <NavigationSegment
-        model={{
-          contentfulNavigationSegment: section?.social,
-        }}
-      />
-    </Div>
+    <Section css={css} {...props}>
+      <Div
+        css={mediaQuery({
+          label: 'container',
+          display: 'flex',
+          alignItems: 'center',
+          fontSize: 14,
+          flexDirection: ['column', 'row'],
+          justifyContent: 'space-between',
+          maxWidth: 1280,
+          margin: '0 auto',
+        })}
+      >
+        <NavigationSegmentList
+          model={{
+            contentfulNavigationSegment: section?.footerCollection?.items[0],
+          }}
+          variant="menu"
+          css={{ marginLeft: -8 }}
+        />
+        <NavigationSegment
+          model={{
+            contentfulNavigationSegment: section?.social,
+          }}
+          variant="secondary"
+        />
+      </Div>
+    </Section>
   )
 }

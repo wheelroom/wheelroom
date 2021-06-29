@@ -1,5 +1,4 @@
-import { Section } from '@wheelroom/any/react'
-import { ComponentProps, StyleObject } from '../../lib/component-styles'
+import { ComponentProps } from '../../lib/component-styles'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationFooter } from './navigation-footer'
 import { NavigationHeader } from './navigation-header'
