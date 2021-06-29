@@ -127,11 +127,9 @@ export const NavigationHeader = ({
             <NavigationSegment
               model={{ contentfulNavigationSegment: section?.actions }}
               variant="primary"
-            />
-            <NavigationSegment
-              css={{ paddingLeft: 8 }}
-              model={{ contentfulNavigationSegment: section?.social }}
-              variant="secondary"
+              options={{
+                hideIcon: true,
+              }}
             />
           </Nav>
         </Div>

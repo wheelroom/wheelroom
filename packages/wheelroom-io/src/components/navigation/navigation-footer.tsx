@@ -56,6 +56,7 @@ export const NavigationFooter = ({
             contentfulNavigationSegment: section?.social,
           }}
           variant="secondary"
+          options={{ hideHeading: true }}
         />
       </Div>
     </Section>

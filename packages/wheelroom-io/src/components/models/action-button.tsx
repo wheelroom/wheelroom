@@ -7,6 +7,7 @@ import {
 } from '../elements/button'
 import { Anchor, AnchorProps } from '../elements/anchor'
 import { ComponentProps } from '../../lib/component-styles'
+import { Icon } from '../elements/icon'
 import { ContentfulAction } from './contentful-action'
 
 /**
@@ -34,6 +35,8 @@ export const ActionButton = ({
   const path = action?.page?.path
   const url = action?.url
   const heading = action?.heading
+  const icon = action?.icon
+  const renderIcon = icon && <Icon variant={icon} />
 
   // Render as a button
   const buttonStyle = buttonStyleFactory({ variant, options })
@@ -42,7 +45,8 @@ export const ActionButton = ({
     const linkProps = { ...props, to: path } as LinkProps
     return (
       <Link className={css(buttonStyle)} {...linkProps}>
-        {heading}
+        {!options?.hideHeading && heading}
+        {!options?.hideIcon && renderIcon}
       </Link>
     )
   } else {
@@ -53,7 +57,8 @@ export const ActionButton = ({
     } as AnchorProps
     return (
       <Anchor css={buttonStyle} {...anchorProps}>
-        {heading}
+        {!options?.hideHeading && heading}
+        {!options?.hideIcon && renderIcon}
       </Anchor>
     )
   }
