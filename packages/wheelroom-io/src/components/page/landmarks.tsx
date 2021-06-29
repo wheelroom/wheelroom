@@ -17,7 +17,7 @@ import { ContentfulTextSection } from '../models/contentful-text-section'
 
 interface GetLandMark {
   section: {
-    model: {
+    model?: {
       contentfulTopicSection?: ContentfulTopicSection
       contentfulNavigationSection?: ContentfulNavigationSection
       contentfulTextSection?: ContentfulTextSection
@@ -32,11 +32,10 @@ const getLandmark = ({
   sectionCount,
   sectionIndex,
 }: GetLandMark): string => {
-  const isNavigationSection =
-    section.model && !!section.model.contentfulNavigationSection
-  const isTopicSection = section.model && !!section.model.contentfulTopicSection
+  const isNavigationSection = !!section.model?.contentfulNavigationSection
+  const isTopicSection = !!section.model?.contentfulTopicSection
   const isHero =
-    isTopicSection && section.model.contentfulTopicSection?.variant === 'hero'
+    isTopicSection && section.model?.contentfulTopicSection?.variant === 'hero'
   if (sectionIndex <= 1 && (isHero || isNavigationSection)) {
     return 'header'
   }
