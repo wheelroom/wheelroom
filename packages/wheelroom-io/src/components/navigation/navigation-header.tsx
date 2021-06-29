@@ -1,4 +1,5 @@
 import { Div, Nav, Section } from '@wheelroom/any/react'
+import { useRef, useState } from 'react'
 import {
   ComponentProps,
   StyleFactory,
@@ -8,9 +9,11 @@ import {
 import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
 import { Anchor } from '../elements/anchor'
+import { Button } from '../elements/button'
 import { ActionLink } from '../models/action-link'
 import { ContentfulGlobals } from '../page/contentful-globals'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
+import { NavigationModal } from './navigation-modal'
 import { NavigationSegment } from './navigation-segment'
 import { NavigationSegmentList } from './navigation-segment-list'
 
@@ -56,6 +59,7 @@ export const NavigationHeader = ({
   model,
   ...props
 }: NavigationHeaderProps) => {
+  const [modalVisible, setModalVisible] = useState(false)
   type Context = { globals: ContentfulGlobals }
   const { globals } = useGlobals<Context>()
   const section = model?.contentfulNavigationSection
@@ -64,6 +68,11 @@ export const NavigationHeader = ({
     variant,
     options,
   })
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible)
+  }
+
   return (
     <>
       {/* TODO: refactor SkipToContent component. This is made for styling purposes only.  */}
@@ -143,6 +152,31 @@ export const NavigationHeader = ({
               }}
             />
           </Nav>
+          <Div
+            css={mediaQuery({
+              display: ['flex', 'flex', 'none'],
+              flex: '1 1 0%',
+              alignItems: 'center',
+              justifyContent: 'end',
+            })}
+          >
+            <Button
+              aria-controls="header-navigation"
+              aria-expanded={modalVisible}
+              aria-label="Open navigation"
+              aria-pressed={modalVisible}
+              id="modal-dialog"
+              onClick={toggleModal}
+              role="button"
+            >
+              Menu
+            </Button>
+            <NavigationModal
+              toggleModal={toggleModal}
+              modalVisible={modalVisible}
+              model={{ contentfulNavigationSection: section }}
+            />
+          </Div>
         </Div>
       </Section>
     </>

@@ -4,27 +4,27 @@ import { ContentfulAsset } from '../models/contentful-asset'
 import { ContentfulNavigationSegment } from './contentful-navigation-segment'
 
 export type ContentfulNavigationSection = {
-  __typename: string
+  __typename?: string
   sys?: {
     id: string
   }
-  actions: ContentfulNavigationSegment
-  footerCollection: {
+  actions?: ContentfulNavigationSegment
+  footerCollection?: {
     items: ContentfulNavigationSegment[]
   }
-  headerCollection: {
+  headerCollection?: {
     items: ContentfulNavigationSegment[]
   }
-  informationCollection: {
+  informationCollection?: {
     items: ContentfulNavigationSegment[]
   }
-  legal: ContentfulNavigationSegment
-  logo: ContentfulAsset
-  logoAction: ContentfulAction
-  sitemapCollection: {
+  legal?: ContentfulNavigationSegment
+  logo?: ContentfulAsset
+  logoAction?: ContentfulAction
+  sitemapCollection?: {
     items: ContentfulNavigationSegment[]
   }
-  social: ContentfulNavigationSegment
+  social?: ContentfulNavigationSegment
 }
 
 export const fragment = graphql`
