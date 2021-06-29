@@ -26,6 +26,7 @@ export type NavigationSegmentListProps = ComponentProps<
 >['div']
 
 const styleMap: StyleMap<AnchorVariant> = {
+  branding: {},
   link: {},
   menu: {
     flex: '1 1 0%',

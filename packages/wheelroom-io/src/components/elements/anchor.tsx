@@ -56,7 +56,6 @@ const styleMap: StyleMap<AnchorVariant> = {
 export const anchorStyleFactory: StyleFactory<AnchorVariant> = (args) => {
   const useVariant = args.variant || 'link'
   const baseAnchorStyle = styleMap[useVariant]
-  console.log(useVariant)
   return mediaQuery([baseAnchorStyle])
 }
 

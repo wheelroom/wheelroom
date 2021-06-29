@@ -26,9 +26,6 @@ export const ActionLink = ({ model, variant, ...props }: ActionLinkProps) => {
   const url = action?.url
   const heading = action?.heading
 
-  console.log('action', action)
-  console.log('action-link', variant)
-
   if (path) {
     // Use Gatsby Link Element that routes with the router
     const anchorStyle = anchorStyleFactory({ variant })
