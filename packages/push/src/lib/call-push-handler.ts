@@ -11,10 +11,20 @@ export interface Module {
 }
 
 export const callPushHandler = async ({ wheelroomTags }: CallPushHandler) => {
+  let moduleName = ''
   if (wheelroomTags?.plugin === 'contentful') {
-    const module = <Module>await import('@wheelroom/plugin-contentful/plain')
-    if (module.pushHandler && wheelroomTags) {
-      module.pushHandler({ wheelroomTags })
-    }
+    moduleName = '@wheelroom/plugin-contentful/plain'
+  }
+  let module: Module = {}
+  try {
+    module = <Module>await import(moduleName)
+  } catch (e) {
+    console.log(
+      `Could not find plugin ${wheelroomTags?.plugin} => ${moduleName}`
+    )
+  }
+
+  if (module.pushHandler && wheelroomTags) {
+    module.pushHandler({ wheelroomTags })
   }
 }
