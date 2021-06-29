@@ -3,44 +3,48 @@ import {
   ComponentOptions,
   ComponentProps,
   StyleFactory,
+  StyleMap,
+  StyleObject,
 } from '../../lib/component-styles'
+import { mediaQuery } from '../../lib/media-query'
 
-export type TextVariant = 'lead'
-export type TextOptions = ComponentOptions<'noMargin'>
+export type TextVariant = 'body' | 'lead'
+export type TextOptions = ComponentOptions<'margin'>
 export type TextProps = ComponentProps<undefined, TextVariant, TextOptions>['p']
 
-const baseTextStyle = {
+const textStyle: StyleObject = {
   fontSize: 18,
   lineHeight: 1.58,
   fontWeight: 400,
   marginTop: 0,
-  marginBottom: 16,
+  marginBottom: 0,
 }
 
-const leadVariantStyle = {
+const leadVariantStyle: StyleObject = {
+  ...textStyle,
   fontSize: 24,
   fontWeight: 600,
 }
 
-const noMarginOptionStyle = {
-  marin: 0,
+const marginOptionStyle: StyleObject = {
+  marginBottom: 16,
+}
+
+const styleMap: StyleMap<TextVariant> = {
+  body: textStyle,
+  lead: leadVariantStyle,
 }
 
 export const textStyleFactory: StyleFactory<TextVariant, TextOptions> = (
   args
 ) => {
-  const baseStyle = {
-    ...baseTextStyle,
-  }
-  return [
-    baseStyle,
-    args.options?.noMargin && noMarginOptionStyle,
-    args.variant === 'lead' && leadVariantStyle,
-  ]
+  const useVariant = args.variant || 'body'
+  const baseTextStyle = styleMap[useVariant]
+  return mediaQuery([baseTextStyle, args.options?.margin && marginOptionStyle])
 }
 
 export const Text = ({ variant, options, ...props }: TextProps) => {
-  const css: any = textStyleFactory({
+  const css = textStyleFactory({
     variant,
     options,
   })

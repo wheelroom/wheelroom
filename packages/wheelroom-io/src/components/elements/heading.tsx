@@ -7,7 +7,7 @@ import {
 } from '../../lib/component-styles'
 
 export type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-export type HeadingOptions = ComponentOptions<'noMargin' | 'display'>
+export type HeadingOptions = ComponentOptions<'margin' | 'display'>
 export type HeadingProps = ComponentProps<
   undefined,
   HeadingVariant,
@@ -15,72 +15,65 @@ export type HeadingProps = ComponentProps<
 >['h1']
 
 const headingStyle = {
-  marginBottom: 16,
+  marginBottom: 0,
   marginTop: 0,
 }
 
 const styleMap: StyleMap<HeadingVariant> = {
   h1: {
     ...headingStyle,
-    fontSize: ['42px', '42px', '56px', '56px'],
+    fontSize: [42, 42, 56, 56],
   },
   h2: {
     ...headingStyle,
-    fontSize: ['32px', '32px', '42px', '42px'],
+    fontSize: [32, 32, 42, 42],
   },
   h3: {
     ...headingStyle,
-    fontSize: ['20px', '20px', '24px', '24px'],
+    fontSize: [20, 20, 24, 24],
   },
   h4: {
     ...headingStyle,
-    fontSize: ['18px', '18px', '20px', '20px'],
+    fontSize: [18, 18, 20, 20],
   },
   h5: {
     ...headingStyle,
-    fontSize: ['18px', '18px', '20px', '20px'],
+    fontSize: [18, 18, 20, 20],
   },
   h6: {
     ...headingStyle,
-    fontSize: ['18px', '18px', '20px', '20px'],
+    fontSize: [18, 18, 20, 20],
   },
 }
 
-// Add for noMargin option
-const noMarginOptionStyle = {
-  margin: 0,
+const marginOptionStyle = {
+  marginBottom: 16,
 }
 
-// Add for display option
 const displayOptionStyle = {
   fontSize: 42,
-  backgroundImage:
-    'linear-gradient(90deg, var(--color-secondary-500) 0%, var(--color-primary-500) 100%)',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
 }
 
 export const headingStyleFactory: StyleFactory<HeadingVariant, HeadingOptions> =
   (args) => {
     const useVariant = args.variant || 'h1'
-    const baseStyle = styleMap[useVariant]
+    const baseHeadingStyle = styleMap[useVariant]
     return [
-      baseStyle,
-      args.options?.noMargin && noMarginOptionStyle,
+      baseHeadingStyle,
+      args.options?.margin && marginOptionStyle,
       args.options?.display && displayOptionStyle,
     ]
   }
 
 export const Heading = ({ variant, options, ...props }: HeadingProps) => {
-  const css: any = headingStyleFactory({
+  const css = headingStyleFactory({
     variant,
     options,
   })
-
   return (
-    // NOTE: The 'is=' works because all variants have element names, adding non
-    // element variants requires extra logic here
-    <Any is={variant || 'h1'} css={css} {...props}>
+    // NOTE: The 'is=' works because all variants have element names,
+    // adding non element variants requires extra logic here
+    <Any is={variant || 'h2'} css={css} {...props}>
       {props.children}
     </Any>
   )

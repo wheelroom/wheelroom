@@ -1,15 +1,20 @@
 import { A as AnyA } from '@wheelroom/any/react'
-import { mediaQuery } from '../../lib/media-query'
 import {
   ComponentProps,
   StyleFactory,
   StyleMap,
+  StyleObject,
 } from '../../lib/component-styles'
+import { mediaQuery } from '../../lib/media-query'
 
 export type AnchorVariant = 'link' | 'menu' | 'sitemap'
-export type AnchorProps = ComponentProps<undefined, AnchorVariant>['a']
+export type AnchorProps = ComponentProps<
+  undefined,
+  AnchorVariant,
+  undefined
+>['a']
 
-const baseStyle = {
+const anchorStyle: StyleObject = {
   backgroundColor: 'transparent',
   border: 0,
   color: 'var(--colors-azure)',
@@ -18,31 +23,37 @@ const baseStyle = {
   textDecoration: 'underline',
 }
 
-const styleMap: StyleMap<AnchorVariant> = {
-  link: baseStyle,
-  menu: {
-    ...baseStyle,
-    fontSize: 16,
-    display: 'inline-block',
-    padding: '16px 8px',
-    textDecoration: 'none',
-    // Gastby adds class name `.active` on current page link
-    ':hover, &.active': {
-      textDecoration: 'underline',
-    },
+const linkVariantStyle: StyleObject = anchorStyle
+
+const menuVariantStyle: StyleObject = {
+  ...anchorStyle,
+  fontSize: 16,
+  display: 'inline-block',
+  padding: '16px 8px',
+  textDecoration: 'none',
+  // Gastby adds class name `.active` on current page link
+  ':hover, &.active': {
+    textDecoration: 'underline',
   },
-  sitemap: baseStyle,
+}
+
+const sitemapVariantStyle: StyleObject = anchorStyle
+
+const styleMap: StyleMap<AnchorVariant> = {
+  link: linkVariantStyle,
+  menu: menuVariantStyle,
+  sitemap: sitemapVariantStyle,
 }
 
 export const anchorStyleFactory: StyleFactory<AnchorVariant> = (args) => {
   const useVariant = args.variant || 'link'
-  const baseStyle = styleMap[useVariant]
-  return mediaQuery([baseStyle])
+  const baseAnchorStyle = styleMap[useVariant]
+  return mediaQuery([baseAnchorStyle])
 }
 
 export const Anchor = ({ variant, ...props }: AnchorProps) => {
   const css = anchorStyleFactory({
     variant,
   })
-  return <AnyA css={css as any} {...props} />
+  return <AnyA css={css} {...props} />
 }
