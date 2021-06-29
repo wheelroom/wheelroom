@@ -1,10 +1,10 @@
-import { NavigationSection } from '../navigation/navigation-section'
-import { TopicSection } from '../topic/topic-section'
-import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
-import { ContentfulTopicSection } from '../topic/contentful-topic-section'
-import { Landmarks } from '../page/landmarks'
-import { TextSection } from '../models/text-section'
 import { ContentfulTextSection } from '../models/contentful-text-section'
+import { TextSection } from '../models/text-section'
+import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
+import { NavigationSection } from '../navigation/navigation-section'
+import { Landmarks } from '../page/landmarks'
+import { ContentfulTopicSection } from '../topic/contentful-topic-section'
+import { TopicSection } from '../topic/topic-section'
 
 export const sectionMap = {
   Contentful_TopicSection: {

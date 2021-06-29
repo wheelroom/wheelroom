@@ -73,7 +73,9 @@ export const NavigationHeader = ({
           left: '-100%',
           position: 'absolute',
           ':focus': {
-            backgroundColor: 'white',
+            backgroundColor: 'var(--colors-amber)',
+            color: 'var(--colors-black)',
+            fontWeight: 'bold',
             left: 0,
             padding: 16,
             right: 0,

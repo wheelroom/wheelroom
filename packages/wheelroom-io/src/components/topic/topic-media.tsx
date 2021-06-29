@@ -4,6 +4,7 @@ import {
   ComponentProps,
   StyleFactory,
   StyleMap,
+  StyleObject,
 } from '../../lib/component-styles'
 import { Asset, AssetProps } from '../models/asset'
 import { ContentfulAsset } from '../models/contentful-asset'
@@ -25,7 +26,7 @@ export type TopicMediaProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
-const baseStyle = {
+const baseStyle: StyleObject = {
   display: 'flex',
   flexDirection: 'column',
 }

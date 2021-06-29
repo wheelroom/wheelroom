@@ -71,7 +71,14 @@ export const Landmarks = (props: any) => {
         {landMarkedChildren.main}
       </Main>
       <Aside>{landMarkedChildren.aside}</Aside>
-      <Footer role="contentinfo">{landMarkedChildren.footer}</Footer>
+      <Footer
+        css={{
+          backgroundColor: '#F5F5F5',
+        }}
+        role="contentinfo"
+      >
+        {landMarkedChildren.footer}
+      </Footer>
     </Fragment>
   )
 }
