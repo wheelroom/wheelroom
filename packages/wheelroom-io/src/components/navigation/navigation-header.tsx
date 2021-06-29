@@ -1,19 +1,18 @@
-import { Div, Nav, Section, Strong } from '@wheelroom/any/react'
+import { Div, Nav, Section } from '@wheelroom/any/react'
 import {
   ComponentProps,
   StyleFactory,
   StyleMap,
   StyleObject,
 } from '../../lib/component-styles'
-import { ActionLink } from '../models/action-link'
 import { useGlobals } from '../../lib/globals-provider'
 import { mediaQuery } from '../../lib/media-query'
 import { Anchor } from '../elements/anchor'
+import { ActionLink } from '../models/action-link'
 import { ContentfulGlobals } from '../page/contentful-globals'
 import { ContentfulNavigationSection } from './contentful-navigation-section'
 import { NavigationSegment } from './navigation-segment'
 import { NavigationSegmentList } from './navigation-segment-list'
-import path from 'path/posix'
 
 export type NavigationHeaderVariant = 'fixed' | 'fluid'
 export type NavigationHeaderModel = {
