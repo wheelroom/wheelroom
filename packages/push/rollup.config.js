@@ -71,6 +71,7 @@ export default [
   },
   {
     external,
+    inlineDynamicImports: true,
     input: './src/cli.ts',
     output: [
       {
