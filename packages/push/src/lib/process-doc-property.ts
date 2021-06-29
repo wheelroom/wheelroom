@@ -50,7 +50,7 @@ export const parseWheelroomTags = ({
   if (!docProperty.name) return
   result.typeName = docProperty.name
   if (!docProperty.jSDocTags?.length) {
-    console.log(`${result.typeName} - Skipping, no TSDoc tags`)
+    console.log(`${result.typeName} - Skipping model, no TSDoc tags`)
     return
   }
   const wheelroomTag = getTagByName({
@@ -58,7 +58,7 @@ export const parseWheelroomTags = ({
     name: 'wheelroom',
   })
   if (!wheelroomTag) {
-    console.log(`${result.typeName} - Skipping, no @wheelroom block tag`)
+    console.log(`${result.typeName} - Skipping model, no @wheelroom block tag`)
     return
   }
   const text = getTextSymbol({ symbols: wheelroomTag.text })
@@ -66,7 +66,7 @@ export const parseWheelroomTags = ({
   const platform = tags['@platform']
 
   if (!platform) {
-    console.log(`${result.typeName} - Skipping, no @platform inline tag`)
+    console.log(`${result.typeName} - Skipping model, no @platform inline tag`)
     return
   }
   result.platform = platform
@@ -87,7 +87,7 @@ export const parseWheelroomTags = ({
       result.fields![docProperty.name || 'unknown'] = tags
     } else {
       console.log(
-        `${result.typeName}/${docProperty.name} - Skipping, no @wheelroom block tag`
+        `${result.typeName}/${docProperty.name} - Skipping field, no @wheelroom block tag`
       )
     }
   })
