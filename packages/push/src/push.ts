@@ -11,24 +11,20 @@ interface Visit {
   sourceFile: ts.SourceFile
 }
 const visit = ({ node, checker, printer, sourceFile }: Visit) => {
-  if (!isExportedNode({ node })) {
+  if (
+    !isExportedNode({ node }) ||
+    !ts.isInterfaceDeclaration(node) ||
+    !node.name
+  )
     return
-  } else if (ts.isInterfaceDeclaration(node) && node.name) {
-    const type = checker.getTypeAtLocation(node)
-    if (type) {
-      const docProperty = interfaceToDocProperty({ type, checker })
-      const tags = parseWheelroomTags({ docProperty })
-      if (tags) {
-        const printThis = printer.printNode(
-          ts.EmitHint.Unspecified,
-          node,
-          sourceFile
-        )
-        console.log(printThis)
-        console.log(tags)
-      }
-    }
-  }
+  const type = checker.getTypeAtLocation(node)
+  if (!type) return
+  const docProperty = interfaceToDocProperty({ type, checker })
+  const tags = parseWheelroomTags({ docProperty })
+  if (!tags) return
+  const printThis = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile)
+  console.log(printThis)
+  console.log(tags)
 }
 
 const generateDocumentation = () => {
@@ -41,14 +37,11 @@ const generateDocumentation = () => {
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed })
 
   for (const sourceFile of program.getSourceFiles()) {
-    if (!sourceFile.isDeclarationFile) {
-      console.log('----> source:', sourceFile.fileName)
-      // if (sourceFile.fileName.includes('topic')) {
-      // }
-      ts.forEachChild(sourceFile, (node: ts.Node) => {
-        visit({ node, checker, printer, sourceFile })
-      })
-    }
+    if (sourceFile.isDeclarationFile) continue
+    console.log('----> source:', sourceFile.fileName)
+    ts.forEachChild(sourceFile, (node: ts.Node) => {
+      visit({ node, checker, printer, sourceFile })
+    })
   }
 }
 
