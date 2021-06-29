@@ -3,12 +3,13 @@ import { getCompilerOptions } from '../lib/get-compiler-options'
 import { interfaceToDocProperty } from '../lib/interface-to-doc-property'
 import { isExportedNode } from '../lib/is-exported-node'
 import { parseWheelroomTags } from '../lib/parse-wheelroom-tags'
+import { callPushHandler } from '../lib/call-push-handler'
 
 export interface PushModels {
   file: string
 }
 
-export const pushModels = async ({ file }: PushModels) => {
+export const pushModels = ({ file }: PushModels) => {
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram([file], compilerOptions.options)
   const checker = program.getTypeChecker()
@@ -20,8 +21,6 @@ export const pushModels = async ({ file }: PushModels) => {
       pushNode({ node, checker })
     })
   }
-  const module = await import('@wheelroom/plugin-contentful/plain')
-  console.log('module', module.test)
 }
 
 interface PushNode {
@@ -40,5 +39,5 @@ const pushNode = ({ node, checker }: PushNode) => {
   const docProperty = interfaceToDocProperty({ type, checker })
   const tags = parseWheelroomTags({ docProperty })
   if (!tags) return
-  console.log(tags)
+  callPushHandler({ wheelroomTags: tags })
 }

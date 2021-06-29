@@ -7,11 +7,11 @@ export interface PushCommand {
   argv: yargs.Arguments<PushArgv>
 }
 
-export const pushCommand = ({ argv }: PushCommand) => {
+export const pushCommand = async ({ argv }: PushCommand) => {
   if (argv.type === 'content') {
-    pushContent({ file: argv.file })
+    await pushContent({ file: argv.file })
   }
   if (argv.type === 'models') {
-    pushModels({ file: argv.file })
+    await pushModels({ file: argv.file })
   }
 }

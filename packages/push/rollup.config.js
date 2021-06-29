@@ -48,6 +48,7 @@ const plugins = [
 export default [
   {
     external,
+    inlineDynamicImports: true,
     input: './src/plain.ts',
     output: [
       {
@@ -86,6 +87,30 @@ export default [
         banner: `#!/usr/bin/env node\n${banner}`,
         exports: 'named',
         file: `./build/cli.cjs`,
+        format: 'cjs',
+        globals,
+        sourcemap: false,
+      },
+    ],
+    plugins,
+  },
+  {
+    external,
+    inlineDynamicImports: true,
+    input: './src/research/poc.ts',
+    output: [
+      {
+        banner: `#!/usr/bin/env node\n${banner}`,
+        exports: 'named',
+        file: `./build/poc.mjs`,
+        format: 'es',
+        globals,
+        sourcemap: false,
+      },
+      {
+        banner: `#!/usr/bin/env node\n${banner}`,
+        exports: 'named',
+        file: `./build/poc.cjs`,
         format: 'cjs',
         globals,
         sourcemap: false,
