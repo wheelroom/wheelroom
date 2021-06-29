@@ -103,13 +103,13 @@ export const TextSection = ({ model, ...props }: TextSectionProps) => {
       [INLINES.HYPERLINK]: (node, children) => {
         return <A href={node.data.uri}>{children}</A>
       },
-      [INLINES.EMBEDDED_ENTRY]: (node, children) => {
-        const entry = links?.entries.inline.find(
-          (entry) => entry.sys?.id === node.data.target.sys.id
-        ) as ContentfulPage
-        console.log('TODO: INLINES.EMBEDDED_ENTRY', entry)
-        return <>TODO: {entry.__typename}</>
-      },
+      // [INLINES.EMBEDDED_ENTRY]: (node, children) => {
+      //   const entry = links?.entries.inline.find(
+      //     (entry) => entry.sys?.id === node.data.target.sys.id
+      //   ) as ContentfulPage
+      //   console.log('TODO: INLINES.EMBEDDED_ENTRY', entry)
+      //   return <>TODO: {entry.__typename}</>
+      // },
     },
   }
 
