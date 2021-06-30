@@ -32,8 +32,6 @@ const buttonStyle: StyleObject = {
     outlineColor: 'outline',
   },
   svg: {
-    width: 15,
-    height: 15,
     margin: '0 auto',
     transform: 'translateX(4px)',
     alignSelf: 'center',

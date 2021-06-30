@@ -110,6 +110,8 @@ export const NavigationModal = ({
             hideHeading: true,
           }}
           css={{
+            fontSize: 32,
+            padding: 0,
             cursor: 'pointer',
             marginTop: 16,
             marginRight: 16,

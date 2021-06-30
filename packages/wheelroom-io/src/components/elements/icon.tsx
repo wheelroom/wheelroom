@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import * as BootstrapIcon from 'react-bootstrap-icons'
+import { css } from '@emotion/react'
 import { Props as BootstrapIconProps } from 'react-bootstrap-icons'
 import {
   ComponentOptions,
@@ -16,8 +17,12 @@ export type IconProps = ComponentProps<
   IconOptions
 >['svg']
 
-const iconStyle: StyleObject = {}
-const smallOptionStyle: StyleObject = {}
+const iconStyle: StyleObject = {
+  fontSize: 16,
+}
+const smallOptionStyle: StyleObject = {
+  fontSize: 20,
+}
 const mediumOptionStyle: StyleObject = {}
 const largeOptionStyle: StyleObject = {}
 
@@ -34,17 +39,16 @@ export const iconStyleFactory: StyleFactory<IconVariant, IconOptions> = (
 }
 
 export const Icon = ({ options, variant, ...props }: IconProps) => {
-  options = options || {}
-  const optionSize = (options.medium && '3em' && options.large && '5em') || 0
-  // 1em is the default size used by Bootstrap
-  let size = { size: '1em' }
-  if (optionSize) size = { size: optionSize }
+  // const css = iconStyleFactory({
+  //   options,
+  //   variant,
+  // })
   variant = variant || 'Alarm'
   variant = variant in BootstrapIcon ? variant : 'Alarm'
   const Element = BootstrapIcon[variant]
   return (
     <Fragment>
-      <Element {...size} {...props} />
+      <Element {...props} />
     </Fragment>
   )
 }
