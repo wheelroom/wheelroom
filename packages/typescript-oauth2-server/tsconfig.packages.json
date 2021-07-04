@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build",
+    "noImplicitAny": false
+  },
+  "exclude": ["node_modules"],
+  "extends": "../../tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}
