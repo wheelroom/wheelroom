@@ -1,30 +1,22 @@
-// Collections
-// - code
-// - client
-// - token
-// - scope
-// - user
-
-// Grants (<https://datatracker.ietf.org/doc/html/rfc6749#section-1.3>)
-// - Authorization code
-// - Client Credentials
-// - Refresh token (<https://datatracker.ietf.org/doc/html/rfc6749#section-1.5>)
-// - Implicit (not implemented)
-// - Resource Owner Password Credentials (not implemented)
-
-// PKCE (<https://datatracker.ietf.org/doc/html/rfc7636>)
+import { authorizeResponse } from './authorize-response'
+import { finalizeAuthorizeResponse } from './finalize-authorize-response'
+import { tokenResponse } from './token-response'
 
 export interface ResponseGenerator {
-  action: 'newToken' | 'newAuthorize' | 'finalizeAuthorize'
+  action: 'authorize' | 'finalizeAuthorize' | 'token'
   req: Express.Request
 }
 
 export const responseGenerator = ({ action, req }: ResponseGenerator) => {
-  console.log('To Be Implemented', action, req)
-}
+  switch (action) {
+    case 'authorize':
+      return authorizeResponse({ req })
+    case 'finalizeAuthorize':
+      return finalizeAuthorizeResponse({ req })
+    case 'token':
+      return tokenResponse({ req })
 
-export const securityHeaders = {
-  pragma: 'no-cache',
-  'cache-control': 'no-store',
-  'content-type': 'application/json; charset=UTF-8',
+    default:
+      break
+  }
 }

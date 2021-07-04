@@ -10,13 +10,10 @@ export interface TokenCollection<UserAgent = any> {
   client: ClientCollection
   user?: UserCollection
   scopes: ScopeCollection[]
-  // HEALTHTRAIN: Added so that each app/device (user agent) combination all get
-  // their own token set
   appUrl?: string
   userAgent?: UserAgent
 }
 
-// // HEALTHTRAIN: Added request field
 // export interface OAuthTokenRepository {
 //   issueToken(
 //     client: OAuthClient,
@@ -25,7 +22,6 @@ export interface TokenCollection<UserAgent = any> {
 //     request?: RequestInterface
 //   ): Promise<OAuthToken>
 
-//   // HEALTHTRAIN: Add request field
 //   issueRefreshToken(
 //     accessToken: OAuthToken,
 //     request?: RequestInterface
@@ -40,7 +36,6 @@ export interface TokenCollection<UserAgent = any> {
 
 //   isRefreshTokenRevoked(refreshToken: OAuthToken): Promise<boolean>
 
-//   // HEALTHTRAIN: Added request field
 //   getByRefreshToken(
 //     refreshTokenToken: string,
 //     request?: RequestInterface

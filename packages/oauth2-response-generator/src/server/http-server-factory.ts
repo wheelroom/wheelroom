@@ -8,12 +8,13 @@ interface HttpServerFactory {
 }
 
 type Credentials = Record<string, string>
+type NodeEnv = 'development' | 'production' | 'test' | 'development-ssl'
 
 export const httpServerFactory = ({ port, app }: HttpServerFactory) => ({
   app,
   credentials: undefined as Credentials | undefined,
   isDevelopment: process.env.NODE_ENV === 'development',
-  isDevelopmentSsl: process.env.NODE_ENV === 'development-ssl',
+  isDevelopmentSsl: <NodeEnv>process.env.NODE_ENV === 'development-ssl',
   isProduction: !process.env.NODE_ENV || process.env.NODE_ENV === 'production',
   name: 'unknown',
 

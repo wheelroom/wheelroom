@@ -5,7 +5,20 @@ export type CodeChallengeMethod = 'S256' | 'plain'
 export interface VerifyCodeChallenge {
   codeChallenge: string
   codeVerifier: string
-  method: CodeChallengeMethod
+  method?: CodeChallengeMethod
+}
+
+const verifyS256 = ({ codeChallenge, codeVerifier }: VerifyCodeChallenge) => {
+  const message = new KJUR.crypto.MessageDigest({
+    alg: 'sha256',
+    prov: 'cryptojs',
+  })
+  message.updateString(codeVerifier)
+  return codeChallenge === hextob64u(<any>message.digest())
+}
+
+const verifyPlain = ({ codeChallenge, codeVerifier }: VerifyCodeChallenge) => {
+  return codeChallenge === codeVerifier
 }
 
 export const verifyCodeChallenge = ({
@@ -15,16 +28,9 @@ export const verifyCodeChallenge = ({
 }: VerifyCodeChallenge) => {
   switch (method) {
     case 'S256':
-      // eslint-disable-next-line no-case-declarations
-      const message = new KJUR.crypto.MessageDigest({
-        alg: 'sha256',
-        prov: 'cryptojs',
-      })
-      message.updateString(codeVerifier)
-      return codeChallenge === hextob64u(<any>message.digest())
-
+      return verifyS256({ codeChallenge, codeVerifier })
     case 'plain':
-      return codeChallenge === codeVerifier
+      return verifyPlain({ codeChallenge, codeVerifier })
 
     default:
       return false

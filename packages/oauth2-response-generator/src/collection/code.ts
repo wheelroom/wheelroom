@@ -7,7 +7,6 @@ export interface CodeCollection {
   redirectUri?: string
   codeChallenge?: string
   codeChallengeMethod?: string
-  // HEALTHTRAIN: Added nonce field
   nonce?: string
   expiresAt: Date
   user?: UserCollection
