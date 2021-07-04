@@ -31,7 +31,17 @@ class OAuth2Error extends Error {
   }
 }
 
-export const accessDeniedErrorFactory = (description: string): OAuth2Error => {
+type ErrorDescription = {
+  description: string
+}
+
+type ErrorDescriptionArg = ErrorDescription & {
+  arg: string
+}
+
+export const accessDeniedErrorFactory = ({
+  description,
+}: ErrorDescription): OAuth2Error => {
   const message = `Access denied`
   return new OAuth2Error(
     message,
@@ -41,7 +51,9 @@ export const accessDeniedErrorFactory = (description: string): OAuth2Error => {
   )
 }
 
-export const invalidClientErrorFactory = (description: string): OAuth2Error => {
+export const invalidClientErrorFactory = ({
+  description,
+}: ErrorDescription): OAuth2Error => {
   const message = `Unauthorized client, verification failed`
   return new OAuth2Error(
     message,
@@ -51,7 +63,9 @@ export const invalidClientErrorFactory = (description: string): OAuth2Error => {
   )
 }
 
-export const invalidGrantErrorFactory = (description: string): OAuth2Error => {
+export const invalidGrantErrorFactory = ({
+  description,
+}: ErrorDescription): OAuth2Error => {
   const message = `Invalid grant, supported grants are: authorization_code, client_credentials`
   return new OAuth2Error(
     message,
@@ -61,10 +75,10 @@ export const invalidGrantErrorFactory = (description: string): OAuth2Error => {
   )
 }
 
-export const invalidRequestErrorFactory = (
-  arg: string,
-  description: string
-): OAuth2Error => {
+export const invalidRequestErrorFactory = ({
+  arg,
+  description,
+}: ErrorDescriptionArg): OAuth2Error => {
   const message = `Invalid request, caused by argument: ${arg})`
   return new OAuth2Error(
     message,
@@ -74,7 +88,9 @@ export const invalidRequestErrorFactory = (
   )
 }
 
-export const invalidScopeErrorFactory = (description: string): OAuth2Error => {
+export const invalidScopeErrorFactory = ({
+  description,
+}: ErrorDescription): OAuth2Error => {
   const message = `Invalid scope, a valid scope is required`
   return new OAuth2Error(
     message,
