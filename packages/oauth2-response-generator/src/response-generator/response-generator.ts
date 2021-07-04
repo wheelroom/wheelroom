@@ -14,19 +14,16 @@
 
 // PKCE (<https://datatracker.ietf.org/doc/html/rfc7636>)
 
-export const newTokenResponse = (req: Express.Request) => {
-  console.log('To Be Implemented')
+export interface ResponseGenerator {
+  action: 'newToken' | 'newAuthorize' | 'finalizeAuthorize'
+  req: Express.Request
 }
 
-export const newAuthorizeResponse = (req: Express.Request) => {
-  console.log('To Be Implemented')
+export const responseGenerator = ({ action, req }: ResponseGenerator) => {
+  console.log('To Be Implemented', action, req)
 }
 
-export const finalizeAuthorizeResponse = (req: Express.Request) => {
-  console.log('To Be Implemented')
-}
-
-export const securutyHeaders = {
+export const securityHeaders = {
   pragma: 'no-cache',
   'cache-control': 'no-store',
   'content-type': 'application/json; charset=UTF-8',
