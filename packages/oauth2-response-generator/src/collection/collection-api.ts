@@ -5,45 +5,38 @@ import { ScopeCollection } from './scope'
 import { TokenCollection } from './token'
 import { UserCollection } from './user'
 
-type AuthCodePresist = {
+type BaseArguments = {
+  req: Express.Request
+}
+type AuthCodePresist = BaseArguments & {
   authCode: AuthCodeCollection
-  req: Express.Request
 }
-type AuthCodeGet = {
+type AuthCodeGet = BaseArguments & {
   authCodeId: string
-  req: Express.Request
 }
-type AuthCodeRevoke = {
+type AuthCodeRevoke = BaseArguments & {
   authCodeId: string
-  req: Express.Request
 }
-type ClientGet = {
+type ClientGet = BaseArguments & {
   clientId: string
-  req: Express.Request
 }
-type ScopeGet = {
+type ScopeGet = BaseArguments & {
   scopeNames: string[]
-  req: Express.Request
 }
-type TokenPersist = {
+type TokenPersist = BaseArguments & {
   token: TokenCollection
-  req: Express.Request
 }
-type TokenRevoke = {
+type TokenRevoke = BaseArguments & {
   accessToken: string
-  req: Express.Request
 }
-type TokenRefreshTokenGet = {
+type TokenRefreshTokenGet = BaseArguments & {
   refreshToken: string
-  req: Express.Request
 }
-type TokenRefreshTokenRevoke = {
+type TokenRefreshTokenRevoke = BaseArguments & {
   refreshToken: string
-  req: Express.Request
 }
-type UserGet = {
+type UserGet = BaseArguments & {
   userId: string
-  req: Express.Request
 }
 
 export type CollectionApi = {

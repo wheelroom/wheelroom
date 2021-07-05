@@ -19,7 +19,7 @@ export interface ResponseUrl {
   user: UserCollection
 }
 
-export const responseUrl = async ({
+export const response = async ({
   endpoint,
   collectionApi,
   jwtApi,
