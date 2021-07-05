@@ -51,7 +51,7 @@ export const requestToClient = async ({
     })
   }
 
-  const knownClient = await collectionApi.client.get(clientId)
+  const knownClient = await collectionApi.client.get({ clientId, req })
 
   if (!knownClient || !knownClient.name) {
     throw invalidClientErrorFactory({

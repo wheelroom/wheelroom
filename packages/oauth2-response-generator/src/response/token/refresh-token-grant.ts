@@ -29,9 +29,10 @@ export const refreshTokenGrant = async ({
     existingRefreshToken
   )) as RawRefreshTokenPayload
 
-  const knmownRefreshToken = await collectionApi.token.refreshToken.get(
-    existingRefreshToken
-  )
+  const knmownRefreshToken = await collectionApi.token.refreshToken.get({
+    refreshToken: existingRefreshToken,
+    req,
+  })
 
   if (Date.now() > existingRefreshTokenPayload.expire_time * 1000) {
     throw invalidRequestErrorFactory({
@@ -47,7 +48,10 @@ export const refreshTokenGrant = async ({
     })
   }
 
-  const user = await collectionApi.user.get(existingRefreshTokenPayload.user_id)
+  const user = await collectionApi.user.get({
+    userId: existingRefreshTokenPayload.user_id,
+    req,
+  })
   const client = await requestToClient({ collectionApi, req })
   const scopes = await requestToScopes({ collectionApi, req })
   const redirectUri = requestToRedirectUri({ req, client })
@@ -90,8 +94,11 @@ export const refreshTokenGrant = async ({
     user,
   }
 
-  await collectionApi.token.persist(tokenCollection)
-  await collectionApi.token.refreshToken.revoke(existingRefreshToken)
+  await collectionApi.token.persist({ token: tokenCollection, req })
+  await collectionApi.token.refreshToken.revoke({
+    refreshToken: existingRefreshToken,
+    req,
+  })
 
   const body = tokenResponseBodyPayload({
     accessToken,

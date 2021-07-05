@@ -38,9 +38,10 @@ export const authorizationCodeGrant = async ({
       description: 'auth_code field in code JWT is required',
     })
   }
-  const knmownAuthCode = await collectionApi.authCode.get(
-    codePayload.auth_code_id
-  )
+  const knmownAuthCode = await collectionApi.authCode.get({
+    authCodeId: codePayload.auth_code_id,
+    req,
+  })
 
   if (Date.now() > codePayload.expire_time * 1000) {
     throw invalidRequestErrorFactory({
@@ -92,7 +93,10 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  const user = await collectionApi.user.get(codePayload.user_id)
+  const user = await collectionApi.user.get({
+    userId: codePayload.user_id,
+    req,
+  })
   const client = await requestToClient({ collectionApi, req })
   const scopes = await requestToScopes({ collectionApi, req })
   const redirectUri = requestToRedirectUri({ client, req })
@@ -142,8 +146,11 @@ export const authorizationCodeGrant = async ({
     user,
   }
 
-  await collectionApi.token.persist(tokenCollection)
-  await collectionApi.authCode.revoke(codePayload.auth_code_id)
+  await collectionApi.token.persist({ token: tokenCollection, req })
+  await collectionApi.authCode.revoke({
+    authCodeId: codePayload.auth_code_id,
+    req,
+  })
 
   const body = tokenResponseBodyPayload({
     accessToken,

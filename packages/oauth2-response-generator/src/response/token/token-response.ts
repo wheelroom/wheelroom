@@ -1,6 +1,5 @@
 import Express from 'express'
 import { CollectionApi } from '../../collection/collection-api'
-import { UserCollection } from '../../collection/user'
 import { JwtApi } from '../../jwt/jwt-api'
 import { OAuth2Response } from '../response'
 import { authorizationCodeGrant } from './authorization-code-grant'

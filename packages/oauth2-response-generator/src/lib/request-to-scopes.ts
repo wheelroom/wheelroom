@@ -24,7 +24,7 @@ export const requestToScopes = async ({
   }
 
   const scopeNames = scope.split(' ')
-  const allValidScopes = await collectionApi.scope.get(scopeNames)
+  const allValidScopes = await collectionApi.scope.get({ scopeNames, req })
   const allValidScopesNames = allValidScopes.map((scope) => scope.name)
   const invalidScopeNames = scopeNames.filter(
     (name) => !allValidScopesNames.includes(name)

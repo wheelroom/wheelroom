@@ -89,7 +89,7 @@ export const authorizeResponse = async ({
     scopes,
     user: user,
   }
-  await collectionApi.authCode.persist(authCode)
+  await collectionApi.authCode.persist({ authCode, req })
 
   const codePayload = codeTokenPayload({
     authCodeId: authCode.id,
