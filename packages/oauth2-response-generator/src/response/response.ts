@@ -1,4 +1,7 @@
-import { Context } from '../context/context'
+import Express from 'express'
+import { CollectionApi } from '../collection/collection-api'
+import { UserCollection } from '../collection/user'
+import { JwtApi } from '../jwt/jwt-api'
 import { authorizeResponse } from './authorize/authorize-response'
 import { tokenResponse } from './token/token-response'
 
@@ -9,19 +12,25 @@ export type OAuth2Response = {
 }
 
 export interface ResponseUrl {
-  context: Context
+  collectionApi: CollectionApi
   endpoint: 'authorize' | 'token'
+  jwtApi: JwtApi
+  req: Express.Request
+  user: UserCollection
 }
 
 export const responseUrl = async ({
   endpoint,
-  context,
+  collectionApi,
+  jwtApi,
+  req,
+  user,
 }: ResponseUrl): Promise<OAuth2Response> => {
   switch (endpoint) {
     case 'authorize':
-      return await authorizeResponse({ context })
+      return await authorizeResponse({ collectionApi, jwtApi, req, user })
     case 'token':
-      return await tokenResponse({ context })
+      return await tokenResponse({ collectionApi, jwtApi, req })
     default:
       return { body: {}, headers: {}, url: '' }
   }

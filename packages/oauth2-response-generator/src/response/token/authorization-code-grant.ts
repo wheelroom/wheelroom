@@ -1,7 +1,7 @@
 import { TokenCollection } from '../../collection/token'
-import { requestToClient } from '../../context/request-to-client'
-import { requestToRedirectUri } from '../../context/request-to-redirect-uri'
-import { requestToScopes } from '../../context/request-to-scopes'
+import { requestToClient } from '../../lib/request-to-client'
+import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
+import { requestToScopes } from '../../lib/request-to-scopes'
 import {
   invalidGrantErrorFactory,
   invalidRequestErrorFactory,
@@ -10,19 +10,19 @@ import {
   CodeChallengeMethod,
   verifyCodeChallenge,
 } from '../../lib/verify-code-challenge'
-import { accessTokenPayload } from '../../payload/access-token'
-import { RawCodeTokenPayload } from '../../payload/code-token'
-import { refreshTokenPayload } from '../../payload/refresh-token'
-import { tokenResponseBodyPayload } from '../../payload/token-response-body'
+import { accessTokenPayload } from '../../jwt/access-token'
+import { RawCodeTokenPayload } from '../../jwt/code-token'
+import { refreshTokenPayload } from '../../jwt/refresh-token'
 import { OAuth2Response } from '../response'
+import { tokenResponseBodyPayload } from './token-response-body'
 import { TokenResponse } from './token-response'
 
 export const authorizationCodeGrant = async ({
-  context,
+  collectionApi,
+  jwtApi,
+  req,
 }: TokenResponse): Promise<OAuth2Response> => {
-  const client = await requestToClient({ context })
-
-  const code = context.req.body['code']
+  const code = req.body['code']
   if (typeof code !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'code',
@@ -30,7 +30,7 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  const codePayload = (await context.jwt.parse(code)) as RawCodeTokenPayload
+  const codePayload = (await jwtApi.parse(code)) as RawCodeTokenPayload
 
   if (typeof codePayload.auth_code_id !== 'string') {
     throw invalidRequestErrorFactory({
@@ -38,7 +38,7 @@ export const authorizationCodeGrant = async ({
       description: 'auth_code field in code JWT is required',
     })
   }
-  const knmownAuthCode = await context.collections.authCode.get(
+  const knmownAuthCode = await collectionApi.authCode.get(
     codePayload.auth_code_id
   )
 
@@ -56,24 +56,6 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  if (codePayload.client_id !== client.id) {
-    throw invalidRequestErrorFactory({
-      arg: 'code',
-      description: 'client_id field in code JWT is invalid',
-    })
-  }
-
-  const redirectUri = requestToRedirectUri({ context, client })
-
-  if (codePayload.redirect_uri !== redirectUri) {
-    throw invalidRequestErrorFactory({
-      arg: 'code',
-      description: 'redirect_uri field in code JWT is invalid',
-    })
-  }
-
-  const scopes = await requestToScopes({ context })
-
   if (knmownAuthCode.codeChallenge !== codePayload.code_challenge) {
     throw invalidRequestErrorFactory({
       arg: 'code',
@@ -81,7 +63,7 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  const codeVerifier = context.req.body['code_verifier']
+  const codeVerifier = req.body['code_verifier']
   if (typeof code !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'code_verifier',
@@ -110,7 +92,24 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  const user = await context.collections.user.get(codePayload.user_id)
+  const user = await collectionApi.user.get(codePayload.user_id)
+  const client = await requestToClient({ collectionApi, req })
+  const scopes = await requestToScopes({ collectionApi, req })
+  const redirectUri = requestToRedirectUri({ client, req })
+
+  if (codePayload.client_id !== client.id) {
+    throw invalidRequestErrorFactory({
+      arg: 'code',
+      description: 'client_id field in code JWT is invalid',
+    })
+  }
+
+  if (codePayload.redirect_uri !== redirectUri) {
+    throw invalidRequestErrorFactory({
+      arg: 'code',
+      description: 'redirect_uri field in code JWT is invalid',
+    })
+  }
 
   const newAccessTokenPayload = accessTokenPayload({
     clientName: client.name,
@@ -130,8 +129,8 @@ export const authorizationCodeGrant = async ({
     userId: user.id,
   })
 
-  const accessToken = await context.jwt.sign(newAccessTokenPayload)
-  const refreshToken = await context.jwt.sign(newRefreshTokenPayload)
+  const accessToken = await jwtApi.sign(newAccessTokenPayload)
+  const refreshToken = await jwtApi.sign(newRefreshTokenPayload)
 
   const tokenCollection: TokenCollection = {
     accessToken,
@@ -142,8 +141,9 @@ export const authorizationCodeGrant = async ({
     scopes,
     user,
   }
-  await context.collections.authCode.revoke(codePayload.auth_code_id)
-  context.collections.token.persist(tokenCollection)
+
+  await collectionApi.token.persist(tokenCollection)
+  await collectionApi.authCode.revoke(codePayload.auth_code_id)
 
   const body = tokenResponseBodyPayload({
     accessToken,

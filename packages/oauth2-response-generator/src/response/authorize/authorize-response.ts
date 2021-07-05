@@ -1,21 +1,31 @@
+import Express from 'express'
 import { b64utohex } from 'jsrsasign'
 import { v4 as uuidv4 } from 'uuid'
 import { AuthCodeCollection } from '../../collection/auth-code'
-import { Context } from '../../context/context'
-import { requestToClient } from '../../context/request-to-client'
-import { requestToRedirectUri } from '../../context/request-to-redirect-uri'
-import { requestToScopes } from '../../context/request-to-scopes'
+import { CollectionApi } from '../../collection/collection-api'
+import { requestToClient } from '../../lib/request-to-client'
+import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
+import { requestToScopes } from '../../lib/request-to-scopes'
 import { invalidRequestErrorFactory } from '../../error/oauth2-error'
-import { codeTokenPayload } from '../../payload/code-token'
+import { codeTokenPayload } from '../../jwt/code-token'
 import { OAuth2Response } from '../response'
+import { UserCollection } from '../../collection/user'
+import { JwtApi } from '../../jwt/jwt-api'
+
 export interface AuthorizeResponse {
-  context: Context
+  collectionApi: CollectionApi
+  jwtApi: JwtApi
+  req: Express.Request
+  user: UserCollection
 }
 
 export const authorizeResponse = async ({
-  context,
+  collectionApi,
+  jwtApi,
+  req,
+  user,
 }: AuthorizeResponse): Promise<OAuth2Response> => {
-  const responeType = context.req.query['response_type']
+  const responeType = req.query['response_type']
 
   if (responeType !== 'code') {
     throw invalidRequestErrorFactory({
@@ -24,11 +34,11 @@ export const authorizeResponse = async ({
     })
   }
 
-  const client = await requestToClient({ context })
-  const redirectUri = requestToRedirectUri({ context, client })
-  const scopes = await requestToScopes({ context })
+  const client = await requestToClient({ req, collectionApi })
+  const redirectUri = requestToRedirectUri({ req, client })
+  const scopes = await requestToScopes({ req, collectionApi })
 
-  const state = context.req.query['state']
+  const state = req.query['state']
   if (typeof state !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'state',
@@ -36,7 +46,7 @@ export const authorizeResponse = async ({
     })
   }
 
-  const nonce = context.req.query['nonce']
+  const nonce = req.query['nonce']
   if (typeof nonce !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'nonce',
@@ -44,7 +54,7 @@ export const authorizeResponse = async ({
     })
   }
 
-  const codeChallenge = context.req.query['code_challenge']
+  const codeChallenge = req.query['code_challenge']
   if (typeof codeChallenge !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'code_challenge',
@@ -60,7 +70,7 @@ export const authorizeResponse = async ({
     })
   }
 
-  const codeChallengeMethod = context.req.query['code_challenge_method']
+  const codeChallengeMethod = req.query['code_challenge_method']
   if (typeof codeChallengeMethod !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'code_challenge_method',
@@ -77,9 +87,9 @@ export const authorizeResponse = async ({
     nonce,
     redirectUri,
     scopes,
-    user: context.user,
+    user: user,
   }
-  await context.collections.authCode.persist(authCode)
+  await collectionApi.authCode.persist(authCode)
 
   const codePayload = codeTokenPayload({
     authCodeId: authCode.id,
@@ -89,10 +99,10 @@ export const authorizeResponse = async ({
     expiresAtSeconds: authCode.expiresAt.getTime() / 1000,
     redirectUri,
     scopes: scopes.map((scope) => scope.name),
-    userId: context.user.id,
+    userId: user.id,
   })
 
-  const code = await context.jwt.sign(codePayload)
+  const code = await jwtApi.sign(codePayload)
 
   const redirectUrlObj = new URL(redirectUri)
   redirectUrlObj.searchParams.append('code', code)

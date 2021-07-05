@@ -1,23 +1,23 @@
 import { TokenCollection } from '../../collection/token'
-import { requestToClient } from '../../context/request-to-client'
-import { requestToRedirectUri } from '../../context/request-to-redirect-uri'
-import { requestToScopes } from '../../context/request-to-scopes'
+import { requestToClient } from '../../lib/request-to-client'
+import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
+import { requestToScopes } from '../../lib/request-to-scopes'
 import { invalidRequestErrorFactory } from '../../error/oauth2-error'
-import { accessTokenPayload } from '../../payload/access-token'
+import { accessTokenPayload } from '../../jwt/access-token'
 import {
   RawRefreshTokenPayload,
   refreshTokenPayload,
-} from '../../payload/refresh-token'
-import { tokenResponseBodyPayload } from '../../payload/token-response-body'
+} from '../../jwt/refresh-token'
 import { OAuth2Response } from '../response'
+import { tokenResponseBodyPayload } from './token-response-body'
 import { TokenResponse } from './token-response'
 
 export const refreshTokenGrant = async ({
-  context,
+  collectionApi,
+  jwtApi,
+  req,
 }: TokenResponse): Promise<OAuth2Response> => {
-  const client = await requestToClient({ context })
-
-  const existingRefreshToken = context.req.body['refresh_token']
+  const existingRefreshToken = req.body['refresh_token']
   if (typeof existingRefreshToken !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'refresh_token',
@@ -25,18 +25,11 @@ export const refreshTokenGrant = async ({
     })
   }
 
-  const existingRefreshTokenPayload = (await context.jwt.parse(
+  const existingRefreshTokenPayload = (await jwtApi.parse(
     existingRefreshToken
   )) as RawRefreshTokenPayload
 
-  if (existingRefreshTokenPayload.client_id !== client.id) {
-    throw invalidRequestErrorFactory({
-      arg: 'refresh_token',
-      description: 'client_id field in refresh_token JWT is invalid',
-    })
-  }
-
-  const knmownRefreshToken = await context.collections.token.refreshToken.get(
+  const knmownRefreshToken = await collectionApi.token.refreshToken.get(
     existingRefreshToken
   )
 
@@ -54,14 +47,17 @@ export const refreshTokenGrant = async ({
     })
   }
 
-  const scopes = await requestToScopes({ context })
-  const redirectUri = requestToRedirectUri({ context, client })
+  const user = await collectionApi.user.get(existingRefreshTokenPayload.user_id)
+  const client = await requestToClient({ collectionApi, req })
+  const scopes = await requestToScopes({ collectionApi, req })
+  const redirectUri = requestToRedirectUri({ req, client })
 
-  await context.collections.token.refreshToken.revoke(existingRefreshToken)
-
-  const user = await context.collections.user.get(
-    existingRefreshTokenPayload.user_id
-  )
+  if (existingRefreshTokenPayload.client_id !== client.id) {
+    throw invalidRequestErrorFactory({
+      arg: 'refresh_token',
+      description: 'client_id field in refresh_token JWT is invalid',
+    })
+  }
 
   const newAccessTokenPayload = accessTokenPayload({
     clientName: client.name,
@@ -81,8 +77,8 @@ export const refreshTokenGrant = async ({
     userId: user.id,
   })
 
-  const accessToken = await context.jwt.sign(newAccessTokenPayload)
-  const refreshToken = await context.jwt.sign(newRefreshTokenPayload)
+  const accessToken = await jwtApi.sign(newAccessTokenPayload)
+  const refreshToken = await jwtApi.sign(newRefreshTokenPayload)
 
   const tokenCollection: TokenCollection = {
     accessToken,
@@ -94,7 +90,8 @@ export const refreshTokenGrant = async ({
     user,
   }
 
-  context.collections.token.persist(tokenCollection)
+  await collectionApi.token.persist(tokenCollection)
+  await collectionApi.token.refreshToken.revoke(existingRefreshToken)
 
   const body = tokenResponseBodyPayload({
     accessToken,

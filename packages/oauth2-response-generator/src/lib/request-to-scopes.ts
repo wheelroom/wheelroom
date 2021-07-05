@@ -1,15 +1,20 @@
+import Express from 'express'
 import {
   invalidRequestErrorFactory,
   invalidScopeErrorFactory,
 } from '../error/oauth2-error'
-import { Context } from './context'
+import { CollectionApi } from '../collection/collection-api'
 
 export interface RequestToScopes {
-  context: Context
+  collectionApi: CollectionApi
+  req: Express.Request
 }
 
-export const requestToScopes = async ({ context }: RequestToScopes) => {
-  const scope = context.req.body['scope'] || context.req.query['scope']
+export const requestToScopes = async ({
+  collectionApi,
+  req,
+}: RequestToScopes) => {
+  const scope = req.body['scope'] || req.query['scope']
 
   if (typeof scope !== 'string') {
     throw invalidRequestErrorFactory({
@@ -19,7 +24,7 @@ export const requestToScopes = async ({ context }: RequestToScopes) => {
   }
 
   const scopeNames = scope.split(' ')
-  const allValidScopes = await context.collections.scope.get(scopeNames)
+  const allValidScopes = await collectionApi.scope.get(scopeNames)
   const allValidScopesNames = allValidScopes.map((scope) => scope.name)
   const invalidScopeNames = scopeNames.filter(
     (name) => !allValidScopesNames.includes(name)

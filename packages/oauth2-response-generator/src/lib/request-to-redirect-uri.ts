@@ -1,18 +1,14 @@
+import Express from 'express'
 import { ClientCollection } from '../collection/client'
 import { invalidRequestErrorFactory } from '../error/oauth2-error'
-import { Context } from './context'
 
 export interface RequestToRedirectUri {
-  context: Context
   client: ClientCollection
+  req: Express.Request
 }
 
-export const requestToRedirectUri = ({
-  context,
-  client,
-}: RequestToRedirectUri) => {
-  const redirectUri =
-    context.req.body['redirect_uri'] || context.req.query['redirect_uri']
+export const requestToRedirectUri = ({ client, req }: RequestToRedirectUri) => {
+  const redirectUri = req.body['redirect_uri'] || req.query['redirect_uri']
 
   if (!redirectUri) {
     throw invalidRequestErrorFactory({

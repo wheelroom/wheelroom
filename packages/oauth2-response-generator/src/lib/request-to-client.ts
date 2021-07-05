@@ -1,17 +1,22 @@
+import Express from 'express'
 import {
   invalidClientErrorFactory,
   invalidRequestErrorFactory,
 } from '../error/oauth2-error'
-import { headerTobasicAuth } from '../lib/header-to-basic-auth'
-import { Context } from './context'
+import { CollectionApi } from '../collection/collection-api'
+import { headerTobasicAuth } from './header-to-basic-auth'
 
 export interface RequestToClient {
-  context: Context
+  collectionApi: CollectionApi
+  req: Express.Request
 }
 
-export const requestToClient = async ({ context }: RequestToClient) => {
+export const requestToClient = async ({
+  collectionApi,
+  req,
+}: RequestToClient) => {
   const basicAuth = headerTobasicAuth({
-    authHeader: context.req.headers['authorization'],
+    authHeader: req.headers['authorization'],
   })
 
   let clientId
@@ -21,9 +26,8 @@ export const requestToClient = async ({ context }: RequestToClient) => {
     clientId = basicAuth.username
     clientSecret = basicAuth.password
   } else {
-    clientId = context.req.body['client_id'] || context.req.query['client_id']
-    clientSecret =
-      context.req.body['client_secret'] || context.req.query['client_secret']
+    clientId = req.body['client_id'] || req.query['client_id']
+    clientSecret = req.body['client_secret'] || req.query['client_secret']
   }
 
   if (typeof clientId !== 'string') {
@@ -47,7 +51,7 @@ export const requestToClient = async ({ context }: RequestToClient) => {
     })
   }
 
-  const knownClient = await context.collections.client.get(clientId)
+  const knownClient = await collectionApi.client.get(clientId)
 
   if (!knownClient || !knownClient.name) {
     throw invalidClientErrorFactory({
