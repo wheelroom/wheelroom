@@ -18,7 +18,6 @@ export const responseGenerator = ({ action, req }: ResponseGenerator) => {
   // grant_type (token endpoint)
   // - authorization_code
   // - refresh_token
-  // - client_credentials
 
   switch (action) {
     case 'authorize':

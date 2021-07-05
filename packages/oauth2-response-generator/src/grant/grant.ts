@@ -1,4 +1,1 @@
-export type Grant =
-  | 'authorization_code'
-  | 'client_credentials'
-  | 'refresh_token'
+export type Grant = 'authorization_code' | 'refresh_token'

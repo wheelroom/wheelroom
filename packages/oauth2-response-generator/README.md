@@ -15,11 +15,11 @@ OAuth 2 response generator, inspired by `jasonraimondi/ts-oauth2-server`
 (<https://datatracker.ietf.org/doc/html/rfc6749#section-1.3>)
 
 - Authorization code
-- Client Credentials
 - Refresh token (<https://datatracker.ietf.org/doc/html/rfc6749#section-1.5>)
 
-- Implicit (not implemented)
-- Resource Owner Password Credentials (not implemented)
+- Client Credentials (not implemented)
+- Implicit (not implemented because unsafe)
+- Resource Owner Password Credentials (not implemented because unsafe)
 
 ## PKCE
 
