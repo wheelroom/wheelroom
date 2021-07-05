@@ -1,20 +1,20 @@
+import { ScopeCollection } from '../collection/scope'
 import { invalidScopeErrorFactory } from '../error/oauth2-error'
 import { Context } from '../response-generator/context'
 
 export interface FilterValidScopes {
-  scopeNames?: string[]
+  scopes?: ScopeCollection[]
   context: Context
 }
 
 export const filterValidScopes = async ({
-  scopeNames,
+  scopes,
   context,
 }: FilterValidScopes) => {
-  if (!scopeNames) return []
-
+  if (!scopes) return []
+  const scopeNames = scopes.map((scope) => scope.name)
   const allValidScopes = await context.collections.scope.getByName(scopeNames)
   const allValidScopesNames = allValidScopes.map((scope) => scope.name)
-
   const invalidScopeNames = scopeNames.filter(
     (name) => !allValidScopesNames.includes(name)
   )
