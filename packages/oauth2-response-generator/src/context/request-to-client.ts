@@ -9,7 +9,7 @@ export interface RequestToClient {
   context: Context
 }
 
-export const requestToClient = ({ context }: RequestToClient) => {
+export const requestToClient = async ({ context }: RequestToClient) => {
   const basicAuth = headerTobasicAuth({
     authHeader: context.req.headers['authorization'],
   })
@@ -21,14 +21,15 @@ export const requestToClient = ({ context }: RequestToClient) => {
     clientId = basicAuth.username
     clientSecret = basicAuth.password
   } else {
-    clientId = context.req.body['client_id']
-    clientSecret = context.req.body['client_secret']
+    clientId = context.req.body['client_id'] || context.req.query['client_id']
+    clientSecret =
+      context.req.body['client_secret'] || context.req.query['client_secret']
   }
 
-  if (Array.isArray(clientId)) {
+  if (typeof clientId !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'client_id',
-      description: 'Client id cannot be an array',
+      description: 'Client id must be string',
     })
   }
 
@@ -39,19 +40,25 @@ export const requestToClient = ({ context }: RequestToClient) => {
     })
   }
 
-  if (Array.isArray(clientSecret)) {
+  if (typeof clientSecret !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'client_secret',
-      description: 'Client secret cannot be an array',
+      description: 'Client secret must be a string',
     })
   }
 
-  const knownClient = context.collections.client.getById(clientId)
+  const knownClient = await context.collections.client.getById(clientId)
+
+  if (!knownClient || !knownClient.name) {
+    throw invalidClientErrorFactory({
+      description: `Unknown client: ${clientId}`,
+    })
+  }
 
   if (knownClient.secret && !clientSecret) {
     throw invalidRequestErrorFactory({
       arg: 'client_secret',
-      description: `Client secret is required for client ${clientId}`,
+      description: `Client secret required, client: ${clientId}`,
     })
   }
 

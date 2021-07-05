@@ -1,4 +1,4 @@
 export interface ScopeCollection {
+  description: string
   name: string
-  [key: string]: any
 }

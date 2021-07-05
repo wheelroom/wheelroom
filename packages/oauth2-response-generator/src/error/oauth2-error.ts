@@ -66,7 +66,7 @@ export const invalidClientErrorFactory = ({
 export const invalidGrantErrorFactory = ({
   description,
 }: ErrorDescription): OAuth2Error => {
-  const message = `Invalid grant, supported grants are: authorization_code, client_credentials`
+  const message = `Invalid grant, try e.g. authorization_code or refresh_token`
   return new OAuth2Error(
     message,
     description,

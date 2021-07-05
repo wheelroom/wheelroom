@@ -5,7 +5,7 @@ export type CodeChallengeMethod = 'S256' | 'plain'
 export interface VerifyCodeChallenge {
   codeChallenge: string
   codeVerifier: string
-  method?: CodeChallengeMethod
+  method: CodeChallengeMethod
 }
 
 const verifyS256 = ({ codeChallenge, codeVerifier }: VerifyCodeChallenge) => {
@@ -28,12 +28,11 @@ export const verifyCodeChallenge = ({
 }: VerifyCodeChallenge) => {
   switch (method) {
     case 'S256':
-      return verifyS256({ codeChallenge, codeVerifier })
+      return verifyS256({ codeChallenge, codeVerifier, method })
     case 'plain':
-      return verifyPlain({ codeChallenge, codeVerifier })
+      return verifyPlain({ codeChallenge, codeVerifier, method })
 
     default:
       return false
-      break
   }
 }
