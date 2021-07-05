@@ -1,6 +1,6 @@
 import { ScopeCollection } from '../collection/scope'
 import { invalidScopeErrorFactory } from '../error/oauth2-error'
-import { Context } from '../response-generator/context'
+import { Context } from './context'
 
 export interface FilterValidScopes {
   scopes?: ScopeCollection[]

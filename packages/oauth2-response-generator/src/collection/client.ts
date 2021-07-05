@@ -1,5 +1,6 @@
-import { Grant } from '../grant/grant'
 import { ScopeCollection } from './scope'
+
+export type Grant = 'authorization_code' | 'refresh_token'
 
 export interface ClientCollection {
   id: string
@@ -9,17 +10,3 @@ export interface ClientCollection {
   allowedGrants: Grant[]
   scopes: ScopeCollection[]
 }
-
-// export function isClientConfidential(client: OAuthClient): boolean {
-//   return !!client.secret
-// }
-
-// export interface OAuthClientRepository {
-//   getByIdentifier(clientId: string): Promise<OAuthClient>
-
-//   isClientValid(
-//     grantType: GrantIdentifier,
-//     client: OAuthClient,
-//     clientSecret?: string
-//   ): Promise<boolean>
-// }
