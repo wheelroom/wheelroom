@@ -7,6 +7,15 @@ export interface RefreshTokenPayload {
   userId: string
 }
 
+export interface RawRefreshTokenPayload {
+  access_token_id: string
+  client_id: string
+  expire_time: number
+  refresh_token_id: string
+  scope: string
+  user_id: string
+}
+
 export const refreshTokenPayload = ({
   accessTokenId,
   clientId,
@@ -14,7 +23,7 @@ export const refreshTokenPayload = ({
   refreshTokenId,
   scopes,
   userId,
-}: RefreshTokenPayload) => {
+}: RefreshTokenPayload): RawRefreshTokenPayload => {
   return {
     access_token_id: accessTokenId,
     client_id: clientId,

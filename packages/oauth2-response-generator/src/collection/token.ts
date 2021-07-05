@@ -7,9 +7,9 @@ export interface TokenCollection<UserAgent = any> {
   accessTokenExpiresAt: Date
   appUrl?: string
   client: ClientCollection
-  refreshToken?: string
-  refreshTokenExpiresAt?: Date
+  refreshToken: string
+  refreshTokenExpiresAt: Date
   scopes: ScopeCollection[]
-  user?: UserCollection
+  user: UserCollection
   userAgent?: UserAgent
 }

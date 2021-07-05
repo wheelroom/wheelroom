@@ -9,19 +9,25 @@ export type Context = {
   collections: {
     authCode: {
       persist: (authCode: AuthCodeCollection) => Promise<void>
-      getById: (id: string) => Promise<AuthCodeCollection>
+      get: (authCodeId: string) => Promise<AuthCodeCollection>
+      revoke: (id: string) => Promise<AuthCodeCollection>
     }
     client: {
-      getById: (id: string) => Promise<ClientCollection>
+      get: (clientId: string) => Promise<ClientCollection>
     }
     scope: {
-      getByName: (names: string[]) => Promise<ScopeCollection[]>
+      get: (names: string[]) => Promise<ScopeCollection[]>
     }
     token: {
       persist: (authCode: TokenCollection) => Promise<void>
+      revoke: (accessToken: string) => Promise<void>
+      refreshToken: {
+        get: (refreshToken: string) => Promise<TokenCollection>
+        revoke: (refreshToken: string) => Promise<void>
+      }
     }
     user: {
-      getById: (id: string) => Promise<UserCollection>
+      get: (userId: string) => Promise<UserCollection>
     }
   }
   jwt: {

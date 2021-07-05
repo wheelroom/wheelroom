@@ -1,17 +1,20 @@
 import { b64utohex } from 'jsrsasign'
 import { v4 as uuidv4 } from 'uuid'
-import { AuthCodeCollection } from '../collection/auth-code'
-import { Context } from '../context/context'
-import { requestToClient } from '../context/request-to-client'
-import { requestToRedirectUri } from '../context/request-to-redirect-uri'
-import { requestToScopes } from '../context/request-to-scopes'
-import { invalidRequestErrorFactory } from '../error/oauth2-error'
-import { codeTokenPayload } from '../payload/code-token'
+import { AuthCodeCollection } from '../../collection/auth-code'
+import { Context } from '../../context/context'
+import { requestToClient } from '../../context/request-to-client'
+import { requestToRedirectUri } from '../../context/request-to-redirect-uri'
+import { requestToScopes } from '../../context/request-to-scopes'
+import { invalidRequestErrorFactory } from '../../error/oauth2-error'
+import { codeTokenPayload } from '../../payload/code-token'
+import { OAuth2Response } from '../response'
 export interface AuthorizeResponse {
   context: Context
 }
 
-export const authorizeResponse = async ({ context }: AuthorizeResponse) => {
+export const authorizeResponse = async ({
+  context,
+}: AuthorizeResponse): Promise<OAuth2Response> => {
   const responeType = context.req.query['response_type']
 
   if (responeType !== 'code') {
@@ -95,5 +98,5 @@ export const authorizeResponse = async ({ context }: AuthorizeResponse) => {
   redirectUrlObj.searchParams.append('code', code)
   redirectUrlObj.searchParams.append('state', state)
 
-  return redirectUrlObj.toString()
+  return { body: {}, headers: {}, url: redirectUrlObj.toString() }
 }

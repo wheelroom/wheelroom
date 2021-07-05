@@ -47,7 +47,7 @@ export const requestToClient = async ({ context }: RequestToClient) => {
     })
   }
 
-  const knownClient = await context.collections.client.getById(clientId)
+  const knownClient = await context.collections.client.get(clientId)
 
   if (!knownClient || !knownClient.name) {
     throw invalidClientErrorFactory({

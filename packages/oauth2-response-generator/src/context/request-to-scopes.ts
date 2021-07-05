@@ -19,7 +19,7 @@ export const requestToScopes = async ({ context }: RequestToScopes) => {
   }
 
   const scopeNames = scope.split(' ')
-  const allValidScopes = await context.collections.scope.getByName(scopeNames)
+  const allValidScopes = await context.collections.scope.get(scopeNames)
   const allValidScopesNames = allValidScopes.map((scope) => scope.name)
   const invalidScopeNames = scopeNames.filter(
     (name) => !allValidScopesNames.includes(name)
