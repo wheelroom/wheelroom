@@ -12,6 +12,7 @@ import {
 } from '../../lib/verify-code-challenge'
 import { accessTokenPayload } from '../../payload/access-token'
 import { RawCodeTokenPayload } from '../../payload/code-token'
+import { refreshTokenPayload } from '../../payload/refresh-token'
 import { tokenResponseBodyPayload } from '../../payload/token-response-body'
 import { OAuth2Response } from '../response'
 import { TokenResponse } from './token-response'
@@ -122,14 +123,10 @@ export const authorizationCodeGrant = async ({
     userId: user.id,
   })
 
-  const newRefreshTokenPayload = accessTokenPayload({
-    clientName: client.name,
+  const newRefreshTokenPayload = refreshTokenPayload({
+    clientId: client.id,
     expiresAtSeconds: Date.now() / 1000,
-    issuedAtSeconds: Date.now() / 1000,
-    notBeforeSeconds: Date.now() / 1000,
-    jwtId: 'todo',
     scopes: scopes.map((scope) => scope.name).join(' '),
-    userEmail: user.email,
     userId: user.id,
   })
 

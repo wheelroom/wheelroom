@@ -4,7 +4,10 @@ import { requestToRedirectUri } from '../../context/request-to-redirect-uri'
 import { requestToScopes } from '../../context/request-to-scopes'
 import { invalidRequestErrorFactory } from '../../error/oauth2-error'
 import { accessTokenPayload } from '../../payload/access-token'
-import { RawRefreshTokenPayload } from '../../payload/refresh-token'
+import {
+  RawRefreshTokenPayload,
+  refreshTokenPayload,
+} from '../../payload/refresh-token'
 import { tokenResponseBodyPayload } from '../../payload/token-response-body'
 import { OAuth2Response } from '../response'
 import { TokenResponse } from './token-response'
@@ -22,18 +25,11 @@ export const refreshTokenGrant = async ({
     })
   }
 
-  const refreshTokenPayload = (await context.jwt.parse(
+  const existingRefreshTokenPayload = (await context.jwt.parse(
     existingRefreshToken
   )) as RawRefreshTokenPayload
 
-  if (!refreshTokenPayload.refresh_token_id) {
-    throw invalidRequestErrorFactory({
-      arg: 'refresh_token',
-      description: 'refresh_token_id field in refresh_token JWT is required',
-    })
-  }
-
-  if (refreshTokenPayload.client_id !== client.id) {
+  if (existingRefreshTokenPayload.client_id !== client.id) {
     throw invalidRequestErrorFactory({
       arg: 'refresh_token',
       description: 'client_id field in refresh_token JWT is invalid',
@@ -44,7 +40,7 @@ export const refreshTokenGrant = async ({
     existingRefreshToken
   )
 
-  if (Date.now() > refreshTokenPayload.expire_time * 1000) {
+  if (Date.now() > existingRefreshTokenPayload.expire_time * 1000) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'Refresh token has expired',
@@ -63,7 +59,9 @@ export const refreshTokenGrant = async ({
 
   await context.collections.token.refreshToken.revoke(existingRefreshToken)
 
-  const user = await context.collections.user.get(refreshTokenPayload.user_id)
+  const user = await context.collections.user.get(
+    existingRefreshTokenPayload.user_id
+  )
 
   const newAccessTokenPayload = accessTokenPayload({
     clientName: client.name,
@@ -76,14 +74,10 @@ export const refreshTokenGrant = async ({
     userId: user.id,
   })
 
-  const newRefreshTokenPayload = accessTokenPayload({
-    clientName: client.name,
+  const newRefreshTokenPayload = refreshTokenPayload({
+    clientId: client.id,
     expiresAtSeconds: Date.now() / 1000,
-    issuedAtSeconds: Date.now() / 1000,
-    notBeforeSeconds: Date.now() / 1000,
-    jwtId: 'todo',
     scopes: scopes.map((scope) => scope.name).join(' '),
-    userEmail: user.email,
     userId: user.id,
   })
 
