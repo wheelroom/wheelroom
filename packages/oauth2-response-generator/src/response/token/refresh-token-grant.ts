@@ -102,7 +102,7 @@ export const refreshTokenGrant = async ({
 
   const body = tokenResponseBodyPayload({
     accessToken,
-    expiresAtSeconds: 0,
+    expiresInSeconds: 0,
     idToken: '',
     refreshToken,
     scopes: scopes.map((scope) => scope.name).join(' '),
