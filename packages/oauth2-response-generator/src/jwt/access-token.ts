@@ -1,4 +1,4 @@
-export interface AccessTokenPayload {
+export interface CreateAccessTokenPayload {
   clientName: string
   expiresAtSeconds: number
   issuedAtSeconds: number
@@ -9,7 +9,7 @@ export interface AccessTokenPayload {
   userId: string
 }
 
-export const accessTokenPayload = ({
+export const createAccessTokenPayload = ({
   clientName,
   expiresAtSeconds,
   issuedAtSeconds,
@@ -18,7 +18,7 @@ export const accessTokenPayload = ({
   scopes,
   userEmail,
   userId,
-}: AccessTokenPayload) => {
+}: CreateAccessTokenPayload) => {
   return {
     aud: undefined,
     cid: clientName,
