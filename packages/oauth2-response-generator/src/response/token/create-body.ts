@@ -58,10 +58,11 @@ export const createBody = async ({
     audience,
     clientId: client.id,
     expiresAtSeconds:
-      Date.now() / 1000 + maxAge.tokenEndpoint[grantMaxAge].accessToken,
-    issuedAtSeconds: Date.now() / 1000,
+      Math.ceil(Date.now() / 1000) +
+      maxAge.tokenEndpoint[grantMaxAge].accessToken,
+    issuedAtSeconds: Math.ceil(Date.now() / 1000),
     issuer,
-    notBeforeSeconds: Date.now() / 1000 - 5,
+    notBeforeSeconds: Math.ceil(Date.now() / 1000) - 5,
     scopes: scopes.map((scope) => scope.name).join(' '),
     userEmail: user.email,
     userId: user.id,
@@ -73,11 +74,12 @@ export const createBody = async ({
       audience,
       clientId: client.id,
       expiresAtSeconds:
-        Date.now() / 1000 + maxAge.tokenEndpoint.authorizationCodeGrant.idToken,
-      issuedAtSeconds: Date.now() / 1000,
+        Math.ceil(Date.now() / 1000) +
+        maxAge.tokenEndpoint.authorizationCodeGrant.idToken,
+      issuedAtSeconds: Math.ceil(Date.now() / 1000),
       issuer,
       nonce: knownAuthCode.nonce,
-      notBeforeSeconds: Date.now() / 1000 - 5,
+      notBeforeSeconds: Math.ceil(Date.now() / 1000) - 5,
       userEmail: user.email,
       userEmailVerified: true,
       userId: user.id,
@@ -92,7 +94,8 @@ export const createBody = async ({
   const newRefreshTokenPayload = createRefreshTokenPayload({
     clientId: client.id,
     expiresAtSeconds:
-      Date.now() / 1000 + maxAge.tokenEndpoint[grantMaxAge].refreshToken,
+      Math.ceil(Date.now() / 1000) +
+      maxAge.tokenEndpoint[grantMaxAge].refreshToken,
     scopes: scopes.map((scope) => scope.name).join(' '),
     userId: user.id,
   })
