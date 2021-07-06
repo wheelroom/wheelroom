@@ -1,18 +1,19 @@
-import { requestToClient } from '../../../lib/request-to-client'
-import { requestToRedirectUri } from '../../../lib/request-to-redirect-uri'
-import { requestToScopes } from '../../../lib/request-to-scopes'
+import { requestToClient } from '../../lib/request-to-client'
+import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
+import { requestToScopes } from '../../lib/request-to-scopes'
 import {
   invalidGrantErrorFactory,
   invalidRequestErrorFactory,
   jwtErrorFactory,
-} from '../../../error/oauth2-error'
+} from '../../error/oauth2-error'
 import {
   CodeChallengeMethod,
   verifyCodeChallenge,
-} from '../../../lib/verify-code-challenge'
-import { CodeTokenPayload } from '../../../jwt/code-token'
-import { OAuth2Response, TokenResponse } from '../../response'
-import { createBody } from '../create-body'
+} from '../../lib/verify-code-challenge'
+import { CodeTokenPayload } from '../../jwt/code-token'
+import { ResponseToSend } from '../../lib/response'
+import { tokenResponseParametersFactory } from '../parameters/token-response-parameters-factory'
+import { TokenResponse } from '../token-response'
 
 export const authorizationCodeGrant = async ({
   audience,
@@ -21,7 +22,7 @@ export const authorizationCodeGrant = async ({
   jwtApi,
   maxAge,
   req,
-}: TokenResponse): Promise<OAuth2Response> => {
+}: TokenResponse): Promise<ResponseToSend> => {
   const code = req.body['code']
   if (typeof code !== 'string') {
     throw invalidRequestErrorFactory({
@@ -122,7 +123,7 @@ export const authorizationCodeGrant = async ({
     req,
   })
   const scopes = await requestToScopes({ collectionApi, req })
-  const body = await createBody({
+  const parameters = await tokenResponseParametersFactory({
     audience,
     client,
     collectionApi,
@@ -136,5 +137,5 @@ export const authorizationCodeGrant = async ({
     user,
   })
 
-  return { body, url: redirectUri }
+  return { parameters, redirectUri }
 }

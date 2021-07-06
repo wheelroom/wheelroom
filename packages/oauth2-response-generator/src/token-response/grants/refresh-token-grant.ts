@@ -1,13 +1,14 @@
-import { requestToClient } from '../../../lib/request-to-client'
-import { requestToRedirectUri } from '../../../lib/request-to-redirect-uri'
-import { requestToScopes } from '../../../lib/request-to-scopes'
+import { requestToClient } from '../../lib/request-to-client'
+import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
+import { requestToScopes } from '../../lib/request-to-scopes'
 import {
   invalidRequestErrorFactory,
   jwtErrorFactory,
-} from '../../../error/oauth2-error'
-import { RefreshTokenPayload } from '../../../jwt/refresh-token'
-import { OAuth2Response, TokenResponse } from '../../response'
-import { createBody } from '../create-body'
+} from '../../error/oauth2-error'
+import { RefreshTokenPayload } from '../../jwt/refresh-token'
+import { ResponseToSend } from '../../lib/response'
+import { tokenResponseParametersFactory } from '../parameters/token-response-parameters-factory'
+import { TokenResponse } from '../token-response'
 
 export const refreshTokenGrant = async ({
   audience,
@@ -16,7 +17,7 @@ export const refreshTokenGrant = async ({
   jwtApi,
   maxAge,
   req,
-}: TokenResponse): Promise<OAuth2Response> => {
+}: TokenResponse): Promise<ResponseToSend> => {
   const existingRefreshToken = req.body['refresh_token']
   if (typeof existingRefreshToken !== 'string') {
     throw invalidRequestErrorFactory({
@@ -73,7 +74,7 @@ export const refreshTokenGrant = async ({
   })
   const scopes = await requestToScopes({ collectionApi, req })
   const redirectUri = requestToRedirectUri({ req, client })
-  const body = await createBody({
+  const parameters = await tokenResponseParametersFactory({
     audience,
     client,
     collectionApi,
@@ -86,5 +87,5 @@ export const refreshTokenGrant = async ({
     user,
   })
 
-  return { body, url: redirectUri }
+  return { parameters, redirectUri }
 }

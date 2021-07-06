@@ -1,4 +1,4 @@
-export interface BodyPayload {
+export interface TokenResponseParameters {
   accessToken: string
   expiresInSeconds: number
   idToken?: string
@@ -6,13 +6,13 @@ export interface BodyPayload {
   scopes: string
 }
 
-export const bodyPayload = ({
+export const tokenResponseParameters = ({
   accessToken,
   expiresInSeconds,
   idToken,
   refreshToken,
   scopes,
-}: BodyPayload) => {
+}: TokenResponseParameters) => {
   return {
     access_token: accessToken,
     expires_in: expiresInSeconds,

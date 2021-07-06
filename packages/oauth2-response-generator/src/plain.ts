@@ -14,5 +14,7 @@ export * from './jwt/jwt'
 export * from './jwt/jwt-api'
 export * from './jwt/refresh-token'
 
-export * from './response/response'
-export * from './response/max-age'
+export * from './max-age/max-age'
+
+export * from './authorize-response/authorize-response'
+export * from './token-response/token-response'

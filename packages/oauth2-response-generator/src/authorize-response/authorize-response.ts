@@ -1,15 +1,21 @@
 import { b64utohex } from 'jsrsasign'
 import { v4 as uuidv4 } from 'uuid'
-import { AuthCodeCollection } from '../../collection/auth-code'
-import { requestToClient } from '../../lib/request-to-client'
-import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
-import { requestToScopes } from '../../lib/request-to-scopes'
+import { AuthCodeCollection } from '../collection/auth-code'
+import { requestToClient } from '../lib/request-to-client'
+import { requestToRedirectUri } from '../lib/request-to-redirect-uri'
+import { requestToScopes } from '../lib/request-to-scopes'
 import {
   invalidRequestErrorFactory,
   jwtErrorFactory,
-} from '../../error/oauth2-error'
-import { createCodeTokenPayload } from '../../jwt/code-token'
-import { AuthorizeResponse, OAuth2Response } from '../response'
+} from '../error/oauth2-error'
+import { createCodeTokenPayload } from '../jwt/code-token'
+import { CommonResponseInput, ResponseToSend } from '../lib/response'
+import { UserCollection } from '../collection/user'
+
+export interface AuthorizeResponse extends CommonResponseInput {
+  /** Current user */
+  user: UserCollection
+}
 
 export const authorizeResponse = async ({
   collectionApi,
@@ -17,7 +23,7 @@ export const authorizeResponse = async ({
   maxAge,
   req,
   user,
-}: AuthorizeResponse): Promise<OAuth2Response> => {
+}: AuthorizeResponse): Promise<ResponseToSend> => {
   const responeType = req.query['response_type']
 
   if (responeType !== 'code') {
@@ -102,9 +108,9 @@ export const authorizeResponse = async ({
     throw jwtErrorFactory({ description: 'Error signing code token' })
   }
 
-  const redirectUrlObj = new URL(redirectUri)
-  redirectUrlObj.searchParams.append('code', code)
-  redirectUrlObj.searchParams.append('state', state)
+  // const redirectUrlObj = new URL(redirectUri)
+  // redirectUrlObj.searchParams.append('code', code)
+  // redirectUrlObj.searchParams.append('state', state)
 
-  return { body: {}, url: redirectUrlObj.toString() }
+  return { parameters: { code, state }, redirectUri }
 }

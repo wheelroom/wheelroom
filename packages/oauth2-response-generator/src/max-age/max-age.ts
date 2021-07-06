@@ -5,13 +5,13 @@ export type MaxAge = {
   }
   tokenEndpoint: {
     authorizationCodeGrant: {
-      body: number
+      response: number
       accessToken: number
       idToken: number
       refreshToken: number
     }
     refreshTokenGrant: {
-      body: number
+      response: number
       accessToken: number
       refreshToken: number
     }

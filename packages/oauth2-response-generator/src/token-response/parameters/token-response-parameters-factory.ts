@@ -10,17 +10,17 @@ import { createAccessTokenPayload } from '../../jwt/access-token'
 import { createIdTokenPayload } from '../../jwt/id-token'
 import { JwtApi } from '../../jwt/jwt-api'
 import { createRefreshTokenPayload } from '../../jwt/refresh-token'
-import { MaxAge } from '../max-age'
-import { bodyPayload } from './body-payload'
+import { MaxAge } from '../../max-age/max-age'
+import { tokenResponseParameters } from './token-response-parameters'
 
-export interface CreateBody {
+export interface TokenResponseParametersFactory {
   /** Added to the aud claim in the tokens */
   audience: string
   /** Client used to add name and id to tokens */
   client: ClientCollection
   /** Api methods to access storage layer */
   collectionApi: CollectionApi
-  /** The grant for which the body is created */
+  /** The grant for which the token parameters are created */
   grant: 'authorization_code' | 'refresh_token'
   /** Added to the iss claim in the tokens */
   issuer: string
@@ -38,7 +38,7 @@ export interface CreateBody {
   user: UserCollection
 }
 
-export const createBody = async ({
+export const tokenResponseParametersFactory = async ({
   audience,
   client,
   collectionApi,
@@ -50,7 +50,7 @@ export const createBody = async ({
   req,
   scopes,
   user,
-}: CreateBody) => {
+}: TokenResponseParametersFactory) => {
   const grantMaxAge =
     grant === 'refresh_token' ? 'refreshTokenGrant' : 'authorizationCodeGrant'
 
@@ -123,12 +123,12 @@ export const createBody = async ({
 
   await collectionApi.token.persist({ token: tokenCollection, req })
 
-  const body = bodyPayload({
+  const parameters = tokenResponseParameters({
     accessToken,
-    expiresInSeconds: maxAge.tokenEndpoint[grantMaxAge].body,
+    expiresInSeconds: maxAge.tokenEndpoint[grantMaxAge].response,
     idToken,
     refreshToken,
     scopes: scopes.map((scope) => scope.name).join(' '),
   })
-  return body
+  return parameters
 }

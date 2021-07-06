@@ -1,10 +1,12 @@
-import { OAuth2Response, TokenResponse } from '../response'
+import { CommonResponseInput, ResponseToSend } from '../lib/response'
 import { authorizationCodeGrant } from './grants/authorization-code-grant'
 import { refreshTokenGrant } from './grants/refresh-token-grant'
 
+export type TokenResponse = CommonResponseInput
+
 export const tokenResponse = async (
   args: TokenResponse
-): Promise<OAuth2Response> => {
+): Promise<ResponseToSend | undefined> => {
   const grantType = args.req.body['grant_type']
 
   switch (grantType) {
@@ -15,6 +17,6 @@ export const tokenResponse = async (
       return refreshTokenGrant(args)
 
     default:
-      return { body: {}, url: '' }
+      return
   }
 }
