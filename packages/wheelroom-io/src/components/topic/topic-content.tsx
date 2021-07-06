@@ -1,18 +1,19 @@
 import { Div } from '@wheelroom/any/react'
-import { mediaQuery } from '../../lib/media-query'
 import {
   ComponentProps,
   StyleFactory,
   StyleMap,
   StyleObject,
 } from '../../lib/component-styles'
+import { mediaQuery } from '../../lib/media-query'
+import { Heading } from '../elements/heading'
+import { Text } from '../elements/text'
 import { ContentfulAction } from '../models/contentful-action'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
 } from './contentful-topic-section'
 import { TopicActions } from './topic-actions'
-import { TopicText } from './topic-text'
 
 export type TopicContent = {
   contentfulActions?: ContentfulAction[]
@@ -27,15 +28,18 @@ export type TopicContentProps = ComponentProps<
 
 const topicContentStyle: StyleObject = {
   display: 'grid',
-  gridTemplateRows: '1fr auto',
+  gridTemplateAreas: `"." "." "actions"`,
+  gridGap: 16,
+  gridArea: 'content',
+  gridTemplateRows: 'auto 1fr auto',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
   block: topicContentStyle,
   card: topicContentStyle,
   featured: {
-    maxWidth: ['35em', '35em', '45%'],
-    width: '100%',
+    ...topicContentStyle,
+    margin: 'auto 0',
   },
   headline: {
     textAlign: 'center',
@@ -78,15 +82,20 @@ export const TopicContent = ({
     variant,
   })
   model = model || {}
-
+  const headingSize = ['featured', 'headline', 'hero', 'quote'].includes(
+    variant || 'block'
+  )
   return (
-    <>
-      <TopicText variant={variant} model={model} options={options} />
+    <Div css={css} {...props}>
+      <Heading variant={headingSize ? 'h2' : 'h3'}>
+        {model.headingString}
+      </Heading>
+      <Text>{model.abstractString}</Text>
       <TopicActions
         variant={variant}
         model={{ contentfulActions: model.contentfulActions }}
         options={options}
       />
-    </>
+    </Div>
   )
 }

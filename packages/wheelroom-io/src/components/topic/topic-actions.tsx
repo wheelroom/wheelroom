@@ -33,9 +33,7 @@ const actionStyle = {
 const styleMap: StyleMap<TopicSectionVariant> = {
   block: actionStyle,
   card: actionStyle,
-  featured: {
-    marginTop: ['24px', '24px', '32px'],
-  },
+  featured: actionStyle,
   headline: actionStyle,
   hero: {
     marginTop: 32,
