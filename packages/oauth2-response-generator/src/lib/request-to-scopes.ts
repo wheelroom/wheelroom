@@ -15,6 +15,7 @@ export const requestToScopes = async ({
   req,
 }: RequestToScopes) => {
   const scope = req.body['scope'] || req.query['scope']
+  if (!scope) return []
 
   if (typeof scope !== 'string') {
     throw invalidRequestErrorFactory({
