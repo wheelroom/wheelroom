@@ -25,15 +25,14 @@ export type TopicContentProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
-const baseStyle: StyleObject = {
-  display: 'flex',
-  flex: '1',
-  flexDirection: 'column',
+const topicContentStyle: StyleObject = {
+  display: 'grid',
+  gridTemplateRows: '1fr auto',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
-  block: baseStyle,
-  card: { ...baseStyle, flex: '1 1 auto', color: 'grey' },
+  block: topicContentStyle,
+  card: topicContentStyle,
   featured: {
     maxWidth: ['35em', '35em', '45%'],
     width: '100%',
@@ -53,8 +52,8 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   quote: {
     textAlign: 'center',
   },
-  showcase: baseStyle,
-  video: baseStyle,
+  showcase: topicContentStyle,
+  video: topicContentStyle,
   image: {},
   divider: {},
 }
@@ -81,13 +80,13 @@ export const TopicContent = ({
   model = model || {}
 
   return (
-    <Div css={css} {...props}>
+    <>
       <TopicText variant={variant} model={model} options={options} />
       <TopicActions
         variant={variant}
         model={{ contentfulActions: model.contentfulActions }}
         options={options}
       />
-    </Div>
+    </>
   )
 }
