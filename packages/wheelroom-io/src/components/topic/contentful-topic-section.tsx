@@ -11,10 +11,8 @@ export type TopicSectionVariant =
   | 'headline'
   | 'hero'
   | 'image'
-  | 'navigation'
   | 'quote'
   | 'showcase'
-  | 'text'
   | 'video'
 
 export type TopicSectionOptions = ComponentOptions<
