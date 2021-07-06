@@ -14,6 +14,7 @@ import { accessTokenPayload } from '../../jwt/access-token'
 import { RawCodeTokenPayload } from '../../jwt/code-token'
 import { refreshTokenPayload } from '../../jwt/refresh-token'
 import { OAuth2Response } from '../response'
+import { idTokenPayload } from '../../jwt/id-token'
 import { tokenResponseBodyPayload } from './token-response-body'
 import { TokenResponse } from './token-response'
 
@@ -126,6 +127,19 @@ export const authorizationCodeGrant = async ({
     userId: user.id,
   })
 
+  const newIdTokenPayload = idTokenPayload({
+    clientId: client.id,
+    expiresAtSeconds: Date.now() / 1000,
+    issuedAtSeconds: Date.now() / 1000,
+    jwtId: 'TODO',
+    nonce: knmownAuthCode.nonce,
+    notBeforeSeconds: Date.now() / 1000,
+    userEmail: user.email,
+    userEmailVerified: true,
+    userId: user.id,
+    userName: 'not implemented',
+  })
+
   const newRefreshTokenPayload = refreshTokenPayload({
     clientId: client.id,
     expiresAtSeconds: Date.now() / 1000,
@@ -134,6 +148,7 @@ export const authorizationCodeGrant = async ({
   })
 
   const accessToken = await jwtApi.sign(newAccessTokenPayload)
+  const idToken = await jwtApi.sign(newIdTokenPayload)
   const refreshToken = await jwtApi.sign(newRefreshTokenPayload)
 
   const tokenCollection: TokenCollection = {
@@ -155,7 +170,7 @@ export const authorizationCodeGrant = async ({
   const body = tokenResponseBodyPayload({
     accessToken,
     expiresInSeconds: 0,
-    idToken: '',
+    idToken,
     refreshToken,
     scopes: scopes.map((scope) => scope.name).join(' '),
   })

@@ -6,7 +6,7 @@ export interface IdTokenPayload {
   nonce: string
   notBeforeSeconds: number
   userEmail: string
-  userEmailVerified: string
+  userEmailVerified: boolean
   userId: string
   userName: string
 }
