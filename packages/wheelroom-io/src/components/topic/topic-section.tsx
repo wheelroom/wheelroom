@@ -26,25 +26,20 @@ export type TopicSectionProps = ComponentProps<
 const topicSectionStyle: StyleObject = {
   label: 'grid-container',
   display: 'grid',
-  gridArea: 'section',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
     ...topicSectionStyle,
-    gridTemplateColumns: `repeat(auto-fill, minmax(320px, 1fr))`,
+    // Use: `section` OR `fluid`
+    gridArea: 'section',
+    gridTemplateColumns: `repeat(auto-fill, minmax(320px, 320px))`,
     gridGap: 16,
   },
   card: {
     ...topicSectionStyle,
-    gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(288px, 1fr))',
     gridGap: 16,
-    // ...maxWidthStyle,
-    // alignItems: 'stretch',
-    // flexDirection: 'row',
-    // flexFlow: 'row wrap',
-    // flexWrap: 'wrap',
-    // justifyContent: 'center',
   },
   divider: {
     margin: '1rem 0',
@@ -118,11 +113,12 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
       css={{
         label: 'wrapper',
         display: 'grid',
-        gridTemplateColumns: '1fr minmax(auto, 1280px) 1fr',
-        gridTemplateAreas: '". section ."',
+        // Universal fluid and max-width with CSS grid
+        gridTemplateColumns:
+          '[fluid-start] 1fr [section] minmax(auto, 1280px) 1fr [fluid-end]',
       }}
     >
-      {/* The Section wrapper around the Container is used for full-width background-color */}
+      {/* The Section wrapper sets full-width Section background-color */}
       <Div css={css} {...props}>
         {model.contentfulTopicSection?.topicsCollection?.items.map(
           (contentfulTopic: ContentfulTopic, index: number) => (
