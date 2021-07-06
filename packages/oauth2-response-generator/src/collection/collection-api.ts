@@ -28,8 +28,6 @@ type TokenPersist = BaseArguments & {
 }
 type TokenRevoke = BaseArguments & {
   accessToken: string
-  clientId: string
-  userId: string
 }
 type TokenRefreshTokenGet = BaseArguments & {
   refreshToken: string
@@ -58,12 +56,7 @@ export type CollectionApi = {
   }
   token: {
     persist: ({ token, req }: TokenPersist) => Promise<void>
-    revoke: ({
-      accessToken,
-      clientId,
-      userId,
-      req,
-    }: TokenRevoke) => Promise<void>
+    revoke: ({ accessToken, req }: TokenRevoke) => Promise<void>
     [otherMethods: string]: any
     refreshToken: {
       get: ({

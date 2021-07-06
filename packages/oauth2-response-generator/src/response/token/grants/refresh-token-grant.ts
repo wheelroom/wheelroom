@@ -65,6 +65,10 @@ export const refreshTokenGrant = async ({
     })
   }
 
+  await collectionApi.token.refreshToken.revoke({
+    refreshToken: existingRefreshToken,
+    req,
+  })
   const scopes = await requestToScopes({ collectionApi, req })
   const redirectUri = requestToRedirectUri({ req, client })
   const body = await createBody({
@@ -78,11 +82,6 @@ export const refreshTokenGrant = async ({
     req,
     scopes,
     user,
-  })
-
-  await collectionApi.token.refreshToken.revoke({
-    refreshToken: existingRefreshToken,
-    req,
   })
 
   return { body, url: redirectUri }

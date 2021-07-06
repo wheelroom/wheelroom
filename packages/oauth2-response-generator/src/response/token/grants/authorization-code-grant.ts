@@ -116,6 +116,7 @@ export const authorizationCodeGrant = async ({
     })
   }
 
+  await collectionApi.authCode.revoke({ authCodeId: knownAuthCode.id, req })
   const user = await collectionApi.user.get({
     userId: codePayload.user_id,
     req,
@@ -134,7 +135,6 @@ export const authorizationCodeGrant = async ({
     scopes,
     user,
   })
-  await collectionApi.authCode.revoke({ authCodeId: knownAuthCode.id, req })
 
   return { body, url: redirectUri }
 }
