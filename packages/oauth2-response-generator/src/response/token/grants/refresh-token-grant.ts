@@ -8,6 +8,7 @@ import { createBody } from '../create-body'
 
 export const refreshTokenGrant = async ({
   collectionApi,
+  issuer,
   jwtApi,
   maxAge,
   req,
@@ -69,6 +70,7 @@ export const refreshTokenGrant = async ({
     client,
     collectionApi,
     grant: 'refresh_token',
+    issuer,
     jwtApi,
     maxAge,
     req,

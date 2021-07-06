@@ -15,6 +15,7 @@ import { createBody } from '../create-body'
 
 export const authorizationCodeGrant = async ({
   collectionApi,
+  issuer,
   jwtApi,
   maxAge,
   req,
@@ -123,6 +124,7 @@ export const authorizationCodeGrant = async ({
     client,
     collectionApi,
     grant: 'authorization_code',
+    issuer,
     jwtApi,
     knownAuthCode,
     maxAge,

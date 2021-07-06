@@ -19,6 +19,8 @@ export interface CreateBody {
   collectionApi: CollectionApi
   /** The grant for which the body is created */
   grant: 'authorization_code' | 'refresh_token'
+  /** Added to the iss claim in the tokens */
+  issuer: string
   /** Api methods used to sign and verify JSON Web Tokens */
   jwtApi: JwtApi
   /** Used to get nonce for authorize_code grant */
@@ -37,6 +39,7 @@ export const createBody = async ({
   client,
   collectionApi,
   grant,
+  issuer,
   jwtApi,
   knownAuthCode,
   maxAge,
@@ -44,16 +47,17 @@ export const createBody = async ({
   scopes,
   user,
 }: CreateBody) => {
-  const maxAgeId =
+  const grantMaxAge =
     grant === 'refresh_token' ? 'refreshTokenGrant' : 'authorizationCodeGrant'
 
   const newAccessTokenPayload = createAccessTokenPayload({
+    clientId: client.id,
     clientName: client.name,
     expiresAtSeconds:
-      Date.now() / 1000 + maxAge.tokenEndpoint[maxAgeId].accessToken,
+      Date.now() / 1000 + maxAge.tokenEndpoint[grantMaxAge].accessToken,
     issuedAtSeconds: Date.now() / 1000,
+    issuer,
     notBeforeSeconds: Date.now() / 1000 - 5,
-    jwtId: 'todo',
     scopes: scopes.map((scope) => scope.name).join(' '),
     userEmail: user.email,
     userId: user.id,
@@ -66,7 +70,7 @@ export const createBody = async ({
       expiresAtSeconds:
         Date.now() / 1000 + maxAge.tokenEndpoint.authorizationCodeGrant.idToken,
       issuedAtSeconds: Date.now() / 1000,
-      jwtId: 'TODO',
+      issuer,
       nonce: knownAuthCode.nonce,
       notBeforeSeconds: Date.now() / 1000 - 5,
       userEmail: user.email,
@@ -80,7 +84,7 @@ export const createBody = async ({
   const newRefreshTokenPayload = createRefreshTokenPayload({
     clientId: client.id,
     expiresAtSeconds:
-      Date.now() / 1000 + maxAge.tokenEndpoint[maxAgeId].refreshToken,
+      Date.now() / 1000 + maxAge.tokenEndpoint[grantMaxAge].refreshToken,
     scopes: scopes.map((scope) => scope.name).join(' '),
     userId: user.id,
   })
@@ -91,12 +95,12 @@ export const createBody = async ({
   const tokenCollection: TokenCollection = {
     accessToken,
     accessTokenExpiresAt: new Date(
-      Date.now() + 1000 * maxAge.tokenEndpoint[maxAgeId].accessToken
+      Date.now() + 1000 * maxAge.tokenEndpoint[grantMaxAge].accessToken
     ),
     client,
     refreshToken,
     refreshTokenExpiresAt: new Date(
-      Date.now() + 1000 * maxAge.tokenEndpoint[maxAgeId].refreshToken
+      Date.now() + 1000 * maxAge.tokenEndpoint[grantMaxAge].refreshToken
     ),
     scopes,
     user,
@@ -106,7 +110,7 @@ export const createBody = async ({
 
   const body = bodyPayload({
     accessToken,
-    expiresInSeconds: maxAge.tokenEndpoint[maxAgeId].body,
+    expiresInSeconds: maxAge.tokenEndpoint[grantMaxAge].body,
     idToken,
     refreshToken,
     scopes: scopes.map((scope) => scope.name).join(' '),

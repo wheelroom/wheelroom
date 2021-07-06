@@ -1,8 +1,10 @@
+import { KJUR, hextob64 } from 'jsrsasign'
+
 export interface CreateIdTokenPayload {
   clientId: string
   expiresAtSeconds: number
   issuedAtSeconds: number
-  jwtId: string
+  issuer: string
   nonce: string
   notBeforeSeconds: number
   userEmail: string
@@ -15,7 +17,7 @@ export const createIdTokenPayload = ({
   clientId,
   expiresAtSeconds,
   issuedAtSeconds,
-  jwtId,
+  issuer,
   nonce,
   notBeforeSeconds,
   userEmail,
@@ -23,17 +25,20 @@ export const createIdTokenPayload = ({
   userId,
   userName,
 }: CreateIdTokenPayload) => {
-  return {
+  const payload = {
     aud: clientId,
     email_verified: userEmailVerified,
     email: userEmail,
     exp: expiresAtSeconds,
     iat: issuedAtSeconds,
-    iss: process.env.OAUTH2_ISSUER || 'no-issuer',
-    jti: jwtId,
+    iss: issuer,
+    jti: '',
     name: userName,
     nbf: notBeforeSeconds,
     nonce,
     sub: userId,
   }
+  const md = new KJUR.crypto.MessageDigest({ alg: 'sha1', prov: 'cryptojs' })
+  payload.jti = hextob64(<any>md.digestString(JSON.stringify(payload)))
+  return payload
 }

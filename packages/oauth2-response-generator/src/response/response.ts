@@ -16,6 +16,8 @@ export interface Response {
   collectionApi: CollectionApi
   /** Endpoint to generate a response for */
   endpoint: 'authorize' | 'token'
+  /** Add to the iss claim in a signed JWT */
+  issuer: string
   /** API methods to sign and verify JSON Web Tokens */
   jwtApi: JwtApi
   /** Max ages object containing max ages in seconds */
