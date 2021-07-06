@@ -115,7 +115,7 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
         display: 'grid',
         // Universal fluid and max-width with CSS grid
         gridTemplateColumns:
-          '[fluid-start] 1fr [section] minmax(auto, 1280px) 1fr [fluid-end]',
+          '[page-start] 1fr [section] minmax(auto, 1280px) 1fr [page-end]',
       }}
     >
       {/* The Section wrapper sets full-width Section background-color */}
