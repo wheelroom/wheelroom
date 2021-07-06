@@ -6,14 +6,11 @@ import {
   StyleObject,
 } from '../../lib/component-styles'
 import { mediaQuery } from '../../lib/media-query'
-import { Heading } from '../elements/heading'
-import { Text } from '../elements/text'
 import { ContentfulTopic } from './contentful-topic'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
 } from './contentful-topic-section'
-import { TopicActions } from './topic-actions'
 import { TopicContent } from './topic-content'
 import { TopicMedia } from './topic-media'
 
