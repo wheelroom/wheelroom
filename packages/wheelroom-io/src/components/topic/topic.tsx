@@ -30,7 +30,7 @@ const baseStyle: StyleObject = {
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
-  block: baseStyle,
+  block: {},
   card: {
     ...baseStyle,
     border: '1px solid transparent',
