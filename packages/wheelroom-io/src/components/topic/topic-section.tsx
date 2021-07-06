@@ -6,7 +6,6 @@ import {
   StyleObject,
 } from '../../lib/component-styles'
 import { mediaQuery } from '../../lib/media-query'
-import { GridSection } from '../layout/grid-section'
 import { ContentfulTopic } from './contentful-topic'
 import {
   ContentfulTopicSection,
@@ -27,20 +26,18 @@ export type TopicSectionProps = ComponentProps<
 const topicSectionStyle: StyleObject = {
   label: 'grid-container',
   display: 'grid',
-  gridArea: 'topic',
+  gridArea: 'section',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
     ...topicSectionStyle,
-    gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-    gridAutoRows: 'minmax(288px, auto)',
+    gridTemplateColumns: `repeat(auto-fill, minmax(320px, 1fr))`,
     gridGap: 16,
   },
   card: {
     ...topicSectionStyle,
     gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-    gridAutoRows: 'minmax(288px, auto)',
     gridGap: 16,
     // ...maxWidthStyle,
     // alignItems: 'stretch',
@@ -122,7 +119,7 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
         label: 'wrapper',
         display: 'grid',
         gridTemplateColumns: '1fr minmax(auto, 1280px) 1fr',
-        gridTemplateAreas: '". topic ."',
+        gridTemplateAreas: '". section ."',
       }}
     >
       {/* The Section wrapper around the Container is used for full-width background-color */}
