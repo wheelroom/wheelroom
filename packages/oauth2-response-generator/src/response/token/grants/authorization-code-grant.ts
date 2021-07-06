@@ -14,6 +14,7 @@ import { OAuth2Response, TokenResponse } from '../../response'
 import { createBody } from '../create-body'
 
 export const authorizationCodeGrant = async ({
+  audience,
   collectionApi,
   issuer,
   jwtApi,
@@ -121,6 +122,7 @@ export const authorizationCodeGrant = async ({
   })
   const scopes = await requestToScopes({ collectionApi, req })
   const body = await createBody({
+    audience,
     client,
     collectionApi,
     grant: 'authorization_code',

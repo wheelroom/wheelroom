@@ -7,6 +7,7 @@ import { OAuth2Response, TokenResponse } from '../../response'
 import { createBody } from '../create-body'
 
 export const refreshTokenGrant = async ({
+  audience,
   collectionApi,
   issuer,
   jwtApi,
@@ -67,6 +68,7 @@ export const refreshTokenGrant = async ({
   const scopes = await requestToScopes({ collectionApi, req })
   const redirectUri = requestToRedirectUri({ req, client })
   const body = await createBody({
+    audience,
     client,
     collectionApi,
     grant: 'refresh_token',

@@ -12,11 +12,13 @@ export type OAuth2Response = {
 }
 
 export interface Response {
+  /** Added to the aud claim in a signed JWT */
+  audience: string
   /** Api methods to serialize to sotrage layer */
   collectionApi: CollectionApi
   /** Endpoint to generate a response for */
   endpoint: 'authorize' | 'token'
-  /** Add to the iss claim in a signed JWT */
+  /** Added to the iss claim in a signed JWT */
   issuer: string
   /** API methods to sign and verify JSON Web Tokens */
   jwtApi: JwtApi

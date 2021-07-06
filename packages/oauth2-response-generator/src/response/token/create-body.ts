@@ -13,6 +13,8 @@ import { MaxAge } from '../max-age'
 import { bodyPayload } from './body-payload'
 
 export interface CreateBody {
+  /** Added to the aud claim in the tokens */
+  audience: string
   /** Client used to add name and id to tokens */
   client: ClientCollection
   /** Api methods to access storage layer */
@@ -36,6 +38,7 @@ export interface CreateBody {
 }
 
 export const createBody = async ({
+  audience,
   client,
   collectionApi,
   grant,
@@ -51,8 +54,8 @@ export const createBody = async ({
     grant === 'refresh_token' ? 'refreshTokenGrant' : 'authorizationCodeGrant'
 
   const newAccessTokenPayload = createAccessTokenPayload({
+    audience,
     clientId: client.id,
-    clientName: client.name,
     expiresAtSeconds:
       Date.now() / 1000 + maxAge.tokenEndpoint[grantMaxAge].accessToken,
     issuedAtSeconds: Date.now() / 1000,
@@ -66,6 +69,7 @@ export const createBody = async ({
   let idToken
   if (knownAuthCode && grant === 'authorization_code') {
     const newIdTokenPayload = createIdTokenPayload({
+      audience,
       clientId: client.id,
       expiresAtSeconds:
         Date.now() / 1000 + maxAge.tokenEndpoint.authorizationCodeGrant.idToken,
