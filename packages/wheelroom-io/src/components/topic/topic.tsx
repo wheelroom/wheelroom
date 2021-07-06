@@ -1,18 +1,21 @@
 import { Div } from '@wheelroom/any/react'
-import { mediaQuery } from '../../lib/media-query'
 import {
   ComponentProps,
   StyleFactory,
   StyleMap,
   StyleObject,
 } from '../../lib/component-styles'
+import { mediaQuery } from '../../lib/media-query'
+import { Heading } from '../elements/heading'
+import { Text } from '../elements/text'
+import { ContentfulTopic } from './contentful-topic'
 import {
   TopicSectionOptions,
   TopicSectionVariant,
 } from './contentful-topic-section'
+import { TopicActions } from './topic-actions'
 import { TopicContent } from './topic-content'
 import { TopicMedia } from './topic-media'
-import { ContentfulTopic } from './contentful-topic'
 
 export type Topic = {
   contentfulTopic?: ContentfulTopic
@@ -26,14 +29,30 @@ export type TopicProps = ComponentProps<
 const topicStyle: StyleObject = {
   display: 'grid',
   gridGap: 16,
-  gridTemplateAreas: `"picture" "heading" "text" "actions"`,
-  gridTemplateRows: 'auto auto 1fr auto',
+}
+
+const topicRowStyle: StyleObject = {
+  // Add more logic in grid template areas.
+  // e.g. If media doesn't exist change template areas and - rows.
+  gridTemplateAreas: `"media" "content"`,
+  // gridTemplateAreas: `"content"`,
+  gridTemplateRows: 'auto 1fr',
+}
+
+const topicColumnStyle: StyleObject = {
+  // Add more logic in grid template areas.
+  // e.g. If media doesn't exist change template areas and - rows.
+  gridTemplateAreas: `"media content"`,
+  // gridTemplateAreas: `"media"`,
+  // gridTemplateAreas: `"content"`,
+  gridTemplateColumns: 'repeat(2, 50%)',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
-  block: topicStyle,
+  block: [topicStyle, topicRowStyle],
   card: {
     ...topicStyle,
+    ...topicRowStyle,
     padding: 16,
     border: '1px solid transparent',
     borderColor: 'lightgrey',
@@ -56,13 +75,17 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   },
   featured: {
     ...topicStyle,
+    ...topicColumnStyle,
     // flexDirection: ['column', 'column', 'row'],
     // justifyContent: 'space-evenly',
     // padding: '16x 0',
     // alignItems: 'center',
   },
   gallery: {},
-  headline: {},
+  headline: {
+    ...topicStyle,
+    // textAlign: 'center',
+  },
   hero: {
     position: 'relative',
   },
@@ -99,7 +122,6 @@ export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
     variant,
   })
   model = model || {}
-
   return (
     <Div css={css} {...props}>
       <TopicMedia
@@ -113,11 +135,10 @@ export const Topic = ({ model, options, variant, ...props }: TopicProps) => {
       <TopicContent
         variant={variant}
         model={{
-          abstractString: model.contentfulTopic?.abstract,
           contentfulActions: model.contentfulTopic?.actionsCollection?.items,
           headingString: model.contentfulTopic?.heading,
+          abstractString: model.contentfulTopic?.abstract,
         }}
-        options={options}
       />
     </Div>
   )

@@ -1,10 +1,8 @@
-import { Div } from '@wheelroom/any/react'
 import { mediaQuery } from '../../lib/media-query'
 import {
   ComponentProps,
   StyleFactory,
   StyleMap,
-  StyleObject,
 } from '../../lib/component-styles'
 import { Asset, AssetProps } from '../models/asset'
 import { ContentfulAsset } from '../models/contentful-asset'
@@ -26,8 +24,13 @@ export type TopicMediaProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
+const topicMediaStyle = {
+  gridArea: 'media',
+}
+
 const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
+    ...topicMediaStyle,
     display: 'block',
     height: 0,
     paddingBottom: '56.25%',
@@ -41,6 +44,7 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     },
   },
   card: {
+    ...topicMediaStyle,
     display: 'block',
     height: 178,
     img: {
@@ -51,8 +55,9 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     },
   },
   featured: {
-    maxWidth: ['35em', '35em', '45%'],
-    width: '100%',
+    ...topicMediaStyle,
+    // maxWidth: ['35em', '35em', '45%'],
+    // width: '100%',
     img: {
       display: 'block',
       height: 'auto',
@@ -60,6 +65,7 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     },
   },
   gallery: {
+    ...topicMediaStyle,
     img: {
       display: 'block',
       height: 'auto',
@@ -67,6 +73,7 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     },
   },
   headline: {
+    ...topicMediaStyle,
     img: {
       display: 'block',
       height: '100%',
@@ -74,6 +81,7 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     },
   },
   hero: {
+    ...topicMediaStyle,
     bottom: 0,
     left: 0,
     position: 'absolute',
@@ -89,6 +97,7 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     },
   },
   quote: {
+    ...topicMediaStyle,
     overflow: 'hidden',
     height: 200,
     width: 200,
@@ -102,6 +111,7 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     },
   },
   showcase: {
+    ...topicMediaStyle,
     maxWidth: 254,
     width: '100%',
     img: {
@@ -110,9 +120,9 @@ const styleMap: StyleMap<TopicSectionVariant> = {
       width: '100%',
     },
   },
-  video: {},
-  divider: {},
-  image: {},
+  video: topicMediaStyle,
+  divider: topicMediaStyle,
+  image: topicMediaStyle,
 }
 
 export const topicMediaStyleFactory: StyleFactory<

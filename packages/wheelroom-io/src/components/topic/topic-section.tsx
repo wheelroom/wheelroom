@@ -34,7 +34,6 @@ const topicSectionStyle: StyleObject = {
    * page = 'full-width: 100%'
    */
   gridArea: 'section',
-  justifyContent: 'center',
   gridGap: 32,
   margin: 16,
 }
@@ -43,10 +42,12 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
     ...topicSectionStyle,
     gridTemplateColumns: `repeat(auto-fill, minmax(320px, 1fr))`,
+    justifyContent: 'center',
   },
   card: {
     ...topicSectionStyle,
     gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 320px))',
+    justifyContent: 'center',
   },
   divider: {
     margin: '1rem 0',
