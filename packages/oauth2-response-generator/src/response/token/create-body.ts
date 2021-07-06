@@ -83,7 +83,7 @@ export const createBody = async ({
       userId: user.id,
       userName: 'not implemented',
     })
-    idToken = await jwtApi.sign(newIdTokenPayload)
+    idToken = await jwtApi.sign({ payload: newIdTokenPayload })
     if (typeof idToken !== 'string') {
       throw jwtErrorFactory({ description: 'Error signing id token' })
     }
@@ -97,12 +97,12 @@ export const createBody = async ({
     userId: user.id,
   })
 
-  const accessToken = await jwtApi.sign(newAccessTokenPayload)
+  const accessToken = await jwtApi.sign({ payload: newAccessTokenPayload })
   if (typeof accessToken !== 'string') {
     throw jwtErrorFactory({ description: 'Error signing access token' })
   }
 
-  const refreshToken = await jwtApi.sign(newRefreshTokenPayload)
+  const refreshToken = await jwtApi.sign({ payload: newRefreshTokenPayload })
   if (typeof refreshToken !== 'string') {
     throw jwtErrorFactory({ description: 'Error signing refresh token' })
   }

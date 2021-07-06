@@ -95,7 +95,7 @@ export const authorizeResponse = async ({
     userId: user.id,
   })
 
-  const code = await jwtApi.sign(codeTokenPayload)
+  const code = await jwtApi.sign({ payload: codeTokenPayload })
 
   if (typeof code !== 'string') {
     throw jwtErrorFactory({ description: 'Error signing code token' })

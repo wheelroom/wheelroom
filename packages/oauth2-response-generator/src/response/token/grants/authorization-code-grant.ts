@@ -30,7 +30,7 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  const codePayload = (await jwtApi.verify(code)) as CodeTokenPayload
+  const codePayload = (await jwtApi.verify({ jwt: code })) as CodeTokenPayload
 
   if (!codePayload) {
     throw jwtErrorFactory({
