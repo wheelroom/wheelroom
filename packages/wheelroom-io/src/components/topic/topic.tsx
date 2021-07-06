@@ -23,28 +23,24 @@ export type TopicProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
-const baseStyle: StyleObject = {
-  display: 'flex',
-  flexDirection: 'column',
+const topicStyle: StyleObject = {
+  display: 'grid',
+  gridGap: 16,
+  gridTemplateAreas: `"picture" "heading" "text" "actions"`,
+  gridTemplateRows: 'auto auto 1fr auto',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
-  block: {},
+  block: topicStyle,
   card: {
-    ...baseStyle,
+    ...topicStyle,
+    padding: 16,
     border: '1px solid transparent',
     borderColor: 'lightgrey',
     borderRadius: 4,
     boxShadow: '0 0 16px',
     color: 'lightgrey',
-    margin: 16,
     textDecoration: 'none',
-    '> div:last-of-type': {
-      paddingTop: 0,
-    },
-    '> div:only-of-type': {
-      paddingTop: 16,
-    },
     transition: 'transform .25s ease',
     ':hover': {
       transform: 'translate3d(0, -4px, 0)',
@@ -59,11 +55,11 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     height: 1,
   },
   featured: {
-    ...baseStyle,
-    flexDirection: ['column', 'column', 'row'],
-    justifyContent: 'space-evenly',
-    padding: '16x 0',
-    alignItems: 'center',
+    ...topicStyle,
+    // flexDirection: ['column', 'column', 'row'],
+    // justifyContent: 'space-evenly',
+    // padding: '16x 0',
+    // alignItems: 'center',
   },
   gallery: {},
   headline: {},
@@ -73,11 +69,11 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   image: {},
   quote: {},
   showcase: {
-    ...baseStyle,
-    flexDirection: ['column', 'row'],
-    padding: '16px 0',
+    ...topicStyle,
+    // flexDirection: ['column', 'row'],
+    // padding: '16px 0',
   },
-  video: baseStyle,
+  video: topicStyle,
 }
 
 const reversedOrderOptionStyle = {}

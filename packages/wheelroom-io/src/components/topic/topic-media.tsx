@@ -26,76 +26,54 @@ export type TopicMediaProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
-const baseStyle: StyleObject = {
-  display: 'flex',
-  flexDirection: 'column',
-}
-
 const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
-    ...baseStyle,
-    picture: {
+    display: 'block',
+    height: 0,
+    paddingBottom: '56.25%',
+    position: 'relative',
+    img: {
       display: 'block',
-      height: 0,
-      paddingBottom: '56.25%',
-      position: 'relative',
-      img: {
-        display: 'block',
-        height: '100%',
-        objectFit: 'cover',
-        position: 'absolute',
-        width: '100%',
-      },
+      height: '100%',
+      objectFit: 'cover',
+      position: 'absolute',
+      width: '100%',
     },
   },
   card: {
-    ...baseStyle,
-    margin: 16,
-    picture: {
+    display: 'block',
+    height: 178,
+    img: {
       display: 'block',
-      height: 178,
-      img: {
-        display: 'block',
-        height: '100%',
-        width: '100%',
-        objectFit: 'cover',
-      },
+      height: '100%',
+      width: '100%',
+      objectFit: 'cover',
     },
   },
   featured: {
-    ...baseStyle,
     maxWidth: ['35em', '35em', '45%'],
     width: '100%',
-    picture: {
-      img: {
-        display: 'block',
-        height: 'auto',
-        width: '100%',
-      },
+    img: {
+      display: 'block',
+      height: 'auto',
+      width: '100%',
     },
   },
   gallery: {
-    ...baseStyle,
-    picture: {
-      img: {
-        display: 'block',
-        height: 'auto',
-        width: '100%',
-      },
+    img: {
+      display: 'block',
+      height: 'auto',
+      width: '100%',
     },
   },
   headline: {
-    ...baseStyle,
-    picture: {
-      img: {
-        display: 'block',
-        height: '100%',
-        width: '100%',
-      },
+    img: {
+      display: 'block',
+      height: '100%',
+      width: '100%',
     },
   },
   hero: {
-    ...baseStyle,
     bottom: 0,
     left: 0,
     position: 'absolute',
@@ -103,44 +81,36 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     top: 0,
     overflow: 'hidden',
     zIndex: -1,
-    picture: {
-      img: {
-        objectFit: 'cover',
-        display: 'block',
-        height: 'auto',
-        width: '100%',
-      },
+    img: {
+      objectFit: 'cover',
+      display: 'block',
+      height: 'auto',
+      width: '100%',
     },
   },
   quote: {
-    ...baseStyle,
-    picture: {
-      overflow: 'hidden',
-      height: 200,
-      width: 200,
-      borderRadius: 100,
-      margin: '0 auto',
-      img: {
-        display: 'block',
-        height: '100%',
-        width: '100%',
-        objectFit: 'cover',
-      },
+    overflow: 'hidden',
+    height: 200,
+    width: 200,
+    borderRadius: 100,
+    margin: '0 auto',
+    img: {
+      display: 'block',
+      height: '100%',
+      width: '100%',
+      objectFit: 'cover',
     },
   },
   showcase: {
-    ...baseStyle,
     maxWidth: 254,
     width: '100%',
-    picture: {
-      img: {
-        display: 'block',
-        height: '100%',
-        width: '100%',
-      },
+    img: {
+      display: 'block',
+      height: '100%',
+      width: '100%',
     },
   },
-  video: baseStyle,
+  video: {},
   divider: {},
   image: {},
 }
@@ -169,15 +139,13 @@ export const TopicMedia = ({ model, variant, ...props }: TopicMediaProps) => {
       },
       ...props,
     } as AssetProps
-    mediaElement = <Asset {...assetProps} />
+    mediaElement = <Asset css={css} {...assetProps} />
   } else if (model.contentfulEmbed) {
     const embedProps = props as EmbedProps
-    mediaElement = <Embed {...embedProps} />
+    mediaElement = <Embed css={css} {...embedProps} />
+  } else {
+    return null
   }
 
-  return (
-    <Div css={css} {...props}>
-      {mediaElement}
-    </Div>
-  )
+  return <>{mediaElement}</>
 }

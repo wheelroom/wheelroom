@@ -22,35 +22,30 @@ export type TopicActionsProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
+const actionStyle = {
+  gridArea: 'actions',
+  margin: -4,
+  a: {
+    margin: 4,
+  },
+}
+
 const styleMap: StyleMap<TopicSectionVariant> = {
-  block: {
-    flex: 0,
-    marginTop: 16,
-  },
-  card: {
-    marginTop: 16,
-  },
+  block: actionStyle,
+  card: actionStyle,
   featured: {
     marginTop: ['24px', '24px', '32px'],
   },
-  headline: {
-    marginTop: 16,
-  },
+  headline: actionStyle,
   hero: {
     marginTop: 32,
     maxWidth: '30em',
   },
-  quote: {
-    marginTop: 64,
-  },
-  showcase: {
-    marginTop: 16,
-  },
+  quote: {},
+  showcase: {},
   divider: {},
   gallery: {},
   image: {},
-  navigation: {},
-  text: {},
   video: {},
 }
 

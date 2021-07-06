@@ -6,6 +6,7 @@ import {
   ComponentProps,
   StyleFactory,
   StyleMap,
+  StyleObject,
 } from '../../lib/component-styles'
 import {
   TopicSectionOptions,
@@ -22,23 +23,14 @@ export type TopicTextProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
+const topicTextStyle: StyleObject = {
+  // display: 'grid',
+}
+
 const styleMap: StyleMap<TopicSectionVariant> = {
-  block: {
-    flex: '1 1 auto',
-    p: { marginBottom: 0 },
-  },
-  card: {
-    display: 'block',
-    flex: '1 1 auto',
-    p: {
-      marginBottom: 0,
-    },
-  },
-  featured: {
-    p: {
-      marginBottom: 0,
-    },
-  },
+  block: topicTextStyle,
+  card: topicTextStyle,
+  featured: {},
   headline: {
     p: {
       fontSize: ['20px', '20px', '24px', '24px'],
@@ -67,14 +59,10 @@ const styleMap: StyleMap<TopicSectionVariant> = {
       order: 1,
     },
   },
-  showcase: {
-    p: {
-      marginBottom: 0,
-    },
-  },
   divider: {},
   gallery: {},
   image: {},
+  showcase: {},
   video: {},
 }
 
@@ -104,9 +92,9 @@ export const TopicText = ({
   model = model || {}
 
   return (
-    <Div css={css} {...props}>
+    <>
       <Heading variant={isLarge ? 'h2' : 'h3'}>{model.headingString}</Heading>
       <Text>{model.abstractString}</Text>
-    </Div>
+    </>
   )
 }
