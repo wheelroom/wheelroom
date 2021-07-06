@@ -1,7 +1,10 @@
 import { requestToClient } from '../../../lib/request-to-client'
 import { requestToRedirectUri } from '../../../lib/request-to-redirect-uri'
 import { requestToScopes } from '../../../lib/request-to-scopes'
-import { invalidRequestErrorFactory } from '../../../error/oauth2-error'
+import {
+  invalidRequestErrorFactory,
+  jwtErrorFactory,
+} from '../../../error/oauth2-error'
 import { RefreshTokenPayload } from '../../../jwt/refresh-token'
 import { OAuth2Response, TokenResponse } from '../../response'
 import { createBody } from '../create-body'
@@ -27,9 +30,8 @@ export const refreshTokenGrant = async ({
   )) as RefreshTokenPayload
 
   if (!existingRefreshTokenPayload) {
-    throw invalidRequestErrorFactory({
-      arg: 'refresh_token',
-      description: 'JWT verification failed',
+    throw jwtErrorFactory({
+      description: 'Could not verify refresh token',
     })
   }
 

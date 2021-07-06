@@ -4,7 +4,10 @@ import { AuthCodeCollection } from '../../collection/auth-code'
 import { requestToClient } from '../../lib/request-to-client'
 import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
 import { requestToScopes } from '../../lib/request-to-scopes'
-import { invalidRequestErrorFactory } from '../../error/oauth2-error'
+import {
+  invalidRequestErrorFactory,
+  jwtErrorFactory,
+} from '../../error/oauth2-error'
 import { createCodeTokenPayload } from '../../jwt/code-token'
 import { AuthorizeResponse, OAuth2Response } from '../response'
 
@@ -93,6 +96,10 @@ export const authorizeResponse = async ({
   })
 
   const code = await jwtApi.sign(codeTokenPayload)
+
+  if (typeof code !== 'string') {
+    throw jwtErrorFactory({ description: 'Error signing code token' })
+  }
 
   const redirectUrlObj = new URL(redirectUri)
   redirectUrlObj.searchParams.append('code', code)
