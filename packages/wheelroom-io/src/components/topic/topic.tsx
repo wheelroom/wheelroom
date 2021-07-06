@@ -42,7 +42,7 @@ const topicColumnStyle: StyleObject = {
   gridTemplateAreas: `"media content"`,
   // gridTemplateAreas: `"media"`,
   // gridTemplateAreas: `"content"`,
-  gridTemplateColumns: 'repeat(2, 50%)',
+  gridTemplateColumns: 'minmax(0, 50%) minmax(0, 50%)',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
@@ -50,12 +50,12 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   card: {
     ...topicStyle,
     ...topicRowStyle,
-    padding: 16,
     border: '1px solid transparent',
-    borderColor: 'lightgrey',
+    borderColor: 'var(--colors-grey)',
+    color: 'var(--colors-grey)',
     borderRadius: 4,
     boxShadow: '0 0 16px',
-    color: 'lightgrey',
+    padding: 16,
     textDecoration: 'none',
     transition: 'transform .25s ease',
     ':hover': {
@@ -73,15 +73,15 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   featured: {
     ...topicStyle,
     ...topicColumnStyle,
-    // flexDirection: ['column', 'column', 'row'],
-    // justifyContent: 'space-evenly',
-    // padding: '16x 0',
-    // alignItems: 'center',
+    ':nth-of-type(odd)': {
+      gridTemplateAreas: `"content media"`,
+    },
   },
   gallery: {},
   headline: {
     ...topicStyle,
-    // textAlign: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
   hero: {
     position: 'relative',
@@ -90,8 +90,6 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   quote: {},
   showcase: {
     ...topicStyle,
-    // flexDirection: ['column', 'row'],
-    // padding: '16px 0',
   },
   video: topicStyle,
 }

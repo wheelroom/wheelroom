@@ -26,6 +26,7 @@ export type TopicMediaProps = ComponentProps<
 
 const topicMediaStyle = {
   gridArea: 'media',
+  margin: 'auto',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {

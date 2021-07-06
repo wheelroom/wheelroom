@@ -41,24 +41,18 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     ...topicContentStyle,
     margin: 'auto 0',
   },
-  headline: {
-    textAlign: 'center',
-    margin: '0 auto',
-    maxWidth: ['100%', '48em'],
-  },
-  gallery: {},
+  headline: topicContentStyle,
+  gallery: topicContentStyle,
   hero: {
     maxWidth: '80em',
     margin: '0 auto',
     // padding: ['48px 24px', '56px 32px', '72px 40px', '88px 40px'],
     width: '100%',
   },
-  quote: {
-    textAlign: 'center',
-  },
+  quote: topicContentStyle,
   showcase: topicContentStyle,
   video: topicContentStyle,
-  image: {},
+  image: topicContentStyle,
   divider: {},
 }
 

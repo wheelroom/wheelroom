@@ -13,11 +13,12 @@ export type TextOptions = ComponentOptions<'margin'>
 export type TextProps = ComponentProps<undefined, TextVariant, TextOptions>['p']
 
 const textStyle: StyleObject = {
+  color: 'var(--colors-black)',
   fontSize: 18,
-  lineHeight: 1.58,
   fontWeight: 400,
-  marginTop: 0,
+  lineHeight: 1.58,
   marginBottom: 0,
+  marginTop: 0,
 }
 
 const leadVariantStyle: StyleObject = {

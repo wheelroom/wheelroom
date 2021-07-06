@@ -15,6 +15,7 @@ export type HeadingProps = ComponentProps<
 >['h1']
 
 const headingStyle = {
+  color: 'var(--colors-black)',
   marginBottom: 0,
   marginTop: 0,
 }
