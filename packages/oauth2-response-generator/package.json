@@ -56,7 +56,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm-run-all clean build:* copy-templates",
+    "build": "npm-run-all clean build:*",
     "build:compile": "rollup --config",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
