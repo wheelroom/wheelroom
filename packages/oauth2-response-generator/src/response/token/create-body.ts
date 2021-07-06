@@ -68,27 +68,24 @@ export const createBody = async ({
     userId: user.id,
   })
 
-  let idToken
-  if (knownAuthCode && grant === 'authorization_code') {
-    const newIdTokenPayload = createIdTokenPayload({
-      audience,
-      clientId: client.id,
-      expiresAtSeconds:
-        Math.ceil(Date.now() / 1000) +
-        maxAge.tokenEndpoint.authorizationCodeGrant.idToken,
-      issuedAtSeconds: Math.ceil(Date.now() / 1000),
-      issuer,
-      nonce: knownAuthCode.nonce,
-      notBeforeSeconds: Math.ceil(Date.now() / 1000) - 5,
-      userEmail: user.email,
-      userEmailVerified: true,
-      userId: user.id,
-      userName: 'not implemented',
-    })
-    idToken = await jwtApi.sign({ payload: newIdTokenPayload })
-    if (typeof idToken !== 'string') {
-      throw jwtErrorFactory({ description: 'Error signing id token' })
-    }
+  const newIdTokenPayload = createIdTokenPayload({
+    audience,
+    clientId: client.id,
+    expiresAtSeconds:
+      Math.ceil(Date.now() / 1000) +
+      maxAge.tokenEndpoint.authorizationCodeGrant.idToken,
+    issuedAtSeconds: Math.ceil(Date.now() / 1000),
+    issuer,
+    nonce: knownAuthCode?.nonce,
+    notBeforeSeconds: Math.ceil(Date.now() / 1000) - 5,
+    userEmail: user.email,
+    userEmailVerified: true,
+    userId: user.id,
+    userName: 'not implemented',
+  })
+  const idToken = await jwtApi.sign({ payload: newIdTokenPayload })
+  if (typeof idToken !== 'string') {
+    throw jwtErrorFactory({ description: 'Error signing id token' })
   }
 
   const newRefreshTokenPayload = createRefreshTokenPayload({

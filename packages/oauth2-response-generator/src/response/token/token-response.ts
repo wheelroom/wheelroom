@@ -5,8 +5,7 @@ import { refreshTokenGrant } from './grants/refresh-token-grant'
 export const tokenResponse = async (
   args: TokenResponse
 ): Promise<OAuth2Response> => {
-  const urlObj = new URL(args.req.headers.location || '')
-  const grantType = urlObj.searchParams.get('grant_type')
+  const grantType = args.req.body['grant_type']
 
   switch (grantType) {
     case 'authorization_code':

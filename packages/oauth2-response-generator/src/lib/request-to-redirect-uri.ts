@@ -31,7 +31,6 @@ export const requestToRedirectUri = ({ client, req }: RequestToRedirectUri) => {
       description: 'Redirect uri cannot contain a hash',
     })
   }
-  console.log(redirectUrlObj)
 
   if (!redirectUrlObj.protocol) {
     throw invalidRequestErrorFactory({
