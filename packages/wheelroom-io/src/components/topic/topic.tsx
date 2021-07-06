@@ -26,7 +26,6 @@ export type TopicProps = ComponentProps<
 const baseStyle: StyleObject = {
   display: 'flex',
   flexDirection: 'column',
-  width: '100%',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
@@ -39,8 +38,6 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     boxShadow: '0 0 16px',
     color: 'lightgrey',
     margin: 16,
-    maxWidth: 288,
-    minWidth: 288,
     textDecoration: 'none',
     '> div:last-of-type': {
       paddingTop: 0,
@@ -68,23 +65,19 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     padding: '16x 0',
     alignItems: 'center',
   },
-  gallery: {
-    width: '50%',
-  },
+  gallery: {},
+  headline: {},
   hero: {
     position: 'relative',
   },
+  image: {},
+  quote: {},
   showcase: {
     ...baseStyle,
     flexDirection: ['column', 'row'],
     padding: '16px 0',
   },
   video: baseStyle,
-  headline: {},
-  image: {},
-  navigation: {},
-  quote: {},
-  text: {},
 }
 
 const reversedOrderOptionStyle = {}

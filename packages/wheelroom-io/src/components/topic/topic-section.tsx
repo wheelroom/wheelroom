@@ -35,7 +35,8 @@ const topicSectionStyle: StyleObject = {
    */
   gridArea: 'section',
   justifyContent: 'center',
-  gridGap: 16,
+  gridGap: 32,
+  margin: 16,
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {

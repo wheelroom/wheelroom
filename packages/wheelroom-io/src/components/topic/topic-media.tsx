@@ -64,7 +64,6 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   },
   featured: {
     ...baseStyle,
-    padding: 16,
     maxWidth: ['35em', '35em', '45%'],
     width: '100%',
     picture: {
@@ -78,7 +77,6 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   gallery: {
     ...baseStyle,
     picture: {
-      padding: 16,
       img: {
         display: 'block',
         height: 'auto',
@@ -116,7 +114,6 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   },
   quote: {
     ...baseStyle,
-    padding: 16,
     picture: {
       overflow: 'hidden',
       height: 200,
@@ -133,7 +130,6 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   },
   showcase: {
     ...baseStyle,
-    padding: 16,
     maxWidth: 254,
     width: '100%',
     picture: {
@@ -147,8 +143,6 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   video: baseStyle,
   divider: {},
   image: {},
-  navigation: {},
-  text: {},
 }
 
 export const topicMediaStyleFactory: StyleFactory<

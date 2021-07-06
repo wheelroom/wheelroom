@@ -75,8 +75,6 @@ const styleMap: StyleMap<TopicSectionVariant> = {
   divider: {},
   gallery: {},
   image: {},
-  navigation: {},
-  text: {},
   video: {},
 }
 
