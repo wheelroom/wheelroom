@@ -1,4 +1,4 @@
-export interface CodeTokenPayload {
+export interface CreateCodeTokenPayload {
   authCodeId: string
   clientId: string
   codeChallenge: string
@@ -9,7 +9,7 @@ export interface CodeTokenPayload {
   userId: string
 }
 
-export interface RawCodeTokenPayload {
+export interface CodeTokenPayload {
   auth_code_id: string
   client_id: string
   code_challenge_method: string
@@ -20,7 +20,7 @@ export interface RawCodeTokenPayload {
   user_id: string
 }
 
-export const codeTokenPayload = ({
+export const createCodeTokenPayload = ({
   authCodeId,
   clientId,
   codeChallenge,
@@ -29,7 +29,7 @@ export const codeTokenPayload = ({
   redirectUri,
   scopes,
   userId,
-}: CodeTokenPayload): RawCodeTokenPayload => {
+}: CreateCodeTokenPayload): CodeTokenPayload => {
   return {
     auth_code_id: authCodeId,
     client_id: clientId,

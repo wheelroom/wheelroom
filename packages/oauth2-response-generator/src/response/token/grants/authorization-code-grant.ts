@@ -1,21 +1,18 @@
-import { TokenCollection } from '../../collection/token'
-import { requestToClient } from '../../lib/request-to-client'
-import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
-import { requestToScopes } from '../../lib/request-to-scopes'
+import { requestToClient } from '../../../lib/request-to-client'
+import { requestToRedirectUri } from '../../../lib/request-to-redirect-uri'
+import { requestToScopes } from '../../../lib/request-to-scopes'
 import {
   invalidGrantErrorFactory,
   invalidRequestErrorFactory,
-} from '../../error/oauth2-error'
+} from '../../../error/oauth2-error'
 import {
   CodeChallengeMethod,
   verifyCodeChallenge,
-} from '../../lib/verify-code-challenge'
-import { accessTokenPayload } from '../../jwt/access-token'
-import { RawCodeTokenPayload } from '../../jwt/code-token'
-import { refreshTokenPayload } from '../../jwt/refresh-token'
-import { OAuth2Response } from '../response'
-import { tokenResponseBodyPayload } from './token-response-body'
-import { TokenResponse } from './token-response'
+} from '../../../lib/verify-code-challenge'
+import { CodeTokenPayload } from '../../../jwt/code-token'
+import { OAuth2Response } from '../../response'
+import { TokenResponse } from '../token-response'
+import { createBody } from '../create-body'
 
 export const authorizationCodeGrant = async ({
   collectionApi,
@@ -30,7 +27,14 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  const codePayload = (await jwtApi.parse(code)) as RawCodeTokenPayload
+  const codePayload = (await jwtApi.verify(code)) as CodeTokenPayload
+
+  if (!codePayload) {
+    throw invalidRequestErrorFactory({
+      arg: 'code',
+      description: 'JWT verification failed',
+    })
+  }
 
   if (typeof codePayload.auth_code_id !== 'string') {
     throw invalidRequestErrorFactory({
@@ -38,7 +42,7 @@ export const authorizationCodeGrant = async ({
       description: 'auth_code field in code JWT is required',
     })
   }
-  const knmownAuthCode = await collectionApi.authCode.get({
+  const knownAuthCode = await collectionApi.authCode.get({
     authCodeId: codePayload.auth_code_id,
     req,
   })
@@ -50,14 +54,14 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  if (Date.now() > knmownAuthCode.expiresAt.getTime() * 1000) {
+  if (Date.now() > knownAuthCode.expiresAt.getTime() * 1000) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'Code JWT was revoked',
     })
   }
 
-  if (knmownAuthCode.codeChallenge !== codePayload.code_challenge) {
+  if (knownAuthCode.codeChallenge !== codePayload.code_challenge) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'code_challenge field in code JWT is invalid',
@@ -93,12 +97,7 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  const user = await collectionApi.user.get({
-    userId: codePayload.user_id,
-    req,
-  })
   const client = await requestToClient({ collectionApi, req })
-  const scopes = await requestToScopes({ collectionApi, req })
   const redirectUri = requestToRedirectUri({ client, req })
 
   if (codePayload.client_id !== client.id) {
@@ -115,49 +114,21 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  const newAccessTokenPayload = accessTokenPayload({
-    clientName: client.name,
-    expiresAtSeconds: Date.now() / 1000,
-    issuedAtSeconds: Date.now() / 1000,
-    notBeforeSeconds: Date.now() / 1000,
-    jwtId: 'todo',
-    scopes: scopes.map((scope) => scope.name).join(' '),
-    userEmail: user.email,
-    userId: user.id,
-  })
-
-  const newRefreshTokenPayload = refreshTokenPayload({
-    clientId: client.id,
-    expiresAtSeconds: Date.now() / 1000,
-    scopes: scopes.map((scope) => scope.name).join(' '),
-    userId: user.id,
-  })
-
-  const accessToken = await jwtApi.sign(newAccessTokenPayload)
-  const refreshToken = await jwtApi.sign(newRefreshTokenPayload)
-
-  const tokenCollection: TokenCollection = {
-    accessToken,
-    accessTokenExpiresAt: new Date(),
-    client,
-    refreshToken,
-    refreshTokenExpiresAt: new Date(),
-    scopes,
-    user,
-  }
-
-  await collectionApi.token.persist({ token: tokenCollection, req })
-  await collectionApi.authCode.revoke({
-    authCodeId: codePayload.auth_code_id,
+  const user = await collectionApi.user.get({
+    userId: codePayload.user_id,
     req,
   })
-
-  const body = tokenResponseBodyPayload({
-    accessToken,
-    expiresInSeconds: 0,
-    idToken: '',
-    refreshToken,
-    scopes: scopes.map((scope) => scope.name).join(' '),
+  const scopes = await requestToScopes({ collectionApi, req })
+  const body = await createBody({
+    client,
+    collectionApi,
+    jwtApi,
+    knownAuthCode,
+    req,
+    scopes,
+    user,
   })
-  return { body, headers: {}, url: redirectUri }
+  await collectionApi.authCode.revoke({ authCodeId: knownAuthCode.id, req })
+
+  return { body, url: redirectUri }
 }

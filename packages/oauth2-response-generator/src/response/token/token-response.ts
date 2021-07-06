@@ -2,8 +2,8 @@ import Express from 'express'
 import { CollectionApi } from '../../collection/collection-api'
 import { JwtApi } from '../../jwt/jwt-api'
 import { OAuth2Response } from '../response'
-import { authorizationCodeGrant } from './authorization-code-grant'
-import { refreshTokenGrant } from './refresh-token-grant'
+import { authorizationCodeGrant } from './grants/authorization-code-grant'
+import { refreshTokenGrant } from './grants/refresh-token-grant'
 
 export interface TokenResponse {
   collectionApi: CollectionApi
@@ -27,6 +27,6 @@ export const tokenResponse = async ({
       return refreshTokenGrant({ collectionApi, jwtApi, req })
 
     default:
-      return { body: {}, headers: {}, url: '' }
+      return { body: {}, url: '' }
   }
 }

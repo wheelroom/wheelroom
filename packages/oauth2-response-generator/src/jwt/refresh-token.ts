@@ -1,23 +1,23 @@
-export interface RefreshTokenPayload {
+export interface CreateRefreshTokenPayload {
   clientId: string
   expiresAtSeconds: number
   scopes: string
   userId: string
 }
 
-export interface RawRefreshTokenPayload {
+export interface RefreshTokenPayload {
   client_id: string
   expire_time: number
   scope: string
   user_id: string
 }
 
-export const refreshTokenPayload = ({
+export const createRefreshTokenPayload = ({
   clientId,
   expiresAtSeconds,
   scopes,
   userId,
-}: RefreshTokenPayload): RawRefreshTokenPayload => {
+}: CreateRefreshTokenPayload): RefreshTokenPayload => {
   return {
     client_id: clientId,
     expire_time: expiresAtSeconds,

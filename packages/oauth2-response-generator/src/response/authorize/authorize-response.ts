@@ -7,7 +7,7 @@ import { requestToClient } from '../../lib/request-to-client'
 import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
 import { requestToScopes } from '../../lib/request-to-scopes'
 import { invalidRequestErrorFactory } from '../../error/oauth2-error'
-import { codeTokenPayload } from '../../jwt/code-token'
+import { createCodeTokenPayload } from '../../jwt/code-token'
 import { OAuth2Response } from '../response'
 import { UserCollection } from '../../collection/user'
 import { JwtApi } from '../../jwt/jwt-api'
@@ -91,7 +91,7 @@ export const authorizeResponse = async ({
   }
   await collectionApi.authCode.persist({ authCode, req })
 
-  const codePayload = codeTokenPayload({
+  const codeTokenPayload = createCodeTokenPayload({
     authCodeId: authCode.id,
     clientId: client.id,
     codeChallengeMethod,
@@ -102,11 +102,11 @@ export const authorizeResponse = async ({
     userId: user.id,
   })
 
-  const code = await jwtApi.sign(codePayload)
+  const code = await jwtApi.sign(codeTokenPayload)
 
   const redirectUrlObj = new URL(redirectUri)
   redirectUrlObj.searchParams.append('code', code)
   redirectUrlObj.searchParams.append('state', state)
 
-  return { body: {}, headers: {}, url: redirectUrlObj.toString() }
+  return { body: {}, url: redirectUrlObj.toString() }
 }

@@ -1,4 +1,4 @@
-export interface IdTokenPayload {
+export interface CreateIdTokenPayload {
   clientId: string
   expiresAtSeconds: number
   issuedAtSeconds: number
@@ -6,12 +6,12 @@ export interface IdTokenPayload {
   nonce: string
   notBeforeSeconds: number
   userEmail: string
-  userEmailVerified: string
+  userEmailVerified: boolean
   userId: string
   userName: string
 }
 
-export const idTokenPayload = ({
+export const createIdTokenPayload = ({
   clientId,
   expiresAtSeconds,
   issuedAtSeconds,
@@ -22,7 +22,7 @@ export const idTokenPayload = ({
   userEmailVerified,
   userId,
   userName,
-}: IdTokenPayload) => {
+}: CreateIdTokenPayload) => {
   return {
     aud: clientId,
     email_verified: userEmailVerified,

@@ -7,7 +7,6 @@ import { tokenResponse } from './token/token-response'
 
 export type OAuth2Response = {
   body: Record<string, any>
-  headers: Record<string, any>
   url: string
 }
 
@@ -32,6 +31,6 @@ export const response = async ({
     case 'token':
       return await tokenResponse({ collectionApi, jwtApi, req })
     default:
-      return { body: {}, headers: {}, url: '' }
+      return { body: {}, url: '' }
   }
 }
