@@ -46,7 +46,6 @@ export const NavigationModal = ({
   const section = model?.contentfulNavigationSection
   if (!section?.headerCollection?.items?.length) return null
   const css = navigationModalStyleFactory({})
-  console.log('props', props)
   return (
     <Div
       css={css}
