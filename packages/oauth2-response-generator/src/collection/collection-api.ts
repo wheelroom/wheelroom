@@ -43,7 +43,7 @@ export type CollectionApi = {
   authCode: {
     persist: ({ authCode, req }: AuthCodePresist) => Promise<void>
     get: ({ authCodeId, req }: AuthCodeGet) => Promise<AuthCodeCollection>
-    revoke: ({ authCodeId, req }: AuthCodeRevoke) => Promise<AuthCodeCollection>
+    revoke: ({ authCodeId, req }: AuthCodeRevoke) => Promise<void>
     [otherMethods: string]: any
   }
   client: {
