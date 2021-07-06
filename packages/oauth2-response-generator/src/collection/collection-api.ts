@@ -44,16 +44,20 @@ export type CollectionApi = {
     persist: ({ authCode, req }: AuthCodePresist) => Promise<void>
     get: ({ authCodeId, req }: AuthCodeGet) => Promise<AuthCodeCollection>
     revoke: ({ authCodeId, req }: AuthCodeRevoke) => Promise<AuthCodeCollection>
+    [otherMethods: string]: any
   }
   client: {
     get: ({ clientId, req }: ClientGet) => Promise<ClientCollection>
+    [otherMethods: string]: any
   }
   scope: {
     get: ({ scopeNames, req }: ScopeGet) => Promise<ScopeCollection[]>
+    [otherMethods: string]: any
   }
   token: {
     persist: ({ token, req }: TokenPersist) => Promise<void>
     revoke: ({ accessToken, req }: TokenRevoke) => Promise<void>
+    [otherMethods: string]: any
     refreshToken: {
       get: ({
         refreshToken,
@@ -64,5 +68,7 @@ export type CollectionApi = {
   }
   user: {
     get: ({ userId, req }: UserGet) => Promise<UserCollection>
+    [otherMethods: string]: any
   }
+  [otherCollections: string]: any
 }
