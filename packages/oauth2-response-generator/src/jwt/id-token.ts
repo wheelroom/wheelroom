@@ -7,7 +7,7 @@ export interface CreateIdTokenPayload {
   expiresAtSeconds: number
   issuedAtSeconds: number
   issuer: string
-  nonce: string
+  nonce?: string
   notBeforeSeconds: number
   userEmail: string
   userEmailVerified: boolean
