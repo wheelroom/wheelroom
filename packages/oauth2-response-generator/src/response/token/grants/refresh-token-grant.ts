@@ -25,9 +25,9 @@ export const refreshTokenGrant = async ({
     })
   }
 
-  const existingRefreshTokenPayload = (await jwtApi.verify(
-    existingRefreshToken
-  )) as RefreshTokenPayload
+  const existingRefreshTokenPayload = (await jwtApi.verify({
+    jwt: existingRefreshToken,
+  })) as RefreshTokenPayload
 
   if (!existingRefreshTokenPayload) {
     throw jwtErrorFactory({
