@@ -1,4 +1,4 @@
-import { Div, Nav, Section } from '@wheelroom/any/react'
+import { Div, Header, Nav } from '@wheelroom/any/react'
 import { useState } from 'react'
 import {
   ComponentProps,
@@ -98,11 +98,16 @@ export const NavigationHeader = ({
       >
         {globals.skipToContentHeading}
       </Anchor>
-      {/* Section element needs position Fixed or undefined variants */}
-      <Section
+      {/* Header element needs options: { sticky: true } */}
+      <Header
+        role="banner"
         css={{
-          height: 70,
+          backgroundColor: 'white',
           borderBottom: '1px solid var(--colors-grey)',
+          height: 70,
+          position: 'sticky',
+          top: 0,
+          zIndex: 1001,
         }}
       >
         {/* Note: Here starts the NavigationHeader with fixed and fluid variants */}
@@ -178,7 +183,7 @@ export const NavigationHeader = ({
             />
           </Div>
         </Div>
-      </Section>
+      </Header>
     </>
   )
 }

@@ -32,9 +32,9 @@ const baseStyle: StyleObject = {
 const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
     ...baseStyle,
-    padding: 16,
-    width: ['100%', '50%', '33.33%'],
-    maxWidth: '35em',
+    // padding: 16,
+    // width: ['100%', '50%', '33.33%'],
+    // maxWidth: '35em',
   },
   card: {
     ...baseStyle,

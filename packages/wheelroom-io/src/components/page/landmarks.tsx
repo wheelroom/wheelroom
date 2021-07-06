@@ -1,8 +1,9 @@
+import { Footer, Main } from '@wheelroom/any/react'
 import React, { Fragment } from 'react'
-import { Aside, Footer, Header, Main } from '@wheelroom/any/react'
-import { ContentfulTopicSection } from '../topic/contentful-topic-section'
-import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
+import { GridTemplate } from '../layout/grid-template'
 import { ContentfulTextSection } from '../models/contentful-text-section'
+import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
+import { ContentfulTopicSection } from '../topic/contentful-topic-section'
 
 /**
  *
@@ -65,12 +66,11 @@ export const Landmarks = (props: any) => {
   })
 
   return (
-    <Fragment>
-      <Header role="banner">{landMarkedChildren.header}</Header>
+    <GridTemplate variant="pancake">
+      {landMarkedChildren.header}
       <Main role="main" id="content">
         {landMarkedChildren.main}
       </Main>
-      <Aside>{landMarkedChildren.aside}</Aside>
       <Footer
         css={{
           backgroundColor: '#F5F5F5',
@@ -79,6 +79,6 @@ export const Landmarks = (props: any) => {
       >
         {landMarkedChildren.footer}
       </Footer>
-    </Fragment>
+    </GridTemplate>
   )
 }
