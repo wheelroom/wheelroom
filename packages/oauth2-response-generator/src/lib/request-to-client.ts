@@ -44,13 +44,6 @@ export const requestToClient = async ({
     })
   }
 
-  if (typeof clientSecret !== 'string') {
-    throw invalidRequestErrorFactory({
-      arg: 'client_secret',
-      description: 'Client secret must be a string',
-    })
-  }
-
   const knownClient = await collectionApi.client.get({ clientId, req })
 
   if (!knownClient || !knownClient.name) {

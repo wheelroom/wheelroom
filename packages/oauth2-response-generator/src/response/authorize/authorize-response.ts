@@ -89,7 +89,8 @@ export const authorizeResponse = async ({
     clientId: client.id,
     codeChallengeMethod,
     codeChallenge,
-    expiresAtSeconds: Date.now() / 1000 + maxAge.authorizeEndpoint.authCode,
+    expiresAtSeconds:
+      Math.ceil(Date.now() / 1000) + maxAge.authorizeEndpoint.authCode,
     redirectUri,
     scopes: scopes.map((scope) => scope.name),
     userId: user.id,

@@ -14,7 +14,7 @@ export enum OAuth2ErrorType {
   JwtError = 'jwt_error',
 }
 
-class OAuth2Error extends Error {
+export class OAuth2Error extends Error {
   constructor(
     public message: string,
     public description: string,
@@ -81,7 +81,7 @@ export const invalidRequestErrorFactory = ({
   arg,
   description,
 }: ErrorDescriptionArg): OAuth2Error => {
-  const message = `Invalid request, caused by argument: ${arg})`
+  const message = `Invalid request, caused by argument: ${arg}`
   return new OAuth2Error(
     message,
     description,
