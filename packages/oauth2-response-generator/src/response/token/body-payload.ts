@@ -1,7 +1,7 @@
 export interface BodyPayload {
   accessToken: string
   expiresInSeconds: number
-  idToken: string
+  idToken?: string
   refreshToken: string
   scopes: string
 }
