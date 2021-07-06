@@ -1,6 +1,7 @@
 export enum HttpStatus {
   BAD_REQUEST = 400,
   UNAUTHORIZED = 401,
+  INTERNAL_ERROR = 500,
 }
 
 export enum OAuth2ErrorType {
@@ -10,6 +11,7 @@ export enum OAuth2ErrorType {
   InvalidRequest = 'invalid_request',
   InvalidScope = 'invalid_scope',
   UnauthorizedClient = 'unauthorized_client',
+  JwtError = 'jwt_error',
 }
 
 class OAuth2Error extends Error {
@@ -100,14 +102,26 @@ export const invalidScopeErrorFactory = ({
   )
 }
 
-export const unauthorizedClientErrorFactory = (
-  description: string
-): OAuth2Error => {
+export const unauthorizedClientErrorFactory = ({
+  description,
+}: ErrorDescription): OAuth2Error => {
   const message = `Unauthorized client, verification failed`
   return new OAuth2Error(
     message,
     description,
     HttpStatus.UNAUTHORIZED,
     OAuth2ErrorType.UnauthorizedClient
+  )
+}
+
+export const jwtErrorFactory = ({
+  description,
+}: ErrorDescription): OAuth2Error => {
+  const message = `JWT Error`
+  return new OAuth2Error(
+    message,
+    description,
+    HttpStatus.INTERNAL_ERROR,
+    OAuth2ErrorType.JwtError
   )
 }

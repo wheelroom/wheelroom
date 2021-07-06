@@ -54,7 +54,7 @@ export default [
         file: `./build/plain.mjs`,
         format: 'es',
         globals,
-        sourcemap: false,
+        sourcemap: true,
       },
       {
         banner,
@@ -62,7 +62,7 @@ export default [
         file: `./build/plain.cjs`,
         format: 'cjs',
         globals,
-        sourcemap: false,
+        sourcemap: true,
       },
     ],
     plugins,

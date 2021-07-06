@@ -4,6 +4,7 @@ import { requestToScopes } from '../../../lib/request-to-scopes'
 import {
   invalidGrantErrorFactory,
   invalidRequestErrorFactory,
+  jwtErrorFactory,
 } from '../../../error/oauth2-error'
 import {
   CodeChallengeMethod,
@@ -32,9 +33,8 @@ export const authorizationCodeGrant = async ({
   const codePayload = (await jwtApi.verify(code)) as CodeTokenPayload
 
   if (!codePayload) {
-    throw invalidRequestErrorFactory({
-      arg: 'code',
-      description: 'JWT verification failed',
+    throw jwtErrorFactory({
+      description: 'Could not verify code token',
     })
   }
 
@@ -116,6 +116,7 @@ export const authorizationCodeGrant = async ({
     })
   }
 
+  await collectionApi.authCode.revoke({ authCodeId: knownAuthCode.id, req })
   const user = await collectionApi.user.get({
     userId: codePayload.user_id,
     req,
@@ -134,7 +135,6 @@ export const authorizationCodeGrant = async ({
     scopes,
     user,
   })
-  await collectionApi.authCode.revoke({ authCodeId: knownAuthCode.id, req })
 
   return { body, url: redirectUri }
 }

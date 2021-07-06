@@ -5,6 +5,7 @@ import { CollectionApi } from '../../collection/collection-api'
 import { ScopeCollection } from '../../collection/scope'
 import { TokenCollection } from '../../collection/token'
 import { UserCollection } from '../../collection/user'
+import { jwtErrorFactory } from '../../error/oauth2-error'
 import { createAccessTokenPayload } from '../../jwt/access-token'
 import { createIdTokenPayload } from '../../jwt/id-token'
 import { JwtApi } from '../../jwt/jwt-api'
@@ -83,6 +84,9 @@ export const createBody = async ({
       userName: 'not implemented',
     })
     idToken = await jwtApi.sign(newIdTokenPayload)
+    if (typeof idToken !== 'string') {
+      throw jwtErrorFactory({ description: 'Error signing id token' })
+    }
   }
 
   const newRefreshTokenPayload = createRefreshTokenPayload({
@@ -94,7 +98,14 @@ export const createBody = async ({
   })
 
   const accessToken = await jwtApi.sign(newAccessTokenPayload)
+  if (typeof accessToken !== 'string') {
+    throw jwtErrorFactory({ description: 'Error signing access token' })
+  }
+
   const refreshToken = await jwtApi.sign(newRefreshTokenPayload)
+  if (typeof refreshToken !== 'string') {
+    throw jwtErrorFactory({ description: 'Error signing refresh token' })
+  }
 
   const tokenCollection: TokenCollection = {
     accessToken,

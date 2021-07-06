@@ -39,10 +39,10 @@ export const requestToRedirectUri = ({ client, req }: RequestToRedirectUri) => {
     })
   }
 
-  if (!client.redirectUris.includes(redirectUri)) {
+  if (!client.redirectUris.includes(redirectUrlObj.origin)) {
     throw invalidRequestErrorFactory({
       arg: 'redirect_uri',
-      description: 'The client_id / redirect_uri combination is invalid',
+      description: 'The client_id / redirect_uri-origin combination is invalid',
     })
   }
   return redirectUri
