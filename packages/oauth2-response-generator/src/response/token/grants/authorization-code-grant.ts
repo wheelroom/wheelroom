@@ -10,13 +10,13 @@ import {
   verifyCodeChallenge,
 } from '../../../lib/verify-code-challenge'
 import { CodeTokenPayload } from '../../../jwt/code-token'
-import { OAuth2Response } from '../../response'
-import { TokenResponse } from '../token-response'
+import { OAuth2Response, TokenResponse } from '../../response'
 import { createBody } from '../create-body'
 
 export const authorizationCodeGrant = async ({
   collectionApi,
   jwtApi,
+  maxAge,
   req,
 }: TokenResponse): Promise<OAuth2Response> => {
   const code = req.body['code']
@@ -122,8 +122,10 @@ export const authorizationCodeGrant = async ({
   const body = await createBody({
     client,
     collectionApi,
+    grant: 'authorization_code',
     jwtApi,
     knownAuthCode,
+    maxAge,
     req,
     scopes,
     user,

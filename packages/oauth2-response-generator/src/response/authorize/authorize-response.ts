@@ -1,27 +1,17 @@
-import Express from 'express'
 import { b64utohex } from 'jsrsasign'
 import { v4 as uuidv4 } from 'uuid'
 import { AuthCodeCollection } from '../../collection/auth-code'
-import { CollectionApi } from '../../collection/collection-api'
 import { requestToClient } from '../../lib/request-to-client'
 import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
 import { requestToScopes } from '../../lib/request-to-scopes'
 import { invalidRequestErrorFactory } from '../../error/oauth2-error'
 import { createCodeTokenPayload } from '../../jwt/code-token'
-import { OAuth2Response } from '../response'
-import { UserCollection } from '../../collection/user'
-import { JwtApi } from '../../jwt/jwt-api'
-
-export interface AuthorizeResponse {
-  collectionApi: CollectionApi
-  jwtApi: JwtApi
-  req: Express.Request
-  user: UserCollection
-}
+import { AuthorizeResponse, OAuth2Response } from '../response'
 
 export const authorizeResponse = async ({
   collectionApi,
   jwtApi,
+  maxAge,
   req,
   user,
 }: AuthorizeResponse): Promise<OAuth2Response> => {
@@ -83,7 +73,7 @@ export const authorizeResponse = async ({
     id: uuidv4(),
     codeChallenge,
     codeChallengeMethod,
-    expiresAt: new Date(Date.now() + 15 * 60 * 1000), // 15 minutes
+    expiresAt: new Date(Date.now() + maxAge.authorizeEndpoint.authCode * 1000),
     nonce,
     redirectUri,
     scopes,
@@ -96,7 +86,7 @@ export const authorizeResponse = async ({
     clientId: client.id,
     codeChallengeMethod,
     codeChallenge,
-    expiresAtSeconds: authCode.expiresAt.getTime() / 1000,
+    expiresAtSeconds: Date.now() / 1000 + maxAge.authorizeEndpoint.authCode,
     redirectUri,
     scopes: scopes.map((scope) => scope.name),
     userId: user.id,

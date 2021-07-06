@@ -3,13 +3,13 @@ import { requestToRedirectUri } from '../../../lib/request-to-redirect-uri'
 import { requestToScopes } from '../../../lib/request-to-scopes'
 import { invalidRequestErrorFactory } from '../../../error/oauth2-error'
 import { RefreshTokenPayload } from '../../../jwt/refresh-token'
-import { OAuth2Response } from '../../response'
-import { TokenResponse } from '../token-response'
+import { OAuth2Response, TokenResponse } from '../../response'
 import { createBody } from '../create-body'
 
 export const refreshTokenGrant = async ({
   collectionApi,
   jwtApi,
+  maxAge,
   req,
 }: TokenResponse): Promise<OAuth2Response> => {
   const existingRefreshToken = req.body['refresh_token']
@@ -68,7 +68,9 @@ export const refreshTokenGrant = async ({
   const body = await createBody({
     client,
     collectionApi,
+    grant: 'refresh_token',
     jwtApi,
+    maxAge,
     req,
     scopes,
     user,
