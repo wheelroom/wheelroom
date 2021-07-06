@@ -33,17 +33,17 @@ export const requestToRedirectUri = ({ client, req }: RequestToRedirectUri) => {
   }
   console.log(redirectUrlObj)
 
-  if (redirectUrlObj.protocol) {
+  if (!redirectUrlObj.protocol) {
     throw invalidRequestErrorFactory({
       arg: 'redirect_uri',
       description: 'Redirect uri must specify the protocol',
     })
   }
 
-  if (!client.redirectUris.includes(redirectUrlObj.origin)) {
+  if (!client.redirectUris.includes(redirectUrlObj.href)) {
     throw invalidRequestErrorFactory({
       arg: 'redirect_uri',
-      description: 'The client_id / redirect_uri-origin combination is invalid',
+      description: 'The client_id / redirect_uri combination is invalid',
     })
   }
   return redirectUri
