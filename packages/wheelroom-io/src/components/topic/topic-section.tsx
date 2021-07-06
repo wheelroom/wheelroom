@@ -6,6 +6,7 @@ import {
   StyleObject,
 } from '../../lib/component-styles'
 import { mediaQuery } from '../../lib/media-query'
+import { GridSection } from '../layout/grid-section'
 import { ContentfulTopic } from './contentful-topic'
 import {
   ContentfulTopicSection,
@@ -23,32 +24,30 @@ export type TopicSectionProps = ComponentProps<
   TopicSectionOptions
 >['div']
 
-const baseStyle: StyleObject = {
-  label: 'container',
-  display: 'flex',
-  width: '100%',
-  flexDirection: 'column',
-}
-const maxWidthStyle: StyleObject = {
-  ...baseStyle,
-  maxWidth: 1280,
-  margin: '0 auto',
+const topicSectionStyle: StyleObject = {
+  label: 'grid-container',
+  display: 'grid',
+  gridArea: 'topic',
 }
 
 const styleMap: StyleMap<TopicSectionVariant> = {
   block: {
-    ...maxWidthStyle,
-    alignItems: ['center', 'initial'],
-    flexDirection: ['column', 'row'],
-    flexWrap: 'wrap',
+    ...topicSectionStyle,
+    gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+    gridAutoRows: 'minmax(288px, auto)',
+    gridGap: 16,
   },
   card: {
-    ...maxWidthStyle,
-    alignItems: 'stretch',
-    flexDirection: 'row',
-    flexFlow: 'row wrap',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    ...topicSectionStyle,
+    gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+    gridAutoRows: 'minmax(288px, auto)',
+    gridGap: 16,
+    // ...maxWidthStyle,
+    // alignItems: 'stretch',
+    // flexDirection: 'row',
+    // flexFlow: 'row wrap',
+    // flexWrap: 'wrap',
+    // justifyContent: 'center',
   },
   divider: {
     margin: '1rem 0',
@@ -59,22 +58,19 @@ const styleMap: StyleMap<TopicSectionVariant> = {
     height: 1,
   },
   gallery: {
-    ...maxWidthStyle,
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
   },
-  hero: { ...baseStyle, paddingBottom: 0 },
+  hero: { ...topicSectionStyle, paddingBottom: 0 },
   image: {
-    ...maxWidthStyle,
     flexDirection: ['column', 'row'],
   },
-  video: baseStyle,
+  video: topicSectionStyle,
   quote: {
     paddingBottom: 40,
   },
   showcase: {
-    ...maxWidthStyle,
     alignItems: ['center', 'baseline'],
     justifyContent: 'center',
     maxWidth: ['35em', '54rem'],
@@ -90,8 +86,8 @@ export const topicSectionStyleFactory: StyleFactory<
   TopicSectionOptions
 > = (args) => {
   const useVariant = args.variant || 'block'
-  const baseStyle = styleMap[useVariant]
-  return mediaQuery([baseStyle])
+  const baseTopicSectionStyle = styleMap[useVariant]
+  return mediaQuery([baseTopicSectionStyle])
 }
 
 export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
@@ -124,13 +120,17 @@ export const TopicSection = ({ model, ...props }: TopicSectionProps) => {
     <Section
       css={{
         label: 'wrapper',
+        display: 'grid',
+        gridTemplateColumns: '1fr minmax(auto, 1280px) 1fr',
+        gridTemplateAreas: '". topic ."',
       }}
     >
+      {/* The Section wrapper around the Container is used for full-width background-color */}
       <Div css={css} {...props}>
         {model.contentfulTopicSection?.topicsCollection?.items.map(
           (contentfulTopic: ContentfulTopic, index: number) => (
             <Topic
-              key={'id-' + contentfulTopic.sys?.id + index}
+              key={'id-' + contentfulTopic.sys?.id + '-' + index}
               model={{ contentfulTopic }}
               options={options}
               variant={variant}

@@ -1,9 +1,9 @@
+import { Footer, Main } from '@wheelroom/any/react'
 import React, { Fragment } from 'react'
-import { Aside, Footer, Header, Main } from '@wheelroom/any/react'
-import { ContentfulTopicSection } from '../topic/contentful-topic-section'
-import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
-import { ContentfulTextSection } from '../models/contentful-text-section'
 import { GridTemplate } from '../layout/grid-template'
+import { ContentfulTextSection } from '../models/contentful-text-section'
+import { ContentfulNavigationSection } from '../navigation/contentful-navigation-section'
+import { ContentfulTopicSection } from '../topic/contentful-topic-section'
 
 /**
  *
