@@ -23,34 +23,36 @@ export const authorizationCodeGrant = async ({
   maxAge,
   req,
 }: TokenResponse): Promise<ResponseToSend> => {
-  const code = req.body['code']
-  if (typeof code !== 'string') {
+  const codeToken = req.body['code']
+  if (typeof codeToken !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'Code body parameter is required',
     })
   }
 
-  const codePayload = (await jwtApi.verify({ jwt: code })) as CodeTokenPayload
+  const codeTokenPayload = (await jwtApi.verify({
+    jwt: codeToken,
+  })) as CodeTokenPayload
 
-  if (!codePayload) {
+  if (!codeTokenPayload) {
     throw jwtErrorFactory({
       description: 'Could not verify code token',
     })
   }
 
-  if (typeof codePayload.auth_code_id !== 'string') {
+  if (typeof codeTokenPayload.auth_code_id !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'auth_code field in code JWT is required',
     })
   }
   const knownAuthCode = await collectionApi.authCode.get({
-    authCodeId: codePayload.auth_code_id,
+    authCodeId: codeTokenPayload.auth_code_id,
     req,
   })
 
-  if (Date.now() > codePayload.expire_time * 1000) {
+  if (Date.now() > codeTokenPayload.expire_time * 1000) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'Code JWT has expired',
@@ -64,7 +66,7 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  if (knownAuthCode.codeChallenge !== codePayload.code_challenge) {
+  if (knownAuthCode.codeChallenge !== codeTokenPayload.code_challenge) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'code_challenge field in code JWT is invalid',
@@ -72,7 +74,7 @@ export const authorizationCodeGrant = async ({
   }
 
   const codeVerifier = req.body['code_verifier']
-  if (typeof code !== 'string') {
+  if (typeof codeToken !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'code_verifier',
       description: 'Code verifier body parameter is required',
@@ -89,8 +91,8 @@ export const authorizationCodeGrant = async ({
   }
 
   const codeChallengeIsValid = verifyCodeChallenge({
-    method: codePayload.code_challenge_method as CodeChallengeMethod,
-    codeChallenge: codePayload.code_challenge,
+    method: codeTokenPayload.code_challenge_method as CodeChallengeMethod,
+    codeChallenge: codeTokenPayload.code_challenge,
     codeVerifier,
   })
 
@@ -103,14 +105,14 @@ export const authorizationCodeGrant = async ({
   const client = await requestToClient({ collectionApi, req })
   const redirectUri = requestToRedirectUri({ client, req })
 
-  if (codePayload.client_id !== client.id) {
+  if (codeTokenPayload.client_id !== client.id) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'client_id field in code JWT is invalid',
     })
   }
 
-  if (codePayload.redirect_uri !== redirectUri) {
+  if (codeTokenPayload.redirect_uri !== redirectUri) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'redirect_uri field in code JWT is invalid',
@@ -119,7 +121,7 @@ export const authorizationCodeGrant = async ({
 
   await collectionApi.authCode.revoke({ authCodeId: knownAuthCode.id, req })
   const user = await collectionApi.user.get({
-    userId: codePayload.user_id,
+    userId: codeTokenPayload.user_id,
     req,
   })
   const scopes = await requestToScopes({ collectionApi, req })

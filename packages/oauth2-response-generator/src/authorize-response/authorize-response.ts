@@ -102,9 +102,9 @@ export const authorizeResponse = async ({
     userId: user.id,
   })
 
-  const code = await jwtApi.sign({ payload: codeTokenPayload })
+  const codeToken = await jwtApi.sign({ payload: codeTokenPayload })
 
-  if (typeof code !== 'string') {
+  if (typeof codeToken !== 'string') {
     throw jwtErrorFactory({ description: 'Error signing code token' })
   }
 
@@ -112,5 +112,5 @@ export const authorizeResponse = async ({
   // redirectUrlObj.searchParams.append('code', code)
   // redirectUrlObj.searchParams.append('state', state)
 
-  return { parameters: { code, state }, redirectUri }
+  return { parameters: { code: codeToken, state }, redirectUri }
 }

@@ -27,13 +27,16 @@ type TokenPersist = BaseArguments & {
   token: TokenCollection
 }
 type TokenRevoke = BaseArguments & {
-  accessToken: string
+  /** Revoke both access and refresh token, given one is provided */
+  accessToken?: string
+  /** Revoke both access and refresh token, given one is provided */
+  refreshToken?: string
 }
-type TokenRefreshTokenGet = BaseArguments & {
-  refreshToken: string
-}
-type TokenRefreshTokenRevoke = BaseArguments & {
-  refreshToken: string
+type TokenGet = BaseArguments & {
+  /** Get both access and refresh token, given one is provided */
+  accessToken?: string
+  /** Get both access and refresh token, given one is provided */
+  refreshToken?: string
 }
 type UserGet = BaseArguments & {
   userId: string
@@ -44,31 +47,23 @@ export type CollectionApi = {
     persist: ({ authCode, req }: AuthCodePresist) => Promise<void>
     get: ({ authCodeId, req }: AuthCodeGet) => Promise<AuthCodeCollection>
     revoke: ({ authCodeId, req }: AuthCodeRevoke) => Promise<void>
-    [otherMethods: string]: any
   }
   client: {
     get: ({ clientId, req }: ClientGet) => Promise<ClientCollection>
-    [otherMethods: string]: any
   }
   scope: {
     get: ({ scopeNames, req }: ScopeGet) => Promise<ScopeCollection[]>
-    [otherMethods: string]: any
   }
   token: {
     persist: ({ token, req }: TokenPersist) => Promise<void>
-    revoke: ({ accessToken, req }: TokenRevoke) => Promise<void>
-    [otherMethods: string]: any
-    refreshToken: {
-      get: ({
-        refreshToken,
-        req,
-      }: TokenRefreshTokenGet) => Promise<TokenCollection>
-      revoke: ({ refreshToken, req }: TokenRefreshTokenRevoke) => Promise<void>
-    }
+    revoke: ({ accessToken, refreshToken, req }: TokenRevoke) => Promise<void>
+    get: ({
+      accessToken,
+      refreshToken,
+      req,
+    }: TokenGet) => Promise<TokenCollection>
   }
   user: {
     get: ({ userId, req }: UserGet) => Promise<UserCollection>
-    [otherMethods: string]: any
   }
-  [otherCollections: string]: any
 }

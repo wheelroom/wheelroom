@@ -36,7 +36,7 @@ export const refreshTokenGrant = async ({
     })
   }
 
-  const knmownRefreshToken = await collectionApi.token.refreshToken.get({
+  const knmownToken = await collectionApi.token.get({
     refreshToken: existingRefreshToken,
     req,
   })
@@ -48,7 +48,7 @@ export const refreshTokenGrant = async ({
     })
   }
 
-  if (Date.now() > knmownRefreshToken.refreshTokenExpiresAt.getTime() * 1000) {
+  if (Date.now() > knmownToken.refreshTokenExpiresAt.getTime() * 1000) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'Refresh token was revoked',
@@ -68,7 +68,7 @@ export const refreshTokenGrant = async ({
     })
   }
 
-  await collectionApi.token.refreshToken.revoke({
+  await collectionApi.token.revoke({
     refreshToken: existingRefreshToken,
     req,
   })

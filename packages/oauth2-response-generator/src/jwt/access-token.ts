@@ -2,14 +2,23 @@ import { KJUR, hextob64 } from 'jsrsasign'
 import { JWT } from './jwt'
 
 export interface CreateAccessTokenPayload {
+  /** JWT aud */
   audience: string
+  /** JWT cid */
   clientId: string
+  /** JWT exp */
   expiresAtSeconds: number
+  /** JWT iat */
   issuedAtSeconds: number
+  /** JWT iss */
   issuer: string
+  /** JWT nbf */
   notBeforeSeconds: number
+  /** JWT scope */
   scopes: string
+  /** JWT email */
   userEmail: string
+  /** JWT sub */
   userId: string
 }
 
