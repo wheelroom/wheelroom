@@ -108,9 +108,5 @@ export const authorizeResponse = async ({
     throw jwtErrorFactory({ description: 'Error signing code token' })
   }
 
-  // const redirectUrlObj = new URL(redirectUri)
-  // redirectUrlObj.searchParams.append('code', code)
-  // redirectUrlObj.searchParams.append('state', state)
-
   return { parameters: { code: codeToken, state }, redirectUri }
 }
