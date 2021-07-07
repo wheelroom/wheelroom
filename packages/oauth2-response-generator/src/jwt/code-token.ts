@@ -18,8 +18,14 @@ export interface CreateCodeTokenPayload {
   redirectUri: string
   /** Scope claim */
   scopes: string[]
-  /** User id claim */
-  userId: string
+  /**
+   * Must be added after user verification. This happens on the oauth server but
+   * outside the scope of this library. The user id is to be picked up by token
+   * request directly after the authorize request. This is mandatory because the
+   * token request responds with an id token. THe id token contains user details
+   * which requires the token enpoint to fetch the user from the storage layer.
+   */
+  userId?: string
 }
 
 export interface CodeTokenPayload {
@@ -31,7 +37,7 @@ export interface CodeTokenPayload {
   flow?: Record<string, string | boolean>
   redirect_uri: string
   scopes: string[]
-  user_id: string
+  user_id?: string
 }
 
 export const createCodeTokenPayload = ({

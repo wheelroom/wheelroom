@@ -1,6 +1,5 @@
 import { ClientCollection } from './client'
 import { ScopeCollection } from './scope'
-import { UserCollection } from './user'
 
 export interface AuthCodeCollection {
   client: ClientCollection
@@ -11,5 +10,4 @@ export interface AuthCodeCollection {
   nonce: string
   redirectUri: string
   scopes: ScopeCollection[]
-  user: UserCollection
 }

@@ -10,19 +10,14 @@ import {
 } from '../error/oauth2-error'
 import { createCodeTokenPayload } from '../jwt/code-token'
 import { CommonResponseInput, ResponseToSend } from '../lib/response'
-import { UserCollection } from '../collection/user'
 
-export interface AuthorizeResponse extends CommonResponseInput {
-  /** Current user */
-  user: UserCollection
-}
+export type AuthorizeResponse = CommonResponseInput
 
 export const authorizeResponse = async ({
   collectionApi,
   jwtApi,
   maxAge,
   req,
-  user,
 }: AuthorizeResponse): Promise<ResponseToSend> => {
   const responeType = req.query['response_type']
 
@@ -86,7 +81,6 @@ export const authorizeResponse = async ({
     nonce,
     redirectUri,
     scopes,
-    user: user,
   }
   await collectionApi.authCode.persist({ authCode, req })
 
@@ -99,7 +93,6 @@ export const authorizeResponse = async ({
       Math.ceil(Date.now() / 1000) + maxAge.authorizeEndpoint.authCode,
     redirectUri,
     scopes: scopes.map((scope) => scope.name),
-    userId: user.id,
   })
 
   const codeToken = await jwtApi.sign({ payload: codeTokenPayload })

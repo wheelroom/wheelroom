@@ -119,6 +119,12 @@ export const authorizationCodeGrant = async ({
     })
   }
 
+  if (typeof codeTokenPayload.user_id !== 'string') {
+    throw invalidRequestErrorFactory({
+      arg: 'code',
+      description: 'user_id field in code JWT is required',
+    })
+  }
   await collectionApi.authCode.revoke({ authCodeId: knownAuthCode.id, req })
   const user = await collectionApi.user.get({
     userId: codeTokenPayload.user_id,
