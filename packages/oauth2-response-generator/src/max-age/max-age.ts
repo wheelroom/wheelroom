@@ -1,7 +1,7 @@
 // All max age settings are in seconds
 export type MaxAge = {
   authorizeEndpoint: {
-    authCode: number
+    codeToken: number
   }
   tokenEndpoint: {
     authorizationCodeGrant: {

@@ -10,10 +10,9 @@ export interface CreateCodeTokenPayload {
   /** Token expires at claim */
   expiresAtSeconds: number
   /**
-   * Optional field to keep auth flow flags like e.g. 'email', 'pwOk',
-   * 'concentOk', etc.
+   * Optional field to keep auth flow flags like e.g. 'pwOk', 'concentOk', etc.
    */
-  flow?: Record<string, string | boolean>
+  flowState?: Record<string, string | boolean>
   /** Redirect url claim */
   redirectUri: string
   /** Scope claim */
@@ -34,7 +33,7 @@ export interface CodeTokenPayload {
   code_challenge_method: string
   code_challenge: string
   expire_time: number
-  flow?: Record<string, string | boolean>
+  flowState?: Record<string, string | boolean>
   redirect_uri: string
   scopes: string[]
   user_id?: string
@@ -46,7 +45,7 @@ export const createCodeTokenPayload = ({
   codeChallenge,
   codeChallengeMethod,
   expiresAtSeconds,
-  flow,
+  flowState,
   redirectUri,
   scopes,
   userId,
@@ -57,7 +56,7 @@ export const createCodeTokenPayload = ({
     code_challenge_method: codeChallengeMethod,
     code_challenge: codeChallenge,
     expire_time: expiresAtSeconds,
-    flow,
+    flowState,
     redirect_uri: redirectUri,
     scopes,
     user_id: userId,
