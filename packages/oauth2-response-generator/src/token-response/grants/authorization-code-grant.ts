@@ -1,6 +1,5 @@
 import { requestToClient } from '../../lib/request-to-client'
 import { requestToRedirectUri } from '../../lib/request-to-redirect-uri'
-import { requestToScopes } from '../../lib/request-to-scopes'
 import {
   invalidGrantErrorFactory,
   invalidRequestErrorFactory,
@@ -130,7 +129,10 @@ export const authorizationCodeGrant = async ({
     userId: codeTokenPayload.user_id,
     req,
   })
-  const scopes = await requestToScopes({ collectionApi, req })
+  // Don't get scopes from the request, use the ones that were saved during the
+  // autorize request.
+  const scopes = knownAuthCode.scopes
+
   const parameters = await tokenResponseParametersFactory({
     audience,
     client,
