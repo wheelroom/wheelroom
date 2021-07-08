@@ -69,7 +69,6 @@ export const tokenResponseParametersFactory = async ({
   })
 
   const newIdTokenPayload = createIdTokenPayload({
-    audience,
     clientId: client.id,
     expiresAtSeconds:
       Math.ceil(Date.now() / 1000) +

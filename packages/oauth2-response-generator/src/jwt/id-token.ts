@@ -2,7 +2,6 @@ import { KJUR, hextob64 } from 'jsrsasign'
 import { JWT } from './jwt'
 
 export interface CreateIdTokenPayload {
-  audience: string
   clientId: string
   expiresAtSeconds: number
   issuedAtSeconds: number
@@ -16,7 +15,6 @@ export interface CreateIdTokenPayload {
 }
 
 export const createIdTokenPayload = ({
-  audience,
   clientId,
   expiresAtSeconds,
   issuedAtSeconds,
@@ -29,7 +27,7 @@ export const createIdTokenPayload = ({
   userName,
 }: CreateIdTokenPayload) => {
   const payload: JWT = {
-    aud: audience,
+    aud: clientId,
     cid: clientId,
     email_verified: userEmailVerified,
     email: userEmail,
