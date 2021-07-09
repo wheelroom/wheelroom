@@ -28,9 +28,9 @@ export const authorizeResponse = async ({
     })
   }
 
-  const client = await requestToClient({ req, collectionApi })
-  const redirectUri = requestToRedirectUri({ req, client })
-  const scopes = await requestToScopes({ req, collectionApi })
+  const client = await requestToClient({ collectionApi, req })
+  const redirectUri = requestToRedirectUri({ client, req })
+  const scopes = await requestToScopes({ client, req })
 
   const state = req.query['state']
   if (typeof state !== 'string') {

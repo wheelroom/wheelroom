@@ -72,7 +72,7 @@ export const refreshTokenGrant = async ({
     refreshToken: existingRefreshToken,
     req,
   })
-  const scopes = await requestToScopes({ collectionApi, req })
+  const scopes = await requestToScopes({ client, req })
   const redirectUri = requestToRedirectUri({ req, client })
   const parameters = await tokenResponseParametersFactory({
     audience,

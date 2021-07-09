@@ -1,7 +1,6 @@
 import Express from 'express'
 import { AuthCodeCollection } from './auth-code'
 import { ClientCollection } from './client'
-import { ScopeCollection } from './scope'
 import { TokenCollection } from './token'
 import { UserCollection } from './user'
 
@@ -19,9 +18,6 @@ type AuthCodeRevoke = BaseArguments & {
 }
 type ClientGet = BaseArguments & {
   clientId: string
-}
-type ScopeGet = BaseArguments & {
-  scopeNames: string[]
 }
 type TokenPersist = BaseArguments & {
   token: TokenCollection
@@ -50,9 +46,6 @@ export type CollectionApi = {
   }
   client: {
     get: ({ clientId, req }: ClientGet) => Promise<ClientCollection>
-  }
-  scope: {
-    get: ({ scopeNames, req }: ScopeGet) => Promise<ScopeCollection[]>
   }
   token: {
     persist: ({ token, req }: TokenPersist) => Promise<void>

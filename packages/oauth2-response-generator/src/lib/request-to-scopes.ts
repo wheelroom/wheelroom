@@ -1,19 +1,17 @@
 import Express from 'express'
+import { ClientCollection } from '../collection/client'
 import {
   invalidRequestErrorFactory,
   invalidScopeErrorFactory,
 } from '../error/oauth2-error'
-import { CollectionApi } from '../collection/collection-api'
 
 export interface RequestToScopes {
-  collectionApi: CollectionApi
+  /** Only scope that are listed with the client are accepted */
+  client: ClientCollection
   req: Express.Request
 }
 
-export const requestToScopes = async ({
-  collectionApi,
-  req,
-}: RequestToScopes) => {
+export const requestToScopes = async ({ client, req }: RequestToScopes) => {
   const scope = req.body['scope'] || req.query['scope']
   if (!scope) return []
 
@@ -25,20 +23,21 @@ export const requestToScopes = async ({
   }
 
   const scopeNames = scope.split(' ')
-  const allValidScopes = await collectionApi.scope.get({ scopeNames, req })
-  const allValidScopesNames = allValidScopes.map((scope) => scope.name)
+  const clientScopeNames = client.scopes.map((scope) => scope.name)
   const invalidScopeNames = scopeNames.filter(
-    (name) => !allValidScopesNames.includes(name)
+    (name) => !clientScopeNames.includes(name)
   )
 
   if (invalidScopeNames.length > 0) {
     throw invalidScopeErrorFactory({
-      description: `Invalid scopes: ${invalidScopeNames.join(', ')}`,
+      description: `Scope does not exist for this client: ${invalidScopeNames.join(
+        ', '
+      )}`,
     })
   }
 
-  const validScopes = allValidScopes.filter((scope) =>
-    allValidScopesNames.includes(scope.name)
+  const validScopes = client.scopes.filter((scope) =>
+    clientScopeNames.includes(scope.name)
   )
 
   return validScopes
