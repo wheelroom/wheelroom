@@ -27,23 +27,27 @@ export const handler: PushHandler = async ({ callType, pushData }) => {
 
   if (!pushData) return
   for (const wrType of Object.values(pushData)) {
-    console.log(`============ ${wrType.interface.typeName}`)
+    console.log(`============ Fetching ${wrType.interface.typeName} ...`)
     const contentType = await client.contentType.get({
       contentTypeId: (wrType.interface.interfaceTags || {})['@type'],
     })
-    console.log('CONTENTFUL', inspect(contentType, false, 10, true))
+    // console.log('CONTENTFUL', inspect(contentType, false, 10, true))
+    if (contentType)
+      console.log(`Content type exists: ${contentType.description}`)
 
     console.log(
       'PLUGIN IS INSPECTING',
-      callType,
-      inspect(pushData, false, 10, true)
+      inspect(wrType.interface.description, false, 10, true)
     )
 
+    if (wrType.variables.length === 0) {
+      console.log(`${contentType.name} does not define data variables`)
+    }
     for (const wrVar of wrType.variables) {
-      const valueText = wrVar.value || ''
-      const valueArray = eval(valueText)
+      const valueFn = new Function(`return ${wrVar.value}`)
+      const valueArray = valueFn()
       console.log(
-        'Data to send to platdform',
+        'Data to send to Contentful',
         inspect(valueArray, false, 10, true)
       )
     }
