@@ -1,25 +1,27 @@
+import path from 'path'
 import ts from 'typescript'
 
-export type ParseVariableDeclarationResult = {
+export type WrVariable = {
+  fileName?: string
+  isArray?: boolean
+  isObject?: boolean
+  isExported?: boolean
   name?: string
   type?: string
   value?: string
-  isObject?: boolean
-  isArray?: boolean
 }
 
-export interface ParseVariableDeclaration {
+export interface ParseWrVariable {
   node: ts.Node
   sourceFile: ts.SourceFile
 }
 
-export const parseVariableDeclaration = ({
-  node,
-  sourceFile,
-}: ParseVariableDeclaration) => {
-  const result: ParseVariableDeclarationResult = {}
+export const parseWrVariable = ({ node, sourceFile }: ParseWrVariable) => {
+  const wrVariable: WrVariable = {}
   if (node.kind === ts.SyntaxKind.FirstStatement) {
     node.forEachChild((node) => {
+      if (node.kind === ts.SyntaxKind.ExportKeyword)
+        wrVariable.isExported = true
       if (node.kind === ts.SyntaxKind.VariableDeclarationList) {
         node.forEachChild((node) => {
           if (node.kind === ts.SyntaxKind.VariableDeclaration) {
@@ -29,7 +31,6 @@ export const parseVariableDeclaration = ({
             let objectValue = ''
             let arrayValue = ''
             node.forEachChild((node) => {
-              // console.log('===', ts.SyntaxKind[node.kind])
               if (node.kind === ts.SyntaxKind.Identifier) {
                 name = node.getText(sourceFile)
               }
@@ -47,15 +48,16 @@ export const parseVariableDeclaration = ({
               }
             })
             if (arrayType) arrayType = arrayType.replace('[]', '')
-            result.name = name
-            result.type = arrayType || objectType
-            result.value = arrayValue || objectValue
-            result.isArray = !!arrayType && !!arrayValue
-            result.isObject = !!objectType && !!objectValue
+            wrVariable.fileName = path.resolve(sourceFile.fileName)
+            wrVariable.isArray = !!arrayType && !!arrayValue
+            wrVariable.isObject = !!objectType && !!objectValue
+            wrVariable.name = name
+            wrVariable.type = arrayType || objectType
+            wrVariable.value = arrayValue || objectValue
           }
         })
       }
     })
   }
-  return result
+  return wrVariable
 }

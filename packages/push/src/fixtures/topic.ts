@@ -49,15 +49,22 @@ export const myTopics: ContentfulTopic[] = [
   },
 ]
 
-export const singleTopic: ContentfulTopic = {
+export const notAnArray: ContentfulTopic = {
   abstract: 'This is the abstract',
-  actionsCollection: {
-    items: [
-      {
-        heading: 'Hello',
-        anchor: 'anchor',
-      },
-    ],
-  },
   heading: 'Heres the heading',
 }
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const notExported: ContentfulTopic[] = [
+  {
+    abstract: 'This is the abstract',
+    heading: 'Heres the heading',
+  },
+]
+
+type NotTagged = { thisVariable: string }
+export const notTaggedVariable: NotTagged[] = [
+  {
+    thisVariable: 'is not tagged',
+  },
+]

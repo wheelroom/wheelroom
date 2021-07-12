@@ -1,10 +1,13 @@
-// import util from 'util'
-import { JSDocTagInfo, SymbolDisplayPart } from 'typescript'
-import { DocProperty } from './interface-to-doc-property'
+import ts, { JSDocTagInfo, SymbolDisplayPart } from 'typescript'
+import {
+  DocProperty,
+  interfaceToDocProperty,
+} from './interface-to-doc-property'
+import { isExportedDeclaration } from './is-exported-declaration'
 
-export type WheelroomTags = {
+export type WrInterface = {
   description?: string
-  plugin?: string
+  pluginName?: string
   fields?: {
     [fieldName: string]: Record<string, string>
   }
@@ -39,18 +42,31 @@ const getTagByName = ({ tags, name }: GetTagByName) => {
   return tags.find((tag) => tag.name === name)
 }
 
-export interface ParseWheelroomTags {
-  docProperty: DocProperty
+export interface ParseInterface {
+  checker: ts.TypeChecker
+  node: ts.Node
 }
 
-export const parseWheelroomTags = ({
-  docProperty,
-}: ParseWheelroomTags): WheelroomTags | undefined => {
-  const result: WheelroomTags = {}
+export const parseWrInterface = ({
+  checker,
+  node,
+}: ParseInterface): WrInterface | undefined => {
+  const wrInterface: WrInterface = {}
+
+  if (
+    !isExportedDeclaration({ node }) ||
+    !ts.isInterfaceDeclaration(node) ||
+    !node.name
+  )
+    return
+  const type = checker.getTypeAtLocation(node)
+  if (!type) return
+  const docProperty = interfaceToDocProperty({ type, checker })
+
   if (!docProperty.name) return
-  result.typeName = docProperty.name
+  wrInterface.typeName = docProperty.name
   if (!docProperty.jSDocTags?.length) {
-    console.log(`${result.typeName} - Skipping model, no TSDoc tags`)
+    console.log(`${wrInterface.typeName} - Skipping model, no TSDoc tags`)
     return
   }
   const wheelroomTag = getTagByName({
@@ -58,24 +74,28 @@ export const parseWheelroomTags = ({
     name: 'wheelroom',
   })
   if (!wheelroomTag) {
-    console.log(`${result.typeName} - Skipping model, no @wheelroom block tag`)
+    console.log(
+      `${wrInterface.typeName} - Skipping model, no @wheelroom block tag`
+    )
     return
   }
   const text = getTextSymbol({ symbols: wheelroomTag.text })
   const tags = getInlineTags({ search: text })
-  const plugin = tags['@plugin']
+  const pluginName = tags['@plugin']
 
-  if (!plugin) {
-    console.log(`${result.typeName} - Skipping model, no @plugin inline tag`)
+  if (!pluginName) {
+    console.log(
+      `${wrInterface.typeName} - Skipping model, no @pluginName inline tag`
+    )
     return
   }
-  result.plugin = plugin
+  wrInterface.pluginName = pluginName
 
   const description = getTextSymbol({
     symbols: docProperty.documentationComment,
   })
-  result.description = description
-  result.fields = {}
+  wrInterface.description = description
+  wrInterface.fields = {}
   docProperty.docProperties?.forEach((docProperty: DocProperty) => {
     const wheelroomTag = getTagByName({
       tags: docProperty.jSDocTags,
@@ -84,12 +104,12 @@ export const parseWheelroomTags = ({
     if (wheelroomTag) {
       const text = getTextSymbol({ symbols: wheelroomTag.text })
       const tags = getInlineTags({ search: text })
-      result.fields![docProperty.name || 'unknown'] = tags
+      wrInterface.fields![docProperty.name || 'unknown'] = tags
     } else {
       console.log(
-        `${result.typeName}/${docProperty.name} - Skipping field, no @wheelroom block tag`
+        `${wrInterface.typeName}/${docProperty.name} - Skipping field, no @wheelroom block tag`
       )
     }
   })
-  return result
+  return wrInterface
 }

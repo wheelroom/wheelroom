@@ -1,30 +1,50 @@
-import { WheelroomTags } from './parse-wheelroom-tags'
+import { PushData } from './get-push-data'
+import { WrInterface } from './parse-wr-interface'
+import { WrVariable } from './parse-wr-variable'
+
+export type CallType = 'pushModels' | 'pushContent'
 
 export interface CallPushHandler {
-  wheelroomTags?: WheelroomTags
+  callType: CallType
+  pushData: PushData
 }
 
-export type PushHandler = (args: { wheelroomTags?: WheelroomTags }) => void
+export type PushHandler = (args: {
+  callType: CallType
+  pushData?: {
+    [typeName: string]: {
+      interfaces: WrInterface[]
+      variables: WrVariable[]
+    }
+  }
+}) => Promise<void>
 
 export interface Module {
-  pushHandler?: PushHandler
+  handler?: PushHandler
 }
 
-export const callPushHandler = async ({ wheelroomTags }: CallPushHandler) => {
-  let moduleName = ''
-  if (wheelroomTags?.plugin === 'contentful') {
-    moduleName = '@wheelroom/plugin-contentful/plain'
-  }
-  let module: Module = {}
-  try {
-    module = <Module>await import(moduleName)
-  } catch (e) {
-    console.log(
-      `Could not find plugin ${wheelroomTags?.plugin} => ${moduleName}`
-    )
-  }
+export const callPushHandler = async ({
+  pushData,
+  callType,
+}: CallPushHandler) => {
+  for (const pluginName of Object.keys(pushData)) {
+    let moduleName = ''
+    if (pluginName === 'contentful') {
+      moduleName = '@wheelroom/plugin-contentful/plain'
+    }
+    let module: Module = {}
+    try {
+      module = <Module>await import(moduleName)
+    } catch (e) {
+      console.log(`Could not find plugin ${pluginName} => ${moduleName}`)
+    }
 
-  if (module.pushHandler && wheelroomTags) {
-    module.pushHandler({ wheelroomTags })
+    if (module.handler) {
+      await module.handler({ pushData: pushData[pluginName], callType })
+    } else {
+      console.log(
+        `Could not find "handler" method on plugin ${pluginName} => ${moduleName}`
+      )
+    }
   }
 }

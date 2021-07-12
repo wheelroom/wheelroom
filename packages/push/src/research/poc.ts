@@ -1,9 +1,7 @@
 import ts from 'typescript'
 import { getCompilerOptions } from '../lib/get-compiler-options'
-import { interfaceToDocProperty } from '../lib/interface-to-doc-property'
-import { isExportedNode } from '../lib/is-exported-node'
-import { parseVariableDeclaration } from '../lib/parse-variable-declaration'
-import { parseWheelroomTags } from '../lib/parse-wheelroom-tags'
+import { parseWrVariable } from '../lib/parse-wr-variable'
+import { parseWrInterface } from '../lib/parse-wr-interface'
 
 interface PrintNode {
   node: ts.Node
@@ -13,33 +11,24 @@ interface PrintNode {
 }
 
 const printNode = ({ node, checker, printer, sourceFile }: PrintNode) => {
-  const parsedVar = parseVariableDeclaration({ node, sourceFile })
+  const parsedVar = parseWrVariable({ node, sourceFile })
   if (parsedVar.isArray || parsedVar.isObject) {
     console.log(
       `Found: sending ${parsedVar.name}: ${parsedVar.type} to platform`
     )
   }
-  if (
-    !isExportedNode({ node }) ||
-    !ts.isInterfaceDeclaration(node) ||
-    !node.name
-  )
-    return
-  const type = checker.getTypeAtLocation(node)
-  if (!type) return
-  const docProperty = interfaceToDocProperty({ type, checker })
-  const tags = parseWheelroomTags({ docProperty })
-  if (!tags) return
+  const wrInterface = parseWrInterface({ node, checker })
+  if (!wrInterface) return
   const printThis = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile)
   console.log(printThis)
-  console.log(tags)
+  console.log(wrInterface)
 }
 
 const runPoc = () => {
   console.log('Starting Proof Of Concept')
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram(
-    ['./src/fixtures/topic.tsx'],
+    ['./src/fixtures/topic.ts'],
     compilerOptions.options
   )
   const checker = program.getTypeChecker()

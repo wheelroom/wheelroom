@@ -1,9 +1,9 @@
 import ts from 'typescript'
 
-export interface IsExportedNode {
+export interface IsExportedDeclaration {
   node: ts.Node
 }
-export const isExportedNode = ({ node }: IsExportedNode): boolean => {
+export const isExportedDeclaration = ({ node }: IsExportedDeclaration): boolean => {
   return (
     (ts.getCombinedModifierFlags(node as ts.Declaration) &
       ts.ModifierFlags.Export) !==
