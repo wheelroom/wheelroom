@@ -33,3 +33,31 @@ export interface ContentfulTopic {
   /** @wheelroom {@type Link} {@linkType Asset} */
   poster?: ContentfulAsset
 }
+
+export const myTopics: ContentfulTopic[] = [
+  {
+    abstract: 'This is the abstract',
+    actionsCollection: {
+      items: [
+        {
+          heading: 'Hello',
+          anchor: 'anchor',
+        },
+      ],
+    },
+    heading: 'Heres the heading',
+  },
+]
+
+export const singleTopic: ContentfulTopic = {
+  abstract: 'This is the abstract',
+  actionsCollection: {
+    items: [
+      {
+        heading: 'Hello',
+        anchor: 'anchor',
+      },
+    ],
+  },
+  heading: 'Heres the heading',
+}

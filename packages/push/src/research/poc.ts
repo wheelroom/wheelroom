@@ -2,6 +2,7 @@ import ts from 'typescript'
 import { getCompilerOptions } from '../lib/get-compiler-options'
 import { interfaceToDocProperty } from '../lib/interface-to-doc-property'
 import { isExportedNode } from '../lib/is-exported-node'
+import { parseVariableDeclaration } from '../lib/parse-variable-declaration'
 import { parseWheelroomTags } from '../lib/parse-wheelroom-tags'
 
 interface PrintNode {
@@ -10,7 +11,14 @@ interface PrintNode {
   checker: ts.TypeChecker
   sourceFile: ts.SourceFile
 }
+
 const printNode = ({ node, checker, printer, sourceFile }: PrintNode) => {
+  const parsedVar = parseVariableDeclaration({ node, sourceFile })
+  if (parsedVar.isArray || parsedVar.isObject) {
+    console.log(
+      `Found: sending ${parsedVar.name}: ${parsedVar.type} to platform`
+    )
+  }
   if (
     !isExportedNode({ node }) ||
     !ts.isInterfaceDeclaration(node) ||
