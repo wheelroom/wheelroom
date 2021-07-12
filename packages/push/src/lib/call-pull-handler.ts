@@ -12,7 +12,7 @@ export interface CallPullHandler {
 export type PullHandler = (args: {
   callType: CallType
   path: string
-  pushData?: {
+  pluginData?: {
     [typeName: string]: {
       interfaces: WrInterface[]
       variables: WrVariable[]

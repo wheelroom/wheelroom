@@ -3,7 +3,7 @@ import yargs from 'yargs'
 import { PushArgv } from '../cli'
 import { getCompilerOptions } from '../lib/get-compiler-options'
 import { callPushHandler } from '../lib/call-push-handler'
-import { getPushData } from '../lib/get-push-data'
+import { getPluginData } from '../lib/get-plugin-data'
 
 export interface PushCommand {
   argv: yargs.Arguments<PushArgv>
@@ -12,12 +12,12 @@ export interface PushCommand {
 export const pushCommand = async ({ argv }: PushCommand) => {
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram([argv.file], compilerOptions.options)
-  const pushData = getPushData({ program })
+  const pluginData = getPluginData({ program })
 
   if (argv.type === 'content') {
-    await callPushHandler({ pushData, callType: 'pushContent' })
+    await callPushHandler({ pluginData, callType: 'pushContent' })
   }
   if (argv.type === 'models') {
-    await callPushHandler({ pushData, callType: 'pushModels' })
+    await callPushHandler({ pluginData, callType: 'pushModels' })
   }
 }

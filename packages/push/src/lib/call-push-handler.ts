@@ -1,15 +1,15 @@
-import { InterfaceData, PushData } from './get-push-data'
+import { TypeData, PluginData } from './get-plugin-data'
 
 export type CallType = 'pushModels' | 'pushContent'
 
 export interface CallPushHandler {
   callType: CallType
-  pushData: PushData
+  pluginData: PluginData
 }
 
 export type PushHandler = (args: {
   callType: CallType
-  pushData?: InterfaceData
+  typeData?: TypeData
 }) => Promise<void>
 
 export interface Module {
@@ -17,10 +17,10 @@ export interface Module {
 }
 
 export const callPushHandler = async ({
-  pushData,
+  pluginData,
   callType,
 }: CallPushHandler) => {
-  for (const pluginName of Object.keys(pushData)) {
+  for (const pluginName of Object.keys(pluginData)) {
     let moduleName = ''
     if (pluginName === 'contentful') {
       moduleName = '@wheelroom/plugin-contentful/plain'
@@ -34,7 +34,7 @@ export const callPushHandler = async ({
     }
 
     if (module.handler) {
-      await module.handler({ pushData: pushData[pluginName], callType })
+      await module.handler({ typeData: pluginData[pluginName], callType })
     } else {
       console.log(
         `Could not find "handler" method on plugin ${pluginName} => ${moduleName}`

@@ -2,23 +2,23 @@ import ts from 'typescript'
 import { parseWrInterface, WrInterface } from './parse-wr-interface'
 import { parseWrVariable, WrVariable } from './parse-wr-variable'
 
-export type InterfaceData = {
+export type TypeData = {
   [typeName: string]: {
     interface: WrInterface
     variables: WrVariable[]
   }
 }
 
-export type PushData = {
-  [pluginName: string]: InterfaceData
+export type PluginData = {
+  [pluginName: string]: TypeData
 }
 
-export interface GetPushData {
+export interface GetPluginData {
   program: ts.Program
 }
 
-export const getPushData = ({ program }: GetPushData) => {
-  const wrInterfaceList: PushData = {}
+export const getPluginData = ({ program }: GetPluginData) => {
+  const wrInterfaceList: PluginData = {}
   const checker = program.getTypeChecker()
 
   for (const sourceFile of program.getSourceFiles()) {

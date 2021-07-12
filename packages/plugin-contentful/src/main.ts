@@ -3,7 +3,7 @@ import { PushHandler } from '@wheelroom/push/plain'
 import { config } from 'dotenv'
 import contentful from 'contentful-management'
 
-export const handler: PushHandler = async ({ callType, pushData }) => {
+export const handler: PushHandler = async ({ callType, typeData }) => {
   const nodeEnv = process.env.NODE_ENV || 'development'
   const envPath = `.env.${nodeEnv}`
   config({ path: envPath })
@@ -25,8 +25,8 @@ export const handler: PushHandler = async ({ callType, pushData }) => {
     }
   )
 
-  if (!pushData) return
-  for (const wrType of Object.values(pushData)) {
+  if (!typeData) return
+  for (const wrType of Object.values(typeData)) {
     console.log(`============ Fetching ${wrType.interface.typeName} ...`)
     const contentType = await client.contentType.get({
       contentTypeId: (wrType.interface.interfaceTags || {})['@type'],
