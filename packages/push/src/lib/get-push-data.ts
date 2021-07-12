@@ -47,13 +47,12 @@ export const getPushData = ({ program }: GetPushData) => {
       if (!wrInterfaceList[wrInterface.pluginName])
         wrInterfaceList[wrInterface.pluginName] = {}
       if (!wrInterfaceList[wrInterface.pluginName][wrInterface.typeName]) {
-        wrInterfaceList[wrInterface.pluginName] = {
-          [wrInterface.typeName]: {
-            interfaces: [],
-            variables: [],
-          },
+        wrInterfaceList[wrInterface.pluginName][wrInterface.typeName] = {
+          interfaces: [],
+          variables: [],
         }
       }
+
       wrInterfaceList[wrInterface.pluginName][
         wrInterface.typeName
       ].interfaces.push(wrInterface)
