@@ -2,13 +2,15 @@ import ts from 'typescript'
 import { parseWrInterface, WrInterface } from './parse-wr-interface'
 import { parseWrVariable, WrVariable } from './parse-wr-variable'
 
-export type PushData = {
-  [pluginName: string]: {
-    [typeName: string]: {
-      interfaces: WrInterface[]
-      variables: WrVariable[]
-    }
+export type InterfaceData = {
+  [typeName: string]: {
+    interface: WrInterface
+    variables: WrVariable[]
   }
+}
+
+export type PushData = {
+  [pluginName: string]: InterfaceData
 }
 
 export interface GetPushData {
@@ -42,20 +44,18 @@ export const getPushData = ({ program }: GetPushData) => {
     })
     // Order interfaces by interface and typ
     for (const wrInterface of wrInterfaces) {
-      if (!wrInterface.pluginName) continue
+      const pluginName = (wrInterface?.interfaceTags || {})['@plugin']
+      if (!pluginName) continue
       if (!wrInterface.typeName) continue
-      if (!wrInterfaceList[wrInterface.pluginName])
-        wrInterfaceList[wrInterface.pluginName] = {}
-      if (!wrInterfaceList[wrInterface.pluginName][wrInterface.typeName]) {
-        wrInterfaceList[wrInterface.pluginName][wrInterface.typeName] = {
-          interfaces: [],
+      if (!wrInterfaceList[pluginName]) wrInterfaceList[pluginName] = {}
+      if (!wrInterfaceList[pluginName][wrInterface.typeName]) {
+        wrInterfaceList[pluginName][wrInterface.typeName] = {
+          interface: {},
           variables: [],
         }
       }
 
-      wrInterfaceList[wrInterface.pluginName][
-        wrInterface.typeName
-      ].interfaces.push(wrInterface)
+      wrInterfaceList[pluginName][wrInterface.typeName].interface = wrInterface
     }
     // Merge in variables
     for (const wrVariable of wrVariables) {

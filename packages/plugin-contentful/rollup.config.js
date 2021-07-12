@@ -15,9 +15,7 @@ const author = rootPkg.author
 const globals = {
   fs: '*',
   path: '*',
-  typescript: '*',
-  '@microsoft/tsdoc': '*',
-  yargs: '*',
+  'contentful-management': '*',
 }
 
 const external = Object.keys(globals)

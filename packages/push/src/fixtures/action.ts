@@ -1,6 +1,7 @@
 /**
  * Action model, used to render links and buttons
- * @wheelroom {@plugin contentful}
+ * @wheelroom
+ *     {@plugin contentful} {@type action}
  */
 export interface ContentfulAction {
   sys?: {

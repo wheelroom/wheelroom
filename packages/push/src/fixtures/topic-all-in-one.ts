@@ -1,6 +1,7 @@
 /**
  * Action model, used to render links and buttons
- * @wheelroom {@plugin contentful}
+ * @wheelroom
+ *   {@plugin contentful} {@type action}
  */
 export interface ContentfulAction {
   sys?: {
@@ -44,7 +45,8 @@ export interface ContentfulAsset {
 
 /**
  * Topic model, a heading, an abstract and a call to action
- * @wheelroom {@plugin contentful}
+ * @wheelroom
+ *   {@plugin contentful} {@type topic}
  */
 export interface ContentfulTopic {
   sys?: {

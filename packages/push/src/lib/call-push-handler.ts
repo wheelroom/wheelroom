@@ -1,6 +1,4 @@
-import { PushData } from './get-push-data'
-import { WrInterface } from './parse-wr-interface'
-import { WrVariable } from './parse-wr-variable'
+import { InterfaceData, PushData } from './get-push-data'
 
 export type CallType = 'pushModels' | 'pushContent'
 
@@ -11,12 +9,7 @@ export interface CallPushHandler {
 
 export type PushHandler = (args: {
   callType: CallType
-  pushData?: {
-    [typeName: string]: {
-      interfaces: WrInterface[]
-      variables: WrVariable[]
-    }
-  }
+  pushData?: InterfaceData
 }) => Promise<void>
 
 export interface Module {
@@ -36,7 +29,8 @@ export const callPushHandler = async ({
     try {
       module = <Module>await import(moduleName)
     } catch (e) {
-      console.log(`Could not find plugin ${pluginName} => ${moduleName}`)
+      console.log(`Could not find plugin ${pluginName} => ${moduleName}\n${e}`)
+      process.exit(1)
     }
 
     if (module.handler) {

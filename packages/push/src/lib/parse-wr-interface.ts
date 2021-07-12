@@ -7,10 +7,13 @@ import { isExportedDeclaration } from './is-exported-declaration'
 
 export type WrInterface = {
   description?: string
-  pluginName?: string
-  fields?: {
+  /** The inline tags defined within the @wheelroom tag for each field */
+  fieldTags?: {
     [fieldName: string]: Record<string, string>
   }
+  /** The inline tags defined within the @wheelroom tagon the interface */
+  interfaceTags?: Record<string, string>
+  /** The typescript type of the interface  */
   typeName?: string
 }
 
@@ -19,11 +22,12 @@ const getInlineTags = ({
 }: {
   search: string
 }): Record<string, string> => {
-  const matches = search.matchAll(/{.*(@[a-zA-z0-9]+) +([^{}]*).*}/g)
-  return Array.from(matches).reduce(
+  const matches = search.matchAll(/{(@[a-zA-z0-9]+) +([^{}]*)}/g)
+  const tags = Array.from(matches).reduce(
     (result, match) => ({ ...result, [match[1]]: match[2] }),
     {}
   )
+  return tags
 }
 
 const getTextSymbol = ({ symbols }: { symbols?: SymbolDisplayPart[] }) => {
@@ -66,7 +70,7 @@ export const parseWrInterface = ({
   if (!docProperty.name) return
   wrInterface.typeName = docProperty.name
   if (!docProperty.jSDocTags?.length) {
-    console.log(`${wrInterface.typeName} - Skipping model, no TSDoc tags`)
+    console.log(`Warning: Skippig ${wrInterface.typeName} model, no TSDoc tags`)
     return
   }
   const wheelroomTag = getTagByName({
@@ -75,27 +79,33 @@ export const parseWrInterface = ({
   })
   if (!wheelroomTag) {
     console.log(
-      `${wrInterface.typeName} - Skipping model, no @wheelroom block tag`
+      `Warning: Skippig ${wrInterface.typeName} model, no @wheelroom block tag`
     )
     return
   }
   const text = getTextSymbol({ symbols: wheelroomTag.text })
   const tags = getInlineTags({ search: text })
-  const pluginName = tags['@plugin']
 
-  if (!pluginName) {
+  if (!tags['@plugin']) {
     console.log(
-      `${wrInterface.typeName} - Skipping model, no @pluginName inline tag`
+      `Warning: Skippig ${wrInterface.typeName} model, no @plugin inline tag`
     )
     return
   }
-  wrInterface.pluginName = pluginName
+
+  if (!tags['@type']) {
+    console.log(
+      `Warning: Skippig ${wrInterface.typeName} model, no @type inline tag`
+    )
+    return
+  }
+  wrInterface.interfaceTags = tags
 
   const description = getTextSymbol({
     symbols: docProperty.documentationComment,
   })
   wrInterface.description = description
-  wrInterface.fields = {}
+  wrInterface.fieldTags = {}
   docProperty.docProperties?.forEach((docProperty: DocProperty) => {
     const wheelroomTag = getTagByName({
       tags: docProperty.jSDocTags,
@@ -104,10 +114,10 @@ export const parseWrInterface = ({
     if (wheelroomTag) {
       const text = getTextSymbol({ symbols: wheelroomTag.text })
       const tags = getInlineTags({ search: text })
-      wrInterface.fields![docProperty.name || 'unknown'] = tags
+      wrInterface.fieldTags![docProperty.name || 'unknown'] = tags
     } else {
       console.log(
-        `${wrInterface.typeName}/${docProperty.name} - Skipping field, no @wheelroom block tag`
+        `Warning: Skippig ${docProperty.name} field of ${wrInterface.typeName} model, no @wheelroom block tag`
       )
     }
   })
