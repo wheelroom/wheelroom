@@ -70,16 +70,21 @@ export const parseWrInterface = ({
   if (!docProperty.name) return
   wrInterface.typeName = docProperty.name
   if (!docProperty.jSDocTags?.length) {
-    console.log(`Warning: Skippig ${wrInterface.typeName} model, no TSDoc tags`)
+    console.log(`Warning: Skippig ${wrInterface.typeName}, no TSDoc tags`)
     return
   }
   const wheelroomTag = getTagByName({
     tags: docProperty.jSDocTags,
     name: 'wheelroom',
   })
+  /**
+   * Checking for tags. Only check the tags that are required for exporting to a
+   * plugin. That makes the @wheelroom block tag and the @plugin inline tag
+   * required. All others like @type are optional at this point.
+   */
   if (!wheelroomTag) {
     console.log(
-      `Warning: Skippig ${wrInterface.typeName} model, no @wheelroom block tag`
+      `Warning: Skippig ${wrInterface.typeName}, no @wheelroom block tag`
     )
     return
   }
@@ -88,17 +93,11 @@ export const parseWrInterface = ({
 
   if (!tags['@plugin']) {
     console.log(
-      `Warning: Skippig ${wrInterface.typeName} model, no @plugin inline tag`
+      `Warning: Skippig ${wrInterface.typeName}, no @plugin inline tag`
     )
     return
   }
 
-  if (!tags['@type']) {
-    console.log(
-      `Warning: Skippig ${wrInterface.typeName} model, no @type inline tag`
-    )
-    return
-  }
   wrInterface.interfaceTags = tags
 
   const description = getTextSymbol({
@@ -117,7 +116,7 @@ export const parseWrInterface = ({
       wrInterface.fieldTags![docProperty.name || 'unknown'] = tags
     } else {
       console.log(
-        `Warning: Skippig ${docProperty.name} field of ${wrInterface.typeName} model, no @wheelroom block tag`
+        `Warning: Skippig ${docProperty.name} field of ${wrInterface.typeName}, no @wheelroom block tag`
       )
     }
   })

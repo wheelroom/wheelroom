@@ -9,17 +9,22 @@
     {
       "allowMultiple": false,
       "syntaxKind": "inline",
-      "tagName": "@arrayType"
-    },
-    {
-      "allowMultiple": false,
-      "syntaxKind": "inline",
       "tagName": "@displayField"
     },
     {
       "allowMultiple": false,
       "syntaxKind": "inline",
       "tagName": "@helpText"
+    },
+    {
+      "allowMultiple": false,
+      "syntaxKind": "inline",
+      "tagName": "@itemsType"
+    },
+    {
+      "allowMultiple": false,
+      "syntaxKind": "inline",
+      "tagName": "@itemsLinkType"
     },
     {
       "allowMultiple": false,

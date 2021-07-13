@@ -56,7 +56,7 @@ export interface ContentfulTopic {
   abstract?: string
   /**
    * @wheelroom
-   *   {@type Array} {@arrayType Link} {@linkType ContentfulAction}
+   *   {@type Array} {@itemsType Link} {@itemsLinkType Entry}
    */
   actionsCollection?: {
     items: ContentfulAction[]
@@ -67,7 +67,7 @@ export interface ContentfulTopic {
   icon?: string
   /**
    * @wheelroom
-   *   {@type Array} {@arrayType Link} {@linkType Asset}
+   *   {@type Array} {@itemsType Link} {@itemsLinkType Asset}
    */
   mediaCollection?: {
     items: ContentfulAsset[]

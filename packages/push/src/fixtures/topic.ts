@@ -5,7 +5,7 @@ console.log(refA, refB)
 /**
  * Topic model, a heading, an abstract and a call to action
  * @wheelroom
- *   {@plugin contentful} {@type topic}
+ *   {@plugin contentful} {@type testTopic} {@displayField heading}
  */
 export interface ContentfulTopic {
   sys?: {
@@ -14,8 +14,9 @@ export interface ContentfulTopic {
   /** @wheelroom {@type Symbol} */
   abstract?: string
   /**
+   * Can we access the description field here?
    * @wheelroom
-   *   {@type Array} {@arrayType Link} {@linkType ContentfulAction}
+   *   {@type Array} {@itemsType Link} {@itemsLinkType Entry}
    */
   actionsCollection?: {
     items: ContentfulAction[]
@@ -26,7 +27,7 @@ export interface ContentfulTopic {
   icon?: string
   /**
    * @wheelroom
-   *   {@type Array} {@arrayType Link} {@linkType Asset}
+   *   {@type Array} {@itemsType Link} {@itemsLinkType Asset}
    */
   mediaCollection?: {
     items: ContentfulAsset[]
