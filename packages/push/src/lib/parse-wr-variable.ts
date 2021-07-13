@@ -6,6 +6,7 @@ export type WrVariable = {
   isArray?: boolean
   isObject?: boolean
   isExported?: boolean
+  isTyped?: boolean
   name?: string
   type?: string
   value?: string
@@ -49,8 +50,9 @@ export const parseWrVariable = ({ node, sourceFile }: ParseWrVariable) => {
             })
             if (arrayType) arrayType = arrayType.replace('[]', '')
             wrVariable.fileName = path.resolve(sourceFile.fileName)
-            wrVariable.isArray = !!arrayType && !!arrayValue
-            wrVariable.isObject = !!objectType && !!objectValue
+            wrVariable.isArray = !!arrayValue
+            wrVariable.isObject = !!objectValue
+            wrVariable.isTyped = !!arrayType || !!objectType
             wrVariable.name = name
             wrVariable.type = arrayType || objectType
             wrVariable.value = arrayValue || objectValue

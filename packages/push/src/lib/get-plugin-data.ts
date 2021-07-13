@@ -10,7 +10,10 @@ export type TypeData = {
 }
 
 export type PluginData = {
-  [pluginName: string]: TypeData
+  [pluginName: string]: {
+    types: TypeData
+    dataVar: WrVariable
+  }
 }
 
 export interface GetPluginData {
@@ -21,6 +24,7 @@ export const getPluginData = ({ program }: GetPluginData) => {
   const wrInterfaceList: PluginData = {}
   const checker = program.getTypeChecker()
 
+  let dataVar = {}
   for (const sourceFile of program.getSourceFiles()) {
     if (sourceFile.isDeclarationFile) continue
     console.log('========\nProcessing source file:', sourceFile.fileName)
@@ -31,39 +35,48 @@ export const getPluginData = ({ program }: GetPluginData) => {
       const wrInterface = parseWrInterface({ node, checker })
       if (wrInterface) wrInterfaces.push(wrInterface)
       const wrVariable = parseWrVariable({ node, sourceFile })
-      if (wrVariable.isArray && wrVariable.isExported)
+      if (wrVariable.name === 'wheelroomPluginData') {
+        dataVar = wrVariable
+      } else if (wrVariable.isArray && wrVariable.isExported) {
         wrVariables.push(wrVariable)
-      if (wrVariable.isObject)
+      } else if (!wrVariable.isArray) {
         console.log(
           `Warning: Skipping variable ${wrVariable.name} because it is not an array`
         )
-      if (wrVariable.isArray && !wrVariable.isExported)
-        console.log(
-          `Warning: Skipping variable ${wrVariable.name} because it is not exported`
-        )
+      } else {
+        if (!wrVariable.isExported)
+          console.log(
+            `Warning: Skipping variable ${wrVariable.name} because it is not exported`
+          )
+      }
     })
-    // Order interfaces by interface and typ
+    // Order interfaces by interface and type
     for (const wrInterface of wrInterfaces) {
       const pluginName = (wrInterface?.interfaceTags || {})['@plugin']
       if (!pluginName) continue
       if (!wrInterface.typeName) continue
-      if (!wrInterfaceList[pluginName]) wrInterfaceList[pluginName] = {}
-      if (!wrInterfaceList[pluginName][wrInterface.typeName]) {
-        wrInterfaceList[pluginName][wrInterface.typeName] = {
+      if (!wrInterfaceList[pluginName])
+        wrInterfaceList[pluginName] = {
+          types: {},
+          dataVar: {},
+        }
+      if (!wrInterfaceList[pluginName].types[wrInterface.typeName]) {
+        wrInterfaceList[pluginName].types[wrInterface.typeName] = {
           interface: {},
           variables: [],
         }
       }
 
-      wrInterfaceList[pluginName][wrInterface.typeName].interface = wrInterface
+      wrInterfaceList[pluginName].types[wrInterface.typeName].interface =
+        wrInterface
     }
     // Merge in variables
     for (const wrVariable of wrVariables) {
       let lookupSuccess = false
-      for (const interfaceTypes of Object.values(wrInterfaceList)) {
-        const interfaceType = wrVariable.type || ''
-        if (Object.keys(interfaceTypes).includes(interfaceType)) {
-          interfaceTypes[interfaceType].variables.push(wrVariable)
+      for (const pluginData of Object.values(wrInterfaceList)) {
+        const interfaceType = wrVariable.type || '<none>'
+        if (Object.keys(pluginData.types).includes(interfaceType)) {
+          pluginData.types[interfaceType].variables.push(wrVariable)
           lookupSuccess = true
         }
       }
@@ -74,5 +87,9 @@ export const getPluginData = ({ program }: GetPluginData) => {
       }
     }
   }
+  // Add dataVar to all plugins
+  Object.values(wrInterfaceList).forEach(
+    (pluginData) => (pluginData.dataVar = dataVar)
+  )
   return wrInterfaceList
 }

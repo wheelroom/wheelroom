@@ -4,12 +4,12 @@ import { config } from 'dotenv'
 import contentful from 'contentful-management'
 import { ContentFields, FieldType } from 'contentful-management/types'
 
-export const handler: PushHandler = async ({ typeData }) => {
+export const handler: PushHandler = async ({ pluginData }) => {
   const nodeEnv = process.env.NODE_ENV || 'development'
   const envPath = `.env.${nodeEnv}`
   config({ path: envPath })
   console.log(`============ Starting Contentful plugin`)
-  if (!typeData) return
+  if (!pluginData) return
   console.log(`Wheelroom project: ${process.env.WHEELROOM_PROJECT_NAME}`)
 
   const client = contentful.createClient({
@@ -18,7 +18,7 @@ export const handler: PushHandler = async ({ typeData }) => {
   const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID!)
   const environment = await space.getEnvironment('master')
 
-  for (const wrType of Object.values(typeData)) {
+  for (const wrType of Object.values(pluginData.types)) {
     const interfaceFieldTags = wrType.interface.fieldTags || {}
     const interfaceTags = wrType.interface.interfaceTags || {}
 
@@ -125,5 +125,8 @@ export const handler: PushHandler = async ({ typeData }) => {
         inspect(valueArray, false, 10, true)
       )
     }
+    const dataFn = new Function(`return ${pluginData.dataVar.value}`)
+    const dataObj = dataFn()
+    console.log('Data var received', inspect(dataObj, false, 10, true))
   }
 }

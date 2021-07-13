@@ -84,11 +84,15 @@ const notExported: ContentfulTopic[] = [
 ]
 
 type NotTagged = { thisVariable: string }
-export const notTaggedVariable: NotTagged[] = [
+export const notTaggedArray: NotTagged[] = [
   {
     thisVariable: 'is not tagged',
   },
 ]
+
+export const notTaggedObject: NotTagged = {
+  thisVariable: 'is not tagged',
+}
 
 export const wheelroomPluginData = {
   contentful: {

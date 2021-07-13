@@ -1,4 +1,4 @@
-import { WrInterface } from './parse-wr-interface'
+import { TypeData } from './get-plugin-data'
 import { WrVariable } from './parse-wr-variable'
 
 export type CallType = 'pullModels' | 'pullContent'
@@ -13,10 +13,8 @@ export type PullHandler = (args: {
   callType: CallType
   path: string
   pluginData?: {
-    [typeName: string]: {
-      interfaces: WrInterface[]
-      variables: WrVariable[]
-    }
+    types: TypeData
+    dataVar: WrVariable
   }
 }) => Promise<void>
 

@@ -1,4 +1,5 @@
 import { TypeData, PluginData } from './get-plugin-data'
+import { WrVariable } from './parse-wr-variable'
 
 export type CallType = 'pushModels' | 'pushContent'
 
@@ -9,7 +10,10 @@ export interface CallPushHandler {
 
 export type PushHandler = (args: {
   callType: CallType
-  typeData?: TypeData
+  pluginData?: {
+    types: TypeData
+    dataVar: WrVariable
+  }
 }) => Promise<void>
 
 export interface Module {
@@ -34,7 +38,7 @@ export const callPushHandler = async ({
     }
 
     if (module.handler) {
-      await module.handler({ typeData: pluginData[pluginName], callType })
+      await module.handler({ pluginData: pluginData[pluginName], callType })
     } else {
       console.log(
         `Could not find "handler" method on plugin ${pluginName} => ${moduleName}`
