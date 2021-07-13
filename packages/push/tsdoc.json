@@ -2,59 +2,64 @@
   "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
   "tagDefinitions": [
     {
-      "tagName": "@wheelroom",
+      "allowMultiple": false,
       "syntaxKind": "block",
-      "allowMultiple": false
+      "tagName": "@wheelroom"
     },
     {
-      "tagName": "@plugin",
+      "allowMultiple": false,
       "syntaxKind": "inline",
-      "allowMultiple": false
+      "tagName": "@arrayType"
     },
     {
-      "tagName": "@type",
+      "allowMultiple": false,
       "syntaxKind": "inline",
-      "allowMultiple": false
+      "tagName": "@displayField"
     },
     {
-      "tagName": "@arrayType",
+      "allowMultiple": false,
       "syntaxKind": "inline",
-      "allowMultiple": false
+      "tagName": "@helpText"
     },
     {
-      "tagName": "@linkType",
+      "allowMultiple": false,
       "syntaxKind": "inline",
-      "allowMultiple": false
+      "tagName": "@linkType"
     },
     {
-      "tagName": "@localized",
+      "allowMultiple": false,
       "syntaxKind": "inline",
-      "allowMultiple": false
+      "tagName": "@localized"
     },
     {
-      "tagName": "@required",
+      "allowMultiple": false,
       "syntaxKind": "inline",
-      "allowMultiple": false
+      "tagName": "@name"
     },
     {
-      "tagName": "@validation",
+      "allowMultiple": false,
       "syntaxKind": "inline",
-      "allowMultiple": true
+      "tagName": "@plugin"
     },
     {
-      "tagName": "@name",
+      "allowMultiple": false,
       "syntaxKind": "inline",
-      "allowMultiple": false
+      "tagName": "@required"
     },
     {
-      "tagName": "@helpText",
+      "allowMultiple": false,
       "syntaxKind": "inline",
-      "allowMultiple": false
+      "tagName": "@type"
     },
     {
-      "tagName": "@widget",
+      "allowMultiple": true,
       "syntaxKind": "inline",
-      "allowMultiple": false
+      "tagName": "@validation"
+    },
+    {
+      "allowMultiple": false,
+      "syntaxKind": "inline",
+      "tagName": "@widget"
     }
   ]
 }
