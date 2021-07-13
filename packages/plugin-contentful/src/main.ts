@@ -127,25 +127,3 @@ export const handler: PushHandler = async ({ typeData }) => {
     }
   }
 }
-
-export const validations = [
-  { in: ['item A', 'item B', 'item C'] },
-  { linkMimetypeGroup: ['image', 'video'] },
-  { linkContentType: ['page', 'firstSection', 'secondSection'] },
-  { size: { max: 155, min: 0 } },
-  {
-    message: 'Please use camel case: onlyCamelCaseAllowed',
-    regexp: { pattern: '^[a-z]+([A-Z][a-z0-9]+)*$' },
-  },
-  {
-    message: 'Please use a valid path: /this/is/a/valid/path/with/:slug',
-    regexp: { pattern: '^\\/[a-z0-9:\\._/~%\\-\\+&\\#\\?!=\\(\\)@]*$' },
-  },
-  {
-    message: 'Please use a valid url: https://this/is/a/valid/url',
-    regexp: {
-      pattern:
-        '^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$',
-    },
-  },
-]

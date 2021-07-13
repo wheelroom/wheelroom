@@ -5,34 +5,52 @@ console.log(refA, refB)
 /**
  * Topic model, a heading, an abstract and a call to action
  * @wheelroom
- *   {@plugin contentful} {@type testTopic} {@displayField heading}
+ * - {@plugin contentful}
+ * - {@type testTopic}
+ * - {@displayField heading}
  */
 export interface ContentfulTopic {
   sys?: {
     id: string
   }
-  /** @wheelroom {@type Symbol} */
+
+  /** @wheelroom
+   * - {@type Symbol}
+   * - {@validation shortString} */
   abstract?: string
+
   /**
    * Can we access the description field here?
    * @wheelroom
-   *   {@type Array} {@itemsType Link} {@itemsLinkType Entry}
+   * - {@type Array}
+   * - {@itemsType Link}
+   * - {@itemsLinkType Entry}
+   * - {@validation action}
    */
   actionsCollection?: {
     items: ContentfulAction[]
   }
+
   /** @wheelroom {@type Symbol} */
   heading?: string
+
   /** @wheelroom {@type Symbol} */
   icon?: string
+
   /**
    * @wheelroom
-   *   {@type Array} {@itemsType Link} {@itemsLinkType Asset}
+   *  - {@type Array}
+   *  - {@itemsType Link}
+   *  - {@itemsLinkType Asset}
    */
   mediaCollection?: {
     items: ContentfulAsset[]
   }
-  /** @wheelroom {@type Link} {@linkType Asset} */
+
+  /** @wheelroom
+   * - {@type Link}
+   * - {@linkType Asset}
+   */
   poster?: ContentfulAsset
 }
 
@@ -70,3 +88,29 @@ export const notTaggedVariable: NotTagged[] = [
     thisVariable: 'is not tagged',
   },
 ]
+
+export const wheelroomPluginData = {
+  contentful: {
+    validations: {
+      dropdown: { in: ['item A', 'item B', 'item C'] },
+      media: { linkMimetypeGroup: ['image', 'video'] },
+      action: { linkContentType: ['action'] },
+      shortString: { size: { max: 155, min: 0 } },
+      camelCase: {
+        message: 'Please use camel case: onlyCamelCaseAllowed',
+        regexp: { pattern: '^[a-z]+([A-Z][a-z0-9]+)*$' },
+      },
+      path: {
+        message: 'Please use a valid path: /this/is/a/valid/path/with/:slug',
+        regexp: { pattern: '^\\/[a-z0-9:\\._/~%\\-\\+&\\#\\?!=\\(\\)@]*$' },
+      },
+      url: {
+        message: 'Please use a valid url: https://this/is/a/valid/url',
+        regexp: {
+          pattern:
+            '^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$',
+        },
+      },
+    },
+  },
+}
