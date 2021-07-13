@@ -3,11 +3,12 @@ import { ContentfulAsset, refA } from './asset'
 
 console.log(refA, refB)
 /**
- * Topic model, a heading, an abstract and a call to action
+ * This desciption is not used
  * @wheelroom
  * - {@plugin contentful}
  * - {@type testTopic}
  * - {@displayField heading}
+ * - {@description Topic model, a heading, an abstract and a call to action}
  */
 export interface ContentfulTopic {
   sys?: {
@@ -20,12 +21,12 @@ export interface ContentfulTopic {
   abstract?: string
 
   /**
-   * Can we access the description field here?
    * @wheelroom
    * - {@type Array}
    * - {@itemsType Link}
    * - {@itemsLinkType Entry}
    * - {@validation action}
+   * - {@description Action field, this is the description}
    */
   actionsCollection?: {
     items: ContentfulAction[]

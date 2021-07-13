@@ -6,7 +6,6 @@ import {
 import { isExportedDeclaration } from './is-exported-declaration'
 
 export type WrInterface = {
-  description?: string
   /** The inline tags defined within the @wheelroom tag for each field */
   fieldTags?: {
     [fieldName: string]: Record<string, string>
@@ -100,10 +99,14 @@ export const parseWrInterface = ({
 
   wrInterface.interfaceTags = tags
 
-  const description = getTextSymbol({
-    symbols: docProperty.documentationComment,
-  })
-  wrInterface.description = description
+  // We use @description instead, because this description only works for the
+  // interface header, not for the field descriptions
+  //
+  // const description = getTextSymbol({
+  //   symbols: docProperty.documentationComment,
+  // })
+  // wrInterface.description = description
+
   wrInterface.fieldTags = {}
   docProperty.docProperties?.forEach((docProperty: DocProperty) => {
     const wheelroomTag = getTagByName({

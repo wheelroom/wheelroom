@@ -9,6 +9,11 @@
     {
       "allowMultiple": false,
       "syntaxKind": "inline",
+      "tagName": "@description"
+    },
+    {
+      "allowMultiple": false,
+      "syntaxKind": "inline",
       "tagName": "@displayField"
     },
     {

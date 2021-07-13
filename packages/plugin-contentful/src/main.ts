@@ -91,7 +91,7 @@ export const handler: PushHandler = async ({ typeData }) => {
 
     const contentTypeData = {
       name: wrType.interface.typeName || 'No name',
-      description: wrType.interface.description,
+      description: interfaceTags['@description'],
       displayField: interfaceTags['@displayField'],
       fields,
     }
