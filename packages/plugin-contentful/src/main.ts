@@ -16,6 +16,10 @@ export type WheelroomPluginData = {
   }
 }
 
+// TODO: Refactor
+// - Respect callType
+// - Split up in separate methods
+// - Split up in separate files
 export const handler: PushHandler = async ({ pluginData }) => {
   const nodeEnv = process.env.NODE_ENV || 'development'
   const envPath = `.env.${nodeEnv}`
