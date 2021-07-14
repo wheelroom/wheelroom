@@ -2,7 +2,19 @@ import { inspect } from 'util'
 import { PushHandler } from '@wheelroom/push/plain'
 import { config } from 'dotenv'
 import contentful from 'contentful-management'
-import { ContentFields, FieldType } from 'contentful-management/types'
+import {
+  ContentFields,
+  FieldType,
+  ContentTypeFieldValidation,
+} from 'contentful-management/types'
+
+export type WheelroomPluginData = {
+  contentful?: {
+    validations?: {
+      [validationName: string]: ContentTypeFieldValidation
+    }
+  }
+}
 
 export const handler: PushHandler = async ({ pluginData }) => {
   const nodeEnv = process.env.NODE_ENV || 'development'
@@ -12,6 +24,12 @@ export const handler: PushHandler = async ({ pluginData }) => {
   if (!pluginData) return
   console.log(`Wheelroom project: ${process.env.WHEELROOM_PROJECT_NAME}`)
 
+  // Get data var and valildations
+  const dataVarFn = new Function(`return ${pluginData.dataVar.value}`)
+  const dataVarObj = dataVarFn() as WheelroomPluginData
+  const validationsMap = dataVarObj.contentful?.validations || {}
+
+  // Contentful client
   const client = contentful.createClient({
     accessToken: process.env.CONTENTFUL_CMA_TOKEN!,
   })
@@ -60,7 +78,18 @@ export const handler: PushHandler = async ({ pluginData }) => {
         )
         continue
       }
-
+      // TODO: Add support for multiple validations
+      const validations = []
+      if (fieldTag['@validation']) {
+        console.log(`Adding validation ${fieldTag['@validation']}`)
+        if (fieldTag['@validation'] in validationsMap) {
+          validations.push(validationsMap[fieldTag['@validation']])
+        } else {
+          console.log(
+            `Warning: validation ${fieldTag['@validation']} not found`
+          )
+        }
+      }
       const newField: ContentFields = {
         id: fieldId,
         // initialValue: { key: 'value' },
@@ -70,11 +99,15 @@ export const handler: PushHandler = async ({ pluginData }) => {
         required: '@required' in fieldTag,
         type: fieldTag['@type'] as FieldType['type'],
       }
+      // Add validations to Array items if type === Array
       if (fieldTag['@type'] === 'Array') {
         newField.items = {
           type: fieldTag['@itemsType'],
           linkType: fieldTag['@itemsLinkType'],
+          validations,
         }
+      } else {
+        newField.validations = validations
       }
       fields.push(newField)
       if (fieldTag['@widget'] || fieldTag['@helpText']) {
@@ -95,6 +128,7 @@ export const handler: PushHandler = async ({ pluginData }) => {
       displayField: interfaceTags['@displayField'],
       fields,
     }
+    // console.log(inspect(contentTypeData, false, 10, true))
     let contentType
     try {
       // Fetch exiting and update
@@ -102,7 +136,15 @@ export const handler: PushHandler = async ({ pluginData }) => {
       console.log(`Contentful API, updating existing ${interfaceTags['@type']}`)
       Object.assign(contentType, contentTypeData)
       contentType = await contentType.update()
-    } catch (e) {
+    } catch (contentfulError) {
+      let errorData
+      // We expect a 404, throw other errors if they occur
+      try {
+        errorData = JSON.parse(contentfulError.message)
+        if (errorData.status !== 404) throw contentfulError
+      } catch (jsonError) {
+        throw contentfulError
+      }
       // Create a new content type
       console.log(`Contentful API, creating new ${interfaceTags['@type']}`)
       contentType = await environment.createContentTypeWithId(
@@ -125,8 +167,5 @@ export const handler: PushHandler = async ({ pluginData }) => {
         inspect(valueArray, false, 10, true)
       )
     }
-    const dataFn = new Function(`return ${pluginData.dataVar.value}`)
-    const dataObj = dataFn()
-    console.log('Data var received', inspect(dataObj, false, 10, true))
   }
 }

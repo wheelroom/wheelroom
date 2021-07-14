@@ -1,3 +1,4 @@
+import { WheelroomPluginData } from '@wheelroom/plugin-contentful/plain'
 import { ContentfulAction, refB } from './action'
 import { ContentfulAsset, refA } from './asset'
 
@@ -94,7 +95,7 @@ export const notTaggedObject: NotTagged = {
   thisVariable: 'is not tagged',
 }
 
-export const wheelroomPluginData = {
+export const wheelroomPluginData: WheelroomPluginData = {
   contentful: {
     validations: {
       dropdown: { in: ['item A', 'item B', 'item C'] },
@@ -102,18 +103,19 @@ export const wheelroomPluginData = {
       action: { linkContentType: ['action'] },
       shortString: { size: { max: 155, min: 0 } },
       camelCase: {
-        message: 'Please use camel case: onlyCamelCaseAllowed',
-        regexp: { pattern: '^[a-z]+([A-Z][a-z0-9]+)*$' },
+        regexp: { pattern: '^[a-z]+([A-Z][a-z0-9]+)*$', flags: '' },
       },
       path: {
-        message: 'Please use a valid path: /this/is/a/valid/path/with/:slug',
-        regexp: { pattern: '^\\/[a-z0-9:\\._/~%\\-\\+&\\#\\?!=\\(\\)@]*$' },
+        regexp: {
+          pattern: '^\\/[a-z0-9:\\._/~%\\-\\+&\\#\\?!=\\(\\)@]*$',
+          flags: '',
+        },
       },
       url: {
-        message: 'Please use a valid url: https://this/is/a/valid/url',
         regexp: {
           pattern:
             '^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$',
+          flags: '',
         },
       },
     },

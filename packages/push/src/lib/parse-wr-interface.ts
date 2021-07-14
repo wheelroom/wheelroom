@@ -16,6 +16,7 @@ export type WrInterface = {
   typeName?: string
 }
 
+// TODO: Don't overwrite tags when the same tag exists multiple times
 const getInlineTags = ({
   search,
 }: {
