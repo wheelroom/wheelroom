@@ -48,7 +48,7 @@ export const refreshTokenGrant = async ({
     })
   }
 
-  if (Date.now() > knmownToken.refreshTokenExpiresAt.getTime() * 1000) {
+  if (Date.now() > knmownToken.refreshTokenExpiresAt.getTime()) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'Refresh token was revoked',

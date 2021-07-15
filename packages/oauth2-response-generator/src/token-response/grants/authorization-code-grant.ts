@@ -58,7 +58,7 @@ export const authorizationCodeGrant = async ({
     })
   }
 
-  if (Date.now() > knownAuthCode.expiresAt.getTime() * 1000) {
+  if (Date.now() > knownAuthCode.expiresAt.getTime()) {
     throw invalidRequestErrorFactory({
       arg: 'code',
       description: 'Code JWT was revoked',
