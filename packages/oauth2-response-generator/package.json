@@ -1,6 +1,6 @@
 {
   "name": "@wheelroom/oauth2-response-generator",
-  "version": "6.27.7",
+  "version": "6.27.8",
   "description": "Oauth 2.0 server",
   "keywords": [
     "any",
