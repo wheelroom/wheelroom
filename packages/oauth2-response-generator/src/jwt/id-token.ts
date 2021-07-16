@@ -9,7 +9,6 @@ export interface CreateIdTokenPayload {
   nonce?: string
   notBeforeSeconds: number
   userEmail: string
-  userEmailVerified: boolean
   userId: string
   userName: string
 }
@@ -22,14 +21,12 @@ export const createIdTokenPayload = ({
   nonce,
   notBeforeSeconds,
   userEmail,
-  userEmailVerified,
   userId,
   userName,
 }: CreateIdTokenPayload) => {
   const payload: JWT = {
     aud: clientId,
     cid: clientId,
-    email_verified: userEmailVerified,
     email: userEmail,
     exp: expiresAtSeconds,
     iat: issuedAtSeconds,

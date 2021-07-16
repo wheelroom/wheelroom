@@ -78,7 +78,6 @@ export const tokenResponseParametersFactory = async ({
     nonce: knownAuthCode?.nonce,
     notBeforeSeconds: Math.ceil(Date.now() / 1000) - 5,
     userEmail: user.email,
-    userEmailVerified: true,
     userId: user.id,
     userName: 'not implemented',
   })
