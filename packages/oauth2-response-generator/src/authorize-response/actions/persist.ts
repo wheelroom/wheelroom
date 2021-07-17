@@ -33,11 +33,11 @@ export const persist = async ({
   jwtApi,
   req,
 }: Persist): Promise<AuthCodeCollection> => {
-  const codeToken = req.body['code']
+  const codeToken = req.query['code']
   if (typeof codeToken !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'code',
-      description: 'Code body parameter is required',
+      description: 'Code query parameter is required',
     })
   }
 
