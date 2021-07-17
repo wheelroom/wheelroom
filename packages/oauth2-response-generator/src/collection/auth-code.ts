@@ -1,13 +1,10 @@
-import { ClientCollection } from './client'
-import { ScopeCollection } from './scope'
-
 export interface AuthCodeCollection {
-  client: ClientCollection
+  clientId: string
   id: string
   codeChallenge: string
   codeChallengeMethod: string
   expiresAt: Date
   nonce: string
   redirectUri: string
-  scopes: ScopeCollection[]
+  scopes: string[]
 }

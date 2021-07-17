@@ -13,6 +13,7 @@ import { CodeTokenPayload } from '../../jwt/code-token'
 import { ResponseToSend } from '../../lib/response'
 import { tokenResponseParametersFactory } from '../parameters/token-response-parameters-factory'
 import { TokenResponse } from '../token-response'
+import { requestToScopes } from '../../../build/lib/request-to-scopes'
 
 export const authorizationCodeGrant = async ({
   audience,
@@ -43,7 +44,7 @@ export const authorizationCodeGrant = async ({
   if (typeof codeTokenPayload.auth_code_id !== 'string') {
     throw invalidRequestErrorFactory({
       arg: 'code',
-      description: 'auth_code field in code JWT is required',
+      description: 'auth_code_id field in code JWT is required',
     })
   }
   const knownAuthCode = await collectionApi.authCode.get({
@@ -103,6 +104,7 @@ export const authorizationCodeGrant = async ({
 
   const client = await requestToClient({ collectionApi, req })
   const redirectUri = requestToRedirectUri({ client, req })
+  const scopes = await requestToScopes({ client, req })
 
   if (codeTokenPayload.client_id !== client.id) {
     throw invalidRequestErrorFactory({
@@ -129,9 +131,6 @@ export const authorizationCodeGrant = async ({
     userId: codeTokenPayload.user_id,
     req,
   })
-  // Don't get scopes from the request, use the ones that were saved during the
-  // autorize request.
-  const scopes = knownAuthCode.scopes
 
   const parameters = await tokenResponseParametersFactory({
     audience,

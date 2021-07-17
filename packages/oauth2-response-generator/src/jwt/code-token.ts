@@ -1,6 +1,6 @@
 export interface CreateCodeTokenPayload {
-  /** Auth code storage layer record id */
-  authCodeId: string
+  /** Auth code storage layer record id, added when the code has been persisted */
+  authCodeId?: string
   /** Client id claim */
   clientId: string
   /** Code challende string */
@@ -29,7 +29,7 @@ export interface CreateCodeTokenPayload {
 }
 
 export interface CodeTokenPayload {
-  auth_code_id: string
+  auth_code_id?: string
   client_id: string
   code_challenge_method: string
   code_challenge: string
