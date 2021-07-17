@@ -13,7 +13,7 @@ import { CodeTokenPayload } from '../../jwt/code-token'
 import { ResponseToSend } from '../../lib/response'
 import { tokenResponseParametersFactory } from '../parameters/token-response-parameters-factory'
 import { TokenResponse } from '../token-response'
-import { requestToScopes } from '../../../build/lib/request-to-scopes'
+import { requestToScopes } from '../../lib/request-to-scopes'
 
 export const authorizationCodeGrant = async ({
   audience,
