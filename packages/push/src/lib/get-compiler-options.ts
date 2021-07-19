@@ -4,7 +4,7 @@ export const getCompilerOptions = () => {
   const configFileName = ts.findConfigFile(
     './',
     ts.sys.fileExists,
-    'tsconfig.packages.json'
+    'tsconfig.json'
   )
   const configFile = ts.readConfigFile(configFileName || '', ts.sys.readFile)
   const compilerOptions = ts.parseJsonConfigFileContent(

@@ -60,7 +60,7 @@
     "build:compile": "rollup --config",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
-    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
+    "build:types": "tsc -p tsconfig.json --declaration --emitDeclarationOnly --declarationDir build",
     "clean": "rimraf build/*",
     "dev": "rollup --config --watch"
   },

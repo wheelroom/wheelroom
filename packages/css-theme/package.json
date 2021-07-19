@@ -64,7 +64,7 @@
     "build:compile": "rollup --config",
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
-    "build:types": "tsc -p tsconfig.packages.json --declaration --emitDeclarationOnly --declarationDir build",
+    "build:types": "tsc -p tsconfig.json --declaration --emitDeclarationOnly --declarationDir build",
     "clean": "rimraf build/*",
     "clean-npm": "find . -name node_modules | xargs rm -rf && find . -name package-lock.json | xargs rm -rf",
     "dev": "rollup --config --watch"

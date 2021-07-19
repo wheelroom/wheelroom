@@ -39,7 +39,7 @@ const external = Object.keys(globals)
      extensions: ['.js', '.ts'],
    }),
    // so Rollup can convert TypeScript to JavaScript
-   pluginTypescript({ tsconfig: 'tsconfig.packages.json' }),
+   pluginTypescript({ tsconfig: 'tsconfig.json' }),
    json(),
  ]
 
