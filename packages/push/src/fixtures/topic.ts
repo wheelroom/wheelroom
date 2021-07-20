@@ -114,7 +114,7 @@ export const wheelroomPluginData: WheelroomPluginData = {
       url: {
         regexp: {
           pattern:
-            '^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$',
+            '^(ftp|http|https|mailto):(\\/\\/)*(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$',
           flags: '',
         },
       },
