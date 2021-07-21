@@ -105,6 +105,13 @@ export const handler: PushHandler = async ({ pluginData }) => {
       }
       // Add validations to Array items if type === Array
       if (fieldTag['@type'] === 'Array') {
+        // Contentful adds the 'Collection' postfix to array types, this is why
+        // the Typescript definition includes a 'Collection' postfix. When
+        // creating the field, we should create the type without that postfix.
+        const collectionIndex = fieldId.indexOf('Collection')
+        const idWithoutPostfix =
+          collectionIndex > 0 ? fieldId.substring(0, collectionIndex) : fieldId
+        newField.id = idWithoutPostfix
         newField.items = {
           type: fieldTag['@itemsType'],
           linkType: fieldTag['@itemsLinkType'],
@@ -127,7 +134,11 @@ export const handler: PushHandler = async ({ pluginData }) => {
     }
 
     const contentTypeData = {
-      name: wrType.interface.typeName || 'No name',
+      name:
+        interfaceTags['@name'] ||
+        interfaceTags['@type'] ||
+        wrType.interface.typeName ||
+        'No name',
       description: interfaceTags['@description'],
       displayField: interfaceTags['@displayField'],
       fields,
