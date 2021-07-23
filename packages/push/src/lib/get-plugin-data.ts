@@ -37,17 +37,17 @@ export const getPluginData = ({ program }: GetPluginData) => {
       const wrVariable = parseWrVariable({ node, sourceFile })
       if (wrVariable.name === 'wheelroomPluginData') {
         dataVar = wrVariable
-      } else if (wrVariable.isArray && wrVariable.isExported) {
+      } else if (
+        wrVariable.name &&
+        wrVariable.isArray &&
+        wrVariable.isExported
+      ) {
         wrVariables.push(wrVariable)
-      } else if (!wrVariable.isArray) {
-        console.log(
-          `Warning: Skipping variable ${wrVariable.name} because it is not an array`
-        )
+      } else if (wrVariable.name && !wrVariable.isArray) {
+        console.log(`Content variable, not an array: ${wrVariable.name}`)
       } else {
-        if (!wrVariable.isExported)
-          console.log(
-            `Warning: Skipping variable ${wrVariable.name} because it is not exported`
-          )
+        if (wrVariable.name && !wrVariable.isExported)
+          console.log(`Content variable, not exported: ${wrVariable.name}`)
       }
     })
     // Order interfaces by interface and type
@@ -82,7 +82,7 @@ export const getPluginData = ({ program }: GetPluginData) => {
       }
       if (!lookupSuccess) {
         console.log(
-          `Warning: Could not match variable ${wrVariable.name} with type ${wrVariable.type} to an interface`
+          `Content variable, no type match: ${wrVariable.type}/${wrVariable.name}`
         )
       }
     }

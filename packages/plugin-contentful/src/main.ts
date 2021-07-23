@@ -20,6 +20,13 @@ export type WheelroomPluginData = {
   }
 }
 
+// export const handler: PushHandler = async () => {
+//   const nodeEnv = process.env.NODE_ENV || 'development'
+//   const envPath = `.env.${nodeEnv}`
+//   config({ path: envPath })
+//   console.log(`============ Starting DUMMY plugin`)
+// }
+
 // TODO: Refactor
 // - Respect callType
 // - Split up in separate methods
@@ -49,30 +56,34 @@ export const handler: PushHandler = async ({ pluginData }) => {
     const interfaceTags = wrType.interface.interfaceTags || {}
 
     console.log(`Processing: ${wrType.interface.typeName}...`)
+    if ('@ignore' in interfaceTags) {
+      continue
+    }
     if (!interfaceTags['@type']) {
-      console.log(
-        `Warning: Skippig ${wrType.interface.typeName}, no @type inline tag`
-      )
+      console.log(`No @type inline tag: ${wrType.interface.typeName}`)
       continue
     }
     const controls = []
     const fields = []
     for (const [fieldId, fieldTag] of Object.entries(interfaceFieldTags)) {
+      if ('@ignore' in fieldTag) {
+        continue
+      }
       if (!fieldTag['@type']) {
         console.log(
-          `Warning: Skippig ${fieldId} field of ${wrType.interface.typeName}, no @type inline tag`
+          `No @type inline tag:  ${wrType.interface.typeName}/${fieldId}`
         )
         continue
       }
       if (fieldTag['@type'] === 'Link' && !fieldTag['@linkType']) {
         console.log(
-          `Warning: Skippig ${fieldId} field of ${wrType.interface.typeName}, @type=Link without @linkType`
+          `@type=Link without @linkType: ${wrType.interface.typeName}/${fieldId}`
         )
         continue
       }
       if (fieldTag['@type'] === 'Array' && !fieldTag['@itemsType']) {
         console.log(
-          `Warning: Skippig ${fieldId} field of ${wrType.interface.typeName}, @type=Array without @itemsType`
+          `@type=Array without @itemsType: ${wrType.interface.typeName}/${fieldId}`
         )
         continue
       }
@@ -82,7 +93,7 @@ export const handler: PushHandler = async ({ pluginData }) => {
         !fieldTag['@itemsLinkType']
       ) {
         console.log(
-          `Warning: Skippig ${fieldId} field of ${wrType.interface.typeName}, @type=Array, @itemsType=Link without @itemsLinkType`
+          `@type=Array, @itemsType=Link without @itemsLinkType:  ${wrType.interface.typeName}/${fieldId}`
         )
         continue
       }

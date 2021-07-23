@@ -32,6 +32,9 @@ export const parseWrVariable = ({ node, sourceFile }: ParseWrVariable) => {
             let objectValue = ''
             let arrayValue = ''
             node.forEachChild((node) => {
+              if (node.kind === ts.SyntaxKind.VariableDeclaration) {
+                name = node.getText(sourceFile)
+              }
               if (node.kind === ts.SyntaxKind.Identifier) {
                 name = node.getText(sourceFile)
               }

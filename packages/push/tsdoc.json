@@ -19,6 +19,11 @@
     {
       "allowMultiple": false,
       "syntaxKind": "inline",
+      "tagName": "@ignore"
+    },
+    {
+      "allowMultiple": false,
+      "syntaxKind": "inline",
       "tagName": "@helpText"
     },
     {

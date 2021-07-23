@@ -22,7 +22,7 @@ const getInlineTags = ({
 }: {
   search: string
 }): Record<string, string> => {
-  const matches = search.matchAll(/{(@[a-zA-z0-9]+) +([^{}]*)}/g)
+  const matches = search.matchAll(/{(@[a-zA-z0-9]+) *([^{}]*)}/g)
   const tags = Array.from(matches).reduce(
     (result, match) => ({ ...result, [match[1]]: match[2] }),
     {}
@@ -70,7 +70,7 @@ export const parseWrInterface = ({
   if (!docProperty.name) return
   wrInterface.typeName = docProperty.name
   if (!docProperty.jSDocTags?.length) {
-    console.log(`Warning: Skippig ${wrInterface.typeName}, no TSDoc tags`)
+    console.log(`No TSDoc tags: ${wrInterface.typeName}`)
     return
   }
   const wheelroomTag = getTagByName({
@@ -83,18 +83,14 @@ export const parseWrInterface = ({
    * required. All others like @type are optional at this point.
    */
   if (!wheelroomTag) {
-    console.log(
-      `Warning: Skippig ${wrInterface.typeName}, no @wheelroom block tag`
-    )
+    console.log(`No @wheelroom block tag: ${wrInterface.typeName}`)
     return
   }
   const text = getTextSymbol({ symbols: wheelroomTag.text })
   const tags = getInlineTags({ search: text })
 
   if (!tags['@plugin']) {
-    console.log(
-      `Warning: Skippig ${wrInterface.typeName}, no @plugin inline tag`
-    )
+    console.log(`No @plugin inline tag: ${wrInterface.typeName}`)
     return
   }
 
@@ -120,7 +116,7 @@ export const parseWrInterface = ({
       wrInterface.fieldTags![docProperty.name || 'unknown'] = tags
     } else {
       console.log(
-        `Warning: Skippig ${docProperty.name} field of ${wrInterface.typeName}, no @wheelroom block tag`
+        `No @wheelroom block tag: ${wrInterface.typeName}/${docProperty.name}`
       )
     }
   })
