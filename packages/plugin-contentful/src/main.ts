@@ -1,5 +1,9 @@
 import { inspect } from 'util'
-import { PushHandler } from '@wheelroom/push/plain'
+import {
+  camelToSpaces,
+  firstUpperCase,
+  PushHandler,
+} from '@wheelroom/push/plain'
 import { config } from 'dotenv'
 import contentful from 'contentful-management'
 import {
@@ -94,24 +98,29 @@ export const handler: PushHandler = async ({ pluginData }) => {
           )
         }
       }
+
+      // Contentful adds the 'Collection' postfix to array types, this is why
+      // the Typescript definition includes a 'Collection' postfix. When
+      // creating the field, we should create the type without that postfix.
+      const collectionIndex = fieldId.indexOf('Collection')
+      const fieldIdWithoutPostfix =
+        collectionIndex > 0 ? fieldId.substring(0, collectionIndex) : fieldId
+      const humanReadableFieldId = firstUpperCase(
+        camelToSpaces(fieldIdWithoutPostfix)
+      )
+
       const newField: ContentFields = {
         id: fieldId,
         // initialValue: { key: 'value' },
         linkType: fieldTag['@linkType'],
         localized: '@localized' in fieldTag,
-        name: fieldTag['@name'] || fieldId, // TODO: Capitalize fieldId
+        name: fieldTag['@name'] || humanReadableFieldId,
         required: '@required' in fieldTag,
         type: fieldTag['@type'] as FieldType['type'],
       }
       // Add validations to Array items if type === Array
       if (fieldTag['@type'] === 'Array') {
-        // Contentful adds the 'Collection' postfix to array types, this is why
-        // the Typescript definition includes a 'Collection' postfix. When
-        // creating the field, we should create the type without that postfix.
-        const collectionIndex = fieldId.indexOf('Collection')
-        const idWithoutPostfix =
-          collectionIndex > 0 ? fieldId.substring(0, collectionIndex) : fieldId
-        newField.id = idWithoutPostfix
+        newField.id = fieldIdWithoutPostfix
         newField.items = {
           type: fieldTag['@itemsType'],
           linkType: fieldTag['@itemsLinkType'],
