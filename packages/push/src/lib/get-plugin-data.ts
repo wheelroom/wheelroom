@@ -1,4 +1,5 @@
 import ts from 'typescript'
+import chalk from 'chalk'
 import { parseWrInterface, WrInterface } from './parse-wr-interface'
 import { parseWrVariable, WrVariable } from './parse-wr-variable'
 
@@ -23,11 +24,12 @@ export interface GetPluginData {
 export const getPluginData = ({ program }: GetPluginData) => {
   const wrInterfaceList: PluginData = {}
   const checker = program.getTypeChecker()
+  const log = console.log
 
   let dataVar = {}
   for (const sourceFile of program.getSourceFiles()) {
     if (sourceFile.isDeclarationFile) continue
-    console.log('========\nProcessing source file:', sourceFile.fileName)
+    log(chalk.bold.underline('Processing source file:', sourceFile.fileName))
     const wrInterfaces: WrInterface[] = []
     const wrVariables: WrVariable[] = []
 
@@ -44,10 +46,10 @@ export const getPluginData = ({ program }: GetPluginData) => {
       ) {
         wrVariables.push(wrVariable)
       } else if (wrVariable.name && !wrVariable.isArray) {
-        console.log(`Content variable, not an array: ${wrVariable.name}`)
+        log(chalk.red(`Content variable, not an array: ${wrVariable.name}`))
       } else {
         if (wrVariable.name && !wrVariable.isExported)
-          console.log(`Content variable, not exported: ${wrVariable.name}`)
+          log(chalk.red(`Content variable, not exported: ${wrVariable.name}`))
       }
     })
     // Order interfaces by interface and type
@@ -81,8 +83,10 @@ export const getPluginData = ({ program }: GetPluginData) => {
         }
       }
       if (!lookupSuccess) {
-        console.log(
-          `Content variable, no type match: ${wrVariable.type}/${wrVariable.name}`
+        log(
+          chalk.red(
+            `Content variable, no type match: ${wrVariable.type}/${wrVariable.name}`
+          )
         )
       }
     }

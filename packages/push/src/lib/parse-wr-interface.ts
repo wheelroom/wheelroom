@@ -1,4 +1,5 @@
 import ts, { JSDocTagInfo, SymbolDisplayPart } from 'typescript'
+import chalk from 'chalk'
 import {
   DocProperty,
   interfaceToDocProperty,
@@ -55,6 +56,7 @@ export const parseWrInterface = ({
   checker,
   node,
 }: ParseInterface): WrInterface | undefined => {
+  const log = console.log
   const wrInterface: WrInterface = {}
 
   if (
@@ -70,7 +72,7 @@ export const parseWrInterface = ({
   if (!docProperty.name) return
   wrInterface.typeName = docProperty.name
   if (!docProperty.jSDocTags?.length) {
-    console.log(`No TSDoc tags: ${wrInterface.typeName}`)
+    log(chalk.red(`No TSDoc tags: ${wrInterface.typeName}`))
     return
   }
   const wheelroomTag = getTagByName({
@@ -83,14 +85,14 @@ export const parseWrInterface = ({
    * required. All others like @type are optional at this point.
    */
   if (!wheelroomTag) {
-    console.log(`No @wheelroom block tag: ${wrInterface.typeName}`)
+    log(chalk.red(`No @wheelroom block tag: ${wrInterface.typeName}`))
     return
   }
   const text = getTextSymbol({ symbols: wheelroomTag.text })
   const tags = getInlineTags({ search: text })
 
   if (!tags['@plugin']) {
-    console.log(`No @plugin inline tag: ${wrInterface.typeName}`)
+    log(chalk.red(`No @plugin inline tag: ${wrInterface.typeName}`))
     return
   }
 
@@ -115,8 +117,10 @@ export const parseWrInterface = ({
       const tags = getInlineTags({ search: text })
       wrInterface.fieldTags![docProperty.name || 'unknown'] = tags
     } else {
-      console.log(
-        `No @wheelroom block tag: ${wrInterface.typeName}/${docProperty.name}`
+      log(
+        chalk.red(
+          `No @wheelroom block tag: ${wrInterface.typeName}/${docProperty.name}`
+        )
       )
     }
   })

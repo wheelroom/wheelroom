@@ -1,7 +1,8 @@
+// import chalk from 'chalk'
 import { pullCommand } from './pull'
 
 describe('The pull command should', () => {
-  const consoleSpy = jest.spyOn(console, 'error').mockImplementation()
+  const consoleSpy = jest.spyOn(console, 'log').mockImplementation()
   test('report an error on non existing plugin', async () => {
     await pullCommand({
       argv: { type: 'content', path: './dummy-path', $0: '', _: [''] },

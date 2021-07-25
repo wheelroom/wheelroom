@@ -1,3 +1,4 @@
+import chalk from 'chalk'
 import { TypeData, PluginData } from './get-plugin-data'
 import { WrVariable } from './parse-wr-variable'
 
@@ -25,23 +26,20 @@ export const callPushHandler = async ({
   callType,
 }: CallPushHandler) => {
   for (const pluginName of Object.keys(pluginData)) {
-    let moduleName = ''
-    if (pluginName === 'contentful') {
-      moduleName = '@wheelroom/plugin-contentful/plain'
-    }
+    const moduleName = pluginName.replace(/"/g, '')
     let module: Module = {}
     try {
       module = <Module>await import(moduleName)
     } catch (e) {
-      console.log(`Could not find plugin ${pluginName} => ${moduleName}\n${e}`)
+      console.log(chalk.red(`Could not find plugin: ${moduleName}`))
       return
     }
 
     if (module.handler) {
-      await module.handler({ pluginData: pluginData[pluginName], callType })
+      await module.handler({ pluginData: pluginData[moduleName], callType })
     } else {
       console.log(
-        `Could not find "handler" method on plugin ${pluginName} => ${moduleName}`
+        chalk.red(`Could not find "handler" method on plugin: ${moduleName}`)
       )
       return
     }

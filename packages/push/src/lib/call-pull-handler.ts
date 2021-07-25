@@ -1,3 +1,4 @@
+import chalk from 'chalk'
 import { TypeData } from './get-plugin-data'
 import { WrVariable } from './parse-wr-variable'
 
@@ -27,23 +28,23 @@ export const callPullHandler = async ({
   pluginName,
   path,
 }: CallPullHandler) => {
-  let moduleName = ''
-  if (pluginName === 'contentful') {
-    moduleName = '@wheelroom/plugin-contentful/plain'
-  }
+  const log = console.log
+  const moduleName = pluginName.replace('"', '')
   let module: Module = {}
   try {
     module = <Module>await import(moduleName)
   } catch (e) {
-    console.error(`Could not find plugin ${pluginName} => ${moduleName}`)
+    log(chalk.red(`Could not find plugin ${pluginName} => ${moduleName}`))
     return
   }
 
   if (module.handler) {
     await module.handler({ callType, path })
   } else {
-    console.error(
-      `Could not find "handler" method on plugin ${pluginName} => ${moduleName}`
+    log(
+      chalk.red(
+        `Could not find "handler" method on plugin ${pluginName} => ${moduleName}`
+      )
     )
     return
   }
