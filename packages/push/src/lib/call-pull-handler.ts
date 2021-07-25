@@ -35,13 +35,13 @@ export const callPullHandler = async ({
   try {
     module = <Module>await import(moduleName)
   } catch (e) {
-    console.log(`Could not find plugin ${pluginName} => ${moduleName}`)
+    console.error(`Could not find plugin ${pluginName} => ${moduleName}`)
   }
 
   if (module.handler) {
     await module.handler({ callType, path })
   } else {
-    console.log(
+    console.error(
       `Could not find "handler" method on plugin ${pluginName} => ${moduleName}`
     )
   }
