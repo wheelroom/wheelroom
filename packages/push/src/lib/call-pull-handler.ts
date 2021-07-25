@@ -36,6 +36,7 @@ export const callPullHandler = async ({
     module = <Module>await import(moduleName)
   } catch (e) {
     console.error(`Could not find plugin ${pluginName} => ${moduleName}`)
+    return
   }
 
   if (module.handler) {
@@ -44,5 +45,6 @@ export const callPullHandler = async ({
     console.error(
       `Could not find "handler" method on plugin ${pluginName} => ${moduleName}`
     )
+    return
   }
 }

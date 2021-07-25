@@ -34,7 +34,7 @@ export const callPushHandler = async ({
       module = <Module>await import(moduleName)
     } catch (e) {
       console.log(`Could not find plugin ${pluginName} => ${moduleName}\n${e}`)
-      process.exit(1)
+      return
     }
 
     if (module.handler) {
@@ -43,6 +43,7 @@ export const callPushHandler = async ({
       console.log(
         `Could not find "handler" method on plugin ${pluginName} => ${moduleName}`
       )
+      return
     }
   }
 }

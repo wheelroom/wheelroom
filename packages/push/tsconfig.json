@@ -5,5 +5,5 @@
   },
   "extends": "../../tsconfig.json",
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["src/fixtures/**/*"]
+  "exclude": ["**/__fixtures/**/*"]
 }

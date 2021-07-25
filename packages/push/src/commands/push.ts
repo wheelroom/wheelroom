@@ -13,6 +13,10 @@ export const pushCommand = async ({ argv }: PushCommand) => {
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram([argv.file], compilerOptions.options)
   const pluginData = getPluginData({ program })
+  if (Object.keys(pluginData).length < 1) {
+    console.error(`Nothing found in file: ${argv.file}`)
+    return
+  }
 
   if (argv.type === 'content') {
     await callPushHandler({ pluginData, callType: 'pushContent' })
