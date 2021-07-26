@@ -2,6 +2,10 @@ jest.mock('../lib/call-handler', () => ({
   callHandler: jest.fn(),
 }))
 
+jest.mock('../lib/get-all-plugin-data', () => ({
+  getAllPluginData: () => ({}),
+}))
+
 import chalk from 'chalk'
 import { Arguments } from 'yargs'
 import { PushArgv } from '../cli'
@@ -36,77 +40,12 @@ describe('The push command should', () => {
     expect(callHandler).toHaveBeenCalledTimes(0)
   })
 
-  test('report an error on no tags', async () => {
-    argv.file = './src/commands/push.fixtures/topic-no-tags.ts'
+  test('report nothing to process when file exists', async () => {
+    argv.file = './src/commands/push.fixtures/dummy-file.ts'
     await pushCommand({ argv })
-    expect(consoleSpy).toHaveBeenNthCalledWith(
-      1,
-      chalk.bold.underline(
-        'Processing source file: src/commands/push.fixtures/topic-no-tags.ts'
-      )
-    )
-    expect(consoleSpy).toHaveBeenNthCalledWith(
-      2,
-      chalk.red('No TSDoc tags: Topic')
-    )
-    expect(consoleSpy).toHaveBeenNthCalledWith(
-      3,
+    expect(consoleSpy).toHaveBeenCalledWith(
       chalk.red(
-        'Nothing to process in file: ./src/commands/push.fixtures/topic-no-tags.ts'
-      )
-    )
-    expect(callHandler).toHaveBeenCalledTimes(0)
-  })
-
-  test('pass the plugin data when plugin does not exist', async () => {
-    argv.file = './src/commands/push.fixtures/topic-plugin-does-not-exist.ts'
-    await pushCommand({ argv })
-    expect(consoleSpy).toHaveBeenNthCalledWith(
-      1,
-      chalk.bold.underline(
-        'Processing source file: src/commands/push.fixtures/topic-plugin-does-not-exist.ts'
-      )
-    )
-    expect(callHandler).toHaveBeenLastCalledWith({
-      callCommand: 'push',
-      callType: 'content',
-      pluginData: {
-        dataVar: {},
-        types: {
-          Topic: {
-            interface: {
-              fieldTags: { heading: { '@ignore': '' } },
-              interfaceTags: {
-                '@plugin': '"@wheelroom/does-not-exist"',
-                '@type': 'topic',
-              },
-              typeName: 'Topic',
-            },
-            variables: [],
-          },
-        },
-      },
-      pluginName: '"@wheelroom/does-not-exist"',
-    })
-  })
-
-  test('report an error on plugin tag is missing', async () => {
-    argv.file = './src/commands/push.fixtures/topic-plugin-tag-missing.ts'
-    await pushCommand({ argv })
-    expect(consoleSpy).toHaveBeenNthCalledWith(
-      1,
-      chalk.bold.underline(
-        'Processing source file: src/commands/push.fixtures/topic-plugin-tag-missing.ts'
-      )
-    )
-    expect(consoleSpy).toHaveBeenNthCalledWith(
-      2,
-      chalk.red('No @plugin inline tag: Topic')
-    )
-    expect(consoleSpy).toHaveBeenNthCalledWith(
-      3,
-      chalk.red(
-        'Nothing to process in file: ./src/commands/push.fixtures/topic-plugin-tag-missing.ts'
+        'Nothing to process in file: ./src/commands/push.fixtures/dummy-file.ts'
       )
     )
     expect(callHandler).toHaveBeenCalledTimes(0)
