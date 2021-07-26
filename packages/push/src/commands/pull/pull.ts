@@ -1,6 +1,6 @@
 import yargs from 'yargs'
-import { PullArgv } from '../cli'
-import { callHandler } from '../lib/call-handler'
+import { PullArgv } from '../../cli'
+import { callHandler } from '../../lib/call-handler'
 
 export interface PullCommand {
   argv: yargs.Arguments<PullArgv>

@@ -1,7 +1,7 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { pullCommand } from './commands/pull'
-import { pushCommand } from './commands/push'
+import { pullCommand } from './commands/pull/pull'
+import { pushCommand } from './commands/push/push'
 
 export type ArgvType = 'content' | 'models'
 

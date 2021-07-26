@@ -1,15 +1,15 @@
-jest.mock('../lib/call-handler', () => ({
+jest.mock('../../lib/call-handler', () => ({
   callHandler: jest.fn(),
 }))
 
-jest.mock('../lib/get-all-plugin-data', () => ({
+jest.mock('../../lib/get-all-plugin-data/get-all-plugin-data', () => ({
   getAllPluginData: () => ({}),
 }))
 
 import chalk from 'chalk'
 import { Arguments } from 'yargs'
-import { PushArgv } from '../cli'
-import { callHandler } from '../lib/call-handler'
+import { PushArgv } from '../../cli'
+import { callHandler } from '../../lib/call-handler'
 import { pushCommand } from './push'
 
 const argv = {
@@ -31,21 +31,21 @@ describe('The push command should', () => {
   })
 
   test('report an error on file does not exist', async () => {
-    argv.file = './src/commands/push.fixtures/xxx.ts'
+    argv.file = './src/commands/push/__fixtures__/xxx.ts'
     await pushCommand({ argv })
 
     expect(consoleSpy).toHaveBeenCalledWith(
-      chalk.red('File not found: ./src/commands/push.fixtures/xxx.ts')
+      chalk.red('File not found: ./src/commands/push/__fixtures__/xxx.ts')
     )
     expect(callHandler).toHaveBeenCalledTimes(0)
   })
 
   test('report nothing to process when file exists', async () => {
-    argv.file = './src/commands/push.fixtures/dummy-file.ts'
+    argv.file = './src/commands/push/__fixtures__/dummy-file.ts'
     await pushCommand({ argv })
     expect(consoleSpy).toHaveBeenCalledWith(
       chalk.red(
-        'Nothing to process in file: ./src/commands/push.fixtures/dummy-file.ts'
+        'Nothing to process in file: ./src/commands/push/__fixtures__/dummy-file.ts'
       )
     )
     expect(callHandler).toHaveBeenCalledTimes(0)

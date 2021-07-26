@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import { ArgvType } from '../cli'
-import { TypeData, PluginData } from './get-all-plugin-data'
+import { TypeData, PluginData } from './get-all-plugin-data/get-all-plugin-data'
 import { WrVariable } from './parse-wr-variable'
 
 export interface CallHandler {

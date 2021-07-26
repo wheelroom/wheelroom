@@ -2,10 +2,10 @@ import { existsSync } from 'fs'
 import ts from 'typescript'
 import chalk from 'chalk'
 import yargs from 'yargs'
-import { PushArgv } from '../cli'
-import { getAllPluginData } from '../lib/get-all-plugin-data'
-import { getCompilerOptions } from '../lib/get-compiler-options'
-import { callHandler } from '../lib/call-handler'
+import { PushArgv } from '../../cli'
+import { getAllPluginData } from '../../lib/get-all-plugin-data/get-all-plugin-data'
+import { getCompilerOptions } from '../../lib/get-compiler-options'
+import { callHandler } from '../../lib/call-handler'
 
 export interface PushCommand {
   argv: yargs.Arguments<PushArgv>

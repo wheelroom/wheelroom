@@ -1,7 +1,7 @@
 import ts from 'typescript'
 import chalk from 'chalk'
-import { parseWrInterface, WrInterface } from './parse-wr-interface'
-import { parseWrVariable, WrVariable } from './parse-wr-variable'
+import { parseWrInterface, WrInterface } from '../parse-wr-interface'
+import { parseWrVariable, WrVariable } from '../parse-wr-variable'
 
 export type TypeData = {
   [typeName: string]: {

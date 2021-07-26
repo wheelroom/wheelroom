@@ -4,7 +4,7 @@ exports[`getAllPluginData should get data for topic.ts 1`] = `
 Object {
   "@wheelroom/plugin-contentful/plain": Object {
     "dataVar": Object {
-      "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data.fixtures/topic.ts",
+      "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data/__fixtures__/topic.ts",
       "isArray": false,
       "isExported": true,
       "isObject": true,
@@ -79,7 +79,7 @@ Object {
         },
         "variables": Array [
           Object {
-            "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data.fixtures/topic.ts",
+            "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data/__fixtures__/topic.ts",
             "isArray": true,
             "isExported": true,
             "isObject": false,
@@ -107,7 +107,7 @@ Object {
   },
   "contentful": Object {
     "dataVar": Object {
-      "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data.fixtures/topic.ts",
+      "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data/__fixtures__/topic.ts",
       "isArray": false,
       "isExported": true,
       "isObject": true,
