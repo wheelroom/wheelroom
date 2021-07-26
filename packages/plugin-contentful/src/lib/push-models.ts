@@ -3,7 +3,8 @@ import { TypeData } from '@wheelroom/push/plain'
 import { Environment } from 'contentful-management/types'
 import { ValidationsMap } from './get-wheelroom-plugin-data'
 import { getModelsFieldsAndControls } from './get-models-fields-and-controls'
-import { pushModelToContentful } from './push-model-to-contentful'
+import { pushFieldsToContentful } from './push-fields-to-contentful'
+import { pushControlsToContentful } from './push-controls-to-contentful'
 
 export interface PushTypes {
   contentfulEnvironment: Environment
@@ -35,25 +36,23 @@ export const pushModels = async ({
       validationsMap,
       wrType,
     })
+    const interfaceType = interfaceTags['@type']
     const contentTypeData = {
       name:
         interfaceTags['@name'] ||
-        interfaceTags['@type'] ||
+        interfaceType ||
         wrType.interface.typeName ||
         'No name',
       description: interfaceTags['@description'],
       displayField: interfaceTags['@displayField'],
       fields,
     }
-    const contentType = await pushModelToContentful({
+    const contentType = await pushFieldsToContentful({
       contentTypeData,
-      interfaceTags,
       contentfulEnvironment,
+      interfaceType,
     })
 
-    console.log(chalk.red(`Contentful API, updating editor interface`))
-    const editorInterface = await contentType.getEditorInterface()
-    editorInterface.controls = controls
-    await editorInterface.update()
+    await pushControlsToContentful({ contentType, controls })
   }
 }

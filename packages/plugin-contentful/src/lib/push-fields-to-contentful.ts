@@ -1,26 +1,22 @@
 import chalk from 'chalk'
 import { Environment } from 'contentful-management/types'
 
-export interface PushModelToContentful {
+export interface PushFieldsToContentful {
   contentfulEnvironment: Environment
-  interfaceTags: Record<string, string>
   contentTypeData: any
+  interfaceType: string
 }
 
-export const pushModelToContentful = async ({
+export const pushFieldsToContentful = async ({
   contentfulEnvironment,
-  interfaceTags,
   contentTypeData,
-}: PushModelToContentful) => {
+  interfaceType,
+}: PushFieldsToContentful) => {
   let contentType
   try {
     // Fetch exiting and update
-    contentType = await contentfulEnvironment.getContentType(
-      interfaceTags['@type']
-    )
-    console.log(
-      chalk.red(`Contentful API, updating existing ${interfaceTags['@type']}`)
-    )
+    contentType = await contentfulEnvironment.getContentType(interfaceType)
+    console.log(chalk.red(`Contentful API, updating existing ${interfaceType}`))
     Object.assign(contentType, contentTypeData)
     contentType = await contentType.update()
   } catch (contentfulError) {
@@ -33,11 +29,9 @@ export const pushModelToContentful = async ({
       throw contentfulError
     }
     // Create a new content type
-    console.log(
-      chalk.red(`Contentful API, creating new ${interfaceTags['@type']}`)
-    )
+    console.log(chalk.red(`Contentful API, creating new ${interfaceType}`))
     contentType = await contentfulEnvironment.createContentTypeWithId(
-      interfaceTags['@type'],
+      interfaceType,
       contentTypeData
     )
   }
