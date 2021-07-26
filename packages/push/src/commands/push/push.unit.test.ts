@@ -20,6 +20,7 @@ const argv = {
 } as Arguments<PushArgv>
 
 beforeEach(() => {
+  // Reset only clears values. Clear removes implementation
   jest.resetAllMocks()
 })
 
