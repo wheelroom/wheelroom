@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 import ts from 'typescript'
-import { getCompilerOptions } from '../get-compiler-options'
+import { getCompilerOptions } from '../get-compiler-options/get-compiler-options'
 import { getAllPluginData } from './get-all-plugin-data'
 
 // jest.setTimeout(20000)

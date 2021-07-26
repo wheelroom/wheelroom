@@ -1,5 +1,5 @@
 import ts from 'typescript'
-import { getCompilerOptions } from '../lib/get-compiler-options'
+import { getCompilerOptions } from '../lib/get-compiler-options/get-compiler-options'
 import { parseWrVariable } from '../lib/parse-wr-variable'
 import { parseWrInterface } from '../lib/parse-wr-interface'
 
