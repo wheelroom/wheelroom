@@ -1,7 +1,7 @@
 /**
  * @wheelroom
  * - {@type topic}
- * - {@plugin "@wheelroom/plugin"}
+ * - {@plugin "@wheelroom/plugin-contentful/plain"}
  *
  */
 export interface Topic {

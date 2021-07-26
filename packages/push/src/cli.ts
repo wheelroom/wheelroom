@@ -1,19 +1,7 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { pullCommand } from './commands/pull/pull'
-import { pushCommand } from './commands/push/push'
-
-export type ArgvType = 'content' | 'models'
-
-export type PushArgv = {
-  type: ArgvType
-  file: string
-}
-
-export type PullArgv = {
-  type: ArgvType
-  path: string
-}
+import { PullArgv, pullCommand } from './commands/pull/pull'
+import { PushArgv, pushCommand } from './commands/push/push'
 
 type WheelroomOptions = {
   filter: yargs.Options

@@ -2,7 +2,7 @@
 
 exports[`getAllPluginData should get data for all-tags.ts 1`] = `
 Object {
-  "contentful": Object {
+  "@wheelroom/plugin-contentful/plain": Object {
     "dataVar": Object {},
     "types": Object {
       "Topic": Object {
@@ -22,7 +22,7 @@ Object {
             },
           },
           "interfaceTags": Object {
-            "@plugin": "contentful",
+            "@plugin": "@wheelroom/plugin-contentful/plain",
             "@type": "topic",
           },
           "typeName": "Topic",
@@ -73,6 +73,38 @@ Object {
 }",
     },
     "types": Object {
+      "ContentfulAction": Object {
+        "interface": Object {
+          "fieldTags": Object {
+            "anchor": Object {
+              "@helpText": "Voorbeeld: mijn-anchor",
+              "@type": "Symbol",
+            },
+            "description": Object {
+              "@helpText": "Omschrijving van de actie, voor zoekmachines",
+              "@type": "Symbol",
+            },
+            "eventId": Object {
+              "@type": "Symbol",
+            },
+            "heading": Object {
+              "@type": "Symbol",
+            },
+            "query": Object {
+              "@type": "Symbol",
+            },
+            "url": Object {
+              "@type": "Symbol",
+            },
+          },
+          "interfaceTags": Object {
+            "@plugin": "@wheelroom/plugin-contentful/plain",
+            "@type": "testAction",
+          },
+          "typeName": "ContentfulAction",
+        },
+        "variables": Array [],
+      },
       "ContentfulTopic": Object {
         "interface": Object {
           "fieldTags": Object {
@@ -136,77 +168,6 @@ Object {
 ]",
           },
         ],
-      },
-    },
-  },
-  "contentful": Object {
-    "dataVar": Object {
-      "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data/__fixtures__/topic.ts",
-      "isArray": false,
-      "isExported": true,
-      "isObject": true,
-      "isTyped": true,
-      "name": "wheelroomPluginData",
-      "type": "WheelroomPluginData",
-      "value": "{
-  '@wheelroom/plugin-contentful/plain': {
-    validations: {
-      dropdown: { in: ['item A', 'item B', 'item C'] },
-      media: { linkMimetypeGroup: ['image', 'video'] },
-      action: { linkContentType: ['action'] },
-      shortString: { size: { max: 155, min: 0 } },
-      camelCase: {
-        regexp: { pattern: '^[a-z]+([A-Z][a-z0-9]+)*$', flags: '' },
-      },
-      path: {
-        regexp: {
-          pattern: '^\\\\\\\\/[a-z0-9:\\\\\\\\._/~%\\\\\\\\-\\\\\\\\+&\\\\\\\\#\\\\\\\\?!=\\\\\\\\(\\\\\\\\)@]*$',
-          flags: '',
-        },
-      },
-      url: {
-        regexp: {
-          pattern:
-            '^(ftp|http|https|mailto):(\\\\\\\\/\\\\\\\\/)*(\\\\\\\\w+:{0,1}\\\\\\\\w*@)?(\\\\\\\\S+)(:[0-9]+)?(\\\\\\\\/|\\\\\\\\/([\\\\\\\\w#!:.?+=&%@!\\\\\\\\-/]))?$',
-          flags: '',
-        },
-      },
-    },
-  },
-}",
-    },
-    "types": Object {
-      "ContentfulAction": Object {
-        "interface": Object {
-          "fieldTags": Object {
-            "anchor": Object {
-              "@helpText": "Voorbeeld: mijn-anchor",
-              "@type": "Symbol",
-            },
-            "description": Object {
-              "@helpText": "Omschrijving van de actie, voor zoekmachines",
-              "@type": "Symbol",
-            },
-            "eventId": Object {
-              "@type": "Symbol",
-            },
-            "heading": Object {
-              "@type": "Symbol",
-            },
-            "query": Object {
-              "@type": "Symbol",
-            },
-            "url": Object {
-              "@type": "Symbol",
-            },
-          },
-          "interfaceTags": Object {
-            "@plugin": "contentful",
-            "@type": "testAction",
-          },
-          "typeName": "ContentfulAction",
-        },
-        "variables": Array [],
       },
     },
   },

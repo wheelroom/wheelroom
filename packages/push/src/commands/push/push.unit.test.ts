@@ -1,16 +1,12 @@
-jest.mock('../../lib/call-handler', () => ({
-  callHandler: jest.fn(),
-}))
-
+jest.mock('../../lib/call-handler')
 jest.mock('../../lib/get-all-plugin-data/get-all-plugin-data', () => ({
   getAllPluginData: () => ({}),
 }))
 
 import chalk from 'chalk'
 import { Arguments } from 'yargs'
-import { PushArgv } from '../../cli'
 import { callHandler } from '../../lib/call-handler'
-import { pushCommand } from './push'
+import { PushArgv, pushCommand } from './push'
 
 const argv = {
   type: 'content',

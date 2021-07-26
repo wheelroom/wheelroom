@@ -1,7 +1,8 @@
 /**
  * Something about this model, used as model description
  * @wheelroom
- *   {@plugin contentful} {@type topic}
+ * - {@plugin "@wheelroom/plugin-contentful/plain"}
+ * - {@type topic}
  * @see https://www.wheelroom.io
  */
 export interface Topic {
