@@ -3,11 +3,13 @@ import chalk from 'chalk'
 import { parseWrInterface, WrInterface } from '../parse-wr-interface'
 import { parseWrVariable, WrVariable } from '../parse-wr-variable'
 
+export type WrType = {
+  interface: WrInterface
+  variables: WrVariable[]
+}
+
 export type TypeData = {
-  [typeName: string]: {
-    interface: WrInterface
-    variables: WrVariable[]
-  }
+  [typeName: string]: WrType
 }
 
 export type PluginData = {

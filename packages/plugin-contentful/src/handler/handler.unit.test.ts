@@ -22,7 +22,12 @@ describe('The handler should', () => {
     consoleSpy.mockReset()
   })
 
-  test('run with topic data', async () => {
+  test('push model data', async () => {
+    await handler(topicPluginData)
+    expect(consoleSpy.mock.calls).toMatchSnapshot()
+  })
+  test('push model content', async () => {
+    topicPluginData.callType = 'content'
     await handler(topicPluginData)
     expect(consoleSpy.mock.calls).toMatchSnapshot()
   })
