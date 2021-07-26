@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 import { WrType } from '@wheelroom/push/plain'
 import { Control } from 'contentful-management/types'
-import { ValidationsMap } from './get-wheelroom-plugin-data'
+import { ValidationsMap } from '../lib/get-wheelroom-plugin-data'
 import { getModelField } from './get-model-field'
 import { getModelControl } from './get-model-control'
 

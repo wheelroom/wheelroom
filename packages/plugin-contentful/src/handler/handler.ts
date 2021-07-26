@@ -1,10 +1,10 @@
 import chalk from 'chalk'
 import { PushHandler } from '@wheelroom/push/plain'
-import { getContentfulEnvironment } from '../lib/get-contentful-environment'
 import { getWheelroomPluginData } from '../lib/get-wheelroom-plugin-data'
 import { getAndValidateEnv } from '../lib/get-and-validate-env'
-import { pushModels } from '../lib/push-models'
-import { pushContent } from '../lib/push-content'
+import { pushModels } from '../push-models/push-models'
+import { pushContent } from '../push-content/push-content'
+import { getContentfulEnvironment } from '../lib/get-contentful-environment'
 
 export const handler: PushHandler = async ({
   callCommand,
