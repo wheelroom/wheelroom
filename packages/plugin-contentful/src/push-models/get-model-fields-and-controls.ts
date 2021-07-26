@@ -1,40 +1,37 @@
 import chalk from 'chalk'
-import { WrType } from '@wheelroom/push/plain'
 import { Control } from 'contentful-management/types'
 import { ValidationsMap } from '../lib/get-wheelroom-plugin-data'
 import { getModelField } from './get-model-field'
 import { getModelControl } from './get-model-control'
 
 export interface GetModelFieldsAndControls {
-  interfaceFieldTags: { [fieldName: string]: Record<string, string> }
+  modelFields: { [fieldName: string]: Record<string, string> }
   validationsMap: ValidationsMap
-  wrType: WrType
+  typescriptInterfaceName?: string
 }
 
 export const getModelFieldsAndControls = ({
-  interfaceFieldTags,
+  modelFields,
   validationsMap,
-  wrType,
+  typescriptInterfaceName,
 }: GetModelFieldsAndControls) => {
   const controls: Control[] = []
   const fields = []
   const log = console.log
-  for (const [fieldId, fieldTag] of Object.entries(interfaceFieldTags)) {
+  for (const [fieldId, fieldTag] of Object.entries(modelFields)) {
     if ('@ignore' in fieldTag) {
       continue
     }
     if (!fieldTag['@type']) {
       log(
-        chalk.red(
-          `No @type inline tag:  ${wrType.interface.typeName}/${fieldId}`
-        )
+        chalk.red(`No @type inline tag:  ${typescriptInterfaceName}/${fieldId}`)
       )
       continue
     }
     if (fieldTag['@type'] === 'Link' && !fieldTag['@linkType']) {
       log(
         chalk.red(
-          `@type=Link without @linkType: ${wrType.interface.typeName}/${fieldId}`
+          `@type=Link without @linkType: ${typescriptInterfaceName}/${fieldId}`
         )
       )
       continue
@@ -42,7 +39,7 @@ export const getModelFieldsAndControls = ({
     if (fieldTag['@type'] === 'Array' && !fieldTag['@itemsType']) {
       log(
         chalk.red(
-          `@type=Array without @itemsType: ${wrType.interface.typeName}/${fieldId}`
+          `@type=Array without @itemsType: ${typescriptInterfaceName}/${fieldId}`
         )
       )
       continue
@@ -54,7 +51,7 @@ export const getModelFieldsAndControls = ({
     ) {
       log(
         chalk.red(
-          `@type=Array, @itemsType=Link without @itemsLinkType:  ${wrType.interface.typeName}/${fieldId}`
+          `@type=Array, @itemsType=Link without @itemsLinkType:  ${typescriptInterfaceName}/${fieldId}`
         )
       )
       continue

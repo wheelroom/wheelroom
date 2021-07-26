@@ -4,19 +4,21 @@ import { Environment } from 'contentful-management/types'
 export interface PushFieldsToContentful {
   contentfulEnvironment: Environment
   contentTypeData: any
-  interfaceType: string
+  interfaceTypeTag: string
 }
 
 export const pushFieldsToContentful = async ({
   contentfulEnvironment,
   contentTypeData,
-  interfaceType,
+  interfaceTypeTag,
 }: PushFieldsToContentful) => {
   let contentType
   try {
     // Fetch exiting and update
-    contentType = await contentfulEnvironment.getContentType(interfaceType)
-    console.log(chalk.red(`Contentful API, updating existing ${interfaceType}`))
+    contentType = await contentfulEnvironment.getContentType(interfaceTypeTag)
+    console.log(
+      chalk.red(`Contentful API, updating existing ${interfaceTypeTag}`)
+    )
     Object.assign(contentType, contentTypeData)
     contentType = await contentType.update()
   } catch (contentfulError) {
@@ -29,9 +31,9 @@ export const pushFieldsToContentful = async ({
       throw contentfulError
     }
     // Create a new content type
-    console.log(chalk.red(`Contentful API, creating new ${interfaceType}`))
+    console.log(chalk.red(`Contentful API, creating new ${interfaceTypeTag}`))
     contentType = await contentfulEnvironment.createContentTypeWithId(
-      interfaceType,
+      interfaceTypeTag,
       contentTypeData
     )
   }

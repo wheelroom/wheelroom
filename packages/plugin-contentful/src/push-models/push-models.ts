@@ -19,30 +19,27 @@ export const pushModels = async ({
 }: PushTypes) => {
   const log = console.log
   for (const wrType of Object.values(typeData)) {
-    const interfaceFieldTags = wrType.interface.fieldTags || {}
+    const modelFields = wrType.interface.fieldTags || {}
     const interfaceTags = wrType.interface.interfaceTags || {}
+    const typescriptInterfaceName = wrType.interface.typeName
+    const interfaceTypeTag = interfaceTags['@type']
 
-    log(chalk.bold(`Type: ${wrType.interface.typeName}...`))
+    log(chalk.bold(`Type: ${typescriptInterfaceName}...`))
     if ('@ignore' in interfaceTags) {
       continue
     }
-    if (!interfaceTags['@type']) {
-      log(chalk.red(`No @type inline tag: ${wrType.interface.typeName}`))
+    if (!interfaceTypeTag) {
+      log(chalk.red(`No @type inline tag: ${typescriptInterfaceName}`))
       continue
     }
 
     const { fields, controls } = getModelFieldsAndControls({
-      interfaceFieldTags,
+      modelFields,
       validationsMap,
-      wrType,
+      typescriptInterfaceName,
     })
-    const interfaceType = interfaceTags['@type']
     const contentTypeData = {
-      name:
-        interfaceTags['@name'] ||
-        interfaceType ||
-        wrType.interface.typeName ||
-        'No name',
+      name: interfaceTags['@name'] || interfaceTypeTag,
       description: interfaceTags['@description'],
       displayField: interfaceTags['@displayField'],
       fields,
@@ -50,7 +47,7 @@ export const pushModels = async ({
     const contentType = await pushFieldsToContentful({
       contentTypeData,
       contentfulEnvironment,
-      interfaceType,
+      interfaceTypeTag,
     })
 
     await pushControlsToContentful({ contentType, controls })
