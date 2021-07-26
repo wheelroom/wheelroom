@@ -1,21 +1,12 @@
-const contentTypeMock = {
-  publish: async () => contentTypeMock,
-  update: async () => contentTypeMock,
-  getEditorInterface: async () => contentTypeMock,
-}
-const getContentType = jest.fn(async () => contentTypeMock)
-const createContentTypeWithId = jest.fn(async () => contentTypeMock)
-const environmentMock = {
-  createContentTypeWithId,
-  getContentType,
-}
-const getEnvironment = jest.fn(async () => environmentMock)
-const getSpace = jest.fn(async () => ({ getEnvironment }))
-const createClient = jest.fn(() => ({ getSpace }))
+import { createClient, environmentMock } from '../lib/contentful-mock'
+
+jest.mock('../push-content/push-content')
+jest.mock('../push-models/push-models')
 jest.mock('contentful-management', () => ({ createClient }))
 
+import { pushContent } from '../push-content/push-content'
+import { pushModels } from '../push-models/push-models'
 import { handler } from './handler'
-import { topicPluginData } from './__fixtures__/topic-plugin-data'
 
 describe('The handler should', () => {
   const consoleSpy = jest.spyOn(console, 'log').mockImplementation()
@@ -23,13 +14,28 @@ describe('The handler should', () => {
     consoleSpy.mockReset()
   })
 
-  test('push model data', async () => {
-    await handler(topicPluginData)
-    expect(consoleSpy.mock.calls).toMatchSnapshot()
+  test('call pushModels', async () => {
+    await handler({
+      callCommand: 'push',
+      callType: 'models',
+      pluginData: { types: {}, dataVar: {} },
+    })
+    expect(pushModels).toHaveBeenCalledWith({
+      contentfulEnvironment: environmentMock,
+      typeData: {},
+      validationsMap: {},
+    })
   })
-  test('push model content', async () => {
-    topicPluginData.callType = 'content'
-    await handler(topicPluginData)
-    expect(consoleSpy.mock.calls).toMatchSnapshot()
+
+  test('call pushContent', async () => {
+    await handler({
+      callCommand: 'push',
+      callType: 'content',
+      pluginData: { types: {}, dataVar: {} },
+    })
+    expect(pushContent).toHaveBeenCalledWith({
+      contentfulEnvironment: environmentMock,
+      typeData: {},
+    })
   })
 })
