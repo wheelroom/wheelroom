@@ -5,17 +5,17 @@ import { ValidationsMap } from '../lib/get-wheelroom-plugin-data'
 import { getModelField } from './get-model-field'
 import { getModelControl } from './get-model-control'
 
-export interface GetModelsFieldsAndControls {
+export interface GetModelFieldsAndControls {
   interfaceFieldTags: { [fieldName: string]: Record<string, string> }
   validationsMap: ValidationsMap
   wrType: WrType
 }
 
-export const getModelsFieldsAndControls = ({
+export const getModelFieldsAndControls = ({
   interfaceFieldTags,
   validationsMap,
   wrType,
-}: GetModelsFieldsAndControls) => {
+}: GetModelFieldsAndControls) => {
   const controls: Control[] = []
   const fields = []
   const log = console.log

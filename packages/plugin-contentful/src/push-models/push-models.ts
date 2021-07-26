@@ -2,7 +2,7 @@ import chalk from 'chalk'
 import { TypeData } from '@wheelroom/push/plain'
 import { Environment } from 'contentful-management/types'
 import { ValidationsMap } from '../lib/get-wheelroom-plugin-data'
-import { getModelsFieldsAndControls } from './get-models-fields-and-controls'
+import { getModelFieldsAndControls } from './get-model-fields-and-controls'
 import { pushFieldsToContentful } from './push-fields-to-contentful'
 import { pushControlsToContentful } from './push-controls-to-contentful'
 
@@ -31,7 +31,7 @@ export const pushModels = async ({
       continue
     }
 
-    const { fields, controls } = getModelsFieldsAndControls({
+    const { fields, controls } = getModelFieldsAndControls({
       interfaceFieldTags,
       validationsMap,
       wrType,
