@@ -3,9 +3,9 @@ import ts from 'typescript'
 import chalk from 'chalk'
 import yargs from 'yargs'
 import { PushArgv } from '../cli'
-import { getPluginData } from '../lib/get-plugin-data'
+import { getAllPluginData } from '../lib/get-all-plugin-data'
 import { getCompilerOptions } from '../lib/get-compiler-options'
-import { callPushHandler } from '../lib/call-push-handler'
+import { callHandler } from '../lib/call-handler'
 
 export interface PushCommand {
   argv: yargs.Arguments<PushArgv>
@@ -19,16 +19,18 @@ export const pushCommand = async ({ argv }: PushCommand) => {
   }
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram([argv.file], compilerOptions.options)
-  const pluginData = getPluginData({ program })
-  if (Object.keys(pluginData).length < 1) {
+  const allPluginData = getAllPluginData({ program })
+  if (Object.keys(allPluginData).length < 1) {
     log(chalk.red(`Nothing to process in file: ${argv.file}`))
     return
   }
 
-  if (argv.type === 'content') {
-    await callPushHandler({ pluginData, callType: 'pushContent' })
-  }
-  if (argv.type === 'models') {
-    await callPushHandler({ pluginData, callType: 'pushModels' })
+  for (const pluginName of Object.keys(allPluginData)) {
+    await callHandler({
+      callType: argv.type,
+      callCommand: 'push',
+      pluginData: allPluginData[pluginName],
+      pluginName,
+    })
   }
 }

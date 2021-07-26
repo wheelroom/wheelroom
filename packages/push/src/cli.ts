@@ -3,13 +3,15 @@ import { hideBin } from 'yargs/helpers'
 import { pullCommand } from './commands/pull'
 import { pushCommand } from './commands/push'
 
+export type ArgvType = 'content' | 'models'
+
 export type PushArgv = {
-  type: 'content' | 'models'
+  type: ArgvType
   file: string
 }
 
 export type PullArgv = {
-  type: 'content' | 'models'
+  type: ArgvType
   path: string
 }
 

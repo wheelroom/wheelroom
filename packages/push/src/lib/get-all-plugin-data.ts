@@ -11,18 +11,20 @@ export type TypeData = {
 }
 
 export type PluginData = {
-  [pluginName: string]: {
-    types: TypeData
-    dataVar: WrVariable
-  }
+  types: TypeData
+  dataVar: WrVariable
+}
+
+export type AllPluginData = {
+  [pluginName: string]: PluginData
 }
 
 export interface GetPluginData {
   program: ts.Program
 }
 
-export const getPluginData = ({ program }: GetPluginData) => {
-  const wrInterfaceList: PluginData = {}
+export const getAllPluginData = ({ program }: GetPluginData) => {
+  const allPluginData: AllPluginData = {}
   const checker = program.getTypeChecker()
   const log = console.log
 
@@ -57,25 +59,25 @@ export const getPluginData = ({ program }: GetPluginData) => {
       const pluginName = (wrInterface?.interfaceTags || {})['@plugin']
       if (!pluginName) continue
       if (!wrInterface.typeName) continue
-      if (!wrInterfaceList[pluginName])
-        wrInterfaceList[pluginName] = {
+      if (!allPluginData[pluginName])
+        allPluginData[pluginName] = {
           types: {},
           dataVar: {},
         }
-      if (!wrInterfaceList[pluginName].types[wrInterface.typeName]) {
-        wrInterfaceList[pluginName].types[wrInterface.typeName] = {
+      if (!allPluginData[pluginName].types[wrInterface.typeName]) {
+        allPluginData[pluginName].types[wrInterface.typeName] = {
           interface: {},
           variables: [],
         }
       }
 
-      wrInterfaceList[pluginName].types[wrInterface.typeName].interface =
+      allPluginData[pluginName].types[wrInterface.typeName].interface =
         wrInterface
     }
     // Merge in variables
     for (const wrVariable of wrVariables) {
       let lookupSuccess = false
-      for (const pluginData of Object.values(wrInterfaceList)) {
+      for (const pluginData of Object.values(allPluginData)) {
         const interfaceType = wrVariable.type || '<none>'
         if (Object.keys(pluginData.types).includes(interfaceType)) {
           pluginData.types[interfaceType].variables.push(wrVariable)
@@ -92,8 +94,8 @@ export const getPluginData = ({ program }: GetPluginData) => {
     }
   }
   // Add dataVar to all plugins
-  Object.values(wrInterfaceList).forEach(
+  Object.values(allPluginData).forEach(
     (pluginData) => (pluginData.dataVar = dataVar)
   )
-  return wrInterfaceList
+  return allPluginData
 }
