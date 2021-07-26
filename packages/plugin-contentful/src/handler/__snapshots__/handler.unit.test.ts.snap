@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The handler should run with topic data 1`] = `
+Array [
+  Array [
+    "============ Starting Contentful plugin",
+  ],
+  Array [
+    "Wheelroom project: undefined",
+  ],
+  Array [
+    "Processing: ContentfulAction...",
+  ],
+  Array [
+    "Adding editor control for field anchor",
+  ],
+  Array [
+    "Adding editor control for field description",
+  ],
+  Array [
+    "Contentful API, updating existing testAction",
+  ],
+  Array [
+    "Contentful API, updating editor interface",
+  ],
+  Array [
+    "Processing: ContentfulTopic...",
+  ],
+  Array [
+    "Adding validation shortString",
+  ],
+  Array [
+    "Adding validation action",
+  ],
+  Array [
+    "Contentful API, updating existing testTopic",
+  ],
+  Array [
+    "Contentful API, updating editor interface",
+  ],
+  Array [
+    "Data to send to Contentful",
+    "[
+  {
+    abstract: [32m'This is the abstract'[39m,
+    actionsCollection: { items: [ { heading: [32m'Hello'[39m, anchor: [32m'anchor'[39m } ] },
+    heading: [32m'Heres the heading'[39m
+  }
+]",
+  ],
+]
+`;
