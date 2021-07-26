@@ -86,7 +86,11 @@ export const parseWrInterface = ({
    * required. All others like @type are optional at this point.
    */
   if (!wheelroomTag) {
-    log(chalk.red(`No @wheelroom block tag: ${wrInterface.typeName}`))
+    log(
+      chalk.red(
+        `No @wheelroom block tag for interface: ${wrInterface.typeName}`
+      )
+    )
     return
   }
   const text = getTextSymbol({ symbols: wheelroomTag.text })
@@ -123,7 +127,7 @@ export const parseWrInterface = ({
     } else {
       log(
         chalk.red(
-          `No @wheelroom block tag: ${wrInterface.typeName}/${docProperty.name}`
+          `No @wheelroom block tag for field: ${wrInterface.typeName}/${docProperty.name}`
         )
       )
     }

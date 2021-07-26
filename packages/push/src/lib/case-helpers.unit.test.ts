@@ -6,7 +6,7 @@ import {
   stripDoubleQuotes,
 } from './case-helpers'
 
-describe('Case helpers/', () => {
+describe('Case helpers', () => {
   test('firstUpperCase', async () => {
     expect(firstUpperCase('what is the case?')).toBe('What is the case?')
   })

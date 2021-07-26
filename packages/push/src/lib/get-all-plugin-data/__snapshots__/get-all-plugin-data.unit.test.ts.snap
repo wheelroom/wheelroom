@@ -1,5 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`getAllPluginData should get data for all-tags.ts 1`] = `
+Object {
+  "contentful": Object {
+    "dataVar": Object {},
+    "types": Object {
+      "Topic": Object {
+        "interface": Object {
+          "fieldTags": Object {
+            "heading": Object {
+              "@helpText": "The topic heading",
+              "@itemsLinkType": "Entry",
+              "@itemsType": "Link",
+              "@linkType": "Symbol",
+              "@localized": "",
+              "@name": "Heading",
+              "@required": "",
+              "@type": "Array",
+              "@validation": "unique",
+              "@widget": "singleLine",
+            },
+          },
+          "interfaceTags": Object {
+            "@plugin": "contentful",
+            "@type": "topic",
+          },
+          "typeName": "Topic",
+        },
+        "variables": Array [],
+      },
+    },
+  },
+}
+`;
+
 exports[`getAllPluginData should get data for topic.ts 1`] = `
 Object {
   "@wheelroom/plugin-contentful/plain": Object {

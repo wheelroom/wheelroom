@@ -3,6 +3,10 @@ import { callHandler } from './call-handler'
 
 describe('The call handler should', () => {
   const consoleSpy = jest.spyOn(console, 'log').mockImplementation()
+  beforeEach(() => {
+    consoleSpy.mockReset()
+  })
+
   test('show an error when a module does not exist', async () => {
     await callHandler({
       callCommand: 'push',
@@ -17,7 +21,6 @@ describe('The call handler should', () => {
   })
 
   test('show an error when a module does not have a handler', async () => {
-    consoleSpy.mockReset()
     await callHandler({
       callCommand: 'push',
       callType: 'content',

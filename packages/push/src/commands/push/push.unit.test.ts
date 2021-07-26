@@ -19,16 +19,10 @@ const argv = {
   _: [''],
 } as Arguments<PushArgv>
 
-beforeEach(() => {
-  // Reset only clears values. Clear removes implementation
-  jest.resetAllMocks()
-})
-
 describe('The push command should', () => {
   const consoleSpy = jest.spyOn(console, 'log').mockImplementation()
-
   beforeEach(() => {
-    consoleSpy.mockClear()
+    consoleSpy.mockReset()
   })
 
   test('report an error on file does not exist', async () => {

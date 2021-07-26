@@ -1,6 +1,6 @@
 import { WheelroomPluginData } from '@wheelroom/plugin-contentful/plain'
-import { ContentfulAction, refB } from './action'
-import { ContentfulAsset, refA } from './asset'
+import { ContentfulAction, refB } from './topic-action'
+import { ContentfulAsset, refA } from './topic-asset'
 
 console.log(refA, refB)
 /**

@@ -9,9 +9,9 @@ export interface Topic {
    * Some text here that we do nothing with
    * @wheelroom
    *   {@helpText The topic heading}
-   *   {@localized true}
+   *   {@localized}
    *   {@name Heading}
-   *   {@required true}
+   *   {@required}
    *   {@type Array}
    *   {@linkType Symbol}
    *   {@itemsType Link}
