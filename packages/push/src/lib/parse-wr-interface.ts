@@ -5,6 +5,7 @@ import {
   interfaceToDocProperty,
 } from './interface-to-doc-property'
 import { isExportedDeclaration } from './is-exported-declaration'
+import { stripDoubleQuotes } from './case-helpers'
 
 export type WrInterface = {
   /** The inline tags defined within the @wheelroom tag for each field */
@@ -97,7 +98,7 @@ export const parseWrInterface = ({
   }
   // Strip double quotes from plugin name, double quotes are needed when an
   // @-character is used in a module. Eg {@plugin @wheelroom/module}
-  tags['@plugin'] = tags['@plugin'].replace(/"/g, '')
+  tags['@plugin'] = stripDoubleQuotes(tags['@plugin'])
 
   wrInterface.interfaceTags = tags
 
