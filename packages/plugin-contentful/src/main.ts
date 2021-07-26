@@ -13,7 +13,7 @@ import {
 } from 'contentful-management/types'
 
 export type WheelroomPluginData = {
-  contentful?: {
+  '@wheelroom/plugin-contentful/plain'?: {
     validations?: {
       [validationName: string]: ContentTypeFieldValidation
     }
@@ -42,7 +42,8 @@ export const handler: PushHandler = async ({ pluginData }) => {
   // Get data var and valildations
   const dataVarFn = new Function(`return ${pluginData.dataVar.value}`)
   const dataVarObj = dataVarFn() as WheelroomPluginData
-  const validationsMap = dataVarObj.contentful?.validations || {}
+  const validationsMap =
+    dataVarObj['@wheelroom/plugin-contentful/plain']?.validations || {}
 
   // Contentful client
   const client = contentful.createClient({

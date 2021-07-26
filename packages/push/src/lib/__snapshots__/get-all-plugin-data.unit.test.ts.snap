@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getAllPluginData should get data for topic.ts 1`] = `
+Object {
+  "@wheelroom/plugin-contentful/plain": Object {
+    "dataVar": Object {
+      "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data.fixtures/topic.ts",
+      "isArray": false,
+      "isExported": true,
+      "isObject": true,
+      "isTyped": true,
+      "name": "wheelroomPluginData",
+      "type": "WheelroomPluginData",
+      "value": "{
+  '@wheelroom/plugin-contentful/plain': {
+    validations: {
+      dropdown: { in: ['item A', 'item B', 'item C'] },
+      media: { linkMimetypeGroup: ['image', 'video'] },
+      action: { linkContentType: ['action'] },
+      shortString: { size: { max: 155, min: 0 } },
+      camelCase: {
+        regexp: { pattern: '^[a-z]+([A-Z][a-z0-9]+)*$', flags: '' },
+      },
+      path: {
+        regexp: {
+          pattern: '^\\\\\\\\/[a-z0-9:\\\\\\\\._/~%\\\\\\\\-\\\\\\\\+&\\\\\\\\#\\\\\\\\?!=\\\\\\\\(\\\\\\\\)@]*$',
+          flags: '',
+        },
+      },
+      url: {
+        regexp: {
+          pattern:
+            '^(ftp|http|https|mailto):(\\\\\\\\/\\\\\\\\/)*(\\\\\\\\w+:{0,1}\\\\\\\\w*@)?(\\\\\\\\S+)(:[0-9]+)?(\\\\\\\\/|\\\\\\\\/([\\\\\\\\w#!:.?+=&%@!\\\\\\\\-/]))?$',
+          flags: '',
+        },
+      },
+    },
+  },
+}",
+    },
+    "types": Object {
+      "ContentfulTopic": Object {
+        "interface": Object {
+          "fieldTags": Object {
+            "abstract": Object {
+              "@type": "Symbol",
+              "@validation": "shortString",
+            },
+            "actionsCollection": Object {
+              "@description": "Action field, this is the description",
+              "@itemsLinkType": "Entry",
+              "@itemsType": "Link",
+              "@type": "Array",
+              "@validation": "action",
+            },
+            "heading": Object {
+              "@type": "Symbol",
+            },
+            "icon": Object {
+              "@type": "Symbol",
+            },
+            "mediaCollection": Object {
+              "@itemsLinkType": "Asset",
+              "@itemsType": "Link",
+              "@type": "Array",
+            },
+            "poster": Object {
+              "@linkType": "Asset",
+              "@type": "Link",
+            },
+          },
+          "interfaceTags": Object {
+            "@description": "Topic model, a heading, an abstract and a call to action",
+            "@displayField": "heading",
+            "@plugin": "@wheelroom/plugin-contentful/plain",
+            "@type": "testTopic",
+          },
+          "typeName": "ContentfulTopic",
+        },
+        "variables": Array [
+          Object {
+            "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data.fixtures/topic.ts",
+            "isArray": true,
+            "isExported": true,
+            "isObject": false,
+            "isTyped": true,
+            "name": "myTopics",
+            "type": "ContentfulTopic",
+            "value": "[
+  {
+    abstract: 'This is the abstract',
+    actionsCollection: {
+      items: [
+        {
+          heading: 'Hello',
+          anchor: 'anchor',
+        },
+      ],
+    },
+    heading: 'Heres the heading',
+  },
+]",
+          },
+        ],
+      },
+    },
+  },
+  "contentful": Object {
+    "dataVar": Object {
+      "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data.fixtures/topic.ts",
+      "isArray": false,
+      "isExported": true,
+      "isObject": true,
+      "isTyped": true,
+      "name": "wheelroomPluginData",
+      "type": "WheelroomPluginData",
+      "value": "{
+  '@wheelroom/plugin-contentful/plain': {
+    validations: {
+      dropdown: { in: ['item A', 'item B', 'item C'] },
+      media: { linkMimetypeGroup: ['image', 'video'] },
+      action: { linkContentType: ['action'] },
+      shortString: { size: { max: 155, min: 0 } },
+      camelCase: {
+        regexp: { pattern: '^[a-z]+([A-Z][a-z0-9]+)*$', flags: '' },
+      },
+      path: {
+        regexp: {
+          pattern: '^\\\\\\\\/[a-z0-9:\\\\\\\\._/~%\\\\\\\\-\\\\\\\\+&\\\\\\\\#\\\\\\\\?!=\\\\\\\\(\\\\\\\\)@]*$',
+          flags: '',
+        },
+      },
+      url: {
+        regexp: {
+          pattern:
+            '^(ftp|http|https|mailto):(\\\\\\\\/\\\\\\\\/)*(\\\\\\\\w+:{0,1}\\\\\\\\w*@)?(\\\\\\\\S+)(:[0-9]+)?(\\\\\\\\/|\\\\\\\\/([\\\\\\\\w#!:.?+=&%@!\\\\\\\\-/]))?$',
+          flags: '',
+        },
+      },
+    },
+  },
+}",
+    },
+    "types": Object {
+      "ContentfulAction": Object {
+        "interface": Object {
+          "fieldTags": Object {
+            "anchor": Object {
+              "@helpText": "Voorbeeld: mijn-anchor",
+              "@type": "Symbol",
+            },
+            "description": Object {
+              "@helpText": "Omschrijving van de actie, voor zoekmachines",
+              "@type": "Symbol",
+            },
+            "eventId": Object {
+              "@type": "Symbol",
+            },
+            "heading": Object {
+              "@type": "Symbol",
+            },
+            "query": Object {
+              "@type": "Symbol",
+            },
+            "url": Object {
+              "@type": "Symbol",
+            },
+          },
+          "interfaceTags": Object {
+            "@plugin": "contentful",
+            "@type": "testAction",
+          },
+          "typeName": "ContentfulAction",
+        },
+        "variables": Array [],
+      },
+    },
+  },
+}
+`;

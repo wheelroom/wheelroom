@@ -95,6 +95,9 @@ export const parseWrInterface = ({
     log(chalk.red(`No @plugin inline tag: ${wrInterface.typeName}`))
     return
   }
+  // Strip double quotes from plugin name, double quotes are needed when an
+  // @-character is used in a module. Eg {@plugin @wheelroom/module}
+  tags['@plugin'] = tags['@plugin'].replace(/"/g, '')
 
   wrInterface.interfaceTags = tags
 

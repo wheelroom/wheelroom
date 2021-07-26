@@ -6,7 +6,7 @@ console.log(refA, refB)
 /**
  * This desciption is not used
  * @wheelroom
- * - {@plugin contentful}
+ * - {@plugin "@wheelroom/plugin-contentful/plain"}
  * - {@type testTopic}
  * - {@displayField heading}
  * - {@description Topic model, a heading, an abstract and a call to action}
@@ -96,7 +96,7 @@ export const notTaggedObject: NotTagged = {
 }
 
 export const wheelroomPluginData: WheelroomPluginData = {
-  contentful: {
+  '@wheelroom/plugin-contentful/plain': {
     validations: {
       dropdown: { in: ['item A', 'item B', 'item C'] },
       media: { linkMimetypeGroup: ['image', 'video'] },
