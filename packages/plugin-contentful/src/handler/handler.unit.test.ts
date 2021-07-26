@@ -5,10 +5,11 @@ const contentTypeMock = {
 }
 const getContentType = jest.fn(async () => contentTypeMock)
 const createContentTypeWithId = jest.fn(async () => contentTypeMock)
-const getEnvironment = jest.fn(async () => ({
+const environmentMock = {
   createContentTypeWithId,
   getContentType,
-}))
+}
+const getEnvironment = jest.fn(async () => environmentMock)
 const getSpace = jest.fn(async () => ({ getEnvironment }))
 const createClient = jest.fn(() => ({ getSpace }))
 jest.mock('contentful-management', () => ({ createClient }))
