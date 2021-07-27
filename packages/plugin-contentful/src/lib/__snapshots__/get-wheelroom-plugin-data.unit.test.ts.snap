@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getWheelroomPluginData should get data correctly 1`] = `
+Object {
+  "validations": Object {
+    "camelCase": Object {
+      "regexp": Object {
+        "flags": "",
+        "pattern": "^[a-z]+([A-Z][a-z0-9]+)*$",
+      },
+    },
+    "dropdown": Object {
+      "in": Array [
+        "item A",
+        "item B",
+        "item C",
+      ],
+    },
+  },
+}
+`;

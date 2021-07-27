@@ -19,8 +19,7 @@ export const handler: PushHandler = async ({
   }
 
   const dataVarObj = getWheelroomPluginData({ dataVar: pluginData.dataVar })
-  const validationsMap =
-    dataVarObj?.['@wheelroom/plugin-contentful/plain']?.validations || {}
+  const validationsMap = dataVarObj?.validations || {}
   const contentfulEnvironment = await getContentfulEnvironment()
   if (callCommand === 'push' && callType === 'models') {
     await pushModels({

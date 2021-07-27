@@ -18,5 +18,7 @@ export interface GetWheelroomPluginData {
 export const getWheelroomPluginData = ({ dataVar }: GetWheelroomPluginData) => {
   const dataVarFn = new Function(`return ${dataVar.value}`)
   const dataVarObj = dataVarFn() as WheelroomPluginData
-  return dataVarObj
+  const data = dataVarObj?.['@wheelroom/plugin-contentful/plain']
+
+  return data
 }
