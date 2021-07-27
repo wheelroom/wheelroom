@@ -17,15 +17,16 @@ export interface PushCommand {
 
 export const pushCommand = async ({ argv }: PushCommand) => {
   const log = console.log
+  log(chalk.bold.underline(`\nAnalyzing source files`))
   if (!existsSync(argv.file)) {
-    log(chalk.red(`File not found: ${argv.file}`))
+    log(chalk.red(`- file not found: ${argv.file}`))
     return
   }
   const compilerOptions = getCompilerOptions()
   const program = ts.createProgram([argv.file], compilerOptions.options)
   const allPluginData = getAllPluginData({ program })
   if (Object.keys(allPluginData).length < 1) {
-    log(chalk.red(`Nothing to process in file: ${argv.file}`))
+    log(chalk.red(`- nothing to process in file: ${argv.file}`))
     return
   }
 

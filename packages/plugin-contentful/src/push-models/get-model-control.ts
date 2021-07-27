@@ -15,7 +15,12 @@ export const getModelControl = ({ fieldId, fieldTag }: GetModelControl) => {
       widgetId: fieldTag['@widget'],
       settings: { helpText: fieldTag['@helpText'] },
     }
-    console.log(chalk.red(`Adding editor control for field ${fieldId}`))
+    if (fieldTag['@widget']) {
+      console.log(chalk(`- editor control ${fieldTag['@widget']}`))
+    }
+    if (fieldTag['@helpText']) {
+      console.log(chalk(`- help text`))
+    }
   }
   return control
 }

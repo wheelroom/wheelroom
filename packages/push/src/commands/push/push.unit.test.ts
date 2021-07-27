@@ -25,8 +25,9 @@ describe('The push command should', () => {
     argv.file = './src/commands/push/__fixtures__/xxx.ts'
     await pushCommand({ argv })
 
-    expect(consoleSpy).toHaveBeenCalledWith(
-      chalk.red('File not found: ./src/commands/push/__fixtures__/xxx.ts')
+    expect(consoleSpy).toHaveBeenNthCalledWith(
+      2,
+      chalk.red('- file not found: ./src/commands/push/__fixtures__/xxx.ts')
     )
     expect(callHandler).toHaveBeenCalledTimes(0)
   })
@@ -34,9 +35,10 @@ describe('The push command should', () => {
   test('report nothing to process when file exists', async () => {
     argv.file = './src/commands/push/__fixtures__/dummy-file.ts'
     await pushCommand({ argv })
-    expect(consoleSpy).toHaveBeenCalledWith(
+    expect(consoleSpy).toHaveBeenNthCalledWith(
+      2,
       chalk.red(
-        'Nothing to process in file: ./src/commands/push/__fixtures__/dummy-file.ts'
+        '- nothing to process in file: ./src/commands/push/__fixtures__/dummy-file.ts'
       )
     )
     expect(callHandler).toHaveBeenCalledTimes(0)

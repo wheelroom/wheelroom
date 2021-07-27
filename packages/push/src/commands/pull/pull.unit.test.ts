@@ -11,6 +11,6 @@ describe('The pull command should', () => {
     await pullCommand({
       argv: { type: 'content', path: './dummy-path', $0: '', _: [''] },
     })
-    expect(consoleSpy).toBeCalledTimes(1)
+    expect(consoleSpy).toHaveBeenCalled()
   })
 })

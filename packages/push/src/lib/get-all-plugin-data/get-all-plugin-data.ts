@@ -33,7 +33,7 @@ export const getAllPluginData = ({ program }: GetPluginData) => {
   let dataVar = {}
   for (const sourceFile of program.getSourceFiles()) {
     if (sourceFile.isDeclarationFile) continue
-    log(chalk.bold.underline('Processing source file:', sourceFile.fileName))
+    log(chalk.underline(sourceFile.fileName))
     const wrInterfaces: WrInterface[] = []
     const wrVariables: WrVariable[] = []
 
@@ -50,10 +50,12 @@ export const getAllPluginData = ({ program }: GetPluginData) => {
       ) {
         wrVariables.push(wrVariable)
       } else if (wrVariable.name && !wrVariable.isArray) {
-        log(chalk.red(`Content variable, not an array: ${wrVariable.name}`))
+        log(chalk.blue(`- content variable, not an array: ${wrVariable.name}`))
       } else {
         if (wrVariable.name && !wrVariable.isExported)
-          log(chalk.red(`Content variable, not exported: ${wrVariable.name}`))
+          log(
+            chalk.blue(`- content variable, not exported: ${wrVariable.name}`)
+          )
       }
     })
     // Order interfaces by interface and type
@@ -88,8 +90,8 @@ export const getAllPluginData = ({ program }: GetPluginData) => {
       }
       if (!lookupSuccess) {
         log(
-          chalk.red(
-            `Content variable, no type match: ${wrVariable.type}/${wrVariable.name}`
+          chalk.blue(
+            `- content variable, no type match: ${wrVariable.type}/${wrVariable.name}`
           )
         )
       }

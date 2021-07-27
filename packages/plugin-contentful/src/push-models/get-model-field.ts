@@ -18,11 +18,11 @@ export const getModelField = ({
   // TODO: Add support for multiple validations
   const validations = []
   if (fieldTag['@validation']) {
-    log(chalk.red(`Adding validation ${fieldTag['@validation']}`))
+    log(chalk(`- validation ${fieldTag['@validation']}`))
     if (fieldTag['@validation'] in validationsMap) {
       validations.push(validationsMap[fieldTag['@validation']])
     } else {
-      log(chalk.red(`Warning: validation ${fieldTag['@validation']} not found`))
+      log(chalk.red(`- validation ${fieldTag['@validation']} not found`))
     }
   }
 

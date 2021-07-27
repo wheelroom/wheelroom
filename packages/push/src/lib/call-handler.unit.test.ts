@@ -7,27 +7,29 @@ describe('The call handler should', () => {
     consoleSpy.mockReset()
   })
 
-  test('show an error when a module does not exist', async () => {
+  test('show an error when a plugin does not exist', async () => {
     await callHandler({
       callCommand: 'push',
       callType: 'content',
       pluginName: '@wheelroom/does-not-exist',
     })
-    expect(consoleSpy).toHaveBeenCalledWith(
-      chalk.red(
-        'Could not find plugin: @wheelroom/does-not-exist (MODULE_NOT_FOUND)'
-      )
-    )
+    expect(consoleSpy.mock.calls).toEqual([
+      [chalk.bold.underline(`\nRunning plugin`)],
+      [chalk('- plugin: @wheelroom/does-not-exist')],
+      [chalk.red('- could not find plugin (MODULE_NOT_FOUND)')],
+    ])
   })
 
-  test('show an error when a module does not have a handler', async () => {
+  test('show an error when a plugin does not have a handler', async () => {
     await callHandler({
       callCommand: 'push',
       callType: 'content',
       pluginName: 'chalk',
     })
-    expect(consoleSpy).toHaveBeenCalledWith(
-      chalk.red('Could not find handler method on plugin: chalk')
-    )
+    expect(consoleSpy.mock.calls).toEqual([
+      [chalk.bold.underline(`\nRunning plugin`)],
+      [chalk('- plugin: chalk')],
+      [chalk.red('- could not find handler method on plugin')],
+    ])
   })
 })

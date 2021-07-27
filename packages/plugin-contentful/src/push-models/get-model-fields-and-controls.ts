@@ -7,41 +7,32 @@ import { getModelControl } from './get-model-control'
 export interface GetModelFieldsAndControls {
   modelFields: { [fieldName: string]: Record<string, string> }
   validationsMap: ValidationsMap
-  typescriptInterfaceName?: string
 }
 
 export const getModelFieldsAndControls = ({
   modelFields,
   validationsMap,
-  typescriptInterfaceName,
 }: GetModelFieldsAndControls) => {
   const controls: Control[] = []
   const fields = []
   const log = console.log
   for (const [fieldId, fieldTag] of Object.entries(modelFields)) {
+    log(chalk.underline(`${fieldId}`))
+
     if ('@ignore' in fieldTag) {
+      log(chalk(`- ignoring field`))
       continue
     }
     if (!fieldTag['@type']) {
-      log(
-        chalk.red(`No @type inline tag:  ${typescriptInterfaceName}/${fieldId}`)
-      )
+      log(chalk.red(`- no @type inline tag`))
       continue
     }
     if (fieldTag['@type'] === 'Link' && !fieldTag['@linkType']) {
-      log(
-        chalk.red(
-          `@type=Link without @linkType: ${typescriptInterfaceName}/${fieldId}`
-        )
-      )
+      log(chalk.red(`- @type=Link without @linkType`))
       continue
     }
     if (fieldTag['@type'] === 'Array' && !fieldTag['@itemsType']) {
-      log(
-        chalk.red(
-          `@type=Array without @itemsType: ${typescriptInterfaceName}/${fieldId}`
-        )
-      )
+      log(chalk.red(`- @type=Array without @itemsType`))
       continue
     }
     if (
@@ -49,11 +40,7 @@ export const getModelFieldsAndControls = ({
       fieldTag['@itemsType'] === 'Link' &&
       !fieldTag['@itemsLinkType']
     ) {
-      log(
-        chalk.red(
-          `@type=Array, @itemsType=Link without @itemsLinkType:  ${typescriptInterfaceName}/${fieldId}`
-        )
-      )
+      log(chalk.red(`- @type=Array, @itemsType=Link without @itemsLinkType`))
       continue
     }
 

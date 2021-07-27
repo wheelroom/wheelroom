@@ -24,19 +24,19 @@ export const pushModels = async ({
     const typescriptInterfaceName = wrType.interface.typeName
     const interfaceTypeTag = interfaceTags['@type']
 
-    log(chalk.bold(`Type: ${typescriptInterfaceName}...`))
+    log(chalk.bold(`Interface: ${typescriptInterfaceName}`))
     if ('@ignore' in interfaceTags) {
+      log(chalk(`- ignoring interface`))
       continue
     }
     if (!interfaceTypeTag) {
-      log(chalk.red(`No @type inline tag: ${typescriptInterfaceName}`))
+      log(chalk.red(`- no @type inline tag`))
       continue
     }
 
     const { fields, controls } = getModelFieldsAndControls({
       modelFields,
       validationsMap,
-      typescriptInterfaceName,
     })
     const contentTypeData = {
       name: interfaceTags['@name'] || interfaceTypeTag,

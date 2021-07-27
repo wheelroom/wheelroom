@@ -34,20 +34,21 @@ export const callHandler = async ({
   pluginData,
   pluginName,
 }: CallHandler) => {
+  const log = console.log
+  log(chalk.bold.underline(`\nRunning plugin`))
+  console.log(chalk(`- plugin: ${pluginName}`))
   let module: Module = {}
   try {
     module = <Module>await import(pluginName)
   } catch (e) {
-    console.log(chalk.red(`Could not find plugin: ${pluginName} (${e.code})`))
+    console.log(chalk.red(`- could not find plugin (${e.code})`))
     return
   }
 
   if (module.handler) {
     await module.handler({ callCommand, callType, pluginData })
   } else {
-    console.log(
-      chalk.red(`Could not find handler method on plugin: ${pluginName}`)
-    )
+    log(chalk.red(`- could not find handler method on plugin`))
     return
   }
 }

@@ -73,7 +73,7 @@ export const parseWrInterface = ({
   if (!docProperty.name) return
   wrInterface.typeName = docProperty.name
   if (!docProperty.jSDocTags?.length) {
-    log(chalk.red(`No TSDoc tags: ${wrInterface.typeName}`))
+    log(chalk.red(`- no TSDoc tags (${wrInterface.typeName})`))
     return
   }
   const wheelroomTag = getTagByName({
@@ -88,7 +88,7 @@ export const parseWrInterface = ({
   if (!wheelroomTag) {
     log(
       chalk.red(
-        `No @wheelroom block tag for interface: ${wrInterface.typeName}`
+        `- no @wheelroom block tag for interface (${wrInterface.typeName})`
       )
     )
     return
@@ -97,7 +97,7 @@ export const parseWrInterface = ({
   const tags = getInlineTags({ search: text })
 
   if (!tags['@plugin']) {
-    log(chalk.red(`No @plugin inline tag: ${wrInterface.typeName}`))
+    log(chalk.red(`- no @plugin inline tag (${wrInterface.typeName})`))
     return
   }
   // Strip double quotes from plugin name, double quotes are needed when an
@@ -127,7 +127,7 @@ export const parseWrInterface = ({
     } else {
       log(
         chalk.red(
-          `No @wheelroom block tag for field: ${wrInterface.typeName}/${docProperty.name}`
+          `- no @wheelroom block tag for field (${wrInterface.typeName}/${docProperty.name})`
         )
       )
     }

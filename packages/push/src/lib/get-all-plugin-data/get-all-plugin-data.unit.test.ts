@@ -33,9 +33,7 @@ describe('getAllPluginData should', () => {
     getAllPluginData({ program })
     expect(consoleSpy).toHaveBeenNthCalledWith(
       1,
-      chalk.bold.underline(
-        'Processing source file: src/lib/get-all-plugin-data/__fixtures__/no-tags.ts'
-      )
+      chalk.underline('src/lib/get-all-plugin-data/__fixtures__/no-tags.ts')
     )
   })
 
@@ -45,7 +43,7 @@ describe('getAllPluginData should', () => {
     getAllPluginData({ program })
     expect(consoleSpy).toHaveBeenNthCalledWith(
       2,
-      chalk.red('No TSDoc tags: Topic')
+      chalk.red('- no TSDoc tags (Topic)')
     )
   })
 
@@ -55,7 +53,7 @@ describe('getAllPluginData should', () => {
     getAllPluginData({ program })
     expect(consoleSpy).toHaveBeenNthCalledWith(
       2,
-      chalk.red('No @plugin inline tag: Topic')
+      chalk.red('- no @plugin inline tag (Topic)')
     )
   })
 
@@ -66,7 +64,7 @@ describe('getAllPluginData should', () => {
     getAllPluginData({ program })
     expect(consoleSpy).toHaveBeenNthCalledWith(
       2,
-      chalk.red('No @wheelroom block tag for field: Topic/heading')
+      chalk.red('- no @wheelroom block tag for field (Topic/heading)')
     )
   })
 
@@ -77,7 +75,7 @@ describe('getAllPluginData should', () => {
     getAllPluginData({ program })
     expect(consoleSpy).toHaveBeenNthCalledWith(
       2,
-      chalk.red('No @wheelroom block tag for interface: Topic')
+      chalk.red('- no @wheelroom block tag for interface (Topic)')
     )
   })
 })
