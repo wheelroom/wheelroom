@@ -1,6 +1,6 @@
 import { TypeData } from '@wheelroom/push/plain'
 
-export const allTagsTypeData: TypeData = {
+export const allTags: TypeData = {
   Topic: {
     interface: {
       fieldTags: {
@@ -13,7 +13,7 @@ export const allTagsTypeData: TypeData = {
           '@name': 'Heading',
           '@required': '',
           '@type': 'Array',
-          '@validation': 'unique',
+          '@validation': 'mockedValidation',
           '@widget': 'singleLine',
         },
       },

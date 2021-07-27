@@ -24,7 +24,7 @@ export const pushModels = async ({
     const typescriptInterfaceName = wrType.interface.typeName
     const interfaceTypeTag = interfaceTags['@type']
 
-    log(chalk.bold(`\n${typescriptInterfaceName}`))
+    log(chalk.bold.underline(`\n${typescriptInterfaceName}`))
     if ('@ignore' in interfaceTags) {
       log(chalk(`- ignoring interface`))
       continue
@@ -38,20 +38,28 @@ export const pushModels = async ({
       modelFields,
       validationsMap,
     })
-    const contentTypeData = {
-      name: interfaceTags['@name'] || interfaceTypeTag,
-      description: interfaceTags['@description'],
-      displayField: interfaceTags['@displayField'],
-      fields,
+
+    if (fields.length < 1) {
+      log(chalk.red(`- no valid fields found, not pushing`))
+    } else {
+      log(chalk.bold(`\nPushing to Contentful`))
+      log(chalk(`- pushing content type`))
+      const contentTypeData = {
+        name: interfaceTags['@name'] || interfaceTypeTag,
+        description: interfaceTags['@description'],
+        displayField: interfaceTags['@displayField'],
+        fields,
+      }
+
+      const contentType = await pushFieldsToContentful({
+        contentTypeData,
+        contentfulEnvironment,
+        interfaceTypeTag,
+      })
+      if (controls.length > 0) {
+        console.log(chalk(`- pushing editor interface`))
+        await pushControlsToContentful({ contentType, controls })
+      }
     }
-
-    log(chalk.bold(`\n-> Pushing to Contentful`))
-    const contentType = await pushFieldsToContentful({
-      contentTypeData,
-      contentfulEnvironment,
-      interfaceTypeTag,
-    })
-
-    await pushControlsToContentful({ contentType, controls })
   }
 }

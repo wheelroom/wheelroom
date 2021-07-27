@@ -49,11 +49,9 @@ export const getModelFieldsAndControls = ({
       fieldTag,
       validationsMap,
     })
-    fields.push(newField)
+    if (newField) fields.push(newField)
     const newControl = getModelControl({ fieldId, fieldTag })
-    if (newControl) {
-      controls.push(newControl)
-    }
+    if (newControl) controls.push(newControl)
   }
   return { fields, controls }
 }

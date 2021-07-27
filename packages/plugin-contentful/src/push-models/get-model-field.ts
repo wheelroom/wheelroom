@@ -23,6 +23,7 @@ export const getModelField = ({
       validations.push(validationsMap[fieldTag['@validation']])
     } else {
       log(chalk.red(`- validation ${fieldTag['@validation']} not found`))
+      return
     }
   }
 

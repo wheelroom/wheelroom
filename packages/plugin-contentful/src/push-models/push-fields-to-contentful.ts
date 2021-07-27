@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import { Environment } from 'contentful-management/types'
 
 export interface PushFieldsToContentful {
@@ -13,7 +12,6 @@ export const pushFieldsToContentful = async ({
   interfaceTypeTag,
 }: PushFieldsToContentful) => {
   let contentType
-  console.log(chalk(`- pushing content type`))
   try {
     // Fetch exiting and update
     contentType = await contentfulEnvironment.getContentType(interfaceTypeTag)
