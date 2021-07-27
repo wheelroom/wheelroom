@@ -19,7 +19,10 @@ const pushingResponse = [
   [chalk('- pushing editor interface')],
 ]
 
-const notPusingResponse = [[chalk.red('- no valid fields found, not pushing')]]
+const notPusingResponse = [
+  [chalk.bold('\nPushing to Contentful')],
+  [chalk.red('- no valid fields found, skipping')],
+]
 
 describe('Push models should', () => {
   const consoleSpy = jest.spyOn(console, 'log').mockImplementation()

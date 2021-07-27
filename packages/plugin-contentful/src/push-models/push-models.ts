@@ -39,10 +39,10 @@ export const pushModels = async ({
       validationsMap,
     })
 
+    log(chalk.bold(`\nPushing to Contentful`))
     if (fields.length < 1) {
-      log(chalk.red(`- no valid fields found, not pushing`))
+      log(chalk.red(`- no valid fields found, skipping`))
     } else {
-      log(chalk.bold(`\nPushing to Contentful`))
       log(chalk(`- pushing content type`))
       const contentTypeData = {
         name: interfaceTags['@name'] || interfaceTypeTag,
