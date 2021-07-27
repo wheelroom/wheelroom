@@ -24,7 +24,7 @@ export const pushModels = async ({
     const typescriptInterfaceName = wrType.interface.typeName
     const interfaceTypeTag = interfaceTags['@type']
 
-    log(chalk.bold(`Interface: ${typescriptInterfaceName}`))
+    log(chalk.bold(`\n${typescriptInterfaceName}`))
     if ('@ignore' in interfaceTags) {
       log(chalk(`- ignoring interface`))
       continue
@@ -44,6 +44,8 @@ export const pushModels = async ({
       displayField: interfaceTags['@displayField'],
       fields,
     }
+
+    log(chalk.bold(`\n-> Pushing to Contentful`))
     const contentType = await pushFieldsToContentful({
       contentTypeData,
       contentfulEnvironment,

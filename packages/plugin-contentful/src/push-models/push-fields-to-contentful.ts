@@ -13,7 +13,7 @@ export const pushFieldsToContentful = async ({
   interfaceTypeTag,
 }: PushFieldsToContentful) => {
   let contentType
-  console.log(chalk(`- Pushing content type to Contentful`))
+  console.log(chalk(`- pushing content type`))
   try {
     // Fetch exiting and update
     contentType = await contentfulEnvironment.getContentType(interfaceTypeTag)

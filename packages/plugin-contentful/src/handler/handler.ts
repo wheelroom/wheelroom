@@ -13,9 +13,10 @@ export const handler: PushHandler = async ({
 }) => {
   const log = console.log
   getAndValidateEnv()
-  log(chalk.bold.underline(`Contentful plugin`))
   if (!pluginData) return
-  log(chalk(`Wheelroom project: ${process.env.WHEELROOM_PROJECT_NAME}`))
+  if (process.env.WHEELROOM_PROJECT_NAME) {
+    log(chalk(`- wheelroom project: ${process.env.WHEELROOM_PROJECT_NAME}`))
+  }
 
   const dataVarObj = getWheelroomPluginData({ dataVar: pluginData.dataVar })
   const validationsMap =
