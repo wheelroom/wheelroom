@@ -1,7 +1,7 @@
-import contentful from 'contentful-management'
+import { createClient } from 'contentful-management'
 
 export const getContentfulEnvironment = async () => {
-  const client = contentful.createClient({
+  const client = createClient({
     accessToken: process.env.CONTENTFUL_CMA_TOKEN!,
   })
   const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID!)

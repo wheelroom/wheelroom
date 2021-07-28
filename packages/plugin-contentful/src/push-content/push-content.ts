@@ -1,17 +1,22 @@
 import { TypeData } from '@wheelroom/push/plain'
 import chalk from 'chalk'
 import { CreateEntryProps, Environment } from 'contentful-management/types'
-import { getContentfulEnvironment } from '../lib/get-contentful-environment'
+import { getContentfulLocales } from '../lib/get-contentful-locales'
 
 export interface PushTypes {
   contentfulEnvironment: Environment
   typeData: TypeData
 }
 
-export const pushContent = async ({ typeData }: PushTypes) => {
-  // Test with env for now
-  const env = await getContentfulEnvironment()
+export const pushContent = async ({
+  contentfulEnvironment,
+  typeData,
+}: PushTypes) => {
   const log = console.log
+  const { defaultLocale } = await getContentfulLocales({
+    contentfulEnvironment,
+  })
+  log(chalk(`- default locale ${defaultLocale}`))
   for (const wrType of Object.values(typeData)) {
     const interfaceTags = wrType.interface.interfaceTags || {}
     const typescriptInterfaceName = wrType.interface.typeName
@@ -35,7 +40,7 @@ export const pushContent = async ({ typeData }: PushTypes) => {
         const entryData: CreateEntryProps = {
           fields: value,
         }
-        await env.createEntryWithId(
+        await contentfulEnvironment.createEntryWithId(
           interfaceTypeTag,
           `${wrVar.name} ${index}`,
           entryData
