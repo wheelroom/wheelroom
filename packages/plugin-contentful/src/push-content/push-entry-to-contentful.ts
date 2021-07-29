@@ -29,14 +29,19 @@ export interface PushEntryToContentful {
  */
 
 export const pushEntryToContentful = async ({
-  // contentfulEnvironment,
+  contentfulEnvironment,
   contentTypeId,
   fieldValues,
+  fields,
   variableName,
 }: PushEntryToContentful) => {
-  const entryData: CreateEntryProps = {
-    fields: fieldValues,
+  console.info('contentTypeId', contentTypeId)
+  console.info('variableName', variableName)
+  for (const fieldId of Object.keys(fieldValues)) {
+    console.info(fieldId, fields![fieldId])
   }
-  console.info(contentTypeId, variableName, entryData)
-  // await contentfulEnvironment.createEntryWithId(contentTypeId, id, entryData)
+
+  await contentfulEnvironment.createEntryWithId(contentTypeId, 'id', {
+    fields: {},
+  } as CreateEntryProps)
 }

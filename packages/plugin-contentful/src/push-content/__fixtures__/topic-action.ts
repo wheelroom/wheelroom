@@ -48,7 +48,7 @@ export const topicAction: TypeData = {
             '@type': 'Array',
             '@validation': 'action',
           },
-          type: 'ActionsCollection | undefined',
+          type: '{ items: ContentfulAction[]; } | undefined',
         },
       },
       interfaceTags: {

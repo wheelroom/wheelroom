@@ -1,5 +1,8 @@
 import { Environment, Locale } from 'contentful-management/types'
 
+const entryMock = {
+  mockedField: 'test',
+}
 const localeMock = {
   items: [
     {
@@ -16,10 +19,12 @@ export const contentTypeMock = {
   update: async () => contentTypeMock,
   getEditorInterface: async () => contentTypeMock,
 }
+export const createEntryWithId = jest.fn(async () => entryMock)
 export const getLocales = jest.fn(async () => localeMock)
 export const getContentType = jest.fn(async () => contentTypeMock)
 export const createContentTypeWithId = jest.fn(async () => contentTypeMock)
 export const environmentMock = {
+  createEntryWithId,
   createContentTypeWithId,
   getContentType,
   getLocales,
