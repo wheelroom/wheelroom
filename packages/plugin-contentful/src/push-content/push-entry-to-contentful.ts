@@ -10,7 +10,7 @@ export interface PushEntryToContentful {
   contentTypeId: string
   fieldValues: KeyValueMap
   fields: WrInterface['fields']
-  id: string
+  variableName: string
 }
 
 /**
@@ -32,11 +32,11 @@ export const pushEntryToContentful = async ({
   // contentfulEnvironment,
   contentTypeId,
   fieldValues,
-  id,
+  variableName,
 }: PushEntryToContentful) => {
   const entryData: CreateEntryProps = {
     fields: fieldValues,
   }
-  console.info(contentTypeId, id, entryData)
+  console.info(contentTypeId, variableName, entryData)
   // await contentfulEnvironment.createEntryWithId(contentTypeId, id, entryData)
 }
