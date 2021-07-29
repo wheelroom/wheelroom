@@ -8,9 +8,13 @@ import { isExportedDeclaration } from './is-exported-declaration'
 import { stripDoubleQuotes } from './case-helpers'
 
 export type WrInterface = {
-  /** The inline tags defined within the @wheelroom tag for each field */
-  fieldTags?: {
-    [fieldName: string]: Record<string, string>
+  fields?: {
+    [fieldName: string]: {
+      /** The inline tags defined within the @wheelroom tag for each field */
+      tags?: Record<string, string>
+      /** Typescript type of the field */
+      type?: string
+    }
   }
   /** The inline tags defined within the @wheelroom tagon the interface */
   interfaceTags?: Record<string, string>
@@ -114,7 +118,7 @@ export const parseWrInterface = ({
   // })
   // wrInterface.description = description
 
-  wrInterface.fieldTags = {}
+  wrInterface.fields = {}
   docProperty.docProperties?.forEach((docProperty: DocProperty) => {
     const wheelroomTag = getTagByName({
       tags: docProperty.jSDocTags,
@@ -123,7 +127,10 @@ export const parseWrInterface = ({
     if (wheelroomTag) {
       const text = getTextSymbol({ symbols: wheelroomTag.text })
       const tags = getInlineTags({ search: text })
-      wrInterface.fieldTags![docProperty.name || 'unknown'] = tags
+      wrInterface.fields![docProperty.name || 'unknown'] = {
+        tags,
+        type: docProperty.type,
+      }
     } else {
       log(
         chalk.red(

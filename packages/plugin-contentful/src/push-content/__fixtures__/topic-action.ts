@@ -3,9 +3,12 @@ import { TypeData } from '@wheelroom/push/plain'
 export const topicAction: TypeData = {
   ContentfulAction: {
     interface: {
-      fieldTags: {
+      fields: {
         heading: {
-          '@type': 'Symbol',
+          tags: {
+            '@type': 'Symbol',
+          },
+          type: 'string | undefined',
         },
       },
       interfaceTags: {
@@ -30,16 +33,22 @@ export const topicAction: TypeData = {
   },
   ContentfulTopic: {
     interface: {
-      fieldTags: {
+      fields: {
         heading: {
-          '@type': 'Symbol',
+          tags: {
+            '@type': 'Symbol',
+          },
+          type: 'string | undefined',
         },
         actionsCollection: {
-          '@description': 'Action field, this is the description',
-          '@itemsLinkType': 'Entry',
-          '@itemsType': 'Link',
-          '@type': 'Array',
-          '@validation': 'action',
+          tags: {
+            '@description': 'Action field, this is the description',
+            '@itemsLinkType': 'Entry',
+            '@itemsType': 'Link',
+            '@type': 'Array',
+            '@validation': 'action',
+          },
+          type: 'ActionsCollection | undefined',
         },
       },
       interfaceTags: {

@@ -1,7 +1,8 @@
 import { TypeData } from '@wheelroom/push/plain'
 import chalk from 'chalk'
-import { CreateEntryProps, Environment } from 'contentful-management/types'
+import { Environment } from 'contentful-management/types'
 import { getContentfulLocales } from '../lib/get-contentful-locales'
+import { pushEntryToContentful } from './push-entry-to-contentful'
 
 export interface PushTypes {
   contentfulEnvironment: Environment
@@ -34,17 +35,15 @@ export const pushContent = async ({
 
     for (const wrVar of wrType.variables) {
       const valueFn = new Function(`return ${wrVar.value}`)
-      const valueArray = valueFn()
-      console.info('Data to send to Contentful', valueArray)
-      for (const [value, index] of valueArray.entries()) {
-        const entryData: CreateEntryProps = {
-          fields: value,
-        }
-        await contentfulEnvironment.createEntryWithId(
-          interfaceTypeTag,
-          `${wrVar.name} ${index}`,
-          entryData
-        )
+      const fieldsArray = valueFn()
+      for (const [fields, index] of fieldsArray.entries()) {
+        pushEntryToContentful({
+          contentfulEnvironment,
+          contentTypeId: interfaceTypeTag,
+          fieldValues: fields,
+          fields: wrType.interface.fields,
+          id: `${wrVar.name}${index}`,
+        })
       }
     }
   }

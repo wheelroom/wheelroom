@@ -3,10 +3,13 @@ import { TypeData } from '@wheelroom/push/plain'
 export const badValidation: TypeData = {
   Topic: {
     interface: {
-      fieldTags: {
+      fields: {
         heading: {
-          '@type': 'Symbol',
-          '@validation': 'doesNotExist',
+          tags: {
+            '@type': 'Symbol',
+            '@validation': 'doesNotExist',
+          },
+          type: 'string | undefined',
         },
       },
       interfaceTags: {

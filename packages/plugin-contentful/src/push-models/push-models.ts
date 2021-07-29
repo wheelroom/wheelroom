@@ -19,7 +19,7 @@ export const pushModels = async ({
 }: PushTypes) => {
   const log = console.log
   for (const wrType of Object.values(typeData)) {
-    const modelFields = wrType.interface.fieldTags || {}
+    const modelFields = wrType.interface.fields || {}
     const interfaceTags = wrType.interface.interfaceTags || {}
     const typescriptInterfaceName = wrType.interface.typeName
     const interfaceTypeTag = interfaceTags['@type']

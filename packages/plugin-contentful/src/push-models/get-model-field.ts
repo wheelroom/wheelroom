@@ -5,24 +5,24 @@ import { ValidationsMap } from '../lib/get-wheelroom-plugin-data'
 
 export interface GetModelField {
   fieldId: string
-  fieldTag: Record<string, string>
+  fieldTags: Record<string, string>
   validationsMap: ValidationsMap
 }
 
 export const getModelField = ({
   fieldId,
-  fieldTag,
+  fieldTags,
   validationsMap,
 }: GetModelField) => {
   const log = console.log
   // TODO: Add support for multiple validations
   const validations = []
-  if (fieldTag['@validation']) {
-    if (fieldTag['@validation'] in validationsMap) {
-      log(chalk(`- validation ${fieldTag['@validation']}`))
-      validations.push(validationsMap[fieldTag['@validation']])
+  if (fieldTags['@validation']) {
+    if (fieldTags['@validation'] in validationsMap) {
+      log(chalk(`- validation ${fieldTags['@validation']}`))
+      validations.push(validationsMap[fieldTags['@validation']])
     } else {
-      log(chalk.red(`- validation ${fieldTag['@validation']} not found`))
+      log(chalk.red(`- validation ${fieldTags['@validation']} not found`))
       return
     }
   }
@@ -40,18 +40,18 @@ export const getModelField = ({
   const newField: ContentFields = {
     id: fieldId,
     // initialValue: { key: 'value' },
-    linkType: fieldTag['@linkType'],
-    localized: '@localized' in fieldTag,
-    name: fieldTag['@name'] || humanReadableFieldId,
-    required: '@required' in fieldTag,
-    type: fieldTag['@type'] as FieldType['type'],
+    linkType: fieldTags['@linkType'],
+    localized: '@localized' in fieldTags,
+    name: fieldTags['@name'] || humanReadableFieldId,
+    required: '@required' in fieldTags,
+    type: fieldTags['@type'] as FieldType['type'],
   }
   // Add validations to Array items if type === Array
-  if (fieldTag['@type'] === 'Array') {
+  if (fieldTags['@type'] === 'Array') {
     newField.id = fieldIdWithoutPostfix
     newField.items = {
-      type: fieldTag['@itemsType'],
-      linkType: fieldTag['@itemsLinkType'],
+      type: fieldTags['@itemsType'],
+      linkType: fieldTags['@itemsLinkType'],
       validations,
     }
   } else {

@@ -3,9 +3,12 @@ import { TypeData } from '@wheelroom/push/plain'
 export const noFieldType: TypeData = {
   Topic: {
     interface: {
-      fieldTags: {
+      fields: {
         heading: {
-          '@helpText': 'The topic heading',
+          tags: {
+            '@helpText': 'The topic heading',
+          },
+          type: 'string | undefined',
         },
       },
       interfaceTags: {

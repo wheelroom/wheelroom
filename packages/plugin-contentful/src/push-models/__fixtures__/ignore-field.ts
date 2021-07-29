@@ -3,11 +3,14 @@ import { TypeData } from '@wheelroom/push/plain'
 export const ignoreField: TypeData = {
   Topic: {
     interface: {
-      fieldTags: {
+      fields: {
         heading: {
-          '@helpText': 'The topic heading',
-          '@ignore': '',
-          '@type': 'Symbol',
+          tags: {
+            '@helpText': 'The topic heading',
+            '@ignore': '',
+            '@type': 'Symbol',
+          },
+          type: 'string | undefined',
         },
       },
       interfaceTags: {

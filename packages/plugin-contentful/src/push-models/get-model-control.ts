@@ -3,22 +3,22 @@ import { Control } from 'contentful-management/types'
 
 export interface GetModelControl {
   fieldId: string
-  fieldTag: Record<string, string>
+  fieldTags: Record<string, string>
 }
 
-export const getModelControl = ({ fieldId, fieldTag }: GetModelControl) => {
+export const getModelControl = ({ fieldId, fieldTags }: GetModelControl) => {
   let control: Control | undefined
-  if (fieldTag['@widget'] || fieldTag['@helpText']) {
+  if (fieldTags['@widget'] || fieldTags['@helpText']) {
     control = {
       fieldId,
       widgetNamespace: 'builtin',
-      widgetId: fieldTag['@widget'],
-      settings: { helpText: fieldTag['@helpText'] },
+      widgetId: fieldTags['@widget'],
+      settings: { helpText: fieldTags['@helpText'] },
     }
-    if (fieldTag['@widget']) {
-      console.log(chalk(`- editor control ${fieldTag['@widget']}`))
+    if (fieldTags['@widget']) {
+      console.log(chalk(`- editor control ${fieldTags['@widget']}`))
     }
-    if (fieldTag['@helpText']) {
+    if (fieldTags['@helpText']) {
       console.log(chalk(`- help text`))
     }
   }

@@ -7,18 +7,21 @@ Object {
     "types": Object {
       "Topic": Object {
         "interface": Object {
-          "fieldTags": Object {
+          "fields": Object {
             "heading": Object {
-              "@helpText": "The topic heading",
-              "@itemsLinkType": "Entry",
-              "@itemsType": "Link",
-              "@linkType": "Symbol",
-              "@localized": "",
-              "@name": "Heading",
-              "@required": "",
-              "@type": "Array",
-              "@validation": "unique",
-              "@widget": "singleLine",
+              "tags": Object {
+                "@helpText": "The topic heading",
+                "@itemsLinkType": "Entry",
+                "@itemsType": "Link",
+                "@linkType": "Symbol",
+                "@localized": "",
+                "@name": "Heading",
+                "@required": "",
+                "@type": "Array",
+                "@validation": "unique",
+                "@widget": "singleLine",
+              },
+              "type": "string",
             },
           },
           "interfaceTags": Object {
@@ -75,26 +78,44 @@ Object {
     "types": Object {
       "ContentfulAction": Object {
         "interface": Object {
-          "fieldTags": Object {
+          "fields": Object {
             "anchor": Object {
-              "@helpText": "Voorbeeld: mijn-anchor",
-              "@type": "Symbol",
+              "tags": Object {
+                "@helpText": "Voorbeeld: mijn-anchor",
+                "@type": "Symbol",
+              },
+              "type": "string | undefined",
             },
             "description": Object {
-              "@helpText": "Omschrijving van de actie, voor zoekmachines",
-              "@type": "Symbol",
+              "tags": Object {
+                "@helpText": "Omschrijving van de actie, voor zoekmachines",
+                "@type": "Symbol",
+              },
+              "type": "string | undefined",
             },
             "eventId": Object {
-              "@type": "Symbol",
+              "tags": Object {
+                "@type": "Symbol",
+              },
+              "type": "string | undefined",
             },
             "heading": Object {
-              "@type": "Symbol",
+              "tags": Object {
+                "@type": "Symbol",
+              },
+              "type": "string | undefined",
             },
             "query": Object {
-              "@type": "Symbol",
+              "tags": Object {
+                "@type": "Symbol",
+              },
+              "type": "string | undefined",
             },
             "url": Object {
-              "@type": "Symbol",
+              "tags": Object {
+                "@type": "Symbol",
+              },
+              "type": "string | undefined",
             },
           },
           "interfaceTags": Object {
@@ -107,32 +128,50 @@ Object {
       },
       "ContentfulTopic": Object {
         "interface": Object {
-          "fieldTags": Object {
+          "fields": Object {
             "abstract": Object {
-              "@type": "Symbol",
-              "@validation": "shortString",
+              "tags": Object {
+                "@type": "Symbol",
+                "@validation": "shortString",
+              },
+              "type": "string | undefined",
             },
             "actionsCollection": Object {
-              "@description": "Action field, this is the description",
-              "@itemsLinkType": "Entry",
-              "@itemsType": "Link",
-              "@type": "Array",
-              "@validation": "action",
+              "tags": Object {
+                "@description": "Action field, this is the description",
+                "@itemsLinkType": "Entry",
+                "@itemsType": "Link",
+                "@type": "Array",
+                "@validation": "action",
+              },
+              "type": "{ items: ContentfulAction[]; } | undefined",
             },
             "heading": Object {
-              "@type": "Symbol",
+              "tags": Object {
+                "@type": "Symbol",
+              },
+              "type": "string | undefined",
             },
             "icon": Object {
-              "@type": "Symbol",
+              "tags": Object {
+                "@type": "Symbol",
+              },
+              "type": "string | undefined",
             },
             "mediaCollection": Object {
-              "@itemsLinkType": "Asset",
-              "@itemsType": "Link",
-              "@type": "Array",
+              "tags": Object {
+                "@itemsLinkType": "Asset",
+                "@itemsType": "Link",
+                "@type": "Array",
+              },
+              "type": "{ items: ContentfulAsset[]; } | undefined",
             },
             "poster": Object {
-              "@linkType": "Asset",
-              "@type": "Link",
+              "tags": Object {
+                "@linkType": "Asset",
+                "@type": "Link",
+              },
+              "type": "ContentfulAsset | undefined",
             },
           },
           "interfaceTags": Object {
