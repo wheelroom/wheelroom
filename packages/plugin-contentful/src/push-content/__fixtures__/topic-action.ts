@@ -20,13 +20,21 @@ export const topicAction: TypeData = {
     },
     variables: [
       {
-        fileName: '/__fixtures__/action.ts',
+        fileName: '/__fixtures__/topic-action.ts',
+        isArray: true,
+        isExported: true,
+        isObject: false,
+        isTyped: true,
         name: 'myActions',
         type: 'ContentfulAction',
         value: `[
-  {
-    heading: 'My action heading #0',
-  },
+{
+sys: {
+  id: 'myContentAdtionId',
+},
+heading: 'Hello',
+anchor: 'anchor',
+},
 ]`,
       },
     ],
@@ -61,6 +69,10 @@ export const topicAction: TypeData = {
     variables: [
       {
         fileName: '/__fixtures__/topic.ts',
+        isArray: true,
+        isExported: true,
+        isObject: false,
+        isTyped: true,
         name: 'myTopics',
         type: 'ContentfulTopic',
         value: `[
