@@ -124,7 +124,26 @@ Object {
           },
           "typeName": "ContentfulAction",
         },
-        "variables": Array [],
+        "variables": Array [
+          Object {
+            "fileName": "/Users/jacco/Development/wheelroom/packages/push/src/lib/get-all-plugin-data/__fixtures__/topic-action.ts",
+            "isArray": true,
+            "isExported": true,
+            "isObject": false,
+            "isTyped": true,
+            "name": "myActions",
+            "type": "ContentfulAction",
+            "value": "[
+  {
+    sys: {
+      id: 'myContentAdtionId',
+    },
+    heading: 'Hello',
+    anchor: 'anchor',
+  },
+]",
+          },
+        ],
       },
       "ContentfulTopic": Object {
         "interface": Object {
@@ -197,8 +216,9 @@ Object {
     actionsCollection: {
       items: [
         {
-          heading: 'Hello',
-          anchor: 'anchor',
+          sys: {
+            id: 'myContentAdtionId',
+          },
         },
       ],
     },

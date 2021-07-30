@@ -30,4 +30,12 @@ export interface ContentfulAction {
   url?: string
 }
 
-export const refB = 'b'
+export const myActions: ContentfulAction[] = [
+  {
+    sys: {
+      id: 'myContentAdtionId',
+    },
+    heading: 'Hello',
+    anchor: 'anchor',
+  },
+]

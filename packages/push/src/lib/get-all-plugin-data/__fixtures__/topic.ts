@@ -1,8 +1,7 @@
 import { WheelroomPluginData } from '@wheelroom/plugin-contentful/plain'
-import { ContentfulAction, refB } from './topic-action'
-import { ContentfulAsset, refA } from './topic-asset'
+import { ContentfulAction } from './topic-action'
+import { ContentfulAsset } from './topic-asset'
 
-console.log(refA, refB)
 /**
  * This desciption is not used
  * @wheelroom
@@ -62,8 +61,9 @@ export const myTopics: ContentfulTopic[] = [
     actionsCollection: {
       items: [
         {
-          heading: 'Hello',
-          anchor: 'anchor',
+          sys: {
+            id: 'myContentAdtionId',
+          },
         },
       ],
     },
