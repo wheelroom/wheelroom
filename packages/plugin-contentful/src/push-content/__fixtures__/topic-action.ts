@@ -30,7 +30,7 @@ export const topicAction: TypeData = {
         value: `[
 {
 sys: {
-  id: 'myContentAdtionId',
+  id: 'myContentActionId',
 },
 heading: 'Hello',
 anchor: 'anchor',
@@ -85,7 +85,7 @@ anchor: 'anchor',
         },
         {
           sys: {
-            id: 'myActions0',
+            id: 'myContentActionId',
           }
         },
       ],

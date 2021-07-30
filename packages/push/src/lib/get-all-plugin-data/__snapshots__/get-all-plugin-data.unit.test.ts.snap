@@ -136,7 +136,7 @@ Object {
             "value": "[
   {
     sys: {
-      id: 'myContentAdtionId',
+      id: 'myContentActionId',
     },
     heading: 'Hello',
     anchor: 'anchor',
@@ -217,7 +217,7 @@ Object {
       items: [
         {
           sys: {
-            id: 'myContentAdtionId',
+            id: 'myContentActionId',
           },
         },
       ],

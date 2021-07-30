@@ -33,7 +33,7 @@ export interface ContentfulAction {
 export const myActions: ContentfulAction[] = [
   {
     sys: {
-      id: 'myContentAdtionId',
+      id: 'myContentActionId',
     },
     heading: 'Hello',
     anchor: 'anchor',

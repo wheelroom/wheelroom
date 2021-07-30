@@ -62,7 +62,7 @@ export const myTopics: ContentfulTopic[] = [
       items: [
         {
           sys: {
-            id: 'myContentAdtionId',
+            id: 'myContentActionId',
           },
         },
       ],
