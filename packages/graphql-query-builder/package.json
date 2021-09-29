@@ -1,4 +1,27 @@
 {
+  "name": "@wheelroom/graphql-query-builder",
+  "version": "1.4.7",
+  "description": "Site framework based on Contentful and Gatsby",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
+    "graphql",
+    "query",
+    "builder"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,6 +35,21 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent",
+    "dev": "tsc -w",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
+  },
   "browserslist": {
     "development": [
       "last 1 chrome version",
@@ -24,10 +62,6 @@
       "not op_mini all"
     ]
   },
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
-  "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
     "@types/jest": "25.1.4",
     "@types/node": "13.9.2",
@@ -50,42 +84,8 @@
     "node": ">=12.0.0",
     "npm": ">=6.14.6"
   },
-  "files": [
-    "dist/*"
-  ],
-  "homepage": "https://github.com/wheelroom/wheelroom",
-  "keywords": [
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom",
-    "graphql",
-    "query",
-    "builder"
-  ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@wheelroom/graphql-query-builder",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "scripts": {
-    "build": "npm-run-all build:*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:compile": "tsc",
-    "build:test": "jest --silent",
-    "prepack": "npm run build",
-    "test": "npm run build:test",
-    "dev": "tsc -w"
-  },
-  "type": "commonjs",
-  "types": "dist/index.d.ts",
-  "version": "1.4.7",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }
