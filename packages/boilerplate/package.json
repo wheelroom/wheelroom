@@ -1,4 +1,26 @@
 {
+  "name": "@wheelroom/boilerplate",
+  "version": "6.3.5",
+  "private": true,
+  "description": "A JAMstack boilerplate for services, like Gatsby, Contentful, Netlify and much more",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
+    "cli"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom#readme",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,8 +34,36 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npm-run-all compile:*",
+    "compile-config": "npm-run-all compile:*",
+    "compile:config": "tsc --project src/wheelroom-config/tsconfig.json",
+    "compile:copy-fragments": "npm run copy-fragments",
+    "copy-fragments": "./copy-graphql-fragments.sh",
+    "demo-load-env": "export $(grep -v '^#' .env | xargs)",
+    "demo-postversion": "git push && git push --tags",
+    "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "dev": "gatsby develop",
+    "develop": "gatsby develop",
+    "lint": "eslint 'src*/**/*.{js,ts,tsx}'",
+    "lint-fix": "eslint 'src*/**/*.{js,ts,tsx}' --fix",
+    "netlify": "npm-run-all netlify:*",
+    "netlify:fragments": "npm run copy-fragments",
+    "netlify:gatsby": "gatsby build",
+    "start": "npm run develop",
+    "svgr": "svgr --typescript --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/figma src/svg/figma --config-file ./src/svg/svgr.config.js",
+    "type-check": "tsc --noEmit",
+    "version": "node sync-wheelroom-version.js",
+    "wr": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js",
+    "wr:cb": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-boilerplate react src/wheelroom/models",
+    "wr:cc": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-content",
+    "wr:cg": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-graphql gatsbyjs src/wheelroom/models",
+    "wr:cm": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-models",
+    "wr:dc": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js delete-content",
+    "wr:dm": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js delete-models",
+    "wr:ls": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js list"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "14.1.1",
@@ -27,6 +77,7 @@
     "@wheelroom/admin-panel": "1.2.9",
     "@wheelroom/admin-theme-switcher": "2.0.7",
     "@wheelroom/core": "2.4.1",
+    "@wheelroom/gatsby-theme-wheelroom": "5.0.17",
     "@wheelroom/styled-system": "4.1.9",
     "@wheelroom/wheel-blog": "2.2.13",
     "@wheelroom/wheel-doc": "2.0.14",
@@ -52,7 +103,6 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-contentful": "2.3.34",
     "gatsby-source-filesystem": "2.3.23",
-    "gatsby-theme-wheelroom": "5.0.17",
     "gatsby-transformer-json": "2.4.11",
     "query-string": "6.13.1",
     "react": "16.13.1",
@@ -60,16 +110,6 @@
     "react-helmet": "6.1.0",
     "yargs": "15.4.1"
   },
-  "description": "A JAMstack boilerplate for services, like Gatsby, Contentful, Netlify and much more",
-  "keywords": [
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom",
-    "cli"
-  ],
   "devDependencies": {
     "@svgr/cli": "5.4.0",
     "@types/dotenv": "8.2.0",
@@ -102,46 +142,6 @@
     "node": ">=12.0.0",
     "npm": ">=6.14.6"
   },
-  "homepage": "https://github.com/wheelroom/wheelroom#readme",
-  "license": "MIT",
-  "main": "index.js",
-  "name": "@wheelroom/boilerplate",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "scripts": {
-    "compile-config": "npm-run-all compile:*",
-    "compile:copy-fragments": "npm run copy-fragments",
-    "compile:config": "tsc --project src/wheelroom-config/tsconfig.json",
-    "compile": "npm-run-all compile:*",
-    "copy-fragments": "./copy-graphql-fragments.sh",
-    "demo-load-env": "export $(grep -v '^#' .env | xargs)",
-    "demo-postversion": "git push && git push --tags",
-    "demo-version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "dev": "gatsby develop",
-    "develop": "gatsby develop",
-    "lint-fix": "eslint 'src*/**/*.{js,ts,tsx}' --fix",
-    "lint": "eslint 'src*/**/*.{js,ts,tsx}'",
-    "netlify:fragments": "npm run copy-fragments",
-    "netlify:gatsby": "gatsby build",
-    "netlify": "npm-run-all netlify:*",
-    "start": "npm run develop",
-    "svgr": "svgr --typescript --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/figma src/svg/figma --config-file ./src/svg/svgr.config.js",
-    "type-check": "tsc --noEmit",
-    "version": "node sync-wheelroom-version.js",
-    "wr": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js",
-    "wr:cm": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-models",
-    "wr:dm": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js delete-models",
-    "wr:cc": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-content",
-    "wr:dc": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js delete-content",
-    "wr:cb": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-boilerplate react src/wheelroom/models",
-    "wr:cg": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js create-graphql gatsbyjs src/wheelroom/models",
-    "wr:ls": "wheelroom --config compiled-config/wheelroom-config/wheelroom-config.js list"
-  },
-  "type": "commonjs",
-  "version": "6.3.5",
   "wheelroom": {
     "version": "6.3.5"
   }

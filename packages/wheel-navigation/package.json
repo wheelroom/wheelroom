@@ -1,4 +1,25 @@
 {
+  "name": "@wheelroom/wheel-navigation",
+  "version": "2.5.2",
+  "description": "Navigation wheel for Wheelroom",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
+    "wheel"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,10 +33,25 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.*",
+    "dist/config/*",
+    "dist/models/*",
+    "src/models/navigation/fragment.js",
+    "src/models/navigation-section/fragment.js",
+    "src/models/navigation-segment/fragment.js"
+  ],
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "dev": "tsc -w",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
   },
-  "description": "Navigation wheel for Wheelroom",
   "devDependencies": {
     "@emotion/core": "10.0.28",
     "@svgr/cli": "5.4.0",
@@ -28,6 +64,7 @@
     "@wheelroom/admin-page-preview": "1.5.14",
     "@wheelroom/admin-theme-switcher": "2.0.7",
     "@wheelroom/core": "2.4.1",
+    "@wheelroom/gatsby-theme-wheelroom": "5.0.17",
     "@wheelroom/styled-system": "4.1.9",
     "@wheelroom/wheelroom": "4.3.9",
     "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
@@ -37,7 +74,6 @@
     "eslint-plugin-react": "7.20.3",
     "eslint-plugin-react-hooks": "4.0.6",
     "gatsby": "2.23.22",
-    "gatsby-theme-wheelroom": "5.0.17",
     "jest": "26.1.0",
     "npm-install-peers": "1.2.1",
     "npm-run-all": "4.1.5",
@@ -45,53 +81,17 @@
     "ts-jest": "26.1.1",
     "typescript": "3.9.6"
   },
-  "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.14.6"
-  },
-  "files": [
-    "dist/index.*",
-    "dist/config/*",
-    "dist/models/*",
-    "src/models/navigation/fragment.js",
-    "src/models/navigation-section/fragment.js",
-    "src/models/navigation-segment/fragment.js"
-  ],
-  "homepage": "https://github.com/wheelroom/wheelroom",
-  "keywords": [
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom",
-    "wheel"
-  ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@wheelroom/wheel-navigation",
   "peerDependencies": {
     "@emotion/core": "10.x",
     "@types/react": "16.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.14.6"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "scripts": {
-    "build": "npm-run-all build:*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:compile": "tsc",
-    "build:test": "jest --silent --passWithNoTests",
-    "prepack": "npm run build",
-    "test": "npm run build:test",
-    "dev": "tsc -w"
-  },
-  "type": "commonjs",
-  "version": "2.5.2"
+  }
 }
