@@ -1,4 +1,24 @@
 {
+  "name": "@wheelroom/wheelroom-plugin-contentful",
+  "version": "3.5.3",
+  "description": "Site framework based on Contentful and Gatsby",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,6 +32,27 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "assets/*",
+    "dist/*"
+  ],
+  "scripts": {
+    "api-test:cc": "jest ./src/commands/create-content/create-content.int.test.ts",
+    "api-test:cm": "jest ./src/commands/create-models/create-models.int.test.ts",
+    "api-test:dc": "jest ./src/commands/delete-content/delete-content.int.test.ts",
+    "api-test:dm": "jest ./src/commands/delete-models/delete-models.int.test.ts",
+    "api-test:rc": "jest ./src/commands/replace-content/replace-content.int.test.ts",
+    "build": "npm-run-all build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest ./src/lib/get-cf-components/tests/get-cf-components.unit.test.ts",
+    "dev": "tsc -w",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
+  },
   "browserslist": {
     "development": [
       "last 1 chrome version",
@@ -24,9 +65,6 @@
       "not op_mini all"
     ]
   },
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
   "dependencies": {
     "@contentful/rich-text-from-markdown": "14.1.1",
     "@wheelroom/wheelroom": "4.3.9",
@@ -37,7 +75,6 @@
     "inquirer": "7.3.0",
     "yargs": "15.4.0"
   },
-  "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
     "@types/dotenv": "8.2.0",
     "@types/fs-extra": "9.0.1",
@@ -63,45 +100,8 @@
     "node": ">=12.0.0",
     "npm": ">=6.14.6"
   },
-  "files": [
-    "assets/*",
-    "dist/*"
-  ],
-  "homepage": "https://github.com/wheelroom/wheelroom",
-  "keywords": [
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom"
-  ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@wheelroom/wheelroom-plugin-contentful",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "scripts": {
-    "build": "npm-run-all build:*",
-    "build:test": "jest ./src/lib/get-cf-components/tests/get-cf-components.unit.test.ts",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:compile": "tsc",
-    "prepack": "npm run build",
-    "api-test:cc": "jest ./src/commands/create-content/create-content.int.test.ts",
-    "api-test:cm": "jest ./src/commands/create-models/create-models.int.test.ts",
-    "api-test:dm": "jest ./src/commands/delete-models/delete-models.int.test.ts",
-    "api-test:dc": "jest ./src/commands/delete-content/delete-content.int.test.ts",
-    "api-test:rc": "jest ./src/commands/replace-content/replace-content.int.test.ts",
-    "test": "npm run build:test",
-    "dev": "tsc -w"
-  },
-  "type": "commonjs",
-  "types": "dist/index.d.ts",
-  "version": "3.5.3",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

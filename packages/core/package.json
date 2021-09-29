@@ -1,4 +1,25 @@
 {
+  "name": "@wheelroom/core",
+  "version": "2.4.1",
+  "description": "Core functionality for Wheelroom wheels",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
+    "wheel"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,10 +33,35 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "files": [
+    "dist/config/*",
+    "dist/elements/*",
+    "dist/global-reset/*",
+    "dist/index.*",
+    "dist/lib/*",
+    "dist/models/*",
+    "dist/parsers/*",
+    "dist/svg/*",
+    "dist/theme/*",
+    "src/models/action/fragment.js",
+    "src/models/embed/fragment.js",
+    "src/models/globals/fragment.js",
+    "src/models/media-breakpoint/fragment.js",
+    "src/models/page/fragment.js"
+  ],
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "dev": "tsc -w",
+    "install-peers": "npm-install-peers",
+    "lint-fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "prepack": "npm run build",
+    "svgr": "svgr --typescript --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/feather src/svg/feather --config-file ./src/svg/svgr.config.js"
   },
-  "description": "Core functionality for Wheelroom wheels",
   "devDependencies": {
     "@emotion/core": "10.0.28",
     "@svgr/cli": "5.4.0",
@@ -43,63 +89,17 @@
     "ts-jest": "26.1.1",
     "typescript": "3.9.6"
   },
-  "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.14.6"
-  },
-  "files": [
-    "dist/config/*",
-    "dist/elements/*",
-    "dist/global-reset/*",
-    "dist/index.*",
-    "dist/lib/*",
-    "dist/models/*",
-    "dist/parsers/*",
-    "dist/svg/*",
-    "dist/theme/*",
-    "src/models/action/fragment.js",
-    "src/models/embed/fragment.js",
-    "src/models/globals/fragment.js",
-    "src/models/media-breakpoint/fragment.js",
-    "src/models/page/fragment.js"
-  ],
-  "homepage": "https://github.com/wheelroom/wheelroom",
-  "keywords": [
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom",
-    "wheel"
-  ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@wheelroom/core",
   "peerDependencies": {
     "@emotion/core": "10.x",
     "@types/react": "16.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.14.6"
+  },
   "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "scripts": {
-    "build": "npm-run-all build:*",
-    "build:compile": "tsc",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "lint-fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
-    "build:test": "jest --silent --passWithNoTests",
-    "install-peers": "npm-install-peers",
-    "prepack": "npm run build",
-    "svgr": "svgr --typescript --filename-case kebab --ext tsx --no-dimensions --out-dir src/svg/feather src/svg/feather --config-file ./src/svg/svgr.config.js",
-    "dev": "tsc -w"
-  },
-  "type": "commonjs",
-  "version": "2.4.1"
+    "registry": "https://npm.pkg.github.com"
+  }
 }

@@ -75,7 +75,7 @@
     "react-dom": "16.x"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",

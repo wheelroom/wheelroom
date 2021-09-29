@@ -74,6 +74,9 @@
   "license": "MIT",
   "main": "index.js",
   "name": "gatsby-theme-wheelroom",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wheelroom/wheelroom.git"

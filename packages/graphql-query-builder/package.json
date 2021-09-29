@@ -69,7 +69,7 @@
   "main": "dist/index.js",
   "name": "@wheelroom/graphql-query-builder",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
