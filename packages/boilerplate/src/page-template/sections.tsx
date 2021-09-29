@@ -6,7 +6,7 @@ import {
   SectionWheels,
   ScrollSpy,
 } from '@wheelroom/core'
-import { NamedPaths } from 'gatsby-theme-wheelroom'
+import { NamedPaths } from '@wheelroom/gatsby-theme-wheelroom'
 import { BlogSection, BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
 import { DocsSection, DocsModel, AllDocsModel } from '@wheelroom/wheel-doc'
 import { NavigationSection } from '@wheelroom/wheel-navigation'
