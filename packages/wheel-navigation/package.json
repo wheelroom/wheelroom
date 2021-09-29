@@ -49,6 +49,7 @@
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
     "dev": "tsc -w",
+    "install-peers": "npm-install-peers",
     "prepack": "npm run build",
     "test": "npm run build:test"
   },
@@ -66,8 +67,8 @@
     "@wheelroom/core": "2.4.1",
     "@wheelroom/gatsby-theme-wheelroom": "5.0.17",
     "@wheelroom/styled-system": "4.1.9",
-    "@wheelroom/wheelroom": "4.3.9",
-    "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
+    "@wheelroom/wheelroom": "4.3.13",
+    "@wheelroom/wheelroom-plugin-contentful": "3.5.3",
     "eslint": "7.4.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
