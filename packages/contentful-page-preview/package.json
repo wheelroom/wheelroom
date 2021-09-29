@@ -1,4 +1,25 @@
 {
+  "name": "@wheelroom/contentful-page-preview",
+  "version": "1.4.10",
+  "description": "Contentful page preview logic for gatsby",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
+    "graphql"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,6 +33,22 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "api-test:create-page": "jest  --testMatch '**/api-test-create-page-preview.ts'",
+    "build": "npm-run-all build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent",
+    "dev": "tsc -w",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
+  },
   "browserslist": {
     "development": [
       "last 1 chrome version",
@@ -24,14 +61,10 @@
       "not op_mini all"
     ]
   },
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
   "dependencies": {
     "contentful": "7.14.5",
     "regenerator-runtime": "0.13.5"
   },
-  "description": "Contentful page preview logic for gatsby",
   "devDependencies": {
     "@types/jest": "26.0.4",
     "@types/node": "14.0.20",
@@ -54,41 +87,8 @@
     "node": ">=12.0.0",
     "npm": ">=6.14.6"
   },
-  "files": [
-    "dist/*"
-  ],
-  "homepage": "https://github.com/wheelroom/wheelroom",
-  "keywords": [
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom",
-    "graphql"
-  ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@wheelroom/contentful-page-preview",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "scripts": {
-    "build": "npm-run-all build:*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:compile": "tsc",
-    "build:test": "jest --silent",
-    "api-test:create-page": "jest  --testMatch '**/api-test-create-page-preview.ts'",
-    "prepack": "npm run build",
-    "test": "npm run build:test",
-    "dev": "tsc -w"
-  },
-  "type": "commonjs",
-  "types": "dist/index.d.ts",
-  "version": "1.4.10",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }
