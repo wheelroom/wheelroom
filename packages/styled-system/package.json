@@ -1,4 +1,16 @@
 {
+  "name": "@wheelroom/styled-system",
+  "version": "4.1.9",
+  "description": "",
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,13 +24,23 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest",
+    "dev": "tsc -w",
+    "install-peers": "npm-install-peers",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "facepaint": "1.2.1"
   },
-  "description": "",
   "devDependencies": {
     "@types/facepaint": "1.2.1",
     "@types/jest": "26.0.4",
@@ -41,39 +63,17 @@
     "ts-jest": "26.1.1",
     "typescript": "3.9.6"
   },
-  "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.14.6"
-  },
-  "files": [
-    "dist/*"
-  ],
-  "homepage": "https://github.com/wheelroom/wheelroom",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@wheelroom/styled-system",
   "peerDependencies": {
     "@emotion/core": "10.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.14.6"
+  },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "scripts": {
-    "build": "npm-run-all build:*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:compile": "tsc",
-    "build:test": "jest",
-    "install-peers": "npm-install-peers",
-    "prepack": "npm run build",
-    "dev": "tsc -w"
-  },
-  "types": "dist/index.d.ts",
-  "version": "4.1.9",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }

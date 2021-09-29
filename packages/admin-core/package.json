@@ -1,4 +1,27 @@
 {
+  "name": "@wheelroom/admin-core",
+  "version": "1.2.9",
+  "description": "Core admin module for wheelroom framework",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
+    "admin",
+    "page",
+    "preview"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,6 +35,22 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.*",
+    "dist/lib/*",
+    "dist/types/*"
+  ],
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "dev": "tsc -w",
+    "install-peers": "npm-install-peers",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
+  },
   "browserslist": {
     "development": [
       "last 1 chrome version",
@@ -24,10 +63,6 @@
       "not op_mini all"
     ]
   },
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
-  "description": "Core admin module for wheelroom framework",
   "devDependencies": {
     "@types/jest": "26.0.4",
     "@types/node": "14.0.20",
@@ -47,52 +82,17 @@
     "ts-jest": "26.1.1",
     "typescript": "3.9.6"
   },
-  "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.14.6"
-  },
-  "files": [
-    "dist/index.*",
-    "dist/lib/*",
-    "dist/types/*"
-  ],
-  "homepage": "https://github.com/wheelroom/wheelroom",
-  "keywords": [
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom",
-    "admin",
-    "page",
-    "preview"
-  ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@wheelroom/admin-core",
   "peerDependencies": {
     "@types/react": "16.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.14.6"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "scripts": {
-    "build": "npm-run-all build:*",
-    "build:compile": "tsc",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "install-peers": "npm-install-peers",
-    "prepack": "npm run build",
-    "test": "npm run build:test",
-    "dev": "tsc -w"
-  },
-  "type": "commonjs",
-  "version": "1.2.9",
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }
