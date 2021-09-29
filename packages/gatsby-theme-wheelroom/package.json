@@ -1,4 +1,24 @@
 {
+  "name": "gatsby-theme-wheelroom",
+  "version": "5.0.17",
+  "description": "Site framework based on Contentful and Gatsby",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,6 +32,25 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
+  "type": "commonjs",
+  "main": "index.js",
+  "files": [
+    "gatsby-node.*",
+    "index.*",
+    "lib/*",
+    "types/*"
+  ],
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:clean": "rm -f ./gatsby-node.*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent",
+    "dev": "tsc -w",
+    "install-peers": "npm-install-peers",
+    "prepack": "npm run build",
+    "test": "npm run build:test"
+  },
   "browserslist": {
     "development": [
       "last 1 chrome version",
@@ -24,15 +63,11 @@
       "not op_mini all"
     ]
   },
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
-  },
   "dependencies": {
-    "@wheelroom/wheelroom": "4.3.9",
+    "@wheelroom/wheelroom": "4.3.13",
     "camelcase": "6.0.0",
     "dotenv": "8.2.0"
   },
-  "description": "Site framework based on Contentful and Gatsby",
   "devDependencies": {
     "@types/jest": "26.0.4",
     "@types/node": "14.0.20",
@@ -52,35 +87,6 @@
     "ts-jest": "26.1.1",
     "typescript": "3.9.6"
   },
-  "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.14.6"
-  },
-  "files": [
-    "gatsby-node.*",
-    "index.*",
-    "lib/*",
-    "types/*"
-  ],
-  "homepage": "https://github.com/wheelroom/wheelroom",
-  "keywords": [
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom"
-  ],
-  "license": "MIT",
-  "main": "index.js",
-  "name": "gatsby-theme-wheelroom",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
   "peerDependencies": {
     "@types/react": "16.x",
     "gatsby": "2.x",
@@ -88,18 +94,12 @@
     "react": "16.x",
     "react-dom": "16.x"
   },
-  "scripts": {
-    "build": "npm-run-all build:*",
-    "install-peers": "npm-install-peers",
-    "build:clean": "rm -f ./gatsby-node.*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:compile": "tsc",
-    "build:test": "jest --silent",
-    "prepack": "npm run build",
-    "test": "npm run build:test",
-    "dev": "tsc -w"
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.14.6"
   },
-  "type": "commonjs",
-  "version": "5.0.17",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "gitHead": "c9b23868addd39bbeb55e4264d2907d5e6ac748e"
 }
