@@ -47,7 +47,7 @@ module.exports = {
         pageTemplate: path.resolve('./src/page-template/page-template.tsx'),
         queries: [globalsQuery, pageQuery, blogQuery, docsQuery],
       },
-      resolve: `gatsby-theme-wheelroom`,
+      resolve: `@wheelroom/gatsby-theme-wheelroom`,
     },
     'gatsby-plugin-react-helmet',
     {
