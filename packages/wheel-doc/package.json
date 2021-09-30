@@ -1,4 +1,26 @@
 {
+  "name": "@wheelroom/wheel-doc",
+  "version": "2.0.14",
+  "description": "Doc wheel for Wheelroom",
+  "keywords": [
+    "contentful",
+    "gatsbyjs",
+    "netlify",
+    "react",
+    "typescript",
+    "wheelroom",
+    "wheel",
+    "docs"
+  ],
+  "homepage": "https://github.com/wheelroom/wheelroom",
+  "bugs": {
+    "url": "https://github.com/wheelroom/wheelroom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheelroom/wheelroom.git"
+  },
+  "license": "MIT",
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,10 +34,24 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "bugs": {
-    "url": "https://github.com/wheelroom/wheelroom/issues"
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.*",
+    "dist/config/*",
+    "dist/models/*",
+    "src/models/docs/fragment.js",
+    "src/models/docs-section/fragment.js"
+  ],
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:compile": "tsc",
+    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "build:test": "jest --silent --passWithNoTests",
+    "dev": "tsc -w",
+    "install-peers": "npm-install-peers",
+    "prepack": "npm run build"
   },
-  "description": "Doc wheel for Wheelroom",
   "devDependencies": {
     "@emotion/core": "10.0.28",
     "@svgr/cli": "5.4.0",
@@ -30,8 +66,8 @@
     "@wheelroom/styled-system": "4.1.9",
     "@wheelroom/wheel-text": "2.0.16",
     "@wheelroom/wheel-topic": "3.1.3",
-    "@wheelroom/wheelroom": "4.3.9",
-    "@wheelroom/wheelroom-plugin-contentful": "3.5.0",
+    "@wheelroom/wheelroom": "4.3.13",
+    "@wheelroom/wheelroom-plugin-contentful": "3.5.3",
     "eslint": "7.4.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
@@ -44,53 +80,17 @@
     "ts-jest": "26.1.1",
     "typescript": "3.9.6"
   },
-  "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.14.6"
-  },
-  "files": [
-    "dist/index.*",
-    "dist/config/*",
-    "dist/models/*",
-    "src/models/docs/fragment.js",
-    "src/models/docs-section/fragment.js"
-  ],
-  "homepage": "https://github.com/wheelroom/wheelroom",
-  "keywords": [
-    "contentful",
-    "gatsbyjs",
-    "netlify",
-    "react",
-    "typescript",
-    "wheelroom",
-    "wheel",
-    "docs"
-  ],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@wheelroom/wheel-doc",
   "peerDependencies": {
     "@emotion/core": "10.x",
     "@types/react": "16.x",
     "react": "16.x",
     "react-dom": "16.x"
   },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.14.6"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wheelroom/wheelroom.git"
-  },
-  "scripts": {
-    "build": "npm-run-all build:*",
-    "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "build:compile": "tsc",
-    "build:test": "jest --silent --passWithNoTests",
-    "install-peers": "npm-install-peers",
-    "prepack": "npm run build",
-    "dev": "tsc -w"
-  },
-  "type": "commonjs",
-  "version": "2.0.14"
+  }
 }
