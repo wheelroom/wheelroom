@@ -16,6 +16,7 @@ import {
   useEmbeds,
 } from '@wheelroom/core'
 import { BlogModel, AllBlogModel } from '@wheelroom/wheel-blog'
+import { AllDocsModel, DocsModel } from '@wheelroom/wheel-doc'
 import { Sections, SectionsProps } from './sections'
 import { sectionWheels } from './section-wheels'
 import { SeoProps } from './seo-props'
@@ -46,6 +47,8 @@ const PageTemplate = (props: any) => {
   const globals: GlobalsModel = props.data.globals
   const blog: BlogModel = props.data.blog
   const allBlog: AllBlogModel = props.data.allBlog
+  const docs: DocsModel = props.data.docs
+  const allDocs: AllDocsModel = props.data.allDocs
   const locale = props.pageContext.locale
   const namedPaths = props.pageContext.namedPaths
   const siteMetadata: CoreSiteMetadata = props.data.site.siteMetadata
@@ -59,6 +62,8 @@ const PageTemplate = (props: any) => {
     globals,
     blog,
     allBlog,
+    docs,
+    allDocs,
     page,
     siteMetadata,
 
