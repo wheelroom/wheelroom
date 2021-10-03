@@ -20,7 +20,7 @@ export const navigationSectionData: DeepPartial<NavigationSectionData> = {
   footer: {
     copyright: `© Copyright ${new Date().getFullYear()} Wheelroom Foundation. All rights reserved.`,
     hideCopyright: false,
-    hideLegalFooter: false,
+    hideLegal: false,
     hideMenu: false,
     hideSocial: false,
     // Thanks for using Wheelroom! We appreciate your support.
