@@ -1,6 +1,5 @@
 {
-  "packages": ["packages/*"],
-  "version": "independent",
+  "version": "6.3.5",
   "npmClient": "npm",
   "command": {
     "add": {
@@ -8,16 +7,20 @@
     },
     "publish": {
       "conventionalCommits": true,
-      "exact": true
+      "exact": true,
+      "ignoreChanges": ["ignored-file", "*.md"],
+      "message": "chore(release): publish",
+      "registry": "https://npm.pkg.github.com"
     },
     "version": {
       "message": "chore(release): release",
+      "allowBranch": ["main", "feature/*"],
       "exact": true
     },
     "bootstrap": {
-      "hoist": false,
-      "nohoist": "gatsby"
+      "npmClientArgs": ["--package-lock-only"]
     },
     "ignoreChanges": ["**/ixtures/**", "**/tests/**", "**/*.md"]
-  }
+  },
+  "packages": ["packages/*"]
 }

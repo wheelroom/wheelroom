@@ -35,13 +35,13 @@
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest",
     "dev": "tsc -w",
-    "install-peers": "npm-install-peers",
     "prepack": "npm run build"
   },
   "dependencies": {
     "facepaint": "1.2.1"
   },
   "devDependencies": {
+    "@emotion/core": "10.x",
     "@types/facepaint": "1.2.1",
     "@types/jest": "26.0.4",
     "@types/node": "14.0.20",
@@ -57,20 +57,16 @@
     "eslint-plugin-react": "7.20.3",
     "eslint-plugin-react-hooks": "4.0.6",
     "jest": "26.1.0",
-    "npm-install-peers": "1.2.1",
     "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "ts-jest": "26.1.1",
     "typescript": "3.9.6"
   },
-  "peerDependencies": {
-    "@emotion/core": "10.x",
-    "react": "16.x",
-    "react-dom": "16.x"
-  },
   "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.14.6"
+    "node": ">=14.x",
+    "npm": ">=6.x"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

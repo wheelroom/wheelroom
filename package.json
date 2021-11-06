@@ -1,4 +1,6 @@
 {
+  "name": "root",
+  "private": true,
   "author": "Wheelroom (https://www.wheelroom.io)",
   "contributors": [
     {
@@ -12,12 +14,14 @@
       "url": "https://www.thijskrooswijk.com"
     }
   ],
-  "name": "root",
-  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "npx lerna bootstrap",
+    "link": "npx lerna link"
+  },
   "devDependencies": {
     "lerna": "3.22.1"
-  },
-  "scripts": {
-    "run-bootstrap": "./bootstrap-packages.sh"
   }
 }

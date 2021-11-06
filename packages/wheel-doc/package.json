@@ -49,14 +49,14 @@
     "build:lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "build:test": "jest --silent --passWithNoTests",
     "dev": "tsc -w",
-    "install-peers": "npm-install-peers",
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "@emotion/core": "10.0.28",
+    "@emotion/core": "10.x",
     "@svgr/cli": "5.4.0",
     "@types/jest": "26.0.4",
     "@types/node": "14.0.19",
+    "@types/react": "16.x",
     "@types/react-dom": "16.9.8",
     "@typescript-eslint/eslint-plugin": "3.6.0",
     "@typescript-eslint/parser": "3.6.0",
@@ -74,21 +74,16 @@
     "eslint-plugin-react": "7.20.3",
     "eslint-plugin-react-hooks": "4.0.6",
     "jest": "26.1.0",
-    "npm-install-peers": "1.2.1",
     "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "ts-jest": "26.1.1",
     "typescript": "3.9.6"
   },
-  "peerDependencies": {
-    "@emotion/core": "10.x",
-    "@types/react": "16.x",
-    "react": "16.x",
-    "react-dom": "16.x"
-  },
   "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.14.6"
+    "node": ">=14.x",
+    "npm": ">=6.x"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

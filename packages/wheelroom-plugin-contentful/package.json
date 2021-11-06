@@ -67,15 +67,6 @@
   },
   "dependencies": {
     "@contentful/rich-text-from-markdown": "14.1.1",
-    "@wheelroom/wheelroom": "4.3.13",
-    "camelcase": "6.0.0",
-    "contentful-management": "5.28.0",
-    "dotenv": "8.2.0",
-    "fs-extra": "9.0.1",
-    "inquirer": "7.3.0",
-    "yargs": "15.4.0"
-  },
-  "devDependencies": {
     "@types/dotenv": "8.2.0",
     "@types/fs-extra": "9.0.1",
     "@types/inquirer": "6.5.0",
@@ -84,21 +75,28 @@
     "@types/yargs": "15.0.5",
     "@typescript-eslint/eslint-plugin": "3.6.0",
     "@typescript-eslint/parser": "3.6.0",
+    "@wheelroom/wheelroom": "4.3.13",
+    "camelcase": "6.0.0",
+    "contentful-management": "5.28.0",
+    "dotenv": "8.2.0",
     "eslint": "7.4.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.3",
     "eslint-plugin-react-hooks": "4.0.6",
+    "fs-extra": "9.0.1",
     "gatsby-plugin-eslint": "2.0.8",
+    "inquirer": "7.3.0",
     "jest": "26.1.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
     "ts-jest": "26.1.1",
-    "typescript": "3.9.6"
+    "typescript": "3.9.6",
+    "yargs": "15.4.0"
   },
   "engines": {
-    "node": ">=12.0.0",
-    "npm": ">=6.14.6"
+    "node": ">=14.x",
+    "npm": ">=6.x"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
